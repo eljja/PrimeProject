@@ -62,7 +62,38 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-148
+## Latest Continuation After TICKET-149
+
+Read `docs/smooth-escape-wheel-cover.md`,
+`data/open-problem/ticket149-smooth-escape-wheel-cover.json`,
+`scripts/ticket149_smooth_escape_wheel_cover.py`, and
+`tests/test_ticket149_smooth_escape_wheel_cover.py` first.
+
+Do not reopen these rejected routes without a strictly stronger theorem:
+
+- smooth complete coordinates, finite-prefix positivity, and a small
+  **absolute** compact tail as a global Weil positivity certificate;
+- escape from the Collatz minus-five shadow as descent by itself;
+- positive squarefree-wheel local factors as a transfer theorem without a
+  pointwise von Mangoldt residual estimate;
+- treating full joint Twin `A11` coupling as the only sufficient route.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne` |
+| Collatz | `ThreeExitTypePostShadowAdaptiveDescent` |
+| Goldbach | `VonMangoldtWheelResidualPointwiseBilinearSavingK56` |
+| Twin Prime | `CubicRoughSemiprimeEndpointCoverDeficit` |
+
+한국어: RH에는 실제 Weil 형식의 tail에서도 작동하는 coercive reference와
+상대 norm `1` 미만 추정이 필요하다. Collatz에는 정확히 분류된 세 shadow
+종료형 이후의 균일 adaptive 하강이 필요하다. Goldbach에는 양의 wheel
+주항보다 작은 점별 von Mangoldt residual 상계가 필요하다. Twin Prime에는
+양의 cubic-rough 간선 질량과 두 semiprime endpoint cover 합이 그
+질량보다 고정 비율만큼 작다는 조건을 모든 scale에서 함께 증명해야 한다.
+네 난제는 모두 미해결이다.
+
+## Historical Continuation After TICKET-148
 
 Read `docs/multiscale-renewal-sharpness-matching.md`,
 `data/open-problem/ticket148-multiscale-renewal-sharpness-matching.json`,

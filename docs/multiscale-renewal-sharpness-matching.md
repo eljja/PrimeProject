@@ -1,5 +1,20 @@
 # TICKET-148: Multiscale Completeness, Renewal Shadows, Phase Sharpness, and Matching Coupling
 
+> **TICKET-149 continuation / 후속 연구.** The open nodes recorded here are
+> refined in [TICKET-149](smooth-escape-wheel-cover.md): smooth Meyer
+> completeness is separated from relative tail coercivity; the minus-five
+> shadow receives an exact finite escape classification; the Goldbach route
+> is reorganized around an exact squarefree-wheel main term and residual
+> transfer; and the Twin target is weakened from full matching coupling to a
+> semiprime endpoint-cover deficit. All four conjectures remain open.
+>
+> 여기의 열린 노드는 [TICKET-149](smooth-escape-wheel-cover.md)에서
+> 정교화한다. Meyer 완전성과 상대적 tail coercivity를 분리하고, `-5`
+> shadow의 정확한 유한 탈출형을 분류하며, 골드바흐를 squarefree-wheel
+> 주항과 residual 전이 문제로 재구성하고, 쌍둥이 소수의 표적을 full
+> coupling보다 약한 semiprime endpoint-cover 결손으로 바꾼다. 네 난제는
+> 모두 미해결이다.
+
 Date: 2026-07-27
 
 Status: `open_not_proven` for all four conjectures

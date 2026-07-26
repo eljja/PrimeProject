@@ -1,0 +1,2867 @@
+{
+  "schema": "primeproject.ticket149-smooth-escape-wheel-cover.v1",
+  "generated_at": "2026-07-27T21:00:00+09:00",
+  "status": "exact_partial_theorems_and_route_reductions_all_conjectures_open",
+  "claim_boundary": "TICKET-149 proves four exact intermediate statements or reductions and resolves no target conjecture. It rejects absolute compact-tail positivity even on smooth complete coordinates, exactly classifies finite escape from the Collatz minus-five shadow, isolates the positive Goldbach wheel main term and its missing residual transfer, and reduces the cubic-rough Twin target to a weaker semiprime endpoint-cover deficit.",
+  "smooth_escape_wheel_cover_audit": {
+    "theorem_name": "FourConjectureSmoothEscapeWheelCoverAudit",
+    "status": "exact_partial_theorems_and_route_reductions_all_conjectures_open",
+    "proof_boundary": "TICKET-149 proves four exact intermediate statements or reductions and resolves no target conjecture. It rejects absolute compact-tail positivity even on smooth complete coordinates, exactly classifies finite escape from the Collatz minus-five shadow, isolates the positive Goldbach wheel main term and its missing residual transfer, and reduces the cubic-rough Twin target to a weaker semiprime endpoint-cover deficit.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-149",
+      "theorem_name": "SmoothSchwartzCoreAndAbsoluteCompactTailNoGo",
+      "declared_proposition": "A Meyer wavelet may be chosen in the Schwartz class and its dyadic dilates and translates form a complete orthonormal basis of L2(R). On any enumeration e_1,e_2,... of that smooth basis, for every N>=1 and epsilon>0 the finite-rank self-adjoint operator A e_j=e_j for j<=N, A e_(N+1)=-epsilon e_(N+1), and A e_j=0 otherwise is compact, has absolute tail norm epsilon, passes all first-N basis positivity tests, and is not positive semidefinite.",
+      "mathematical_argument": "The Meyer construction has a C-infinity compactly supported Fourier transform, hence its inverse Fourier transform is Schwartz; the standard dyadic system is an orthonormal basis of L2(R). This is a cited wavelet theorem, not inferred from the finite audit. The operator is diagonal in a smooth complete orthonormal basis and has only N+1 nonzero eigenvalues, so it is finite rank, compact, and self-adjoint. Its first N diagonal entries are 1. The restriction to the orthogonal complement of their span has norm epsilon, but the quadratic form at e_(N+1) is -epsilon. Taking epsilon arbitrarily small proves that smooth completeness plus an absolute compact-tail bound does not imply positivity without a coercive positive reference on the tail.",
+      "reproducible_computation": {
+        "theorem": "A Meyer wavelet may be chosen in the Schwartz class and its dyadic dilates and translates form a complete orthonormal basis of L2(R). On any enumeration e_1,e_2,... of that smooth basis, for every N>=1 and epsilon>0 the finite-rank self-adjoint operator A e_j=e_j for j<=N, A e_(N+1)=-epsilon e_(N+1), and A e_j=0 otherwise is compact, has absolute tail norm epsilon, passes all first-N basis positivity tests, and is not positive semidefinite.",
+        "imported_basis_fact": "The Meyer construction has a C-infinity compactly supported Fourier transform, hence its inverse Fourier transform is Schwartz; the standard dyadic system is an orthonormal basis of L2(R). This is a cited wavelet theorem, not inferred from the finite audit.",
+        "no_go_proof": "The operator is diagonal in a smooth complete orthonormal basis and has only N+1 nonzero eigenvalues, so it is finite rank, compact, and self-adjoint. Its first N diagonal entries are 1. The restriction to the orthogonal complement of their span has norm epsilon, but the quadratic form at e_(N+1) is -epsilon. Taking epsilon arbitrarily small proves that smooth completeness plus an absolute compact-tail bound does not imply positivity without a coercive positive reference on the tail.",
+        "finite_exact_rows": [
+          {
+            "positive_prefix_size_N": 1,
+            "epsilon": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "finite_rank": 2,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/4",
+              "decimal": -0.25
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 2,
+            "epsilon": {
+              "exact": "1/9",
+              "decimal": 0.1111111111111111
+            },
+            "finite_rank": 3,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/9",
+              "decimal": -0.1111111111111111
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/9",
+              "decimal": 0.1111111111111111
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 3,
+            "epsilon": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "finite_rank": 4,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/16",
+              "decimal": -0.0625
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 4,
+            "epsilon": {
+              "exact": "1/25",
+              "decimal": 0.04
+            },
+            "finite_rank": 5,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/25",
+              "decimal": -0.04
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/25",
+              "decimal": 0.04
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 5,
+            "epsilon": {
+              "exact": "1/36",
+              "decimal": 0.027777777777777776
+            },
+            "finite_rank": 6,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/36",
+              "decimal": -0.027777777777777776
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/36",
+              "decimal": 0.027777777777777776
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 6,
+            "epsilon": {
+              "exact": "1/49",
+              "decimal": 0.02040816326530612
+            },
+            "finite_rank": 7,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/49",
+              "decimal": -0.02040816326530612
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/49",
+              "decimal": 0.02040816326530612
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 7,
+            "epsilon": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "finite_rank": 8,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/64",
+              "decimal": -0.015625
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 8,
+            "epsilon": {
+              "exact": "1/81",
+              "decimal": 0.012345679012345678
+            },
+            "finite_rank": 9,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/81",
+              "decimal": -0.012345679012345678
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/81",
+              "decimal": 0.012345679012345678
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 9,
+            "epsilon": {
+              "exact": "1/100",
+              "decimal": 0.01
+            },
+            "finite_rank": 10,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/100",
+              "decimal": -0.01
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/100",
+              "decimal": 0.01
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 10,
+            "epsilon": {
+              "exact": "1/121",
+              "decimal": 0.008264462809917356
+            },
+            "finite_rank": 11,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/121",
+              "decimal": -0.008264462809917356
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/121",
+              "decimal": 0.008264462809917356
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 11,
+            "epsilon": {
+              "exact": "1/144",
+              "decimal": 0.006944444444444444
+            },
+            "finite_rank": 12,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/144",
+              "decimal": -0.006944444444444444
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/144",
+              "decimal": 0.006944444444444444
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 12,
+            "epsilon": {
+              "exact": "1/169",
+              "decimal": 0.005917159763313609
+            },
+            "finite_rank": 13,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/169",
+              "decimal": -0.005917159763313609
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/169",
+              "decimal": 0.005917159763313609
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 13,
+            "epsilon": {
+              "exact": "1/196",
+              "decimal": 0.00510204081632653
+            },
+            "finite_rank": 14,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/196",
+              "decimal": -0.00510204081632653
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/196",
+              "decimal": 0.00510204081632653
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 14,
+            "epsilon": {
+              "exact": "1/225",
+              "decimal": 0.0044444444444444444
+            },
+            "finite_rank": 15,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/225",
+              "decimal": -0.0044444444444444444
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/225",
+              "decimal": 0.0044444444444444444
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 15,
+            "epsilon": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "finite_rank": 16,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/256",
+              "decimal": -0.00390625
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          },
+          {
+            "positive_prefix_size_N": 16,
+            "epsilon": {
+              "exact": "1/289",
+              "decimal": 0.0034602076124567475
+            },
+            "finite_rank": 17,
+            "positive_core_minimum": 1,
+            "global_minimum": {
+              "exact": "-1/289",
+              "decimal": -0.0034602076124567475
+            },
+            "absolute_tail_operator_norm": {
+              "exact": "1/289",
+              "decimal": 0.0034602076124567475
+            },
+            "checks": {
+              "audited_prefix_strictly_positive": true,
+              "hidden_direction_strictly_negative": true,
+              "finite_rank_operator_is_compact": true,
+              "absolute_tail_norm_equals_epsilon": true,
+              "tail_norm_tends_to_zero_in_family": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "Meyer completeness is an L2 theorem, not a proof that the chosen wavelets form the exact Weil test topology. The diagonal operator is synthetic, not the Weil quadratic form. The result only proves that absolute compact-tail smallness is the wrong certificate; it controls no zeta zero and proves neither RH nor its negation.",
+      "route_decision": {
+        "discard": "smooth complete coordinates plus finite-prefix positivity and an arbitrarily small absolute compact tail as a global positivity certificate",
+        "retain": "identify a coercive positive reference for the actual Weil form and bound the remaining operator in relative norm strictly below one",
+        "next_theorem": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T149-REJECTED",
+            "label": "SmoothCompleteCoreAndSmallAbsoluteTailImpliesPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T149-CLOSED",
+            "label": "SmoothSchwartzCoreAndAbsoluteCompactTailNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T149-OPEN",
+            "label": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T149-REJECTED",
+            "RH-T149-CLOSED"
+          ],
+          [
+            "RH-T149-CLOSED",
+            "RH-T149-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One imported smooth basis theorem plus an exact operator-theoretic no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-149",
+      "theorem_name": "MinusFiveShadowExactEscapeAndDescentNoGo",
+      "declared_proposition": "For every positive odd n, put s=v2(n+5) and L=floor((s-1)/3). The maximal initial accelerated Collatz valuation word made of repeated (1,2) pairs has exactly L pairs, and T^(2L)(n)+5=(9/8)^L(n+5). Its exit shadow order r=s-3L is in {1,2,3}; the next valuation pattern is respectively (at least 2,*), (1,1), or (1,at least 3), so another (1,2) pair is impossible. If L>=1, the exit value is strictly larger than n.",
+      "mathematical_argument": "Whenever x+5=2*c*8^r with r>=1, direct substitution gives the next two valuations (1,2) and T^2(x)+5=9(x+5)/8. Each pair therefore lowers v2(x+5) by exactly three until the remaining order is 1, 2, or 3. Substitution in those three terminal cases gives the stated exit patterns. The strict expansion for L>=1 follows from (9/8)^L>1.",
+      "reproducible_computation": {
+        "theorem": "For every positive odd n, put s=v2(n+5) and L=floor((s-1)/3). The maximal initial accelerated Collatz valuation word made of repeated (1,2) pairs has exactly L pairs, and T^(2L)(n)+5=(9/8)^L(n+5). Its exit shadow order r=s-3L is in {1,2,3}; the next valuation pattern is respectively (at least 2,*), (1,1), or (1,at least 3), so another (1,2) pair is impossible. If L>=1, the exit value is strictly larger than n.",
+        "proof": "Whenever x+5=2*c*8^r with r>=1, direct substitution gives the next two valuations (1,2) and T^2(x)+5=9(x+5)/8. Each pair therefore lowers v2(x+5) by exactly three until the remaining order is 1, 2, or 3. Substitution in those three terminal cases gives the stated exit patterns. The strict expansion for L>=1 follows from (9/8)^L>1.",
+        "finite_exact_rows": [
+          {
+            "start": 1,
+            "initial_shadow_order_s": 1,
+            "maximal_repeated_pair_count_L": 0,
+            "valuation_prefix": [],
+            "exit_value": 1,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              2,
+              2
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^0*(n+5)-5",
+            "strict_expansion": false,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 7,
+            "initial_shadow_order_s": 2,
+            "maximal_repeated_pair_count_L": 0,
+            "valuation_prefix": [],
+            "exit_value": 7,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^0*(n+5)-5",
+            "strict_expansion": false,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 3,
+            "initial_shadow_order_s": 3,
+            "maximal_repeated_pair_count_L": 0,
+            "valuation_prefix": [],
+            "exit_value": 3,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^0*(n+5)-5",
+            "strict_expansion": false,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 11,
+            "initial_shadow_order_s": 4,
+            "maximal_repeated_pair_count_L": 1,
+            "valuation_prefix": [
+              1,
+              2
+            ],
+            "exit_value": 13,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              4
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^1*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 27,
+            "initial_shadow_order_s": 5,
+            "maximal_repeated_pair_count_L": 1,
+            "valuation_prefix": [
+              1,
+              2
+            ],
+            "exit_value": 31,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^1*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 59,
+            "initial_shadow_order_s": 6,
+            "maximal_repeated_pair_count_L": 1,
+            "valuation_prefix": [
+              1,
+              2
+            ],
+            "exit_value": 67,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^1*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 123,
+            "initial_shadow_order_s": 7,
+            "maximal_repeated_pair_count_L": 2,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 157,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^2*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 251,
+            "initial_shadow_order_s": 8,
+            "maximal_repeated_pair_count_L": 2,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 319,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^2*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 507,
+            "initial_shadow_order_s": 9,
+            "maximal_repeated_pair_count_L": 2,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 643,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^2*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 1019,
+            "initial_shadow_order_s": 10,
+            "maximal_repeated_pair_count_L": 3,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 1453,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              2
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^3*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 2043,
+            "initial_shadow_order_s": 11,
+            "maximal_repeated_pair_count_L": 3,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 2911,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^3*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 4091,
+            "initial_shadow_order_s": 12,
+            "maximal_repeated_pair_count_L": 3,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 5827,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^3*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 8187,
+            "initial_shadow_order_s": 13,
+            "maximal_repeated_pair_count_L": 4,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 13117,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^4*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 16379,
+            "initial_shadow_order_s": 14,
+            "maximal_repeated_pair_count_L": 4,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 26239,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^4*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 32763,
+            "initial_shadow_order_s": 15,
+            "maximal_repeated_pair_count_L": 4,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 52483,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^4*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 65531,
+            "initial_shadow_order_s": 16,
+            "maximal_repeated_pair_count_L": 5,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 118093,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              3
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^5*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 131067,
+            "initial_shadow_order_s": 17,
+            "maximal_repeated_pair_count_L": 5,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 236191,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^5*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 262139,
+            "initial_shadow_order_s": 18,
+            "maximal_repeated_pair_count_L": 5,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 472387,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^5*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 524283,
+            "initial_shadow_order_s": 19,
+            "maximal_repeated_pair_count_L": 6,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 1062877,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^6*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 1048571,
+            "initial_shadow_order_s": 20,
+            "maximal_repeated_pair_count_L": 6,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 2125759,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^6*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 2097147,
+            "initial_shadow_order_s": 21,
+            "maximal_repeated_pair_count_L": 6,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 4251523,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^6*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 4194299,
+            "initial_shadow_order_s": 22,
+            "maximal_repeated_pair_count_L": 7,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 9565933,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              2
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^7*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 8388603,
+            "initial_shadow_order_s": 23,
+            "maximal_repeated_pair_count_L": 7,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 19131871,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^7*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 16777211,
+            "initial_shadow_order_s": 24,
+            "maximal_repeated_pair_count_L": 7,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 38263747,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^7*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 33554427,
+            "initial_shadow_order_s": 25,
+            "maximal_repeated_pair_count_L": 8,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 86093437,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^8*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 67108859,
+            "initial_shadow_order_s": 26,
+            "maximal_repeated_pair_count_L": 8,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 172186879,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^8*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 134217723,
+            "initial_shadow_order_s": 27,
+            "maximal_repeated_pair_count_L": 8,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 344373763,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^8*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 268435451,
+            "initial_shadow_order_s": 28,
+            "maximal_repeated_pair_count_L": 9,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 774840973,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              5
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^9*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 536870907,
+            "initial_shadow_order_s": 29,
+            "maximal_repeated_pair_count_L": 9,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 1549681951,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^9*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 1073741819,
+            "initial_shadow_order_s": 30,
+            "maximal_repeated_pair_count_L": 9,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 3099363907,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^9*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 2147483643,
+            "initial_shadow_order_s": 31,
+            "maximal_repeated_pair_count_L": 10,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 6973568797,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^10*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 4294967291,
+            "initial_shadow_order_s": 32,
+            "maximal_repeated_pair_count_L": 10,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 13947137599,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^10*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 8589934587,
+            "initial_shadow_order_s": 33,
+            "maximal_repeated_pair_count_L": 10,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 27894275203,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^10*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 17179869179,
+            "initial_shadow_order_s": 34,
+            "maximal_repeated_pair_count_L": 11,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 62762119213,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              2
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^11*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 34359738363,
+            "initial_shadow_order_s": 35,
+            "maximal_repeated_pair_count_L": 11,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 125524238431,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^11*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 68719476731,
+            "initial_shadow_order_s": 36,
+            "maximal_repeated_pair_count_L": 11,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 251048476867,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^11*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 137438953467,
+            "initial_shadow_order_s": 37,
+            "maximal_repeated_pair_count_L": 12,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 564859072957,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^12*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 274877906939,
+            "initial_shadow_order_s": 38,
+            "maximal_repeated_pair_count_L": 12,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 1129718145919,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^12*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 549755813883,
+            "initial_shadow_order_s": 39,
+            "maximal_repeated_pair_count_L": 12,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 2259436291843,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^12*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 1099511627771,
+            "initial_shadow_order_s": 40,
+            "maximal_repeated_pair_count_L": 13,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 5083731656653,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              3
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^13*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 2199023255547,
+            "initial_shadow_order_s": 41,
+            "maximal_repeated_pair_count_L": 13,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 10167463313311,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^13*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 4398046511099,
+            "initial_shadow_order_s": 42,
+            "maximal_repeated_pair_count_L": 13,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 20334926626627,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^13*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 8796093022203,
+            "initial_shadow_order_s": 43,
+            "maximal_repeated_pair_count_L": 14,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 45753584909917,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              1
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^14*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 17592186044411,
+            "initial_shadow_order_s": 44,
+            "maximal_repeated_pair_count_L": 14,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 91507169819839,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^14*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 35184372088827,
+            "initial_shadow_order_s": 45,
+            "maximal_repeated_pair_count_L": 14,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 183014339639683,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^14*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 70368744177659,
+            "initial_shadow_order_s": 46,
+            "maximal_repeated_pair_count_L": 15,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 411782264189293,
+            "exit_shadow_order_r": 1,
+            "exit_valuation_probe": [
+              3,
+              2
+            ],
+            "exit_type": "first valuation at least 2",
+            "closed_formula": "(9/8)^15*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 140737488355323,
+            "initial_shadow_order_s": 47,
+            "maximal_repeated_pair_count_L": 15,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 823564528378591,
+            "exit_shadow_order_r": 2,
+            "exit_valuation_probe": [
+              1,
+              1
+            ],
+            "exit_type": "next pair is (1,1)",
+            "closed_formula": "(9/8)^15*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          },
+          {
+            "start": 281474976710651,
+            "initial_shadow_order_s": 48,
+            "maximal_repeated_pair_count_L": 15,
+            "valuation_prefix": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "exit_value": 1647129056757187,
+            "exit_shadow_order_r": 3,
+            "exit_valuation_probe": [
+              1,
+              4
+            ],
+            "exit_type": "next pair is (1,b) with b at least 3",
+            "closed_formula": "(9/8)^15*(n+5)-5",
+            "strict_expansion": true,
+            "checks": {
+              "maximal_prefix_is_repeated_1_2": true,
+              "closed_formula_matches": true,
+              "exit_order_is_one_two_or_three": true,
+              "next_pair_is_not_1_2": true,
+              "exit_type_classification_matches": true,
+              "positive_length_shadow_strictly_expands": true
+            }
+          }
+        ],
+        "bounded_natural_audit": {
+          "odd_starts_tested": 100000,
+          "limit": 200000,
+          "exit_type_counts": {
+            "1": 57143,
+            "2": 28572,
+            "3": 14285
+          },
+          "maximum_pair_count": 5,
+          "failure_count": 0
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "Finite escape from this one 2-adic shadow does not imply eventual descent or termination. Indeed every nonempty shadow block exits above its entry value. Post-exit compensation across the three terminal types remains unproved; no divergent positive orbit was found.",
+      "route_decision": {
+        "discard": "escape from the minus-five shadow by itself as a descent certificate",
+        "retain": "condition an adaptive post-shadow descent block on the three exact terminal valuation types",
+        "next_theorem": "ThreeExitTypePostShadowAdaptiveDescent"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T149-REJECTED",
+            "label": "MinusFiveShadowEscapeAloneForcesDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T149-CLOSED",
+            "label": "MinusFiveShadowExactEscapeAndDescentNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T149-OPEN",
+            "label": "ThreeExitTypePostShadowAdaptiveDescent",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T149-REJECTED",
+            "CO-T149-CLOSED"
+          ],
+          [
+            "CO-T149-CLOSED",
+            "CO-T149-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent positive orbit. Exact finite escape is proved, while escape-to-descent is explicitly refuted for every nonempty shadow block."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-149",
+      "theorem_name": "SquarefreeWheelLocalMainTermAndResidualTransferNoGo",
+      "declared_proposition": "Let W>=6 be even and squarefree and let g(a)=1_(gcd(a,W)=1) on Z/WZ. For every even N, (g*g)(N)=product_{p|W,p|N}(p-1) product_{p|W,p not|N}(p-2)>0. For every real f=g+r, (f*f)(N)=(g*g)(N)+2(g*r)(N)+(r*r)(N), so positivity follows from 2||g||_2||r||_2+||r||_2^2<(g*g)(N). But for every such W,N there is a nonnegative singleton f supported on a reduced residue with (f*f)(N)=0.",
+      "mathematical_argument": "By the Chinese remainder theorem, at a prime p|W one excludes a=0 and a=N. These are one residue if p|N and two otherwise, giving the product. The p=2 factor is one because N is even; all odd-prime factors are positive. The residual identity is bilinearity and its sufficient bound is Cauchy-Schwarz. Writing W=2M, 2a=N mod W has at most one odd solution modulo W, while phi(W)>=2 for W>=6; hence a reduced residue outside that solution exists and its singleton convolution vanishes at N.",
+      "reproducible_computation": {
+        "theorem": "Let W>=6 be even and squarefree and let g(a)=1_(gcd(a,W)=1) on Z/WZ. For every even N, (g*g)(N)=product_{p|W,p|N}(p-1) product_{p|W,p not|N}(p-2)>0. For every real f=g+r, (f*f)(N)=(g*g)(N)+2(g*r)(N)+(r*r)(N), so positivity follows from 2||g||_2||r||_2+||r||_2^2<(g*g)(N). But for every such W,N there is a nonnegative singleton f supported on a reduced residue with (f*f)(N)=0.",
+        "proof": "By the Chinese remainder theorem, at a prime p|W one excludes a=0 and a=N. These are one residue if p|N and two otherwise, giving the product. The p=2 factor is one because N is even; all odd-prime factors are positive. The residual identity is bilinearity and its sufficient bound is Cauchy-Schwarz. Writing W=2M, 2a=N mod W has at most one odd solution modulo W, while phi(W)>=2 for W>=6; hence a reduced residue outside that solution exists and its singleton convolution vanishes at N.",
+        "finite_exact_rows": [
+          {
+            "wheel_modulus_W": 6,
+            "prime_divisors": [
+              2,
+              3
+            ],
+            "reduced_residue_count": 2,
+            "even_endpoints_audited": 3,
+            "minimum_local_main_term": 1,
+            "maximum_local_main_term": 2,
+            "sample_hole_witnesses": [
+              {
+                "endpoint": 0,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 2,
+                "singleton_residue": 5,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 4,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              }
+            ],
+            "checks": {
+              "all_direct_counts_match_product_formula": true,
+              "all_even_endpoint_main_terms_positive": true,
+              "every_endpoint_has_supported_singleton_hole": true,
+              "residual_identity_recovers_singleton_convolution": true
+            }
+          },
+          {
+            "wheel_modulus_W": 30,
+            "prime_divisors": [
+              2,
+              3,
+              5
+            ],
+            "reduced_residue_count": 8,
+            "even_endpoints_audited": 15,
+            "minimum_local_main_term": 3,
+            "maximum_local_main_term": 8,
+            "sample_hole_witnesses": [
+              {
+                "endpoint": 0,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 2,
+                "singleton_residue": 7,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 4,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 6,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 8,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 10,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              }
+            ],
+            "checks": {
+              "all_direct_counts_match_product_formula": true,
+              "all_even_endpoint_main_terms_positive": true,
+              "every_endpoint_has_supported_singleton_hole": true,
+              "residual_identity_recovers_singleton_convolution": true
+            }
+          },
+          {
+            "wheel_modulus_W": 210,
+            "prime_divisors": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "reduced_residue_count": 48,
+            "even_endpoints_audited": 105,
+            "minimum_local_main_term": 15,
+            "maximum_local_main_term": 48,
+            "sample_hole_witnesses": [
+              {
+                "endpoint": 0,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 2,
+                "singleton_residue": 11,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 4,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 6,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 8,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 10,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              }
+            ],
+            "checks": {
+              "all_direct_counts_match_product_formula": true,
+              "all_even_endpoint_main_terms_positive": true,
+              "every_endpoint_has_supported_singleton_hole": true,
+              "residual_identity_recovers_singleton_convolution": true
+            }
+          },
+          {
+            "wheel_modulus_W": 2310,
+            "prime_divisors": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "reduced_residue_count": 480,
+            "even_endpoints_audited": 1155,
+            "minimum_local_main_term": 135,
+            "maximum_local_main_term": 480,
+            "sample_hole_witnesses": [
+              {
+                "endpoint": 0,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 2,
+                "singleton_residue": 13,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 4,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 6,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 8,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              },
+              {
+                "endpoint": 10,
+                "singleton_residue": 1,
+                "singleton_endpoint_convolution": 0,
+                "g_plus_residual_decomposition": 0
+              }
+            ],
+            "checks": {
+              "all_direct_counts_match_product_formula": true,
+              "all_even_endpoint_main_terms_positive": true,
+              "every_endpoint_has_supported_singleton_hole": true,
+              "residual_identity_recovers_singleton_convolution": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem is a cyclic residue model, not the interval von Mangoldt convolution. Its singleton counterweight is not Lambda. Exact local solubility supplies the major-arc factor but gives no pointwise residual saving, no K56 bound, and no proof or counterexample to strong Goldbach.",
+      "route_decision": {
+        "discard": "wheel support and positive local singular factors alone as a transfer theorem for prime weights",
+        "retain": "use the exact wheel main term and prove a pointwise von Mangoldt residual bilinear bound smaller than it",
+        "next_theorem": "VonMangoldtWheelResidualPointwiseBilinearSavingK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T149-REJECTED",
+            "label": "PositiveWheelLocalModelTransfersWithoutResidualControl",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T149-CLOSED",
+            "label": "SquarefreeWheelLocalMainTermAndResidualTransferNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T149-OPEN",
+            "label": "VonMangoldtWheelResidualPointwiseBilinearSavingK56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T149-REJECTED",
+            "GB-T149-CLOSED"
+          ],
+          [
+            "GB-T149-CLOSED",
+            "GB-T149-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact local-factor formula, a sufficient residual inequality, and a supported-weight transfer counterexample."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-149",
+      "theorem_name": "CubicRoughSemiprimeEndpointCoverReduction",
+      "declared_proposition": "On the TICKET-142 cubic-rough gap-two support let E be the edge count, L and R the counts whose left or right endpoint is semiprime, and D the count with both endpoints semiprime. Then the twin count is exactly E-L-R+D and is at least E-L-R=-(A10+A01)/2. Consequently, if some fixed delta>0 satisfies E>0 and L+R<=(1-delta)E on every sufficiently large dyadic scale, then every such scale contains at least one twin pair (indeed at least delta E before integrality). Every semiprime endpoint in this support has a unique factorization pq with (2X+2)^(1/3)<p<=q and p<=sqrt(2X+2).",
+      "mathematical_argument": "At cubic roughness every supported endpoint has one or two prime factors; Liouville sign -1 is prime and +1 is semiprime. Inclusion-exclusion over the two semiprime endpoint events gives E-L-R+D for the -- cell. Dropping D>=0 gives the marginal lower bound, and L=(E+A10)/2, R=(E+A01)/2 gives its Walsh form. A composite supported endpoint cannot have three factors because each exceeds z=(2X+2)^(1/3), so its ordered semiprime factorization is unique.",
+      "reproducible_computation": {
+        "theorem": "On the TICKET-142 cubic-rough gap-two support let E be the edge count, L and R the counts whose left or right endpoint is semiprime, and D the count with both endpoints semiprime. Then the twin count is exactly E-L-R+D and is at least E-L-R=-(A10+A01)/2. Consequently, if some fixed delta>0 satisfies E>0 and L+R<=(1-delta)E on every sufficiently large dyadic scale, then every such scale contains at least one twin pair (indeed at least delta E before integrality). Every semiprime endpoint in this support has a unique factorization pq with (2X+2)^(1/3)<p<=q and p<=sqrt(2X+2).",
+        "proof": "At cubic roughness every supported endpoint has one or two prime factors; Liouville sign -1 is prime and +1 is semiprime. Inclusion-exclusion over the two semiprime endpoint events gives E-L-R+D for the -- cell. Dropping D>=0 gives the marginal lower bound, and L=(E+A10)/2, R=(E+A01)/2 gives its Walsh form. A composite supported endpoint cannot have three factors because each exceeds z=(2X+2)^(1/3), so its ordered semiprime factorization is unique.",
+        "finite_cover_rows": [
+          {
+            "X": 1000,
+            "edge_count_E": 59,
+            "cell_counts": {
+              "++": 8,
+              "+-": 13,
+              "-+": 12,
+              "--": 26
+            },
+            "left_semiprime_edges_L": 21,
+            "right_semiprime_edges_R": 20,
+            "double_semiprime_edges_D": 8,
+            "semiprime_endpoint_cover_L_plus_R": 41,
+            "cover_ratio": 0.6949152542372882,
+            "marginal_only_twin_lower_bound": 18,
+            "exact_twin_count": 26,
+            "checks": {
+              "cell_counts_are_nonnegative": true,
+              "cell_counts_sum_to_edges": true,
+              "semiprime_marginals_match_walsh": true,
+              "inclusion_exclusion_recovers_twins": true,
+              "marginal_cover_gives_valid_lower_bound": true,
+              "marginal_lower_bound_equals_negative_walsh_half": true
+            }
+          },
+          {
+            "X": 10000,
+            "edge_count_E": 358,
+            "cell_counts": {
+              "++": 43,
+              "+-": 84,
+              "-+": 94,
+              "--": 137
+            },
+            "left_semiprime_edges_L": 127,
+            "right_semiprime_edges_R": 137,
+            "double_semiprime_edges_D": 43,
+            "semiprime_endpoint_cover_L_plus_R": 264,
+            "cover_ratio": 0.7374301675977654,
+            "marginal_only_twin_lower_bound": 94,
+            "exact_twin_count": 137,
+            "checks": {
+              "cell_counts_are_nonnegative": true,
+              "cell_counts_sum_to_edges": true,
+              "semiprime_marginals_match_walsh": true,
+              "inclusion_exclusion_recovers_twins": true,
+              "marginal_cover_gives_valid_lower_bound": true,
+              "marginal_lower_bound_equals_negative_walsh_half": true
+            }
+          },
+          {
+            "X": 100000,
+            "edge_count_E": 2486,
+            "cell_counts": {
+              "++": 376,
+              "+-": 585,
+              "-+": 589,
+              "--": 936
+            },
+            "left_semiprime_edges_L": 961,
+            "right_semiprime_edges_R": 965,
+            "double_semiprime_edges_D": 376,
+            "semiprime_endpoint_cover_L_plus_R": 1926,
+            "cover_ratio": 0.7747385358004827,
+            "marginal_only_twin_lower_bound": 560,
+            "exact_twin_count": 936,
+            "checks": {
+              "cell_counts_are_nonnegative": true,
+              "cell_counts_sum_to_edges": true,
+              "semiprime_marginals_match_walsh": true,
+              "inclusion_exclusion_recovers_twins": true,
+              "marginal_cover_gives_valid_lower_bound": true,
+              "marginal_lower_bound_equals_negative_walsh_half": true
+            }
+          },
+          {
+            "X": 1000000,
+            "edge_count_E": 17634,
+            "cell_counts": {
+              "++": 2721,
+              "+-": 4111,
+              "-+": 4100,
+              "--": 6702
+            },
+            "left_semiprime_edges_L": 6832,
+            "right_semiprime_edges_R": 6821,
+            "double_semiprime_edges_D": 2721,
+            "semiprime_endpoint_cover_L_plus_R": 13653,
+            "cover_ratio": 0.7742429397754338,
+            "marginal_only_twin_lower_bound": 3981,
+            "exact_twin_count": 6702,
+            "checks": {
+              "cell_counts_are_nonnegative": true,
+              "cell_counts_sum_to_edges": true,
+              "semiprime_marginals_match_walsh": true,
+              "inclusion_exclusion_recovers_twins": true,
+              "marginal_cover_gives_valid_lower_bound": true,
+              "marginal_lower_bound_equals_negative_walsh_half": true
+            }
+          }
+        ],
+        "finite_factor_window_rows": [
+          {
+            "X": 1000,
+            "cubic_rough_composites_audited": 74,
+            "minimum_prime_factor_seen": 13,
+            "maximum_factor_count": 2,
+            "failure_count": 0
+          },
+          {
+            "X": 10000,
+            "cubic_rough_composites_audited": 609,
+            "minimum_prime_factor_seen": 29,
+            "maximum_factor_count": 2,
+            "failure_count": 0
+          },
+          {
+            "X": 100000,
+            "cubic_rough_composites_audited": 5271,
+            "minimum_prime_factor_seen": 59,
+            "maximum_factor_count": 2,
+            "failure_count": 0
+          }
+        ],
+        "source_artifact": "data/open-problem/twin-prime/tp-ticket-142-liouville-projector.json",
+        "source_sha256": "474a77d08d5a6c9e66d796e0b881a9ba51e1bdf46b09243c1e27e8c3c7bc1e6e",
+        "failure_count": 0
+      },
+      "logical_limit": "The finite cover ratios do not imply a uniform delta. The proposed all-scale semiprime endpoint-cover deficit is a parity-sensitive sieve statement and remains unproved. The reduction proves neither infinitely many twin primes nor a counterexample.",
+      "route_decision": {
+        "discard": "treating a full joint A11 matching-coupling estimate as the only possible sufficient route",
+        "retain": "prove positive cubic-rough edge mass and bound the sum of the two marginal semiprime endpoint covers below it",
+        "next_theorem": "CubicRoughSemiprimeEndpointCoverDeficit"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T149-REJECTED",
+            "label": "JointMatchingCouplingIsTheOnlySufficientRoute",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T149-CLOSED",
+            "label": "CubicRoughSemiprimeEndpointCoverReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T149-OPEN",
+            "label": "CubicRoughSemiprimeEndpointCoverDeficit",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T149-REJECTED",
+            "TP-T149-CLOSED"
+          ],
+          [
+            "TP-T149-CLOSED",
+            "TP-T149-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. One exact marginal-cover reduction and finite factor-window audit."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "historical_correction_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-149",
+      "attempt": "A Meyer wavelet may be chosen in the Schwartz class and its dyadic dilates and translates form a complete orthonormal basis of L2(R). On any enumeration e_1,e_2,... of that smooth basis, for every N>=1 and epsilon>0 the finite-rank self-adjoint operator A e_j=e_j for j<=N, A e_(N+1)=-epsilon e_(N+1), and A e_j=0 otherwise is compact, has absolute tail norm epsilon, passes all first-N basis positivity tests, and is not positive semidefinite.",
+      "bounded_result": {
+        "audit_ref": "smooth_escape_wheel_cover_audit.riemann"
+      },
+      "obstruction": "Meyer completeness is an L2 theorem, not a proof that the chosen wavelets form the exact Weil test topology. The diagonal operator is synthetic, not the Weil quadratic form. The result only proves that absolute compact-tail smallness is the wrong certificate; it controls no zeta zero and proves neither RH nor its negation.",
+      "candidate_theorem": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne",
+      "next_experiment": "identify a coercive positive reference for the actual Weil form and bound the remaining operator in relative norm strictly below one",
+      "claim_boundary": "No RH proof and no off-critical zero. One imported smooth basis theorem plus an exact operator-theoretic no-go."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-149",
+      "attempt": "For every positive odd n, put s=v2(n+5) and L=floor((s-1)/3). The maximal initial accelerated Collatz valuation word made of repeated (1,2) pairs has exactly L pairs, and T^(2L)(n)+5=(9/8)^L(n+5). Its exit shadow order r=s-3L is in {1,2,3}; the next valuation pattern is respectively (at least 2,*), (1,1), or (1,at least 3), so another (1,2) pair is impossible. If L>=1, the exit value is strictly larger than n.",
+      "bounded_result": {
+        "audit_ref": "smooth_escape_wheel_cover_audit.collatz"
+      },
+      "obstruction": "Finite escape from this one 2-adic shadow does not imply eventual descent or termination. Indeed every nonempty shadow block exits above its entry value. Post-exit compensation across the three terminal types remains unproved; no divergent positive orbit was found.",
+      "candidate_theorem": "ThreeExitTypePostShadowAdaptiveDescent",
+      "next_experiment": "condition an adaptive post-shadow descent block on the three exact terminal valuation types",
+      "claim_boundary": "No Collatz proof and no divergent positive orbit. Exact finite escape is proved, while escape-to-descent is explicitly refuted for every nonempty shadow block."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-149",
+      "attempt": "Let W>=6 be even and squarefree and let g(a)=1_(gcd(a,W)=1) on Z/WZ. For every even N, (g*g)(N)=product_{p|W,p|N}(p-1) product_{p|W,p not|N}(p-2)>0. For every real f=g+r, (f*f)(N)=(g*g)(N)+2(g*r)(N)+(r*r)(N), so positivity follows from 2||g||_2||r||_2+||r||_2^2<(g*g)(N). But for every such W,N there is a nonnegative singleton f supported on a reduced residue with (f*f)(N)=0.",
+      "bounded_result": {
+        "audit_ref": "smooth_escape_wheel_cover_audit.goldbach"
+      },
+      "obstruction": "The theorem is a cyclic residue model, not the interval von Mangoldt convolution. Its singleton counterweight is not Lambda. Exact local solubility supplies the major-arc factor but gives no pointwise residual saving, no K56 bound, and no proof or counterexample to strong Goldbach.",
+      "candidate_theorem": "VonMangoldtWheelResidualPointwiseBilinearSavingK56",
+      "next_experiment": "use the exact wheel main term and prove a pointwise von Mangoldt residual bilinear bound smaller than it",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact local-factor formula, a sufficient residual inequality, and a supported-weight transfer counterexample."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-149",
+      "attempt": "On the TICKET-142 cubic-rough gap-two support let E be the edge count, L and R the counts whose left or right endpoint is semiprime, and D the count with both endpoints semiprime. Then the twin count is exactly E-L-R+D and is at least E-L-R=-(A10+A01)/2. Consequently, if some fixed delta>0 satisfies E>0 and L+R<=(1-delta)E on every sufficiently large dyadic scale, then every such scale contains at least one twin pair (indeed at least delta E before integrality). Every semiprime endpoint in this support has a unique factorization pq with (2X+2)^(1/3)<p<=q and p<=sqrt(2X+2).",
+      "bounded_result": {
+        "audit_ref": "smooth_escape_wheel_cover_audit.twin_prime"
+      },
+      "obstruction": "The finite cover ratios do not imply a uniform delta. The proposed all-scale semiprime endpoint-cover deficit is a parity-sensitive sieve statement and remains unproved. The reduction proves neither infinitely many twin primes nor a counterexample.",
+      "candidate_theorem": "CubicRoughSemiprimeEndpointCoverDeficit",
+      "next_experiment": "prove positive cubic-rough edge mass and bound the sum of the two marginal semiprime endpoint covers below it",
+      "claim_boundary": "No Twin Prime proof or counterexample. One exact marginal-cover reduction and finite factor-window audit."
+    }
+  ]
+}

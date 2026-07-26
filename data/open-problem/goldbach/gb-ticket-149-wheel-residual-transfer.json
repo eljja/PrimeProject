@@ -1,0 +1,272 @@
+{
+  "schema": "primeproject.ticket149-smooth-escape-wheel-cover.v1",
+  "generated_at": "2026-07-27T21:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-149",
+  "attempt": "Let W>=6 be even and squarefree and let g(a)=1_(gcd(a,W)=1) on Z/WZ. For every even N, (g*g)(N)=product_{p|W,p|N}(p-1) product_{p|W,p not|N}(p-2)>0. For every real f=g+r, (f*f)(N)=(g*g)(N)+2(g*r)(N)+(r*r)(N), so positivity follows from 2||g||_2||r||_2+||r||_2^2<(g*g)(N). But for every such W,N there is a nonnegative singleton f supported on a reduced residue with (f*f)(N)=0.",
+  "bounded_result": {
+    "audit_ref": "smooth_escape_wheel_cover_audit.goldbach"
+  },
+  "obstruction": "The theorem is a cyclic residue model, not the interval von Mangoldt convolution. Its singleton counterweight is not Lambda. Exact local solubility supplies the major-arc factor but gives no pointwise residual saving, no K56 bound, and no proof or counterexample to strong Goldbach.",
+  "candidate_theorem": "VonMangoldtWheelResidualPointwiseBilinearSavingK56",
+  "next_experiment": "use the exact wheel main term and prove a pointwise von Mangoldt residual bilinear bound smaller than it",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact local-factor formula, a sufficient residual inequality, and a supported-weight transfer counterexample.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-149",
+    "theorem_name": "SquarefreeWheelLocalMainTermAndResidualTransferNoGo",
+    "declared_proposition": "Let W>=6 be even and squarefree and let g(a)=1_(gcd(a,W)=1) on Z/WZ. For every even N, (g*g)(N)=product_{p|W,p|N}(p-1) product_{p|W,p not|N}(p-2)>0. For every real f=g+r, (f*f)(N)=(g*g)(N)+2(g*r)(N)+(r*r)(N), so positivity follows from 2||g||_2||r||_2+||r||_2^2<(g*g)(N). But for every such W,N there is a nonnegative singleton f supported on a reduced residue with (f*f)(N)=0.",
+    "mathematical_argument": "By the Chinese remainder theorem, at a prime p|W one excludes a=0 and a=N. These are one residue if p|N and two otherwise, giving the product. The p=2 factor is one because N is even; all odd-prime factors are positive. The residual identity is bilinearity and its sufficient bound is Cauchy-Schwarz. Writing W=2M, 2a=N mod W has at most one odd solution modulo W, while phi(W)>=2 for W>=6; hence a reduced residue outside that solution exists and its singleton convolution vanishes at N.",
+    "reproducible_computation": {
+      "theorem": "Let W>=6 be even and squarefree and let g(a)=1_(gcd(a,W)=1) on Z/WZ. For every even N, (g*g)(N)=product_{p|W,p|N}(p-1) product_{p|W,p not|N}(p-2)>0. For every real f=g+r, (f*f)(N)=(g*g)(N)+2(g*r)(N)+(r*r)(N), so positivity follows from 2||g||_2||r||_2+||r||_2^2<(g*g)(N). But for every such W,N there is a nonnegative singleton f supported on a reduced residue with (f*f)(N)=0.",
+      "proof": "By the Chinese remainder theorem, at a prime p|W one excludes a=0 and a=N. These are one residue if p|N and two otherwise, giving the product. The p=2 factor is one because N is even; all odd-prime factors are positive. The residual identity is bilinearity and its sufficient bound is Cauchy-Schwarz. Writing W=2M, 2a=N mod W has at most one odd solution modulo W, while phi(W)>=2 for W>=6; hence a reduced residue outside that solution exists and its singleton convolution vanishes at N.",
+      "finite_exact_rows": [
+        {
+          "wheel_modulus_W": 6,
+          "prime_divisors": [
+            2,
+            3
+          ],
+          "reduced_residue_count": 2,
+          "even_endpoints_audited": 3,
+          "minimum_local_main_term": 1,
+          "maximum_local_main_term": 2,
+          "sample_hole_witnesses": [
+            {
+              "endpoint": 0,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 2,
+              "singleton_residue": 5,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 4,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            }
+          ],
+          "checks": {
+            "all_direct_counts_match_product_formula": true,
+            "all_even_endpoint_main_terms_positive": true,
+            "every_endpoint_has_supported_singleton_hole": true,
+            "residual_identity_recovers_singleton_convolution": true
+          }
+        },
+        {
+          "wheel_modulus_W": 30,
+          "prime_divisors": [
+            2,
+            3,
+            5
+          ],
+          "reduced_residue_count": 8,
+          "even_endpoints_audited": 15,
+          "minimum_local_main_term": 3,
+          "maximum_local_main_term": 8,
+          "sample_hole_witnesses": [
+            {
+              "endpoint": 0,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 2,
+              "singleton_residue": 7,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 4,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 6,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 8,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 10,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            }
+          ],
+          "checks": {
+            "all_direct_counts_match_product_formula": true,
+            "all_even_endpoint_main_terms_positive": true,
+            "every_endpoint_has_supported_singleton_hole": true,
+            "residual_identity_recovers_singleton_convolution": true
+          }
+        },
+        {
+          "wheel_modulus_W": 210,
+          "prime_divisors": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "reduced_residue_count": 48,
+          "even_endpoints_audited": 105,
+          "minimum_local_main_term": 15,
+          "maximum_local_main_term": 48,
+          "sample_hole_witnesses": [
+            {
+              "endpoint": 0,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 2,
+              "singleton_residue": 11,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 4,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 6,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 8,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 10,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            }
+          ],
+          "checks": {
+            "all_direct_counts_match_product_formula": true,
+            "all_even_endpoint_main_terms_positive": true,
+            "every_endpoint_has_supported_singleton_hole": true,
+            "residual_identity_recovers_singleton_convolution": true
+          }
+        },
+        {
+          "wheel_modulus_W": 2310,
+          "prime_divisors": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ],
+          "reduced_residue_count": 480,
+          "even_endpoints_audited": 1155,
+          "minimum_local_main_term": 135,
+          "maximum_local_main_term": 480,
+          "sample_hole_witnesses": [
+            {
+              "endpoint": 0,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 2,
+              "singleton_residue": 13,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 4,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 6,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 8,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            },
+            {
+              "endpoint": 10,
+              "singleton_residue": 1,
+              "singleton_endpoint_convolution": 0,
+              "g_plus_residual_decomposition": 0
+            }
+          ],
+          "checks": {
+            "all_direct_counts_match_product_formula": true,
+            "all_even_endpoint_main_terms_positive": true,
+            "every_endpoint_has_supported_singleton_hole": true,
+            "residual_identity_recovers_singleton_convolution": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem is a cyclic residue model, not the interval von Mangoldt convolution. Its singleton counterweight is not Lambda. Exact local solubility supplies the major-arc factor but gives no pointwise residual saving, no K56 bound, and no proof or counterexample to strong Goldbach.",
+    "route_decision": {
+      "discard": "wheel support and positive local singular factors alone as a transfer theorem for prime weights",
+      "retain": "use the exact wheel main term and prove a pointwise von Mangoldt residual bilinear bound smaller than it",
+      "next_theorem": "VonMangoldtWheelResidualPointwiseBilinearSavingK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T149-REJECTED",
+          "label": "PositiveWheelLocalModelTransfersWithoutResidualControl",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T149-CLOSED",
+          "label": "SquarefreeWheelLocalMainTermAndResidualTransferNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T149-OPEN",
+          "label": "VonMangoldtWheelResidualPointwiseBilinearSavingK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T149-REJECTED",
+          "GB-T149-CLOSED"
+        ],
+        [
+          "GB-T149-CLOSED",
+          "GB-T149-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact local-factor formula, a sufficient residual inequality, and a supported-weight transfer counterexample."
+  }
+}

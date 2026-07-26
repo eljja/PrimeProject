@@ -1,0 +1,1944 @@
+{
+  "schema": "primeproject.ticket149-smooth-escape-wheel-cover.v1",
+  "generated_at": "2026-07-27T21:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-149",
+  "attempt": "For every positive odd n, put s=v2(n+5) and L=floor((s-1)/3). The maximal initial accelerated Collatz valuation word made of repeated (1,2) pairs has exactly L pairs, and T^(2L)(n)+5=(9/8)^L(n+5). Its exit shadow order r=s-3L is in {1,2,3}; the next valuation pattern is respectively (at least 2,*), (1,1), or (1,at least 3), so another (1,2) pair is impossible. If L>=1, the exit value is strictly larger than n.",
+  "bounded_result": {
+    "audit_ref": "smooth_escape_wheel_cover_audit.collatz"
+  },
+  "obstruction": "Finite escape from this one 2-adic shadow does not imply eventual descent or termination. Indeed every nonempty shadow block exits above its entry value. Post-exit compensation across the three terminal types remains unproved; no divergent positive orbit was found.",
+  "candidate_theorem": "ThreeExitTypePostShadowAdaptiveDescent",
+  "next_experiment": "condition an adaptive post-shadow descent block on the three exact terminal valuation types",
+  "claim_boundary": "No Collatz proof and no divergent positive orbit. Exact finite escape is proved, while escape-to-descent is explicitly refuted for every nonempty shadow block.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-149",
+    "theorem_name": "MinusFiveShadowExactEscapeAndDescentNoGo",
+    "declared_proposition": "For every positive odd n, put s=v2(n+5) and L=floor((s-1)/3). The maximal initial accelerated Collatz valuation word made of repeated (1,2) pairs has exactly L pairs, and T^(2L)(n)+5=(9/8)^L(n+5). Its exit shadow order r=s-3L is in {1,2,3}; the next valuation pattern is respectively (at least 2,*), (1,1), or (1,at least 3), so another (1,2) pair is impossible. If L>=1, the exit value is strictly larger than n.",
+    "mathematical_argument": "Whenever x+5=2*c*8^r with r>=1, direct substitution gives the next two valuations (1,2) and T^2(x)+5=9(x+5)/8. Each pair therefore lowers v2(x+5) by exactly three until the remaining order is 1, 2, or 3. Substitution in those three terminal cases gives the stated exit patterns. The strict expansion for L>=1 follows from (9/8)^L>1.",
+    "reproducible_computation": {
+      "theorem": "For every positive odd n, put s=v2(n+5) and L=floor((s-1)/3). The maximal initial accelerated Collatz valuation word made of repeated (1,2) pairs has exactly L pairs, and T^(2L)(n)+5=(9/8)^L(n+5). Its exit shadow order r=s-3L is in {1,2,3}; the next valuation pattern is respectively (at least 2,*), (1,1), or (1,at least 3), so another (1,2) pair is impossible. If L>=1, the exit value is strictly larger than n.",
+      "proof": "Whenever x+5=2*c*8^r with r>=1, direct substitution gives the next two valuations (1,2) and T^2(x)+5=9(x+5)/8. Each pair therefore lowers v2(x+5) by exactly three until the remaining order is 1, 2, or 3. Substitution in those three terminal cases gives the stated exit patterns. The strict expansion for L>=1 follows from (9/8)^L>1.",
+      "finite_exact_rows": [
+        {
+          "start": 1,
+          "initial_shadow_order_s": 1,
+          "maximal_repeated_pair_count_L": 0,
+          "valuation_prefix": [],
+          "exit_value": 1,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            2,
+            2
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^0*(n+5)-5",
+          "strict_expansion": false,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 7,
+          "initial_shadow_order_s": 2,
+          "maximal_repeated_pair_count_L": 0,
+          "valuation_prefix": [],
+          "exit_value": 7,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^0*(n+5)-5",
+          "strict_expansion": false,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 3,
+          "initial_shadow_order_s": 3,
+          "maximal_repeated_pair_count_L": 0,
+          "valuation_prefix": [],
+          "exit_value": 3,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^0*(n+5)-5",
+          "strict_expansion": false,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 11,
+          "initial_shadow_order_s": 4,
+          "maximal_repeated_pair_count_L": 1,
+          "valuation_prefix": [
+            1,
+            2
+          ],
+          "exit_value": 13,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            4
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^1*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 27,
+          "initial_shadow_order_s": 5,
+          "maximal_repeated_pair_count_L": 1,
+          "valuation_prefix": [
+            1,
+            2
+          ],
+          "exit_value": 31,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^1*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 59,
+          "initial_shadow_order_s": 6,
+          "maximal_repeated_pair_count_L": 1,
+          "valuation_prefix": [
+            1,
+            2
+          ],
+          "exit_value": 67,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^1*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 123,
+          "initial_shadow_order_s": 7,
+          "maximal_repeated_pair_count_L": 2,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 157,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^2*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 251,
+          "initial_shadow_order_s": 8,
+          "maximal_repeated_pair_count_L": 2,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 319,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^2*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 507,
+          "initial_shadow_order_s": 9,
+          "maximal_repeated_pair_count_L": 2,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 643,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^2*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 1019,
+          "initial_shadow_order_s": 10,
+          "maximal_repeated_pair_count_L": 3,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 1453,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            2
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^3*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 2043,
+          "initial_shadow_order_s": 11,
+          "maximal_repeated_pair_count_L": 3,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 2911,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^3*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 4091,
+          "initial_shadow_order_s": 12,
+          "maximal_repeated_pair_count_L": 3,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 5827,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^3*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 8187,
+          "initial_shadow_order_s": 13,
+          "maximal_repeated_pair_count_L": 4,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 13117,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^4*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 16379,
+          "initial_shadow_order_s": 14,
+          "maximal_repeated_pair_count_L": 4,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 26239,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^4*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 32763,
+          "initial_shadow_order_s": 15,
+          "maximal_repeated_pair_count_L": 4,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 52483,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^4*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 65531,
+          "initial_shadow_order_s": 16,
+          "maximal_repeated_pair_count_L": 5,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 118093,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            3
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^5*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 131067,
+          "initial_shadow_order_s": 17,
+          "maximal_repeated_pair_count_L": 5,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 236191,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^5*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 262139,
+          "initial_shadow_order_s": 18,
+          "maximal_repeated_pair_count_L": 5,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 472387,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^5*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 524283,
+          "initial_shadow_order_s": 19,
+          "maximal_repeated_pair_count_L": 6,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 1062877,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^6*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 1048571,
+          "initial_shadow_order_s": 20,
+          "maximal_repeated_pair_count_L": 6,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 2125759,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^6*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 2097147,
+          "initial_shadow_order_s": 21,
+          "maximal_repeated_pair_count_L": 6,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 4251523,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^6*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 4194299,
+          "initial_shadow_order_s": 22,
+          "maximal_repeated_pair_count_L": 7,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 9565933,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            2
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^7*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 8388603,
+          "initial_shadow_order_s": 23,
+          "maximal_repeated_pair_count_L": 7,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 19131871,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^7*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 16777211,
+          "initial_shadow_order_s": 24,
+          "maximal_repeated_pair_count_L": 7,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 38263747,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^7*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 33554427,
+          "initial_shadow_order_s": 25,
+          "maximal_repeated_pair_count_L": 8,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 86093437,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^8*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 67108859,
+          "initial_shadow_order_s": 26,
+          "maximal_repeated_pair_count_L": 8,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 172186879,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^8*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 134217723,
+          "initial_shadow_order_s": 27,
+          "maximal_repeated_pair_count_L": 8,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 344373763,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^8*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 268435451,
+          "initial_shadow_order_s": 28,
+          "maximal_repeated_pair_count_L": 9,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 774840973,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            5
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^9*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 536870907,
+          "initial_shadow_order_s": 29,
+          "maximal_repeated_pair_count_L": 9,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 1549681951,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^9*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 1073741819,
+          "initial_shadow_order_s": 30,
+          "maximal_repeated_pair_count_L": 9,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 3099363907,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^9*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 2147483643,
+          "initial_shadow_order_s": 31,
+          "maximal_repeated_pair_count_L": 10,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 6973568797,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^10*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 4294967291,
+          "initial_shadow_order_s": 32,
+          "maximal_repeated_pair_count_L": 10,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 13947137599,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^10*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 8589934587,
+          "initial_shadow_order_s": 33,
+          "maximal_repeated_pair_count_L": 10,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 27894275203,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^10*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 17179869179,
+          "initial_shadow_order_s": 34,
+          "maximal_repeated_pair_count_L": 11,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 62762119213,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            2
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^11*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 34359738363,
+          "initial_shadow_order_s": 35,
+          "maximal_repeated_pair_count_L": 11,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 125524238431,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^11*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 68719476731,
+          "initial_shadow_order_s": 36,
+          "maximal_repeated_pair_count_L": 11,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 251048476867,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^11*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 137438953467,
+          "initial_shadow_order_s": 37,
+          "maximal_repeated_pair_count_L": 12,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 564859072957,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^12*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 274877906939,
+          "initial_shadow_order_s": 38,
+          "maximal_repeated_pair_count_L": 12,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 1129718145919,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^12*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 549755813883,
+          "initial_shadow_order_s": 39,
+          "maximal_repeated_pair_count_L": 12,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 2259436291843,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^12*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 1099511627771,
+          "initial_shadow_order_s": 40,
+          "maximal_repeated_pair_count_L": 13,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 5083731656653,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            3
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^13*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 2199023255547,
+          "initial_shadow_order_s": 41,
+          "maximal_repeated_pair_count_L": 13,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 10167463313311,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^13*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 4398046511099,
+          "initial_shadow_order_s": 42,
+          "maximal_repeated_pair_count_L": 13,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 20334926626627,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^13*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 8796093022203,
+          "initial_shadow_order_s": 43,
+          "maximal_repeated_pair_count_L": 14,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 45753584909917,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            1
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^14*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 17592186044411,
+          "initial_shadow_order_s": 44,
+          "maximal_repeated_pair_count_L": 14,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 91507169819839,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^14*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 35184372088827,
+          "initial_shadow_order_s": 45,
+          "maximal_repeated_pair_count_L": 14,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 183014339639683,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^14*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 70368744177659,
+          "initial_shadow_order_s": 46,
+          "maximal_repeated_pair_count_L": 15,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 411782264189293,
+          "exit_shadow_order_r": 1,
+          "exit_valuation_probe": [
+            3,
+            2
+          ],
+          "exit_type": "first valuation at least 2",
+          "closed_formula": "(9/8)^15*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 140737488355323,
+          "initial_shadow_order_s": 47,
+          "maximal_repeated_pair_count_L": 15,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 823564528378591,
+          "exit_shadow_order_r": 2,
+          "exit_valuation_probe": [
+            1,
+            1
+          ],
+          "exit_type": "next pair is (1,1)",
+          "closed_formula": "(9/8)^15*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        },
+        {
+          "start": 281474976710651,
+          "initial_shadow_order_s": 48,
+          "maximal_repeated_pair_count_L": 15,
+          "valuation_prefix": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "exit_value": 1647129056757187,
+          "exit_shadow_order_r": 3,
+          "exit_valuation_probe": [
+            1,
+            4
+          ],
+          "exit_type": "next pair is (1,b) with b at least 3",
+          "closed_formula": "(9/8)^15*(n+5)-5",
+          "strict_expansion": true,
+          "checks": {
+            "maximal_prefix_is_repeated_1_2": true,
+            "closed_formula_matches": true,
+            "exit_order_is_one_two_or_three": true,
+            "next_pair_is_not_1_2": true,
+            "exit_type_classification_matches": true,
+            "positive_length_shadow_strictly_expands": true
+          }
+        }
+      ],
+      "bounded_natural_audit": {
+        "odd_starts_tested": 100000,
+        "limit": 200000,
+        "exit_type_counts": {
+          "1": 57143,
+          "2": 28572,
+          "3": 14285
+        },
+        "maximum_pair_count": 5,
+        "failure_count": 0
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "Finite escape from this one 2-adic shadow does not imply eventual descent or termination. Indeed every nonempty shadow block exits above its entry value. Post-exit compensation across the three terminal types remains unproved; no divergent positive orbit was found.",
+    "route_decision": {
+      "discard": "escape from the minus-five shadow by itself as a descent certificate",
+      "retain": "condition an adaptive post-shadow descent block on the three exact terminal valuation types",
+      "next_theorem": "ThreeExitTypePostShadowAdaptiveDescent"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T149-REJECTED",
+          "label": "MinusFiveShadowEscapeAloneForcesDescent",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T149-CLOSED",
+          "label": "MinusFiveShadowExactEscapeAndDescentNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T149-OPEN",
+          "label": "ThreeExitTypePostShadowAdaptiveDescent",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T149-REJECTED",
+          "CO-T149-CLOSED"
+        ],
+        [
+          "CO-T149-CLOSED",
+          "CO-T149-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent positive orbit. Exact finite escape is proved, while escape-to-descent is explicitly refuted for every nonempty shadow block."
+  }
+}

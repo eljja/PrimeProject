@@ -1,0 +1,449 @@
+{
+  "schema": "primeproject.ticket149-smooth-escape-wheel-cover.v1",
+  "generated_at": "2026-07-27T21:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-149",
+  "attempt": "A Meyer wavelet may be chosen in the Schwartz class and its dyadic dilates and translates form a complete orthonormal basis of L2(R). On any enumeration e_1,e_2,... of that smooth basis, for every N>=1 and epsilon>0 the finite-rank self-adjoint operator A e_j=e_j for j<=N, A e_(N+1)=-epsilon e_(N+1), and A e_j=0 otherwise is compact, has absolute tail norm epsilon, passes all first-N basis positivity tests, and is not positive semidefinite.",
+  "bounded_result": {
+    "audit_ref": "smooth_escape_wheel_cover_audit.riemann"
+  },
+  "obstruction": "Meyer completeness is an L2 theorem, not a proof that the chosen wavelets form the exact Weil test topology. The diagonal operator is synthetic, not the Weil quadratic form. The result only proves that absolute compact-tail smallness is the wrong certificate; it controls no zeta zero and proves neither RH nor its negation.",
+  "candidate_theorem": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne",
+  "next_experiment": "identify a coercive positive reference for the actual Weil form and bound the remaining operator in relative norm strictly below one",
+  "claim_boundary": "No RH proof and no off-critical zero. One imported smooth basis theorem plus an exact operator-theoretic no-go.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-149",
+    "theorem_name": "SmoothSchwartzCoreAndAbsoluteCompactTailNoGo",
+    "declared_proposition": "A Meyer wavelet may be chosen in the Schwartz class and its dyadic dilates and translates form a complete orthonormal basis of L2(R). On any enumeration e_1,e_2,... of that smooth basis, for every N>=1 and epsilon>0 the finite-rank self-adjoint operator A e_j=e_j for j<=N, A e_(N+1)=-epsilon e_(N+1), and A e_j=0 otherwise is compact, has absolute tail norm epsilon, passes all first-N basis positivity tests, and is not positive semidefinite.",
+    "mathematical_argument": "The Meyer construction has a C-infinity compactly supported Fourier transform, hence its inverse Fourier transform is Schwartz; the standard dyadic system is an orthonormal basis of L2(R). This is a cited wavelet theorem, not inferred from the finite audit. The operator is diagonal in a smooth complete orthonormal basis and has only N+1 nonzero eigenvalues, so it is finite rank, compact, and self-adjoint. Its first N diagonal entries are 1. The restriction to the orthogonal complement of their span has norm epsilon, but the quadratic form at e_(N+1) is -epsilon. Taking epsilon arbitrarily small proves that smooth completeness plus an absolute compact-tail bound does not imply positivity without a coercive positive reference on the tail.",
+    "reproducible_computation": {
+      "theorem": "A Meyer wavelet may be chosen in the Schwartz class and its dyadic dilates and translates form a complete orthonormal basis of L2(R). On any enumeration e_1,e_2,... of that smooth basis, for every N>=1 and epsilon>0 the finite-rank self-adjoint operator A e_j=e_j for j<=N, A e_(N+1)=-epsilon e_(N+1), and A e_j=0 otherwise is compact, has absolute tail norm epsilon, passes all first-N basis positivity tests, and is not positive semidefinite.",
+      "imported_basis_fact": "The Meyer construction has a C-infinity compactly supported Fourier transform, hence its inverse Fourier transform is Schwartz; the standard dyadic system is an orthonormal basis of L2(R). This is a cited wavelet theorem, not inferred from the finite audit.",
+      "no_go_proof": "The operator is diagonal in a smooth complete orthonormal basis and has only N+1 nonzero eigenvalues, so it is finite rank, compact, and self-adjoint. Its first N diagonal entries are 1. The restriction to the orthogonal complement of their span has norm epsilon, but the quadratic form at e_(N+1) is -epsilon. Taking epsilon arbitrarily small proves that smooth completeness plus an absolute compact-tail bound does not imply positivity without a coercive positive reference on the tail.",
+      "finite_exact_rows": [
+        {
+          "positive_prefix_size_N": 1,
+          "epsilon": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "finite_rank": 2,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 2,
+          "epsilon": {
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          "finite_rank": 3,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/9",
+            "decimal": -0.1111111111111111
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 3,
+          "epsilon": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "finite_rank": 4,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 4,
+          "epsilon": {
+            "exact": "1/25",
+            "decimal": 0.04
+          },
+          "finite_rank": 5,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/25",
+            "decimal": -0.04
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/25",
+            "decimal": 0.04
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 5,
+          "epsilon": {
+            "exact": "1/36",
+            "decimal": 0.027777777777777776
+          },
+          "finite_rank": 6,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/36",
+            "decimal": -0.027777777777777776
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/36",
+            "decimal": 0.027777777777777776
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 6,
+          "epsilon": {
+            "exact": "1/49",
+            "decimal": 0.02040816326530612
+          },
+          "finite_rank": 7,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/49",
+            "decimal": -0.02040816326530612
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/49",
+            "decimal": 0.02040816326530612
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 7,
+          "epsilon": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "finite_rank": 8,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/64",
+            "decimal": -0.015625
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 8,
+          "epsilon": {
+            "exact": "1/81",
+            "decimal": 0.012345679012345678
+          },
+          "finite_rank": 9,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/81",
+            "decimal": -0.012345679012345678
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/81",
+            "decimal": 0.012345679012345678
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 9,
+          "epsilon": {
+            "exact": "1/100",
+            "decimal": 0.01
+          },
+          "finite_rank": 10,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/100",
+            "decimal": -0.01
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/100",
+            "decimal": 0.01
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 10,
+          "epsilon": {
+            "exact": "1/121",
+            "decimal": 0.008264462809917356
+          },
+          "finite_rank": 11,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/121",
+            "decimal": -0.008264462809917356
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/121",
+            "decimal": 0.008264462809917356
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 11,
+          "epsilon": {
+            "exact": "1/144",
+            "decimal": 0.006944444444444444
+          },
+          "finite_rank": 12,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/144",
+            "decimal": -0.006944444444444444
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/144",
+            "decimal": 0.006944444444444444
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 12,
+          "epsilon": {
+            "exact": "1/169",
+            "decimal": 0.005917159763313609
+          },
+          "finite_rank": 13,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/169",
+            "decimal": -0.005917159763313609
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/169",
+            "decimal": 0.005917159763313609
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 13,
+          "epsilon": {
+            "exact": "1/196",
+            "decimal": 0.00510204081632653
+          },
+          "finite_rank": 14,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/196",
+            "decimal": -0.00510204081632653
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/196",
+            "decimal": 0.00510204081632653
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 14,
+          "epsilon": {
+            "exact": "1/225",
+            "decimal": 0.0044444444444444444
+          },
+          "finite_rank": 15,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/225",
+            "decimal": -0.0044444444444444444
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/225",
+            "decimal": 0.0044444444444444444
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 15,
+          "epsilon": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "finite_rank": 16,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/256",
+            "decimal": -0.00390625
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        },
+        {
+          "positive_prefix_size_N": 16,
+          "epsilon": {
+            "exact": "1/289",
+            "decimal": 0.0034602076124567475
+          },
+          "finite_rank": 17,
+          "positive_core_minimum": 1,
+          "global_minimum": {
+            "exact": "-1/289",
+            "decimal": -0.0034602076124567475
+          },
+          "absolute_tail_operator_norm": {
+            "exact": "1/289",
+            "decimal": 0.0034602076124567475
+          },
+          "checks": {
+            "audited_prefix_strictly_positive": true,
+            "hidden_direction_strictly_negative": true,
+            "finite_rank_operator_is_compact": true,
+            "absolute_tail_norm_equals_epsilon": true,
+            "tail_norm_tends_to_zero_in_family": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "Meyer completeness is an L2 theorem, not a proof that the chosen wavelets form the exact Weil test topology. The diagonal operator is synthetic, not the Weil quadratic form. The result only proves that absolute compact-tail smallness is the wrong certificate; it controls no zeta zero and proves neither RH nor its negation.",
+    "route_decision": {
+      "discard": "smooth complete coordinates plus finite-prefix positivity and an arbitrarily small absolute compact tail as a global positivity certificate",
+      "retain": "identify a coercive positive reference for the actual Weil form and bound the remaining operator in relative norm strictly below one",
+      "next_theorem": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T149-REJECTED",
+          "label": "SmoothCompleteCoreAndSmallAbsoluteTailImpliesPositivity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T149-CLOSED",
+          "label": "SmoothSchwartzCoreAndAbsoluteCompactTailNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T149-OPEN",
+          "label": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T149-REJECTED",
+          "RH-T149-CLOSED"
+        ],
+        [
+          "RH-T149-CLOSED",
+          "RH-T149-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One imported smooth basis theorem plus an exact operator-theoretic no-go."
+  }
+}

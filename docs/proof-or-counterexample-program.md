@@ -6011,3 +6011,38 @@ Goldbach에서는 von Mangoldt 고유 상쇄, Twin Prime에서는 실제 Liouvil
 matching coupling이 미증명이다. TICKET-147의 Twin 장경로 적용은
 TICKET-148의 matching 정리로 명시적으로 교정되며, 일반 path-cut
 항등식 자체는 유지된다.
+
+## TICKET-149 continuation: smooth coercivity, exact escape, wheel residual, and semiprime cover
+
+TICKET-149 attacks the four TICKET-148 open nodes while keeping the
+resolution count at zero.
+
+1. **Riemann Hypothesis.** A Schwartz-class Meyer wavelet system closes the
+   requested smooth `L2` basis issue. Nevertheless, for every finite prefix
+   and every `epsilon>0`, a finite-rank self-adjoint diagonal operator can be
+   positive on the prefix, have absolute tail norm `epsilon`, and retain one
+   negative direction. Smooth completeness and absolute compact-tail
+   smallness are discarded as a positivity certificate. The next target is
+   `ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne`.
+2. **Collatz.** For every positive odd `n`, the maximal initial
+   minus-five shadow has exactly `floor((v2(n+5)-1)/3)` valuation pairs
+   `(1,2)`. It exits in one of three exact terminal types, but every
+   nonempty shadow exits above its entry value. Shadow escape alone is
+   therefore not descent. The next target is
+   `ThreeExitTypePostShadowAdaptiveDescent`.
+3. **Goldbach.** Every even endpoint has an exact positive local convolution
+   on every even squarefree wheel. Bilinearity gives an explicit residual
+   transfer inequality, while a reduced-residue singleton proves that wheel
+   support alone can still miss any prescribed endpoint. The next target is
+   `VonMangoldtWheelResidualPointwiseBilinearSavingK56`.
+4. **Twin Prime.** On the cubic-rough support, if `L,R` count semiprime left
+   and right endpoints and `E` is total rough edge mass, then
+   `twins>=E-L-R=-(A10+A01)/2`. Thus positive rough-edge mass together
+   with a uniform deficit in `L+R` is an alternative sufficient route that
+   does not require estimating the full joint term. The next target is
+   `CubicRoughSemiprimeEndpointCoverDeficit`.
+
+한국어 경계: RH의 작용소 반례는 실제 Weil 형식이 아니고, Collatz의
+shadow 탈출은 전역 종료가 아니며, Goldbach의 wheel 공식은 실제
+von Mangoldt residual을 제어하지 않고, Twin의 유한 cover 비율은 균일
+`delta`를 증명하지 않는다. 네 추측은 모두 `open_not_proven`이다.

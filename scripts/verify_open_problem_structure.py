@@ -146,6 +146,7 @@ TICKET145_SCHEMA = "primeproject.ticket145-normalization-affine-endpoint-separab
 TICKET146_SCHEMA = "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1"
 TICKET147_SCHEMA = "primeproject.ticket147-fiber-compensation-phase-graph.v1"
 TICKET148_SCHEMA = "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1"
+TICKET149_SCHEMA = "primeproject.ticket149-smooth-escape-wheel-cover.v1"
 
 
 def fail(message: str) -> int:
@@ -8539,6 +8540,82 @@ def main() -> int:
             return fail(f"{problem_id}: ticket148 proof DAG changed")
     if "resolves no target conjecture" not in str(audit148.get("proof_boundary", "")).lower() or "resolves no target conjecture" not in str(ticket148.get("claim_boundary", "")).lower():
         return fail("ticket148 proof boundary changed")
+
+    path149 = Path("data/open-problem/ticket149-smooth-escape-wheel-cover.json")
+    if not path149.exists():
+        return fail("missing ticket149 smooth-escape-wheel-cover audit")
+    ticket149 = read_json(path149)
+    expected_status149 = "exact_partial_theorems_and_route_reductions_all_conjectures_open"
+    if ticket149.get("schema") != TICKET149_SCHEMA or ticket149.get("status") != expected_status149:
+        return fail("ticket149 schema or status changed")
+    attempts149 = ticket149.get("attempts", [])
+    by_id149 = {str(row.get("problem_id")): row for row in attempts149 if isinstance(row, dict)} if isinstance(attempts149, list) else {}
+    if set(by_id149) != EXPECTED_PROBLEMS:
+        return fail("ticket149 attempts missing problems")
+    paths149 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-149-smooth-compact-tail-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-149-minus-five-exact-escape.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-149-wheel-residual-transfer.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-149-semiprime-cover-reduction.json"),
+    }
+    next149 = {
+        "riemann": "ExplicitWeilWaveletCoerciveReferenceAndRelativeTailNormBelowOne",
+        "collatz": "ThreeExitTypePostShadowAdaptiveDescent",
+        "goldbach": "VonMangoldtWheelResidualPointwiseBilinearSavingK56",
+        "twin-prime": "CubicRoughSemiprimeEndpointCoverDeficit",
+    }
+    for problem_id, attempt in by_id149.items():
+        if not paths149[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket149 artifact or proof boundary missing")
+        per_problem149 = read_json(paths149[problem_id])
+        if per_problem149.get("schema") != TICKET149_SCHEMA or per_problem149.get("problem_id") != problem_id:
+            return fail(f"{problem_id}: ticket149 per-problem schema changed")
+        if attempt.get("candidate_theorem") != next149[problem_id] or per_problem149.get("candidate_theorem") != next149[problem_id]:
+            return fail(f"{problem_id}: ticket149 next theorem changed")
+
+    audit149 = ticket149.get("smooth_escape_wheel_cover_audit", {})
+    machine149 = audit149.get("machine_audit", {})
+    if audit149.get("theorem_name") != "FourConjectureSmoothEscapeWheelCoverAudit" or int(machine149.get("exact_theorem_count", -1)) != 4 or int(machine149.get("rejected_target_count", -1)) != 4 or int(machine149.get("proof_dag_count", -1)) != 4 or int(machine149.get("conjecture_resolution_count", -1)) != 0 or int(machine149.get("total_failure_count", -1)) != 0:
+        return fail("ticket149 global machine audit changed")
+
+    riemann149 = audit149.get("riemann", {})
+    smooth149 = riemann149.get("reproducible_computation", {})
+    smooth_rows149 = smooth149.get("finite_exact_rows", [])
+    if riemann149.get("theorem_name") != "SmoothSchwartzCoreAndAbsoluteCompactTailNoGo" or len(smooth_rows149) != 16 or any(not all(row.get("checks", {}).values()) for row in smooth_rows149) or smooth_rows149[-1].get("epsilon", {}).get("exact") != "1/289" or int(smooth149.get("failure_count", -1)) != 0:
+        return fail("ticket149 RH smooth compact-tail no-go changed")
+
+    collatz149 = audit149.get("collatz", {})
+    shadow149 = collatz149.get("reproducible_computation", {})
+    shadow_rows149 = shadow149.get("finite_exact_rows", [])
+    natural149 = shadow149.get("bounded_natural_audit", {})
+    if collatz149.get("theorem_name") != "MinusFiveShadowExactEscapeAndDescentNoGo" or len(shadow_rows149) != 48 or int(natural149.get("odd_starts_tested", -1)) != 100000 or int(natural149.get("failure_count", -1)) != 0 or any(not all(row.get("checks", {}).values()) for row in shadow_rows149) or int(shadow149.get("failure_count", -1)) != 0:
+        return fail("ticket149 Collatz exact shadow escape changed")
+
+    goldbach149 = audit149.get("goldbach", {})
+    wheel149 = goldbach149.get("reproducible_computation", {})
+    wheel_rows149 = wheel149.get("finite_exact_rows", [])
+    if goldbach149.get("theorem_name") != "SquarefreeWheelLocalMainTermAndResidualTransferNoGo" or [int(row.get("wheel_modulus_W", -1)) for row in wheel_rows149] != [6, 30, 210, 2310] or any(not all(row.get("checks", {}).values()) for row in wheel_rows149) or int(wheel149.get("failure_count", -1)) != 0:
+        return fail("ticket149 Goldbach wheel transfer theorem changed")
+
+    twin149 = audit149.get("twin_prime", {})
+    cover149 = twin149.get("reproducible_computation", {})
+    cover_rows149 = cover149.get("finite_cover_rows", [])
+    factor_rows149 = cover149.get("finite_factor_window_rows", [])
+    if twin149.get("theorem_name") != "CubicRoughSemiprimeEndpointCoverReduction" or len(cover_rows149) != 4 or [int(row.get("exact_twin_count", -1)) for row in cover_rows149] != [26, 137, 936, 6702] or any(not all(row.get("checks", {}).values()) for row in cover_rows149) or len(factor_rows149) != 3 or any(int(row.get("failure_count", -1)) != 0 or int(row.get("maximum_factor_count", -1)) != 2 for row in factor_rows149) or int(cover149.get("failure_count", -1)) != 0:
+        return fail("ticket149 Twin semiprime cover reduction changed")
+
+    sections149 = {
+        "riemann": riemann149,
+        "collatz": collatz149,
+        "goldbach": goldbach149,
+        "twin-prime": twin149,
+    }
+    for problem_id, section in sections149.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if len(nodes) != 3 or [node.get("status") for node in nodes] != ["refuted_or_insufficient", "proved_exact", "open_not_proven"] or nodes[-1].get("label") != next149[problem_id]:
+            return fail(f"{problem_id}: ticket149 proof DAG changed")
+    if "resolves no target conjecture" not in str(audit149.get("proof_boundary", "")).lower() or "resolves no target conjecture" not in str(ticket149.get("claim_boundary", "")).lower():
+        return fail("ticket149 proof boundary changed")
 
     print("open problem structure verified")
     return 0
