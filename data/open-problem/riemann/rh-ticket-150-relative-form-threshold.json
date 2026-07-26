@@ -1,0 +1,2754 @@
+{
+  "schema": "primeproject.ticket150-relative-delay-hole-parity.v1",
+  "generated_at": "2026-07-28T09:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-150",
+  "attempt": "Let P be a nonnegative self-adjoint operator with trivial kernel and form domain Q(P), and let k be a symmetric form on Q(P). Assume there is a bounded self-adjoint B such that k[v,w]=<P^(1/2)v,BP^(1/2)w>. If ||B||<=1 then p+k is nonnegative; if ||B||<1 then p+k>=(1-||B||)p. The threshold is sharp: for every q>1 and every tail index j, K=-q p_j<.,e_j>e_j makes P+K negative on e_j even when the absolute norm q p_j is arbitrarily small. Moreover, an injective positive compact operator on an infinite-dimensional Hilbert space cannot satisfy P>=cI for any c>0.",
+  "bounded_result": {
+    "audit_ref": "relative_delay_hole_parity_audit.riemann"
+  },
+  "obstruction": "This is an abstract quadratic-form theorem. No decomposition of the actual Weil form into a positive reference and relatively bounded prime/archimedean perturbation is constructed, and no zeta zero is controlled. Compact ambient L2 coercivity is ruled out; the correct energy-form topology and a relative bound at most one remain missing.",
+  "candidate_theorem": "ActualWeilPrimeArchimedeanRelativeFormBoundAtMostOne",
+  "next_experiment": "decompose the actual Weil form in its energy topology and certify a prime-plus-archimedean relative form norm at most one",
+  "claim_boundary": "No RH proof and no off-critical zero. One sharp abstract form threshold and one compact-coercivity no-go.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-150",
+    "theorem_name": "RelativeFormThresholdAndCompactAmbientCoercivityNoGo",
+    "declared_proposition": "Let P be a nonnegative self-adjoint operator with trivial kernel and form domain Q(P), and let k be a symmetric form on Q(P). Assume there is a bounded self-adjoint B such that k[v,w]=<P^(1/2)v,BP^(1/2)w>. If ||B||<=1 then p+k is nonnegative; if ||B||<1 then p+k>=(1-||B||)p. The threshold is sharp: for every q>1 and every tail index j, K=-q p_j<.,e_j>e_j makes P+K negative on e_j even when the absolute norm q p_j is arbitrarily small. Moreover, an injective positive compact operator on an infinite-dimensional Hilbert space cannot satisfy P>=cI for any c>0.",
+    "mathematical_argument": "For v in Q(P), writing u=P^(1/2)v gives (p+k)[v]=<u,(I+B)u>>=(1-||B||)||u||^2. For the sharp family take Pe_j=p_j e_j with p_j down to zero and K=-q p_j<.,e_j>e_j. Its relative norm is q, its absolute norm is q p_j, and the combined eigenvalue is (1-q)p_j. Finally, positive compact eigenvalues tend to zero, so every claimed ambient lower bound c is violated by a tail eigenvector.",
+    "reproducible_computation": {
+      "theorem": "Let P be a nonnegative self-adjoint operator with trivial kernel and form domain Q(P), and let k be a symmetric form on Q(P). Assume there is a bounded self-adjoint B such that k[v,w]=<P^(1/2)v,BP^(1/2)w>. If ||B||<=1 then p+k is nonnegative; if ||B||<1 then p+k>=(1-||B||)p. The threshold is sharp: for every q>1 and every tail index j, K=-q p_j<.,e_j>e_j makes P+K negative on e_j even when the absolute norm q p_j is arbitrarily small. Moreover, an injective positive compact operator on an infinite-dimensional Hilbert space cannot satisfy P>=cI for any c>0.",
+      "proof": "For v in Q(P), writing u=P^(1/2)v gives (p+k)[v]=<u,(I+B)u>>=(1-||B||)||u||^2. For the sharp family take Pe_j=p_j e_j with p_j down to zero and K=-q p_j<.,e_j>e_j. Its relative norm is q, its absolute norm is q p_j, and the combined eigenvalue is (1-q)p_j. Finally, positive compact eigenvalues tend to zero, so every claimed ambient lower bound c is violated by a tail eigenvector.",
+      "finite_relative_threshold_rows": [
+        {
+          "basis_index_j": 1,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "combined_eigenvalue": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 1,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "combined_eigenvalue": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 1,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 1,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/8",
+            "decimal": 0.625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 1,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 1,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 2,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "combined_eigenvalue": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 2,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/16",
+            "decimal": 0.1875
+          },
+          "combined_eigenvalue": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 2,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 2,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/16",
+            "decimal": 0.3125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 2,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 2,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 3,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "combined_eigenvalue": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 3,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/32",
+            "decimal": 0.09375
+          },
+          "combined_eigenvalue": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 3,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 3,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/32",
+            "decimal": 0.15625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/32",
+            "decimal": -0.03125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 3,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/16",
+            "decimal": 0.1875
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 3,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 4,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "combined_eigenvalue": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 4,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/64",
+            "decimal": 0.046875
+          },
+          "combined_eigenvalue": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 4,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 4,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/64",
+            "decimal": 0.078125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/64",
+            "decimal": -0.015625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 4,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/32",
+            "decimal": 0.09375
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/32",
+            "decimal": -0.03125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 4,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 5,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "combined_eigenvalue": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 5,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/128",
+            "decimal": 0.0234375
+          },
+          "combined_eigenvalue": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 5,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 5,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/128",
+            "decimal": 0.0390625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/128",
+            "decimal": -0.0078125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 5,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/64",
+            "decimal": 0.046875
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/64",
+            "decimal": -0.015625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 5,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/32",
+            "decimal": -0.03125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 6,
+          "reference_eigenvalue_pj": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "combined_eigenvalue": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 6,
+          "reference_eigenvalue_pj": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/256",
+            "decimal": 0.01171875
+          },
+          "combined_eigenvalue": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 6,
+          "reference_eigenvalue_pj": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 6,
+          "reference_eigenvalue_pj": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/256",
+            "decimal": 0.01953125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/256",
+            "decimal": -0.00390625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 6,
+          "reference_eigenvalue_pj": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/128",
+            "decimal": 0.0234375
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/128",
+            "decimal": -0.0078125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 6,
+          "reference_eigenvalue_pj": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/64",
+            "decimal": -0.015625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 7,
+          "reference_eigenvalue_pj": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "combined_eigenvalue": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 7,
+          "reference_eigenvalue_pj": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/512",
+            "decimal": 0.005859375
+          },
+          "combined_eigenvalue": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 7,
+          "reference_eigenvalue_pj": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 7,
+          "reference_eigenvalue_pj": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/512",
+            "decimal": 0.009765625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/512",
+            "decimal": -0.001953125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 7,
+          "reference_eigenvalue_pj": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/256",
+            "decimal": 0.01171875
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/256",
+            "decimal": -0.00390625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 7,
+          "reference_eigenvalue_pj": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/128",
+            "decimal": -0.0078125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 8,
+          "reference_eigenvalue_pj": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "combined_eigenvalue": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 8,
+          "reference_eigenvalue_pj": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/1024",
+            "decimal": 0.0029296875
+          },
+          "combined_eigenvalue": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 8,
+          "reference_eigenvalue_pj": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 8,
+          "reference_eigenvalue_pj": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/1024",
+            "decimal": 0.0048828125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/1024",
+            "decimal": -0.0009765625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 8,
+          "reference_eigenvalue_pj": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/512",
+            "decimal": 0.005859375
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/512",
+            "decimal": -0.001953125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 8,
+          "reference_eigenvalue_pj": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/256",
+            "decimal": -0.00390625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 9,
+          "reference_eigenvalue_pj": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "combined_eigenvalue": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 9,
+          "reference_eigenvalue_pj": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/2048",
+            "decimal": 0.00146484375
+          },
+          "combined_eigenvalue": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 9,
+          "reference_eigenvalue_pj": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 9,
+          "reference_eigenvalue_pj": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/2048",
+            "decimal": 0.00244140625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/2048",
+            "decimal": -0.00048828125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 9,
+          "reference_eigenvalue_pj": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/1024",
+            "decimal": 0.0029296875
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/1024",
+            "decimal": -0.0009765625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 9,
+          "reference_eigenvalue_pj": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/512",
+            "decimal": -0.001953125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 10,
+          "reference_eigenvalue_pj": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "combined_eigenvalue": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 10,
+          "reference_eigenvalue_pj": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/4096",
+            "decimal": 0.000732421875
+          },
+          "combined_eigenvalue": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 10,
+          "reference_eigenvalue_pj": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 10,
+          "reference_eigenvalue_pj": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/4096",
+            "decimal": 0.001220703125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/4096",
+            "decimal": -0.000244140625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 10,
+          "reference_eigenvalue_pj": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/2048",
+            "decimal": 0.00146484375
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/2048",
+            "decimal": -0.00048828125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 10,
+          "reference_eigenvalue_pj": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/1024",
+            "decimal": -0.0009765625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 11,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "combined_eigenvalue": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 11,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/8192",
+            "decimal": 0.0003662109375
+          },
+          "combined_eigenvalue": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 11,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 11,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/8192",
+            "decimal": 0.0006103515625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/8192",
+            "decimal": -0.0001220703125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 11,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/4096",
+            "decimal": 0.000732421875
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/4096",
+            "decimal": -0.000244140625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 11,
+          "reference_eigenvalue_pj": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/2048",
+            "decimal": -0.00048828125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 12,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "combined_eigenvalue": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 12,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/16384",
+            "decimal": 0.00018310546875
+          },
+          "combined_eigenvalue": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 12,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 12,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/16384",
+            "decimal": 0.00030517578125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/16384",
+            "decimal": -6.103515625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 12,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/8192",
+            "decimal": 0.0003662109375
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/8192",
+            "decimal": -0.0001220703125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 12,
+          "reference_eigenvalue_pj": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/4096",
+            "decimal": -0.000244140625
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 13,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 13,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/32768",
+            "decimal": 9.1552734375e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 13,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 13,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/32768",
+            "decimal": 0.000152587890625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/32768",
+            "decimal": -3.0517578125e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 13,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/16384",
+            "decimal": 0.00018310546875
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/16384",
+            "decimal": -6.103515625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 13,
+          "reference_eigenvalue_pj": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/8192",
+            "decimal": -0.0001220703125
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 14,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 14,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/65536",
+            "decimal": 4.57763671875e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 14,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 14,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/65536",
+            "decimal": 7.62939453125e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/65536",
+            "decimal": -1.52587890625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 14,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/32768",
+            "decimal": 9.1552734375e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/32768",
+            "decimal": -3.0517578125e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 14,
+          "reference_eigenvalue_pj": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/16384",
+            "decimal": -6.103515625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 15,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 15,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/131072",
+            "decimal": 2.288818359375e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/131072",
+            "decimal": 7.62939453125e-06
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 15,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 15,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/131072",
+            "decimal": 3.814697265625e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/131072",
+            "decimal": -7.62939453125e-06
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 15,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/65536",
+            "decimal": 4.57763671875e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/65536",
+            "decimal": -1.52587890625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 15,
+          "reference_eigenvalue_pj": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/32768",
+            "decimal": -3.0517578125e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 16,
+          "reference_eigenvalue_pj": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/131072",
+            "decimal": 7.62939453125e-06
+          },
+          "combined_eigenvalue": {
+            "exact": "1/131072",
+            "decimal": 7.62939453125e-06
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 16,
+          "reference_eigenvalue_pj": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/262144",
+            "decimal": 1.1444091796875e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "1/262144",
+            "decimal": 3.814697265625e-06
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 16,
+          "reference_eigenvalue_pj": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 16,
+          "reference_eigenvalue_pj": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "absolute_perturbation_norm": {
+            "exact": "5/262144",
+            "decimal": 1.9073486328125e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/262144",
+            "decimal": -3.814697265625e-06
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 16,
+          "reference_eigenvalue_pj": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          "absolute_perturbation_norm": {
+            "exact": "3/131072",
+            "decimal": 2.288818359375e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/131072",
+            "decimal": -7.62939453125e-06
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        },
+        {
+          "basis_index_j": 16,
+          "reference_eigenvalue_pj": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "relative_form_norm_q": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "absolute_perturbation_norm": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "combined_eigenvalue": {
+            "exact": "-1/65536",
+            "decimal": -1.52587890625e-05
+          },
+          "checks": {
+            "reference_direction_positive": true,
+            "relative_norm_identity": true,
+            "nonnegative_at_or_below_one": true,
+            "strictly_positive_below_one": true,
+            "strictly_negative_above_one": true
+          }
+        }
+      ],
+      "finite_compact_coercivity_rows": [
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "witness_basis_index": 2,
+          "witness_reference_value": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "witness_basis_index": 3,
+          "witness_reference_value": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "witness_basis_index": 4,
+          "witness_reference_value": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "witness_basis_index": 5,
+          "witness_reference_value": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "witness_basis_index": 6,
+          "witness_reference_value": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "witness_basis_index": 7,
+          "witness_reference_value": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/128",
+            "decimal": 0.0078125
+          },
+          "witness_basis_index": 8,
+          "witness_reference_value": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "witness_basis_index": 9,
+          "witness_reference_value": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/512",
+            "decimal": 0.001953125
+          },
+          "witness_basis_index": 10,
+          "witness_reference_value": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/1024",
+            "decimal": 0.0009765625
+          },
+          "witness_basis_index": 11,
+          "witness_reference_value": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/2048",
+            "decimal": 0.00048828125
+          },
+          "witness_basis_index": 12,
+          "witness_reference_value": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "witness_basis_index": 13,
+          "witness_reference_value": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/8192",
+            "decimal": 0.0001220703125
+          },
+          "witness_basis_index": 14,
+          "witness_reference_value": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/16384",
+            "decimal": 6.103515625e-05
+          },
+          "witness_basis_index": 15,
+          "witness_reference_value": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/32768",
+            "decimal": 3.0517578125e-05
+          },
+          "witness_basis_index": 16,
+          "witness_reference_value": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "violates_P_ge_cI": true
+        },
+        {
+          "candidate_ambient_lower_bound_c": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "witness_basis_index": 17,
+          "witness_reference_value": {
+            "exact": "1/131072",
+            "decimal": 7.62939453125e-06
+          },
+          "violates_P_ge_cI": true
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "This is an abstract quadratic-form theorem. No decomposition of the actual Weil form into a positive reference and relatively bounded prime/archimedean perturbation is constructed, and no zeta zero is controlled. Compact ambient L2 coercivity is ruled out; the correct energy-form topology and a relative bound at most one remain missing.",
+    "route_decision": {
+      "discard": "a compact positive reference that is uniformly coercive in the ambient L2 norm, or absolute tail smallness as a substitute for a relative form estimate",
+      "retain": "decompose the actual Weil form in its energy topology and certify a prime-plus-archimedean relative form norm at most one",
+      "next_theorem": "ActualWeilPrimeArchimedeanRelativeFormBoundAtMostOne"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T150-REJECTED",
+          "label": "CompactReferenceAmbientL2Coercivity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T150-CLOSED",
+          "label": "RelativeFormThresholdAndCompactAmbientCoercivityNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T150-OPEN",
+          "label": "ActualWeilPrimeArchimedeanRelativeFormBoundAtMostOne",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T150-REJECTED",
+          "RH-T150-CLOSED"
+        ],
+        [
+          "RH-T150-CLOSED",
+          "RH-T150-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One sharp abstract form threshold and one compact-coercivity no-go."
+  }
+}

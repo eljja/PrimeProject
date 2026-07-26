@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket150-relative-delay-hole-parity.v1",
+  "generated_at": "2026-07-28T09:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-150",
+  "attempt": "On cubic-rough gap-two support, let T be the twin cell and D the double-semiprime cell. Then E-L-R=T-D=-(A10+A01)/2. Hence a uniform cover deficit L+R<=(1-delta)E is exactly the parity-sensitive inequality T-D>=delta E, equivalently A10+A01<=-2 delta E. It is stronger than merely asserting that a twin exists in the interval: T>0 does not imply T>D.",
+  "bounded_result": {
+    "audit_ref": "relative_delay_hole_parity_audit.twin_prime"
+  },
+  "obstruction": "The identity does not estimate A10+A01 or prove positive rough edge mass at all scales. It shows that the cover deficit is a signed prime-versus-double-semiprime parity bias, not an unsigned combinatorial shortcut. The required one-sided Liouville gap remains open.",
+  "candidate_theorem": "PositiveCubicRoughMassAndOneSidedLiouvilleMarginalGap",
+  "next_experiment": "prove positive cubic-rough mass together with the explicit signed one-sided Liouville marginal gap A10+A01<=-2 delta A00",
+  "claim_boundary": "No Twin Prime proof or counterexample. One exact parity equivalence, finite source replay, and synthetic separation.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-150",
+    "theorem_name": "SemiprimeCoverDeficitExactParityEquivalence",
+    "declared_proposition": "On cubic-rough gap-two support, let T be the twin cell and D the double-semiprime cell. Then E-L-R=T-D=-(A10+A01)/2. Hence a uniform cover deficit L+R<=(1-delta)E is exactly the parity-sensitive inequality T-D>=delta E, equivalently A10+A01<=-2 delta E. It is stronger than merely asserting that a twin exists in the interval: T>0 does not imply T>D.",
+    "mathematical_argument": "Partition every rough edge into the four endpoint parity cells D=(semiprime,semiprime), the two mixed cells, and T=(prime,prime). Then E is the sum of all four cells, while L and R each contain D and one different mixed cell. Subtraction leaves T-D. The Liouville identities L=(E+A10)/2 and R=(E+A01)/2 give the second equality. A table with T=1 and D=2 has a twin but negative cover deficit, proving that existence alone is insufficient.",
+    "reproducible_computation": {
+      "theorem": "On cubic-rough gap-two support, let T be the twin cell and D the double-semiprime cell. Then E-L-R=T-D=-(A10+A01)/2. Hence a uniform cover deficit L+R<=(1-delta)E is exactly the parity-sensitive inequality T-D>=delta E, equivalently A10+A01<=-2 delta E. It is stronger than merely asserting that a twin exists in the interval: T>0 does not imply T>D.",
+      "proof": "Partition every rough edge into the four endpoint parity cells D=(semiprime,semiprime), the two mixed cells, and T=(prime,prime). Then E is the sum of all four cells, while L and R each contain D and one different mixed cell. Subtraction leaves T-D. The Liouville identities L=(E+A10)/2 and R=(E+A01)/2 give the second equality. A table with T=1 and D=2 has a twin but negative cover deficit, proving that existence alone is insufficient.",
+      "finite_source_rows": [
+        {
+          "X": 1000,
+          "rough_edges_E": 59,
+          "twin_edges_T": 26,
+          "double_semiprime_edges_D": 8,
+          "cover_deficit_E_minus_L_minus_R": 18,
+          "A10_plus_A01": -36,
+          "normalized_deficit": {
+            "exact": "18/59",
+            "decimal": 0.3050847457627119
+          },
+          "checks": {
+            "deficit_equals_twin_minus_double_semiprime": true,
+            "deficit_equals_negative_liouville_marginal_half": true,
+            "positive_deficit_is_twin_dominance": true,
+            "source_lower_bound_matches": true
+          }
+        },
+        {
+          "X": 10000,
+          "rough_edges_E": 358,
+          "twin_edges_T": 137,
+          "double_semiprime_edges_D": 43,
+          "cover_deficit_E_minus_L_minus_R": 94,
+          "A10_plus_A01": -188,
+          "normalized_deficit": {
+            "exact": "47/179",
+            "decimal": 0.26256983240223464
+          },
+          "checks": {
+            "deficit_equals_twin_minus_double_semiprime": true,
+            "deficit_equals_negative_liouville_marginal_half": true,
+            "positive_deficit_is_twin_dominance": true,
+            "source_lower_bound_matches": true
+          }
+        },
+        {
+          "X": 100000,
+          "rough_edges_E": 2486,
+          "twin_edges_T": 936,
+          "double_semiprime_edges_D": 376,
+          "cover_deficit_E_minus_L_minus_R": 560,
+          "A10_plus_A01": -1120,
+          "normalized_deficit": {
+            "exact": "280/1243",
+            "decimal": 0.2252614641995173
+          },
+          "checks": {
+            "deficit_equals_twin_minus_double_semiprime": true,
+            "deficit_equals_negative_liouville_marginal_half": true,
+            "positive_deficit_is_twin_dominance": true,
+            "source_lower_bound_matches": true
+          }
+        },
+        {
+          "X": 1000000,
+          "rough_edges_E": 17634,
+          "twin_edges_T": 6702,
+          "double_semiprime_edges_D": 2721,
+          "cover_deficit_E_minus_L_minus_R": 3981,
+          "A10_plus_A01": -7962,
+          "normalized_deficit": {
+            "exact": "1327/5878",
+            "decimal": 0.22575706022456618
+          },
+          "checks": {
+            "deficit_equals_twin_minus_double_semiprime": true,
+            "deficit_equals_negative_liouville_marginal_half": true,
+            "positive_deficit_is_twin_dominance": true,
+            "source_lower_bound_matches": true
+          }
+        }
+      ],
+      "synthetic_separation_rows": [
+        {
+          "twin_cell_T": 1,
+          "double_semiprime_cell_D": 2,
+          "left_only_cell": 0,
+          "right_only_cell": 0,
+          "edge_count_E": 3,
+          "cover_deficit": -1,
+          "twins_exist": true,
+          "positive_cover_deficit": false,
+          "identity_passes": true
+        },
+        {
+          "twin_cell_T": 2,
+          "double_semiprime_cell_D": 2,
+          "left_only_cell": 0,
+          "right_only_cell": 0,
+          "edge_count_E": 4,
+          "cover_deficit": 0,
+          "twins_exist": true,
+          "positive_cover_deficit": false,
+          "identity_passes": true
+        },
+        {
+          "twin_cell_T": 3,
+          "double_semiprime_cell_D": 2,
+          "left_only_cell": 0,
+          "right_only_cell": 0,
+          "edge_count_E": 5,
+          "cover_deficit": 1,
+          "twins_exist": true,
+          "positive_cover_deficit": true,
+          "identity_passes": true
+        },
+        {
+          "twin_cell_T": 1,
+          "double_semiprime_cell_D": 100,
+          "left_only_cell": 0,
+          "right_only_cell": 0,
+          "edge_count_E": 101,
+          "cover_deficit": -99,
+          "twins_exist": true,
+          "positive_cover_deficit": false,
+          "identity_passes": true
+        }
+      ],
+      "source_artifact": "data/open-problem/ticket149-smooth-escape-wheel-cover.json",
+      "source_sha256": "af43e0fbc04bb23a8f65e1e8969cf50108b38c907d119c2c9552bd3d9823eb50",
+      "failure_count": 0
+    },
+    "logical_limit": "The identity does not estimate A10+A01 or prove positive rough edge mass at all scales. It shows that the cover deficit is a signed prime-versus-double-semiprime parity bias, not an unsigned combinatorial shortcut. The required one-sided Liouville gap remains open.",
+    "route_decision": {
+      "discard": "treating the semiprime cover deficit as an unsigned marginal statistic that avoids the parity problem",
+      "retain": "prove positive cubic-rough mass together with the explicit signed one-sided Liouville marginal gap A10+A01<=-2 delta A00",
+      "next_theorem": "PositiveCubicRoughMassAndOneSidedLiouvilleMarginalGap"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T150-REJECTED",
+          "label": "UnsignedSemiprimeCoverAvoidsParityBarrier",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T150-CLOSED",
+          "label": "SemiprimeCoverDeficitExactParityEquivalence",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T150-OPEN",
+          "label": "PositiveCubicRoughMassAndOneSidedLiouvilleMarginalGap",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T150-REJECTED",
+          "TP-T150-CLOSED"
+        ],
+        [
+          "TP-T150-CLOSED",
+          "TP-T150-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof or counterexample. One exact parity equivalence, finite source replay, and synthetic separation."
+  }
+}

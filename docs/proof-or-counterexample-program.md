@@ -6046,3 +6046,40 @@ resolution count at zero.
 shadow 탈출은 전역 종료가 아니며, Goldbach의 wheel 공식은 실제
 von Mangoldt residual을 제어하지 않고, Twin의 유한 cover 비율은 균일
 `delta`를 증명하지 않는다. 네 추측은 모두 `open_not_proven`이다.
+
+## TICKET-150 continuation: relative form, arbitrary delay, sharp holes, and parity equivalence
+
+TICKET-150 attacks the four TICKET-149 open nodes and corrects which proposed
+bridges are genuinely weaker than the target.
+
+1. **Riemann Hypothesis.** For a positive reference form `P` and symmetric
+   perturbation `K`, the relative operator
+   `B=P^(-1/2)KP^(-1/2)` gives
+   `P+K>=(1-||B||)P`. Norm at most one implies nonnegativity and the
+   threshold is sharp. A positive compact reference cannot have a positive
+   ambient `L2` spectral floor in infinite dimension. The next target is
+   `ActualWeilPrimeArchimedeanRelativeFormBoundAtMostOne`.
+2. **Collatz.** The `r=1` and `r=3` minus-five shadow exits contract below
+   their exit value in at most two accelerated steps. The `r=2` exit instead
+   admits, for every `L,H`, an exact positive CRT family with shadow
+   `(1,2)^L` followed by `(1,1,1^H)`, all above the pre-shadow start.
+   Every fixed post-shadow window is therefore retired. The next target is
+   `TypeTwoAdaptiveValuationSurplusDescentBelowShadowEntry`.
+3. **Goldbach.** If `g` is the reduced-residue indicator and
+   `m=(g*g)(N)`, the exact minimum squared `L2` distance from `g` to a
+   nonnegative endpoint-hole weight is `(m+h)/2`, where `h` counts fixed
+   endpoint-reflection residues. This threshold is sharp, and its relative
+   value tends to zero on primorial wheels at `N=2`. The next target is
+   `VonMangoldtEndpointReflectionMassRetentionK56`.
+4. **Twin Prime.** The TICKET-149 cover deficit is exactly
+   `E-L-R=T-D=-(A10+A01)/2`, where `T` is the twin cell and `D` the
+   double-semiprime cell. Thus the deficit is a parity-sensitive
+   twin-versus-double-semiprime bias, not an unsigned shortcut. The next
+   target is
+   `PositiveCubicRoughMassAndOneSidedLiouvilleMarginalGap`.
+
+한국어 경계: RH의 상대 form 정리는 실제 Weil 분해가 아니고, Collatz의
+CRT 가족은 임의로 긴 유한 지연일 뿐 발산 궤적이 아니다. Goldbach의
+sharp hole 가중치는 실제 von Mangoldt 함수가 아니며, Twin 등가식은
+`A10+A01`을 무한 scale에서 추정하지 않는다. 네 추측은 모두
+`open_not_proven`이고 해결 카운터는 0이다.

@@ -147,6 +147,7 @@ TICKET146_SCHEMA = "primeproject.ticket146-toeplitz-polynomial-phase-frechet.v1"
 TICKET147_SCHEMA = "primeproject.ticket147-fiber-compensation-phase-graph.v1"
 TICKET148_SCHEMA = "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1"
 TICKET149_SCHEMA = "primeproject.ticket149-smooth-escape-wheel-cover.v1"
+TICKET150_SCHEMA = "primeproject.ticket150-relative-delay-hole-parity.v1"
 
 
 def fail(message: str) -> int:
@@ -8616,6 +8617,85 @@ def main() -> int:
             return fail(f"{problem_id}: ticket149 proof DAG changed")
     if "resolves no target conjecture" not in str(audit149.get("proof_boundary", "")).lower() or "resolves no target conjecture" not in str(ticket149.get("claim_boundary", "")).lower():
         return fail("ticket149 proof boundary changed")
+
+    path150 = Path("data/open-problem/ticket150-relative-delay-hole-parity.json")
+    if not path150.exists():
+        return fail("missing ticket150 relative-delay-hole-parity audit")
+    ticket150 = read_json(path150)
+    expected_status150 = "exact_partial_theorems_and_sharp_no_go_results_all_conjectures_open"
+    if ticket150.get("schema") != TICKET150_SCHEMA or ticket150.get("status") != expected_status150:
+        return fail("ticket150 schema or status changed")
+    attempts150 = ticket150.get("attempts", [])
+    by_id150 = {str(row.get("problem_id")): row for row in attempts150 if isinstance(row, dict)} if isinstance(attempts150, list) else {}
+    if set(by_id150) != EXPECTED_PROBLEMS:
+        return fail("ticket150 attempts missing problems")
+    paths150 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-150-relative-form-threshold.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-150-type-two-delay.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-150-endpoint-hole-radius.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-150-cover-parity-equivalence.json"),
+    }
+    next150 = {
+        "riemann": "ActualWeilPrimeArchimedeanRelativeFormBoundAtMostOne",
+        "collatz": "TypeTwoAdaptiveValuationSurplusDescentBelowShadowEntry",
+        "goldbach": "VonMangoldtEndpointReflectionMassRetentionK56",
+        "twin-prime": "PositiveCubicRoughMassAndOneSidedLiouvilleMarginalGap",
+    }
+    for problem_id, attempt in by_id150.items():
+        if not paths150[problem_id].exists() or "No " not in str(attempt.get("claim_boundary", "")):
+            return fail(f"{problem_id}: ticket150 artifact or proof boundary missing")
+        per_problem150 = read_json(paths150[problem_id])
+        if per_problem150.get("schema") != TICKET150_SCHEMA or per_problem150.get("problem_id") != problem_id:
+            return fail(f"{problem_id}: ticket150 per-problem schema changed")
+        if attempt.get("candidate_theorem") != next150[problem_id] or per_problem150.get("candidate_theorem") != next150[problem_id]:
+            return fail(f"{problem_id}: ticket150 next theorem changed")
+
+    audit150 = ticket150.get("relative_delay_hole_parity_audit", {})
+    machine150 = audit150.get("machine_audit", {})
+    if audit150.get("theorem_name") != "FourConjectureRelativeDelayHoleParityAudit" or int(machine150.get("exact_theorem_count", -1)) != 4 or int(machine150.get("rejected_target_count", -1)) != 4 or int(machine150.get("proof_dag_count", -1)) != 4 or int(machine150.get("conjecture_resolution_count", -1)) != 0 or int(machine150.get("total_failure_count", -1)) != 0:
+        return fail("ticket150 global machine audit changed")
+
+    riemann150 = audit150.get("riemann", {})
+    relative150 = riemann150.get("reproducible_computation", {})
+    relative_rows150 = relative150.get("finite_relative_threshold_rows", [])
+    coercivity_rows150 = relative150.get("finite_compact_coercivity_rows", [])
+    if riemann150.get("theorem_name") != "RelativeFormThresholdAndCompactAmbientCoercivityNoGo" or len(relative_rows150) != 96 or any(not all(row.get("checks", {}).values()) for row in relative_rows150) or len(coercivity_rows150) != 16 or any(not row.get("violates_P_ge_cI") for row in coercivity_rows150) or int(relative150.get("failure_count", -1)) != 0:
+        return fail("ticket150 RH relative-form threshold changed")
+
+    collatz150 = audit150.get("collatz", {})
+    delay150 = collatz150.get("reproducible_computation", {})
+    local_rows150 = delay150.get("finite_exit_type_rows", [])
+    crt_rows150 = delay150.get("finite_crt_delay_rows", [])
+    if collatz150.get("theorem_name") != "ThreeExitLocalCompensationAndTypeTwoArbitraryDelayNoGo" or len(local_rows150) != 3 or [int(row.get("strict_local_descents", -1)) for row in local_rows150] != [999, 0, 1000] or int(local_rows150[1].get("strict_local_expansions", -1)) != 1000 or any(int(row.get("failure_count", -1)) != 0 for row in local_rows150) or len(crt_rows150) != 42 or any(not all(row.get("checks", {}).values()) for row in crt_rows150) or int(delay150.get("failure_count", -1)) != 0:
+        return fail("ticket150 Collatz type-two delay changed")
+
+    goldbach150 = audit150.get("goldbach", {})
+    hole150 = goldbach150.get("reproducible_computation", {})
+    wheel_rows150 = hole150.get("finite_exact_wheel_rows", [])
+    primorial_rows150 = hole150.get("primorial_relative_radius_rows", [])
+    primorial_ratios150 = [Fraction(row.get("relative_radius_squared", {}).get("exact", "1")) for row in primorial_rows150]
+    if goldbach150.get("theorem_name") != "SharpWheelEndpointHoleRadiusAndGrowingRelativeL2NoGo" or [int(row.get("wheel_modulus_W", -1)) for row in wheel_rows150] != [6, 30, 210, 2310] or any(int(row.get("failure_count", -1)) != 0 for row in wheel_rows150) or len(primorial_rows150) != 13 or any(right >= left for left, right in zip(primorial_ratios150, primorial_ratios150[1:])) or not hole150.get("primorial_ratio_strictly_decreasing_in_audit") or int(hole150.get("failure_count", -1)) != 0:
+        return fail("ticket150 Goldbach sharp hole radius changed")
+
+    twin150 = audit150.get("twin_prime", {})
+    parity150 = twin150.get("reproducible_computation", {})
+    source_rows150 = parity150.get("finite_source_rows", [])
+    synthetic_rows150 = parity150.get("synthetic_separation_rows", [])
+    if twin150.get("theorem_name") != "SemiprimeCoverDeficitExactParityEquivalence" or len(source_rows150) != 4 or [int(row.get("cover_deficit_E_minus_L_minus_R", -1)) for row in source_rows150] != [18, 94, 560, 3981] or any(not all(row.get("checks", {}).values()) for row in source_rows150) or len(synthetic_rows150) != 4 or not any(row.get("twins_exist") and not row.get("positive_cover_deficit") for row in synthetic_rows150) or int(parity150.get("failure_count", -1)) != 0:
+        return fail("ticket150 Twin cover parity equivalence changed")
+
+    sections150 = {
+        "riemann": riemann150,
+        "collatz": collatz150,
+        "goldbach": goldbach150,
+        "twin-prime": twin150,
+    }
+    for problem_id, section in sections150.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if len(nodes) != 3 or [node.get("status") for node in nodes] != ["refuted_or_insufficient", "proved_exact", "open_not_proven"] or nodes[-1].get("label") != next150[problem_id]:
+            return fail(f"{problem_id}: ticket150 proof DAG changed")
+    if "resolves no target conjecture" not in str(audit150.get("proof_boundary", "")).lower() or "resolves no target conjecture" not in str(ticket150.get("claim_boundary", "")).lower():
+        return fail("ticket150 proof boundary changed")
 
     print("open problem structure verified")
     return 0

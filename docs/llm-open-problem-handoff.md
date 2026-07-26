@@ -62,7 +62,42 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-149
+## Latest Continuation After TICKET-150
+
+Read `docs/relative-delay-hole-parity.md`,
+`data/open-problem/ticket150-relative-delay-hole-parity.json`,
+`scripts/ticket150_relative_delay_hole_parity.py`, and
+`tests/test_ticket150_relative_delay_hole_parity.py` first.
+
+Do not reopen these rejected or corrected routes without a strictly stronger
+problem-specific theorem:
+
+- compact ambient `L2` coercivity for the RH reference form, or absolute
+  tail smallness in place of a relative form estimate;
+- any fixed-length Collatz post-shadow descent window chosen only from the
+  three exit types;
+- a wheel-independent relative `L2` threshold for pointwise Goldbach
+  positivity on growing wheels;
+- interpreting the Twin semiprime-cover deficit as an unsigned shortcut
+  around the parity problem.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ActualWeilPrimeArchimedeanRelativeFormBoundAtMostOne` |
+| Collatz | `TypeTwoAdaptiveValuationSurplusDescentBelowShadowEntry` |
+| Goldbach | `VonMangoldtEndpointReflectionMassRetentionK56` |
+| Twin Prime | `PositiveCubicRoughMassAndOneSidedLiouvilleMarginalGap` |
+
+한국어: RH는 실제 Weil 이차형식의 energy topology에서 prime 항과
+archimedean 항의 상대 form norm을 `1` 이하로 제어해야 한다. Collatz는
+CRT가 만드는 `r=2` 임의 지연 뒤에도 shadow 진입점 아래로 내려가는 적응형
+valuation-surplus 정리가 필요하다. Goldbach는 growing wheel의 전역
+`L2`가 아니라 실제 endpoint 반사 쌍에서 von Mangoldt 질량을 `K56`
+규모로 유지해야 한다. Twin Prime은 양의 cubic-rough 질량과
+`A10+A01<=-2 delta A00`인 단측 Liouville gap을 함께 증명해야 한다.
+네 난제는 모두 미해결이다.
+
+## Historical Continuation After TICKET-149
 
 Read `docs/smooth-escape-wheel-cover.md`,
 `data/open-problem/ticket149-smooth-escape-wheel-cover.json`,

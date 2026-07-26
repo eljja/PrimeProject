@@ -6,6 +6,18 @@ conjectures remain open.
 **상태:** 정확한 중간 정리와 경로 환원만 확립했다. 네 난제는 모두
 미해결이다.
 
+> **TICKET-150 continuation / 후속 연구:** the abstract relative-form
+> threshold is now sharp and compact ambient coercivity is retired; the
+> Collatz `r=2` exit defeats every fixed post-shadow window; the sharp
+> nonnegative Goldbach wheel endpoint-hole radius is computed; and the Twin
+> cover deficit is identified exactly as `twin - double-semiprime`. See
+> [Relative Form, Delay, Hole, and Parity](relative-delay-hole-parity.md).
+>
+> **한국어:** TICKET-150은 RH 상대 form 임계값, Collatz `r=2` 임의 지연,
+> Goldbach sharp endpoint-hole 반지름, Twin cover deficit의 정확한 parity
+> 등가식을 확정했습니다. TICKET-149의 정리는 유지되지만 당시 제안한 다음
+> 경로는 이 후속 결과에 따라 더 좁혀졌습니다.
+
 ## Abstract / 초록
 
 **English.** This ticket attacks the four open nodes left by TICKET-148. For

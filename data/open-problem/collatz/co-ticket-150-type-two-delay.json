@@ -1,0 +1,1785 @@
+{
+  "schema": "primeproject.ticket150-relative-delay-hole-parity.v1",
+  "generated_at": "2026-07-28T09:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-150",
+  "attempt": "Write a post-shadow exit as x_r=2^r d-5 with d odd and r in {1,2,3}. For positive exits, r=1 satisfies T(x_1)<=x_1 with equality only at x_1=1, while r=3 satisfies T^2(x_3)<x_3. In contrast, r=2 has valuation prefix (1,1) and T(x_2),T^2(x_2)>x_2. More strongly, for every shadow length L and every H there is a positive start whose exact (1,2)^L shadow exits with r=2 and is followed by (1,1,1^H), with every one of those H+2 post-exit iterates above both the exit and the original start.",
+  "bounded_result": {
+    "audit_ref": "relative_delay_hole_parity_audit.collatz"
+  },
+  "obstruction": "Local descent below the r=1 or r=3 exit need not repay the preceding (9/8)^L shadow expansion. The r=2 CRT family defeats every fixed post-exit horizon but does not produce an infinite divergent orbit. An adaptive, unbounded valuation-surplus theorem remains unproved.",
+  "candidate_theorem": "TypeTwoAdaptiveValuationSurplusDescentBelowShadowEntry",
+  "next_experiment": "for r=2, use an adaptive stopping time whose accumulated valuation surplus repays both the shadow expansion and the forced Mersenne-like delay",
+  "claim_boundary": "No Collatz proof and no divergent positive orbit. Two local exit contractions and an arbitrary finite-delay no-go.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-150",
+    "theorem_name": "ThreeExitLocalCompensationAndTypeTwoArbitraryDelayNoGo",
+    "declared_proposition": "Write a post-shadow exit as x_r=2^r d-5 with d odd and r in {1,2,3}. For positive exits, r=1 satisfies T(x_1)<=x_1 with equality only at x_1=1, while r=3 satisfies T^2(x_3)<x_3. In contrast, r=2 has valuation prefix (1,1) and T(x_2),T^2(x_2)>x_2. More strongly, for every shadow length L and every H there is a positive start whose exact (1,2)^L shadow exits with r=2 and is followed by (1,1,1^H), with every one of those H+2 post-exit iterates above both the exit and the original start.",
+    "mathematical_argument": "For r=1 direct substitution gives T(2d-5)=oddpart(3d-7)<=(3d-7)/2<=2d-5. For r=3, the first two valuations are 1 and at least 3 and T^2(8d-5)=oddpart(9d-5)<8d-5. For r=2 the first valuations are (1,1) and T^2(4d-5)=9d-10>4d-5. Given L,H, choose d divisible by 9^L and congruent to 1 modulo 2^(H+1). The Chinese remainder theorem supplies such positive d. Reversing the exact shadow identity gives the required positive start, and 9d-10 is congruent to -1 modulo 2^(H+1), forcing H additional valuation-one expansion steps.",
+    "reproducible_computation": {
+      "theorem": "Write a post-shadow exit as x_r=2^r d-5 with d odd and r in {1,2,3}. For positive exits, r=1 satisfies T(x_1)<=x_1 with equality only at x_1=1, while r=3 satisfies T^2(x_3)<x_3. In contrast, r=2 has valuation prefix (1,1) and T(x_2),T^2(x_2)>x_2. More strongly, for every shadow length L and every H there is a positive start whose exact (1,2)^L shadow exits with r=2 and is followed by (1,1,1^H), with every one of those H+2 post-exit iterates above both the exit and the original start.",
+      "proof": "For r=1 direct substitution gives T(2d-5)=oddpart(3d-7)<=(3d-7)/2<=2d-5. For r=3, the first two valuations are 1 and at least 3 and T^2(8d-5)=oddpart(9d-5)<8d-5. For r=2 the first valuations are (1,1) and T^2(4d-5)=9d-10>4d-5. Given L,H, choose d divisible by 9^L and congruent to 1 modulo 2^(H+1). The Chinese remainder theorem supplies such positive d. Reversing the exact shadow identity gives the required positive start, and 9d-10 is congruent to -1 modulo 2^(H+1), forcing H additional valuation-one expansion steps.",
+      "finite_exit_type_rows": [
+        {
+          "exit_order_r": 1,
+          "odd_coefficients_audited": 1000,
+          "strict_local_descents": 999,
+          "local_equalities": 1,
+          "strict_local_expansions": 0,
+          "failure_count": 0
+        },
+        {
+          "exit_order_r": 2,
+          "odd_coefficients_audited": 1000,
+          "strict_local_descents": 0,
+          "local_equalities": 0,
+          "strict_local_expansions": 1000,
+          "failure_count": 0
+        },
+        {
+          "exit_order_r": 3,
+          "odd_coefficients_audited": 1000,
+          "strict_local_descents": 1000,
+          "local_equalities": 0,
+          "strict_local_expansions": 0,
+          "failure_count": 0
+        }
+      ],
+      "finite_crt_delay_rows": [
+        {
+          "shadow_pair_count_L": 0,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "5",
+          "exit_odd_coefficient_d": "5",
+          "original_start_n": "15",
+          "type_two_exit_x": "15",
+          "shadow_valuations": [],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "23",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 0,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "9",
+          "exit_odd_coefficient_d": "9",
+          "original_start_n": "31",
+          "type_two_exit_x": "31",
+          "shadow_valuations": [],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "47",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 0,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "33",
+          "exit_odd_coefficient_d": "33",
+          "original_start_n": "127",
+          "type_two_exit_x": "127",
+          "shadow_valuations": [],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "191",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 0,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "513",
+          "exit_odd_coefficient_d": "513",
+          "original_start_n": "2047",
+          "type_two_exit_x": "2047",
+          "shadow_valuations": [],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "3071",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 0,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "131073",
+          "exit_odd_coefficient_d": "131073",
+          "original_start_n": "524287",
+          "type_two_exit_x": "524287",
+          "shadow_valuations": [],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "786431",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 0,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "8589934593",
+          "exit_odd_coefficient_d": "8589934593",
+          "original_start_n": "34359738367",
+          "type_two_exit_x": "34359738367",
+          "shadow_valuations": [],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "51539607551",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 1,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "9",
+          "original_start_n": "27",
+          "type_two_exit_x": "31",
+          "shadow_valuations": [
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "47",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 1,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "9",
+          "original_start_n": "27",
+          "type_two_exit_x": "31",
+          "shadow_valuations": [
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "47",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 1,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "25",
+          "exit_odd_coefficient_d": "225",
+          "original_start_n": "795",
+          "type_two_exit_x": "895",
+          "shadow_valuations": [
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "1343",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 1,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "57",
+          "exit_odd_coefficient_d": "513",
+          "original_start_n": "1819",
+          "type_two_exit_x": "2047",
+          "shadow_valuations": [
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "3071",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 1,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "101945",
+          "exit_odd_coefficient_d": "917505",
+          "original_start_n": "3262235",
+          "type_two_exit_x": "3670015",
+          "shadow_valuations": [
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "5505023",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 1,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "954437177",
+          "exit_odd_coefficient_d": "8589934593",
+          "original_start_n": "30541989659",
+          "type_two_exit_x": "34359738367",
+          "shadow_valuations": [
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "51539607551",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 2,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "81",
+          "original_start_n": "251",
+          "type_two_exit_x": "319",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "479",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 2,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "81",
+          "original_start_n": "251",
+          "type_two_exit_x": "319",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "479",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 2,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "17",
+          "exit_odd_coefficient_d": "1377",
+          "original_start_n": "4347",
+          "type_two_exit_x": "5503",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "8255",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 2,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "177",
+          "exit_odd_coefficient_d": "14337",
+          "original_start_n": "45307",
+          "type_two_exit_x": "57343",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "86015",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 2,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "84145",
+          "exit_odd_coefficient_d": "6815745",
+          "original_start_n": "21541115",
+          "type_two_exit_x": "27262975",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "40894463",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 2,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "2014922929",
+          "exit_odd_coefficient_d": "163208757249",
+          "original_start_n": "515820269819",
+          "type_two_exit_x": "652835028991",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "979252543487",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 3,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "729",
+          "original_start_n": "2043",
+          "type_two_exit_x": "2911",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "4367",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 3,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "729",
+          "original_start_n": "2043",
+          "type_two_exit_x": "2911",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "4367",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 3,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "9",
+          "exit_odd_coefficient_d": "6561",
+          "original_start_n": "18427",
+          "type_two_exit_x": "26239",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "39359",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 3,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "361",
+          "exit_odd_coefficient_d": "263169",
+          "original_start_n": "739323",
+          "type_two_exit_x": "1052671",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "1579007",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 3,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "23913",
+          "exit_odd_coefficient_d": "17432577",
+          "original_start_n": "48973819",
+          "type_two_exit_x": "69730303",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "104595455",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 3,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "4041629033",
+          "exit_odd_coefficient_d": "2946347565057",
+          "original_start_n": "8277256259579",
+          "type_two_exit_x": "11785390260223",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "17678085390335",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 4,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "6561",
+          "original_start_n": "16379",
+          "type_two_exit_x": "26239",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "39359",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 4,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "6561",
+          "original_start_n": "16379",
+          "type_two_exit_x": "26239",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "39359",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 4,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "6561",
+          "original_start_n": "16379",
+          "type_two_exit_x": "26239",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "39359",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 4,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "97",
+          "exit_odd_coefficient_d": "636417",
+          "original_start_n": "1589243",
+          "type_two_exit_x": "2545663",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "3818495",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 4,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "2657",
+          "exit_odd_coefficient_d": "17432577",
+          "original_start_n": "43532283",
+          "type_two_exit_x": "69730303",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "104595455",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 4,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "5221255777",
+          "exit_odd_coefficient_d": "34256659152897",
+          "original_start_n": "85545054650363",
+          "type_two_exit_x": "137026636611583",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "205539954917375",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 5,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "59049",
+          "original_start_n": "131067",
+          "type_two_exit_x": "236191",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "354287",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 5,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "59049",
+          "original_start_n": "131067",
+          "type_two_exit_x": "236191",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "354287",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 5,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "25",
+          "exit_odd_coefficient_d": "1476225",
+          "original_start_n": "3276795",
+          "type_two_exit_x": "5904895",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "8857343",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 5,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "409",
+          "exit_odd_coefficient_d": "24151041",
+          "original_start_n": "53608443",
+          "type_two_exit_x": "96604159",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "144906239",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 5,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "73113",
+          "exit_odd_coefficient_d": "4317249537",
+          "original_start_n": "9583067131",
+          "type_two_exit_x": "17268998143",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "25903497215",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 5,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "7261199769",
+          "exit_odd_coefficient_d": "428766585159681",
+          "original_start_n": "951739976122363",
+          "type_two_exit_x": "1715066340638719",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "2572599510958079",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 6,
+          "forced_post_delay_H": 1,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "531441",
+          "original_start_n": "1048571",
+          "type_two_exit_x": "2125759",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "3188639",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 6,
+          "forced_post_delay_H": 2,
+          "coefficient_c": "1",
+          "exit_odd_coefficient_d": "531441",
+          "original_start_n": "1048571",
+          "type_two_exit_x": "2125759",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "3188639",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 6,
+          "forced_post_delay_H": 4,
+          "coefficient_c": "17",
+          "exit_odd_coefficient_d": "9034497",
+          "original_start_n": "17825787",
+          "type_two_exit_x": "36137983",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "54206975",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 6,
+          "forced_post_delay_H": 8,
+          "coefficient_c": "273",
+          "exit_odd_coefficient_d": "145083393",
+          "original_start_n": "286261243",
+          "type_two_exit_x": "580333567",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "870500351",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 6,
+          "forced_post_delay_H": 16,
+          "coefficient_c": "95505",
+          "exit_odd_coefficient_d": "50755272705",
+          "original_start_n": "100144250875",
+          "type_two_exit_x": "203021090815",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "304531636223",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        },
+        {
+          "shadow_pair_count_L": 6,
+          "forced_post_delay_H": 32,
+          "coefficient_c": "3670111505",
+          "exit_odd_coefficient_d": "1950447728328705",
+          "original_start_n": "3848390841466875",
+          "type_two_exit_x": "7801790913314815",
+          "shadow_valuations": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "post_exit_valuations": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "minimum_post_exit_value": "11702686369972223",
+          "checks": {
+            "exact_shadow_word": true,
+            "exact_type_two_exit": true,
+            "crt_divisibility_by_nine_power": true,
+            "crt_mersenne_congruence": true,
+            "post_prefix_is_one_one_then_delay_ones": true,
+            "all_post_values_above_exit": true,
+            "all_post_values_above_original_start": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "Local descent below the r=1 or r=3 exit need not repay the preceding (9/8)^L shadow expansion. The r=2 CRT family defeats every fixed post-exit horizon but does not produce an infinite divergent orbit. An adaptive, unbounded valuation-surplus theorem remains unproved.",
+    "route_decision": {
+      "discard": "any fixed-length post-shadow descent window selected only from the three exit types",
+      "retain": "for r=2, use an adaptive stopping time whose accumulated valuation surplus repays both the shadow expansion and the forced Mersenne-like delay",
+      "next_theorem": "TypeTwoAdaptiveValuationSurplusDescentBelowShadowEntry"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T150-REJECTED",
+          "label": "FixedThreeExitTypePostShadowDescentWindow",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T150-CLOSED",
+          "label": "ThreeExitLocalCompensationAndTypeTwoArbitraryDelayNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T150-OPEN",
+          "label": "TypeTwoAdaptiveValuationSurplusDescentBelowShadowEntry",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T150-REJECTED",
+          "CO-T150-CLOSED"
+        ],
+        [
+          "CO-T150-CLOSED",
+          "CO-T150-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent positive orbit. Two local exit contractions and an arbitrary finite-delay no-go."
+  }
+}

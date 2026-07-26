@@ -1,0 +1,658 @@
+{
+  "schema": "primeproject.ticket150-relative-delay-hole-parity.v1",
+  "generated_at": "2026-07-28T09:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-150",
+  "attempt": "Let W be even and squarefree, G the reduced residues, g=1_G, and tau_N(a)=N-a. Put m=(g*g)(N) and let h be the number of fixed points of tau_N inside G. Among all nonnegative cyclic weights f with (f*f)(N)=0, the exact minimum of ||f-g||_2^2 is (m+h)/2. Consequently ||f-g||_2^2<(m+h)/2 forces positivity, and the threshold is sharp. For primorial W and N=2, h=1 and the relative sharp radius (m+1)/(2 phi(W)) tends to zero. Thus there is no fixed epsilon>0 for which ||f-g||_2^2<epsilon phi(W) forces (f*f)(2)>0 uniformly over all primorial W.",
+  "bounded_result": {
+    "audit_ref": "relative_delay_hole_parity_audit.goldbach"
+  },
+  "obstruction": "The theorem concerns nonnegative cyclic wheel weights, not the interval von Mangoldt convolution. The sharp hole witnesses are not prime weights and endpoint N=2 on a primorial wheel is not a Goldbach counterexample. Actual endpoint-reflection mass retention at the K56 scale remains unproved.",
+  "candidate_theorem": "VonMangoldtEndpointReflectionMassRetentionK56",
+  "next_experiment": "control nonnegative von Mangoldt mass on the exact endpoint-reflection orbits, with arithmetic cancellation strong enough for the K56 finite-glue budget",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact nonnegative endpoint stability radius and a growing-wheel relative-L2 no-go.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-150",
+    "theorem_name": "SharpWheelEndpointHoleRadiusAndGrowingRelativeL2NoGo",
+    "declared_proposition": "Let W be even and squarefree, G the reduced residues, g=1_G, and tau_N(a)=N-a. Put m=(g*g)(N) and let h be the number of fixed points of tau_N inside G. Among all nonnegative cyclic weights f with (f*f)(N)=0, the exact minimum of ||f-g||_2^2 is (m+h)/2. Consequently ||f-g||_2^2<(m+h)/2 forces positivity, and the threshold is sharp. For primorial W and N=2, h=1 and the relative sharp radius (m+1)/(2 phi(W)) tends to zero. Thus there is no fixed epsilon>0 for which ||f-g||_2^2<epsilon phi(W) forces (f*f)(2)>0 uniformly over all primorial W.",
+    "mathematical_argument": "The compatible reduced residues split under tau_N into two-cycles and h fixed points. Since f is nonnegative and the endpoint convolution is zero, every two-cycle must have at least one zero weight and every fixed point must have zero weight. The least squared distance from g is therefore one per two-cycle and one per fixed point, namely (m-h)/2+h=(m+h)/2; zeroing exactly one member of every orbit attains equality. For N=2 on a primorial wheel, m=product_(3<=p<=z)(p-2), h=1, and m/phi(W)=product_(3<=p<=z)(1-1/(p-1)) tends to zero because the reciprocal-prime sum diverges.",
+    "reproducible_computation": {
+      "theorem": "Let W be even and squarefree, G the reduced residues, g=1_G, and tau_N(a)=N-a. Put m=(g*g)(N) and let h be the number of fixed points of tau_N inside G. Among all nonnegative cyclic weights f with (f*f)(N)=0, the exact minimum of ||f-g||_2^2 is (m+h)/2. Consequently ||f-g||_2^2<(m+h)/2 forces positivity, and the threshold is sharp. For primorial W and N=2, h=1 and the relative sharp radius (m+1)/(2 phi(W)) tends to zero. Thus there is no fixed epsilon>0 for which ||f-g||_2^2<epsilon phi(W) forces (f*f)(2)>0 uniformly over all primorial W.",
+      "proof": "The compatible reduced residues split under tau_N into two-cycles and h fixed points. Since f is nonnegative and the endpoint convolution is zero, every two-cycle must have at least one zero weight and every fixed point must have zero weight. The least squared distance from g is therefore one per two-cycle and one per fixed point, namely (m-h)/2+h=(m+h)/2; zeroing exactly one member of every orbit attains equality. For N=2 on a primorial wheel, m=product_(3<=p<=z)(p-2), h=1, and m/phi(W)=product_(3<=p<=z)(1-1/(p-1)) tends to zero because the reciprocal-prime sum diverges.",
+      "finite_exact_wheel_rows": [
+        {
+          "wheel_modulus_W": 6,
+          "reduced_residue_count_phiW": 2,
+          "even_endpoints_audited": 3,
+          "minimum_sharp_radius_squared": 1,
+          "maximum_sharp_radius_squared": 1,
+          "minimum_relative_radius_squared": "1/2",
+          "sample_rows": [
+            {
+              "endpoint_N": 0,
+              "local_main_term_m": 2,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 1,
+              "constructed_distance_squared": 1,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 2,
+              "local_main_term_m": 1,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 1,
+              "constructed_distance_squared": 1,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 4,
+              "local_main_term_m": 1,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 1,
+              "constructed_distance_squared": 1,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            }
+          ],
+          "failure_count": 0
+        },
+        {
+          "wheel_modulus_W": 30,
+          "reduced_residue_count_phiW": 8,
+          "even_endpoints_audited": 15,
+          "minimum_sharp_radius_squared": 2,
+          "maximum_sharp_radius_squared": 4,
+          "minimum_relative_radius_squared": "1/4",
+          "sample_rows": [
+            {
+              "endpoint_N": 0,
+              "local_main_term_m": 8,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 4,
+              "constructed_distance_squared": 4,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 2,
+              "local_main_term_m": 3,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 2,
+              "constructed_distance_squared": 2,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 4,
+              "local_main_term_m": 3,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 2,
+              "constructed_distance_squared": 2,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 6,
+              "local_main_term_m": 6,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 3,
+              "constructed_distance_squared": 3,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 8,
+              "local_main_term_m": 3,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 2,
+              "constructed_distance_squared": 2,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 10,
+              "local_main_term_m": 4,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 2,
+              "constructed_distance_squared": 2,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 12,
+              "local_main_term_m": 6,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 3,
+              "constructed_distance_squared": 3,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 14,
+              "local_main_term_m": 3,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 2,
+              "constructed_distance_squared": 2,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            }
+          ],
+          "failure_count": 0
+        },
+        {
+          "wheel_modulus_W": 210,
+          "reduced_residue_count_phiW": 48,
+          "even_endpoints_audited": 105,
+          "minimum_sharp_radius_squared": 8,
+          "maximum_sharp_radius_squared": 24,
+          "minimum_relative_radius_squared": "1/6",
+          "sample_rows": [
+            {
+              "endpoint_N": 0,
+              "local_main_term_m": 48,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 24,
+              "constructed_distance_squared": 24,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 2,
+              "local_main_term_m": 15,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 8,
+              "constructed_distance_squared": 8,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 4,
+              "local_main_term_m": 15,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 8,
+              "constructed_distance_squared": 8,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 6,
+              "local_main_term_m": 30,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 15,
+              "constructed_distance_squared": 15,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 8,
+              "local_main_term_m": 15,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 8,
+              "constructed_distance_squared": 8,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 10,
+              "local_main_term_m": 20,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 10,
+              "constructed_distance_squared": 10,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 12,
+              "local_main_term_m": 30,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 15,
+              "constructed_distance_squared": 15,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 14,
+              "local_main_term_m": 18,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 9,
+              "constructed_distance_squared": 9,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            }
+          ],
+          "failure_count": 0
+        },
+        {
+          "wheel_modulus_W": 2310,
+          "reduced_residue_count_phiW": 480,
+          "even_endpoints_audited": 1155,
+          "minimum_sharp_radius_squared": 68,
+          "maximum_sharp_radius_squared": 240,
+          "minimum_relative_radius_squared": "17/120",
+          "sample_rows": [
+            {
+              "endpoint_N": 0,
+              "local_main_term_m": 480,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 240,
+              "constructed_distance_squared": 240,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 2,
+              "local_main_term_m": 135,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 68,
+              "constructed_distance_squared": 68,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 4,
+              "local_main_term_m": 135,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 68,
+              "constructed_distance_squared": 68,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 6,
+              "local_main_term_m": 270,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 135,
+              "constructed_distance_squared": 135,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 8,
+              "local_main_term_m": 135,
+              "reflection_fixed_points_h": 1,
+              "sharp_hole_radius_squared": 68,
+              "constructed_distance_squared": 68,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 10,
+              "local_main_term_m": 180,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 90,
+              "constructed_distance_squared": 90,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 12,
+              "local_main_term_m": 270,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 135,
+              "constructed_distance_squared": 135,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            },
+            {
+              "endpoint_N": 14,
+              "local_main_term_m": 162,
+              "reflection_fixed_points_h": 0,
+              "sharp_hole_radius_squared": 81,
+              "constructed_distance_squared": 81,
+              "constructed_convolution": 0,
+              "checks": {
+                "fixed_point_count_is_zero_or_one": true,
+                "radius_numerator_is_even": true,
+                "constructed_hole_is_exact": true,
+                "constructed_distance_is_sharp": true
+              }
+            }
+          ],
+          "failure_count": 0
+        }
+      ],
+      "primorial_relative_radius_rows": [
+        {
+          "largest_odd_prime_z": 3,
+          "primorial_wheel_W": "6",
+          "phi_W": "2",
+          "endpoint_N": 2,
+          "local_main_term_m": "1",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "1",
+          "relative_radius_squared": {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        },
+        {
+          "largest_odd_prime_z": 5,
+          "primorial_wheel_W": "30",
+          "phi_W": "8",
+          "endpoint_N": 2,
+          "local_main_term_m": "3",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "2",
+          "relative_radius_squared": {
+            "exact": "1/4",
+            "decimal": 0.25
+          }
+        },
+        {
+          "largest_odd_prime_z": 7,
+          "primorial_wheel_W": "210",
+          "phi_W": "48",
+          "endpoint_N": 2,
+          "local_main_term_m": "15",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "8",
+          "relative_radius_squared": {
+            "exact": "1/6",
+            "decimal": 0.16666666666666666
+          }
+        },
+        {
+          "largest_odd_prime_z": 11,
+          "primorial_wheel_W": "2310",
+          "phi_W": "480",
+          "endpoint_N": 2,
+          "local_main_term_m": "135",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "68",
+          "relative_radius_squared": {
+            "exact": "17/120",
+            "decimal": 0.14166666666666666
+          }
+        },
+        {
+          "largest_odd_prime_z": 13,
+          "primorial_wheel_W": "30030",
+          "phi_W": "5760",
+          "endpoint_N": 2,
+          "local_main_term_m": "1485",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "743",
+          "relative_radius_squared": {
+            "exact": "743/5760",
+            "decimal": 0.12899305555555557
+          }
+        },
+        {
+          "largest_odd_prime_z": 17,
+          "primorial_wheel_W": "510510",
+          "phi_W": "92160",
+          "endpoint_N": 2,
+          "local_main_term_m": "22275",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "11138",
+          "relative_radius_squared": {
+            "exact": "5569/46080",
+            "decimal": 0.12085503472222223
+          }
+        },
+        {
+          "largest_odd_prime_z": 19,
+          "primorial_wheel_W": "9699690",
+          "phi_W": "1658880",
+          "endpoint_N": 2,
+          "local_main_term_m": "378675",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "189338",
+          "relative_radius_squared": {
+            "exact": "94669/829440",
+            "decimal": 0.11413604359567901
+          }
+        },
+        {
+          "largest_odd_prime_z": 23,
+          "primorial_wheel_W": "223092870",
+          "phi_W": "36495360",
+          "endpoint_N": 2,
+          "local_main_term_m": "7952175",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "3976088",
+          "relative_radius_squared": {
+            "exact": "497011/4561920",
+            "decimal": 0.10894776760662177
+          }
+        },
+        {
+          "largest_odd_prime_z": 29,
+          "primorial_wheel_W": "6469693230",
+          "phi_W": "1021870080",
+          "endpoint_N": 2,
+          "local_main_term_m": "214708725",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "107354363",
+          "relative_radius_squared": {
+            "exact": "107354363/1021870080",
+            "decimal": 0.10505676318461149
+          }
+        },
+        {
+          "largest_odd_prime_z": 31,
+          "primorial_wheel_W": "200560490130",
+          "phi_W": "30656102400",
+          "endpoint_N": 2,
+          "local_main_term_m": "6226553025",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "3113276513",
+          "relative_radius_squared": {
+            "exact": "3113276513/30656102400",
+            "decimal": 0.10155487062177872
+          }
+        },
+        {
+          "largest_odd_prime_z": 37,
+          "primorial_wheel_W": "7420738134810",
+          "phi_W": "1103619686400",
+          "endpoint_N": 2,
+          "local_main_term_m": "217929355875",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "108964677938",
+          "relative_radius_squared": {
+            "exact": "54482338969/551809843200",
+            "decimal": 0.09873390197799212
+          }
+        },
+        {
+          "largest_odd_prime_z": 41,
+          "primorial_wheel_W": "304250263527210",
+          "phi_W": "44144787456000",
+          "endpoint_N": 2,
+          "local_main_term_m": "8499244879125",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "4249622439563",
+          "relative_radius_squared": {
+            "exact": "4249622439563/44144787456000",
+            "decimal": 0.09626555442811191
+          }
+        },
+        {
+          "largest_odd_prime_z": 43,
+          "primorial_wheel_W": "13082761331670030",
+          "phi_W": "1854081073152000",
+          "endpoint_N": 2,
+          "local_main_term_m": "348469040044125",
+          "fixed_points_h": 1,
+          "sharp_radius_squared": "174234520022063",
+          "relative_radius_squared": {
+            "exact": "174234520022063/1854081073152000",
+            "decimal": 0.09397351741790798
+          }
+        }
+      ],
+      "primorial_ratio_strictly_decreasing_in_audit": true,
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem concerns nonnegative cyclic wheel weights, not the interval von Mangoldt convolution. The sharp hole witnesses are not prime weights and endpoint N=2 on a primorial wheel is not a Goldbach counterexample. Actual endpoint-reflection mass retention at the K56 scale remains unproved.",
+    "route_decision": {
+      "discard": "a wheel-independent relative L2 closeness threshold as a pointwise positivity certificate on growing wheels",
+      "retain": "control nonnegative von Mangoldt mass on the exact endpoint-reflection orbits, with arithmetic cancellation strong enough for the K56 finite-glue budget",
+      "next_theorem": "VonMangoldtEndpointReflectionMassRetentionK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T150-REJECTED",
+          "label": "UniformRelativeL2WheelTransferToEveryEndpoint",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T150-CLOSED",
+          "label": "SharpWheelEndpointHoleRadiusAndGrowingRelativeL2NoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T150-OPEN",
+          "label": "VonMangoldtEndpointReflectionMassRetentionK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T150-REJECTED",
+          "GB-T150-CLOSED"
+        ],
+        [
+          "GB-T150-CLOSED",
+          "GB-T150-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact nonnegative endpoint stability radius and a growing-wheel relative-L2 no-go."
+  }
+}
