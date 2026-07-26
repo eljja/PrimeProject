@@ -1,5 +1,15 @@
 # TICKET-150: Relative Form Bounds, Delayed Collatz Escape, Sharp Endpoint Holes, and Parity Equivalence
 
+> Continued by
+> [TICKET-151: Negative Spectrum, Affine Thresholds, Reflection Transversals,
+> and the Log-Two Bias](negative-affine-transversal-logtwo.md). TICKET-151
+> tightens each next lemma while keeping all four conjectures open.
+>
+> 후속 연구는
+> [TICKET-151: 음의 스펙트럼, affine 임계값, 반사 transversal,
+> log-two 편향](negative-affine-transversal-logtwo.md)이다. 네 다음
+> 보조정리를 더 정확히 수정했으며, 네 난제는 여전히 모두 미해결이다.
+
 **Status:** four exact intermediate or no-go theorems; all four conjectures
 remain open.
 

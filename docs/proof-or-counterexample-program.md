@@ -6083,3 +6083,41 @@ CRT 가족은 임의로 긴 유한 지연일 뿐 발산 궤적이 아니다. Gol
 sharp hole 가중치는 실제 von Mangoldt 함수가 아니며, Twin 등가식은
 `A10+A01`을 무한 scale에서 추정하지 않는다. 네 추측은 모두
 `open_not_proven`이고 해결 카운터는 0이다.
+
+## TICKET-151 continuation: negative spectrum, affine thresholds, reflection transversals, and log-two selection
+
+TICKET-151 sharpens each TICKET-150 open target while retaining zero
+conjecture resolutions.
+
+1. **Riemann Hypothesis.** For a relative self-adjoint operator `B`,
+   positivity of the combined form is equivalent to `B>=-I`, or exactly
+   `||B_-||<=1`. The full condition `||B||<=1` is sufficient but
+   unnecessarily strong because arbitrarily large positive spectrum is
+   harmless. The next target is
+   `ActualWeilNegativeRelativeFormPartBoundAtMostOne`.
+2. **Collatz.** Every realized finite valuation word has the exact affine
+   form `(3^m n+C_m)/2^S`; descent is equivalent to
+   `D=2^S-3^m>0` and `n>C_m/D`. The natural start `n=165` has positive
+   `D` but maps to `167` after 17 accelerated steps, so surplus alone is
+   insufficient. Every forced TICKET-150 type-two horizon has `D<0`.
+   The next target is
+   `TypeTwoAffineThresholdCylinderCoverBelowShadowEntry`.
+3. **Goldbach.** The exact squared distance from a nonnegative weighted
+   reference to an endpoint hole is the sum, over reflection two-cycles, of
+   the smaller endpoint square, plus all fixed-point squares. On `Z/4`,
+   permutations with every global moment equal can have endpoint
+   convolutions `0` and `4s^2`; global moments cannot replace
+   orbit-resolved information. The next target is
+   `OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56`.
+4. **Twin Prime.** On the one-variable cubic-rough support, PNT and partial
+   summation give prime-to-semiprime ratio `1:log 2` and a negative limiting
+   Liouville mean. Identical ambient populations nevertheless admit
+   prime-only and semiprime-only selected matchings with opposite deficit
+   signs. The next target is
+   `PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer`.
+
+한국어 경계: RH 결과는 실제 Weil 상대 작용소를 만들지 않았고, Collatz
+임계값은 모든 cylinder에 하강 연장이 있음을 증명하지 않는다. Goldbach
+결과는 유한 반사 기하이며 실제 von Mangoldt 오차를 제어하지 않는다.
+Twin의 `log 2` 결과는 한 변수 점근식이고 gap-two shifted 상관 하한이
+아니다. 네 추측은 모두 `open_not_proven`이고 해결 카운터는 0이다.

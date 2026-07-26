@@ -1,0 +1,1714 @@
+{
+  "schema": "primeproject.ticket151-negative-affine-transversal-logtwo.v1",
+  "generated_at": "2026-07-29T09:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-151",
+  "attempt": "Let p be the closed nonnegative form of a self-adjoint P with trivial kernel, and let k[v,w]=<P^(1/2)v,BP^(1/2)w> for bounded self-adjoint B. Then p+k is nonnegative if and only if B>=-I, equivalently ||B_-||<=1 for the spectral negative part B_-=max(-B,0). The two-sided condition ||B||<=1 from TICKET-150 is sufficient but not necessary: B=diag(M,-a), M>1 and 0<=a<=1, gives p+k>=0 while ||B||=M is arbitrarily large. If ||B_-||>1, a negative spectral direction makes p+k negative regardless of the positive spectrum.",
+  "bounded_result": {
+    "audit_ref": "negative_affine_transversal_logtwo_audit.riemann"
+  },
+  "obstruction": "The criterion is an abstract spectral equivalence. It does not construct the actual Weil reference form, represent its prime and archimedean terms by B, or bound B_-. No zeta zero is controlled.",
+  "candidate_theorem": "ActualWeilNegativeRelativeFormPartBoundAtMostOne",
+  "next_experiment": "construct the actual Weil relative operator and bound only its spectral negative part by one",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact one-sided form criterion and a no-go for requiring the full norm.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-151",
+    "theorem_name": "OneSidedNegativeRelativeFormCriterionAndFullNormNoGo",
+    "declared_proposition": "Let p be the closed nonnegative form of a self-adjoint P with trivial kernel, and let k[v,w]=<P^(1/2)v,BP^(1/2)w> for bounded self-adjoint B. Then p+k is nonnegative if and only if B>=-I, equivalently ||B_-||<=1 for the spectral negative part B_-=max(-B,0). The two-sided condition ||B||<=1 from TICKET-150 is sufficient but not necessary: B=diag(M,-a), M>1 and 0<=a<=1, gives p+k>=0 while ||B||=M is arbitrarily large. If ||B_-||>1, a negative spectral direction makes p+k negative regardless of the positive spectrum.",
+    "mathematical_argument": "For u=P^(1/2)v, (p+k)[v]=<u,(I+B)u>. Hence positivity is equivalent to I+B>=0, which by spectral calculus is equivalent to inf spectrum(B)>=-1 and to ||B_-||<=1. The diagonal family has spectrum {M,-a}; I+B has minimum eigenvalue 1-a while the full norm is M. For a>1 the second coordinate has value 1-a<0.",
+    "reproducible_computation": {
+      "theorem": "Let p be the closed nonnegative form of a self-adjoint P with trivial kernel, and let k[v,w]=<P^(1/2)v,BP^(1/2)w> for bounded self-adjoint B. Then p+k is nonnegative if and only if B>=-I, equivalently ||B_-||<=1 for the spectral negative part B_-=max(-B,0). The two-sided condition ||B||<=1 from TICKET-150 is sufficient but not necessary: B=diag(M,-a), M>1 and 0<=a<=1, gives p+k>=0 while ||B||=M is arbitrarily large. If ||B_-||>1, a negative spectral direction makes p+k negative regardless of the positive spectrum.",
+      "proof": "For u=P^(1/2)v, (p+k)[v]=<u,(I+B)u>. Hence positivity is equivalent to I+B>=0, which by spectral calculus is equivalent to inf spectrum(B)>=-1 and to ||B_-||<=1. The diagonal family has spectrum {M,-a}; I+B has minimum eigenvalue 1-a while the full norm is M. For a>1 the second coordinate has value 1-a<0.",
+      "finite_large_positive_spectrum_rows": [
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "full_relative_norm": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_part_norm": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          "full_relative_norm": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_part_norm": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_relative_eigenvalue_minus_a": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "full_relative_norm": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_part_norm": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "negative_part_criterion_exact": true,
+            "full_norm_exceeds_one": true,
+            "form_remains_nonnegative": true,
+            "positive_spike_controls_full_norm": true
+          }
+        }
+      ],
+      "finite_negative_threshold_failure_rows": [
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          "negative_part_norm": {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          "negative_part_norm": {
+            "exact": "7/6",
+            "decimal": 1.1666666666666667
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          "negative_part_norm": {
+            "exact": "9/8",
+            "decimal": 1.125
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          "negative_part_norm": {
+            "exact": "11/10",
+            "decimal": 1.1
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/10",
+            "decimal": -0.1
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          "negative_part_norm": {
+            "exact": "13/12",
+            "decimal": 1.0833333333333333
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/12",
+            "decimal": -0.08333333333333333
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          "negative_part_norm": {
+            "exact": "15/14",
+            "decimal": 1.0714285714285714
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/14",
+            "decimal": -0.07142857142857142
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          "negative_part_norm": {
+            "exact": "17/16",
+            "decimal": 1.0625
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          "negative_part_norm": {
+            "exact": "19/18",
+            "decimal": 1.0555555555555556
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/18",
+            "decimal": -0.05555555555555555
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          "negative_part_norm": {
+            "exact": "21/20",
+            "decimal": 1.05
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/20",
+            "decimal": -0.05
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          "negative_part_norm": {
+            "exact": "23/22",
+            "decimal": 1.0454545454545454
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/22",
+            "decimal": -0.045454545454545456
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          "negative_part_norm": {
+            "exact": "25/24",
+            "decimal": 1.0416666666666667
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/24",
+            "decimal": -0.041666666666666664
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          "negative_part_norm": {
+            "exact": "27/26",
+            "decimal": 1.0384615384615385
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/26",
+            "decimal": -0.038461538461538464
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "8192/1",
+            "decimal": 8192.0
+          },
+          "negative_part_norm": {
+            "exact": "29/28",
+            "decimal": 1.0357142857142858
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/28",
+            "decimal": -0.03571428571428571
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "16384/1",
+            "decimal": 16384.0
+          },
+          "negative_part_norm": {
+            "exact": "31/30",
+            "decimal": 1.0333333333333334
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/30",
+            "decimal": -0.03333333333333333
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "32768/1",
+            "decimal": 32768.0
+          },
+          "negative_part_norm": {
+            "exact": "33/32",
+            "decimal": 1.03125
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/32",
+            "decimal": -0.03125
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        },
+        {
+          "positive_relative_eigenvalue_M": {
+            "exact": "65536/1",
+            "decimal": 65536.0
+          },
+          "negative_part_norm": {
+            "exact": "35/34",
+            "decimal": 1.0294117647058822
+          },
+          "minimum_eigenvalue_of_I_plus_B": {
+            "exact": "-1/34",
+            "decimal": -0.029411764705882353
+          },
+          "checks": {
+            "negative_part_exceeds_one": true,
+            "combined_form_has_negative_direction": true,
+            "positive_spike_cannot_repair_negative_direction": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The criterion is an abstract spectral equivalence. It does not construct the actual Weil reference form, represent its prime and archimedean terms by B, or bound B_-. No zeta zero is controlled.",
+    "route_decision": {
+      "discard": "the unnecessarily strong two-sided target ||B||<=1, which also suppresses harmless positive relative spectrum",
+      "retain": "construct the actual Weil relative operator and bound only its spectral negative part by one",
+      "next_theorem": "ActualWeilNegativeRelativeFormPartBoundAtMostOne"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T151-REJECTED",
+          "label": "ActualWeilFullRelativeNormAtMostOne",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T151-CLOSED",
+          "label": "OneSidedNegativeRelativeFormCriterionAndFullNormNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T151-OPEN",
+          "label": "ActualWeilNegativeRelativeFormPartBoundAtMostOne",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T151-REJECTED",
+          "RH-T151-CLOSED"
+        ],
+        [
+          "RH-T151-CLOSED",
+          "RH-T151-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One exact one-sided form criterion and a no-go for requiring the full norm."
+  }
+}

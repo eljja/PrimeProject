@@ -62,7 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-150
+## Latest Continuation After TICKET-151
+
+Read `docs/negative-affine-transversal-logtwo.md`,
+`data/open-problem/ticket151-negative-affine-transversal-logtwo.json`,
+`scripts/ticket151_negative_affine_transversal_logtwo.py`, and
+`tests/test_ticket151_negative_affine_transversal_logtwo.py` first.
+
+Do not reopen these rejected or corrected routes without a strictly stronger
+problem-specific theorem:
+
+- requiring the full actual Weil relative norm `||B||<=1`; positivity only
+  requires the negative spectral part `||B_-||<=1`;
+- inferring finite Collatz descent from `2^S>3^m` without comparing the
+  natural start to the exact affine threshold `C_m/(2^S-3^m)`;
+- inferring pointwise Goldbach endpoint positivity from global moments,
+  energy, or an unordered residue-weight histogram;
+- transferring the one-variable cubic-rough `1:log 2` marginal directly to
+  the support selected by the simultaneous conditions on `n` and `n+2`.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ActualWeilNegativeRelativeFormPartBoundAtMostOne` |
+| Collatz | `TypeTwoAffineThresholdCylinderCoverBelowShadowEntry` |
+| Goldbach | `OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56` |
+| Twin Prime | `PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer` |
+
+한국어: RH는 실제 Weil prime·archimedean 상대 작용소를 구성하고 그
+음의 스펙트럼 부분의 norm만 `1` 이하로 증명해야 한다. Collatz는 모든
+type-two cylinder에 대해 자연수 시작점과 shadow 진입점보다 낮은 affine
+임계값을 갖는 연장 word를 제공해야 한다. Goldbach는 실제 von Mangoldt
+오차를 endpoint 반사 궤도별로 분해해 정확한 weighted hole 반지름 안에
+넣어야 한다. Twin Prime은 gap-two cubic-rough 간선의 양의 질량 하한과
+그 선택 support에서의 shifted `log 2` marginal transfer를 함께
+증명해야 한다. 네 난제는 모두 `open_not_proven`이다.
+
+Exact TICKET-151 corrections:
+
+- RH: `p+k>=0 iff ||B_-||<=1`; arbitrarily large positive spectrum is
+  harmless.
+- Collatz: `T^m(n)<n iff D>0 and n>C_m/D`; `n=165` refutes a
+  surplus-only inference.
+- Goldbach: the exact endpoint-hole distance is additive over reflection
+  orbits; permutation-invariant moments lose the required placement.
+- Twin Prime: the unshifted cubic-rough Liouville mean tends to
+  `(log 2-1)/(log 2+1)`, but matched selections with identical marginals
+  can have opposite signs.
+
+These are partial and no-go theorems, not solutions or counterexamples to the
+four conjectures.
+
+## Historical Continuation After TICKET-150
 
 Read `docs/relative-delay-hole-parity.md`,
 `data/open-problem/ticket150-relative-delay-hole-parity.json`,

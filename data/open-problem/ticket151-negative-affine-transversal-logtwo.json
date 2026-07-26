@@ -1,0 +1,5579 @@
+{
+  "schema": "primeproject.ticket151-negative-affine-transversal-logtwo.v1",
+  "generated_at": "2026-07-29T09:00:00+09:00",
+  "status": "exact_partial_theorems_and_target_corrections_all_conjectures_open",
+  "claim_boundary": "TICKET-151 proves four exact partial or no-go theorems and resolves no target conjecture. It replaces a two-sided RH norm target by the exact negative-part criterion, inserts the Collatz affine threshold missing from surplus arguments, generalizes the Goldbach endpoint-hole radius to weighted reflection orbits, and separates the Twin cubic-rough log-two bias from the still-missing shifted selection theorem.",
+  "negative_affine_transversal_logtwo_audit": {
+    "theorem_name": "FourConjectureNegativeAffineTransversalLogTwoAudit",
+    "status": "exact_partial_theorems_and_target_corrections_all_conjectures_open",
+    "proof_boundary": "TICKET-151 proves four exact partial or no-go theorems and resolves no target conjecture. It replaces a two-sided RH norm target by the exact negative-part criterion, inserts the Collatz affine threshold missing from surplus arguments, generalizes the Goldbach endpoint-hole radius to weighted reflection orbits, and separates the Twin cubic-rough log-two bias from the still-missing shifted selection theorem.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-151",
+      "theorem_name": "OneSidedNegativeRelativeFormCriterionAndFullNormNoGo",
+      "declared_proposition": "Let p be the closed nonnegative form of a self-adjoint P with trivial kernel, and let k[v,w]=<P^(1/2)v,BP^(1/2)w> for bounded self-adjoint B. Then p+k is nonnegative if and only if B>=-I, equivalently ||B_-||<=1 for the spectral negative part B_-=max(-B,0). The two-sided condition ||B||<=1 from TICKET-150 is sufficient but not necessary: B=diag(M,-a), M>1 and 0<=a<=1, gives p+k>=0 while ||B||=M is arbitrarily large. If ||B_-||>1, a negative spectral direction makes p+k negative regardless of the positive spectrum.",
+      "mathematical_argument": "For u=P^(1/2)v, (p+k)[v]=<u,(I+B)u>. Hence positivity is equivalent to I+B>=0, which by spectral calculus is equivalent to inf spectrum(B)>=-1 and to ||B_-||<=1. The diagonal family has spectrum {M,-a}; I+B has minimum eigenvalue 1-a while the full norm is M. For a>1 the second coordinate has value 1-a<0.",
+      "reproducible_computation": {
+        "theorem": "Let p be the closed nonnegative form of a self-adjoint P with trivial kernel, and let k[v,w]=<P^(1/2)v,BP^(1/2)w> for bounded self-adjoint B. Then p+k is nonnegative if and only if B>=-I, equivalently ||B_-||<=1 for the spectral negative part B_-=max(-B,0). The two-sided condition ||B||<=1 from TICKET-150 is sufficient but not necessary: B=diag(M,-a), M>1 and 0<=a<=1, gives p+k>=0 while ||B||=M is arbitrarily large. If ||B_-||>1, a negative spectral direction makes p+k negative regardless of the positive spectrum.",
+        "proof": "For u=P^(1/2)v, (p+k)[v]=<u,(I+B)u>. Hence positivity is equivalent to I+B>=0, which by spectral calculus is equivalent to inf spectrum(B)>=-1 and to ||B_-||<=1. The diagonal family has spectrum {M,-a}; I+B has minimum eigenvalue 1-a while the full norm is M. For a>1 the second coordinate has value 1-a<0.",
+        "finite_large_positive_spectrum_rows": [
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "full_relative_norm": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_part_norm": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/2",
+              "decimal": -0.5
+            },
+            "full_relative_norm": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_part_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_relative_eigenvalue_minus_a": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "full_relative_norm": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_part_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "negative_part_criterion_exact": true,
+              "full_norm_exceeds_one": true,
+              "form_remains_nonnegative": true,
+              "positive_spike_controls_full_norm": true
+            }
+          }
+        ],
+        "finite_negative_threshold_failure_rows": [
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "negative_part_norm": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/4",
+              "decimal": -0.25
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "negative_part_norm": {
+              "exact": "7/6",
+              "decimal": 1.1666666666666667
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/6",
+              "decimal": -0.16666666666666666
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "negative_part_norm": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/8",
+              "decimal": -0.125
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "negative_part_norm": {
+              "exact": "11/10",
+              "decimal": 1.1
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/10",
+              "decimal": -0.1
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "negative_part_norm": {
+              "exact": "13/12",
+              "decimal": 1.0833333333333333
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/12",
+              "decimal": -0.08333333333333333
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "negative_part_norm": {
+              "exact": "15/14",
+              "decimal": 1.0714285714285714
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/14",
+              "decimal": -0.07142857142857142
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "negative_part_norm": {
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/16",
+              "decimal": -0.0625
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "negative_part_norm": {
+              "exact": "19/18",
+              "decimal": 1.0555555555555556
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/18",
+              "decimal": -0.05555555555555555
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "negative_part_norm": {
+              "exact": "21/20",
+              "decimal": 1.05
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/20",
+              "decimal": -0.05
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "1024/1",
+              "decimal": 1024.0
+            },
+            "negative_part_norm": {
+              "exact": "23/22",
+              "decimal": 1.0454545454545454
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/22",
+              "decimal": -0.045454545454545456
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "negative_part_norm": {
+              "exact": "25/24",
+              "decimal": 1.0416666666666667
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/24",
+              "decimal": -0.041666666666666664
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "negative_part_norm": {
+              "exact": "27/26",
+              "decimal": 1.0384615384615385
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/26",
+              "decimal": -0.038461538461538464
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "8192/1",
+              "decimal": 8192.0
+            },
+            "negative_part_norm": {
+              "exact": "29/28",
+              "decimal": 1.0357142857142858
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/28",
+              "decimal": -0.03571428571428571
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "negative_part_norm": {
+              "exact": "31/30",
+              "decimal": 1.0333333333333334
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/30",
+              "decimal": -0.03333333333333333
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "32768/1",
+              "decimal": 32768.0
+            },
+            "negative_part_norm": {
+              "exact": "33/32",
+              "decimal": 1.03125
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/32",
+              "decimal": -0.03125
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          },
+          {
+            "positive_relative_eigenvalue_M": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "negative_part_norm": {
+              "exact": "35/34",
+              "decimal": 1.0294117647058822
+            },
+            "minimum_eigenvalue_of_I_plus_B": {
+              "exact": "-1/34",
+              "decimal": -0.029411764705882353
+            },
+            "checks": {
+              "negative_part_exceeds_one": true,
+              "combined_form_has_negative_direction": true,
+              "positive_spike_cannot_repair_negative_direction": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The criterion is an abstract spectral equivalence. It does not construct the actual Weil reference form, represent its prime and archimedean terms by B, or bound B_-. No zeta zero is controlled.",
+      "route_decision": {
+        "discard": "the unnecessarily strong two-sided target ||B||<=1, which also suppresses harmless positive relative spectrum",
+        "retain": "construct the actual Weil relative operator and bound only its spectral negative part by one",
+        "next_theorem": "ActualWeilNegativeRelativeFormPartBoundAtMostOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T151-REJECTED",
+            "label": "ActualWeilFullRelativeNormAtMostOne",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T151-CLOSED",
+            "label": "OneSidedNegativeRelativeFormCriterionAndFullNormNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T151-OPEN",
+            "label": "ActualWeilNegativeRelativeFormPartBoundAtMostOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T151-REJECTED",
+            "RH-T151-CLOSED"
+          ],
+          [
+            "RH-T151-CLOSED",
+            "RH-T151-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact one-sided form criterion and a no-go for requiring the full norm."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-151",
+      "theorem_name": "ExactAffineStoppingThresholdAndPositiveSurplusNoGo",
+      "declared_proposition": "For an accelerated Collatz valuation word a=(a_1,...,a_m), put S=sum a_i and define C_0=0, C_i=3C_(i-1)+2^(a_1+...+a_(i-1)). Every realizing positive odd n satisfies T^m(n)=(3^m n+C_m)/2^S. Therefore T^m(n)<n if and only if D=2^S-3^m is positive and n>C_m/D. Positive valuation surplus D>0 alone is not sufficient: n=165 with its exact 17-step word has S=27 and D=5,077,565>0 but T^17(165)=167. Members of one exact word cylinder share C and D, so the descent boundary is an exact Archimedean threshold. For every TICKET-150 forced type-two block (1,2)^L,(1,1),1^H, D<0, so its forced horizon cannot descend below its start.",
+      "mathematical_argument": "Induction through one accelerated step gives C_i=3C_(i-1)+2^S_(i-1), proving the affine formula. Subtracting n yields T^m(n)-n=(C_m-(2^S-3^m)n)/2^S, which gives the exact threshold. The displayed natural-number witness is replayed exactly. For the forced type-two block, 3^m/2^S=(9/8)^L(3/2)^(H+2)>1, hence D<0.",
+      "reproducible_computation": {
+        "theorem": "For an accelerated Collatz valuation word a=(a_1,...,a_m), put S=sum a_i and define C_0=0, C_i=3C_(i-1)+2^(a_1+...+a_(i-1)). Every realizing positive odd n satisfies T^m(n)=(3^m n+C_m)/2^S. Therefore T^m(n)<n if and only if D=2^S-3^m is positive and n>C_m/D. Positive valuation surplus D>0 alone is not sufficient: n=165 with its exact 17-step word has S=27 and D=5,077,565>0 but T^17(165)=167. Members of one exact word cylinder share C and D, so the descent boundary is an exact Archimedean threshold. For every TICKET-150 forced type-two block (1,2)^L,(1,1),1^H, D<0, so its forced horizon cannot descend below its start.",
+        "proof": "Induction through one accelerated step gives C_i=3C_(i-1)+2^S_(i-1), proving the affine formula. Subtracting n yields T^m(n)-n=(C_m-(2^S-3^m)n)/2^S, which gives the exact threshold. The displayed natural-number witness is replayed exactly. For the forced type-two block, 3^m/2^S=(9/8)^L(3/2)^(H+2)>1, hence D<0.",
+        "finite_positive_surplus_nondescending_rows": [
+          {
+            "start_n": "165",
+            "length_m": 17,
+            "valuation_word": [
+              4,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "167",
+            "affine_constant_C": "1106233681",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1106233681/5077565",
+              "decimal": 217.8669659571074
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435621",
+            "same_word_lift_terminal": "258280493",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "171",
+            "length_m": 17,
+            "valuation_word": [
+              1,
+              2,
+              2,
+              2,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "175",
+            "affine_constant_C": "1405134527",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1405134527/5077565",
+              "decimal": 276.7339319142148
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435627",
+            "same_word_lift_terminal": "258280501",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "231",
+            "length_m": 17,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              1,
+              1,
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "233",
+            "affine_constant_C": "1441352971",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1441352971/5077565",
+              "decimal": 283.86696595710737
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435687",
+            "same_word_lift_terminal": "258280559",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "257",
+            "length_m": 17,
+            "valuation_word": [
+              2,
+              2,
+              2,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "263",
+            "affine_constant_C": "2110240573",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2110240573/5077565",
+              "decimal": 415.60089787132216
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435713",
+            "same_word_lift_terminal": "258280589",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "259",
+            "length_m": 17,
+            "valuation_word": [
+              1,
+              4,
+              2,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "263",
+            "affine_constant_C": "1851960247",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1851960247/5077565",
+              "decimal": 364.7339319142148
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435715",
+            "same_word_lift_terminal": "258280589",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "313",
+            "length_m": 29,
+            "valuation_word": [
+              2,
+              1,
+              2,
+              2,
+              1,
+              1,
+              2,
+              2,
+              3,
+              1,
+              1,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "319",
+            "affine_constant_C": "966321277466437",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "966321277466437/1738366812781",
+              "decimal": 555.8788112852534
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355641",
+            "same_word_lift_terminal": "137260754730085",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "323",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "325",
+            "affine_constant_C": "702229968883591",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "702229968883591/1738366812781",
+              "decimal": 403.95960376175117
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355651",
+            "same_word_lift_terminal": "137260754730091",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "387",
+            "length_m": 17,
+            "valuation_word": [
+              1,
+              4,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "395",
+            "affine_constant_C": "3038759479",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3038759479/5077565",
+              "decimal": 598.4678638284296
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435843",
+            "same_word_lift_terminal": "258280721",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "389",
+            "length_m": 17,
+            "valuation_word": [
+              4,
+              2,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "395",
+            "affine_constant_C": "2780479153",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2780479153/5077565",
+              "decimal": 547.6008978713222
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435845",
+            "same_word_lift_terminal": "258280721",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "391",
+            "length_m": 17,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "395",
+            "affine_constant_C": "2522198827",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2522198827/5077565",
+              "decimal": 496.7339319142148
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435847",
+            "same_word_lift_terminal": "258280721",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "411",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              3,
+              1,
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "425",
+            "affine_constant_C": "1699631178540287",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1699631178540287/1738366812781",
+              "decimal": 977.7172263322581
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355739",
+            "same_word_lift_terminal": "137260754730191",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "415",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              2,
+              1,
+              2,
+              2,
+              5,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "425",
+            "affine_constant_C": "1425109669080755",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1425109669080755/1738366812781",
+              "decimal": 819.7980188087557
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355743",
+            "same_word_lift_terminal": "137260754730191",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "417",
+            "length_m": 29,
+            "valuation_word": [
+              2,
+              2,
+              1,
+              2,
+              2,
+              1,
+              1,
+              2,
+              2,
+              3,
+              1,
+              1,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "425",
+            "affine_constant_C": "1287848914350989",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1287848914350989/1738366812781",
+              "decimal": 740.8384150470046
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355745",
+            "same_word_lift_terminal": "137260754730191",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "429",
+            "length_m": 29,
+            "valuation_word": [
+              3,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "433",
+            "affine_constant_C": "1027234339393705",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1027234339393705/1738366812781",
+              "decimal": 590.9192075235023
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355757",
+            "same_word_lift_terminal": "137260754730199",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "437",
+            "length_m": 17,
+            "valuation_word": [
+              5,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "445",
+            "affine_constant_C": "3292637729",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3292637729/5077565",
+              "decimal": 648.4678638284296
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268435893",
+            "same_word_lift_terminal": "258280771",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "457",
+            "length_m": 29,
+            "valuation_word": [
+              2,
+              1,
+              1,
+              4,
+              2,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "479",
+            "affine_constant_C": "2342546005349525",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2342546005349525/1738366812781",
+              "decimal": 1347.5556413792626
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355785",
+            "same_word_lift_terminal": "137260754730245",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "459",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              2,
+              4,
+              2,
+              2,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "479",
+            "affine_constant_C": "2205285250619759",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2205285250619759/1738366812781",
+              "decimal": 1268.5960376175115
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355787",
+            "same_word_lift_terminal": "137260754730245",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "463",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              3,
+              1,
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "479",
+            "affine_constant_C": "1930763741160227",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1930763741160227/1738366812781",
+              "decimal": 1110.6768300940091
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355791",
+            "same_word_lift_terminal": "137260754730245",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "471",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              1,
+              4,
+              1,
+              1,
+              2,
+              2,
+              3,
+              1,
+              1,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "479",
+            "affine_constant_C": "1381720722241163",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1381720722241163/1738366812781",
+              "decimal": 794.8384150470046
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355799",
+            "same_word_lift_terminal": "137260754730245",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "573",
+            "length_m": 29,
+            "valuation_word": [
+              3,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "577",
+            "affine_constant_C": "1277559160434169",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "1277559160434169/1738366812781",
+              "decimal": 734.9192075235023
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488355901",
+            "same_word_lift_terminal": "137260754730343",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "581",
+            "length_m": 17,
+            "valuation_word": [
+              4,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "593",
+            "affine_constant_C": "4560678001",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "4560678001/5077565",
+              "decimal": 898.2017957426443
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268436037",
+            "same_word_lift_terminal": "258280919",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "587",
+            "length_m": 17,
+            "valuation_word": [
+              1,
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "593",
+            "affine_constant_C": "3785837023",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3785837023/5077565",
+              "decimal": 745.6008978713222
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268436043",
+            "same_word_lift_terminal": "258280919",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "589",
+            "length_m": 17,
+            "valuation_word": [
+              3,
+              3,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "593",
+            "affine_constant_C": "3527556697",
+            "multiplier_gap_D": "5077565",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3527556697/5077565",
+              "decimal": 694.7339319142147
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "268436045",
+            "same_word_lift_terminal": "258280919",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "685",
+            "length_m": 29,
+            "valuation_word": [
+              3,
+              2,
+              2,
+              2,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "719",
+            "affine_constant_C": "3583318568795561",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3583318568795561/1738366812781",
+              "decimal": 2061.3132639497694
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356013",
+            "same_word_lift_terminal": "137260754730485",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "689",
+            "length_m": 29,
+            "valuation_word": [
+              2,
+              4,
+              2,
+              2,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "719",
+            "affine_constant_C": "3308797059336029",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3308797059336029/1738366812781",
+              "decimal": 1903.3940564262673
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356017",
+            "same_word_lift_terminal": "137260754730485",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "691",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              3,
+              4,
+              2,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "719",
+            "affine_constant_C": "3171536304606263",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3171536304606263/1738366812781",
+              "decimal": 1824.4344526645161
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356019",
+            "same_word_lift_terminal": "137260754730485",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "695",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              1,
+              3,
+              1,
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "719",
+            "affine_constant_C": "2897014795146731",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2897014795146731/1738366812781",
+              "decimal": 1666.5152451410138
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356023",
+            "same_word_lift_terminal": "137260754730485",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "697",
+            "length_m": 29,
+            "valuation_word": [
+              2,
+              1,
+              2,
+              3,
+              3,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "719",
+            "affine_constant_C": "2759754040416965",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2759754040416965/1738366812781",
+              "decimal": 1587.5556413792626
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356025",
+            "same_word_lift_terminal": "137260754730485",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "707",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              4,
+              1,
+              1,
+              2,
+              2,
+              3,
+              1,
+              1,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "719",
+            "affine_constant_C": "2073450266768135",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2073450266768135/1738366812781",
+              "decimal": 1192.7576225705068
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356035",
+            "same_word_lift_terminal": "137260754730485",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "881",
+            "length_m": 29,
+            "valuation_word": [
+              2,
+              6,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "911",
+            "affine_constant_C": "3642563487389981",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3642563487389981/1738366812781",
+              "decimal": 2095.394056426267
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356209",
+            "same_word_lift_terminal": "137260754730677",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "885",
+            "length_m": 29,
+            "valuation_word": [
+              5,
+              1,
+              3,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "911",
+            "affine_constant_C": "3368041977930449",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "3368041977930449/1738366812781",
+              "decimal": 1937.474848902765
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356213",
+            "same_word_lift_terminal": "137260754730677",
+            "same_word_lift_descends": true
+          },
+          {
+            "start_n": "899",
+            "length_m": 29,
+            "valuation_word": [
+              1,
+              4,
+              3,
+              1,
+              1,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3
+            ],
+            "valuation_sum_S": 46,
+            "terminal_Tm_n": "911",
+            "affine_constant_C": "2407216694822087",
+            "multiplier_gap_D": "1738366812781",
+            "exact_descent_threshold_C_over_D": {
+              "exact": "2407216694822087/1738366812781",
+              "decimal": 1384.7576225705068
+            },
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "positive_multiplier_gap": true,
+              "base_member_does_not_descend": true,
+              "cylinder_lift_preserves_word": true,
+              "large_cylinder_member_descends": true
+            },
+            "same_word_lift_start": "140737488356227",
+            "same_word_lift_terminal": "137260754730677",
+            "same_word_lift_descends": true
+          }
+        ],
+        "finite_type_two_forced_affine_rows": [
+          {
+            "start_n": "15",
+            "length_m": 3,
+            "valuation_word": [
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 3,
+            "terminal_Tm_n": "53",
+            "affine_constant_C": "19",
+            "multiplier_gap_D": "-19",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 0,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "31",
+            "length_m": 4,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 4,
+            "terminal_Tm_n": "161",
+            "affine_constant_C": "65",
+            "multiplier_gap_D": "-65",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 0,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "127",
+            "length_m": 6,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 6,
+            "terminal_Tm_n": "1457",
+            "affine_constant_C": "665",
+            "multiplier_gap_D": "-665",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 0,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "2047",
+            "length_m": 10,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 10,
+            "terminal_Tm_n": "118097",
+            "affine_constant_C": "58025",
+            "multiplier_gap_D": "-58025",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 0,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "524287",
+            "length_m": 18,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 18,
+            "terminal_Tm_n": "774840977",
+            "affine_constant_C": "387158345",
+            "multiplier_gap_D": "-387158345",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 0,
+            "forced_post_delay_H": 16
+          },
+          {
+            "start_n": "27",
+            "length_m": 5,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 6,
+            "terminal_Tm_n": "107",
+            "affine_constant_C": "287",
+            "multiplier_gap_D": "-179",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 1,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "27",
+            "length_m": 6,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 7,
+            "terminal_Tm_n": "161",
+            "affine_constant_C": "925",
+            "multiplier_gap_D": "-601",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 1,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "795",
+            "length_m": 8,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 9,
+            "terminal_Tm_n": "10205",
+            "affine_constant_C": "8965",
+            "multiplier_gap_D": "-6049",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 1,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "1819",
+            "length_m": 12,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 13,
+            "terminal_Tm_n": "118097",
+            "affine_constant_C": "759445",
+            "multiplier_gap_D": "-523249",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 1,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "3262235",
+            "length_m": 20,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 21,
+            "terminal_Tm_n": "5423886845",
+            "affine_constant_C": "5034369205",
+            "multiplier_gap_D": "-3484687249",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 1,
+            "forced_post_delay_H": 16
+          },
+          {
+            "start_n": "251",
+            "length_m": 7,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 9,
+            "terminal_Tm_n": "1079",
+            "affine_constant_C": "3511",
+            "multiplier_gap_D": "-1675",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 2,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "251",
+            "length_m": 8,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 10,
+            "terminal_Tm_n": "1619",
+            "affine_constant_C": "11045",
+            "multiplier_gap_D": "-5537",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 2,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "4347",
+            "length_m": 10,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 12,
+            "terminal_Tm_n": "62693",
+            "affine_constant_C": "104525",
+            "multiplier_gap_D": "-54953",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 2,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "45307",
+            "length_m": 14,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 16,
+            "terminal_Tm_n": "3306743",
+            "affine_constant_C": "8732765",
+            "multiplier_gap_D": "-4717433",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 2,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "21541115",
+            "length_m": 22,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 24,
+            "terminal_Tm_n": "40291730855",
+            "affine_constant_C": "57708875645",
+            "multiplier_gap_D": "-31364282393",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 2,
+            "forced_post_delay_H": 16
+          },
+          {
+            "start_n": "2043",
+            "length_m": 9,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 12,
+            "terminal_Tm_n": "9827",
+            "affine_constant_C": "39023",
+            "multiplier_gap_D": "-15587",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 3,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "2043",
+            "length_m": 10,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 13,
+            "terminal_Tm_n": "14741",
+            "affine_constant_C": "121165",
+            "multiplier_gap_D": "-50857",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 3,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "18427",
+            "length_m": 12,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 15,
+            "terminal_Tm_n": "298889",
+            "affine_constant_C": "1131445",
+            "multiplier_gap_D": "-498673",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 3,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "739323",
+            "length_m": 16,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 19,
+            "terminal_Tm_n": "60702371",
+            "affine_constant_C": "93776965",
+            "multiplier_gap_D": "-42522433",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 3,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "48973819",
+            "length_m": 24,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 27,
+            "terminal_Tm_n": "103053850073",
+            "affine_constant_C": "618576303205",
+            "multiplier_gap_D": "-282295318753",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 3,
+            "forced_post_delay_H": 16
+          },
+          {
+            "start_n": "16379",
+            "length_m": 11,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 15,
+            "terminal_Tm_n": "88559",
+            "affine_constant_C": "410599",
+            "multiplier_gap_D": "-144379",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 4,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "16379",
+            "length_m": 12,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 16,
+            "terminal_Tm_n": "132839",
+            "affine_constant_C": "1264565",
+            "multiplier_gap_D": "-465905",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 4,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "16379",
+            "length_m": 14,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 18,
+            "terminal_Tm_n": "298889",
+            "affine_constant_C": "11708765",
+            "multiplier_gap_D": "-4520825",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 4,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "1589243",
+            "length_m": 18,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 22,
+            "terminal_Tm_n": "146795813",
+            "affine_constant_C": "965449325",
+            "multiplier_gap_D": "-383226185",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 4,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "43532283",
+            "length_m": 26,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 30,
+            "terminal_Tm_n": "103053850073",
+            "affine_constant_C": "6360758108045",
+            "multiplier_gap_D": "-2540792086505",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 4,
+            "forced_post_delay_H": 16
+          },
+          {
+            "start_n": "131067",
+            "length_m": 13,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 18,
+            "terminal_Tm_n": "797147",
+            "affine_constant_C": "4170527",
+            "multiplier_gap_D": "-1332179",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 5,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "131067",
+            "length_m": 14,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 19,
+            "terminal_Tm_n": "1195721",
+            "affine_constant_C": "12773725",
+            "multiplier_gap_D": "-4258681",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 5,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "3276795",
+            "length_m": 16,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 21,
+            "terminal_Tm_n": "67260455",
+            "affine_constant_C": "117584965",
+            "multiplier_gap_D": "-40949569",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 5,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "53608443",
+            "length_m": 20,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 25,
+            "terminal_Tm_n": "5570682659",
+            "affine_constant_C": "9660697045",
+            "multiplier_gap_D": "-3453229969",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 5,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "9583067131",
+            "length_m": 28,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 33,
+            "terminal_Tm_n": "25521712133363",
+            "affine_constant_C": "63595394006005",
+            "multiplier_gap_D": "-22868202520369",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 5,
+            "forced_post_delay_H": 16
+          },
+          {
+            "start_n": "1048571",
+            "length_m": 15,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 21,
+            "terminal_Tm_n": "7174439",
+            "affine_constant_C": "41335831",
+            "multiplier_gap_D": "-12251755",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 6,
+            "forced_post_delay_H": 1
+          },
+          {
+            "start_n": "1048571",
+            "length_m": 16,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 22,
+            "terminal_Tm_n": "10761659",
+            "affine_constant_C": "126104645",
+            "multiplier_gap_D": "-38852417",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 6,
+            "forced_post_delay_H": 2
+          },
+          {
+            "start_n": "17825787",
+            "length_m": 18,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 24,
+            "terminal_Tm_n": "411634223",
+            "affine_constant_C": "1155913325",
+            "multiplier_gap_D": "-370643273",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 6,
+            "forced_post_delay_H": 4
+          },
+          {
+            "start_n": "286261243",
+            "length_m": 22,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 28,
+            "terminal_Tm_n": "33464957867",
+            "affine_constant_C": "94719498365",
+            "multiplier_gap_D": "-31112624153",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 6,
+            "forced_post_delay_H": 8
+          },
+          {
+            "start_n": "100144250875",
+            "length_m": 30,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 36,
+            "terminal_Tm_n": "300043221592895",
+            "affine_constant_C": "623147114322845",
+            "multiplier_gap_D": "-205822412617913",
+            "exact_descent_threshold_C_over_D": null,
+            "strict_descent": false,
+            "checks": {
+              "exact_affine_formula": true,
+              "threshold_prediction_exact": true,
+              "forced_word_exact": true,
+              "multiplier_gap_is_negative": true,
+              "forced_horizon_cannot_descend": true
+            },
+            "shadow_pair_count_L": 6,
+            "forced_post_delay_H": 16
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The exact threshold classifies a fixed finite valuation word. It neither proves that every type-two cylinder has a descent-producing extension nor supplies a uniform stopping time for all positive integers.",
+      "route_decision": {
+        "discard": "using positive cumulative valuation surplus 2^S>3^m by itself as a strict descent certificate",
+        "retain": "cover every type-two cylinder by an extension whose affine threshold lies below every represented natural start and below the pre-shadow entry",
+        "next_theorem": "TypeTwoAffineThresholdCylinderCoverBelowShadowEntry"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T151-REJECTED",
+            "label": "PositiveValuationSurplusAloneImpliesDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T151-CLOSED",
+            "label": "ExactAffineStoppingThresholdAndPositiveSurplusNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T151-OPEN",
+            "label": "TypeTwoAffineThresholdCylinderCoverBelowShadowEntry",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T151-REJECTED",
+            "CO-T151-CLOSED"
+          ],
+          [
+            "CO-T151-CLOSED",
+            "CO-T151-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact affine threshold theorem and finite natural counterexamples to a surplus-only rule."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-151",
+      "theorem_name": "WeightedReflectionHoleRadiusAndPermutationMomentNoGo",
+      "declared_proposition": "Let tau be an involution of a finite set and w>=0 a baseline. For R_N(f)=sum_a f(a)f(tau(a)), the exact squared L2 distance from w to the nonnegative endpoint-hole set {f:R_N(f)=0} is rho_N(w)^2=sum over two-cycles {a,b} of min(w(a)^2,w(b)^2), plus sum over fixed points a of w(a)^2. Thus ||f-w||_2^2<rho_N(w)^2 forces R_N(f)>0, and equality is sharp. However, endpoint positivity is not determined by any permutation-invariant global moments: on Z/4 at N=3, (2s,s,0,0) and (2s,0,0,s) have the same multiset and every global power moment, while their endpoint convolutions are 0 and 4s^2.",
+      "mathematical_argument": "On a two-cycle, a zero nonnegative convolution forces at least one coordinate to zero; the cheapest squared displacement is the smaller of the two squared baseline weights. A fixed point must itself be zero. The orbit costs add independently, and zeroing the cheaper coordinate in each orbit attains equality. The Z/4 pair is a coordinate permutation, so all symmetric moments agree, but the reflection pairing changes.",
+      "reproducible_computation": {
+        "theorem": "Let tau be an involution of a finite set and w>=0 a baseline. For R_N(f)=sum_a f(a)f(tau(a)), the exact squared L2 distance from w to the nonnegative endpoint-hole set {f:R_N(f)=0} is rho_N(w)^2=sum over two-cycles {a,b} of min(w(a)^2,w(b)^2), plus sum over fixed points a of w(a)^2. Thus ||f-w||_2^2<rho_N(w)^2 forces R_N(f)>0, and equality is sharp. However, endpoint positivity is not determined by any permutation-invariant global moments: on Z/4 at N=3, (2s,s,0,0) and (2s,0,0,s) have the same multiset and every global power moment, while their endpoint convolutions are 0 and 4s^2.",
+        "proof": "On a two-cycle, a zero nonnegative convolution forces at least one coordinate to zero; the cheapest squared displacement is the smaller of the two squared baseline weights. A fixed point must itself be zero. The orbit costs add independently, and zeroing the cheaper coordinate in each orbit attains equality. The Z/4 pair is a coordinate permutation, so all symmetric moments agree, but the reflection pairing changes.",
+        "finite_permutation_moment_counterrows": [
+          {
+            "scale": 1,
+            "hole_weights": [
+              "2",
+              "1",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "2",
+              "0",
+              "0",
+              "1"
+            ],
+            "moments_power_1_through_6": [
+              "3",
+              "5",
+              "9",
+              "17",
+              "33",
+              "65"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "4",
+            "positive_weighted_hole_radius_squared": "1",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 2,
+            "hole_weights": [
+              "4",
+              "2",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "4",
+              "0",
+              "0",
+              "2"
+            ],
+            "moments_power_1_through_6": [
+              "6",
+              "20",
+              "72",
+              "272",
+              "1056",
+              "4160"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "16",
+            "positive_weighted_hole_radius_squared": "4",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 3,
+            "hole_weights": [
+              "6",
+              "3",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "6",
+              "0",
+              "0",
+              "3"
+            ],
+            "moments_power_1_through_6": [
+              "9",
+              "45",
+              "243",
+              "1377",
+              "8019",
+              "47385"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "36",
+            "positive_weighted_hole_radius_squared": "9",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 4,
+            "hole_weights": [
+              "8",
+              "4",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "8",
+              "0",
+              "0",
+              "4"
+            ],
+            "moments_power_1_through_6": [
+              "12",
+              "80",
+              "576",
+              "4352",
+              "33792",
+              "266240"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "64",
+            "positive_weighted_hole_radius_squared": "16",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 5,
+            "hole_weights": [
+              "10",
+              "5",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "10",
+              "0",
+              "0",
+              "5"
+            ],
+            "moments_power_1_through_6": [
+              "15",
+              "125",
+              "1125",
+              "10625",
+              "103125",
+              "1015625"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "100",
+            "positive_weighted_hole_radius_squared": "25",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 6,
+            "hole_weights": [
+              "12",
+              "6",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "12",
+              "0",
+              "0",
+              "6"
+            ],
+            "moments_power_1_through_6": [
+              "18",
+              "180",
+              "1944",
+              "22032",
+              "256608",
+              "3032640"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "144",
+            "positive_weighted_hole_radius_squared": "36",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 7,
+            "hole_weights": [
+              "14",
+              "7",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "14",
+              "0",
+              "0",
+              "7"
+            ],
+            "moments_power_1_through_6": [
+              "21",
+              "245",
+              "3087",
+              "40817",
+              "554631",
+              "7647185"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "196",
+            "positive_weighted_hole_radius_squared": "49",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 8,
+            "hole_weights": [
+              "16",
+              "8",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "16",
+              "0",
+              "0",
+              "8"
+            ],
+            "moments_power_1_through_6": [
+              "24",
+              "320",
+              "4608",
+              "69632",
+              "1081344",
+              "17039360"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "256",
+            "positive_weighted_hole_radius_squared": "64",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 9,
+            "hole_weights": [
+              "18",
+              "9",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "18",
+              "0",
+              "0",
+              "9"
+            ],
+            "moments_power_1_through_6": [
+              "27",
+              "405",
+              "6561",
+              "111537",
+              "1948617",
+              "34543665"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "324",
+            "positive_weighted_hole_radius_squared": "81",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 10,
+            "hole_weights": [
+              "20",
+              "10",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "20",
+              "0",
+              "0",
+              "10"
+            ],
+            "moments_power_1_through_6": [
+              "30",
+              "500",
+              "9000",
+              "170000",
+              "3300000",
+              "65000000"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "400",
+            "positive_weighted_hole_radius_squared": "100",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 11,
+            "hole_weights": [
+              "22",
+              "11",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "22",
+              "0",
+              "0",
+              "11"
+            ],
+            "moments_power_1_through_6": [
+              "33",
+              "605",
+              "11979",
+              "248897",
+              "5314683",
+              "115151465"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "484",
+            "positive_weighted_hole_radius_squared": "121",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 12,
+            "hole_weights": [
+              "24",
+              "12",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "24",
+              "0",
+              "0",
+              "12"
+            ],
+            "moments_power_1_through_6": [
+              "36",
+              "720",
+              "15552",
+              "352512",
+              "8211456",
+              "194088960"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "576",
+            "positive_weighted_hole_radius_squared": "144",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 13,
+            "hole_weights": [
+              "26",
+              "13",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "26",
+              "0",
+              "0",
+              "13"
+            ],
+            "moments_power_1_through_6": [
+              "39",
+              "845",
+              "19773",
+              "485537",
+              "12252669",
+              "313742585"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "676",
+            "positive_weighted_hole_radius_squared": "169",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 14,
+            "hole_weights": [
+              "28",
+              "14",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "28",
+              "0",
+              "0",
+              "14"
+            ],
+            "moments_power_1_through_6": [
+              "42",
+              "980",
+              "24696",
+              "653072",
+              "17748192",
+              "489419840"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "784",
+            "positive_weighted_hole_radius_squared": "196",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 15,
+            "hole_weights": [
+              "30",
+              "15",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "30",
+              "0",
+              "0",
+              "15"
+            ],
+            "moments_power_1_through_6": [
+              "45",
+              "1125",
+              "30375",
+              "860625",
+              "25059375",
+              "740390625"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "900",
+            "positive_weighted_hole_radius_squared": "225",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          },
+          {
+            "scale": 16,
+            "hole_weights": [
+              "32",
+              "16",
+              "0",
+              "0"
+            ],
+            "positive_weights": [
+              "32",
+              "0",
+              "0",
+              "16"
+            ],
+            "moments_power_1_through_6": [
+              "48",
+              "1280",
+              "36864",
+              "1114112",
+              "34603008",
+              "1090519040"
+            ],
+            "hole_endpoint_convolution": "0",
+            "positive_endpoint_convolution": "1024",
+            "positive_weighted_hole_radius_squared": "256",
+            "checks": {
+              "same_all_audited_global_moments": true,
+              "hole_convolution_is_zero": true,
+              "positive_convolution_is_positive": true,
+              "positive_baseline_hole_radius_is_scale_squared": true
+            }
+          }
+        ],
+        "finite_prime_indicator_radius_rows": [
+          {
+            "cutoff": 100,
+            "even_endpoints_audited": 49,
+            "minimum_prime_indicator_hole_radius_squared": 1,
+            "maximum_prime_indicator_hole_radius_squared": 9,
+            "zero_radius_endpoints": [],
+            "checks": {
+              "all_even_endpoints_have_positive_prime_indicator_radius": true,
+              "minimum_radius_is_positive": true,
+              "audit_is_finite": true
+            }
+          },
+          {
+            "cutoff": 1000,
+            "even_endpoints_audited": 499,
+            "minimum_prime_indicator_hole_radius_squared": 1,
+            "maximum_prime_indicator_hole_radius_squared": 52,
+            "zero_radius_endpoints": [],
+            "checks": {
+              "all_even_endpoints_have_positive_prime_indicator_radius": true,
+              "minimum_radius_is_positive": true,
+              "audit_is_finite": true
+            }
+          },
+          {
+            "cutoff": 10000,
+            "even_endpoints_audited": 4999,
+            "minimum_prime_indicator_hole_radius_squared": 1,
+            "maximum_prime_indicator_hole_radius_squared": 329,
+            "zero_radius_endpoints": [],
+            "checks": {
+              "all_even_endpoints_have_positive_prime_indicator_radius": true,
+              "minimum_radius_is_positive": true,
+              "audit_is_finite": true
+            }
+          },
+          {
+            "cutoff": 20000,
+            "even_endpoints_audited": 9999,
+            "minimum_prime_indicator_hole_radius_squared": 1,
+            "maximum_prime_indicator_hole_radius_squared": 571,
+            "zero_radius_endpoints": [],
+            "checks": {
+              "all_even_endpoints_have_positive_prime_indicator_radius": true,
+              "minimum_radius_is_positive": true,
+              "audit_is_finite": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The weighted radius is exact finite reflection geometry, not a lower bound for the actual von Mangoldt convolution. The finite prime-indicator audit through 20,000 cannot be promoted to all even integers.",
+      "route_decision": {
+        "discard": "any K56 transfer argument based only on global moments, energy, or the unordered weight histogram",
+        "retain": "construct an orbit-resolved positive major-arc reference and prove the von Mangoldt error lies strictly inside its exact weighted endpoint-hole radius",
+        "next_theorem": "OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T151-REJECTED",
+            "label": "GlobalMomentsDetermineEndpointReflectionMass",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T151-CLOSED",
+            "label": "WeightedReflectionHoleRadiusAndPermutationMomentNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T151-OPEN",
+            "label": "OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T151-REJECTED",
+            "GB-T151-CLOSED"
+          ],
+          [
+            "GB-T151-CLOSED",
+            "GB-T151-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact weighted stability radius and a global-moment no-go."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-151",
+      "theorem_name": "CubicRoughLogTwoBiasAndShiftedSelectionNoGo",
+      "declared_proposition": "Let y=X^(1/3), and count integers 2<=n<=X having no prime factor <=y. Apart from the negligible endpoint convention, every such n is prime or a product of two primes. The prime count P_X is asymptotic to X/log X, while the semiprime count D_X is asymptotic to (log 2)X/log X. Consequently the one-variable Liouville mean tends to (log 2-1)/(log 2+1)<0. This does not imply the same sign after conditioning on n and n+2 both being cubic-rough: identical ambient prime/semiprime populations admit a selected matching consisting only of prime-prime edges or only of semiprime-semiprime edges, giving opposite T-D signs.",
+      "mathematical_argument": "Three prime factors all exceeding X^(1/3) have product>X. The prime count follows from the prime number theorem. Writing a rough semiprime as pq with X^(1/3)<p<=sqrt(X) and p<=q, PNT plus partial summation gives X/log X times integral from 1/3 to 1/2 of dt/(t(1-t))=log 2; the diagonal and lower endpoint contribute o(X/log X). The matching countermodels keep the same ambient vertices and change only which vertices enter the gap-two selected support, so unshifted density cannot determine the shifted marginal.",
+      "reproducible_computation": {
+        "theorem": "Let y=X^(1/3), and count integers 2<=n<=X having no prime factor <=y. Apart from the negligible endpoint convention, every such n is prime or a product of two primes. The prime count P_X is asymptotic to X/log X, while the semiprime count D_X is asymptotic to (log 2)X/log X. Consequently the one-variable Liouville mean tends to (log 2-1)/(log 2+1)<0. This does not imply the same sign after conditioning on n and n+2 both being cubic-rough: identical ambient prime/semiprime populations admit a selected matching consisting only of prime-prime edges or only of semiprime-semiprime edges, giving opposite T-D signs.",
+        "proof": "Three prime factors all exceeding X^(1/3) have product>X. The prime count follows from the prime number theorem. Writing a rough semiprime as pq with X^(1/3)<p<=sqrt(X) and p<=q, PNT plus partial summation gives X/log X times integral from 1/3 to 1/2 of dt/(t(1-t))=log 2; the diagonal and lower endpoint contribute o(X/log X). The matching countermodels keep the same ambient vertices and change only which vertices enter the gap-two selected support, so unshifted density cannot determine the shifted marginal.",
+        "finite_cubic_rough_population_rows": [
+          {
+            "X": 1000,
+            "cubic_roughness_floor_y": 10,
+            "rough_prime_count_P": 164,
+            "rough_semiprime_count_D": 63,
+            "semiprime_to_prime_ratio": 0.38414634146341464,
+            "distance_to_log_two": 0.30900083909653064,
+            "normalized_liouville_mean": -0.44493392070484583,
+            "distance_to_limit_mean": 0.26370170240556334,
+            "other_composite_count": 0,
+            "checks": {
+              "only_primes_or_semiprimes_on_cubic_rough_support": true,
+              "prime_population_exceeds_semiprime_population": true,
+              "liouville_mean_is_negative": true
+            }
+          },
+          {
+            "X": 10000,
+            "cubic_roughness_floor_y": 21,
+            "rough_prime_count_P": 1221,
+            "rough_semiprime_count_D": 489,
+            "semiprime_to_prime_ratio": 0.4004914004914005,
+            "distance_to_log_two": 0.2926557800685448,
+            "normalized_liouville_mean": -0.4280701754385965,
+            "distance_to_limit_mean": 0.24683795713931397,
+            "other_composite_count": 0,
+            "checks": {
+              "only_primes_or_semiprimes_on_cubic_rough_support": true,
+              "prime_population_exceeds_semiprime_population": true,
+              "liouville_mean_is_negative": true
+            }
+          },
+          {
+            "X": 100000,
+            "cubic_roughness_floor_y": 46,
+            "rough_prime_count_P": 9578,
+            "rough_semiprime_count_D": 4625,
+            "semiprime_to_prime_ratio": 0.4828774274378785,
+            "distance_to_log_two": 0.2102697531220668,
+            "normalized_liouville_mean": -0.3487291417306203,
+            "distance_to_limit_mean": 0.1674969234313378,
+            "other_composite_count": 0,
+            "checks": {
+              "only_primes_or_semiprimes_on_cubic_rough_support": true,
+              "prime_population_exceeds_semiprime_population": true,
+              "liouville_mean_is_negative": true
+            }
+          },
+          {
+            "X": 1000000,
+            "cubic_roughness_floor_y": 100,
+            "rough_prime_count_P": 78473,
+            "rough_semiprime_count_D": 42286,
+            "semiprime_to_prime_ratio": 0.5388604997897366,
+            "distance_to_log_two": 0.15428668077020868,
+            "normalized_liouville_mean": -0.29966296507920737,
+            "distance_to_limit_mean": 0.11843074677992485,
+            "other_composite_count": 0,
+            "checks": {
+              "only_primes_or_semiprimes_on_cubic_rough_support": true,
+              "prime_population_exceeds_semiprime_population": true,
+              "liouville_mean_is_negative": true
+            }
+          }
+        ],
+        "finite_selection_countermodel_rows": [
+          {
+            "X": 1000,
+            "ambient_prime_vertices_each_side": 164,
+            "ambient_semiprime_vertices_each_side": 63,
+            "selected_matching_size": 63,
+            "prime_only_selected_deficit_T_minus_D": 63,
+            "semiprime_only_selected_deficit_T_minus_D": -63,
+            "checks": {
+              "same_ambient_populations": true,
+              "prime_only_selection_has_positive_deficit": true,
+              "semiprime_only_selection_has_negative_deficit": true,
+              "selection_signs_are_opposite": true
+            }
+          },
+          {
+            "X": 10000,
+            "ambient_prime_vertices_each_side": 1221,
+            "ambient_semiprime_vertices_each_side": 489,
+            "selected_matching_size": 489,
+            "prime_only_selected_deficit_T_minus_D": 489,
+            "semiprime_only_selected_deficit_T_minus_D": -489,
+            "checks": {
+              "same_ambient_populations": true,
+              "prime_only_selection_has_positive_deficit": true,
+              "semiprime_only_selection_has_negative_deficit": true,
+              "selection_signs_are_opposite": true
+            }
+          },
+          {
+            "X": 100000,
+            "ambient_prime_vertices_each_side": 9578,
+            "ambient_semiprime_vertices_each_side": 4625,
+            "selected_matching_size": 4625,
+            "prime_only_selected_deficit_T_minus_D": 4625,
+            "semiprime_only_selected_deficit_T_minus_D": -4625,
+            "checks": {
+              "same_ambient_populations": true,
+              "prime_only_selection_has_positive_deficit": true,
+              "semiprime_only_selection_has_negative_deficit": true,
+              "selection_signs_are_opposite": true
+            }
+          },
+          {
+            "X": 1000000,
+            "ambient_prime_vertices_each_side": 78473,
+            "ambient_semiprime_vertices_each_side": 42286,
+            "selected_matching_size": 42286,
+            "prime_only_selected_deficit_T_minus_D": 42286,
+            "semiprime_only_selected_deficit_T_minus_D": -42286,
+            "checks": {
+              "same_ambient_populations": true,
+              "prime_only_selection_has_positive_deficit": true,
+              "semiprime_only_selection_has_negative_deficit": true,
+              "selection_signs_are_opposite": true
+            }
+          }
+        ],
+        "finite_gap_two_shifted_rows": [
+          {
+            "X": 1000,
+            "gap_two_cubic_rough_edges_E": 59,
+            "unshifted_liouville_mean": -0.44493392070484583,
+            "left_edge_conditioned_liouville_mean": {
+              "exact": "-17/59",
+              "decimal": -0.288135593220339
+            },
+            "right_edge_conditioned_liouville_mean": {
+              "exact": "-19/59",
+              "decimal": -0.3220338983050847
+            },
+            "cover_deficit_ratio": {
+              "exact": "18/59",
+              "decimal": 0.3050847457627119
+            },
+            "log_two_predicted_deficit_ratio": 0.18123221829928252,
+            "checks": {
+              "left_shifted_mean_is_negative": true,
+              "right_shifted_mean_is_negative": true,
+              "deficit_identity_replays": true,
+              "matching_population_row_exists": true
+            }
+          },
+          {
+            "X": 10000,
+            "gap_two_cubic_rough_edges_E": 358,
+            "unshifted_liouville_mean": -0.4280701754385965,
+            "left_edge_conditioned_liouville_mean": {
+              "exact": "-52/179",
+              "decimal": -0.2905027932960894
+            },
+            "right_edge_conditioned_liouville_mean": {
+              "exact": "-42/179",
+              "decimal": -0.2346368715083799
+            },
+            "cover_deficit_ratio": {
+              "exact": "47/179",
+              "decimal": 0.26256983240223464
+            },
+            "log_two_predicted_deficit_ratio": 0.18123221829928252,
+            "checks": {
+              "left_shifted_mean_is_negative": true,
+              "right_shifted_mean_is_negative": true,
+              "deficit_identity_replays": true,
+              "matching_population_row_exists": true
+            }
+          },
+          {
+            "X": 100000,
+            "gap_two_cubic_rough_edges_E": 2486,
+            "unshifted_liouville_mean": -0.3487291417306203,
+            "left_edge_conditioned_liouville_mean": {
+              "exact": "-282/1243",
+              "decimal": -0.22687047465808527
+            },
+            "right_edge_conditioned_liouville_mean": {
+              "exact": "-278/1243",
+              "decimal": -0.2236524537409493
+            },
+            "cover_deficit_ratio": {
+              "exact": "280/1243",
+              "decimal": 0.2252614641995173
+            },
+            "log_two_predicted_deficit_ratio": 0.18123221829928252,
+            "checks": {
+              "left_shifted_mean_is_negative": true,
+              "right_shifted_mean_is_negative": true,
+              "deficit_identity_replays": true,
+              "matching_population_row_exists": true
+            }
+          },
+          {
+            "X": 1000000,
+            "gap_two_cubic_rough_edges_E": 17634,
+            "unshifted_liouville_mean": -0.29966296507920737,
+            "left_edge_conditioned_liouville_mean": {
+              "exact": "-1985/8817",
+              "decimal": -0.22513326528297606
+            },
+            "right_edge_conditioned_liouville_mean": {
+              "exact": "-1996/8817",
+              "decimal": -0.22638085516615628
+            },
+            "cover_deficit_ratio": {
+              "exact": "1327/5878",
+              "decimal": 0.22575706022456618
+            },
+            "log_two_predicted_deficit_ratio": 0.18123221829928252,
+            "checks": {
+              "left_shifted_mean_is_negative": true,
+              "right_shifted_mean_is_negative": true,
+              "deficit_identity_replays": true,
+              "matching_population_row_exists": true
+            }
+          }
+        ],
+        "target_constants": {
+          "semiprime_to_prime_ratio_log_two": 0.6931471805599453,
+          "liouville_mean": -0.18123221829928252,
+          "predicted_deficit_ratio_under_marginal_transfer": 0.18123221829928252
+        },
+        "source_artifact": "data/open-problem/ticket149-smooth-escape-wheel-cover.json",
+        "source_sha256": "af43e0fbc04bb23a8f65e1e8969cf50108b38c907d119c2c9552bd3d9823eb50",
+        "failure_count": 0
+      },
+      "logical_limit": "The PNT consequence is one-dimensional. It gives no positive lower bound for gap-two cubic-rough edges and no shifted Liouville marginal estimate on that selected support.",
+      "route_decision": {
+        "discard": "transferring the unshifted cubic-rough log-two bias directly to the n,n+2 selected edge support",
+        "retain": "prove positive gap-two cubic-rough mass and a shifted marginal transfer preserving a quantitative fraction of the negative log-two bias",
+        "next_theorem": "PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T151-REJECTED",
+            "label": "UnshiftedCubicRoughBiasAutomaticallyTransfersToGapTwo",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T151-CLOSED",
+            "label": "CubicRoughLogTwoBiasAndShiftedSelectionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T151-OPEN",
+            "label": "PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T151-REJECTED",
+            "TP-T151-CLOSED"
+          ],
+          [
+            "TP-T151-CLOSED",
+            "TP-T151-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. One PNT-derived univariate bias and a shifted-selection no-go."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Suzuki, Weil's quadratic form via the screw function",
+        "url": "https://arxiv.org/abs/2606.09096",
+        "role": "Current Weil-form context; TICKET-151 proves only the abstract one-sided relative spectral criterion."
+      },
+      {
+        "citation": "Niu, Parity vectors and paradoxical sequences in the accelerated Collatz map",
+        "url": "https://arxiv.org/abs/2605.13886",
+        "role": "Current parity-vector context; the affine threshold audit supplies no all-cylinder descent cover."
+      },
+      {
+        "citation": "Helfgott, Minor arcs for Goldbach's problem",
+        "url": "https://arxiv.org/abs/1205.5252",
+        "role": "Primary explicit minor-arc context; global moment control is separated from endpoint reflection control."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary Type I/II boundary; the log-two PNT calculation does not supply the required shifted lower bound."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-151",
+      "attempt": "Let p be the closed nonnegative form of a self-adjoint P with trivial kernel, and let k[v,w]=<P^(1/2)v,BP^(1/2)w> for bounded self-adjoint B. Then p+k is nonnegative if and only if B>=-I, equivalently ||B_-||<=1 for the spectral negative part B_-=max(-B,0). The two-sided condition ||B||<=1 from TICKET-150 is sufficient but not necessary: B=diag(M,-a), M>1 and 0<=a<=1, gives p+k>=0 while ||B||=M is arbitrarily large. If ||B_-||>1, a negative spectral direction makes p+k negative regardless of the positive spectrum.",
+      "bounded_result": {
+        "audit_ref": "negative_affine_transversal_logtwo_audit.riemann"
+      },
+      "obstruction": "The criterion is an abstract spectral equivalence. It does not construct the actual Weil reference form, represent its prime and archimedean terms by B, or bound B_-. No zeta zero is controlled.",
+      "candidate_theorem": "ActualWeilNegativeRelativeFormPartBoundAtMostOne",
+      "next_experiment": "construct the actual Weil relative operator and bound only its spectral negative part by one",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact one-sided form criterion and a no-go for requiring the full norm."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-151",
+      "attempt": "For an accelerated Collatz valuation word a=(a_1,...,a_m), put S=sum a_i and define C_0=0, C_i=3C_(i-1)+2^(a_1+...+a_(i-1)). Every realizing positive odd n satisfies T^m(n)=(3^m n+C_m)/2^S. Therefore T^m(n)<n if and only if D=2^S-3^m is positive and n>C_m/D. Positive valuation surplus D>0 alone is not sufficient: n=165 with its exact 17-step word has S=27 and D=5,077,565>0 but T^17(165)=167. Members of one exact word cylinder share C and D, so the descent boundary is an exact Archimedean threshold. For every TICKET-150 forced type-two block (1,2)^L,(1,1),1^H, D<0, so its forced horizon cannot descend below its start.",
+      "bounded_result": {
+        "audit_ref": "negative_affine_transversal_logtwo_audit.collatz"
+      },
+      "obstruction": "The exact threshold classifies a fixed finite valuation word. It neither proves that every type-two cylinder has a descent-producing extension nor supplies a uniform stopping time for all positive integers.",
+      "candidate_theorem": "TypeTwoAffineThresholdCylinderCoverBelowShadowEntry",
+      "next_experiment": "cover every type-two cylinder by an extension whose affine threshold lies below every represented natural start and below the pre-shadow entry",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact affine threshold theorem and finite natural counterexamples to a surplus-only rule."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-151",
+      "attempt": "Let tau be an involution of a finite set and w>=0 a baseline. For R_N(f)=sum_a f(a)f(tau(a)), the exact squared L2 distance from w to the nonnegative endpoint-hole set {f:R_N(f)=0} is rho_N(w)^2=sum over two-cycles {a,b} of min(w(a)^2,w(b)^2), plus sum over fixed points a of w(a)^2. Thus ||f-w||_2^2<rho_N(w)^2 forces R_N(f)>0, and equality is sharp. However, endpoint positivity is not determined by any permutation-invariant global moments: on Z/4 at N=3, (2s,s,0,0) and (2s,0,0,s) have the same multiset and every global power moment, while their endpoint convolutions are 0 and 4s^2.",
+      "bounded_result": {
+        "audit_ref": "negative_affine_transversal_logtwo_audit.goldbach"
+      },
+      "obstruction": "The weighted radius is exact finite reflection geometry, not a lower bound for the actual von Mangoldt convolution. The finite prime-indicator audit through 20,000 cannot be promoted to all even integers.",
+      "candidate_theorem": "OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56",
+      "next_experiment": "construct an orbit-resolved positive major-arc reference and prove the von Mangoldt error lies strictly inside its exact weighted endpoint-hole radius",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact weighted stability radius and a global-moment no-go."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-151",
+      "attempt": "Let y=X^(1/3), and count integers 2<=n<=X having no prime factor <=y. Apart from the negligible endpoint convention, every such n is prime or a product of two primes. The prime count P_X is asymptotic to X/log X, while the semiprime count D_X is asymptotic to (log 2)X/log X. Consequently the one-variable Liouville mean tends to (log 2-1)/(log 2+1)<0. This does not imply the same sign after conditioning on n and n+2 both being cubic-rough: identical ambient prime/semiprime populations admit a selected matching consisting only of prime-prime edges or only of semiprime-semiprime edges, giving opposite T-D signs.",
+      "bounded_result": {
+        "audit_ref": "negative_affine_transversal_logtwo_audit.twin_prime"
+      },
+      "obstruction": "The PNT consequence is one-dimensional. It gives no positive lower bound for gap-two cubic-rough edges and no shifted Liouville marginal estimate on that selected support.",
+      "candidate_theorem": "PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer",
+      "next_experiment": "prove positive gap-two cubic-rough mass and a shifted marginal transfer preserving a quantitative fraction of the negative log-two bias",
+      "claim_boundary": "No Twin Prime proof or counterexample. One PNT-derived univariate bias and a shifted-selection no-go."
+    }
+  ]
+}

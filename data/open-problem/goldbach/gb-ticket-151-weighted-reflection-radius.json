@@ -1,0 +1,626 @@
+{
+  "schema": "primeproject.ticket151-negative-affine-transversal-logtwo.v1",
+  "generated_at": "2026-07-29T09:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-151",
+  "attempt": "Let tau be an involution of a finite set and w>=0 a baseline. For R_N(f)=sum_a f(a)f(tau(a)), the exact squared L2 distance from w to the nonnegative endpoint-hole set {f:R_N(f)=0} is rho_N(w)^2=sum over two-cycles {a,b} of min(w(a)^2,w(b)^2), plus sum over fixed points a of w(a)^2. Thus ||f-w||_2^2<rho_N(w)^2 forces R_N(f)>0, and equality is sharp. However, endpoint positivity is not determined by any permutation-invariant global moments: on Z/4 at N=3, (2s,s,0,0) and (2s,0,0,s) have the same multiset and every global power moment, while their endpoint convolutions are 0 and 4s^2.",
+  "bounded_result": {
+    "audit_ref": "negative_affine_transversal_logtwo_audit.goldbach"
+  },
+  "obstruction": "The weighted radius is exact finite reflection geometry, not a lower bound for the actual von Mangoldt convolution. The finite prime-indicator audit through 20,000 cannot be promoted to all even integers.",
+  "candidate_theorem": "OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56",
+  "next_experiment": "construct an orbit-resolved positive major-arc reference and prove the von Mangoldt error lies strictly inside its exact weighted endpoint-hole radius",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact weighted stability radius and a global-moment no-go.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-151",
+    "theorem_name": "WeightedReflectionHoleRadiusAndPermutationMomentNoGo",
+    "declared_proposition": "Let tau be an involution of a finite set and w>=0 a baseline. For R_N(f)=sum_a f(a)f(tau(a)), the exact squared L2 distance from w to the nonnegative endpoint-hole set {f:R_N(f)=0} is rho_N(w)^2=sum over two-cycles {a,b} of min(w(a)^2,w(b)^2), plus sum over fixed points a of w(a)^2. Thus ||f-w||_2^2<rho_N(w)^2 forces R_N(f)>0, and equality is sharp. However, endpoint positivity is not determined by any permutation-invariant global moments: on Z/4 at N=3, (2s,s,0,0) and (2s,0,0,s) have the same multiset and every global power moment, while their endpoint convolutions are 0 and 4s^2.",
+    "mathematical_argument": "On a two-cycle, a zero nonnegative convolution forces at least one coordinate to zero; the cheapest squared displacement is the smaller of the two squared baseline weights. A fixed point must itself be zero. The orbit costs add independently, and zeroing the cheaper coordinate in each orbit attains equality. The Z/4 pair is a coordinate permutation, so all symmetric moments agree, but the reflection pairing changes.",
+    "reproducible_computation": {
+      "theorem": "Let tau be an involution of a finite set and w>=0 a baseline. For R_N(f)=sum_a f(a)f(tau(a)), the exact squared L2 distance from w to the nonnegative endpoint-hole set {f:R_N(f)=0} is rho_N(w)^2=sum over two-cycles {a,b} of min(w(a)^2,w(b)^2), plus sum over fixed points a of w(a)^2. Thus ||f-w||_2^2<rho_N(w)^2 forces R_N(f)>0, and equality is sharp. However, endpoint positivity is not determined by any permutation-invariant global moments: on Z/4 at N=3, (2s,s,0,0) and (2s,0,0,s) have the same multiset and every global power moment, while their endpoint convolutions are 0 and 4s^2.",
+      "proof": "On a two-cycle, a zero nonnegative convolution forces at least one coordinate to zero; the cheapest squared displacement is the smaller of the two squared baseline weights. A fixed point must itself be zero. The orbit costs add independently, and zeroing the cheaper coordinate in each orbit attains equality. The Z/4 pair is a coordinate permutation, so all symmetric moments agree, but the reflection pairing changes.",
+      "finite_permutation_moment_counterrows": [
+        {
+          "scale": 1,
+          "hole_weights": [
+            "2",
+            "1",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "2",
+            "0",
+            "0",
+            "1"
+          ],
+          "moments_power_1_through_6": [
+            "3",
+            "5",
+            "9",
+            "17",
+            "33",
+            "65"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "4",
+          "positive_weighted_hole_radius_squared": "1",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 2,
+          "hole_weights": [
+            "4",
+            "2",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "4",
+            "0",
+            "0",
+            "2"
+          ],
+          "moments_power_1_through_6": [
+            "6",
+            "20",
+            "72",
+            "272",
+            "1056",
+            "4160"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "16",
+          "positive_weighted_hole_radius_squared": "4",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 3,
+          "hole_weights": [
+            "6",
+            "3",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "6",
+            "0",
+            "0",
+            "3"
+          ],
+          "moments_power_1_through_6": [
+            "9",
+            "45",
+            "243",
+            "1377",
+            "8019",
+            "47385"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "36",
+          "positive_weighted_hole_radius_squared": "9",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 4,
+          "hole_weights": [
+            "8",
+            "4",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "8",
+            "0",
+            "0",
+            "4"
+          ],
+          "moments_power_1_through_6": [
+            "12",
+            "80",
+            "576",
+            "4352",
+            "33792",
+            "266240"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "64",
+          "positive_weighted_hole_radius_squared": "16",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 5,
+          "hole_weights": [
+            "10",
+            "5",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "10",
+            "0",
+            "0",
+            "5"
+          ],
+          "moments_power_1_through_6": [
+            "15",
+            "125",
+            "1125",
+            "10625",
+            "103125",
+            "1015625"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "100",
+          "positive_weighted_hole_radius_squared": "25",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 6,
+          "hole_weights": [
+            "12",
+            "6",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "12",
+            "0",
+            "0",
+            "6"
+          ],
+          "moments_power_1_through_6": [
+            "18",
+            "180",
+            "1944",
+            "22032",
+            "256608",
+            "3032640"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "144",
+          "positive_weighted_hole_radius_squared": "36",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 7,
+          "hole_weights": [
+            "14",
+            "7",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "14",
+            "0",
+            "0",
+            "7"
+          ],
+          "moments_power_1_through_6": [
+            "21",
+            "245",
+            "3087",
+            "40817",
+            "554631",
+            "7647185"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "196",
+          "positive_weighted_hole_radius_squared": "49",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 8,
+          "hole_weights": [
+            "16",
+            "8",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "16",
+            "0",
+            "0",
+            "8"
+          ],
+          "moments_power_1_through_6": [
+            "24",
+            "320",
+            "4608",
+            "69632",
+            "1081344",
+            "17039360"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "256",
+          "positive_weighted_hole_radius_squared": "64",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 9,
+          "hole_weights": [
+            "18",
+            "9",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "18",
+            "0",
+            "0",
+            "9"
+          ],
+          "moments_power_1_through_6": [
+            "27",
+            "405",
+            "6561",
+            "111537",
+            "1948617",
+            "34543665"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "324",
+          "positive_weighted_hole_radius_squared": "81",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 10,
+          "hole_weights": [
+            "20",
+            "10",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "20",
+            "0",
+            "0",
+            "10"
+          ],
+          "moments_power_1_through_6": [
+            "30",
+            "500",
+            "9000",
+            "170000",
+            "3300000",
+            "65000000"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "400",
+          "positive_weighted_hole_radius_squared": "100",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 11,
+          "hole_weights": [
+            "22",
+            "11",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "22",
+            "0",
+            "0",
+            "11"
+          ],
+          "moments_power_1_through_6": [
+            "33",
+            "605",
+            "11979",
+            "248897",
+            "5314683",
+            "115151465"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "484",
+          "positive_weighted_hole_radius_squared": "121",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 12,
+          "hole_weights": [
+            "24",
+            "12",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "24",
+            "0",
+            "0",
+            "12"
+          ],
+          "moments_power_1_through_6": [
+            "36",
+            "720",
+            "15552",
+            "352512",
+            "8211456",
+            "194088960"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "576",
+          "positive_weighted_hole_radius_squared": "144",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 13,
+          "hole_weights": [
+            "26",
+            "13",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "26",
+            "0",
+            "0",
+            "13"
+          ],
+          "moments_power_1_through_6": [
+            "39",
+            "845",
+            "19773",
+            "485537",
+            "12252669",
+            "313742585"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "676",
+          "positive_weighted_hole_radius_squared": "169",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 14,
+          "hole_weights": [
+            "28",
+            "14",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "28",
+            "0",
+            "0",
+            "14"
+          ],
+          "moments_power_1_through_6": [
+            "42",
+            "980",
+            "24696",
+            "653072",
+            "17748192",
+            "489419840"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "784",
+          "positive_weighted_hole_radius_squared": "196",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 15,
+          "hole_weights": [
+            "30",
+            "15",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "30",
+            "0",
+            "0",
+            "15"
+          ],
+          "moments_power_1_through_6": [
+            "45",
+            "1125",
+            "30375",
+            "860625",
+            "25059375",
+            "740390625"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "900",
+          "positive_weighted_hole_radius_squared": "225",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        },
+        {
+          "scale": 16,
+          "hole_weights": [
+            "32",
+            "16",
+            "0",
+            "0"
+          ],
+          "positive_weights": [
+            "32",
+            "0",
+            "0",
+            "16"
+          ],
+          "moments_power_1_through_6": [
+            "48",
+            "1280",
+            "36864",
+            "1114112",
+            "34603008",
+            "1090519040"
+          ],
+          "hole_endpoint_convolution": "0",
+          "positive_endpoint_convolution": "1024",
+          "positive_weighted_hole_radius_squared": "256",
+          "checks": {
+            "same_all_audited_global_moments": true,
+            "hole_convolution_is_zero": true,
+            "positive_convolution_is_positive": true,
+            "positive_baseline_hole_radius_is_scale_squared": true
+          }
+        }
+      ],
+      "finite_prime_indicator_radius_rows": [
+        {
+          "cutoff": 100,
+          "even_endpoints_audited": 49,
+          "minimum_prime_indicator_hole_radius_squared": 1,
+          "maximum_prime_indicator_hole_radius_squared": 9,
+          "zero_radius_endpoints": [],
+          "checks": {
+            "all_even_endpoints_have_positive_prime_indicator_radius": true,
+            "minimum_radius_is_positive": true,
+            "audit_is_finite": true
+          }
+        },
+        {
+          "cutoff": 1000,
+          "even_endpoints_audited": 499,
+          "minimum_prime_indicator_hole_radius_squared": 1,
+          "maximum_prime_indicator_hole_radius_squared": 52,
+          "zero_radius_endpoints": [],
+          "checks": {
+            "all_even_endpoints_have_positive_prime_indicator_radius": true,
+            "minimum_radius_is_positive": true,
+            "audit_is_finite": true
+          }
+        },
+        {
+          "cutoff": 10000,
+          "even_endpoints_audited": 4999,
+          "minimum_prime_indicator_hole_radius_squared": 1,
+          "maximum_prime_indicator_hole_radius_squared": 329,
+          "zero_radius_endpoints": [],
+          "checks": {
+            "all_even_endpoints_have_positive_prime_indicator_radius": true,
+            "minimum_radius_is_positive": true,
+            "audit_is_finite": true
+          }
+        },
+        {
+          "cutoff": 20000,
+          "even_endpoints_audited": 9999,
+          "minimum_prime_indicator_hole_radius_squared": 1,
+          "maximum_prime_indicator_hole_radius_squared": 571,
+          "zero_radius_endpoints": [],
+          "checks": {
+            "all_even_endpoints_have_positive_prime_indicator_radius": true,
+            "minimum_radius_is_positive": true,
+            "audit_is_finite": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The weighted radius is exact finite reflection geometry, not a lower bound for the actual von Mangoldt convolution. The finite prime-indicator audit through 20,000 cannot be promoted to all even integers.",
+    "route_decision": {
+      "discard": "any K56 transfer argument based only on global moments, energy, or the unordered weight histogram",
+      "retain": "construct an orbit-resolved positive major-arc reference and prove the von Mangoldt error lies strictly inside its exact weighted endpoint-hole radius",
+      "next_theorem": "OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T151-REJECTED",
+          "label": "GlobalMomentsDetermineEndpointReflectionMass",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T151-CLOSED",
+          "label": "WeightedReflectionHoleRadiusAndPermutationMomentNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T151-OPEN",
+          "label": "OrbitResolvedVonMangoldtApproximationInsideWeightedHoleRadiusK56",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T151-REJECTED",
+          "GB-T151-CLOSED"
+        ],
+        [
+          "GB-T151-CLOSED",
+          "GB-T151-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One exact weighted stability radius and a global-moment no-go."
+  }
+}

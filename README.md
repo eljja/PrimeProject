@@ -31,20 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-150: Relative Form Bounds, Delayed Collatz Escape, Sharp Endpoint
-Holes, and Parity Equivalence](docs/relative-delay-hole-parity.md). It proves
-four exact intermediate or no-go theorems. The RH route now has the sharp
-abstract relative-form threshold and an explicit proof that a compact
-reference cannot be uniformly coercive in ambient `L2`. The Collatz
-`r=2` shadow exit admits arbitrarily long CRT-forced valuation-one delays, so
-every fixed post-shadow window is retired. The Goldbach wheel model has an
-exact sharp nonnegative endpoint-hole radius whose relative value tends to
-zero on growing primorial wheels. The Twin semiprime-cover deficit is exactly
-`twin edges - double-semiprime edges`, exposing the unresolved parity bias.
-Every conjecture remains `open_not_proven`.
+[TICKET-151: Negative Spectrum, Affine Thresholds, Reflection Transversals,
+and the Log-Two Bias](docs/negative-affine-transversal-logtwo.md). It proves
+four exact partial or no-go theorems. The RH target is reduced from a
+two-sided relative norm to the exact negative spectral-part bound. The
+Collatz route now includes the exact affine threshold `n>C/D` and a natural
+counterexample to surplus-only descent. The Goldbach route has the exact
+weighted reflection-hole radius and a no-go for permutation-invariant global
+moments. The Twin route derives the one-variable cubic-rough `1:log 2`
+prime/semiprime ratio and proves that its sign does not automatically survive
+gap-two selection. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-149: Smooth Cores, Exact Shadow Escape, Wheel Transfer, and Semiprime Cover](docs/smooth-escape-wheel-cover.md).
+[TICKET-150: Relative Form Bounds, Delayed Collatz Escape, Sharp Endpoint
+Holes, and Parity Equivalence](docs/relative-delay-hole-parity.md).
 
 The corrected TICKET77 sublemma is written separately in [Collatz Fixed-Prefix Boundary Orbit](docs/collatz-fixed-prefix-boundary-orbit.md), with a bilingual theorem statement, equality-rollback correction, periodic-orbit classification, 2-adic admissibility analysis, and explicit remaining bridge.
 
@@ -100,18 +100,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-ten-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-eleven-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-150. For RH it proves the sharp
-relative-form threshold and rules out compact ambient coercivity. For Collatz
-it proves that the type-two shadow exit defeats every fixed post-exit
-window. For Goldbach it gives the exact nonnegative endpoint-hole radius and
-a growing-wheel relative-`L2` no-go. For Twin Prime it proves that the
-semiprime-cover deficit is an exact parity-sensitive
-`twin-minus-double-semiprime` comparison. All four conjectures remain open.
-See [TICKET150](docs/relative-delay-hole-parity.md),
+The latest proof-search track is TICKET-151. For RH it proves that positivity
+is equivalent to `||B_-||<=1`, while a full relative norm bound is
+unnecessarily strong. For Collatz it proves the exact finite-word affine
+threshold and refutes positive-surplus-only descent with `n=165`. For
+Goldbach it gives the exact weighted reflection-hole radius and shows that
+global moments cannot determine endpoint positivity. For Twin Prime it
+derives the cubic-rough `log 2` marginal and blocks its automatic transfer to
+gap-two selected support. All four conjectures remain open. See
+[TICKET151](docs/negative-affine-transversal-logtwo.md),
+[TICKET150](docs/relative-delay-hole-parity.md),
 [TICKET149](docs/smooth-escape-wheel-cover.md),
 [TICKET148](docs/multiscale-renewal-sharpness-matching.md),
 [TICKET147](docs/fiber-compensation-phase-graph.md),
@@ -120,17 +122,16 @@ See [TICKET150](docs/relative-delay-hole-parity.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-150입니다. RH에서는 실제 Weil
-형식에 아직 적용하지 못했지만 상대 form norm의 정확한 임계값을 증명하고,
-compact 기준 작용소가 ambient `L2`에서 균일한 양의 하한을 가질 수 없음을
-확정했습니다. Collatz에서는 세 shadow 종료형 중 `r=2`가 CRT로 강제되는
-임의 길이 팽창을 가지므로 모든 고정 길이 후처리 전략을 폐기했습니다.
-Goldbach에서는 비음수 wheel 가중치가 특정 endpoint를 잃기 위한 정확한
-최소 `L2` 거리를 계산하고, primorial wheel에서 그 상대 반지름이 0으로
-감을 증명했습니다. Twin Prime에서는 semiprime cover deficit가 정확히
-`쌍둥이 간선 수 - 양끝 semiprime 간선 수`인 parity-sensitive 명제임을
-밝혔습니다. 네 문제는 모두 미해결이며 완전 증명이나 추측의 반례는
-없습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-151입니다. RH에서는 합성 form의
+양성이 전체 상대 norm이 아니라 음의 스펙트럼 부분 `||B_-||<=1`과
+정확히 동치임을 증명했습니다. Collatz에서는 유한 valuation word의
+정확한 affine 하강 임계값 `n>C/D`를 얻고, surplus가 양수인데도
+하강하지 않는 실제 예 `n=165`를 확인했습니다. Goldbach에서는 가중
+반사 궤도의 정확한 endpoint-hole 거리를 증명하고 전역 모멘트만으로는
+endpoint 양성을 정할 수 없음을 보였습니다. Twin Prime에서는
+cubic-rough 소수/semiprime 비 `1:log 2`를 유도했지만 이 편향이
+gap-two 선택 집합으로 자동 이전되지 않음을 확정했습니다. 네 문제는
+모두 미해결이며 완전 증명이나 추측의 반례는 없습니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -150,14 +151,15 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-150입니다. [Relative form, delayed
-Collatz escape, sharp endpoint hole, parity equivalence
-보고서](docs/relative-delay-hole-parity.md)는 네 트랙의 정확 명제, 증명,
-재현 계산, 폐기 경로와 남은 무한 간극을 한글과 영문으로 정리합니다.
-RH의 상대 form 임계값, Collatz `r=2` 임의 지연, Goldbach의 sharp
-endpoint-hole 반지름, Twin cover deficit의 정확한 parity 의미를
-확정했습니다. 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음
-단일 미증명 보조정리를 세 상태로 분리합니다.
+최신 난제 연구 트랙은 TICKET-151입니다.
+[음의 스펙트럼, affine 임계값, 반사 transversal, log-two 편향
+보고서](docs/negative-affine-transversal-logtwo.md)는 네 트랙의 정확
+명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과 영문으로
+정리합니다. RH의 one-sided 음의 스펙트럼 기준, Collatz의 정확한
+`C/D` 임계값, Goldbach의 weighted endpoint-hole 반지름, Twin의
+한 변수 `log 2` 편향과 shifted-selection no-go를 확정했습니다. 각
+proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
+보조정리를 세 상태로 분리합니다.
 
 주요 진입점:
 

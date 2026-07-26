@@ -148,6 +148,7 @@ TICKET147_SCHEMA = "primeproject.ticket147-fiber-compensation-phase-graph.v1"
 TICKET148_SCHEMA = "primeproject.ticket148-multiscale-renewal-sharpness-matching.v1"
 TICKET149_SCHEMA = "primeproject.ticket149-smooth-escape-wheel-cover.v1"
 TICKET150_SCHEMA = "primeproject.ticket150-relative-delay-hole-parity.v1"
+TICKET151_SCHEMA = "primeproject.ticket151-negative-affine-transversal-logtwo.v1"
 
 
 def fail(message: str) -> int:
@@ -8696,6 +8697,298 @@ def main() -> int:
             return fail(f"{problem_id}: ticket150 proof DAG changed")
     if "resolves no target conjecture" not in str(audit150.get("proof_boundary", "")).lower() or "resolves no target conjecture" not in str(ticket150.get("claim_boundary", "")).lower():
         return fail("ticket150 proof boundary changed")
+
+    path151 = Path(
+        "data/open-problem/"
+        "ticket151-negative-affine-transversal-logtwo.json"
+    )
+    if not path151.exists():
+        return fail(
+            "missing ticket151 negative-affine-transversal-logtwo audit"
+        )
+    ticket151 = read_json(path151)
+    expected_status151 = (
+        "exact_partial_theorems_and_target_corrections_"
+        "all_conjectures_open"
+    )
+    if (
+        ticket151.get("schema") != TICKET151_SCHEMA
+        or ticket151.get("status") != expected_status151
+    ):
+        return fail("ticket151 schema or status changed")
+    attempts151 = ticket151.get("attempts", [])
+    by_id151 = {
+        str(row.get("problem_id")): row
+        for row in attempts151
+        if isinstance(row, dict)
+    } if isinstance(attempts151, list) else {}
+    if set(by_id151) != EXPECTED_PROBLEMS:
+        return fail("ticket151 attempts missing problems")
+    paths151 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-151-negative-relative-part.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-151-affine-threshold.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-151-weighted-reflection-radius.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-151-logtwo-shift-selection.json"
+        ),
+    }
+    next151 = {
+        "riemann": "ActualWeilNegativeRelativeFormPartBoundAtMostOne",
+        "collatz": (
+            "TypeTwoAffineThresholdCylinderCoverBelowShadowEntry"
+        ),
+        "goldbach": (
+            "OrbitResolvedVonMangoldtApproximationInside"
+            "WeightedHoleRadiusK56"
+        ),
+        "twin-prime": (
+            "PositiveGapTwoCubicRoughMassAnd"
+            "ShiftedLogTwoMarginalTransfer"
+        ),
+    }
+    for problem_id, attempt in by_id151.items():
+        if (
+            not paths151[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket151 artifact or proof boundary missing"
+            )
+        per_problem151 = read_json(paths151[problem_id])
+        if (
+            per_problem151.get("schema") != TICKET151_SCHEMA
+            or per_problem151.get("problem_id") != problem_id
+        ):
+            return fail(
+                f"{problem_id}: ticket151 per-problem schema changed"
+            )
+        if (
+            attempt.get("candidate_theorem") != next151[problem_id]
+            or per_problem151.get("candidate_theorem")
+            != next151[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket151 next theorem changed")
+
+    audit151 = ticket151.get(
+        "negative_affine_transversal_logtwo_audit",
+        {},
+    )
+    machine151 = audit151.get("machine_audit", {})
+    if (
+        audit151.get("theorem_name")
+        != "FourConjectureNegativeAffineTransversalLogTwoAudit"
+        or int(machine151.get("exact_theorem_count", -1)) != 4
+        or int(machine151.get("rejected_target_count", -1)) != 4
+        or int(machine151.get("proof_dag_count", -1)) != 4
+        or int(machine151.get("conjecture_resolution_count", -1)) != 0
+        or int(machine151.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket151 global machine audit changed")
+
+    riemann151 = audit151.get("riemann", {})
+    negative151 = riemann151.get("reproducible_computation", {})
+    positive_rows151 = negative151.get(
+        "finite_large_positive_spectrum_rows",
+        [],
+    )
+    failure_rows151 = negative151.get(
+        "finite_negative_threshold_failure_rows",
+        [],
+    )
+    if (
+        riemann151.get("theorem_name")
+        != "OneSidedNegativeRelativeFormCriterionAndFullNormNoGo"
+        or len(positive_rows151) != 48
+        or len(failure_rows151) != 16
+        or any(
+            Fraction(row.get("full_relative_norm", {}).get("exact", "0"))
+            <= 1
+            or Fraction(
+                row.get("negative_part_norm", {}).get("exact", "2")
+            )
+            > 1
+            or not all(row.get("checks", {}).values())
+            for row in positive_rows151
+        )
+        or any(
+            Fraction(
+                row.get("negative_part_norm", {}).get("exact", "0")
+            )
+            <= 1
+            or Fraction(
+                row.get(
+                    "minimum_eigenvalue_of_I_plus_B",
+                    {},
+                ).get("exact", "0")
+            )
+            >= 0
+            or not all(row.get("checks", {}).values())
+            for row in failure_rows151
+        )
+        or int(negative151.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket151 RH negative-part criterion changed")
+
+    collatz151 = audit151.get("collatz", {})
+    affine151 = collatz151.get("reproducible_computation", {})
+    surplus_rows151 = affine151.get(
+        "finite_positive_surplus_nondescending_rows",
+        [],
+    )
+    forced_rows151 = affine151.get(
+        "finite_type_two_forced_affine_rows",
+        [],
+    )
+    witness165 = next(
+        (
+            row
+            for row in surplus_rows151
+            if row.get("start_n") == "165"
+        ),
+        None,
+    )
+    if (
+        collatz151.get("theorem_name")
+        != "ExactAffineStoppingThresholdAndPositiveSurplusNoGo"
+        or len(surplus_rows151) != 32
+        or witness165 is None
+        or witness165.get("terminal_Tm_n") != "167"
+        or witness165.get("multiplier_gap_D") != "5077565"
+        or any(
+            int(row.get("multiplier_gap_D", "0")) <= 0
+            or bool(row.get("strict_descent"))
+            or not row.get("same_word_lift_descends")
+            or not all(row.get("checks", {}).values())
+            for row in surplus_rows151
+        )
+        or len(forced_rows151) != 35
+        or any(
+            int(row.get("multiplier_gap_D", "0")) >= 0
+            or bool(row.get("strict_descent"))
+            or not all(row.get("checks", {}).values())
+            for row in forced_rows151
+        )
+        or int(affine151.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket151 Collatz affine threshold changed")
+
+    goldbach151 = audit151.get("goldbach", {})
+    reflection151 = goldbach151.get("reproducible_computation", {})
+    moment_rows151 = reflection151.get(
+        "finite_permutation_moment_counterrows",
+        [],
+    )
+    radius_rows151 = reflection151.get(
+        "finite_prime_indicator_radius_rows",
+        [],
+    )
+    if (
+        goldbach151.get("theorem_name")
+        != "WeightedReflectionHoleRadiusAndPermutationMomentNoGo"
+        or len(moment_rows151) != 16
+        or any(
+            row.get("hole_endpoint_convolution") != "0"
+            or int(row.get("positive_endpoint_convolution", "0")) <= 0
+            or not all(row.get("checks", {}).values())
+            for row in moment_rows151
+        )
+        or [int(row.get("cutoff", -1)) for row in radius_rows151]
+        != [100, 1000, 10000, 20000]
+        or any(
+            row.get("zero_radius_endpoints") != []
+            or int(
+                row.get(
+                    "minimum_prime_indicator_hole_radius_squared",
+                    0,
+                )
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in radius_rows151
+        )
+        or int(reflection151.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket151 Goldbach reflection radius changed")
+
+    twin151 = audit151.get("twin_prime", {})
+    logtwo151 = twin151.get("reproducible_computation", {})
+    population151 = logtwo151.get(
+        "finite_cubic_rough_population_rows",
+        [],
+    )
+    selection151 = logtwo151.get(
+        "finite_selection_countermodel_rows",
+        [],
+    )
+    shifted151 = logtwo151.get("finite_gap_two_shifted_rows", [])
+    if (
+        twin151.get("theorem_name")
+        != "CubicRoughLogTwoBiasAndShiftedSelectionNoGo"
+        or [int(row.get("X", -1)) for row in population151]
+        != [1000, 10000, 100000, 1000000]
+        or any(
+            int(row.get("other_composite_count", -1)) != 0
+            or float(row.get("normalized_liouville_mean", 1)) >= 0
+            or not all(row.get("checks", {}).values())
+            for row in population151
+        )
+        or len(selection151) != 4
+        or any(
+            int(row.get("prime_only_selected_deficit_T_minus_D", 0))
+            <= 0
+            or int(
+                row.get("semiprime_only_selected_deficit_T_minus_D", 0)
+            )
+            >= 0
+            or not all(row.get("checks", {}).values())
+            for row in selection151
+        )
+        or len(shifted151) != 4
+        or any(
+            int(row.get("gap_two_cubic_rough_edges_E", 0)) <= 0
+            or not all(row.get("checks", {}).values())
+            for row in shifted151
+        )
+        or int(logtwo151.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket151 Twin log-two selection changed")
+
+    sections151 = {
+        "riemann": riemann151,
+        "collatz": collatz151,
+        "goldbach": goldbach151,
+        "twin-prime": twin151,
+    }
+    for problem_id, section in sections151.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next151[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket151 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit151.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket151.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket151 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,291 @@
+{
+  "schema": "primeproject.ticket151-negative-affine-transversal-logtwo.v1",
+  "generated_at": "2026-07-29T09:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-151",
+  "attempt": "Let y=X^(1/3), and count integers 2<=n<=X having no prime factor <=y. Apart from the negligible endpoint convention, every such n is prime or a product of two primes. The prime count P_X is asymptotic to X/log X, while the semiprime count D_X is asymptotic to (log 2)X/log X. Consequently the one-variable Liouville mean tends to (log 2-1)/(log 2+1)<0. This does not imply the same sign after conditioning on n and n+2 both being cubic-rough: identical ambient prime/semiprime populations admit a selected matching consisting only of prime-prime edges or only of semiprime-semiprime edges, giving opposite T-D signs.",
+  "bounded_result": {
+    "audit_ref": "negative_affine_transversal_logtwo_audit.twin_prime"
+  },
+  "obstruction": "The PNT consequence is one-dimensional. It gives no positive lower bound for gap-two cubic-rough edges and no shifted Liouville marginal estimate on that selected support.",
+  "candidate_theorem": "PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer",
+  "next_experiment": "prove positive gap-two cubic-rough mass and a shifted marginal transfer preserving a quantitative fraction of the negative log-two bias",
+  "claim_boundary": "No Twin Prime proof or counterexample. One PNT-derived univariate bias and a shifted-selection no-go.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-151",
+    "theorem_name": "CubicRoughLogTwoBiasAndShiftedSelectionNoGo",
+    "declared_proposition": "Let y=X^(1/3), and count integers 2<=n<=X having no prime factor <=y. Apart from the negligible endpoint convention, every such n is prime or a product of two primes. The prime count P_X is asymptotic to X/log X, while the semiprime count D_X is asymptotic to (log 2)X/log X. Consequently the one-variable Liouville mean tends to (log 2-1)/(log 2+1)<0. This does not imply the same sign after conditioning on n and n+2 both being cubic-rough: identical ambient prime/semiprime populations admit a selected matching consisting only of prime-prime edges or only of semiprime-semiprime edges, giving opposite T-D signs.",
+    "mathematical_argument": "Three prime factors all exceeding X^(1/3) have product>X. The prime count follows from the prime number theorem. Writing a rough semiprime as pq with X^(1/3)<p<=sqrt(X) and p<=q, PNT plus partial summation gives X/log X times integral from 1/3 to 1/2 of dt/(t(1-t))=log 2; the diagonal and lower endpoint contribute o(X/log X). The matching countermodels keep the same ambient vertices and change only which vertices enter the gap-two selected support, so unshifted density cannot determine the shifted marginal.",
+    "reproducible_computation": {
+      "theorem": "Let y=X^(1/3), and count integers 2<=n<=X having no prime factor <=y. Apart from the negligible endpoint convention, every such n is prime or a product of two primes. The prime count P_X is asymptotic to X/log X, while the semiprime count D_X is asymptotic to (log 2)X/log X. Consequently the one-variable Liouville mean tends to (log 2-1)/(log 2+1)<0. This does not imply the same sign after conditioning on n and n+2 both being cubic-rough: identical ambient prime/semiprime populations admit a selected matching consisting only of prime-prime edges or only of semiprime-semiprime edges, giving opposite T-D signs.",
+      "proof": "Three prime factors all exceeding X^(1/3) have product>X. The prime count follows from the prime number theorem. Writing a rough semiprime as pq with X^(1/3)<p<=sqrt(X) and p<=q, PNT plus partial summation gives X/log X times integral from 1/3 to 1/2 of dt/(t(1-t))=log 2; the diagonal and lower endpoint contribute o(X/log X). The matching countermodels keep the same ambient vertices and change only which vertices enter the gap-two selected support, so unshifted density cannot determine the shifted marginal.",
+      "finite_cubic_rough_population_rows": [
+        {
+          "X": 1000,
+          "cubic_roughness_floor_y": 10,
+          "rough_prime_count_P": 164,
+          "rough_semiprime_count_D": 63,
+          "semiprime_to_prime_ratio": 0.38414634146341464,
+          "distance_to_log_two": 0.30900083909653064,
+          "normalized_liouville_mean": -0.44493392070484583,
+          "distance_to_limit_mean": 0.26370170240556334,
+          "other_composite_count": 0,
+          "checks": {
+            "only_primes_or_semiprimes_on_cubic_rough_support": true,
+            "prime_population_exceeds_semiprime_population": true,
+            "liouville_mean_is_negative": true
+          }
+        },
+        {
+          "X": 10000,
+          "cubic_roughness_floor_y": 21,
+          "rough_prime_count_P": 1221,
+          "rough_semiprime_count_D": 489,
+          "semiprime_to_prime_ratio": 0.4004914004914005,
+          "distance_to_log_two": 0.2926557800685448,
+          "normalized_liouville_mean": -0.4280701754385965,
+          "distance_to_limit_mean": 0.24683795713931397,
+          "other_composite_count": 0,
+          "checks": {
+            "only_primes_or_semiprimes_on_cubic_rough_support": true,
+            "prime_population_exceeds_semiprime_population": true,
+            "liouville_mean_is_negative": true
+          }
+        },
+        {
+          "X": 100000,
+          "cubic_roughness_floor_y": 46,
+          "rough_prime_count_P": 9578,
+          "rough_semiprime_count_D": 4625,
+          "semiprime_to_prime_ratio": 0.4828774274378785,
+          "distance_to_log_two": 0.2102697531220668,
+          "normalized_liouville_mean": -0.3487291417306203,
+          "distance_to_limit_mean": 0.1674969234313378,
+          "other_composite_count": 0,
+          "checks": {
+            "only_primes_or_semiprimes_on_cubic_rough_support": true,
+            "prime_population_exceeds_semiprime_population": true,
+            "liouville_mean_is_negative": true
+          }
+        },
+        {
+          "X": 1000000,
+          "cubic_roughness_floor_y": 100,
+          "rough_prime_count_P": 78473,
+          "rough_semiprime_count_D": 42286,
+          "semiprime_to_prime_ratio": 0.5388604997897366,
+          "distance_to_log_two": 0.15428668077020868,
+          "normalized_liouville_mean": -0.29966296507920737,
+          "distance_to_limit_mean": 0.11843074677992485,
+          "other_composite_count": 0,
+          "checks": {
+            "only_primes_or_semiprimes_on_cubic_rough_support": true,
+            "prime_population_exceeds_semiprime_population": true,
+            "liouville_mean_is_negative": true
+          }
+        }
+      ],
+      "finite_selection_countermodel_rows": [
+        {
+          "X": 1000,
+          "ambient_prime_vertices_each_side": 164,
+          "ambient_semiprime_vertices_each_side": 63,
+          "selected_matching_size": 63,
+          "prime_only_selected_deficit_T_minus_D": 63,
+          "semiprime_only_selected_deficit_T_minus_D": -63,
+          "checks": {
+            "same_ambient_populations": true,
+            "prime_only_selection_has_positive_deficit": true,
+            "semiprime_only_selection_has_negative_deficit": true,
+            "selection_signs_are_opposite": true
+          }
+        },
+        {
+          "X": 10000,
+          "ambient_prime_vertices_each_side": 1221,
+          "ambient_semiprime_vertices_each_side": 489,
+          "selected_matching_size": 489,
+          "prime_only_selected_deficit_T_minus_D": 489,
+          "semiprime_only_selected_deficit_T_minus_D": -489,
+          "checks": {
+            "same_ambient_populations": true,
+            "prime_only_selection_has_positive_deficit": true,
+            "semiprime_only_selection_has_negative_deficit": true,
+            "selection_signs_are_opposite": true
+          }
+        },
+        {
+          "X": 100000,
+          "ambient_prime_vertices_each_side": 9578,
+          "ambient_semiprime_vertices_each_side": 4625,
+          "selected_matching_size": 4625,
+          "prime_only_selected_deficit_T_minus_D": 4625,
+          "semiprime_only_selected_deficit_T_minus_D": -4625,
+          "checks": {
+            "same_ambient_populations": true,
+            "prime_only_selection_has_positive_deficit": true,
+            "semiprime_only_selection_has_negative_deficit": true,
+            "selection_signs_are_opposite": true
+          }
+        },
+        {
+          "X": 1000000,
+          "ambient_prime_vertices_each_side": 78473,
+          "ambient_semiprime_vertices_each_side": 42286,
+          "selected_matching_size": 42286,
+          "prime_only_selected_deficit_T_minus_D": 42286,
+          "semiprime_only_selected_deficit_T_minus_D": -42286,
+          "checks": {
+            "same_ambient_populations": true,
+            "prime_only_selection_has_positive_deficit": true,
+            "semiprime_only_selection_has_negative_deficit": true,
+            "selection_signs_are_opposite": true
+          }
+        }
+      ],
+      "finite_gap_two_shifted_rows": [
+        {
+          "X": 1000,
+          "gap_two_cubic_rough_edges_E": 59,
+          "unshifted_liouville_mean": -0.44493392070484583,
+          "left_edge_conditioned_liouville_mean": {
+            "exact": "-17/59",
+            "decimal": -0.288135593220339
+          },
+          "right_edge_conditioned_liouville_mean": {
+            "exact": "-19/59",
+            "decimal": -0.3220338983050847
+          },
+          "cover_deficit_ratio": {
+            "exact": "18/59",
+            "decimal": 0.3050847457627119
+          },
+          "log_two_predicted_deficit_ratio": 0.18123221829928252,
+          "checks": {
+            "left_shifted_mean_is_negative": true,
+            "right_shifted_mean_is_negative": true,
+            "deficit_identity_replays": true,
+            "matching_population_row_exists": true
+          }
+        },
+        {
+          "X": 10000,
+          "gap_two_cubic_rough_edges_E": 358,
+          "unshifted_liouville_mean": -0.4280701754385965,
+          "left_edge_conditioned_liouville_mean": {
+            "exact": "-52/179",
+            "decimal": -0.2905027932960894
+          },
+          "right_edge_conditioned_liouville_mean": {
+            "exact": "-42/179",
+            "decimal": -0.2346368715083799
+          },
+          "cover_deficit_ratio": {
+            "exact": "47/179",
+            "decimal": 0.26256983240223464
+          },
+          "log_two_predicted_deficit_ratio": 0.18123221829928252,
+          "checks": {
+            "left_shifted_mean_is_negative": true,
+            "right_shifted_mean_is_negative": true,
+            "deficit_identity_replays": true,
+            "matching_population_row_exists": true
+          }
+        },
+        {
+          "X": 100000,
+          "gap_two_cubic_rough_edges_E": 2486,
+          "unshifted_liouville_mean": -0.3487291417306203,
+          "left_edge_conditioned_liouville_mean": {
+            "exact": "-282/1243",
+            "decimal": -0.22687047465808527
+          },
+          "right_edge_conditioned_liouville_mean": {
+            "exact": "-278/1243",
+            "decimal": -0.2236524537409493
+          },
+          "cover_deficit_ratio": {
+            "exact": "280/1243",
+            "decimal": 0.2252614641995173
+          },
+          "log_two_predicted_deficit_ratio": 0.18123221829928252,
+          "checks": {
+            "left_shifted_mean_is_negative": true,
+            "right_shifted_mean_is_negative": true,
+            "deficit_identity_replays": true,
+            "matching_population_row_exists": true
+          }
+        },
+        {
+          "X": 1000000,
+          "gap_two_cubic_rough_edges_E": 17634,
+          "unshifted_liouville_mean": -0.29966296507920737,
+          "left_edge_conditioned_liouville_mean": {
+            "exact": "-1985/8817",
+            "decimal": -0.22513326528297606
+          },
+          "right_edge_conditioned_liouville_mean": {
+            "exact": "-1996/8817",
+            "decimal": -0.22638085516615628
+          },
+          "cover_deficit_ratio": {
+            "exact": "1327/5878",
+            "decimal": 0.22575706022456618
+          },
+          "log_two_predicted_deficit_ratio": 0.18123221829928252,
+          "checks": {
+            "left_shifted_mean_is_negative": true,
+            "right_shifted_mean_is_negative": true,
+            "deficit_identity_replays": true,
+            "matching_population_row_exists": true
+          }
+        }
+      ],
+      "target_constants": {
+        "semiprime_to_prime_ratio_log_two": 0.6931471805599453,
+        "liouville_mean": -0.18123221829928252,
+        "predicted_deficit_ratio_under_marginal_transfer": 0.18123221829928252
+      },
+      "source_artifact": "data/open-problem/ticket149-smooth-escape-wheel-cover.json",
+      "source_sha256": "af43e0fbc04bb23a8f65e1e8969cf50108b38c907d119c2c9552bd3d9823eb50",
+      "failure_count": 0
+    },
+    "logical_limit": "The PNT consequence is one-dimensional. It gives no positive lower bound for gap-two cubic-rough edges and no shifted Liouville marginal estimate on that selected support.",
+    "route_decision": {
+      "discard": "transferring the unshifted cubic-rough log-two bias directly to the n,n+2 selected edge support",
+      "retain": "prove positive gap-two cubic-rough mass and a shifted marginal transfer preserving a quantitative fraction of the negative log-two bias",
+      "next_theorem": "PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T151-REJECTED",
+          "label": "UnshiftedCubicRoughBiasAutomaticallyTransfersToGapTwo",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T151-CLOSED",
+          "label": "CubicRoughLogTwoBiasAndShiftedSelectionNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T151-OPEN",
+          "label": "PositiveGapTwoCubicRoughMassAndShiftedLogTwoMarginalTransfer",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T151-REJECTED",
+          "TP-T151-CLOSED"
+        ],
+        [
+          "TP-T151-CLOSED",
+          "TP-T151-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof or counterexample. One PNT-derived univariate bias and a shifted-selection no-go."
+  }
+}

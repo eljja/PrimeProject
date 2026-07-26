@@ -30,7 +30,8 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | catalog of public cryptographic primes | provenance and parameter recognition | blocked secret-prime recovery |
 | `docs/generator-fingerprint-research.md` | generator fingerprint theory | feature extraction and defensive attribution scaffolding | definitive source attribution |
 | `docs/open-problem-workbench.md` | open-problem proof lab specification | bounded certificates, AI solver frontier, falsification and proof-obligation tracking | proof of the four open conjectures |
-| `docs/relative-delay-hole-parity.md` | latest four-problem sharp-threshold and no-go report | four exact relative/delay/hole/parity theorems with reproducible audits | a proof or counterexample to any target conjecture |
+| `docs/negative-affine-transversal-logtwo.md` | latest four-problem target-correction and no-go report | four exact negative-spectrum/affine/reflection/log-two results with reproducible audits | a proof or counterexample to any target conjecture |
+| `docs/relative-delay-hole-parity.md` | preserved prior four-problem sharp-threshold and no-go report | four exact relative/delay/hole/parity theorems with reproducible audits | a proof or counterexample to any target conjecture |
 | `docs/smooth-escape-wheel-cover.md` | preserved prior four-problem intermediate-theorem report | four exact route no-gos/reductions with reproducible audits | a proof or counterexample to any target conjecture |
 | `docs/multiscale-renewal-sharpness-matching.md` | preserved prior four-problem report | four exact route no-gos/corrections with reproducible audits | a proof or counterexample to any target conjecture |
 | `docs/prime-regularity-and-crypto-prime-plan.md` | initial research plan | defensive interpretation of prime-generation traces | blocked operational exploitation or blocked private-key recovery |
@@ -51,7 +52,8 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | 공개 암호 소수 카탈로그 | provenance와 parameter recognition | 비밀 소수 복원 |
 | `docs/generator-fingerprint-research.md` | 생성기 fingerprint 이론 | feature extraction 및 방어적 attribution scaffolding | 단정적 source attribution |
 | `docs/open-problem-workbench.md` | 미해결 문제 proof lab 규격 | bounded certificate, AI solver frontier, 반증/증명 의무 추적 | 네 개 난제의 증명 |
-| `docs/relative-delay-hole-parity.md` | 최신 네 난제 sharp threshold/no-go 보고서 | 재현 감사가 있는 상대 form/지연/hole/parity 정리 4건 | 어떤 대상 추측의 증명 또는 반례 |
+| `docs/negative-affine-transversal-logtwo.md` | 최신 네 난제 표적 교정/no-go 보고서 | 재현 감사가 있는 음의 스펙트럼/affine/반사/log-two 결과 4건 | 어떤 대상 추측의 증명 또는 반례 |
+| `docs/relative-delay-hole-parity.md` | 보존된 이전 네 난제 sharp threshold/no-go 보고서 | 재현 감사가 있는 상대 form/지연/hole/parity 정리 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/smooth-escape-wheel-cover.md` | 보존된 이전 네 난제 중간정리 보고서 | 재현 감사가 있는 정확한 경로 no-go/환원 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/multiscale-renewal-sharpness-matching.md` | 보존된 이전 네 난제 보고서 | 재현 감사가 있는 정확한 경로 no-go/교정 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/prime-regularity-and-crypto-prime-plan.md` | 초기 연구 계획 | 소수 생성 흔적의 방어적 해석 | 차단된 운영 공격 또는 차단된 private-key 복구 |
@@ -69,6 +71,7 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 7. TICKET-148 explicitly records the TICKET-147 Twin support-geometry correction and preserves zero conjecture resolutions rather than silently rewriting the historical claim.
 8. TICKET-149 separates imported mathematical facts, exact finite audits, route no-gos, conditional reductions, and the four still-open infinite lemmas; its machine contract keeps every conjecture-resolution count at zero.
 9. TICKET-150 corrects compact ambient coercivity, fixed Collatz post-shadow windows, growing-wheel relative-`L2` transfer, and parity-free Twin cover interpretations; every proof DAG still ends at `open_not_proven`.
+10. TICKET-151 replaces the RH full-norm target by the exact negative-part criterion, inserts the Collatz affine threshold omitted by surplus-only reasoning, makes Goldbach endpoint control reflection-orbit resolved, and separates the Twin one-variable `log 2` bias from the missing shifted-selection theorem; all four proof DAGs still end at `open_not_proven`.
 
 ## Submission Boundary / 제출 경계
 
