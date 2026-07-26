@@ -1,0 +1,129 @@
+{
+  "schema": "primeproject.ticket155-range-prefix-sublinear-conditional.v1",
+  "generated_at": "2026-07-26T17:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-155",
+  "attempt": "Fix epsilon>0. Let W_N<N be any integer wheel sequence with W_N<=N^(1-epsilon), and let u_(N,W_N) be the TICKET-154 reflection-orbit residue projection of the prime-only theta vector. Then ||u_(N,W_N)||^2/||theta_N||^2 tends to zero. More quantitatively, Brun-Titchmarsh and the prime number theorem give an upper bound of order (W/phi(W))*(log N/log(N/W))^2/log N, which is o(1) in this range. Hence allowing a wheel to grow at any fixed power strictly below N still cannot make the TICKET-154 L2 energy certificate positive for every sufficiently large endpoint.",
+  "bounded_result": {
+    "audit_ref": "range_prefix_sublinear_conditional_audit.goldbach"
+  },
+  "obstruction": "The theorem rules out the TICKET-154 energy certificate for W<=N^(1-epsilon), but it neither controls near-linear moduli nor proves a binary major/minor-arc lower bound.",
+  "candidate_theorem": "EffectiveGoldbachMajorMinorArcReflectionLowerBoundWithFiniteJoin",
+  "next_experiment": "replace residue-cell energy dominance by an explicit binary major/minor-arc reflection lower bound with a certified finite cutoff",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One uniform sublinear-wheel no-go and finite illustrations.",
+  "result": {
+    "problem_id": "goldbach",
+    "ticket_id": "GB-TICKET-155",
+    "theorem_name": "SublinearPowerWheelEnergyVanishingAndResolutionSqueeze",
+    "declared_proposition": "Fix epsilon>0. Let W_N<N be any integer wheel sequence with W_N<=N^(1-epsilon), and let u_(N,W_N) be the TICKET-154 reflection-orbit residue projection of the prime-only theta vector. Then ||u_(N,W_N)||^2/||theta_N||^2 tends to zero. More quantitatively, Brun-Titchmarsh and the prime number theorem give an upper bound of order (W/phi(W))*(log N/log(N/W))^2/log N, which is o(1) in this range. Hence allowing a wheel to grow at any fixed power strictly below N still cannot make the TICKET-154 L2 energy certificate positive for every sufficiently large endpoint.",
+    "mathematical_argument": "Each reflection orbit contains at most two residue classes. For a coprime class, Brun-Titchmarsh bounds its theta mass by O(N log N/(phi(W) log(N/W))). Every nonempty class has Omega(N/W) entries, so summing squared cell means over at most phi(W) coprime cells gives O(N*(W/phi(W))*(log N/log(N/W))^2). Noncoprime classes contain only primes dividing W and are negligible. Since sum_(p<N)(log p)^2~N log N and W/phi(W)=O(log log W), the ratio tends to zero uniformly for W<=N^(1-epsilon).",
+    "reproducible_computation": {
+      "theorem": "Fix epsilon>0. Let W_N<N be any integer wheel sequence with W_N<=N^(1-epsilon), and let u_(N,W_N) be the TICKET-154 reflection-orbit residue projection of the prime-only theta vector. Then ||u_(N,W_N)||^2/||theta_N||^2 tends to zero. More quantitatively, Brun-Titchmarsh and the prime number theorem give an upper bound of order (W/phi(W))*(log N/log(N/W))^2/log N, which is o(1) in this range. Hence allowing a wheel to grow at any fixed power strictly below N still cannot make the TICKET-154 L2 energy certificate positive for every sufficiently large endpoint.",
+      "proof": "Each reflection orbit contains at most two residue classes. For a coprime class, Brun-Titchmarsh bounds its theta mass by O(N log N/(phi(W) log(N/W))). Every nonempty class has Omega(N/W) entries, so summing squared cell means over at most phi(W) coprime cells gives O(N*(W/phi(W))*(log N/log(N/W))^2). Noncoprime classes contain only primes dividing W and are negligible. Since sum_(p<N)(log p)^2~N log N and W/phi(W)=O(log log W), the ratio tends to zero uniformly for W<=N^(1-epsilon).",
+      "finite_sublinear_wheel_schedule_rows": [
+        {
+          "even_endpoint_N": 10000,
+          "growing_wheel_W": 30,
+          "wheel_exponent_logW_over_logN": 0.3692803136799156,
+          "euler_totient_phi_W": 8,
+          "W_over_phi_W": 3.75,
+          "reflection_orbit_cell_count": 16,
+          "prime_theta_total_energy": 81399.38488445983,
+          "symmetric_wheel_projection_energy": 27574.684361892054,
+          "orthogonal_residual_energy": 53824.70052256777,
+          "projection_energy_fraction": 0.3387578960336396,
+          "projection_certificate_lower_bound": -26250.016160675717,
+          "actual_prime_theta_reflection_correlation": 16743.136805576996,
+          "unordered_prime_pair_representations": 127,
+          "checks": {
+            "wheel_is_strictly_sublinear_at_a_fixed_power": true,
+            "orthogonal_energy_partition_holds": true,
+            "sublinear_wheel_certificate_fails_finitely": true,
+            "actual_goldbach_correlation_is_positive": true
+          }
+        },
+        {
+          "even_endpoint_N": 100000,
+          "growing_wheel_W": 210,
+          "wheel_exponent_logW_over_logN": 0.4644438589467838,
+          "euler_totient_phi_W": 48,
+          "W_over_phi_W": 4.375,
+          "reflection_orbit_cell_count": 106,
+          "prime_theta_total_energy": 1048435.8661728668,
+          "symmetric_wheel_projection_energy": 308682.96329215076,
+          "orthogonal_residual_energy": 739752.902880716,
+          "projection_energy_fraction": 0.29442236120645543,
+          "projection_certificate_lower_bound": -431069.93958856526,
+          "actual_prime_theta_reflection_correlation": 176154.3252963836,
+          "unordered_prime_pair_representations": 810,
+          "checks": {
+            "wheel_is_strictly_sublinear_at_a_fixed_power": true,
+            "orthogonal_energy_partition_holds": true,
+            "sublinear_wheel_certificate_fails_finitely": true,
+            "actual_goldbach_correlation_is_positive": true
+          }
+        },
+        {
+          "even_endpoint_N": 1000000,
+          "growing_wheel_W": 2310,
+          "wheel_exponent_logW_over_logN": 0.5606019966486907,
+          "euler_totient_phi_W": 480,
+          "W_over_phi_W": 4.8125,
+          "reflection_orbit_cell_count": 1156,
+          "prime_theta_total_energy": 12796869.461412897,
+          "symmetric_wheel_projection_energy": 3300634.847607338,
+          "orthogonal_residual_energy": 9496234.613805559,
+          "projection_energy_fraction": 0.2579251790885203,
+          "projection_certificate_lower_bound": -6195599.766198221,
+          "actual_prime_theta_reflection_correlation": 1756441.8442655685,
+          "unordered_prime_pair_representations": 5402,
+          "checks": {
+            "wheel_is_strictly_sublinear_at_a_fixed_power": true,
+            "orthogonal_energy_partition_holds": true,
+            "sublinear_wheel_certificate_fails_finitely": true,
+            "actual_goldbach_correlation_is_positive": true
+          }
+        }
+      ],
+      "finite_projection_fractions_strictly_decrease": true,
+      "asymptotic_upper_bound_shape": "(W/phi(W))*(log N/log(N/W))^2/log N",
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem rules out the TICKET-154 energy certificate for W<=N^(1-epsilon), but it neither controls near-linear moduli nor proves a binary major/minor-arc lower bound.",
+    "route_decision": {
+      "discard": "letting a residue wheel grow at a fixed sublinear power and expecting its L2 projection energy to dominate the full theta residual",
+      "retain": "replace residue-cell energy dominance by an explicit binary major/minor-arc reflection lower bound with a certified finite cutoff",
+      "next_theorem": "EffectiveGoldbachMajorMinorArcReflectionLowerBoundWithFiniteJoin"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "GB-T155-REJECTED",
+          "label": "SublinearPowerGrowingWheelDominatesGoldbachThetaEnergy",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "GB-T155-CLOSED",
+          "label": "SublinearPowerWheelEnergyVanishingAndResolutionSqueeze",
+          "status": "proved_exact"
+        },
+        {
+          "id": "GB-T155-OPEN",
+          "label": "EffectiveGoldbachMajorMinorArcReflectionLowerBoundWithFiniteJoin",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "GB-T155-REJECTED",
+          "GB-T155-CLOSED"
+        ],
+        [
+          "GB-T155-CLOSED",
+          "GB-T155-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Goldbach proof and no even counterexample. One uniform sublinear-wheel no-go and finite illustrations."
+  }
+}

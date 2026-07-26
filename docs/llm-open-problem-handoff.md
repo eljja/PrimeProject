@@ -62,7 +62,62 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-154
+## Latest Continuation After TICKET-155
+
+Read `docs/range-prefix-sublinear-conditional.md`,
+`data/open-problem/ticket155-range-prefix-sublinear-conditional.json`,
+`scripts/ticket155_range_prefix_sublinear_conditional.py`, and
+`tests/test_ticket155_range_prefix_sublinear_conditional.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-155:
+
+- treating compactness, finite rank, or basis coefficients as a canonical
+  effective RH tail rate without constructing the actual coupling range;
+- using a Collatz descent below a later iterate as a strong-induction
+  descent below the original start;
+- expecting any Goldbach wheel satisfying
+  `W_N <= N^(1-epsilon)` to retain a positive prime-theta energy fraction;
+- transferring Twin semiprime density through a vanishing-probability
+  partner event using only unnormalized covariance tending to zero.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ActualWeilFiniteCoreRangeConstructionAndPositiveSchurMatrix` |
+| Collatz | `EveryNaturalStartCrossesAnInitialAffineDescentThreshold` |
+| Goldbach | `EffectiveGoldbachMajorMinorArcReflectionLowerBoundWithFiniteJoin` |
+| Twin Prime | `ShiftTwoCubicRoughSemiprimeRelativeCovarianceSaving` |
+
+한국어: 리만 가설은 actual Weil 공간에서 정당한 finite core와 coupling
+range를 구성하고 그 정확한 유한 Schur matrix의 양성을 증명해야 한다.
+콜라츠는 임의의 자연수 시작값이 그 시작값 자체에 대한 affine 하강
+임계값을 통과한다는 전칭 정리가 필요하다. 강한 골드바흐는
+sublinear-power wheel 에너지 대신 직접적인 binary major/minor-arc
+reflection 하계와 유한 구간 연결을 증명해야 한다. 쌍둥이 소수는
+희귀한 gap-two rough 조건으로 나눈 뒤에도 사라지는 **상대**
+covariance 절약을 증명해야 한다.
+
+Exact TICKET-155 corrections:
+
+- RH: projection onto the finite-dimensional range of a finite-core
+  coupling closes the omitted tail exactly, but coordinate-tail decay can
+  realize any prescribed convergent profile even at rank one.
+- Collatz: reverse-suffix certification is exactly an initial-prefix record
+  condition. The family `n=4u-1`, `u=3 mod 4`, has a later local descent
+  whose endpoint is still above `n`, so the previous induction bridge is
+  invalid.
+- Goldbach: for every fixed `epsilon>0`, all wheel schedules
+  `W_N <= N^(1-epsilon)` capture `o(1)` of the prime-theta energy. Growing
+  the wheel at a fixed sublinear power cannot rescue the old energy
+  certificate.
+- Twin Prime: the conditional semiprime shift is covariance divided by the
+  partner-event probability. An exact finite probability family has
+  covariance tending to zero but a fixed conditional shift `1/5`.
+
+These are exact route corrections and no-go theorems, not solutions or
+counterexamples to the four conjectures.
+
+## Previous Continuation After TICKET-154
 
 Read `docs/compact-suffix-wheel-leastfactor.md`,
 `data/open-problem/ticket154-compact-suffix-wheel-leastfactor.json`,

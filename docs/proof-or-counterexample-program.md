@@ -6239,3 +6239,47 @@ major-arc dominance를 증명하지 않는다. Twin의 incidence 항등식은
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-154 compact-suffix-wheel-leastfactor](compact-suffix-wheel-leastfactor.md).
+
+## TICKET-155 continuation: range exactness, initial-prefix descent, sublinear wheels, and conditional transfer
+
+TICKET-155 audits the four TICKET-154 next lemmas. It closes four exact
+subcomponents, rejects four insufficient bridges, and leaves every
+conjecture-resolution counter at zero.
+
+1. **Riemann Hypothesis.** A coupling from a finite-dimensional core has
+   finite-dimensional range, and projection onto that range makes the
+   omitted coupling tail exactly zero. However, a rank-one vector can have
+   any prescribed convergent coordinate-tail profile, so compactness and
+   basis coefficients supply no canonical arithmetic convergence rate. The
+   next target is
+   `ActualWeilFiniteCoreRangeConstructionAndPositiveSchurMatrix`.
+2. **Collatz.** The reverse-suffix floor-two condition is exactly the record
+   condition `B_m=max_{0<=j<=m} B_j` for the initial prefix surplus walk.
+   Every odd start eventually has a one-step local descent, but the infinite
+   family `n=4u-1`, `u=3 mod 4`, proves that the resulting endpoint can
+   remain above the original start. This corrects the TICKET-154
+   occurrence-to-strong-induction bridge. The next target is
+   `EveryNaturalStartCrossesAnInitialAffineDescentThreshold`.
+3. **Goldbach.** For every fixed `epsilon>0`, a wheel schedule satisfying
+   `W_N<=N^(1-epsilon)` captures a vanishing fraction of prime-theta energy.
+   Thus neither a fixed wheel nor a fixed-power sublinear growing wheel can
+   close the previous projection-energy certificate. The next target is
+   `EffectiveGoldbachMajorMinorArcReflectionLowerBoundWithFiniteJoin`.
+4. **Twin Prime.** The medium-least-factor incidence ratio is exactly the
+   sum of two ambient semiprime densities and two covariance terms divided
+   by their partner-event probabilities. A finite probability family has
+   covariance tending to zero but a fixed conditional shift, proving that
+   unnormalized decorrelation is insufficient under rare conditioning. The
+   next target is
+   `ShiftTwoCubicRoughSemiprimeRelativeCovarianceSaving`.
+
+한국어 경계: 리만 가설 정리는 actual Weil finite core나 Schur matrix의
+양성을 구성하지 않는다. 콜라츠 정리는 기존 귀납 연결을 정정하지만
+모든 시작값이 자기 시작값 아래로 내려감을 증명하지 않는다. 골드바흐
+정리는 sublinear wheel 경로의 한계를 증명할 뿐 binary minor arc
+하계를 주지 않는다. 쌍둥이 소수 정리는 필요한 정규화가 무엇인지
+밝히지만 그 상대 covariance 절약을 증명하지 않는다. 네 추측은 모두
+`open_not_proven`이며 완전한 증명이나 반례는 없다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-155 range-prefix-sublinear-conditional](range-prefix-sublinear-conditional.md).

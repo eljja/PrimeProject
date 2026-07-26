@@ -269,14 +269,20 @@ order minimizes the affine constant and descending order maximizes it.
 
 **Remaining gap / 남은 간극**
 
-Prove that every natural Collatz valuation ray reaches a finite contiguous
-block satisfying the reverse-suffix floor-two condition. Such a theorem,
-combined with strict descent and strong induction, would prove Collatz.
-No such universal occurrence theorem is established here.
+This target was too weak as originally phrased. Reaching a certified block
+later in a trajectory proves descent from that block's starting value, not
+necessarily below the original start required by strong induction.
+TICKET-155 replaces it with an initial-prefix affine-descent target and gives
+an infinite family where a later certified local descent still ends above
+the original start. No universal initial-prefix theorem is established here.
+
+기존 문구는 궤도 중간 block의 시작값과 최초 시작값을 혼동했다.
+TICKET-155는 이를 initial-prefix affine descent로 교정하고, 중간
+local descent 이후에도 최초 시작값보다 큰 무한 가족을 제시한다.
 
 **Next lemma / 다음 보조정리**
 
-`EveryNaturalValuationRayHitsAReverseSuffixSurplusDescentBlock`
+`EveryNaturalStartCrossesAnInitialAffineDescentThreshold`
 
 ## 3. Strong Goldbach conjecture / 강한 골드바흐 추측
 

@@ -152,6 +152,7 @@ TICKET151_SCHEMA = "primeproject.ticket151-negative-affine-transversal-logtwo.v1
 TICKET152_SCHEMA = "primeproject.ticket152-compression-cylinder-energy-selection.v1"
 TICKET153_SCHEMA = "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1"
 TICKET154_SCHEMA = "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1"
+TICKET155_SCHEMA = "primeproject.ticket155-range-prefix-sublinear-conditional.v1"
 
 
 def fail(message: str) -> int:
@@ -9816,6 +9817,309 @@ def main() -> int:
         not in str(ticket154.get("claim_boundary", "")).lower()
     ):
         return fail("ticket154 proof boundary changed")
+
+    path155 = Path(
+        "data/open-problem/"
+        "ticket155-range-prefix-sublinear-conditional.json"
+    )
+    if not path155.exists():
+        return fail(
+            "missing ticket155 range-prefix-sublinear-conditional audit"
+        )
+    ticket155 = read_json(path155)
+    if (
+        ticket155.get("schema") != TICKET155_SCHEMA
+        or ticket155.get("status")
+        != (
+            "exact_route_corrections_and_no_go_results_"
+            "all_four_conjectures_open"
+        )
+    ):
+        return fail("ticket155 schema or status changed")
+    attempts155 = ticket155.get("attempts", [])
+    by_id155 = {
+        str(row.get("problem_id")): row
+        for row in attempts155
+        if isinstance(row, dict)
+    }
+    if set(by_id155) != EXPECTED_PROBLEMS:
+        return fail("ticket155 attempts missing problems")
+
+    paths155 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-155-range-tail-coordinate-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-155-initial-prefix-descent.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-155-sublinear-wheel-squeeze.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-155-conditional-semiprime-transfer.json"
+        ),
+    }
+    next155 = {
+        "riemann": (
+            "ActualWeilFiniteCoreRangeConstructionAndPositiveSchurMatrix"
+        ),
+        "collatz": (
+            "EveryNaturalStartCrossesAnInitialAffineDescentThreshold"
+        ),
+        "goldbach": (
+            "EffectiveGoldbachMajorMinorArcReflectionLowerBound"
+            "WithFiniteJoin"
+        ),
+        "twin-prime": (
+            "ShiftTwoCubicRoughSemiprimeRelativeCovarianceSaving"
+        ),
+    }
+    for problem_id, attempt in by_id155.items():
+        if (
+            not paths155[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket155 artifact or boundary missing"
+            )
+        per_problem155 = read_json(paths155[problem_id])
+        if (
+            per_problem155.get("schema") != TICKET155_SCHEMA
+            or per_problem155.get("problem_id") != problem_id
+            or per_problem155.get("candidate_theorem")
+            != next155[problem_id]
+            or attempt.get("candidate_theorem") != next155[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket155 per-problem contract changed"
+            )
+
+    audit155 = ticket155.get(
+        "range_prefix_sublinear_conditional_audit",
+        {},
+    )
+    machine155 = audit155.get("machine_audit", {})
+    if (
+        audit155.get("theorem_name")
+        != "FourConjectureRangePrefixSublinearConditionalAudit"
+        or int(machine155.get("exact_theorem_count", -1)) != 4
+        or int(machine155.get("rejected_target_count", -1)) != 4
+        or int(machine155.get("proof_dag_count", -1)) != 4
+        or int(machine155.get("conjecture_resolution_count", -1)) != 0
+        or int(machine155.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket155 global machine audit changed")
+
+    riemann155 = audit155.get("riemann", {})
+    range155 = riemann155.get("reproducible_computation", {})
+    range_rows155 = range155.get("finite_coordinate_profile_rows", [])
+    profile155 = range155.get("profile_realization", {})
+    if (
+        riemann155.get("theorem_name")
+        != "FiniteCoreRangeExactnessAndCoordinateTailProfileNoGo"
+        or [int(row.get("coordinate_cutoff_N", -1)) for row in range_rows155]
+        != [1, 2, 4, 8, 16, 32]
+        or any(
+            Fraction(
+                row.get(
+                    "harmonic_profile_coordinate_tail_cost",
+                    {},
+                ).get("exact", "0")
+            )
+            != Fraction(1, int(row.get("coordinate_cutoff_N", 0)) + 1)
+            or Fraction(
+                row.get("range_projection_tail_cost", {}).get(
+                    "exact",
+                    "1",
+                )
+            )
+            != 0
+            or not all(row.get("checks", {}).values())
+            for row in range_rows155
+        )
+        or int(profile155.get("optimal_range_projection_rank", -1)) != 1
+        or Fraction(
+            profile155.get("optimal_range_projection_tail", {}).get(
+                "exact",
+                "1",
+            )
+        )
+        != 0
+        or int(range155.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket155 RH range-tail audit changed")
+
+    collatz155 = audit155.get("collatz", {})
+    prefix155 = collatz155.get("reproducible_computation", {})
+    record155 = prefix155.get("finite_record_equivalence_rows", [])
+    local155 = prefix155.get(
+        "finite_later_local_descent_no_go_rows",
+        [],
+    )
+    delay155 = prefix155.get("finite_unbounded_waiting_rows", [])
+    if (
+        collatz155.get("theorem_name")
+        != "InitialPrefixRecordCriterionAndLaterLocalDescentNoGo"
+        or len(record155) != 6
+        or len(local155) != 6
+        or [
+            int(row.get("certified_initial_all_one_valuation_count", -1))
+            for row in delay155
+        ]
+        != [1, 2, 4, 7, 12, 20]
+        or any(
+            bool(row.get("reverse_suffix_floor_two"))
+            != bool(row.get("final_value_is_running_maximum"))
+            or not all(row.get("checks", {}).values())
+            for row in record155
+        )
+        or any(
+            row.get("valuation_word") != [1, 2]
+            or int(row.get("local_drop", 0)) <= 0
+            or int(row.get("net_change_from_initial", 0)) <= 0
+            or not all(row.get("checks", {}).values())
+            for row in local155
+        )
+        or any(
+            not all(row.get("checks", {}).values()) for row in delay155
+        )
+        or int(prefix155.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket155 Collatz initial-prefix audit changed")
+
+    goldbach155 = audit155.get("goldbach", {})
+    sublinear155 = goldbach155.get("reproducible_computation", {})
+    wheel_rows155 = sublinear155.get(
+        "finite_sublinear_wheel_schedule_rows",
+        [],
+    )
+    if (
+        goldbach155.get("theorem_name")
+        != "SublinearPowerWheelEnergyVanishingAndResolutionSqueeze"
+        or [
+            (
+                int(row.get("even_endpoint_N", -1)),
+                int(row.get("growing_wheel_W", -1)),
+            )
+            for row in wheel_rows155
+        ]
+        != [(10000, 30), (100000, 210), (1000000, 2310)]
+        or any(
+            float(row.get("wheel_exponent_logW_over_logN", 1)) >= 0.6
+            or float(row.get("projection_certificate_lower_bound", 0))
+            >= 0
+            or float(
+                row.get("actual_prime_theta_reflection_correlation", 0)
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in wheel_rows155
+        )
+        or not bool(
+            sublinear155.get(
+                "finite_projection_fractions_strictly_decrease"
+            )
+        )
+        or int(sublinear155.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket155 Goldbach sublinear-wheel audit changed")
+
+    twin155 = audit155.get("twin_prime", {})
+    conditional155 = twin155.get("reproducible_computation", {})
+    transfer155 = conditional155.get(
+        "finite_conditional_transfer_rows",
+        [],
+    )
+    rare155 = conditional155.get(
+        "finite_rare_event_covariance_no_go_rows",
+        [],
+    )
+    if (
+        twin155.get("theorem_name")
+        != (
+            "ConditionalSemiprimeTransferIdentityAnd"
+            "RareEventCovarianceNoGo"
+        )
+        or [int(row.get("X", -1)) for row in transfer155]
+        != [1000, 10000, 100000, 1000000, 10000000]
+        or any(
+            Fraction(
+                row.get("ambient_margin_below_one", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            - Fraction(
+                row.get("total_conditional_transfer_shift", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            != Fraction(
+                row.get("deficit_one_minus_M_over_R", {}).get(
+                    "exact",
+                    "1",
+                )
+            )
+            or Fraction(
+                row.get("deficit_one_minus_M_over_R", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in transfer155
+        )
+        or any(
+            Fraction(
+                row.get("conditional_shift", {}).get("exact", "0")
+            )
+            != Fraction(1, 5)
+            or Fraction(
+                row.get("normalized_covariance_over_rho", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            != Fraction(1, 5)
+            or not all(row.get("checks", {}).values())
+            for row in rare155
+        )
+        or int(conditional155.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket155 Twin conditional-transfer audit changed")
+
+    sections155 = {
+        "riemann": riemann155,
+        "collatz": collatz155,
+        "goldbach": goldbach155,
+        "twin-prime": twin155,
+    }
+    for problem_id, section in sections155.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next155[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket155 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit155.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket155.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket155 proof boundary changed")
 
     print("open problem structure verified")
     return 0

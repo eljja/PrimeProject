@@ -1,0 +1,582 @@
+{
+  "schema": "primeproject.ticket155-range-prefix-sublinear-conditional.v1",
+  "generated_at": "2026-07-26T17:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-155",
+  "attempt": "On the cubic-rough left and right populations, let d_L,d_R be the ambient semiprime fractions, rho_L,rho_R the probabilities that the shifted partner is also rough, and c_L,c_R the corresponding indicator covariances. Then the TICKET-154 incidence satisfies exactly M/R=d_L+d_R+c_L/rho_L+c_R/rho_R. Therefore M/R<1 follows from c_L/rho_L+c_R/rho_R<1-d_L-d_R. Ordinary covariance decay c_L,c_R->0 is insufficient whenever rho_L,rho_R also tend to zero. Explicit finite probability spaces demonstrate this obstruction: they have rho=2^(-k), covariance=rho/5->0, but a fixed conditional shift covariance/rho=1/5.",
+  "bounded_result": {
+    "audit_ref": "range_prefix_sublinear_conditional_audit.twin_prime"
+  },
+  "obstruction": "The identity names the required relative covariance scale but supplies no asymptotic saving for actual cubic-rough shifted integers. Finite shifts through ten million cannot be promoted to an infinite theorem.",
+  "candidate_theorem": "ShiftTwoCubicRoughSemiprimeRelativeCovarianceSaving",
+  "next_experiment": "prove a shift-two covariance saving relative to the rough-partner selection probability, strong enough to stay below the ambient semiprime margin",
+  "claim_boundary": "No Twin Prime proof and no counterexample. One exact conditional transfer identity, a rare-event no-go, and finite evidence through X=10,000,000.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-155",
+    "theorem_name": "ConditionalSemiprimeTransferIdentityAndRareEventCovarianceNoGo",
+    "declared_proposition": "On the cubic-rough left and right populations, let d_L,d_R be the ambient semiprime fractions, rho_L,rho_R the probabilities that the shifted partner is also rough, and c_L,c_R the corresponding indicator covariances. Then the TICKET-154 incidence satisfies exactly M/R=d_L+d_R+c_L/rho_L+c_R/rho_R. Therefore M/R<1 follows from c_L/rho_L+c_R/rho_R<1-d_L-d_R. Ordinary covariance decay c_L,c_R->0 is insufficient whenever rho_L,rho_R also tend to zero. Explicit finite probability spaces demonstrate this obstruction: they have rho=2^(-k), covariance=rho/5->0, but a fixed conditional shift covariance/rho=1/5.",
+    "mathematical_argument": "Within the left rough population, the conditional-semiprime shift after requiring the right partner rough is exactly Cov(D_L,B_L)/P(B_L); the right identity is identical. Adding the two conditional fractions gives M/R and proves the transfer formula. For the no-go model, use a universe of size 5*2^k with a selected event of size five, a label set of size 2*2^k, and intersection size three. The ambient label fraction is 2/5, the selected fraction is 3/5, and covariance is 2^(-k)/5. It tends to zero while the conditional shift remains 1/5.",
+    "reproducible_computation": {
+      "theorem": "On the cubic-rough left and right populations, let d_L,d_R be the ambient semiprime fractions, rho_L,rho_R the probabilities that the shifted partner is also rough, and c_L,c_R the corresponding indicator covariances. Then the TICKET-154 incidence satisfies exactly M/R=d_L+d_R+c_L/rho_L+c_R/rho_R. Therefore M/R<1 follows from c_L/rho_L+c_R/rho_R<1-d_L-d_R. Ordinary covariance decay c_L,c_R->0 is insufficient whenever rho_L,rho_R also tend to zero. Explicit finite probability spaces demonstrate this obstruction: they have rho=2^(-k), covariance=rho/5->0, but a fixed conditional shift covariance/rho=1/5.",
+      "proof": "Within the left rough population, the conditional-semiprime shift after requiring the right partner rough is exactly Cov(D_L,B_L)/P(B_L); the right identity is identical. Adding the two conditional fractions gives M/R and proves the transfer formula. For the no-go model, use a universe of size 5*2^k with a selected event of size five, a label set of size 2*2^k, and intersection size three. The ambient label fraction is 2/5, the selected fraction is 3/5, and covariance is 2^(-k)/5. It tends to zero while the conditional shift remains 1/5.",
+      "finite_conditional_transfer_rows": [
+        {
+          "X": 1000,
+          "roughness_z": 10,
+          "ambient_left_rough_count": 227,
+          "ambient_left_semiprime_count": 63,
+          "ambient_right_rough_count": 227,
+          "ambient_right_semiprime_count": 63,
+          "rough_pair_count_R": 70,
+          "pair_left_semiprime_count": 18,
+          "pair_right_semiprime_count": 23,
+          "ambient_semiprime_fraction_left": {
+            "exact": "63/227",
+            "decimal": 0.2775330396475771
+          },
+          "ambient_semiprime_fraction_right": {
+            "exact": "63/227",
+            "decimal": 0.2775330396475771
+          },
+          "conditional_semiprime_fraction_left": {
+            "exact": "9/35",
+            "decimal": 0.2571428571428571
+          },
+          "conditional_semiprime_fraction_right": {
+            "exact": "23/70",
+            "decimal": 0.32857142857142857
+          },
+          "conditional_incidence_M_over_R": {
+            "exact": "41/70",
+            "decimal": 0.5857142857142857
+          },
+          "ambient_margin_below_one": {
+            "exact": "101/227",
+            "decimal": 0.44493392070484583
+          },
+          "total_conditional_transfer_shift": {
+            "exact": "487/15890",
+            "decimal": 0.03064820641913153
+          },
+          "deficit_one_minus_M_over_R": {
+            "exact": "29/70",
+            "decimal": 0.4142857142857143
+          },
+          "left_partner_selection_probability": {
+            "exact": "70/227",
+            "decimal": 0.30837004405286345
+          },
+          "right_partner_selection_probability": {
+            "exact": "70/227",
+            "decimal": 0.30837004405286345
+          },
+          "left_covariance_on_rough_population": {
+            "exact": "-324/51529",
+            "decimal": -0.006287721477226416
+          },
+          "right_covariance_on_rough_population": {
+            "exact": "811/51529",
+            "decimal": 0.015738710240835257
+          },
+          "checks": {
+            "conditional_incidence_matches_ticket154_M_over_R": true,
+            "conditional_shift_is_covariance_over_selection_probability": true,
+            "ambient_margin_minus_transfer_shift_is_exact_deficit": true,
+            "finite_conditional_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 10000,
+          "roughness_z": 21,
+          "ambient_left_rough_count": 1710,
+          "ambient_left_semiprime_count": 489,
+          "ambient_right_rough_count": 1710,
+          "ambient_right_semiprime_count": 489,
+          "rough_pair_count_R": 390,
+          "pair_left_semiprime_count": 111,
+          "pair_right_semiprime_count": 113,
+          "ambient_semiprime_fraction_left": {
+            "exact": "163/570",
+            "decimal": 0.28596491228070176
+          },
+          "ambient_semiprime_fraction_right": {
+            "exact": "163/570",
+            "decimal": 0.28596491228070176
+          },
+          "conditional_semiprime_fraction_left": {
+            "exact": "37/130",
+            "decimal": 0.2846153846153846
+          },
+          "conditional_semiprime_fraction_right": {
+            "exact": "113/390",
+            "decimal": 0.28974358974358977
+          },
+          "conditional_incidence_M_over_R": {
+            "exact": "112/195",
+            "decimal": 0.5743589743589743
+          },
+          "ambient_margin_below_one": {
+            "exact": "122/285",
+            "decimal": 0.4280701754385965
+          },
+          "total_conditional_transfer_shift": {
+            "exact": "3/1235",
+            "decimal": 0.0024291497975708503
+          },
+          "deficit_one_minus_M_over_R": {
+            "exact": "83/195",
+            "decimal": 0.4256410256410256
+          },
+          "left_partner_selection_probability": {
+            "exact": "13/57",
+            "decimal": 0.22807017543859648
+          },
+          "right_partner_selection_probability": {
+            "exact": "13/57",
+            "decimal": 0.22807017543859648
+          },
+          "left_covariance_on_rough_population": {
+            "exact": "-1/3249",
+            "decimal": -0.0003077870113881194
+          },
+          "right_covariance_on_rough_population": {
+            "exact": "14/16245",
+            "decimal": 0.0008618036318867344
+          },
+          "checks": {
+            "conditional_incidence_matches_ticket154_M_over_R": true,
+            "conditional_shift_is_covariance_over_selection_probability": true,
+            "ambient_margin_minus_transfer_shift_is_exact_deficit": true,
+            "finite_conditional_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 100000,
+          "roughness_z": 46,
+          "ambient_left_rough_count": 14203,
+          "ambient_left_semiprime_count": 4625,
+          "ambient_right_rough_count": 14203,
+          "ambient_right_semiprime_count": 4625,
+          "rough_pair_count_R": 2681,
+          "pair_left_semiprime_count": 856,
+          "pair_right_semiprime_count": 891,
+          "ambient_semiprime_fraction_left": {
+            "exact": "4625/14203",
+            "decimal": 0.32563542913468985
+          },
+          "ambient_semiprime_fraction_right": {
+            "exact": "4625/14203",
+            "decimal": 0.32563542913468985
+          },
+          "conditional_semiprime_fraction_left": {
+            "exact": "856/2681",
+            "decimal": 0.31928384930995896
+          },
+          "conditional_semiprime_fraction_right": {
+            "exact": "891/2681",
+            "decimal": 0.33233867959716523
+          },
+          "conditional_incidence_M_over_R": {
+            "exact": "1747/2681",
+            "decimal": 0.6516225289071242
+          },
+          "ambient_margin_below_one": {
+            "exact": "4953/14203",
+            "decimal": 0.3487291417306203
+          },
+          "total_conditional_transfer_shift": {
+            "exact": "1913/5439749",
+            "decimal": 0.00035167063774449887
+          },
+          "deficit_one_minus_M_over_R": {
+            "exact": "934/2681",
+            "decimal": 0.3483774710928758
+          },
+          "left_partner_selection_probability": {
+            "exact": "383/2029",
+            "decimal": 0.18876293740758995
+          },
+          "right_partner_selection_probability": {
+            "exact": "383/2029",
+            "decimal": 0.18876293740758995
+          },
+          "left_covariance_on_rough_population": {
+            "exact": "-34551/28817887",
+            "decimal": -0.001198942864894987
+          },
+          "right_covariance_on_rough_population": {
+            "exact": "36464/28817887",
+            "decimal": 0.001265325247475639
+          },
+          "checks": {
+            "conditional_incidence_matches_ticket154_M_over_R": true,
+            "conditional_shift_is_covariance_over_selection_probability": true,
+            "ambient_margin_minus_transfer_shift_is_exact_deficit": true,
+            "finite_conditional_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 1000000,
+          "roughness_z": 100,
+          "ambient_left_rough_count": 120759,
+          "ambient_left_semiprime_count": 42286,
+          "ambient_right_rough_count": 120759,
+          "ambient_right_semiprime_count": 42286,
+          "rough_pair_count_R": 19296,
+          "pair_left_semiprime_count": 6803,
+          "pair_right_semiprime_count": 6785,
+          "ambient_semiprime_fraction_left": {
+            "exact": "42286/120759",
+            "decimal": 0.35016851746039634
+          },
+          "ambient_semiprime_fraction_right": {
+            "exact": "42286/120759",
+            "decimal": 0.35016851746039634
+          },
+          "conditional_semiprime_fraction_left": {
+            "exact": "6803/19296",
+            "decimal": 0.3525601160862355
+          },
+          "conditional_semiprime_fraction_right": {
+            "exact": "6785/19296",
+            "decimal": 0.35162728026533996
+          },
+          "conditional_incidence_M_over_R": {
+            "exact": "3397/4824",
+            "decimal": 0.7041873963515755
+          },
+          "ambient_margin_below_one": {
+            "exact": "36187/120759",
+            "decimal": 0.29966296507920737
+          },
+          "total_conditional_transfer_shift": {
+            "exact": "747665/194180472",
+            "decimal": 0.0038503614307828027
+          },
+          "deficit_one_minus_M_over_R": {
+            "exact": "1427/4824",
+            "decimal": 0.29581260364842454
+          },
+          "left_partner_selection_probability": {
+            "exact": "6432/40253",
+            "decimal": 0.15978933247211388
+          },
+          "right_partner_selection_probability": {
+            "exact": "6432/40253",
+            "decimal": 0.15978933247211388
+          },
+          "left_covariance_on_rough_population": {
+            "exact": "1857607/4860912027",
+            "decimal": 0.0003821519479640646
+          },
+          "right_covariance_on_rough_population": {
+            "exact": "1133053/4860912027",
+            "decimal": 0.00023309473483709275
+          },
+          "checks": {
+            "conditional_incidence_matches_ticket154_M_over_R": true,
+            "conditional_shift_is_covariance_over_selection_probability": true,
+            "ambient_margin_minus_transfer_shift_is_exact_deficit": true,
+            "finite_conditional_incidence_is_below_one": true
+          }
+        },
+        {
+          "X": 10000000,
+          "roughness_z": 215,
+          "ambient_left_rough_count": 1039399,
+          "ambient_left_semiprime_count": 374867,
+          "ambient_right_rough_count": 1039399,
+          "ambient_right_semiprime_count": 374867,
+          "rough_pair_count_R": 142907,
+          "pair_left_semiprime_count": 51529,
+          "pair_right_semiprime_count": 51487,
+          "ambient_semiprime_fraction_left": {
+            "exact": "374867/1039399",
+            "decimal": 0.36065745685728
+          },
+          "ambient_semiprime_fraction_right": {
+            "exact": "374867/1039399",
+            "decimal": 0.36065745685728
+          },
+          "conditional_semiprime_fraction_left": {
+            "exact": "51529/142907",
+            "decimal": 0.3605771585716585
+          },
+          "conditional_semiprime_fraction_right": {
+            "exact": "51487/142907",
+            "decimal": 0.3602832611418615
+          },
+          "conditional_incidence_M_over_R": {
+            "exact": "103016/142907",
+            "decimal": 0.72086041971352
+          },
+          "ambient_margin_below_one": {
+            "exact": "289665/1039399",
+            "decimal": 0.27868508628544
+          },
+          "total_conditional_transfer_shift": {
+            "exact": "-67509354/148537392893",
+            "decimal": -0.0004544940010400671
+          },
+          "deficit_one_minus_M_over_R": {
+            "exact": "39891/142907",
+            "decimal": 0.27913958028648
+          },
+          "left_partner_selection_probability": {
+            "exact": "142907/1039399",
+            "decimal": 0.13749003029635395
+          },
+          "right_partner_selection_probability": {
+            "exact": "142907/1039399",
+            "decimal": 0.13749003029635395
+          },
+          "left_covariance_on_rough_population": {
+            "exact": "-11927298/1080350281201",
+            "decimal": -1.1040213722849874e-05
+          },
+          "right_covariance_on_rough_population": {
+            "exact": "-55582056/1080350281201",
+            "decimal": -5.144818024966008e-05
+          },
+          "checks": {
+            "conditional_incidence_matches_ticket154_M_over_R": true,
+            "conditional_shift_is_covariance_over_selection_probability": true,
+            "ambient_margin_minus_transfer_shift_is_exact_deficit": true,
+            "finite_conditional_incidence_is_below_one": true
+          }
+        }
+      ],
+      "finite_rare_event_covariance_no_go_rows": [
+        {
+          "rarity_exponent_k": 2,
+          "population_size": 20,
+          "selected_event_size": 5,
+          "semiprime_label_size": 8,
+          "selected_semiprime_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "ambient_semiprime_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_semiprime_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "absolute_covariance": {
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          "normalized_covariance_over_rho": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "base_fraction_is_two_fifths": true,
+            "conditional_fraction_is_three_fifths": true,
+            "conditional_shift_stays_one_fifth": true,
+            "absolute_covariance_tends_to_zero_profile": true,
+            "normalized_covariance_shift_does_not_tend_to_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 4,
+          "population_size": 80,
+          "selected_event_size": 5,
+          "semiprime_label_size": 32,
+          "selected_semiprime_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "ambient_semiprime_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_semiprime_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "absolute_covariance": {
+            "exact": "1/80",
+            "decimal": 0.0125
+          },
+          "normalized_covariance_over_rho": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "base_fraction_is_two_fifths": true,
+            "conditional_fraction_is_three_fifths": true,
+            "conditional_shift_stays_one_fifth": true,
+            "absolute_covariance_tends_to_zero_profile": true,
+            "normalized_covariance_shift_does_not_tend_to_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 8,
+          "population_size": 1280,
+          "selected_event_size": 5,
+          "semiprime_label_size": 512,
+          "selected_semiprime_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "ambient_semiprime_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_semiprime_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "absolute_covariance": {
+            "exact": "1/1280",
+            "decimal": 0.00078125
+          },
+          "normalized_covariance_over_rho": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "base_fraction_is_two_fifths": true,
+            "conditional_fraction_is_three_fifths": true,
+            "conditional_shift_stays_one_fifth": true,
+            "absolute_covariance_tends_to_zero_profile": true,
+            "normalized_covariance_shift_does_not_tend_to_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 12,
+          "population_size": 20480,
+          "selected_event_size": 5,
+          "semiprime_label_size": 8192,
+          "selected_semiprime_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "ambient_semiprime_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_semiprime_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "absolute_covariance": {
+            "exact": "1/20480",
+            "decimal": 4.8828125e-05
+          },
+          "normalized_covariance_over_rho": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "base_fraction_is_two_fifths": true,
+            "conditional_fraction_is_three_fifths": true,
+            "conditional_shift_stays_one_fifth": true,
+            "absolute_covariance_tends_to_zero_profile": true,
+            "normalized_covariance_shift_does_not_tend_to_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 16,
+          "population_size": 327680,
+          "selected_event_size": 5,
+          "semiprime_label_size": 131072,
+          "selected_semiprime_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "ambient_semiprime_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_semiprime_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "absolute_covariance": {
+            "exact": "1/327680",
+            "decimal": 3.0517578125e-06
+          },
+          "normalized_covariance_over_rho": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "checks": {
+            "base_fraction_is_two_fifths": true,
+            "conditional_fraction_is_three_fifths": true,
+            "conditional_shift_stays_one_fifth": true,
+            "absolute_covariance_tends_to_zero_profile": true,
+            "normalized_covariance_shift_does_not_tend_to_zero": true
+          }
+        }
+      ],
+      "asymptotic_ambient_margin_target": 0.18123221829928252,
+      "failure_count": 0
+    },
+    "logical_limit": "The identity names the required relative covariance scale but supplies no asymptotic saving for actual cubic-rough shifted integers. Finite shifts through ten million cannot be promoted to an infinite theorem.",
+    "route_decision": {
+      "discard": "using an unnormalized covariance bound tending to zero to transfer one-variable rough semiprime bias through a vanishing-probability shifted selection",
+      "retain": "prove a shift-two covariance saving relative to the rough-partner selection probability, strong enough to stay below the ambient semiprime margin",
+      "next_theorem": "ShiftTwoCubicRoughSemiprimeRelativeCovarianceSaving"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T155-REJECTED",
+          "label": "AbsoluteCovarianceDecayTransfersRareConditionalBias",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T155-CLOSED",
+          "label": "ConditionalSemiprimeTransferIdentityAndRareEventCovarianceNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T155-OPEN",
+          "label": "ShiftTwoCubicRoughSemiprimeRelativeCovarianceSaving",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T155-REJECTED",
+          "TP-T155-CLOSED"
+        ],
+        [
+          "TP-T155-CLOSED",
+          "TP-T155-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no counterexample. One exact conditional transfer identity, a rare-event no-go, and finite evidence through X=10,000,000."
+  }
+}

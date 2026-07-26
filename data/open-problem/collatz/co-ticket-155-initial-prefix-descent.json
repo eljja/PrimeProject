@@ -1,0 +1,403 @@
+{
+  "schema": "primeproject.ticket155-range-prefix-sublinear-conditional.v1",
+  "generated_at": "2026-07-26T17:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-155",
+  "attempt": "For an initial Collatz valuation prefix a_1,...,a_m, put B_j=sum_(i<=j)(a_i-2). The TICKET-154 reverse-suffix floor-two condition is equivalent to B_m=max_(0<=j<=m)B_j; when it holds, the entire prefix sends every realizing odd start n>1 below n. Every positive odd start eventually has a one-step local descent: if r=v_2(n+1), then the first r-1 valuations are one and the r-th is at least two. But a later local descent does not imply descent below the initial start. For n=4u-1 with u=3 mod 4, the first two valuations are (1,2), the second step decreases locally, and T^2(n)>n.",
+  "bounded_result": {
+    "audit_ref": "range_prefix_sublinear_conditional_audit.collatz"
+  },
+  "obstruction": "The correction proves that later local descent is too weak. It does not prove that every natural start has a prefix endpoint below the same initial value, which is the strong-induction bridge.",
+  "candidate_theorem": "EveryNaturalStartCrossesAnInitialAffineDescentThreshold",
+  "next_experiment": "prove that every natural start crosses its exact initial-prefix affine threshold and therefore reaches a smaller positive integer",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One logical correction, exact infinite no-go family, and corrected initial-prefix target.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-155",
+    "theorem_name": "InitialPrefixRecordCriterionAndLaterLocalDescentNoGo",
+    "declared_proposition": "For an initial Collatz valuation prefix a_1,...,a_m, put B_j=sum_(i<=j)(a_i-2). The TICKET-154 reverse-suffix floor-two condition is equivalent to B_m=max_(0<=j<=m)B_j; when it holds, the entire prefix sends every realizing odd start n>1 below n. Every positive odd start eventually has a one-step local descent: if r=v_2(n+1), then the first r-1 valuations are one and the r-th is at least two. But a later local descent does not imply descent below the initial start. For n=4u-1 with u=3 mod 4, the first two valuations are (1,2), the second step decreases locally, and T^2(n)>n.",
+    "mathematical_argument": "A suffix from j+1 through m has surplus B_m-B_j, proving the record equivalence. TICKET-154 then gives initial-prefix descent. Writing n+1=2^r u with u odd shows inductively that T^j(n)=3^j 2^(r-j)u-1 for j<r, so the first r-1 valuations are one and the next is at least two. For the no-go family, n=4u-1 maps to 6u-1 and then to (9u-1)/2 when u=3 mod 4. The second value is below 6u-1 but above 4u-1. Finally, n=2^L-1 gives arbitrarily long initial all-one words, ruling out a uniform bounded hitting-time shortcut.",
+    "reproducible_computation": {
+      "theorem": "For an initial Collatz valuation prefix a_1,...,a_m, put B_j=sum_(i<=j)(a_i-2). The TICKET-154 reverse-suffix floor-two condition is equivalent to B_m=max_(0<=j<=m)B_j; when it holds, the entire prefix sends every realizing odd start n>1 below n. Every positive odd start eventually has a one-step local descent: if r=v_2(n+1), then the first r-1 valuations are one and the r-th is at least two. But a later local descent does not imply descent below the initial start. For n=4u-1 with u=3 mod 4, the first two valuations are (1,2), the second step decreases locally, and T^2(n)>n.",
+      "proof": "A suffix from j+1 through m has surplus B_m-B_j, proving the record equivalence. TICKET-154 then gives initial-prefix descent. Writing n+1=2^r u with u odd shows inductively that T^j(n)=3^j 2^(r-j)u-1 for j<r, so the first r-1 valuations are one and the next is at least two. For the no-go family, n=4u-1 maps to 6u-1 and then to (9u-1)/2 when u=3 mod 4. The second value is below 6u-1 but above 4u-1. Finally, n=2^L-1 gives arbitrarily long initial all-one words, ruling out a uniform bounded hitting-time shortcut.",
+      "finite_record_equivalence_rows": [
+        {
+          "valuation_word": [
+            2
+          ],
+          "surplus_walk_B_j": [
+            0,
+            0
+          ],
+          "reverse_suffix_floor_two": true,
+          "final_value_is_running_maximum": true,
+          "total_valuation_S": 2,
+          "affine_constant_C": 1,
+          "descent_denominator_2S_minus_3m": 1,
+          "exact_affine_threshold_when_contracting": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "checks": {
+            "reverse_suffix_condition_equals_final_record_condition": true,
+            "certified_word_has_nonnegative_final_surplus": true,
+            "certified_word_has_contracting_linear_multiplier": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            3
+          ],
+          "surplus_walk_B_j": [
+            0,
+            -1,
+            0
+          ],
+          "reverse_suffix_floor_two": true,
+          "final_value_is_running_maximum": true,
+          "total_valuation_S": 4,
+          "affine_constant_C": 5,
+          "descent_denominator_2S_minus_3m": 7,
+          "exact_affine_threshold_when_contracting": {
+            "exact": "5/7",
+            "decimal": 0.7142857142857143
+          },
+          "checks": {
+            "reverse_suffix_condition_equals_final_record_condition": true,
+            "certified_word_has_nonnegative_final_surplus": true,
+            "certified_word_has_contracting_linear_multiplier": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            4
+          ],
+          "surplus_walk_B_j": [
+            0,
+            -1,
+            -2,
+            0
+          ],
+          "reverse_suffix_floor_two": true,
+          "final_value_is_running_maximum": true,
+          "total_valuation_S": 6,
+          "affine_constant_C": 19,
+          "descent_denominator_2S_minus_3m": 37,
+          "exact_affine_threshold_when_contracting": {
+            "exact": "19/37",
+            "decimal": 0.5135135135135135
+          },
+          "checks": {
+            "reverse_suffix_condition_equals_final_record_condition": true,
+            "certified_word_has_nonnegative_final_surplus": true,
+            "certified_word_has_contracting_linear_multiplier": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            2
+          ],
+          "surplus_walk_B_j": [
+            0,
+            -1,
+            -1
+          ],
+          "reverse_suffix_floor_two": false,
+          "final_value_is_running_maximum": false,
+          "total_valuation_S": 3,
+          "affine_constant_C": 5,
+          "descent_denominator_2S_minus_3m": -1,
+          "exact_affine_threshold_when_contracting": null,
+          "checks": {
+            "reverse_suffix_condition_equals_final_record_condition": true,
+            "certified_word_has_nonnegative_final_surplus": true,
+            "certified_word_has_contracting_linear_multiplier": true
+          }
+        },
+        {
+          "valuation_word": [
+            3,
+            1
+          ],
+          "surplus_walk_B_j": [
+            0,
+            1,
+            0
+          ],
+          "reverse_suffix_floor_two": false,
+          "final_value_is_running_maximum": false,
+          "total_valuation_S": 4,
+          "affine_constant_C": 11,
+          "descent_denominator_2S_minus_3m": 7,
+          "exact_affine_threshold_when_contracting": {
+            "exact": "11/7",
+            "decimal": 1.5714285714285714
+          },
+          "checks": {
+            "reverse_suffix_condition_equals_final_record_condition": true,
+            "certified_word_has_nonnegative_final_surplus": true,
+            "certified_word_has_contracting_linear_multiplier": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            1,
+            3
+          ],
+          "surplus_walk_B_j": [
+            0,
+            0,
+            -1,
+            0
+          ],
+          "reverse_suffix_floor_two": true,
+          "final_value_is_running_maximum": true,
+          "total_valuation_S": 6,
+          "affine_constant_C": 29,
+          "descent_denominator_2S_minus_3m": 37,
+          "exact_affine_threshold_when_contracting": {
+            "exact": "29/37",
+            "decimal": 0.7837837837837838
+          },
+          "checks": {
+            "reverse_suffix_condition_equals_final_record_condition": true,
+            "certified_word_has_nonnegative_final_surplus": true,
+            "certified_word_has_contracting_linear_multiplier": true
+          }
+        }
+      ],
+      "finite_later_local_descent_no_go_rows": [
+        {
+          "family_parameter_u": 3,
+          "initial_odd_start_n": 11,
+          "first_odd_iterate": 17,
+          "second_odd_iterate": 13,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "local_drop": 4,
+          "net_change_from_initial": 2,
+          "checks": {
+            "family_congruence_holds": true,
+            "valuation_word_is_one_two": true,
+            "second_step_is_local_descent": true,
+            "local_descent_endpoint_remains_above_initial_start": true,
+            "whole_prefix_linear_multiplier_is_noncontracting": true
+          }
+        },
+        {
+          "family_parameter_u": 7,
+          "initial_odd_start_n": 27,
+          "first_odd_iterate": 41,
+          "second_odd_iterate": 31,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "local_drop": 10,
+          "net_change_from_initial": 4,
+          "checks": {
+            "family_congruence_holds": true,
+            "valuation_word_is_one_two": true,
+            "second_step_is_local_descent": true,
+            "local_descent_endpoint_remains_above_initial_start": true,
+            "whole_prefix_linear_multiplier_is_noncontracting": true
+          }
+        },
+        {
+          "family_parameter_u": 11,
+          "initial_odd_start_n": 43,
+          "first_odd_iterate": 65,
+          "second_odd_iterate": 49,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "local_drop": 16,
+          "net_change_from_initial": 6,
+          "checks": {
+            "family_congruence_holds": true,
+            "valuation_word_is_one_two": true,
+            "second_step_is_local_descent": true,
+            "local_descent_endpoint_remains_above_initial_start": true,
+            "whole_prefix_linear_multiplier_is_noncontracting": true
+          }
+        },
+        {
+          "family_parameter_u": 15,
+          "initial_odd_start_n": 59,
+          "first_odd_iterate": 89,
+          "second_odd_iterate": 67,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "local_drop": 22,
+          "net_change_from_initial": 8,
+          "checks": {
+            "family_congruence_holds": true,
+            "valuation_word_is_one_two": true,
+            "second_step_is_local_descent": true,
+            "local_descent_endpoint_remains_above_initial_start": true,
+            "whole_prefix_linear_multiplier_is_noncontracting": true
+          }
+        },
+        {
+          "family_parameter_u": 19,
+          "initial_odd_start_n": 75,
+          "first_odd_iterate": 113,
+          "second_odd_iterate": 85,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "local_drop": 28,
+          "net_change_from_initial": 10,
+          "checks": {
+            "family_congruence_holds": true,
+            "valuation_word_is_one_two": true,
+            "second_step_is_local_descent": true,
+            "local_descent_endpoint_remains_above_initial_start": true,
+            "whole_prefix_linear_multiplier_is_noncontracting": true
+          }
+        },
+        {
+          "family_parameter_u": 23,
+          "initial_odd_start_n": 91,
+          "first_odd_iterate": 137,
+          "second_odd_iterate": 103,
+          "valuation_word": [
+            1,
+            2
+          ],
+          "local_drop": 34,
+          "net_change_from_initial": 12,
+          "checks": {
+            "family_congruence_holds": true,
+            "valuation_word_is_one_two": true,
+            "second_step_is_local_descent": true,
+            "local_descent_endpoint_remains_above_initial_start": true,
+            "whole_prefix_linear_multiplier_is_noncontracting": true
+          }
+        }
+      ],
+      "finite_unbounded_waiting_rows": [
+        {
+          "exponent_L": 2,
+          "initial_odd_start_n": 3,
+          "certified_initial_all_one_valuation_count": 1,
+          "first_possible_non_one_valuation_step": 2,
+          "checks": {
+            "n_plus_one_has_declared_two_adic_valuation": true,
+            "first_delay_valuations_are_all_one": true,
+            "no_floor_two_length_one_block_before_delay_ends": true,
+            "delays_are_unbounded_with_exponent": true
+          }
+        },
+        {
+          "exponent_L": 3,
+          "initial_odd_start_n": 7,
+          "certified_initial_all_one_valuation_count": 2,
+          "first_possible_non_one_valuation_step": 3,
+          "checks": {
+            "n_plus_one_has_declared_two_adic_valuation": true,
+            "first_delay_valuations_are_all_one": true,
+            "no_floor_two_length_one_block_before_delay_ends": true,
+            "delays_are_unbounded_with_exponent": true
+          }
+        },
+        {
+          "exponent_L": 5,
+          "initial_odd_start_n": 31,
+          "certified_initial_all_one_valuation_count": 4,
+          "first_possible_non_one_valuation_step": 5,
+          "checks": {
+            "n_plus_one_has_declared_two_adic_valuation": true,
+            "first_delay_valuations_are_all_one": true,
+            "no_floor_two_length_one_block_before_delay_ends": true,
+            "delays_are_unbounded_with_exponent": true
+          }
+        },
+        {
+          "exponent_L": 8,
+          "initial_odd_start_n": 255,
+          "certified_initial_all_one_valuation_count": 7,
+          "first_possible_non_one_valuation_step": 8,
+          "checks": {
+            "n_plus_one_has_declared_two_adic_valuation": true,
+            "first_delay_valuations_are_all_one": true,
+            "no_floor_two_length_one_block_before_delay_ends": true,
+            "delays_are_unbounded_with_exponent": true
+          }
+        },
+        {
+          "exponent_L": 13,
+          "initial_odd_start_n": 8191,
+          "certified_initial_all_one_valuation_count": 12,
+          "first_possible_non_one_valuation_step": 13,
+          "checks": {
+            "n_plus_one_has_declared_two_adic_valuation": true,
+            "first_delay_valuations_are_all_one": true,
+            "no_floor_two_length_one_block_before_delay_ends": true,
+            "delays_are_unbounded_with_exponent": true
+          }
+        },
+        {
+          "exponent_L": 21,
+          "initial_odd_start_n": 2097151,
+          "certified_initial_all_one_valuation_count": 20,
+          "first_possible_non_one_valuation_step": 21,
+          "checks": {
+            "n_plus_one_has_declared_two_adic_valuation": true,
+            "first_delay_valuations_are_all_one": true,
+            "no_floor_two_length_one_block_before_delay_ends": true,
+            "delays_are_unbounded_with_exponent": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "logical_limit": "The correction proves that later local descent is too weak. It does not prove that every natural start has a prefix endpoint below the same initial value, which is the strong-induction bridge.",
+    "route_decision": {
+      "discard": "using occurrence of a descent block later in the trajectory as if it forced descent below the original start",
+      "retain": "prove that every natural start crosses its exact initial-prefix affine threshold and therefore reaches a smaller positive integer",
+      "next_theorem": "EveryNaturalStartCrossesAnInitialAffineDescentThreshold"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T155-REJECTED",
+          "label": "LaterLocalDescentBlockImpliesStrongInductionDescent",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T155-CLOSED",
+          "label": "InitialPrefixRecordCriterionAndLaterLocalDescentNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T155-OPEN",
+          "label": "EveryNaturalStartCrossesAnInitialAffineDescentThreshold",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T155-REJECTED",
+          "CO-T155-CLOSED"
+        ],
+        [
+          "CO-T155-CLOSED",
+          "CO-T155-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent orbit. One logical correction, exact infinite no-go family, and corrected initial-prefix target."
+  }
+}

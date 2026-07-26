@@ -1,0 +1,254 @@
+{
+  "schema": "primeproject.ticket155-range-prefix-sublinear-conditional.v1",
+  "generated_at": "2026-07-26T17:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-155",
+  "attempt": "Let H0 have finite dimension d and K:H0->H1. Then rank(K)<=d. If Q_R is the orthogonal projection onto closure(Ran K), then (I-Q_R)K=0, so the TICKET-154 Schur tail is closed exactly by a projection of rank rank(K). Coordinate-tail rates contain no basis-invariant information: for every nonincreasing sequence e_N in [0,1] with e_0=1 and e_N->0, there is a unit vector v with ||(I-P_N)v||^2=e_N for the standard coordinate projections. Thus even a rank-one coupling can realize any prescribed convergent coordinate-tail profile.",
+  "bounded_result": {
+    "audit_ref": "range_prefix_sublinear_conditional_audit.riemann"
+  },
+  "obstruction": "The theorem corrects the abstract finite-core target but does not construct a Weil decomposition. The actual semi-local spaces in the literature are not identified with this finite-core Schur model, and no zeta zero is excluded.",
+  "candidate_theorem": "ActualWeilFiniteCoreRangeConstructionAndPositiveSchurMatrix",
+  "next_experiment": "construct an actual finite-core Weil block, compute the coupling range invariantly, and prove positivity of its exact finite Schur matrix",
+  "claim_boundary": "No RH proof and no off-critical zero. One invariant finite-range reduction and one coordinate-rate no-go.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-155",
+    "theorem_name": "FiniteCoreRangeExactnessAndCoordinateTailProfileNoGo",
+    "declared_proposition": "Let H0 have finite dimension d and K:H0->H1. Then rank(K)<=d. If Q_R is the orthogonal projection onto closure(Ran K), then (I-Q_R)K=0, so the TICKET-154 Schur tail is closed exactly by a projection of rank rank(K). Coordinate-tail rates contain no basis-invariant information: for every nonincreasing sequence e_N in [0,1] with e_0=1 and e_N->0, there is a unit vector v with ||(I-P_N)v||^2=e_N for the standard coordinate projections. Thus even a rank-one coupling can realize any prescribed convergent coordinate-tail profile.",
+    "mathematical_argument": "The range statement is finite-dimensional linear algebra. For the profile theorem, set |v_j|^2=e_(j-1)-e_j. The terms are nonnegative, telescope to one, and their tail after N is exactly e_N. Taking Kx=xv gives a rank-one compact coupling with that coordinate tail, while projection onto span(v) removes the tail exactly. Therefore compactness or finite rank alone supplies convergence but no coordinate rate in an arithmetically unspecified basis.",
+    "reproducible_computation": {
+      "theorem": "Let H0 have finite dimension d and K:H0->H1. Then rank(K)<=d. If Q_R is the orthogonal projection onto closure(Ran K), then (I-Q_R)K=0, so the TICKET-154 Schur tail is closed exactly by a projection of rank rank(K). Coordinate-tail rates contain no basis-invariant information: for every nonincreasing sequence e_N in [0,1] with e_0=1 and e_N->0, there is a unit vector v with ||(I-P_N)v||^2=e_N for the standard coordinate projections. Thus even a rank-one coupling can realize any prescribed convergent coordinate-tail profile.",
+      "proof": "The range statement is finite-dimensional linear algebra. For the profile theorem, set |v_j|^2=e_(j-1)-e_j. The terms are nonnegative, telescope to one, and their tail after N is exactly e_N. Taking Kx=xv gives a rank-one compact coupling with that coordinate tail, while projection onto span(v) removes the tail exactly. Therefore compactness or finite rank alone supplies convergence but no coordinate rate in an arithmetically unspecified basis.",
+      "finite_coordinate_profile_rows": [
+        {
+          "coordinate_cutoff_N": 1,
+          "rank_of_coupling": 1,
+          "harmonic_profile_observed_cost": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "harmonic_profile_coordinate_tail_cost": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "harmonic_profile_new_coordinate_mass": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "geometric_comparison_tail_cost": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "range_projection_tail_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "harmonic_profile_partitions_unit_coupling_cost": true,
+            "harmonic_coordinate_mass_is_telescoping_difference": true,
+            "coordinate_tail_can_be_slower_than_geometric": true,
+            "range_projection_tail_is_exactly_zero": true
+          }
+        },
+        {
+          "coordinate_cutoff_N": 2,
+          "rank_of_coupling": 1,
+          "harmonic_profile_observed_cost": {
+            "exact": "2/3",
+            "decimal": 0.6666666666666666
+          },
+          "harmonic_profile_coordinate_tail_cost": {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          "harmonic_profile_new_coordinate_mass": {
+            "exact": "1/6",
+            "decimal": 0.16666666666666666
+          },
+          "geometric_comparison_tail_cost": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "range_projection_tail_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "harmonic_profile_partitions_unit_coupling_cost": true,
+            "harmonic_coordinate_mass_is_telescoping_difference": true,
+            "coordinate_tail_can_be_slower_than_geometric": true,
+            "range_projection_tail_is_exactly_zero": true
+          }
+        },
+        {
+          "coordinate_cutoff_N": 4,
+          "rank_of_coupling": 1,
+          "harmonic_profile_observed_cost": {
+            "exact": "4/5",
+            "decimal": 0.8
+          },
+          "harmonic_profile_coordinate_tail_cost": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "harmonic_profile_new_coordinate_mass": {
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          "geometric_comparison_tail_cost": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "range_projection_tail_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "harmonic_profile_partitions_unit_coupling_cost": true,
+            "harmonic_coordinate_mass_is_telescoping_difference": true,
+            "coordinate_tail_can_be_slower_than_geometric": true,
+            "range_projection_tail_is_exactly_zero": true
+          }
+        },
+        {
+          "coordinate_cutoff_N": 8,
+          "rank_of_coupling": 1,
+          "harmonic_profile_observed_cost": {
+            "exact": "8/9",
+            "decimal": 0.8888888888888888
+          },
+          "harmonic_profile_coordinate_tail_cost": {
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          "harmonic_profile_new_coordinate_mass": {
+            "exact": "1/72",
+            "decimal": 0.013888888888888888
+          },
+          "geometric_comparison_tail_cost": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "range_projection_tail_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "harmonic_profile_partitions_unit_coupling_cost": true,
+            "harmonic_coordinate_mass_is_telescoping_difference": true,
+            "coordinate_tail_can_be_slower_than_geometric": true,
+            "range_projection_tail_is_exactly_zero": true
+          }
+        },
+        {
+          "coordinate_cutoff_N": 16,
+          "rank_of_coupling": 1,
+          "harmonic_profile_observed_cost": {
+            "exact": "16/17",
+            "decimal": 0.9411764705882353
+          },
+          "harmonic_profile_coordinate_tail_cost": {
+            "exact": "1/17",
+            "decimal": 0.058823529411764705
+          },
+          "harmonic_profile_new_coordinate_mass": {
+            "exact": "1/272",
+            "decimal": 0.003676470588235294
+          },
+          "geometric_comparison_tail_cost": {
+            "exact": "1/4294967296",
+            "decimal": 2.3283064365386963e-10
+          },
+          "range_projection_tail_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "harmonic_profile_partitions_unit_coupling_cost": true,
+            "harmonic_coordinate_mass_is_telescoping_difference": true,
+            "coordinate_tail_can_be_slower_than_geometric": true,
+            "range_projection_tail_is_exactly_zero": true
+          }
+        },
+        {
+          "coordinate_cutoff_N": 32,
+          "rank_of_coupling": 1,
+          "harmonic_profile_observed_cost": {
+            "exact": "32/33",
+            "decimal": 0.9696969696969697
+          },
+          "harmonic_profile_coordinate_tail_cost": {
+            "exact": "1/33",
+            "decimal": 0.030303030303030304
+          },
+          "harmonic_profile_new_coordinate_mass": {
+            "exact": "1/1056",
+            "decimal": 0.000946969696969697
+          },
+          "geometric_comparison_tail_cost": {
+            "exact": "1/18446744073709551616",
+            "decimal": 5.421010862427522e-20
+          },
+          "range_projection_tail_cost": {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          "checks": {
+            "harmonic_profile_partitions_unit_coupling_cost": true,
+            "harmonic_coordinate_mass_is_telescoping_difference": true,
+            "coordinate_tail_can_be_slower_than_geometric": true,
+            "range_projection_tail_is_exactly_zero": true
+          }
+        }
+      ],
+      "profile_realization": {
+        "arbitrary_profile_condition": "e_0=1, e_N nonincreasing, e_N tends to zero",
+        "coordinate_mass_formula": "|v_j|^2=e_(j-1)-e_j",
+        "tail_formula": "||(I-P_N)v||^2=e_N",
+        "optimal_range_projection_rank": 1,
+        "optimal_range_projection_tail": {
+          "exact": "0/1",
+          "decimal": 0.0
+        }
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The theorem corrects the abstract finite-core target but does not construct a Weil decomposition. The actual semi-local spaces in the literature are not identified with this finite-core Schur model, and no zeta zero is excluded.",
+    "route_decision": {
+      "discard": "treating compactness or coordinate coefficient decay in an unspecified basis as an arithmetic tail rate",
+      "retain": "construct an actual finite-core Weil block, compute the coupling range invariantly, and prove positivity of its exact finite Schur matrix",
+      "next_theorem": "ActualWeilFiniteCoreRangeConstructionAndPositiveSchurMatrix"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T155-REJECTED",
+          "label": "CompactnessAloneSuppliesCanonicalEffectiveCoordinateRate",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T155-CLOSED",
+          "label": "FiniteCoreRangeExactnessAndCoordinateTailProfileNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T155-OPEN",
+          "label": "ActualWeilFiniteCoreRangeConstructionAndPositiveSchurMatrix",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T155-REJECTED",
+          "RH-T155-CLOSED"
+        ],
+        [
+          "RH-T155-CLOSED",
+          "RH-T155-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One invariant finite-range reduction and one coordinate-rate no-go."
+  }
+}
