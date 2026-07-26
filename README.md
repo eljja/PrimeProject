@@ -31,22 +31,25 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-155: Range Exactness, Initial-Prefix Descent, Sublinear Wheels, and
-Conditional Transfer](docs/range-prefix-sublinear-conditional.md). It proves
-four exact route corrections or no-go theorems. For RH, a finite-core
-coupling is closed exactly by projection onto its finite-dimensional range,
-while even rank-one coordinate tails can realize any prescribed convergent
-rate. For Collatz, reverse-suffix certification is exactly an initial-prefix
-record condition; an infinite family proves that a later local descent need
-not descend below the original start, correcting the previous induction
-bridge. For Goldbach, every wheel satisfying
-`W_N <= N^(1-epsilon)` captures a vanishing fraction of prime-theta energy,
-so sublinear-power wheel projection cannot close the old `L2` certificate.
-For Twin Prime, an exact conditional-semiprime transfer identity shows that
-unnormalized covariance tending to zero is insufficient under rare-event
-conditioning. Every conjecture remains `open_not_proven`.
+[TICKET-156: Cutoff, Potential, Signed Mass, and Normalized
+Information](docs/cutoff-potential-signed-information.md). It proves four
+exact bridge or no-go theorems. For RH, a valid spectral certificate must
+separately bound basis/core, archimedean-cutoff, and rounding errors;
+precision stability at fixed cutoffs cannot determine the continuum sign.
+For Collatz, an exact weighted suffix potential equals the normalized affine
+constant and proves that the previous floor-two rule is sufficient but not
+necessary. For Goldbach, only negative real minor phase mass is harmful;
+the sharper one-sided finite certificate succeeds on three of six audited
+endpoints, while a fixed small Farey mask still fails later. For Twin Prime,
+Pinsker's inequality shows that rare conditional transfer requires mutual
+information `o(selection probability)`, not merely information tending to
+zero. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
+[TICKET-155: Range Exactness, Initial-Prefix Descent, Sublinear Wheels, and
+Conditional Transfer](docs/range-prefix-sublinear-conditional.md).
+
+The earlier boundary is
 [TICKET-154: Compact Schur Tails, Reverse-Suffix Descent, Wheel Projection,
 and Least-Factor Deficit](docs/compact-suffix-wheel-leastfactor.md). Its
 Collatz occurrence-to-induction bridge is superseded by the explicit
@@ -106,18 +109,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-fifteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-sixteen-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-155. It proves the finite-core range
-projection identity and arbitrary coordinate-tail-rate no-go; the Collatz
-initial-prefix record criterion and later-local-descent induction no-go; the
-sublinear-power Goldbach wheel-energy no-go; and the Twin conditional
-semiprime-transfer identity with a rare-event covariance countermodel. The
-finite Goldbach and Twin audits reach 1M and 10M respectively, but no finite
-row is promoted to an infinite theorem. All four conjectures remain open.
+The latest proof-search track is TICKET-156. It proves the three-axis RH
+spectral error certificate and fixed-cutoff sign no-go; the exact Collatz
+weighted suffix-potential identity and floor-two necessity counterexample;
+the one-sided Goldbach negative-phase certificate with a fixed-mask no-go;
+and the rare-event normalized-information transfer inequality with an exact
+countermodel. The finite Collatz and Twin diagnostics reach 100K and 10M
+respectively, but no finite row is promoted to an infinite theorem. All four
+conjectures remain open.
 See
+[TICKET156](docs/cutoff-potential-signed-information.md),
 [TICKET155](docs/range-prefix-sublinear-conditional.md),
 [TICKET154](docs/compact-suffix-wheel-leastfactor.md),
 [TICKET153](docs/essential-tail-geometric-reflection-parity.md),
@@ -132,19 +137,21 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-155입니다. 리만 가설 트랙에서는
-유한 core coupling의 실제 range projection이 생략 tail을 정확히 0으로
-만들지만, 임의의 수렴 속도를 갖는 rank-one 좌표 tail도 만들 수 있음을
-증명했습니다. 따라서 basis coefficient의 감소율을 정준적인 산술
-속도로 해석하는 경로를 폐기했습니다. 콜라츠 트랙에서는 reverse-suffix
-인증이 initial-prefix 누적합의 record 조건과 동치임을 증명했고, 나중
-단계의 local descent가 원래 시작값 아래로 내려가지 않는 무한 가족을
-제시해 기존 강한 귀납 연결을 정정했습니다. 골드바흐 트랙에서는
-`W_N <= N^(1-epsilon)`인 모든 sublinear-power wheel의 prime-theta 에너지
-비율이 0으로 수렴함을 보였습니다. 쌍둥이 소수 트랙에서는 조건부
-semiprime 전이 항등식과 희귀 사건에서 비정규화 covariance만으로는
-조건부 편향을 통제할 수 없다는 정확한 반례 모형을 만들었습니다.
-네 문제는 모두 미해결이며 완전 증명이나 대상 추측의 반례는 없습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-156입니다. 리만 가설 트랙에서는
+basis/core, archimedean cutoff, rounding의 세 오차를 분리한 spectral
+인증식을 증명하고, 고정 cutoff에서 정밀도를 높인 것만으로 continuum
+부호를 정할 수 없다는 정확한 반례 가족을 만들었습니다. 콜라츠
+트랙에서는 가중 접미사 potential이 정규화 affine 상수와 정확히 같음을
+증명했고, 실제 궤도 `7→11→17→13→5`가 기존 floor-two 충분조건을
+위반함을 확인했습니다. 10만 이하 홀수 49,999개의 첫 하강 중 12,991개가
+같은 충분조건을 위반하지만, 이 유한 스캔은 전칭 증명이 아닙니다.
+골드바흐 트랙에서는 전체 minor 에너지 대신 실제로 해로운 음의 실수
+위상 질량만 세는 단측 인증을 유도했습니다. 이 인증은 검사한 여섯
+endpoint 중 세 곳에서만 통과해, 고정된 작은 Farey mask도 충분하지
+않음을 함께 보였습니다. 쌍둥이 소수 트랙에서는 희귀 조건부 편향을
+없애려면 mutual information 자체가 아니라 선택확률로 나눈 정보량이
+0으로 가야 한다는 Pinsker 기반 정리와 정확한 no-go 모형을
+확정했습니다. 네 문제는 모두 미해결입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -164,14 +171,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-155입니다.
-[range exactness, initial-prefix descent, sublinear wheel, conditional
-transfer 보고서](docs/range-prefix-sublinear-conditional.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-156입니다.
+[cutoff, weighted potential, signed minor mass, normalized information
+보고서](docs/cutoff-potential-signed-information.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만 가설의 range projection과 좌표 tail 속도
-no-go, 콜라츠의 initial-prefix record 조건과 local-descent 귀납 반례,
-골드바흐의 sublinear-power wheel 에너지 no-go, 쌍둥이 소수의 조건부
-semiprime 전이 항등식과 rare-event covariance no-go를 확정했습니다.
+영문으로 정리합니다. 리만 가설의 세 오차 spectral gate, 콜라츠의
+정확한 weighted suffix potential, 골드바흐의 negative phase mass,
+쌍둥이 소수의 selection-normalized information 조건을 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

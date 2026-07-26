@@ -1,0 +1,612 @@
+{
+  "schema": "primeproject.ticket156-cutoff-potential-signed-information.v1",
+  "generated_at": "2026-07-26T21:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-156",
+  "attempt": "Let D be a Bernoulli label, B a selected event with rho=P(B)>0, d=P(D=1), and delta=P(D=1|B)-d. Then I(D;B)>=2 rho delta^2 in natural-log units, so |delta|<=sqrt(I(D;B)/(2 rho)). Consequently I(D;B)=o(rho) is a sufficient information-theoretic condition for rare-event conditional transfer. The weaker condition I(D;B)->0 is insufficient: the TICKET-155 finite probability family has rho=2^-k, fixed delta=1/5, and I(D;B)->0, but I(D;B)/rho tends to KL(Ber(3/5)||Ber(2/5))>0.",
+  "bounded_result": {
+    "audit_ref": "cutoff_potential_signed_information_audit.twin_prime"
+  },
+  "obstruction": "Pinsker gives a sufficient relative information target but does not establish it for shifted cubic-rough integers. The arithmetic rows through ten million are finite diagnostics only.",
+  "candidate_theorem": "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass",
+  "next_experiment": "prove mutual information little-o of the rough partner selection mass, or an equally strong direct relative covariance saving",
+  "claim_boundary": "No Twin Prime proof and no counterexample. One exact information-transfer inequality, a rare-event no-go, and finite cubic-rough diagnostics through X=10,000,000.",
+  "result": {
+    "problem_id": "twin-prime",
+    "ticket_id": "TP-TICKET-156",
+    "theorem_name": "RareEventNormalizedInformationTransferAndVanishingInformationNoGo",
+    "declared_proposition": "Let D be a Bernoulli label, B a selected event with rho=P(B)>0, d=P(D=1), and delta=P(D=1|B)-d. Then I(D;B)>=2 rho delta^2 in natural-log units, so |delta|<=sqrt(I(D;B)/(2 rho)). Consequently I(D;B)=o(rho) is a sufficient information-theoretic condition for rare-event conditional transfer. The weaker condition I(D;B)->0 is insufficient: the TICKET-155 finite probability family has rho=2^-k, fixed delta=1/5, and I(D;B)->0, but I(D;B)/rho tends to KL(Ber(3/5)||Ber(2/5))>0.",
+    "mathematical_argument": "The mutual-information chain rule writes I(D;B) as rho times KL(P_D|B || P_D) plus (1-rho) times the analogous complement term. Pinsker's inequality in nats bounds the first Bernoulli KL by 2 delta^2. For the no-go family, substitute the exact 2-by-2 contingency counts. The selected conditional law is Ber(3/5), the ambient law is Ber(2/5), and the complement correction is lower order in rho, giving the stated positive normalized limit.",
+    "reproducible_computation": {
+      "theorem": "Let D be a Bernoulli label, B a selected event with rho=P(B)>0, d=P(D=1), and delta=P(D=1|B)-d. Then I(D;B)>=2 rho delta^2 in natural-log units, so |delta|<=sqrt(I(D;B)/(2 rho)). Consequently I(D;B)=o(rho) is a sufficient information-theoretic condition for rare-event conditional transfer. The weaker condition I(D;B)->0 is insufficient: the TICKET-155 finite probability family has rho=2^-k, fixed delta=1/5, and I(D;B)->0, but I(D;B)/rho tends to KL(Ber(3/5)||Ber(2/5))>0.",
+      "proof": "The mutual-information chain rule writes I(D;B) as rho times KL(P_D|B || P_D) plus (1-rho) times the analogous complement term. Pinsker's inequality in nats bounds the first Bernoulli KL by 2 delta^2. For the no-go family, substitute the exact 2-by-2 contingency counts. The selected conditional law is Ber(3/5), the ambient law is Ber(2/5), and the complement correction is lower order in rho, giving the stated positive normalized limit.",
+      "finite_cubic_rough_information_rows": [
+        {
+          "X": 1000,
+          "roughness_z": 10,
+          "left": {
+            "population_size": 227,
+            "selected_size": 70,
+            "label_size": 63,
+            "selected_label_size": 18,
+            "selection_probability_rho": {
+              "exact": "70/227",
+              "decimal": 0.30837004405286345
+            },
+            "ambient_label_fraction": {
+              "exact": "63/227",
+              "decimal": 0.2775330396475771
+            },
+            "conditional_label_fraction": {
+              "exact": "9/35",
+              "decimal": 0.2571428571428571
+            },
+            "conditional_shift_delta": {
+              "exact": "-162/7945",
+              "decimal": -0.02039018250471995
+            },
+            "mutual_information_nats": 0.0004663625215153167,
+            "mutual_information_over_rho": 0.0015123470340568127,
+            "pinsker_lower_bound_2rho_delta_squared": 0.0002564155769189879,
+            "pinsker_shift_upper_bound": 0.027498609365355302,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "right": {
+            "population_size": 227,
+            "selected_size": 70,
+            "label_size": 63,
+            "selected_label_size": 23,
+            "selection_probability_rho": {
+              "exact": "70/227",
+              "decimal": 0.30837004405286345
+            },
+            "ambient_label_fraction": {
+              "exact": "63/227",
+              "decimal": 0.2775330396475771
+            },
+            "conditional_label_fraction": {
+              "exact": "23/70",
+              "decimal": 0.32857142857142857
+            },
+            "conditional_shift_delta": {
+              "exact": "811/15890",
+              "decimal": 0.05103838892385148
+            },
+            "mutual_information_nats": 0.0028442574534886435,
+            "mutual_information_over_rho": 0.009223520599170315,
+            "pinsker_lower_bound_2rho_delta_squared": 0.001606556828863108,
+            "pinsker_shift_upper_bound": 0.06790994256797128,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "checks": {
+            "left_information_checks_pass": true,
+            "right_information_checks_pass": true
+          }
+        },
+        {
+          "X": 10000,
+          "roughness_z": 21,
+          "left": {
+            "population_size": 1710,
+            "selected_size": 390,
+            "label_size": 489,
+            "selected_label_size": 111,
+            "selection_probability_rho": {
+              "exact": "13/57",
+              "decimal": 0.22807017543859648
+            },
+            "ambient_label_fraction": {
+              "exact": "163/570",
+              "decimal": 0.28596491228070176
+            },
+            "conditional_label_fraction": {
+              "exact": "37/130",
+              "decimal": 0.2846153846153846
+            },
+            "conditional_shift_delta": {
+              "exact": "-1/741",
+              "decimal": -0.001349527665317139
+            },
+            "mutual_information_nats": 1.3185038374866954e-06,
+            "mutual_information_over_rho": 5.781132210518588e-06,
+            "pinsker_lower_bound_2rho_delta_squared": 8.307341737870969e-07,
+            "pinsker_shift_upper_bound": 0.001700166493393895,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "right": {
+            "population_size": 1710,
+            "selected_size": 390,
+            "label_size": 489,
+            "selected_label_size": 113,
+            "selection_probability_rho": {
+              "exact": "13/57",
+              "decimal": 0.22807017543859648
+            },
+            "ambient_label_fraction": {
+              "exact": "163/570",
+              "decimal": 0.28596491228070176
+            },
+            "conditional_label_fraction": {
+              "exact": "113/390",
+              "decimal": 0.28974358974358977
+            },
+            "conditional_shift_delta": {
+              "exact": "14/3705",
+              "decimal": 0.003778677462887989
+            },
+            "mutual_information_nats": 1.0311144405974635e-05,
+            "mutual_information_over_rho": 4.521040239542725e-05,
+            "pinsker_lower_bound_2rho_delta_squared": 6.51295592249084e-06,
+            "pinsker_shift_upper_bound": 0.004754492738212314,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "checks": {
+            "left_information_checks_pass": true,
+            "right_information_checks_pass": true
+          }
+        },
+        {
+          "X": 100000,
+          "roughness_z": 46,
+          "left": {
+            "population_size": 14203,
+            "selected_size": 2681,
+            "label_size": 4625,
+            "selected_label_size": 856,
+            "selection_probability_rho": {
+              "exact": "383/2029",
+              "decimal": 0.18876293740758995
+            },
+            "ambient_label_fraction": {
+              "exact": "4625/14203",
+              "decimal": 0.32563542913468985
+            },
+            "conditional_label_fraction": {
+              "exact": "856/2681",
+              "decimal": 0.31928384930995896
+            },
+            "conditional_shift_delta": {
+              "exact": "-34551/5439749",
+              "decimal": -0.006351579824730884
+            },
+            "mutual_information_nats": 2.1429505282777534e-05,
+            "mutual_information_over_rho": 0.00011352602145889194,
+            "pinsker_lower_bound_2rho_delta_squared": 1.523036262334409e-05,
+            "pinsker_shift_upper_bound": 0.007534123089613413,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "right": {
+            "population_size": 14203,
+            "selected_size": 2681,
+            "label_size": 4625,
+            "selected_label_size": 891,
+            "selection_probability_rho": {
+              "exact": "383/2029",
+              "decimal": 0.18876293740758995
+            },
+            "ambient_label_fraction": {
+              "exact": "4625/14203",
+              "decimal": 0.32563542913468985
+            },
+            "conditional_label_fraction": {
+              "exact": "891/2681",
+              "decimal": 0.33233867959716523
+            },
+            "conditional_shift_delta": {
+              "exact": "36464/5439749",
+              "decimal": 0.006703250462475383
+            },
+            "mutual_information_nats": 2.374204599792291e-05,
+            "mutual_information_over_rho": 0.0001257770530803801,
+            "pinsker_lower_bound_2rho_delta_squared": 1.6963584100645713e-05,
+            "pinsker_shift_upper_bound": 0.007930228656236216,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "checks": {
+            "left_information_checks_pass": true,
+            "right_information_checks_pass": true
+          }
+        },
+        {
+          "X": 1000000,
+          "roughness_z": 100,
+          "left": {
+            "population_size": 120759,
+            "selected_size": 19296,
+            "label_size": 42286,
+            "selected_label_size": 6803,
+            "selection_probability_rho": {
+              "exact": "6432/40253",
+              "decimal": 0.15978933247211388
+            },
+            "ambient_label_fraction": {
+              "exact": "42286/120759",
+              "decimal": 0.35016851746039634
+            },
+            "conditional_label_fraction": {
+              "exact": "6803/19296",
+              "decimal": 0.3525601160862355
+            },
+            "conditional_shift_delta": {
+              "exact": "1857607/776721888",
+              "decimal": 0.0023915986258391626
+            },
+            "mutual_information_nats": 2.388147219770857e-06,
+            "mutual_information_over_rho": 1.4945598575472063e-05,
+            "pinsker_lower_bound_2rho_delta_squared": 1.8279081472252323e-06,
+            "pinsker_shift_upper_bound": 0.0027336421286876657,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "right": {
+            "population_size": 120759,
+            "selected_size": 19296,
+            "label_size": 42286,
+            "selected_label_size": 6785,
+            "selection_probability_rho": {
+              "exact": "6432/40253",
+              "decimal": 0.15978933247211388
+            },
+            "ambient_label_fraction": {
+              "exact": "42286/120759",
+              "decimal": 0.35016851746039634
+            },
+            "conditional_label_fraction": {
+              "exact": "6785/19296",
+              "decimal": 0.35162728026533996
+            },
+            "conditional_shift_delta": {
+              "exact": "1133053/776721888",
+              "decimal": 0.0014587628049436403
+            },
+            "mutual_information_nats": 8.887848421971145e-07,
+            "mutual_information_over_rho": 5.562228895049821e-06,
+            "pinsker_lower_bound_2rho_delta_squared": 6.800598584171031e-07,
+            "pinsker_shift_upper_bound": 0.0016676673671703571,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "checks": {
+            "left_information_checks_pass": true,
+            "right_information_checks_pass": true
+          }
+        },
+        {
+          "X": 10000000,
+          "roughness_z": 215,
+          "left": {
+            "population_size": 1039399,
+            "selected_size": 142907,
+            "label_size": 374867,
+            "selected_label_size": 51529,
+            "selection_probability_rho": {
+              "exact": "142907/1039399",
+              "decimal": 0.13749003029635395
+            },
+            "ambient_label_fraction": {
+              "exact": "374867/1039399",
+              "decimal": 0.36065745685728
+            },
+            "conditional_label_fraction": {
+              "exact": "51529/142907",
+              "decimal": 0.3605771585716585
+            },
+            "conditional_shift_delta": {
+              "exact": "-11927298/148537392893",
+              "decimal": -8.029828562153313e-05
+            },
+            "mutual_information_nats": 2.2288093583732425e-09,
+            "mutual_information_over_rho": 1.621069799438649e-08,
+            "pinsker_lower_bound_2rho_delta_squared": 1.7730204696803377e-09,
+            "pinsker_shift_upper_bound": 9.00297117466964e-05,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "right": {
+            "population_size": 1039399,
+            "selected_size": 142907,
+            "label_size": 374867,
+            "selected_label_size": 51487,
+            "selection_probability_rho": {
+              "exact": "142907/1039399",
+              "decimal": 0.13749003029635395
+            },
+            "ambient_label_fraction": {
+              "exact": "374867/1039399",
+              "decimal": 0.36065745685728
+            },
+            "conditional_label_fraction": {
+              "exact": "51487/142907",
+              "decimal": 0.3602832611418615
+            },
+            "conditional_shift_delta": {
+              "exact": "-55582056/148537392893",
+              "decimal": -0.000374195715418534
+            },
+            "mutual_information_nats": 4.8406231174658704e-08,
+            "mutual_information_over_rho": 3.520708452119846e-07,
+            "pinsker_lower_bound_2rho_delta_squared": 3.850337723100649e-08,
+            "pinsker_shift_upper_bound": 0.00041956575480607604,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true
+            }
+          },
+          "checks": {
+            "left_information_checks_pass": true,
+            "right_information_checks_pass": true
+          }
+        }
+      ],
+      "finite_rare_event_information_no_go_rows": [
+        {
+          "rarity_exponent_k": 2,
+          "population_size": 20,
+          "selected_size": 5,
+          "label_size": 8,
+          "selected_label_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "ambient_label_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_label_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift_delta": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "mutual_information_nats": 0.02737312403583273,
+          "mutual_information_over_rho": 0.10949249614333093,
+          "pinsker_lower_bound_2rho_delta_squared": 0.020000000000000004,
+          "pinsker_shift_upper_bound": 0.23397916161843443,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_remains_one_fifth": true,
+            "mutual_information_is_positive": true,
+            "normalized_information_stays_away_from_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 4,
+          "population_size": 80,
+          "selected_size": 5,
+          "label_size": 32,
+          "selected_label_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "ambient_label_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_label_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift_delta": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "mutual_information_nats": 0.005416872732213286,
+          "mutual_information_over_rho": 0.08666996371541258,
+          "pinsker_lower_bound_2rho_delta_squared": 0.005000000000000001,
+          "pinsker_shift_upper_bound": 0.20817055953642025,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_remains_one_fifth": true,
+            "mutual_information_is_positive": true,
+            "normalized_information_stays_away_from_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 8,
+          "population_size": 1280,
+          "selected_size": 5,
+          "label_size": 512,
+          "selected_label_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/256",
+            "decimal": 0.00390625
+          },
+          "ambient_label_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_label_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift_delta": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "mutual_information_nats": 0.0003180464467497288,
+          "mutual_information_over_rho": 0.08141989036793057,
+          "pinsker_lower_bound_2rho_delta_squared": 0.00031250000000000006,
+          "pinsker_shift_upper_bound": 0.20176705673614134,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_remains_one_fifth": true,
+            "mutual_information_is_positive": true,
+            "normalized_information_stays_away_from_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 12,
+          "population_size": 20480,
+          "selected_size": 5,
+          "label_size": 8192,
+          "selected_label_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/4096",
+            "decimal": 0.000244140625
+          },
+          "ambient_label_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_label_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift_delta": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "mutual_information_nats": 1.9803069315899056e-05,
+          "mutual_information_over_rho": 0.08111337191792253,
+          "pinsker_lower_bound_2rho_delta_squared": 1.9531250000000004e-05,
+          "pinsker_shift_upper_bound": 0.20138690612589805,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_remains_one_fifth": true,
+            "mutual_information_is_positive": true,
+            "normalized_information_stays_away_from_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 16,
+          "population_size": 327680,
+          "selected_size": 5,
+          "label_size": 131072,
+          "selected_label_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/65536",
+            "decimal": 1.52587890625e-05
+          },
+          "ambient_label_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_label_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift_delta": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "mutual_information_nats": 1.2374007142313967e-06,
+          "mutual_information_over_rho": 0.08109429320786882,
+          "pinsker_lower_bound_2rho_delta_squared": 1.2207031250000002e-06,
+          "pinsker_shift_upper_bound": 0.20136322058393485,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_remains_one_fifth": true,
+            "mutual_information_is_positive": true,
+            "normalized_information_stays_away_from_zero": true
+          }
+        },
+        {
+          "rarity_exponent_k": 20,
+          "population_size": 5242880,
+          "selected_size": 5,
+          "label_size": 2097152,
+          "selected_label_size": 3,
+          "selection_probability_rho": {
+            "exact": "1/1048576",
+            "decimal": 9.5367431640625e-07
+          },
+          "ambient_label_fraction": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "conditional_label_fraction": {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          "conditional_shift_delta": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "mutual_information_nats": 7.733640779603825e-08,
+          "mutual_information_over_rho": 0.0810931011411386,
+          "pinsker_lower_bound_2rho_delta_squared": 7.629394531250001e-08,
+          "pinsker_shift_upper_bound": 0.20136174058288556,
+          "checks": {
+            "mutual_information_dominates_selected_pinsker_term": true,
+            "conditional_shift_is_below_normalized_information_bound": true,
+            "conditional_shift_remains_one_fifth": true,
+            "mutual_information_is_positive": true,
+            "normalized_information_stays_away_from_zero": true
+          }
+        }
+      ],
+      "rare_event_information_strictly_decreases": true,
+      "normalized_information_limit_nats": 0.08109302162163282,
+      "failure_count": 0
+    },
+    "logical_limit": "Pinsker gives a sufficient relative information target but does not establish it for shifted cubic-rough integers. The arithmetic rows through ten million are finite diagnostics only.",
+    "route_decision": {
+      "discard": "using unnormalized mutual information tending to zero under a vanishing-probability rough-pair selection",
+      "retain": "prove mutual information little-o of the rough partner selection mass, or an equally strong direct relative covariance saving",
+      "next_theorem": "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "TP-T156-REJECTED",
+          "label": "VanishingMutualInformationTransfersRareConditionalBias",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "TP-T156-CLOSED",
+          "label": "RareEventNormalizedInformationTransferAndVanishingInformationNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "TP-T156-OPEN",
+          "label": "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "TP-T156-REJECTED",
+          "TP-T156-CLOSED"
+        ],
+        [
+          "TP-T156-CLOSED",
+          "TP-T156-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Twin Prime proof and no counterexample. One exact information-transfer inequality, a rare-event no-go, and finite cubic-rough diagnostics through X=10,000,000."
+  }
+}

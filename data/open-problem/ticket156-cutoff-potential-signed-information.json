@@ -1,0 +1,1849 @@
+{
+  "schema": "primeproject.ticket156-cutoff-potential-signed-information.v1",
+  "generated_at": "2026-07-26T21:00:00+09:00",
+  "status": "four_exact_bridge_or_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-156 proves four exact bridge or no-go results and resolves no target conjecture. It separates RH cutoff error from precision, replaces a sufficient Collatz suffix rule by the exact affine potential, replaces Goldbach absolute minor energy by one-sided negative phase mass, and normalizes Twin Prime information by the rare selection probability.",
+  "cutoff_potential_signed_information_audit": {
+    "theorem_name": "FourConjectureCutoffPotentialSignedInformationAudit",
+    "status": "four_exact_bridge_or_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-156 proves four exact bridge or no-go results and resolves no target conjecture. It separates RH cutoff error from precision, replaces a sufficient Collatz suffix rule by the exact affine potential, replaces Goldbach absolute minor energy by one-sided negative phase mass, and normalizes Twin Prime information by the rare selection probability.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-156",
+      "theorem_name": "ThreeAxisSpectralCertificateAndCutoffStabilityNoGo",
+      "declared_proposition": "Let A be a target self-adjoint operator or finite core and let A_(N,T,p) be a computed Hermitian approximation. If ||A-A_(N,T,p)|| is at most epsilon_N+epsilon_T+epsilon_p, then lambda_min(A) is at least lambda_min(A_(N,T,p)) minus that total error. Hence positivity is certified only when the computed margin exceeds the independently justified basis/core, archimedean-cutoff, and rounding errors. Precision stability at finitely many fixed cutoffs cannot replace the cutoff bound: the scalar families 1-M/T and -1+M/T have opposite signs throughout every sweep T<M but converge respectively to +1 and -1.",
+      "mathematical_argument": "The operator-norm statement is Weyl's minimum-eigenvalue inequality followed by the triangle inequality across the three approximation axes. For any prescribed finite cutoff ceiling choose M above it. The two scalar families are exact one-dimensional Hermitian matrices, are independent of working precision, have the stated finite signs, and have opposite cutoff-free limits. Therefore more digits at fixed T and a longer but finite T sweep do not determine the continuum sign without a uniform truncation estimate.",
+      "reproducible_computation": {
+        "theorem": "Let A be a target self-adjoint operator or finite core and let A_(N,T,p) be a computed Hermitian approximation. If ||A-A_(N,T,p)|| is at most epsilon_N+epsilon_T+epsilon_p, then lambda_min(A) is at least lambda_min(A_(N,T,p)) minus that total error. Hence positivity is certified only when the computed margin exceeds the independently justified basis/core, archimedean-cutoff, and rounding errors. Precision stability at finitely many fixed cutoffs cannot replace the cutoff bound: the scalar families 1-M/T and -1+M/T have opposite signs throughout every sweep T<M but converge respectively to +1 and -1.",
+        "proof": "The operator-norm statement is Weyl's minimum-eigenvalue inequality followed by the triangle inequality across the three approximation axes. For any prescribed finite cutoff ceiling choose M above it. The two scalar families are exact one-dimensional Hermitian matrices, are independent of working precision, have the stated finite signs, and have opposite cutoff-free limits. Therefore more digits at fixed T and a longer but finite T sweep do not determine the continuum sign without a uniform truncation estimate.",
+        "finite_three_axis_error_budget_rows": [
+          {
+            "computed_minimum_eigenvalue": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "basis_core_error_epsilon_N": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "archimedean_cutoff_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "roundoff_error_epsilon_p": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "total_operator_error": {
+              "exact": "7/16",
+              "decimal": 0.4375
+            },
+            "certified_lower_bound": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "positivity_certified": true,
+            "checks": {
+              "errors_add_by_triangle_inequality": true,
+              "certificate_sign_matches_margin": true
+            }
+          },
+          {
+            "computed_minimum_eigenvalue": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "basis_core_error_epsilon_N": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "archimedean_cutoff_error_epsilon_T": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "roundoff_error_epsilon_p": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "total_operator_error": {
+              "exact": "7/16",
+              "decimal": 0.4375
+            },
+            "certified_lower_bound": {
+              "exact": "-3/16",
+              "decimal": -0.1875
+            },
+            "positivity_certified": false,
+            "checks": {
+              "errors_add_by_triangle_inequality": true,
+              "certificate_sign_matches_margin": true
+            }
+          }
+        ],
+        "finite_precision_stable_cutoff_reversal_rows": [
+          {
+            "archimedean_cutoff_T": 64,
+            "positive_limit_family_lambda_min": {
+              "exact": "-63/1",
+              "decimal": -63.0
+            },
+            "negative_limit_family_lambda_min": {
+              "exact": "63/1",
+              "decimal": 63.0
+            },
+            "positive_limit_family_limit": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_limit_family_limit": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "positive_limit_family_is_negative_on_sweep": true,
+              "negative_limit_family_is_positive_on_sweep": true,
+              "fixed_cutoff_values_are_exact_and_precision_stable": true
+            }
+          },
+          {
+            "archimedean_cutoff_T": 128,
+            "positive_limit_family_lambda_min": {
+              "exact": "-31/1",
+              "decimal": -31.0
+            },
+            "negative_limit_family_lambda_min": {
+              "exact": "31/1",
+              "decimal": 31.0
+            },
+            "positive_limit_family_limit": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_limit_family_limit": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "positive_limit_family_is_negative_on_sweep": true,
+              "negative_limit_family_is_positive_on_sweep": true,
+              "fixed_cutoff_values_are_exact_and_precision_stable": true
+            }
+          },
+          {
+            "archimedean_cutoff_T": 256,
+            "positive_limit_family_lambda_min": {
+              "exact": "-15/1",
+              "decimal": -15.0
+            },
+            "negative_limit_family_lambda_min": {
+              "exact": "15/1",
+              "decimal": 15.0
+            },
+            "positive_limit_family_limit": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_limit_family_limit": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "positive_limit_family_is_negative_on_sweep": true,
+              "negative_limit_family_is_positive_on_sweep": true,
+              "fixed_cutoff_values_are_exact_and_precision_stable": true
+            }
+          },
+          {
+            "archimedean_cutoff_T": 512,
+            "positive_limit_family_lambda_min": {
+              "exact": "-7/1",
+              "decimal": -7.0
+            },
+            "negative_limit_family_lambda_min": {
+              "exact": "7/1",
+              "decimal": 7.0
+            },
+            "positive_limit_family_limit": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_limit_family_limit": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "positive_limit_family_is_negative_on_sweep": true,
+              "negative_limit_family_is_positive_on_sweep": true,
+              "fixed_cutoff_values_are_exact_and_precision_stable": true
+            }
+          },
+          {
+            "archimedean_cutoff_T": 1024,
+            "positive_limit_family_lambda_min": {
+              "exact": "-3/1",
+              "decimal": -3.0
+            },
+            "negative_limit_family_lambda_min": {
+              "exact": "3/1",
+              "decimal": 3.0
+            },
+            "positive_limit_family_limit": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_limit_family_limit": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "positive_limit_family_is_negative_on_sweep": true,
+              "negative_limit_family_is_positive_on_sweep": true,
+              "fixed_cutoff_values_are_exact_and_precision_stable": true
+            }
+          },
+          {
+            "archimedean_cutoff_T": 2048,
+            "positive_limit_family_lambda_min": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "negative_limit_family_lambda_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_limit_family_limit": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_limit_family_limit": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "checks": {
+              "positive_limit_family_is_negative_on_sweep": true,
+              "negative_limit_family_is_positive_on_sweep": true,
+              "fixed_cutoff_values_are_exact_and_precision_stable": true
+            }
+          }
+        ],
+        "counterfamily_scale_M": 4096,
+        "failure_count": 0
+      },
+      "logical_limit": "The perturbation theorem is general and exact, but no actual truncated Weil matrix or uniform basis/cutoff operator error has been constructed. It excludes no off-critical zero.",
+      "route_decision": {
+        "discard": "treating working-precision stability at one or many finite archimedean cutoffs as cutoff-free positivity",
+        "retain": "construct the actual Weil Galerkin core and certify separate basis, archimedean-tail, and rounding bounds",
+        "next_theorem": "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T156-REJECTED",
+            "label": "FixedCutoffPrecisionStabilityCertifiesContinuumPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T156-CLOSED",
+            "label": "ThreeAxisSpectralCertificateAndCutoffStabilityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T156-OPEN",
+            "label": "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T156-REJECTED",
+            "RH-T156-CLOSED"
+          ],
+          [
+            "RH-T156-CLOSED",
+            "RH-T156-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact three-axis certificate and two scalar cutoff no-go families."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-156",
+      "theorem_name": "WeightedSuffixPotentialIdentityAndFloorTwoStrictnessNoGo",
+      "declared_proposition": "For an accelerated odd Collatz valuation word a_1,...,a_m, let A_r be the sum of its last r valuations and put Phi=sum_(r=1)^m 3^(r-1)/2^(A_r). Then Phi=C/2^S exactly and, when 2^S>3^m, the affine descent threshold is theta=C/(2^S-3^m)=Phi/(1-3^m/2^S). Every realizing odd start n descends after this prefix exactly when n>theta. The TICKET-154 floor-two suffix condition A_r>=2r is sufficient because it forces theta<=1, but it is not necessary: the realized word (1,1,2,3) sends 7 to 5 while its full suffix sum is 7<8.",
+      "mathematical_argument": "Unrolling the affine recurrence gives C/2^S=sum_(r=1)^m 3^(r-1)/2^(A_r), proving the identity and the threshold equivalence. If A_r>=2r, then Phi is at most sum_(r=1)^m 3^(r-1)/4^r=1-(3/4)^m, while 1-3^m/2^S is at least the same quantity, so theta<=1. Direct odd-map iteration gives 7 -> 11 -> 17 -> 13 -> 5 with valuations (1,1,2,3), which violates floor two only on the full suffix. Thus the exact weighted potential is strictly sharper than the floor-two certificate.",
+      "reproducible_computation": {
+        "theorem": "For an accelerated odd Collatz valuation word a_1,...,a_m, let A_r be the sum of its last r valuations and put Phi=sum_(r=1)^m 3^(r-1)/2^(A_r). Then Phi=C/2^S exactly and, when 2^S>3^m, the affine descent threshold is theta=C/(2^S-3^m)=Phi/(1-3^m/2^S). Every realizing odd start n descends after this prefix exactly when n>theta. The TICKET-154 floor-two suffix condition A_r>=2r is sufficient because it forces theta<=1, but it is not necessary: the realized word (1,1,2,3) sends 7 to 5 while its full suffix sum is 7<8.",
+        "proof": "Unrolling the affine recurrence gives C/2^S=sum_(r=1)^m 3^(r-1)/2^(A_r), proving the identity and the threshold equivalence. If A_r>=2r, then Phi is at most sum_(r=1)^m 3^(r-1)/4^r=1-(3/4)^m, while 1-3^m/2^S is at least the same quantity, so theta<=1. Direct odd-map iteration gives 7 -> 11 -> 17 -> 13 -> 5 with valuations (1,1,2,3), which violates floor two only on the full suffix. Thus the exact weighted potential is strictly sharper than the floor-two certificate.",
+        "finite_weighted_identity_rows": [
+          {
+            "valuation_word": [
+              2
+            ],
+            "word_length_m": 1,
+            "total_valuation_S": 2,
+            "affine_constant_C": 1,
+            "weighted_suffix_potential_Phi": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "normalized_affine_constant_C_over_2S": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "contracting_threshold_theta": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "reverse_suffix_floor_two": true,
+            "checks": {
+              "weighted_suffix_potential_equals_normalized_affine_constant": true,
+              "threshold_ratio_identity_holds_when_contracting": true,
+              "floor_two_condition_implies_threshold_at_most_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              3
+            ],
+            "word_length_m": 2,
+            "total_valuation_S": 4,
+            "affine_constant_C": 5,
+            "weighted_suffix_potential_Phi": {
+              "exact": "5/16",
+              "decimal": 0.3125
+            },
+            "normalized_affine_constant_C_over_2S": {
+              "exact": "5/16",
+              "decimal": 0.3125
+            },
+            "contracting_threshold_theta": {
+              "exact": "5/7",
+              "decimal": 0.7142857142857143
+            },
+            "reverse_suffix_floor_two": true,
+            "checks": {
+              "weighted_suffix_potential_equals_normalized_affine_constant": true,
+              "threshold_ratio_identity_holds_when_contracting": true,
+              "floor_two_condition_implies_threshold_at_most_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1,
+              4
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 6,
+            "affine_constant_C": 19,
+            "weighted_suffix_potential_Phi": {
+              "exact": "19/64",
+              "decimal": 0.296875
+            },
+            "normalized_affine_constant_C_over_2S": {
+              "exact": "19/64",
+              "decimal": 0.296875
+            },
+            "contracting_threshold_theta": {
+              "exact": "19/37",
+              "decimal": 0.5135135135135135
+            },
+            "reverse_suffix_floor_two": true,
+            "checks": {
+              "weighted_suffix_potential_equals_normalized_affine_constant": true,
+              "threshold_ratio_identity_holds_when_contracting": true,
+              "floor_two_condition_implies_threshold_at_most_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              1,
+              2,
+              3
+            ],
+            "word_length_m": 4,
+            "total_valuation_S": 7,
+            "affine_constant_C": 73,
+            "weighted_suffix_potential_Phi": {
+              "exact": "73/128",
+              "decimal": 0.5703125
+            },
+            "normalized_affine_constant_C_over_2S": {
+              "exact": "73/128",
+              "decimal": 0.5703125
+            },
+            "contracting_threshold_theta": {
+              "exact": "73/47",
+              "decimal": 1.553191489361702
+            },
+            "reverse_suffix_floor_two": false,
+            "checks": {
+              "weighted_suffix_potential_equals_normalized_affine_constant": true,
+              "threshold_ratio_identity_holds_when_contracting": true,
+              "floor_two_condition_implies_threshold_at_most_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              1,
+              3
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 6,
+            "affine_constant_C": 29,
+            "weighted_suffix_potential_Phi": {
+              "exact": "29/64",
+              "decimal": 0.453125
+            },
+            "normalized_affine_constant_C_over_2S": {
+              "exact": "29/64",
+              "decimal": 0.453125
+            },
+            "contracting_threshold_theta": {
+              "exact": "29/37",
+              "decimal": 0.7837837837837838
+            },
+            "reverse_suffix_floor_two": true,
+            "checks": {
+              "weighted_suffix_potential_equals_normalized_affine_constant": true,
+              "threshold_ratio_identity_holds_when_contracting": true,
+              "floor_two_condition_implies_threshold_at_most_one": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              2,
+              2
+            ],
+            "word_length_m": 3,
+            "total_valuation_S": 5,
+            "affine_constant_C": 23,
+            "weighted_suffix_potential_Phi": {
+              "exact": "23/32",
+              "decimal": 0.71875
+            },
+            "normalized_affine_constant_C_over_2S": {
+              "exact": "23/32",
+              "decimal": 0.71875
+            },
+            "contracting_threshold_theta": {
+              "exact": "23/5",
+              "decimal": 4.6
+            },
+            "reverse_suffix_floor_two": false,
+            "checks": {
+              "weighted_suffix_potential_equals_normalized_affine_constant": true,
+              "threshold_ratio_identity_holds_when_contracting": true,
+              "floor_two_condition_implies_threshold_at_most_one": true
+            }
+          }
+        ],
+        "finite_first_descent_scan": {
+          "odd_start_range": "3<=n<=100000",
+          "audited_odd_start_count": 49999,
+          "first_descent_prefixes_failing_floor_two": 12991,
+          "failure_fraction": 0.2598251965039301,
+          "maximum_first_descent_length": 85,
+          "maximum_first_descent_row": {
+            "initial_odd_start_n": 35655,
+            "first_descent_length": 85,
+            "first_descent_endpoint": 29405,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              2,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              2,
+              2,
+              1,
+              3,
+              2,
+              2,
+              1,
+              2,
+              2,
+              1,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              6,
+              1,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              4,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              4,
+              1,
+              1,
+              5,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              5,
+              3
+            ]
+          },
+          "sample_exact_no_go_rows": [
+            {
+              "initial_odd_start_n": 7,
+              "first_descent_length": 4,
+              "first_descent_endpoint": 5,
+              "valuation_word": [
+                1,
+                1,
+                2,
+                3
+              ],
+              "total_valuation_S": 7,
+              "exact_affine_threshold_theta": {
+                "exact": "73/47",
+                "decimal": 1.553191489361702
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 27,
+              "first_descent_length": 37,
+              "first_descent_endpoint": 23,
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4,
+                3
+              ],
+              "total_valuation_S": 59,
+              "exact_affine_threshold_theta": {
+                "exact": "1100931843921811423/126176846412426125",
+                "decimal": 8.725307972298392
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 31,
+              "first_descent_length": 35,
+              "first_descent_endpoint": 23,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4,
+                3
+              ],
+              "total_valuation_S": 56,
+              "exact_affine_threshold_theta": {
+                "exact": "106346764803351611/22026048938928229",
+                "decimal": 4.828227027835087
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 39,
+              "first_descent_length": 5,
+              "first_descent_endpoint": 19,
+              "valuation_word": [
+                1,
+                1,
+                2,
+                1,
+                4
+              ],
+              "total_valuation_S": 9,
+              "exact_affine_threshold_theta": {
+                "exact": "251/269",
+                "decimal": 0.9330855018587361
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 43,
+              "first_descent_length": 3,
+              "first_descent_endpoint": 37,
+              "valuation_word": [
+                1,
+                2,
+                2
+              ],
+              "total_valuation_S": 5,
+              "exact_affine_threshold_theta": {
+                "exact": "23/5",
+                "decimal": 4.6
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 47,
+              "first_descent_length": 34,
+              "first_descent_endpoint": 23,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4,
+                3
+              ],
+              "total_valuation_S": 55,
+              "exact_affine_threshold_theta": {
+                "exact": "44834791551842521/19351615319297399",
+                "decimal": 2.316850082645728
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 55,
+              "first_descent_length": 3,
+              "first_descent_endpoint": 47,
+              "valuation_word": [
+                1,
+                1,
+                3
+              ],
+              "total_valuation_S": 5,
+              "exact_affine_threshold_theta": {
+                "exact": "19/5",
+                "decimal": 3.8
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 63,
+              "first_descent_length": 34,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                4,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "total_valuation_S": 54,
+              "exact_affine_threshold_theta": {
+                "exact": "48215861999407177/1337216809815415",
+                "decimal": 36.056876974245284
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 71,
+              "first_descent_length": 32,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "total_valuation_S": 51,
+              "exact_affine_threshold_theta": {
+                "exact": "5795355226319417/398779624833407",
+                "decimal": 14.532726512144315
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            },
+            {
+              "initial_odd_start_n": 91,
+              "first_descent_length": 28,
+              "first_descent_endpoint": 61,
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                3,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2,
+                4
+              ],
+              "total_valuation_S": 45,
+              "exact_affine_threshold_theta": {
+                "exact": "64458584017301/12307579633871",
+                "decimal": 5.237307897639609
+              },
+              "checks": {
+                "first_descent_endpoint_is_below_start": true,
+                "floor_two_sufficient_condition_fails": true,
+                "exact_affine_threshold_is_crossed": true
+              }
+            }
+          ]
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The exact potential evaluates a given finite prefix. It does not prove that every natural valuation ray reaches a prefix whose starting integer exceeds its threshold.",
+      "route_decision": {
+        "discard": "requiring the reverse-suffix floor-two certificate as if it were necessary for first descent",
+        "retain": "study first passage of natural valuation rays across the exact weighted suffix-potential threshold",
+        "next_theorem": "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T156-REJECTED",
+            "label": "EveryFirstDescentPrefixMustSatisfySuffixFloorTwo",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T156-CLOSED",
+            "label": "WeightedSuffixPotentialIdentityAndFloorTwoStrictnessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T156-OPEN",
+            "label": "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T156-REJECTED",
+            "CO-T156-CLOSED"
+          ],
+          [
+            "CO-T156-CLOSED",
+            "CO-T156-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact potential identity, one realized counterexample to necessity, and a finite scan through 100,000."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-156",
+      "theorem_name": "SignedMinorNegativeMassCertificateAndAbsoluteBudgetNoGo",
+      "declared_proposition": "For a zero-padded prime-only theta vector with DFT F_k and any conjugation-closed major set M, define z_k=Re(F_k^2 exp(2 pi i kN/L))/L. If M_N is the sum of z_k on M and N_N^- is the sum of max(-z_k,0) off M, then the Goldbach theta correlation satisfies R_2(N)>=M_N-N_N^-. Therefore M_N>N_N^- is a sufficient finite certificate. The phase-blind Parseval replacement sum_off_M |F_k|^2/L is generally stronger than necessary: on every audited endpoint it makes the lower bound negative. The sharper one-sided bound certifies the first three audited endpoints, but the same fixed Farey mask fails at the last three, so phase separation alone does not close the route.",
+      "mathematical_argument": "The inverse DFT gives R_2(N)=sum_k z_k. Split the minor terms into their positive and negative real parts to obtain R_2(N)=M_N+P_N^+-N_N^- and drop the nonnegative term. Parseval and |Re(w)|<=|w| give the older absolute-energy bound, but that bound also pays for helpful positive minor mass. The finite rows evaluate both quantities on the same fixed Farey mask; they are demonstrations, not a uniform minor-arc theorem.",
+      "reproducible_computation": {
+        "theorem": "For a zero-padded prime-only theta vector with DFT F_k and any conjugation-closed major set M, define z_k=Re(F_k^2 exp(2 pi i kN/L))/L. If M_N is the sum of z_k on M and N_N^- is the sum of max(-z_k,0) off M, then the Goldbach theta correlation satisfies R_2(N)>=M_N-N_N^-. Therefore M_N>N_N^- is a sufficient finite certificate. The phase-blind Parseval replacement sum_off_M |F_k|^2/L is generally stronger than necessary: on every audited endpoint it makes the lower bound negative. The sharper one-sided bound certifies the first three audited endpoints, but the same fixed Farey mask fails at the last three, so phase separation alone does not close the route.",
+        "proof": "The inverse DFT gives R_2(N)=sum_k z_k. Split the minor terms into their positive and negative real parts to obtain R_2(N)=M_N+P_N^+-N_N^- and drop the nonnegative term. Parseval and |Re(w)|<=|w| give the older absolute-energy bound, but that bound also pays for helpful positive minor mass. The finite rows evaluate both quantities on the same fixed Farey mask; they are demonstrations, not a uniform minor-arc theorem.",
+        "finite_signed_minor_rows": [
+          {
+            "even_endpoint_N": 1000,
+            "transform_size_L": 2048,
+            "farey_denominator_limit_Q": 8,
+            "half_width_bins_H": 2,
+            "major_bin_count": 110,
+            "major_signed_mass": 1513.602330733815,
+            "minor_positive_signed_mass": 1086.3141551185222,
+            "minor_negative_signed_mass": 776.8718951616165,
+            "minor_phase_blind_parseval_budget": 2808.0859362566357,
+            "one_sided_certificate_lower_bound": 736.7304355721985,
+            "phase_blind_certificate_lower_bound": -1294.4836055228207,
+            "reconstructed_prime_theta_correlation": 1823.0445906907207,
+            "direct_prime_theta_correlation": 1823.044590690665,
+            "reconstruction_error": 5.5706550483591855e-11,
+            "unordered_prime_pair_representations": 28,
+            "checks": {
+              "dft_signed_partition_reconstructs_direct_correlation": true,
+              "one_sided_bound_is_sharper_than_phase_blind_bound": true,
+              "phase_blind_absolute_energy_certificate_fails": true,
+              "direct_prime_only_correlation_has_a_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 2000,
+            "transform_size_L": 4096,
+            "farey_denominator_limit_Q": 8,
+            "half_width_bins_H": 2,
+            "major_bin_count": 110,
+            "major_signed_mass": 2836.004769545945,
+            "minor_positive_signed_mass": 2447.128803845423,
+            "minor_negative_signed_mass": 2187.5841849585386,
+            "minor_phase_blind_parseval_budget": 6961.318982307548,
+            "one_sided_certificate_lower_bound": 648.4205845874062,
+            "phase_blind_certificate_lower_bound": -4125.314212761603,
+            "reconstructed_prime_theta_correlation": 3095.549388432829,
+            "direct_prime_theta_correlation": 3095.5493884328735,
+            "reconstruction_error": 4.4565240386873484e-11,
+            "unordered_prime_pair_representations": 37,
+            "checks": {
+              "dft_signed_partition_reconstructs_direct_correlation": true,
+              "one_sided_bound_is_sharper_than_phase_blind_bound": true,
+              "phase_blind_absolute_energy_certificate_fails": true,
+              "direct_prime_only_correlation_has_a_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 4000,
+            "transform_size_L": 8192,
+            "farey_denominator_limit_Q": 8,
+            "half_width_bins_H": 2,
+            "major_bin_count": 110,
+            "major_signed_mass": 6078.704598622574,
+            "minor_positive_signed_mass": 5845.832270766793,
+            "minor_negative_signed_mass": 5156.486200682448,
+            "minor_phase_blind_parseval_budget": 16678.777071556502,
+            "one_sided_certificate_lower_bound": 922.2183979401261,
+            "phase_blind_certificate_lower_bound": -10600.072472933927,
+            "reconstructed_prime_theta_correlation": 6768.050668706919,
+            "direct_prime_theta_correlation": 6768.050668704768,
+            "reconstruction_error": 2.1509549696929753e-09,
+            "unordered_prime_pair_representations": 65,
+            "checks": {
+              "dft_signed_partition_reconstructs_direct_correlation": true,
+              "one_sided_bound_is_sharper_than_phase_blind_bound": true,
+              "phase_blind_absolute_energy_certificate_fails": true,
+              "direct_prime_only_correlation_has_a_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 8000,
+            "transform_size_L": 16384,
+            "farey_denominator_limit_Q": 8,
+            "half_width_bins_H": 2,
+            "major_bin_count": 110,
+            "major_signed_mass": 11829.959922658198,
+            "minor_positive_signed_mass": 13462.173839240022,
+            "minor_negative_signed_mass": 12033.845290810976,
+            "minor_phase_blind_parseval_budget": 38897.19560377017,
+            "one_sided_certificate_lower_bound": -203.88536815277803,
+            "phase_blind_certificate_lower_bound": -27067.235681111968,
+            "reconstructed_prime_theta_correlation": 13258.288471087246,
+            "direct_prime_theta_correlation": 13258.28847109201,
+            "reconstruction_error": 4.763933247886598e-09,
+            "unordered_prime_pair_representations": 106,
+            "checks": {
+              "dft_signed_partition_reconstructs_direct_correlation": true,
+              "one_sided_bound_is_sharper_than_phase_blind_bound": true,
+              "phase_blind_absolute_energy_certificate_fails": true,
+              "direct_prime_only_correlation_has_a_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 16000,
+            "transform_size_L": 32768,
+            "farey_denominator_limit_Q": 8,
+            "half_width_bins_H": 2,
+            "major_bin_count": 110,
+            "major_signed_mass": 24799.60441165066,
+            "minor_positive_signed_mass": 30721.00213578641,
+            "minor_negative_signed_mass": 27394.48795799,
+            "minor_phase_blind_parseval_budget": 89278.97560420723,
+            "one_sided_certificate_lower_bound": -2594.8835463393407,
+            "phase_blind_certificate_lower_bound": -64479.371192556566,
+            "reconstructed_prime_theta_correlation": 28126.11858944707,
+            "direct_prime_theta_correlation": 28126.118589430487,
+            "reconstruction_error": 1.6581907402724028e-08,
+            "unordered_prime_pair_representations": 191,
+            "checks": {
+              "dft_signed_partition_reconstructs_direct_correlation": true,
+              "one_sided_bound_is_sharper_than_phase_blind_bound": true,
+              "phase_blind_absolute_energy_certificate_fails": true,
+              "direct_prime_only_correlation_has_a_representation": true
+            }
+          },
+          {
+            "even_endpoint_N": 32000,
+            "transform_size_L": 65536,
+            "farey_denominator_limit_Q": 8,
+            "half_width_bins_H": 2,
+            "major_bin_count": 110,
+            "major_signed_mass": 48507.3738605677,
+            "minor_positive_signed_mass": 67467.34067045343,
+            "minor_negative_signed_mass": 62365.80986018684,
+            "minor_phase_blind_parseval_budget": 199630.6417804459,
+            "one_sided_certificate_lower_bound": -13858.435999619142,
+            "phase_blind_certificate_lower_bound": -151123.2679198782,
+            "reconstructed_prime_theta_correlation": 53608.904670834294,
+            "direct_prime_theta_correlation": 53608.90467088899,
+            "reconstruction_error": 5.469337338581681e-08,
+            "unordered_prime_pair_representations": 312,
+            "checks": {
+              "dft_signed_partition_reconstructs_direct_correlation": true,
+              "one_sided_bound_is_sharper_than_phase_blind_bound": true,
+              "phase_blind_absolute_energy_certificate_fails": true,
+              "direct_prime_only_correlation_has_a_representation": true
+            }
+          }
+        ],
+        "one_sided_certificate_count": 3,
+        "phase_blind_certificate_count": 0,
+        "major_mask_contract": {
+          "farey_denominator_limit_Q": 8,
+          "half_width_bins_H": 2,
+          "conjugation_closed": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The negative-phase mass is computed from the full finite prime transform. No analytic uniform upper bound, effective cutoff, or finite-to-infinite join is proved.",
+      "route_decision": {
+        "discard": "charging the full minor Parseval energy, including helpful positive phase mass, as Goldbach loss",
+        "retain": "prove a uniform arithmetic upper bound only for the negative real minor-arc phase mass and join it to finite verification",
+        "next_theorem": "UniformBinaryGoldbachMinorNegativePhaseMassBoundWithFiniteJoin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T156-REJECTED",
+            "label": "FullMinorParsevalEnergyIsTheNecessaryBinaryLossBudget",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T156-CLOSED",
+            "label": "SignedMinorNegativeMassCertificateAndAbsoluteBudgetNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T156-OPEN",
+            "label": "UniformBinaryGoldbachMinorNegativePhaseMassBoundWithFiniteJoin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T156-REJECTED",
+            "GB-T156-CLOSED"
+          ],
+          [
+            "GB-T156-CLOSED",
+            "GB-T156-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact one-sided DFT certificate and six finite demonstrations."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-156",
+      "theorem_name": "RareEventNormalizedInformationTransferAndVanishingInformationNoGo",
+      "declared_proposition": "Let D be a Bernoulli label, B a selected event with rho=P(B)>0, d=P(D=1), and delta=P(D=1|B)-d. Then I(D;B)>=2 rho delta^2 in natural-log units, so |delta|<=sqrt(I(D;B)/(2 rho)). Consequently I(D;B)=o(rho) is a sufficient information-theoretic condition for rare-event conditional transfer. The weaker condition I(D;B)->0 is insufficient: the TICKET-155 finite probability family has rho=2^-k, fixed delta=1/5, and I(D;B)->0, but I(D;B)/rho tends to KL(Ber(3/5)||Ber(2/5))>0.",
+      "mathematical_argument": "The mutual-information chain rule writes I(D;B) as rho times KL(P_D|B || P_D) plus (1-rho) times the analogous complement term. Pinsker's inequality in nats bounds the first Bernoulli KL by 2 delta^2. For the no-go family, substitute the exact 2-by-2 contingency counts. The selected conditional law is Ber(3/5), the ambient law is Ber(2/5), and the complement correction is lower order in rho, giving the stated positive normalized limit.",
+      "reproducible_computation": {
+        "theorem": "Let D be a Bernoulli label, B a selected event with rho=P(B)>0, d=P(D=1), and delta=P(D=1|B)-d. Then I(D;B)>=2 rho delta^2 in natural-log units, so |delta|<=sqrt(I(D;B)/(2 rho)). Consequently I(D;B)=o(rho) is a sufficient information-theoretic condition for rare-event conditional transfer. The weaker condition I(D;B)->0 is insufficient: the TICKET-155 finite probability family has rho=2^-k, fixed delta=1/5, and I(D;B)->0, but I(D;B)/rho tends to KL(Ber(3/5)||Ber(2/5))>0.",
+        "proof": "The mutual-information chain rule writes I(D;B) as rho times KL(P_D|B || P_D) plus (1-rho) times the analogous complement term. Pinsker's inequality in nats bounds the first Bernoulli KL by 2 delta^2. For the no-go family, substitute the exact 2-by-2 contingency counts. The selected conditional law is Ber(3/5), the ambient law is Ber(2/5), and the complement correction is lower order in rho, giving the stated positive normalized limit.",
+        "finite_cubic_rough_information_rows": [
+          {
+            "X": 1000,
+            "roughness_z": 10,
+            "left": {
+              "population_size": 227,
+              "selected_size": 70,
+              "label_size": 63,
+              "selected_label_size": 18,
+              "selection_probability_rho": {
+                "exact": "70/227",
+                "decimal": 0.30837004405286345
+              },
+              "ambient_label_fraction": {
+                "exact": "63/227",
+                "decimal": 0.2775330396475771
+              },
+              "conditional_label_fraction": {
+                "exact": "9/35",
+                "decimal": 0.2571428571428571
+              },
+              "conditional_shift_delta": {
+                "exact": "-162/7945",
+                "decimal": -0.02039018250471995
+              },
+              "mutual_information_nats": 0.0004663625215153167,
+              "mutual_information_over_rho": 0.0015123470340568127,
+              "pinsker_lower_bound_2rho_delta_squared": 0.0002564155769189879,
+              "pinsker_shift_upper_bound": 0.027498609365355302,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "right": {
+              "population_size": 227,
+              "selected_size": 70,
+              "label_size": 63,
+              "selected_label_size": 23,
+              "selection_probability_rho": {
+                "exact": "70/227",
+                "decimal": 0.30837004405286345
+              },
+              "ambient_label_fraction": {
+                "exact": "63/227",
+                "decimal": 0.2775330396475771
+              },
+              "conditional_label_fraction": {
+                "exact": "23/70",
+                "decimal": 0.32857142857142857
+              },
+              "conditional_shift_delta": {
+                "exact": "811/15890",
+                "decimal": 0.05103838892385148
+              },
+              "mutual_information_nats": 0.0028442574534886435,
+              "mutual_information_over_rho": 0.009223520599170315,
+              "pinsker_lower_bound_2rho_delta_squared": 0.001606556828863108,
+              "pinsker_shift_upper_bound": 0.06790994256797128,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "checks": {
+              "left_information_checks_pass": true,
+              "right_information_checks_pass": true
+            }
+          },
+          {
+            "X": 10000,
+            "roughness_z": 21,
+            "left": {
+              "population_size": 1710,
+              "selected_size": 390,
+              "label_size": 489,
+              "selected_label_size": 111,
+              "selection_probability_rho": {
+                "exact": "13/57",
+                "decimal": 0.22807017543859648
+              },
+              "ambient_label_fraction": {
+                "exact": "163/570",
+                "decimal": 0.28596491228070176
+              },
+              "conditional_label_fraction": {
+                "exact": "37/130",
+                "decimal": 0.2846153846153846
+              },
+              "conditional_shift_delta": {
+                "exact": "-1/741",
+                "decimal": -0.001349527665317139
+              },
+              "mutual_information_nats": 1.3185038374866954e-06,
+              "mutual_information_over_rho": 5.781132210518588e-06,
+              "pinsker_lower_bound_2rho_delta_squared": 8.307341737870969e-07,
+              "pinsker_shift_upper_bound": 0.001700166493393895,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "right": {
+              "population_size": 1710,
+              "selected_size": 390,
+              "label_size": 489,
+              "selected_label_size": 113,
+              "selection_probability_rho": {
+                "exact": "13/57",
+                "decimal": 0.22807017543859648
+              },
+              "ambient_label_fraction": {
+                "exact": "163/570",
+                "decimal": 0.28596491228070176
+              },
+              "conditional_label_fraction": {
+                "exact": "113/390",
+                "decimal": 0.28974358974358977
+              },
+              "conditional_shift_delta": {
+                "exact": "14/3705",
+                "decimal": 0.003778677462887989
+              },
+              "mutual_information_nats": 1.0311144405974635e-05,
+              "mutual_information_over_rho": 4.521040239542725e-05,
+              "pinsker_lower_bound_2rho_delta_squared": 6.51295592249084e-06,
+              "pinsker_shift_upper_bound": 0.004754492738212314,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "checks": {
+              "left_information_checks_pass": true,
+              "right_information_checks_pass": true
+            }
+          },
+          {
+            "X": 100000,
+            "roughness_z": 46,
+            "left": {
+              "population_size": 14203,
+              "selected_size": 2681,
+              "label_size": 4625,
+              "selected_label_size": 856,
+              "selection_probability_rho": {
+                "exact": "383/2029",
+                "decimal": 0.18876293740758995
+              },
+              "ambient_label_fraction": {
+                "exact": "4625/14203",
+                "decimal": 0.32563542913468985
+              },
+              "conditional_label_fraction": {
+                "exact": "856/2681",
+                "decimal": 0.31928384930995896
+              },
+              "conditional_shift_delta": {
+                "exact": "-34551/5439749",
+                "decimal": -0.006351579824730884
+              },
+              "mutual_information_nats": 2.1429505282777534e-05,
+              "mutual_information_over_rho": 0.00011352602145889194,
+              "pinsker_lower_bound_2rho_delta_squared": 1.523036262334409e-05,
+              "pinsker_shift_upper_bound": 0.007534123089613413,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "right": {
+              "population_size": 14203,
+              "selected_size": 2681,
+              "label_size": 4625,
+              "selected_label_size": 891,
+              "selection_probability_rho": {
+                "exact": "383/2029",
+                "decimal": 0.18876293740758995
+              },
+              "ambient_label_fraction": {
+                "exact": "4625/14203",
+                "decimal": 0.32563542913468985
+              },
+              "conditional_label_fraction": {
+                "exact": "891/2681",
+                "decimal": 0.33233867959716523
+              },
+              "conditional_shift_delta": {
+                "exact": "36464/5439749",
+                "decimal": 0.006703250462475383
+              },
+              "mutual_information_nats": 2.374204599792291e-05,
+              "mutual_information_over_rho": 0.0001257770530803801,
+              "pinsker_lower_bound_2rho_delta_squared": 1.6963584100645713e-05,
+              "pinsker_shift_upper_bound": 0.007930228656236216,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "checks": {
+              "left_information_checks_pass": true,
+              "right_information_checks_pass": true
+            }
+          },
+          {
+            "X": 1000000,
+            "roughness_z": 100,
+            "left": {
+              "population_size": 120759,
+              "selected_size": 19296,
+              "label_size": 42286,
+              "selected_label_size": 6803,
+              "selection_probability_rho": {
+                "exact": "6432/40253",
+                "decimal": 0.15978933247211388
+              },
+              "ambient_label_fraction": {
+                "exact": "42286/120759",
+                "decimal": 0.35016851746039634
+              },
+              "conditional_label_fraction": {
+                "exact": "6803/19296",
+                "decimal": 0.3525601160862355
+              },
+              "conditional_shift_delta": {
+                "exact": "1857607/776721888",
+                "decimal": 0.0023915986258391626
+              },
+              "mutual_information_nats": 2.388147219770857e-06,
+              "mutual_information_over_rho": 1.4945598575472063e-05,
+              "pinsker_lower_bound_2rho_delta_squared": 1.8279081472252323e-06,
+              "pinsker_shift_upper_bound": 0.0027336421286876657,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "right": {
+              "population_size": 120759,
+              "selected_size": 19296,
+              "label_size": 42286,
+              "selected_label_size": 6785,
+              "selection_probability_rho": {
+                "exact": "6432/40253",
+                "decimal": 0.15978933247211388
+              },
+              "ambient_label_fraction": {
+                "exact": "42286/120759",
+                "decimal": 0.35016851746039634
+              },
+              "conditional_label_fraction": {
+                "exact": "6785/19296",
+                "decimal": 0.35162728026533996
+              },
+              "conditional_shift_delta": {
+                "exact": "1133053/776721888",
+                "decimal": 0.0014587628049436403
+              },
+              "mutual_information_nats": 8.887848421971145e-07,
+              "mutual_information_over_rho": 5.562228895049821e-06,
+              "pinsker_lower_bound_2rho_delta_squared": 6.800598584171031e-07,
+              "pinsker_shift_upper_bound": 0.0016676673671703571,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "checks": {
+              "left_information_checks_pass": true,
+              "right_information_checks_pass": true
+            }
+          },
+          {
+            "X": 10000000,
+            "roughness_z": 215,
+            "left": {
+              "population_size": 1039399,
+              "selected_size": 142907,
+              "label_size": 374867,
+              "selected_label_size": 51529,
+              "selection_probability_rho": {
+                "exact": "142907/1039399",
+                "decimal": 0.13749003029635395
+              },
+              "ambient_label_fraction": {
+                "exact": "374867/1039399",
+                "decimal": 0.36065745685728
+              },
+              "conditional_label_fraction": {
+                "exact": "51529/142907",
+                "decimal": 0.3605771585716585
+              },
+              "conditional_shift_delta": {
+                "exact": "-11927298/148537392893",
+                "decimal": -8.029828562153313e-05
+              },
+              "mutual_information_nats": 2.2288093583732425e-09,
+              "mutual_information_over_rho": 1.621069799438649e-08,
+              "pinsker_lower_bound_2rho_delta_squared": 1.7730204696803377e-09,
+              "pinsker_shift_upper_bound": 9.00297117466964e-05,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "right": {
+              "population_size": 1039399,
+              "selected_size": 142907,
+              "label_size": 374867,
+              "selected_label_size": 51487,
+              "selection_probability_rho": {
+                "exact": "142907/1039399",
+                "decimal": 0.13749003029635395
+              },
+              "ambient_label_fraction": {
+                "exact": "374867/1039399",
+                "decimal": 0.36065745685728
+              },
+              "conditional_label_fraction": {
+                "exact": "51487/142907",
+                "decimal": 0.3602832611418615
+              },
+              "conditional_shift_delta": {
+                "exact": "-55582056/148537392893",
+                "decimal": -0.000374195715418534
+              },
+              "mutual_information_nats": 4.8406231174658704e-08,
+              "mutual_information_over_rho": 3.520708452119846e-07,
+              "pinsker_lower_bound_2rho_delta_squared": 3.850337723100649e-08,
+              "pinsker_shift_upper_bound": 0.00041956575480607604,
+              "checks": {
+                "mutual_information_dominates_selected_pinsker_term": true,
+                "conditional_shift_is_below_normalized_information_bound": true
+              }
+            },
+            "checks": {
+              "left_information_checks_pass": true,
+              "right_information_checks_pass": true
+            }
+          }
+        ],
+        "finite_rare_event_information_no_go_rows": [
+          {
+            "rarity_exponent_k": 2,
+            "population_size": 20,
+            "selected_size": 5,
+            "label_size": 8,
+            "selected_label_size": 3,
+            "selection_probability_rho": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "ambient_label_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_label_fraction": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "conditional_shift_delta": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mutual_information_nats": 0.02737312403583273,
+            "mutual_information_over_rho": 0.10949249614333093,
+            "pinsker_lower_bound_2rho_delta_squared": 0.020000000000000004,
+            "pinsker_shift_upper_bound": 0.23397916161843443,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_remains_one_fifth": true,
+              "mutual_information_is_positive": true,
+              "normalized_information_stays_away_from_zero": true
+            }
+          },
+          {
+            "rarity_exponent_k": 4,
+            "population_size": 80,
+            "selected_size": 5,
+            "label_size": 32,
+            "selected_label_size": 3,
+            "selection_probability_rho": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "ambient_label_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_label_fraction": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "conditional_shift_delta": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mutual_information_nats": 0.005416872732213286,
+            "mutual_information_over_rho": 0.08666996371541258,
+            "pinsker_lower_bound_2rho_delta_squared": 0.005000000000000001,
+            "pinsker_shift_upper_bound": 0.20817055953642025,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_remains_one_fifth": true,
+              "mutual_information_is_positive": true,
+              "normalized_information_stays_away_from_zero": true
+            }
+          },
+          {
+            "rarity_exponent_k": 8,
+            "population_size": 1280,
+            "selected_size": 5,
+            "label_size": 512,
+            "selected_label_size": 3,
+            "selection_probability_rho": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "ambient_label_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_label_fraction": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "conditional_shift_delta": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mutual_information_nats": 0.0003180464467497288,
+            "mutual_information_over_rho": 0.08141989036793057,
+            "pinsker_lower_bound_2rho_delta_squared": 0.00031250000000000006,
+            "pinsker_shift_upper_bound": 0.20176705673614134,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_remains_one_fifth": true,
+              "mutual_information_is_positive": true,
+              "normalized_information_stays_away_from_zero": true
+            }
+          },
+          {
+            "rarity_exponent_k": 12,
+            "population_size": 20480,
+            "selected_size": 5,
+            "label_size": 8192,
+            "selected_label_size": 3,
+            "selection_probability_rho": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "ambient_label_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_label_fraction": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "conditional_shift_delta": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mutual_information_nats": 1.9803069315899056e-05,
+            "mutual_information_over_rho": 0.08111337191792253,
+            "pinsker_lower_bound_2rho_delta_squared": 1.9531250000000004e-05,
+            "pinsker_shift_upper_bound": 0.20138690612589805,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_remains_one_fifth": true,
+              "mutual_information_is_positive": true,
+              "normalized_information_stays_away_from_zero": true
+            }
+          },
+          {
+            "rarity_exponent_k": 16,
+            "population_size": 327680,
+            "selected_size": 5,
+            "label_size": 131072,
+            "selected_label_size": 3,
+            "selection_probability_rho": {
+              "exact": "1/65536",
+              "decimal": 1.52587890625e-05
+            },
+            "ambient_label_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_label_fraction": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "conditional_shift_delta": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mutual_information_nats": 1.2374007142313967e-06,
+            "mutual_information_over_rho": 0.08109429320786882,
+            "pinsker_lower_bound_2rho_delta_squared": 1.2207031250000002e-06,
+            "pinsker_shift_upper_bound": 0.20136322058393485,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_remains_one_fifth": true,
+              "mutual_information_is_positive": true,
+              "normalized_information_stays_away_from_zero": true
+            }
+          },
+          {
+            "rarity_exponent_k": 20,
+            "population_size": 5242880,
+            "selected_size": 5,
+            "label_size": 2097152,
+            "selected_label_size": 3,
+            "selection_probability_rho": {
+              "exact": "1/1048576",
+              "decimal": 9.5367431640625e-07
+            },
+            "ambient_label_fraction": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "conditional_label_fraction": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "conditional_shift_delta": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mutual_information_nats": 7.733640779603825e-08,
+            "mutual_information_over_rho": 0.0810931011411386,
+            "pinsker_lower_bound_2rho_delta_squared": 7.629394531250001e-08,
+            "pinsker_shift_upper_bound": 0.20136174058288556,
+            "checks": {
+              "mutual_information_dominates_selected_pinsker_term": true,
+              "conditional_shift_is_below_normalized_information_bound": true,
+              "conditional_shift_remains_one_fifth": true,
+              "mutual_information_is_positive": true,
+              "normalized_information_stays_away_from_zero": true
+            }
+          }
+        ],
+        "rare_event_information_strictly_decreases": true,
+        "normalized_information_limit_nats": 0.08109302162163282,
+        "failure_count": 0
+      },
+      "logical_limit": "Pinsker gives a sufficient relative information target but does not establish it for shifted cubic-rough integers. The arithmetic rows through ten million are finite diagnostics only.",
+      "route_decision": {
+        "discard": "using unnormalized mutual information tending to zero under a vanishing-probability rough-pair selection",
+        "retain": "prove mutual information little-o of the rough partner selection mass, or an equally strong direct relative covariance saving",
+        "next_theorem": "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T156-REJECTED",
+            "label": "VanishingMutualInformationTransfersRareConditionalBias",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T156-CLOSED",
+            "label": "RareEventNormalizedInformationTransferAndVanishingInformationNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T156-OPEN",
+            "label": "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T156-REJECTED",
+            "TP-T156-CLOSED"
+          ],
+          [
+            "TP-T156-CLOSED",
+            "TP-T156-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact information-transfer inequality, a rare-event no-go, and finite cubic-rough diagnostics through X=10,000,000."
+    },
+    "literature_boundary": [
+      {
+        "citation": "Groskin, High-Precision Approximation of Riemann Zeros via the Truncated Weil Form, 2026",
+        "url": "https://arxiv.org/abs/2605.20224",
+        "role": "Motivates independent precision and archimedean cutoff axes; the reported finite-cutoff eigenvalue behavior is not treated as an RH proof."
+      },
+      {
+        "citation": "Connes and Consani, Weil positivity and Trace formula, the archimedean place",
+        "url": "https://arxiv.org/abs/2006.13771",
+        "role": "Primary Weil-positivity operator context; no claimed identification with this abstract perturbation lemma."
+      },
+      {
+        "citation": "Tao, Almost all orbits of the Collatz map attain almost bounded values",
+        "url": "https://arxiv.org/abs/1909.03562",
+        "role": "Almost-all progress remains distinct from the every-natural-ray weighted first-passage target."
+      },
+      {
+        "citation": "Helfgott, The ternary Goldbach problem",
+        "url": "https://arxiv.org/abs/1501.05438",
+        "role": "Primary discussion of why absolute minor-arc control does not close the binary problem."
+      },
+      {
+        "citation": "Ford and Maynard, On the theory of prime producing sieves",
+        "url": "https://arxiv.org/abs/2407.14368",
+        "role": "Primary Type I/II context for the still-unproved relative shifted-information estimate."
+      }
+    ],
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-156",
+      "attempt": "Let A be a target self-adjoint operator or finite core and let A_(N,T,p) be a computed Hermitian approximation. If ||A-A_(N,T,p)|| is at most epsilon_N+epsilon_T+epsilon_p, then lambda_min(A) is at least lambda_min(A_(N,T,p)) minus that total error. Hence positivity is certified only when the computed margin exceeds the independently justified basis/core, archimedean-cutoff, and rounding errors. Precision stability at finitely many fixed cutoffs cannot replace the cutoff bound: the scalar families 1-M/T and -1+M/T have opposite signs throughout every sweep T<M but converge respectively to +1 and -1.",
+      "bounded_result": {
+        "audit_ref": "cutoff_potential_signed_information_audit.riemann"
+      },
+      "obstruction": "The perturbation theorem is general and exact, but no actual truncated Weil matrix or uniform basis/cutoff operator error has been constructed. It excludes no off-critical zero.",
+      "candidate_theorem": "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound",
+      "next_experiment": "construct the actual Weil Galerkin core and certify separate basis, archimedean-tail, and rounding bounds",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact three-axis certificate and two scalar cutoff no-go families."
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-156",
+      "attempt": "For an accelerated odd Collatz valuation word a_1,...,a_m, let A_r be the sum of its last r valuations and put Phi=sum_(r=1)^m 3^(r-1)/2^(A_r). Then Phi=C/2^S exactly and, when 2^S>3^m, the affine descent threshold is theta=C/(2^S-3^m)=Phi/(1-3^m/2^S). Every realizing odd start n descends after this prefix exactly when n>theta. The TICKET-154 floor-two suffix condition A_r>=2r is sufficient because it forces theta<=1, but it is not necessary: the realized word (1,1,2,3) sends 7 to 5 while its full suffix sum is 7<8.",
+      "bounded_result": {
+        "audit_ref": "cutoff_potential_signed_information_audit.collatz"
+      },
+      "obstruction": "The exact potential evaluates a given finite prefix. It does not prove that every natural valuation ray reaches a prefix whose starting integer exceeds its threshold.",
+      "candidate_theorem": "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential",
+      "next_experiment": "study first passage of natural valuation rays across the exact weighted suffix-potential threshold",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One exact potential identity, one realized counterexample to necessity, and a finite scan through 100,000."
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-156",
+      "attempt": "For a zero-padded prime-only theta vector with DFT F_k and any conjugation-closed major set M, define z_k=Re(F_k^2 exp(2 pi i kN/L))/L. If M_N is the sum of z_k on M and N_N^- is the sum of max(-z_k,0) off M, then the Goldbach theta correlation satisfies R_2(N)>=M_N-N_N^-. Therefore M_N>N_N^- is a sufficient finite certificate. The phase-blind Parseval replacement sum_off_M |F_k|^2/L is generally stronger than necessary: on every audited endpoint it makes the lower bound negative. The sharper one-sided bound certifies the first three audited endpoints, but the same fixed Farey mask fails at the last three, so phase separation alone does not close the route.",
+      "bounded_result": {
+        "audit_ref": "cutoff_potential_signed_information_audit.goldbach"
+      },
+      "obstruction": "The negative-phase mass is computed from the full finite prime transform. No analytic uniform upper bound, effective cutoff, or finite-to-infinite join is proved.",
+      "candidate_theorem": "UniformBinaryGoldbachMinorNegativePhaseMassBoundWithFiniteJoin",
+      "next_experiment": "prove a uniform arithmetic upper bound only for the negative real minor-arc phase mass and join it to finite verification",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact one-sided DFT certificate and six finite demonstrations."
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-156",
+      "attempt": "Let D be a Bernoulli label, B a selected event with rho=P(B)>0, d=P(D=1), and delta=P(D=1|B)-d. Then I(D;B)>=2 rho delta^2 in natural-log units, so |delta|<=sqrt(I(D;B)/(2 rho)). Consequently I(D;B)=o(rho) is a sufficient information-theoretic condition for rare-event conditional transfer. The weaker condition I(D;B)->0 is insufficient: the TICKET-155 finite probability family has rho=2^-k, fixed delta=1/5, and I(D;B)->0, but I(D;B)/rho tends to KL(Ber(3/5)||Ber(2/5))>0.",
+      "bounded_result": {
+        "audit_ref": "cutoff_potential_signed_information_audit.twin_prime"
+      },
+      "obstruction": "Pinsker gives a sufficient relative information target but does not establish it for shifted cubic-rough integers. The arithmetic rows through ten million are finite diagnostics only.",
+      "candidate_theorem": "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass",
+      "next_experiment": "prove mutual information little-o of the rough partner selection mass, or an equally strong direct relative covariance saving",
+      "claim_boundary": "No Twin Prime proof and no counterexample. One exact information-transfer inequality, a rare-event no-go, and finite cubic-rough diagnostics through X=10,000,000."
+    }
+  ]
+}

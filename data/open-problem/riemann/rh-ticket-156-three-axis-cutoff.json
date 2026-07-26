@@ -1,0 +1,273 @@
+{
+  "schema": "primeproject.ticket156-cutoff-potential-signed-information.v1",
+  "generated_at": "2026-07-26T21:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-156",
+  "attempt": "Let A be a target self-adjoint operator or finite core and let A_(N,T,p) be a computed Hermitian approximation. If ||A-A_(N,T,p)|| is at most epsilon_N+epsilon_T+epsilon_p, then lambda_min(A) is at least lambda_min(A_(N,T,p)) minus that total error. Hence positivity is certified only when the computed margin exceeds the independently justified basis/core, archimedean-cutoff, and rounding errors. Precision stability at finitely many fixed cutoffs cannot replace the cutoff bound: the scalar families 1-M/T and -1+M/T have opposite signs throughout every sweep T<M but converge respectively to +1 and -1.",
+  "bounded_result": {
+    "audit_ref": "cutoff_potential_signed_information_audit.riemann"
+  },
+  "obstruction": "The perturbation theorem is general and exact, but no actual truncated Weil matrix or uniform basis/cutoff operator error has been constructed. It excludes no off-critical zero.",
+  "candidate_theorem": "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound",
+  "next_experiment": "construct the actual Weil Galerkin core and certify separate basis, archimedean-tail, and rounding bounds",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact three-axis certificate and two scalar cutoff no-go families.",
+  "result": {
+    "problem_id": "riemann",
+    "ticket_id": "RH-TICKET-156",
+    "theorem_name": "ThreeAxisSpectralCertificateAndCutoffStabilityNoGo",
+    "declared_proposition": "Let A be a target self-adjoint operator or finite core and let A_(N,T,p) be a computed Hermitian approximation. If ||A-A_(N,T,p)|| is at most epsilon_N+epsilon_T+epsilon_p, then lambda_min(A) is at least lambda_min(A_(N,T,p)) minus that total error. Hence positivity is certified only when the computed margin exceeds the independently justified basis/core, archimedean-cutoff, and rounding errors. Precision stability at finitely many fixed cutoffs cannot replace the cutoff bound: the scalar families 1-M/T and -1+M/T have opposite signs throughout every sweep T<M but converge respectively to +1 and -1.",
+    "mathematical_argument": "The operator-norm statement is Weyl's minimum-eigenvalue inequality followed by the triangle inequality across the three approximation axes. For any prescribed finite cutoff ceiling choose M above it. The two scalar families are exact one-dimensional Hermitian matrices, are independent of working precision, have the stated finite signs, and have opposite cutoff-free limits. Therefore more digits at fixed T and a longer but finite T sweep do not determine the continuum sign without a uniform truncation estimate.",
+    "reproducible_computation": {
+      "theorem": "Let A be a target self-adjoint operator or finite core and let A_(N,T,p) be a computed Hermitian approximation. If ||A-A_(N,T,p)|| is at most epsilon_N+epsilon_T+epsilon_p, then lambda_min(A) is at least lambda_min(A_(N,T,p)) minus that total error. Hence positivity is certified only when the computed margin exceeds the independently justified basis/core, archimedean-cutoff, and rounding errors. Precision stability at finitely many fixed cutoffs cannot replace the cutoff bound: the scalar families 1-M/T and -1+M/T have opposite signs throughout every sweep T<M but converge respectively to +1 and -1.",
+      "proof": "The operator-norm statement is Weyl's minimum-eigenvalue inequality followed by the triangle inequality across the three approximation axes. For any prescribed finite cutoff ceiling choose M above it. The two scalar families are exact one-dimensional Hermitian matrices, are independent of working precision, have the stated finite signs, and have opposite cutoff-free limits. Therefore more digits at fixed T and a longer but finite T sweep do not determine the continuum sign without a uniform truncation estimate.",
+      "finite_three_axis_error_budget_rows": [
+        {
+          "computed_minimum_eigenvalue": {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "basis_core_error_epsilon_N": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "archimedean_cutoff_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "roundoff_error_epsilon_p": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "total_operator_error": {
+            "exact": "7/16",
+            "decimal": 0.4375
+          },
+          "certified_lower_bound": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "positivity_certified": true,
+          "checks": {
+            "errors_add_by_triangle_inequality": true,
+            "certificate_sign_matches_margin": true
+          }
+        },
+        {
+          "computed_minimum_eigenvalue": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "basis_core_error_epsilon_N": {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "archimedean_cutoff_error_epsilon_T": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "roundoff_error_epsilon_p": {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "total_operator_error": {
+            "exact": "7/16",
+            "decimal": 0.4375
+          },
+          "certified_lower_bound": {
+            "exact": "-3/16",
+            "decimal": -0.1875
+          },
+          "positivity_certified": false,
+          "checks": {
+            "errors_add_by_triangle_inequality": true,
+            "certificate_sign_matches_margin": true
+          }
+        }
+      ],
+      "finite_precision_stable_cutoff_reversal_rows": [
+        {
+          "archimedean_cutoff_T": 64,
+          "positive_limit_family_lambda_min": {
+            "exact": "-63/1",
+            "decimal": -63.0
+          },
+          "negative_limit_family_lambda_min": {
+            "exact": "63/1",
+            "decimal": 63.0
+          },
+          "positive_limit_family_limit": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "negative_limit_family_limit": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "positive_limit_family_is_negative_on_sweep": true,
+            "negative_limit_family_is_positive_on_sweep": true,
+            "fixed_cutoff_values_are_exact_and_precision_stable": true
+          }
+        },
+        {
+          "archimedean_cutoff_T": 128,
+          "positive_limit_family_lambda_min": {
+            "exact": "-31/1",
+            "decimal": -31.0
+          },
+          "negative_limit_family_lambda_min": {
+            "exact": "31/1",
+            "decimal": 31.0
+          },
+          "positive_limit_family_limit": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "negative_limit_family_limit": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "positive_limit_family_is_negative_on_sweep": true,
+            "negative_limit_family_is_positive_on_sweep": true,
+            "fixed_cutoff_values_are_exact_and_precision_stable": true
+          }
+        },
+        {
+          "archimedean_cutoff_T": 256,
+          "positive_limit_family_lambda_min": {
+            "exact": "-15/1",
+            "decimal": -15.0
+          },
+          "negative_limit_family_lambda_min": {
+            "exact": "15/1",
+            "decimal": 15.0
+          },
+          "positive_limit_family_limit": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "negative_limit_family_limit": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "positive_limit_family_is_negative_on_sweep": true,
+            "negative_limit_family_is_positive_on_sweep": true,
+            "fixed_cutoff_values_are_exact_and_precision_stable": true
+          }
+        },
+        {
+          "archimedean_cutoff_T": 512,
+          "positive_limit_family_lambda_min": {
+            "exact": "-7/1",
+            "decimal": -7.0
+          },
+          "negative_limit_family_lambda_min": {
+            "exact": "7/1",
+            "decimal": 7.0
+          },
+          "positive_limit_family_limit": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "negative_limit_family_limit": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "positive_limit_family_is_negative_on_sweep": true,
+            "negative_limit_family_is_positive_on_sweep": true,
+            "fixed_cutoff_values_are_exact_and_precision_stable": true
+          }
+        },
+        {
+          "archimedean_cutoff_T": 1024,
+          "positive_limit_family_lambda_min": {
+            "exact": "-3/1",
+            "decimal": -3.0
+          },
+          "negative_limit_family_lambda_min": {
+            "exact": "3/1",
+            "decimal": 3.0
+          },
+          "positive_limit_family_limit": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "negative_limit_family_limit": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "positive_limit_family_is_negative_on_sweep": true,
+            "negative_limit_family_is_positive_on_sweep": true,
+            "fixed_cutoff_values_are_exact_and_precision_stable": true
+          }
+        },
+        {
+          "archimedean_cutoff_T": 2048,
+          "positive_limit_family_lambda_min": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "negative_limit_family_lambda_min": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "positive_limit_family_limit": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "negative_limit_family_limit": {
+            "exact": "-1/1",
+            "decimal": -1.0
+          },
+          "checks": {
+            "positive_limit_family_is_negative_on_sweep": true,
+            "negative_limit_family_is_positive_on_sweep": true,
+            "fixed_cutoff_values_are_exact_and_precision_stable": true
+          }
+        }
+      ],
+      "counterfamily_scale_M": 4096,
+      "failure_count": 0
+    },
+    "logical_limit": "The perturbation theorem is general and exact, but no actual truncated Weil matrix or uniform basis/cutoff operator error has been constructed. It excludes no off-critical zero.",
+    "route_decision": {
+      "discard": "treating working-precision stability at one or many finite archimedean cutoffs as cutoff-free positivity",
+      "retain": "construct the actual Weil Galerkin core and certify separate basis, archimedean-tail, and rounding bounds",
+      "next_theorem": "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "RH-T156-REJECTED",
+          "label": "FixedCutoffPrecisionStabilityCertifiesContinuumPositivity",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "RH-T156-CLOSED",
+          "label": "ThreeAxisSpectralCertificateAndCutoffStabilityNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "RH-T156-OPEN",
+          "label": "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "RH-T156-REJECTED",
+          "RH-T156-CLOSED"
+        ],
+        [
+          "RH-T156-CLOSED",
+          "RH-T156-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No RH proof and no off-critical zero. One exact three-axis certificate and two scalar cutoff no-go families."
+  }
+}

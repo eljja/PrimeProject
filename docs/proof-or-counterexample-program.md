@@ -6283,3 +6283,41 @@ conjecture-resolution counter at zero.
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-155 range-prefix-sublinear-conditional](range-prefix-sublinear-conditional.md).
+
+## TICKET-156 continuation: cutoff, weighted potential, signed loss, and normalized information
+
+TICKET-156 audits the four TICKET-155 next lemmas. It does not close those
+infinite lemmas. Instead it proves a sharper bridge or no-go theorem in each
+track and identifies the remaining uniform estimate.
+
+1. **Riemann Hypothesis.** Weyl perturbation separates basis/core,
+   archimedean-cutoff, and rounding errors. Exact scalar counterfamilies
+   show that fixed-cutoff precision stability can have the sign opposite to
+   the cutoff-free limit. The next target is
+   `ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound`.
+2. **Collatz.** The weighted reverse-suffix potential equals `C/2^S`
+   exactly and gives the exact affine threshold. The realized valuation
+   word `(1,1,2,3)` sends `7` to `5` while violating floor two, so the old
+   sufficient rule is not necessary. The next target is
+   `EveryNaturalValuationRayCrossesItsWeightedSuffixPotential`.
+3. **Goldbach.** The inverse DFT gives the one-sided certificate
+   `R_2(N)>=M_N-N_N^-`, which charges only harmful negative minor phase
+   mass. It is sharper than the phase-blind Parseval budget, but a fixed
+   `q<=8` mask still fails on the last three of six audited endpoints. The
+   next target is
+   `UniformBinaryGoldbachMinorNegativePhaseMassBoundWithFiniteJoin`.
+4. **Twin Prime.** Pinsker gives `I(D;B)>=2 rho delta^2`; therefore rare
+   transfer requires `I=o(rho)`. An exact family has `I->0` but fixed
+   `delta=1/5`, disproving unnormalized information transfer. The next
+   target is
+   `ShiftTwoCubicRoughMutualInformationLittleOSelectionMass`.
+
+한국어 경계: RH의 실제 Weil 행렬과 균일 cutoff bound는 아직 없다.
+콜라츠의 weighted potential 항등식은 주어진 prefix를 판정할 뿐 모든
+자연수 ray의 first passage를 증명하지 않는다. 골드바흐의 음의 위상
+질량은 유한 DFT에서 계산되었고 균일한 해석적 상계가 아니다. Twin의
+Pinsker 정리는 충분조건을 제시하지만 실제 cubic-rough shift에서
+`I=o(rho)`를 증명하지 않는다. 네 추측은 모두 `open_not_proven`이다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-156 cutoff-potential-signed-information](cutoff-potential-signed-information.md).

@@ -153,6 +153,7 @@ TICKET152_SCHEMA = "primeproject.ticket152-compression-cylinder-energy-selection
 TICKET153_SCHEMA = "primeproject.ticket153-essential-tail-geometric-reflection-parity.v1"
 TICKET154_SCHEMA = "primeproject.ticket154-compact-suffix-wheel-leastfactor.v1"
 TICKET155_SCHEMA = "primeproject.ticket155-range-prefix-sublinear-conditional.v1"
+TICKET156_SCHEMA = "primeproject.ticket156-cutoff-potential-signed-information.v1"
 
 
 def fail(message: str) -> int:
@@ -10120,6 +10121,255 @@ def main() -> int:
         not in str(ticket155.get("claim_boundary", "")).lower()
     ):
         return fail("ticket155 proof boundary changed")
+
+    path156 = Path(
+        "data/open-problem/"
+        "ticket156-cutoff-potential-signed-information.json"
+    )
+    if not path156.exists():
+        return fail(
+            "missing ticket156 cutoff-potential-signed-information audit"
+        )
+    ticket156 = read_json(path156)
+    if (
+        ticket156.get("schema") != TICKET156_SCHEMA
+        or ticket156.get("status")
+        != "four_exact_bridge_or_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket156 schema or status changed")
+    attempts156 = ticket156.get("attempts", [])
+    by_id156 = {
+        str(row.get("problem_id")): row
+        for row in attempts156
+        if isinstance(row, dict)
+    }
+    if set(by_id156) != EXPECTED_PROBLEMS:
+        return fail("ticket156 attempts missing problems")
+
+    paths156 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-156-three-axis-cutoff.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-156-weighted-suffix-potential.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-156-signed-minor-negative-mass.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-156-normalized-mutual-information.json"
+        ),
+    }
+    next156 = {
+        "riemann": (
+            "ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound"
+        ),
+        "collatz": (
+            "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential"
+        ),
+        "goldbach": (
+            "UniformBinaryGoldbachMinorNegativePhaseMassBound"
+            "WithFiniteJoin"
+        ),
+        "twin-prime": (
+            "ShiftTwoCubicRoughMutualInformationLittleOSelectionMass"
+        ),
+    }
+    for problem_id, attempt in by_id156.items():
+        if (
+            not paths156[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+        ):
+            return fail(
+                f"{problem_id}: ticket156 artifact or boundary missing"
+            )
+        per_problem156 = read_json(paths156[problem_id])
+        if (
+            per_problem156.get("schema") != TICKET156_SCHEMA
+            or per_problem156.get("problem_id") != problem_id
+            or per_problem156.get("candidate_theorem")
+            != next156[problem_id]
+            or attempt.get("candidate_theorem") != next156[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket156 per-problem contract changed"
+            )
+
+    audit156 = ticket156.get(
+        "cutoff_potential_signed_information_audit",
+        {},
+    )
+    machine156 = audit156.get("machine_audit", {})
+    if (
+        audit156.get("theorem_name")
+        != "FourConjectureCutoffPotentialSignedInformationAudit"
+        or int(machine156.get("exact_theorem_count", -1)) != 4
+        or int(machine156.get("rejected_target_count", -1)) != 4
+        or int(machine156.get("proof_dag_count", -1)) != 4
+        or int(machine156.get("conjecture_resolution_count", -1)) != 0
+        or int(machine156.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket156 global machine audit changed")
+
+    riemann156 = audit156.get("riemann", {})
+    spectral156 = riemann156.get("reproducible_computation", {})
+    error_rows156 = spectral156.get(
+        "finite_three_axis_error_budget_rows",
+        [],
+    )
+    cutoff_rows156 = spectral156.get(
+        "finite_precision_stable_cutoff_reversal_rows",
+        [],
+    )
+    if (
+        riemann156.get("theorem_name")
+        != "ThreeAxisSpectralCertificateAndCutoffStabilityNoGo"
+        or len(error_rows156) != 2
+        or [bool(row.get("positivity_certified")) for row in error_rows156]
+        != [True, False]
+        or len(cutoff_rows156) != 6
+        or any(
+            Fraction(
+                row.get(
+                    "positive_limit_family_lambda_min",
+                    {},
+                ).get("exact", "0")
+            )
+            >= 0
+            or Fraction(
+                row.get(
+                    "negative_limit_family_lambda_min",
+                    {},
+                ).get("exact", "0")
+            )
+            <= 0
+            or not all(row.get("checks", {}).values())
+            for row in cutoff_rows156
+        )
+        or int(spectral156.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket156 RH cutoff audit changed")
+
+    collatz156 = audit156.get("collatz", {})
+    potential156 = collatz156.get("reproducible_computation", {})
+    scan156 = potential156.get("finite_first_descent_scan", {})
+    samples156 = scan156.get("sample_exact_no_go_rows", [])
+    if (
+        collatz156.get("theorem_name")
+        != "WeightedSuffixPotentialIdentityAndFloorTwoStrictnessNoGo"
+        or int(scan156.get("audited_odd_start_count", -1)) != 49999
+        or int(
+            scan156.get(
+                "first_descent_prefixes_failing_floor_two",
+                -1,
+            )
+        )
+        != 12991
+        or not samples156
+        or int(samples156[0].get("initial_odd_start_n", -1)) != 7
+        or samples156[0].get("valuation_word") != [1, 1, 2, 3]
+        or Fraction(
+            samples156[0]
+            .get("exact_affine_threshold_theta", {})
+            .get("exact", "0")
+        )
+        != Fraction(73, 47)
+        or int(potential156.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket156 Collatz weighted-potential audit changed")
+
+    goldbach156 = audit156.get("goldbach", {})
+    signed156 = goldbach156.get("reproducible_computation", {})
+    signed_rows156 = signed156.get("finite_signed_minor_rows", [])
+    if (
+        goldbach156.get("theorem_name")
+        != "SignedMinorNegativeMassCertificateAndAbsoluteBudgetNoGo"
+        or [int(row.get("even_endpoint_N", -1)) for row in signed_rows156]
+        != [1000, 2000, 4000, 8000, 16000, 32000]
+        or int(signed156.get("one_sided_certificate_count", -1)) != 3
+        or int(signed156.get("phase_blind_certificate_count", -1)) != 0
+        or any(
+            float(row.get("reconstruction_error", 1)) >= 1e-6
+            or float(
+                row.get("phase_blind_certificate_lower_bound", 0)
+            )
+            >= 0
+            or not all(row.get("checks", {}).values())
+            for row in signed_rows156
+        )
+        or int(signed156.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket156 Goldbach signed-minor audit changed")
+
+    twin156 = audit156.get("twin_prime", {})
+    information156 = twin156.get("reproducible_computation", {})
+    arithmetic156 = information156.get(
+        "finite_cubic_rough_information_rows",
+        [],
+    )
+    rare156 = information156.get(
+        "finite_rare_event_information_no_go_rows",
+        [],
+    )
+    if (
+        twin156.get("theorem_name")
+        != (
+            "RareEventNormalizedInformationTransferAnd"
+            "VanishingInformationNoGo"
+        )
+        or [int(row.get("X", -1)) for row in arithmetic156]
+        != [1000, 10000, 100000, 1000000, 10000000]
+        or len(rare156) != 6
+        or any(
+            Fraction(
+                row.get("conditional_shift_delta", {}).get(
+                    "exact",
+                    "0",
+                )
+            )
+            != Fraction(1, 5)
+            or not all(row.get("checks", {}).values())
+            for row in rare156
+        )
+        or not bool(
+            information156.get(
+                "rare_event_information_strictly_decreases"
+            )
+        )
+        or int(information156.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket156 Twin normalized-information audit changed")
+
+    sections156 = {
+        "riemann": riemann156,
+        "collatz": collatz156,
+        "goldbach": goldbach156,
+        "twin-prime": twin156,
+    }
+    for problem_id, section in sections156.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next156[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket156 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit156.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket156.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket156 proof boundary changed")
 
     print("open problem structure verified")
     return 0

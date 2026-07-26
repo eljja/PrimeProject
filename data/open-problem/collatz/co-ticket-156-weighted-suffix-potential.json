@@ -1,0 +1,716 @@
+{
+  "schema": "primeproject.ticket156-cutoff-potential-signed-information.v1",
+  "generated_at": "2026-07-26T21:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-156",
+  "attempt": "For an accelerated odd Collatz valuation word a_1,...,a_m, let A_r be the sum of its last r valuations and put Phi=sum_(r=1)^m 3^(r-1)/2^(A_r). Then Phi=C/2^S exactly and, when 2^S>3^m, the affine descent threshold is theta=C/(2^S-3^m)=Phi/(1-3^m/2^S). Every realizing odd start n descends after this prefix exactly when n>theta. The TICKET-154 floor-two suffix condition A_r>=2r is sufficient because it forces theta<=1, but it is not necessary: the realized word (1,1,2,3) sends 7 to 5 while its full suffix sum is 7<8.",
+  "bounded_result": {
+    "audit_ref": "cutoff_potential_signed_information_audit.collatz"
+  },
+  "obstruction": "The exact potential evaluates a given finite prefix. It does not prove that every natural valuation ray reaches a prefix whose starting integer exceeds its threshold.",
+  "candidate_theorem": "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential",
+  "next_experiment": "study first passage of natural valuation rays across the exact weighted suffix-potential threshold",
+  "claim_boundary": "No Collatz proof and no divergent orbit. One exact potential identity, one realized counterexample to necessity, and a finite scan through 100,000.",
+  "result": {
+    "problem_id": "collatz",
+    "ticket_id": "CO-TICKET-156",
+    "theorem_name": "WeightedSuffixPotentialIdentityAndFloorTwoStrictnessNoGo",
+    "declared_proposition": "For an accelerated odd Collatz valuation word a_1,...,a_m, let A_r be the sum of its last r valuations and put Phi=sum_(r=1)^m 3^(r-1)/2^(A_r). Then Phi=C/2^S exactly and, when 2^S>3^m, the affine descent threshold is theta=C/(2^S-3^m)=Phi/(1-3^m/2^S). Every realizing odd start n descends after this prefix exactly when n>theta. The TICKET-154 floor-two suffix condition A_r>=2r is sufficient because it forces theta<=1, but it is not necessary: the realized word (1,1,2,3) sends 7 to 5 while its full suffix sum is 7<8.",
+    "mathematical_argument": "Unrolling the affine recurrence gives C/2^S=sum_(r=1)^m 3^(r-1)/2^(A_r), proving the identity and the threshold equivalence. If A_r>=2r, then Phi is at most sum_(r=1)^m 3^(r-1)/4^r=1-(3/4)^m, while 1-3^m/2^S is at least the same quantity, so theta<=1. Direct odd-map iteration gives 7 -> 11 -> 17 -> 13 -> 5 with valuations (1,1,2,3), which violates floor two only on the full suffix. Thus the exact weighted potential is strictly sharper than the floor-two certificate.",
+    "reproducible_computation": {
+      "theorem": "For an accelerated odd Collatz valuation word a_1,...,a_m, let A_r be the sum of its last r valuations and put Phi=sum_(r=1)^m 3^(r-1)/2^(A_r). Then Phi=C/2^S exactly and, when 2^S>3^m, the affine descent threshold is theta=C/(2^S-3^m)=Phi/(1-3^m/2^S). Every realizing odd start n descends after this prefix exactly when n>theta. The TICKET-154 floor-two suffix condition A_r>=2r is sufficient because it forces theta<=1, but it is not necessary: the realized word (1,1,2,3) sends 7 to 5 while its full suffix sum is 7<8.",
+      "proof": "Unrolling the affine recurrence gives C/2^S=sum_(r=1)^m 3^(r-1)/2^(A_r), proving the identity and the threshold equivalence. If A_r>=2r, then Phi is at most sum_(r=1)^m 3^(r-1)/4^r=1-(3/4)^m, while 1-3^m/2^S is at least the same quantity, so theta<=1. Direct odd-map iteration gives 7 -> 11 -> 17 -> 13 -> 5 with valuations (1,1,2,3), which violates floor two only on the full suffix. Thus the exact weighted potential is strictly sharper than the floor-two certificate.",
+      "finite_weighted_identity_rows": [
+        {
+          "valuation_word": [
+            2
+          ],
+          "word_length_m": 1,
+          "total_valuation_S": 2,
+          "affine_constant_C": 1,
+          "weighted_suffix_potential_Phi": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "normalized_affine_constant_C_over_2S": {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "contracting_threshold_theta": {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "reverse_suffix_floor_two": true,
+          "checks": {
+            "weighted_suffix_potential_equals_normalized_affine_constant": true,
+            "threshold_ratio_identity_holds_when_contracting": true,
+            "floor_two_condition_implies_threshold_at_most_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            3
+          ],
+          "word_length_m": 2,
+          "total_valuation_S": 4,
+          "affine_constant_C": 5,
+          "weighted_suffix_potential_Phi": {
+            "exact": "5/16",
+            "decimal": 0.3125
+          },
+          "normalized_affine_constant_C_over_2S": {
+            "exact": "5/16",
+            "decimal": 0.3125
+          },
+          "contracting_threshold_theta": {
+            "exact": "5/7",
+            "decimal": 0.7142857142857143
+          },
+          "reverse_suffix_floor_two": true,
+          "checks": {
+            "weighted_suffix_potential_equals_normalized_affine_constant": true,
+            "threshold_ratio_identity_holds_when_contracting": true,
+            "floor_two_condition_implies_threshold_at_most_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            4
+          ],
+          "word_length_m": 3,
+          "total_valuation_S": 6,
+          "affine_constant_C": 19,
+          "weighted_suffix_potential_Phi": {
+            "exact": "19/64",
+            "decimal": 0.296875
+          },
+          "normalized_affine_constant_C_over_2S": {
+            "exact": "19/64",
+            "decimal": 0.296875
+          },
+          "contracting_threshold_theta": {
+            "exact": "19/37",
+            "decimal": 0.5135135135135135
+          },
+          "reverse_suffix_floor_two": true,
+          "checks": {
+            "weighted_suffix_potential_equals_normalized_affine_constant": true,
+            "threshold_ratio_identity_holds_when_contracting": true,
+            "floor_two_condition_implies_threshold_at_most_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "word_length_m": 4,
+          "total_valuation_S": 7,
+          "affine_constant_C": 73,
+          "weighted_suffix_potential_Phi": {
+            "exact": "73/128",
+            "decimal": 0.5703125
+          },
+          "normalized_affine_constant_C_over_2S": {
+            "exact": "73/128",
+            "decimal": 0.5703125
+          },
+          "contracting_threshold_theta": {
+            "exact": "73/47",
+            "decimal": 1.553191489361702
+          },
+          "reverse_suffix_floor_two": false,
+          "checks": {
+            "weighted_suffix_potential_equals_normalized_affine_constant": true,
+            "threshold_ratio_identity_holds_when_contracting": true,
+            "floor_two_condition_implies_threshold_at_most_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            1,
+            3
+          ],
+          "word_length_m": 3,
+          "total_valuation_S": 6,
+          "affine_constant_C": 29,
+          "weighted_suffix_potential_Phi": {
+            "exact": "29/64",
+            "decimal": 0.453125
+          },
+          "normalized_affine_constant_C_over_2S": {
+            "exact": "29/64",
+            "decimal": 0.453125
+          },
+          "contracting_threshold_theta": {
+            "exact": "29/37",
+            "decimal": 0.7837837837837838
+          },
+          "reverse_suffix_floor_two": true,
+          "checks": {
+            "weighted_suffix_potential_equals_normalized_affine_constant": true,
+            "threshold_ratio_identity_holds_when_contracting": true,
+            "floor_two_condition_implies_threshold_at_most_one": true
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            2,
+            2
+          ],
+          "word_length_m": 3,
+          "total_valuation_S": 5,
+          "affine_constant_C": 23,
+          "weighted_suffix_potential_Phi": {
+            "exact": "23/32",
+            "decimal": 0.71875
+          },
+          "normalized_affine_constant_C_over_2S": {
+            "exact": "23/32",
+            "decimal": 0.71875
+          },
+          "contracting_threshold_theta": {
+            "exact": "23/5",
+            "decimal": 4.6
+          },
+          "reverse_suffix_floor_two": false,
+          "checks": {
+            "weighted_suffix_potential_equals_normalized_affine_constant": true,
+            "threshold_ratio_identity_holds_when_contracting": true,
+            "floor_two_condition_implies_threshold_at_most_one": true
+          }
+        }
+      ],
+      "finite_first_descent_scan": {
+        "odd_start_range": "3<=n<=100000",
+        "audited_odd_start_count": 49999,
+        "first_descent_prefixes_failing_floor_two": 12991,
+        "failure_fraction": 0.2598251965039301,
+        "maximum_first_descent_length": 85,
+        "maximum_first_descent_row": {
+          "initial_odd_start_n": 35655,
+          "first_descent_length": 85,
+          "first_descent_endpoint": 29405,
+          "valuation_word": [
+            1,
+            1,
+            2,
+            2,
+            1,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            2,
+            2,
+            1,
+            3,
+            2,
+            2,
+            1,
+            2,
+            2,
+            1,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            6,
+            1,
+            1,
+            1,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            4,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            3,
+            4,
+            1,
+            1,
+            5,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            5,
+            3
+          ]
+        },
+        "sample_exact_no_go_rows": [
+          {
+            "initial_odd_start_n": 7,
+            "first_descent_length": 4,
+            "first_descent_endpoint": 5,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              3
+            ],
+            "total_valuation_S": 7,
+            "exact_affine_threshold_theta": {
+              "exact": "73/47",
+              "decimal": 1.553191489361702
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 27,
+            "first_descent_length": 37,
+            "first_descent_endpoint": 23,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2,
+              4,
+              3
+            ],
+            "total_valuation_S": 59,
+            "exact_affine_threshold_theta": {
+              "exact": "1100931843921811423/126176846412426125",
+              "decimal": 8.725307972298392
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 31,
+            "first_descent_length": 35,
+            "first_descent_endpoint": 23,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2,
+              4,
+              3
+            ],
+            "total_valuation_S": 56,
+            "exact_affine_threshold_theta": {
+              "exact": "106346764803351611/22026048938928229",
+              "decimal": 4.828227027835087
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 39,
+            "first_descent_length": 5,
+            "first_descent_endpoint": 19,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              1,
+              4
+            ],
+            "total_valuation_S": 9,
+            "exact_affine_threshold_theta": {
+              "exact": "251/269",
+              "decimal": 0.9330855018587361
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 43,
+            "first_descent_length": 3,
+            "first_descent_endpoint": 37,
+            "valuation_word": [
+              1,
+              2,
+              2
+            ],
+            "total_valuation_S": 5,
+            "exact_affine_threshold_theta": {
+              "exact": "23/5",
+              "decimal": 4.6
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 47,
+            "first_descent_length": 34,
+            "first_descent_endpoint": 23,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2,
+              4,
+              3
+            ],
+            "total_valuation_S": 55,
+            "exact_affine_threshold_theta": {
+              "exact": "44834791551842521/19351615319297399",
+              "decimal": 2.316850082645728
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 55,
+            "first_descent_length": 3,
+            "first_descent_endpoint": 47,
+            "valuation_word": [
+              1,
+              1,
+              3
+            ],
+            "total_valuation_S": 5,
+            "exact_affine_threshold_theta": {
+              "exact": "19/5",
+              "decimal": 3.8
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 63,
+            "first_descent_length": 34,
+            "first_descent_endpoint": 61,
+            "valuation_word": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              4,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2,
+              4
+            ],
+            "total_valuation_S": 54,
+            "exact_affine_threshold_theta": {
+              "exact": "48215861999407177/1337216809815415",
+              "decimal": 36.056876974245284
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 71,
+            "first_descent_length": 32,
+            "first_descent_endpoint": 61,
+            "valuation_word": [
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2,
+              4
+            ],
+            "total_valuation_S": 51,
+            "exact_affine_threshold_theta": {
+              "exact": "5795355226319417/398779624833407",
+              "decimal": 14.532726512144315
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          },
+          {
+            "initial_odd_start_n": 91,
+            "first_descent_length": 28,
+            "first_descent_endpoint": 61,
+            "valuation_word": [
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              3,
+              1,
+              1,
+              1,
+              4,
+              2,
+              2,
+              4
+            ],
+            "total_valuation_S": 45,
+            "exact_affine_threshold_theta": {
+              "exact": "64458584017301/12307579633871",
+              "decimal": 5.237307897639609
+            },
+            "checks": {
+              "first_descent_endpoint_is_below_start": true,
+              "floor_two_sufficient_condition_fails": true,
+              "exact_affine_threshold_is_crossed": true
+            }
+          }
+        ]
+      },
+      "failure_count": 0
+    },
+    "logical_limit": "The exact potential evaluates a given finite prefix. It does not prove that every natural valuation ray reaches a prefix whose starting integer exceeds its threshold.",
+    "route_decision": {
+      "discard": "requiring the reverse-suffix floor-two certificate as if it were necessary for first descent",
+      "retain": "study first passage of natural valuation rays across the exact weighted suffix-potential threshold",
+      "next_theorem": "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential"
+    },
+    "proof_dag": {
+      "nodes": [
+        {
+          "id": "CO-T156-REJECTED",
+          "label": "EveryFirstDescentPrefixMustSatisfySuffixFloorTwo",
+          "status": "refuted_or_insufficient"
+        },
+        {
+          "id": "CO-T156-CLOSED",
+          "label": "WeightedSuffixPotentialIdentityAndFloorTwoStrictnessNoGo",
+          "status": "proved_exact"
+        },
+        {
+          "id": "CO-T156-OPEN",
+          "label": "EveryNaturalValuationRayCrossesItsWeightedSuffixPotential",
+          "status": "open_not_proven"
+        }
+      ],
+      "edges": [
+        [
+          "CO-T156-REJECTED",
+          "CO-T156-CLOSED"
+        ],
+        [
+          "CO-T156-CLOSED",
+          "CO-T156-OPEN"
+        ]
+      ]
+    },
+    "claim_boundary": "No Collatz proof and no divergent orbit. One exact potential identity, one realized counterexample to necessity, and a finite scan through 100,000."
+  }
+}

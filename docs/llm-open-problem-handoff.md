@@ -62,7 +62,58 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-155
+## Latest Continuation After TICKET-156
+
+Read `docs/cutoff-potential-signed-information.md`,
+`data/open-problem/ticket156-cutoff-potential-signed-information.json`,
+`scripts/ticket156_cutoff_potential_signed_information.py`, and
+`tests/test_ticket156_cutoff_potential_signed_information.py` first.
+
+Do not reopen these rejected routes without defeating the exact theorem or
+counterexample recorded in TICKET-156:
+
+- treating precision stability at fixed archimedean cutoffs as RH
+  continuum positivity without an independently certified cutoff error;
+- requiring the Collatz reverse-suffix floor-two rule as if it were
+  necessary for first descent;
+- charging helpful positive Goldbach minor phase mass as unavoidable loss,
+  or assuming that a fixed small Farey mask closes the one-sided bound;
+- transferring Twin rare-event bias from `I(D;B)->0` without proving
+  `I(D;B)=o(P(B))`.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `ExplicitWeilGalerkinCoreAndUniformTwoAxisOperatorErrorBound` |
+| Collatz | `EveryNaturalValuationRayCrossesItsWeightedSuffixPotential` |
+| Goldbach | `UniformBinaryGoldbachMinorNegativePhaseMassBoundWithFiniteJoin` |
+| Twin Prime | `ShiftTwoCubicRoughMutualInformationLittleOSelectionMass` |
+
+한국어: 리만 가설은 실제 Weil Galerkin core를 만들고 basis와
+archimedean cutoff의 operator 오차를 균일하게 증명해야 한다. 콜라츠는
+모든 자연수 valuation ray가 정확한 weighted suffix-potential 임계값을
+통과한다는 전칭 정리가 필요하다. 골드바흐는 endpoint에 맞는
+major/minor 분해에서 음의 실수 minor 위상 질량만 균일하게 상계하고
+유한 검증 구간과 연결해야 한다. 쌍둥이 소수는 cubic-rough gap-two
+선택에서 mutual information이 선택확률보다 더 빠르게 0으로 감을
+증명해야 한다.
+
+Exact TICKET-156 results:
+
+- RH: Weyl perturbation gives a three-axis positivity margin; exact scalar
+  counterfamilies show that any finite cutoff sweep can have the sign
+  opposite to its cutoff-free limit.
+- Collatz: the weighted reverse-suffix potential equals `C/2^S` exactly.
+  The realized word `(1,1,2,3)` sends `7` to `5` while violating floor two.
+- Goldbach: the inverse DFT gives the one-sided lower bound
+  `R_2(N)>=M_N-N_N^-`. It passes three of six fixed-mask endpoints, while
+  the phase-blind bound passes none and the fixed mask later fails.
+- Twin Prime: `I(D;B)>=2 rho delta^2`; an exact rare-event family has
+  `I->0` but fixed `delta=1/5` and positive limiting `I/rho`.
+
+These are exact bridge and no-go results, not solutions or counterexamples
+to the four conjectures.
+
+## Previous Continuation After TICKET-155
 
 Read `docs/range-prefix-sublinear-conditional.md`,
 `data/open-problem/ticket155-range-prefix-sublinear-conditional.json`,
