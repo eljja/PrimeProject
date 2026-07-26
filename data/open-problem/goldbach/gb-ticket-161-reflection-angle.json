@@ -1,0 +1,232 @@
+{
+  "schema": "primeproject.ticket161-commoncore-baker-angle-typeii.v1",
+  "generated_at": "2026-07-27T18:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-161",
+  "status": "open_not_proven",
+  "theorem_name": "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo",
+  "declared_proposition": "For a symmetric minor-frequency projection P and reflection R_N, put h=P f and rho_N=<h,R_N h>/||h||_2^2. The exact major/minor decomposition is G_f(N)=M(N)+rho_N||h||_2^2. Thus the harmful targetwise angle h_N=max(0,-rho_N) gives the exact lower certificate G_f(N)>=M(N)-h_N||h||_2^2. This strictly refines the phase-blind Cauchy replacement h_N<=1. However no average or RMS control of rho_N can replace a uniform targetwise bound: on Z/L, (delta_0-delta_1)/sqrt(2) has reflection coefficient -1 at N=1 while its mean absolute coefficient is 2/L and its RMS coefficient is sqrt(3/(2L)), both tending to zero.",
+  "mathematical_argument": "The reflection preserves every symmetric frequency subspace, so major/minor cross terms vanish and Fourier inversion gives the exact decomposition. The lower certificate is merely the negative part of that identity. For the no-go sequence, direct cyclic convolution has coefficients 1/2,-1,1/2 at targets 0,1,2 and zero elsewhere, proving every displayed statistic.",
+  "reproducible_computation": {
+    "theorem": "For a symmetric minor-frequency projection P and reflection R_N, put h=P f and rho_N=<h,R_N h>/||h||_2^2. The exact major/minor decomposition is G_f(N)=M(N)+rho_N||h||_2^2. Thus the harmful targetwise angle h_N=max(0,-rho_N) gives the exact lower certificate G_f(N)>=M(N)-h_N||h||_2^2. This strictly refines the phase-blind Cauchy replacement h_N<=1. However no average or RMS control of rho_N can replace a uniform targetwise bound: on Z/L, (delta_0-delta_1)/sqrt(2) has reflection coefficient -1 at N=1 while its mean absolute coefficient is 2/L and its RMS coefficient is sqrt(3/(2L)), both tending to zero.",
+    "proof": "The reflection preserves every symmetric frequency subspace, so major/minor cross terms vanish and Fourier inversion gives the exact decomposition. The lower certificate is merely the negative part of that identity. For the no-go sequence, direct cyclic convolution has coefficients 1/2,-1,1/2 at targets 0,1,2 and zero elsewhere, proving every displayed statistic.",
+    "finite_prime_reflection_angle_rows": [
+      {
+        "even_endpoint_N": 1000,
+        "transform_size_L": 2048,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "minor_energy_l2_squared": 83.33019253726395,
+        "maximum_harmful_reflection_angle": 0.20120068731452123,
+        "worst_harmful_even_target": 708,
+        "worst_target_major_coefficient": 64.76609201254911,
+        "worst_target_minor_coefficient": -16.766092012548896,
+        "negative_minor_coefficient_count": 227,
+        "energy_only_positive_certificate_count": 0,
+        "phase_aware_positive_certificate_count": 499,
+        "audited_even_count": 499,
+        "maximum_fft_rounding_error": 7.105427357601002e-13,
+        "checks": {
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "energy_only_route_certifies_none": true,
+          "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+          "harmful_angle_is_bounded_by_cauchy": true
+        }
+      },
+      {
+        "even_endpoint_N": 2000,
+        "transform_size_L": 4096,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "minor_energy_l2_squared": 164.40313810689148,
+        "maximum_harmful_reflection_angle": 0.15234882995443652,
+        "worst_harmful_even_target": 1422,
+        "worst_target_major_coefficient": 107.04662573141799,
+        "worst_target_minor_coefficient": -25.04662573142255,
+        "negative_minor_coefficient_count": 450,
+        "energy_only_positive_certificate_count": 0,
+        "phase_aware_positive_certificate_count": 999,
+        "audited_even_count": 999,
+        "maximum_fft_rounding_error": 1.4949819160392508e-11,
+        "checks": {
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "energy_only_route_certifies_none": true,
+          "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+          "harmful_angle_is_bounded_by_cauchy": true
+        }
+      },
+      {
+        "even_endpoint_N": 4000,
+        "transform_size_L": 8192,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "minor_energy_l2_squared": 321.0437821886146,
+        "maximum_harmful_reflection_angle": 0.11852377352063773,
+        "worst_harmful_even_target": 3144,
+        "worst_target_major_coefficient": 188.05132053033122,
+        "worst_target_minor_coefficient": -38.051320530332305,
+        "negative_minor_coefficient_count": 928,
+        "energy_only_positive_certificate_count": 0,
+        "phase_aware_positive_certificate_count": 1999,
+        "audited_even_count": 1999,
+        "maximum_fft_rounding_error": 7.219114195322618e-12,
+        "checks": {
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "energy_only_route_certifies_none": true,
+          "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+          "harmful_angle_is_bounded_by_cauchy": true
+        }
+      },
+      {
+        "even_endpoint_N": 8000,
+        "transform_size_L": 16384,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "minor_energy_l2_squared": 622.6549713097996,
+        "maximum_harmful_reflection_angle": 0.11413001465363579,
+        "worst_harmful_even_target": 6198,
+        "worst_target_major_coefficient": 309.0636209998113,
+        "worst_target_minor_coefficient": -71.0636209997466,
+        "negative_minor_coefficient_count": 1874,
+        "energy_only_positive_certificate_count": 0,
+        "phase_aware_positive_certificate_count": 3999,
+        "audited_even_count": 3999,
+        "maximum_fft_rounding_error": 2.198703441536054e-10,
+        "checks": {
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "energy_only_route_certifies_none": true,
+          "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+          "harmful_angle_is_bounded_by_cauchy": true
+        }
+      },
+      {
+        "even_endpoint_N": 16000,
+        "transform_size_L": 32768,
+        "farey_denominator_limit_Q": 8,
+        "major_half_width_bins": 2,
+        "minor_energy_l2_squared": 1205.4590210682152,
+        "maximum_harmful_reflection_angle": 0.07757754871146708,
+        "worst_harmful_even_target": 10632,
+        "worst_target_major_coefficient": 477.5165559268065,
+        "worst_target_minor_coefficient": -93.51655592659688,
+        "negative_minor_coefficient_count": 3824,
+        "energy_only_positive_certificate_count": 0,
+        "phase_aware_positive_certificate_count": 7999,
+        "audited_even_count": 7999,
+        "maximum_fft_rounding_error": 1.0252279025735334e-09,
+        "checks": {
+          "finite_goldbach_range_has_no_observed_zero": true,
+          "fft_coefficients_are_near_integers": true,
+          "energy_only_route_certifies_none": true,
+          "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+          "harmful_angle_is_bounded_by_cauchy": true
+        }
+      }
+    ],
+    "exact_average_angle_no_go_rows": [
+      {
+        "cyclic_group_size_L": 8,
+        "sequence": "(delta_0-delta_1)/sqrt(2)",
+        "harmful_target_N": 1,
+        "harmful_reflection_coefficient": -1.0,
+        "mean_absolute_reflection_coefficient": 0.25,
+        "root_mean_square_reflection_coefficient": 0.4330127018922193,
+        "checks": {
+          "single_target_saturates_negative_cauchy_bound": true,
+          "mean_absolute_angle_equals_two_over_L": true,
+          "rms_angle_equals_sqrt_three_over_two_L": true
+        }
+      },
+      {
+        "cyclic_group_size_L": 16,
+        "sequence": "(delta_0-delta_1)/sqrt(2)",
+        "harmful_target_N": 1,
+        "harmful_reflection_coefficient": -1.0,
+        "mean_absolute_reflection_coefficient": 0.125,
+        "root_mean_square_reflection_coefficient": 0.30618621784789724,
+        "checks": {
+          "single_target_saturates_negative_cauchy_bound": true,
+          "mean_absolute_angle_equals_two_over_L": true,
+          "rms_angle_equals_sqrt_three_over_two_L": true
+        }
+      },
+      {
+        "cyclic_group_size_L": 32,
+        "sequence": "(delta_0-delta_1)/sqrt(2)",
+        "harmful_target_N": 1,
+        "harmful_reflection_coefficient": -1.0,
+        "mean_absolute_reflection_coefficient": 0.0625,
+        "root_mean_square_reflection_coefficient": 0.21650635094610965,
+        "checks": {
+          "single_target_saturates_negative_cauchy_bound": true,
+          "mean_absolute_angle_equals_two_over_L": true,
+          "rms_angle_equals_sqrt_three_over_two_L": true
+        }
+      },
+      {
+        "cyclic_group_size_L": 64,
+        "sequence": "(delta_0-delta_1)/sqrt(2)",
+        "harmful_target_N": 1,
+        "harmful_reflection_coefficient": -1.0,
+        "mean_absolute_reflection_coefficient": 0.03125,
+        "root_mean_square_reflection_coefficient": 0.15309310892394862,
+        "checks": {
+          "single_target_saturates_negative_cauchy_bound": true,
+          "mean_absolute_angle_equals_two_over_L": true,
+          "rms_angle_equals_sqrt_three_over_two_L": true
+        }
+      },
+      {
+        "cyclic_group_size_L": 128,
+        "sequence": "(delta_0-delta_1)/sqrt(2)",
+        "harmful_target_N": 1,
+        "harmful_reflection_coefficient": -1.0,
+        "mean_absolute_reflection_coefficient": 0.015625,
+        "root_mean_square_reflection_coefficient": 0.10825317547305482,
+        "checks": {
+          "single_target_saturates_negative_cauchy_bound": true,
+          "mean_absolute_angle_equals_two_over_L": true,
+          "rms_angle_equals_sqrt_three_over_two_L": true
+        }
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "unsigned minor energy, mean angle, or RMS angle as a pointwise Goldbach positivity certificate",
+  "remaining_gap": "The finite harmful angle is computed from the prime DFT itself and is therefore not an independent analytic bound. No uniform binary minor-arc theorem or even counterexample is obtained.",
+  "candidate_theorem": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin",
+  "claim_boundary": "No Goldbach proof and no even counterexample. One exact targetwise phase criterion, one average-control no-go, and finite prime DFT audits only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T161-REJECTED",
+        "label": "AverageMinorReflectionAngleImpliesPointwisePositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T161-CLOSED",
+        "label": "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T161-OPEN",
+        "label": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T161-REJECTED",
+        "GB-T161-CLOSED"
+      ],
+      [
+        "GB-T161-CLOSED",
+        "GB-T161-OPEN"
+      ]
+    ]
+  }
+}

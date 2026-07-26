@@ -1,0 +1,476 @@
+{
+  "schema": "primeproject.ticket161-commoncore-baker-angle-typeii.v1",
+  "generated_at": "2026-07-27T18:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-161",
+  "status": "open_not_proven",
+  "theorem_name": "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity",
+  "declared_proposition": "A joint divisor-incidence perturbation can have every row and column marginal equal to zero while retaining nonzero rank-one bilinear correlation. The exact 2x2 checkerboard [[a,-a],[-a,a]] is invisible to every additive Type-I marginal statistic, but the vectors (1,-1) on both sides give bilinear value 4a. Therefore marginal divisor information cannot supply the independent Type-II input required by a prime-producing lower-bound sieve. For cubic-rough double-semiprime pairs, centering the finite least-factor incidence matrix by its product marginals produces exactly zero row and column sums; its spectral norm is a reproducible finite Type-II dependence observable.",
+  "mathematical_argument": "The checkerboard identities follow by direct summation and one matrix product. For a count matrix C with total T, row margins r, and column margins c, H=T*C-r*c^T has zero row and column sums identically. Hence all one-coordinate tests vanish on H, while its singular vectors are bilinear witnesses when H is nonzero. The finite audit computes C exactly after cubic roughness; the observed spectral decay is data, not an asymptotic theorem.",
+  "reproducible_computation": {
+    "theorem": "A joint divisor-incidence perturbation can have every row and column marginal equal to zero while retaining nonzero rank-one bilinear correlation. The exact 2x2 checkerboard [[a,-a],[-a,a]] is invisible to every additive Type-I marginal statistic, but the vectors (1,-1) on both sides give bilinear value 4a. Therefore marginal divisor information cannot supply the independent Type-II input required by a prime-producing lower-bound sieve. For cubic-rough double-semiprime pairs, centering the finite least-factor incidence matrix by its product marginals produces exactly zero row and column sums; its spectral norm is a reproducible finite Type-II dependence observable.",
+    "proof": "The checkerboard identities follow by direct summation and one matrix product. For a count matrix C with total T, row margins r, and column margins c, H=T*C-r*c^T has zero row and column sums identically. Hence all one-coordinate tests vanish on H, while its singular vectors are bilinear witnesses when H is nonzero. The finite audit computes C exactly after cubic roughness; the observed spectral decay is data, not an asymptotic theorem.",
+    "exact_zero_marginal_checkerboard_rows": [
+      {
+        "amplitude": 1,
+        "zero_marginal_checkerboard": [
+          [
+            1,
+            -1
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "row_margins": [
+          0,
+          0
+        ],
+        "column_margins": [
+          0,
+          0
+        ],
+        "bilinear_witness_value": 4,
+        "checks": {
+          "all_type_i_row_margins_vanish": true,
+          "all_type_i_column_margins_vanish": true,
+          "rank_one_bilinear_witness_is_nonzero": true
+        }
+      },
+      {
+        "amplitude": 10,
+        "zero_marginal_checkerboard": [
+          [
+            10,
+            -10
+          ],
+          [
+            -10,
+            10
+          ]
+        ],
+        "row_margins": [
+          0,
+          0
+        ],
+        "column_margins": [
+          0,
+          0
+        ],
+        "bilinear_witness_value": 40,
+        "checks": {
+          "all_type_i_row_margins_vanish": true,
+          "all_type_i_column_margins_vanish": true,
+          "rank_one_bilinear_witness_is_nonzero": true
+        }
+      },
+      {
+        "amplitude": 100,
+        "zero_marginal_checkerboard": [
+          [
+            100,
+            -100
+          ],
+          [
+            -100,
+            100
+          ]
+        ],
+        "row_margins": [
+          0,
+          0
+        ],
+        "column_margins": [
+          0,
+          0
+        ],
+        "bilinear_witness_value": 400,
+        "checks": {
+          "all_type_i_row_margins_vanish": true,
+          "all_type_i_column_margins_vanish": true,
+          "rank_one_bilinear_witness_is_nonzero": true
+        }
+      },
+      {
+        "amplitude": 1000,
+        "zero_marginal_checkerboard": [
+          [
+            1000,
+            -1000
+          ],
+          [
+            -1000,
+            1000
+          ]
+        ],
+        "row_margins": [
+          0,
+          0
+        ],
+        "column_margins": [
+          0,
+          0
+        ],
+        "bilinear_witness_value": 4000,
+        "checks": {
+          "all_type_i_row_margins_vanish": true,
+          "all_type_i_column_margins_vanish": true,
+          "rank_one_bilinear_witness_is_nonzero": true
+        }
+      }
+    ],
+    "finite_cubic_rough_centered_incidence_rows": [
+      {
+        "X": 10000,
+        "cubic_roughness_floor_z": 21,
+        "double_semiprime_pair_count_QQ": 35,
+        "least_factor_log_bin_count": 4,
+        "joint_incidence_matrix": [
+          [
+            1,
+            5,
+            1,
+            1
+          ],
+          [
+            3,
+            1,
+            2,
+            1
+          ],
+          [
+            4,
+            3,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            2,
+            1
+          ]
+        ],
+        "row_margins": [
+          8,
+          7,
+          11,
+          9
+        ],
+        "column_margins": [
+          12,
+          11,
+          7,
+          5
+        ],
+        "centered_incidence_numerator": [
+          [
+            -61,
+            87,
+            -21,
+            -5
+          ],
+          [
+            21,
+            -42,
+            21,
+            0
+          ],
+          [
+            8,
+            -16,
+            -7,
+            15
+          ],
+          [
+            32,
+            -29,
+            7,
+            -10
+          ]
+        ],
+        "top_centered_singular_value": 127.62211249869566,
+        "normalized_top_singular_value": 0.10418131632546584,
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_type_ii_rows_have_zero_margins": true,
+          "centered_type_ii_columns_have_zero_margins": true,
+          "centered_joint_incidence_is_nonzero": true
+        }
+      },
+      {
+        "X": 100000,
+        "cubic_roughness_floor_z": 46,
+        "double_semiprime_pair_count_QQ": 284,
+        "least_factor_log_bin_count": 4,
+        "joint_incidence_matrix": [
+          [
+            32,
+            34,
+            17,
+            13
+          ],
+          [
+            33,
+            18,
+            27,
+            9
+          ],
+          [
+            18,
+            17,
+            26,
+            10
+          ],
+          [
+            9,
+            10,
+            7,
+            4
+          ]
+        ],
+        "row_margins": [
+          96,
+          87,
+          71,
+          30
+        ],
+        "column_margins": [
+          92,
+          79,
+          77,
+          36
+        ],
+        "centered_incidence_numerator": [
+          [
+            256,
+            2072,
+            -2564,
+            236
+          ],
+          [
+            1368,
+            -1761,
+            969,
+            -576
+          ],
+          [
+            -1420,
+            -781,
+            1917,
+            284
+          ],
+          [
+            -204,
+            470,
+            -322,
+            56
+          ]
+        ],
+        "top_centered_singular_value": 4325.6044543354565,
+        "normalized_top_singular_value": 0.05363028732314343,
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_type_ii_rows_have_zero_margins": true,
+          "centered_type_ii_columns_have_zero_margins": true,
+          "centered_joint_incidence_is_nonzero": true
+        }
+      },
+      {
+        "X": 1000000,
+        "cubic_roughness_floor_z": 100,
+        "double_semiprime_pair_count_QQ": 2453,
+        "least_factor_log_bin_count": 4,
+        "joint_incidence_matrix": [
+          [
+            274,
+            244,
+            174,
+            94
+          ],
+          [
+            254,
+            224,
+            179,
+            98
+          ],
+          [
+            177,
+            183,
+            141,
+            85
+          ],
+          [
+            95,
+            85,
+            86,
+            60
+          ]
+        ],
+        "row_margins": [
+          786,
+          755,
+          586,
+          326
+        ],
+        "column_margins": [
+          800,
+          736,
+          580,
+          337
+        ],
+        "centered_incidence_numerator": [
+          [
+            43322,
+            20036,
+            -29058,
+            -34300
+          ],
+          [
+            19062,
+            -6208,
+            1187,
+            -14041
+          ],
+          [
+            -34619,
+            17603,
+            5993,
+            11023
+          ],
+          [
+            -27765,
+            -31431,
+            21878,
+            37318
+          ]
+        ],
+        "top_centered_singular_value": 92730.90656301394,
+        "normalized_top_singular_value": 0.01541094992097066,
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_type_ii_rows_have_zero_margins": true,
+          "centered_type_ii_columns_have_zero_margins": true,
+          "centered_joint_incidence_is_nonzero": true
+        }
+      },
+      {
+        "X": 10000000,
+        "cubic_roughness_floor_z": 215,
+        "double_semiprime_pair_count_QQ": 19074,
+        "least_factor_log_bin_count": 4,
+        "joint_incidence_matrix": [
+          [
+            1894,
+            1793,
+            1482,
+            720
+          ],
+          [
+            1807,
+            1658,
+            1434,
+            671
+          ],
+          [
+            1554,
+            1469,
+            1384,
+            657
+          ],
+          [
+            736,
+            647,
+            689,
+            479
+          ]
+        ],
+        "row_margins": [
+          5889,
+          5570,
+          5064,
+          2551
+        ],
+        "column_margins": [
+          5991,
+          5567,
+          4989,
+          2527
+        ],
+        "centered_incidence_numerator": [
+          [
+            845157,
+            1415619,
+            -1112553,
+            -1148223
+          ],
+          [
+            1096848,
+            616502,
+            -436614,
+            -1276736
+          ],
+          [
+            -697428,
+            -171582,
+            1134120,
+            -265110
+          ],
+          [
+            -1244577,
+            -1860539,
+            415047,
+            2690069
+          ]
+        ],
+        "top_centered_singular_value": 4499308.1114703305,
+        "normalized_top_singular_value": 0.012366937841848835,
+        "checks": {
+          "double_semiprime_pairs_exist": true,
+          "centered_type_ii_rows_have_zero_margins": true,
+          "centered_type_ii_columns_have_zero_margins": true,
+          "centered_joint_incidence_is_nonzero": true
+        }
+      }
+    ],
+    "trend_checks": {
+      "finite_normalized_spectral_values_strictly_decrease": true,
+      "ten_million_value_is_below_two_percent": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "any proof based only on separate divisor marginals or a fixed finite Type-I feature list",
+  "remaining_gap": "The decreasing finite spectral ratios are not a uniform Type-II estimate and do not yield a positive twin-prime lower bound. Least-factor bins also use factorization data.",
+  "candidate_theorem": "UniformCubicRoughCenteredIncidenceSpectralDecay",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample. One exact Type-I marginal no-go and a finite centered Type-II incidence audit through 10M.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T161-REJECTED",
+        "label": "SeparateDivisorMarginalsSupplyTwinParityBreaking",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T161-CLOSED",
+        "label": "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T161-OPEN",
+        "label": "UniformCubicRoughCenteredIncidenceSpectralDecay",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T161-REJECTED",
+        "TP-T161-CLOSED"
+      ],
+      [
+        "TP-T161-CLOSED",
+        "TP-T161-OPEN"
+      ]
+    ]
+  }
+}

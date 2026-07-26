@@ -1,0 +1,265 @@
+{
+  "schema": "primeproject.ticket161-commoncore-baker-angle-typeii.v1",
+  "generated_at": "2026-07-27T18:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-161",
+  "status": "open_not_proven",
+  "theorem_name": "ResolvedCommonCoreL2TransportAndFormNormNoGo",
+  "declared_proposition": "Let 0<a<L and extend f in H^1_0(-a,a) by zero to I_L=(-L,L). If P_{L,N} is the orthogonal projection onto the Fourier modes |k|<=N on I_L, Parseval gives ||f-P_{L,N}f||_2 <= L||f'||_2/(pi(N+1)). Thus every fixed finite-dimensional compact H1 core has an effective common L2 transport whenever L/(N+1)->0. For the non-band-limited tent f(x)=max(1-|x|,0), N/L bounded leaves a positive Fourier tail, and N/L->0 makes the captured energy tend to zero. Therefore raw cross-cutoff non-nesting can be repaired in L2, but only with a resolved schedule N/L->infinity.",
+  "mathematical_argument": "The derivative Fourier coefficient is (pi*k/L)c_k. Bounding the coefficient tail by its derivative-weighted tail proves the displayed H1 estimate. The tent coefficient is explicit: c_k=[2(1-cos(pi*k/L))/(pi*k/L)^2]/sqrt(2L), with c_0=1/sqrt(2L). Its projection energy is the finite sum used below. If N/L has a finite limit, the Riemann sum captures only a finite Fourier interval, whose complement has positive energy because the tent is not band limited. If N/L->0, the coefficient bound |c_k|<=||f||_1/sqrt(2L) makes the captured energy at most (2N+1)||f||_1^2/(2L), which tends to zero.",
+  "reproducible_computation": {
+    "theorem": "Let 0<a<L and extend f in H^1_0(-a,a) by zero to I_L=(-L,L). If P_{L,N} is the orthogonal projection onto the Fourier modes |k|<=N on I_L, Parseval gives ||f-P_{L,N}f||_2 <= L||f'||_2/(pi(N+1)). Thus every fixed finite-dimensional compact H1 core has an effective common L2 transport whenever L/(N+1)->0. For the non-band-limited tent f(x)=max(1-|x|,0), N/L bounded leaves a positive Fourier tail, and N/L->0 makes the captured energy tend to zero. Therefore raw cross-cutoff non-nesting can be repaired in L2, but only with a resolved schedule N/L->infinity.",
+    "proof": "The derivative Fourier coefficient is (pi*k/L)c_k. Bounding the coefficient tail by its derivative-weighted tail proves the displayed H1 estimate. The tent coefficient is explicit: c_k=[2(1-cos(pi*k/L))/(pi*k/L)^2]/sqrt(2L), with c_0=1/sqrt(2L). Its projection energy is the finite sum used below. If N/L has a finite limit, the Riemann sum captures only a finite Fourier interval, whose complement has positive energy because the tent is not band limited. If N/L->0, the coefficient bound |c_k|<=||f||_1/sqrt(2L) makes the captured energy at most (2N+1)||f||_1^2/(2L), which tends to zero.",
+    "finite_tent_transport_rows": [
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 2,
+        "frequency_band_N": 4,
+        "resolution_ratio_N_over_L": 2.0,
+        "tent_l2_projection_error": 0.044403601048616556,
+        "captured_energy_fraction": 0.997042480320873,
+        "h1_parseval_upper_bound": 0.18006326323142124,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 2,
+        "frequency_band_N": 8,
+        "resolution_ratio_N_over_L": 4.0,
+        "tent_l2_projection_error": 0.017184719009274107,
+        "captured_energy_fraction": 0.9995570281488584,
+        "h1_parseval_upper_bound": 0.10003514623967846,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 2,
+        "frequency_band_N": 1,
+        "resolution_ratio_N_over_L": 0.5,
+        "tent_l2_projection_error": 0.29690947192160777,
+        "captured_energy_fraction": 0.867767148224848,
+        "h1_parseval_upper_bound": 0.4501581580785531,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 4,
+        "frequency_band_N": 16,
+        "resolution_ratio_N_over_L": 4.0,
+        "tent_l2_projection_error": 0.017174511017056613,
+        "captured_energy_fraction": 0.9995575542569874,
+        "h1_parseval_upper_bound": 0.10591956660671836,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 4,
+        "frequency_band_N": 16,
+        "resolution_ratio_N_over_L": 4.0,
+        "tent_l2_projection_error": 0.017174511017056613,
+        "captured_energy_fraction": 0.9995575542569874,
+        "h1_parseval_upper_bound": 0.10591956660671836,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 4,
+        "frequency_band_N": 2,
+        "resolution_ratio_N_over_L": 0.5,
+        "tent_l2_projection_error": 0.3898157856230266,
+        "captured_energy_fraction": 0.7720654799186538,
+        "h1_parseval_upper_bound": 0.6002108774380708,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 8,
+        "frequency_band_N": 64,
+        "resolution_ratio_N_over_L": 8.0,
+        "tent_l2_projection_error": 0.006260426268784719,
+        "captured_energy_fraction": 0.9999412105943997,
+        "h1_parseval_upper_bound": 0.05540408099428346,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 8,
+        "frequency_band_N": 32,
+        "resolution_ratio_N_over_L": 4.0,
+        "tent_l2_projection_error": 0.01717439230750008,
+        "captured_energy_fraction": 0.9995575603733021,
+        "h1_parseval_upper_bound": 0.10912925044328559,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 8,
+        "frequency_band_N": 2,
+        "resolution_ratio_N_over_L": 0.25,
+        "tent_l2_projection_error": 0.6079598872216417,
+        "captured_energy_fraction": 0.44557716329417285,
+        "h1_parseval_upper_bound": 1.2004217548761416,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 16,
+        "frequency_band_N": 256,
+        "resolution_ratio_N_over_L": 16.0,
+        "tent_l2_projection_error": 0.002232328463415829,
+        "captured_energy_fraction": 0.9999925250644471,
+        "h1_parseval_upper_bound": 0.028025410619676457,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 16,
+        "frequency_band_N": 64,
+        "resolution_ratio_N_over_L": 4.0,
+        "tent_l2_projection_error": 0.017174390574802332,
+        "captured_energy_fraction": 0.9995575604625762,
+        "h1_parseval_upper_bound": 0.11080816198856693,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 16,
+        "frequency_band_N": 4,
+        "resolution_ratio_N_over_L": 0.25,
+        "tent_l2_projection_error": 0.6301294575919514,
+        "captured_energy_fraction": 0.40440530001230973,
+        "h1_parseval_upper_bound": 1.44050610585137,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "resolved_quadratic",
+        "interval_half_length_L": 32,
+        "frequency_band_N": 1024,
+        "resolution_ratio_N_over_L": 32.0,
+        "tent_l2_projection_error": 0.0007909859274186246,
+        "captured_energy_fraction": 0.9999990615118939,
+        "h1_parseval_upper_bound": 0.014053718105867023,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "critical_linear",
+        "interval_half_length_L": 32,
+        "frequency_band_N": 128,
+        "resolution_ratio_N_over_L": 4.0,
+        "tent_l2_projection_error": 0.017174390548201288,
+        "captured_energy_fraction": 0.9995575604639467,
+        "h1_parseval_upper_bound": 0.11166713998847828,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      },
+      {
+        "schedule": "underresolved_square_root",
+        "interval_half_length_L": 32,
+        "frequency_band_N": 5,
+        "resolution_ratio_N_over_L": 0.15625,
+        "tent_l2_projection_error": 0.7053491538082153,
+        "captured_energy_fraction": 0.25372385683305193,
+        "h1_parseval_upper_bound": 2.400843509752283,
+        "checks": {
+          "projection_error_is_nonnegative": true,
+          "captured_energy_fraction_is_in_unit_interval": true,
+          "h1_tail_bound_holds": true
+        }
+      }
+    ],
+    "trend_checks": {
+      "resolved_error_strictly_decreases": true,
+      "critical_linear_error_stays_positive": true,
+      "underresolved_error_does_not_converge_in_a_resolved_pattern": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "unresolved schedules with bounded N/L, and any claim that L2 convergence alone transports Weil positivity",
+  "remaining_gap": "L2 transport does not bound the Weil quadratic form or its graph norm uniformly in the cutoff. No positive form margin or exclusion of an off-critical zero follows.",
+  "candidate_theorem": "UniformWeilFormGraphNormTransportOnResolvedCommonCore",
+  "claim_boundary": "No RH proof and no off-critical zero. One exact L2 common-core transport theorem and one resolution no-go.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T161-REJECTED",
+        "label": "L2TransportAlonePreservesWeilPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T161-CLOSED",
+        "label": "ResolvedCommonCoreL2TransportAndFormNormNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T161-OPEN",
+        "label": "UniformWeilFormGraphNormTransportOnResolvedCommonCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T161-REJECTED",
+        "RH-T161-CLOSED"
+      ],
+      [
+        "RH-T161-CLOSED",
+        "RH-T161-OPEN"
+      ]
+    ]
+  }
+}

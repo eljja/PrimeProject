@@ -62,7 +62,62 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-160
+## Latest Continuation After TICKET-161
+
+Read `docs/commoncore-baker-angle-typeii.md`,
+`data/open-problem/ticket161-commoncore-baker-angle-typeii.json`,
+`scripts/ticket161_commoncore_baker_angle_typeii.py`, and
+`tests/test_ticket161_commoncore_baker_angle_typeii.py` first.
+
+Do not reopen these rejected routes without defeating the exact TICKET-161
+theorem or counterexample:
+
+- using bounded Fourier resolution `N/L`, or `L2` convergence alone, to
+  transport positivity of the Weil quadratic form;
+- using average Collatz drift alone, or treating every depth as equally
+  dangerous in the minimal front-loaded family;
+- replacing a uniform targetwise Goldbach reflection-angle bound by a mean or
+  RMS angle bound;
+- treating separate divisor marginals or a fixed finite Type-I feature list
+  as independent Type-II information.
+
+| Problem | Current single open lemma |
+|---|---|
+| RH | `UniformWeilFormGraphNormTransportOnResolvedCommonCore` |
+| Collatz | `ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily` |
+| Goldbach | `UniformPrimeMinorReflectionAngleBelowMajorArcMargin` |
+| Twin Prime | `UniformCubicRoughCenteredIncidenceSpectralDecay` |
+
+한국어: RH에서는 compact `H1` core를 cutoff 공간으로 옮기는 `L2`
+수송을 유효하게 닫았지만 Weil 이차형식의 graph norm과 양의 margin은
+아직 없다. Collatz에서는 최소 front-loaded 한 가족의 충분히 큰
+깊이에서 하강을 Baker-Wüstholz형 선형 로그 하계로 증명했지만, 명시적
+작은 임계값과 모든 자연수 궤도에 대한 전칭 정리는 없다. Goldbach의
+targetwise reflection angle은 정확한 조건이지만 현재 prime DFT로
+계산한 값은 독립적인 해석적 상계가 아니다. Twin의 zero-marginal
+checkerboard는 Type-I 주변통계의 한계를 정확히 보이지만, 유한 spectral
+감소는 균일한 Type-II 정리가 아니다.
+
+Exact TICKET-161 results:
+
+- RH: for a zero-extended `f in H^1_0(-a,a)`,
+  `||f-P_(L,N)f||_2 <= L||f'||_2/(pi(N+1))`. The tent witness proves that
+  bounded `N/L` cannot give universal convergence.
+- Collatz: a failed descent in the minimal front-loaded family forces
+  `S_m/m` to be a continued-fraction convergent of `log_2 3`.
+  Baker-Wüstholz eventually excludes all such failures. The exact scan through
+  `m=50,000` finds none, but this closes only that explicit family.
+- Goldbach: `G_f(N)=M(N)+rho_N||P_minor f||_2^2` gives the exact harmful-angle
+  certificate. A two-point spike has one angle `-1` while its mean and RMS
+  angles tend to zero, ruling out average-to-pointwise promotion.
+- Twin Prime: a zero-marginal checkerboard has nonzero bilinear correlation.
+  Centered least-factor incidence has exact zero marginals and supplies a
+  finite Type-II observable through 10M, not a prime-producing lower bound.
+
+These are exact intermediate results. They neither prove nor disprove any of
+the four target conjectures.
+
+## Previous Continuation After TICKET-160
 
 Read `docs/exact-support-cylinder-bilinear-wheel.md`,
 `data/open-problem/ticket160-exact-support-cylinder-bilinear-wheel.json`,

@@ -164,6 +164,9 @@ TICKET159_SCHEMA = (
 TICKET160_SCHEMA = (
     "primeproject.ticket160-exact-support-cylinder-bilinear-wheel.v1"
 )
+TICKET161_SCHEMA = (
+    "primeproject.ticket161-commoncore-baker-angle-typeii.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -11497,6 +11500,263 @@ def main() -> int:
         not in str(ticket160.get("claim_boundary", "")).lower()
     ):
         return fail("ticket160 proof boundary changed")
+
+    path161 = Path(
+        "data/open-problem/"
+        "ticket161-commoncore-baker-angle-typeii.json"
+    )
+    if not path161.exists():
+        return fail("missing ticket161 commoncore-baker-angle-typeii audit")
+    ticket161 = read_json(path161)
+    if (
+        ticket161.get("schema") != TICKET161_SCHEMA
+        or ticket161.get("status")
+        != (
+            "four_exact_reductions_and_no_go_results_"
+            "all_conjectures_open"
+        )
+    ):
+        return fail("ticket161 schema or status changed")
+    attempts161 = ticket161.get("attempts", [])
+    by_id161 = {
+        str(row.get("problem_id")): row
+        for row in attempts161
+        if isinstance(row, dict)
+    }
+    if set(by_id161) != EXPECTED_PROBLEMS:
+        return fail("ticket161 attempts missing problems")
+
+    paths161 = {
+        "riemann": Path(
+            "data/open-problem/riemann/"
+            "rh-ticket-161-common-core-resolution.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/"
+            "co-ticket-161-baker-front-loaded.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/"
+            "gb-ticket-161-reflection-angle.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/"
+            "tp-ticket-161-centered-typeii.json"
+        ),
+    }
+    next161 = {
+        "riemann": "UniformWeilFormGraphNormTransportOnResolvedCommonCore",
+        "collatz": (
+            "ExplicitBakerThresholdAndFiniteClosureFor"
+            "MinimalFrontLoadedFamily"
+        ),
+        "goldbach": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin",
+        "twin-prime": "UniformCubicRoughCenteredIncidenceSpectralDecay",
+    }
+    for problem_id, attempt in by_id161.items():
+        if (
+            not paths161[problem_id].exists()
+            or "No " not in str(attempt.get("claim_boundary", ""))
+            or attempt.get("status") != "open_not_proven"
+        ):
+            return fail(
+                f"{problem_id}: ticket161 artifact or boundary missing"
+            )
+        per_problem161 = read_json(paths161[problem_id])
+        if (
+            per_problem161.get("schema") != TICKET161_SCHEMA
+            or per_problem161.get("problem_id") != problem_id
+            or per_problem161.get("candidate_theorem")
+            != next161[problem_id]
+            or attempt.get("candidate_theorem") != next161[problem_id]
+        ):
+            return fail(
+                f"{problem_id}: ticket161 per-problem contract changed"
+            )
+
+    audit161 = ticket161.get(
+        "commoncore_baker_angle_typeii_audit",
+        {},
+    )
+    machine161 = audit161.get("machine_audit", {})
+    if (
+        audit161.get("theorem_name")
+        != "FourConjectureCommonCoreBakerAngleTypeIIAudit"
+        or int(machine161.get("exact_theorem_count", -1)) != 4
+        or int(machine161.get("rejected_target_count", -1)) != 4
+        or int(machine161.get("proof_dag_count", -1)) != 4
+        or int(machine161.get("conjecture_resolution_count", -1)) != 0
+        or int(machine161.get("total_failure_count", -1)) != 0
+    ):
+        return fail("ticket161 global machine audit changed")
+
+    riemann161 = audit161.get("riemann", {})
+    transport161 = riemann161.get("reproducible_computation", {})
+    transport_rows161 = transport161.get(
+        "finite_tent_transport_rows",
+        [],
+    )
+    resolved161 = [
+        row
+        for row in transport_rows161
+        if row.get("schedule") == "resolved_quadratic"
+    ]
+    critical161 = [
+        row
+        for row in transport_rows161
+        if row.get("schedule") == "critical_linear"
+    ]
+    underresolved161 = [
+        row
+        for row in transport_rows161
+        if row.get("schedule") == "underresolved_square_root"
+    ]
+    if (
+        riemann161.get("theorem_name")
+        != "ResolvedCommonCoreL2TransportAndFormNormNoGo"
+        or len(transport_rows161) != 15
+        or [int(row.get("interval_half_length_L", -1)) for row in resolved161]
+        != [2, 4, 8, 16, 32]
+        or len(critical161) != 5
+        or len(underresolved161) != 5
+        or float(resolved161[-1].get("tent_l2_projection_error", 1))
+        >= 0.001
+        or not all(transport161.get("trend_checks", {}).values())
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in transport_rows161
+        )
+        or int(transport161.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket161 RH common-core audit changed")
+
+    collatz161 = audit161.get("collatz", {})
+    baker161 = collatz161.get("reproducible_computation", {})
+    selected161 = baker161.get("finite_selected_depth_rows", [])
+    convergents161 = baker161.get(
+        "continued_fraction_candidate_rows",
+        [],
+    )
+    if (
+        collatz161.get("theorem_name")
+        != "AsymptoticMinimalFrontLoadedDescentAndConvergentReduction"
+        or int(baker161.get("scan_limit_m", -1)) != 50000
+        or baker161.get("observed_failure_lengths") != []
+        or baker161.get("minimum_observed_descent_ratio", {}).get("exact")
+        != "13/7"
+        or not selected161
+        or not convergents161
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in selected161
+        )
+        or any(
+            not bool(row.get("descent_holds"))
+            for row in convergents161
+        )
+        or not all(baker161.get("summary_checks", {}).values())
+        or int(baker161.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket161 Collatz Baker audit changed")
+
+    goldbach161 = audit161.get("goldbach", {})
+    angles161 = goldbach161.get("reproducible_computation", {})
+    angle_rows161 = angles161.get(
+        "finite_prime_reflection_angle_rows",
+        [],
+    )
+    spike_rows161 = angles161.get(
+        "exact_average_angle_no_go_rows",
+        [],
+    )
+    if (
+        goldbach161.get("theorem_name")
+        != "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo"
+        or [int(row.get("even_endpoint_N", -1)) for row in angle_rows161]
+        != [1000, 2000, 4000, 8000, 16000]
+        or sum(
+            int(row.get("energy_only_positive_certificate_count", -1))
+            for row in angle_rows161
+        )
+        != 0
+        or sum(
+            int(row.get("phase_aware_positive_certificate_count", -1))
+            for row in angle_rows161
+        )
+        != 15495
+        or len(spike_rows161) != 5
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in angle_rows161 + spike_rows161
+        )
+        or int(angles161.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket161 Goldbach reflection-angle audit changed")
+
+    twin161 = audit161.get("twin_prime", {})
+    typeii161 = twin161.get("reproducible_computation", {})
+    checker161 = typeii161.get(
+        "exact_zero_marginal_checkerboard_rows",
+        [],
+    )
+    incidence161 = typeii161.get(
+        "finite_cubic_rough_centered_incidence_rows",
+        [],
+    )
+    ratios161 = [
+        float(row.get("normalized_top_singular_value", 1))
+        for row in incidence161
+    ]
+    if (
+        twin161.get("theorem_name")
+        != "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity"
+        or len(checker161) != 4
+        or [int(row.get("X", -1)) for row in incidence161]
+        != [10000, 100000, 1000000, 10000000]
+        or [
+            int(row.get("double_semiprime_pair_count_QQ", -1))
+            for row in incidence161
+        ]
+        != [35, 284, 2453, 19074]
+        or not all(
+            ratios161[index] > ratios161[index + 1]
+            for index in range(len(ratios161) - 1)
+        )
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in checker161 + incidence161
+        )
+        or not all(typeii161.get("trend_checks", {}).values())
+        or int(typeii161.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket161 Twin Type-II audit changed")
+
+    sections161 = {
+        "riemann": riemann161,
+        "collatz": collatz161,
+        "goldbach": goldbach161,
+        "twin-prime": twin161,
+    }
+    for problem_id, section in sections161.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next161[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket161 proof DAG changed")
+    if (
+        "resolves no target conjecture"
+        not in str(audit161.get("proof_boundary", "")).lower()
+        or "resolves no target conjecture"
+        not in str(ticket161.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket161 proof boundary changed")
 
     print("open problem structure verified")
     return 0

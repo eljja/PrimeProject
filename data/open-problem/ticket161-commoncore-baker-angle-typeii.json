@@ -1,0 +1,3674 @@
+{
+  "schema": "primeproject.ticket161-commoncore-baker-angle-typeii.v1",
+  "generated_at": "2026-07-27T18:30:00+09:00",
+  "status": "four_exact_reductions_and_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-161 proves four exact reductions or no-go theorems and resolves no target conjecture. RH receives a constructive common-core L2 transport with its exact resolution barrier; Collatz gains an unconditional eventual minimal-front-loaded descent theorem via linear forms in logarithms and a continued-fraction failure reduction; Goldbach gains a targetwise harmful-angle criterion and an average-angle no-go; Twin gains an exact Type-I marginal blindness theorem and a centered Type-II observable.",
+  "commoncore_baker_angle_typeii_audit": {
+    "theorem_name": "FourConjectureCommonCoreBakerAngleTypeIIAudit",
+    "status": "four_exact_reductions_and_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-161 proves four exact reductions or no-go theorems and resolves no target conjecture. RH receives a constructive common-core L2 transport with its exact resolution barrier; Collatz gains an unconditional eventual minimal-front-loaded descent theorem via linear forms in logarithms and a continued-fraction failure reduction; Goldbach gains a targetwise harmful-angle criterion and an average-angle no-go; Twin gains an exact Type-I marginal blindness theorem and a centered Type-II observable.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-161",
+      "theorem_name": "ResolvedCommonCoreL2TransportAndFormNormNoGo",
+      "declared_proposition": "Let 0<a<L and extend f in H^1_0(-a,a) by zero to I_L=(-L,L). If P_{L,N} is the orthogonal projection onto the Fourier modes |k|<=N on I_L, Parseval gives ||f-P_{L,N}f||_2 <= L||f'||_2/(pi(N+1)). Thus every fixed finite-dimensional compact H1 core has an effective common L2 transport whenever L/(N+1)->0. For the non-band-limited tent f(x)=max(1-|x|,0), N/L bounded leaves a positive Fourier tail, and N/L->0 makes the captured energy tend to zero. Therefore raw cross-cutoff non-nesting can be repaired in L2, but only with a resolved schedule N/L->infinity.",
+      "mathematical_argument": "The derivative Fourier coefficient is (pi*k/L)c_k. Bounding the coefficient tail by its derivative-weighted tail proves the displayed H1 estimate. The tent coefficient is explicit: c_k=[2(1-cos(pi*k/L))/(pi*k/L)^2]/sqrt(2L), with c_0=1/sqrt(2L). Its projection energy is the finite sum used below. If N/L has a finite limit, the Riemann sum captures only a finite Fourier interval, whose complement has positive energy because the tent is not band limited. If N/L->0, the coefficient bound |c_k|<=||f||_1/sqrt(2L) makes the captured energy at most (2N+1)||f||_1^2/(2L), which tends to zero.",
+      "reproducible_computation": {
+        "theorem": "Let 0<a<L and extend f in H^1_0(-a,a) by zero to I_L=(-L,L). If P_{L,N} is the orthogonal projection onto the Fourier modes |k|<=N on I_L, Parseval gives ||f-P_{L,N}f||_2 <= L||f'||_2/(pi(N+1)). Thus every fixed finite-dimensional compact H1 core has an effective common L2 transport whenever L/(N+1)->0. For the non-band-limited tent f(x)=max(1-|x|,0), N/L bounded leaves a positive Fourier tail, and N/L->0 makes the captured energy tend to zero. Therefore raw cross-cutoff non-nesting can be repaired in L2, but only with a resolved schedule N/L->infinity.",
+        "proof": "The derivative Fourier coefficient is (pi*k/L)c_k. Bounding the coefficient tail by its derivative-weighted tail proves the displayed H1 estimate. The tent coefficient is explicit: c_k=[2(1-cos(pi*k/L))/(pi*k/L)^2]/sqrt(2L), with c_0=1/sqrt(2L). Its projection energy is the finite sum used below. If N/L has a finite limit, the Riemann sum captures only a finite Fourier interval, whose complement has positive energy because the tent is not band limited. If N/L->0, the coefficient bound |c_k|<=||f||_1/sqrt(2L) makes the captured energy at most (2N+1)||f||_1^2/(2L), which tends to zero.",
+        "finite_tent_transport_rows": [
+          {
+            "schedule": "resolved_quadratic",
+            "interval_half_length_L": 2,
+            "frequency_band_N": 4,
+            "resolution_ratio_N_over_L": 2.0,
+            "tent_l2_projection_error": 0.044403601048616556,
+            "captured_energy_fraction": 0.997042480320873,
+            "h1_parseval_upper_bound": 0.18006326323142124,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "critical_linear",
+            "interval_half_length_L": 2,
+            "frequency_band_N": 8,
+            "resolution_ratio_N_over_L": 4.0,
+            "tent_l2_projection_error": 0.017184719009274107,
+            "captured_energy_fraction": 0.9995570281488584,
+            "h1_parseval_upper_bound": 0.10003514623967846,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "underresolved_square_root",
+            "interval_half_length_L": 2,
+            "frequency_band_N": 1,
+            "resolution_ratio_N_over_L": 0.5,
+            "tent_l2_projection_error": 0.29690947192160777,
+            "captured_energy_fraction": 0.867767148224848,
+            "h1_parseval_upper_bound": 0.4501581580785531,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "resolved_quadratic",
+            "interval_half_length_L": 4,
+            "frequency_band_N": 16,
+            "resolution_ratio_N_over_L": 4.0,
+            "tent_l2_projection_error": 0.017174511017056613,
+            "captured_energy_fraction": 0.9995575542569874,
+            "h1_parseval_upper_bound": 0.10591956660671836,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "critical_linear",
+            "interval_half_length_L": 4,
+            "frequency_band_N": 16,
+            "resolution_ratio_N_over_L": 4.0,
+            "tent_l2_projection_error": 0.017174511017056613,
+            "captured_energy_fraction": 0.9995575542569874,
+            "h1_parseval_upper_bound": 0.10591956660671836,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "underresolved_square_root",
+            "interval_half_length_L": 4,
+            "frequency_band_N": 2,
+            "resolution_ratio_N_over_L": 0.5,
+            "tent_l2_projection_error": 0.3898157856230266,
+            "captured_energy_fraction": 0.7720654799186538,
+            "h1_parseval_upper_bound": 0.6002108774380708,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "resolved_quadratic",
+            "interval_half_length_L": 8,
+            "frequency_band_N": 64,
+            "resolution_ratio_N_over_L": 8.0,
+            "tent_l2_projection_error": 0.006260426268784719,
+            "captured_energy_fraction": 0.9999412105943997,
+            "h1_parseval_upper_bound": 0.05540408099428346,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "critical_linear",
+            "interval_half_length_L": 8,
+            "frequency_band_N": 32,
+            "resolution_ratio_N_over_L": 4.0,
+            "tent_l2_projection_error": 0.01717439230750008,
+            "captured_energy_fraction": 0.9995575603733021,
+            "h1_parseval_upper_bound": 0.10912925044328559,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "underresolved_square_root",
+            "interval_half_length_L": 8,
+            "frequency_band_N": 2,
+            "resolution_ratio_N_over_L": 0.25,
+            "tent_l2_projection_error": 0.6079598872216417,
+            "captured_energy_fraction": 0.44557716329417285,
+            "h1_parseval_upper_bound": 1.2004217548761416,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "resolved_quadratic",
+            "interval_half_length_L": 16,
+            "frequency_band_N": 256,
+            "resolution_ratio_N_over_L": 16.0,
+            "tent_l2_projection_error": 0.002232328463415829,
+            "captured_energy_fraction": 0.9999925250644471,
+            "h1_parseval_upper_bound": 0.028025410619676457,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "critical_linear",
+            "interval_half_length_L": 16,
+            "frequency_band_N": 64,
+            "resolution_ratio_N_over_L": 4.0,
+            "tent_l2_projection_error": 0.017174390574802332,
+            "captured_energy_fraction": 0.9995575604625762,
+            "h1_parseval_upper_bound": 0.11080816198856693,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "underresolved_square_root",
+            "interval_half_length_L": 16,
+            "frequency_band_N": 4,
+            "resolution_ratio_N_over_L": 0.25,
+            "tent_l2_projection_error": 0.6301294575919514,
+            "captured_energy_fraction": 0.40440530001230973,
+            "h1_parseval_upper_bound": 1.44050610585137,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "resolved_quadratic",
+            "interval_half_length_L": 32,
+            "frequency_band_N": 1024,
+            "resolution_ratio_N_over_L": 32.0,
+            "tent_l2_projection_error": 0.0007909859274186246,
+            "captured_energy_fraction": 0.9999990615118939,
+            "h1_parseval_upper_bound": 0.014053718105867023,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "critical_linear",
+            "interval_half_length_L": 32,
+            "frequency_band_N": 128,
+            "resolution_ratio_N_over_L": 4.0,
+            "tent_l2_projection_error": 0.017174390548201288,
+            "captured_energy_fraction": 0.9995575604639467,
+            "h1_parseval_upper_bound": 0.11166713998847828,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          },
+          {
+            "schedule": "underresolved_square_root",
+            "interval_half_length_L": 32,
+            "frequency_band_N": 5,
+            "resolution_ratio_N_over_L": 0.15625,
+            "tent_l2_projection_error": 0.7053491538082153,
+            "captured_energy_fraction": 0.25372385683305193,
+            "h1_parseval_upper_bound": 2.400843509752283,
+            "checks": {
+              "projection_error_is_nonnegative": true,
+              "captured_energy_fraction_is_in_unit_interval": true,
+              "h1_tail_bound_holds": true
+            }
+          }
+        ],
+        "trend_checks": {
+          "resolved_error_strictly_decreases": true,
+          "critical_linear_error_stays_positive": true,
+          "underresolved_error_does_not_converge_in_a_resolved_pattern": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "L2 transport does not bound the Weil quadratic form or its graph norm uniformly in the cutoff. No positive form margin or exclusion of an off-critical zero follows.",
+      "route_decision": {
+        "discard": "unresolved schedules with bounded N/L, and any claim that L2 convergence alone transports Weil positivity",
+        "retain": "resolved common compact cores with N/L tending to infinity, upgraded to a uniform Weil form graph norm",
+        "next_single_lemma": "UniformWeilFormGraphNormTransportOnResolvedCommonCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T161-REJECTED",
+            "label": "L2TransportAlonePreservesWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T161-CLOSED",
+            "label": "ResolvedCommonCoreL2TransportAndFormNormNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T161-OPEN",
+            "label": "UniformWeilFormGraphNormTransportOnResolvedCommonCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T161-REJECTED",
+            "RH-T161-CLOSED"
+          ],
+          [
+            "RH-T161-CLOSED",
+            "RH-T161-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero. One exact L2 common-core transport theorem and one resolution no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-161",
+      "theorem_name": "AsymptoticMinimalFrontLoadedDescentAndConvergentReduction",
+      "declared_proposition": "Let alpha=log_2(3), S_m=ceil(m alpha), b_m=S_m-m+1, D_m=2^S_m-3^m, and w_m=(b_m,1,...,1). Every natural realizer is n=(2^(S_m+1)t-2^b_m-1)/3 for one positive congruence class t mod 3, its endpoint is 2*3^(m-1)t-1, and it descends exactly when D_m t>2^(b_m-1)-1. If this inequality fails for m>=4, then 0<S_m/m-alpha<1/(2m^2), so the reduced rational S_m/m is a continued-fraction convergent of alpha. Moreover the Baker-Wustholz lower bound for the nonzero linear form S_m log 2-m log 3 is polynomial in m, whereas failure requires an exponentially small bound O(2^-m). Consequently every natural realizer in this minimal front-loaded family descends for all sufficiently large m, with an effectively computable finite exceptional range.",
+      "mathematical_argument": "The valuation-one tail forces the first endpoint to be 2^m t-1; inversion of the first step gives the displayed n, and direct comparison with the closed endpoint gives the integer descent inequality. Failure implies 1-exp(-(S log2-m log3))<2^-m, hence S/m-alpha<-log_2(1-2^-m)/m<1/(2m^2) for m>=4. Legendre's continued-fraction theorem gives the convergent reduction. A standard effective lower bound for a nonzero linear form in logarithms of the algebraic numbers 2 and 3 is larger than m^-C for an effective C; this eventually dominates the exponentially small failure window.",
+      "reproducible_computation": {
+        "theorem": "Let alpha=log_2(3), S_m=ceil(m alpha), b_m=S_m-m+1, D_m=2^S_m-3^m, and w_m=(b_m,1,...,1). Every natural realizer is n=(2^(S_m+1)t-2^b_m-1)/3 for one positive congruence class t mod 3, its endpoint is 2*3^(m-1)t-1, and it descends exactly when D_m t>2^(b_m-1)-1. If this inequality fails for m>=4, then 0<S_m/m-alpha<1/(2m^2), so the reduced rational S_m/m is a continued-fraction convergent of alpha. Moreover the Baker-Wustholz lower bound for the nonzero linear form S_m log 2-m log 3 is polynomial in m, whereas failure requires an exponentially small bound O(2^-m). Consequently every natural realizer in this minimal front-loaded family descends for all sufficiently large m, with an effectively computable finite exceptional range.",
+        "proof": "The valuation-one tail forces the first endpoint to be 2^m t-1; inversion of the first step gives the displayed n, and direct comparison with the closed endpoint gives the integer descent inequality. Failure implies 1-exp(-(S log2-m log3))<2^-m, hence S/m-alpha<-log_2(1-2^-m)/m<1/(2m^2) for m>=4. Legendre's continued-fraction theorem gives the convergent reduction. A standard effective lower bound for a nonzero linear form in logarithms of the algebraic numbers 2 and 3 is larger than m^-C for an effective C; this eventually dominates the exponentially small failure window.",
+        "scan_limit_m": 50000,
+        "finite_selected_depth_rows": [
+          {
+            "word_length_m": 2,
+            "minimal_contracting_total_S": 4,
+            "front_valuation_b": 3,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 3,
+              "decimal_digits": 1,
+              "exact": "7"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 2,
+              "decimal_digits": 1,
+              "exact": "3"
+            },
+            "natural_descent_margin": {
+              "bit_length": 5,
+              "decimal_digits": 2,
+              "exact": "18"
+            },
+            "log2_margin_ratio": 2.8073549220576046,
+            "reduced_S_over_m_is_continued_fraction_convergent": true,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 3,
+            "minimal_contracting_total_S": 5,
+            "front_valuation_b": 3,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 3,
+              "decimal_digits": 1,
+              "exact": "5"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 2,
+              "decimal_digits": 1,
+              "exact": "3"
+            },
+            "natural_descent_margin": {
+              "bit_length": 4,
+              "decimal_digits": 2,
+              "exact": "12"
+            },
+            "log2_margin_ratio": 2.3219280948873626,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 4,
+            "minimal_contracting_total_S": 7,
+            "front_valuation_b": 4,
+            "least_natural_parameter_t": 2,
+            "contracting_denominator_D": {
+              "bit_length": 6,
+              "decimal_digits": 2,
+              "exact": "47"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 3,
+              "decimal_digits": 1,
+              "exact": "7"
+            },
+            "natural_descent_margin": {
+              "bit_length": 7,
+              "decimal_digits": 3,
+              "exact": "87"
+            },
+            "log2_margin_ratio": 3.7472339296200334,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 5,
+            "minimal_contracting_total_S": 8,
+            "front_valuation_b": 4,
+            "least_natural_parameter_t": 1,
+            "contracting_denominator_D": {
+              "bit_length": 4,
+              "decimal_digits": 2,
+              "exact": "13"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 3,
+              "decimal_digits": 1,
+              "exact": "7"
+            },
+            "natural_descent_margin": {
+              "bit_length": 3,
+              "decimal_digits": 1,
+              "exact": "6"
+            },
+            "log2_margin_ratio": 0.893084796083488,
+            "reduced_S_over_m_is_continued_fraction_convergent": true,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 16,
+            "minimal_contracting_total_S": 26,
+            "front_valuation_b": 11,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 25,
+              "decimal_digits": 8,
+              "exact": "24062143"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 10,
+              "decimal_digits": 4,
+              "exact": "1023"
+            },
+            "natural_descent_margin": {
+              "bit_length": 27,
+              "decimal_digits": 9,
+              "exact": "72185406"
+            },
+            "log2_margin_ratio": 16.106633871375237,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 64,
+            "minimal_contracting_total_S": 102,
+            "front_valuation_b": 39,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 101,
+              "decimal_digits": 31,
+              "exact": "1636918580620405121328963732223"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 38,
+              "decimal_digits": 12,
+              "exact": "274877906943"
+            },
+            "natural_descent_margin": {
+              "bit_length": 102,
+              "decimal_digits": 31,
+              "exact": "4910755741861215363712013289726"
+            },
+            "log2_margin_ratio": 63.95378791213039,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 256,
+            "minimal_contracting_total_S": 406,
+            "front_valuation_b": 151,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 404,
+              "decimal_digits": 122,
+              "exact": "26255539820417416973039040218531456842882319932541166829557374388565375179311400515295533455819211690086137465706940140543"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 150,
+              "decimal_digits": 46,
+              "exact": "1427247692705959881058285969449495136382746623"
+            },
+            "natural_descent_margin": {
+              "bit_length": 405,
+              "decimal_digits": 122,
+              "exact": "78766619461252250919117120655594370528646959797623500488672123165696125537932774298193894407576576784288962901984437675006"
+            },
+            "log2_margin_ratio": 254.93088384023133,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 1024,
+            "minimal_contracting_total_S": 1624,
+            "front_valuation_b": 601,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 1623,
+              "decimal_digits": 489,
+              "exact": "372563716377145795370700259024156384651781737581057144284535591458014751039794886020337629054703161274087254124712476819649822974682332803749172427383756476428695566788129119912655003381609963507134424101909835499340996087280602817355988527001499328810996693875871289912212183535416793481699680054955816357698738454644315010364579824746967217247925199116368769562353768076928372716528603623757453887076026634644979104230305064374091470035651327252885191091892901972007651738512616526196735"
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 600,
+              "decimal_digits": 181,
+              "exact": "4149515568880992958512407863691161151012446232242436899995657329690652811412908146399707048947103794288197886611300789182395151075411775307886874834113963687061181803401509523685375"
+            },
+            "natural_descent_margin": {
+              "bit_length": 1625,
+              "decimal_digits": 490,
+              "exact": "1117691149131437386112100777072469153955345212743171432853606774374044253119384658061012887164109483822261762374137430458949468924046998411247517282151269429286086700364387359737965010144829890521403272305729506498022988261841808452067965581004497986432990081627613869736636550606250380445099040164867449073092065848364064038135227066377210490592763151116863871787065646901094465338172902724872654612280976109646739426079614403939879259031542206450768698441564742228961773412136340054904830"
+            },
+            "log2_margin_ratio": 1024.583359984189,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 4096,
+            "minimal_contracting_total_S": 6493,
+            "front_valuation_b": 2398,
+            "least_natural_parameter_t": 2,
+            "contracting_denominator_D": {
+              "bit_length": 6492,
+              "decimal_digits": 1955
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 2397,
+              "decimal_digits": 722
+            },
+            "natural_descent_margin": {
+              "bit_length": 6493,
+              "decimal_digits": 1955
+            },
+            "log2_margin_ratio": 4095.99356850189,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 15601,
+            "minimal_contracting_total_S": 24727,
+            "front_valuation_b": 9127,
+            "least_natural_parameter_t": 3,
+            "contracting_denominator_D": {
+              "bit_length": 24712,
+              "decimal_digits": 7440
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 9126,
+              "decimal_digits": 2748
+            },
+            "natural_descent_margin": {
+              "bit_length": 24713,
+              "decimal_digits": 7440
+            },
+            "log2_margin_ratio": 15586.838818314085,
+            "reduced_S_over_m_is_continued_fraction_convergent": true,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          },
+          {
+            "word_length_m": 50000,
+            "minimal_contracting_total_S": 79249,
+            "front_valuation_b": 29250,
+            "least_natural_parameter_t": 2,
+            "contracting_denominator_D": {
+              "bit_length": 79248,
+              "decimal_digits": 23857
+            },
+            "descent_threshold_numerator": {
+              "bit_length": 29249,
+              "decimal_digits": 8805
+            },
+            "natural_descent_margin": {
+              "bit_length": 79249,
+              "decimal_digits": 23857
+            },
+            "log2_margin_ratio": 49999.86309004144,
+            "reduced_S_over_m_is_continued_fraction_convergent": false,
+            "checks": {
+              "minimal_total_valuation_is_contracting": true,
+              "least_parameter_satisfies_integrality_congruence": true,
+              "least_natural_realizer_descends": true
+            }
+          }
+        ],
+        "continued_fraction_candidate_rows": [
+          {
+            "word_length_m": 5,
+            "minimal_contracting_total_S": 8,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 0.893084796083488,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 10,
+            "minimal_contracting_total_S": 16,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 8.271018300699591,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 15,
+            "minimal_contracting_total_S": 24,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 12.214341103226886,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 20,
+            "minimal_contracting_total_S": 32,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 19.175421340836543,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 25,
+            "minimal_contracting_total_S": 40,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 22.875953016648403,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 30,
+            "minimal_contracting_total_S": 48,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 29.688111141694815,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 35,
+            "minimal_contracting_total_S": 56,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 33.29006093187837,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 40,
+            "minimal_contracting_total_S": 64,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 40.03251696434283,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 41,
+            "minimal_contracting_total_S": 65,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 36.129817764515565,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 45,
+            "minimal_contracting_total_S": 72,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 43.58265215913583,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 50,
+            "minimal_contracting_total_S": 80,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 50.28511348465357,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 55,
+            "minimal_contracting_total_S": 88,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 53.80347239245862,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 60,
+            "minimal_contracting_total_S": 96,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 60.480104896943566,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 65,
+            "minimal_contracting_total_S": 104,
+            "reduced_numerator": 8,
+            "reduced_denominator": 5,
+            "least_natural_parameter_t": 1,
+            "log2_descent_margin_ratio": 63.97707898007523,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 82,
+            "minimal_contracting_total_S": 130,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 78.12157263910152,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 123,
+            "minimal_contracting_total_S": 195,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 119.69830589724972,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 164,
+            "minimal_contracting_total_S": 260,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 161.10512995028648,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 205,
+            "minimal_contracting_total_S": 325,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 202.41886039453618,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 246,
+            "minimal_contracting_total_S": 390,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 243.67371294440295,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 287,
+            "minimal_contracting_total_S": 455,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 284.8879393033017,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 306,
+            "minimal_contracting_total_S": 485,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 297.065211113205,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 328,
+            "minimal_contracting_total_S": 520,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 326.07243411098705,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 369,
+            "minimal_contracting_total_S": 585,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 367.2342246327971,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 410,
+            "minimal_contracting_total_S": 650,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 408.37810903547177,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 451,
+            "minimal_contracting_total_S": 715,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 449.5075096553429,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 492,
+            "minimal_contracting_total_S": 780,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 490.62495341826275,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 533,
+            "minimal_contracting_total_S": 845,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 531.7323592988496,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 574,
+            "minimal_contracting_total_S": 910,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 572.8312189456734,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 612,
+            "minimal_contracting_total_S": 970,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 604.6494364127102,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 615,
+            "minimal_contracting_total_S": 975,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 613.9227148390753,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 656,
+            "minimal_contracting_total_S": 1040,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 655.0078002372582,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 697,
+            "minimal_contracting_total_S": 1105,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 696.0872548430309,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 738,
+            "minimal_contracting_total_S": 1170,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 737.1617245350612,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 779,
+            "minimal_contracting_total_S": 1235,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 778.2317503425959,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 820,
+            "minimal_contracting_total_S": 1300,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 819.2977899794414,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 861,
+            "minimal_contracting_total_S": 1365,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 860.3602341185715,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 902,
+            "minimal_contracting_total_S": 1430,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 901.419418877269,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 918,
+            "minimal_contracting_total_S": 1455,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 910.6486993371257,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 943,
+            "minimal_contracting_total_S": 1495,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 942.4756355246864,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 984,
+            "minimal_contracting_total_S": 1560,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 983.5291381218615,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1025,
+            "minimal_contracting_total_S": 1625,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1024.5801496010893,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1066,
+            "minimal_contracting_total_S": 1690,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1065.6288666522391,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1107,
+            "minimal_contracting_total_S": 1755,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1106.675463686397,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1148,
+            "minimal_contracting_total_S": 1820,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1147.7200960783184,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1189,
+            "minimal_contracting_total_S": 1885,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1188.7629028396434,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1224,
+            "minimal_contracting_total_S": 1940,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1217.6479623871724,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1230,
+            "minimal_contracting_total_S": 1950,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1229.8040088387413,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1271,
+            "minimal_contracting_total_S": 2015,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1270.8435266564309,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1312,
+            "minimal_contracting_total_S": 2080,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1311.881558146979,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1353,
+            "minimal_contracting_total_S": 2145,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1352.9181957588253,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1394,
+            "minimal_contracting_total_S": 2210,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1393.9535236580855,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1435,
+            "minimal_contracting_total_S": 2275,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1434.987618689156,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1476,
+            "minimal_contracting_total_S": 2340,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1476.0205511999634,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1517,
+            "minimal_contracting_total_S": 2405,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1517.052385754122,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1530,
+            "minimal_contracting_total_S": 2425,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 1523.3841911570166,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1558,
+            "minimal_contracting_total_S": 2470,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1558.083181748098,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1599,
+            "minimal_contracting_total_S": 2535,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1599.112993948197,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1640,
+            "minimal_contracting_total_S": 2600,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1640.1418729595516,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1681,
+            "minimal_contracting_total_S": 2665,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1681.1698656371946,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1722,
+            "minimal_contracting_total_S": 2730,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1722.1970154475853,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1763,
+            "minimal_contracting_total_S": 2795,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1763.2233627875953,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1804,
+            "minimal_contracting_total_S": 2860,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1804.248945266816,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1836,
+            "minimal_contracting_total_S": 2910,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1830.2314513648812,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1845,
+            "minimal_contracting_total_S": 2925,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1845.2737979581389,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1886,
+            "minimal_contracting_total_S": 2990,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1886.297953620794,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1927,
+            "minimal_contracting_total_S": 3055,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1927.3214428993952,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 1968,
+            "minimal_contracting_total_S": 3120,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 1968.3442945020352,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2009,
+            "minimal_contracting_total_S": 3185,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2009.3665353600095,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2050,
+            "minimal_contracting_total_S": 3250,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2050.38819077141,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2091,
+            "minimal_contracting_total_S": 3315,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2091.4092845304904,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2132,
+            "minimal_contracting_total_S": 3380,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2132.429839044479,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2142,
+            "minimal_contracting_total_S": 3395,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 2135.868144712437,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2173,
+            "minimal_contracting_total_S": 3445,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2173.4498754392553,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2214,
+            "minimal_contracting_total_S": 3510,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2214.469413655155,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2255,
+            "minimal_contracting_total_S": 3575,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2255.488472533981,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2296,
+            "minimal_contracting_total_S": 3640,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2296.507069898175,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2337,
+            "minimal_contracting_total_S": 3705,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2337.525222622981,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2378,
+            "minimal_contracting_total_S": 3770,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2378.542946702334,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2419,
+            "minimal_contracting_total_S": 3835,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2419.5602573091182,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2448,
+            "minimal_contracting_total_S": 3880,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2442.6450158436724,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2460,
+            "minimal_contracting_total_S": 3900,
+            "reduced_numerator": 65,
+            "reduced_denominator": 41,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 2460.5771688503546,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 2754,
+            "minimal_contracting_total_S": 4365,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 2748.229242022596,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 3060,
+            "minimal_contracting_total_S": 4850,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 3054.9654714205963,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 3366,
+            "minimal_contracting_total_S": 5335,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 3360.517276373089,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 3672,
+            "minimal_contracting_total_S": 5820,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 3667.2270338109893,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 3978,
+            "minimal_contracting_total_S": 6305,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 3972.7568127084132,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 4284,
+            "minimal_contracting_total_S": 6790,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 4279.447954719407,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 4590,
+            "minimal_contracting_total_S": 7275,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 4584.961792324222,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 4896,
+            "minimal_contracting_total_S": 7760,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 4891.639128786951,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 5202,
+            "minimal_contracting_total_S": 8245,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 5197.140893810725,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 5508,
+            "minimal_contracting_total_S": 8730,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 5503.807583280513,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 5814,
+            "minimal_contracting_total_S": 9215,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 5809.299888226298,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 6120,
+            "minimal_contracting_total_S": 9700,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 6115.958116368596,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 6426,
+            "minimal_contracting_total_S": 10185,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 6421.442808381529,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 6732,
+            "minimal_contracting_total_S": 10670,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 6728.094150389499,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 7038,
+            "minimal_contracting_total_S": 11155,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 7033.572583663217,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 7344,
+            "minimal_contracting_total_S": 11640,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 7340.218212271249,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 7650,
+            "minimal_contracting_total_S": 12125,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 7645.6914091478575,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 7956,
+            "minimal_contracting_total_S": 12610,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 7952.332220990847,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 8262,
+            "minimal_contracting_total_S": 13095,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 8257.800972213678,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 8568,
+            "minimal_contracting_total_S": 13580,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 8564.437668199447,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 8874,
+            "minimal_contracting_total_S": 14065,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 8869.902597962579,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 9180,
+            "minimal_contracting_total_S": 14550,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 9176.535736380189,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 9486,
+            "minimal_contracting_total_S": 15035,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 9481.99734603628,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 9792,
+            "minimal_contracting_total_S": 15520,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 9788.627378794272,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 10098,
+            "minimal_contracting_total_S": 16005,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 10094.086077106193,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 10404,
+            "minimal_contracting_total_S": 16490,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 10400.713375147712,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 10710,
+            "minimal_contracting_total_S": 16975,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 10706.169499767217,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 11016,
+            "minimal_contracting_total_S": 17460,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 11012.79437132259,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 11322,
+            "minimal_contracting_total_S": 17945,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 11318.248204381835,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 11628,
+            "minimal_contracting_total_S": 18430,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 11624.870908351772,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 11934,
+            "minimal_contracting_total_S": 18915,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 11930.322688003489,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 12240,
+            "minimal_contracting_total_S": 19400,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 12236.943443952878,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 12546,
+            "minimal_contracting_total_S": 19885,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 12542.393373060153,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 12852,
+            "minimal_contracting_total_S": 20370,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 12849.01236880292,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 13158,
+            "minimal_contracting_total_S": 20855,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 13154.460621583625,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 13464,
+            "minimal_contracting_total_S": 21340,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 13461.078019023407,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 13770,
+            "minimal_contracting_total_S": 21825,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 13766.524746201121,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 14076,
+            "minimal_contracting_total_S": 22310,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 14073.14068588793,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 14382,
+            "minimal_contracting_total_S": 22795,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 14378.586018734808,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 14688,
+            "minimal_contracting_total_S": 23280,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 14685.200623462166,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 14994,
+            "minimal_contracting_total_S": 23765,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 14990.644677008051,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 15300,
+            "minimal_contracting_total_S": 24250,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 15297.258054683261,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 15601,
+            "minimal_contracting_total_S": 24727,
+            "reduced_numerator": 24727,
+            "reduced_denominator": 15601,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 15586.838818314085,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 15606,
+            "minimal_contracting_total_S": 24735,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 15602.700930289178,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 15912,
+            "minimal_contracting_total_S": 25220,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 15909.313176246123,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 16218,
+            "minimal_contracting_total_S": 25705,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 16214.754963687497,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 16524,
+            "minimal_contracting_total_S": 26190,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 16521.3661625671,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 16830,
+            "minimal_contracting_total_S": 26675,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 16826.806941734638,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 17136,
+            "minimal_contracting_total_S": 27160,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 17133.417169026397,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 17442,
+            "minimal_contracting_total_S": 27645,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 17438.8570113259,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 17748,
+            "minimal_contracting_total_S": 28130,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 17745.466334641314,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 18054,
+            "minimal_contracting_total_S": 28615,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 18050.905304154163,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 18360,
+            "minimal_contracting_total_S": 29100,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 18357.51378428608,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 18666,
+            "minimal_contracting_total_S": 29585,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 18662.951938737864,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 18972,
+            "minimal_contracting_total_S": 30070,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 18969.55963054757,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 19278,
+            "minimal_contracting_total_S": 30555,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 19274.99702212173,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 19584,
+            "minimal_contracting_total_S": 31040,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 19581.60397528632,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 19890,
+            "minimal_contracting_total_S": 31525,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 19887.040651311607,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 20196,
+            "minimal_contracting_total_S": 32010,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 20193.64691095724,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 20502,
+            "minimal_contracting_total_S": 32495,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 20499.082914491803,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 20808,
+            "minimal_contracting_total_S": 32980,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 20805.6885217331,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 21114,
+            "minimal_contracting_total_S": 33465,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 21111.12389206329,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 21420,
+            "minimal_contracting_total_S": 33950,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 21417.72888446517,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 21726,
+            "minimal_contracting_total_S": 34435,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 21723.163657533594,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 22032,
+            "minimal_contracting_total_S": 34920,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 22029.768069508435,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 22338,
+            "minimal_contracting_total_S": 35405,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 22335.202278282937,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 22644,
+            "minimal_contracting_total_S": 35890,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 22641.80614143378,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 22950,
+            "minimal_contracting_total_S": 36375,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 22947.239816226902,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 23256,
+            "minimal_contracting_total_S": 36860,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 23253.84315964514,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 23562,
+            "minimal_contracting_total_S": 37345,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 23559.276328391832,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 23868,
+            "minimal_contracting_total_S": 37830,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 23865.879178916475,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 24174,
+            "minimal_contracting_total_S": 38315,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 24171.311867416414,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 24480,
+            "minimal_contracting_total_S": 38800,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 24477.914249860776,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 24786,
+            "minimal_contracting_total_S": 39285,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 24783.34648199058,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 25092,
+            "minimal_contracting_total_S": 39770,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 25089.948419341148,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 25398,
+            "minimal_contracting_total_S": 40255,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 25395.38021724086,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 25704,
+            "minimal_contracting_total_S": 40740,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 25701.981730832296,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 26010,
+            "minimal_contracting_total_S": 41225,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 26007.41311506981,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 26316,
+            "minimal_contracting_total_S": 41710,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 26314.01422473955,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 26622,
+            "minimal_contracting_total_S": 42195,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 26619.44521445602,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 26928,
+            "minimal_contracting_total_S": 42680,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 26926.04593868115,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 27234,
+            "minimal_contracting_total_S": 43165,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 27231.476551719956,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 27540,
+            "minimal_contracting_total_S": 43650,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 27538.076907738825,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 27846,
+            "minimal_contracting_total_S": 44135,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 27843.50716076033,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 28152,
+            "minimal_contracting_total_S": 44620,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 28150.10716468085,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 28458,
+            "minimal_contracting_total_S": 45105,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 28455.53707326469,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 28764,
+            "minimal_contracting_total_S": 45590,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 28762.13674016107,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 29070,
+            "minimal_contracting_total_S": 46075,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 29067.56631889766,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 29376,
+            "minimal_contracting_total_S": 46560,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 29374.16566289701,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 29682,
+            "minimal_contracting_total_S": 47045,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 29679.59492546955,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 29988,
+            "minimal_contracting_total_S": 47530,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 29986.19395982958,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 30294,
+            "minimal_contracting_total_S": 48015,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 30291.622919087764,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 30600,
+            "minimal_contracting_total_S": 48500,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 30598.221656266687,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 30906,
+            "minimal_contracting_total_S": 48985,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 30903.65032429302,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 31202,
+            "minimal_contracting_total_S": 49454,
+            "reduced_numerator": 24727,
+            "reduced_denominator": 15601,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 31188.838805189524,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 31212,
+            "minimal_contracting_total_S": 49470,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 31210.248776012595,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 31518,
+            "minimal_contracting_total_S": 49955,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 31515.677164182292,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 31824,
+            "minimal_contracting_total_S": 50440,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 31822.275341484732,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 32130,
+            "minimal_contracting_total_S": 50925,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 32127.703460519864,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 32436,
+            "minimal_contracting_total_S": 51410,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 32434.30137381937,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 32742,
+            "minimal_contracting_total_S": 51895,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 32739.729233837927,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 33048,
+            "minimal_contracting_total_S": 52380,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 33046.32689296741,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 33354,
+            "minimal_contracting_total_S": 52865,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 33351.75450352785,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 33660,
+            "minimal_contracting_total_S": 53350,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 33658.35191778142,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 33966,
+            "minimal_contracting_total_S": 53835,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 33963.779287923186,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 34272,
+            "minimal_contracting_total_S": 54320,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 34270.37646609483,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 34578,
+            "minimal_contracting_total_S": 54805,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 34575.80360437522,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 34884,
+            "minimal_contracting_total_S": 55290,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 34882.400554793996,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 35190,
+            "minimal_contracting_total_S": 55775,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 35187.82746932191,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 35496,
+            "minimal_contracting_total_S": 56260,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 35494.42419988421,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 35802,
+            "minimal_contracting_total_S": 56745,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 35799.85089835088,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 36108,
+            "minimal_contracting_total_S": 57230,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 36106.44741654986,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 36414,
+            "minimal_contracting_total_S": 57715,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 36411.87390625711,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 36720,
+            "minimal_contracting_total_S": 58200,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 36718.470219209696,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 37026,
+            "minimal_contracting_total_S": 58685,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 37023.896507095735,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 37332,
+            "minimal_contracting_total_S": 59170,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 37330.49262156738,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 37638,
+            "minimal_contracting_total_S": 59655,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 37635.9187142306,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 37944,
+            "minimal_contracting_total_S": 60140,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 37942.51463665807,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 38250,
+            "minimal_contracting_total_S": 60625,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 38247.94054037885,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 38556,
+            "minimal_contracting_total_S": 61110,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 38554.536276891165,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 38862,
+            "minimal_contracting_total_S": 61595,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 38859.961997652,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 39168,
+            "minimal_contracting_total_S": 62080,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 39166.55755408976,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 39474,
+            "minimal_contracting_total_S": 62565,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 39471.983097593795,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 39780,
+            "minimal_contracting_total_S": 63050,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 39778.57847952698,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 40086,
+            "minimal_contracting_total_S": 63535,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 40084.003851215144,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 40392,
+            "minimal_contracting_total_S": 64020,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 40390.599063959584,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 40698,
+            "minimal_contracting_total_S": 64505,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 40696.02426902642,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 41004,
+            "minimal_contracting_total_S": 64990,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 41002.619317659024,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 41310,
+            "minimal_contracting_total_S": 65475,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 41308.04436106734,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 41616,
+            "minimal_contracting_total_S": 65960,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 41614.63925044022,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 41922,
+            "minimal_contracting_total_S": 66445,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 41920.06413693467,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 42228,
+            "minimal_contracting_total_S": 66930,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 42226.65887168818,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 42534,
+            "minimal_contracting_total_S": 67415,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 42532.083605807886,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 42840,
+            "minimal_contracting_total_S": 67900,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 42838.67819038281,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 43146,
+            "minimal_contracting_total_S": 68385,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 43144.102776473024,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 43452,
+            "minimal_contracting_total_S": 68870,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 43450.69721512185,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 43758,
+            "minimal_contracting_total_S": 69355,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 43756.12165734489,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 44064,
+            "minimal_contracting_total_S": 69840,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 44062.71595414226,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 44370,
+            "minimal_contracting_total_S": 70325,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 44368.14025648759,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 44676,
+            "minimal_contracting_total_S": 70810,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 44674.73441534015,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 44982,
+            "minimal_contracting_total_S": 71295,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 44980.15858163385,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 45288,
+            "minimal_contracting_total_S": 71780,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 45286.752606289316,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 45594,
+            "minimal_contracting_total_S": 72265,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 45592.17664020287,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 45900,
+            "minimal_contracting_total_S": 72750,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 45898.770534258554,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 46206,
+            "minimal_contracting_total_S": 73235,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 46204.19443931707,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 46512,
+            "minimal_contracting_total_S": 73720,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 46510.78820622781,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 46803,
+            "minimal_contracting_total_S": 74181,
+            "reduced_numerator": 24727,
+            "reduced_denominator": 15601,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 46790.42375456572,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 46818,
+            "minimal_contracting_total_S": 74205,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 46816.2119858177,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 47124,
+            "minimal_contracting_total_S": 74690,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 47122.80562890328,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 47430,
+            "minimal_contracting_total_S": 75175,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 47428.22928627947,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 47736,
+            "minimal_contracting_total_S": 75660,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 47734.82280873158,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 48042,
+            "minimal_contracting_total_S": 76145,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 48040.246347024164,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 48348,
+            "minimal_contracting_total_S": 76630,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 48346.83975191291,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 48654,
+            "minimal_contracting_total_S": 77115,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 48652.263174133506,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 48960,
+            "minimal_contracting_total_S": 77600,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 48958.85646441352,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 49266,
+            "minimal_contracting_total_S": 78085,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 49264.27977346115,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 49572,
+            "minimal_contracting_total_S": 78570,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 3,
+            "log2_descent_margin_ratio": 49570.872951977246,
+            "descent_holds": true
+          },
+          {
+            "word_length_m": 49878,
+            "minimal_contracting_total_S": 79055,
+            "reduced_numerator": 485,
+            "reduced_denominator": 306,
+            "least_natural_parameter_t": 2,
+            "log2_descent_margin_ratio": 49876.29615064393,
+            "descent_holds": true
+          }
+        ],
+        "observed_failure_lengths": [],
+        "minimum_observed_descent_ratio": {
+          "exact": "13/7",
+          "decimal": 1.8571428571428572,
+          "word_length_m": 5
+        },
+        "summary_checks": {
+          "no_failure_through_scan_limit": true,
+          "minimum_ratio_exceeds_one": true,
+          "continued_fraction_candidates_are_present": true,
+          "all_scanned_convergent_candidates_descend": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The effective Baker threshold is not made numerically small here, so the finite interval between 50,000 and that bound is not closed. This family also does not cover every natural Collatz orbit.",
+      "route_decision": {
+        "discard": "treating every m as equally dangerous, or using only average contraction without the 2-versus-3 gap",
+        "retain": "continued-fraction candidate isolation plus an explicit two-logarithm bound and finite exact closure",
+        "next_single_lemma": "ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T161-REJECTED",
+            "label": "AverageDriftClosesMinimalFrontLoadedTransfer",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T161-CLOSED",
+            "label": "AsymptoticMinimalFrontLoadedDescentAndConvergentReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T161-OPEN",
+            "label": "ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T161-REJECTED",
+            "CO-T161-CLOSED"
+          ],
+          [
+            "CO-T161-CLOSED",
+            "CO-T161-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit. One unconditional eventual theorem for a single explicit family, one exact continued-fraction reduction, and a finite 50,000 scan."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-161",
+      "theorem_name": "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo",
+      "declared_proposition": "For a symmetric minor-frequency projection P and reflection R_N, put h=P f and rho_N=<h,R_N h>/||h||_2^2. The exact major/minor decomposition is G_f(N)=M(N)+rho_N||h||_2^2. Thus the harmful targetwise angle h_N=max(0,-rho_N) gives the exact lower certificate G_f(N)>=M(N)-h_N||h||_2^2. This strictly refines the phase-blind Cauchy replacement h_N<=1. However no average or RMS control of rho_N can replace a uniform targetwise bound: on Z/L, (delta_0-delta_1)/sqrt(2) has reflection coefficient -1 at N=1 while its mean absolute coefficient is 2/L and its RMS coefficient is sqrt(3/(2L)), both tending to zero.",
+      "mathematical_argument": "The reflection preserves every symmetric frequency subspace, so major/minor cross terms vanish and Fourier inversion gives the exact decomposition. The lower certificate is merely the negative part of that identity. For the no-go sequence, direct cyclic convolution has coefficients 1/2,-1,1/2 at targets 0,1,2 and zero elsewhere, proving every displayed statistic.",
+      "reproducible_computation": {
+        "theorem": "For a symmetric minor-frequency projection P and reflection R_N, put h=P f and rho_N=<h,R_N h>/||h||_2^2. The exact major/minor decomposition is G_f(N)=M(N)+rho_N||h||_2^2. Thus the harmful targetwise angle h_N=max(0,-rho_N) gives the exact lower certificate G_f(N)>=M(N)-h_N||h||_2^2. This strictly refines the phase-blind Cauchy replacement h_N<=1. However no average or RMS control of rho_N can replace a uniform targetwise bound: on Z/L, (delta_0-delta_1)/sqrt(2) has reflection coefficient -1 at N=1 while its mean absolute coefficient is 2/L and its RMS coefficient is sqrt(3/(2L)), both tending to zero.",
+        "proof": "The reflection preserves every symmetric frequency subspace, so major/minor cross terms vanish and Fourier inversion gives the exact decomposition. The lower certificate is merely the negative part of that identity. For the no-go sequence, direct cyclic convolution has coefficients 1/2,-1,1/2 at targets 0,1,2 and zero elsewhere, proving every displayed statistic.",
+        "finite_prime_reflection_angle_rows": [
+          {
+            "even_endpoint_N": 1000,
+            "transform_size_L": 2048,
+            "farey_denominator_limit_Q": 8,
+            "major_half_width_bins": 2,
+            "minor_energy_l2_squared": 83.33019253726395,
+            "maximum_harmful_reflection_angle": 0.20120068731452123,
+            "worst_harmful_even_target": 708,
+            "worst_target_major_coefficient": 64.76609201254911,
+            "worst_target_minor_coefficient": -16.766092012548896,
+            "negative_minor_coefficient_count": 227,
+            "energy_only_positive_certificate_count": 0,
+            "phase_aware_positive_certificate_count": 499,
+            "audited_even_count": 499,
+            "maximum_fft_rounding_error": 7.105427357601002e-13,
+            "checks": {
+              "finite_goldbach_range_has_no_observed_zero": true,
+              "fft_coefficients_are_near_integers": true,
+              "energy_only_route_certifies_none": true,
+              "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+              "harmful_angle_is_bounded_by_cauchy": true
+            }
+          },
+          {
+            "even_endpoint_N": 2000,
+            "transform_size_L": 4096,
+            "farey_denominator_limit_Q": 8,
+            "major_half_width_bins": 2,
+            "minor_energy_l2_squared": 164.40313810689148,
+            "maximum_harmful_reflection_angle": 0.15234882995443652,
+            "worst_harmful_even_target": 1422,
+            "worst_target_major_coefficient": 107.04662573141799,
+            "worst_target_minor_coefficient": -25.04662573142255,
+            "negative_minor_coefficient_count": 450,
+            "energy_only_positive_certificate_count": 0,
+            "phase_aware_positive_certificate_count": 999,
+            "audited_even_count": 999,
+            "maximum_fft_rounding_error": 1.4949819160392508e-11,
+            "checks": {
+              "finite_goldbach_range_has_no_observed_zero": true,
+              "fft_coefficients_are_near_integers": true,
+              "energy_only_route_certifies_none": true,
+              "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+              "harmful_angle_is_bounded_by_cauchy": true
+            }
+          },
+          {
+            "even_endpoint_N": 4000,
+            "transform_size_L": 8192,
+            "farey_denominator_limit_Q": 8,
+            "major_half_width_bins": 2,
+            "minor_energy_l2_squared": 321.0437821886146,
+            "maximum_harmful_reflection_angle": 0.11852377352063773,
+            "worst_harmful_even_target": 3144,
+            "worst_target_major_coefficient": 188.05132053033122,
+            "worst_target_minor_coefficient": -38.051320530332305,
+            "negative_minor_coefficient_count": 928,
+            "energy_only_positive_certificate_count": 0,
+            "phase_aware_positive_certificate_count": 1999,
+            "audited_even_count": 1999,
+            "maximum_fft_rounding_error": 7.219114195322618e-12,
+            "checks": {
+              "finite_goldbach_range_has_no_observed_zero": true,
+              "fft_coefficients_are_near_integers": true,
+              "energy_only_route_certifies_none": true,
+              "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+              "harmful_angle_is_bounded_by_cauchy": true
+            }
+          },
+          {
+            "even_endpoint_N": 8000,
+            "transform_size_L": 16384,
+            "farey_denominator_limit_Q": 8,
+            "major_half_width_bins": 2,
+            "minor_energy_l2_squared": 622.6549713097996,
+            "maximum_harmful_reflection_angle": 0.11413001465363579,
+            "worst_harmful_even_target": 6198,
+            "worst_target_major_coefficient": 309.0636209998113,
+            "worst_target_minor_coefficient": -71.0636209997466,
+            "negative_minor_coefficient_count": 1874,
+            "energy_only_positive_certificate_count": 0,
+            "phase_aware_positive_certificate_count": 3999,
+            "audited_even_count": 3999,
+            "maximum_fft_rounding_error": 2.198703441536054e-10,
+            "checks": {
+              "finite_goldbach_range_has_no_observed_zero": true,
+              "fft_coefficients_are_near_integers": true,
+              "energy_only_route_certifies_none": true,
+              "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+              "harmful_angle_is_bounded_by_cauchy": true
+            }
+          },
+          {
+            "even_endpoint_N": 16000,
+            "transform_size_L": 32768,
+            "farey_denominator_limit_Q": 8,
+            "major_half_width_bins": 2,
+            "minor_energy_l2_squared": 1205.4590210682152,
+            "maximum_harmful_reflection_angle": 0.07757754871146708,
+            "worst_harmful_even_target": 10632,
+            "worst_target_major_coefficient": 477.5165559268065,
+            "worst_target_minor_coefficient": -93.51655592659688,
+            "negative_minor_coefficient_count": 3824,
+            "energy_only_positive_certificate_count": 0,
+            "phase_aware_positive_certificate_count": 7999,
+            "audited_even_count": 7999,
+            "maximum_fft_rounding_error": 1.0252279025735334e-09,
+            "checks": {
+              "finite_goldbach_range_has_no_observed_zero": true,
+              "fft_coefficients_are_near_integers": true,
+              "energy_only_route_certifies_none": true,
+              "targetwise_phase_identity_certifies_every_finite_endpoint": true,
+              "harmful_angle_is_bounded_by_cauchy": true
+            }
+          }
+        ],
+        "exact_average_angle_no_go_rows": [
+          {
+            "cyclic_group_size_L": 8,
+            "sequence": "(delta_0-delta_1)/sqrt(2)",
+            "harmful_target_N": 1,
+            "harmful_reflection_coefficient": -1.0,
+            "mean_absolute_reflection_coefficient": 0.25,
+            "root_mean_square_reflection_coefficient": 0.4330127018922193,
+            "checks": {
+              "single_target_saturates_negative_cauchy_bound": true,
+              "mean_absolute_angle_equals_two_over_L": true,
+              "rms_angle_equals_sqrt_three_over_two_L": true
+            }
+          },
+          {
+            "cyclic_group_size_L": 16,
+            "sequence": "(delta_0-delta_1)/sqrt(2)",
+            "harmful_target_N": 1,
+            "harmful_reflection_coefficient": -1.0,
+            "mean_absolute_reflection_coefficient": 0.125,
+            "root_mean_square_reflection_coefficient": 0.30618621784789724,
+            "checks": {
+              "single_target_saturates_negative_cauchy_bound": true,
+              "mean_absolute_angle_equals_two_over_L": true,
+              "rms_angle_equals_sqrt_three_over_two_L": true
+            }
+          },
+          {
+            "cyclic_group_size_L": 32,
+            "sequence": "(delta_0-delta_1)/sqrt(2)",
+            "harmful_target_N": 1,
+            "harmful_reflection_coefficient": -1.0,
+            "mean_absolute_reflection_coefficient": 0.0625,
+            "root_mean_square_reflection_coefficient": 0.21650635094610965,
+            "checks": {
+              "single_target_saturates_negative_cauchy_bound": true,
+              "mean_absolute_angle_equals_two_over_L": true,
+              "rms_angle_equals_sqrt_three_over_two_L": true
+            }
+          },
+          {
+            "cyclic_group_size_L": 64,
+            "sequence": "(delta_0-delta_1)/sqrt(2)",
+            "harmful_target_N": 1,
+            "harmful_reflection_coefficient": -1.0,
+            "mean_absolute_reflection_coefficient": 0.03125,
+            "root_mean_square_reflection_coefficient": 0.15309310892394862,
+            "checks": {
+              "single_target_saturates_negative_cauchy_bound": true,
+              "mean_absolute_angle_equals_two_over_L": true,
+              "rms_angle_equals_sqrt_three_over_two_L": true
+            }
+          },
+          {
+            "cyclic_group_size_L": 128,
+            "sequence": "(delta_0-delta_1)/sqrt(2)",
+            "harmful_target_N": 1,
+            "harmful_reflection_coefficient": -1.0,
+            "mean_absolute_reflection_coefficient": 0.015625,
+            "root_mean_square_reflection_coefficient": 0.10825317547305482,
+            "checks": {
+              "single_target_saturates_negative_cauchy_bound": true,
+              "mean_absolute_angle_equals_two_over_L": true,
+              "rms_angle_equals_sqrt_three_over_two_L": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The finite harmful angle is computed from the prime DFT itself and is therefore not an independent analytic bound. No uniform binary minor-arc theorem or even counterexample is obtained.",
+      "route_decision": {
+        "discard": "unsigned minor energy, mean angle, or RMS angle as a pointwise Goldbach positivity certificate",
+        "retain": "an arithmetic targetwise upper bound for the negative reflection angle relative to the major coefficient",
+        "next_single_lemma": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T161-REJECTED",
+            "label": "AverageMinorReflectionAngleImpliesPointwisePositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T161-CLOSED",
+            "label": "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T161-OPEN",
+            "label": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T161-REJECTED",
+            "GB-T161-CLOSED"
+          ],
+          [
+            "GB-T161-CLOSED",
+            "GB-T161-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact targetwise phase criterion, one average-control no-go, and finite prime DFT audits only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-161",
+      "theorem_name": "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity",
+      "declared_proposition": "A joint divisor-incidence perturbation can have every row and column marginal equal to zero while retaining nonzero rank-one bilinear correlation. The exact 2x2 checkerboard [[a,-a],[-a,a]] is invisible to every additive Type-I marginal statistic, but the vectors (1,-1) on both sides give bilinear value 4a. Therefore marginal divisor information cannot supply the independent Type-II input required by a prime-producing lower-bound sieve. For cubic-rough double-semiprime pairs, centering the finite least-factor incidence matrix by its product marginals produces exactly zero row and column sums; its spectral norm is a reproducible finite Type-II dependence observable.",
+      "mathematical_argument": "The checkerboard identities follow by direct summation and one matrix product. For a count matrix C with total T, row margins r, and column margins c, H=T*C-r*c^T has zero row and column sums identically. Hence all one-coordinate tests vanish on H, while its singular vectors are bilinear witnesses when H is nonzero. The finite audit computes C exactly after cubic roughness; the observed spectral decay is data, not an asymptotic theorem.",
+      "reproducible_computation": {
+        "theorem": "A joint divisor-incidence perturbation can have every row and column marginal equal to zero while retaining nonzero rank-one bilinear correlation. The exact 2x2 checkerboard [[a,-a],[-a,a]] is invisible to every additive Type-I marginal statistic, but the vectors (1,-1) on both sides give bilinear value 4a. Therefore marginal divisor information cannot supply the independent Type-II input required by a prime-producing lower-bound sieve. For cubic-rough double-semiprime pairs, centering the finite least-factor incidence matrix by its product marginals produces exactly zero row and column sums; its spectral norm is a reproducible finite Type-II dependence observable.",
+        "proof": "The checkerboard identities follow by direct summation and one matrix product. For a count matrix C with total T, row margins r, and column margins c, H=T*C-r*c^T has zero row and column sums identically. Hence all one-coordinate tests vanish on H, while its singular vectors are bilinear witnesses when H is nonzero. The finite audit computes C exactly after cubic roughness; the observed spectral decay is data, not an asymptotic theorem.",
+        "exact_zero_marginal_checkerboard_rows": [
+          {
+            "amplitude": 1,
+            "zero_marginal_checkerboard": [
+              [
+                1,
+                -1
+              ],
+              [
+                -1,
+                1
+              ]
+            ],
+            "row_margins": [
+              0,
+              0
+            ],
+            "column_margins": [
+              0,
+              0
+            ],
+            "bilinear_witness_value": 4,
+            "checks": {
+              "all_type_i_row_margins_vanish": true,
+              "all_type_i_column_margins_vanish": true,
+              "rank_one_bilinear_witness_is_nonzero": true
+            }
+          },
+          {
+            "amplitude": 10,
+            "zero_marginal_checkerboard": [
+              [
+                10,
+                -10
+              ],
+              [
+                -10,
+                10
+              ]
+            ],
+            "row_margins": [
+              0,
+              0
+            ],
+            "column_margins": [
+              0,
+              0
+            ],
+            "bilinear_witness_value": 40,
+            "checks": {
+              "all_type_i_row_margins_vanish": true,
+              "all_type_i_column_margins_vanish": true,
+              "rank_one_bilinear_witness_is_nonzero": true
+            }
+          },
+          {
+            "amplitude": 100,
+            "zero_marginal_checkerboard": [
+              [
+                100,
+                -100
+              ],
+              [
+                -100,
+                100
+              ]
+            ],
+            "row_margins": [
+              0,
+              0
+            ],
+            "column_margins": [
+              0,
+              0
+            ],
+            "bilinear_witness_value": 400,
+            "checks": {
+              "all_type_i_row_margins_vanish": true,
+              "all_type_i_column_margins_vanish": true,
+              "rank_one_bilinear_witness_is_nonzero": true
+            }
+          },
+          {
+            "amplitude": 1000,
+            "zero_marginal_checkerboard": [
+              [
+                1000,
+                -1000
+              ],
+              [
+                -1000,
+                1000
+              ]
+            ],
+            "row_margins": [
+              0,
+              0
+            ],
+            "column_margins": [
+              0,
+              0
+            ],
+            "bilinear_witness_value": 4000,
+            "checks": {
+              "all_type_i_row_margins_vanish": true,
+              "all_type_i_column_margins_vanish": true,
+              "rank_one_bilinear_witness_is_nonzero": true
+            }
+          }
+        ],
+        "finite_cubic_rough_centered_incidence_rows": [
+          {
+            "X": 10000,
+            "cubic_roughness_floor_z": 21,
+            "double_semiprime_pair_count_QQ": 35,
+            "least_factor_log_bin_count": 4,
+            "joint_incidence_matrix": [
+              [
+                1,
+                5,
+                1,
+                1
+              ],
+              [
+                3,
+                1,
+                2,
+                1
+              ],
+              [
+                4,
+                3,
+                2,
+                2
+              ],
+              [
+                4,
+                2,
+                2,
+                1
+              ]
+            ],
+            "row_margins": [
+              8,
+              7,
+              11,
+              9
+            ],
+            "column_margins": [
+              12,
+              11,
+              7,
+              5
+            ],
+            "centered_incidence_numerator": [
+              [
+                -61,
+                87,
+                -21,
+                -5
+              ],
+              [
+                21,
+                -42,
+                21,
+                0
+              ],
+              [
+                8,
+                -16,
+                -7,
+                15
+              ],
+              [
+                32,
+                -29,
+                7,
+                -10
+              ]
+            ],
+            "top_centered_singular_value": 127.62211249869566,
+            "normalized_top_singular_value": 0.10418131632546584,
+            "checks": {
+              "double_semiprime_pairs_exist": true,
+              "centered_type_ii_rows_have_zero_margins": true,
+              "centered_type_ii_columns_have_zero_margins": true,
+              "centered_joint_incidence_is_nonzero": true
+            }
+          },
+          {
+            "X": 100000,
+            "cubic_roughness_floor_z": 46,
+            "double_semiprime_pair_count_QQ": 284,
+            "least_factor_log_bin_count": 4,
+            "joint_incidence_matrix": [
+              [
+                32,
+                34,
+                17,
+                13
+              ],
+              [
+                33,
+                18,
+                27,
+                9
+              ],
+              [
+                18,
+                17,
+                26,
+                10
+              ],
+              [
+                9,
+                10,
+                7,
+                4
+              ]
+            ],
+            "row_margins": [
+              96,
+              87,
+              71,
+              30
+            ],
+            "column_margins": [
+              92,
+              79,
+              77,
+              36
+            ],
+            "centered_incidence_numerator": [
+              [
+                256,
+                2072,
+                -2564,
+                236
+              ],
+              [
+                1368,
+                -1761,
+                969,
+                -576
+              ],
+              [
+                -1420,
+                -781,
+                1917,
+                284
+              ],
+              [
+                -204,
+                470,
+                -322,
+                56
+              ]
+            ],
+            "top_centered_singular_value": 4325.6044543354565,
+            "normalized_top_singular_value": 0.05363028732314343,
+            "checks": {
+              "double_semiprime_pairs_exist": true,
+              "centered_type_ii_rows_have_zero_margins": true,
+              "centered_type_ii_columns_have_zero_margins": true,
+              "centered_joint_incidence_is_nonzero": true
+            }
+          },
+          {
+            "X": 1000000,
+            "cubic_roughness_floor_z": 100,
+            "double_semiprime_pair_count_QQ": 2453,
+            "least_factor_log_bin_count": 4,
+            "joint_incidence_matrix": [
+              [
+                274,
+                244,
+                174,
+                94
+              ],
+              [
+                254,
+                224,
+                179,
+                98
+              ],
+              [
+                177,
+                183,
+                141,
+                85
+              ],
+              [
+                95,
+                85,
+                86,
+                60
+              ]
+            ],
+            "row_margins": [
+              786,
+              755,
+              586,
+              326
+            ],
+            "column_margins": [
+              800,
+              736,
+              580,
+              337
+            ],
+            "centered_incidence_numerator": [
+              [
+                43322,
+                20036,
+                -29058,
+                -34300
+              ],
+              [
+                19062,
+                -6208,
+                1187,
+                -14041
+              ],
+              [
+                -34619,
+                17603,
+                5993,
+                11023
+              ],
+              [
+                -27765,
+                -31431,
+                21878,
+                37318
+              ]
+            ],
+            "top_centered_singular_value": 92730.90656301394,
+            "normalized_top_singular_value": 0.01541094992097066,
+            "checks": {
+              "double_semiprime_pairs_exist": true,
+              "centered_type_ii_rows_have_zero_margins": true,
+              "centered_type_ii_columns_have_zero_margins": true,
+              "centered_joint_incidence_is_nonzero": true
+            }
+          },
+          {
+            "X": 10000000,
+            "cubic_roughness_floor_z": 215,
+            "double_semiprime_pair_count_QQ": 19074,
+            "least_factor_log_bin_count": 4,
+            "joint_incidence_matrix": [
+              [
+                1894,
+                1793,
+                1482,
+                720
+              ],
+              [
+                1807,
+                1658,
+                1434,
+                671
+              ],
+              [
+                1554,
+                1469,
+                1384,
+                657
+              ],
+              [
+                736,
+                647,
+                689,
+                479
+              ]
+            ],
+            "row_margins": [
+              5889,
+              5570,
+              5064,
+              2551
+            ],
+            "column_margins": [
+              5991,
+              5567,
+              4989,
+              2527
+            ],
+            "centered_incidence_numerator": [
+              [
+                845157,
+                1415619,
+                -1112553,
+                -1148223
+              ],
+              [
+                1096848,
+                616502,
+                -436614,
+                -1276736
+              ],
+              [
+                -697428,
+                -171582,
+                1134120,
+                -265110
+              ],
+              [
+                -1244577,
+                -1860539,
+                415047,
+                2690069
+              ]
+            ],
+            "top_centered_singular_value": 4499308.1114703305,
+            "normalized_top_singular_value": 0.012366937841848835,
+            "checks": {
+              "double_semiprime_pairs_exist": true,
+              "centered_type_ii_rows_have_zero_margins": true,
+              "centered_type_ii_columns_have_zero_margins": true,
+              "centered_joint_incidence_is_nonzero": true
+            }
+          }
+        ],
+        "trend_checks": {
+          "finite_normalized_spectral_values_strictly_decrease": true,
+          "ten_million_value_is_below_two_percent": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The decreasing finite spectral ratios are not a uniform Type-II estimate and do not yield a positive twin-prime lower bound. Least-factor bins also use factorization data.",
+      "route_decision": {
+        "discard": "any proof based only on separate divisor marginals or a fixed finite Type-I feature list",
+        "retain": "centered growing Type-II incidence with a uniform spectral or cut-norm decay theorem",
+        "next_single_lemma": "UniformCubicRoughCenteredIncidenceSpectralDecay"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T161-REJECTED",
+            "label": "SeparateDivisorMarginalsSupplyTwinParityBreaking",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T161-CLOSED",
+            "label": "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T161-OPEN",
+            "label": "UniformCubicRoughCenteredIncidenceSpectralDecay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T161-REJECTED",
+            "TP-T161-CLOSED"
+          ],
+          [
+            "TP-T161-CLOSED",
+            "TP-T161-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample. One exact Type-I marginal no-go and a finite centered Type-II incidence audit through 10M."
+    },
+    "literature_boundary": {
+      "riemann": "The finite Guinand-Weil dictionary and archimedean-tail certificate are external inputs. This ticket adds only the common-core Fourier resolution reduction.",
+      "collatz": "Baker-Wustholz lower bounds and Legendre's continued-fraction theorem are established external inputs. The front-loaded application is a repository-level synthesis.",
+      "goldbach": "Helfgott's Type I/II minor-arc machinery concerns ternary Goldbach and is not imported as a binary theorem.",
+      "twin_prime": "Ford-Maynard prove that substantial Type II information is necessary in prime-producing sieves. The checkerboard and finite cubic-rough matrices do not establish their required hypotheses for twin primes."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-161",
+      "status": "open_not_proven",
+      "declared_proposition": "Let 0<a<L and extend f in H^1_0(-a,a) by zero to I_L=(-L,L). If P_{L,N} is the orthogonal projection onto the Fourier modes |k|<=N on I_L, Parseval gives ||f-P_{L,N}f||_2 <= L||f'||_2/(pi(N+1)). Thus every fixed finite-dimensional compact H1 core has an effective common L2 transport whenever L/(N+1)->0. For the non-band-limited tent f(x)=max(1-|x|,0), N/L bounded leaves a positive Fourier tail, and N/L->0 makes the captured energy tend to zero. Therefore raw cross-cutoff non-nesting can be repaired in L2, but only with a resolved schedule N/L->infinity.",
+      "new_result": "ResolvedCommonCoreL2TransportAndFormNormNoGo",
+      "discarded_route": "unresolved schedules with bounded N/L, and any claim that L2 convergence alone transports Weil positivity",
+      "remaining_gap": "L2 transport does not bound the Weil quadratic form or its graph norm uniformly in the cutoff. No positive form margin or exclusion of an off-critical zero follows.",
+      "candidate_theorem": "UniformWeilFormGraphNormTransportOnResolvedCommonCore",
+      "claim_boundary": "No RH proof and no off-critical zero. One exact L2 common-core transport theorem and one resolution no-go.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T161-REJECTED",
+            "label": "L2TransportAlonePreservesWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T161-CLOSED",
+            "label": "ResolvedCommonCoreL2TransportAndFormNormNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T161-OPEN",
+            "label": "UniformWeilFormGraphNormTransportOnResolvedCommonCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T161-REJECTED",
+            "RH-T161-CLOSED"
+          ],
+          [
+            "RH-T161-CLOSED",
+            "RH-T161-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-161",
+      "status": "open_not_proven",
+      "declared_proposition": "Let alpha=log_2(3), S_m=ceil(m alpha), b_m=S_m-m+1, D_m=2^S_m-3^m, and w_m=(b_m,1,...,1). Every natural realizer is n=(2^(S_m+1)t-2^b_m-1)/3 for one positive congruence class t mod 3, its endpoint is 2*3^(m-1)t-1, and it descends exactly when D_m t>2^(b_m-1)-1. If this inequality fails for m>=4, then 0<S_m/m-alpha<1/(2m^2), so the reduced rational S_m/m is a continued-fraction convergent of alpha. Moreover the Baker-Wustholz lower bound for the nonzero linear form S_m log 2-m log 3 is polynomial in m, whereas failure requires an exponentially small bound O(2^-m). Consequently every natural realizer in this minimal front-loaded family descends for all sufficiently large m, with an effectively computable finite exceptional range.",
+      "new_result": "AsymptoticMinimalFrontLoadedDescentAndConvergentReduction",
+      "discarded_route": "treating every m as equally dangerous, or using only average contraction without the 2-versus-3 gap",
+      "remaining_gap": "The effective Baker threshold is not made numerically small here, so the finite interval between 50,000 and that bound is not closed. This family also does not cover every natural Collatz orbit.",
+      "candidate_theorem": "ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily",
+      "claim_boundary": "No Collatz proof and no divergent orbit. One unconditional eventual theorem for a single explicit family, one exact continued-fraction reduction, and a finite 50,000 scan.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T161-REJECTED",
+            "label": "AverageDriftClosesMinimalFrontLoadedTransfer",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T161-CLOSED",
+            "label": "AsymptoticMinimalFrontLoadedDescentAndConvergentReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T161-OPEN",
+            "label": "ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T161-REJECTED",
+            "CO-T161-CLOSED"
+          ],
+          [
+            "CO-T161-CLOSED",
+            "CO-T161-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-161",
+      "status": "open_not_proven",
+      "declared_proposition": "For a symmetric minor-frequency projection P and reflection R_N, put h=P f and rho_N=<h,R_N h>/||h||_2^2. The exact major/minor decomposition is G_f(N)=M(N)+rho_N||h||_2^2. Thus the harmful targetwise angle h_N=max(0,-rho_N) gives the exact lower certificate G_f(N)>=M(N)-h_N||h||_2^2. This strictly refines the phase-blind Cauchy replacement h_N<=1. However no average or RMS control of rho_N can replace a uniform targetwise bound: on Z/L, (delta_0-delta_1)/sqrt(2) has reflection coefficient -1 at N=1 while its mean absolute coefficient is 2/L and its RMS coefficient is sqrt(3/(2L)), both tending to zero.",
+      "new_result": "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo",
+      "discarded_route": "unsigned minor energy, mean angle, or RMS angle as a pointwise Goldbach positivity certificate",
+      "remaining_gap": "The finite harmful angle is computed from the prime DFT itself and is therefore not an independent analytic bound. No uniform binary minor-arc theorem or even counterexample is obtained.",
+      "candidate_theorem": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin",
+      "claim_boundary": "No Goldbach proof and no even counterexample. One exact targetwise phase criterion, one average-control no-go, and finite prime DFT audits only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T161-REJECTED",
+            "label": "AverageMinorReflectionAngleImpliesPointwisePositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T161-CLOSED",
+            "label": "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T161-OPEN",
+            "label": "UniformPrimeMinorReflectionAngleBelowMajorArcMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T161-REJECTED",
+            "GB-T161-CLOSED"
+          ],
+          [
+            "GB-T161-CLOSED",
+            "GB-T161-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-161",
+      "status": "open_not_proven",
+      "declared_proposition": "A joint divisor-incidence perturbation can have every row and column marginal equal to zero while retaining nonzero rank-one bilinear correlation. The exact 2x2 checkerboard [[a,-a],[-a,a]] is invisible to every additive Type-I marginal statistic, but the vectors (1,-1) on both sides give bilinear value 4a. Therefore marginal divisor information cannot supply the independent Type-II input required by a prime-producing lower-bound sieve. For cubic-rough double-semiprime pairs, centering the finite least-factor incidence matrix by its product marginals produces exactly zero row and column sums; its spectral norm is a reproducible finite Type-II dependence observable.",
+      "new_result": "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity",
+      "discarded_route": "any proof based only on separate divisor marginals or a fixed finite Type-I feature list",
+      "remaining_gap": "The decreasing finite spectral ratios are not a uniform Type-II estimate and do not yield a positive twin-prime lower bound. Least-factor bins also use factorization data.",
+      "candidate_theorem": "UniformCubicRoughCenteredIncidenceSpectralDecay",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample. One exact Type-I marginal no-go and a finite centered Type-II incidence audit through 10M.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T161-REJECTED",
+            "label": "SeparateDivisorMarginalsSupplyTwinParityBreaking",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T161-CLOSED",
+            "label": "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T161-OPEN",
+            "label": "UniformCubicRoughCenteredIncidenceSpectralDecay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T161-REJECTED",
+            "TP-T161-CLOSED"
+          ],
+          [
+            "TP-T161-CLOSED",
+            "TP-T161-OPEN"
+          ]
+        ]
+      }
+    }
+  ]
+}

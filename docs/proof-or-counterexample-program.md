@@ -6469,3 +6469,47 @@ prime DFT 반례가 아니다. Twin의 factor horizon은 유한 trial-division
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-160 exact-support-cylinder-bilinear-wheel](exact-support-cylinder-bilinear-wheel.md).
+
+## TICKET-161 continuation: common-core resolution, Baker reduction, reflection angles, and Type II incidence
+
+TICKET-161 attacks the four TICKET-160 open lemmas. It closes one exact
+intermediate theorem or no-go statement per track, records the remaining
+uniformity gap, and keeps all conjecture-resolution counters at zero.
+
+1. **Riemann Hypothesis.** For zero-extended
+   `f in H^1_0(-a,a)`, Fourier projection on `(-L,L)` satisfies
+   `||f-P_(L,N)f||_2 <= L||f'||_2/(pi(N+1))`. Thus a fixed compact
+   finite-dimensional core has effective common `L2` transport when
+   `N/L -> infinity`. The tent function proves bounded `N/L` is insufficient.
+   The next target is
+   `UniformWeilFormGraphNormTransportOnResolvedCommonCore`.
+2. **Collatz.** For the minimal front-loaded word
+   `w_m=(ceil(m log_2 3)-m+1,1,...,1)`, failed natural descent forces the
+   reduced fraction `ceil(m log_2 3)/m` to be a continued-fraction convergent.
+   A Baker-Wüstholz linear-form lower bound eventually dominates the
+   exponentially small failure window, proving eventual descent for this one
+   family. The scan through `m=50,000` finds no finite exception. The next
+   target is
+   `ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily`.
+3. **Goldbach.** A symmetric minor projection gives the exact identity
+   `G_f(N)=M(N)+rho_N||P_minor f||_2^2`. The harmful targetwise angle therefore
+   strictly refines phase-blind Cauchy control. A two-point spike proves that
+   vanishing mean or RMS angle does not imply a uniform targetwise bound. The
+   next target is
+   `UniformPrimeMinorReflectionAngleBelowMajorArcMargin`.
+4. **Twin Prime.** A `2x2` zero-marginal checkerboard is invisible to all
+   separate row and column marginals but has nonzero bilinear correlation.
+   Centered cubic-rough least-factor incidence therefore measures a genuine
+   finite Type-II dependence component; its decreasing ratios through 10M are
+   observations, not an asymptotic theorem. The next target is
+   `UniformCubicRoughCenteredIncidenceSpectralDecay`.
+
+한국어 경계: RH의 `L2` 수송은 Weil form norm이나 양의 margin을 주지
+않는다. Collatz의 점근 정리는 명시한 한 valuation 가족만 다루며 전체
+궤도를 덮지 않는다. Goldbach의 finite angle은 실제 prime DFT에서
+계산한 진단값이므로 독립적인 minor-arc 증명이 아니다. Twin의 유한
+spectral 감소는 균일 Type-II 하계나 양의 twin-prime 하계를 주지
+않는다. 네 추측은 모두 `open_not_proven`이다.
+
+Full bilingual report / 전체 한영 보고서:
+[TICKET-161 commoncore-baker-angle-typeii](commoncore-baker-angle-typeii.md).

@@ -14,16 +14,19 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET160 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET161 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260807-ticket160-priority")) {
-      errors.push(`${page}: missing TICKET160 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260808-ticket161-priority")) {
+      errors.push(`${page}: missing TICKET161 priority cache key`);
+    }
+    if (!source.includes("styles.css?v=20260808-ticket161")) {
+      errors.push(`${page}: missing TICKET161 style cache key`);
     }
   }
 
@@ -1245,9 +1248,38 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket161 title", "Ticket 161 common-core resolution, Baker reduction, reflection angles, and Type II incidence");
+    requireText("ticket161 table", "TICKET161 audit");
+    requireText("ticket161 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket161 resolutions", "Resolution count0");
+    requireText("ticket161 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.problemId === "riemann") {
+      requireText("ticket161 RH theorem", "ResolvedCommonCoreL2TransportAndFormNormNoGo");
+      requireText("ticket161 RH rows", "Transport rows15");
+      requireText("ticket161 RH error", "Resolved final error0.000791");
+      requireText("ticket161 RH target", "UniformWeilFormGraphNormTransportOnResolvedCommonCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket161 Collatz theorem", "AsymptoticMinimalFrontLoadedDescentAndConvergentReduction");
+      requireText("ticket161 Collatz scan", "Exact scan50,000");
+      requireText("ticket161 Collatz failures", "Observed failures0");
+      requireText("ticket161 Collatz ratio", "Minimum ratio13/7");
+      requireText("ticket161 Collatz target", "ExplicitBakerThresholdAndFiniteClosureForMinimalFrontLoadedFamily");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket161 Goldbach theorem", "TargetwiseReflectionAngleCriterionAndAverageAngleNoGo");
+      requireText("ticket161 Goldbach rows", "Prime angle rows5");
+      requireText("ticket161 Goldbach energy", "Energy certificates0");
+      requireText("ticket161 Goldbach phase", "Phase-aware certificates15,495");
+      requireText("ticket161 Goldbach target", "UniformPrimeMinorReflectionAngleBelowMajorArcMargin");
+    } else {
+      requireText("ticket161 Twin theorem", "ZeroMarginalCheckerboardAndTypeIIBilinearNecessity");
+      requireText("ticket161 Twin checkerboards", "Checkerboards4");
+      requireText("ticket161 Twin scales", "Type II scales4");
+      requireText("ticket161 Twin ratio", "10M spectral ratio0.0124");
+      requireText("ticket161 Twin target", "UniformCubicRoughCenteredIncidenceSpectralDecay");
+    }
     requireText("ticket160 title", "Ticket 160 exact support, natural cylinders, bilinear phase, and wheel limits");
     requireText("ticket160 table", "TICKET160 audit");
-    requireText("ticket160 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket160 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket160 resolutions", "Resolution count0");
     requireText("ticket160 proof DAG", "Proof DAG / 증명 의존성");
     if (page.problemId === "riemann") {
@@ -2966,6 +2998,7 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-119") ||
     !metrics.evolutionPanel.includes("TICKET-120") ||
     !metrics.evolutionPanel.includes("TICKET-121") ||
+    !metrics.evolutionPanel.includes("TICKET-161") ||
     !metrics.evolutionPanel.includes("TICKET-129") ||
     !metrics.evolutionPanel.includes("TICKET-130") ||
     !metrics.evolutionPanel.includes("TICKET-131")
