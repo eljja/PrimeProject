@@ -10012,7 +10012,7 @@ function renderTicket163LocalCertificateRealizerTraceCarleson(attempt) {
       <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
       <h3>Ticket 163 local certificates, natural realizers, trace cancellation, and Carleson localization</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact intermediate results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
-      ${table(["TICKET163 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}
+      <div class="ticket161-audit-table">${table(["TICKET163 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
       ${detail}
       <h3>Proof DAG / 증명 의존성</h3>
       ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}

@@ -22,10 +22,10 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260731-ticket163-priority")) {
+    if (!source.includes("open-problems.js?v=20260731-ticket163-wrap")) {
       errors.push(`${page}: missing TICKET163 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260731-ticket163")) {
+    if (!source.includes("styles.css?v=20260731-ticket163-wrap")) {
       errors.push(`${page}: missing TICKET163 style cache key`);
     }
   }
@@ -346,6 +346,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket163AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket163-local-certificate-realizer-trace-carleson .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           text: document.body.textContent,
         }), problemId),
       );
@@ -1253,6 +1259,7 @@ async function main() {
     requireText("ticket163 latest", "LATEST / 최신 연구 경계");
     requireText("ticket163 resolutions", "Resolution count0");
     requireText("ticket163 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket163AuditOverflow) checks.push(`${page.problemId}: ticket163 audit table overflow`);
     if (page.problemId === "riemann") {
       requireText("ticket163 RH theorem", "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo");
       requireText("ticket163 RH endpoint", "1,000,000");
