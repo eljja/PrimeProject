@@ -62,7 +62,44 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-165
+## Latest Continuation After TICKET-166
+
+All four conjectures remain open. Continue from these exact nodes and do not
+relabel finite diagnostics as proofs:
+
+1. Riemann:
+   `IntervalCertifiedTruncatedWeilLowerBoundAtVanishingTailScaleOnEveryNestedCore`.
+   TICKET-166 proves the positive-tail diagonal core implication and the exact
+   ambiguity of a truncated eigenvalue inside `[-B,0)`.
+2. Collatz:
+   `UniformNaturalResidueSlackInsideStartAdaptiveExcessWindow`.
+   TICKET-166 proves non-descent requires `3n(2^t-1)<m`, reducing the residual
+   count to `O(log(1+m/n))`; magnitude alone never closes `t=0`.
+3. Goldbach:
+   `UniformDyadicLowPassApproximationAndAnchorMarginForBinaryMinorDeficit`.
+   TICKET-166 proves the Bernstein anchor bridge and a full-bandwidth spike
+   no-go; the finite Farey FFT rows are floating diagnostics only.
+4. Twin Prime:
+   `PrimeWeightedShiftedDiagonalHaarPairingPowerSavingBeyondParity`.
+   TICKET-166 proves exact shifted-diagonal Haar duality and gives a
+   double-centered norm-saturation countermodel.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket166-tail-adaptive-bandlimited-diagonal.json
+data/open-problem/riemann/rh-ticket-166-positive-tail-diagonal.json
+data/open-problem/collatz/co-ticket-166-start-adaptive-excess.json
+data/open-problem/goldbach/gb-ticket-166-bandlimited-anchor.json
+data/open-problem/twin-prime/tp-ticket-166-shifted-diagonal-haar.json
+```
+
+한국어 인계: TICKET-166은 네 난제를 해결하지 않았다. 다음 LLM은 위 네
+단일 보조정리 중 실제 산술 추정을 증명하거나 반례를 찾아야 한다.
+리만 leading-order tail 표, 골드바흐 FFT 표, 유한 Haar 행렬을 무한
+정리로 승격하면 안 된다.
+
+## Preserved Continuation After TICKET-165
 
 Read
 `data/open-problem/ticket165-vanishing-defect-logtail-variation-signed-dual.json`,

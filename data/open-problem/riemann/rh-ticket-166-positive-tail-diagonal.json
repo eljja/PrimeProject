@@ -1,0 +1,262 @@
+{
+  "schema": "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-166",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "PositiveTailDiagonalCoreBridgeAndAmbiguousBandNoGo",
+  "declared_proposition": "Let Q_N be nested Galerkin compressions on a form core and write Q_N=A_(N,T_N)+R_(N,T_N), where R_(N,T_N) is positive semidefinite. If interval-certified lower bounds satisfy lambda_min(A_(N,T_N))>=-epsilon_N with epsilon_N tending to zero, then Q_N has the same vanishing negative defect and the TICKET-165 core-limit bridge proves nonnegativity of the limiting form. If an available tail norm has order (2N+1)log(T)/T, the diagonal choice T=N^3 makes that norm O(log N/N^2).",
+  "mathematical_argument": "Positive semidefiniteness gives Q_N>=A_(N,T_N), hence the certified lower bound transfers without subtracting the tail. Core convergence then invokes the exact TICKET-165 limit theorem. Substituting T=N^3 into (2N+1)log(T)/T gives 3(2N+1)log(N)/N^3, which tends to zero. The tail budget alone does not decide an eigenvalue in [-B,0): the one-dimensional truncated value -B/2 completed by tails 0 and B has opposite full signs.",
+  "reproducible_computation": {
+    "theorem": "Let Q_N be nested Galerkin compressions on a form core and write Q_N=A_(N,T_N)+R_(N,T_N), where R_(N,T_N) is positive semidefinite. If interval-certified lower bounds satisfy lambda_min(A_(N,T_N))>=-epsilon_N with epsilon_N tending to zero, then Q_N has the same vanishing negative defect and the TICKET-165 core-limit bridge proves nonnegativity of the limiting form. If an available tail norm has order (2N+1)log(T)/T, the diagonal choice T=N^3 makes that norm O(log N/N^2).",
+    "proof": "Positive semidefiniteness gives Q_N>=A_(N,T_N), hence the certified lower bound transfers without subtracting the tail. Core convergence then invokes the exact TICKET-165 limit theorem. Substituting T=N^3 into (2N+1)log(T)/T gives 3(2N+1)log(N)/N^3, which tends to zero. The tail budget alone does not decide an eigenvalue in [-B,0): the one-dimensional truncated value -B/2 completed by tails 0 and B has opposite full signs.",
+    "cubic_diagonal_tail_scale_rows": [
+      {
+        "galerkin_dimension_N": 4,
+        "archimedean_cutoff_T_equals_N_cubed": 64,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 0.08084881996119184,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      },
+      {
+        "galerkin_dimension_N": 8,
+        "archimedean_cutoff_T_equals_N_cubed": 512,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 0.028633957069588774,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      },
+      {
+        "galerkin_dimension_N": 16,
+        "archimedean_cutoff_T_equals_N_cubed": 4096,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 0.009263927287219899,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      },
+      {
+        "galerkin_dimension_N": 32,
+        "archimedean_cutoff_T_equals_N_cubed": 32768,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 0.002851113985176579,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      },
+      {
+        "galerkin_dimension_N": 64,
+        "archimedean_cutoff_T_equals_N_cubed": 262144,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 0.0008487547017410275,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      },
+      {
+        "galerkin_dimension_N": 128,
+        "archimedean_cutoff_T_equals_N_cubed": 2097152,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 0.00024659394516022426,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      },
+      {
+        "galerkin_dimension_N": 256,
+        "archimedean_cutoff_T_equals_N_cubed": 16777216,
+        "c_parameter": 100,
+        "published_leading_order_tail_scale_diagnostic": 7.031834011517234e-05,
+        "checks": {
+          "diagonal_cutoff_is_cubic": true,
+          "leading_tail_scale_is_positive": true,
+          "leading_tail_scale_decreases_on_audited_schedule": true,
+          "row_is_labeled_diagnostic_not_interval_certificate": true
+        }
+      }
+    ],
+    "ambiguous_tail_band_no_go_rows": [
+      {
+        "tail_budget": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "truncated_scalar": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "zero_tail_full_scalar": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "maximal_tail_full_scalar": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "checks": {
+          "both_remainders_are_positive_semidefinite_scalars": true,
+          "both_remainders_obey_same_budget": true,
+          "first_completion_is_negative": true,
+          "second_completion_is_positive": true,
+          "same_truncated_value_has_opposite_full_signs": true
+        }
+      },
+      {
+        "tail_budget": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "truncated_scalar": {
+          "exact": "-1/16",
+          "decimal": -0.0625
+        },
+        "zero_tail_full_scalar": {
+          "exact": "-1/16",
+          "decimal": -0.0625
+        },
+        "maximal_tail_full_scalar": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "checks": {
+          "both_remainders_are_positive_semidefinite_scalars": true,
+          "both_remainders_obey_same_budget": true,
+          "first_completion_is_negative": true,
+          "second_completion_is_positive": true,
+          "same_truncated_value_has_opposite_full_signs": true
+        }
+      },
+      {
+        "tail_budget": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "truncated_scalar": {
+          "exact": "-1/32",
+          "decimal": -0.03125
+        },
+        "zero_tail_full_scalar": {
+          "exact": "-1/32",
+          "decimal": -0.03125
+        },
+        "maximal_tail_full_scalar": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "checks": {
+          "both_remainders_are_positive_semidefinite_scalars": true,
+          "both_remainders_obey_same_budget": true,
+          "first_completion_is_negative": true,
+          "second_completion_is_positive": true,
+          "same_truncated_value_has_opposite_full_signs": true
+        }
+      },
+      {
+        "tail_budget": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "truncated_scalar": {
+          "exact": "-1/64",
+          "decimal": -0.015625
+        },
+        "zero_tail_full_scalar": {
+          "exact": "-1/64",
+          "decimal": -0.015625
+        },
+        "maximal_tail_full_scalar": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "checks": {
+          "both_remainders_are_positive_semidefinite_scalars": true,
+          "both_remainders_obey_same_budget": true,
+          "first_completion_is_negative": true,
+          "second_completion_is_positive": true,
+          "same_truncated_value_has_opposite_full_signs": true
+        }
+      },
+      {
+        "tail_budget": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "truncated_scalar": {
+          "exact": "-1/128",
+          "decimal": -0.0078125
+        },
+        "zero_tail_full_scalar": {
+          "exact": "-1/128",
+          "decimal": -0.0078125
+        },
+        "maximal_tail_full_scalar": {
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "checks": {
+          "both_remainders_are_positive_semidefinite_scalars": true,
+          "both_remainders_obey_same_budget": true,
+          "first_completion_is_negative": true,
+          "second_completion_is_positive": true,
+          "same_truncated_value_has_opposite_full_signs": true
+        }
+      }
+    ],
+    "external_premise_boundary": "The positivity and quantitative order of the actual omitted archimedean tail are literature inputs from arXiv:2607.02828. PrimeProject proves only the diagonal-schedule implication and the abstract ambiguity countermodel; it does not re-prove that paper's interval estimates or certify every Weil core.",
+    "failure_count": 0
+  },
+  "discarded_route": "deciding a truncated eigenvalue in [-B,0) from the positive tail budget alone",
+  "remaining_gap": "No interval-certified lower bound is proved for every nested truncated Weil core. The actual tail theorem is cited, not re-derived, and the leading-order table is diagnostic only.",
+  "candidate_theorem": "IntervalCertifiedTruncatedWeilLowerBoundAtVanishingTailScaleOnEveryNestedCore",
+  "claim_boundary": "No RH proof and no zero exclusion; exact conditional core bridge and exact scalar ambiguity no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T166-REJECTED",
+        "label": "TailBudgetAloneDecidesEveryAmbiguousTruncatedEigenvalue",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T166-CLOSED",
+        "label": "PositiveTailDiagonalCoreBridgeAndAmbiguousBandNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T166-OPEN",
+        "label": "IntervalCertifiedTruncatedWeilLowerBoundAtVanishingTailScaleOnEveryNestedCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T166-REJECTED",
+        "RH-T166-CLOSED"
+      ],
+      [
+        "RH-T166-CLOSED",
+        "RH-T166-OPEN"
+      ]
+    ]
+  }
+}

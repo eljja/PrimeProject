@@ -14,19 +14,19 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt()");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET165 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET166 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260801-ticket165")) {
-      errors.push(`${page}: missing TICKET165 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260801-ticket166")) {
+      errors.push(`${page}: missing TICKET166 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260801-ticket165")) {
-      errors.push(`${page}: missing TICKET165 style cache key`);
+    if (!source.includes("styles.css?v=20260801-ticket166")) {
+      errors.push(`${page}: missing TICKET166 style cache key`);
     }
   }
 
@@ -346,6 +346,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket166AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket166-tail-adaptive-bandlimited-diagonal .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket165AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket165-vanishing-defect-logtail-variation-signed-dual .ticket161-audit-table .proof-table-wrap",
@@ -1266,9 +1272,33 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket166 title", "Ticket 166 positive tails, start-adaptive Collatz windows, bandlimited Goldbach anchors, and shifted-diagonal Haar duality");
+    requireText("ticket166 table", "TICKET166 audit");
+    requireText("ticket166 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket166 resolutions", "Resolution count0");
+    requireText("ticket166 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket166AuditOverflow) checks.push(`${page.problemId}: ticket166 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket166 RH theorem", "PositiveTailDiagonalCoreBridgeAndAmbiguousBandNoGo");
+      requireText("ticket166 RH ambiguity", "Ambiguous sign pairs5");
+      requireText("ticket166 RH target", "IntervalCertifiedTruncatedWeilLowerBoundAtVanishingTailScaleOnEveryNestedCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket166 Collatz theorem", "StartAdaptiveFinalExcessReductionAndZeroExcessMagnitudeNoGo");
+      requireText("ticket166 Collatz adaptive", "adaptive residuals");
+      requireText("ticket166 Collatz target", "UniformNaturalResidueSlackInsideStartAdaptiveExcessWindow");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket166 Goldbach theorem", "BandlimitedAnchorClosureAndFullBandwidthSpikeNoGo");
+      requireText("ticket166 Goldbach targets", "Finite targets16,384");
+      requireText("ticket166 Goldbach target", "UniformDyadicLowPassApproximationAndAnchorMarginForBinaryMinorDeficit");
+    } else {
+      requireText("ticket166 Twin theorem", "ShiftedDiagonalHaarDualityAndCenteredPermutationNoGo");
+      requireText("ticket166 Twin last size", "128×128");
+      requireText("ticket166 Twin last energy", "512001/4096");
+      requireText("ticket166 Twin target", "PrimeWeightedShiftedDiagonalHaarPairingPowerSavingBeyondParity");
+    }
     requireText("ticket165 title", "Ticket 165 vanishing defects, logarithmic Collatz tails, Goldbach variation, and signed Haar duality");
     requireText("ticket165 table", "TICKET165 audit");
-    requireText("ticket165 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket165 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket165 resolutions", "Resolution count0");
     requireText("ticket165 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket165AuditOverflow) checks.push(`${page.problemId}: ticket165 audit table overflow`);
@@ -3131,9 +3161,10 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-163") ||
     !metrics.evolutionPanel.includes("TICKET-164") ||
     !metrics.evolutionPanel.includes("TICKET-165") ||
-    !metrics.evolutionPanel.includes("TICKET165 proves four exact bridges") ||
-    !metrics.evolutionPanel.includes("vanishing-negative-defect") ||
-    !metrics.evolutionPanel.includes("signed product-Carleson dual margin") ||
+    !metrics.evolutionPanel.includes("TICKET-166") ||
+    !metrics.evolutionPanel.includes("TICKET166 proves four exact intermediate") ||
+    !metrics.evolutionPanel.includes("positive-tail diagonal") ||
+    !metrics.evolutionPanel.includes("shifted-diagonal Haar pairing power saving") ||
     !metrics.evolutionPanel.includes("TICKET-129") ||
     !metrics.evolutionPanel.includes("TICKET-130") ||
     !metrics.evolutionPanel.includes("TICKET-131")

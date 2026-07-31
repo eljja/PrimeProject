@@ -1,0 +1,326 @@
+{
+  "schema": "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-166",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "ShiftedDiagonalHaarDualityAndCenteredPermutationNoGo",
+  "declared_proposition": "Let D_h be the noncyclic shifted-diagonal selector D_h(i,j)=1_(j=i+h), and let E be its double centering, so every row and column sum of E is zero. Product-Haar duality gives <E,D_h>=sum_(I,J) e_(I,J)d_(I,J). Moreover <E,D_h>=||E||_F^2 and the full product-Haar energy also equals ||E||_F^2. Thus even exact row/column cancellation and O(N) unsigned Haar energy allow an O(N) shifted-diagonal correlation; a prime proof needs signed coefficient cancellation aligned with the n,n+2 selector.",
+  "mathematical_argument": "Double centering is the orthogonal projection onto matrices with zero row and column margins, hence <E,D_h>=<E,E>. Tensor Haar Parseval applies on that subspace. Direct ANOVA gives ||E||_F^2=M-2M/N+M^2/N^2 for M=N-h. Taking E itself as the error saturates Cauchy-Schwarz, proving that a norm-only power saving cannot follow from row/column centering.",
+  "reproducible_computation": {
+    "theorem": "Let D_h be the noncyclic shifted-diagonal selector D_h(i,j)=1_(j=i+h), and let E be its double centering, so every row and column sum of E is zero. Product-Haar duality gives <E,D_h>=sum_(I,J) e_(I,J)d_(I,J). Moreover <E,D_h>=||E||_F^2 and the full product-Haar energy also equals ||E||_F^2. Thus even exact row/column cancellation and O(N) unsigned Haar energy allow an O(N) shifted-diagonal correlation; a prime proof needs signed coefficient cancellation aligned with the n,n+2 selector.",
+    "proof": "Double centering is the orthogonal projection onto matrices with zero row and column margins, hence <E,D_h>=<E,E>. Tensor Haar Parseval applies on that subspace. Direct ANOVA gives ||E||_F^2=M-2M/N+M^2/N^2 for M=N-h. Taking E itself as the error saturates Cauchy-Schwarz, proving that a norm-only power saving cannot follow from row/column centering.",
+    "shifted_diagonal_haar_rows": [
+      {
+        "matrix_side_N": 8,
+        "shift_h": 2,
+        "noncyclic_pair_count": 6,
+        "double_centered_selector_frobenius_energy": {
+          "exact": "81/16",
+          "decimal": 5.0625
+        },
+        "full_product_haar_energy": {
+          "exact": "81/16",
+          "decimal": 5.0625
+        },
+        "shifted_diagonal_signed_pairing": {
+          "exact": "81/16",
+          "decimal": 5.0625
+        },
+        "nonzero_product_haar_coefficient_count": 11,
+        "dominant_scale_pair_energies": [
+          {
+            "scale_pair": "2x2",
+            "energy": {
+              "exact": "3/1",
+              "decimal": 3.0
+            }
+          },
+          {
+            "scale_pair": "4x4",
+            "energy": {
+              "exact": "3/4",
+              "decimal": 0.75
+            }
+          },
+          {
+            "scale_pair": "4x8",
+            "energy": {
+              "exact": "5/8",
+              "decimal": 0.625
+            }
+          },
+          {
+            "scale_pair": "8x4",
+            "energy": {
+              "exact": "5/8",
+              "decimal": 0.625
+            }
+          }
+        ],
+        "checks": {
+          "double_centered_selector_has_positive_energy": true,
+          "product_haar_parseval_matches_centered_frobenius_energy": true,
+          "shifted_diagonal_pairing_equals_centered_energy": true,
+          "cauchy_dual_bound_is_saturated": true,
+          "selector_uses_multiple_scale_pairs": true
+        }
+      },
+      {
+        "matrix_side_N": 16,
+        "shift_h": 2,
+        "noncyclic_pair_count": 14,
+        "double_centered_selector_frobenius_energy": {
+          "exact": "833/64",
+          "decimal": 13.015625
+        },
+        "full_product_haar_energy": {
+          "exact": "833/64",
+          "decimal": 13.015625
+        },
+        "shifted_diagonal_signed_pairing": {
+          "exact": "833/64",
+          "decimal": 13.015625
+        },
+        "nonzero_product_haar_coefficient_count": 36,
+        "dominant_scale_pair_energies": [
+          {
+            "scale_pair": "2x2",
+            "energy": {
+              "exact": "7/1",
+              "decimal": 7.0
+            }
+          },
+          {
+            "scale_pair": "4x4",
+            "energy": {
+              "exact": "7/4",
+              "decimal": 1.75
+            }
+          },
+          {
+            "scale_pair": "4x8",
+            "energy": {
+              "exact": "11/8",
+              "decimal": 1.375
+            }
+          },
+          {
+            "scale_pair": "8x4",
+            "energy": {
+              "exact": "11/8",
+              "decimal": 1.375
+            }
+          }
+        ],
+        "checks": {
+          "double_centered_selector_has_positive_energy": true,
+          "product_haar_parseval_matches_centered_frobenius_energy": true,
+          "shifted_diagonal_pairing_equals_centered_energy": true,
+          "cauchy_dual_bound_is_saturated": true,
+          "selector_uses_multiple_scale_pairs": true
+        }
+      },
+      {
+        "matrix_side_N": 32,
+        "shift_h": 2,
+        "noncyclic_pair_count": 30,
+        "double_centered_selector_frobenius_energy": {
+          "exact": "7425/256",
+          "decimal": 29.00390625
+        },
+        "full_product_haar_energy": {
+          "exact": "7425/256",
+          "decimal": 29.00390625
+        },
+        "shifted_diagonal_signed_pairing": {
+          "exact": "7425/256",
+          "decimal": 29.00390625
+        },
+        "nonzero_product_haar_coefficient_count": 95,
+        "dominant_scale_pair_energies": [
+          {
+            "scale_pair": "2x2",
+            "energy": {
+              "exact": "15/1",
+              "decimal": 15.0
+            }
+          },
+          {
+            "scale_pair": "4x4",
+            "energy": {
+              "exact": "15/4",
+              "decimal": 3.75
+            }
+          },
+          {
+            "scale_pair": "4x8",
+            "energy": {
+              "exact": "23/8",
+              "decimal": 2.875
+            }
+          },
+          {
+            "scale_pair": "8x4",
+            "energy": {
+              "exact": "23/8",
+              "decimal": 2.875
+            }
+          }
+        ],
+        "checks": {
+          "double_centered_selector_has_positive_energy": true,
+          "product_haar_parseval_matches_centered_frobenius_energy": true,
+          "shifted_diagonal_pairing_equals_centered_energy": true,
+          "cauchy_dual_bound_is_saturated": true,
+          "selector_uses_multiple_scale_pairs": true
+        }
+      },
+      {
+        "matrix_side_N": 64,
+        "shift_h": 2,
+        "noncyclic_pair_count": 62,
+        "double_centered_selector_frobenius_energy": {
+          "exact": "62465/1024",
+          "decimal": 61.0009765625
+        },
+        "full_product_haar_energy": {
+          "exact": "62465/1024",
+          "decimal": 61.0009765625
+        },
+        "shifted_diagonal_signed_pairing": {
+          "exact": "62465/1024",
+          "decimal": 61.0009765625
+        },
+        "nonzero_product_haar_coefficient_count": 224,
+        "dominant_scale_pair_energies": [
+          {
+            "scale_pair": "2x2",
+            "energy": {
+              "exact": "31/1",
+              "decimal": 31.0
+            }
+          },
+          {
+            "scale_pair": "4x4",
+            "energy": {
+              "exact": "31/4",
+              "decimal": 7.75
+            }
+          },
+          {
+            "scale_pair": "4x8",
+            "energy": {
+              "exact": "47/8",
+              "decimal": 5.875
+            }
+          },
+          {
+            "scale_pair": "8x4",
+            "energy": {
+              "exact": "47/8",
+              "decimal": 5.875
+            }
+          }
+        ],
+        "checks": {
+          "double_centered_selector_has_positive_energy": true,
+          "product_haar_parseval_matches_centered_frobenius_energy": true,
+          "shifted_diagonal_pairing_equals_centered_energy": true,
+          "cauchy_dual_bound_is_saturated": true,
+          "selector_uses_multiple_scale_pairs": true
+        }
+      },
+      {
+        "matrix_side_N": 128,
+        "shift_h": 2,
+        "noncyclic_pair_count": 126,
+        "double_centered_selector_frobenius_energy": {
+          "exact": "512001/4096",
+          "decimal": 125.000244140625
+        },
+        "full_product_haar_energy": {
+          "exact": "512001/4096",
+          "decimal": 125.000244140625
+        },
+        "shifted_diagonal_signed_pairing": {
+          "exact": "512001/4096",
+          "decimal": 125.000244140625
+        },
+        "nonzero_product_haar_coefficient_count": 495,
+        "dominant_scale_pair_energies": [
+          {
+            "scale_pair": "2x2",
+            "energy": {
+              "exact": "63/1",
+              "decimal": 63.0
+            }
+          },
+          {
+            "scale_pair": "4x4",
+            "energy": {
+              "exact": "63/4",
+              "decimal": 15.75
+            }
+          },
+          {
+            "scale_pair": "4x8",
+            "energy": {
+              "exact": "95/8",
+              "decimal": 11.875
+            }
+          },
+          {
+            "scale_pair": "8x4",
+            "energy": {
+              "exact": "95/8",
+              "decimal": 11.875
+            }
+          }
+        ],
+        "checks": {
+          "double_centered_selector_has_positive_energy": true,
+          "product_haar_parseval_matches_centered_frobenius_energy": true,
+          "shifted_diagonal_pairing_equals_centered_energy": true,
+          "cauchy_dual_bound_is_saturated": true,
+          "selector_uses_multiple_scale_pairs": true
+        }
+      }
+    ],
+    "model_boundary": "The selector is the exact finite n,n+2 diagonal geometry, but E is an adversarial deterministic matrix, not the von Mangoldt error. The theorem rejects an information class; it does not estimate prime correlations or cross the parity barrier.",
+    "failure_count": 0
+  },
+  "discarded_route": "deriving sublinear n,n+2 correlation from row-column centering and unsigned product-Haar energy alone",
+  "remaining_gap": "The centered selector is an adversarial matrix rather than a prime-weighted error. No signed Type-II estimate or twin-prime lower bound is proved.",
+  "candidate_theorem": "PrimeWeightedShiftedDiagonalHaarPairingPowerSavingBeyondParity",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact shifted-diagonal duality and centered norm-saturation no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T166-REJECTED",
+        "label": "CenteredUnsignedProductHaarEnergyForcesShiftedDiagonalPowerSaving",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T166-CLOSED",
+        "label": "ShiftedDiagonalHaarDualityAndCenteredPermutationNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T166-OPEN",
+        "label": "PrimeWeightedShiftedDiagonalHaarPairingPowerSavingBeyondParity",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T166-REJECTED",
+        "TP-T166-CLOSED"
+      ],
+      [
+        "TP-T166-CLOSED",
+        "TP-T166-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "schema": "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-166",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "StartAdaptiveFinalExcessReductionAndZeroExcessMagnitudeNoGo",
+  "declared_proposition": "For a first-crossing accelerated Collatz word of length m, let t be the final valuation excess above the least crossing valuation and let n>=3 be an odd natural realizer. Non-descent implies the strict inequality 3n(2^t-1)<m. Consequently all excesses with 3n(2^t-1)>=m descend, and the residual window has exactly min{u>=0:3n(2^u-1)>=m}=O(log(1+m/n)) values. In particular, when m<=3n only t=0 remains.",
+  "mathematical_argument": "TICKET-165 gives C<=m*3^(m-1) and D>(2^t-1)3^m. If the endpoint does not descend, nD<=C. Combining the strict lower bound for D with the upper bound for C yields 3n(2^t-1)<m. The integer threshold follows by contraposition. The t=0 term makes the left side identically zero, so magnitude information alone can never close the least-crossing valuation; its natural residue must be used.",
+  "reproducible_computation": {
+    "theorem": "For a first-crossing accelerated Collatz word of length m, let t be the final valuation excess above the least crossing valuation and let n>=3 be an odd natural realizer. Non-descent implies the strict inequality 3n(2^t-1)<m. Consequently all excesses with 3n(2^t-1)>=m descend, and the residual window has exactly min{u>=0:3n(2^u-1)>=m}=O(log(1+m/n)) values. In particular, when m<=3n only t=0 remains.",
+    "proof": "TICKET-165 gives C<=m*3^(m-1) and D>(2^t-1)3^m. If the endpoint does not descend, nD<=C. Combining the strict lower bound for D with the upper bound for C yields 3n(2^t-1)<m. The integer threshold follows by contraposition. The t=0 term makes the left side identically zero, so magnitude information alone can never close the least-crossing valuation; its natural residue must be used.",
+    "start_adaptive_window_rows": [
+      {
+        "word_length_m": 63,
+        "odd_start_n": 3,
+        "first_automatically_descending_excess": 3,
+        "residual_excess_values": [
+          0,
+          1,
+          2
+        ],
+        "residual_excess_count": 3,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 63,
+        "odd_start_n": 7,
+        "first_automatically_descending_excess": 2,
+        "residual_excess_values": [
+          0,
+          1
+        ],
+        "residual_excess_count": 2,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 63,
+        "odd_start_n": 21,
+        "first_automatically_descending_excess": 1,
+        "residual_excess_values": [
+          0
+        ],
+        "residual_excess_count": 1,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 63,
+        "odd_start_n": 63,
+        "first_automatically_descending_excess": 1,
+        "residual_excess_values": [
+          0
+        ],
+        "residual_excess_count": 1,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 255,
+        "odd_start_n": 3,
+        "first_automatically_descending_excess": 5,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "residual_excess_count": 5,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 255,
+        "odd_start_n": 9,
+        "first_automatically_descending_excess": 4,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "residual_excess_count": 4,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 255,
+        "odd_start_n": 33,
+        "first_automatically_descending_excess": 2,
+        "residual_excess_values": [
+          0,
+          1
+        ],
+        "residual_excess_count": 2,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 255,
+        "odd_start_n": 255,
+        "first_automatically_descending_excess": 1,
+        "residual_excess_values": [
+          0
+        ],
+        "residual_excess_count": 1,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "odd_start_n": 3,
+        "first_automatically_descending_excess": 7,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "residual_excess_count": 7,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "odd_start_n": 9,
+        "first_automatically_descending_excess": 6,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "residual_excess_count": 6,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "odd_start_n": 33,
+        "first_automatically_descending_excess": 4,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "residual_excess_count": 4,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "odd_start_n": 129,
+        "first_automatically_descending_excess": 2,
+        "residual_excess_values": [
+          0,
+          1
+        ],
+        "residual_excess_count": 2,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "odd_start_n": 1025,
+        "first_automatically_descending_excess": 1,
+        "residual_excess_values": [
+          0
+        ],
+        "residual_excess_count": 1,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 4096,
+        "odd_start_n": 3,
+        "first_automatically_descending_excess": 9,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "residual_excess_count": 9,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 4096,
+        "odd_start_n": 17,
+        "first_automatically_descending_excess": 7,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "residual_excess_count": 7,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 4096,
+        "odd_start_n": 65,
+        "first_automatically_descending_excess": 5,
+        "residual_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "residual_excess_count": 5,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 4096,
+        "odd_start_n": 257,
+        "first_automatically_descending_excess": 3,
+        "residual_excess_values": [
+          0,
+          1,
+          2
+        ],
+        "residual_excess_count": 3,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      },
+      {
+        "word_length_m": 4096,
+        "odd_start_n": 4097,
+        "first_automatically_descending_excess": 1,
+        "residual_excess_values": [
+          0
+        ],
+        "residual_excess_count": 1,
+        "checks": {
+          "first_closed_excess_satisfies_adaptive_descent_gate": true,
+          "previous_excess_is_not_closed_by_same_gate": true,
+          "residual_count_matches_exact_integer_window": true,
+          "large_start_regime_leaves_only_zero_excess": true
+        }
+      }
+    ],
+    "length_only_window_no_go_rows": [
+      {
+        "word_length_m": 63,
+        "length_only_n3_residual_count": 3,
+        "odd_start_at_least_m": 63,
+        "start_adaptive_residual_count": 1,
+        "checks": {
+          "start_blind_n3_window_is_strictly_larger": true,
+          "large_start_window_is_exactly_zero_excess_only": true,
+          "zero_excess_is_never_closed_by_magnitude_gate": true
+        }
+      },
+      {
+        "word_length_m": 255,
+        "length_only_n3_residual_count": 5,
+        "odd_start_at_least_m": 255,
+        "start_adaptive_residual_count": 1,
+        "checks": {
+          "start_blind_n3_window_is_strictly_larger": true,
+          "large_start_window_is_exactly_zero_excess_only": true,
+          "zero_excess_is_never_closed_by_magnitude_gate": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "length_only_n3_residual_count": 7,
+        "odd_start_at_least_m": 1025,
+        "start_adaptive_residual_count": 1,
+        "checks": {
+          "start_blind_n3_window_is_strictly_larger": true,
+          "large_start_window_is_exactly_zero_excess_only": true,
+          "zero_excess_is_never_closed_by_magnitude_gate": true
+        }
+      },
+      {
+        "word_length_m": 4096,
+        "length_only_n3_residual_count": 9,
+        "odd_start_at_least_m": 4097,
+        "start_adaptive_residual_count": 1,
+        "checks": {
+          "start_blind_n3_window_is_strictly_larger": true,
+          "large_start_window_is_exactly_zero_excess_only": true,
+          "zero_excess_is_never_closed_by_magnitude_gate": true
+        }
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "treating the start-blind O(log m) window as sharp or expecting magnitude alone to close t=0",
+  "remaining_gap": "The least-crossing case t=0 survives for every start, and long first-crossing times m>>n can retain more excesses. No all-orbit residue slack or divergent natural orbit is obtained.",
+  "candidate_theorem": "UniformNaturalResidueSlackInsideStartAdaptiveExcessWindow",
+  "claim_boundary": "No Collatz proof and no divergent orbit; exact start-adaptive excess reduction and magnitude-method no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T166-REJECTED",
+        "label": "StartBlindLogarithmicWindowIsSharpAndMagnitudeClosesZeroExcess",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T166-CLOSED",
+        "label": "StartAdaptiveFinalExcessReductionAndZeroExcessMagnitudeNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T166-OPEN",
+        "label": "UniformNaturalResidueSlackInsideStartAdaptiveExcessWindow",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T166-REJECTED",
+        "CO-T166-CLOSED"
+      ],
+      [
+        "CO-T166-CLOSED",
+        "CO-T166-OPEN"
+      ]
+    ]
+  }
+}

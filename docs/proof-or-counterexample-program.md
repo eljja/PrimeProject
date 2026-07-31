@@ -37,6 +37,43 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-01 TICKET-166 Tail-Adaptive, Bandlimited, and Shifted-Diagonal Audit
+
+TICKET-166 continues the four exact open nodes left by TICKET-165 and keeps
+every parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `PositiveTailDiagonalCoreBridgeAndAmbiguousBandNoGo` composes a
+   positive omitted tail with interval-certified Galerkin lower bounds. A
+   cubic diagonal cutoff turns a tail order `(2N+1)log(T)/T` into
+   `O(log N/N^2)`, while an exact scalar pair proves that the tail budget alone
+   cannot decide a truncated eigenvalue in `[-B,0)`. The next obligation is
+   `IntervalCertifiedTruncatedWeilLowerBoundAtVanishingTailScaleOnEveryNestedCore`.
+2. **Collatz:** `StartAdaptiveFinalExcessReductionAndZeroExcessMagnitudeNoGo`
+   proves that first-crossing non-descent implies `3n(2^t-1)<m`. The residual
+   window is therefore `O(log(1+m/n))`, and only `t=0` remains when `m<=3n`.
+   The next obligation is
+   `UniformNaturalResidueSlackInsideStartAdaptiveExcessWindow`.
+3. **Goldbach:** `BandlimitedAnchorClosureAndFullBandwidthSpikeNoGo` combines
+   Bernstein sampling with a uniform low-pass error to obtain a pointwise
+   gate. A unit spike has full DFT support and defeats every anchor set that
+   omits it. The next obligation is
+   `UniformDyadicLowPassApproximationAndAnchorMarginForBinaryMinorDeficit`.
+4. **Twin Prime:** `ShiftedDiagonalHaarDualityAndCenteredPermutationNoGo`
+   identifies the exact product-Haar dual of the noncyclic `n,n+2` selector.
+   Its double-centered projection has zero margins but saturates the signed
+   dual bound at linear scale. The next obligation is
+   `PrimeWeightedShiftedDiagonalHaarPairingPowerSavingBeyondParity`.
+
+한국어 요약: TICKET-166은 리만 양의 꼬리의 대각 core 연결, 콜라츠의
+시작값 적응형 excess 창, 골드바흐의 대역 제한 표본화, 쌍둥이 소수의
+shifted-diagonal Haar 쌍대성을 정확히 분리했다. 실제 모든 Weil core의
+interval 하한, 콜라츠 자연수 residue slack, 모든 dyadic shell의
+Goldbach 저주파 균일 근사, prime-weighted signed diagonal power saving은
+여전히 미증명이다. 해결된 추측 수는 0이다.
+
+[TICKET-166 bilingual report](tail-adaptive-bandlimited-diagonal.md)에 정확한
+정리, 계산, no-go 반례, 문헌 경계와 proof DAG를 기록한다.
+
 ## 2026-08-01 TICKET-165 Vanishing-Defect, Log-Tail, Variation, and Signed-Dual Audit
 
 TICKET-165 attacks the four open nodes left by TICKET-164. It replaces one

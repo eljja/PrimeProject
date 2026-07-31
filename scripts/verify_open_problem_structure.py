@@ -179,6 +179,7 @@ TICKET164_SCHEMA = (
 TICKET165_SCHEMA = (
     "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1"
 )
+TICKET166_SCHEMA = "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1"
 
 
 def fail(message: str) -> int:
@@ -12525,6 +12526,140 @@ def main() -> int:
         or "resolves none" not in str(ticket165.get("claim_boundary", "")).lower()
     ):
         return fail("ticket165 proof boundary changed")
+
+    path166 = Path(
+        "data/open-problem/ticket166-tail-adaptive-bandlimited-diagonal.json"
+    )
+    if not path166.exists():
+        return fail("missing ticket166 tail/adaptive/bandlimited/diagonal audit")
+    ticket166 = read_json(path166)
+    if (
+        ticket166.get("schema") != TICKET166_SCHEMA
+        or ticket166.get("status")
+        != "four_exact_reductions_and_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket166 schema or status changed")
+    attempts166 = ticket166.get("attempts", [])
+    by_id166 = {
+        str(row.get("problem_id")): row
+        for row in attempts166
+        if isinstance(row, dict)
+    }
+    if set(by_id166) != EXPECTED_PROBLEMS:
+        return fail("ticket166 attempts missing problems")
+    audit166 = ticket166.get("tail_adaptive_bandlimited_diagonal_audit", {})
+    if audit166.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket166 global machine audit changed")
+
+    paths166 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-166-positive-tail-diagonal.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-166-start-adaptive-excess.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-166-bandlimited-anchor.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-166-shifted-diagonal-haar.json"),
+    }
+    expected_names166 = {
+        "riemann": "PositiveTailDiagonalCoreBridgeAndAmbiguousBandNoGo",
+        "collatz": "StartAdaptiveFinalExcessReductionAndZeroExcessMagnitudeNoGo",
+        "goldbach": "BandlimitedAnchorClosureAndFullBandwidthSpikeNoGo",
+        "twin-prime": "ShiftedDiagonalHaarDualityAndCenteredPermutationNoGo",
+    }
+    next166 = {
+        "riemann": "IntervalCertifiedTruncatedWeilLowerBoundAtVanishingTailScaleOnEveryNestedCore",
+        "collatz": "UniformNaturalResidueSlackInsideStartAdaptiveExcessWindow",
+        "goldbach": "UniformDyadicLowPassApproximationAndAnchorMarginForBinaryMinorDeficit",
+        "twin-prime": "PrimeWeightedShiftedDiagonalHaarPairingPowerSavingBeyondParity",
+    }
+    sections166 = {
+        "riemann": audit166.get("riemann", {}),
+        "collatz": audit166.get("collatz", {}),
+        "goldbach": audit166.get("goldbach", {}),
+        "twin-prime": audit166.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id166.items():
+        artifact_path = paths166[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket166 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections166[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET166_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names166[problem_id]
+            or artifact.get("theorem_name") != expected_names166[problem_id]
+            or attempt.get("candidate_theorem") != next166[problem_id]
+            or artifact.get("candidate_theorem") != next166[problem_id]
+            or [node.get("status") for node in nodes]
+            != ["refuted_or_insufficient", "proved_exact", "open_not_proven"]
+            or nodes[-1].get("label") != next166[problem_id]
+            or int(section.get("reproducible_computation", {}).get("failure_count", -1)) != 0
+            or "No " not in str(artifact.get("claim_boundary", ""))
+        ):
+            return fail(f"{problem_id}: ticket166 contract changed")
+
+    riemann166 = sections166["riemann"]["reproducible_computation"]
+    tail_rows166 = riemann166.get("cubic_diagonal_tail_scale_rows", [])
+    ambiguous166 = riemann166.get("ambiguous_tail_band_no_go_rows", [])
+    if (
+        [row.get("galerkin_dimension_N") for row in tail_rows166]
+        != [4, 8, 16, 32, 64, 128, 256]
+        or float(tail_rows166[-1].get("published_leading_order_tail_scale_diagnostic", 1)) >= 1e-4
+        or any(not all(row.get("checks", {}).values()) for row in tail_rows166)
+        or len(ambiguous166) != 5
+        or any(not all(row.get("checks", {}).values()) for row in ambiguous166)
+    ):
+        return fail("ticket166 RH positive-tail audit changed")
+
+    collatz166 = sections166["collatz"]["reproducible_computation"]
+    compare166 = collatz166.get("length_only_window_no_go_rows", [])
+    if (
+        [row.get("word_length_m") for row in compare166] != [63, 255, 1024, 4096]
+        or [row.get("length_only_n3_residual_count") for row in compare166]
+        != [3, 5, 7, 9]
+        or any(row.get("start_adaptive_residual_count") != 1 for row in compare166)
+        or any(not all(row.get("checks", {}).values()) for row in compare166)
+    ):
+        return fail("ticket166 Collatz adaptive-window audit changed")
+
+    goldbach166 = sections166["goldbach"]["reproducible_computation"]
+    lowpass166 = goldbach166.get("finite_low_pass_diagnostic_rows", [])
+    spikes166 = goldbach166.get("full_bandwidth_spike_no_go_rows", [])
+    if (
+        [row.get("low_pass_bandwidth_K") for row in lowpass166]
+        != [16, 64, 256, 1024, 4096]
+        or any(float(row.get("bernstein_plus_error_upper_certificate", 1)) >= 1 for row in lowpass166)
+        or any(not all(row.get("checks", {}).values()) for row in lowpass166)
+        or [row.get("cyclic_grid_size") for row in spikes166] != [16, 32, 64, 128, 256]
+        or any(not all(row.get("checks", {}).values()) for row in spikes166)
+    ):
+        return fail("ticket166 Goldbach bandlimited audit changed")
+
+    twin166 = sections166["twin-prime"]["reproducible_computation"]
+    diagonal166 = twin166.get("shifted_diagonal_haar_rows", [])
+    if (
+        [row.get("matrix_side_N") for row in diagonal166] != [8, 16, 32, 64, 128]
+        or any(
+            row.get("full_product_haar_energy", {}).get("exact")
+            != row.get("double_centered_selector_frobenius_energy", {}).get("exact")
+            or row.get("shifted_diagonal_signed_pairing", {}).get("exact")
+            != row.get("double_centered_selector_frobenius_energy", {}).get("exact")
+            or not all(row.get("checks", {}).values())
+            for row in diagonal166
+        )
+    ):
+        return fail("ticket166 Twin shifted-diagonal audit changed")
+    if (
+        "resolves none" not in str(audit166.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket166.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket166 proof boundary changed")
 
     print("open problem structure verified")
     return 0

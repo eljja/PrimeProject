@@ -1,0 +1,193 @@
+{
+  "schema": "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-166",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "BandlimitedAnchorClosureAndFullBandwidthSpikeNoGo",
+  "declared_proposition": "Let f be a trigonometric polynomial of degree K on the circle, sampled at q equally spaced anchors, and let A be the maximum anchor absolute value. If q>pi*K, Bernstein's inequality gives ||f||_infinity<=A/(1-pi*K/q). If a target deficit sequence differs from f by at most eta at every target, then its pointwise maximum is at most A/(1-pi*K/q)+eta. Full-bandwidth control is essential: a unit spike has nonzero DFT coefficient at every frequency while all anchors avoiding that point can be zero.",
+  "mathematical_argument": "Every circle point is within pi/q of an anchor. Bernstein gives ||f'||_infinity<=K||f||_infinity, hence M<=A+(pi*K/q)M; rearrange. The eta extension is the triangle inequality. The DFT of a unit spike at j0 is exp(-2*pi*i*k*j0/L), divided only by the chosen normalization, and is nonzero for every k; anchors not containing j0 therefore see zero despite a unit maximum.",
+  "reproducible_computation": {
+    "theorem": "Let f be a trigonometric polynomial of degree K on the circle, sampled at q equally spaced anchors, and let A be the maximum anchor absolute value. If q>pi*K, Bernstein's inequality gives ||f||_infinity<=A/(1-pi*K/q). If a target deficit sequence differs from f by at most eta at every target, then its pointwise maximum is at most A/(1-pi*K/q)+eta. Full-bandwidth control is essential: a unit spike has nonzero DFT coefficient at every frequency while all anchors avoiding that point can be zero.",
+    "proof": "Every circle point is within pi/q of an anchor. Bernstein gives ||f'||_infinity<=K||f||_infinity, hence M<=A+(pi*K/q)M; rearrange. The eta extension is the triangle inequality. The DFT of a unit spike at j0 is exp(-2*pi*i*k*j0/L), divided only by the chosen normalization, and is nonzero for every k; anchors not containing j0 therefore see zero despite a unit maximum.",
+    "finite_low_pass_diagnostic_rows": [
+      {
+        "finite_target_count": 16384,
+        "low_pass_bandwidth_K": 16,
+        "anchor_count_q": 64,
+        "maximum_low_pass_anchor_absolute_value": 0.07016104830249602,
+        "uniform_error_on_finite_target_grid": 0.16681511777970548,
+        "retained_fourier_energy_fraction": 0.5611535496162565,
+        "bernstein_plus_error_upper_certificate": 0.4937510350730702,
+        "checks": {
+          "anchor_grid_divides_finite_target_grid": true,
+          "bernstein_denominator_is_positive": true,
+          "certificate_dominates_actual_finite_maximum": true,
+          "finite_diagnostic_certificate_is_below_one": true,
+          "row_is_labeled_floating_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count": 16384,
+        "low_pass_bandwidth_K": 64,
+        "anchor_count_q": 256,
+        "maximum_low_pass_anchor_absolute_value": 0.07130018300053868,
+        "uniform_error_on_finite_target_grid": 0.1444444544082064,
+        "retained_fourier_energy_fraction": 0.5643842307184901,
+        "bernstein_plus_error_upper_certificate": 0.4766885028717268,
+        "checks": {
+          "anchor_grid_divides_finite_target_grid": true,
+          "bernstein_denominator_is_positive": true,
+          "certificate_dominates_actual_finite_maximum": true,
+          "finite_diagnostic_certificate_is_below_one": true,
+          "row_is_labeled_floating_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count": 16384,
+        "low_pass_bandwidth_K": 256,
+        "anchor_count_q": 1024,
+        "maximum_low_pass_anchor_absolute_value": 0.07499358090958638,
+        "uniform_error_on_finite_target_grid": 0.14572509675378414,
+        "retained_fourier_energy_fraction": 0.5674784438036304,
+        "bernstein_plus_error_upper_certificate": 0.49517961259968757,
+        "checks": {
+          "anchor_grid_divides_finite_target_grid": true,
+          "bernstein_denominator_is_positive": true,
+          "certificate_dominates_actual_finite_maximum": true,
+          "finite_diagnostic_certificate_is_below_one": true,
+          "row_is_labeled_floating_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count": 16384,
+        "low_pass_bandwidth_K": 1024,
+        "anchor_count_q": 4096,
+        "maximum_low_pass_anchor_absolute_value": 0.09582142836625551,
+        "uniform_error_on_finite_target_grid": 0.13814118074972276,
+        "retained_fourier_energy_fraction": 0.5847505763490957,
+        "bernstein_plus_error_upper_certificate": 0.5846491411812047,
+        "checks": {
+          "anchor_grid_divides_finite_target_grid": true,
+          "bernstein_denominator_is_positive": true,
+          "certificate_dominates_actual_finite_maximum": true,
+          "finite_diagnostic_certificate_is_below_one": true,
+          "row_is_labeled_floating_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count": 16384,
+        "low_pass_bandwidth_K": 4096,
+        "anchor_count_q": 16384,
+        "maximum_low_pass_anchor_absolute_value": 0.17403738657295267,
+        "uniform_error_on_finite_target_grid": 0.12326129564972543,
+        "retained_fourier_energy_fraction": 0.746307178299669,
+        "bernstein_plus_error_upper_certificate": 0.9342393810576081,
+        "checks": {
+          "anchor_grid_divides_finite_target_grid": true,
+          "bernstein_denominator_is_positive": true,
+          "certificate_dominates_actual_finite_maximum": true,
+          "finite_diagnostic_certificate_is_below_one": true,
+          "row_is_labeled_floating_diagnostic": true
+        }
+      }
+    ],
+    "full_bandwidth_spike_no_go_rows": [
+      {
+        "cyclic_grid_size": 16,
+        "even_anchor_count": 8,
+        "unanchored_spike_index": 1,
+        "nonzero_dft_coefficient_count": 16,
+        "checks": {
+          "every_even_anchor_is_zero": true,
+          "unanchored_spike_has_unit_height": true,
+          "unit_spike_has_full_discrete_fourier_support": true,
+          "half_grid_sampling_misses_the_exception": true
+        }
+      },
+      {
+        "cyclic_grid_size": 32,
+        "even_anchor_count": 16,
+        "unanchored_spike_index": 1,
+        "nonzero_dft_coefficient_count": 32,
+        "checks": {
+          "every_even_anchor_is_zero": true,
+          "unanchored_spike_has_unit_height": true,
+          "unit_spike_has_full_discrete_fourier_support": true,
+          "half_grid_sampling_misses_the_exception": true
+        }
+      },
+      {
+        "cyclic_grid_size": 64,
+        "even_anchor_count": 32,
+        "unanchored_spike_index": 1,
+        "nonzero_dft_coefficient_count": 64,
+        "checks": {
+          "every_even_anchor_is_zero": true,
+          "unanchored_spike_has_unit_height": true,
+          "unit_spike_has_full_discrete_fourier_support": true,
+          "half_grid_sampling_misses_the_exception": true
+        }
+      },
+      {
+        "cyclic_grid_size": 128,
+        "even_anchor_count": 64,
+        "unanchored_spike_index": 1,
+        "nonzero_dft_coefficient_count": 128,
+        "checks": {
+          "every_even_anchor_is_zero": true,
+          "unanchored_spike_has_unit_height": true,
+          "unit_spike_has_full_discrete_fourier_support": true,
+          "half_grid_sampling_misses_the_exception": true
+        }
+      },
+      {
+        "cyclic_grid_size": 256,
+        "even_anchor_count": 128,
+        "unanchored_spike_index": 1,
+        "nonzero_dft_coefficient_count": 256,
+        "checks": {
+          "every_even_anchor_is_zero": true,
+          "unanchored_spike_has_unit_height": true,
+          "unit_spike_has_full_discrete_fourier_support": true,
+          "half_grid_sampling_misses_the_exception": true
+        }
+      }
+    ],
+    "finite_diagnostic_boundary": "The low-pass rows use floating FFT values from the repository's finite Farey-mask model on (32768,65536]. They validate the bridge implementation but are neither interval certificates nor estimates for every binary-Goldbach dyadic shell.",
+    "failure_count": 0
+  },
+  "discarded_route": "sparse anchor positivity without an effective-bandwidth or variation certificate",
+  "remaining_gap": "No uniform low-pass approximation error or anchor margin is proved for the true binary-Goldbach minor deficit over all dyadic shells. The finite FFT rows are floating diagnostics.",
+  "candidate_theorem": "UniformDyadicLowPassApproximationAndAnchorMarginForBinaryMinorDeficit",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact sampling bridge, exact spike no-go, and finite floating diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T166-REJECTED",
+        "label": "SparseAnchorsControlArbitraryFullBandwidthGoldbachDeficits",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T166-CLOSED",
+        "label": "BandlimitedAnchorClosureAndFullBandwidthSpikeNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T166-OPEN",
+        "label": "UniformDyadicLowPassApproximationAndAnchorMarginForBinaryMinorDeficit",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T166-REJECTED",
+        "GB-T166-CLOSED"
+      ],
+      [
+        "GB-T166-CLOSED",
+        "GB-T166-OPEN"
+      ]
+    ]
+  }
+}
