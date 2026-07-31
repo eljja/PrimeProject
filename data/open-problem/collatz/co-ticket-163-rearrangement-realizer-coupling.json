@@ -1,0 +1,441 @@
+{
+  "schema": "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1",
+  "generated_at": "2026-07-31T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-163",
+  "status": "open_not_proven",
+  "theorem_name": "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo",
+  "declared_proposition": "For a positive valuation word a=(a_1,...,a_m), write 2^S T_a(n)=3^m n+C(a). At fixed m and S, C(a) is maximized by the front-loaded word (S-m+1,1,...,1). More exactly, swapping adjacent x<y into y,x increases C by 3^(m-i-2)2^P(2^y-2^x), where P is the preceding valuation sum. This extremality does not transfer natural descent: at m=17,S=27, the displayed word realized by n=165 has smaller correction than the front-loaded word but endpoint 167. The natural residue and affine correction must be controlled jointly. The same orbit already descends at its first step, so this is a no-go for fixed-length transfer, not a Collatz counterexample.",
+  "mathematical_argument": "The affine iteration formula follows by induction. An adjacent swap changes only the prefix entering the next correction term, which gives the displayed positive difference; repeated swaps sort the word. More directly, every proper prefix sum is at most S minus the positive suffix length, with equality for the front-loaded word, proving its maximality term by term. The exact natural realizer must also make the endpoint odd and is the unique residue r=(2^S-C(a))3^(-m) mod 2^(S+1). Substitution gives the two exact comparison endpoints. Complete enumeration of all positive compositions is recorded only through m=13 and is not an all-length theorem.",
+  "reproducible_computation": {
+    "theorem": "For a positive valuation word a=(a_1,...,a_m), write 2^S T_a(n)=3^m n+C(a). At fixed m and S, C(a) is maximized by the front-loaded word (S-m+1,1,...,1). More exactly, swapping adjacent x<y into y,x increases C by 3^(m-i-2)2^P(2^y-2^x), where P is the preceding valuation sum. This extremality does not transfer natural descent: at m=17,S=27, the displayed word realized by n=165 has smaller correction than the front-loaded word but endpoint 167. The natural residue and affine correction must be controlled jointly. The same orbit already descends at its first step, so this is a no-go for fixed-length transfer, not a Collatz counterexample.",
+    "proof": "The affine iteration formula follows by induction. An adjacent swap changes only the prefix entering the next correction term, which gives the displayed positive difference; repeated swaps sort the word. More directly, every proper prefix sum is at most S minus the positive suffix length, with equality for the front-loaded word, proving its maximality term by term. The exact natural realizer must also make the endpoint odd and is the unique residue r=(2^S-C(a))3^(-m) mod 2^(S+1). Substitution gives the two exact comparison endpoints. Complete enumeration of all positive compositions is recorded only through m=13 and is not an all-length theorem.",
+    "minimal_layer_complete_rows": [
+      {
+        "word_length_m": 2,
+        "minimal_contracting_total_S": 4,
+        "composition_count": 3,
+        "strict_descent_count": 2,
+        "non_strict_count": 1,
+        "minimum_strict_descent_margin": 0,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          3,
+          1
+        ],
+        "maximum_affine_correction_C": 11,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 3,
+        "minimal_contracting_total_S": 5,
+        "composition_count": 6,
+        "strict_descent_count": 6,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 2,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          3,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 49,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 4,
+        "minimal_contracting_total_S": 7,
+        "composition_count": 20,
+        "strict_descent_count": 20,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 2,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          4,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 331,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 5,
+        "minimal_contracting_total_S": 8,
+        "composition_count": 35,
+        "strict_descent_count": 35,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 2,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 1121,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 6,
+        "minimal_contracting_total_S": 10,
+        "composition_count": 126,
+        "strict_descent_count": 126,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 10,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 6995,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 7,
+        "minimal_contracting_total_S": 12,
+        "composition_count": 462,
+        "strict_descent_count": 462,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 56,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 43289,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 8,
+        "minimal_contracting_total_S": 13,
+        "composition_count": 792,
+        "strict_descent_count": 792,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 18,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 133963,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 9,
+        "minimal_contracting_total_S": 15,
+        "composition_count": 3003,
+        "strict_descent_count": 3003,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 50,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          7,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 813601,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 10,
+        "minimal_contracting_total_S": 16,
+        "composition_count": 5005,
+        "strict_descent_count": 5005,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 6,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          7,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 2473571,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 11,
+        "minimal_contracting_total_S": 18,
+        "composition_count": 19448,
+        "strict_descent_count": 19448,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 38,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          8,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 14913449,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 12,
+        "minimal_contracting_total_S": 20,
+        "composition_count": 75582,
+        "strict_descent_count": 75582,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 80,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          9,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 89827835,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      },
+      {
+        "word_length_m": 13,
+        "minimal_contracting_total_S": 21,
+        "composition_count": 125970,
+        "strict_descent_count": 125970,
+        "non_strict_count": 0,
+        "minimum_strict_descent_margin": 26,
+        "natural_residue_replay_failure_count": 0,
+        "front_loaded_word": [
+          9,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "maximum_affine_correction_C": 270532081,
+        "checks": {
+          "all_compositions_enumerated": true,
+          "front_loaded_word_maximizes_correction": true,
+          "front_loaded_correction_matches_maximum": true,
+          "every_natural_residue_replays_exact_word": true,
+          "eventual_candidate_only_claimed_on_finite_scan": true
+        }
+      }
+    ],
+    "exact_natural_realizer_coupling_no_go": {
+      "front_loaded": {
+        "word": [
+          11,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "correction": 88068513601,
+        "least_realizer": 268434773,
+        "endpoint": 258280325,
+        "margin": 10154448
+      },
+      "smaller_correction": {
+        "word": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "correction": 1106233681,
+        "least_realizer": 165,
+        "endpoint": 167,
+        "margin": -2
+      },
+      "checks": {
+        "front_word_has_larger_correction": true,
+        "front_word_least_realizer_descends": true,
+        "smaller_correction_word_least_realizer_grows": true,
+        "coupled_word_is_replayed_by_165": true,
+        "finite_layers_three_through_thirteen_all_descend": true
+      }
+    },
+    "non_strict_words_through_m13": [
+      {
+        "word_length_m": 2,
+        "total_valuation_S": 4,
+        "valuation_word": [
+          2,
+          2
+        ],
+        "affine_correction_C": 7,
+        "least_odd_realizer_r": 1,
+        "endpoint_Tm_r": 1,
+        "strict_descent_margin": 0
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "transferring front-loaded descent to permutations by affine correction ordering alone",
+  "remaining_gap": "The complete minimal-total layer is checked only through m=13, and fixed-length transfer fails at m=17. No theorem proves descent at the first multiplicatively contracting prefix for every nonterminal natural orbit.",
+  "candidate_theorem": "FirstContractingLayerNaturalRealizerDescent",
+  "claim_boundary": "No Collatz proof and no divergent orbit; exact rearrangement theorem, exact m=17 coupling no-go, finite complete layers through m=13.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T163-REJECTED",
+        "label": "FrontLoadedCorrectionExtremalityTransfersNaturalDescent",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T163-CLOSED",
+        "label": "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T163-OPEN",
+        "label": "FirstContractingLayerNaturalRealizerDescent",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T163-REJECTED",
+        "CO-T163-CLOSED"
+      ],
+      [
+        "CO-T163-CLOSED",
+        "CO-T163-OPEN"
+      ]
+    ]
+  }
+}

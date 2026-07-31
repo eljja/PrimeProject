@@ -1,0 +1,1158 @@
+{
+  "schema": "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1",
+  "generated_at": "2026-07-31T12:00:00+09:00",
+  "status": "four_localization_reductions_and_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-163 proves four exact localization or no-go results and resolves none of the four conjectures. It replaces global or uncoupled proxies by cancellation-aware, residue-coupled, shellwise, and locally Carleson-normalized proof obligations.",
+  "local_certificate_realizer_trace_carleson_audit": {
+    "theorem_name": "FourConjectureLocalCertificateRealizerTraceCarlesonAudit",
+    "status": "four_localization_reductions_and_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-163 proves four exact localization or no-go results and resolves none of the four conjectures. It replaces global or uncoupled proxies by cancellation-aware, residue-coupled, shellwise, and locally Carleson-normalized proof obligations.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-163",
+      "theorem_name": "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo",
+      "declared_proposition": "Put R=log X and Q_X(f)=sum_{n<=X} Lambda(n)n^(-1/2)|f(log n)|^2 on H1(-R,R). For every f,g, |Q_X(f)-Q_X(g)| <= C_R^2 W_X (||f||_H1+||g||_H1)||f-g||_H1, where C_R^2=2R+(2R)^(-1) and W_X=sum_{n<=X}Lambda(n)/sqrt(n). Thus every finite prime trace is H1-continuous. However W_X diverges, already from its prime terms. Consequently the coefficient-mass majorant C_R^2 W_X does not supply the uniform-in-X continuity required by the TICKET-162 Guinand-Weil bridge.",
+      "mathematical_argument": "Writing f(x) as its interval mean plus its mean-zero part gives |f(x)| <= (2R)^(-1/2)||f||_2+(2R)^(1/2)||f'||_2 <= C_R||f||_H1. Apply |a^2-b^2|<=|a-b|(|a|+|b|) at every prime-power trace point and sum the positive weights. For primes p>=3, log(p)/sqrt(p)>=1/p, while Euler's prime reciprocal series diverges; hence W_X diverges. This rejects only this coefficient-mass majorant, not every possible absolute estimate and not cancellation-aware continuity of the complete Guinand-Weil form.",
+      "reproducible_computation": {
+        "theorem": "Put R=log X and Q_X(f)=sum_{n<=X} Lambda(n)n^(-1/2)|f(log n)|^2 on H1(-R,R). For every f,g, |Q_X(f)-Q_X(g)| <= C_R^2 W_X (||f||_H1+||g||_H1)||f-g||_H1, where C_R^2=2R+(2R)^(-1) and W_X=sum_{n<=X}Lambda(n)/sqrt(n). Thus every finite prime trace is H1-continuous. However W_X diverges, already from its prime terms. Consequently the coefficient-mass majorant C_R^2 W_X does not supply the uniform-in-X continuity required by the TICKET-162 Guinand-Weil bridge.",
+        "proof": "Writing f(x) as its interval mean plus its mean-zero part gives |f(x)| <= (2R)^(-1/2)||f||_2+(2R)^(1/2)||f'||_2 <= C_R||f||_H1. Apply |a^2-b^2|<=|a-b|(|a|+|b|) at every prime-power trace point and sum the positive weights. For primes p>=3, log(p)/sqrt(p)>=1/p, while Euler's prime reciprocal series diverges; hence W_X diverges. This rejects only this coefficient-mass majorant, not every possible absolute estimate and not cancellation-aware continuity of the complete Guinand-Weil form.",
+        "finite_prime_trace_rows": [
+          {
+            "prime_power_cutoff_X": 100,
+            "log_interval_radius_R": 4.605170185988092,
+            "von_mangoldt_sqrt_weight_mass_W_X": 16.896201344213683,
+            "sobolev_point_trace_constant_squared": 9.318913992451996,
+            "absolute_quadratic_continuity_constant": 157.4542471258791,
+            "constant_h1_unit_witness_value": 1.8344817522295769,
+            "checks": {
+              "finite_coefficient_mass_is_positive": true,
+              "sobolev_trace_constant_is_positive": true,
+              "absolute_continuity_constant_is_finite": true,
+              "constant_function_is_below_absolute_bound": true
+            }
+          },
+          {
+            "prime_power_cutoff_X": 1000,
+            "log_interval_radius_R": 6.907755278982137,
+            "von_mangoldt_sqrt_weight_mass_W_X": 60.50775646785193,
+            "sobolev_point_trace_constant_squared": 13.887892971614816,
+            "absolute_quadratic_continuity_constant": 840.3252457780617,
+            "constant_h1_unit_witness_value": 4.3796974577223144,
+            "checks": {
+              "finite_coefficient_mass_is_positive": true,
+              "sobolev_trace_constant_is_positive": true,
+              "absolute_continuity_constant_is_finite": true,
+              "constant_function_is_below_absolute_bound": true
+            }
+          },
+          {
+            "prime_power_cutoff_X": 10000,
+            "log_interval_radius_R": 9.210340371976184,
+            "von_mangoldt_sqrt_weight_mass_W_X": 197.4660526925655,
+            "sobolev_point_trace_constant_squared": 18.474967554190275,
+            "absolute_quadratic_continuity_constant": 3648.178916549175,
+            "constant_h1_unit_witness_value": 10.719802130949745,
+            "checks": {
+              "finite_coefficient_mass_is_positive": true,
+              "sobolev_trace_constant_is_positive": true,
+              "absolute_continuity_constant_is_finite": true,
+              "constant_function_is_below_absolute_bound": true
+            }
+          },
+          {
+            "prime_power_cutoff_X": 100000,
+            "log_interval_radius_R": 11.512925464970229,
+            "von_mangoldt_sqrt_weight_mass_W_X": 629.9413539674201,
+            "sobolev_point_trace_constant_squared": 23.06928037813078,
+            "absolute_quadratic_continuity_constant": 14532.293716453742,
+            "constant_h1_unit_witness_value": 27.35800539507137,
+            "checks": {
+              "finite_coefficient_mass_is_positive": true,
+              "sobolev_trace_constant_is_positive": true,
+              "absolute_continuity_constant_is_finite": true,
+              "constant_function_is_below_absolute_bound": true
+            }
+          },
+          {
+            "prime_power_cutoff_X": 1000000,
+            "log_interval_radius_R": 13.815510557964274,
+            "von_mangoldt_sqrt_weight_mass_W_X": 1996.9068088159895,
+            "sobolev_point_trace_constant_squared": 27.66721232275382,
+            "absolute_quadratic_continuity_constant": 55248.84466826475,
+            "constant_h1_unit_witness_value": 72.27046732865135,
+            "checks": {
+              "finite_coefficient_mass_is_positive": true,
+              "sobolev_trace_constant_is_positive": true,
+              "absolute_continuity_constant_is_finite": true,
+              "constant_function_is_below_absolute_bound": true
+            }
+          }
+        ],
+        "trend_checks": {
+          "coefficient_mass_increases": true,
+          "absolute_continuity_constant_increases": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "Continuity is proved only at each fixed prime cutoff. The complete Guinand-Weil form may contain cancellations not seen by the divergent absolute coefficient mass.",
+      "route_decision": {
+        "discard": "uniform H1 continuity obtained from the divergent C_R^2 W_X coefficient-mass majorant",
+        "retain": "the fixed-cutoff trace theorem plus cancellation between prime and archimedean terms",
+        "next_single_lemma": "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T163-REJECTED",
+            "label": "CoefficientMassMajorantRemainsUniform",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T163-CLOSED",
+            "label": "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T163-OPEN",
+            "label": "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T163-REJECTED",
+            "RH-T163-CLOSED"
+          ],
+          [
+            "RH-T163-CLOSED",
+            "RH-T163-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no zero exclusion; one finite trace theorem and one proof-strategy no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-163",
+      "theorem_name": "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo",
+      "declared_proposition": "For a positive valuation word a=(a_1,...,a_m), write 2^S T_a(n)=3^m n+C(a). At fixed m and S, C(a) is maximized by the front-loaded word (S-m+1,1,...,1). More exactly, swapping adjacent x<y into y,x increases C by 3^(m-i-2)2^P(2^y-2^x), where P is the preceding valuation sum. This extremality does not transfer natural descent: at m=17,S=27, the displayed word realized by n=165 has smaller correction than the front-loaded word but endpoint 167. The natural residue and affine correction must be controlled jointly. The same orbit already descends at its first step, so this is a no-go for fixed-length transfer, not a Collatz counterexample.",
+      "mathematical_argument": "The affine iteration formula follows by induction. An adjacent swap changes only the prefix entering the next correction term, which gives the displayed positive difference; repeated swaps sort the word. More directly, every proper prefix sum is at most S minus the positive suffix length, with equality for the front-loaded word, proving its maximality term by term. The exact natural realizer must also make the endpoint odd and is the unique residue r=(2^S-C(a))3^(-m) mod 2^(S+1). Substitution gives the two exact comparison endpoints. Complete enumeration of all positive compositions is recorded only through m=13 and is not an all-length theorem.",
+      "reproducible_computation": {
+        "theorem": "For a positive valuation word a=(a_1,...,a_m), write 2^S T_a(n)=3^m n+C(a). At fixed m and S, C(a) is maximized by the front-loaded word (S-m+1,1,...,1). More exactly, swapping adjacent x<y into y,x increases C by 3^(m-i-2)2^P(2^y-2^x), where P is the preceding valuation sum. This extremality does not transfer natural descent: at m=17,S=27, the displayed word realized by n=165 has smaller correction than the front-loaded word but endpoint 167. The natural residue and affine correction must be controlled jointly. The same orbit already descends at its first step, so this is a no-go for fixed-length transfer, not a Collatz counterexample.",
+        "proof": "The affine iteration formula follows by induction. An adjacent swap changes only the prefix entering the next correction term, which gives the displayed positive difference; repeated swaps sort the word. More directly, every proper prefix sum is at most S minus the positive suffix length, with equality for the front-loaded word, proving its maximality term by term. The exact natural realizer must also make the endpoint odd and is the unique residue r=(2^S-C(a))3^(-m) mod 2^(S+1). Substitution gives the two exact comparison endpoints. Complete enumeration of all positive compositions is recorded only through m=13 and is not an all-length theorem.",
+        "minimal_layer_complete_rows": [
+          {
+            "word_length_m": 2,
+            "minimal_contracting_total_S": 4,
+            "composition_count": 3,
+            "strict_descent_count": 2,
+            "non_strict_count": 1,
+            "minimum_strict_descent_margin": 0,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              3,
+              1
+            ],
+            "maximum_affine_correction_C": 11,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 3,
+            "minimal_contracting_total_S": 5,
+            "composition_count": 6,
+            "strict_descent_count": 6,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 2,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              3,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 49,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 4,
+            "minimal_contracting_total_S": 7,
+            "composition_count": 20,
+            "strict_descent_count": 20,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 2,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              4,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 331,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 5,
+            "minimal_contracting_total_S": 8,
+            "composition_count": 35,
+            "strict_descent_count": 35,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 2,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              4,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 1121,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 6,
+            "minimal_contracting_total_S": 10,
+            "composition_count": 126,
+            "strict_descent_count": 126,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 10,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              5,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 6995,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 7,
+            "minimal_contracting_total_S": 12,
+            "composition_count": 462,
+            "strict_descent_count": 462,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 56,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              6,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 43289,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 8,
+            "minimal_contracting_total_S": 13,
+            "composition_count": 792,
+            "strict_descent_count": 792,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 18,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              6,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 133963,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 9,
+            "minimal_contracting_total_S": 15,
+            "composition_count": 3003,
+            "strict_descent_count": 3003,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 50,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              7,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 813601,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 10,
+            "minimal_contracting_total_S": 16,
+            "composition_count": 5005,
+            "strict_descent_count": 5005,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 6,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              7,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 2473571,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 11,
+            "minimal_contracting_total_S": 18,
+            "composition_count": 19448,
+            "strict_descent_count": 19448,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 38,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              8,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 14913449,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 12,
+            "minimal_contracting_total_S": 20,
+            "composition_count": 75582,
+            "strict_descent_count": 75582,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 80,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              9,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 89827835,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          },
+          {
+            "word_length_m": 13,
+            "minimal_contracting_total_S": 21,
+            "composition_count": 125970,
+            "strict_descent_count": 125970,
+            "non_strict_count": 0,
+            "minimum_strict_descent_margin": 26,
+            "natural_residue_replay_failure_count": 0,
+            "front_loaded_word": [
+              9,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "maximum_affine_correction_C": 270532081,
+            "checks": {
+              "all_compositions_enumerated": true,
+              "front_loaded_word_maximizes_correction": true,
+              "front_loaded_correction_matches_maximum": true,
+              "every_natural_residue_replays_exact_word": true,
+              "eventual_candidate_only_claimed_on_finite_scan": true
+            }
+          }
+        ],
+        "exact_natural_realizer_coupling_no_go": {
+          "front_loaded": {
+            "word": [
+              11,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "correction": 88068513601,
+            "least_realizer": 268434773,
+            "endpoint": 258280325,
+            "margin": 10154448
+          },
+          "smaller_correction": {
+            "word": [
+              4,
+              1,
+              1,
+              1,
+              1,
+              2,
+              2,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              3
+            ],
+            "correction": 1106233681,
+            "least_realizer": 165,
+            "endpoint": 167,
+            "margin": -2
+          },
+          "checks": {
+            "front_word_has_larger_correction": true,
+            "front_word_least_realizer_descends": true,
+            "smaller_correction_word_least_realizer_grows": true,
+            "coupled_word_is_replayed_by_165": true,
+            "finite_layers_three_through_thirteen_all_descend": true
+          }
+        },
+        "non_strict_words_through_m13": [
+          {
+            "word_length_m": 2,
+            "total_valuation_S": 4,
+            "valuation_word": [
+              2,
+              2
+            ],
+            "affine_correction_C": 7,
+            "least_odd_realizer_r": 1,
+            "endpoint_Tm_r": 1,
+            "strict_descent_margin": 0
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The complete minimal-total layer is checked only through m=13, and fixed-length transfer fails at m=17. No theorem proves descent at the first multiplicatively contracting prefix for every nonterminal natural orbit.",
+      "route_decision": {
+        "discard": "transferring front-loaded descent to permutations by affine correction ordering alone",
+        "retain": "joint control of the affine correction and its exact odd-endpoint residue modulo 2^(S+1)",
+        "next_single_lemma": "FirstContractingLayerNaturalRealizerDescent"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T163-REJECTED",
+            "label": "FrontLoadedCorrectionExtremalityTransfersNaturalDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T163-CLOSED",
+            "label": "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T163-OPEN",
+            "label": "FirstContractingLayerNaturalRealizerDescent",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T163-REJECTED",
+            "CO-T163-CLOSED"
+          ],
+          [
+            "CO-T163-CLOSED",
+            "CO-T163-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact rearrangement theorem, exact m=17 coupling no-go, finite complete layers through m=13."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-163",
+      "theorem_name": "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo",
+      "declared_proposition": "Partition the even targets into finite blocks A_k. If G_N=M_N+E_N with integer G_N>=0 and M_N>0, then on every block # {N in A_k:G_N=0} <= B_k, where B_k=sum_{A_k}(E_N^-/M_N)^2. Therefore the shellwise condition B_k<1 for every k, together with a finite initial check, excludes all Goldbach exceptions. A single unit spike in each growing block has mean budget tending to zero while preserving one exception, so vanishing average error is insufficient.",
+      "mathematical_argument": "Apply the TICKET-162 integrality inequality separately on each block. No summation across infinitely many blocks is needed. The unit-spike construction has one term equal to one and all others zero, proving both sharpness and the average-error no-go. The finite prime DFT uses one fixed Farey mask; its shell budgets remain above one and are diagnostics only.",
+      "reproducible_computation": {
+        "theorem": "Partition the even targets into finite blocks A_k. If G_N=M_N+E_N with integer G_N>=0 and M_N>0, then on every block # {N in A_k:G_N=0} <= B_k, where B_k=sum_{A_k}(E_N^-/M_N)^2. Therefore the shellwise condition B_k<1 for every k, together with a finite initial check, excludes all Goldbach exceptions. A single unit spike in each growing block has mean budget tending to zero while preserving one exception, so vanishing average error is insufficient.",
+        "proof": "Apply the TICKET-162 integrality inequality separately on each block. No summation across infinitely many blocks is needed. The unit-spike construction has one term equal to one and all others zero, proving both sharpness and the average-error no-go. The finite prime DFT uses one fixed Farey mask; its shell budgets remain above one and are diagnostics only.",
+        "finite_prime_dft_dyadic_shell_rows": [
+          {
+            "dyadic_lower_exclusive": 128,
+            "dyadic_upper_inclusive": 256,
+            "even_target_count": 64,
+            "normalized_negative_budget": 46.70134108920733,
+            "mean_normalized_negative_budget": 0.7297084545188646,
+            "maximum_normalized_deficit": 0.9166314190660492,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 256,
+            "dyadic_upper_inclusive": 512,
+            "even_target_count": 128,
+            "normalized_negative_budget": 77.11051614385528,
+            "mean_normalized_negative_budget": 0.6024259073738694,
+            "maximum_normalized_deficit": 0.854642282531877,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 512,
+            "dyadic_upper_inclusive": 1024,
+            "even_target_count": 256,
+            "normalized_negative_budget": 112.50182366419976,
+            "mean_normalized_negative_budget": 0.4394602486882803,
+            "maximum_normalized_deficit": 0.7836538423171145,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 1024,
+            "dyadic_upper_inclusive": 2048,
+            "even_target_count": 512,
+            "normalized_negative_budget": 127.26970960593155,
+            "mean_normalized_negative_budget": 0.24857365157408506,
+            "maximum_normalized_deficit": 0.6670106931194034,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 2048,
+            "dyadic_upper_inclusive": 4096,
+            "even_target_count": 1024,
+            "normalized_negative_budget": 95.46696791412099,
+            "mean_normalized_negative_budget": 0.09322946085363377,
+            "maximum_normalized_deficit": 0.5157098658390774,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 4096,
+            "dyadic_upper_inclusive": 8192,
+            "even_target_count": 2048,
+            "normalized_negative_budget": 36.15931799087195,
+            "mean_normalized_negative_budget": 0.017655916987730443,
+            "maximum_normalized_deficit": 0.3480333996382767,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 8192,
+            "dyadic_upper_inclusive": 16384,
+            "even_target_count": 4096,
+            "normalized_negative_budget": 12.137632893117752,
+            "mean_normalized_negative_budget": 0.002963289280546326,
+            "maximum_normalized_deficit": 0.22607728859445306,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 16384,
+            "dyadic_upper_inclusive": 32768,
+            "even_target_count": 8192,
+            "normalized_negative_budget": 39.83808914336424,
+            "mean_normalized_negative_budget": 0.0048630479911333305,
+            "maximum_normalized_deficit": 0.20661595915309397,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 32768,
+            "dyadic_upper_inclusive": 65536,
+            "even_target_count": 16384,
+            "normalized_negative_budget": 57.451945305336785,
+            "mean_normalized_negative_budget": 0.0035065884585776847,
+            "maximum_normalized_deficit": 0.2158875498268751,
+            "unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "fft_positivity_mismatch_count": 0,
+            "checks": {
+              "all_major_terms_positive": true,
+              "direct_integer_scan_has_no_goldbach_zero": true,
+              "fft_positivity_matches_direct_integer_scan": true,
+              "fft_rounding_residual_is_below_tolerance": true,
+              "tested_farey_shell_does_not_pass_unit_gate": true
+            }
+          }
+        ],
+        "exact_diluted_unit_spike_rows": [
+          {
+            "block_size": 8,
+            "zero_count": 1,
+            "normalized_budget": 1.0,
+            "mean_normalized_budget": 0.125
+          },
+          {
+            "block_size": 32,
+            "zero_count": 1,
+            "normalized_budget": 1.0,
+            "mean_normalized_budget": 0.03125
+          },
+          {
+            "block_size": 128,
+            "zero_count": 1,
+            "normalized_budget": 1.0,
+            "mean_normalized_budget": 0.0078125
+          },
+          {
+            "block_size": 512,
+            "zero_count": 1,
+            "normalized_budget": 1.0,
+            "mean_normalized_budget": 0.001953125
+          },
+          {
+            "block_size": 2048,
+            "zero_count": 1,
+            "normalized_budget": 1.0,
+            "mean_normalized_budget": 0.00048828125
+          }
+        ],
+        "spike_checks": {
+          "spike_means_tend_to_zero": true,
+          "every_spike_block_retains_one_exception": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The fixed finite Farey decomposition has shell budgets above one. No uniform analytic binary minor-arc estimate crosses the corrected shellwise gate.",
+      "route_decision": {
+        "discard": "vanishing mean normalized error as a pointwise no-exception certificate",
+        "retain": "strict normalized negative-error budget below one on every dyadic shell",
+        "next_single_lemma": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T163-REJECTED",
+            "label": "VanishingMeanMinorErrorExcludesEveryGoldbachException",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T163-CLOSED",
+            "label": "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T163-OPEN",
+            "label": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T163-REJECTED",
+            "GB-T163-CLOSED"
+          ],
+          [
+            "GB-T163-CLOSED",
+            "GB-T163-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact shellwise certificate and exact diluted-spike obstruction."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-163",
+      "theorem_name": "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo",
+      "declared_proposition": "For every dyadic square R in a finite matrix, its variance sum_{x in R}|H_x-<H>_R|^2 equals the sum of the four-child martingale detail energies over all dyadic descendants of R. A global normalized energy bound does not imply a local Carleson bound: embedding one 4x4 checkerboard in a 2^J by 2^J zero matrix gives global energy density 16/4^J -> 0, while the local 4x4 density remains one.",
+      "mathematical_argument": "The one-step identity is the finite variance decomposition into within-child variance plus variance of child means. Iteration proves exact telescoping on every dyadic square. The embedded checkerboard has zero mean, row margins, and column margins. Its energy is always 16, so dilution changes the global density but not the local square. This rejects global-energy decay as a substitute for a uniform local prime-weighted Carleson estimate.",
+      "reproducible_computation": {
+        "theorem": "For every dyadic square R in a finite matrix, its variance sum_{x in R}|H_x-<H>_R|^2 equals the sum of the four-child martingale detail energies over all dyadic descendants of R. A global normalized energy bound does not imply a local Carleson bound: embedding one 4x4 checkerboard in a 2^J by 2^J zero matrix gives global energy density 16/4^J -> 0, while the local 4x4 density remains one.",
+        "proof": "The one-step identity is the finite variance decomposition into within-child variance plus variance of child means. Iteration proves exact telescoping on every dyadic square. The embedded checkerboard has zero mean, row margins, and column margins. Its energy is always 16, so dilution changes the global density but not the local square. This rejects global-energy decay as a substitute for a uniform local prime-weighted Carleson estimate.",
+        "embedded_checkerboard_dilution_rows": [
+          {
+            "matrix_side": 8,
+            "global_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "global_energy_density": 0.25,
+            "local_four_by_four_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "local_four_by_four_energy_density": 1.0,
+            "checks": {
+              "global_tree_telescopes": true,
+              "local_tree_telescopes": true,
+              "global_energy_is_fixed": true,
+              "local_energy_density_is_one": true,
+              "row_margins_vanish": true,
+              "column_margins_vanish": true
+            }
+          },
+          {
+            "matrix_side": 16,
+            "global_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "global_energy_density": 0.0625,
+            "local_four_by_four_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "local_four_by_four_energy_density": 1.0,
+            "checks": {
+              "global_tree_telescopes": true,
+              "local_tree_telescopes": true,
+              "global_energy_is_fixed": true,
+              "local_energy_density_is_one": true,
+              "row_margins_vanish": true,
+              "column_margins_vanish": true
+            }
+          },
+          {
+            "matrix_side": 32,
+            "global_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "global_energy_density": 0.015625,
+            "local_four_by_four_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "local_four_by_four_energy_density": 1.0,
+            "checks": {
+              "global_tree_telescopes": true,
+              "local_tree_telescopes": true,
+              "global_energy_is_fixed": true,
+              "local_energy_density_is_one": true,
+              "row_margins_vanish": true,
+              "column_margins_vanish": true
+            }
+          },
+          {
+            "matrix_side": 64,
+            "global_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "global_energy_density": 0.00390625,
+            "local_four_by_four_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "local_four_by_four_energy_density": 1.0,
+            "checks": {
+              "global_tree_telescopes": true,
+              "local_tree_telescopes": true,
+              "global_energy_is_fixed": true,
+              "local_energy_density_is_one": true,
+              "row_margins_vanish": true,
+              "column_margins_vanish": true
+            }
+          },
+          {
+            "matrix_side": 128,
+            "global_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "global_energy_density": 0.0009765625,
+            "local_four_by_four_variance_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "local_four_by_four_energy_density": 1.0,
+            "checks": {
+              "global_tree_telescopes": true,
+              "local_tree_telescopes": true,
+              "global_energy_is_fixed": true,
+              "local_energy_density_is_one": true,
+              "row_margins_vanish": true,
+              "column_margins_vanish": true
+            }
+          }
+        ],
+        "dilution_checks": {
+          "global_density_strictly_decreases": true,
+          "local_density_stays_one": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The deterministic identity supplies no prime-weighted power saving and no positive lower bound for exact gap two.",
+      "route_decision": {
+        "discard": "global normalized multiscale energy decay as a local Type-II certificate",
+        "retain": "uniform local dyadic Carleson control at every relevant prime-weighted rectangle",
+        "next_single_lemma": "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T163-REJECTED",
+            "label": "GlobalEnergyDecayControlsEveryLocalTypeIIRectangle",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T163-CLOSED",
+            "label": "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T163-OPEN",
+            "label": "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T163-REJECTED",
+            "TP-T163-CLOSED"
+          ],
+          [
+            "TP-T163-CLOSED",
+            "TP-T163-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact local variance identity and exact global-dilution obstruction."
+    },
+    "literature_boundary": {
+      "riemann": "The Guinand-Weil criterion and finite truncated-form work are external; this ticket analyzes one abstract positive prime trace only.",
+      "collatz": "Classical accelerated-map affine formulas motivate the coding; the rearrangement and residue-coupling audit are proved here.",
+      "goldbach": "Circle-method exceptional-set estimates motivate the shell decomposition; no imported theorem supplies the required unit budget.",
+      "twin_prime": "Ford-Maynard Type I/II theory motivates local information; the deterministic matrix theorem is not a prime-producing estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-163",
+      "status": "open_not_proven",
+      "declared_proposition": "Put R=log X and Q_X(f)=sum_{n<=X} Lambda(n)n^(-1/2)|f(log n)|^2 on H1(-R,R). For every f,g, |Q_X(f)-Q_X(g)| <= C_R^2 W_X (||f||_H1+||g||_H1)||f-g||_H1, where C_R^2=2R+(2R)^(-1) and W_X=sum_{n<=X}Lambda(n)/sqrt(n). Thus every finite prime trace is H1-continuous. However W_X diverges, already from its prime terms. Consequently the coefficient-mass majorant C_R^2 W_X does not supply the uniform-in-X continuity required by the TICKET-162 Guinand-Weil bridge.",
+      "new_result": "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo",
+      "discarded_route": "uniform H1 continuity obtained from the divergent C_R^2 W_X coefficient-mass majorant",
+      "remaining_gap": "Continuity is proved only at each fixed prime cutoff. The complete Guinand-Weil form may contain cancellations not seen by the divergent absolute coefficient mass.",
+      "candidate_theorem": "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore",
+      "claim_boundary": "No RH proof and no zero exclusion; one finite trace theorem and one proof-strategy no-go.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T163-REJECTED",
+            "label": "CoefficientMassMajorantRemainsUniform",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T163-CLOSED",
+            "label": "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T163-OPEN",
+            "label": "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T163-REJECTED",
+            "RH-T163-CLOSED"
+          ],
+          [
+            "RH-T163-CLOSED",
+            "RH-T163-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-163",
+      "status": "open_not_proven",
+      "declared_proposition": "For a positive valuation word a=(a_1,...,a_m), write 2^S T_a(n)=3^m n+C(a). At fixed m and S, C(a) is maximized by the front-loaded word (S-m+1,1,...,1). More exactly, swapping adjacent x<y into y,x increases C by 3^(m-i-2)2^P(2^y-2^x), where P is the preceding valuation sum. This extremality does not transfer natural descent: at m=17,S=27, the displayed word realized by n=165 has smaller correction than the front-loaded word but endpoint 167. The natural residue and affine correction must be controlled jointly. The same orbit already descends at its first step, so this is a no-go for fixed-length transfer, not a Collatz counterexample.",
+      "new_result": "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo",
+      "discarded_route": "transferring front-loaded descent to permutations by affine correction ordering alone",
+      "remaining_gap": "The complete minimal-total layer is checked only through m=13, and fixed-length transfer fails at m=17. No theorem proves descent at the first multiplicatively contracting prefix for every nonterminal natural orbit.",
+      "candidate_theorem": "FirstContractingLayerNaturalRealizerDescent",
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact rearrangement theorem, exact m=17 coupling no-go, finite complete layers through m=13.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T163-REJECTED",
+            "label": "FrontLoadedCorrectionExtremalityTransfersNaturalDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T163-CLOSED",
+            "label": "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T163-OPEN",
+            "label": "FirstContractingLayerNaturalRealizerDescent",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T163-REJECTED",
+            "CO-T163-CLOSED"
+          ],
+          [
+            "CO-T163-CLOSED",
+            "CO-T163-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-163",
+      "status": "open_not_proven",
+      "declared_proposition": "Partition the even targets into finite blocks A_k. If G_N=M_N+E_N with integer G_N>=0 and M_N>0, then on every block # {N in A_k:G_N=0} <= B_k, where B_k=sum_{A_k}(E_N^-/M_N)^2. Therefore the shellwise condition B_k<1 for every k, together with a finite initial check, excludes all Goldbach exceptions. A single unit spike in each growing block has mean budget tending to zero while preserving one exception, so vanishing average error is insufficient.",
+      "new_result": "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo",
+      "discarded_route": "vanishing mean normalized error as a pointwise no-exception certificate",
+      "remaining_gap": "The fixed finite Farey decomposition has shell budgets above one. No uniform analytic binary minor-arc estimate crosses the corrected shellwise gate.",
+      "candidate_theorem": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne",
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact shellwise certificate and exact diluted-spike obstruction.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T163-REJECTED",
+            "label": "VanishingMeanMinorErrorExcludesEveryGoldbachException",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T163-CLOSED",
+            "label": "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T163-OPEN",
+            "label": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T163-REJECTED",
+            "GB-T163-CLOSED"
+          ],
+          [
+            "GB-T163-CLOSED",
+            "GB-T163-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-163",
+      "status": "open_not_proven",
+      "declared_proposition": "For every dyadic square R in a finite matrix, its variance sum_{x in R}|H_x-<H>_R|^2 equals the sum of the four-child martingale detail energies over all dyadic descendants of R. A global normalized energy bound does not imply a local Carleson bound: embedding one 4x4 checkerboard in a 2^J by 2^J zero matrix gives global energy density 16/4^J -> 0, while the local 4x4 density remains one.",
+      "new_result": "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo",
+      "discarded_route": "global normalized multiscale energy decay as a local Type-II certificate",
+      "remaining_gap": "The deterministic identity supplies no prime-weighted power saving and no positive lower bound for exact gap two.",
+      "candidate_theorem": "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact local variance identity and exact global-dilution obstruction.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T163-REJECTED",
+            "label": "GlobalEnergyDecayControlsEveryLocalTypeIIRectangle",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T163-CLOSED",
+            "label": "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T163-OPEN",
+            "label": "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T163-REJECTED",
+            "TP-T163-CLOSED"
+          ],
+          [
+            "TP-T163-CLOSED",
+            "TP-T163-OPEN"
+          ]
+        ]
+      }
+    }
+  ]
+}

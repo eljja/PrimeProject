@@ -1,0 +1,124 @@
+{
+  "schema": "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1",
+  "generated_at": "2026-07-31T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-163",
+  "status": "open_not_proven",
+  "theorem_name": "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo",
+  "declared_proposition": "Put R=log X and Q_X(f)=sum_{n<=X} Lambda(n)n^(-1/2)|f(log n)|^2 on H1(-R,R). For every f,g, |Q_X(f)-Q_X(g)| <= C_R^2 W_X (||f||_H1+||g||_H1)||f-g||_H1, where C_R^2=2R+(2R)^(-1) and W_X=sum_{n<=X}Lambda(n)/sqrt(n). Thus every finite prime trace is H1-continuous. However W_X diverges, already from its prime terms. Consequently the coefficient-mass majorant C_R^2 W_X does not supply the uniform-in-X continuity required by the TICKET-162 Guinand-Weil bridge.",
+  "mathematical_argument": "Writing f(x) as its interval mean plus its mean-zero part gives |f(x)| <= (2R)^(-1/2)||f||_2+(2R)^(1/2)||f'||_2 <= C_R||f||_H1. Apply |a^2-b^2|<=|a-b|(|a|+|b|) at every prime-power trace point and sum the positive weights. For primes p>=3, log(p)/sqrt(p)>=1/p, while Euler's prime reciprocal series diverges; hence W_X diverges. This rejects only this coefficient-mass majorant, not every possible absolute estimate and not cancellation-aware continuity of the complete Guinand-Weil form.",
+  "reproducible_computation": {
+    "theorem": "Put R=log X and Q_X(f)=sum_{n<=X} Lambda(n)n^(-1/2)|f(log n)|^2 on H1(-R,R). For every f,g, |Q_X(f)-Q_X(g)| <= C_R^2 W_X (||f||_H1+||g||_H1)||f-g||_H1, where C_R^2=2R+(2R)^(-1) and W_X=sum_{n<=X}Lambda(n)/sqrt(n). Thus every finite prime trace is H1-continuous. However W_X diverges, already from its prime terms. Consequently the coefficient-mass majorant C_R^2 W_X does not supply the uniform-in-X continuity required by the TICKET-162 Guinand-Weil bridge.",
+    "proof": "Writing f(x) as its interval mean plus its mean-zero part gives |f(x)| <= (2R)^(-1/2)||f||_2+(2R)^(1/2)||f'||_2 <= C_R||f||_H1. Apply |a^2-b^2|<=|a-b|(|a|+|b|) at every prime-power trace point and sum the positive weights. For primes p>=3, log(p)/sqrt(p)>=1/p, while Euler's prime reciprocal series diverges; hence W_X diverges. This rejects only this coefficient-mass majorant, not every possible absolute estimate and not cancellation-aware continuity of the complete Guinand-Weil form.",
+    "finite_prime_trace_rows": [
+      {
+        "prime_power_cutoff_X": 100,
+        "log_interval_radius_R": 4.605170185988092,
+        "von_mangoldt_sqrt_weight_mass_W_X": 16.896201344213683,
+        "sobolev_point_trace_constant_squared": 9.318913992451996,
+        "absolute_quadratic_continuity_constant": 157.4542471258791,
+        "constant_h1_unit_witness_value": 1.8344817522295769,
+        "checks": {
+          "finite_coefficient_mass_is_positive": true,
+          "sobolev_trace_constant_is_positive": true,
+          "absolute_continuity_constant_is_finite": true,
+          "constant_function_is_below_absolute_bound": true
+        }
+      },
+      {
+        "prime_power_cutoff_X": 1000,
+        "log_interval_radius_R": 6.907755278982137,
+        "von_mangoldt_sqrt_weight_mass_W_X": 60.50775646785193,
+        "sobolev_point_trace_constant_squared": 13.887892971614816,
+        "absolute_quadratic_continuity_constant": 840.3252457780617,
+        "constant_h1_unit_witness_value": 4.3796974577223144,
+        "checks": {
+          "finite_coefficient_mass_is_positive": true,
+          "sobolev_trace_constant_is_positive": true,
+          "absolute_continuity_constant_is_finite": true,
+          "constant_function_is_below_absolute_bound": true
+        }
+      },
+      {
+        "prime_power_cutoff_X": 10000,
+        "log_interval_radius_R": 9.210340371976184,
+        "von_mangoldt_sqrt_weight_mass_W_X": 197.4660526925655,
+        "sobolev_point_trace_constant_squared": 18.474967554190275,
+        "absolute_quadratic_continuity_constant": 3648.178916549175,
+        "constant_h1_unit_witness_value": 10.719802130949745,
+        "checks": {
+          "finite_coefficient_mass_is_positive": true,
+          "sobolev_trace_constant_is_positive": true,
+          "absolute_continuity_constant_is_finite": true,
+          "constant_function_is_below_absolute_bound": true
+        }
+      },
+      {
+        "prime_power_cutoff_X": 100000,
+        "log_interval_radius_R": 11.512925464970229,
+        "von_mangoldt_sqrt_weight_mass_W_X": 629.9413539674201,
+        "sobolev_point_trace_constant_squared": 23.06928037813078,
+        "absolute_quadratic_continuity_constant": 14532.293716453742,
+        "constant_h1_unit_witness_value": 27.35800539507137,
+        "checks": {
+          "finite_coefficient_mass_is_positive": true,
+          "sobolev_trace_constant_is_positive": true,
+          "absolute_continuity_constant_is_finite": true,
+          "constant_function_is_below_absolute_bound": true
+        }
+      },
+      {
+        "prime_power_cutoff_X": 1000000,
+        "log_interval_radius_R": 13.815510557964274,
+        "von_mangoldt_sqrt_weight_mass_W_X": 1996.9068088159895,
+        "sobolev_point_trace_constant_squared": 27.66721232275382,
+        "absolute_quadratic_continuity_constant": 55248.84466826475,
+        "constant_h1_unit_witness_value": 72.27046732865135,
+        "checks": {
+          "finite_coefficient_mass_is_positive": true,
+          "sobolev_trace_constant_is_positive": true,
+          "absolute_continuity_constant_is_finite": true,
+          "constant_function_is_below_absolute_bound": true
+        }
+      }
+    ],
+    "trend_checks": {
+      "coefficient_mass_increases": true,
+      "absolute_continuity_constant_increases": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "uniform H1 continuity obtained from the divergent C_R^2 W_X coefficient-mass majorant",
+  "remaining_gap": "Continuity is proved only at each fixed prime cutoff. The complete Guinand-Weil form may contain cancellations not seen by the divergent absolute coefficient mass.",
+  "candidate_theorem": "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore",
+  "claim_boundary": "No RH proof and no zero exclusion; one finite trace theorem and one proof-strategy no-go.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T163-REJECTED",
+        "label": "CoefficientMassMajorantRemainsUniform",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T163-CLOSED",
+        "label": "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T163-OPEN",
+        "label": "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T163-REJECTED",
+        "RH-T163-CLOSED"
+      ],
+      [
+        "RH-T163-CLOSED",
+        "RH-T163-OPEN"
+      ]
+    ]
+  }
+}

@@ -170,6 +170,9 @@ TICKET161_SCHEMA = (
 TICKET162_SCHEMA = (
     "primeproject.ticket162-formnorm-explicitbaker-integral-multiscale.v1"
 )
+TICKET163_SCHEMA = (
+    "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -11997,6 +12000,221 @@ def main() -> int:
         not in str(ticket162.get("claim_boundary", "")).lower()
     ):
         return fail("ticket162 proof boundary changed")
+
+    path163 = Path(
+        "data/open-problem/"
+        "ticket163-local-certificate-realizer-trace-carleson.json"
+    )
+    if not path163.exists():
+        return fail("missing ticket163 local-certificate audit")
+    ticket163 = read_json(path163)
+    if (
+        ticket163.get("schema") != TICKET163_SCHEMA
+        or ticket163.get("status")
+        != "four_localization_reductions_and_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket163 schema or status changed")
+    attempts163 = ticket163.get("attempts", [])
+    if (
+        len(attempts163) != 4
+        or {attempt.get("problem_id") for attempt in attempts163}
+        != EXPECTED_PROBLEMS
+        or any(
+            attempt.get("status") != "open_not_proven"
+            for attempt in attempts163
+        )
+    ):
+        return fail("ticket163 attempts missing problems")
+    audit163 = ticket163.get(
+        "local_certificate_realizer_trace_carleson_audit",
+        {},
+    )
+    if audit163.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket163 global machine audit changed")
+
+    per_problem163 = {
+        "riemann": "riemann/rh-ticket-163-prime-trace-continuity.json",
+        "collatz": (
+            "collatz/co-ticket-163-rearrangement-realizer-coupling.json"
+        ),
+        "goldbach": "goldbach/gb-ticket-163-dyadic-integral-budget.json",
+        "twin-prime": (
+            "twin-prime/tp-ticket-163-local-carleson-dilution.json"
+        ),
+    }
+    next163 = {
+        "riemann": (
+            "CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore"
+        ),
+        "collatz": "FirstContractingLayerNaturalRealizerDescent",
+        "goldbach": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne",
+        "twin-prime": (
+            "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity"
+        ),
+    }
+    for problem_id, relative in per_problem163.items():
+        problem_path = Path("data/open-problem") / relative
+        if not problem_path.exists():
+            return fail(f"{problem_id}: ticket163 artifact missing")
+        problem_payload = read_json(problem_path)
+        if (
+            problem_payload.get("schema") != TICKET163_SCHEMA
+            or problem_payload.get("problem_id") != problem_id
+            or problem_payload.get("status") != "open_not_proven"
+            or problem_payload.get("candidate_theorem")
+            != next163[problem_id]
+            or "No " not in str(problem_payload.get("claim_boundary", ""))
+        ):
+            return fail(f"{problem_id}: ticket163 contract changed")
+
+    riemann163 = audit163.get("riemann", {})
+    rh_computation163 = riemann163.get("reproducible_computation", {})
+    trace_rows163 = rh_computation163.get("finite_prime_trace_rows", [])
+    if (
+        riemann163.get("theorem_name")
+        != "FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo"
+        or len(trace_rows163) != 5
+        or [row.get("prime_power_cutoff_X") for row in trace_rows163]
+        != [100, 1_000, 10_000, 100_000, 1_000_000]
+        or any(
+            not all(row.get("checks", {}).values())
+            for row in trace_rows163
+        )
+        or not all(rh_computation163.get("trend_checks", {}).values())
+        or int(rh_computation163.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket163 RH finite trace audit changed")
+
+    collatz163 = audit163.get("collatz", {})
+    collatz_computation163 = collatz163.get(
+        "reproducible_computation",
+        {},
+    )
+    layer_rows163 = collatz_computation163.get(
+        "minimal_layer_complete_rows",
+        [],
+    )
+    coupling163 = collatz_computation163.get(
+        "exact_natural_realizer_coupling_no_go",
+        {},
+    )
+    smaller163 = coupling163.get("smaller_correction", {})
+    if (
+        collatz163.get("theorem_name")
+        != "AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo"
+        or len(layer_rows163) != 12
+        or sum(row.get("composition_count", 0) for row in layer_rows163)
+        != 230_452
+        or layer_rows163[0].get("non_strict_count") != 1
+        or any(
+            row.get("non_strict_count") != 0
+            for row in layer_rows163[1:]
+        )
+        or any(
+            row.get("natural_residue_replay_failure_count") != 0
+            or not all(row.get("checks", {}).values())
+            for row in layer_rows163
+        )
+        or smaller163.get("least_realizer") != 165
+        or smaller163.get("endpoint") != 167
+        or smaller163.get("margin") != -2
+        or not all(coupling163.get("checks", {}).values())
+        or int(collatz_computation163.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket163 Collatz coupling audit changed")
+
+    goldbach163 = audit163.get("goldbach", {})
+    goldbach_computation163 = goldbach163.get(
+        "reproducible_computation",
+        {},
+    )
+    shell_rows163 = goldbach_computation163.get(
+        "finite_prime_dft_dyadic_shell_rows",
+        [],
+    )
+    spike_rows163 = goldbach_computation163.get(
+        "exact_diluted_unit_spike_rows",
+        [],
+    )
+    if (
+        goldbach163.get("theorem_name")
+        != "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo"
+        or len(shell_rows163) != 9
+        or shell_rows163[-1].get("dyadic_upper_inclusive") != 65_536
+        or any(
+            row.get("normalized_negative_budget", 0) < 1
+            or row.get("unit_gate_passes") is not False
+            or row.get("observed_zero_count") != 0
+            or not all(row.get("checks", {}).values())
+            for row in shell_rows163
+        )
+        or len(spike_rows163) != 5
+        or any(
+            row.get("normalized_budget") != 1.0
+            or row.get("zero_count") != 1
+            for row in spike_rows163
+        )
+        or not all(goldbach_computation163.get("spike_checks", {}).values())
+        or int(goldbach_computation163.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket163 Goldbach dyadic budget audit changed")
+
+    twin163 = audit163.get("twin_prime", {})
+    twin_computation163 = twin163.get("reproducible_computation", {})
+    dilution_rows163 = twin_computation163.get(
+        "embedded_checkerboard_dilution_rows",
+        [],
+    )
+    if (
+        twin163.get("theorem_name")
+        != "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo"
+        or len(dilution_rows163) != 5
+        or [row.get("matrix_side") for row in dilution_rows163]
+        != [8, 16, 32, 64, 128]
+        or dilution_rows163[0].get("global_energy_density") != 0.25
+        or dilution_rows163[-1].get("global_energy_density") != 1 / 1024
+        or any(
+            row.get("local_four_by_four_energy_density") != 1.0
+            or not all(row.get("checks", {}).values())
+            for row in dilution_rows163
+        )
+        or not all(twin_computation163.get("dilution_checks", {}).values())
+        or int(twin_computation163.get("failure_count", -1)) != 0
+    ):
+        return fail("ticket163 Twin local Carleson audit changed")
+
+    sections163 = {
+        "riemann": riemann163,
+        "collatz": collatz163,
+        "goldbach": goldbach163,
+        "twin-prime": twin163,
+    }
+    for problem_id, section in sections163.items():
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != [
+                "refuted_or_insufficient",
+                "proved_exact",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next163[problem_id]
+        ):
+            return fail(f"{problem_id}: ticket163 proof DAG changed")
+    if (
+        "resolves none"
+        not in str(audit163.get("proof_boundary", "")).lower()
+        or "resolves none"
+        not in str(ticket163.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket163 proof boundary changed")
 
     print("open problem structure verified")
     return 0

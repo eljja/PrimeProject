@@ -37,6 +37,45 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-31 TICKET-163 Local-Certificate, Realizer, Trace, and Carleson Audit
+
+TICKET-163 attacks the four open nodes left by TICKET-162 and corrects the
+localization level of each target.
+
+1. **Riemann:** `FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo` proves an
+   explicit `H1` continuity bound at every fixed positive prime trace. The
+   absolute coefficient mass diverges, so the resulting coefficient-mass
+   majorant cannot supply uniformity. The next target is
+   `CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore`.
+2. **Collatz:**
+   `AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo` proves that
+   the front-loaded word maximizes affine correction at fixed length and
+   total valuation. The exact length-17 word realized by `165` ends at `167`
+   despite smaller correction, refuting fixed-length transfer. It is not a
+   Collatz counterexample because the first step is `165 -> 31`. The next
+   target is `FirstContractingLayerNaturalRealizerDescent`.
+3. **Goldbach:** `DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo`
+   proves that a normalized negative-error budget below one on every dyadic
+   shell excludes every exception. One unit spike per growing shell has mean
+   tending to zero but preserves one exception. The next target is
+   `UniformDyadicNormalizedNegativeMinorBudgetBelowOne`.
+4. **Twin Prime:** `LocalDyadicVarianceIdentityAndGlobalDilutionNoGo` proves
+   exact variance telescoping on every dyadic square. An embedded checkerboard
+   has global energy density tending to zero while its local density remains
+   one. The next target is
+   `UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity`.
+
+한국어 요약: TICKET-163은 전역 평균이나 uncoupled 극값을 점별·국소
+결론으로 승격하는 네 경로를 교정했습니다. 리만에서는 유한 trace의
+연속성과 발산하는 절댓값 상계를 분리했고, 콜라츠에서는 exact natural
+residue가 correction 순서와 결합되어야 함을 길이 17 반례로
+확정했습니다. 골드바흐는 shellwise `<1` 기준으로 목표를 약화하면서
+평균 0 경로를 폐기했고, Twin은 전역 에너지 희석과 국소 Type-II
+제어를 분리했습니다. 네 추측의 해결 수는 0입니다. 전체 증명과 재현
+명령은
+[TICKET-163 local-certificate-realizer-trace-carleson](local-certificate-realizer-trace-carleson.md)에
+있습니다.
+
 ## 2026-07-27 TICKET-162 Form-Norm, Explicit Baker, Integral, and Multiscale Audit
 
 TICKET-162 attacks the four open nodes left by TICKET-161.

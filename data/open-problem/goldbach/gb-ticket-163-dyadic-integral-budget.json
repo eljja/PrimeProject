@@ -1,0 +1,248 @@
+{
+  "schema": "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1",
+  "generated_at": "2026-07-31T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-163",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo",
+  "declared_proposition": "Partition the even targets into finite blocks A_k. If G_N=M_N+E_N with integer G_N>=0 and M_N>0, then on every block # {N in A_k:G_N=0} <= B_k, where B_k=sum_{A_k}(E_N^-/M_N)^2. Therefore the shellwise condition B_k<1 for every k, together with a finite initial check, excludes all Goldbach exceptions. A single unit spike in each growing block has mean budget tending to zero while preserving one exception, so vanishing average error is insufficient.",
+  "mathematical_argument": "Apply the TICKET-162 integrality inequality separately on each block. No summation across infinitely many blocks is needed. The unit-spike construction has one term equal to one and all others zero, proving both sharpness and the average-error no-go. The finite prime DFT uses one fixed Farey mask; its shell budgets remain above one and are diagnostics only.",
+  "reproducible_computation": {
+    "theorem": "Partition the even targets into finite blocks A_k. If G_N=M_N+E_N with integer G_N>=0 and M_N>0, then on every block # {N in A_k:G_N=0} <= B_k, where B_k=sum_{A_k}(E_N^-/M_N)^2. Therefore the shellwise condition B_k<1 for every k, together with a finite initial check, excludes all Goldbach exceptions. A single unit spike in each growing block has mean budget tending to zero while preserving one exception, so vanishing average error is insufficient.",
+    "proof": "Apply the TICKET-162 integrality inequality separately on each block. No summation across infinitely many blocks is needed. The unit-spike construction has one term equal to one and all others zero, proving both sharpness and the average-error no-go. The finite prime DFT uses one fixed Farey mask; its shell budgets remain above one and are diagnostics only.",
+    "finite_prime_dft_dyadic_shell_rows": [
+      {
+        "dyadic_lower_exclusive": 128,
+        "dyadic_upper_inclusive": 256,
+        "even_target_count": 64,
+        "normalized_negative_budget": 46.70134108920733,
+        "mean_normalized_negative_budget": 0.7297084545188646,
+        "maximum_normalized_deficit": 0.9166314190660492,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 256,
+        "dyadic_upper_inclusive": 512,
+        "even_target_count": 128,
+        "normalized_negative_budget": 77.11051614385528,
+        "mean_normalized_negative_budget": 0.6024259073738694,
+        "maximum_normalized_deficit": 0.854642282531877,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 512,
+        "dyadic_upper_inclusive": 1024,
+        "even_target_count": 256,
+        "normalized_negative_budget": 112.50182366419976,
+        "mean_normalized_negative_budget": 0.4394602486882803,
+        "maximum_normalized_deficit": 0.7836538423171145,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 1024,
+        "dyadic_upper_inclusive": 2048,
+        "even_target_count": 512,
+        "normalized_negative_budget": 127.26970960593155,
+        "mean_normalized_negative_budget": 0.24857365157408506,
+        "maximum_normalized_deficit": 0.6670106931194034,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 2048,
+        "dyadic_upper_inclusive": 4096,
+        "even_target_count": 1024,
+        "normalized_negative_budget": 95.46696791412099,
+        "mean_normalized_negative_budget": 0.09322946085363377,
+        "maximum_normalized_deficit": 0.5157098658390774,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 4096,
+        "dyadic_upper_inclusive": 8192,
+        "even_target_count": 2048,
+        "normalized_negative_budget": 36.15931799087195,
+        "mean_normalized_negative_budget": 0.017655916987730443,
+        "maximum_normalized_deficit": 0.3480333996382767,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 8192,
+        "dyadic_upper_inclusive": 16384,
+        "even_target_count": 4096,
+        "normalized_negative_budget": 12.137632893117752,
+        "mean_normalized_negative_budget": 0.002963289280546326,
+        "maximum_normalized_deficit": 0.22607728859445306,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 16384,
+        "dyadic_upper_inclusive": 32768,
+        "even_target_count": 8192,
+        "normalized_negative_budget": 39.83808914336424,
+        "mean_normalized_negative_budget": 0.0048630479911333305,
+        "maximum_normalized_deficit": 0.20661595915309397,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 32768,
+        "dyadic_upper_inclusive": 65536,
+        "even_target_count": 16384,
+        "normalized_negative_budget": 57.451945305336785,
+        "mean_normalized_negative_budget": 0.0035065884585776847,
+        "maximum_normalized_deficit": 0.2158875498268751,
+        "unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "fft_positivity_mismatch_count": 0,
+        "checks": {
+          "all_major_terms_positive": true,
+          "direct_integer_scan_has_no_goldbach_zero": true,
+          "fft_positivity_matches_direct_integer_scan": true,
+          "fft_rounding_residual_is_below_tolerance": true,
+          "tested_farey_shell_does_not_pass_unit_gate": true
+        }
+      }
+    ],
+    "exact_diluted_unit_spike_rows": [
+      {
+        "block_size": 8,
+        "zero_count": 1,
+        "normalized_budget": 1.0,
+        "mean_normalized_budget": 0.125
+      },
+      {
+        "block_size": 32,
+        "zero_count": 1,
+        "normalized_budget": 1.0,
+        "mean_normalized_budget": 0.03125
+      },
+      {
+        "block_size": 128,
+        "zero_count": 1,
+        "normalized_budget": 1.0,
+        "mean_normalized_budget": 0.0078125
+      },
+      {
+        "block_size": 512,
+        "zero_count": 1,
+        "normalized_budget": 1.0,
+        "mean_normalized_budget": 0.001953125
+      },
+      {
+        "block_size": 2048,
+        "zero_count": 1,
+        "normalized_budget": 1.0,
+        "mean_normalized_budget": 0.00048828125
+      }
+    ],
+    "spike_checks": {
+      "spike_means_tend_to_zero": true,
+      "every_spike_block_retains_one_exception": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "vanishing mean normalized error as a pointwise no-exception certificate",
+  "remaining_gap": "The fixed finite Farey decomposition has shell budgets above one. No uniform analytic binary minor-arc estimate crosses the corrected shellwise gate.",
+  "candidate_theorem": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact shellwise certificate and exact diluted-spike obstruction.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T163-REJECTED",
+        "label": "VanishingMeanMinorErrorExcludesEveryGoldbachException",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T163-CLOSED",
+        "label": "DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T163-OPEN",
+        "label": "UniformDyadicNormalizedNegativeMinorBudgetBelowOne",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T163-REJECTED",
+        "GB-T163-CLOSED"
+      ],
+      [
+        "GB-T163-CLOSED",
+        "GB-T163-OPEN"
+      ]
+    ]
+  }
+}

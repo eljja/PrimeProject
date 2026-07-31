@@ -1,0 +1,159 @@
+{
+  "schema": "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1",
+  "generated_at": "2026-07-31T12:00:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-163",
+  "status": "open_not_proven",
+  "theorem_name": "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo",
+  "declared_proposition": "For every dyadic square R in a finite matrix, its variance sum_{x in R}|H_x-<H>_R|^2 equals the sum of the four-child martingale detail energies over all dyadic descendants of R. A global normalized energy bound does not imply a local Carleson bound: embedding one 4x4 checkerboard in a 2^J by 2^J zero matrix gives global energy density 16/4^J -> 0, while the local 4x4 density remains one.",
+  "mathematical_argument": "The one-step identity is the finite variance decomposition into within-child variance plus variance of child means. Iteration proves exact telescoping on every dyadic square. The embedded checkerboard has zero mean, row margins, and column margins. Its energy is always 16, so dilution changes the global density but not the local square. This rejects global-energy decay as a substitute for a uniform local prime-weighted Carleson estimate.",
+  "reproducible_computation": {
+    "theorem": "For every dyadic square R in a finite matrix, its variance sum_{x in R}|H_x-<H>_R|^2 equals the sum of the four-child martingale detail energies over all dyadic descendants of R. A global normalized energy bound does not imply a local Carleson bound: embedding one 4x4 checkerboard in a 2^J by 2^J zero matrix gives global energy density 16/4^J -> 0, while the local 4x4 density remains one.",
+    "proof": "The one-step identity is the finite variance decomposition into within-child variance plus variance of child means. Iteration proves exact telescoping on every dyadic square. The embedded checkerboard has zero mean, row margins, and column margins. Its energy is always 16, so dilution changes the global density but not the local square. This rejects global-energy decay as a substitute for a uniform local prime-weighted Carleson estimate.",
+    "embedded_checkerboard_dilution_rows": [
+      {
+        "matrix_side": 8,
+        "global_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "global_energy_density": 0.25,
+        "local_four_by_four_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "local_four_by_four_energy_density": 1.0,
+        "checks": {
+          "global_tree_telescopes": true,
+          "local_tree_telescopes": true,
+          "global_energy_is_fixed": true,
+          "local_energy_density_is_one": true,
+          "row_margins_vanish": true,
+          "column_margins_vanish": true
+        }
+      },
+      {
+        "matrix_side": 16,
+        "global_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "global_energy_density": 0.0625,
+        "local_four_by_four_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "local_four_by_four_energy_density": 1.0,
+        "checks": {
+          "global_tree_telescopes": true,
+          "local_tree_telescopes": true,
+          "global_energy_is_fixed": true,
+          "local_energy_density_is_one": true,
+          "row_margins_vanish": true,
+          "column_margins_vanish": true
+        }
+      },
+      {
+        "matrix_side": 32,
+        "global_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "global_energy_density": 0.015625,
+        "local_four_by_four_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "local_four_by_four_energy_density": 1.0,
+        "checks": {
+          "global_tree_telescopes": true,
+          "local_tree_telescopes": true,
+          "global_energy_is_fixed": true,
+          "local_energy_density_is_one": true,
+          "row_margins_vanish": true,
+          "column_margins_vanish": true
+        }
+      },
+      {
+        "matrix_side": 64,
+        "global_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "global_energy_density": 0.00390625,
+        "local_four_by_four_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "local_four_by_four_energy_density": 1.0,
+        "checks": {
+          "global_tree_telescopes": true,
+          "local_tree_telescopes": true,
+          "global_energy_is_fixed": true,
+          "local_energy_density_is_one": true,
+          "row_margins_vanish": true,
+          "column_margins_vanish": true
+        }
+      },
+      {
+        "matrix_side": 128,
+        "global_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "global_energy_density": 0.0009765625,
+        "local_four_by_four_variance_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "local_four_by_four_energy_density": 1.0,
+        "checks": {
+          "global_tree_telescopes": true,
+          "local_tree_telescopes": true,
+          "global_energy_is_fixed": true,
+          "local_energy_density_is_one": true,
+          "row_margins_vanish": true,
+          "column_margins_vanish": true
+        }
+      }
+    ],
+    "dilution_checks": {
+      "global_density_strictly_decreases": true,
+      "local_density_stays_one": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "global normalized multiscale energy decay as a local Type-II certificate",
+  "remaining_gap": "The deterministic identity supplies no prime-weighted power saving and no positive lower bound for exact gap two.",
+  "candidate_theorem": "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact local variance identity and exact global-dilution obstruction.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T163-REJECTED",
+        "label": "GlobalEnergyDecayControlsEveryLocalTypeIIRectangle",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T163-CLOSED",
+        "label": "LocalDyadicVarianceIdentityAndGlobalDilutionNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T163-OPEN",
+        "label": "UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T163-REJECTED",
+        "TP-T163-CLOSED"
+      ],
+      [
+        "TP-T163-CLOSED",
+        "TP-T163-OPEN"
+      ]
+    ]
+  }
+}

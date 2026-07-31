@@ -62,7 +62,47 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-162
+## Latest Continuation After TICKET-163
+
+Read
+`data/open-problem/ticket163-local-certificate-realizer-trace-carleson.json`,
+`scripts/ticket163_local_certificate_realizer_trace_carleson.py`, and
+`tests/test_ticket163_local_certificate_realizer_trace_carleson.py` first.
+
+Do not reopen these rejected routes without defeating the exact TICKET-163
+counterexample or no-go theorem:
+
+1. obtaining uniform RH form continuity from the divergent `C_R^2 W_X`
+   coefficient-mass majorant;
+2. transferring Collatz front-loaded descent to all valuation permutations
+   from affine-correction ordering alone;
+3. using vanishing mean normalized Goldbach error to exclude every exception;
+4. using global Twin multiscale energy decay as a local Type-II certificate.
+
+Exact TICKET-163 results:
+
+1. `FinitePrimeTraceH1ContinuityAndAbsoluteMassNoGo`;
+2. `AffineCorrectionMajorizationAndNaturalRealizerCouplingNoGo`;
+3. `DyadicIntegralExceptionCertificateAndDilutedSpikeNoGo`;
+4. `LocalDyadicVarianceIdentityAndGlobalDilutionNoGo`.
+
+The next single lemmas are:
+
+1. `CancellationAwareUniformGuinandWeilTraceBoundOnConstraintCore`;
+2. `FirstContractingLayerNaturalRealizerDescent`;
+3. `UniformDyadicNormalizedNegativeMinorBudgetBelowOne`;
+4. `UniformPrimeWeightedLocalCarlesonPowerSavingBeyondParity`.
+
+한국어 인계: Collatz의 새 길이 17 witness `165 -> 167`은 Collatz
+반례가 아니다. `165`는 첫 accelerated step에서 `31`로 하강한다.
+이 witness가 반박하는 것은 front-loaded affine correction 극값을 같은
+길이의 모든 자연수 endpoint 하강으로 이전하는 논리뿐이다. RH의
+발산 결과도 완전한 Guinand-Weil 형식이 아니라 `C_R^2 W_X`
+계수질량 majorant 경로만 반박한다. Goldbach와 Twin의 다음
+정리는 각각 shellwise 및 local uniformity를 실제 소수 가중치로
+증명해야 한다. 네 추측은 모두 `open_not_proven`이다.
+
+## Previous Continuation After TICKET-162
 
 Read
 `data/open-problem/ticket162-formnorm-explicitbaker-integral-multiscale.json`,

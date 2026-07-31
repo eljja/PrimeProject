@@ -115,25 +115,27 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-two-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-three-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-162. It upgrades RH common-core
-transport from `L2` to `H1` for `H2`-bounded sources and proves that no
-uniform rate exists on the whole `H1` unit ball; closes the explicit minimal
-front-loaded Collatz family for every length `m>=2` using a certified
-Matveev threshold and exact continued fractions, while proving that the
-family has vanishing compositional coverage; derives a sharp integral
-Goldbach exception-budget criterion whose normalized negative moment must be
-strictly below one; and replaces fixed Twin incidence bins by an exact
-dyadic Type-II energy decomposition with a fixed-bin checkerboard no-go.
-The finite audits cover 15 RH transport rows, ten primitive Collatz
-continued-fraction candidates below a `21,554,214,227` threshold, five
-prime-DFT Goldbach scales, and `16x16` cubic-rough Twin incidence through
-10M. These are exact intermediate theorems and reproducible diagnostics, not
-solutions. All four conjectures remain open.
+The latest proof-search track is TICKET-163. It proves explicit `H1`
+continuity for every finite positive RH prime trace while showing that the
+termwise absolute coefficient mass diverges; proves that the Collatz
+front-loaded valuation word maximizes the affine correction but refutes
+fixed-length descent transfer with the exact `165 -> 167` length-17 natural
+realizer; replaces one infinite Goldbach exception budget by the sufficient
+shellwise `<1` criterion and refutes vanishing-mean promotion with diluted
+unit spikes; and localizes Twin dyadic energy to every square while proving
+that global energy density can vanish around an unchanged local
+checkerboard. The finite audits cover RH prime-power cutoffs through 1M,
+all minimal contracting Collatz compositions through length 13 plus the
+exact length-17 no-go, Goldbach dyadic DFT shells through 65,536, and Twin
+checkerboard dilutions through `128x128`. These are exact intermediate
+theorems and reproducible diagnostics, not solutions. All four conjectures
+remain open.
 See
+[TICKET163](docs/local-certificate-realizer-trace-carleson.md),
 [TICKET162](docs/formnorm-explicitbaker-integral-multiscale.md),
 [TICKET161](docs/commoncore-baker-angle-typeii.md),
 [TICKET160](docs/exact-support-cylinder-bilinear-wheel.md),
@@ -155,18 +157,18 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-162입니다. 리만 가설 트랙은
-`H2` 유계 원천 함수족의 공통 core 수송을 `H1`까지 강화하고, 전체
-`H1` 단위공의 균일 수송은 불가능함을 정확한 mode 반례로
-증명했습니다. 콜라츠 트랙은 약 215억의 명시적 Matveev 임계값을
-전수 검색하지 않고 위험 가능한 원시 연분수 후보 10개만 인증하여,
-최소 front-loaded 가족을 모든 길이 `m>=2`에서 완전히
-닫았습니다. 그러나 이 가족의 valuation 조합 점유율은 0으로
-수렴하므로 전체 추측은 미해결입니다. 골드바흐 트랙은 정규화된 음의
-오차 2차 모멘트 총합이 1보다 작을 때만 모든 예외를 배제할 수 있다는
-정확하고 최적인 적분성 기준을 얻었습니다. 쌍둥이 소수 트랙은 고정
-bin이 미세 상관을 놓치는 checkerboard 반례와 정확한 dyadic Type-II
-에너지 분해를 확정했습니다. 네 문제는 모두 미해결입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-163입니다. 리만 가설 트랙은
+고정 prime cutoff의 양의 trace가 `H1` 연속임을 증명했지만 항별
+절댓값 계수 질량이 발산하므로 실제 Guinand-Weil 형식의 균일성에는
+상쇄가 필요함을 확정했습니다. 콜라츠 트랙은 front-loaded valuation
+word가 affine correction을 최대화함을 증명했지만, correction이 더
+작은 길이 17의 정확한 자연수 실현값 `165 -> 167`로 고정 길이 하강
+이전 논리를 반박했습니다. 이 궤도는 첫 단계에서 이미 하강하므로
+Collatz 반례는 아닙니다. 골드바흐 트랙은 무한 전역 예산 대신 모든
+dyadic shell의 `<1` 예산이면 충분함을 증명하고, 평균이 0으로 가도
+예외 하나가 남는 unit-spike 반례를 고정했습니다. 쌍둥이 소수
+트랙은 모든 국소 dyadic square의 분산 항등식과 전역 희석 no-go를
+증명했습니다. 네 문제는 모두 미해결입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -186,14 +188,14 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-162입니다.
-[형식 수송, 명시적 Baker 폐쇄, 적분 예산, 다중척도 Type-II
-보고서](docs/formnorm-explicitbaker-integral-multiscale.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-163입니다.
+[국소 인증서, 자연수 실현값, trace 상쇄, Carleson 국소화
+보고서](docs/local-certificate-realizer-trace-carleson.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만 가설의 `H2→H1` 수송과 `H1` 단위공
-no-go, 콜라츠 최소 front-loaded 가족의 전 길이 폐쇄와 coverage
-no-go, 골드바흐의 `<1` 적분 예외예산 기준, 쌍둥이 소수의 dyadic
-incidence 에너지 분해와 고정-bin no-go를 확정했습니다.
+영문으로 정리합니다. 리만 가설의 유한 prime-trace 연속성과 절댓값
+질량 no-go, 콜라츠 correction 극값과 자연 residue coupling 반례,
+골드바흐 shellwise 적분 예외예산, 쌍둥이 소수의 국소 dyadic 분산과
+전역 희석 no-go를 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 
