@@ -1,0 +1,1379 @@
+{
+  "schema": "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1",
+  "generated_at": "2026-07-31T23:30:00+09:00",
+  "status": "four_exact_reductions_and_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-164 proves four exact reductions or no-go theorems and resolves none of the four conjectures. It replaces scalar RH cancellation by constrained minimum-eigenvalue positivity, reduces finite Collatz first-crossing verification to finitely many exact residues, replaces an overly strong Goldbach L2 target by its exact pointwise gate, and expands Twin localization to product scales.",
+  "core_eigen_first_crossing_pointwise_product_audit": {
+    "theorem_name": "FourConjectureCoreEigenFirstCrossingPointwiseProductAudit",
+    "status": "four_exact_reductions_and_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-164 proves four exact reductions or no-go theorems and resolves none of the four conjectures. It replaces scalar RH cancellation by constrained minimum-eigenvalue positivity, reduces finite Collatz first-crossing verification to finitely many exact residues, replaces an overly strong Goldbach L2 target by its exact pointwise gate, and expands Twin localization to product scales.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-164",
+      "theorem_name": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+      "declared_proposition": "Let H be a real symmetric finite Galerkin form, let B have full row rank, and let the columns of U span ker(B). Then H is nonnegative on the constraint core ker(B) if and only if the compressed form U^T H U is positive semidefinite. Positive ambient trace, positive ambient determinant, and a positive value on the all-ones vector do not imply this condition: H=diag(3,-1,-1), B=(1,1,1) has all three scalar diagnostics positive but the core witness (0,-1,1) has quadratic value -2.",
+      "mathematical_argument": "Every constrained vector is Uc, so its quadratic value is exactly c^T(U^T H U)c; this proves the compression equivalence by congruence. For the displayed form, the kernel basis columns (1,-1,0) and (1,0,-1) give compressed matrix [[2,3],[3,2]], whose determinant is -5. The scalable diagonal family with two negative coordinates keeps trace, determinant, and the all-ones value positive while the sum-zero difference of the last two coordinates always has value -2.",
+      "reproducible_computation": {
+        "theorem": "Let H be a real symmetric finite Galerkin form, let B have full row rank, and let the columns of U span ker(B). Then H is nonnegative on the constraint core ker(B) if and only if the compressed form U^T H U is positive semidefinite. Positive ambient trace, positive ambient determinant, and a positive value on the all-ones vector do not imply this condition: H=diag(3,-1,-1), B=(1,1,1) has all three scalar diagnostics positive but the core witness (0,-1,1) has quadratic value -2.",
+        "proof": "Every constrained vector is Uc, so its quadratic value is exactly c^T(U^T H U)c; this proves the compression equivalence by congruence. For the displayed form, the kernel basis columns (1,-1,0) and (1,0,-1) give compressed matrix [[2,3],[3,2]], whose determinant is -5. The scalable diagonal family with two negative coordinates keeps trace, determinant, and the all-ones value positive while the sum-zero difference of the last two coordinates always has value -2.",
+        "exact_three_dimensional_core": {
+          "form_diagonal": [
+            3,
+            -1,
+            -1
+          ],
+          "constraint_row": [
+            1,
+            1,
+            1
+          ],
+          "kernel_basis_columns": [
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              -1
+            ]
+          ],
+          "compressed_form": [
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "compressed_determinant": -5,
+          "negative_coefficient_witness": [
+            1,
+            -1
+          ],
+          "negative_original_witness": [
+            0,
+            -1,
+            1
+          ],
+          "negative_witness_value": -2,
+          "ambient_trace": 1,
+          "ambient_determinant": 3,
+          "all_ones_quadratic_value": 1
+        },
+        "scalable_scalar_cancellation_no_go_rows": [
+          {
+            "dimension": 5,
+            "ambient_trace": 1,
+            "ambient_determinant": 1,
+            "all_ones_quadratic_value": 1,
+            "constraint_core_negative_witness_value": -2,
+            "checks": {
+              "ambient_trace_is_positive": true,
+              "ambient_determinant_is_positive": true,
+              "all_ones_quadratic_value_is_positive": true,
+              "witness_satisfies_sum_zero_constraint": true,
+              "constraint_core_has_negative_direction": true
+            }
+          },
+          {
+            "dimension": 9,
+            "ambient_trace": 5,
+            "ambient_determinant": 1,
+            "all_ones_quadratic_value": 5,
+            "constraint_core_negative_witness_value": -2,
+            "checks": {
+              "ambient_trace_is_positive": true,
+              "ambient_determinant_is_positive": true,
+              "all_ones_quadratic_value_is_positive": true,
+              "witness_satisfies_sum_zero_constraint": true,
+              "constraint_core_has_negative_direction": true
+            }
+          },
+          {
+            "dimension": 17,
+            "ambient_trace": 13,
+            "ambient_determinant": 1,
+            "all_ones_quadratic_value": 13,
+            "constraint_core_negative_witness_value": -2,
+            "checks": {
+              "ambient_trace_is_positive": true,
+              "ambient_determinant_is_positive": true,
+              "all_ones_quadratic_value_is_positive": true,
+              "witness_satisfies_sum_zero_constraint": true,
+              "constraint_core_has_negative_direction": true
+            }
+          },
+          {
+            "dimension": 33,
+            "ambient_trace": 29,
+            "ambient_determinant": 1,
+            "all_ones_quadratic_value": 29,
+            "constraint_core_negative_witness_value": -2,
+            "checks": {
+              "ambient_trace_is_positive": true,
+              "ambient_determinant_is_positive": true,
+              "all_ones_quadratic_value_is_positive": true,
+              "witness_satisfies_sum_zero_constraint": true,
+              "constraint_core_has_negative_direction": true
+            }
+          }
+        ],
+        "exact_checks": {
+          "compressed_determinant_is_negative": true,
+          "witness_is_in_constraint_kernel": true,
+          "witness_value_is_negative": true,
+          "scalar_ambient_diagnostics_are_positive": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The compression theorem is finite linear algebra. No uniform lower bound is proved for the actual Guinand-Weil matrices, and no cutoff-free positivity statement follows.",
+      "route_decision": {
+        "discard": "scalar cancellation diagnostics such as trace, determinant, or one test-vector value as substitutes for constrained positivity",
+        "retain": "the minimum eigenvalue of the complete signed Guinand-Weil form compressed to its admissible constraint core",
+        "next_single_lemma": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T164-REJECTED",
+            "label": "ScalarCancellationDiagnosticsImplyConstraintCorePositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T164-CLOSED",
+            "label": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T164-OPEN",
+            "label": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T164-REJECTED",
+            "RH-T164-CLOSED"
+          ],
+          [
+            "RH-T164-CLOSED",
+            "RH-T164-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no zero exclusion; exact finite compression criterion and scalable scalar-diagnostic no-go."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-164",
+      "theorem_name": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+      "declared_proposition": "For a first-crossing valuation word a of length m, every proper prefix obeys 2^S_j<=3^j and the full word obeys 2^S>3^m. Writing 2^S T_a(n)=3^m n+C(a), a nonterminal non-descent can occur only if 3(2^S-3^m)<=C(a). Hence each fixed prefix has only finitely many final valuations requiring residue replay; all larger valuations descend automatically for every odd n>=3. Exhaustive prefix enumeration and exact odd-residue replay certify strict descent for every first-crossing word of length m<=17.",
+      "mathematical_argument": "Non-descent is equivalent to (2^S-3^m)n<=C(a). For a nonterminal odd start n>=3 this implies 3(2^S-3^m)<=C(a), giving the finite last-valuation bound. For each remaining word, exactness and an odd endpoint are enforced modulo 2^(S+1); the least nonterminal realizer is the worst one because every later realizer increases the descent margin by 2(2^S-3^m). The computation enumerates every noncontracting prefix through length 16 and every bounded final valuation through full length 17. It is not an all-length proof.",
+      "reproducible_computation": {
+        "theorem": "For a first-crossing valuation word a of length m, every proper prefix obeys 2^S_j<=3^j and the full word obeys 2^S>3^m. Writing 2^S T_a(n)=3^m n+C(a), a nonterminal non-descent can occur only if 3(2^S-3^m)<=C(a). Hence each fixed prefix has only finitely many final valuations requiring residue replay; all larger valuations descend automatically for every odd n>=3. Exhaustive prefix enumeration and exact odd-residue replay certify strict descent for every first-crossing word of length m<=17.",
+        "proof": "Non-descent is equivalent to (2^S-3^m)n<=C(a). For a nonterminal odd start n>=3 this implies 3(2^S-3^m)<=C(a), giving the finite last-valuation bound. For each remaining word, exactness and an odd endpoint are enforced modulo 2^(S+1); the least nonterminal realizer is the worst one because every later realizer increases the descent margin by 2(2^S-3^m). The computation enumerates every noncontracting prefix through length 16 and every bounded final valuation through full length 17. It is not an all-length proof.",
+        "complete_first_crossing_rows": [
+          {
+            "word_length_m": 1,
+            "noncontracting_prefix_count": 1,
+            "potential_non_descent_word_count": 0,
+            "next_noncontracting_prefix_count": 1,
+            "maximum_candidate_final_valuation": 0,
+            "minimum_strict_descent_margin": null,
+            "minimum_margin_witness": null,
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 2,
+            "noncontracting_prefix_count": 1,
+            "potential_non_descent_word_count": 0,
+            "next_noncontracting_prefix_count": 2,
+            "maximum_candidate_final_valuation": 0,
+            "minimum_strict_descent_margin": null,
+            "minimum_margin_witness": null,
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 3,
+            "noncontracting_prefix_count": 2,
+            "potential_non_descent_word_count": 2,
+            "next_noncontracting_prefix_count": 3,
+            "maximum_candidate_final_valuation": 3,
+            "minimum_strict_descent_margin": 6,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                2,
+                2
+              ],
+              "least_nonterminal_realizer": 43,
+              "endpoint": 37,
+              "strict_descent_margin": 6,
+              "affine_correction": 23,
+              "slope_gap": 5
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 4,
+            "noncontracting_prefix_count": 3,
+            "potential_non_descent_word_count": 0,
+            "next_noncontracting_prefix_count": 7,
+            "maximum_candidate_final_valuation": 0,
+            "minimum_strict_descent_margin": null,
+            "minimum_margin_witness": null,
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 5,
+            "noncontracting_prefix_count": 7,
+            "potential_non_descent_word_count": 7,
+            "next_noncontracting_prefix_count": 12,
+            "maximum_candidate_final_valuation": 4,
+            "minimum_strict_descent_margin": 4,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                1,
+                1,
+                4
+              ],
+              "least_nonterminal_realizer": 95,
+              "endpoint": 91,
+              "strict_descent_margin": 4,
+              "affine_correction": 211,
+              "slope_gap": 13
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 6,
+            "noncontracting_prefix_count": 12,
+            "potential_non_descent_word_count": 5,
+            "next_noncontracting_prefix_count": 30,
+            "maximum_candidate_final_valuation": 4,
+            "minimum_strict_descent_margin": 280,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                3
+              ],
+              "least_nonterminal_realizer": 975,
+              "endpoint": 695,
+              "strict_descent_margin": 280,
+              "affine_correction": 905,
+              "slope_gap": 295
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 7,
+            "noncontracting_prefix_count": 30,
+            "potential_non_descent_word_count": 0,
+            "next_noncontracting_prefix_count": 85,
+            "maximum_candidate_final_valuation": 0,
+            "minimum_strict_descent_margin": null,
+            "minimum_margin_witness": null,
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 8,
+            "noncontracting_prefix_count": 85,
+            "potential_non_descent_word_count": 85,
+            "next_noncontracting_prefix_count": 173,
+            "maximum_candidate_final_valuation": 6,
+            "minimum_strict_descent_margin": 40,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                2,
+                3
+              ],
+              "least_nonterminal_realizer": 207,
+              "endpoint": 167,
+              "strict_descent_margin": 40,
+              "affine_correction": 9937,
+              "slope_gap": 1631
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 9,
+            "noncontracting_prefix_count": 173,
+            "potential_non_descent_word_count": 7,
+            "next_noncontracting_prefix_count": 476,
+            "maximum_candidate_final_valuation": 3,
+            "minimum_strict_descent_margin": 436,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                2,
+                1,
+                3
+              ],
+              "least_nonterminal_realizer": 1095,
+              "endpoint": 659,
+              "strict_descent_margin": 436,
+              "affine_correction": 41227,
+              "slope_gap": 13085
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 10,
+            "noncontracting_prefix_count": 476,
+            "potential_non_descent_word_count": 476,
+            "next_noncontracting_prefix_count": 961,
+            "maximum_candidate_final_valuation": 7,
+            "minimum_strict_descent_margin": 34,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                4,
+                2,
+                2
+              ],
+              "least_nonterminal_realizer": 359,
+              "endpoint": 325,
+              "strict_descent_margin": 34,
+              "affine_correction": 100609,
+              "slope_gap": 6487
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 11,
+            "noncontracting_prefix_count": 961,
+            "potential_non_descent_word_count": 698,
+            "next_noncontracting_prefix_count": 2652,
+            "maximum_candidate_final_valuation": 6,
+            "minimum_strict_descent_margin": 796,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                2,
+                4
+              ],
+              "least_nonterminal_realizer": 2459,
+              "endpoint": 1663,
+              "strict_descent_margin": 796,
+              "affine_correction": 340999,
+              "slope_gap": 84997
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 12,
+            "noncontracting_prefix_count": 2652,
+            "potential_non_descent_word_count": 1,
+            "next_noncontracting_prefix_count": 8045,
+            "maximum_candidate_final_valuation": 3,
+            "minimum_strict_descent_margin": 722672,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                2,
+                1,
+                2,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                2,
+                3
+              ],
+              "least_nonterminal_realizer": 1465339,
+              "endpoint": 742667,
+              "strict_descent_margin": 722672,
+              "affine_correction": 1568693,
+              "slope_gap": 517135
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 13,
+            "noncontracting_prefix_count": 8045,
+            "potential_non_descent_word_count": 8045,
+            "next_noncontracting_prefix_count": 17637,
+            "maximum_candidate_final_valuation": 9,
+            "minimum_strict_descent_margin": 240,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                3,
+                2,
+                1,
+                1,
+                1,
+                3,
+                3
+              ],
+              "least_nonterminal_realizer": 1007,
+              "endpoint": 767,
+              "strict_descent_margin": 240,
+              "affine_correction": 3032323,
+              "slope_gap": 502829
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 14,
+            "noncontracting_prefix_count": 17637,
+            "potential_non_descent_word_count": 4119,
+            "next_noncontracting_prefix_count": 51033,
+            "maximum_candidate_final_valuation": 6,
+            "minimum_strict_descent_margin": 4508,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                2,
+                1,
+                2,
+                4
+              ],
+              "least_nonterminal_realizer": 10491,
+              "endpoint": 5983,
+              "strict_descent_margin": 4508,
+              "affine_correction": 10913885,
+              "slope_gap": 3605639
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 15,
+            "noncontracting_prefix_count": 51033,
+            "potential_non_descent_word_count": 51033,
+            "next_noncontracting_prefix_count": 108950,
+            "maximum_candidate_final_valuation": 10,
+            "minimum_strict_descent_margin": 106,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                2,
+                4
+              ],
+              "least_nonterminal_realizer": 743,
+              "endpoint": 637,
+              "strict_descent_margin": 106,
+              "affine_correction": 25848691,
+              "slope_gap": 2428309
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 16,
+            "noncontracting_prefix_count": 108950,
+            "potential_non_descent_word_count": 81410,
+            "next_noncontracting_prefix_count": 312455,
+            "maximum_candidate_final_valuation": 9,
+            "minimum_strict_descent_margin": 354,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                2,
+                1,
+                1,
+                2,
+                2,
+                1,
+                2,
+                1,
+                2,
+                4
+              ],
+              "least_nonterminal_realizer": 991,
+              "endpoint": 637,
+              "strict_descent_margin": 354,
+              "affine_correction": 89045857,
+              "slope_gap": 24062143
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 17,
+            "noncontracting_prefix_count": 312455,
+            "potential_non_descent_word_count": 319033,
+            "next_noncontracting_prefix_count": 663535,
+            "maximum_candidate_final_valuation": 11,
+            "minimum_strict_descent_margin": 28,
+            "minimum_margin_witness": {
+              "valuation_word": [
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                3,
+                2,
+                1,
+                1,
+                1,
+                3,
+                3
+              ],
+              "least_nonterminal_realizer": 795,
+              "endpoint": 767,
+              "strict_descent_margin": 28,
+              "affine_correction": 278567791,
+              "slope_gap": 5077565
+            },
+            "checks": {
+              "all_potential_non_descent_words_replay": true,
+              "all_potential_nonterminal_words_strictly_descend": true,
+              "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          }
+        ],
+        "final_valuation_monotonicity_no_go": {
+          "rows": [
+            {
+              "valuation_word": [
+                1,
+                3
+              ],
+              "least_nonterminal_realizer": 19,
+              "endpoint": 11,
+              "strict_descent_margin": 8,
+              "replay": [
+                1,
+                3
+              ]
+            },
+            {
+              "valuation_word": [
+                1,
+                4
+              ],
+              "least_nonterminal_realizer": 3,
+              "endpoint": 1,
+              "strict_descent_margin": 2,
+              "replay": [
+                1,
+                4
+              ]
+            }
+          ],
+          "checks": {
+            "both_words_first_cross_at_length_two": true,
+            "larger_final_valuation_has_smaller_margin": true,
+            "both_shortcut_words_replay_exactly": true
+          },
+          "statement": "Checking only the least crossing final valuation cannot be justified by monotonicity: (1,3) has margin 8, whereas the larger final valuation word (1,4) has margin 2."
+        },
+        "maximum_certified_length": 17,
+        "total_potential_non_descent_words_replayed": 464921,
+        "total_replay_failure_count": 0,
+        "global_minimum_strict_descent_margin": 4,
+        "failure_count": 0
+      },
+      "logical_limit": "Every first-crossing word is certified only for lengths at most 17. The number of noncontracting prefixes still grows, and no all-length residue-slack inequality has been proved.",
+      "route_decision": {
+        "discard": "checking only the least crossing final valuation by an assumed monotonic descent margin",
+        "retain": "the exact affine candidate bound plus least nonterminal residue replay for every first-crossing prefix",
+        "next_single_lemma": "UniformFirstContractingLayerResidueSlack"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T164-REJECTED",
+            "label": "FirstCrossingDescentMarginIsMonotoneInFinalValuation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T164-CLOSED",
+            "label": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T164-OPEN",
+            "label": "UniformFirstContractingLayerResidueSlack",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T164-REJECTED",
+            "CO-T164-CLOSED"
+          ],
+          [
+            "CO-T164-CLOSED",
+            "CO-T164-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit; complete first-crossing certificate through length 17 and exact finite final-valuation reduction."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-164",
+      "theorem_name": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+      "declared_proposition": "If G_N=M_N+E_N is a nonnegative integer and M_N>0, then G_N>0 if and only if d_N=E_N^-/M_N<1. Thus a finite block has no exception if and only if max d_N<1. The shell L2 condition sum d_N^2<1 from TICKET-163 remains sufficient but is not necessary and can be arbitrarily stronger: taking M_N=2 and G_N=1 at every one of L targets gives no zeros, max d_N=1/2, and L2 budget L/4 tending to infinity.",
+      "mathematical_argument": "If G_N=0 then E_N=-M_N and d_N=1. If G_N>=1, either E_N>=0 and d_N=0 or E_N<0 and d_N=1-G_N/M_N<1. This proves the exact pointwise equivalence. The constant positive-count construction proves the L2 non-necessity statement. Finite prime DFT rows are paired with an independent integer prime-pair scan; they diagnose the pointwise margin only and do not establish an infinite bound.",
+      "reproducible_computation": {
+        "theorem": "If G_N=M_N+E_N is a nonnegative integer and M_N>0, then G_N>0 if and only if d_N=E_N^-/M_N<1. Thus a finite block has no exception if and only if max d_N<1. The shell L2 condition sum d_N^2<1 from TICKET-163 remains sufficient but is not necessary and can be arbitrarily stronger: taking M_N=2 and G_N=1 at every one of L targets gives no zeros, max d_N=1/2, and L2 budget L/4 tending to infinity.",
+        "proof": "If G_N=0 then E_N=-M_N and d_N=1. If G_N>=1, either E_N>=0 and d_N=0 or E_N<0 and d_N=1-G_N/M_N<1. This proves the exact pointwise equivalence. The constant positive-count construction proves the L2 non-necessity statement. Finite prime DFT rows are paired with an independent integer prime-pair scan; they diagnose the pointwise margin only and do not establish an infinite bound.",
+        "finite_prime_pointwise_rows": [
+          {
+            "dyadic_lower_exclusive": 128,
+            "dyadic_upper_inclusive": 256,
+            "maximum_normalized_deficit": 0.9166314190660492,
+            "pointwise_margin_to_one": 0.08336858093395083,
+            "l2_shell_budget": 46.70134108920733,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 256,
+            "dyadic_upper_inclusive": 512,
+            "maximum_normalized_deficit": 0.854642282531877,
+            "pointwise_margin_to_one": 0.14535771746812298,
+            "l2_shell_budget": 77.11051614385528,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 512,
+            "dyadic_upper_inclusive": 1024,
+            "maximum_normalized_deficit": 0.7836538423171145,
+            "pointwise_margin_to_one": 0.21634615768288545,
+            "l2_shell_budget": 112.50182366419976,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 1024,
+            "dyadic_upper_inclusive": 2048,
+            "maximum_normalized_deficit": 0.6670106931194034,
+            "pointwise_margin_to_one": 0.3329893068805966,
+            "l2_shell_budget": 127.26970960593155,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 2048,
+            "dyadic_upper_inclusive": 4096,
+            "maximum_normalized_deficit": 0.5157098658390774,
+            "pointwise_margin_to_one": 0.4842901341609226,
+            "l2_shell_budget": 95.46696791412099,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 4096,
+            "dyadic_upper_inclusive": 8192,
+            "maximum_normalized_deficit": 0.3480333996382767,
+            "pointwise_margin_to_one": 0.6519666003617233,
+            "l2_shell_budget": 36.15931799087195,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 8192,
+            "dyadic_upper_inclusive": 16384,
+            "maximum_normalized_deficit": 0.22607728859445306,
+            "pointwise_margin_to_one": 0.7739227114055469,
+            "l2_shell_budget": 12.137632893117752,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 16384,
+            "dyadic_upper_inclusive": 32768,
+            "maximum_normalized_deficit": 0.20661595915309397,
+            "pointwise_margin_to_one": 0.7933840408469061,
+            "l2_shell_budget": 39.83808914336424,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          },
+          {
+            "dyadic_lower_exclusive": 32768,
+            "dyadic_upper_inclusive": 65536,
+            "maximum_normalized_deficit": 0.2158875498268751,
+            "pointwise_margin_to_one": 0.7841124501731249,
+            "l2_shell_budget": 57.451945305336785,
+            "l2_unit_gate_passes": false,
+            "observed_zero_count": 0,
+            "checks": {
+              "direct_integer_scan_has_no_zero": true,
+              "pointwise_gate_passes": true,
+              "pointwise_margin_is_positive": true,
+              "fft_and_integer_decisions_agree": true
+            }
+          }
+        ],
+        "positive_count_l2_no_go_rows": [
+          {
+            "block_size": 4,
+            "main_term_M": 2,
+            "integer_count_G": 1,
+            "normalized_deficit": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "l2_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "zero_count": 0,
+            "pointwise_gate_passes": true,
+            "l2_unit_gate_passes": false
+          },
+          {
+            "block_size": 16,
+            "main_term_M": 2,
+            "integer_count_G": 1,
+            "normalized_deficit": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "l2_budget": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "zero_count": 0,
+            "pointwise_gate_passes": true,
+            "l2_unit_gate_passes": false
+          },
+          {
+            "block_size": 64,
+            "main_term_M": 2,
+            "integer_count_G": 1,
+            "normalized_deficit": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "l2_budget": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "zero_count": 0,
+            "pointwise_gate_passes": true,
+            "l2_unit_gate_passes": false
+          },
+          {
+            "block_size": 256,
+            "main_term_M": 2,
+            "integer_count_G": 1,
+            "normalized_deficit": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "l2_budget": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "zero_count": 0,
+            "pointwise_gate_passes": true,
+            "l2_unit_gate_passes": false
+          },
+          {
+            "block_size": 1024,
+            "main_term_M": 2,
+            "integer_count_G": 1,
+            "normalized_deficit": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "l2_budget": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "zero_count": 0,
+            "pointwise_gate_passes": true,
+            "l2_unit_gate_passes": false
+          }
+        ],
+        "no_go_checks": {
+          "all_counts_are_strictly_positive": true,
+          "all_pointwise_gates_pass": true,
+          "l2_budget_is_unbounded": true,
+          "l2_unit_gate_fails_from_first_row": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The exact pointwise criterion is close to the original positivity problem. The finite DFT supplies no uniform analytic minor-arc margin over all even targets.",
+      "route_decision": {
+        "discard": "treating the shell L2 budget below one as a necessary or decisive Goldbach target",
+        "retain": "the exact pointwise normalized negative-minor deficit strictly below one at every even target",
+        "next_single_lemma": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T164-REJECTED",
+            "label": "ShellL2BudgetBelowOneIsNecessaryForNoGoldbachZeros",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T164-CLOSED",
+            "label": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T164-OPEN",
+            "label": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T164-REJECTED",
+            "GB-T164-CLOSED"
+          ],
+          [
+            "GB-T164-CLOSED",
+            "GB-T164-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact pointwise equivalence, strict L2 non-necessity no-go, and finite diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-164",
+      "theorem_name": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+      "declared_proposition": "For a finite matrix with zero row and column margins, the full Frobenius energy equals the sum of normalized product-Haar coefficient energies over independently chosen row and column dyadic scales. Retaining only equal row/column scales is not complete: the tensor of a row Haar wavelet of support 2 and a column Haar wavelet of support N/2 has positive full energy N and exactly zero equal-scale tensor energy.",
+      "mathematical_argument": "The one-dimensional constant plus Haar vectors form an orthogonal basis. Tensoring the two expansions gives product Parseval; zero row and column margins remove the constant-axis terms. For the separable witness u tensor v, each coefficient factors as <u,h_I><v,h_J>. Orthogonality leaves exactly the unequal scale pair (2,N/2), so every equal-scale product coefficient vanishes while the complete product energy equals ||u||^2||v||^2=N.",
+      "reproducible_computation": {
+        "theorem": "For a finite matrix with zero row and column margins, the full Frobenius energy equals the sum of normalized product-Haar coefficient energies over independently chosen row and column dyadic scales. Retaining only equal row/column scales is not complete: the tensor of a row Haar wavelet of support 2 and a column Haar wavelet of support N/2 has positive full energy N and exactly zero equal-scale tensor energy.",
+        "proof": "The one-dimensional constant plus Haar vectors form an orthogonal basis. Tensoring the two expansions gives product Parseval; zero row and column margins remove the constant-axis terms. For the separable witness u tensor v, each coefficient factors as <u,h_I><v,h_J>. Orthogonality leaves exactly the unequal scale pair (2,N/2), so every equal-scale product coefficient vanishes while the complete product energy equals ||u||^2||v||^2=N.",
+        "anisotropic_product_rows": [
+          {
+            "matrix_side": 8,
+            "row_haar_support": 2,
+            "column_haar_support": 4,
+            "frobenius_energy": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "full_product_haar_energy": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "same_scale_tensor_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "row_factor_has_zero_mean": true,
+              "column_factor_has_zero_mean": true,
+              "product_haar_parseval_is_exact": true,
+              "same_scale_tensor_energy_is_zero": true,
+              "anisotropic_product_energy_is_positive": true
+            }
+          },
+          {
+            "matrix_side": 16,
+            "row_haar_support": 2,
+            "column_haar_support": 8,
+            "frobenius_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "full_product_haar_energy": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "same_scale_tensor_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "row_factor_has_zero_mean": true,
+              "column_factor_has_zero_mean": true,
+              "product_haar_parseval_is_exact": true,
+              "same_scale_tensor_energy_is_zero": true,
+              "anisotropic_product_energy_is_positive": true
+            }
+          },
+          {
+            "matrix_side": 32,
+            "row_haar_support": 2,
+            "column_haar_support": 16,
+            "frobenius_energy": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "full_product_haar_energy": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "same_scale_tensor_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "row_factor_has_zero_mean": true,
+              "column_factor_has_zero_mean": true,
+              "product_haar_parseval_is_exact": true,
+              "same_scale_tensor_energy_is_zero": true,
+              "anisotropic_product_energy_is_positive": true
+            }
+          },
+          {
+            "matrix_side": 64,
+            "row_haar_support": 2,
+            "column_haar_support": 32,
+            "frobenius_energy": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "full_product_haar_energy": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "same_scale_tensor_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "row_factor_has_zero_mean": true,
+              "column_factor_has_zero_mean": true,
+              "product_haar_parseval_is_exact": true,
+              "same_scale_tensor_energy_is_zero": true,
+              "anisotropic_product_energy_is_positive": true
+            }
+          },
+          {
+            "matrix_side": 128,
+            "row_haar_support": 2,
+            "column_haar_support": 64,
+            "frobenius_energy": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "full_product_haar_energy": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "same_scale_tensor_energy": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "row_factor_has_zero_mean": true,
+              "column_factor_has_zero_mean": true,
+              "product_haar_parseval_is_exact": true,
+              "same_scale_tensor_energy_is_zero": true,
+              "anisotropic_product_energy_is_positive": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "Product-Haar Parseval is deterministic. It gives no prime-weighted coefficient saving, no parity-breaking lower bound, and no infinitude of gap-two primes.",
+      "route_decision": {
+        "discard": "retaining only equal row and column Haar scales in the local Type-II diagnostic",
+        "retain": "independent row/column product-Haar localization over every relevant prime-weighted rectangle",
+        "next_single_lemma": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T164-REJECTED",
+            "label": "EqualScaleTensorHaarEnergyCapturesEveryLocalTypeIIMode",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T164-CLOSED",
+            "label": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T164-OPEN",
+            "label": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T164-REJECTED",
+            "TP-T164-CLOSED"
+          ],
+          [
+            "TP-T164-CLOSED",
+            "TP-T164-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact product-Haar identity and anisotropic equal-scale no-go."
+    },
+    "literature_boundary": {
+      "riemann": "Finite Guinand-Weil Galerkin work motivates the compressed-form target; this ticket proves only an abstract finite linear-algebra criterion.",
+      "collatz": "Tao's almost-all result is external and does not provide the all-orbit residue-slack lemma proved here only through length 17.",
+      "goldbach": "Current exceptional-set and explicit major-arc work is external; no imported theorem supplies the required pointwise binary minor-arc margin.",
+      "twin_prime": "Ford-Maynard Type I/II theory motivates product localization; this deterministic Haar theorem is not a prime-producing estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-164",
+      "status": "open_not_proven",
+      "declared_proposition": "Let H be a real symmetric finite Galerkin form, let B have full row rank, and let the columns of U span ker(B). Then H is nonnegative on the constraint core ker(B) if and only if the compressed form U^T H U is positive semidefinite. Positive ambient trace, positive ambient determinant, and a positive value on the all-ones vector do not imply this condition: H=diag(3,-1,-1), B=(1,1,1) has all three scalar diagnostics positive but the core witness (0,-1,1) has quadratic value -2.",
+      "new_result": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+      "discarded_route": "scalar cancellation diagnostics such as trace, determinant, or one test-vector value as substitutes for constrained positivity",
+      "remaining_gap": "The compression theorem is finite linear algebra. No uniform lower bound is proved for the actual Guinand-Weil matrices, and no cutoff-free positivity statement follows.",
+      "candidate_theorem": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound",
+      "claim_boundary": "No RH proof and no zero exclusion; exact finite compression criterion and scalable scalar-diagnostic no-go.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T164-REJECTED",
+            "label": "ScalarCancellationDiagnosticsImplyConstraintCorePositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T164-CLOSED",
+            "label": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T164-OPEN",
+            "label": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T164-REJECTED",
+            "RH-T164-CLOSED"
+          ],
+          [
+            "RH-T164-CLOSED",
+            "RH-T164-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-164",
+      "status": "open_not_proven",
+      "declared_proposition": "For a first-crossing valuation word a of length m, every proper prefix obeys 2^S_j<=3^j and the full word obeys 2^S>3^m. Writing 2^S T_a(n)=3^m n+C(a), a nonterminal non-descent can occur only if 3(2^S-3^m)<=C(a). Hence each fixed prefix has only finitely many final valuations requiring residue replay; all larger valuations descend automatically for every odd n>=3. Exhaustive prefix enumeration and exact odd-residue replay certify strict descent for every first-crossing word of length m<=17.",
+      "new_result": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+      "discarded_route": "checking only the least crossing final valuation by an assumed monotonic descent margin",
+      "remaining_gap": "Every first-crossing word is certified only for lengths at most 17. The number of noncontracting prefixes still grows, and no all-length residue-slack inequality has been proved.",
+      "candidate_theorem": "UniformFirstContractingLayerResidueSlack",
+      "claim_boundary": "No Collatz proof and no divergent orbit; complete first-crossing certificate through length 17 and exact finite final-valuation reduction.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T164-REJECTED",
+            "label": "FirstCrossingDescentMarginIsMonotoneInFinalValuation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T164-CLOSED",
+            "label": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T164-OPEN",
+            "label": "UniformFirstContractingLayerResidueSlack",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T164-REJECTED",
+            "CO-T164-CLOSED"
+          ],
+          [
+            "CO-T164-CLOSED",
+            "CO-T164-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-164",
+      "status": "open_not_proven",
+      "declared_proposition": "If G_N=M_N+E_N is a nonnegative integer and M_N>0, then G_N>0 if and only if d_N=E_N^-/M_N<1. Thus a finite block has no exception if and only if max d_N<1. The shell L2 condition sum d_N^2<1 from TICKET-163 remains sufficient but is not necessary and can be arbitrarily stronger: taking M_N=2 and G_N=1 at every one of L targets gives no zeros, max d_N=1/2, and L2 budget L/4 tending to infinity.",
+      "new_result": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+      "discarded_route": "treating the shell L2 budget below one as a necessary or decisive Goldbach target",
+      "remaining_gap": "The exact pointwise criterion is close to the original positivity problem. The finite DFT supplies no uniform analytic minor-arc margin over all even targets.",
+      "candidate_theorem": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne",
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact pointwise equivalence, strict L2 non-necessity no-go, and finite diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T164-REJECTED",
+            "label": "ShellL2BudgetBelowOneIsNecessaryForNoGoldbachZeros",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T164-CLOSED",
+            "label": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T164-OPEN",
+            "label": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T164-REJECTED",
+            "GB-T164-CLOSED"
+          ],
+          [
+            "GB-T164-CLOSED",
+            "GB-T164-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-164",
+      "status": "open_not_proven",
+      "declared_proposition": "For a finite matrix with zero row and column margins, the full Frobenius energy equals the sum of normalized product-Haar coefficient energies over independently chosen row and column dyadic scales. Retaining only equal row/column scales is not complete: the tensor of a row Haar wavelet of support 2 and a column Haar wavelet of support N/2 has positive full energy N and exactly zero equal-scale tensor energy.",
+      "new_result": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+      "discarded_route": "retaining only equal row and column Haar scales in the local Type-II diagnostic",
+      "remaining_gap": "Product-Haar Parseval is deterministic. It gives no prime-weighted coefficient saving, no parity-breaking lower bound, and no infinitude of gap-two primes.",
+      "candidate_theorem": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact product-Haar identity and anisotropic equal-scale no-go.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T164-REJECTED",
+            "label": "EqualScaleTensorHaarEnergyCapturesEveryLocalTypeIIMode",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T164-CLOSED",
+            "label": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T164-OPEN",
+            "label": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T164-REJECTED",
+            "TP-T164-CLOSED"
+          ],
+          [
+            "TP-T164-CLOSED",
+            "TP-T164-OPEN"
+          ]
+        ]
+      }
+    }
+  ]
+}

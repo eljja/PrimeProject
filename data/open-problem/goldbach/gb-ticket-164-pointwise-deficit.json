@@ -1,0 +1,273 @@
+{
+  "schema": "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1",
+  "generated_at": "2026-07-31T23:30:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-164",
+  "status": "open_not_proven",
+  "theorem_name": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+  "declared_proposition": "If G_N=M_N+E_N is a nonnegative integer and M_N>0, then G_N>0 if and only if d_N=E_N^-/M_N<1. Thus a finite block has no exception if and only if max d_N<1. The shell L2 condition sum d_N^2<1 from TICKET-163 remains sufficient but is not necessary and can be arbitrarily stronger: taking M_N=2 and G_N=1 at every one of L targets gives no zeros, max d_N=1/2, and L2 budget L/4 tending to infinity.",
+  "mathematical_argument": "If G_N=0 then E_N=-M_N and d_N=1. If G_N>=1, either E_N>=0 and d_N=0 or E_N<0 and d_N=1-G_N/M_N<1. This proves the exact pointwise equivalence. The constant positive-count construction proves the L2 non-necessity statement. Finite prime DFT rows are paired with an independent integer prime-pair scan; they diagnose the pointwise margin only and do not establish an infinite bound.",
+  "reproducible_computation": {
+    "theorem": "If G_N=M_N+E_N is a nonnegative integer and M_N>0, then G_N>0 if and only if d_N=E_N^-/M_N<1. Thus a finite block has no exception if and only if max d_N<1. The shell L2 condition sum d_N^2<1 from TICKET-163 remains sufficient but is not necessary and can be arbitrarily stronger: taking M_N=2 and G_N=1 at every one of L targets gives no zeros, max d_N=1/2, and L2 budget L/4 tending to infinity.",
+    "proof": "If G_N=0 then E_N=-M_N and d_N=1. If G_N>=1, either E_N>=0 and d_N=0 or E_N<0 and d_N=1-G_N/M_N<1. This proves the exact pointwise equivalence. The constant positive-count construction proves the L2 non-necessity statement. Finite prime DFT rows are paired with an independent integer prime-pair scan; they diagnose the pointwise margin only and do not establish an infinite bound.",
+    "finite_prime_pointwise_rows": [
+      {
+        "dyadic_lower_exclusive": 128,
+        "dyadic_upper_inclusive": 256,
+        "maximum_normalized_deficit": 0.9166314190660492,
+        "pointwise_margin_to_one": 0.08336858093395083,
+        "l2_shell_budget": 46.70134108920733,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 256,
+        "dyadic_upper_inclusive": 512,
+        "maximum_normalized_deficit": 0.854642282531877,
+        "pointwise_margin_to_one": 0.14535771746812298,
+        "l2_shell_budget": 77.11051614385528,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 512,
+        "dyadic_upper_inclusive": 1024,
+        "maximum_normalized_deficit": 0.7836538423171145,
+        "pointwise_margin_to_one": 0.21634615768288545,
+        "l2_shell_budget": 112.50182366419976,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 1024,
+        "dyadic_upper_inclusive": 2048,
+        "maximum_normalized_deficit": 0.6670106931194034,
+        "pointwise_margin_to_one": 0.3329893068805966,
+        "l2_shell_budget": 127.26970960593155,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 2048,
+        "dyadic_upper_inclusive": 4096,
+        "maximum_normalized_deficit": 0.5157098658390774,
+        "pointwise_margin_to_one": 0.4842901341609226,
+        "l2_shell_budget": 95.46696791412099,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 4096,
+        "dyadic_upper_inclusive": 8192,
+        "maximum_normalized_deficit": 0.3480333996382767,
+        "pointwise_margin_to_one": 0.6519666003617233,
+        "l2_shell_budget": 36.15931799087195,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 8192,
+        "dyadic_upper_inclusive": 16384,
+        "maximum_normalized_deficit": 0.22607728859445306,
+        "pointwise_margin_to_one": 0.7739227114055469,
+        "l2_shell_budget": 12.137632893117752,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 16384,
+        "dyadic_upper_inclusive": 32768,
+        "maximum_normalized_deficit": 0.20661595915309397,
+        "pointwise_margin_to_one": 0.7933840408469061,
+        "l2_shell_budget": 39.83808914336424,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      },
+      {
+        "dyadic_lower_exclusive": 32768,
+        "dyadic_upper_inclusive": 65536,
+        "maximum_normalized_deficit": 0.2158875498268751,
+        "pointwise_margin_to_one": 0.7841124501731249,
+        "l2_shell_budget": 57.451945305336785,
+        "l2_unit_gate_passes": false,
+        "observed_zero_count": 0,
+        "checks": {
+          "direct_integer_scan_has_no_zero": true,
+          "pointwise_gate_passes": true,
+          "pointwise_margin_is_positive": true,
+          "fft_and_integer_decisions_agree": true
+        }
+      }
+    ],
+    "positive_count_l2_no_go_rows": [
+      {
+        "block_size": 4,
+        "main_term_M": 2,
+        "integer_count_G": 1,
+        "normalized_deficit": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "l2_budget": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "zero_count": 0,
+        "pointwise_gate_passes": true,
+        "l2_unit_gate_passes": false
+      },
+      {
+        "block_size": 16,
+        "main_term_M": 2,
+        "integer_count_G": 1,
+        "normalized_deficit": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "l2_budget": {
+          "exact": "4/1",
+          "decimal": 4.0
+        },
+        "zero_count": 0,
+        "pointwise_gate_passes": true,
+        "l2_unit_gate_passes": false
+      },
+      {
+        "block_size": 64,
+        "main_term_M": 2,
+        "integer_count_G": 1,
+        "normalized_deficit": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "l2_budget": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "zero_count": 0,
+        "pointwise_gate_passes": true,
+        "l2_unit_gate_passes": false
+      },
+      {
+        "block_size": 256,
+        "main_term_M": 2,
+        "integer_count_G": 1,
+        "normalized_deficit": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "l2_budget": {
+          "exact": "64/1",
+          "decimal": 64.0
+        },
+        "zero_count": 0,
+        "pointwise_gate_passes": true,
+        "l2_unit_gate_passes": false
+      },
+      {
+        "block_size": 1024,
+        "main_term_M": 2,
+        "integer_count_G": 1,
+        "normalized_deficit": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "l2_budget": {
+          "exact": "256/1",
+          "decimal": 256.0
+        },
+        "zero_count": 0,
+        "pointwise_gate_passes": true,
+        "l2_unit_gate_passes": false
+      }
+    ],
+    "no_go_checks": {
+      "all_counts_are_strictly_positive": true,
+      "all_pointwise_gates_pass": true,
+      "l2_budget_is_unbounded": true,
+      "l2_unit_gate_fails_from_first_row": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "treating the shell L2 budget below one as a necessary or decisive Goldbach target",
+  "remaining_gap": "The exact pointwise criterion is close to the original positivity problem. The finite DFT supplies no uniform analytic minor-arc margin over all even targets.",
+  "candidate_theorem": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact pointwise equivalence, strict L2 non-necessity no-go, and finite diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T164-REJECTED",
+        "label": "ShellL2BudgetBelowOneIsNecessaryForNoGoldbachZeros",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T164-CLOSED",
+        "label": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T164-OPEN",
+        "label": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T164-REJECTED",
+        "GB-T164-CLOSED"
+      ],
+      [
+        "GB-T164-CLOSED",
+        "GB-T164-OPEN"
+      ]
+    ]
+  }
+}

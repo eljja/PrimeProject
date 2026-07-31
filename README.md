@@ -115,26 +115,23 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-three-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-four-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-163. It proves explicit `H1`
-continuity for every finite positive RH prime trace while showing that the
-termwise absolute coefficient mass diverges; proves that the Collatz
-front-loaded valuation word maximizes the affine correction but refutes
-fixed-length descent transfer with the exact `165 -> 167` length-17 natural
-realizer; replaces one infinite Goldbach exception budget by the sufficient
-shellwise `<1` criterion and refutes vanishing-mean promotion with diluted
-unit spikes; and localizes Twin dyadic energy to every square while proving
-that global energy density can vanish around an unchanged local
-checkerboard. The finite audits cover RH prime-power cutoffs through 1M,
-all minimal contracting Collatz compositions through length 13 plus the
-exact length-17 no-go, Goldbach dyadic DFT shells through 65,536, and Twin
-checkerboard dilutions through `128x128`. These are exact intermediate
-theorems and reproducible diagnostics, not solutions. All four conjectures
-remain open.
+The latest proof-search track is TICKET-164. It reduces finite constrained RH
+positivity exactly to a compressed minimum-eigenvalue test and proves that
+positive scalar cancellation summaries are insufficient; reduces every
+fixed-length Collatz first-crossing audit to finitely many final valuations
+and completely replays 464,921 potential non-descent words through length 17;
+proves the exact pointwise Goldbach integrality gate while showing that the
+former shell `L2 < 1` gate is sufficient but not necessary; and proves
+product-Haar Parseval while exposing an anisotropic no-go for equal-scale-only
+tensor diagnostics. These are exact finite reductions and countermodels, not
+solutions. All four conjectures remain open and the machine resolution count
+is zero.
 See
+[TICKET164](docs/core-eigen-first-crossing-pointwise-product.md),
 [TICKET163](docs/local-certificate-realizer-trace-carleson.md),
 [TICKET162](docs/formnorm-explicitbaker-integral-multiscale.md),
 [TICKET161](docs/commoncore-baker-angle-typeii.md),
@@ -157,18 +154,17 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-163입니다. 리만 가설 트랙은
-고정 prime cutoff의 양의 trace가 `H1` 연속임을 증명했지만 항별
-절댓값 계수 질량이 발산하므로 실제 Guinand-Weil 형식의 균일성에는
-상쇄가 필요함을 확정했습니다. 콜라츠 트랙은 front-loaded valuation
-word가 affine correction을 최대화함을 증명했지만, correction이 더
-작은 길이 17의 정확한 자연수 실현값 `165 -> 167`로 고정 길이 하강
-이전 논리를 반박했습니다. 이 궤도는 첫 단계에서 이미 하강하므로
-Collatz 반례는 아닙니다. 골드바흐 트랙은 무한 전역 예산 대신 모든
-dyadic shell의 `<1` 예산이면 충분함을 증명하고, 평균이 0으로 가도
-예외 하나가 남는 unit-spike 반례를 고정했습니다. 쌍둥이 소수
-트랙은 모든 국소 dyadic square의 분산 항등식과 전역 희석 no-go를
-증명했습니다. 네 문제는 모두 미해결입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-164입니다. 리만 트랙은 제약된
+유한 양성 판정을 압축 행렬의 최소 고유값 문제로 정확히 바꾸고,
+양의 trace·determinant·단일 test value만으로는 부족함을 반례족으로
+증명했습니다. 콜라츠 트랙은 first-crossing word의 비하강 가능성을
+각 prefix마다 유한화하고 길이 17까지 464,921개 후보를 정확히
+재생해 모두 하강함을 확인했습니다. 그러나 길이 18 이상은
+미증명입니다. 골드바흐 트랙은 표현수 양성과 정규화 음의 오차가
+점별로 1보다 작다는 조건의 정확한 동치를 증명하고, shell `L2<1`은
+필요조건이 아님을 보였습니다. 쌍둥이 소수 트랙은 행·열 scale이
+독립적인 product-Haar 항등식과 equal-scale-only no-go를 증명했습니다.
+네 문제는 모두 미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -188,14 +184,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-163입니다.
-[국소 인증서, 자연수 실현값, trace 상쇄, Carleson 국소화
-보고서](docs/local-certificate-realizer-trace-carleson.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-164입니다.
+[제약 core 고유값, 첫 수축 residue, 점별 골드바흐 문턱, product-Haar
+보고서](docs/core-eigen-first-crossing-pointwise-product.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만 가설의 유한 prime-trace 연속성과 절댓값
-질량 no-go, 콜라츠 correction 극값과 자연 residue coupling 반례,
-골드바흐 shellwise 적분 예외예산, 쌍둥이 소수의 국소 dyadic 분산과
-전역 희석 no-go를 확정했습니다.
+영문으로 정리합니다. 리만 제약 core 압축, 콜라츠 길이 17까지의
+first-crossing 완전 인증, 골드바흐 점별 적분성 동치와 `L2` 비필요성,
+쌍둥이 소수의 product-Haar 비등방 분해를 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

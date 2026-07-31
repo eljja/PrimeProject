@@ -1,0 +1,588 @@
+{
+  "schema": "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1",
+  "generated_at": "2026-07-31T23:30:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-164",
+  "status": "open_not_proven",
+  "theorem_name": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+  "declared_proposition": "For a first-crossing valuation word a of length m, every proper prefix obeys 2^S_j<=3^j and the full word obeys 2^S>3^m. Writing 2^S T_a(n)=3^m n+C(a), a nonterminal non-descent can occur only if 3(2^S-3^m)<=C(a). Hence each fixed prefix has only finitely many final valuations requiring residue replay; all larger valuations descend automatically for every odd n>=3. Exhaustive prefix enumeration and exact odd-residue replay certify strict descent for every first-crossing word of length m<=17.",
+  "mathematical_argument": "Non-descent is equivalent to (2^S-3^m)n<=C(a). For a nonterminal odd start n>=3 this implies 3(2^S-3^m)<=C(a), giving the finite last-valuation bound. For each remaining word, exactness and an odd endpoint are enforced modulo 2^(S+1); the least nonterminal realizer is the worst one because every later realizer increases the descent margin by 2(2^S-3^m). The computation enumerates every noncontracting prefix through length 16 and every bounded final valuation through full length 17. It is not an all-length proof.",
+  "reproducible_computation": {
+    "theorem": "For a first-crossing valuation word a of length m, every proper prefix obeys 2^S_j<=3^j and the full word obeys 2^S>3^m. Writing 2^S T_a(n)=3^m n+C(a), a nonterminal non-descent can occur only if 3(2^S-3^m)<=C(a). Hence each fixed prefix has only finitely many final valuations requiring residue replay; all larger valuations descend automatically for every odd n>=3. Exhaustive prefix enumeration and exact odd-residue replay certify strict descent for every first-crossing word of length m<=17.",
+    "proof": "Non-descent is equivalent to (2^S-3^m)n<=C(a). For a nonterminal odd start n>=3 this implies 3(2^S-3^m)<=C(a), giving the finite last-valuation bound. For each remaining word, exactness and an odd endpoint are enforced modulo 2^(S+1); the least nonterminal realizer is the worst one because every later realizer increases the descent margin by 2(2^S-3^m). The computation enumerates every noncontracting prefix through length 16 and every bounded final valuation through full length 17. It is not an all-length proof.",
+    "complete_first_crossing_rows": [
+      {
+        "word_length_m": 1,
+        "noncontracting_prefix_count": 1,
+        "potential_non_descent_word_count": 0,
+        "next_noncontracting_prefix_count": 1,
+        "maximum_candidate_final_valuation": 0,
+        "minimum_strict_descent_margin": null,
+        "minimum_margin_witness": null,
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 2,
+        "noncontracting_prefix_count": 1,
+        "potential_non_descent_word_count": 0,
+        "next_noncontracting_prefix_count": 2,
+        "maximum_candidate_final_valuation": 0,
+        "minimum_strict_descent_margin": null,
+        "minimum_margin_witness": null,
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 3,
+        "noncontracting_prefix_count": 2,
+        "potential_non_descent_word_count": 2,
+        "next_noncontracting_prefix_count": 3,
+        "maximum_candidate_final_valuation": 3,
+        "minimum_strict_descent_margin": 6,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            2,
+            2
+          ],
+          "least_nonterminal_realizer": 43,
+          "endpoint": 37,
+          "strict_descent_margin": 6,
+          "affine_correction": 23,
+          "slope_gap": 5
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 4,
+        "noncontracting_prefix_count": 3,
+        "potential_non_descent_word_count": 0,
+        "next_noncontracting_prefix_count": 7,
+        "maximum_candidate_final_valuation": 0,
+        "minimum_strict_descent_margin": null,
+        "minimum_margin_witness": null,
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 5,
+        "noncontracting_prefix_count": 7,
+        "potential_non_descent_word_count": 7,
+        "next_noncontracting_prefix_count": 12,
+        "maximum_candidate_final_valuation": 4,
+        "minimum_strict_descent_margin": 4,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            1,
+            1,
+            4
+          ],
+          "least_nonterminal_realizer": 95,
+          "endpoint": 91,
+          "strict_descent_margin": 4,
+          "affine_correction": 211,
+          "slope_gap": 13
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 6,
+        "noncontracting_prefix_count": 12,
+        "potential_non_descent_word_count": 5,
+        "next_noncontracting_prefix_count": 30,
+        "maximum_candidate_final_valuation": 4,
+        "minimum_strict_descent_margin": 280,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            1,
+            3,
+            1,
+            3
+          ],
+          "least_nonterminal_realizer": 975,
+          "endpoint": 695,
+          "strict_descent_margin": 280,
+          "affine_correction": 905,
+          "slope_gap": 295
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 7,
+        "noncontracting_prefix_count": 30,
+        "potential_non_descent_word_count": 0,
+        "next_noncontracting_prefix_count": 85,
+        "maximum_candidate_final_valuation": 0,
+        "minimum_strict_descent_margin": null,
+        "minimum_margin_witness": null,
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 8,
+        "noncontracting_prefix_count": 85,
+        "potential_non_descent_word_count": 85,
+        "next_noncontracting_prefix_count": 173,
+        "maximum_candidate_final_valuation": 6,
+        "minimum_strict_descent_margin": 40,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            2,
+            3
+          ],
+          "least_nonterminal_realizer": 207,
+          "endpoint": 167,
+          "strict_descent_margin": 40,
+          "affine_correction": 9937,
+          "slope_gap": 1631
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 9,
+        "noncontracting_prefix_count": 173,
+        "potential_non_descent_word_count": 7,
+        "next_noncontracting_prefix_count": 476,
+        "maximum_candidate_final_valuation": 3,
+        "minimum_strict_descent_margin": 436,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            2,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "least_nonterminal_realizer": 1095,
+          "endpoint": 659,
+          "strict_descent_margin": 436,
+          "affine_correction": 41227,
+          "slope_gap": 13085
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 10,
+        "noncontracting_prefix_count": 476,
+        "potential_non_descent_word_count": 476,
+        "next_noncontracting_prefix_count": 961,
+        "maximum_candidate_final_valuation": 7,
+        "minimum_strict_descent_margin": 34,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            4,
+            2,
+            2
+          ],
+          "least_nonterminal_realizer": 359,
+          "endpoint": 325,
+          "strict_descent_margin": 34,
+          "affine_correction": 100609,
+          "slope_gap": 6487
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 11,
+        "noncontracting_prefix_count": 961,
+        "potential_non_descent_word_count": 698,
+        "next_noncontracting_prefix_count": 2652,
+        "maximum_candidate_final_valuation": 6,
+        "minimum_strict_descent_margin": 796,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            2,
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            1,
+            2,
+            4
+          ],
+          "least_nonterminal_realizer": 2459,
+          "endpoint": 1663,
+          "strict_descent_margin": 796,
+          "affine_correction": 340999,
+          "slope_gap": 84997
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 12,
+        "noncontracting_prefix_count": 2652,
+        "potential_non_descent_word_count": 1,
+        "next_noncontracting_prefix_count": 8045,
+        "maximum_candidate_final_valuation": 3,
+        "minimum_strict_descent_margin": 722672,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            2,
+            3
+          ],
+          "least_nonterminal_realizer": 1465339,
+          "endpoint": 742667,
+          "strict_descent_margin": 722672,
+          "affine_correction": 1568693,
+          "slope_gap": 517135
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 13,
+        "noncontracting_prefix_count": 8045,
+        "potential_non_descent_word_count": 8045,
+        "next_noncontracting_prefix_count": 17637,
+        "maximum_candidate_final_valuation": 9,
+        "minimum_strict_descent_margin": 240,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            1,
+            2,
+            1,
+            1,
+            3,
+            2,
+            1,
+            1,
+            1,
+            3,
+            3
+          ],
+          "least_nonterminal_realizer": 1007,
+          "endpoint": 767,
+          "strict_descent_margin": 240,
+          "affine_correction": 3032323,
+          "slope_gap": 502829
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 14,
+        "noncontracting_prefix_count": 17637,
+        "potential_non_descent_word_count": 4119,
+        "next_noncontracting_prefix_count": 51033,
+        "maximum_candidate_final_valuation": 6,
+        "minimum_strict_descent_margin": 4508,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            2,
+            1,
+            2,
+            4
+          ],
+          "least_nonterminal_realizer": 10491,
+          "endpoint": 5983,
+          "strict_descent_margin": 4508,
+          "affine_correction": 10913885,
+          "slope_gap": 3605639
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 15,
+        "noncontracting_prefix_count": 51033,
+        "potential_non_descent_word_count": 51033,
+        "next_noncontracting_prefix_count": 108950,
+        "maximum_candidate_final_valuation": 10,
+        "minimum_strict_descent_margin": 106,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            2,
+            4
+          ],
+          "least_nonterminal_realizer": 743,
+          "endpoint": 637,
+          "strict_descent_margin": 106,
+          "affine_correction": 25848691,
+          "slope_gap": 2428309
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 16,
+        "noncontracting_prefix_count": 108950,
+        "potential_non_descent_word_count": 81410,
+        "next_noncontracting_prefix_count": 312455,
+        "maximum_candidate_final_valuation": 9,
+        "minimum_strict_descent_margin": 354,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            2,
+            1,
+            1,
+            2,
+            2,
+            1,
+            2,
+            1,
+            2,
+            4
+          ],
+          "least_nonterminal_realizer": 991,
+          "endpoint": 637,
+          "strict_descent_margin": 354,
+          "affine_correction": 89045857,
+          "slope_gap": 24062143
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      },
+      {
+        "word_length_m": 17,
+        "noncontracting_prefix_count": 312455,
+        "potential_non_descent_word_count": 319033,
+        "next_noncontracting_prefix_count": 663535,
+        "maximum_candidate_final_valuation": 11,
+        "minimum_strict_descent_margin": 28,
+        "minimum_margin_witness": {
+          "valuation_word": [
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            3,
+            2,
+            1,
+            1,
+            1,
+            3,
+            3
+          ],
+          "least_nonterminal_realizer": 795,
+          "endpoint": 767,
+          "strict_descent_margin": 28,
+          "affine_correction": 278567791,
+          "slope_gap": 5077565
+        },
+        "checks": {
+          "all_potential_non_descent_words_replay": true,
+          "all_potential_nonterminal_words_strictly_descend": true,
+          "infinite_final_valuation_tail_is_closed_by_affine_bound": true,
+          "enumeration_is_complete_only_at_this_fixed_length": true
+        }
+      }
+    ],
+    "final_valuation_monotonicity_no_go": {
+      "rows": [
+        {
+          "valuation_word": [
+            1,
+            3
+          ],
+          "least_nonterminal_realizer": 19,
+          "endpoint": 11,
+          "strict_descent_margin": 8,
+          "replay": [
+            1,
+            3
+          ]
+        },
+        {
+          "valuation_word": [
+            1,
+            4
+          ],
+          "least_nonterminal_realizer": 3,
+          "endpoint": 1,
+          "strict_descent_margin": 2,
+          "replay": [
+            1,
+            4
+          ]
+        }
+      ],
+      "checks": {
+        "both_words_first_cross_at_length_two": true,
+        "larger_final_valuation_has_smaller_margin": true,
+        "both_shortcut_words_replay_exactly": true
+      },
+      "statement": "Checking only the least crossing final valuation cannot be justified by monotonicity: (1,3) has margin 8, whereas the larger final valuation word (1,4) has margin 2."
+    },
+    "maximum_certified_length": 17,
+    "total_potential_non_descent_words_replayed": 464921,
+    "total_replay_failure_count": 0,
+    "global_minimum_strict_descent_margin": 4,
+    "failure_count": 0
+  },
+  "discarded_route": "checking only the least crossing final valuation by an assumed monotonic descent margin",
+  "remaining_gap": "Every first-crossing word is certified only for lengths at most 17. The number of noncontracting prefixes still grows, and no all-length residue-slack inequality has been proved.",
+  "candidate_theorem": "UniformFirstContractingLayerResidueSlack",
+  "claim_boundary": "No Collatz proof and no divergent orbit; complete first-crossing certificate through length 17 and exact finite final-valuation reduction.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T164-REJECTED",
+        "label": "FirstCrossingDescentMarginIsMonotoneInFinalValuation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T164-CLOSED",
+        "label": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T164-OPEN",
+        "label": "UniformFirstContractingLayerResidueSlack",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T164-REJECTED",
+        "CO-T164-CLOSED"
+      ],
+      [
+        "CO-T164-CLOSED",
+        "CO-T164-OPEN"
+      ]
+    ]
+  }
+}

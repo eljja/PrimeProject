@@ -14,19 +14,19 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket164Attempt(), loadTicket163Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET163 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET164 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260731-ticket163-wrap")) {
-      errors.push(`${page}: missing TICKET163 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260731-ticket164")) {
+      errors.push(`${page}: missing TICKET164 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260731-ticket163-wrap")) {
-      errors.push(`${page}: missing TICKET163 style cache key`);
+    if (!source.includes("styles.css?v=20260731-ticket164")) {
+      errors.push(`${page}: missing TICKET164 style cache key`);
     }
   }
 
@@ -346,6 +346,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket164AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket164-core-eigen-first-crossing-pointwise-product .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket163AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket163-local-certificate-realizer-trace-carleson .ticket161-audit-table .proof-table-wrap",
@@ -1254,9 +1260,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket164 title", "Ticket 164 constraint-core eigenvalues, first-crossing residues, pointwise Goldbach gates, and product Haar localization");
+    requireText("ticket164 table", "TICKET164 audit");
+    requireText("ticket164 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket164 resolutions", "Resolution count0");
+    requireText("ticket164 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket164AuditOverflow) checks.push(`${page.problemId}: ticket164 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket164 RH theorem", "ConstraintCoreCompressionAndScalarCancellationNoGo");
+      requireText("ticket164 RH determinant", "3D compressed determinant-5");
+      requireText("ticket164 RH witness", "Negative core witness-2");
+      requireText("ticket164 RH target", "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket164 Collatz theorem", "FirstContractingLayerFiniteCertificateAndFinalValuationBound");
+      requireText("ticket164 Collatz replays", "Exact candidate replays464,921");
+      requireText("ticket164 Collatz length", "Maximum full length17");
+      requireText("ticket164 Collatz target", "UniformFirstContractingLayerResidueSlack");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket164 Goldbach theorem", "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo");
+      requireText("ticket164 Goldbach gates", "Finite pointwise gates9/9 pass");
+      requireText("ticket164 Goldbach budget", "No-go L2 budget256/1");
+      requireText("ticket164 Goldbach target", "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne");
+    } else {
+      requireText("ticket164 Twin theorem", "ProductHaarParsevalAndEqualScaleTensorNoGo");
+      requireText("ticket164 Twin size", "128×128");
+      requireText("ticket164 Twin energy", "128/1");
+      requireText("ticket164 Twin target", "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity");
+    }
     requireText("ticket163 title", "Ticket 163 local certificates, natural realizers, trace cancellation, and Carleson localization");
     requireText("ticket163 table", "TICKET163 audit");
-    requireText("ticket163 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket163 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket163 resolutions", "Resolution count0");
     requireText("ticket163 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket163AuditOverflow) checks.push(`${page.problemId}: ticket163 audit table overflow`);
@@ -3065,9 +3098,10 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-161") ||
     !metrics.evolutionPanel.includes("TICKET-162") ||
     !metrics.evolutionPanel.includes("TICKET-163") ||
-    !metrics.evolutionPanel.includes("TICKET163 proves four exact localization results") ||
-    !metrics.evolutionPanel.includes("cancellation-aware uniform Guinand-Weil trace bound") ||
-    !metrics.evolutionPanel.includes("prime-weighted local Carleson power saving") ||
+    !metrics.evolutionPanel.includes("TICKET-164") ||
+    !metrics.evolutionPanel.includes("TICKET164 proves four exact reductions") ||
+    !metrics.evolutionPanel.includes("constrained Guinand-Weil minimum eigenvalue") ||
+    !metrics.evolutionPanel.includes("prime-weighted product-Carleson power saving") ||
     !metrics.evolutionPanel.includes("TICKET-129") ||
     !metrics.evolutionPanel.includes("TICKET-130") ||
     !metrics.evolutionPanel.includes("TICKET-131")

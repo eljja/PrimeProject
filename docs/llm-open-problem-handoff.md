@@ -62,7 +62,45 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-163
+## Latest Continuation After TICKET-164
+
+Read
+`data/open-problem/ticket164-core-eigen-first-crossing-pointwise-product.json`,
+`scripts/ticket164_core_eigen_first_crossing_pointwise_product.py`, and
+`tests/test_ticket164_core_eigen_first_crossing_pointwise_product.py` first.
+
+Do not reopen these rejected routes without defeating the exact TICKET-164
+counterexample or no-go theorem:
+
+1. replacing constrained RH positivity by trace, determinant, or one scalar
+   cancellation diagnostic;
+2. checking only the least Collatz crossing final valuation by an assumed
+   monotone descent margin;
+3. treating the shell Goldbach `L2` budget below one as necessary;
+4. retaining only equal row/column product-Haar scales for Twin Type II.
+
+Exact TICKET-164 results:
+
+1. `ConstraintCoreCompressionAndScalarCancellationNoGo`;
+2. `FirstContractingLayerFiniteCertificateAndFinalValuationBound`;
+3. `PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo`;
+4. `ProductHaarParsevalAndEqualScaleTensorNoGo`.
+
+The next single lemmas are:
+
+1. `UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound`;
+2. `UniformFirstContractingLayerResidueSlack`;
+3. `UniformDyadicPointwiseMinorDeficitStrictlyBelowOne`;
+4. `UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity`.
+
+한국어 인계: Collatz의 길이 17 결과는 그 길이까지의 완전 인증이지
+전 길이 정리가 아니다. Goldbach의 점별 문턱은 정확하지만 원래
+양성 문제와 거의 같은 난도다. RH 압축 정리는 유한 선형대수이며 실제
+Guinand-Weil 최소 고유값 하한이 아니다. Twin product-Haar 항등식도
+소수 가중 power saving을 제공하지 않는다. 네 추측은 모두
+`open_not_proven`이다.
+
+## Previous Continuation After TICKET-163
 
 Read
 `data/open-problem/ticket163-local-certificate-realizer-trace-carleson.json`,

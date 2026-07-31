@@ -37,6 +37,43 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-07-31 TICKET-164 Core-Eigen, First-Crossing, Pointwise, and Product Audit
+
+TICKET-164 attacks the four open nodes left by TICKET-163 and tightens the
+actual proof object on every track.
+
+1. **Riemann:** `ConstraintCoreCompressionAndScalarCancellationNoGo`
+   proves that finite positivity under admissibility constraints is exactly
+   positivity of `U^T H U`. Positive trace, determinant, and one positive
+   test value do not suffice. The next target is
+   `UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound`.
+2. **Collatz:**
+   `FirstContractingLayerFiniteCertificateAndFinalValuationBound` proves that
+   each fixed first-crossing prefix has only finitely many final valuations
+   that can fail descent for `n>=3`. Exact replay closes every word through
+   length 17, totaling 464,921 candidate residues. Final-valuation margin
+   monotonicity is refuted by `(1,3)` versus `(1,4)`. The next target is
+   `UniformFirstContractingLayerResidueSlack`.
+3. **Goldbach:**
+   `PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo` proves
+   `G_N>0` exactly when `E_N^-/M_N<1`. The previous shell `L2<1` condition
+   remains sufficient but is not necessary; an all-positive family has
+   unbounded `L2` budget. The next target is
+   `UniformDyadicPointwiseMinorDeficitStrictlyBelowOne`.
+4. **Twin Prime:** `ProductHaarParsevalAndEqualScaleTensorNoGo` proves exact
+   independent-scale product-Haar Parseval and gives anisotropic matrices
+   with positive full energy but zero equal-scale tensor energy. The next
+   target is `UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity`.
+
+한국어 요약: 리만에서는 상쇄 합계를 최소 고유값 문제로 교정했고,
+콜라츠에서는 각 길이의 무한 final-valuation tail을 affine 부등식으로
+닫은 뒤 길이 17까지 완전 검사했습니다. 골드바흐에서는 너무 강한
+shell `L2` 목표를 정확한 점별 문턱으로 바꾸었고, Twin에서는 행·열
+scale을 독립화했습니다. 네 추측의 해결 수는 0입니다. 자세한 증명과
+재현 명령은
+[TICKET-164 core-eigen-first-crossing-pointwise-product](core-eigen-first-crossing-pointwise-product.md)에
+있습니다.
+
 ## 2026-07-31 TICKET-163 Local-Certificate, Realizer, Trace, and Carleson Audit
 
 TICKET-163 attacks the four open nodes left by TICKET-162 and corrects the

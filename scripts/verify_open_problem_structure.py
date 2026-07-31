@@ -173,6 +173,9 @@ TICKET162_SCHEMA = (
 TICKET163_SCHEMA = (
     "primeproject.ticket163-local-certificate-realizer-trace-carleson.v1"
 )
+TICKET164_SCHEMA = (
+    "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -12215,6 +12218,152 @@ def main() -> int:
         not in str(ticket163.get("claim_boundary", "")).lower()
     ):
         return fail("ticket163 proof boundary changed")
+
+    path164 = Path(
+        "data/open-problem/ticket164-core-eigen-first-crossing-pointwise-product.json"
+    )
+    if not path164.exists():
+        return fail("missing ticket164 core/eigen/first-crossing/pointwise/product audit")
+    ticket164 = read_json(path164)
+    if (
+        ticket164.get("schema") != TICKET164_SCHEMA
+        or ticket164.get("status")
+        != "four_exact_reductions_and_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket164 schema or status changed")
+    attempts164 = ticket164.get("attempts", [])
+    by_id164 = {
+        str(row.get("problem_id")): row
+        for row in attempts164
+        if isinstance(row, dict)
+    }
+    if set(by_id164) != EXPECTED_PROBLEMS:
+        return fail("ticket164 attempts missing problems")
+    audit164 = ticket164.get(
+        "core_eigen_first_crossing_pointwise_product_audit",
+        {},
+    )
+    machine164 = audit164.get("machine_audit", {})
+    if machine164 != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket164 global machine audit changed")
+
+    paths164 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-164-constraint-core-eigenvalue.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-164-first-crossing-residue.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-164-pointwise-deficit.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-164-product-haar.json"),
+    }
+    expected_names164 = {
+        "riemann": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+        "collatz": "FirstContractingLayerFiniteCertificateAndFinalValuationBound",
+        "goldbach": "PointwiseIntegralExceptionEquivalenceAndL2NonNecessityNoGo",
+        "twin-prime": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+    }
+    next164 = {
+        "riemann": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound",
+        "collatz": "UniformFirstContractingLayerResidueSlack",
+        "goldbach": "UniformDyadicPointwiseMinorDeficitStrictlyBelowOne",
+        "twin-prime": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity",
+    }
+    sections164 = {
+        "riemann": audit164.get("riemann", {}),
+        "collatz": audit164.get("collatz", {}),
+        "goldbach": audit164.get("goldbach", {}),
+        "twin-prime": audit164.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id164.items():
+        path = paths164[problem_id]
+        if not path.exists():
+            return fail(f"{problem_id}: ticket164 artifact missing")
+        artifact = read_json(path)
+        section = sections164[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET164_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names164[problem_id]
+            or artifact.get("theorem_name") != expected_names164[problem_id]
+            or attempt.get("candidate_theorem") != next164[problem_id]
+            or artifact.get("candidate_theorem") != next164[problem_id]
+            or len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != ["refuted_or_insufficient", "proved_exact", "open_not_proven"]
+            or nodes[-1].get("label") != next164[problem_id]
+            or int(section.get("reproducible_computation", {}).get("failure_count", -1)) != 0
+        ):
+            return fail(f"{problem_id}: ticket164 contract changed")
+
+    riemann164 = sections164["riemann"]["reproducible_computation"]
+    core164 = riemann164.get("exact_three_dimensional_core", {})
+    scalar_rows164 = riemann164.get("scalable_scalar_cancellation_no_go_rows", [])
+    if (
+        core164.get("compressed_form") != [[2, 3], [3, 2]]
+        or core164.get("compressed_determinant") != -5
+        or core164.get("negative_witness_value") != -2
+        or [row.get("dimension") for row in scalar_rows164] != [5, 9, 17, 33]
+        or any(not all(row.get("checks", {}).values()) for row in scalar_rows164)
+    ):
+        return fail("ticket164 RH constraint-core audit changed")
+
+    collatz164 = sections164["collatz"]["reproducible_computation"]
+    crossing_rows164 = collatz164.get("complete_first_crossing_rows", [])
+    margin_rows164 = collatz164.get("final_valuation_monotonicity_no_go", {}).get("rows", [])
+    if (
+        len(crossing_rows164) != 17
+        or collatz164.get("maximum_certified_length") != 17
+        or collatz164.get("total_potential_non_descent_words_replayed") != 464_921
+        or collatz164.get("total_replay_failure_count") != 0
+        or crossing_rows164[-1].get("noncontracting_prefix_count") != 312_455
+        or crossing_rows164[-1].get("next_noncontracting_prefix_count") != 663_535
+        or any(not all(row.get("checks", {}).values()) for row in crossing_rows164)
+        or [row.get("strict_descent_margin") for row in margin_rows164] != [8, 2]
+    ):
+        return fail("ticket164 Collatz first-crossing audit changed")
+
+    goldbach164 = sections164["goldbach"]["reproducible_computation"]
+    pointwise_rows164 = goldbach164.get("finite_prime_pointwise_rows", [])
+    l2_rows164 = goldbach164.get("positive_count_l2_no_go_rows", [])
+    if (
+        len(pointwise_rows164) != 9
+        or pointwise_rows164[-1].get("dyadic_upper_inclusive") != 65_536
+        or any(
+            row.get("maximum_normalized_deficit", 1) >= 1
+            or row.get("observed_zero_count") != 0
+            or not all(row.get("checks", {}).values())
+            for row in pointwise_rows164
+        )
+        or len(l2_rows164) != 5
+        or l2_rows164[-1].get("l2_budget", {}).get("exact") != "256/1"
+        or any(row.get("zero_count") != 0 for row in l2_rows164)
+        or not all(goldbach164.get("no_go_checks", {}).values())
+    ):
+        return fail("ticket164 Goldbach pointwise audit changed")
+
+    twin164 = sections164["twin-prime"]["reproducible_computation"]
+    product_rows164 = twin164.get("anisotropic_product_rows", [])
+    if (
+        [row.get("matrix_side") for row in product_rows164] != [8, 16, 32, 64, 128]
+        or any(
+            row.get("same_scale_tensor_energy", {}).get("exact") != "0/1"
+            or row.get("full_product_haar_energy", {}).get("exact")
+            != row.get("frobenius_energy", {}).get("exact")
+            or not all(row.get("checks", {}).values())
+            for row in product_rows164
+        )
+    ):
+        return fail("ticket164 Twin product-Haar audit changed")
+    if (
+        "resolves none" not in str(audit164.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket164.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket164 proof boundary changed")
 
     print("open problem structure verified")
     return 0

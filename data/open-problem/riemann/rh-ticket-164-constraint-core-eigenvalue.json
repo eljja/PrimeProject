@@ -1,0 +1,162 @@
+{
+  "schema": "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1",
+  "generated_at": "2026-07-31T23:30:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-164",
+  "status": "open_not_proven",
+  "theorem_name": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+  "declared_proposition": "Let H be a real symmetric finite Galerkin form, let B have full row rank, and let the columns of U span ker(B). Then H is nonnegative on the constraint core ker(B) if and only if the compressed form U^T H U is positive semidefinite. Positive ambient trace, positive ambient determinant, and a positive value on the all-ones vector do not imply this condition: H=diag(3,-1,-1), B=(1,1,1) has all three scalar diagnostics positive but the core witness (0,-1,1) has quadratic value -2.",
+  "mathematical_argument": "Every constrained vector is Uc, so its quadratic value is exactly c^T(U^T H U)c; this proves the compression equivalence by congruence. For the displayed form, the kernel basis columns (1,-1,0) and (1,0,-1) give compressed matrix [[2,3],[3,2]], whose determinant is -5. The scalable diagonal family with two negative coordinates keeps trace, determinant, and the all-ones value positive while the sum-zero difference of the last two coordinates always has value -2.",
+  "reproducible_computation": {
+    "theorem": "Let H be a real symmetric finite Galerkin form, let B have full row rank, and let the columns of U span ker(B). Then H is nonnegative on the constraint core ker(B) if and only if the compressed form U^T H U is positive semidefinite. Positive ambient trace, positive ambient determinant, and a positive value on the all-ones vector do not imply this condition: H=diag(3,-1,-1), B=(1,1,1) has all three scalar diagnostics positive but the core witness (0,-1,1) has quadratic value -2.",
+    "proof": "Every constrained vector is Uc, so its quadratic value is exactly c^T(U^T H U)c; this proves the compression equivalence by congruence. For the displayed form, the kernel basis columns (1,-1,0) and (1,0,-1) give compressed matrix [[2,3],[3,2]], whose determinant is -5. The scalable diagonal family with two negative coordinates keeps trace, determinant, and the all-ones value positive while the sum-zero difference of the last two coordinates always has value -2.",
+    "exact_three_dimensional_core": {
+      "form_diagonal": [
+        3,
+        -1,
+        -1
+      ],
+      "constraint_row": [
+        1,
+        1,
+        1
+      ],
+      "kernel_basis_columns": [
+        [
+          1,
+          1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "compressed_form": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "compressed_determinant": -5,
+      "negative_coefficient_witness": [
+        1,
+        -1
+      ],
+      "negative_original_witness": [
+        0,
+        -1,
+        1
+      ],
+      "negative_witness_value": -2,
+      "ambient_trace": 1,
+      "ambient_determinant": 3,
+      "all_ones_quadratic_value": 1
+    },
+    "scalable_scalar_cancellation_no_go_rows": [
+      {
+        "dimension": 5,
+        "ambient_trace": 1,
+        "ambient_determinant": 1,
+        "all_ones_quadratic_value": 1,
+        "constraint_core_negative_witness_value": -2,
+        "checks": {
+          "ambient_trace_is_positive": true,
+          "ambient_determinant_is_positive": true,
+          "all_ones_quadratic_value_is_positive": true,
+          "witness_satisfies_sum_zero_constraint": true,
+          "constraint_core_has_negative_direction": true
+        }
+      },
+      {
+        "dimension": 9,
+        "ambient_trace": 5,
+        "ambient_determinant": 1,
+        "all_ones_quadratic_value": 5,
+        "constraint_core_negative_witness_value": -2,
+        "checks": {
+          "ambient_trace_is_positive": true,
+          "ambient_determinant_is_positive": true,
+          "all_ones_quadratic_value_is_positive": true,
+          "witness_satisfies_sum_zero_constraint": true,
+          "constraint_core_has_negative_direction": true
+        }
+      },
+      {
+        "dimension": 17,
+        "ambient_trace": 13,
+        "ambient_determinant": 1,
+        "all_ones_quadratic_value": 13,
+        "constraint_core_negative_witness_value": -2,
+        "checks": {
+          "ambient_trace_is_positive": true,
+          "ambient_determinant_is_positive": true,
+          "all_ones_quadratic_value_is_positive": true,
+          "witness_satisfies_sum_zero_constraint": true,
+          "constraint_core_has_negative_direction": true
+        }
+      },
+      {
+        "dimension": 33,
+        "ambient_trace": 29,
+        "ambient_determinant": 1,
+        "all_ones_quadratic_value": 29,
+        "constraint_core_negative_witness_value": -2,
+        "checks": {
+          "ambient_trace_is_positive": true,
+          "ambient_determinant_is_positive": true,
+          "all_ones_quadratic_value_is_positive": true,
+          "witness_satisfies_sum_zero_constraint": true,
+          "constraint_core_has_negative_direction": true
+        }
+      }
+    ],
+    "exact_checks": {
+      "compressed_determinant_is_negative": true,
+      "witness_is_in_constraint_kernel": true,
+      "witness_value_is_negative": true,
+      "scalar_ambient_diagnostics_are_positive": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "scalar cancellation diagnostics such as trace, determinant, or one test-vector value as substitutes for constrained positivity",
+  "remaining_gap": "The compression theorem is finite linear algebra. No uniform lower bound is proved for the actual Guinand-Weil matrices, and no cutoff-free positivity statement follows.",
+  "candidate_theorem": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound",
+  "claim_boundary": "No RH proof and no zero exclusion; exact finite compression criterion and scalable scalar-diagnostic no-go.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T164-REJECTED",
+        "label": "ScalarCancellationDiagnosticsImplyConstraintCorePositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T164-CLOSED",
+        "label": "ConstraintCoreCompressionAndScalarCancellationNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T164-OPEN",
+        "label": "UniformGuinandWeilConstraintCoreMinimumEigenvalueLowerBound",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T164-REJECTED",
+        "RH-T164-CLOSED"
+      ],
+      [
+        "RH-T164-CLOSED",
+        "RH-T164-OPEN"
+      ]
+    ]
+  }
+}

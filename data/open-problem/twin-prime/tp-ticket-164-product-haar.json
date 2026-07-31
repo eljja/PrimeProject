@@ -1,0 +1,170 @@
+{
+  "schema": "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1",
+  "generated_at": "2026-07-31T23:30:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-164",
+  "status": "open_not_proven",
+  "theorem_name": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+  "declared_proposition": "For a finite matrix with zero row and column margins, the full Frobenius energy equals the sum of normalized product-Haar coefficient energies over independently chosen row and column dyadic scales. Retaining only equal row/column scales is not complete: the tensor of a row Haar wavelet of support 2 and a column Haar wavelet of support N/2 has positive full energy N and exactly zero equal-scale tensor energy.",
+  "mathematical_argument": "The one-dimensional constant plus Haar vectors form an orthogonal basis. Tensoring the two expansions gives product Parseval; zero row and column margins remove the constant-axis terms. For the separable witness u tensor v, each coefficient factors as <u,h_I><v,h_J>. Orthogonality leaves exactly the unequal scale pair (2,N/2), so every equal-scale product coefficient vanishes while the complete product energy equals ||u||^2||v||^2=N.",
+  "reproducible_computation": {
+    "theorem": "For a finite matrix with zero row and column margins, the full Frobenius energy equals the sum of normalized product-Haar coefficient energies over independently chosen row and column dyadic scales. Retaining only equal row/column scales is not complete: the tensor of a row Haar wavelet of support 2 and a column Haar wavelet of support N/2 has positive full energy N and exactly zero equal-scale tensor energy.",
+    "proof": "The one-dimensional constant plus Haar vectors form an orthogonal basis. Tensoring the two expansions gives product Parseval; zero row and column margins remove the constant-axis terms. For the separable witness u tensor v, each coefficient factors as <u,h_I><v,h_J>. Orthogonality leaves exactly the unequal scale pair (2,N/2), so every equal-scale product coefficient vanishes while the complete product energy equals ||u||^2||v||^2=N.",
+    "anisotropic_product_rows": [
+      {
+        "matrix_side": 8,
+        "row_haar_support": 2,
+        "column_haar_support": 4,
+        "frobenius_energy": {
+          "exact": "8/1",
+          "decimal": 8.0
+        },
+        "full_product_haar_energy": {
+          "exact": "8/1",
+          "decimal": 8.0
+        },
+        "same_scale_tensor_energy": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "checks": {
+          "row_factor_has_zero_mean": true,
+          "column_factor_has_zero_mean": true,
+          "product_haar_parseval_is_exact": true,
+          "same_scale_tensor_energy_is_zero": true,
+          "anisotropic_product_energy_is_positive": true
+        }
+      },
+      {
+        "matrix_side": 16,
+        "row_haar_support": 2,
+        "column_haar_support": 8,
+        "frobenius_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "full_product_haar_energy": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "same_scale_tensor_energy": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "checks": {
+          "row_factor_has_zero_mean": true,
+          "column_factor_has_zero_mean": true,
+          "product_haar_parseval_is_exact": true,
+          "same_scale_tensor_energy_is_zero": true,
+          "anisotropic_product_energy_is_positive": true
+        }
+      },
+      {
+        "matrix_side": 32,
+        "row_haar_support": 2,
+        "column_haar_support": 16,
+        "frobenius_energy": {
+          "exact": "32/1",
+          "decimal": 32.0
+        },
+        "full_product_haar_energy": {
+          "exact": "32/1",
+          "decimal": 32.0
+        },
+        "same_scale_tensor_energy": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "checks": {
+          "row_factor_has_zero_mean": true,
+          "column_factor_has_zero_mean": true,
+          "product_haar_parseval_is_exact": true,
+          "same_scale_tensor_energy_is_zero": true,
+          "anisotropic_product_energy_is_positive": true
+        }
+      },
+      {
+        "matrix_side": 64,
+        "row_haar_support": 2,
+        "column_haar_support": 32,
+        "frobenius_energy": {
+          "exact": "64/1",
+          "decimal": 64.0
+        },
+        "full_product_haar_energy": {
+          "exact": "64/1",
+          "decimal": 64.0
+        },
+        "same_scale_tensor_energy": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "checks": {
+          "row_factor_has_zero_mean": true,
+          "column_factor_has_zero_mean": true,
+          "product_haar_parseval_is_exact": true,
+          "same_scale_tensor_energy_is_zero": true,
+          "anisotropic_product_energy_is_positive": true
+        }
+      },
+      {
+        "matrix_side": 128,
+        "row_haar_support": 2,
+        "column_haar_support": 64,
+        "frobenius_energy": {
+          "exact": "128/1",
+          "decimal": 128.0
+        },
+        "full_product_haar_energy": {
+          "exact": "128/1",
+          "decimal": 128.0
+        },
+        "same_scale_tensor_energy": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "checks": {
+          "row_factor_has_zero_mean": true,
+          "column_factor_has_zero_mean": true,
+          "product_haar_parseval_is_exact": true,
+          "same_scale_tensor_energy_is_zero": true,
+          "anisotropic_product_energy_is_positive": true
+        }
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "retaining only equal row and column Haar scales in the local Type-II diagnostic",
+  "remaining_gap": "Product-Haar Parseval is deterministic. It gives no prime-weighted coefficient saving, no parity-breaking lower bound, and no infinitude of gap-two primes.",
+  "candidate_theorem": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact product-Haar identity and anisotropic equal-scale no-go.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T164-REJECTED",
+        "label": "EqualScaleTensorHaarEnergyCapturesEveryLocalTypeIIMode",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T164-CLOSED",
+        "label": "ProductHaarParsevalAndEqualScaleTensorNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T164-OPEN",
+        "label": "UniformPrimeWeightedProductCarlesonPowerSavingBeyondParity",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T164-REJECTED",
+        "TP-T164-CLOSED"
+      ],
+      [
+        "TP-T164-CLOSED",
+        "TP-T164-OPEN"
+      ]
+    ]
+  }
+}
