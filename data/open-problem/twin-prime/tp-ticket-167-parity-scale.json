@@ -1,0 +1,201 @@
+{
+  "schema": "primeproject.ticket167-cofinal-residue-besov-parity.v1",
+  "generated_at": "2026-08-01T22:30:00+09:00",
+  "ticket_id": "TP-TICKET-167",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "FinestParityScaleExtractionAndCoarseControlNoGo",
+  "declared_proposition": "For even N and the noncyclic shift-two selector D_2, the orthogonal projection onto the finest 2x2 product-Haar scale has exactly N/2-1 nonzero coefficients, each contributing one unit of normalized energy. Hence its energy and its signed pairing with D_2 are both (N-2)/2. The remaining product-Haar scales are orthogonal to this projection. Therefore controlling only coarse scales cannot imply o(N) shift-two correlation; the finest parity scale alone carries linear correlation.",
+  "mathematical_argument": "A support-two Haar vector has signs (+1,-1). Shift by two maps each complete row block to the next column block with the same signs, so exactly N/2-1 coefficients equal two and all other finest coefficients vanish. Dividing each squared coefficient by 2*2 gives unit energy and total (N-2)/2. Taking the error to be this orthogonal projection gives zero coefficient on every coarser scale but pairing (N-2)/2 with D_2.",
+  "reproducible_computation": {
+    "theorem": "For even N and the noncyclic shift-two selector D_2, the orthogonal projection onto the finest 2x2 product-Haar scale has exactly N/2-1 nonzero coefficients, each contributing one unit of normalized energy. Hence its energy and its signed pairing with D_2 are both (N-2)/2. The remaining product-Haar scales are orthogonal to this projection. Therefore controlling only coarse scales cannot imply o(N) shift-two correlation; the finest parity scale alone carries linear correlation.",
+    "proof": "A support-two Haar vector has signs (+1,-1). Shift by two maps each complete row block to the next column block with the same signs, so exactly N/2-1 coefficients equal two and all other finest coefficients vanish. Dividing each squared coefficient by 2*2 gives unit energy and total (N-2)/2. Taking the error to be this orthogonal projection gives zero coefficient on every coarser scale but pairing (N-2)/2 with D_2.",
+    "finest_parity_scale_rows": [
+      {
+        "matrix_side_N": 8,
+        "shift_h": 2,
+        "nonzero_finest_2x2_coefficients": 3,
+        "finest_2x2_product_haar_energy": {
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "coarse_product_haar_energy": {
+          "exact": "33/16",
+          "decimal": 2.0625
+        },
+        "total_double_centered_selector_energy": {
+          "exact": "81/16",
+          "decimal": 5.0625
+        },
+        "finest_energy_fraction": 0.5925925925925926,
+        "checks": {
+          "finest_energy_matches_closed_form": true,
+          "nonzero_finest_coefficients_match_adjacent_block_count": true,
+          "finest_projection_has_linear_shifted_diagonal_pairing": true,
+          "coarse_orthogonal_projection_misses_finest_witness": true,
+          "total_energy_splits_exactly": true
+        }
+      },
+      {
+        "matrix_side_N": 16,
+        "shift_h": 2,
+        "nonzero_finest_2x2_coefficients": 7,
+        "finest_2x2_product_haar_energy": {
+          "exact": "7/1",
+          "decimal": 7.0
+        },
+        "coarse_product_haar_energy": {
+          "exact": "385/64",
+          "decimal": 6.015625
+        },
+        "total_double_centered_selector_energy": {
+          "exact": "833/64",
+          "decimal": 13.015625
+        },
+        "finest_energy_fraction": 0.5378151260504201,
+        "checks": {
+          "finest_energy_matches_closed_form": true,
+          "nonzero_finest_coefficients_match_adjacent_block_count": true,
+          "finest_projection_has_linear_shifted_diagonal_pairing": true,
+          "coarse_orthogonal_projection_misses_finest_witness": true,
+          "total_energy_splits_exactly": true
+        }
+      },
+      {
+        "matrix_side_N": 32,
+        "shift_h": 2,
+        "nonzero_finest_2x2_coefficients": 15,
+        "finest_2x2_product_haar_energy": {
+          "exact": "15/1",
+          "decimal": 15.0
+        },
+        "coarse_product_haar_energy": {
+          "exact": "3585/256",
+          "decimal": 14.00390625
+        },
+        "total_double_centered_selector_energy": {
+          "exact": "7425/256",
+          "decimal": 29.00390625
+        },
+        "finest_energy_fraction": 0.5171717171717172,
+        "checks": {
+          "finest_energy_matches_closed_form": true,
+          "nonzero_finest_coefficients_match_adjacent_block_count": true,
+          "finest_projection_has_linear_shifted_diagonal_pairing": true,
+          "coarse_orthogonal_projection_misses_finest_witness": true,
+          "total_energy_splits_exactly": true
+        }
+      },
+      {
+        "matrix_side_N": 64,
+        "shift_h": 2,
+        "nonzero_finest_2x2_coefficients": 31,
+        "finest_2x2_product_haar_energy": {
+          "exact": "31/1",
+          "decimal": 31.0
+        },
+        "coarse_product_haar_energy": {
+          "exact": "30721/1024",
+          "decimal": 30.0009765625
+        },
+        "total_double_centered_selector_energy": {
+          "exact": "62465/1024",
+          "decimal": 61.0009765625
+        },
+        "finest_energy_fraction": 0.5081885856079404,
+        "checks": {
+          "finest_energy_matches_closed_form": true,
+          "nonzero_finest_coefficients_match_adjacent_block_count": true,
+          "finest_projection_has_linear_shifted_diagonal_pairing": true,
+          "coarse_orthogonal_projection_misses_finest_witness": true,
+          "total_energy_splits_exactly": true
+        }
+      },
+      {
+        "matrix_side_N": 128,
+        "shift_h": 2,
+        "nonzero_finest_2x2_coefficients": 63,
+        "finest_2x2_product_haar_energy": {
+          "exact": "63/1",
+          "decimal": 63.0
+        },
+        "coarse_product_haar_energy": {
+          "exact": "253953/4096",
+          "decimal": 62.000244140625
+        },
+        "total_double_centered_selector_energy": {
+          "exact": "512001/4096",
+          "decimal": 125.000244140625
+        },
+        "finest_energy_fraction": 0.5039990156269226,
+        "checks": {
+          "finest_energy_matches_closed_form": true,
+          "nonzero_finest_coefficients_match_adjacent_block_count": true,
+          "finest_projection_has_linear_shifted_diagonal_pairing": true,
+          "coarse_orthogonal_projection_misses_finest_witness": true,
+          "total_energy_splits_exactly": true
+        }
+      },
+      {
+        "matrix_side_N": 256,
+        "shift_h": 2,
+        "nonzero_finest_2x2_coefficients": 127,
+        "finest_2x2_product_haar_energy": {
+          "exact": "127/1",
+          "decimal": 127.0
+        },
+        "coarse_product_haar_energy": {
+          "exact": "2064385/16384",
+          "decimal": 126.00006103515625
+        },
+        "total_double_centered_selector_energy": {
+          "exact": "4145153/16384",
+          "decimal": 253.00006103515625
+        },
+        "finest_energy_fraction": 0.5019761634854009,
+        "checks": {
+          "finest_energy_matches_closed_form": true,
+          "nonzero_finest_coefficients_match_adjacent_block_count": true,
+          "finest_projection_has_linear_shifted_diagonal_pairing": true,
+          "coarse_orthogonal_projection_misses_finest_witness": true,
+          "total_energy_splits_exactly": true
+        }
+      }
+    ],
+    "model_boundary": "This is an exact deterministic decomposition of the shift-two selector, not an estimate for von Mangoldt weights. It localizes one form of the parity obstruction but does not cross it or prove a twin-prime lower bound.",
+    "failure_count": 0
+  },
+  "discarded_route": "deriving shift-two power saving from control of coarse Haar scales while omitting the finest parity scale",
+  "remaining_gap": "The finest-scale identity concerns the deterministic selector, not prime-weighted signed coefficients. No parity-scale or coarse-tail prime cancellation is proved.",
+  "candidate_theorem": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact finest parity-scale extraction and coarse-control no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T167-REJECTED",
+        "label": "CoarseHaarControlAloneForcesShiftTwoPowerSaving",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T167-CLOSED",
+        "label": "FinestParityScaleExtractionAndCoarseControlNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T167-OPEN",
+        "label": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T167-REJECTED",
+        "TP-T167-CLOSED"
+      ],
+      [
+        "TP-T167-CLOSED",
+        "TP-T167-OPEN"
+      ]
+    ]
+  }
+}

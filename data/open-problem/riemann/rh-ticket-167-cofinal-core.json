@@ -1,0 +1,283 @@
+{
+  "schema": "primeproject.ticket167-cofinal-residue-besov-parity.v1",
+  "generated_at": "2026-08-01T22:30:00+09:00",
+  "ticket_id": "RH-TICKET-167",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+  "declared_proposition": "Let V_1 subset V_2 subset ... be finite-dimensional subspaces whose union is a form core for a continuous quadratic form Q. It is enough to certify a cofinal subsequence V_(N_j): if Q(x)>=-epsilon_j||x||^2 on V_(N_j) and epsilon_j tends to zero, then Q is nonnegative on the whole form core and hence on its form closure. Certificates at every intermediate dimension are unnecessary. Form-core density is essential: Q=diag(-1,1,1,...) is positive on the nested subspaces span{e_2,...,e_(N_j+1)} but negative at e_1.",
+  "mathematical_argument": "Fix x in the union and choose j_0 with x in V_(N_j0). Nestedness puts x in every later certified space, so Q(x)>=-epsilon_j||x||^2 for all j>=j_0. Taking j to infinity gives Q(x)>=0. Form continuity extends this to the closure. In the countermodel every audited space omits e_1 and has restricted minimum one, while Q(e_1)=-1; their closure is e_1-perp rather than the required core.",
+  "reproducible_computation": {
+    "theorem": "Let V_1 subset V_2 subset ... be finite-dimensional subspaces whose union is a form core for a continuous quadratic form Q. It is enough to certify a cofinal subsequence V_(N_j): if Q(x)>=-epsilon_j||x||^2 on V_(N_j) and epsilon_j tends to zero, then Q is nonnegative on the whole form core and hence on its form closure. Certificates at every intermediate dimension are unnecessary. Form-core density is essential: Q=diag(-1,1,1,...) is positive on the nested subspaces span{e_2,...,e_(N_j+1)} but negative at e_1.",
+    "proof": "Fix x in the union and choose j_0 with x in V_(N_j0). Nestedness puts x in every later certified space, so Q(x)>=-epsilon_j||x||^2 for all j>=j_0. Taking j to infinity gives Q(x)>=0. Form continuity extends this to the closure. In the countermodel every audited space omits e_1 and has restricted minimum one, while Q(e_1)=-1; their closure is e_1-perp rather than the required core.",
+    "cofinal_exact_ldl_proxy_rows": [
+      {
+        "cofinal_dimension_Nj": 2,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 4,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 8,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 16,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/256",
+          "decimal": 0.00390625
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 32,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/1024",
+          "decimal": 0.0009765625
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 64,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/4096",
+          "decimal": 0.000244140625
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 128,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/16384",
+          "decimal": 6.103515625e-05
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      },
+      {
+        "cofinal_dimension_Nj": 256,
+        "smallest_exact_ldl_pivot": {
+          "exact": "1/65536",
+          "decimal": 1.52587890625e-05
+        },
+        "checks": {
+          "dimension_is_on_cofinal_doubling_schedule": true,
+          "exact_rational_ldl_pivot_is_positive": true,
+          "margin_vanishes_without_losing_positivity": true,
+          "row_is_proxy_not_weil_certificate": true
+        }
+      }
+    ],
+    "non_dense_nested_subspace_no_go_rows": [
+      {
+        "audited_subspace_dimension": 2,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      },
+      {
+        "audited_subspace_dimension": 4,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      },
+      {
+        "audited_subspace_dimension": 8,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      },
+      {
+        "audited_subspace_dimension": 16,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      },
+      {
+        "audited_subspace_dimension": 32,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      },
+      {
+        "audited_subspace_dimension": 64,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      },
+      {
+        "audited_subspace_dimension": 128,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "omitted_e1_value": {
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "closure_codimension": 1,
+        "checks": {
+          "restricted_minimum_is_positive": true,
+          "fixed_omitted_direction_is_negative": true,
+          "subspaces_are_nested": true,
+          "union_has_codimension_one_and_is_not_dense": true
+        }
+      }
+    ],
+    "external_premise_boundary": "The cutoff-free interval LDL machinery and positive archimedean tail are external inputs from arXiv:2607.02828. PrimeProject proves the cofinal-subsequence reduction and density no-go, but supplies no cofinal Guinand-Weil certificate family.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring certificates at every intermediate dimension, or accepting positivity on a non-dense nested family",
+  "remaining_gap": "No interval-LDL certificate is produced on a cofinal sequence of an explicit dense Guinand-Weil form core. The exact matrix rows are a rational proxy only.",
+  "candidate_theorem": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore",
+  "claim_boundary": "No RH proof and no zero exclusion; exact cofinal-core reduction and non-density countermodel only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T167-REJECTED",
+        "label": "EveryDimensionIsNecessaryOrAnyNestedPositiveFamilySuffices",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T167-CLOSED",
+        "label": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T167-OPEN",
+        "label": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T167-REJECTED",
+        "RH-T167-CLOSED"
+      ],
+      [
+        "RH-T167-CLOSED",
+        "RH-T167-OPEN"
+      ]
+    ]
+  }
+}

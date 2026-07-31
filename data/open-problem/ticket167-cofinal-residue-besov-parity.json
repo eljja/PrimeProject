@@ -1,0 +1,1472 @@
+{
+  "schema": "primeproject.ticket167-cofinal-residue-besov-parity.v1",
+  "generated_at": "2026-08-01T22:30:00+09:00",
+  "status": "four_exact_reductions_and_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-167 proves four exact reduction or no-go statements and resolves none of the four conjectures. It reduces RH certification to a cofinal dense-core schedule, gives an exact Collatz bad-realizer count, replaces a Goldbach observed tail by a Besov-one sufficient budget, and isolates the linear finest parity scale of the twin shift-two selector.",
+  "cofinal_residue_besov_parity_audit": {
+    "theorem_name": "FourConjectureCofinalResidueBesovParityAudit",
+    "status": "four_exact_reductions_and_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-167 proves four exact reduction or no-go statements and resolves none of the four conjectures. It reduces RH certification to a cofinal dense-core schedule, gives an exact Collatz bad-realizer count, replaces a Goldbach observed tail by a Besov-one sufficient budget, and isolates the linear finest parity scale of the twin shift-two selector.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-167",
+      "theorem_name": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+      "declared_proposition": "Let V_1 subset V_2 subset ... be finite-dimensional subspaces whose union is a form core for a continuous quadratic form Q. It is enough to certify a cofinal subsequence V_(N_j): if Q(x)>=-epsilon_j||x||^2 on V_(N_j) and epsilon_j tends to zero, then Q is nonnegative on the whole form core and hence on its form closure. Certificates at every intermediate dimension are unnecessary. Form-core density is essential: Q=diag(-1,1,1,...) is positive on the nested subspaces span{e_2,...,e_(N_j+1)} but negative at e_1.",
+      "mathematical_argument": "Fix x in the union and choose j_0 with x in V_(N_j0). Nestedness puts x in every later certified space, so Q(x)>=-epsilon_j||x||^2 for all j>=j_0. Taking j to infinity gives Q(x)>=0. Form continuity extends this to the closure. In the countermodel every audited space omits e_1 and has restricted minimum one, while Q(e_1)=-1; their closure is e_1-perp rather than the required core.",
+      "reproducible_computation": {
+        "theorem": "Let V_1 subset V_2 subset ... be finite-dimensional subspaces whose union is a form core for a continuous quadratic form Q. It is enough to certify a cofinal subsequence V_(N_j): if Q(x)>=-epsilon_j||x||^2 on V_(N_j) and epsilon_j tends to zero, then Q is nonnegative on the whole form core and hence on its form closure. Certificates at every intermediate dimension are unnecessary. Form-core density is essential: Q=diag(-1,1,1,...) is positive on the nested subspaces span{e_2,...,e_(N_j+1)} but negative at e_1.",
+        "proof": "Fix x in the union and choose j_0 with x in V_(N_j0). Nestedness puts x in every later certified space, so Q(x)>=-epsilon_j||x||^2 for all j>=j_0. Taking j to infinity gives Q(x)>=0. Form continuity extends this to the closure. In the countermodel every audited space omits e_1 and has restricted minimum one, while Q(e_1)=-1; their closure is e_1-perp rather than the required core.",
+        "cofinal_exact_ldl_proxy_rows": [
+          {
+            "cofinal_dimension_Nj": 2,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 4,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 8,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 16,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 32,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/1024",
+              "decimal": 0.0009765625
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 64,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/4096",
+              "decimal": 0.000244140625
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 128,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/16384",
+              "decimal": 6.103515625e-05
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          },
+          {
+            "cofinal_dimension_Nj": 256,
+            "smallest_exact_ldl_pivot": {
+              "exact": "1/65536",
+              "decimal": 1.52587890625e-05
+            },
+            "checks": {
+              "dimension_is_on_cofinal_doubling_schedule": true,
+              "exact_rational_ldl_pivot_is_positive": true,
+              "margin_vanishes_without_losing_positivity": true,
+              "row_is_proxy_not_weil_certificate": true
+            }
+          }
+        ],
+        "non_dense_nested_subspace_no_go_rows": [
+          {
+            "audited_subspace_dimension": 2,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          },
+          {
+            "audited_subspace_dimension": 4,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          },
+          {
+            "audited_subspace_dimension": 8,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          },
+          {
+            "audited_subspace_dimension": 16,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          },
+          {
+            "audited_subspace_dimension": 32,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          },
+          {
+            "audited_subspace_dimension": 64,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          },
+          {
+            "audited_subspace_dimension": 128,
+            "restricted_minimum": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "omitted_e1_value": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "closure_codimension": 1,
+            "checks": {
+              "restricted_minimum_is_positive": true,
+              "fixed_omitted_direction_is_negative": true,
+              "subspaces_are_nested": true,
+              "union_has_codimension_one_and_is_not_dense": true
+            }
+          }
+        ],
+        "external_premise_boundary": "The cutoff-free interval LDL machinery and positive archimedean tail are external inputs from arXiv:2607.02828. PrimeProject proves the cofinal-subsequence reduction and density no-go, but supplies no cofinal Guinand-Weil certificate family.",
+        "failure_count": 0
+      },
+      "logical_limit": "No interval-LDL certificate is produced on a cofinal sequence of an explicit dense Guinand-Weil form core. The exact matrix rows are a rational proxy only.",
+      "route_decision": {
+        "discard": "requiring certificates at every intermediate dimension, or accepting positivity on a non-dense nested family",
+        "retain": "cutoff-free interval-LDL certificates on any cofinal sequence of a proved dense nested Weil form core",
+        "next_single_lemma": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T167-REJECTED",
+            "label": "EveryDimensionIsNecessaryOrAnyNestedPositiveFamilySuffices",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T167-CLOSED",
+            "label": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T167-OPEN",
+            "label": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T167-REJECTED",
+            "RH-T167-CLOSED"
+          ],
+          [
+            "RH-T167-CLOSED",
+            "RH-T167-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no zero exclusion; exact cofinal-core reduction and non-density countermodel only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-167",
+      "theorem_name": "ExactBadRealizerCountAndWordwiseDensityZeroNoGo",
+      "declared_proposition": "For accelerated Collatz affine data T_w(n)=(3^m n+C)/2^S with D=2^S-3^m>0, the nonterminal odd starts that realize the word and leave an odd endpoint form one class n=n_0+kM, where M=2^(S+1) and n_0 is the least integer at least three satisfying 3^m n_0+C congruent to 2^S modulo M. The exact number of non-descending realizers is zero when n_0D>C and otherwise floor((C-n_0D)/(MD))+1. It is therefore always finite for a fixed contracting word. Consequently wordwise natural density zero is automatic and cannot prove that the bad set is empty.",
+      "mathematical_argument": "Odd integrality of the endpoint is equivalent to the displayed congruence modulo 2^(S+1). Since 3^m is invertible modulo this power of two, there is one odd residue class. Non-descent is the linear inequality nD<=C. Intersecting the arithmetic progression n_0+kM with that interval gives the exact floor formula. The synthetic family m=1,S=2,C=9+8q has q+1 non-descending starts but still density zero, so density cannot replace exact residue slack.",
+      "reproducible_computation": {
+        "theorem": "For accelerated Collatz affine data T_w(n)=(3^m n+C)/2^S with D=2^S-3^m>0, the nonterminal odd starts that realize the word and leave an odd endpoint form one class n=n_0+kM, where M=2^(S+1) and n_0 is the least integer at least three satisfying 3^m n_0+C congruent to 2^S modulo M. The exact number of non-descending realizers is zero when n_0D>C and otherwise floor((C-n_0D)/(MD))+1. It is therefore always finite for a fixed contracting word. Consequently wordwise natural density zero is automatic and cannot prove that the bad set is empty.",
+        "proof": "Odd integrality of the endpoint is equivalent to the displayed congruence modulo 2^(S+1). Since 3^m is invertible modulo this power of two, there is one odd residue class. Non-descent is the linear inequality nD<=C. Intersecting the arithmetic progression n_0+kM with that interval gives the exact floor formula. The synthetic family m=1,S=2,C=9+8q has q+1 non-descending starts but still density zero, so density cannot replace exact residue slack.",
+        "finite_first_crossing_exact_count_rows": [
+          {
+            "word_length_m": 1,
+            "noncontracting_prefix_count": 1,
+            "potential_non_descent_word_count": 0,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": null,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 2,
+            "noncontracting_prefix_count": 1,
+            "potential_non_descent_word_count": 0,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": null,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 3,
+            "noncontracting_prefix_count": 2,
+            "potential_non_descent_word_count": 2,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 192,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 4,
+            "noncontracting_prefix_count": 3,
+            "potential_non_descent_word_count": 0,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": null,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 5,
+            "noncontracting_prefix_count": 7,
+            "potential_non_descent_word_count": 7,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 1024,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 6,
+            "noncontracting_prefix_count": 12,
+            "potential_non_descent_word_count": 5,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 286720,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 7,
+            "noncontracting_prefix_count": 30,
+            "potential_non_descent_word_count": 0,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": null,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 8,
+            "noncontracting_prefix_count": 85,
+            "potential_non_descent_word_count": 85,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 327680,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 9,
+            "noncontracting_prefix_count": 173,
+            "potential_non_descent_word_count": 7,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 14286848,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 10,
+            "noncontracting_prefix_count": 476,
+            "potential_non_descent_word_count": 476,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 2228224,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 11,
+            "noncontracting_prefix_count": 961,
+            "potential_non_descent_word_count": 698,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 208666624,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 12,
+            "noncontracting_prefix_count": 2652,
+            "potential_non_descent_word_count": 1,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 757776515072,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 13,
+            "noncontracting_prefix_count": 8045,
+            "potential_non_descent_word_count": 8045,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 503316480,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 14,
+            "noncontracting_prefix_count": 17637,
+            "potential_non_descent_word_count": 4119,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 37815844864,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 15,
+            "noncontracting_prefix_count": 51033,
+            "potential_non_descent_word_count": 51033,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 1778384896,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 16,
+            "noncontracting_prefix_count": 108950,
+            "potential_non_descent_word_count": 81410,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 23756537856,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 17,
+            "noncontracting_prefix_count": 312455,
+            "potential_non_descent_word_count": 319033,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 3758096384,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          },
+          {
+            "word_length_m": 18,
+            "noncontracting_prefix_count": 663535,
+            "potential_non_descent_word_count": 655523,
+            "exact_bad_realizer_count": 0,
+            "minimum_exact_residue_slack": 439160406016,
+            "checks": {
+              "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+              "every_computed_least_realizer_has_positive_slack": true,
+              "enumeration_is_complete_only_at_this_fixed_length": true
+            }
+          }
+        ],
+        "maximum_certified_length": 18,
+        "total_potential_non_descent_words_counted": 1120444,
+        "total_bad_realizer_count": 0,
+        "global_minimum_exact_residue_slack": 192,
+        "density_zero_no_go_rows": [
+          {
+            "synthetic_correction_C": 9,
+            "slope_gap_D": 1,
+            "realizer_modulus": 8,
+            "exact_bad_realizer_count": 1,
+            "natural_density": 0,
+            "checks": {
+              "least_nonterminal_realizer_is_nine": true,
+              "bad_count_matches_closed_form": true,
+              "bad_set_is_finite_and_has_natural_density_zero": true,
+              "row_is_synthetic_affine_data_not_actual_collatz_word": true
+            }
+          },
+          {
+            "synthetic_correction_C": 17,
+            "slope_gap_D": 1,
+            "realizer_modulus": 8,
+            "exact_bad_realizer_count": 2,
+            "natural_density": 0,
+            "checks": {
+              "least_nonterminal_realizer_is_nine": true,
+              "bad_count_matches_closed_form": true,
+              "bad_set_is_finite_and_has_natural_density_zero": true,
+              "row_is_synthetic_affine_data_not_actual_collatz_word": true
+            }
+          },
+          {
+            "synthetic_correction_C": 33,
+            "slope_gap_D": 1,
+            "realizer_modulus": 8,
+            "exact_bad_realizer_count": 4,
+            "natural_density": 0,
+            "checks": {
+              "least_nonterminal_realizer_is_nine": true,
+              "bad_count_matches_closed_form": true,
+              "bad_set_is_finite_and_has_natural_density_zero": true,
+              "row_is_synthetic_affine_data_not_actual_collatz_word": true
+            }
+          },
+          {
+            "synthetic_correction_C": 65,
+            "slope_gap_D": 1,
+            "realizer_modulus": 8,
+            "exact_bad_realizer_count": 8,
+            "natural_density": 0,
+            "checks": {
+              "least_nonterminal_realizer_is_nine": true,
+              "bad_count_matches_closed_form": true,
+              "bad_set_is_finite_and_has_natural_density_zero": true,
+              "row_is_synthetic_affine_data_not_actual_collatz_word": true
+            }
+          },
+          {
+            "synthetic_correction_C": 129,
+            "slope_gap_D": 1,
+            "realizer_modulus": 8,
+            "exact_bad_realizer_count": 16,
+            "natural_density": 0,
+            "checks": {
+              "least_nonterminal_realizer_is_nine": true,
+              "bad_count_matches_closed_form": true,
+              "bad_set_is_finite_and_has_natural_density_zero": true,
+              "row_is_synthetic_affine_data_not_actual_collatz_word": true
+            }
+          },
+          {
+            "synthetic_correction_C": 257,
+            "slope_gap_D": 1,
+            "realizer_modulus": 8,
+            "exact_bad_realizer_count": 32,
+            "natural_density": 0,
+            "checks": {
+              "least_nonterminal_realizer_is_nine": true,
+              "bad_count_matches_closed_form": true,
+              "bad_set_is_finite_and_has_natural_density_zero": true,
+              "row_is_synthetic_affine_data_not_actual_collatz_word": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The exact count is zero only for the finite first-crossing enumeration through length 18. No all-length lower bound on n_0D-C or divergent natural orbit is proved.",
+      "route_decision": {
+        "discard": "promoting wordwise zero density or finiteness of bad realizers to emptiness",
+        "retain": "prove the exact least-residue slack n_0D-C is positive for every first-crossing valuation word",
+        "next_single_lemma": "UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T167-REJECTED",
+            "label": "WordwiseDensityZeroOfBadRealizersImpliesNoBadNaturalStart",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T167-CLOSED",
+            "label": "ExactBadRealizerCountAndWordwiseDensityZeroNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T167-OPEN",
+            "label": "UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T167-REJECTED",
+            "CO-T167-CLOSED"
+          ],
+          [
+            "CO-T167-CLOSED",
+            "CO-T167-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact fixed-word realizer count, finite length-18 audit, and density no-go only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-167",
+      "theorem_name": "BesovOneShellAnchorBridgeAndAlignedScaleL2NoGo",
+      "declared_proposition": "Let d=f_low+sum_j g_j on a cyclic grid of length L, where f_low has trigonometric degree K and q>pi*K equally spaced anchors with maximum absolute value A. If Gamma_j is the Fourier support of g_j, then max|d| is at most A/(1-pi*K/q)+B, where B=sum_j sqrt(|Gamma_j|)||hat(g_j)||_2/L. Thus a subunit right-hand side excludes a unit Goldbach deficit pointwise. The l1 sum over scales cannot in general be replaced by an l2 scale average: disjoint-frequency functions of height 1/J can all align at one point, giving sum one while their scale-l2 budget is J^(-1/2).",
+      "mathematical_argument": "TICKET-166 Bernstein sampling bounds f_low. Fourier inversion and Cauchy-Schwarz on each Gamma_j give ||g_j||_infinity at most sqrt(|Gamma_j|)||hat(g_j)||_2/L; the triangle inequality over shells gives B. For the no-go choose one cosine in each disjoint frequency block, each scaled by 1/J. They all equal 1/J at the origin, while the square sum of their scale amplitudes is 1/J.",
+      "reproducible_computation": {
+        "theorem": "Let d=f_low+sum_j g_j on a cyclic grid of length L, where f_low has trigonometric degree K and q>pi*K equally spaced anchors with maximum absolute value A. If Gamma_j is the Fourier support of g_j, then max|d| is at most A/(1-pi*K/q)+B, where B=sum_j sqrt(|Gamma_j|)||hat(g_j)||_2/L. Thus a subunit right-hand side excludes a unit Goldbach deficit pointwise. The l1 sum over scales cannot in general be replaced by an l2 scale average: disjoint-frequency functions of height 1/J can all align at one point, giving sum one while their scale-l2 budget is J^(-1/2).",
+        "proof": "TICKET-166 Bernstein sampling bounds f_low. Fourier inversion and Cauchy-Schwarz on each Gamma_j give ||g_j||_infinity at most sqrt(|Gamma_j|)||hat(g_j)||_2/L; the triangle inequality over shells gives B. For the no-go choose one cosine in each disjoint frequency block, each scaled by 1/J. They all equal 1/J at the origin, while the square sum of their scale amplitudes is 1/J.",
+        "finite_besov_shell_certificate_rows": [
+          {
+            "finite_target_count": 16384,
+            "low_pass_bandwidth_K": 16,
+            "anchor_count_q": 64,
+            "low_pass_bernstein_bound": 0.32693591729336474,
+            "observed_uniform_high_frequency_tail": 0.16681511777970548,
+            "dyadic_shell_l1_uniform_bound": 4.9447110368211336,
+            "combined_pointwise_certificate": 5.271646954114498,
+            "passes_subunit_gate": false,
+            "shells": [
+              {
+                "frequency_left": 17,
+                "frequency_right": 33,
+                "coefficient_count": 34,
+                "shell_l2_to_uniform_bound": 0.016083921979357832
+              },
+              {
+                "frequency_left": 34,
+                "frequency_right": 67,
+                "coefficient_count": 68,
+                "shell_l2_to_uniform_bound": 0.016421646360099622
+              },
+              {
+                "frequency_left": 68,
+                "frequency_right": 135,
+                "coefficient_count": 136,
+                "shell_l2_to_uniform_bound": 0.02186422952986837
+              },
+              {
+                "frequency_left": 136,
+                "frequency_right": 271,
+                "coefficient_count": 272,
+                "shell_l2_to_uniform_bound": 0.045517308586516356
+              },
+              {
+                "frequency_left": 272,
+                "frequency_right": 543,
+                "coefficient_count": 544,
+                "shell_l2_to_uniform_bound": 0.0954738408630973
+              },
+              {
+                "frequency_left": 544,
+                "frequency_right": 1087,
+                "coefficient_count": 1088,
+                "shell_l2_to_uniform_bound": 0.22660563341266426
+              },
+              {
+                "frequency_left": 1088,
+                "frequency_right": 2175,
+                "coefficient_count": 2176,
+                "shell_l2_to_uniform_bound": 0.5436880829828268
+              },
+              {
+                "frequency_left": 2176,
+                "frequency_right": 4351,
+                "coefficient_count": 4352,
+                "shell_l2_to_uniform_bound": 1.3996150711617803
+              },
+              {
+                "frequency_left": 4352,
+                "frequency_right": 8192,
+                "coefficient_count": 7681,
+                "shell_l2_to_uniform_bound": 2.5794413019449225
+              }
+            ],
+            "checks": {
+              "anchor_grid_divides_finite_grid": true,
+              "shell_l1_bound_dominates_observed_tail": true,
+              "full_certificate_dominates_observed_deficit": true,
+              "finite_shell_certificate_fails_subunit_gate_is_recorded": true,
+              "row_is_floating_finite_diagnostic": true
+            }
+          },
+          {
+            "finite_target_count": 16384,
+            "low_pass_bandwidth_K": 64,
+            "anchor_count_q": 256,
+            "low_pass_bernstein_bound": 0.3322440484635204,
+            "observed_uniform_high_frequency_tail": 0.1444444544082064,
+            "dyadic_shell_l1_uniform_bound": 4.9187050994851695,
+            "combined_pointwise_certificate": 5.25094914794869,
+            "passes_subunit_gate": false,
+            "shells": [
+              {
+                "frequency_left": 65,
+                "frequency_right": 129,
+                "coefficient_count": 130,
+                "shell_l2_to_uniform_bound": 0.02158772933985487
+              },
+              {
+                "frequency_left": 130,
+                "frequency_right": 259,
+                "coefficient_count": 260,
+                "shell_l2_to_uniform_bound": 0.04380447931804866
+              },
+              {
+                "frequency_left": 260,
+                "frequency_right": 519,
+                "coefficient_count": 520,
+                "shell_l2_to_uniform_bound": 0.09056926762877723
+              },
+              {
+                "frequency_left": 520,
+                "frequency_right": 1039,
+                "coefficient_count": 1040,
+                "shell_l2_to_uniform_bound": 0.21822845193951695
+              },
+              {
+                "frequency_left": 1040,
+                "frequency_right": 2079,
+                "coefficient_count": 2080,
+                "shell_l2_to_uniform_bound": 0.5202930027854036
+              },
+              {
+                "frequency_left": 2080,
+                "frequency_right": 4159,
+                "coefficient_count": 4160,
+                "shell_l2_to_uniform_bound": 1.3487775034602485
+              },
+              {
+                "frequency_left": 4160,
+                "frequency_right": 8192,
+                "coefficient_count": 8065,
+                "shell_l2_to_uniform_bound": 2.6754446650133197
+              }
+            ],
+            "checks": {
+              "anchor_grid_divides_finite_grid": true,
+              "shell_l1_bound_dominates_observed_tail": true,
+              "full_certificate_dominates_observed_deficit": true,
+              "finite_shell_certificate_fails_subunit_gate_is_recorded": true,
+              "row_is_floating_finite_diagnostic": true
+            }
+          },
+          {
+            "finite_target_count": 16384,
+            "low_pass_bandwidth_K": 256,
+            "anchor_count_q": 1024,
+            "low_pass_bernstein_bound": 0.3494545158459034,
+            "observed_uniform_high_frequency_tail": 0.14572509675378414,
+            "dyadic_shell_l1_uniform_bound": 4.855486567764145,
+            "combined_pointwise_certificate": 5.2049410836100485,
+            "passes_subunit_gate": false,
+            "shells": [
+              {
+                "frequency_left": 257,
+                "frequency_right": 513,
+                "coefficient_count": 514,
+                "shell_l2_to_uniform_bound": 0.08881050575726457
+              },
+              {
+                "frequency_left": 514,
+                "frequency_right": 1027,
+                "coefficient_count": 1028,
+                "shell_l2_to_uniform_bound": 0.21582625783761036
+              },
+              {
+                "frequency_left": 1028,
+                "frequency_right": 2055,
+                "coefficient_count": 2056,
+                "shell_l2_to_uniform_bound": 0.5161320346807571
+              },
+              {
+                "frequency_left": 2056,
+                "frequency_right": 4111,
+                "coefficient_count": 4112,
+                "shell_l2_to_uniform_bound": 1.3405455852726564
+              },
+              {
+                "frequency_left": 4112,
+                "frequency_right": 8192,
+                "coefficient_count": 8161,
+                "shell_l2_to_uniform_bound": 2.694172184215857
+              }
+            ],
+            "checks": {
+              "anchor_grid_divides_finite_grid": true,
+              "shell_l1_bound_dominates_observed_tail": true,
+              "full_certificate_dominates_observed_deficit": true,
+              "finite_shell_certificate_fails_subunit_gate_is_recorded": true,
+              "row_is_floating_finite_diagnostic": true
+            }
+          },
+          {
+            "finite_target_count": 16384,
+            "low_pass_bandwidth_K": 1024,
+            "anchor_count_q": 4096,
+            "low_pass_bernstein_bound": 0.44650796043148194,
+            "observed_uniform_high_frequency_tail": 0.13814118074972276,
+            "dyadic_shell_l1_uniform_bound": 4.552238188559059,
+            "combined_pointwise_certificate": 4.998746148990541,
+            "passes_subunit_gate": false,
+            "shells": [
+              {
+                "frequency_left": 1025,
+                "frequency_right": 2049,
+                "coefficient_count": 2050,
+                "shell_l2_to_uniform_bound": 0.5153963431211195
+              },
+              {
+                "frequency_left": 2050,
+                "frequency_right": 4099,
+                "coefficient_count": 4100,
+                "shell_l2_to_uniform_bound": 1.3384567115479449
+              },
+              {
+                "frequency_left": 4100,
+                "frequency_right": 8192,
+                "coefficient_count": 8185,
+                "shell_l2_to_uniform_bound": 2.6983851338899947
+              }
+            ],
+            "checks": {
+              "anchor_grid_divides_finite_grid": true,
+              "shell_l1_bound_dominates_observed_tail": true,
+              "full_certificate_dominates_observed_deficit": true,
+              "finite_shell_certificate_fails_subunit_gate_is_recorded": true,
+              "row_is_floating_finite_diagnostic": true
+            }
+          },
+          {
+            "finite_target_count": 16384,
+            "low_pass_bandwidth_K": 4096,
+            "anchor_count_q": 16384,
+            "low_pass_bernstein_bound": 0.8109780854078826,
+            "observed_uniform_high_frequency_tail": 0.12326129564972543,
+            "dyadic_shell_l1_uniform_bound": 2.699385756430883,
+            "combined_pointwise_certificate": 3.5103638418387657,
+            "passes_subunit_gate": false,
+            "shells": [
+              {
+                "frequency_left": 4097,
+                "frequency_right": 8192,
+                "coefficient_count": 8191,
+                "shell_l2_to_uniform_bound": 2.699385756430883
+              }
+            ],
+            "checks": {
+              "anchor_grid_divides_finite_grid": true,
+              "shell_l1_bound_dominates_observed_tail": true,
+              "full_certificate_dominates_observed_deficit": true,
+              "finite_shell_certificate_fails_subunit_gate_is_recorded": true,
+              "row_is_floating_finite_diagnostic": true
+            }
+          }
+        ],
+        "aligned_shell_l2_no_go_rows": [
+          {
+            "disjoint_shell_count_J": 2,
+            "per_shell_pointwise_amplitude": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "aligned_sum_at_origin": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l2_budget_squared": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "aligned_pointwise_sum_is_one": true,
+              "scale_l1_budget_is_one": true,
+              "scale_l2_budget_tends_to_zero": true,
+              "frequencies_can_be_chosen_in_disjoint_blocks": true
+            }
+          },
+          {
+            "disjoint_shell_count_J": 4,
+            "per_shell_pointwise_amplitude": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "aligned_sum_at_origin": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l2_budget_squared": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "checks": {
+              "aligned_pointwise_sum_is_one": true,
+              "scale_l1_budget_is_one": true,
+              "scale_l2_budget_tends_to_zero": true,
+              "frequencies_can_be_chosen_in_disjoint_blocks": true
+            }
+          },
+          {
+            "disjoint_shell_count_J": 8,
+            "per_shell_pointwise_amplitude": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "aligned_sum_at_origin": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l2_budget_squared": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "checks": {
+              "aligned_pointwise_sum_is_one": true,
+              "scale_l1_budget_is_one": true,
+              "scale_l2_budget_tends_to_zero": true,
+              "frequencies_can_be_chosen_in_disjoint_blocks": true
+            }
+          },
+          {
+            "disjoint_shell_count_J": 16,
+            "per_shell_pointwise_amplitude": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "aligned_sum_at_origin": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l2_budget_squared": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "checks": {
+              "aligned_pointwise_sum_is_one": true,
+              "scale_l1_budget_is_one": true,
+              "scale_l2_budget_tends_to_zero": true,
+              "frequencies_can_be_chosen_in_disjoint_blocks": true
+            }
+          },
+          {
+            "disjoint_shell_count_J": 32,
+            "per_shell_pointwise_amplitude": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "aligned_sum_at_origin": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l2_budget_squared": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "checks": {
+              "aligned_pointwise_sum_is_one": true,
+              "scale_l1_budget_is_one": true,
+              "scale_l2_budget_tends_to_zero": true,
+              "frequencies_can_be_chosen_in_disjoint_blocks": true
+            }
+          },
+          {
+            "disjoint_shell_count_J": 64,
+            "per_shell_pointwise_amplitude": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "aligned_sum_at_origin": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "scale_l2_budget_squared": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "checks": {
+              "aligned_pointwise_sum_is_one": true,
+              "scale_l1_budget_is_one": true,
+              "scale_l2_budget_tends_to_zero": true,
+              "frequencies_can_be_chosen_in_disjoint_blocks": true
+            }
+          }
+        ],
+        "finite_diagnostic_boundary": "The finite Farey-mask rows are floating diagnostics. Their rigorous shell-Cauchy certificates all exceed one, so this implementation does not certify even the finite model through the proposed bound, let alone every binary-Goldbach shell.",
+        "failure_count": 0
+      },
+      "logical_limit": "No subunit Besov-one shell budget is proved for the true binary-Goldbach deficit. The finite shell-Cauchy certificates are all above one and are floating diagnostics.",
+      "route_decision": {
+        "discard": "using square-summed scale energy or the current coarse shell-Cauchy certificate as a pointwise Goldbach proof",
+        "retain": "an arithmetic dyadic l1 shell budget plus a low-pass Bernstein anchor margin below one",
+        "next_single_lemma": "UniformBinaryGoldbachBesovOneTailBelowAnchorMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T167-REJECTED",
+            "label": "ScaleL2AverageControlsAlignedPointwiseGoldbachDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T167-CLOSED",
+            "label": "BesovOneShellAnchorBridgeAndAlignedScaleL2NoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T167-OPEN",
+            "label": "UniformBinaryGoldbachBesovOneTailBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T167-REJECTED",
+            "GB-T167-CLOSED"
+          ],
+          [
+            "GB-T167-CLOSED",
+            "GB-T167-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact Besov-one sufficient condition, aligned-scale no-go, and failing finite diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-167",
+      "theorem_name": "FinestParityScaleExtractionAndCoarseControlNoGo",
+      "declared_proposition": "For even N and the noncyclic shift-two selector D_2, the orthogonal projection onto the finest 2x2 product-Haar scale has exactly N/2-1 nonzero coefficients, each contributing one unit of normalized energy. Hence its energy and its signed pairing with D_2 are both (N-2)/2. The remaining product-Haar scales are orthogonal to this projection. Therefore controlling only coarse scales cannot imply o(N) shift-two correlation; the finest parity scale alone carries linear correlation.",
+      "mathematical_argument": "A support-two Haar vector has signs (+1,-1). Shift by two maps each complete row block to the next column block with the same signs, so exactly N/2-1 coefficients equal two and all other finest coefficients vanish. Dividing each squared coefficient by 2*2 gives unit energy and total (N-2)/2. Taking the error to be this orthogonal projection gives zero coefficient on every coarser scale but pairing (N-2)/2 with D_2.",
+      "reproducible_computation": {
+        "theorem": "For even N and the noncyclic shift-two selector D_2, the orthogonal projection onto the finest 2x2 product-Haar scale has exactly N/2-1 nonzero coefficients, each contributing one unit of normalized energy. Hence its energy and its signed pairing with D_2 are both (N-2)/2. The remaining product-Haar scales are orthogonal to this projection. Therefore controlling only coarse scales cannot imply o(N) shift-two correlation; the finest parity scale alone carries linear correlation.",
+        "proof": "A support-two Haar vector has signs (+1,-1). Shift by two maps each complete row block to the next column block with the same signs, so exactly N/2-1 coefficients equal two and all other finest coefficients vanish. Dividing each squared coefficient by 2*2 gives unit energy and total (N-2)/2. Taking the error to be this orthogonal projection gives zero coefficient on every coarser scale but pairing (N-2)/2 with D_2.",
+        "finest_parity_scale_rows": [
+          {
+            "matrix_side_N": 8,
+            "shift_h": 2,
+            "nonzero_finest_2x2_coefficients": 3,
+            "finest_2x2_product_haar_energy": {
+              "exact": "3/1",
+              "decimal": 3.0
+            },
+            "coarse_product_haar_energy": {
+              "exact": "33/16",
+              "decimal": 2.0625
+            },
+            "total_double_centered_selector_energy": {
+              "exact": "81/16",
+              "decimal": 5.0625
+            },
+            "finest_energy_fraction": 0.5925925925925926,
+            "checks": {
+              "finest_energy_matches_closed_form": true,
+              "nonzero_finest_coefficients_match_adjacent_block_count": true,
+              "finest_projection_has_linear_shifted_diagonal_pairing": true,
+              "coarse_orthogonal_projection_misses_finest_witness": true,
+              "total_energy_splits_exactly": true
+            }
+          },
+          {
+            "matrix_side_N": 16,
+            "shift_h": 2,
+            "nonzero_finest_2x2_coefficients": 7,
+            "finest_2x2_product_haar_energy": {
+              "exact": "7/1",
+              "decimal": 7.0
+            },
+            "coarse_product_haar_energy": {
+              "exact": "385/64",
+              "decimal": 6.015625
+            },
+            "total_double_centered_selector_energy": {
+              "exact": "833/64",
+              "decimal": 13.015625
+            },
+            "finest_energy_fraction": 0.5378151260504201,
+            "checks": {
+              "finest_energy_matches_closed_form": true,
+              "nonzero_finest_coefficients_match_adjacent_block_count": true,
+              "finest_projection_has_linear_shifted_diagonal_pairing": true,
+              "coarse_orthogonal_projection_misses_finest_witness": true,
+              "total_energy_splits_exactly": true
+            }
+          },
+          {
+            "matrix_side_N": 32,
+            "shift_h": 2,
+            "nonzero_finest_2x2_coefficients": 15,
+            "finest_2x2_product_haar_energy": {
+              "exact": "15/1",
+              "decimal": 15.0
+            },
+            "coarse_product_haar_energy": {
+              "exact": "3585/256",
+              "decimal": 14.00390625
+            },
+            "total_double_centered_selector_energy": {
+              "exact": "7425/256",
+              "decimal": 29.00390625
+            },
+            "finest_energy_fraction": 0.5171717171717172,
+            "checks": {
+              "finest_energy_matches_closed_form": true,
+              "nonzero_finest_coefficients_match_adjacent_block_count": true,
+              "finest_projection_has_linear_shifted_diagonal_pairing": true,
+              "coarse_orthogonal_projection_misses_finest_witness": true,
+              "total_energy_splits_exactly": true
+            }
+          },
+          {
+            "matrix_side_N": 64,
+            "shift_h": 2,
+            "nonzero_finest_2x2_coefficients": 31,
+            "finest_2x2_product_haar_energy": {
+              "exact": "31/1",
+              "decimal": 31.0
+            },
+            "coarse_product_haar_energy": {
+              "exact": "30721/1024",
+              "decimal": 30.0009765625
+            },
+            "total_double_centered_selector_energy": {
+              "exact": "62465/1024",
+              "decimal": 61.0009765625
+            },
+            "finest_energy_fraction": 0.5081885856079404,
+            "checks": {
+              "finest_energy_matches_closed_form": true,
+              "nonzero_finest_coefficients_match_adjacent_block_count": true,
+              "finest_projection_has_linear_shifted_diagonal_pairing": true,
+              "coarse_orthogonal_projection_misses_finest_witness": true,
+              "total_energy_splits_exactly": true
+            }
+          },
+          {
+            "matrix_side_N": 128,
+            "shift_h": 2,
+            "nonzero_finest_2x2_coefficients": 63,
+            "finest_2x2_product_haar_energy": {
+              "exact": "63/1",
+              "decimal": 63.0
+            },
+            "coarse_product_haar_energy": {
+              "exact": "253953/4096",
+              "decimal": 62.000244140625
+            },
+            "total_double_centered_selector_energy": {
+              "exact": "512001/4096",
+              "decimal": 125.000244140625
+            },
+            "finest_energy_fraction": 0.5039990156269226,
+            "checks": {
+              "finest_energy_matches_closed_form": true,
+              "nonzero_finest_coefficients_match_adjacent_block_count": true,
+              "finest_projection_has_linear_shifted_diagonal_pairing": true,
+              "coarse_orthogonal_projection_misses_finest_witness": true,
+              "total_energy_splits_exactly": true
+            }
+          },
+          {
+            "matrix_side_N": 256,
+            "shift_h": 2,
+            "nonzero_finest_2x2_coefficients": 127,
+            "finest_2x2_product_haar_energy": {
+              "exact": "127/1",
+              "decimal": 127.0
+            },
+            "coarse_product_haar_energy": {
+              "exact": "2064385/16384",
+              "decimal": 126.00006103515625
+            },
+            "total_double_centered_selector_energy": {
+              "exact": "4145153/16384",
+              "decimal": 253.00006103515625
+            },
+            "finest_energy_fraction": 0.5019761634854009,
+            "checks": {
+              "finest_energy_matches_closed_form": true,
+              "nonzero_finest_coefficients_match_adjacent_block_count": true,
+              "finest_projection_has_linear_shifted_diagonal_pairing": true,
+              "coarse_orthogonal_projection_misses_finest_witness": true,
+              "total_energy_splits_exactly": true
+            }
+          }
+        ],
+        "model_boundary": "This is an exact deterministic decomposition of the shift-two selector, not an estimate for von Mangoldt weights. It localizes one form of the parity obstruction but does not cross it or prove a twin-prime lower bound.",
+        "failure_count": 0
+      },
+      "logical_limit": "The finest-scale identity concerns the deterministic selector, not prime-weighted signed coefficients. No parity-scale or coarse-tail prime cancellation is proved.",
+      "route_decision": {
+        "discard": "deriving shift-two power saving from control of coarse Haar scales while omitting the finest parity scale",
+        "retain": "separate signed cancellation at the finest parity scale and a weighted power saving over all coarser scales",
+        "next_single_lemma": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T167-REJECTED",
+            "label": "CoarseHaarControlAloneForcesShiftTwoPowerSaving",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T167-CLOSED",
+            "label": "FinestParityScaleExtractionAndCoarseControlNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T167-OPEN",
+            "label": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T167-REJECTED",
+            "TP-T167-CLOSED"
+          ],
+          [
+            "TP-T167-CLOSED",
+            "TP-T167-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact finest parity-scale extraction and coarse-control no-go only."
+    },
+    "literature_boundary": {
+      "riemann": "arXiv:2607.02828 supplies cutoff-free interval LDL and the positive tail; the cofinal dense-core reduction is the project-local result.",
+      "collatz": "Congruence constructions such as arXiv:2512.13760 concern large classes of convergent starts; they do not prove the all-word zero-count lemma targeted here.",
+      "goldbach": "arXiv:2607.27282 gives exceptional-set and explicit major-arc context; its second-moment estimates do not imply the pointwise Besov-one budget.",
+      "twin_prime": "Ford-Maynard Type I/II theory shows substantial Type II information is necessary; the Haar parity-scale identity here is a deterministic selector theorem, not a sieve estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-167",
+      "status": "open_not_proven",
+      "declared_proposition": "Let V_1 subset V_2 subset ... be finite-dimensional subspaces whose union is a form core for a continuous quadratic form Q. It is enough to certify a cofinal subsequence V_(N_j): if Q(x)>=-epsilon_j||x||^2 on V_(N_j) and epsilon_j tends to zero, then Q is nonnegative on the whole form core and hence on its form closure. Certificates at every intermediate dimension are unnecessary. Form-core density is essential: Q=diag(-1,1,1,...) is positive on the nested subspaces span{e_2,...,e_(N_j+1)} but negative at e_1.",
+      "new_result": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+      "discarded_route": "requiring certificates at every intermediate dimension, or accepting positivity on a non-dense nested family",
+      "remaining_gap": "No interval-LDL certificate is produced on a cofinal sequence of an explicit dense Guinand-Weil form core. The exact matrix rows are a rational proxy only.",
+      "candidate_theorem": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore",
+      "claim_boundary": "No RH proof and no zero exclusion; exact cofinal-core reduction and non-density countermodel only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T167-REJECTED",
+            "label": "EveryDimensionIsNecessaryOrAnyNestedPositiveFamilySuffices",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T167-CLOSED",
+            "label": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T167-OPEN",
+            "label": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T167-REJECTED",
+            "RH-T167-CLOSED"
+          ],
+          [
+            "RH-T167-CLOSED",
+            "RH-T167-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-167",
+      "status": "open_not_proven",
+      "declared_proposition": "For accelerated Collatz affine data T_w(n)=(3^m n+C)/2^S with D=2^S-3^m>0, the nonterminal odd starts that realize the word and leave an odd endpoint form one class n=n_0+kM, where M=2^(S+1) and n_0 is the least integer at least three satisfying 3^m n_0+C congruent to 2^S modulo M. The exact number of non-descending realizers is zero when n_0D>C and otherwise floor((C-n_0D)/(MD))+1. It is therefore always finite for a fixed contracting word. Consequently wordwise natural density zero is automatic and cannot prove that the bad set is empty.",
+      "new_result": "ExactBadRealizerCountAndWordwiseDensityZeroNoGo",
+      "discarded_route": "promoting wordwise zero density or finiteness of bad realizers to emptiness",
+      "remaining_gap": "The exact count is zero only for the finite first-crossing enumeration through length 18. No all-length lower bound on n_0D-C or divergent natural orbit is proved.",
+      "candidate_theorem": "UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord",
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact fixed-word realizer count, finite length-18 audit, and density no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T167-REJECTED",
+            "label": "WordwiseDensityZeroOfBadRealizersImpliesNoBadNaturalStart",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T167-CLOSED",
+            "label": "ExactBadRealizerCountAndWordwiseDensityZeroNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T167-OPEN",
+            "label": "UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T167-REJECTED",
+            "CO-T167-CLOSED"
+          ],
+          [
+            "CO-T167-CLOSED",
+            "CO-T167-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-167",
+      "status": "open_not_proven",
+      "declared_proposition": "Let d=f_low+sum_j g_j on a cyclic grid of length L, where f_low has trigonometric degree K and q>pi*K equally spaced anchors with maximum absolute value A. If Gamma_j is the Fourier support of g_j, then max|d| is at most A/(1-pi*K/q)+B, where B=sum_j sqrt(|Gamma_j|)||hat(g_j)||_2/L. Thus a subunit right-hand side excludes a unit Goldbach deficit pointwise. The l1 sum over scales cannot in general be replaced by an l2 scale average: disjoint-frequency functions of height 1/J can all align at one point, giving sum one while their scale-l2 budget is J^(-1/2).",
+      "new_result": "BesovOneShellAnchorBridgeAndAlignedScaleL2NoGo",
+      "discarded_route": "using square-summed scale energy or the current coarse shell-Cauchy certificate as a pointwise Goldbach proof",
+      "remaining_gap": "No subunit Besov-one shell budget is proved for the true binary-Goldbach deficit. The finite shell-Cauchy certificates are all above one and are floating diagnostics.",
+      "candidate_theorem": "UniformBinaryGoldbachBesovOneTailBelowAnchorMargin",
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact Besov-one sufficient condition, aligned-scale no-go, and failing finite diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T167-REJECTED",
+            "label": "ScaleL2AverageControlsAlignedPointwiseGoldbachDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T167-CLOSED",
+            "label": "BesovOneShellAnchorBridgeAndAlignedScaleL2NoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T167-OPEN",
+            "label": "UniformBinaryGoldbachBesovOneTailBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T167-REJECTED",
+            "GB-T167-CLOSED"
+          ],
+          [
+            "GB-T167-CLOSED",
+            "GB-T167-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformBinaryGoldbachBesovOneTailBelowAnchorMargin"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-167",
+      "status": "open_not_proven",
+      "declared_proposition": "For even N and the noncyclic shift-two selector D_2, the orthogonal projection onto the finest 2x2 product-Haar scale has exactly N/2-1 nonzero coefficients, each contributing one unit of normalized energy. Hence its energy and its signed pairing with D_2 are both (N-2)/2. The remaining product-Haar scales are orthogonal to this projection. Therefore controlling only coarse scales cannot imply o(N) shift-two correlation; the finest parity scale alone carries linear correlation.",
+      "new_result": "FinestParityScaleExtractionAndCoarseControlNoGo",
+      "discarded_route": "deriving shift-two power saving from control of coarse Haar scales while omitting the finest parity scale",
+      "remaining_gap": "The finest-scale identity concerns the deterministic selector, not prime-weighted signed coefficients. No parity-scale or coarse-tail prime cancellation is proved.",
+      "candidate_theorem": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact finest parity-scale extraction and coarse-control no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T167-REJECTED",
+            "label": "CoarseHaarControlAloneForcesShiftTwoPowerSaving",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T167-CLOSED",
+            "label": "FinestParityScaleExtractionAndCoarseControlNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T167-OPEN",
+            "label": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T167-REJECTED",
+            "TP-T167-CLOSED"
+          ],
+          [
+            "TP-T167-CLOSED",
+            "TP-T167-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving"
+    }
+  ]
+}

@@ -180,6 +180,7 @@ TICKET165_SCHEMA = (
     "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1"
 )
 TICKET166_SCHEMA = "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1"
+TICKET167_SCHEMA = "primeproject.ticket167-cofinal-residue-besov-parity.v1"
 
 
 def fail(message: str) -> int:
@@ -12660,6 +12661,164 @@ def main() -> int:
         or "resolves none" not in str(ticket166.get("claim_boundary", "")).lower()
     ):
         return fail("ticket166 proof boundary changed")
+
+    path167 = Path(
+        "data/open-problem/ticket167-cofinal-residue-besov-parity.json"
+    )
+    if not path167.exists():
+        return fail("missing ticket167 cofinal/residue/Besov/parity audit")
+    ticket167 = read_json(path167)
+    if (
+        ticket167.get("schema") != TICKET167_SCHEMA
+        or ticket167.get("status")
+        != "four_exact_reductions_and_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket167 schema or status changed")
+    attempts167 = ticket167.get("attempts", [])
+    by_id167 = {
+        str(row.get("problem_id")): row
+        for row in attempts167
+        if isinstance(row, dict)
+    }
+    if set(by_id167) != EXPECTED_PROBLEMS:
+        return fail("ticket167 attempts missing problems")
+    audit167 = ticket167.get("cofinal_residue_besov_parity_audit", {})
+    if audit167.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket167 global machine audit changed")
+
+    paths167 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-167-cofinal-core.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-167-realizer-count.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-167-besov-tail.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-167-parity-scale.json"),
+    }
+    expected_names167 = {
+        "riemann": "CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo",
+        "collatz": "ExactBadRealizerCountAndWordwiseDensityZeroNoGo",
+        "goldbach": "BesovOneShellAnchorBridgeAndAlignedScaleL2NoGo",
+        "twin-prime": "FinestParityScaleExtractionAndCoarseControlNoGo",
+    }
+    next167 = {
+        "riemann": "CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore",
+        "collatz": "UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord",
+        "goldbach": "UniformBinaryGoldbachBesovOneTailBelowAnchorMargin",
+        "twin-prime": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+    }
+    sections167 = {
+        "riemann": audit167.get("riemann", {}),
+        "collatz": audit167.get("collatz", {}),
+        "goldbach": audit167.get("goldbach", {}),
+        "twin-prime": audit167.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id167.items():
+        artifact_path = paths167[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket167 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections167[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET167_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names167[problem_id]
+            or artifact.get("theorem_name") != expected_names167[problem_id]
+            or attempt.get("candidate_theorem") != next167[problem_id]
+            or artifact.get("candidate_theorem") != next167[problem_id]
+            or [node.get("status") for node in nodes]
+            != ["refuted_or_insufficient", "proved_exact", "open_not_proven"]
+            or nodes[-1].get("label") != next167[problem_id]
+            or int(section.get("reproducible_computation", {}).get("failure_count", -1)) != 0
+            or "No " not in str(artifact.get("claim_boundary", ""))
+        ):
+            return fail(f"{problem_id}: ticket167 contract changed")
+
+    riemann167 = sections167["riemann"]["reproducible_computation"]
+    cofinal167 = riemann167.get("cofinal_exact_ldl_proxy_rows", [])
+    nondense167 = riemann167.get("non_dense_nested_subspace_no_go_rows", [])
+    if (
+        [row.get("cofinal_dimension_Nj") for row in cofinal167]
+        != [2, 4, 8, 16, 32, 64, 128, 256]
+        or cofinal167[-1].get("smallest_exact_ldl_pivot", {}).get("exact")
+        != "1/65536"
+        or any(not all(row.get("checks", {}).values()) for row in cofinal167)
+        or any(
+            row.get("restricted_minimum", {}).get("exact") != "1/1"
+            or row.get("omitted_e1_value", {}).get("exact") != "-1/1"
+            or row.get("closure_codimension") != 1
+            or not all(row.get("checks", {}).values())
+            for row in nondense167
+        )
+    ):
+        return fail("ticket167 RH cofinal-core audit changed")
+
+    collatz167 = sections167["collatz"]["reproducible_computation"]
+    first_crossing167 = collatz167.get("finite_first_crossing_exact_count_rows", [])
+    density_no_go167 = collatz167.get("density_zero_no_go_rows", [])
+    if (
+        collatz167.get("maximum_certified_length") != 18
+        or collatz167.get("total_potential_non_descent_words_counted") != 1_120_444
+        or collatz167.get("total_bad_realizer_count") != 0
+        or int(collatz167.get("global_minimum_exact_residue_slack", 0)) <= 0
+        or any(
+            row.get("exact_bad_realizer_count") != 0
+            or not all(row.get("checks", {}).values())
+            for row in first_crossing167
+        )
+        or [row.get("exact_bad_realizer_count") for row in density_no_go167]
+        != [1, 2, 4, 8, 16, 32]
+        or any(not all(row.get("checks", {}).values()) for row in density_no_go167)
+    ):
+        return fail("ticket167 Collatz exact-realizer audit changed")
+
+    goldbach167 = sections167["goldbach"]["reproducible_computation"]
+    besov167 = goldbach167.get("finite_besov_shell_certificate_rows", [])
+    aligned167 = goldbach167.get("aligned_shell_l2_no_go_rows", [])
+    if (
+        [row.get("low_pass_bandwidth_K") for row in besov167]
+        != [16, 64, 256, 1024, 4096]
+        or any(
+            row.get("passes_subunit_gate")
+            or float(row.get("combined_pointwise_certificate", 0)) <= 1
+            or not all(row.get("checks", {}).values())
+            for row in besov167
+        )
+        or [row.get("disjoint_shell_count_J") for row in aligned167]
+        != [2, 4, 8, 16, 32, 64]
+        or any(
+            row.get("aligned_sum_at_origin", {}).get("exact") != "1/1"
+            or not all(row.get("checks", {}).values())
+            for row in aligned167
+        )
+    ):
+        return fail("ticket167 Goldbach Besov audit changed")
+
+    twin167 = sections167["twin-prime"]["reproducible_computation"]
+    parity167 = twin167.get("finest_parity_scale_rows", [])
+    if (
+        [row.get("matrix_side_N") for row in parity167]
+        != [8, 16, 32, 64, 128, 256]
+        or any(
+            Fraction(row.get("finest_2x2_product_haar_energy", {}).get("exact"))
+            != Fraction(row.get("matrix_side_N") - 2, 2)
+            or row.get("nonzero_finest_2x2_coefficients")
+            != row.get("matrix_side_N") // 2 - 1
+            or not all(row.get("checks", {}).values())
+            for row in parity167
+        )
+    ):
+        return fail("ticket167 Twin parity-scale audit changed")
+    if (
+        "resolves none" not in str(audit167.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket167.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket167 proof boundary changed")
 
     print("open problem structure verified")
     return 0

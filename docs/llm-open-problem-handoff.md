@@ -62,7 +62,48 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-166
+## Latest Continuation After TICKET-167
+
+All four conjectures remain open. Continue from these exact nodes and do not
+promote finite diagnostics, density-zero statements, or selector geometry to
+the target conjectures:
+
+1. Riemann:
+   `CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore`.
+   TICKET-167 proves that one cofinal certified schedule suffices only when the
+   nested union is a proved form core; a non-dense family can miss a fixed
+   negative direction.
+2. Collatz:
+   `UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord`.
+   TICKET-167 gives the exact fixed-word bad-realizer floor formula. Wordwise
+   density zero is automatic and does not imply zero bad starts.
+3. Goldbach:
+   `UniformBinaryGoldbachBesovOneTailBelowAnchorMargin`.
+   TICKET-167 proves the low-pass plus dyadic `l1` shell bridge, refutes
+   scale-`l2` promotion, and records that every current finite shell certificate
+   is still above one.
+4. Twin Prime:
+   `PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving`.
+   TICKET-167 proves the finest `2x2` shift-two selector energy is `(N-2)/2`, so
+   coarse Haar estimates alone omit a linear obstruction.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket167-cofinal-residue-besov-parity.json
+data/open-problem/riemann/rh-ticket-167-cofinal-core.json
+data/open-problem/collatz/co-ticket-167-realizer-count.json
+data/open-problem/goldbach/gb-ticket-167-besov-tail.json
+data/open-problem/twin-prime/tp-ticket-167-parity-scale.json
+```
+
+한국어 인계: TICKET-167은 네 난제를 해결하지 않았다. 다음 LLM은 실제
+Guinand-Weil cofinal interval LDL family, 모든 first-crossing word의
+zero bad-realizer 정리, 1 아래의 binary-Goldbach Besov-one 예산,
+prime-weighted finest parity 및 coarse-tail 상쇄 중 하나를 실제로
+증명하거나 반례를 찾아야 한다.
+
+## Preserved Continuation After TICKET-166
 
 All four conjectures remain open. Continue from these exact nodes and do not
 relabel finite diagnostics as proofs:

@@ -31,23 +31,23 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-166: Positive Tails, Start-Adaptive Collatz Windows, Bandlimited
-Goldbach Anchors, and Shifted-Diagonal Haar Duality](docs/tail-adaptive-bandlimited-diagonal.md).
-It proves four exact conditional, reduction, or no-go statements. For RH, a
-positive-tail diagonal Galerkin theorem connects interval lower bounds to the
-TICKET-165 vanishing-defect core limit, while a scalar countermodel isolates
-the tail-budget ambiguity band. For Collatz, retaining the natural start `n`
-shrinks the residual final-valuation window from `O(log m)` to
-`O(log(1+m/n))`; magnitude alone still cannot close zero excess. For Goldbach,
-a Bernstein low-pass sampling theorem promotes anchor margins to a pointwise
-gate, while a full-bandwidth spike rejects sparse sampling without an
-approximation theorem. For Twin Prime, the exact `n,n+2` shifted-diagonal Haar
-dual is exposed and a double-centered selector saturates the norm bound. Every
-conjecture remains `open_not_proven`.
+[TICKET-167: Cofinal Cores, Exact Collatz Realizer Counts, Goldbach Besov
+Tails, and the Finest Twin Parity Scale](docs/cofinal-residue-besov-parity.md).
+It proves four exact reduction or no-go statements. For RH, certificates on a
+cofinal subsequence of a nested dense form core suffice, while a codimension-one
+countermodel rejects non-dense nested positivity. For Collatz, the number of
+non-descending natural realizers of each fixed contracting word is given by an
+exact floor formula; wordwise density zero is therefore automatic and cannot
+replace emptiness. For Goldbach, a Bernstein low-pass term plus a dyadic
+Besov-`l1` shell budget gives a pointwise sufficient condition, while aligned
+frequency blocks reject scale-`l2` promotion. For Twin Prime, the finest
+`2x2` Haar scale of the shift-two selector has exact linear energy `(N-2)/2`,
+so coarse control alone is insufficient. Every conjecture remains
+`open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-165: Vanishing Defects, Logarithmic Collatz Tails, Goldbach Variation,
-and Signed Haar Duality](docs/vanishing-defect-logtail-variation-signed-dual.md).
+[TICKET-166: Positive Tails, Start-Adaptive Collatz Windows, Bandlimited
+Goldbach Anchors, and Shifted-Diagonal Haar Duality](docs/tail-adaptive-bandlimited-diagonal.md).
 
 The earlier boundary is
 [TICKET-155: Range Exactness, Initial-Prefix Descent, Sublinear Wheels, and
@@ -113,19 +113,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-six-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-seven-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-166. It connects positive finite Weil
-tails to a diagonal vanishing-defect core obligation; reduces the Collatz
-first-crossing excess window to `O(log(1+m/n))`; proves a bandlimited Goldbach
-anchor certificate with a full-bandwidth spike no-go; and derives the exact
-shifted-diagonal product-Haar dual required by the `n,n+2` selector, together
-with a centered norm-saturation countermodel. These are exact intermediate
-statements, not solutions. All four conjectures remain open and the machine
-resolution count is zero.
+The latest proof-search track is TICKET-167. It reduces RH certification to a
+cofinal dense-core schedule; gives an exact Collatz bad-realizer count and
+rejects wordwise density-zero promotion; replaces the observed Goldbach
+high-frequency error by a Besov-`l1` sufficient bound while recording that the
+finite certificate still fails; and extracts the exact linear finest parity
+scale of the shift-two selector. These are exact intermediate statements, not
+solutions. All four conjectures remain open and the machine resolution count
+is zero.
 See
+[TICKET167](docs/cofinal-residue-besov-parity.md),
 [TICKET166](docs/tail-adaptive-bandlimited-diagonal.md),
 [TICKET165](docs/vanishing-defect-logtail-variation-signed-dual.md),
 [TICKET164](docs/core-eigen-first-crossing-pointwise-product.md),
@@ -151,17 +152,16 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-166입니다. 리만 트랙은 문헌의
-양의 archimedean tail을 TICKET-165 소멸 결함 core 극한과 연결하는
-조건부 정리와 모호 구간 반례를 만들었습니다. 콜라츠 트랙은 자연수
-시작값 `n`을 보존해 잔여 valuation excess를 `O(log(1+m/n))`으로
-줄였지만 excess 0의 residue slack은 여전히 미증명입니다. 골드바흐
-트랙은 저주파 균일 근사와 Bernstein anchor를 점별 문턱으로
-승격하고, full-bandwidth spike가 sparse anchor만으로는 잡히지 않음을
-증명했습니다. 쌍둥이 소수 트랙은 `n,n+2` shifted diagonal의 정확한
-product-Haar 쌍대식을 만들고, 행·열 평균 제거와 무부호 에너지로는
-선형 대각 상관을 막지 못함을 보였습니다. 네 문제는 모두 미해결이며
-해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-167입니다. 리만 트랙은 조밀한
+중첩 core의 cofinal 차원열만 인증해도 충분함을 증명하고, 비조밀
+부분공간의 양성은 음의 방향을 놓칠 수 있음을 보였습니다. 콜라츠
+트랙은 고정 valuation word의 비하강 자연 실현값 개수를 exact floor
+공식으로 계산하고 word별 밀도 0을 전체 공집합으로 승격하는 경로를
+폐기했습니다. 골드바흐 트랙은 저주파 Bernstein 항과 dyadic
+Besov-`l1` 꼬리를 결합했지만 유한 certificate도 1을 넘는다는 실패를
+기록했습니다. 쌍둥이 소수 트랙은 shift-two 선택자 에너지의 약 절반이
+최미세 `2x2` parity Haar scale에 있음을 정확히 증명했습니다. 네 문제는
+모두 미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -181,13 +181,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-166입니다.
-[양의 꼬리, 시작값 적응형 콜라츠 창, 대역 제한 골드바흐 표본, 이동
-대각 Haar 쌍대성 보고서](docs/tail-adaptive-bandlimited-diagonal.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-167입니다.
+[공종(cofinal) 코어, 콜라츠 실현값의 정확 계수, 골드바흐 Besov 꼬리, 쌍둥이
+소수의 최미세 parity scale 보고서](docs/cofinal-residue-besov-parity.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만의 양의 tail 대각 core bridge, 콜라츠의
-`O(log(1+m/n))` 적응형 excess 축소, 골드바흐 Bernstein 저주파 anchor,
-쌍둥이 소수의 shifted-diagonal product-Haar 쌍대식을 확정했습니다.
+영문으로 정리합니다. 리만 cofinal core 환원, 콜라츠 exact bad-realizer
+계수, 골드바흐 Besov-one 충분조건과 실패한 유한 gate, 쌍둥이 소수의
+최미세 parity-scale 선형 에너지를 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

@@ -37,6 +37,45 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-01 TICKET-167 Cofinal, Residue-Count, Besov, and Parity-Scale Audit
+
+TICKET-167 continues the four open nodes left by TICKET-166 and keeps every
+parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `CofinalNestedCoreCertificateBridgeAndNonDenseSubspaceNoGo`
+   proves that interval lower bounds are needed only on a cofinal subsequence
+   of a nested dense form core. The exact countermodel
+   `diag(-1,1,1,...)` rejects positivity on a nested but non-dense family. The
+   next obligation is
+   `CofinalCutoffFreeIntervalLDLCertificatesOnExplicitGuinandWeilCore`.
+2. **Collatz:** `ExactBadRealizerCountAndWordwiseDensityZeroNoGo` gives a
+   closed formula for every fixed contracting word's non-descending natural
+   realizers. Finiteness makes wordwise density zero automatic and therefore
+   insufficient. The finite exact audit counts 1,120,444 candidate words
+   through length 18 and finds zero bad realizers. The next obligation is
+   `UniformZeroBadRealizerCountForEveryFirstCrossingValuationWord`.
+3. **Goldbach:** `BesovOneShellAnchorBridgeAndAlignedScaleL2NoGo` replaces an
+   observed high-frequency error by a dyadic shell-Cauchy sufficient bound.
+   Aligned disjoint frequency blocks refute scale-`l2` promotion. Every finite
+   Farey diagnostic certificate remains above one, so the route is not closed.
+   The next obligation is `UniformBinaryGoldbachBesovOneTailBelowAnchorMargin`.
+4. **Twin Prime:** `FinestParityScaleExtractionAndCoarseControlNoGo` proves
+   that the finest support-two product-Haar projection of the shift-two
+   selector has exact energy `(N-2)/2`. Coarse-scale control alone can therefore
+   miss a linear correlation. The next obligation is
+   `PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving`.
+
+한국어 요약: TICKET-167은 리만 인증을 조밀한 cofinal core로 줄이고,
+콜라츠 고정 word의 bad realizer 수를 정확히 세며, 골드바흐의 필요한
+Besov-`l1` shell 예산과 현재 유한 gate 실패를 분리하고, 쌍둥이 소수
+선택자의 최미세 parity scale이 선형 에너지를 가짐을 증명했다. 실제
+Weil LDL cofinal family, 모든 first-crossing word의 양의 residue slack,
+1 아래의 산술 Goldbach shell budget, prime-weighted finest/coarse 상쇄는
+여전히 미증명이다. 해결된 추측 수는 0이다.
+
+[TICKET-167 bilingual report](cofinal-residue-besov-parity.md)에 정확한
+정리, 계산, 실패한 gate, no-go 반례, 문헌 경계와 proof DAG를 기록한다.
+
 ## 2026-08-01 TICKET-166 Tail-Adaptive, Bandlimited, and Shifted-Diagonal Audit
 
 TICKET-166 continues the four exact open nodes left by TICKET-165 and keeps
