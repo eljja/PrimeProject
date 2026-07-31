@@ -31,25 +31,23 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-157: Form Cores, Inversion Gain, Phase Proxies, and Information
-Margins](docs/formcore-inversion-proxy-margin.md). It proves four exact
-reductions or no-go theorems. For RH, positivity on every member of a nested
-form core promotes to the closed form when one uniform cutoff-form bound is
-available, while any finite core sweep admits an exact hidden-negative-
-direction countermodel. For Collatz, adjacent valuation swaps telescope to
-an exact inversion-gain descent certificate; 266 of 49,999 audited first
-descents require the natural order rather than the multiset's descending
-worst order. For Goldbach, negative phase mass is one-Lipschitz in complex
-`L1`, whereas an `L2`-only proxy pays a sharp square-root dimension factor
-and all 18 target-fitted block proxies fail. For Twin Prime, the normalized
-information budget is compared directly with the ambient semiprime margin;
-all five finite scales pass, while an exact counterfamily proves that
-`I=o(selection probability)` is sufficient but not necessary. Every
-conjecture remains `open_not_proven`.
+[TICKET-165: Vanishing Defects, Logarithmic Collatz Tails, Goldbach
+Variation, and Signed Haar Duality](docs/vanishing-defect-logtail-variation-signed-dual.md).
+It proves four exact bridge or no-go theorems. For RH, a vanishing-negative-
+defect limit theorem replaces the unnecessary demand for a uniform positive
+Galerkin gap, and an exact path-Laplacian family proves why the gap can vanish.
+For Collatz, every first-crossing final-valuation tail is reduced at all
+lengths to `O(log m)` residual excesses, while a near-critical family rejects
+any constant-excess shortcut based only on the universal affine envelope. For
+Goldbach, sparse anchor margins plus local variation imply the exact pointwise
+gate, whereas a unit spike defeats every fixed finite normalized moment. For
+Twin Prime, signed product-Haar duality identifies the below-main-term error
+budget, and `H` versus `-H` rejects unsigned square energy as a positivity
+certificate. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
-[TICKET-156: Cutoff, Potential, Signed Mass, and Normalized
-Information](docs/cutoff-potential-signed-information.md).
+[TICKET-164: Constraint-Core Eigenvalues, First-Crossing Residues, Pointwise
+Goldbach Gates, and Product Haar Localization](docs/core-eigen-first-crossing-pointwise-product.md).
 
 The earlier boundary is
 [TICKET-155: Range Exactness, Initial-Prefix Descent, Sublinear Wheels, and
@@ -115,22 +113,21 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-four-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-twenty-five-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-164. It reduces finite constrained RH
-positivity exactly to a compressed minimum-eigenvalue test and proves that
-positive scalar cancellation summaries are insufficient; reduces every
-fixed-length Collatz first-crossing audit to finitely many final valuations
-and completely replays 464,921 potential non-descent words through length 17;
-proves the exact pointwise Goldbach integrality gate while showing that the
-former shell `L2 < 1` gate is sufficient but not necessary; and proves
-product-Haar Parseval while exposing an anisotropic no-go for equal-scale-only
-tensor diagnostics. These are exact finite reductions and countermodels, not
+The latest proof-search track is TICKET-165. It proves a vanishing-defect
+core-limit bridge and rejects a necessary uniform RH spectral gap; reduces
+every Collatz first-crossing final-valuation tail to a logarithmic excess
+window at all lengths; proves a Goldbach sparse-anchor plus variation bridge
+and rejects every fixed finite normalized moment by a unit-spike family; and
+proves signed product-Haar duality while showing that unsigned energy cannot
+decide twin-pair positivity. These are exact bridge and no-go statements, not
 solutions. All four conjectures remain open and the machine resolution count
 is zero.
 See
+[TICKET165](docs/vanishing-defect-logtail-variation-signed-dual.md),
 [TICKET164](docs/core-eigen-first-crossing-pointwise-product.md),
 [TICKET163](docs/local-certificate-realizer-trace-carleson.md),
 [TICKET162](docs/formnorm-explicitbaker-integral-multiscale.md),
@@ -154,17 +151,18 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-164입니다. 리만 트랙은 제약된
-유한 양성 판정을 압축 행렬의 최소 고유값 문제로 정확히 바꾸고,
-양의 trace·determinant·단일 test value만으로는 부족함을 반례족으로
-증명했습니다. 콜라츠 트랙은 first-crossing word의 비하강 가능성을
-각 prefix마다 유한화하고 길이 17까지 464,921개 후보를 정확히
-재생해 모두 하강함을 확인했습니다. 그러나 길이 18 이상은
-미증명입니다. 골드바흐 트랙은 표현수 양성과 정규화 음의 오차가
-점별로 1보다 작다는 조건의 정확한 동치를 증명하고, shell `L2<1`은
-필요조건이 아님을 보였습니다. 쌍둥이 소수 트랙은 행·열 scale이
-독립적인 product-Haar 항등식과 equal-scale-only no-go를 증명했습니다.
-네 문제는 모두 미해결이며 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-165입니다. 리만 트랙은 제약된
+유한 형식의 양의 균일 고윳값 간극이 필요조건이 아님을 정확한
+path-Laplacian 반례족으로 보이고, 대신 소멸하는 음의 결함을 갖는
+core-limit 정리를 증명했습니다. 콜라츠 트랙은 모든 길이에서
+first-crossing 마지막 valuation의 무한 꼬리를 `O(log m)`개의 excess로
+줄였지만, 그 로그 창의 residue slack은 아직 미증명입니다. 골드바흐
+트랙은 sparse anchor margin과 국소 총변동을 점별 문턱으로 승격했고,
+모든 고정 유한 정규화 moment가 단일 예외를 놓칠 수 있음을
+unit-spike 반례족으로 증명했습니다. 쌍둥이 소수 트랙은 부호 있는
+product-Haar 쌍대 gate를 증명하고 무부호 에너지 단독 판정을
+`H`와 `-H`로 폐기했습니다. 네 문제는 모두 미해결이며 해결 수는
+0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -184,13 +182,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-164입니다.
-[제약 core 고유값, 첫 수축 residue, 점별 골드바흐 문턱, product-Haar
-보고서](docs/core-eigen-first-crossing-pointwise-product.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-165입니다.
+[소멸 결함, 콜라츠 로그 꼬리, 골드바흐 변동, 부호 있는 Haar 쌍대성
+보고서](docs/vanishing-defect-logtail-variation-signed-dual.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만 제약 core 압축, 콜라츠 길이 17까지의
-first-crossing 완전 인증, 골드바흐 점별 적분성 동치와 `L2` 비필요성,
-쌍둥이 소수의 product-Haar 비등방 분해를 확정했습니다.
+영문으로 정리합니다. 리만의 소멸 음의 결함 극한 bridge, 모든 길이의
+콜라츠 로그 excess 축소, 골드바흐 sparse-anchor variation 승격,
+쌍둥이 소수의 signed product-Haar 쌍대 gate를 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

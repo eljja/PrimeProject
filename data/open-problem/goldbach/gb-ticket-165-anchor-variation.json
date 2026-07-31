@@ -1,0 +1,296 @@
+{
+  "schema": "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1",
+  "generated_at": "2026-08-01T12:00:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-165",
+  "status": "open_not_proven",
+  "theorem_name": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+  "declared_proposition": "For a finite deficit sequence d and anchors partitioning the index interval, every point is at most the maximum anchor value plus the largest accumulated absolute first difference between neighboring anchors. Therefore anchor_max+variation_radius<1 is a rigorous pointwise Goldbach certificate. No normalized Lp moment with fixed finite p can replace local control: one unit spike in a block of length L has normalized Lp norm L^(-1/p) tending to zero while retaining one exact exception.",
+  "mathematical_argument": "For any point, telescope from its left anchor and apply the triangle inequality; taking maxima proves the net certificate. For the spike family, the normalized pth moment is exactly 1/L and the maximum is exactly one for every L, proving the finite-p average no-go.",
+  "reproducible_computation": {
+    "theorem": "For a finite deficit sequence d and anchors partitioning the index interval, every point is at most the maximum anchor value plus the largest accumulated absolute first difference between neighboring anchors. Therefore anchor_max+variation_radius<1 is a rigorous pointwise Goldbach certificate. No normalized Lp moment with fixed finite p can replace local control: one unit spike in a block of length L has normalized Lp norm L^(-1/p) tending to zero while retaining one exact exception.",
+    "proof": "For any point, telescope from its left anchor and apply the triangle inequality; taking maxima proves the net certificate. For the spike family, the normalized pth moment is exactly 1/L and the maximum is exactly one for every L, proving the finite-p average no-go.",
+    "finite_shell": {
+      "dyadic_lower_exclusive": 32768,
+      "dyadic_upper_inclusive": 65536,
+      "even_target_count": 16384,
+      "actual_maximum_deficit": 0.2158875498268751,
+      "net_rows": [
+        {
+          "anchor_stride_in_even_targets": 1,
+          "anchor_count": 16384,
+          "maximum_anchor_deficit": 0.2158875498268751,
+          "maximum_segment_path_variation": 0.0,
+          "certified_pointwise_upper_bound": 0.2158875498268751,
+          "pointwise_unit_gate_certified": true,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        },
+        {
+          "anchor_stride_in_even_targets": 2,
+          "anchor_count": 8193,
+          "maximum_anchor_deficit": 0.2158875498268751,
+          "maximum_segment_path_variation": 0.18088675889668607,
+          "certified_pointwise_upper_bound": 0.3967743087235612,
+          "pointwise_unit_gate_certified": true,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        },
+        {
+          "anchor_stride_in_even_targets": 4,
+          "anchor_count": 4097,
+          "maximum_anchor_deficit": 0.1916655961456666,
+          "maximum_segment_path_variation": 0.25393085904762913,
+          "certified_pointwise_upper_bound": 0.4455964551932957,
+          "pointwise_unit_gate_certified": true,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        },
+        {
+          "anchor_stride_in_even_targets": 8,
+          "anchor_count": 2049,
+          "maximum_anchor_deficit": 0.1821783116762895,
+          "maximum_segment_path_variation": 0.4476894405012651,
+          "certified_pointwise_upper_bound": 0.6298677521775546,
+          "pointwise_unit_gate_certified": true,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        },
+        {
+          "anchor_stride_in_even_targets": 16,
+          "anchor_count": 1025,
+          "maximum_anchor_deficit": 0.18013269562284823,
+          "maximum_segment_path_variation": 0.7349052758362526,
+          "certified_pointwise_upper_bound": 0.9150379714591008,
+          "pointwise_unit_gate_certified": true,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        },
+        {
+          "anchor_stride_in_even_targets": 32,
+          "anchor_count": 513,
+          "maximum_anchor_deficit": 0.1797846345231424,
+          "maximum_segment_path_variation": 1.37259268003444,
+          "certified_pointwise_upper_bound": 1.5523773145575823,
+          "pointwise_unit_gate_certified": false,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        },
+        {
+          "anchor_stride_in_even_targets": 64,
+          "anchor_count": 257,
+          "maximum_anchor_deficit": 0.1797846345231424,
+          "maximum_segment_path_variation": 2.473112627024153,
+          "certified_pointwise_upper_bound": 2.652897261547295,
+          "pointwise_unit_gate_certified": false,
+          "checks": {
+            "net_bound_dominates_actual_maximum": true,
+            "anchor_count_is_positive": true,
+            "variation_is_nonnegative": true
+          }
+        }
+      ]
+    },
+    "finite_p_spike_no_go": {
+      "rows": [
+        {
+          "block_size": 8,
+          "exception_count": 1,
+          "maximum_deficit": 1,
+          "moments": {
+            "1": {
+              "normalized_pth_moment": {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              "normalized_lp_norm": 0.125
+            },
+            "2": {
+              "normalized_pth_moment": {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              "normalized_lp_norm": 0.3535533905932738
+            },
+            "4": {
+              "normalized_pth_moment": {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              "normalized_lp_norm": 0.5946035575013605
+            }
+          }
+        },
+        {
+          "block_size": 32,
+          "exception_count": 1,
+          "maximum_deficit": 1,
+          "moments": {
+            "1": {
+              "normalized_pth_moment": {
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              "normalized_lp_norm": 0.03125
+            },
+            "2": {
+              "normalized_pth_moment": {
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              "normalized_lp_norm": 0.1767766952966369
+            },
+            "4": {
+              "normalized_pth_moment": {
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              "normalized_lp_norm": 0.42044820762685725
+            }
+          }
+        },
+        {
+          "block_size": 128,
+          "exception_count": 1,
+          "maximum_deficit": 1,
+          "moments": {
+            "1": {
+              "normalized_pth_moment": {
+                "exact": "1/128",
+                "decimal": 0.0078125
+              },
+              "normalized_lp_norm": 0.0078125
+            },
+            "2": {
+              "normalized_pth_moment": {
+                "exact": "1/128",
+                "decimal": 0.0078125
+              },
+              "normalized_lp_norm": 0.08838834764831845
+            },
+            "4": {
+              "normalized_pth_moment": {
+                "exact": "1/128",
+                "decimal": 0.0078125
+              },
+              "normalized_lp_norm": 0.29730177875068026
+            }
+          }
+        },
+        {
+          "block_size": 512,
+          "exception_count": 1,
+          "maximum_deficit": 1,
+          "moments": {
+            "1": {
+              "normalized_pth_moment": {
+                "exact": "1/512",
+                "decimal": 0.001953125
+              },
+              "normalized_lp_norm": 0.001953125
+            },
+            "2": {
+              "normalized_pth_moment": {
+                "exact": "1/512",
+                "decimal": 0.001953125
+              },
+              "normalized_lp_norm": 0.04419417382415922
+            },
+            "4": {
+              "normalized_pth_moment": {
+                "exact": "1/512",
+                "decimal": 0.001953125
+              },
+              "normalized_lp_norm": 0.21022410381342863
+            }
+          }
+        },
+        {
+          "block_size": 2048,
+          "exception_count": 1,
+          "maximum_deficit": 1,
+          "moments": {
+            "1": {
+              "normalized_pth_moment": {
+                "exact": "1/2048",
+                "decimal": 0.00048828125
+              },
+              "normalized_lp_norm": 0.00048828125
+            },
+            "2": {
+              "normalized_pth_moment": {
+                "exact": "1/2048",
+                "decimal": 0.00048828125
+              },
+              "normalized_lp_norm": 0.02209708691207961
+            },
+            "4": {
+              "normalized_pth_moment": {
+                "exact": "1/2048",
+                "decimal": 0.00048828125
+              },
+              "normalized_lp_norm": 0.14865088937534013
+            }
+          }
+        }
+      ],
+      "checks": {
+        "every_block_retains_one_exception": true,
+        "every_finite_p_normalized_moment_tends_down_the_schedule": true,
+        "pointwise_maximum_remains_one": true
+      }
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed finite-p normalized average deficit as a pointwise no-exception certificate",
+  "remaining_gap": "The finite FFT profile supplies no uniform analytic anchor margin or variation decay over unbounded dyadic shells. The bridge is deterministic and does not itself estimate binary Goldbach minor arcs.",
+  "candidate_theorem": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact net-to-pointwise bridge, exact finite-p spike no-go, and finite FFT diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T165-REJECTED",
+        "label": "VanishingFinitePMomentExcludesEveryGoldbachException",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T165-CLOSED",
+        "label": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T165-OPEN",
+        "label": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T165-REJECTED",
+        "GB-T165-CLOSED"
+      ],
+      [
+        "GB-T165-CLOSED",
+        "GB-T165-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "schema": "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1",
+  "generated_at": "2026-08-01T12:00:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-165",
+  "status": "open_not_proven",
+  "theorem_name": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+  "declared_proposition": "Let P_N map a dense admissible core D into itself and let P_N f converge to f in a norm on which a quadratic form Q is continuous. If Q(P_N f) >= -epsilon_N ||P_N f||^2 for every f in D and epsilon_N tends to zero, then Q(f)>=0 on that core. A uniform positive finite-section eigenvalue gap is not necessary: the n-point path Laplacian is strictly positive on the sum-zero core for every n, while the explicit witness x_i=2i-(n-1) has Rayleigh quotient 12/[n(n+1)] tending to zero.",
+  "mathematical_argument": "Continuity gives Q(P_N f)->Q(f), norm convergence bounds ||P_N f||, and the assumed lower bounds converge to zero; taking liminf proves Q(f)>=0. For the path Laplacian, Q_n(x) is the sum of squared adjacent differences, so its only zero vectors are constant and the sum-zero constraint removes them. The displayed integer witness has norm n(n^2-1)/3 and energy 4(n-1), hence Rayleigh quotient 12/[n(n+1)].",
+  "reproducible_computation": {
+    "theorem": "Let P_N map a dense admissible core D into itself and let P_N f converge to f in a norm on which a quadratic form Q is continuous. If Q(P_N f) >= -epsilon_N ||P_N f||^2 for every f in D and epsilon_N tends to zero, then Q(f)>=0 on that core. A uniform positive finite-section eigenvalue gap is not necessary: the n-point path Laplacian is strictly positive on the sum-zero core for every n, while the explicit witness x_i=2i-(n-1) has Rayleigh quotient 12/[n(n+1)] tending to zero.",
+    "proof": "Continuity gives Q(P_N f)->Q(f), norm convergence bounds ||P_N f||, and the assumed lower bounds converge to zero; taking liminf proves Q(f)>=0. For the path Laplacian, Q_n(x) is the sum of squared adjacent differences, so its only zero vectors are constant and the sum-zero constraint removes them. The displayed integer witness has norm n(n^2-1)/3 and energy 4(n-1), hence Rayleigh quotient 12/[n(n+1)].",
+    "path_laplacian_no_uniform_gap_rows": [
+      {
+        "dimension": 4,
+        "sum_zero_witness_norm_squared": 20,
+        "path_laplacian_energy": 12,
+        "rayleigh_upper_bound_for_core_minimum": {
+          "exact": "3/5",
+          "decimal": 0.6
+        },
+        "checks": {
+          "witness_is_in_sum_zero_core": true,
+          "witness_norm_formula_is_exact": true,
+          "path_energy_formula_is_exact": true,
+          "rayleigh_quotient_formula_is_exact": true,
+          "explicit_witness_has_positive_energy": true
+        }
+      },
+      {
+        "dimension": 8,
+        "sum_zero_witness_norm_squared": 168,
+        "path_laplacian_energy": 28,
+        "rayleigh_upper_bound_for_core_minimum": {
+          "exact": "1/6",
+          "decimal": 0.16666666666666666
+        },
+        "checks": {
+          "witness_is_in_sum_zero_core": true,
+          "witness_norm_formula_is_exact": true,
+          "path_energy_formula_is_exact": true,
+          "rayleigh_quotient_formula_is_exact": true,
+          "explicit_witness_has_positive_energy": true
+        }
+      },
+      {
+        "dimension": 16,
+        "sum_zero_witness_norm_squared": 1360,
+        "path_laplacian_energy": 60,
+        "rayleigh_upper_bound_for_core_minimum": {
+          "exact": "3/68",
+          "decimal": 0.04411764705882353
+        },
+        "checks": {
+          "witness_is_in_sum_zero_core": true,
+          "witness_norm_formula_is_exact": true,
+          "path_energy_formula_is_exact": true,
+          "rayleigh_quotient_formula_is_exact": true,
+          "explicit_witness_has_positive_energy": true
+        }
+      },
+      {
+        "dimension": 32,
+        "sum_zero_witness_norm_squared": 10912,
+        "path_laplacian_energy": 124,
+        "rayleigh_upper_bound_for_core_minimum": {
+          "exact": "1/88",
+          "decimal": 0.011363636363636364
+        },
+        "checks": {
+          "witness_is_in_sum_zero_core": true,
+          "witness_norm_formula_is_exact": true,
+          "path_energy_formula_is_exact": true,
+          "rayleigh_quotient_formula_is_exact": true,
+          "explicit_witness_has_positive_energy": true
+        }
+      },
+      {
+        "dimension": 64,
+        "sum_zero_witness_norm_squared": 87360,
+        "path_laplacian_energy": 252,
+        "rayleigh_upper_bound_for_core_minimum": {
+          "exact": "3/1040",
+          "decimal": 0.0028846153846153848
+        },
+        "checks": {
+          "witness_is_in_sum_zero_core": true,
+          "witness_norm_formula_is_exact": true,
+          "path_energy_formula_is_exact": true,
+          "rayleigh_quotient_formula_is_exact": true,
+          "explicit_witness_has_positive_energy": true
+        }
+      },
+      {
+        "dimension": 128,
+        "sum_zero_witness_norm_squared": 699008,
+        "path_laplacian_energy": 508,
+        "rayleigh_upper_bound_for_core_minimum": {
+          "exact": "1/1376",
+          "decimal": 0.0007267441860465116
+        },
+        "checks": {
+          "witness_is_in_sum_zero_core": true,
+          "witness_norm_formula_is_exact": true,
+          "path_energy_formula_is_exact": true,
+          "rayleigh_quotient_formula_is_exact": true,
+          "explicit_witness_has_positive_energy": true
+        }
+      }
+    ],
+    "vanishing_defect_bridge_rows": [
+      {
+        "cutoff": 2,
+        "epsilon_N": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "sample_projected_norm_squared": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "certified_lower_bound": {
+          "exact": "-3/4",
+          "decimal": -0.75
+        }
+      },
+      {
+        "cutoff": 4,
+        "epsilon_N": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "sample_projected_norm_squared": {
+          "exact": "5/4",
+          "decimal": 1.25
+        },
+        "certified_lower_bound": {
+          "exact": "-5/16",
+          "decimal": -0.3125
+        }
+      },
+      {
+        "cutoff": 8,
+        "epsilon_N": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "sample_projected_norm_squared": {
+          "exact": "9/8",
+          "decimal": 1.125
+        },
+        "certified_lower_bound": {
+          "exact": "-9/64",
+          "decimal": -0.140625
+        }
+      },
+      {
+        "cutoff": 16,
+        "epsilon_N": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "sample_projected_norm_squared": {
+          "exact": "17/16",
+          "decimal": 1.0625
+        },
+        "certified_lower_bound": {
+          "exact": "-17/256",
+          "decimal": -0.06640625
+        }
+      },
+      {
+        "cutoff": 32,
+        "epsilon_N": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "sample_projected_norm_squared": {
+          "exact": "33/32",
+          "decimal": 1.03125
+        },
+        "certified_lower_bound": {
+          "exact": "-33/1024",
+          "decimal": -0.0322265625
+        }
+      },
+      {
+        "cutoff": 64,
+        "epsilon_N": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "sample_projected_norm_squared": {
+          "exact": "65/64",
+          "decimal": 1.015625
+        },
+        "certified_lower_bound": {
+          "exact": "-65/4096",
+          "decimal": -0.015869140625
+        }
+      }
+    ],
+    "global_checks": {
+      "rayleigh_bounds_strictly_decrease": true,
+      "rayleigh_bounds_tend_toward_zero_on_the_audited_schedule": true,
+      "vanishing_defect_schedule_strictly_decreases": true
+    },
+    "failure_count": 0
+  },
+  "discarded_route": "requiring a cutoff-independent strictly positive minimum eigenvalue as a necessary route to Weil nonnegativity",
+  "remaining_gap": "The abstract limit bridge does not construct the actual Guinand-Weil projections, prove their form convergence, or bound their negative defect. The path-Laplacian family is a no-go model, not the zeta operator.",
+  "candidate_theorem": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect",
+  "claim_boundary": "No RH proof and no zero exclusion; exact abstract limit bridge and exact no-go to a necessary uniform positive gap.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T165-REJECTED",
+        "label": "UniformPositiveCoreSpectralGapIsNecessary",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T165-CLOSED",
+        "label": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T165-OPEN",
+        "label": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T165-REJECTED",
+        "RH-T165-CLOSED"
+      ],
+      [
+        "RH-T165-CLOSED",
+        "RH-T165-OPEN"
+      ]
+    ]
+  }
+}

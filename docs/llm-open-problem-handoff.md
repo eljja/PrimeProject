@@ -62,7 +62,46 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-164
+## Latest Continuation After TICKET-165
+
+Read
+`data/open-problem/ticket165-vanishing-defect-logtail-variation-signed-dual.json`,
+`scripts/ticket165_vanishing_defect_logtail_variation_signed_dual.py`, and
+`tests/test_ticket165_vanishing_defect_logtail_variation_signed_dual.py` first.
+
+Do not reopen these rejected routes without defeating the exact TICKET-165
+counterexample or no-go theorem:
+
+1. requiring a cutoff-independent positive RH finite-section gap as a
+   necessary route to nonnegativity;
+2. closing all Collatz lengths with a fixed final-valuation excess and only
+   the universal affine correction envelope;
+3. promoting any fixed finite normalized Goldbach moment to pointwise
+   no-exception control;
+4. deciding Twin positivity from unsigned product-Haar square energy alone.
+
+Exact TICKET-165 results:
+
+1. `VanishingDefectCoreLimitBridgeAndUniformGapNoGo`;
+2. `UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo`;
+3. `SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo`;
+4. `SignedProductHaarDualityAndUnsignedEnergyNoGo`.
+
+The next single lemmas are:
+
+1. `ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect`;
+2. `UniformResidueSlackForLogarithmicFirstCrossingExcessWindow`;
+3. `UniformDyadicMinorDeficitAnchorMarginAndVariationDecay`;
+4. `PrimeWeightedSignedProductCarlesonDualMarginBeyondParity`.
+
+한국어 인계: path-Laplacian은 실제 zeta 연산자가 아니라 균일 양의
+gap 필요성을 반박하는 정확한 no-go 모델이다. Collatz의 로그 창 축소는
+모든 길이에 성립하지만, 그 창 안 residue의 하강을 증명하지 않는다.
+Goldbach의 stride 16 결과는 `(32768,65536]` 유한 셸 진단이다. Twin의
+`H,-H`는 무부호 결정 규칙의 반례이지 소수 가중 정리의 반례가 아니다.
+네 추측은 모두 `open_not_proven`이다.
+
+## Previous Continuation After TICKET-164
 
 Read
 `data/open-problem/ticket164-core-eigen-first-crossing-pointwise-product.json`,

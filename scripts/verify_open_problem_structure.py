@@ -176,6 +176,9 @@ TICKET163_SCHEMA = (
 TICKET164_SCHEMA = (
     "primeproject.ticket164-core-eigen-first-crossing-pointwise-product.v1"
 )
+TICKET165_SCHEMA = (
+    "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -12364,6 +12367,164 @@ def main() -> int:
         or "resolves none" not in str(ticket164.get("claim_boundary", "")).lower()
     ):
         return fail("ticket164 proof boundary changed")
+
+    path165 = Path(
+        "data/open-problem/ticket165-vanishing-defect-logtail-variation-signed-dual.json"
+    )
+    if not path165.exists():
+        return fail("missing ticket165 vanishing-defect/log-tail/variation/signed-dual audit")
+    ticket165 = read_json(path165)
+    if (
+        ticket165.get("schema") != TICKET165_SCHEMA
+        or ticket165.get("status")
+        != "four_exact_bridges_and_no_go_results_all_conjectures_open"
+    ):
+        return fail("ticket165 schema or status changed")
+    attempts165 = ticket165.get("attempts", [])
+    by_id165 = {
+        str(row.get("problem_id")): row
+        for row in attempts165
+        if isinstance(row, dict)
+    }
+    if set(by_id165) != EXPECTED_PROBLEMS:
+        return fail("ticket165 attempts missing problems")
+    audit165 = ticket165.get(
+        "vanishing_defect_logtail_variation_signed_dual_audit",
+        {},
+    )
+    if audit165.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket165 global machine audit changed")
+
+    paths165 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-165-vanishing-defect.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-165-logarithmic-excess.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-165-anchor-variation.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-165-signed-dual.json"),
+    }
+    expected_names165 = {
+        "riemann": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+        "collatz": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+        "goldbach": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+        "twin-prime": "SignedProductHaarDualityAndUnsignedEnergyNoGo",
+    }
+    next165 = {
+        "riemann": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect",
+        "collatz": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow",
+        "goldbach": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay",
+        "twin-prime": "PrimeWeightedSignedProductCarlesonDualMarginBeyondParity",
+    }
+    sections165 = {
+        "riemann": audit165.get("riemann", {}),
+        "collatz": audit165.get("collatz", {}),
+        "goldbach": audit165.get("goldbach", {}),
+        "twin-prime": audit165.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id165.items():
+        artifact_path = paths165[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket165 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections165[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET165_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names165[problem_id]
+            or artifact.get("theorem_name") != expected_names165[problem_id]
+            or attempt.get("candidate_theorem") != next165[problem_id]
+            or artifact.get("candidate_theorem") != next165[problem_id]
+            or len(nodes) != 3
+            or [node.get("status") for node in nodes]
+            != ["refuted_or_insufficient", "proved_exact", "open_not_proven"]
+            or nodes[-1].get("label") != next165[problem_id]
+            or int(section.get("reproducible_computation", {}).get("failure_count", -1)) != 0
+            or "No " not in str(artifact.get("claim_boundary", ""))
+        ):
+            return fail(f"{problem_id}: ticket165 contract changed")
+
+    riemann165 = sections165["riemann"]["reproducible_computation"]
+    gap_rows165 = riemann165.get("path_laplacian_no_uniform_gap_rows", [])
+    defect_rows165 = riemann165.get("vanishing_defect_bridge_rows", [])
+    if (
+        [row.get("dimension") for row in gap_rows165] != [4, 8, 16, 32, 64, 128]
+        or gap_rows165[-1].get("rayleigh_upper_bound_for_core_minimum", {}).get("exact")
+        != "1/1376"
+        or any(not all(row.get("checks", {}).values()) for row in gap_rows165)
+        or [row.get("cutoff") for row in defect_rows165] != [2, 4, 8, 16, 32, 64]
+        or not all(riemann165.get("global_checks", {}).values())
+    ):
+        return fail("ticket165 RH vanishing-defect audit changed")
+
+    collatz165 = sections165["collatz"]["reproducible_computation"]
+    tail_rows165 = collatz165.get("uniform_logarithmic_tail_rows", [])
+    no_go_rows165 = collatz165.get("fixed_excess_envelope_no_go_rows", [])
+    if (
+        [row.get("word_length_m") for row in tail_rows165]
+        != [8, 16, 32, 64, 128, 256, 512, 1024]
+        or [row.get("residual_excess_count") for row in tail_rows165]
+        != [1, 2, 3, 4, 4, 5, 6, 7]
+        or any(not all(row.get("checks", {}).values()) for row in tail_rows165)
+        or [row.get("fixed_final_excess") for row in no_go_rows165] != list(range(6))
+        or [row.get("constructed_word_length") for row in no_go_rows165]
+        != [19, 55, 127, 271, 559, 1135]
+        or any(
+            row.get("automatic_n3_margin_sign") != -1
+            or not all(row.get("checks", {}).values())
+            for row in no_go_rows165
+        )
+    ):
+        return fail("ticket165 Collatz logarithmic-tail audit changed")
+
+    goldbach165 = sections165["goldbach"]["reproducible_computation"]
+    shell165 = goldbach165.get("finite_shell", {})
+    net_rows165 = shell165.get("net_rows", [])
+    spike165 = goldbach165.get("finite_p_spike_no_go", {})
+    spike_rows165 = spike165.get("rows", [])
+    if (
+        shell165.get("dyadic_upper_inclusive") != 65_536
+        or float(shell165.get("actual_maximum_deficit", 1)) >= 1
+        or [row.get("anchor_stride_in_even_targets") for row in net_rows165]
+        != [1, 2, 4, 8, 16, 32, 64]
+        or net_rows165[4].get("pointwise_unit_gate_certified") is not True
+        or net_rows165[5].get("pointwise_unit_gate_certified") is not False
+        or any(not all(row.get("checks", {}).values()) for row in net_rows165)
+        or [row.get("block_size") for row in spike_rows165]
+        != [8, 32, 128, 512, 2048]
+        or any(
+            row.get("exception_count") != 1 or row.get("maximum_deficit") != 1
+            for row in spike_rows165
+        )
+        or not all(spike165.get("checks", {}).values())
+    ):
+        return fail("ticket165 Goldbach anchor-variation audit changed")
+
+    twin165 = sections165["twin-prime"]["reproducible_computation"]
+    signed_rows165 = twin165.get("signed_dual_sharpness_rows", [])
+    if (
+        [row.get("dimension") for row in signed_rows165] != [8, 16, 32, 64, 128]
+        or any(
+            row.get("cauchy_budget_squared", {}).get("exact") != "1/1"
+            or row.get("positive_signed_pairing", {}).get("exact") != "1/1"
+            or row.get("negative_signed_pairing", {}).get("exact") != "-1/1"
+            or row.get("positive_model_count", {}).get("exact") != "2/1"
+            or row.get("zero_model_count", {}).get("exact") != "0/1"
+            or not all(row.get("checks", {}).values())
+            for row in signed_rows165
+        )
+    ):
+        return fail("ticket165 Twin signed-dual audit changed")
+    if (
+        "resolves none" not in str(audit165.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket165.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket165 proof boundary changed")
 
     print("open problem structure verified")
     return 0

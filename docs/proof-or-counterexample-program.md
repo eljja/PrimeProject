@@ -37,6 +37,48 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-01 TICKET-165 Vanishing-Defect, Log-Tail, Variation, and Signed-Dual Audit
+
+TICKET-165 attacks the four open nodes left by TICKET-164. It replaces one
+unnecessary uniform target, reduces one infinite tail at every length, and
+identifies the pointwise or signed information missing from two averaged
+routes.
+
+1. **Riemann:** `VanishingDefectCoreLimitBridgeAndUniformGapNoGo` proves
+   nonnegativity from form-core convergence and a negative defect
+   `epsilon_N -> 0`. The path-Laplacian witness has Rayleigh quotient
+   `12/[n(n+1)]`, so a cutoff-independent positive spectral gap is not
+   necessary. The next target is
+   `ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect`.
+2. **Collatz:**
+   `UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo` proves that
+   `9(2^t-1)>m` closes every first-crossing natural realizer `n>=3`, leaving
+   only `O(log m)` final excesses at every length. A near-critical exact
+   family rejects any fixed-excess shortcut based on the same coarse affine
+   envelope. The next target is
+   `UniformResidueSlackForLogarithmicFirstCrossingExcessWindow`.
+3. **Goldbach:**
+   `SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo` proves that
+   anchor maximum plus local path variation below one is a pointwise
+   no-exception certificate. A unit spike defeats every fixed finite
+   normalized `Lp` moment. The next target is
+   `UniformDyadicMinorDeficitAnchorMarginAndVariationDecay`.
+4. **Twin Prime:** `SignedProductHaarDualityAndUnsignedEnergyNoGo` proves the
+   weighted product-Haar Cauchy dual gate. The pair `H,-H` has identical
+   unsigned square energy but model counts `2,0`, so a signed prime-weighted
+   error estimate below the main term is indispensable. The next target is
+   `PrimeWeightedSignedProductCarlesonDualMarginBeyondParity`.
+
+한국어 요약: RH의 양의 균일 gap을 필요조건에서 제거하고 소멸 음의
+결함으로 교체했습니다. Collatz의 길이별 무한 final-valuation 꼬리는
+로그 개수로 줄었지만 그 residue 창은 닫히지 않았습니다. Goldbach는
+anchor와 변동을 함께 써야 점별 결론이 나오며, 고정 유한 moment만으로는
+단일 예외를 배제할 수 없습니다. Twin은 무부호 에너지 대신 부호 있는
+쌍대 오차가 main term보다 작다는 실제 gate가 필요합니다. 네 추측의
+해결 수는 0입니다. 자세한 증명과 재현 명령은
+[TICKET-165 vanishing-defect-logtail-variation-signed-dual](vanishing-defect-logtail-variation-signed-dual.md)에
+있습니다.
+
 ## 2026-07-31 TICKET-164 Core-Eigen, First-Crossing, Pointwise, and Product Audit
 
 TICKET-164 attacks the four open nodes left by TICKET-163 and tightens the

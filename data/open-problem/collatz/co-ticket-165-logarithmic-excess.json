@@ -1,0 +1,264 @@
+{
+  "schema": "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1",
+  "generated_at": "2026-08-01T12:00:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-165",
+  "status": "open_not_proven",
+  "theorem_name": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+  "declared_proposition": "For a first-crossing accelerated Collatz word of length m, write the final valuation as the least crossing valuation plus t. Its affine correction satisfies C<=m*3^(m-1), while its slope gap D=2^S-3^m is greater than (2^t-1)3^m. Hence every odd n>=3 descends automatically whenever 9(2^t-1)>m. Only O(log m) final excess values remain for exact residue analysis at every length.",
+  "mathematical_argument": "Every proper prefix obeys 2^(S_j)<=3^j, so each term in C=sum 3^(m-1-j)2^(S_j) is at most 3^(m-1), proving the correction bound. Increasing the least crossing valuation by t multiplies 2^S by 2^t and gives the stated slope-gap bound. The endpoint margin numerator nD-C is positive for n>=3 under 9(2^t-1)>m. The near-critical Beatty-prefix construction shows no fixed t can make this coarse n>=3 envelope conclusive at all lengths; it is a no-go for a constant-excess shortcut, not a Collatz counterexample.",
+  "reproducible_computation": {
+    "theorem": "For a first-crossing accelerated Collatz word of length m, write the final valuation as the least crossing valuation plus t. Its affine correction satisfies C<=m*3^(m-1), while its slope gap D=2^S-3^m is greater than (2^t-1)3^m. Hence every odd n>=3 descends automatically whenever 9(2^t-1)>m. Only O(log m) final excess values remain for exact residue analysis at every length.",
+    "proof": "Every proper prefix obeys 2^(S_j)<=3^j, so each term in C=sum 3^(m-1-j)2^(S_j) is at most 3^(m-1), proving the correction bound. Increasing the least crossing valuation by t multiplies 2^S by 2^t and gives the stated slope-gap bound. The endpoint margin numerator nD-C is positive for n>=3 under 9(2^t-1)>m. The near-critical Beatty-prefix construction shows no fixed t can make this coarse n>=3 envelope conclusive at all lengths; it is a no-go for a constant-excess shortcut, not a Collatz counterexample.",
+    "uniform_logarithmic_tail_rows": [
+      {
+        "word_length_m": 8,
+        "first_automatically_descending_final_excess": 1,
+        "residual_final_excess_values": [
+          0
+        ],
+        "residual_excess_count": 1,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 16,
+        "first_automatically_descending_final_excess": 2,
+        "residual_final_excess_values": [
+          0,
+          1
+        ],
+        "residual_excess_count": 2,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 32,
+        "first_automatically_descending_final_excess": 3,
+        "residual_final_excess_values": [
+          0,
+          1,
+          2
+        ],
+        "residual_excess_count": 3,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 64,
+        "first_automatically_descending_final_excess": 4,
+        "residual_final_excess_values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "residual_excess_count": 4,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 128,
+        "first_automatically_descending_final_excess": 4,
+        "residual_final_excess_values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "residual_excess_count": 4,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 256,
+        "first_automatically_descending_final_excess": 5,
+        "residual_final_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "residual_excess_count": 5,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 512,
+        "first_automatically_descending_final_excess": 6,
+        "residual_final_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "residual_excess_count": 6,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      },
+      {
+        "word_length_m": 1024,
+        "first_automatically_descending_final_excess": 7,
+        "residual_final_excess_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "residual_excess_count": 7,
+        "checks": {
+          "first_closed_excess_satisfies_global_tail_inequality": true,
+          "previous_excess_is_not_closed_by_global_tail_inequality": true,
+          "residual_count_equals_first_closed_excess": true
+        }
+      }
+    ],
+    "fixed_excess_envelope_no_go_rows": [
+      {
+        "fixed_final_excess": 0,
+        "constructed_word_length": 19,
+        "minimum_valuation": 1,
+        "maximum_valuation": 3,
+        "valuation_sum": 31,
+        "automatic_n3_margin_sign": -1,
+        "checks": {
+          "word_is_positive": true,
+          "all_proper_prefixes_are_noncontracting": true,
+          "full_word_is_contracting": true,
+          "fixed_excess_global_n3_criterion_is_inconclusive": true
+        }
+      },
+      {
+        "fixed_final_excess": 1,
+        "constructed_word_length": 55,
+        "minimum_valuation": 1,
+        "maximum_valuation": 4,
+        "valuation_sum": 89,
+        "automatic_n3_margin_sign": -1,
+        "checks": {
+          "word_is_positive": true,
+          "all_proper_prefixes_are_noncontracting": true,
+          "full_word_is_contracting": true,
+          "fixed_excess_global_n3_criterion_is_inconclusive": true
+        }
+      },
+      {
+        "fixed_final_excess": 2,
+        "constructed_word_length": 127,
+        "minimum_valuation": 1,
+        "maximum_valuation": 5,
+        "valuation_sum": 204,
+        "automatic_n3_margin_sign": -1,
+        "checks": {
+          "word_is_positive": true,
+          "all_proper_prefixes_are_noncontracting": true,
+          "full_word_is_contracting": true,
+          "fixed_excess_global_n3_criterion_is_inconclusive": true
+        }
+      },
+      {
+        "fixed_final_excess": 3,
+        "constructed_word_length": 271,
+        "minimum_valuation": 1,
+        "maximum_valuation": 6,
+        "valuation_sum": 433,
+        "automatic_n3_margin_sign": -1,
+        "checks": {
+          "word_is_positive": true,
+          "all_proper_prefixes_are_noncontracting": true,
+          "full_word_is_contracting": true,
+          "fixed_excess_global_n3_criterion_is_inconclusive": true
+        }
+      },
+      {
+        "fixed_final_excess": 4,
+        "constructed_word_length": 559,
+        "minimum_valuation": 1,
+        "maximum_valuation": 6,
+        "valuation_sum": 890,
+        "automatic_n3_margin_sign": -1,
+        "checks": {
+          "word_is_positive": true,
+          "all_proper_prefixes_are_noncontracting": true,
+          "full_word_is_contracting": true,
+          "fixed_excess_global_n3_criterion_is_inconclusive": true
+        }
+      },
+      {
+        "fixed_final_excess": 5,
+        "constructed_word_length": 1135,
+        "minimum_valuation": 1,
+        "maximum_valuation": 7,
+        "valuation_sum": 1804,
+        "automatic_n3_margin_sign": -1,
+        "checks": {
+          "word_is_positive": true,
+          "all_proper_prefixes_are_noncontracting": true,
+          "full_word_is_contracting": true,
+          "fixed_excess_global_n3_criterion_is_inconclusive": true
+        }
+      }
+    ],
+    "failure_count": 0
+  },
+  "discarded_route": "a fixed final-valuation excess cutoff justified only by the universal correction envelope",
+  "remaining_gap": "The theorem leaves O(log m) final excesses for each of exponentially many noncontracting prefixes. It proves neither Terras's coefficient-stopping-time conjecture nor that every orbit reaches a contracting prefix.",
+  "candidate_theorem": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow",
+  "claim_boundary": "No Collatz proof and no divergent orbit; exact all-length logarithmic final-excess reduction only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T165-REJECTED",
+        "label": "ConstantFinalExcessClosesEveryFirstCrossingLength",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T165-CLOSED",
+        "label": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T165-OPEN",
+        "label": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T165-REJECTED",
+        "CO-T165-CLOSED"
+      ],
+      [
+        "CO-T165-CLOSED",
+        "CO-T165-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,1209 @@
+{
+  "schema": "primeproject.ticket165-vanishing-defect-logtail-variation-signed-dual.v1",
+  "generated_at": "2026-08-01T12:00:00+09:00",
+  "status": "four_exact_bridges_and_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-165 proves four exact bridge or no-go statements and resolves none of the four conjectures. It replaces an unnecessary uniform RH gap by a vanishing-defect limit obligation, reduces every Collatz first-crossing final-valuation tail to a logarithmic excess window, upgrades Goldbach sparse anchors to pointwise control only with local variation, and shows that Twin product-Haar energies require signed dual control below the main term.",
+  "vanishing_defect_logtail_variation_signed_dual_audit": {
+    "theorem_name": "FourConjectureVanishingDefectLogTailVariationSignedDualAudit",
+    "status": "four_exact_bridges_and_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-165 proves four exact bridge or no-go statements and resolves none of the four conjectures. It replaces an unnecessary uniform RH gap by a vanishing-defect limit obligation, reduces every Collatz first-crossing final-valuation tail to a logarithmic excess window, upgrades Goldbach sparse anchors to pointwise control only with local variation, and shows that Twin product-Haar energies require signed dual control below the main term.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-165",
+      "theorem_name": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+      "declared_proposition": "Let P_N map a dense admissible core D into itself and let P_N f converge to f in a norm on which a quadratic form Q is continuous. If Q(P_N f) >= -epsilon_N ||P_N f||^2 for every f in D and epsilon_N tends to zero, then Q(f)>=0 on that core. A uniform positive finite-section eigenvalue gap is not necessary: the n-point path Laplacian is strictly positive on the sum-zero core for every n, while the explicit witness x_i=2i-(n-1) has Rayleigh quotient 12/[n(n+1)] tending to zero.",
+      "mathematical_argument": "Continuity gives Q(P_N f)->Q(f), norm convergence bounds ||P_N f||, and the assumed lower bounds converge to zero; taking liminf proves Q(f)>=0. For the path Laplacian, Q_n(x) is the sum of squared adjacent differences, so its only zero vectors are constant and the sum-zero constraint removes them. The displayed integer witness has norm n(n^2-1)/3 and energy 4(n-1), hence Rayleigh quotient 12/[n(n+1)].",
+      "reproducible_computation": {
+        "theorem": "Let P_N map a dense admissible core D into itself and let P_N f converge to f in a norm on which a quadratic form Q is continuous. If Q(P_N f) >= -epsilon_N ||P_N f||^2 for every f in D and epsilon_N tends to zero, then Q(f)>=0 on that core. A uniform positive finite-section eigenvalue gap is not necessary: the n-point path Laplacian is strictly positive on the sum-zero core for every n, while the explicit witness x_i=2i-(n-1) has Rayleigh quotient 12/[n(n+1)] tending to zero.",
+        "proof": "Continuity gives Q(P_N f)->Q(f), norm convergence bounds ||P_N f||, and the assumed lower bounds converge to zero; taking liminf proves Q(f)>=0. For the path Laplacian, Q_n(x) is the sum of squared adjacent differences, so its only zero vectors are constant and the sum-zero constraint removes them. The displayed integer witness has norm n(n^2-1)/3 and energy 4(n-1), hence Rayleigh quotient 12/[n(n+1)].",
+        "path_laplacian_no_uniform_gap_rows": [
+          {
+            "dimension": 4,
+            "sum_zero_witness_norm_squared": 20,
+            "path_laplacian_energy": 12,
+            "rayleigh_upper_bound_for_core_minimum": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "checks": {
+              "witness_is_in_sum_zero_core": true,
+              "witness_norm_formula_is_exact": true,
+              "path_energy_formula_is_exact": true,
+              "rayleigh_quotient_formula_is_exact": true,
+              "explicit_witness_has_positive_energy": true
+            }
+          },
+          {
+            "dimension": 8,
+            "sum_zero_witness_norm_squared": 168,
+            "path_laplacian_energy": 28,
+            "rayleigh_upper_bound_for_core_minimum": {
+              "exact": "1/6",
+              "decimal": 0.16666666666666666
+            },
+            "checks": {
+              "witness_is_in_sum_zero_core": true,
+              "witness_norm_formula_is_exact": true,
+              "path_energy_formula_is_exact": true,
+              "rayleigh_quotient_formula_is_exact": true,
+              "explicit_witness_has_positive_energy": true
+            }
+          },
+          {
+            "dimension": 16,
+            "sum_zero_witness_norm_squared": 1360,
+            "path_laplacian_energy": 60,
+            "rayleigh_upper_bound_for_core_minimum": {
+              "exact": "3/68",
+              "decimal": 0.04411764705882353
+            },
+            "checks": {
+              "witness_is_in_sum_zero_core": true,
+              "witness_norm_formula_is_exact": true,
+              "path_energy_formula_is_exact": true,
+              "rayleigh_quotient_formula_is_exact": true,
+              "explicit_witness_has_positive_energy": true
+            }
+          },
+          {
+            "dimension": 32,
+            "sum_zero_witness_norm_squared": 10912,
+            "path_laplacian_energy": 124,
+            "rayleigh_upper_bound_for_core_minimum": {
+              "exact": "1/88",
+              "decimal": 0.011363636363636364
+            },
+            "checks": {
+              "witness_is_in_sum_zero_core": true,
+              "witness_norm_formula_is_exact": true,
+              "path_energy_formula_is_exact": true,
+              "rayleigh_quotient_formula_is_exact": true,
+              "explicit_witness_has_positive_energy": true
+            }
+          },
+          {
+            "dimension": 64,
+            "sum_zero_witness_norm_squared": 87360,
+            "path_laplacian_energy": 252,
+            "rayleigh_upper_bound_for_core_minimum": {
+              "exact": "3/1040",
+              "decimal": 0.0028846153846153848
+            },
+            "checks": {
+              "witness_is_in_sum_zero_core": true,
+              "witness_norm_formula_is_exact": true,
+              "path_energy_formula_is_exact": true,
+              "rayleigh_quotient_formula_is_exact": true,
+              "explicit_witness_has_positive_energy": true
+            }
+          },
+          {
+            "dimension": 128,
+            "sum_zero_witness_norm_squared": 699008,
+            "path_laplacian_energy": 508,
+            "rayleigh_upper_bound_for_core_minimum": {
+              "exact": "1/1376",
+              "decimal": 0.0007267441860465116
+            },
+            "checks": {
+              "witness_is_in_sum_zero_core": true,
+              "witness_norm_formula_is_exact": true,
+              "path_energy_formula_is_exact": true,
+              "rayleigh_quotient_formula_is_exact": true,
+              "explicit_witness_has_positive_energy": true
+            }
+          }
+        ],
+        "vanishing_defect_bridge_rows": [
+          {
+            "cutoff": 2,
+            "epsilon_N": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "sample_projected_norm_squared": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "certified_lower_bound": {
+              "exact": "-3/4",
+              "decimal": -0.75
+            }
+          },
+          {
+            "cutoff": 4,
+            "epsilon_N": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "sample_projected_norm_squared": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "certified_lower_bound": {
+              "exact": "-5/16",
+              "decimal": -0.3125
+            }
+          },
+          {
+            "cutoff": 8,
+            "epsilon_N": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "sample_projected_norm_squared": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "certified_lower_bound": {
+              "exact": "-9/64",
+              "decimal": -0.140625
+            }
+          },
+          {
+            "cutoff": 16,
+            "epsilon_N": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "sample_projected_norm_squared": {
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            "certified_lower_bound": {
+              "exact": "-17/256",
+              "decimal": -0.06640625
+            }
+          },
+          {
+            "cutoff": 32,
+            "epsilon_N": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "sample_projected_norm_squared": {
+              "exact": "33/32",
+              "decimal": 1.03125
+            },
+            "certified_lower_bound": {
+              "exact": "-33/1024",
+              "decimal": -0.0322265625
+            }
+          },
+          {
+            "cutoff": 64,
+            "epsilon_N": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "sample_projected_norm_squared": {
+              "exact": "65/64",
+              "decimal": 1.015625
+            },
+            "certified_lower_bound": {
+              "exact": "-65/4096",
+              "decimal": -0.015869140625
+            }
+          }
+        ],
+        "global_checks": {
+          "rayleigh_bounds_strictly_decrease": true,
+          "rayleigh_bounds_tend_toward_zero_on_the_audited_schedule": true,
+          "vanishing_defect_schedule_strictly_decreases": true
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The abstract limit bridge does not construct the actual Guinand-Weil projections, prove their form convergence, or bound their negative defect. The path-Laplacian family is a no-go model, not the zeta operator.",
+      "route_decision": {
+        "discard": "requiring a cutoff-independent strictly positive minimum eigenvalue as a necessary route to Weil nonnegativity",
+        "retain": "form-core convergence with an explicit negative defect epsilon_N tending to zero",
+        "next_single_lemma": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T165-REJECTED",
+            "label": "UniformPositiveCoreSpectralGapIsNecessary",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T165-CLOSED",
+            "label": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T165-OPEN",
+            "label": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T165-REJECTED",
+            "RH-T165-CLOSED"
+          ],
+          [
+            "RH-T165-CLOSED",
+            "RH-T165-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no zero exclusion; exact abstract limit bridge and exact no-go to a necessary uniform positive gap."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-165",
+      "theorem_name": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+      "declared_proposition": "For a first-crossing accelerated Collatz word of length m, write the final valuation as the least crossing valuation plus t. Its affine correction satisfies C<=m*3^(m-1), while its slope gap D=2^S-3^m is greater than (2^t-1)3^m. Hence every odd n>=3 descends automatically whenever 9(2^t-1)>m. Only O(log m) final excess values remain for exact residue analysis at every length.",
+      "mathematical_argument": "Every proper prefix obeys 2^(S_j)<=3^j, so each term in C=sum 3^(m-1-j)2^(S_j) is at most 3^(m-1), proving the correction bound. Increasing the least crossing valuation by t multiplies 2^S by 2^t and gives the stated slope-gap bound. The endpoint margin numerator nD-C is positive for n>=3 under 9(2^t-1)>m. The near-critical Beatty-prefix construction shows no fixed t can make this coarse n>=3 envelope conclusive at all lengths; it is a no-go for a constant-excess shortcut, not a Collatz counterexample.",
+      "reproducible_computation": {
+        "theorem": "For a first-crossing accelerated Collatz word of length m, write the final valuation as the least crossing valuation plus t. Its affine correction satisfies C<=m*3^(m-1), while its slope gap D=2^S-3^m is greater than (2^t-1)3^m. Hence every odd n>=3 descends automatically whenever 9(2^t-1)>m. Only O(log m) final excess values remain for exact residue analysis at every length.",
+        "proof": "Every proper prefix obeys 2^(S_j)<=3^j, so each term in C=sum 3^(m-1-j)2^(S_j) is at most 3^(m-1), proving the correction bound. Increasing the least crossing valuation by t multiplies 2^S by 2^t and gives the stated slope-gap bound. The endpoint margin numerator nD-C is positive for n>=3 under 9(2^t-1)>m. The near-critical Beatty-prefix construction shows no fixed t can make this coarse n>=3 envelope conclusive at all lengths; it is a no-go for a constant-excess shortcut, not a Collatz counterexample.",
+        "uniform_logarithmic_tail_rows": [
+          {
+            "word_length_m": 8,
+            "first_automatically_descending_final_excess": 1,
+            "residual_final_excess_values": [
+              0
+            ],
+            "residual_excess_count": 1,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 16,
+            "first_automatically_descending_final_excess": 2,
+            "residual_final_excess_values": [
+              0,
+              1
+            ],
+            "residual_excess_count": 2,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 32,
+            "first_automatically_descending_final_excess": 3,
+            "residual_final_excess_values": [
+              0,
+              1,
+              2
+            ],
+            "residual_excess_count": 3,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 64,
+            "first_automatically_descending_final_excess": 4,
+            "residual_final_excess_values": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "residual_excess_count": 4,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 128,
+            "first_automatically_descending_final_excess": 4,
+            "residual_final_excess_values": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "residual_excess_count": 4,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 256,
+            "first_automatically_descending_final_excess": 5,
+            "residual_final_excess_values": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "residual_excess_count": 5,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 512,
+            "first_automatically_descending_final_excess": 6,
+            "residual_final_excess_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "residual_excess_count": 6,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          },
+          {
+            "word_length_m": 1024,
+            "first_automatically_descending_final_excess": 7,
+            "residual_final_excess_values": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "residual_excess_count": 7,
+            "checks": {
+              "first_closed_excess_satisfies_global_tail_inequality": true,
+              "previous_excess_is_not_closed_by_global_tail_inequality": true,
+              "residual_count_equals_first_closed_excess": true
+            }
+          }
+        ],
+        "fixed_excess_envelope_no_go_rows": [
+          {
+            "fixed_final_excess": 0,
+            "constructed_word_length": 19,
+            "minimum_valuation": 1,
+            "maximum_valuation": 3,
+            "valuation_sum": 31,
+            "automatic_n3_margin_sign": -1,
+            "checks": {
+              "word_is_positive": true,
+              "all_proper_prefixes_are_noncontracting": true,
+              "full_word_is_contracting": true,
+              "fixed_excess_global_n3_criterion_is_inconclusive": true
+            }
+          },
+          {
+            "fixed_final_excess": 1,
+            "constructed_word_length": 55,
+            "minimum_valuation": 1,
+            "maximum_valuation": 4,
+            "valuation_sum": 89,
+            "automatic_n3_margin_sign": -1,
+            "checks": {
+              "word_is_positive": true,
+              "all_proper_prefixes_are_noncontracting": true,
+              "full_word_is_contracting": true,
+              "fixed_excess_global_n3_criterion_is_inconclusive": true
+            }
+          },
+          {
+            "fixed_final_excess": 2,
+            "constructed_word_length": 127,
+            "minimum_valuation": 1,
+            "maximum_valuation": 5,
+            "valuation_sum": 204,
+            "automatic_n3_margin_sign": -1,
+            "checks": {
+              "word_is_positive": true,
+              "all_proper_prefixes_are_noncontracting": true,
+              "full_word_is_contracting": true,
+              "fixed_excess_global_n3_criterion_is_inconclusive": true
+            }
+          },
+          {
+            "fixed_final_excess": 3,
+            "constructed_word_length": 271,
+            "minimum_valuation": 1,
+            "maximum_valuation": 6,
+            "valuation_sum": 433,
+            "automatic_n3_margin_sign": -1,
+            "checks": {
+              "word_is_positive": true,
+              "all_proper_prefixes_are_noncontracting": true,
+              "full_word_is_contracting": true,
+              "fixed_excess_global_n3_criterion_is_inconclusive": true
+            }
+          },
+          {
+            "fixed_final_excess": 4,
+            "constructed_word_length": 559,
+            "minimum_valuation": 1,
+            "maximum_valuation": 6,
+            "valuation_sum": 890,
+            "automatic_n3_margin_sign": -1,
+            "checks": {
+              "word_is_positive": true,
+              "all_proper_prefixes_are_noncontracting": true,
+              "full_word_is_contracting": true,
+              "fixed_excess_global_n3_criterion_is_inconclusive": true
+            }
+          },
+          {
+            "fixed_final_excess": 5,
+            "constructed_word_length": 1135,
+            "minimum_valuation": 1,
+            "maximum_valuation": 7,
+            "valuation_sum": 1804,
+            "automatic_n3_margin_sign": -1,
+            "checks": {
+              "word_is_positive": true,
+              "all_proper_prefixes_are_noncontracting": true,
+              "full_word_is_contracting": true,
+              "fixed_excess_global_n3_criterion_is_inconclusive": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem leaves O(log m) final excesses for each of exponentially many noncontracting prefixes. It proves neither Terras's coefficient-stopping-time conjecture nor that every orbit reaches a contracting prefix.",
+      "route_decision": {
+        "discard": "a fixed final-valuation excess cutoff justified only by the universal correction envelope",
+        "retain": "exact residue analysis for the logarithmically many excess values not closed by the all-length affine bound",
+        "next_single_lemma": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T165-REJECTED",
+            "label": "ConstantFinalExcessClosesEveryFirstCrossingLength",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T165-CLOSED",
+            "label": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T165-OPEN",
+            "label": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T165-REJECTED",
+            "CO-T165-CLOSED"
+          ],
+          [
+            "CO-T165-CLOSED",
+            "CO-T165-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact all-length logarithmic final-excess reduction only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-165",
+      "theorem_name": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+      "declared_proposition": "For a finite deficit sequence d and anchors partitioning the index interval, every point is at most the maximum anchor value plus the largest accumulated absolute first difference between neighboring anchors. Therefore anchor_max+variation_radius<1 is a rigorous pointwise Goldbach certificate. No normalized Lp moment with fixed finite p can replace local control: one unit spike in a block of length L has normalized Lp norm L^(-1/p) tending to zero while retaining one exact exception.",
+      "mathematical_argument": "For any point, telescope from its left anchor and apply the triangle inequality; taking maxima proves the net certificate. For the spike family, the normalized pth moment is exactly 1/L and the maximum is exactly one for every L, proving the finite-p average no-go.",
+      "reproducible_computation": {
+        "theorem": "For a finite deficit sequence d and anchors partitioning the index interval, every point is at most the maximum anchor value plus the largest accumulated absolute first difference between neighboring anchors. Therefore anchor_max+variation_radius<1 is a rigorous pointwise Goldbach certificate. No normalized Lp moment with fixed finite p can replace local control: one unit spike in a block of length L has normalized Lp norm L^(-1/p) tending to zero while retaining one exact exception.",
+        "proof": "For any point, telescope from its left anchor and apply the triangle inequality; taking maxima proves the net certificate. For the spike family, the normalized pth moment is exactly 1/L and the maximum is exactly one for every L, proving the finite-p average no-go.",
+        "finite_shell": {
+          "dyadic_lower_exclusive": 32768,
+          "dyadic_upper_inclusive": 65536,
+          "even_target_count": 16384,
+          "actual_maximum_deficit": 0.2158875498268751,
+          "net_rows": [
+            {
+              "anchor_stride_in_even_targets": 1,
+              "anchor_count": 16384,
+              "maximum_anchor_deficit": 0.2158875498268751,
+              "maximum_segment_path_variation": 0.0,
+              "certified_pointwise_upper_bound": 0.2158875498268751,
+              "pointwise_unit_gate_certified": true,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            },
+            {
+              "anchor_stride_in_even_targets": 2,
+              "anchor_count": 8193,
+              "maximum_anchor_deficit": 0.2158875498268751,
+              "maximum_segment_path_variation": 0.18088675889668607,
+              "certified_pointwise_upper_bound": 0.3967743087235612,
+              "pointwise_unit_gate_certified": true,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            },
+            {
+              "anchor_stride_in_even_targets": 4,
+              "anchor_count": 4097,
+              "maximum_anchor_deficit": 0.1916655961456666,
+              "maximum_segment_path_variation": 0.25393085904762913,
+              "certified_pointwise_upper_bound": 0.4455964551932957,
+              "pointwise_unit_gate_certified": true,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            },
+            {
+              "anchor_stride_in_even_targets": 8,
+              "anchor_count": 2049,
+              "maximum_anchor_deficit": 0.1821783116762895,
+              "maximum_segment_path_variation": 0.4476894405012651,
+              "certified_pointwise_upper_bound": 0.6298677521775546,
+              "pointwise_unit_gate_certified": true,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            },
+            {
+              "anchor_stride_in_even_targets": 16,
+              "anchor_count": 1025,
+              "maximum_anchor_deficit": 0.18013269562284823,
+              "maximum_segment_path_variation": 0.7349052758362526,
+              "certified_pointwise_upper_bound": 0.9150379714591008,
+              "pointwise_unit_gate_certified": true,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            },
+            {
+              "anchor_stride_in_even_targets": 32,
+              "anchor_count": 513,
+              "maximum_anchor_deficit": 0.1797846345231424,
+              "maximum_segment_path_variation": 1.37259268003444,
+              "certified_pointwise_upper_bound": 1.5523773145575823,
+              "pointwise_unit_gate_certified": false,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            },
+            {
+              "anchor_stride_in_even_targets": 64,
+              "anchor_count": 257,
+              "maximum_anchor_deficit": 0.1797846345231424,
+              "maximum_segment_path_variation": 2.473112627024153,
+              "certified_pointwise_upper_bound": 2.652897261547295,
+              "pointwise_unit_gate_certified": false,
+              "checks": {
+                "net_bound_dominates_actual_maximum": true,
+                "anchor_count_is_positive": true,
+                "variation_is_nonnegative": true
+              }
+            }
+          ]
+        },
+        "finite_p_spike_no_go": {
+          "rows": [
+            {
+              "block_size": 8,
+              "exception_count": 1,
+              "maximum_deficit": 1,
+              "moments": {
+                "1": {
+                  "normalized_pth_moment": {
+                    "exact": "1/8",
+                    "decimal": 0.125
+                  },
+                  "normalized_lp_norm": 0.125
+                },
+                "2": {
+                  "normalized_pth_moment": {
+                    "exact": "1/8",
+                    "decimal": 0.125
+                  },
+                  "normalized_lp_norm": 0.3535533905932738
+                },
+                "4": {
+                  "normalized_pth_moment": {
+                    "exact": "1/8",
+                    "decimal": 0.125
+                  },
+                  "normalized_lp_norm": 0.5946035575013605
+                }
+              }
+            },
+            {
+              "block_size": 32,
+              "exception_count": 1,
+              "maximum_deficit": 1,
+              "moments": {
+                "1": {
+                  "normalized_pth_moment": {
+                    "exact": "1/32",
+                    "decimal": 0.03125
+                  },
+                  "normalized_lp_norm": 0.03125
+                },
+                "2": {
+                  "normalized_pth_moment": {
+                    "exact": "1/32",
+                    "decimal": 0.03125
+                  },
+                  "normalized_lp_norm": 0.1767766952966369
+                },
+                "4": {
+                  "normalized_pth_moment": {
+                    "exact": "1/32",
+                    "decimal": 0.03125
+                  },
+                  "normalized_lp_norm": 0.42044820762685725
+                }
+              }
+            },
+            {
+              "block_size": 128,
+              "exception_count": 1,
+              "maximum_deficit": 1,
+              "moments": {
+                "1": {
+                  "normalized_pth_moment": {
+                    "exact": "1/128",
+                    "decimal": 0.0078125
+                  },
+                  "normalized_lp_norm": 0.0078125
+                },
+                "2": {
+                  "normalized_pth_moment": {
+                    "exact": "1/128",
+                    "decimal": 0.0078125
+                  },
+                  "normalized_lp_norm": 0.08838834764831845
+                },
+                "4": {
+                  "normalized_pth_moment": {
+                    "exact": "1/128",
+                    "decimal": 0.0078125
+                  },
+                  "normalized_lp_norm": 0.29730177875068026
+                }
+              }
+            },
+            {
+              "block_size": 512,
+              "exception_count": 1,
+              "maximum_deficit": 1,
+              "moments": {
+                "1": {
+                  "normalized_pth_moment": {
+                    "exact": "1/512",
+                    "decimal": 0.001953125
+                  },
+                  "normalized_lp_norm": 0.001953125
+                },
+                "2": {
+                  "normalized_pth_moment": {
+                    "exact": "1/512",
+                    "decimal": 0.001953125
+                  },
+                  "normalized_lp_norm": 0.04419417382415922
+                },
+                "4": {
+                  "normalized_pth_moment": {
+                    "exact": "1/512",
+                    "decimal": 0.001953125
+                  },
+                  "normalized_lp_norm": 0.21022410381342863
+                }
+              }
+            },
+            {
+              "block_size": 2048,
+              "exception_count": 1,
+              "maximum_deficit": 1,
+              "moments": {
+                "1": {
+                  "normalized_pth_moment": {
+                    "exact": "1/2048",
+                    "decimal": 0.00048828125
+                  },
+                  "normalized_lp_norm": 0.00048828125
+                },
+                "2": {
+                  "normalized_pth_moment": {
+                    "exact": "1/2048",
+                    "decimal": 0.00048828125
+                  },
+                  "normalized_lp_norm": 0.02209708691207961
+                },
+                "4": {
+                  "normalized_pth_moment": {
+                    "exact": "1/2048",
+                    "decimal": 0.00048828125
+                  },
+                  "normalized_lp_norm": 0.14865088937534013
+                }
+              }
+            }
+          ],
+          "checks": {
+            "every_block_retains_one_exception": true,
+            "every_finite_p_normalized_moment_tends_down_the_schedule": true,
+            "pointwise_maximum_remains_one": true
+          }
+        },
+        "failure_count": 0
+      },
+      "logical_limit": "The finite FFT profile supplies no uniform analytic anchor margin or variation decay over unbounded dyadic shells. The bridge is deterministic and does not itself estimate binary Goldbach minor arcs.",
+      "route_decision": {
+        "discard": "any fixed finite-p normalized average deficit as a pointwise no-exception certificate",
+        "retain": "a strict anchor margin combined with a uniform local variation radius below the remaining margin",
+        "next_single_lemma": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T165-REJECTED",
+            "label": "VanishingFinitePMomentExcludesEveryGoldbachException",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T165-CLOSED",
+            "label": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T165-OPEN",
+            "label": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T165-REJECTED",
+            "GB-T165-CLOSED"
+          ],
+          [
+            "GB-T165-CLOSED",
+            "GB-T165-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact net-to-pointwise bridge, exact finite-p spike no-go, and finite FFT diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-165",
+      "theorem_name": "SignedProductHaarDualityAndUnsignedEnergyNoGo",
+      "declared_proposition": "Expand a centered error H and a target weight W in the complete product-Haar basis. Weighted Cauchy-Schwarz gives |<H,W>| <= (sum alpha_R|c_R|^2)^(1/2) (sum |w_R|^2/alpha_R)^(1/2). A twin-pair main term M is therefore certified positive uniformly over both error signs when this dual budget is strictly below M. Unsigned coefficient energies alone are insufficient: H and -H have identical squared product-Haar coefficients, while a normalized dual witness gives errors +1 and -1 and model counts 2 and 0 from the same main term M=1.",
+      "mathematical_argument": "Product-Haar Parseval turns the pairing into a coefficient sum; weighted Cauchy-Schwarz proves the dual bound. Replacing every coefficient by its negative preserves every unsigned energy and Carleson square profile but reverses the signed pairing. The exact rank-one anisotropic witnesses attain equality and include a zero-count sign choice, proving that the strict threshold is sharp for a uniform norm-only positivity certificate.",
+      "reproducible_computation": {
+        "theorem": "Expand a centered error H and a target weight W in the complete product-Haar basis. Weighted Cauchy-Schwarz gives |<H,W>| <= (sum alpha_R|c_R|^2)^(1/2) (sum |w_R|^2/alpha_R)^(1/2). A twin-pair main term M is therefore certified positive uniformly over both error signs when this dual budget is strictly below M. Unsigned coefficient energies alone are insufficient: H and -H have identical squared product-Haar coefficients, while a normalized dual witness gives errors +1 and -1 and model counts 2 and 0 from the same main term M=1.",
+        "proof": "Product-Haar Parseval turns the pairing into a coefficient sum; weighted Cauchy-Schwarz proves the dual bound. Replacing every coefficient by its negative preserves every unsigned energy and Carleson square profile but reverses the signed pairing. The exact rank-one anisotropic witnesses attain equality and include a zero-count sign choice, proving that the strict threshold is sharp for a uniform norm-only positivity certificate.",
+        "signed_dual_sharpness_rows": [
+          {
+            "dimension": 8,
+            "primal_product_haar_energy": 8,
+            "dual_product_haar_energy": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "cauchy_budget_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_signed_pairing": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_signed_pairing": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "positive_model_count": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "zero_model_count": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "opposite_matrices_have_identical_unsigned_energy": true,
+              "signed_pairings_are_plus_and_minus_one": true,
+              "cauchy_dual_budget_is_sharp_at_one": true,
+              "same_unsigned_profile_allows_positive_and_zero_models": true
+            }
+          },
+          {
+            "dimension": 16,
+            "primal_product_haar_energy": 16,
+            "dual_product_haar_energy": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "cauchy_budget_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_signed_pairing": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_signed_pairing": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "positive_model_count": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "zero_model_count": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "opposite_matrices_have_identical_unsigned_energy": true,
+              "signed_pairings_are_plus_and_minus_one": true,
+              "cauchy_dual_budget_is_sharp_at_one": true,
+              "same_unsigned_profile_allows_positive_and_zero_models": true
+            }
+          },
+          {
+            "dimension": 32,
+            "primal_product_haar_energy": 32,
+            "dual_product_haar_energy": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "cauchy_budget_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_signed_pairing": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_signed_pairing": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "positive_model_count": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "zero_model_count": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "opposite_matrices_have_identical_unsigned_energy": true,
+              "signed_pairings_are_plus_and_minus_one": true,
+              "cauchy_dual_budget_is_sharp_at_one": true,
+              "same_unsigned_profile_allows_positive_and_zero_models": true
+            }
+          },
+          {
+            "dimension": 64,
+            "primal_product_haar_energy": 64,
+            "dual_product_haar_energy": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "cauchy_budget_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_signed_pairing": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_signed_pairing": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "positive_model_count": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "zero_model_count": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "opposite_matrices_have_identical_unsigned_energy": true,
+              "signed_pairings_are_plus_and_minus_one": true,
+              "cauchy_dual_budget_is_sharp_at_one": true,
+              "same_unsigned_profile_allows_positive_and_zero_models": true
+            }
+          },
+          {
+            "dimension": 128,
+            "primal_product_haar_energy": 128,
+            "dual_product_haar_energy": {
+              "exact": "1/128",
+              "decimal": 0.0078125
+            },
+            "cauchy_budget_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "positive_signed_pairing": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "negative_signed_pairing": {
+              "exact": "-1/1",
+              "decimal": -1.0
+            },
+            "positive_model_count": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "zero_model_count": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "opposite_matrices_have_identical_unsigned_energy": true,
+              "signed_pairings_are_plus_and_minus_one": true,
+              "cauchy_dual_budget_is_sharp_at_one": true,
+              "same_unsigned_profile_allows_positive_and_zero_models": true
+            }
+          }
+        ],
+        "failure_count": 0
+      },
+      "logical_limit": "The duality theorem is deterministic and the sign-paired witnesses are abstract centered matrices. No prime-weighted signed error estimate, parity-breaking input, or gap-two lower bound is proved.",
+      "route_decision": {
+        "discard": "unsigned product-Haar or Carleson square energy alone as a certificate of a positive twin-pair count",
+        "retain": "a signed dual product-Carleson error bound strictly smaller than the explicit twin main term",
+        "next_single_lemma": "PrimeWeightedSignedProductCarlesonDualMarginBeyondParity"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T165-REJECTED",
+            "label": "UnsignedProductHaarEnergyForcesPositiveTwinCorrelation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T165-CLOSED",
+            "label": "SignedProductHaarDualityAndUnsignedEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T165-OPEN",
+            "label": "PrimeWeightedSignedProductCarlesonDualMarginBeyondParity",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T165-REJECTED",
+            "TP-T165-CLOSED"
+          ],
+          [
+            "TP-T165-CLOSED",
+            "TP-T165-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact signed dual gate and unsigned-energy no-go only."
+    },
+    "literature_boundary": {
+      "riemann": "Finite Guinand-Weil spectra motivate a vanishing-defect rather than uniform-gap target; no external numerical spectrum is imported as a proof.",
+      "collatz": "The retained open window is a form of Terras's coefficient-stopping-time problem; the logarithmic tail reduction does not settle it.",
+      "goldbach": "Exceptional-set and circle-method estimates motivate anchor and variation estimates; no cited average theorem gives the required pointwise margin.",
+      "twin_prime": "Prime-producing sieve Type I/II estimates motivate the signed dual budget; deterministic Haar duality does not cross the parity barrier."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-165",
+      "status": "open_not_proven",
+      "declared_proposition": "Let P_N map a dense admissible core D into itself and let P_N f converge to f in a norm on which a quadratic form Q is continuous. If Q(P_N f) >= -epsilon_N ||P_N f||^2 for every f in D and epsilon_N tends to zero, then Q(f)>=0 on that core. A uniform positive finite-section eigenvalue gap is not necessary: the n-point path Laplacian is strictly positive on the sum-zero core for every n, while the explicit witness x_i=2i-(n-1) has Rayleigh quotient 12/[n(n+1)] tending to zero.",
+      "new_result": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+      "discarded_route": "requiring a cutoff-independent strictly positive minimum eigenvalue as a necessary route to Weil nonnegativity",
+      "remaining_gap": "The abstract limit bridge does not construct the actual Guinand-Weil projections, prove their form convergence, or bound their negative defect. The path-Laplacian family is a no-go model, not the zeta operator.",
+      "candidate_theorem": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect",
+      "claim_boundary": "No RH proof and no zero exclusion; exact abstract limit bridge and exact no-go to a necessary uniform positive gap.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T165-REJECTED",
+            "label": "UniformPositiveCoreSpectralGapIsNecessary",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T165-CLOSED",
+            "label": "VanishingDefectCoreLimitBridgeAndUniformGapNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T165-OPEN",
+            "label": "ExplicitGuinandWeilCoreApproximationWithVanishingNegativeDefect",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T165-REJECTED",
+            "RH-T165-CLOSED"
+          ],
+          [
+            "RH-T165-CLOSED",
+            "RH-T165-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-165",
+      "status": "open_not_proven",
+      "declared_proposition": "For a first-crossing accelerated Collatz word of length m, write the final valuation as the least crossing valuation plus t. Its affine correction satisfies C<=m*3^(m-1), while its slope gap D=2^S-3^m is greater than (2^t-1)3^m. Hence every odd n>=3 descends automatically whenever 9(2^t-1)>m. Only O(log m) final excess values remain for exact residue analysis at every length.",
+      "new_result": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+      "discarded_route": "a fixed final-valuation excess cutoff justified only by the universal correction envelope",
+      "remaining_gap": "The theorem leaves O(log m) final excesses for each of exponentially many noncontracting prefixes. It proves neither Terras's coefficient-stopping-time conjecture nor that every orbit reaches a contracting prefix.",
+      "candidate_theorem": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow",
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact all-length logarithmic final-excess reduction only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T165-REJECTED",
+            "label": "ConstantFinalExcessClosesEveryFirstCrossingLength",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T165-CLOSED",
+            "label": "UniformLogarithmicFinalExcessReductionAndConstantExcessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T165-OPEN",
+            "label": "UniformResidueSlackForLogarithmicFirstCrossingExcessWindow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T165-REJECTED",
+            "CO-T165-CLOSED"
+          ],
+          [
+            "CO-T165-CLOSED",
+            "CO-T165-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-165",
+      "status": "open_not_proven",
+      "declared_proposition": "For a finite deficit sequence d and anchors partitioning the index interval, every point is at most the maximum anchor value plus the largest accumulated absolute first difference between neighboring anchors. Therefore anchor_max+variation_radius<1 is a rigorous pointwise Goldbach certificate. No normalized Lp moment with fixed finite p can replace local control: one unit spike in a block of length L has normalized Lp norm L^(-1/p) tending to zero while retaining one exact exception.",
+      "new_result": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+      "discarded_route": "any fixed finite-p normalized average deficit as a pointwise no-exception certificate",
+      "remaining_gap": "The finite FFT profile supplies no uniform analytic anchor margin or variation decay over unbounded dyadic shells. The bridge is deterministic and does not itself estimate binary Goldbach minor arcs.",
+      "candidate_theorem": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay",
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact net-to-pointwise bridge, exact finite-p spike no-go, and finite FFT diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T165-REJECTED",
+            "label": "VanishingFinitePMomentExcludesEveryGoldbachException",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T165-CLOSED",
+            "label": "SparseAnchorVariationPointwiseBridgeAndFiniteMomentSpikeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T165-OPEN",
+            "label": "UniformDyadicMinorDeficitAnchorMarginAndVariationDecay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T165-REJECTED",
+            "GB-T165-CLOSED"
+          ],
+          [
+            "GB-T165-CLOSED",
+            "GB-T165-OPEN"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-165",
+      "status": "open_not_proven",
+      "declared_proposition": "Expand a centered error H and a target weight W in the complete product-Haar basis. Weighted Cauchy-Schwarz gives |<H,W>| <= (sum alpha_R|c_R|^2)^(1/2) (sum |w_R|^2/alpha_R)^(1/2). A twin-pair main term M is therefore certified positive uniformly over both error signs when this dual budget is strictly below M. Unsigned coefficient energies alone are insufficient: H and -H have identical squared product-Haar coefficients, while a normalized dual witness gives errors +1 and -1 and model counts 2 and 0 from the same main term M=1.",
+      "new_result": "SignedProductHaarDualityAndUnsignedEnergyNoGo",
+      "discarded_route": "unsigned product-Haar or Carleson square energy alone as a certificate of a positive twin-pair count",
+      "remaining_gap": "The duality theorem is deterministic and the sign-paired witnesses are abstract centered matrices. No prime-weighted signed error estimate, parity-breaking input, or gap-two lower bound is proved.",
+      "candidate_theorem": "PrimeWeightedSignedProductCarlesonDualMarginBeyondParity",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact signed dual gate and unsigned-energy no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T165-REJECTED",
+            "label": "UnsignedProductHaarEnergyForcesPositiveTwinCorrelation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T165-CLOSED",
+            "label": "SignedProductHaarDualityAndUnsignedEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T165-OPEN",
+            "label": "PrimeWeightedSignedProductCarlesonDualMarginBeyondParity",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T165-REJECTED",
+            "TP-T165-CLOSED"
+          ],
+          [
+            "TP-T165-CLOSED",
+            "TP-T165-OPEN"
+          ]
+        ]
+      }
+    }
+  ]
+}
