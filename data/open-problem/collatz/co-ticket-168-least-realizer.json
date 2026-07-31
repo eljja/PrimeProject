@@ -1,0 +1,657 @@
+{
+  "schema": "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1",
+  "generated_at": "2026-08-02T00:20:00+09:00",
+  "ticket_id": "CO-TICKET-168",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "LeastRealizerDescentMonotonicityAndModularShadowNoGo",
+  "declared_proposition": "For fixed contracting accelerated Collatz affine data with D=2^S-3^m>0, write all nonterminal natural realizers as n_k=n_0+k 2^(S+1), and let u_k=T_w(n_k). Then u_k=u_0+2*3^m*k and n_k-u_k=(n_0-u_0)+2Dk. Hence the descent gap is strictly increasing: every natural realizer descends if and only if the least one descends. Moreover n_0D-C=2^S(n_0-u_0). Over unrestricted affine data, the aggregate tuple (m,S,C mod 2^(S+1)) cannot decide descent: synthetic corrections C=1,9,17 have the same modular shadow and least realizer but respectively positive, zero, and negative gap. This no-go does not compare two realizable Collatz words.",
+  "mathematical_argument": "Substituting n_k into the affine map adds 3^m*2^(S+1)/2^S=2*3^m to the odd endpoint for each lift. Subtracting gives the arithmetic progression with increment 2(2^S-3^m)=2D>0. The slack identity follows from 3^m n_0+C=2^S u_0. The synthetic family changes C by the realizer modulus, preserving all modular data while changing u_0 by two.",
+  "reproducible_computation": {
+    "theorem": "For fixed contracting accelerated Collatz affine data with D=2^S-3^m>0, write all nonterminal natural realizers as n_k=n_0+k 2^(S+1), and let u_k=T_w(n_k). Then u_k=u_0+2*3^m*k and n_k-u_k=(n_0-u_0)+2Dk. Hence the descent gap is strictly increasing: every natural realizer descends if and only if the least one descends. Moreover n_0D-C=2^S(n_0-u_0). Over unrestricted affine data, the aggregate tuple (m,S,C mod 2^(S+1)) cannot decide descent: synthetic corrections C=1,9,17 have the same modular shadow and least realizer but respectively positive, zero, and negative gap. This no-go does not compare two realizable Collatz words.",
+    "proof": "Substituting n_k into the affine map adds 3^m*2^(S+1)/2^S=2*3^m to the odd endpoint for each lift. Subtracting gives the arithmetic progression with increment 2(2^S-3^m)=2D>0. The slack identity follows from 3^m n_0+C=2^S u_0. The synthetic family changes C by the realizer modulus, preserving all modular data while changing u_0 by two.",
+    "least_realizer_monotonicity_rows": [
+      {
+        "word_length_m": 1,
+        "valuation_sum_S": 2,
+        "correction_C": 1,
+        "correction_modulus_shadow": 1,
+        "least_natural_realizer_n0": 9,
+        "least_odd_endpoint_u0": 7,
+        "least_descent_gap_n0_minus_u0": 2,
+        "is_actual_one_step_collatz_word": true,
+        "lift_rows": [
+          {
+            "lift_k": 0,
+            "start_nk": 9,
+            "odd_endpoint_uk": 7,
+            "descent_gap_nk_minus_uk": 2,
+            "expected_gap": 2
+          },
+          {
+            "lift_k": 1,
+            "start_nk": 17,
+            "odd_endpoint_uk": 13,
+            "descent_gap_nk_minus_uk": 4,
+            "expected_gap": 4
+          },
+          {
+            "lift_k": 2,
+            "start_nk": 25,
+            "odd_endpoint_uk": 19,
+            "descent_gap_nk_minus_uk": 6,
+            "expected_gap": 6
+          },
+          {
+            "lift_k": 3,
+            "start_nk": 33,
+            "odd_endpoint_uk": 25,
+            "descent_gap_nk_minus_uk": 8,
+            "expected_gap": 8
+          },
+          {
+            "lift_k": 4,
+            "start_nk": 41,
+            "odd_endpoint_uk": 31,
+            "descent_gap_nk_minus_uk": 10,
+            "expected_gap": 10
+          }
+        ],
+        "checks": {
+          "all_corrections_have_same_modular_shadow": true,
+          "least_realizer_is_nine": true,
+          "endpoint_is_odd": true,
+          "descent_gap_is_strictly_increasing_over_lifts": true,
+          "exact_affine_gap_formula_holds": true,
+          "only_c_equals_one_is_the_actual_one_step_word": true
+        }
+      },
+      {
+        "word_length_m": 1,
+        "valuation_sum_S": 2,
+        "correction_C": 9,
+        "correction_modulus_shadow": 1,
+        "least_natural_realizer_n0": 9,
+        "least_odd_endpoint_u0": 9,
+        "least_descent_gap_n0_minus_u0": 0,
+        "is_actual_one_step_collatz_word": false,
+        "lift_rows": [
+          {
+            "lift_k": 0,
+            "start_nk": 9,
+            "odd_endpoint_uk": 9,
+            "descent_gap_nk_minus_uk": 0,
+            "expected_gap": 0
+          },
+          {
+            "lift_k": 1,
+            "start_nk": 17,
+            "odd_endpoint_uk": 15,
+            "descent_gap_nk_minus_uk": 2,
+            "expected_gap": 2
+          },
+          {
+            "lift_k": 2,
+            "start_nk": 25,
+            "odd_endpoint_uk": 21,
+            "descent_gap_nk_minus_uk": 4,
+            "expected_gap": 4
+          },
+          {
+            "lift_k": 3,
+            "start_nk": 33,
+            "odd_endpoint_uk": 27,
+            "descent_gap_nk_minus_uk": 6,
+            "expected_gap": 6
+          },
+          {
+            "lift_k": 4,
+            "start_nk": 41,
+            "odd_endpoint_uk": 33,
+            "descent_gap_nk_minus_uk": 8,
+            "expected_gap": 8
+          }
+        ],
+        "checks": {
+          "all_corrections_have_same_modular_shadow": true,
+          "least_realizer_is_nine": true,
+          "endpoint_is_odd": true,
+          "descent_gap_is_strictly_increasing_over_lifts": true,
+          "exact_affine_gap_formula_holds": true,
+          "only_c_equals_one_is_the_actual_one_step_word": true
+        }
+      },
+      {
+        "word_length_m": 1,
+        "valuation_sum_S": 2,
+        "correction_C": 17,
+        "correction_modulus_shadow": 1,
+        "least_natural_realizer_n0": 9,
+        "least_odd_endpoint_u0": 11,
+        "least_descent_gap_n0_minus_u0": -2,
+        "is_actual_one_step_collatz_word": false,
+        "lift_rows": [
+          {
+            "lift_k": 0,
+            "start_nk": 9,
+            "odd_endpoint_uk": 11,
+            "descent_gap_nk_minus_uk": -2,
+            "expected_gap": -2
+          },
+          {
+            "lift_k": 1,
+            "start_nk": 17,
+            "odd_endpoint_uk": 17,
+            "descent_gap_nk_minus_uk": 0,
+            "expected_gap": 0
+          },
+          {
+            "lift_k": 2,
+            "start_nk": 25,
+            "odd_endpoint_uk": 23,
+            "descent_gap_nk_minus_uk": 2,
+            "expected_gap": 2
+          },
+          {
+            "lift_k": 3,
+            "start_nk": 33,
+            "odd_endpoint_uk": 29,
+            "descent_gap_nk_minus_uk": 4,
+            "expected_gap": 4
+          },
+          {
+            "lift_k": 4,
+            "start_nk": 41,
+            "odd_endpoint_uk": 35,
+            "descent_gap_nk_minus_uk": 6,
+            "expected_gap": 6
+          }
+        ],
+        "checks": {
+          "all_corrections_have_same_modular_shadow": true,
+          "least_realizer_is_nine": true,
+          "endpoint_is_odd": true,
+          "descent_gap_is_strictly_increasing_over_lifts": true,
+          "exact_affine_gap_formula_holds": true,
+          "only_c_equals_one_is_the_actual_one_step_word": true
+        }
+      },
+      {
+        "word_length_m": 1,
+        "valuation_sum_S": 2,
+        "correction_C": 25,
+        "correction_modulus_shadow": 1,
+        "least_natural_realizer_n0": 9,
+        "least_odd_endpoint_u0": 13,
+        "least_descent_gap_n0_minus_u0": -4,
+        "is_actual_one_step_collatz_word": false,
+        "lift_rows": [
+          {
+            "lift_k": 0,
+            "start_nk": 9,
+            "odd_endpoint_uk": 13,
+            "descent_gap_nk_minus_uk": -4,
+            "expected_gap": -4
+          },
+          {
+            "lift_k": 1,
+            "start_nk": 17,
+            "odd_endpoint_uk": 19,
+            "descent_gap_nk_minus_uk": -2,
+            "expected_gap": -2
+          },
+          {
+            "lift_k": 2,
+            "start_nk": 25,
+            "odd_endpoint_uk": 25,
+            "descent_gap_nk_minus_uk": 0,
+            "expected_gap": 0
+          },
+          {
+            "lift_k": 3,
+            "start_nk": 33,
+            "odd_endpoint_uk": 31,
+            "descent_gap_nk_minus_uk": 2,
+            "expected_gap": 2
+          },
+          {
+            "lift_k": 4,
+            "start_nk": 41,
+            "odd_endpoint_uk": 37,
+            "descent_gap_nk_minus_uk": 4,
+            "expected_gap": 4
+          }
+        ],
+        "checks": {
+          "all_corrections_have_same_modular_shadow": true,
+          "least_realizer_is_nine": true,
+          "endpoint_is_odd": true,
+          "descent_gap_is_strictly_increasing_over_lifts": true,
+          "exact_affine_gap_formula_holds": true,
+          "only_c_equals_one_is_the_actual_one_step_word": true
+        }
+      },
+      {
+        "word_length_m": 1,
+        "valuation_sum_S": 2,
+        "correction_C": 33,
+        "correction_modulus_shadow": 1,
+        "least_natural_realizer_n0": 9,
+        "least_odd_endpoint_u0": 15,
+        "least_descent_gap_n0_minus_u0": -6,
+        "is_actual_one_step_collatz_word": false,
+        "lift_rows": [
+          {
+            "lift_k": 0,
+            "start_nk": 9,
+            "odd_endpoint_uk": 15,
+            "descent_gap_nk_minus_uk": -6,
+            "expected_gap": -6
+          },
+          {
+            "lift_k": 1,
+            "start_nk": 17,
+            "odd_endpoint_uk": 21,
+            "descent_gap_nk_minus_uk": -4,
+            "expected_gap": -4
+          },
+          {
+            "lift_k": 2,
+            "start_nk": 25,
+            "odd_endpoint_uk": 27,
+            "descent_gap_nk_minus_uk": -2,
+            "expected_gap": -2
+          },
+          {
+            "lift_k": 3,
+            "start_nk": 33,
+            "odd_endpoint_uk": 33,
+            "descent_gap_nk_minus_uk": 0,
+            "expected_gap": 0
+          },
+          {
+            "lift_k": 4,
+            "start_nk": 41,
+            "odd_endpoint_uk": 39,
+            "descent_gap_nk_minus_uk": 2,
+            "expected_gap": 2
+          }
+        ],
+        "checks": {
+          "all_corrections_have_same_modular_shadow": true,
+          "least_realizer_is_nine": true,
+          "endpoint_is_odd": true,
+          "descent_gap_is_strictly_increasing_over_lifts": true,
+          "exact_affine_gap_formula_holds": true,
+          "only_c_equals_one_is_the_actual_one_step_word": true
+        }
+      }
+    ],
+    "finite_first_crossing_extension": {
+      "theorem": "For accelerated Collatz affine data T_w(n)=(3^m n+C)/2^S with D=2^S-3^m>0, the nonterminal odd starts that realize the word and leave an odd endpoint form one class n=n_0+kM, where M=2^(S+1) and n_0 is the least integer at least three satisfying 3^m n_0+C congruent to 2^S modulo M. The exact number of non-descending realizers is zero when n_0D>C and otherwise floor((C-n_0D)/(MD))+1. It is therefore always finite for a fixed contracting word. Consequently wordwise natural density zero is automatic and cannot prove that the bad set is empty.",
+      "proof": "Odd integrality of the endpoint is equivalent to the displayed congruence modulo 2^(S+1). Since 3^m is invertible modulo this power of two, there is one odd residue class. Non-descent is the linear inequality nD<=C. Intersecting the arithmetic progression n_0+kM with that interval gives the exact floor formula. The synthetic family m=1,S=2,C=9+8q has q+1 non-descending starts but still density zero, so density cannot replace exact residue slack.",
+      "finite_first_crossing_exact_count_rows": [
+        {
+          "word_length_m": 1,
+          "noncontracting_prefix_count": 1,
+          "potential_non_descent_word_count": 0,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": null,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 2,
+          "noncontracting_prefix_count": 1,
+          "potential_non_descent_word_count": 0,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": null,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 3,
+          "noncontracting_prefix_count": 2,
+          "potential_non_descent_word_count": 2,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 192,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 4,
+          "noncontracting_prefix_count": 3,
+          "potential_non_descent_word_count": 0,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": null,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 5,
+          "noncontracting_prefix_count": 7,
+          "potential_non_descent_word_count": 7,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 1024,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 6,
+          "noncontracting_prefix_count": 12,
+          "potential_non_descent_word_count": 5,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 286720,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 7,
+          "noncontracting_prefix_count": 30,
+          "potential_non_descent_word_count": 0,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": null,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 8,
+          "noncontracting_prefix_count": 85,
+          "potential_non_descent_word_count": 85,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 327680,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 9,
+          "noncontracting_prefix_count": 173,
+          "potential_non_descent_word_count": 7,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 14286848,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 10,
+          "noncontracting_prefix_count": 476,
+          "potential_non_descent_word_count": 476,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 2228224,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 11,
+          "noncontracting_prefix_count": 961,
+          "potential_non_descent_word_count": 698,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 208666624,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 12,
+          "noncontracting_prefix_count": 2652,
+          "potential_non_descent_word_count": 1,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 757776515072,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 13,
+          "noncontracting_prefix_count": 8045,
+          "potential_non_descent_word_count": 8045,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 503316480,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 14,
+          "noncontracting_prefix_count": 17637,
+          "potential_non_descent_word_count": 4119,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 37815844864,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 15,
+          "noncontracting_prefix_count": 51033,
+          "potential_non_descent_word_count": 51033,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 1778384896,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 16,
+          "noncontracting_prefix_count": 108950,
+          "potential_non_descent_word_count": 81410,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 23756537856,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 17,
+          "noncontracting_prefix_count": 312455,
+          "potential_non_descent_word_count": 319033,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 3758096384,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 18,
+          "noncontracting_prefix_count": 663535,
+          "potential_non_descent_word_count": 655523,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 439160406016,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 19,
+          "noncontracting_prefix_count": 1900470,
+          "potential_non_descent_word_count": 495018,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 3049426780160,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        },
+        {
+          "word_length_m": 20,
+          "noncontracting_prefix_count": 5936673,
+          "potential_non_descent_word_count": 5937623,
+          "exact_bad_realizer_count": 0,
+          "minimum_exact_residue_slack": 3925600108544,
+          "checks": {
+            "all_potential_words_have_zero_bad_realizer_count_at_this_length": true,
+            "every_computed_least_realizer_has_positive_slack": true,
+            "enumeration_is_complete_only_at_this_fixed_length": true
+          }
+        }
+      ],
+      "maximum_certified_length": 20,
+      "total_potential_non_descent_words_counted": 7553085,
+      "total_bad_realizer_count": 0,
+      "global_minimum_exact_residue_slack": 192,
+      "density_zero_no_go_rows": [
+        {
+          "synthetic_correction_C": 9,
+          "slope_gap_D": 1,
+          "realizer_modulus": 8,
+          "exact_bad_realizer_count": 1,
+          "natural_density": 0,
+          "checks": {
+            "least_nonterminal_realizer_is_nine": true,
+            "bad_count_matches_closed_form": true,
+            "bad_set_is_finite_and_has_natural_density_zero": true,
+            "row_is_synthetic_affine_data_not_actual_collatz_word": true
+          }
+        },
+        {
+          "synthetic_correction_C": 17,
+          "slope_gap_D": 1,
+          "realizer_modulus": 8,
+          "exact_bad_realizer_count": 2,
+          "natural_density": 0,
+          "checks": {
+            "least_nonterminal_realizer_is_nine": true,
+            "bad_count_matches_closed_form": true,
+            "bad_set_is_finite_and_has_natural_density_zero": true,
+            "row_is_synthetic_affine_data_not_actual_collatz_word": true
+          }
+        },
+        {
+          "synthetic_correction_C": 33,
+          "slope_gap_D": 1,
+          "realizer_modulus": 8,
+          "exact_bad_realizer_count": 4,
+          "natural_density": 0,
+          "checks": {
+            "least_nonterminal_realizer_is_nine": true,
+            "bad_count_matches_closed_form": true,
+            "bad_set_is_finite_and_has_natural_density_zero": true,
+            "row_is_synthetic_affine_data_not_actual_collatz_word": true
+          }
+        },
+        {
+          "synthetic_correction_C": 65,
+          "slope_gap_D": 1,
+          "realizer_modulus": 8,
+          "exact_bad_realizer_count": 8,
+          "natural_density": 0,
+          "checks": {
+            "least_nonterminal_realizer_is_nine": true,
+            "bad_count_matches_closed_form": true,
+            "bad_set_is_finite_and_has_natural_density_zero": true,
+            "row_is_synthetic_affine_data_not_actual_collatz_word": true
+          }
+        },
+        {
+          "synthetic_correction_C": 129,
+          "slope_gap_D": 1,
+          "realizer_modulus": 8,
+          "exact_bad_realizer_count": 16,
+          "natural_density": 0,
+          "checks": {
+            "least_nonterminal_realizer_is_nine": true,
+            "bad_count_matches_closed_form": true,
+            "bad_set_is_finite_and_has_natural_density_zero": true,
+            "row_is_synthetic_affine_data_not_actual_collatz_word": true
+          }
+        },
+        {
+          "synthetic_correction_C": 257,
+          "slope_gap_D": 1,
+          "realizer_modulus": 8,
+          "exact_bad_realizer_count": 32,
+          "natural_density": 0,
+          "checks": {
+            "least_nonterminal_realizer_is_nine": true,
+            "bad_count_matches_closed_form": true,
+            "bad_set_is_finite_and_has_natural_density_zero": true,
+            "row_is_synthetic_affine_data_not_actual_collatz_word": true
+          }
+        }
+      ],
+      "failure_count": 0
+    },
+    "finite_boundary": "The exact enumeration reaches length 20 only. The modular-shadow no-go rows with C>1 are synthetic affine data, not realizable one-step Collatz words and not counterexamples.",
+    "failure_count": 0
+  },
+  "discarded_route": "using only m, S, and the correction modulo the endpoint-realizer modulus over unrestricted affine data to infer actual-word descent",
+  "remaining_gap": "Least-realizer descent is verified only through word length 20. No all-length proof or divergent natural trajectory is supplied.",
+  "candidate_theorem": "UniformLeastRealizerEndpointDescentForEveryFirstCrossingWord",
+  "claim_boundary": "No Collatz proof and no divergent orbit; exact all-realizer monotonicity, finite length-20 audit, and synthetic modular-shadow no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T168-REJECTED",
+        "label": "UnrestrictedAffineModularShadowDeterminesActualWordDescent",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T168-CLOSED",
+        "label": "LeastRealizerDescentMonotonicityAndModularShadowNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T168-OPEN",
+        "label": "UniformLeastRealizerEndpointDescentForEveryFirstCrossingWord",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T168-REJECTED",
+        "CO-T168-CLOSED"
+      ],
+      [
+        "CO-T168-CLOSED",
+        "CO-T168-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "schema": "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1",
+  "generated_at": "2026-08-02T00:20:00+09:00",
+  "ticket_id": "RH-TICKET-168",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FixedMomentCorrectorCoreBridgeAndCutoffVaryingConstraintNoGo",
+  "declared_proposition": "Let V_N be nested finite-dimensional subspaces with form-dense union D, and let L from the form domain to F^r be continuous. Assume a fixed right inverse U with L U=I has range in one V_N0. Then P=I-U L maps V_N onto W_N=V_N intersect ker L for every N>=N0; the W_N are nested and their union is form-dense in ker L. Consequently cofinal vanishing-defect lower bounds on W_N imply nonnegativity on ker L. A cutoff-dependent constraint is not an acceptable substitute: one fixed quadratic form is positive on the alternating hyperplanes x_1=0 and x_2=0 but negative at e_1+e_2.",
+  "mathematical_argument": "Because L U=I, P is a bounded projection onto ker L. For N>=N0, U L(V_N) lies in V_N, so P(V_N)=V_N intersect ker L and nesting is preserved. If x is in ker L and v_j in D tends to x in form norm, then P v_j tends to P x=x, proving density. TICKET-167 then promotes cofinal vanishing-defect bounds. For the no-go use the first block [[1,-2],[-2,1]]: each coordinate hyperplane has restricted minimum one, while Q(e_1+e_2)=-2.",
+  "reproducible_computation": {
+    "theorem": "Let V_N be nested finite-dimensional subspaces with form-dense union D, and let L from the form domain to F^r be continuous. Assume a fixed right inverse U with L U=I has range in one V_N0. Then P=I-U L maps V_N onto W_N=V_N intersect ker L for every N>=N0; the W_N are nested and their union is form-dense in ker L. Consequently cofinal vanishing-defect lower bounds on W_N imply nonnegativity on ker L. A cutoff-dependent constraint is not an acceptable substitute: one fixed quadratic form is positive on the alternating hyperplanes x_1=0 and x_2=0 but negative at e_1+e_2.",
+    "proof": "Because L U=I, P is a bounded projection onto ker L. For N>=N0, U L(V_N) lies in V_N, so P(V_N)=V_N intersect ker L and nesting is preserved. If x is in ker L and v_j in D tends to x in form norm, then P v_j tends to P x=x, proving density. TICKET-167 then promotes cofinal vanishing-defect bounds. For the no-go use the first block [[1,-2],[-2,1]]: each coordinate hyperplane has restricted minimum one, while Q(e_1+e_2)=-2.",
+    "fixed_moment_projection_rows": [
+      {
+        "ambient_dimension_N": 4,
+        "constraint_rank": 2,
+        "projected_core_dimension": 2,
+        "fixed_corrector_first_two_rows": [
+          [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "-1/2",
+              "decimal": -0.5
+            }
+          ],
+          [
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "checks": {
+          "fixed_corrector_is_exact_right_inverse": true,
+          "projection_is_exactly_idempotent": true,
+          "projection_annihilates_both_constraints": true,
+          "projected_core_has_expected_codimension_two": true,
+          "projection_is_consistent_under_zero_padding": true
+        }
+      },
+      {
+        "ambient_dimension_N": 8,
+        "constraint_rank": 2,
+        "projected_core_dimension": 6,
+        "fixed_corrector_first_two_rows": [
+          [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "-1/2",
+              "decimal": -0.5
+            }
+          ],
+          [
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "checks": {
+          "fixed_corrector_is_exact_right_inverse": true,
+          "projection_is_exactly_idempotent": true,
+          "projection_annihilates_both_constraints": true,
+          "projected_core_has_expected_codimension_two": true,
+          "projection_is_consistent_under_zero_padding": true
+        }
+      },
+      {
+        "ambient_dimension_N": 16,
+        "constraint_rank": 2,
+        "projected_core_dimension": 14,
+        "fixed_corrector_first_two_rows": [
+          [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "-1/2",
+              "decimal": -0.5
+            }
+          ],
+          [
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "checks": {
+          "fixed_corrector_is_exact_right_inverse": true,
+          "projection_is_exactly_idempotent": true,
+          "projection_annihilates_both_constraints": true,
+          "projected_core_has_expected_codimension_two": true,
+          "projection_is_consistent_under_zero_padding": true
+        }
+      },
+      {
+        "ambient_dimension_N": 32,
+        "constraint_rank": 2,
+        "projected_core_dimension": 30,
+        "fixed_corrector_first_two_rows": [
+          [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "-1/2",
+              "decimal": -0.5
+            }
+          ],
+          [
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "checks": {
+          "fixed_corrector_is_exact_right_inverse": true,
+          "projection_is_exactly_idempotent": true,
+          "projection_annihilates_both_constraints": true,
+          "projected_core_has_expected_codimension_two": true,
+          "projection_is_consistent_under_zero_padding": true
+        }
+      },
+      {
+        "ambient_dimension_N": 64,
+        "constraint_rank": 2,
+        "projected_core_dimension": 62,
+        "fixed_corrector_first_two_rows": [
+          [
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "-1/2",
+              "decimal": -0.5
+            }
+          ],
+          [
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "checks": {
+          "fixed_corrector_is_exact_right_inverse": true,
+          "projection_is_exactly_idempotent": true,
+          "projection_annihilates_both_constraints": true,
+          "projected_core_has_expected_codimension_two": true,
+          "projection_is_consistent_under_zero_padding": true
+        }
+      }
+    ],
+    "cutoff_varying_constraint_no_go_rows": [
+      {
+        "cutoff_dimension_N": 4,
+        "constraint": "x_1=0",
+        "constrained_dimension": 3,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "fixed_global_witness_value": {
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "checks": {
+          "restricted_minimum_is_one": true,
+          "constraint_changes_with_cutoff_parity": true,
+          "successive_constrained_spaces_are_not_nested": true,
+          "fixed_witness_e1_plus_e2_has_value_minus_two": true
+        }
+      },
+      {
+        "cutoff_dimension_N": 5,
+        "constraint": "x_2=0",
+        "constrained_dimension": 4,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "fixed_global_witness_value": {
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "checks": {
+          "restricted_minimum_is_one": true,
+          "constraint_changes_with_cutoff_parity": true,
+          "successive_constrained_spaces_are_not_nested": true,
+          "fixed_witness_e1_plus_e2_has_value_minus_two": true
+        }
+      },
+      {
+        "cutoff_dimension_N": 8,
+        "constraint": "x_1=0",
+        "constrained_dimension": 7,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "fixed_global_witness_value": {
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "checks": {
+          "restricted_minimum_is_one": true,
+          "constraint_changes_with_cutoff_parity": true,
+          "successive_constrained_spaces_are_not_nested": true,
+          "fixed_witness_e1_plus_e2_has_value_minus_two": true
+        }
+      },
+      {
+        "cutoff_dimension_N": 9,
+        "constraint": "x_2=0",
+        "constrained_dimension": 8,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "fixed_global_witness_value": {
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "checks": {
+          "restricted_minimum_is_one": true,
+          "constraint_changes_with_cutoff_parity": true,
+          "successive_constrained_spaces_are_not_nested": true,
+          "fixed_witness_e1_plus_e2_has_value_minus_two": true
+        }
+      },
+      {
+        "cutoff_dimension_N": 16,
+        "constraint": "x_1=0",
+        "constrained_dimension": 15,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "fixed_global_witness_value": {
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "checks": {
+          "restricted_minimum_is_one": true,
+          "constraint_changes_with_cutoff_parity": true,
+          "successive_constrained_spaces_are_not_nested": true,
+          "fixed_witness_e1_plus_e2_has_value_minus_two": true
+        }
+      },
+      {
+        "cutoff_dimension_N": 17,
+        "constraint": "x_2=0",
+        "constrained_dimension": 16,
+        "restricted_minimum": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "fixed_global_witness_value": {
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "checks": {
+          "restricted_minimum_is_one": true,
+          "constraint_changes_with_cutoff_parity": true,
+          "successive_constrained_spaces_are_not_nested": true,
+          "fixed_witness_e1_plus_e2_has_value_minus_two": true
+        }
+      }
+    ],
+    "external_premise_boundary": "The finite Guinand-Weil dictionary reports a pole-neutral subfamily, but PrimeProject does not prove that its two pole moments are continuous in the required global form norm or construct a cofinal interval-LDL certificate family.",
+    "failure_count": 0
+  },
+  "discarded_route": "recomputing unrelated pole-neutral constraints at each cutoff and treating their positive restrictions as one nested core",
+  "remaining_gap": "No actual Guinand-Weil pole-moment continuity theorem, fixed form-norm corrector, or cofinal interval-LDL family is proved.",
+  "candidate_theorem": "CofinalIntervalLDLCertificatesOnFixedPoleNeutralGuinandWeilCore",
+  "claim_boundary": "No RH proof and no zero exclusion; exact fixed-constraint core theorem and cutoff-varying no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T168-REJECTED",
+        "label": "CutoffDependentNeutralSubspacesCanBePromotedAsOneCore",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T168-CLOSED",
+        "label": "FixedMomentCorrectorCoreBridgeAndCutoffVaryingConstraintNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T168-OPEN",
+        "label": "CofinalIntervalLDLCertificatesOnFixedPoleNeutralGuinandWeilCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T168-REJECTED",
+        "RH-T168-CLOSED"
+      ],
+      [
+        "RH-T168-CLOSED",
+        "RH-T168-OPEN"
+      ]
+    ]
+  }
+}

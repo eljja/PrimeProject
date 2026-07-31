@@ -14,19 +14,19 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
-  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt()");
+  const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET167 through TICKET125 priority render must precede historical ticket loading");
+    errors.push("TICKET168 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260801-ticket167")) {
-      errors.push(`${page}: missing TICKET167 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260802-ticket168")) {
+      errors.push(`${page}: missing TICKET168 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260801-ticket167")) {
-      errors.push(`${page}: missing TICKET167 style cache key`);
+    if (!source.includes("styles.css?v=20260802-ticket168")) {
+      errors.push(`${page}: missing TICKET168 style cache key`);
     }
   }
 
@@ -346,6 +346,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket168AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket168-fixedcore-leastrealizer-phase-paritymain .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket167AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket167-cofinal-residue-besov-parity .ticket161-audit-table .proof-table-wrap",
@@ -1278,9 +1284,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket168 title", "Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms");
+    requireText("ticket168 table", "TICKET168 audit");
+    requireText("ticket168 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket168 resolutions", "Resolution count0");
+    requireText("ticket168 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket168AuditOverflow) checks.push(`${page.problemId}: ticket168 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket168 RH theorem", "FixedMomentCorrectorCoreBridgeAndCutoffVaryingConstraintNoGo");
+      requireText("ticket168 RH core", "Largest exact core64");
+      requireText("ticket168 RH target", "CofinalIntervalLDLCertificatesOnFixedPoleNeutralGuinandWeilCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket168 Collatz theorem", "LeastRealizerDescentMonotonicityAndModularShadowNoGo");
+      requireText("ticket168 Collatz length", "Maximum exact length20");
+      requireText("ticket168 Collatz words", "Words counted7,553,085");
+      requireText("ticket168 Collatz bad count", "Bad realizers0");
+      requireText("ticket168 Collatz target", "UniformLeastRealizerEndpointDescentForEveryFirstCrossingWord");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket168 Goldbach theorem", "PhaseBlindSpectralL1MinimaxAndMagnitudeOnlyNoGo");
+      requireText("ticket168 Goldbach failed gates", "Finite gates passed0");
+      requireText("ticket168 Goldbach target", "UniformTargetDependentBinaryGoldbachPhaseCancellationBelowAnchorMargin");
+    } else {
+      requireText("ticket168 Twin theorem", "FinestParityHalfCorrelationIdentityAndCancellationTargetNoGo");
+      requireText("ticket168 Twin last count", "Last finite twin count860");
+      requireText("ticket168 Twin last size", "65,536");
+      requireText("ticket168 Twin last half", "430/1");
+      requireText("ticket168 Twin target", "PositiveLinearOddVonMangoldtFinestParityPairing");
+    }
     requireText("ticket167 title", "Ticket 167 cofinal cores, exact Collatz realizer counts, Goldbach Besov tails, and the finest Twin parity scale");
     requireText("ticket167 table", "TICKET167 audit");
-    requireText("ticket167 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket167 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket167 resolutions", "Resolution count0");
     requireText("ticket167 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket167AuditOverflow) checks.push(`${page.problemId}: ticket167 audit table overflow`);
@@ -3194,6 +3227,10 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-165") ||
     !metrics.evolutionPanel.includes("TICKET-166") ||
     !metrics.evolutionPanel.includes("TICKET-167") ||
+    !metrics.evolutionPanel.includes("TICKET-168") ||
+    !metrics.evolutionPanel.includes("TICKET-168 proves that a fixed bounded corrector") ||
+    !metrics.evolutionPanel.includes("spectral l1 is the optimal phase-blind Goldbach bound") ||
+    !metrics.evolutionPanel.includes("contains exactly half") ||
     !metrics.evolutionPanel.includes("TICKET-167 reduces RH finite certification") ||
     !metrics.evolutionPanel.includes("exact floor formula") ||
     !metrics.evolutionPanel.includes("finest 2x2 Haar projection") ||

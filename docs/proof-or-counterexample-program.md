@@ -37,6 +37,44 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-168 Fixed-Core, Least-Realizer, Phase-Minimax, and Parity-Main Audit
+
+TICKET-168 continues the four open nodes left by TICKET-167 and keeps every
+parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `FixedMomentCorrectorCoreBridgeAndCutoffVaryingConstraintNoGo`
+   proves that a fixed bounded finite-rank corrector preserves nesting and
+   density of a constrained form core. Alternating cutoff constraints have
+   positive restrictions but miss a fixed negative witness. The next obligation
+   is `CofinalIntervalLDLCertificatesOnFixedPoleNeutralGuinandWeilCore`.
+2. **Collatz:** `LeastRealizerDescentMonotonicityAndModularShadowNoGo` proves
+   the descent gap increases by `2(2^S-3^m)` between consecutive natural
+   realizers, reducing one word to its least realizer. The exact finite audit
+   reaches length 20, counts 7,553,085 candidates, and finds zero bad realizers.
+   The next obligation is
+   `UniformLeastRealizerEndpointDescentForEveryFirstCrossingWord`.
+3. **Goldbach:** `PhaseBlindSpectralL1MinimaxAndMagnitudeOnlyNoGo` proves
+   spectral `l1` is the sharp worst-case uniform bound from Fourier magnitudes.
+   Every finite phase-blind diagnostic remains above one despite observed tails
+   below one. The next obligation is
+   `UniformTargetDependentBinaryGoldbachPhaseCancellationBelowAnchorMargin`.
+4. **Twin Prime:** `FinestParityHalfCorrelationIdentityAndCancellationTargetNoGo`
+   proves the finest parity projection contains exactly half of the odd gap-two
+   correlation. Cancelling it would cancel half the target. The next obligation
+   is `PositiveLinearOddVonMangoldtFinestParityPairing`.
+
+한국어 요약: TICKET-168은 리만의 고정 neutral-core 보정, 콜라츠 최소
+실현값 단조성, 골드바흐 phase-blind spectral-`l1` 최소최대 한계,
+쌍둥이 소수 parity 절반 주항을 정확히 증명했다. cutoff 가변 제약,
+실현 가능성 제약을 버린 affine modular shadow만의 실제 word 하강 판정,
+magnitude-only Goldbach 개선, 최미세 Twin
+주항 상쇄 경로는 폐기했다. 실제 Weil LDL, 모든 Collatz word의 최소
+실현값 하강, target-dependent Goldbach phase 상쇄, 양의 von Mangoldt
+parity 주항은 여전히 미증명이다. 해결된 추측 수는 0이다.
+
+[TICKET-168 bilingual report](fixedcore-leastrealizer-phase-paritymain.md)에
+정확한 정리, 계산, no-go 반례, 문헌 경계와 proof DAG를 기록한다.
+
 ## 2026-08-01 TICKET-167 Cofinal, Residue-Count, Besov, and Parity-Scale Audit
 
 TICKET-167 continues the four open nodes left by TICKET-166 and keeps every

@@ -181,6 +181,7 @@ TICKET165_SCHEMA = (
 )
 TICKET166_SCHEMA = "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1"
 TICKET167_SCHEMA = "primeproject.ticket167-cofinal-residue-besov-parity.v1"
+TICKET168_SCHEMA = "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1"
 
 
 def fail(message: str) -> int:
@@ -12819,6 +12820,170 @@ def main() -> int:
         or "resolves none" not in str(ticket167.get("claim_boundary", "")).lower()
     ):
         return fail("ticket167 proof boundary changed")
+
+    path168 = Path(
+        "data/open-problem/ticket168-fixedcore-leastrealizer-phase-paritymain.json"
+    )
+    if not path168.exists():
+        return fail("missing ticket168 fixed-core/least-realizer/phase/parity audit")
+    ticket168 = read_json(path168)
+    if (
+        ticket168.get("schema") != TICKET168_SCHEMA
+        or ticket168.get("status")
+        != "four_exact_reductions_and_target_corrections_all_conjectures_open"
+    ):
+        return fail("ticket168 schema or status changed")
+    attempts168 = ticket168.get("attempts", [])
+    by_id168 = {
+        str(row.get("problem_id")): row
+        for row in attempts168
+        if isinstance(row, dict)
+    }
+    if set(by_id168) != EXPECTED_PROBLEMS:
+        return fail("ticket168 attempts missing problems")
+    audit168 = ticket168.get("fixedcore_leastrealizer_phase_paritymain_audit", {})
+    if audit168.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket168 global machine audit changed")
+
+    paths168 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-168-fixed-neutral-core.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-168-least-realizer.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-168-phase-minimax.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-168-parity-main-term.json"),
+    }
+    expected_names168 = {
+        "riemann": "FixedMomentCorrectorCoreBridgeAndCutoffVaryingConstraintNoGo",
+        "collatz": "LeastRealizerDescentMonotonicityAndModularShadowNoGo",
+        "goldbach": "PhaseBlindSpectralL1MinimaxAndMagnitudeOnlyNoGo",
+        "twin-prime": "FinestParityHalfCorrelationIdentityAndCancellationTargetNoGo",
+    }
+    next168 = {
+        "riemann": "CofinalIntervalLDLCertificatesOnFixedPoleNeutralGuinandWeilCore",
+        "collatz": "UniformLeastRealizerEndpointDescentForEveryFirstCrossingWord",
+        "goldbach": "UniformTargetDependentBinaryGoldbachPhaseCancellationBelowAnchorMargin",
+        "twin-prime": "PositiveLinearOddVonMangoldtFinestParityPairing",
+    }
+    sections168 = {
+        "riemann": audit168.get("riemann", {}),
+        "collatz": audit168.get("collatz", {}),
+        "goldbach": audit168.get("goldbach", {}),
+        "twin-prime": audit168.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id168.items():
+        artifact_path = paths168[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket168 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections168[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET168_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names168[problem_id]
+            or artifact.get("theorem_name") != expected_names168[problem_id]
+            or attempt.get("candidate_theorem") != next168[problem_id]
+            or artifact.get("candidate_theorem") != next168[problem_id]
+            or [node.get("status") for node in nodes]
+            != ["refuted_or_insufficient", "proved_exact", "open_not_proven"]
+            or nodes[-1].get("label") != next168[problem_id]
+            or int(section.get("reproducible_computation", {}).get("failure_count", -1)) != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket168 contract changed")
+
+    riemann168 = sections168["riemann"]["reproducible_computation"]
+    fixed_core168 = riemann168.get("fixed_moment_projection_rows", [])
+    varying168 = riemann168.get("cutoff_varying_constraint_no_go_rows", [])
+    if (
+        [row.get("ambient_dimension_N") for row in fixed_core168]
+        != [4, 8, 16, 32, 64]
+        or any(
+            row.get("projected_core_dimension") != row.get("ambient_dimension_N") - 2
+            or not all(row.get("checks", {}).values())
+            for row in fixed_core168
+        )
+        or any(
+            row.get("restricted_minimum", {}).get("exact") != "1/1"
+            or row.get("fixed_global_witness_value", {}).get("exact") != "-2/1"
+            or not all(row.get("checks", {}).values())
+            for row in varying168
+        )
+    ):
+        return fail("ticket168 RH fixed-core audit changed")
+
+    collatz168 = sections168["collatz"]["reproducible_computation"]
+    monotonicity168 = collatz168.get("least_realizer_monotonicity_rows", [])
+    finite168 = collatz168.get("finite_first_crossing_extension", {})
+    if (
+        [row.get("correction_C") for row in monotonicity168] != [1, 9, 17, 25, 33]
+        or [row.get("least_descent_gap_n0_minus_u0") for row in monotonicity168]
+        != [2, 0, -2, -4, -6]
+        or any(not all(row.get("checks", {}).values()) for row in monotonicity168)
+        or finite168.get("maximum_certified_length") != 20
+        or finite168.get("total_potential_non_descent_words_counted") != 7_553_085
+        or finite168.get("total_bad_realizer_count") != 0
+        or finite168.get("global_minimum_exact_residue_slack") != 192
+    ):
+        return fail("ticket168 Collatz least-realizer audit changed")
+
+    goldbach168 = sections168["goldbach"]["reproducible_computation"]
+    phase_rows168 = goldbach168.get("finite_phase_blind_gap_rows", [])
+    aligned168 = goldbach168.get("exact_aligned_magnitude_no_go_rows", [])
+    if (
+        [row.get("low_pass_bandwidth_K") for row in phase_rows168]
+        != [16, 64, 256, 1024, 4096]
+        or any(
+            float(row.get("observed_uniform_tail", 1)) >= 1
+            or float(row.get("optimal_phase_blind_spectral_l1_bound", 0)) <= 1
+            or row.get("passes_subunit_phase_blind_gate")
+            or not all(row.get("checks", {}).values())
+            for row in phase_rows168
+        )
+        or [row.get("paired_or_real_mode_count") for row in aligned168]
+        != [2, 4, 8, 16, 32, 64]
+        or any(
+            row.get("spectral_l1_minimax_value", {}).get("exact") != "1/1"
+            or not all(row.get("checks", {}).values())
+            for row in aligned168
+        )
+    ):
+        return fail("ticket168 Goldbach phase-minimax audit changed")
+
+    twin168 = sections168["twin-prime"]["reproducible_computation"]
+    prime_rows168 = twin168.get("finite_prime_indicator_rows", [])
+    exact_rows168 = twin168.get("exact_all_odd_model_rows", [])
+    if (
+        [row.get("matrix_side_N") for row in prime_rows168]
+        != [128, 512, 2048, 8192, 32768, 65536]
+        or prime_rows168[-1].get("exact_prime_indicator_twin_pair_count") != 860
+        or any(
+            Fraction(row.get("finest_parity_pairing", {}).get("exact"))
+            != Fraction(row.get("exact_prime_indicator_twin_pair_count"), 2)
+            or Fraction(row.get("coarse_completion_pairing", {}).get("exact"))
+            != Fraction(row.get("exact_prime_indicator_twin_pair_count"), 2)
+            or not all(row.get("checks", {}).values())
+            for row in prime_rows168
+        )
+        or any(
+            row.get("direct_product_haar_pairing", {}).get("exact")
+            != row.get("finest_parity_pairing", {}).get("exact")
+            or not all(row.get("checks", {}).values())
+            for row in exact_rows168
+        )
+    ):
+        return fail("ticket168 Twin parity-main-term audit changed")
+    if (
+        "resolves none" not in str(audit168.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket168.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket168 proof boundary changed")
 
     print("open problem structure verified")
     return 0

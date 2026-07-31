@@ -1,0 +1,323 @@
+{
+  "schema": "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1",
+  "generated_at": "2026-08-02T00:20:00+09:00",
+  "ticket_id": "TP-TICKET-168",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "FinestParityHalfCorrelationIdentityAndCancellationTargetNoGo",
+  "declared_proposition": "Let a be any real sequence supported on odd indices and A=a a^T. For the noncyclic shift-two selector D_2 and its finest support-two product-Haar projection P_fine D_2, one has <A,P_fine D_2>=<A,(I-P_fine)D_2>=(1/2) sum_n a_n a_(n+2). Thus the finest parity scale contains exactly half of the desired gap-two correlation, and the coarse completion contains the other half. Requiring o(N) cancellation of the finest term is therefore a wrong target for proving a positive linear twin-prime lower bound.",
+  "mathematical_argument": "For h_r=e_(2r)-e_(2r+1), the finest coefficient of A between adjacent blocks is (a_(2r)-a_(2r+1))(a_(2r+2)-a_(2r+3)). Odd support turns this into a_(2r+1)a_(2r+3). The corresponding D_2 coefficient is two and the product-Haar normalization is four, so summation gives one half of the full odd gap-two correlation. Subtracting from the full pairing gives the identical coarse half.",
+  "reproducible_computation": {
+    "theorem": "Let a be any real sequence supported on odd indices and A=a a^T. For the noncyclic shift-two selector D_2 and its finest support-two product-Haar projection P_fine D_2, one has <A,P_fine D_2>=<A,(I-P_fine)D_2>=(1/2) sum_n a_n a_(n+2). Thus the finest parity scale contains exactly half of the desired gap-two correlation, and the coarse completion contains the other half. Requiring o(N) cancellation of the finest term is therefore a wrong target for proving a positive linear twin-prime lower bound.",
+    "proof": "For h_r=e_(2r)-e_(2r+1), the finest coefficient of A between adjacent blocks is (a_(2r)-a_(2r+1))(a_(2r+2)-a_(2r+3)). Odd support turns this into a_(2r+1)a_(2r+3). The corresponding D_2 coefficient is two and the product-Haar normalization is four, so summation gives one half of the full odd gap-two correlation. Subtracting from the full pairing gives the identical coarse half.",
+    "finite_prime_indicator_rows": [
+      {
+        "matrix_side_N": 128,
+        "exact_prime_indicator_twin_pair_count": 10,
+        "finest_parity_pairing": {
+          "exact": "5/1",
+          "decimal": 5.0
+        },
+        "coarse_completion_pairing": {
+          "exact": "5/1",
+          "decimal": 5.0
+        },
+        "checks": {
+          "prime_indicator_is_odd_supported_on_audited_range": true,
+          "finest_pairing_is_exactly_half_the_gap_two_correlation": true,
+          "coarse_completion_is_the_other_exact_half": true,
+          "pairings_recombine_to_full_twin_count": true,
+          "row_is_finite_prime_indicator_evidence_only": true
+        }
+      },
+      {
+        "matrix_side_N": 512,
+        "exact_prime_indicator_twin_pair_count": 24,
+        "finest_parity_pairing": {
+          "exact": "12/1",
+          "decimal": 12.0
+        },
+        "coarse_completion_pairing": {
+          "exact": "12/1",
+          "decimal": 12.0
+        },
+        "checks": {
+          "prime_indicator_is_odd_supported_on_audited_range": true,
+          "finest_pairing_is_exactly_half_the_gap_two_correlation": true,
+          "coarse_completion_is_the_other_exact_half": true,
+          "pairings_recombine_to_full_twin_count": true,
+          "row_is_finite_prime_indicator_evidence_only": true
+        }
+      },
+      {
+        "matrix_side_N": 2048,
+        "exact_prime_indicator_twin_pair_count": 62,
+        "finest_parity_pairing": {
+          "exact": "31/1",
+          "decimal": 31.0
+        },
+        "coarse_completion_pairing": {
+          "exact": "31/1",
+          "decimal": 31.0
+        },
+        "checks": {
+          "prime_indicator_is_odd_supported_on_audited_range": true,
+          "finest_pairing_is_exactly_half_the_gap_two_correlation": true,
+          "coarse_completion_is_the_other_exact_half": true,
+          "pairings_recombine_to_full_twin_count": true,
+          "row_is_finite_prime_indicator_evidence_only": true
+        }
+      },
+      {
+        "matrix_side_N": 8192,
+        "exact_prime_indicator_twin_pair_count": 177,
+        "finest_parity_pairing": {
+          "exact": "177/2",
+          "decimal": 88.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "177/2",
+          "decimal": 88.5
+        },
+        "checks": {
+          "prime_indicator_is_odd_supported_on_audited_range": true,
+          "finest_pairing_is_exactly_half_the_gap_two_correlation": true,
+          "coarse_completion_is_the_other_exact_half": true,
+          "pairings_recombine_to_full_twin_count": true,
+          "row_is_finite_prime_indicator_evidence_only": true
+        }
+      },
+      {
+        "matrix_side_N": 32768,
+        "exact_prime_indicator_twin_pair_count": 505,
+        "finest_parity_pairing": {
+          "exact": "505/2",
+          "decimal": 252.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "505/2",
+          "decimal": 252.5
+        },
+        "checks": {
+          "prime_indicator_is_odd_supported_on_audited_range": true,
+          "finest_pairing_is_exactly_half_the_gap_two_correlation": true,
+          "coarse_completion_is_the_other_exact_half": true,
+          "pairings_recombine_to_full_twin_count": true,
+          "row_is_finite_prime_indicator_evidence_only": true
+        }
+      },
+      {
+        "matrix_side_N": 65536,
+        "exact_prime_indicator_twin_pair_count": 860,
+        "finest_parity_pairing": {
+          "exact": "430/1",
+          "decimal": 430.0
+        },
+        "coarse_completion_pairing": {
+          "exact": "430/1",
+          "decimal": 430.0
+        },
+        "checks": {
+          "prime_indicator_is_odd_supported_on_audited_range": true,
+          "finest_pairing_is_exactly_half_the_gap_two_correlation": true,
+          "coarse_completion_is_the_other_exact_half": true,
+          "pairings_recombine_to_full_twin_count": true,
+          "row_is_finite_prime_indicator_evidence_only": true
+        }
+      }
+    ],
+    "exact_all_odd_model_rows": [
+      {
+        "matrix_side_N": 8,
+        "all_odd_full_gap_two_pairing": {
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "finest_parity_pairing": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "direct_product_haar_pairing": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "checks": {
+          "all_odd_support_gap_two_pairs_counted": true,
+          "finest_is_half": true,
+          "coarse_is_half": true,
+          "direct_product_haar_sum_matches_half_identity": true,
+          "linear_finest_cancellation_would_cancel_half_the_target": true
+        }
+      },
+      {
+        "matrix_side_N": 16,
+        "all_odd_full_gap_two_pairing": {
+          "exact": "7/1",
+          "decimal": 7.0
+        },
+        "finest_parity_pairing": {
+          "exact": "7/2",
+          "decimal": 3.5
+        },
+        "direct_product_haar_pairing": {
+          "exact": "7/2",
+          "decimal": 3.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "7/2",
+          "decimal": 3.5
+        },
+        "checks": {
+          "all_odd_support_gap_two_pairs_counted": true,
+          "finest_is_half": true,
+          "coarse_is_half": true,
+          "direct_product_haar_sum_matches_half_identity": true,
+          "linear_finest_cancellation_would_cancel_half_the_target": true
+        }
+      },
+      {
+        "matrix_side_N": 32,
+        "all_odd_full_gap_two_pairing": {
+          "exact": "15/1",
+          "decimal": 15.0
+        },
+        "finest_parity_pairing": {
+          "exact": "15/2",
+          "decimal": 7.5
+        },
+        "direct_product_haar_pairing": {
+          "exact": "15/2",
+          "decimal": 7.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "15/2",
+          "decimal": 7.5
+        },
+        "checks": {
+          "all_odd_support_gap_two_pairs_counted": true,
+          "finest_is_half": true,
+          "coarse_is_half": true,
+          "direct_product_haar_sum_matches_half_identity": true,
+          "linear_finest_cancellation_would_cancel_half_the_target": true
+        }
+      },
+      {
+        "matrix_side_N": 64,
+        "all_odd_full_gap_two_pairing": {
+          "exact": "31/1",
+          "decimal": 31.0
+        },
+        "finest_parity_pairing": {
+          "exact": "31/2",
+          "decimal": 15.5
+        },
+        "direct_product_haar_pairing": {
+          "exact": "31/2",
+          "decimal": 15.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "31/2",
+          "decimal": 15.5
+        },
+        "checks": {
+          "all_odd_support_gap_two_pairs_counted": true,
+          "finest_is_half": true,
+          "coarse_is_half": true,
+          "direct_product_haar_sum_matches_half_identity": true,
+          "linear_finest_cancellation_would_cancel_half_the_target": true
+        }
+      },
+      {
+        "matrix_side_N": 128,
+        "all_odd_full_gap_two_pairing": {
+          "exact": "63/1",
+          "decimal": 63.0
+        },
+        "finest_parity_pairing": {
+          "exact": "63/2",
+          "decimal": 31.5
+        },
+        "direct_product_haar_pairing": {
+          "exact": "63/2",
+          "decimal": 31.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "63/2",
+          "decimal": 31.5
+        },
+        "checks": {
+          "all_odd_support_gap_two_pairs_counted": true,
+          "finest_is_half": true,
+          "coarse_is_half": true,
+          "direct_product_haar_sum_matches_half_identity": true,
+          "linear_finest_cancellation_would_cancel_half_the_target": true
+        }
+      },
+      {
+        "matrix_side_N": 256,
+        "all_odd_full_gap_two_pairing": {
+          "exact": "127/1",
+          "decimal": 127.0
+        },
+        "finest_parity_pairing": {
+          "exact": "127/2",
+          "decimal": 63.5
+        },
+        "direct_product_haar_pairing": {
+          "exact": "127/2",
+          "decimal": 63.5
+        },
+        "coarse_completion_pairing": {
+          "exact": "127/2",
+          "decimal": 63.5
+        },
+        "checks": {
+          "all_odd_support_gap_two_pairs_counted": true,
+          "finest_is_half": true,
+          "coarse_is_half": true,
+          "direct_product_haar_sum_matches_half_identity": true,
+          "linear_finest_cancellation_would_cancel_half_the_target": true
+        }
+      }
+    ],
+    "model_boundary": "The identity applies exactly to the odd-supported component of prime or von Mangoldt weights. The finite prime-indicator rows do not prove a positive asymptotic, and the identity supplies no Type II lower bound or parity-barrier breakthrough.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring power-saving cancellation of the finest parity pairing that contains exactly half of the desired gap-two correlation",
+  "remaining_gap": "The exact half-correlation identity gives no positive linear lower bound for odd von Mangoldt weights and crosses no sieve parity or Type II barrier.",
+  "candidate_theorem": "PositiveLinearOddVonMangoldtFinestParityPairing",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact parity main-term localization and target correction only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T168-REJECTED",
+        "label": "PrimeWeightedFinestParityCancellationAndCoarseHaarTailPowerSaving",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T168-CLOSED",
+        "label": "FinestParityHalfCorrelationIdentityAndCancellationTargetNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T168-OPEN",
+        "label": "PositiveLinearOddVonMangoldtFinestParityPairing",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T168-REJECTED",
+        "TP-T168-CLOSED"
+      ],
+      [
+        "TP-T168-CLOSED",
+        "TP-T168-OPEN"
+      ]
+    ]
+  }
+}

@@ -62,7 +62,45 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-167
+## Latest Continuation After TICKET-168
+
+All four conjectures remain open. Continue from these corrected nodes and do
+not restore the discarded TICKET-167 Twin cancellation target:
+
+1. Riemann:
+   `CofinalIntervalLDLCertificatesOnFixedPoleNeutralGuinandWeilCore`.
+   TICKET-168 proves the abstract fixed-constraint core theorem. It does not
+   prove form-norm continuity or interval LDL for the actual Weil family.
+2. Collatz:
+   `UniformLeastRealizerEndpointDescentForEveryFirstCrossingWord`.
+   TICKET-168 proves the least natural realizer is the unique worst realizer
+   and verifies length 20 only.
+3. Goldbach:
+   `UniformTargetDependentBinaryGoldbachPhaseCancellationBelowAnchorMargin`.
+   TICKET-168 proves no magnitude-only refinement can beat spectral `l1` in the
+   worst case; arithmetic phase must be retained.
+4. Twin Prime:
+   `PositiveLinearOddVonMangoldtFinestParityPairing`.
+   TICKET-168 proves the finest parity pairing is half the target correlation,
+   so seeking power-saving cancellation there is the wrong direction.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket168-fixedcore-leastrealizer-phase-paritymain.json
+data/open-problem/riemann/rh-ticket-168-fixed-neutral-core.json
+data/open-problem/collatz/co-ticket-168-least-realizer.json
+data/open-problem/goldbach/gb-ticket-168-phase-minimax.json
+data/open-problem/twin-prime/tp-ticket-168-parity-main-term.json
+```
+
+한국어 인계: TICKET-168은 네 난제를 해결하지 않았다. 다음 LLM은 실제
+pole-neutral Guinand-Weil cofinal LDL, 모든 first-crossing word의 최소
+실현값 하강, target-dependent binary-Goldbach phase 상쇄, odd von
+Mangoldt 최미세 parity pairing의 양의 선형 하한 중 하나를 증명하거나
+반례를 찾아야 한다.
+
+## Preserved Continuation After TICKET-167
 
 All four conjectures remain open. Continue from these exact nodes and do not
 promote finite diagnostics, density-zero statements, or selector geometry to

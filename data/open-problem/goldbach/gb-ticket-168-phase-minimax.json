@@ -1,0 +1,225 @@
+{
+  "schema": "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1",
+  "generated_at": "2026-08-02T00:20:00+09:00",
+  "ticket_id": "GB-TICKET-168",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "PhaseBlindSpectralL1MinimaxAndMagnitudeOnlyNoGo",
+  "declared_proposition": "On a finite cyclic group, fix Fourier magnitudes a_k. Among all phase assignments, the largest possible uniform norm of the inverse transform is exactly sum_k a_k/L. The triangle inequality gives the upper bound, and phases can be chosen to align at one target; for conjugate-paired magnitudes the aligning phases may also be chosen to produce a real function. Therefore spectral l1 is the minimax-optimal phase-blind certificate. No refinement using only shell sizes and shell energies can uniformly exploit the cancellation seen in the actual Goldbach diagnostic.",
+  "mathematical_argument": "Fourier inversion and the triangle inequality give the spectral l1 upper bound. Fix a target x_0 and choose each coefficient phase to cancel its character phase at x_0; every term is then positive real and equality holds. Pairing k with -k preserves conjugate symmetry. Thus any bound valid for every signal with those magnitudes must be at least spectral l1.",
+  "reproducible_computation": {
+    "theorem": "On a finite cyclic group, fix Fourier magnitudes a_k. Among all phase assignments, the largest possible uniform norm of the inverse transform is exactly sum_k a_k/L. The triangle inequality gives the upper bound, and phases can be chosen to align at one target; for conjugate-paired magnitudes the aligning phases may also be chosen to produce a real function. Therefore spectral l1 is the minimax-optimal phase-blind certificate. No refinement using only shell sizes and shell energies can uniformly exploit the cancellation seen in the actual Goldbach diagnostic.",
+    "proof": "Fourier inversion and the triangle inequality give the spectral l1 upper bound. Fix a target x_0 and choose each coefficient phase to cancel its character phase at x_0; every term is then positive real and equality holds. Pairing k with -k preserves conjugate symmetry. Thus any bound valid for every signal with those magnitudes must be at least spectral l1.",
+    "finite_phase_blind_gap_rows": [
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 16,
+        "observed_uniform_tail": 0.16681511777970548,
+        "optimal_phase_blind_spectral_l1_bound": 2.685221558510439,
+        "phase_blind_to_observed_ratio": 16.09699165309776,
+        "passes_subunit_phase_blind_gate": false,
+        "checks": {
+          "spectral_l1_dominates_actual_tail": true,
+          "phase_blind_minimax_gate_fails": true,
+          "observed_tail_is_below_one": true,
+          "row_is_floating_finite_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 64,
+        "observed_uniform_tail": 0.1444444544082064,
+        "optimal_phase_blind_spectral_l1_bound": 2.6553313852338647,
+        "phase_blind_to_observed_ratio": 18.38306216817283,
+        "passes_subunit_phase_blind_gate": false,
+        "checks": {
+          "spectral_l1_dominates_actual_tail": true,
+          "phase_blind_minimax_gate_fails": true,
+          "observed_tail_is_below_one": true,
+          "row_is_floating_finite_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 256,
+        "observed_uniform_tail": 0.14572509675378414,
+        "optimal_phase_blind_spectral_l1_bound": 2.6004980916031526,
+        "phase_blind_to_observed_ratio": 17.8452315320602,
+        "passes_subunit_phase_blind_gate": false,
+        "checks": {
+          "spectral_l1_dominates_actual_tail": true,
+          "phase_blind_minimax_gate_fails": true,
+          "observed_tail_is_below_one": true,
+          "row_is_floating_finite_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 1024,
+        "observed_uniform_tail": 0.13814118074972276,
+        "optimal_phase_blind_spectral_l1_bound": 2.378410883111893,
+        "phase_blind_to_observed_ratio": 17.217247385636426,
+        "passes_subunit_phase_blind_gate": false,
+        "checks": {
+          "spectral_l1_dominates_actual_tail": true,
+          "phase_blind_minimax_gate_fails": true,
+          "observed_tail_is_below_one": true,
+          "row_is_floating_finite_diagnostic": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 4096,
+        "observed_uniform_tail": 0.12326129564972543,
+        "optimal_phase_blind_spectral_l1_bound": 1.3749058206254823,
+        "phase_blind_to_observed_ratio": 11.154400198198346,
+        "passes_subunit_phase_blind_gate": false,
+        "checks": {
+          "spectral_l1_dominates_actual_tail": true,
+          "phase_blind_minimax_gate_fails": true,
+          "observed_tail_is_below_one": true,
+          "row_is_floating_finite_diagnostic": true
+        }
+      }
+    ],
+    "exact_aligned_magnitude_no_go_rows": [
+      {
+        "paired_or_real_mode_count": 2,
+        "per_mode_normalized_magnitude": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "spectral_l1_minimax_value": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "checks": {
+          "magnitude_sum_is_one": true,
+          "aligned_phase_value_is_one": true,
+          "triangle_bound_is_attained": true,
+          "magnitudes_alone_cannot_certify_a_smaller_bound": true
+        }
+      },
+      {
+        "paired_or_real_mode_count": 4,
+        "per_mode_normalized_magnitude": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "spectral_l1_minimax_value": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "checks": {
+          "magnitude_sum_is_one": true,
+          "aligned_phase_value_is_one": true,
+          "triangle_bound_is_attained": true,
+          "magnitudes_alone_cannot_certify_a_smaller_bound": true
+        }
+      },
+      {
+        "paired_or_real_mode_count": 8,
+        "per_mode_normalized_magnitude": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "spectral_l1_minimax_value": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "checks": {
+          "magnitude_sum_is_one": true,
+          "aligned_phase_value_is_one": true,
+          "triangle_bound_is_attained": true,
+          "magnitudes_alone_cannot_certify_a_smaller_bound": true
+        }
+      },
+      {
+        "paired_or_real_mode_count": 16,
+        "per_mode_normalized_magnitude": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "spectral_l1_minimax_value": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "checks": {
+          "magnitude_sum_is_one": true,
+          "aligned_phase_value_is_one": true,
+          "triangle_bound_is_attained": true,
+          "magnitudes_alone_cannot_certify_a_smaller_bound": true
+        }
+      },
+      {
+        "paired_or_real_mode_count": 32,
+        "per_mode_normalized_magnitude": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "spectral_l1_minimax_value": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "checks": {
+          "magnitude_sum_is_one": true,
+          "aligned_phase_value_is_one": true,
+          "triangle_bound_is_attained": true,
+          "magnitudes_alone_cannot_certify_a_smaller_bound": true
+        }
+      },
+      {
+        "paired_or_real_mode_count": 64,
+        "per_mode_normalized_magnitude": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "spectral_l1_minimax_value": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "checks": {
+          "magnitude_sum_is_one": true,
+          "aligned_phase_value_is_one": true,
+          "triangle_bound_is_attained": true,
+          "magnitudes_alone_cannot_certify_a_smaller_bound": true
+        }
+      }
+    ],
+    "finite_diagnostic_boundary": "The 16,384-target rows are floating Farey-mask diagnostics. Their actual tails are below one, but every optimal phase-blind bound is above one. This does not prove Goldbach; it proves that the next certificate must retain target-dependent arithmetic phase.",
+    "failure_count": 0
+  },
+  "discarded_route": "refining phase-blind shell-energy partitions while discarding target-dependent arithmetic phase",
+  "remaining_gap": "No target-dependent minor-arc phase cancellation is proved for the true binary-Goldbach deficit. Finite rows are diagnostics.",
+  "candidate_theorem": "UniformTargetDependentBinaryGoldbachPhaseCancellationBelowAnchorMargin",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact phase-blind minimax theorem, magnitude-only no-go, and finite diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T168-REJECTED",
+        "label": "PhaseBlindShellRefinementCanRecoverArithmeticCancellation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T168-CLOSED",
+        "label": "PhaseBlindSpectralL1MinimaxAndMagnitudeOnlyNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T168-OPEN",
+        "label": "UniformTargetDependentBinaryGoldbachPhaseCancellationBelowAnchorMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T168-REJECTED",
+        "GB-T168-CLOSED"
+      ],
+      [
+        "GB-T168-CLOSED",
+        "GB-T168-OPEN"
+      ]
+    ]
+  }
+}
