@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260802-ticket177b" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260802-ticket178" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-177 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, four structure-preserving certificates</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-177 identifies the information each next proof must retain and rejects four insufficient summaries.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-177은 다음 증명이 반드시 보존해야 할 정보를 특정하고, 그 정보를 잃는 네 가지 요약 경로를 반례 또는 순환성으로 폐기했습니다.</p>
+                <p class="brief-kicker">TICKET-178 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, four quantified proof thresholds</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-178 isolates four exact thresholds and rejects four non-uniform proof routes.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-178은 합가능 꼬리, 적응형 저비트 점유율, 주파수 분할 예산, 부호 있는 영주파수라는 네 개의 정확한 다음 증명 의무를 특정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>177</strong><small>2026-08-02</small></div>
+              <div><span>Latest ticket</span><strong>178</strong><small>2026-08-02</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> whitening한 tail의 성분별 비교행렬 `M`은 `rho(M)`로 전체 상대 연산자 오차를 인증합니다.</p>
-                <p><strong>폐기:</strong> 데이터를 본 뒤 자유 가중치를 맞추면 원 spectral radius를 다시 계산하는 순환 논증입니다.</p>
-                <p><strong>다음 핵심:</strong> pole-neutral Weil tail을 지배하는 선험적 비교행렬과 core보다 작은 spectral radius.</p>
+                <p><strong>확립:</strong> 절댓값 Toeplitz 꼬리의 차원 균일 임계값은 정확히 `s &gt; 1`이며 `C(2ζ(s)−1)`로 인증됩니다.</p>
+                <p><strong>폐기:</strong> `s ≤ 1`인 양의 Toeplitz 반례족은 spectral radius가 발산하므로 이 절댓값 경로로 무한 승격할 수 없습니다.</p>
+                <p><strong>다음 핵심:</strong> 실제 pole-neutral Weil 꼬리의 summable whitening 프로필과 core보다 작은 상수.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 첫 가속 단계 뒤 상태는 6-휠에 있어 조화 로그 계수가 기존 상계의 정확히 `2/3`입니다.</p>
-                <p><strong>폐기:</strong> 더 날카로운 정적 6-휠 경계도 하강의 필요조건은 아닙니다.</p>
-                <p><strong>다음 핵심:</strong> valuation discrepancy의 6-휠 포락선 교차 정리와 별도의 주기 배제.</p>
+                <p><strong>확립:</strong> `n mod 4,8` 점유율로 valuation을 하계하여 하강을 보증하는 정확한 저비트 충분조건을 얻었습니다.</p>
+                <p><strong>폐기:</strong> `2^m−1` 족은 임의로 긴 all-`v=1` 접두어를 만들어 모든 고정 지평 저비트 혼합 주장을 반증합니다.</p>
+                <p><strong>다음 핵심:</strong> 모든 비주기 비하강 궤도의 적응형 저비트 점유율 교차와 별도 주기 배제.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> aliased minor의 에너지와 도함수 예산으로 점별 양성을 보증하는 정확한 Sobolev 인증을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 에너지 단독 승격은 반례가 있고 raw 전역 인증은 시험한 5개 scale을 모두 실패했습니다.</p>
-                <p><strong>다음 핵심:</strong> major 하한 아래에서 에너지와 도함수를 동시에 줄이는 다중스케일 산술 절약.</p>
+                <p><strong>확립:</strong> 고주파 sup 예산을 먼저 빼고 저주파에 Sobolev 조건을 적용하는 정확한 주파수 분할 인증을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 항상 양수인 cosine 반례족도 전역 도함수 예산은 실패하므로 unsplit 검사는 필요조건이 아닙니다.</p>
+                <p><strong>다음 핵심:</strong> 모든 큰 짝수에서 major 하한 아래에 드는 선험적 dyadic sup·에너지·도함수 예산.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 합의 노름은 부호 있는 cross-Gram 합으로 결정되며 성분 block norm만으로는 결정되지 않습니다.</p>
-                <p><strong>폐기:</strong> 같은 성분 노름 `(1,1)`이 합의 노름 `0, 1, 2`를 모두 허용합니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 prime-pair Haar 블록의 비대각 signed cross-Gram power saving.</p>
+                <p><strong>확립:</strong> signed cross-Gram의 all-plus 영주파수는 합의 Hilbert-Schmidt 제곱이며 연산자 power saving의 충분조건입니다.</p>
+                <p><strong>폐기:</strong> 정렬 위상과 단위근 위상은 같은 절댓값 Gram을 가지지만 영주파수는 `m²`과 `0`입니다.</p>
+                <p><strong>다음 핵심:</strong> 실제 prime-pair Haar 블록의 signed 영주파수를 대각 에너지보다 작게 만드는 산술 절약.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-177</strong>
-              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 증명 경로를 좁힌 부분정리와 no-go 정리입니다.</p>
+              <strong>TICKET-178</strong>
+              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 네 개의 정확한 임계값·충분조건과 네 개의 no-go 정리입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260802-ticket177b"></script>
-    <script src="assets/app.js?v=20260802-ticket177b"></script>
+    <script src="assets/i18n.js?v=20260802-ticket178"></script>
+    <script src="assets/app.js?v=20260802-ticket178"></script>
   </body>
 </html>
 

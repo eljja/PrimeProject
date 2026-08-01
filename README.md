@@ -31,17 +31,21 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-178: Toeplitz Summability, Collatz Low Bits, Goldbach Frequency Splits,
+and Cross-Gram Zero Modes](docs/toeplitz-lowbit-frequency-split-zeromode.md),
+with a separate [Korean report](docs/toeplitz-lowbit-frequency-split-zeromode.ko.md).
+It proves the summability threshold for an absolute RH Toeplitz tail route,
+an exact Collatz low-bit occupancy descent criterion and an infinite
+fixed-horizon no-go family, a frequency-split Goldbach Sobolev certificate and
+a positive global-budget no-go family, and a signed Twin cross-Gram zero-mode
+certificate with phase-erasure counterfamilies. These are exact partial
+results and route corrections, not solutions. Every conjecture remains
+`open_not_proven`; the machine resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-177: Comparison Majorants, Six-Wheel Collatz Envelopes, Sobolev
 Certificates, and Signed Cross-Gram Data](docs/comparison-wheel-sobolev-crossgram.md),
 with a separate [Korean report](docs/comparison-wheel-sobolev-crossgram.ko.md).
-It proves an entrywise relative comparison certificate and fitted-weight
-circularity no-go for RH, a post-first-step six-wheel Collatz envelope whose
-logarithmic coefficient is exactly two thirds of the odd-only bound, an
-energy-plus-derivative pointwise positivity certificate and raw-scale failure
-for Goldbach, and a signed cross-Gram identity showing that Twin block norms
-lose cancellation information. These are exact partial results and route
-corrections, not solutions. Every conjecture remains `open_not_proven`; the
-machine resolution count is zero.
 
 The preserved previous boundary is [TICKET-176: Relative Cones, Harmonic
 Collatz Corrections, Parity Aliases, and Weighted Schur
@@ -142,7 +146,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-177 boundary, four exact partial results, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-178 boundary, four exact partial results, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -155,18 +159,19 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 138-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 139-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-177. It requires a predeclared RH
-comparison majorant rather than fitted spectral weights, uses the exact
-post-first-step Collatz six-wheel to improve the harmonic coefficient, repairs
-the Goldbach energy-to-pointwise implication with derivative control, and
-shows that Twin block norms erase signed cross-scale cancellation. These are
-exact partial results and no-go statements, not solutions. All four
+The latest proof-search track is TICKET-178. It requires a summable RH
+off-diagonal tail profile, replaces fixed-horizon Collatz mixing with adaptive
+low-bit occupancy, separates Goldbach high-frequency sup and low-frequency
+Sobolev budgets, and targets the signed Twin cross-Gram all-plus zero mode.
+These are exact partial results and no-go statements, not solutions. All four
 conjectures remain open and the machine resolution count is zero.
 See
+[TICKET178 EN](docs/toeplitz-lowbit-frequency-split-zeromode.md),
+[TICKET178 KO](docs/toeplitz-lowbit-frequency-split-zeromode.ko.md),
 [TICKET177 EN](docs/comparison-wheel-sobolev-crossgram.md),
 [TICKET177 KO](docs/comparison-wheel-sobolev-crossgram.ko.md),
 [TICKET176 EN](docs/relative-cone-harmonic-alias-schur.md),
@@ -210,15 +215,14 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-177입니다. 리만 트랙은 whitening한
-Weil 꼬리의 성분을 지배하는 선험적 비교행렬이 필요하며, 데이터를 본 뒤
-가중치를 맞추는 방법은 순환적임을 증명했습니다. 콜라츠 트랙은 첫 가속 단계
-뒤 상태가 6-휠에 있음을 이용해 조화 로그 계수를 기존 값의 정확히 `2/3`으로
-낮췄지만, 시작값 `63`은 이 경계가 필요조건이 아님을 보여줍니다. 골드바흐
-트랙은 에너지와 도함수로 점별 양성을 보증하는 Sobolev 다리를 증명했고 raw
-scale 5개가 모두 실패함을 기록했습니다. 쌍둥이 소수 트랙은 같은 block norm
-요약이 합의 노름 `0,1,2`를 모두 허용하므로 signed cross-Gram 정보가 필요함을
-증명했습니다. 네 문제는 모두 미해결이며 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-178입니다. 리만 트랙은 절댓값 Toeplitz
+꼬리 경로의 합가능성 임계값이 `s>1`임을 증명했습니다. 콜라츠 트랙은
+`n mod 4,8` 점유율의 하강 충분조건을 얻고 `2^m-1` 반례족으로 모든 고정
+지평 혼합 경로를 폐기했습니다. 골드바흐 트랙은 고주파 sup와 저주파
+Sobolev 예산을 분리했지만 시험한 다섯 지지범위 중 하나만 통과했습니다.
+쌍둥이 소수 트랙은 signed cross-Gram 영주파수가 합 연산자의 충분조건임을
+증명하고 절댓값 Gram이 위상을 잃는 무한 반례족을 제시했습니다. 네 문제는
+모두 미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -238,20 +242,20 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-177입니다.
-[비교 우세행렬, 콜라츠 6-휠, Sobolev 인증, signed cross-Gram 한국어
-보고서](docs/comparison-wheel-sobolev-crossgram.ko.md)와
-[영문 보고서](docs/comparison-wheel-sobolev-crossgram.md)는 네 트랙의 정확 명제,
-증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 리만의 상대
-비교행렬 인증, 콜라츠의 6-휠 로그 계수 개선, 골드바흐의 에너지-점별 양성
-다리, 쌍둥이 소수의 block-norm 정보 손실 no-go를 확정했습니다.
+최신 난제 연구 트랙은 TICKET-178입니다.
+[Toeplitz 합가능성, 콜라츠 저비트, 골드바흐 주파수 분할, 교차-Gram
+영주파수 한국어 보고서](docs/toeplitz-lowbit-frequency-split-zeromode.ko.md)와
+[영문 보고서](docs/toeplitz-lowbit-frequency-split-zeromode.md)는 네 트랙의
+정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
+리만의 합가능성 임계값, 콜라츠의 저비트 하강 기준, 골드바흐의 주파수 분할
+인증, 쌍둥이 소수의 signed 영주파수 정보 계약을 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-177의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 177개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-178의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 178개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

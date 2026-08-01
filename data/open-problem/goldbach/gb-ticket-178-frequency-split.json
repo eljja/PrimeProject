@@ -1,0 +1,751 @@
+{
+  "schema": "primeproject.ticket178-toeplitz-lowbit-split-zeromode.v1",
+  "generated_at": "2026-08-02T03:30:00+09:00",
+  "ticket_id": "GB-TICKET-178",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "FrequencySplitSobolevCertificateAndGlobalBudgetNoGo",
+  "declared_proposition": "Let P=L+H be a real mean-zero periodic function split into conjugate-symmetric frequency bands, with the zero mode assigned to L, so both bands have mean zero. If ||H||_infinity<=B<A, ||L'||_infinity<=D, and integral L^2<=E, then A+P is positive whenever A-B>D/2 or E<(A-B)^3/(4D). For a trigonometric polynomial, B<=sum_high |d_k|, E=sum_low |d_k|^2, and D<=2pi sum_low |k d_k|.",
+  "mathematical_argument": "First use H>=-B, then apply the TICKET-177 pointwise Sobolev certificate to the mean-zero low band L with residual major A-B. The cosine counterfamily A=1, L=0.2 cos(2pi x), and H=0.1 cos(2pi Kx) stays at least 0.7, while its unsplit derivative budget grows with K and rejects the global certificate. The split certificate remains valid.",
+  "reproducible_computation": {
+    "theorem": "Let P=L+H be a real mean-zero periodic function split into conjugate-symmetric frequency bands, with the zero mode assigned to L, so both bands have mean zero. If ||H||_infinity<=B<A, ||L'||_infinity<=D, and integral L^2<=E, then A+P is positive whenever A-B>D/2 or E<(A-B)^3/(4D). For a trigonometric polynomial, B<=sum_high |d_k|, E=sum_low |d_k|^2, and D<=2pi sum_low |k d_k|.",
+    "proof": "First use H>=-B, then apply the TICKET-177 pointwise Sobolev certificate to the mean-zero low band L with residual major A-B. The cosine counterfamily A=1, L=0.2 cos(2pi x), and H=0.1 cos(2pi Kx) stays at least 0.7, while its unsplit derivative budget grows with K and rejects the global certificate. The split certificate remains valid.",
+    "finite_fixed_farey_split_rows": [
+      {
+        "prime_support_limit": 64,
+        "transform_size_L": 256,
+        "minimum_fixed_farey_major_value": 1.4847770129640847,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "predeclared_dyadic_split_rows": [
+          {
+            "low_frequency_cutoff_K": 0,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+            "residual_major_A_minus_B": 0.0018399019821675466,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": true
+          },
+          {
+            "low_frequency_cutoff_K": 1,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+            "residual_major_A_minus_B": 0.0018399019821675466,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": true
+          },
+          {
+            "low_frequency_cutoff_K": 2,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+            "residual_major_A_minus_B": 0.0018399019821675466,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": true
+          },
+          {
+            "low_frequency_cutoff_K": 4,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 1.0463545429741887,
+            "residual_major_A_minus_B": 0.438422469989896,
+            "low_frequency_l2_energy": 0.0789854216954764,
+            "low_frequency_derivative_bound": 8.488733595610984,
+            "certificate_score": 0.10329514174330502,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 8,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 0.37445333107698026,
+            "residual_major_A_minus_B": 1.1103236818871045,
+            "low_frequency_l2_energy": 0.1584416200447846,
+            "low_frequency_derivative_bound": 33.34816030761851,
+            "certificate_score": 0.0665898011551448,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 16,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 0.11880059091878747,
+            "residual_major_A_minus_B": 1.3659764220452972,
+            "low_frequency_l2_energy": 0.16761290473642784,
+            "low_frequency_derivative_bound": 50.933878163851396,
+            "certificate_score": 0.07463721406171711,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 32,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 0.11880059091878747,
+            "residual_major_A_minus_B": 1.3659764220452972,
+            "low_frequency_l2_energy": 0.16761290473642784,
+            "low_frequency_derivative_bound": 50.933878163851396,
+            "certificate_score": 0.07463721406171711,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 64,
+            "major_lower_bound_A": 1.4847770129640847,
+            "high_frequency_l1_sup_bound_B": 0,
+            "residual_major_A_minus_B": 1.4847770129640847,
+            "low_frequency_l2_energy": 0.1746696949377544,
+            "low_frequency_derivative_bound": 80.79172325765853,
+            "certificate_score": 0.05798815367137464,
+            "frequency_split_certificate_passes": false
+          }
+        ],
+        "passing_split_count": 3,
+        "best_reported_split": {
+          "low_frequency_cutoff_K": 0,
+          "major_lower_bound_A": 1.4847770129640847,
+          "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+          "residual_major_A_minus_B": 0.0018399019821675466,
+          "low_frequency_l2_energy": 0.0,
+          "low_frequency_derivative_bound": 0.0,
+          "certificate_score": Infinity,
+          "frequency_split_certificate_passes": true
+        },
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "finite_goldbach_counts_are_positive": true,
+          "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+        }
+      },
+      {
+        "prime_support_limit": 128,
+        "transform_size_L": 512,
+        "minimum_fixed_farey_major_value": 2.1134265337073708,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "predeclared_dyadic_split_rows": [
+          {
+            "low_frequency_cutoff_K": 0,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 5.046605688704176,
+            "residual_major_A_minus_B": -2.933179154996805,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 1,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 5.046605688704176,
+            "residual_major_A_minus_B": -2.933179154996805,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 2,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 5.046605688704176,
+            "residual_major_A_minus_B": -2.933179154996805,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 4,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 4.356926889335695,
+            "residual_major_A_minus_B": -2.2435003556283246,
+            "low_frequency_l2_energy": 0.21657963441505615,
+            "low_frequency_derivative_bound": 13.203241324249918,
+            "certificate_score": -0.3398408467332591,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 8,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 3.3713024037797688,
+            "residual_major_A_minus_B": -1.257875870072398,
+            "low_frequency_l2_energy": 0.3869960599866139,
+            "low_frequency_derivative_bound": 49.893699056507494,
+            "certificate_score": -0.025769210925851837,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 16,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 2.391334196197786,
+            "residual_major_A_minus_B": -0.2779076624904153,
+            "low_frequency_l2_energy": 0.4660138512285221,
+            "low_frequency_derivative_bound": 125.54313533866011,
+            "certificate_score": -9.17169864742481e-05,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 32,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 1.8931456237178717,
+            "residual_major_A_minus_B": 0.22028090998949912,
+            "low_frequency_l2_energy": 0.4805525508821602,
+            "low_frequency_derivative_bound": 195.98822647477297,
+            "certificate_score": 0.0022478994167320866,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 64,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 1.3057386939906215,
+            "residual_major_A_minus_B": 0.8076878397167493,
+            "low_frequency_l2_energy": 0.5155399133778561,
+            "low_frequency_derivative_bound": 390.83085391449026,
+            "certificate_score": 0.0041331836093650015,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 128,
+            "major_lower_bound_A": 2.1134265337073708,
+            "high_frequency_l1_sup_bound_B": 0,
+            "residual_major_A_minus_B": 2.1134265337073708,
+            "low_frequency_l2_energy": 0.5916168080313451,
+            "low_frequency_derivative_bound": 1146.8273012478614,
+            "certificate_score": 0.0036856927479974604,
+            "frequency_split_certificate_passes": false
+          }
+        ],
+        "passing_split_count": 0,
+        "best_reported_split": {
+          "low_frequency_cutoff_K": 64,
+          "major_lower_bound_A": 2.1134265337073708,
+          "high_frequency_l1_sup_bound_B": 1.3057386939906215,
+          "residual_major_A_minus_B": 0.8076878397167493,
+          "low_frequency_l2_energy": 0.5155399133778561,
+          "low_frequency_derivative_bound": 390.83085391449026,
+          "certificate_score": 0.0041331836093650015,
+          "frequency_split_certificate_passes": false
+        },
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "finite_goldbach_counts_are_positive": true,
+          "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+        }
+      },
+      {
+        "prime_support_limit": 256,
+        "transform_size_L": 1024,
+        "minimum_fixed_farey_major_value": 2.072207644108839,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "predeclared_dyadic_split_rows": [
+          {
+            "low_frequency_cutoff_K": 0,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 14.430700094319445,
+            "residual_major_A_minus_B": -12.358492450210605,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 1,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 14.430700094319445,
+            "residual_major_A_minus_B": -12.358492450210605,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 2,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 14.430700094319445,
+            "residual_major_A_minus_B": -12.358492450210605,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 4,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 13.446000945640844,
+            "residual_major_A_minus_B": -11.373793301532004,
+            "low_frequency_l2_energy": 0.40631525515952016,
+            "low_frequency_derivative_bound": 19.11088954590091,
+            "certificate_score": -1.1902944940594422,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 8,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 11.921662589088553,
+            "residual_major_A_minus_B": -9.849454944979716,
+            "low_frequency_l2_energy": 0.8266672598037716,
+            "low_frequency_derivative_bound": 74.9632311168414,
+            "certificate_score": -0.2627809606986622,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 16,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 10.872106335386267,
+            "residual_major_A_minus_B": -8.799898691277427,
+            "low_frequency_l2_energy": 0.9244090439727439,
+            "low_frequency_derivative_bound": 155.67976491496427,
+            "certificate_score": -0.11305128442458949,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 32,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 9.160083873431796,
+            "residual_major_A_minus_B": -7.087876229322958,
+            "low_frequency_l2_energy": 1.0789241958559068,
+            "low_frequency_derivative_bound": 419.862427294094,
+            "certificate_score": -0.033762850727094146,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 64,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 7.9326256814820155,
+            "residual_major_A_minus_B": -5.860418037373177,
+            "low_frequency_l2_energy": 1.1282247438153763,
+            "low_frequency_derivative_bound": 765.4751468371753,
+            "certificate_score": -0.015311844052906266,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 128,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 4.881460074374631,
+            "residual_major_A_minus_B": -2.8092524302657917,
+            "low_frequency_l2_energy": 1.3328345365255043,
+            "low_frequency_derivative_bound": 2694.860497709468,
+            "certificate_score": -0.001543120277982667,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 256,
+            "major_lower_bound_A": 2.072207644108839,
+            "high_frequency_l1_sup_bound_B": 0,
+            "residual_major_A_minus_B": 2.072207644108839,
+            "low_frequency_l2_energy": 1.6768916506248916,
+            "low_frequency_derivative_bound": 8378.808162152172,
+            "certificate_score": 0.00049463064531521,
+            "frequency_split_certificate_passes": false
+          }
+        ],
+        "passing_split_count": 0,
+        "best_reported_split": {
+          "low_frequency_cutoff_K": 256,
+          "major_lower_bound_A": 2.072207644108839,
+          "high_frequency_l1_sup_bound_B": 0,
+          "residual_major_A_minus_B": 2.072207644108839,
+          "low_frequency_l2_energy": 1.6768916506248916,
+          "low_frequency_derivative_bound": 8378.808162152172,
+          "certificate_score": 0.00049463064531521,
+          "frequency_split_certificate_passes": false
+        },
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "finite_goldbach_counts_are_positive": true,
+          "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+        }
+      },
+      {
+        "prime_support_limit": 512,
+        "transform_size_L": 2048,
+        "minimum_fixed_farey_major_value": 3.353133101040938,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "predeclared_dyadic_split_rows": [
+          {
+            "low_frequency_cutoff_K": 0,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 33.78490105621719,
+            "residual_major_A_minus_B": -30.431767955176248,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 1,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 33.78490105621719,
+            "residual_major_A_minus_B": -30.431767955176248,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 2,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 33.78490105621719,
+            "residual_major_A_minus_B": -30.431767955176248,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 4,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 32.40002414250006,
+            "residual_major_A_minus_B": -29.04689104145912,
+            "low_frequency_l2_energy": 0.7806571801537259,
+            "low_frequency_derivative_bound": 27.00679483111039,
+            "certificate_score": -2.1510802168940573,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 8,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 30.02772867409168,
+            "residual_major_A_minus_B": -26.67459557305074,
+            "low_frequency_l2_energy": 1.8646916435920877,
+            "low_frequency_derivative_bound": 112.51162746731019,
+            "certificate_score": -0.4741660248546478,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 16,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 28.409925175709073,
+            "residual_major_A_minus_B": -25.056792074668135,
+            "low_frequency_l2_energy": 2.1424991631472854,
+            "low_frequency_derivative_bound": 224.21740367360195,
+            "certificate_score": -0.22350443510748916,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 32,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 27.338867773971323,
+            "residual_major_A_minus_B": -23.985734672930384,
+            "low_frequency_l2_energy": 2.1957583713176096,
+            "low_frequency_derivative_bound": 379.70137163508537,
+            "certificate_score": -0.126339994873561,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 64,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 24.5660278123813,
+            "residual_major_A_minus_B": -21.21289471134036,
+            "low_frequency_l2_energy": 2.3827946299810807,
+            "low_frequency_derivative_bound": 1262.824784394832,
+            "certificate_score": -0.033595942958160985,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 128,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 21.342775091241474,
+            "residual_major_A_minus_B": -17.989641990200536,
+            "low_frequency_l2_energy": 2.5335809242177576,
+            "low_frequency_derivative_bound": 3205.966620852521,
+            "certificate_score": -0.011222600929897882,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 256,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 14.391460487359081,
+            "residual_major_A_minus_B": -11.038327386318144,
+            "low_frequency_l2_energy": 2.9004282595628617,
+            "low_frequency_derivative_bound": 11610.119999444392,
+            "certificate_score": -0.0019015009985850946,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 512,
+            "major_lower_bound_A": 3.353133101040938,
+            "high_frequency_l1_sup_bound_B": 0,
+            "residual_major_A_minus_B": 3.353133101040938,
+            "low_frequency_l2_energy": 3.959891793965605,
+            "low_frequency_derivative_bound": 46736.00366595615,
+            "certificate_score": 0.00014349250419472457,
+            "frequency_split_certificate_passes": false
+          }
+        ],
+        "passing_split_count": 0,
+        "best_reported_split": {
+          "low_frequency_cutoff_K": 512,
+          "major_lower_bound_A": 3.353133101040938,
+          "high_frequency_l1_sup_bound_B": 0,
+          "residual_major_A_minus_B": 3.353133101040938,
+          "low_frequency_l2_energy": 3.959891793965605,
+          "low_frequency_derivative_bound": 46736.00366595615,
+          "certificate_score": 0.00014349250419472457,
+          "frequency_split_certificate_passes": false
+        },
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "finite_goldbach_counts_are_positive": true,
+          "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+        }
+      },
+      {
+        "prime_support_limit": 1024,
+        "transform_size_L": 4096,
+        "minimum_fixed_farey_major_value": 4.030570977301597,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "predeclared_dyadic_split_rows": [
+          {
+            "low_frequency_cutoff_K": 0,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 72.36708745293454,
+            "residual_major_A_minus_B": -68.33651647563295,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 1,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 72.36708745293454,
+            "residual_major_A_minus_B": -68.33651647563295,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 2,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 72.36708745293454,
+            "residual_major_A_minus_B": -68.33651647563295,
+            "low_frequency_l2_energy": 0.0,
+            "low_frequency_derivative_bound": 0.0,
+            "certificate_score": Infinity,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 4,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 70.08593005509346,
+            "residual_major_A_minus_B": -66.05535907779186,
+            "low_frequency_l2_energy": 2.2305572896352706,
+            "low_frequency_derivative_bound": 44.10716773721852,
+            "certificate_score": -2.9952210702503583,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 8,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 66.70313551321938,
+            "residual_major_A_minus_B": -62.672564535917786,
+            "low_frequency_l2_energy": 4.3383493623573965,
+            "low_frequency_derivative_bound": 167.23114904658502,
+            "certificate_score": -0.7495321881506573,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 16,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 64.44925639704246,
+            "residual_major_A_minus_B": -60.41868541974087,
+            "low_frequency_l2_energy": 4.812581463675947,
+            "low_frequency_derivative_bound": 329.03089708124566,
+            "certificate_score": -0.36725235201739753,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 32,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 62.6975315351007,
+            "residual_major_A_minus_B": -58.6669605577991,
+            "low_frequency_l2_energy": 4.985453159011213,
+            "low_frequency_derivative_bound": 583.3715705694977,
+            "certificate_score": -0.20113068074444343,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 64,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 61.12659819770409,
+            "residual_major_A_minus_B": -57.09602722040249,
+            "low_frequency_l2_energy": 5.047690319806431,
+            "low_frequency_derivative_bound": 1052.6836530738315,
+            "certificate_score": -0.10847708531177881,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 128,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 57.11255105255797,
+            "residual_major_A_minus_B": -53.08198007525637,
+            "low_frequency_l2_energy": 5.28113604589566,
+            "low_frequency_derivative_bound": 3576.81892979529,
+            "certificate_score": -0.029681111130942475,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 256,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 49.01778046157789,
+            "residual_major_A_minus_B": -44.98720948427629,
+            "low_frequency_l2_energy": 5.69665829530134,
+            "low_frequency_derivative_bound": 13061.682989029907,
+            "certificate_score": -0.006888424642070953,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 512,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 33.854960821572,
+            "residual_major_A_minus_B": -29.824389844270403,
+            "low_frequency_l2_energy": 6.5976251206407515,
+            "low_frequency_derivative_bound": 50338.387737825804,
+            "certificate_score": -0.0011849561014787705,
+            "frequency_split_certificate_passes": false
+          },
+          {
+            "low_frequency_cutoff_K": 1024,
+            "major_lower_bound_A": 4.030570977301597,
+            "high_frequency_l1_sup_bound_B": 0,
+            "residual_major_A_minus_B": 4.030570977301597,
+            "low_frequency_l2_energy": 9.39162269197392,
+            "low_frequency_derivative_bound": 214759.3821320447,
+            "certificate_score": 3.753569168701931e-05,
+            "frequency_split_certificate_passes": false
+          }
+        ],
+        "passing_split_count": 0,
+        "best_reported_split": {
+          "low_frequency_cutoff_K": 1024,
+          "major_lower_bound_A": 4.030570977301597,
+          "high_frequency_l1_sup_bound_B": 0,
+          "residual_major_A_minus_B": 4.030570977301597,
+          "low_frequency_l2_energy": 9.39162269197392,
+          "low_frequency_derivative_bound": 214759.3821320447,
+          "certificate_score": 3.753569168701931e-05,
+          "frequency_split_certificate_passes": false
+        },
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "finite_goldbach_counts_are_positive": true,
+          "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+        }
+      }
+    ],
+    "positive_global_certificate_no_go": [
+      {
+        "high_frequency_K": 16,
+        "major_A": 1.0,
+        "low_cosine_amplitude": 0.2,
+        "high_cosine_amplitude": 0.1,
+        "rigorous_pointwise_lower_bound": 0.7000000000000001,
+        "global_derivative_bound": 11.309733552923255,
+        "global_l2_energy": 0.025000000000000005,
+        "global_certificate_passes": false,
+        "split_high_sup_bound": 0.1,
+        "split_residual_major": 0.9,
+        "split_certificate_passes": true,
+        "checks": {
+          "function_is_uniformly_positive": true,
+          "global_certificate_fails": true,
+          "frequency_split_certificate_passes": true
+        }
+      },
+      {
+        "high_frequency_K": 64,
+        "major_A": 1.0,
+        "low_cosine_amplitude": 0.2,
+        "high_cosine_amplitude": 0.1,
+        "rigorous_pointwise_lower_bound": 0.7000000000000001,
+        "global_derivative_bound": 41.46902302738527,
+        "global_l2_energy": 0.025000000000000005,
+        "global_certificate_passes": false,
+        "split_high_sup_bound": 0.1,
+        "split_residual_major": 0.9,
+        "split_certificate_passes": true,
+        "checks": {
+          "function_is_uniformly_positive": true,
+          "global_certificate_fails": true,
+          "frequency_split_certificate_passes": true
+        }
+      },
+      {
+        "high_frequency_K": 256,
+        "major_A": 1.0,
+        "low_cosine_amplitude": 0.2,
+        "high_cosine_amplitude": 0.1,
+        "rigorous_pointwise_lower_bound": 0.7000000000000001,
+        "global_derivative_bound": 162.10618092523333,
+        "global_l2_energy": 0.025000000000000005,
+        "global_certificate_passes": false,
+        "split_high_sup_bound": 0.1,
+        "split_residual_major": 0.9,
+        "split_certificate_passes": true,
+        "checks": {
+          "function_is_uniformly_positive": true,
+          "global_certificate_fails": true,
+          "frequency_split_certificate_passes": true
+        }
+      },
+      {
+        "high_frequency_K": 1024,
+        "major_A": 1.0,
+        "low_cosine_amplitude": 0.2,
+        "high_cosine_amplitude": 0.1,
+        "rigorous_pointwise_lower_bound": 0.7000000000000001,
+        "global_derivative_bound": 644.6548125166256,
+        "global_l2_energy": 0.025000000000000005,
+        "global_certificate_passes": false,
+        "split_high_sup_bound": 0.1,
+        "split_residual_major": 0.9,
+        "split_certificate_passes": true,
+        "checks": {
+          "function_is_uniformly_positive": true,
+          "global_certificate_fails": true,
+          "frequency_split_certificate_passes": true
+        }
+      }
+    ],
+    "aggregate": {
+      "support_count": 5,
+      "supports_with_passing_predeclared_split": 1,
+      "supports_without_passing_predeclared_split": 4,
+      "positive_global_certificate_counterexample_count": 4
+    },
+    "no_go_scope": "The unsplit energy-derivative test is sufficient but not necessary. A predeclared frequency split repairs that diagnostic defect, yet only support 64 passes among the five finite prime experiments. No uniform major/minor estimate for every large even target follows.",
+    "failure_count": 0
+  },
+  "discarded_route": "the unsplit global derivative-energy certificate as a necessary or asymptotically stable diagnostic",
+  "remaining_gap": "No target-uniform arithmetic decomposition bounds every high-frequency sup budget and low-frequency energy-derivative budget below the major term.",
+  "candidate_theorem": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact split certificate, one infinite positive no-go family, and five bounded prime diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T178-REJECTED",
+        "label": "GlobalDerivativeEnergyBudgetIsNecessaryForPositiveGoldbachCounts",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T178-CLOSED",
+        "label": "FrequencySplitSobolevCertificateAndGlobalBudgetNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T178-OPEN",
+        "label": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T178-REJECTED",
+        "GB-T178-CLOSED"
+      ],
+      [
+        "GB-T178-CLOSED",
+        "GB-T178-OPEN"
+      ]
+    ]
+  }
+}

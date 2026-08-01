@@ -37,6 +37,38 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-178 Summability, Low-Bit, Frequency-Split, and Zero-Mode Audit
+
+TICKET-178 continues the four open nodes left by TICKET-177 and keeps every
+parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `SummableToeplitzTailCertificateAndNonsummableProfileNoGo`
+   proves the exact `s>1` summability threshold for a phase-blind absolute
+   Toeplitz tail. The next obligation is
+   `PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin`.
+2. **Collatz:** `LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo`
+   turns modulo 4 and 8 occupancy into an exact descent sufficient condition.
+   The starts `2^m-1` refute every fixed-horizon mixing replacement. The next
+   obligation is
+   `EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold`, followed
+   by separate nontrivial-cycle exclusion.
+3. **Goldbach:** `FrequencySplitSobolevCertificateAndGlobalBudgetNoGo` splits
+   high-frequency sup control from low-frequency energy and derivative
+   control. A strictly positive cosine counterfamily refutes necessity of the
+   unsplit global diagnostic. The next obligation is
+   `ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain`.
+4. **Twin Prime:** `CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo`
+   identifies the signed all-plus zero mode as a sufficient aggregate operator
+   certificate. Roots-of-unity counterfamilies prove absolute Gram data are
+   insufficient. The next obligation is
+   `PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-178](toeplitz-lowbit-frequency-split-zeromode.md).
+한국어 보고서: [TICKET-178](toeplitz-lowbit-frequency-split-zeromode.ko.md).
+
 ## 2026-08-02 TICKET-168 Fixed-Core, Least-Realizer, Phase-Minimax, and Parity-Main Audit
 
 TICKET-168 continues the four open nodes left by TICKET-167 and keeps every

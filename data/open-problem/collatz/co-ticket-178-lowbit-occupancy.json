@@ -1,0 +1,1035 @@
+{
+  "schema": "primeproject.ticket178-toeplitz-lowbit-split-zeromode.v1",
+  "generated_at": "2026-08-02T03:30:00+09:00",
+  "ticket_id": "CO-TICKET-178",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo",
+  "declared_proposition": "For an accelerated odd Collatz prefix n_0,...,n_(h-1), let A_2 count n_i congruent to 1 modulo 4 and A_3 count n_i congruent to 5 modulo 8. Then sum_i v2(3n_i+1) >= h+A_2+A_3. Consequently an aperiodic prefix that never falls below n_0 cannot satisfy A_2+A_3 > (log2(3)-1)h+H_6(n_0,h).",
+  "mathematical_argument": "For odd n, v2(3n+1)>=2 iff n=1 mod 4, and it is at least 3 iff n=5 mod 8. The layer-cake identity gives the valuation lower bound. Combine it with the exact logarithmic orbit identity and the TICKET-177 six-wheel correction upper bound. Conversely, n_0=2^m-1 has n_i=3^i 2^(m-i)-1 and valuation one for an arbitrarily long initial prefix, ruling out every fixed-horizon low-bit mixing claim.",
+  "reproducible_computation": {
+    "theorem": "For an accelerated odd Collatz prefix n_0,...,n_(h-1), let A_2 count n_i congruent to 1 modulo 4 and A_3 count n_i congruent to 5 modulo 8. Then sum_i v2(3n_i+1) >= h+A_2+A_3. Consequently an aperiodic prefix that never falls below n_0 cannot satisfy A_2+A_3 > (log2(3)-1)h+H_6(n_0,h).",
+    "proof": "For odd n, v2(3n+1)>=2 iff n=1 mod 4, and it is at least 3 iff n=5 mod 8. The layer-cake identity gives the valuation lower bound. Combine it with the exact logarithmic orbit identity and the TICKET-177 six-wheel correction upper bound. Conversely, n_0=2^m-1 has n_i=3^i 2^(m-i)-1 and valuation one for an arbitrarily long initial prefix, ruling out every fixed-horizon low-bit mixing claim.",
+    "finite_first_descent_audit": {
+      "odd_start_limit": 100000,
+      "odd_starts_checked": 49999,
+      "lowbit_certificate_crossing_count": 44537,
+      "lowbit_certificate_non_crossing_count": 5462,
+      "first_non_crossing_starts": [
+        15,
+        27,
+        31,
+        47,
+        63,
+        71,
+        91,
+        95,
+        103,
+        111,
+        127,
+        143,
+        155,
+        159,
+        167,
+        223,
+        231,
+        239,
+        255,
+        271
+      ],
+      "maximum_first_descent_horizon": 85
+    },
+    "mersenne_fixed_horizon_no_go": [
+      {
+        "exponent_m": 8,
+        "start_2_to_m_minus_1": 255,
+        "all_one_valuation_prefix_length": 6,
+        "rows": [
+          {
+            "index": 0,
+            "state": 255,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 1,
+            "state": 383,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 2,
+            "state": 575,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 3,
+            "state": 863,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 4,
+            "state": 1295,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 5,
+            "state": 1943,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          }
+        ],
+        "checks": {
+          "closed_form_holds": true,
+          "all_prefix_states_are_7_mod_8": true,
+          "all_prefix_valuations_equal_one": true,
+          "prefix_is_non_descending": true
+        }
+      },
+      {
+        "exponent_m": 16,
+        "start_2_to_m_minus_1": 65535,
+        "all_one_valuation_prefix_length": 14,
+        "rows": [
+          {
+            "index": 0,
+            "state": 65535,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 1,
+            "state": 98303,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 2,
+            "state": 147455,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 3,
+            "state": 221183,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 4,
+            "state": 331775,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 5,
+            "state": 497663,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 6,
+            "state": 746495,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 7,
+            "state": 1119743,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 8,
+            "state": 1679615,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 9,
+            "state": 2519423,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 10,
+            "state": 3779135,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 11,
+            "state": 5668703,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 12,
+            "state": 8503055,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 13,
+            "state": 12754583,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          }
+        ],
+        "checks": {
+          "closed_form_holds": true,
+          "all_prefix_states_are_7_mod_8": true,
+          "all_prefix_valuations_equal_one": true,
+          "prefix_is_non_descending": true
+        }
+      },
+      {
+        "exponent_m": 32,
+        "start_2_to_m_minus_1": 4294967295,
+        "all_one_valuation_prefix_length": 30,
+        "rows": [
+          {
+            "index": 0,
+            "state": 4294967295,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 1,
+            "state": 6442450943,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 2,
+            "state": 9663676415,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 3,
+            "state": 14495514623,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 4,
+            "state": 21743271935,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 5,
+            "state": 32614907903,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 6,
+            "state": 48922361855,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 7,
+            "state": 73383542783,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 8,
+            "state": 110075314175,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 9,
+            "state": 165112971263,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 10,
+            "state": 247669456895,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 11,
+            "state": 371504185343,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 12,
+            "state": 557256278015,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 13,
+            "state": 835884417023,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 14,
+            "state": 1253826625535,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 15,
+            "state": 1880739938303,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 16,
+            "state": 2821109907455,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 17,
+            "state": 4231664861183,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 18,
+            "state": 6347497291775,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 19,
+            "state": 9521245937663,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 20,
+            "state": 14281868906495,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 21,
+            "state": 21422803359743,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 22,
+            "state": 32134205039615,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 23,
+            "state": 48201307559423,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 24,
+            "state": 72301961339135,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 25,
+            "state": 108452942008703,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 26,
+            "state": 162679413013055,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 27,
+            "state": 244019119519583,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 28,
+            "state": 366028679279375,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 29,
+            "state": 549043018919063,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          }
+        ],
+        "checks": {
+          "closed_form_holds": true,
+          "all_prefix_states_are_7_mod_8": true,
+          "all_prefix_valuations_equal_one": true,
+          "prefix_is_non_descending": true
+        }
+      },
+      {
+        "exponent_m": 64,
+        "start_2_to_m_minus_1": 18446744073709551615,
+        "all_one_valuation_prefix_length": 62,
+        "rows": [
+          {
+            "index": 0,
+            "state": 18446744073709551615,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 1,
+            "state": 27670116110564327423,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 2,
+            "state": 41505174165846491135,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 3,
+            "state": 62257761248769736703,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 4,
+            "state": 93386641873154605055,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 5,
+            "state": 140079962809731907583,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 6,
+            "state": 210119944214597861375,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 7,
+            "state": 315179916321896792063,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 8,
+            "state": 472769874482845188095,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 9,
+            "state": 709154811724267782143,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 10,
+            "state": 1063732217586401673215,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 11,
+            "state": 1595598326379602509823,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 12,
+            "state": 2393397489569403764735,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 13,
+            "state": 3590096234354105647103,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 14,
+            "state": 5385144351531158470655,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 15,
+            "state": 8077716527296737705983,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 16,
+            "state": 12116574790945106558975,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 17,
+            "state": 18174862186417659838463,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 18,
+            "state": 27262293279626489757695,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 19,
+            "state": 40893439919439734636543,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 20,
+            "state": 61340159879159601954815,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 21,
+            "state": 92010239818739402932223,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 22,
+            "state": 138015359728109104398335,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 23,
+            "state": 207023039592163656597503,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 24,
+            "state": 310534559388245484896255,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 25,
+            "state": 465801839082368227344383,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 26,
+            "state": 698702758623552341016575,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 27,
+            "state": 1048054137935328511524863,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 28,
+            "state": 1572081206902992767287295,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 29,
+            "state": 2358121810354489150930943,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 30,
+            "state": 3537182715531733726396415,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 31,
+            "state": 5305774073297600589594623,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 32,
+            "state": 7958661109946400884391935,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 33,
+            "state": 11937991664919601326587903,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 34,
+            "state": 17906987497379401989881855,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 35,
+            "state": 26860481246069102984822783,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 36,
+            "state": 40290721869103654477234175,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 37,
+            "state": 60436082803655481715851263,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 38,
+            "state": 90654124205483222573776895,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 39,
+            "state": 135981186308224833860665343,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 40,
+            "state": 203971779462337250790998015,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 41,
+            "state": 305957669193505876186497023,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 42,
+            "state": 458936503790258814279745535,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 43,
+            "state": 688404755685388221419618303,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 44,
+            "state": 1032607133528082332129427455,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 45,
+            "state": 1548910700292123498194141183,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 46,
+            "state": 2323366050438185247291211775,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 47,
+            "state": 3485049075657277870936817663,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 48,
+            "state": 5227573613485916806405226495,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 49,
+            "state": 7841360420228875209607839743,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 50,
+            "state": 11762040630343312814411759615,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 51,
+            "state": 17643060945514969221617639423,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 52,
+            "state": 26464591418272453832426459135,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 53,
+            "state": 39696887127408680748639688703,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 54,
+            "state": 59545330691113021122959533055,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 55,
+            "state": 89317996036669531684439299583,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 56,
+            "state": 133976994055004297526658949375,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 57,
+            "state": 200965491082506446289988424063,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 58,
+            "state": 301448236623759669434982636095,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 59,
+            "state": 452172354935639504152473954143,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 60,
+            "state": 678258532403459256228710931215,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          },
+          {
+            "index": 61,
+            "state": 1017387798605188884343066396823,
+            "state_mod_8": 7,
+            "valuation": 1,
+            "matches_closed_form": true,
+            "is_non_descending": true
+          }
+        ],
+        "checks": {
+          "closed_form_holds": true,
+          "all_prefix_states_are_7_mod_8": true,
+          "all_prefix_valuations_equal_one": true,
+          "prefix_is_non_descending": true
+        }
+      }
+    ],
+    "six_wheel_uniform_occupancy_reference": {
+      "expected_A2_fraction": 0.5,
+      "expected_A3_fraction": 0.25,
+      "combined_fraction": 0.75,
+      "required_asymptotic_fraction_without_correction": 0.5849625007211561,
+      "formal_margin": 0.16503749927884392
+    },
+    "no_go_scope": "The criterion is sufficient for descent, not necessary. Finite verification through 100000 does not address all starts, and the Mersenne family proves that no universal fixed mixing horizon can supply the missing every-orbit theorem or exclude nontrivial cycles.",
+    "failure_count": 0
+  },
+  "discarded_route": "any universal fixed-horizon low-bit mixing assertion",
+  "remaining_gap": "No theorem forces every aperiodic non-descending natural orbit to cross the low-bit occupancy threshold; nontrivial cycles remain unexcluded.",
+  "candidate_theorem": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold",
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact low-bit sufficient criterion and an infinite fixed-horizon counterfamily only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T178-REJECTED",
+        "label": "FixedHorizonLowBitMixingForEveryNaturalOrbit",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T178-CLOSED",
+        "label": "LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T178-OPEN",
+        "label": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T178-REJECTED",
+        "CO-T178-CLOSED"
+      ],
+      [
+        "CO-T178-CLOSED",
+        "CO-T178-OPEN"
+      ]
+    ]
+  }
+}

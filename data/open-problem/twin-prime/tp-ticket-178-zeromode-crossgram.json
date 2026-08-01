@@ -1,0 +1,113 @@
+{
+  "schema": "primeproject.ticket178-toeplitz-lowbit-split-zeromode.v1",
+  "generated_at": "2026-08-02T03:30:00+09:00",
+  "ticket_id": "TP-TICKET-178",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo",
+  "declared_proposition": "For finite-dimensional operators T_j, let H_ij=<T_i,T_j>_HS. Then 1^*H1=||sum_j T_j||_HS^2 and ||sum_j T_j||_op^2<=1^*H1. Therefore the signed cross-Gram zero mode bound 1^*H1<=eta sum_j||T_j||_HS^2 is a sufficient operator power-saving certificate. Absolute cross-Gram magnitudes do not determine this zero mode.",
+  "mathematical_argument": "Expand the Hilbert-Schmidt square of the aggregate and use operator norm at most Hilbert-Schmidt norm. For scalar operators, the aligned phases and all m-th roots of unity have identical component norms and identical absolute cross-Gram matrices, but their signed zero modes are m^2 and 0. Thus phase erasure cannot certify the all-plus arithmetic mode.",
+  "reproducible_computation": {
+    "theorem": "For finite-dimensional operators T_j, let H_ij=<T_i,T_j>_HS. Then 1^*H1=||sum_j T_j||_HS^2 and ||sum_j T_j||_op^2<=1^*H1. Therefore the signed cross-Gram zero mode bound 1^*H1<=eta sum_j||T_j||_HS^2 is a sufficient operator power-saving certificate. Absolute cross-Gram magnitudes do not determine this zero mode.",
+    "proof": "Expand the Hilbert-Schmidt square of the aggregate and use operator norm at most Hilbert-Schmidt norm. For scalar operators, the aligned phases and all m-th roots of unity have identical component norms and identical absolute cross-Gram matrices, but their signed zero modes are m^2 and 0. Thus phase erasure cannot certify the all-plus arithmetic mode.",
+    "absolute_phase_erasure_counterfamilies": [
+      {
+        "component_count_m": 4,
+        "common_component_norm": 1.0,
+        "common_diagonal_energy_D": 4.0,
+        "aligned_signed_zero_mode": 16.0,
+        "root_of_unity_signed_zero_mode": 8.304840168620503e-32,
+        "absolute_cross_gram_entry": 1.0,
+        "checks": {
+          "absolute_cross_gram_magnitudes_are_identical": true,
+          "aligned_zero_mode_equals_m_squared": true,
+          "root_of_unity_zero_mode_cancels": true,
+          "diagonal_energy_is_identical": true
+        }
+      },
+      {
+        "component_count_m": 8,
+        "common_component_norm": 1.0,
+        "common_diagonal_energy_D": 8.0,
+        "aligned_signed_zero_mode": 64.0,
+        "root_of_unity_signed_zero_mode": 3.5745259767827093e-31,
+        "absolute_cross_gram_entry": 1.0,
+        "checks": {
+          "absolute_cross_gram_magnitudes_are_identical": true,
+          "aligned_zero_mode_equals_m_squared": true,
+          "root_of_unity_zero_mode_cancels": true,
+          "diagonal_energy_is_identical": true
+        }
+      },
+      {
+        "component_count_m": 16,
+        "common_component_norm": 1.0,
+        "common_diagonal_energy_D": 16.0,
+        "aligned_signed_zero_mode": 256.0,
+        "root_of_unity_signed_zero_mode": 3.20474742746036e-31,
+        "absolute_cross_gram_entry": 1.0,
+        "checks": {
+          "absolute_cross_gram_magnitudes_are_identical": true,
+          "aligned_zero_mode_equals_m_squared": true,
+          "root_of_unity_zero_mode_cancels": true,
+          "diagonal_energy_is_identical": true
+        }
+      },
+      {
+        "component_count_m": 32,
+        "common_component_norm": 1.0,
+        "common_diagonal_energy_D": 32.0,
+        "aligned_signed_zero_mode": 1024.0,
+        "root_of_unity_signed_zero_mode": 1.0490155221088398e-29,
+        "absolute_cross_gram_entry": 1.0,
+        "checks": {
+          "absolute_cross_gram_magnitudes_are_identical": true,
+          "aligned_zero_mode_equals_m_squared": true,
+          "root_of_unity_zero_mode_cancels": true,
+          "diagonal_energy_is_identical": true
+        }
+      }
+    ],
+    "aggregate": {
+      "counterfamily_size_count": 4,
+      "minimum_component_count": 4,
+      "maximum_component_count": 32,
+      "absolute_gram_distinguishes_families": false
+    },
+    "no_go_scope": "The zero-mode inequality is only a sufficient data contract. It does not establish a power saving for actual prime-pair Haar blocks, and a Hilbert-Schmidt diagonal budget may itself be too large unless arithmetic rank and scale growth are controlled.",
+    "failure_count": 0
+  },
+  "discarded_route": "absolute cross-Gram magnitudes or average Fourier modes as sufficient statistics for the all-plus mode",
+  "remaining_gap": "No arithmetic theorem bounds the signed all-plus zero mode of actual prime-pair Haar cross-Gram data by a power-saving fraction of diagonal energy.",
+  "candidate_theorem": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy",
+  "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact zero-mode certificate and an infinite phase-erasure counterfamily only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T178-REJECTED",
+        "label": "AbsoluteCrossGramMagnitudesDetermineArithmeticZeroMode",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T178-CLOSED",
+        "label": "CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T178-OPEN",
+        "label": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T178-REJECTED",
+        "TP-T178-CLOSED"
+      ],
+      [
+        "TP-T178-CLOSED",
+        "TP-T178-OPEN"
+      ]
+    ]
+  }
+}

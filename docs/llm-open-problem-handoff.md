@@ -62,7 +62,55 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-177
+## Latest Continuation After TICKET-178
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin`.
+   TICKET-178 proves the phase-blind Toeplitz profile is uniformly bounded
+   exactly for decay exponent `s>1`; positive sections diverge for `s<=1`.
+   The missing premise is a summable arithmetic profile for the actual
+   whitened Weil tail, or a phase-sensitive substitute.
+2. Collatz:
+   `EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold`.
+   Counts of `n=1 mod 4` and `n=5 mod 8` give an exact descent sufficient
+   condition. The natural family `2^m-1` has arbitrarily long all-valuation-one
+   prefixes, so every fixed-horizon mixing theorem is false. The next theorem
+   must be adaptive in the orbit and still needs separate cycle exclusion.
+3. Goldbach:
+   `ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain`.
+   A high-band sup bound plus a low-band Sobolev budget is an exact pointwise
+   certificate. Strictly positive cosine families prove the unsplit global
+   derivative-energy test is not necessary. Only one of five bounded prime
+   supports passes a tested split; no every-target theorem follows.
+4. Twin Prime:
+   `PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy`.
+   The signed all-plus cross-Gram zero mode bounds the aggregate operator.
+   Aligned and roots-of-unity phases have identical absolute Gram matrices but
+   zero modes `m^2` and `0`, so the actual signed arithmetic mode is mandatory.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket178-toeplitz-lowbit-split-zeromode.json
+data/open-problem/riemann/rh-ticket-178-toeplitz-threshold.json
+data/open-problem/collatz/co-ticket-178-lowbit-occupancy.json
+data/open-problem/goldbach/gb-ticket-178-frequency-split.json
+data/open-problem/twin-prime/tp-ticket-178-zeromode-crossgram.json
+```
+
+한국어 인계: TICKET-178도 네 난제를 해결하지 않았다. 리만은 실제 Weil
+꼬리의 합가능 whitening 프로필, 콜라츠는 모든 비주기 비하강 궤도의 적응형
+저비트 점유율 교차와 주기 배제, 골드바흐는 모든 큰 짝수에 통하는 dyadic
+sup·에너지·도함수 예산, 쌍둥이 소수는 실제 prime-pair Haar 블록의 signed
+all-plus 영주파수 power saving이 필요하다. 유한 통과 수치를 무한 정리로
+승격하지 말고, 각 노드를 증명하거나 정확한 반례로 폐기해야 한다.
+
+English report: [TICKET-178](toeplitz-lowbit-frequency-split-zeromode.md).
+Korean report: [TICKET-178 한국어](toeplitz-lowbit-frequency-split-zeromode.ko.md).
+
+## Preserved Continuation After TICKET-177
 
 All four conjectures remain open. TICKET-177 continues from TICKET-176 and
 identifies one additional structure that each next theorem must retain:

@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket178AttemptGlobal = null;
 let ticket177AttemptGlobal = null;
 let ticket176AttemptGlobal = null;
 let ticket175AttemptGlobal = null;
@@ -9973,6 +9974,81 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket178ToeplitzLowbitSplitZeromode(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.toeplitz_lowbit_split_zeromode_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.finite_profile_rows || [];
+    detail = `
+      <div class="poc-equation">|E<sub>ij</sub>|≤C(1+|i−j|)<sup>−s</sup>: s&gt;1 gives ||E||≤C(2ζ(s)−1); s≤1 admits unbounded positive Toeplitz sections</div>
+      ${table(["decay s", "N=4096 Rayleigh lower", "infinite row upper", "below δ"], rows.map((row) => {
+        const last = (row.finite_sections || []).at(-1) || {};
+        return [Number(row.decay_exponent_s).toFixed(2), Number(last.all_ones_rayleigh_lower_bound || 0).toFixed(4), row.summable_infinite_row_upper_bound == null ? "diverges" : Number(row.summable_infinite_row_upper_bound).toFixed(4), row.summable_profile_below_core_margin];
+      }))}
+      <div class="poc-head"><div><span>Profiles</span><strong>${computation.aggregate?.profile_count || 0}</strong></div><div><span>Summable passes</span><strong>${computation.aggregate?.summable_profiles_certified_below_margin || 0}</strong></div><div><span>Nonsummable crossings</span><strong>${computation.aggregate?.nonsummable_profiles_with_finite_margin_crossing || 0}</strong></div></div>
+      <p class="proof-note">절댓값 Toeplitz 포락선의 차원 균일 임계값은 s=1입니다. 이는 실제 Weil 꼬리의 부호 상쇄를 배제하지 않으며, 실제 산술 프로필은 아직 증명되지 않았습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const finite = computation.finite_first_descent_audit || {};
+    const noGo = computation.mersenne_fixed_horizon_no_go || [];
+    detail = `
+      <div class="poc-equation">A₂=#{n<sub>i</sub>≡1 mod 4}, A₃=#{n<sub>i</sub>≡5 mod 8}: A₂+A₃&gt;(log₂3−1)h+H₆(n,h) certifies descent</div>
+      ${table(["Mersenne m", "all-v=1 prefix", "start", "checks"], noGo.map((row) => [row.exponent_m, row.all_one_valuation_prefix_length, String(row.start_2_to_m_minus_1), Object.values(row.checks || {}).every(Boolean)]))}
+      <div class="poc-head"><div><span>Odd starts</span><strong>${formatter.format(finite.odd_starts_checked || 0)}</strong></div><div><span>Low-bit crossings</span><strong>${formatter.format(finite.lowbit_certificate_crossing_count || 0)}</strong></div><div><span>Non-crossing descents</span><strong>${formatter.format(finite.lowbit_certificate_non_crossing_count || 0)}</strong></div></div>
+      <p class="proof-note">저비트 점유율은 정확한 하강 충분조건이지만 필요조건은 아닙니다. 2<sup>m</sup>−1 족은 임의로 긴 all-v=1 비하강 접두어를 만들어 모든 고정 지평 혼합 주장을 반증합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_fixed_farey_split_rows || [];
+    const aggregate = computation.aggregate || {};
+    detail = `
+      <div class="poc-equation">P=L+H, ||H||∞≤B: apply the Sobolev gate to L with residual major A−B</div>
+      ${table(["prime support", "passing splits", "best K", "A−B", "score"], rows.map((row) => {
+        const best = row.best_reported_split || {};
+        const score = Number(best.certificate_score);
+        return [formatter.format(row.prime_support_limit || 0), row.passing_split_count, best.low_frequency_cutoff_K, Number(best.residual_major_A_minus_B || 0).toFixed(4), Number.isFinite(score) ? score.toExponential(2) : "∞"];
+      }))}
+      <div class="poc-head"><div><span>Supports</span><strong>${aggregate.support_count || 0}</strong></div><div><span>Supports passed</span><strong>${aggregate.supports_with_passing_predeclared_split || 0}</strong></div><div><span>Positive global no-go</span><strong>${aggregate.positive_global_certificate_counterexample_count || 0}</strong></div></div>
+      <p class="proof-note">주파수 분할은 전역 도함수 예산이 무해한 고주파 때문에 붕괴하는 문제를 고칩니다. 그러나 64를 제외한 네 지지범위가 실패했으므로 모든 짝수에 대한 산술 정리는 아직 없습니다.</p>
+    `;
+  } else {
+    const rows = computation.absolute_phase_erasure_counterfamilies || [];
+    const aggregate = computation.aggregate || {};
+    detail = `
+      <div class="poc-equation">1*H1=||ΣT<sub>j</sub>||²<sub>HS</sub> and ||ΣT<sub>j</sub>||²<sub>op</sub>≤1*H1; |H| does not determine this zero mode</div>
+      ${table(["components m", "diagonal energy", "aligned zero mode", "root-of-unity zero mode", "|cross-Gram|"], rows.map((row) => [row.component_count_m, Number(row.common_diagonal_energy_D).toFixed(0), Number(row.aligned_signed_zero_mode).toFixed(0), Number(row.root_of_unity_signed_zero_mode).toExponential(2), Number(row.absolute_cross_gram_entry).toFixed(0)]))}
+      <div class="poc-head"><div><span>Counterfamily sizes</span><strong>${aggregate.counterfamily_size_count || 0}</strong></div><div><span>Largest m</span><strong>${aggregate.maximum_component_count || 0}</strong></div><div><span>Absolute Gram distinguishes</span><strong>no</strong></div></div>
+      <p class="proof-note">정렬 위상과 단위근 위상은 같은 절댓값 Gram을 가지지만 all-plus 영주파수는 m²과 0입니다. 실제 소수쌍 Haar 블록의 부호 있는 영주파수 power saving은 아직 없습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket178-toeplitz-lowbit-split-zeromode" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 178 Toeplitz summability, low-bit occupancy, frequency splits, and signed zero modes</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact thresholds or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET178 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/toeplitz-lowbit-frequency-split-zeromode.ko.md">한국어 보고서</a> · <a href="../docs/toeplitz-lowbit-frequency-split-zeromode.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket177ComparisonWheelSobolevCrossGram(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.comparison_wheel_sobolev_crossgram_audit || {};
@@ -10023,7 +10099,7 @@ function renderTicket177ComparisonWheelSobolevCrossGram(attempt) {
   }
   return `
     <div id="ticket177-comparison-wheel-sobolev-crossgram" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 177 comparison majorants, six-wheel envelopes, Sobolev certificates, and signed cross-Gram data</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact refinements or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET177 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -10641,6 +10717,7 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
       <p class="proof-note">최미세 parity pairing은 오차가 아니라 목표 gap-2 상관의 정확히 절반입니다. 이를 o(N)으로 상쇄하려던 TICKET-167 다음 목표를 폐기하고 양의 von Mangoldt 주항 목표로 교정합니다.</p>
     `;
   }
+  const previousTicket177 = renderTicket177ComparisonWheelSobolevCrossGram(ticket177AttemptGlobal);
   const previousTicket176 = renderTicket176RelativeConeHarmonicAliasSchur(ticket176AttemptGlobal);
   const previousTicket175 = renderTicket175RelativeEquivalenceSignedBlock(ticket175AttemptGlobal);
   const previousTicket174 = renderTicket174TailLiftAdaptiveScalePair(ticket174AttemptGlobal);
@@ -10649,7 +10726,7 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
   const previousTicket171 = renderTicket171RelativeGhostPhaseHaar(ticket171AttemptGlobal);
   const previousTicket170 = renderTicket170IntervalTailBesovMultiscale(ticket170AttemptGlobal);
   const previousTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
-  return `${previousTicket176}${previousTicket175}${previousTicket174}${previousTicket173}${previousTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
+  return `${previousTicket177}${previousTicket176}${previousTicket175}${previousTicket174}${previousTicket173}${previousTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
     <div id="ticket168-fixedcore-leastrealizer-phase-paritymain" class="poc-ticket17 poc-ticket128">
       <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms</h3>
@@ -13785,8 +13862,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket177ComparisonWheelSobolevCrossGram(ticket177AttemptGlobal) ||
-      `<p class="proof-note">TICKET-177 data is unavailable. The conjecture remains open. / TICKET-177 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+    currentResearch.innerHTML = renderTicket178ToeplitzLowbitSplitZeromode(ticket178AttemptGlobal) ||
+      `<p class="proof-note">TICKET-178 data is unavailable. The conjecture remains open. / TICKET-178 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14108,6 +14185,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket178Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket178-toeplitz-lowbit-split-zeromode.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket178AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket178AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket178AttemptGlobal) {
+      ticket178AttemptGlobal.bounded_result = ticket178AttemptGlobal.bounded_result || {};
+      ticket178AttemptGlobal.bounded_result.toeplitz_lowbit_split_zeromode_audit = payload.toeplitz_lowbit_split_zeromode_audit || {};
+    }
+    return Boolean(ticket178AttemptGlobal);
+  } catch (error) {
+    ticket178AttemptGlobal = null;
     return false;
   }
 }
@@ -15021,6 +15118,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket178Loaded = await loadTicket178Attempt();
   const ticket177Loaded = await loadTicket177Attempt();
   const ticket176Loaded = await loadTicket176Attempt();
   const ticket175Loaded = await loadTicket175Attempt();
@@ -15031,8 +15129,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket178AttemptGlobal) await loadTicket178Attempt();
     if (!ticket177AttemptGlobal) await loadTicket177Attempt();
     if (!ticket176AttemptGlobal) await loadTicket176Attempt();
     if (!ticket175AttemptGlobal) await loadTicket175Attempt();
@@ -15088,7 +15187,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket177-priority";
+  document.documentElement.dataset.openProblemCache = "ticket178-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

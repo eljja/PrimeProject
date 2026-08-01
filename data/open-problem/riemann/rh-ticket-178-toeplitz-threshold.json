@@ -1,0 +1,309 @@
+{
+  "schema": "primeproject.ticket178-toeplitz-lowbit-split-zeromode.v1",
+  "generated_at": "2026-08-02T03:30:00+09:00",
+  "ticket_id": "RH-TICKET-178",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "SummableToeplitzTailCertificateAndNonsummableProfileNoGo",
+  "declared_proposition": "Let E_N be Hermitian and satisfy |(E_N)_ij| <= C(1+|i-j|)^(-s). If s>1, then uniformly in N, ||E_N|| <= C(2 zeta(s)-1). Hence a whitened core margin delta survives whenever C(2 zeta(s)-1)<delta. If s<=1, the positive Toeplitz matrices with equality in this profile have unbounded spectral radius as N tends to infinity.",
+  "mathematical_argument": "The Schur row-sum test gives the summable upper bound. For the converse family, the Rayleigh quotient of the normalized all-ones vector is C[N+2 sum_(r<N)(N-r)/(1+r)^s]/N. This diverges for s<=1 by comparison with the harmonic or power sum. The result is a sharp threshold for this phase-blind profile method, not for the signed Weil tail itself.",
+  "reproducible_computation": {
+    "theorem": "Let E_N be Hermitian and satisfy |(E_N)_ij| <= C(1+|i-j|)^(-s). If s>1, then uniformly in N, ||E_N|| <= C(2 zeta(s)-1). Hence a whitened core margin delta survives whenever C(2 zeta(s)-1)<delta. If s<=1, the positive Toeplitz matrices with equality in this profile have unbounded spectral radius as N tends to infinity.",
+    "proof": "The Schur row-sum test gives the summable upper bound. For the converse family, the Rayleigh quotient of the normalized all-ones vector is C[N+2 sum_(r<N)(N-r)/(1+r)^s]/N. This diverges for s<=1 by comparison with the harmonic or power sum. The result is a sharp threshold for this phase-blind profile method, not for the signed Weil tail itself.",
+    "finite_profile_rows": [
+      {
+        "decay_exponent_s": 0.75,
+        "coefficient_C": 0.02,
+        "core_margin_delta": 0.25,
+        "finite_sections": [
+          {
+            "dimension": 16,
+            "all_ones_rayleigh_lower_bound": 0.11067549389252813,
+            "maximum_row_sum_upper_bound": 0.11942330803691324,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 64,
+            "all_ones_rayleigh_lower_bound": 0.2095192849377243,
+            "maximum_row_sum_upper_bound": 0.225828158982106,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 256,
+            "all_ones_rayleigh_lower_bound": 0.35636197084727883,
+            "maximum_row_sum_upper_bound": 0.3815698390103616,
+            "below_core_margin_by_row_sum": false,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 1024,
+            "all_ones_rayleigh_lower_bound": 0.5671879942508874,
+            "maximum_row_sum_upper_bound": 0.6038124482591597,
+            "below_core_margin_by_row_sum": false,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 4096,
+            "all_ones_rayleigh_lower_bound": 0.8666306155734538,
+            "maximum_row_sum_upper_bound": 0.9188273580541592,
+            "below_core_margin_by_row_sum": false,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          }
+        ],
+        "summable_infinite_row_upper_bound": null,
+        "summable_profile_below_core_margin": false,
+        "checks": {
+          "summable_upper_dominates_tested_sections": null,
+          "nonsummable_lower_exceeds_margin_at_largest_section": true
+        }
+      },
+      {
+        "decay_exponent_s": 1.0,
+        "coefficient_C": 0.02,
+        "core_margin_delta": 0.25,
+        "finite_sections": [
+          {
+            "dimension": 16,
+            "all_ones_rayleigh_lower_bound": 0.08368098221223222,
+            "maximum_row_sum_upper_bound": 0.09093650793650795,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 64,
+            "all_ones_rayleigh_lower_bound": 0.13272056796304688,
+            "maximum_row_sum_upper_bound": 0.1429458684235214,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 256,
+            "all_ones_rayleigh_lower_bound": 0.18593072741313119,
+            "maximum_row_sum_upper_bound": 0.1974809224632568,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 1024,
+            "all_ones_rayleigh_lower_bound": 0.24066035406582353,
+            "maximum_row_sum_upper_bound": 0.25269964773676473,
+            "below_core_margin_by_row_sum": false,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 4096,
+            "all_ones_rayleigh_lower_bound": 0.29589102212764723,
+            "maximum_row_sum_upper_bound": 0.3080929117316647,
+            "below_core_margin_by_row_sum": false,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          }
+        ],
+        "summable_infinite_row_upper_bound": null,
+        "summable_profile_below_core_margin": false,
+        "checks": {
+          "summable_upper_dominates_tested_sections": null,
+          "nonsummable_lower_exceeds_margin_at_largest_section": true
+        }
+      },
+      {
+        "decay_exponent_s": 1.25,
+        "coefficient_C": 0.02,
+        "core_margin_delta": 0.25,
+        "finite_sections": [
+          {
+            "dimension": 16,
+            "all_ones_rayleigh_lower_bound": 0.06569082921214368,
+            "maximum_row_sum_upper_bound": 0.07139877527250836,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 64,
+            "all_ones_rayleigh_lower_bound": 0.09087754312800339,
+            "maximum_row_sum_upper_bound": 0.09704669366878216,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 256,
+            "all_ones_rayleigh_lower_bound": 0.11116001419022155,
+            "maximum_row_sum_upper_bound": 0.11632856993942589,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 1024,
+            "all_ones_rayleigh_lower_bound": 0.12627575806430164,
+            "maximum_row_sum_upper_bound": 0.13018501683568526,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 4096,
+            "all_ones_rayleigh_lower_bound": 0.1371857399895704,
+            "maximum_row_sum_upper_bound": 0.1400232330381338,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          }
+        ],
+        "summable_infinite_row_upper_bound": 0.16380448428051986,
+        "summable_profile_below_core_margin": true,
+        "checks": {
+          "summable_upper_dominates_tested_sections": true,
+          "nonsummable_lower_exceeds_margin_at_largest_section": null
+        }
+      },
+      {
+        "decay_exponent_s": 2.0,
+        "coefficient_C": 0.02,
+        "core_margin_delta": 0.25,
+        "finite_sections": [
+          {
+            "dimension": 16,
+            "all_ones_rayleigh_lower_bound": 0.03888290518833947,
+            "maximum_row_sum_upper_bound": 0.04134379566641472,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 64,
+            "all_ones_rayleigh_lower_bound": 0.04323068230491996,
+            "maximum_row_sum_upper_bound": 0.0445850559860279,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 256,
+            "all_ones_rayleigh_lower_bound": 0.04494090033883025,
+            "maximum_row_sum_upper_bound": 0.045487282049028764,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 1024,
+            "all_ones_rayleigh_lower_bound": 0.04552920917514228,
+            "maximum_row_sum_upper_bound": 0.04571938991499679,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          },
+          {
+            "dimension": 4096,
+            "all_ones_rayleigh_lower_bound": 0.04571679341728284,
+            "maximum_row_sum_upper_bound": 0.04577784095524295,
+            "below_core_margin_by_row_sum": true,
+            "checks": {
+              "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+              "finite_lower_is_monotone_on_tested_sections": true
+            }
+          }
+        ],
+        "summable_infinite_row_upper_bound": 0.045797362675929695,
+        "summable_profile_below_core_margin": true,
+        "checks": {
+          "summable_upper_dominates_tested_sections": true,
+          "nonsummable_lower_exceeds_margin_at_largest_section": null
+        }
+      }
+    ],
+    "aggregate": {
+      "profile_count": 4,
+      "finite_dimension_count": 5,
+      "summable_profiles_certified_below_margin": 2,
+      "nonsummable_profiles_with_finite_margin_crossing": 2
+    },
+    "no_go_scope": "A non-summable absolute Toeplitz envelope cannot yield a dimension-uniform comparison certificate. Signed cancellation could still make the actual pole-neutral Weil tail bounded, so this is not a no-go theorem for RH or for phase-sensitive bounds.",
+    "failure_count": 0
+  },
+  "discarded_route": "dimension-uniform phase-blind Toeplitz envelopes with decay exponent s<=1",
+  "remaining_gap": "No arithmetic proof gives the actual pole-neutral whitened Weil tail a summable off-diagonal majorant with constant below the core margin.",
+  "candidate_theorem": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin",
+  "claim_boundary": "No RH proof or zero exclusion; one sharp summability threshold for an absolute Toeplitz comparison route only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T178-REJECTED",
+        "label": "NonsummableAbsoluteToeplitzProfileClosesWeilPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T178-CLOSED",
+        "label": "SummableToeplitzTailCertificateAndNonsummableProfileNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T178-OPEN",
+        "label": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T178-REJECTED",
+        "RH-T178-CLOSED"
+      ],
+      [
+        "RH-T178-CLOSED",
+        "RH-T178-OPEN"
+      ]
+    ]
+  }
+}

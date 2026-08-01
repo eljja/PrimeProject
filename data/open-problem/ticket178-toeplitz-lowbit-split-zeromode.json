@@ -1,0 +1,2399 @@
+{
+  "schema": "primeproject.ticket178-toeplitz-lowbit-split-zeromode.v1",
+  "generated_at": "2026-08-02T03:30:00+09:00",
+  "status": "four_exact_thresholds_and_no_go_results_all_conjectures_open",
+  "claim_boundary": "TICKET-178 proves four exact threshold or no-go results and resolves none of the conjectures. It isolates summable RH tail decay, adaptive Collatz low-bit occupancy, frequency-split Goldbach budgets, and the signed Twin cross-Gram zero mode as the next quantified obligations.",
+  "toeplitz_lowbit_split_zeromode_audit": {
+    "theorem_name": "FourConjectureToeplitzLowBitSplitZeroModeAudit",
+    "status": "four_exact_thresholds_and_no_go_results_all_conjectures_open",
+    "proof_boundary": "TICKET-178 proves four exact threshold or no-go results and resolves none of the conjectures. It isolates summable RH tail decay, adaptive Collatz low-bit occupancy, frequency-split Goldbach budgets, and the signed Twin cross-Gram zero mode as the next quantified obligations.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-178",
+      "theorem_name": "SummableToeplitzTailCertificateAndNonsummableProfileNoGo",
+      "declared_proposition": "Let E_N be Hermitian and satisfy |(E_N)_ij| <= C(1+|i-j|)^(-s). If s>1, then uniformly in N, ||E_N|| <= C(2 zeta(s)-1). Hence a whitened core margin delta survives whenever C(2 zeta(s)-1)<delta. If s<=1, the positive Toeplitz matrices with equality in this profile have unbounded spectral radius as N tends to infinity.",
+      "mathematical_argument": "The Schur row-sum test gives the summable upper bound. For the converse family, the Rayleigh quotient of the normalized all-ones vector is C[N+2 sum_(r<N)(N-r)/(1+r)^s]/N. This diverges for s<=1 by comparison with the harmonic or power sum. The result is a sharp threshold for this phase-blind profile method, not for the signed Weil tail itself.",
+      "reproducible_computation": {
+        "theorem": "Let E_N be Hermitian and satisfy |(E_N)_ij| <= C(1+|i-j|)^(-s). If s>1, then uniformly in N, ||E_N|| <= C(2 zeta(s)-1). Hence a whitened core margin delta survives whenever C(2 zeta(s)-1)<delta. If s<=1, the positive Toeplitz matrices with equality in this profile have unbounded spectral radius as N tends to infinity.",
+        "proof": "The Schur row-sum test gives the summable upper bound. For the converse family, the Rayleigh quotient of the normalized all-ones vector is C[N+2 sum_(r<N)(N-r)/(1+r)^s]/N. This diverges for s<=1 by comparison with the harmonic or power sum. The result is a sharp threshold for this phase-blind profile method, not for the signed Weil tail itself.",
+        "finite_profile_rows": [
+          {
+            "decay_exponent_s": 0.75,
+            "coefficient_C": 0.02,
+            "core_margin_delta": 0.25,
+            "finite_sections": [
+              {
+                "dimension": 16,
+                "all_ones_rayleigh_lower_bound": 0.11067549389252813,
+                "maximum_row_sum_upper_bound": 0.11942330803691324,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 64,
+                "all_ones_rayleigh_lower_bound": 0.2095192849377243,
+                "maximum_row_sum_upper_bound": 0.225828158982106,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 256,
+                "all_ones_rayleigh_lower_bound": 0.35636197084727883,
+                "maximum_row_sum_upper_bound": 0.3815698390103616,
+                "below_core_margin_by_row_sum": false,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 1024,
+                "all_ones_rayleigh_lower_bound": 0.5671879942508874,
+                "maximum_row_sum_upper_bound": 0.6038124482591597,
+                "below_core_margin_by_row_sum": false,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 4096,
+                "all_ones_rayleigh_lower_bound": 0.8666306155734538,
+                "maximum_row_sum_upper_bound": 0.9188273580541592,
+                "below_core_margin_by_row_sum": false,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              }
+            ],
+            "summable_infinite_row_upper_bound": null,
+            "summable_profile_below_core_margin": false,
+            "checks": {
+              "summable_upper_dominates_tested_sections": null,
+              "nonsummable_lower_exceeds_margin_at_largest_section": true
+            }
+          },
+          {
+            "decay_exponent_s": 1.0,
+            "coefficient_C": 0.02,
+            "core_margin_delta": 0.25,
+            "finite_sections": [
+              {
+                "dimension": 16,
+                "all_ones_rayleigh_lower_bound": 0.08368098221223222,
+                "maximum_row_sum_upper_bound": 0.09093650793650795,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 64,
+                "all_ones_rayleigh_lower_bound": 0.13272056796304688,
+                "maximum_row_sum_upper_bound": 0.1429458684235214,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 256,
+                "all_ones_rayleigh_lower_bound": 0.18593072741313119,
+                "maximum_row_sum_upper_bound": 0.1974809224632568,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 1024,
+                "all_ones_rayleigh_lower_bound": 0.24066035406582353,
+                "maximum_row_sum_upper_bound": 0.25269964773676473,
+                "below_core_margin_by_row_sum": false,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 4096,
+                "all_ones_rayleigh_lower_bound": 0.29589102212764723,
+                "maximum_row_sum_upper_bound": 0.3080929117316647,
+                "below_core_margin_by_row_sum": false,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              }
+            ],
+            "summable_infinite_row_upper_bound": null,
+            "summable_profile_below_core_margin": false,
+            "checks": {
+              "summable_upper_dominates_tested_sections": null,
+              "nonsummable_lower_exceeds_margin_at_largest_section": true
+            }
+          },
+          {
+            "decay_exponent_s": 1.25,
+            "coefficient_C": 0.02,
+            "core_margin_delta": 0.25,
+            "finite_sections": [
+              {
+                "dimension": 16,
+                "all_ones_rayleigh_lower_bound": 0.06569082921214368,
+                "maximum_row_sum_upper_bound": 0.07139877527250836,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 64,
+                "all_ones_rayleigh_lower_bound": 0.09087754312800339,
+                "maximum_row_sum_upper_bound": 0.09704669366878216,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 256,
+                "all_ones_rayleigh_lower_bound": 0.11116001419022155,
+                "maximum_row_sum_upper_bound": 0.11632856993942589,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 1024,
+                "all_ones_rayleigh_lower_bound": 0.12627575806430164,
+                "maximum_row_sum_upper_bound": 0.13018501683568526,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 4096,
+                "all_ones_rayleigh_lower_bound": 0.1371857399895704,
+                "maximum_row_sum_upper_bound": 0.1400232330381338,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              }
+            ],
+            "summable_infinite_row_upper_bound": 0.16380448428051986,
+            "summable_profile_below_core_margin": true,
+            "checks": {
+              "summable_upper_dominates_tested_sections": true,
+              "nonsummable_lower_exceeds_margin_at_largest_section": null
+            }
+          },
+          {
+            "decay_exponent_s": 2.0,
+            "coefficient_C": 0.02,
+            "core_margin_delta": 0.25,
+            "finite_sections": [
+              {
+                "dimension": 16,
+                "all_ones_rayleigh_lower_bound": 0.03888290518833947,
+                "maximum_row_sum_upper_bound": 0.04134379566641472,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 64,
+                "all_ones_rayleigh_lower_bound": 0.04323068230491996,
+                "maximum_row_sum_upper_bound": 0.0445850559860279,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 256,
+                "all_ones_rayleigh_lower_bound": 0.04494090033883025,
+                "maximum_row_sum_upper_bound": 0.045487282049028764,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 1024,
+                "all_ones_rayleigh_lower_bound": 0.04552920917514228,
+                "maximum_row_sum_upper_bound": 0.04571938991499679,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              },
+              {
+                "dimension": 4096,
+                "all_ones_rayleigh_lower_bound": 0.04571679341728284,
+                "maximum_row_sum_upper_bound": 0.04577784095524295,
+                "below_core_margin_by_row_sum": true,
+                "checks": {
+                  "all_ones_rayleigh_lower_not_above_row_sum_upper": true,
+                  "finite_lower_is_monotone_on_tested_sections": true
+                }
+              }
+            ],
+            "summable_infinite_row_upper_bound": 0.045797362675929695,
+            "summable_profile_below_core_margin": true,
+            "checks": {
+              "summable_upper_dominates_tested_sections": true,
+              "nonsummable_lower_exceeds_margin_at_largest_section": null
+            }
+          }
+        ],
+        "aggregate": {
+          "profile_count": 4,
+          "finite_dimension_count": 5,
+          "summable_profiles_certified_below_margin": 2,
+          "nonsummable_profiles_with_finite_margin_crossing": 2
+        },
+        "no_go_scope": "A non-summable absolute Toeplitz envelope cannot yield a dimension-uniform comparison certificate. Signed cancellation could still make the actual pole-neutral Weil tail bounded, so this is not a no-go theorem for RH or for phase-sensitive bounds.",
+        "failure_count": 0
+      },
+      "logical_limit": "No arithmetic proof gives the actual pole-neutral whitened Weil tail a summable off-diagonal majorant with constant below the core margin.",
+      "route_decision": {
+        "discard": "dimension-uniform phase-blind Toeplitz envelopes with decay exponent s<=1",
+        "retain": "a predeclared summable off-diagonal profile, or a genuinely phase-sensitive cancellation theorem",
+        "next_single_lemma": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T178-REJECTED",
+            "label": "NonsummableAbsoluteToeplitzProfileClosesWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T178-CLOSED",
+            "label": "SummableToeplitzTailCertificateAndNonsummableProfileNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T178-OPEN",
+            "label": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T178-REJECTED",
+            "RH-T178-CLOSED"
+          ],
+          [
+            "RH-T178-CLOSED",
+            "RH-T178-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or zero exclusion; one sharp summability threshold for an absolute Toeplitz comparison route only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-178",
+      "theorem_name": "LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo",
+      "declared_proposition": "For an accelerated odd Collatz prefix n_0,...,n_(h-1), let A_2 count n_i congruent to 1 modulo 4 and A_3 count n_i congruent to 5 modulo 8. Then sum_i v2(3n_i+1) >= h+A_2+A_3. Consequently an aperiodic prefix that never falls below n_0 cannot satisfy A_2+A_3 > (log2(3)-1)h+H_6(n_0,h).",
+      "mathematical_argument": "For odd n, v2(3n+1)>=2 iff n=1 mod 4, and it is at least 3 iff n=5 mod 8. The layer-cake identity gives the valuation lower bound. Combine it with the exact logarithmic orbit identity and the TICKET-177 six-wheel correction upper bound. Conversely, n_0=2^m-1 has n_i=3^i 2^(m-i)-1 and valuation one for an arbitrarily long initial prefix, ruling out every fixed-horizon low-bit mixing claim.",
+      "reproducible_computation": {
+        "theorem": "For an accelerated odd Collatz prefix n_0,...,n_(h-1), let A_2 count n_i congruent to 1 modulo 4 and A_3 count n_i congruent to 5 modulo 8. Then sum_i v2(3n_i+1) >= h+A_2+A_3. Consequently an aperiodic prefix that never falls below n_0 cannot satisfy A_2+A_3 > (log2(3)-1)h+H_6(n_0,h).",
+        "proof": "For odd n, v2(3n+1)>=2 iff n=1 mod 4, and it is at least 3 iff n=5 mod 8. The layer-cake identity gives the valuation lower bound. Combine it with the exact logarithmic orbit identity and the TICKET-177 six-wheel correction upper bound. Conversely, n_0=2^m-1 has n_i=3^i 2^(m-i)-1 and valuation one for an arbitrarily long initial prefix, ruling out every fixed-horizon low-bit mixing claim.",
+        "finite_first_descent_audit": {
+          "odd_start_limit": 100000,
+          "odd_starts_checked": 49999,
+          "lowbit_certificate_crossing_count": 44537,
+          "lowbit_certificate_non_crossing_count": 5462,
+          "first_non_crossing_starts": [
+            15,
+            27,
+            31,
+            47,
+            63,
+            71,
+            91,
+            95,
+            103,
+            111,
+            127,
+            143,
+            155,
+            159,
+            167,
+            223,
+            231,
+            239,
+            255,
+            271
+          ],
+          "maximum_first_descent_horizon": 85
+        },
+        "mersenne_fixed_horizon_no_go": [
+          {
+            "exponent_m": 8,
+            "start_2_to_m_minus_1": 255,
+            "all_one_valuation_prefix_length": 6,
+            "rows": [
+              {
+                "index": 0,
+                "state": 255,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 1,
+                "state": 383,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 2,
+                "state": 575,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 3,
+                "state": 863,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 4,
+                "state": 1295,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 5,
+                "state": 1943,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              }
+            ],
+            "checks": {
+              "closed_form_holds": true,
+              "all_prefix_states_are_7_mod_8": true,
+              "all_prefix_valuations_equal_one": true,
+              "prefix_is_non_descending": true
+            }
+          },
+          {
+            "exponent_m": 16,
+            "start_2_to_m_minus_1": 65535,
+            "all_one_valuation_prefix_length": 14,
+            "rows": [
+              {
+                "index": 0,
+                "state": 65535,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 1,
+                "state": 98303,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 2,
+                "state": 147455,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 3,
+                "state": 221183,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 4,
+                "state": 331775,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 5,
+                "state": 497663,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 6,
+                "state": 746495,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 7,
+                "state": 1119743,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 8,
+                "state": 1679615,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 9,
+                "state": 2519423,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 10,
+                "state": 3779135,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 11,
+                "state": 5668703,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 12,
+                "state": 8503055,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 13,
+                "state": 12754583,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              }
+            ],
+            "checks": {
+              "closed_form_holds": true,
+              "all_prefix_states_are_7_mod_8": true,
+              "all_prefix_valuations_equal_one": true,
+              "prefix_is_non_descending": true
+            }
+          },
+          {
+            "exponent_m": 32,
+            "start_2_to_m_minus_1": 4294967295,
+            "all_one_valuation_prefix_length": 30,
+            "rows": [
+              {
+                "index": 0,
+                "state": 4294967295,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 1,
+                "state": 6442450943,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 2,
+                "state": 9663676415,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 3,
+                "state": 14495514623,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 4,
+                "state": 21743271935,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 5,
+                "state": 32614907903,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 6,
+                "state": 48922361855,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 7,
+                "state": 73383542783,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 8,
+                "state": 110075314175,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 9,
+                "state": 165112971263,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 10,
+                "state": 247669456895,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 11,
+                "state": 371504185343,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 12,
+                "state": 557256278015,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 13,
+                "state": 835884417023,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 14,
+                "state": 1253826625535,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 15,
+                "state": 1880739938303,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 16,
+                "state": 2821109907455,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 17,
+                "state": 4231664861183,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 18,
+                "state": 6347497291775,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 19,
+                "state": 9521245937663,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 20,
+                "state": 14281868906495,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 21,
+                "state": 21422803359743,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 22,
+                "state": 32134205039615,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 23,
+                "state": 48201307559423,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 24,
+                "state": 72301961339135,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 25,
+                "state": 108452942008703,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 26,
+                "state": 162679413013055,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 27,
+                "state": 244019119519583,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 28,
+                "state": 366028679279375,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 29,
+                "state": 549043018919063,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              }
+            ],
+            "checks": {
+              "closed_form_holds": true,
+              "all_prefix_states_are_7_mod_8": true,
+              "all_prefix_valuations_equal_one": true,
+              "prefix_is_non_descending": true
+            }
+          },
+          {
+            "exponent_m": 64,
+            "start_2_to_m_minus_1": 18446744073709551615,
+            "all_one_valuation_prefix_length": 62,
+            "rows": [
+              {
+                "index": 0,
+                "state": 18446744073709551615,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 1,
+                "state": 27670116110564327423,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 2,
+                "state": 41505174165846491135,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 3,
+                "state": 62257761248769736703,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 4,
+                "state": 93386641873154605055,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 5,
+                "state": 140079962809731907583,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 6,
+                "state": 210119944214597861375,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 7,
+                "state": 315179916321896792063,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 8,
+                "state": 472769874482845188095,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 9,
+                "state": 709154811724267782143,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 10,
+                "state": 1063732217586401673215,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 11,
+                "state": 1595598326379602509823,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 12,
+                "state": 2393397489569403764735,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 13,
+                "state": 3590096234354105647103,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 14,
+                "state": 5385144351531158470655,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 15,
+                "state": 8077716527296737705983,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 16,
+                "state": 12116574790945106558975,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 17,
+                "state": 18174862186417659838463,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 18,
+                "state": 27262293279626489757695,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 19,
+                "state": 40893439919439734636543,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 20,
+                "state": 61340159879159601954815,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 21,
+                "state": 92010239818739402932223,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 22,
+                "state": 138015359728109104398335,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 23,
+                "state": 207023039592163656597503,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 24,
+                "state": 310534559388245484896255,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 25,
+                "state": 465801839082368227344383,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 26,
+                "state": 698702758623552341016575,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 27,
+                "state": 1048054137935328511524863,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 28,
+                "state": 1572081206902992767287295,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 29,
+                "state": 2358121810354489150930943,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 30,
+                "state": 3537182715531733726396415,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 31,
+                "state": 5305774073297600589594623,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 32,
+                "state": 7958661109946400884391935,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 33,
+                "state": 11937991664919601326587903,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 34,
+                "state": 17906987497379401989881855,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 35,
+                "state": 26860481246069102984822783,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 36,
+                "state": 40290721869103654477234175,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 37,
+                "state": 60436082803655481715851263,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 38,
+                "state": 90654124205483222573776895,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 39,
+                "state": 135981186308224833860665343,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 40,
+                "state": 203971779462337250790998015,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 41,
+                "state": 305957669193505876186497023,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 42,
+                "state": 458936503790258814279745535,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 43,
+                "state": 688404755685388221419618303,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 44,
+                "state": 1032607133528082332129427455,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 45,
+                "state": 1548910700292123498194141183,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 46,
+                "state": 2323366050438185247291211775,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 47,
+                "state": 3485049075657277870936817663,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 48,
+                "state": 5227573613485916806405226495,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 49,
+                "state": 7841360420228875209607839743,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 50,
+                "state": 11762040630343312814411759615,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 51,
+                "state": 17643060945514969221617639423,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 52,
+                "state": 26464591418272453832426459135,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 53,
+                "state": 39696887127408680748639688703,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 54,
+                "state": 59545330691113021122959533055,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 55,
+                "state": 89317996036669531684439299583,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 56,
+                "state": 133976994055004297526658949375,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 57,
+                "state": 200965491082506446289988424063,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 58,
+                "state": 301448236623759669434982636095,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 59,
+                "state": 452172354935639504152473954143,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 60,
+                "state": 678258532403459256228710931215,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              },
+              {
+                "index": 61,
+                "state": 1017387798605188884343066396823,
+                "state_mod_8": 7,
+                "valuation": 1,
+                "matches_closed_form": true,
+                "is_non_descending": true
+              }
+            ],
+            "checks": {
+              "closed_form_holds": true,
+              "all_prefix_states_are_7_mod_8": true,
+              "all_prefix_valuations_equal_one": true,
+              "prefix_is_non_descending": true
+            }
+          }
+        ],
+        "six_wheel_uniform_occupancy_reference": {
+          "expected_A2_fraction": 0.5,
+          "expected_A3_fraction": 0.25,
+          "combined_fraction": 0.75,
+          "required_asymptotic_fraction_without_correction": 0.5849625007211561,
+          "formal_margin": 0.16503749927884392
+        },
+        "no_go_scope": "The criterion is sufficient for descent, not necessary. Finite verification through 100000 does not address all starts, and the Mersenne family proves that no universal fixed mixing horizon can supply the missing every-orbit theorem or exclude nontrivial cycles.",
+        "failure_count": 0
+      },
+      "logical_limit": "No theorem forces every aperiodic non-descending natural orbit to cross the low-bit occupancy threshold; nontrivial cycles remain unexcluded.",
+      "route_decision": {
+        "discard": "any universal fixed-horizon low-bit mixing assertion",
+        "retain": "an adaptive every-orbit occupancy discrepancy above the exact six-wheel correction",
+        "next_single_lemma": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T178-REJECTED",
+            "label": "FixedHorizonLowBitMixingForEveryNaturalOrbit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T178-CLOSED",
+            "label": "LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T178-OPEN",
+            "label": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T178-REJECTED",
+            "CO-T178-CLOSED"
+          ],
+          [
+            "CO-T178-CLOSED",
+            "CO-T178-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact low-bit sufficient criterion and an infinite fixed-horizon counterfamily only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-178",
+      "theorem_name": "FrequencySplitSobolevCertificateAndGlobalBudgetNoGo",
+      "declared_proposition": "Let P=L+H be a real mean-zero periodic function split into conjugate-symmetric frequency bands, with the zero mode assigned to L, so both bands have mean zero. If ||H||_infinity<=B<A, ||L'||_infinity<=D, and integral L^2<=E, then A+P is positive whenever A-B>D/2 or E<(A-B)^3/(4D). For a trigonometric polynomial, B<=sum_high |d_k|, E=sum_low |d_k|^2, and D<=2pi sum_low |k d_k|.",
+      "mathematical_argument": "First use H>=-B, then apply the TICKET-177 pointwise Sobolev certificate to the mean-zero low band L with residual major A-B. The cosine counterfamily A=1, L=0.2 cos(2pi x), and H=0.1 cos(2pi Kx) stays at least 0.7, while its unsplit derivative budget grows with K and rejects the global certificate. The split certificate remains valid.",
+      "reproducible_computation": {
+        "theorem": "Let P=L+H be a real mean-zero periodic function split into conjugate-symmetric frequency bands, with the zero mode assigned to L, so both bands have mean zero. If ||H||_infinity<=B<A, ||L'||_infinity<=D, and integral L^2<=E, then A+P is positive whenever A-B>D/2 or E<(A-B)^3/(4D). For a trigonometric polynomial, B<=sum_high |d_k|, E=sum_low |d_k|^2, and D<=2pi sum_low |k d_k|.",
+        "proof": "First use H>=-B, then apply the TICKET-177 pointwise Sobolev certificate to the mean-zero low band L with residual major A-B. The cosine counterfamily A=1, L=0.2 cos(2pi x), and H=0.1 cos(2pi Kx) stays at least 0.7, while its unsplit derivative budget grows with K and rejects the global certificate. The split certificate remains valid.",
+        "finite_fixed_farey_split_rows": [
+          {
+            "prime_support_limit": 64,
+            "transform_size_L": 256,
+            "minimum_fixed_farey_major_value": 1.4847770129640847,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "predeclared_dyadic_split_rows": [
+              {
+                "low_frequency_cutoff_K": 0,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+                "residual_major_A_minus_B": 0.0018399019821675466,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": true
+              },
+              {
+                "low_frequency_cutoff_K": 1,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+                "residual_major_A_minus_B": 0.0018399019821675466,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": true
+              },
+              {
+                "low_frequency_cutoff_K": 2,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+                "residual_major_A_minus_B": 0.0018399019821675466,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": true
+              },
+              {
+                "low_frequency_cutoff_K": 4,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 1.0463545429741887,
+                "residual_major_A_minus_B": 0.438422469989896,
+                "low_frequency_l2_energy": 0.0789854216954764,
+                "low_frequency_derivative_bound": 8.488733595610984,
+                "certificate_score": 0.10329514174330502,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 8,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 0.37445333107698026,
+                "residual_major_A_minus_B": 1.1103236818871045,
+                "low_frequency_l2_energy": 0.1584416200447846,
+                "low_frequency_derivative_bound": 33.34816030761851,
+                "certificate_score": 0.0665898011551448,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 16,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 0.11880059091878747,
+                "residual_major_A_minus_B": 1.3659764220452972,
+                "low_frequency_l2_energy": 0.16761290473642784,
+                "low_frequency_derivative_bound": 50.933878163851396,
+                "certificate_score": 0.07463721406171711,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 32,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 0.11880059091878747,
+                "residual_major_A_minus_B": 1.3659764220452972,
+                "low_frequency_l2_energy": 0.16761290473642784,
+                "low_frequency_derivative_bound": 50.933878163851396,
+                "certificate_score": 0.07463721406171711,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 64,
+                "major_lower_bound_A": 1.4847770129640847,
+                "high_frequency_l1_sup_bound_B": 0,
+                "residual_major_A_minus_B": 1.4847770129640847,
+                "low_frequency_l2_energy": 0.1746696949377544,
+                "low_frequency_derivative_bound": 80.79172325765853,
+                "certificate_score": 0.05798815367137464,
+                "frequency_split_certificate_passes": false
+              }
+            ],
+            "passing_split_count": 3,
+            "best_reported_split": {
+              "low_frequency_cutoff_K": 0,
+              "major_lower_bound_A": 1.4847770129640847,
+              "high_frequency_l1_sup_bound_B": 1.4829371109819172,
+              "residual_major_A_minus_B": 0.0018399019821675466,
+              "low_frequency_l2_energy": 0.0,
+              "low_frequency_derivative_bound": 0.0,
+              "certificate_score": Infinity,
+              "frequency_split_certificate_passes": true
+            },
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "finite_goldbach_counts_are_positive": true,
+              "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+            }
+          },
+          {
+            "prime_support_limit": 128,
+            "transform_size_L": 512,
+            "minimum_fixed_farey_major_value": 2.1134265337073708,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "predeclared_dyadic_split_rows": [
+              {
+                "low_frequency_cutoff_K": 0,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 5.046605688704176,
+                "residual_major_A_minus_B": -2.933179154996805,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 1,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 5.046605688704176,
+                "residual_major_A_minus_B": -2.933179154996805,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 2,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 5.046605688704176,
+                "residual_major_A_minus_B": -2.933179154996805,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 4,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 4.356926889335695,
+                "residual_major_A_minus_B": -2.2435003556283246,
+                "low_frequency_l2_energy": 0.21657963441505615,
+                "low_frequency_derivative_bound": 13.203241324249918,
+                "certificate_score": -0.3398408467332591,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 8,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 3.3713024037797688,
+                "residual_major_A_minus_B": -1.257875870072398,
+                "low_frequency_l2_energy": 0.3869960599866139,
+                "low_frequency_derivative_bound": 49.893699056507494,
+                "certificate_score": -0.025769210925851837,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 16,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 2.391334196197786,
+                "residual_major_A_minus_B": -0.2779076624904153,
+                "low_frequency_l2_energy": 0.4660138512285221,
+                "low_frequency_derivative_bound": 125.54313533866011,
+                "certificate_score": -9.17169864742481e-05,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 32,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 1.8931456237178717,
+                "residual_major_A_minus_B": 0.22028090998949912,
+                "low_frequency_l2_energy": 0.4805525508821602,
+                "low_frequency_derivative_bound": 195.98822647477297,
+                "certificate_score": 0.0022478994167320866,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 64,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 1.3057386939906215,
+                "residual_major_A_minus_B": 0.8076878397167493,
+                "low_frequency_l2_energy": 0.5155399133778561,
+                "low_frequency_derivative_bound": 390.83085391449026,
+                "certificate_score": 0.0041331836093650015,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 128,
+                "major_lower_bound_A": 2.1134265337073708,
+                "high_frequency_l1_sup_bound_B": 0,
+                "residual_major_A_minus_B": 2.1134265337073708,
+                "low_frequency_l2_energy": 0.5916168080313451,
+                "low_frequency_derivative_bound": 1146.8273012478614,
+                "certificate_score": 0.0036856927479974604,
+                "frequency_split_certificate_passes": false
+              }
+            ],
+            "passing_split_count": 0,
+            "best_reported_split": {
+              "low_frequency_cutoff_K": 64,
+              "major_lower_bound_A": 2.1134265337073708,
+              "high_frequency_l1_sup_bound_B": 1.3057386939906215,
+              "residual_major_A_minus_B": 0.8076878397167493,
+              "low_frequency_l2_energy": 0.5155399133778561,
+              "low_frequency_derivative_bound": 390.83085391449026,
+              "certificate_score": 0.0041331836093650015,
+              "frequency_split_certificate_passes": false
+            },
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "finite_goldbach_counts_are_positive": true,
+              "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+            }
+          },
+          {
+            "prime_support_limit": 256,
+            "transform_size_L": 1024,
+            "minimum_fixed_farey_major_value": 2.072207644108839,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "predeclared_dyadic_split_rows": [
+              {
+                "low_frequency_cutoff_K": 0,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 14.430700094319445,
+                "residual_major_A_minus_B": -12.358492450210605,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 1,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 14.430700094319445,
+                "residual_major_A_minus_B": -12.358492450210605,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 2,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 14.430700094319445,
+                "residual_major_A_minus_B": -12.358492450210605,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 4,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 13.446000945640844,
+                "residual_major_A_minus_B": -11.373793301532004,
+                "low_frequency_l2_energy": 0.40631525515952016,
+                "low_frequency_derivative_bound": 19.11088954590091,
+                "certificate_score": -1.1902944940594422,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 8,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 11.921662589088553,
+                "residual_major_A_minus_B": -9.849454944979716,
+                "low_frequency_l2_energy": 0.8266672598037716,
+                "low_frequency_derivative_bound": 74.9632311168414,
+                "certificate_score": -0.2627809606986622,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 16,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 10.872106335386267,
+                "residual_major_A_minus_B": -8.799898691277427,
+                "low_frequency_l2_energy": 0.9244090439727439,
+                "low_frequency_derivative_bound": 155.67976491496427,
+                "certificate_score": -0.11305128442458949,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 32,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 9.160083873431796,
+                "residual_major_A_minus_B": -7.087876229322958,
+                "low_frequency_l2_energy": 1.0789241958559068,
+                "low_frequency_derivative_bound": 419.862427294094,
+                "certificate_score": -0.033762850727094146,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 64,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 7.9326256814820155,
+                "residual_major_A_minus_B": -5.860418037373177,
+                "low_frequency_l2_energy": 1.1282247438153763,
+                "low_frequency_derivative_bound": 765.4751468371753,
+                "certificate_score": -0.015311844052906266,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 128,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 4.881460074374631,
+                "residual_major_A_minus_B": -2.8092524302657917,
+                "low_frequency_l2_energy": 1.3328345365255043,
+                "low_frequency_derivative_bound": 2694.860497709468,
+                "certificate_score": -0.001543120277982667,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 256,
+                "major_lower_bound_A": 2.072207644108839,
+                "high_frequency_l1_sup_bound_B": 0,
+                "residual_major_A_minus_B": 2.072207644108839,
+                "low_frequency_l2_energy": 1.6768916506248916,
+                "low_frequency_derivative_bound": 8378.808162152172,
+                "certificate_score": 0.00049463064531521,
+                "frequency_split_certificate_passes": false
+              }
+            ],
+            "passing_split_count": 0,
+            "best_reported_split": {
+              "low_frequency_cutoff_K": 256,
+              "major_lower_bound_A": 2.072207644108839,
+              "high_frequency_l1_sup_bound_B": 0,
+              "residual_major_A_minus_B": 2.072207644108839,
+              "low_frequency_l2_energy": 1.6768916506248916,
+              "low_frequency_derivative_bound": 8378.808162152172,
+              "certificate_score": 0.00049463064531521,
+              "frequency_split_certificate_passes": false
+            },
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "finite_goldbach_counts_are_positive": true,
+              "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+            }
+          },
+          {
+            "prime_support_limit": 512,
+            "transform_size_L": 2048,
+            "minimum_fixed_farey_major_value": 3.353133101040938,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "predeclared_dyadic_split_rows": [
+              {
+                "low_frequency_cutoff_K": 0,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 33.78490105621719,
+                "residual_major_A_minus_B": -30.431767955176248,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 1,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 33.78490105621719,
+                "residual_major_A_minus_B": -30.431767955176248,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 2,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 33.78490105621719,
+                "residual_major_A_minus_B": -30.431767955176248,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 4,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 32.40002414250006,
+                "residual_major_A_minus_B": -29.04689104145912,
+                "low_frequency_l2_energy": 0.7806571801537259,
+                "low_frequency_derivative_bound": 27.00679483111039,
+                "certificate_score": -2.1510802168940573,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 8,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 30.02772867409168,
+                "residual_major_A_minus_B": -26.67459557305074,
+                "low_frequency_l2_energy": 1.8646916435920877,
+                "low_frequency_derivative_bound": 112.51162746731019,
+                "certificate_score": -0.4741660248546478,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 16,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 28.409925175709073,
+                "residual_major_A_minus_B": -25.056792074668135,
+                "low_frequency_l2_energy": 2.1424991631472854,
+                "low_frequency_derivative_bound": 224.21740367360195,
+                "certificate_score": -0.22350443510748916,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 32,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 27.338867773971323,
+                "residual_major_A_minus_B": -23.985734672930384,
+                "low_frequency_l2_energy": 2.1957583713176096,
+                "low_frequency_derivative_bound": 379.70137163508537,
+                "certificate_score": -0.126339994873561,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 64,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 24.5660278123813,
+                "residual_major_A_minus_B": -21.21289471134036,
+                "low_frequency_l2_energy": 2.3827946299810807,
+                "low_frequency_derivative_bound": 1262.824784394832,
+                "certificate_score": -0.033595942958160985,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 128,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 21.342775091241474,
+                "residual_major_A_minus_B": -17.989641990200536,
+                "low_frequency_l2_energy": 2.5335809242177576,
+                "low_frequency_derivative_bound": 3205.966620852521,
+                "certificate_score": -0.011222600929897882,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 256,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 14.391460487359081,
+                "residual_major_A_minus_B": -11.038327386318144,
+                "low_frequency_l2_energy": 2.9004282595628617,
+                "low_frequency_derivative_bound": 11610.119999444392,
+                "certificate_score": -0.0019015009985850946,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 512,
+                "major_lower_bound_A": 3.353133101040938,
+                "high_frequency_l1_sup_bound_B": 0,
+                "residual_major_A_minus_B": 3.353133101040938,
+                "low_frequency_l2_energy": 3.959891793965605,
+                "low_frequency_derivative_bound": 46736.00366595615,
+                "certificate_score": 0.00014349250419472457,
+                "frequency_split_certificate_passes": false
+              }
+            ],
+            "passing_split_count": 0,
+            "best_reported_split": {
+              "low_frequency_cutoff_K": 512,
+              "major_lower_bound_A": 3.353133101040938,
+              "high_frequency_l1_sup_bound_B": 0,
+              "residual_major_A_minus_B": 3.353133101040938,
+              "low_frequency_l2_energy": 3.959891793965605,
+              "low_frequency_derivative_bound": 46736.00366595615,
+              "certificate_score": 0.00014349250419472457,
+              "frequency_split_certificate_passes": false
+            },
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "finite_goldbach_counts_are_positive": true,
+              "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+            }
+          },
+          {
+            "prime_support_limit": 1024,
+            "transform_size_L": 4096,
+            "minimum_fixed_farey_major_value": 4.030570977301597,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "predeclared_dyadic_split_rows": [
+              {
+                "low_frequency_cutoff_K": 0,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 72.36708745293454,
+                "residual_major_A_minus_B": -68.33651647563295,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 1,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 72.36708745293454,
+                "residual_major_A_minus_B": -68.33651647563295,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 2,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 72.36708745293454,
+                "residual_major_A_minus_B": -68.33651647563295,
+                "low_frequency_l2_energy": 0.0,
+                "low_frequency_derivative_bound": 0.0,
+                "certificate_score": Infinity,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 4,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 70.08593005509346,
+                "residual_major_A_minus_B": -66.05535907779186,
+                "low_frequency_l2_energy": 2.2305572896352706,
+                "low_frequency_derivative_bound": 44.10716773721852,
+                "certificate_score": -2.9952210702503583,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 8,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 66.70313551321938,
+                "residual_major_A_minus_B": -62.672564535917786,
+                "low_frequency_l2_energy": 4.3383493623573965,
+                "low_frequency_derivative_bound": 167.23114904658502,
+                "certificate_score": -0.7495321881506573,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 16,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 64.44925639704246,
+                "residual_major_A_minus_B": -60.41868541974087,
+                "low_frequency_l2_energy": 4.812581463675947,
+                "low_frequency_derivative_bound": 329.03089708124566,
+                "certificate_score": -0.36725235201739753,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 32,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 62.6975315351007,
+                "residual_major_A_minus_B": -58.6669605577991,
+                "low_frequency_l2_energy": 4.985453159011213,
+                "low_frequency_derivative_bound": 583.3715705694977,
+                "certificate_score": -0.20113068074444343,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 64,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 61.12659819770409,
+                "residual_major_A_minus_B": -57.09602722040249,
+                "low_frequency_l2_energy": 5.047690319806431,
+                "low_frequency_derivative_bound": 1052.6836530738315,
+                "certificate_score": -0.10847708531177881,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 128,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 57.11255105255797,
+                "residual_major_A_minus_B": -53.08198007525637,
+                "low_frequency_l2_energy": 5.28113604589566,
+                "low_frequency_derivative_bound": 3576.81892979529,
+                "certificate_score": -0.029681111130942475,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 256,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 49.01778046157789,
+                "residual_major_A_minus_B": -44.98720948427629,
+                "low_frequency_l2_energy": 5.69665829530134,
+                "low_frequency_derivative_bound": 13061.682989029907,
+                "certificate_score": -0.006888424642070953,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 512,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 33.854960821572,
+                "residual_major_A_minus_B": -29.824389844270403,
+                "low_frequency_l2_energy": 6.5976251206407515,
+                "low_frequency_derivative_bound": 50338.387737825804,
+                "certificate_score": -0.0011849561014787705,
+                "frequency_split_certificate_passes": false
+              },
+              {
+                "low_frequency_cutoff_K": 1024,
+                "major_lower_bound_A": 4.030570977301597,
+                "high_frequency_l1_sup_bound_B": 0,
+                "residual_major_A_minus_B": 4.030570977301597,
+                "low_frequency_l2_energy": 9.39162269197392,
+                "low_frequency_derivative_bound": 214759.3821320447,
+                "certificate_score": 3.753569168701931e-05,
+                "frequency_split_certificate_passes": false
+              }
+            ],
+            "passing_split_count": 0,
+            "best_reported_split": {
+              "low_frequency_cutoff_K": 1024,
+              "major_lower_bound_A": 4.030570977301597,
+              "high_frequency_l1_sup_bound_B": 0,
+              "residual_major_A_minus_B": 4.030570977301597,
+              "low_frequency_l2_energy": 9.39162269197392,
+              "low_frequency_derivative_bound": 214759.3821320447,
+              "certificate_score": 3.753569168701931e-05,
+              "frequency_split_certificate_passes": false
+            },
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "finite_goldbach_counts_are_positive": true,
+              "all_cutoffs_are_predeclared_dyadic_or_terminal": true
+            }
+          }
+        ],
+        "positive_global_certificate_no_go": [
+          {
+            "high_frequency_K": 16,
+            "major_A": 1.0,
+            "low_cosine_amplitude": 0.2,
+            "high_cosine_amplitude": 0.1,
+            "rigorous_pointwise_lower_bound": 0.7000000000000001,
+            "global_derivative_bound": 11.309733552923255,
+            "global_l2_energy": 0.025000000000000005,
+            "global_certificate_passes": false,
+            "split_high_sup_bound": 0.1,
+            "split_residual_major": 0.9,
+            "split_certificate_passes": true,
+            "checks": {
+              "function_is_uniformly_positive": true,
+              "global_certificate_fails": true,
+              "frequency_split_certificate_passes": true
+            }
+          },
+          {
+            "high_frequency_K": 64,
+            "major_A": 1.0,
+            "low_cosine_amplitude": 0.2,
+            "high_cosine_amplitude": 0.1,
+            "rigorous_pointwise_lower_bound": 0.7000000000000001,
+            "global_derivative_bound": 41.46902302738527,
+            "global_l2_energy": 0.025000000000000005,
+            "global_certificate_passes": false,
+            "split_high_sup_bound": 0.1,
+            "split_residual_major": 0.9,
+            "split_certificate_passes": true,
+            "checks": {
+              "function_is_uniformly_positive": true,
+              "global_certificate_fails": true,
+              "frequency_split_certificate_passes": true
+            }
+          },
+          {
+            "high_frequency_K": 256,
+            "major_A": 1.0,
+            "low_cosine_amplitude": 0.2,
+            "high_cosine_amplitude": 0.1,
+            "rigorous_pointwise_lower_bound": 0.7000000000000001,
+            "global_derivative_bound": 162.10618092523333,
+            "global_l2_energy": 0.025000000000000005,
+            "global_certificate_passes": false,
+            "split_high_sup_bound": 0.1,
+            "split_residual_major": 0.9,
+            "split_certificate_passes": true,
+            "checks": {
+              "function_is_uniformly_positive": true,
+              "global_certificate_fails": true,
+              "frequency_split_certificate_passes": true
+            }
+          },
+          {
+            "high_frequency_K": 1024,
+            "major_A": 1.0,
+            "low_cosine_amplitude": 0.2,
+            "high_cosine_amplitude": 0.1,
+            "rigorous_pointwise_lower_bound": 0.7000000000000001,
+            "global_derivative_bound": 644.6548125166256,
+            "global_l2_energy": 0.025000000000000005,
+            "global_certificate_passes": false,
+            "split_high_sup_bound": 0.1,
+            "split_residual_major": 0.9,
+            "split_certificate_passes": true,
+            "checks": {
+              "function_is_uniformly_positive": true,
+              "global_certificate_fails": true,
+              "frequency_split_certificate_passes": true
+            }
+          }
+        ],
+        "aggregate": {
+          "support_count": 5,
+          "supports_with_passing_predeclared_split": 1,
+          "supports_without_passing_predeclared_split": 4,
+          "positive_global_certificate_counterexample_count": 4
+        },
+        "no_go_scope": "The unsplit energy-derivative test is sufficient but not necessary. A predeclared frequency split repairs that diagnostic defect, yet only support 64 passes among the five finite prime experiments. No uniform major/minor estimate for every large even target follows.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform arithmetic decomposition bounds every high-frequency sup budget and low-frequency energy-derivative budget below the major term.",
+      "route_decision": {
+        "discard": "the unsplit global derivative-energy certificate as a necessary or asymptotically stable diagnostic",
+        "retain": "predeclared frequency bands with separate sup, energy, derivative, and major-term budgets",
+        "next_single_lemma": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T178-REJECTED",
+            "label": "GlobalDerivativeEnergyBudgetIsNecessaryForPositiveGoldbachCounts",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T178-CLOSED",
+            "label": "FrequencySplitSobolevCertificateAndGlobalBudgetNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T178-OPEN",
+            "label": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T178-REJECTED",
+            "GB-T178-CLOSED"
+          ],
+          [
+            "GB-T178-CLOSED",
+            "GB-T178-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact split certificate, one infinite positive no-go family, and five bounded prime diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-178",
+      "theorem_name": "CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo",
+      "declared_proposition": "For finite-dimensional operators T_j, let H_ij=<T_i,T_j>_HS. Then 1^*H1=||sum_j T_j||_HS^2 and ||sum_j T_j||_op^2<=1^*H1. Therefore the signed cross-Gram zero mode bound 1^*H1<=eta sum_j||T_j||_HS^2 is a sufficient operator power-saving certificate. Absolute cross-Gram magnitudes do not determine this zero mode.",
+      "mathematical_argument": "Expand the Hilbert-Schmidt square of the aggregate and use operator norm at most Hilbert-Schmidt norm. For scalar operators, the aligned phases and all m-th roots of unity have identical component norms and identical absolute cross-Gram matrices, but their signed zero modes are m^2 and 0. Thus phase erasure cannot certify the all-plus arithmetic mode.",
+      "reproducible_computation": {
+        "theorem": "For finite-dimensional operators T_j, let H_ij=<T_i,T_j>_HS. Then 1^*H1=||sum_j T_j||_HS^2 and ||sum_j T_j||_op^2<=1^*H1. Therefore the signed cross-Gram zero mode bound 1^*H1<=eta sum_j||T_j||_HS^2 is a sufficient operator power-saving certificate. Absolute cross-Gram magnitudes do not determine this zero mode.",
+        "proof": "Expand the Hilbert-Schmidt square of the aggregate and use operator norm at most Hilbert-Schmidt norm. For scalar operators, the aligned phases and all m-th roots of unity have identical component norms and identical absolute cross-Gram matrices, but their signed zero modes are m^2 and 0. Thus phase erasure cannot certify the all-plus arithmetic mode.",
+        "absolute_phase_erasure_counterfamilies": [
+          {
+            "component_count_m": 4,
+            "common_component_norm": 1.0,
+            "common_diagonal_energy_D": 4.0,
+            "aligned_signed_zero_mode": 16.0,
+            "root_of_unity_signed_zero_mode": 8.304840168620503e-32,
+            "absolute_cross_gram_entry": 1.0,
+            "checks": {
+              "absolute_cross_gram_magnitudes_are_identical": true,
+              "aligned_zero_mode_equals_m_squared": true,
+              "root_of_unity_zero_mode_cancels": true,
+              "diagonal_energy_is_identical": true
+            }
+          },
+          {
+            "component_count_m": 8,
+            "common_component_norm": 1.0,
+            "common_diagonal_energy_D": 8.0,
+            "aligned_signed_zero_mode": 64.0,
+            "root_of_unity_signed_zero_mode": 3.5745259767827093e-31,
+            "absolute_cross_gram_entry": 1.0,
+            "checks": {
+              "absolute_cross_gram_magnitudes_are_identical": true,
+              "aligned_zero_mode_equals_m_squared": true,
+              "root_of_unity_zero_mode_cancels": true,
+              "diagonal_energy_is_identical": true
+            }
+          },
+          {
+            "component_count_m": 16,
+            "common_component_norm": 1.0,
+            "common_diagonal_energy_D": 16.0,
+            "aligned_signed_zero_mode": 256.0,
+            "root_of_unity_signed_zero_mode": 3.20474742746036e-31,
+            "absolute_cross_gram_entry": 1.0,
+            "checks": {
+              "absolute_cross_gram_magnitudes_are_identical": true,
+              "aligned_zero_mode_equals_m_squared": true,
+              "root_of_unity_zero_mode_cancels": true,
+              "diagonal_energy_is_identical": true
+            }
+          },
+          {
+            "component_count_m": 32,
+            "common_component_norm": 1.0,
+            "common_diagonal_energy_D": 32.0,
+            "aligned_signed_zero_mode": 1024.0,
+            "root_of_unity_signed_zero_mode": 1.0490155221088398e-29,
+            "absolute_cross_gram_entry": 1.0,
+            "checks": {
+              "absolute_cross_gram_magnitudes_are_identical": true,
+              "aligned_zero_mode_equals_m_squared": true,
+              "root_of_unity_zero_mode_cancels": true,
+              "diagonal_energy_is_identical": true
+            }
+          }
+        ],
+        "aggregate": {
+          "counterfamily_size_count": 4,
+          "minimum_component_count": 4,
+          "maximum_component_count": 32,
+          "absolute_gram_distinguishes_families": false
+        },
+        "no_go_scope": "The zero-mode inequality is only a sufficient data contract. It does not establish a power saving for actual prime-pair Haar blocks, and a Hilbert-Schmidt diagonal budget may itself be too large unless arithmetic rank and scale growth are controlled.",
+        "failure_count": 0
+      },
+      "logical_limit": "No arithmetic theorem bounds the signed all-plus zero mode of actual prime-pair Haar cross-Gram data by a power-saving fraction of diagonal energy.",
+      "route_decision": {
+        "discard": "absolute cross-Gram magnitudes or average Fourier modes as sufficient statistics for the all-plus mode",
+        "retain": "the signed scalar cross-Gram zero mode with diagonal-energy normalization",
+        "next_single_lemma": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T178-REJECTED",
+            "label": "AbsoluteCrossGramMagnitudesDetermineArithmeticZeroMode",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T178-CLOSED",
+            "label": "CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T178-OPEN",
+            "label": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T178-REJECTED",
+            "TP-T178-CLOSED"
+          ],
+          [
+            "TP-T178-CLOSED",
+            "TP-T178-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact zero-mode certificate and an infinite phase-erasure counterfamily only."
+    },
+    "cross_problem_synthesis": "All four failures arise from a uniformity mismatch: finite sections, fixed horizons, global frequency budgets, or absolute phase data do not control the one infinite or target-specific mode needed by the conjecture. The next lemmas are therefore adaptive and signed.",
+    "literature_boundary": {
+      "riemann": "Recent finite Weil-form and explicit-tail work supplies computable sections and tail bounds, not the summable whitened off-diagonal profile required here.",
+      "collatz": "Tao's almost-all result and recent low-bit reductions do not imply an every-orbit adaptive occupancy crossing.",
+      "goldbach": "Explicit major-arc and exceptional-set estimates do not provide the every-target binary dyadic split budget isolated here.",
+      "twin_prime": "Prime-producing sieves still require Type-II distribution; no cited result supplies the signed all-plus cross-Gram zero-mode bound used here."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-178",
+      "status": "open_not_proven",
+      "declared_proposition": "Let E_N be Hermitian and satisfy |(E_N)_ij| <= C(1+|i-j|)^(-s). If s>1, then uniformly in N, ||E_N|| <= C(2 zeta(s)-1). Hence a whitened core margin delta survives whenever C(2 zeta(s)-1)<delta. If s<=1, the positive Toeplitz matrices with equality in this profile have unbounded spectral radius as N tends to infinity.",
+      "new_result": "SummableToeplitzTailCertificateAndNonsummableProfileNoGo",
+      "discarded_route": "dimension-uniform phase-blind Toeplitz envelopes with decay exponent s<=1",
+      "remaining_gap": "No arithmetic proof gives the actual pole-neutral whitened Weil tail a summable off-diagonal majorant with constant below the core margin.",
+      "candidate_theorem": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin",
+      "claim_boundary": "No RH proof or zero exclusion; one sharp summability threshold for an absolute Toeplitz comparison route only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T178-REJECTED",
+            "label": "NonsummableAbsoluteToeplitzProfileClosesWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T178-CLOSED",
+            "label": "SummableToeplitzTailCertificateAndNonsummableProfileNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T178-OPEN",
+            "label": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T178-REJECTED",
+            "RH-T178-CLOSED"
+          ],
+          [
+            "RH-T178-CLOSED",
+            "RH-T178-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilWhitenedTailHasSummableOffDiagonalProfileBelowCoreMargin"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-178",
+      "status": "open_not_proven",
+      "declared_proposition": "For an accelerated odd Collatz prefix n_0,...,n_(h-1), let A_2 count n_i congruent to 1 modulo 4 and A_3 count n_i congruent to 5 modulo 8. Then sum_i v2(3n_i+1) >= h+A_2+A_3. Consequently an aperiodic prefix that never falls below n_0 cannot satisfy A_2+A_3 > (log2(3)-1)h+H_6(n_0,h).",
+      "new_result": "LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo",
+      "discarded_route": "any universal fixed-horizon low-bit mixing assertion",
+      "remaining_gap": "No theorem forces every aperiodic non-descending natural orbit to cross the low-bit occupancy threshold; nontrivial cycles remain unexcluded.",
+      "candidate_theorem": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold",
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact low-bit sufficient criterion and an infinite fixed-horizon counterfamily only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T178-REJECTED",
+            "label": "FixedHorizonLowBitMixingForEveryNaturalOrbit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T178-CLOSED",
+            "label": "LowBitOccupancyDescentCriterionAndFixedHorizonMixingNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T178-OPEN",
+            "label": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T178-REJECTED",
+            "CO-T178-CLOSED"
+          ],
+          [
+            "CO-T178-CLOSED",
+            "CO-T178-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "EveryAperiodicNonDescendingOrbitCrossesLowBitOccupancyThreshold"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-178",
+      "status": "open_not_proven",
+      "declared_proposition": "Let P=L+H be a real mean-zero periodic function split into conjugate-symmetric frequency bands, with the zero mode assigned to L, so both bands have mean zero. If ||H||_infinity<=B<A, ||L'||_infinity<=D, and integral L^2<=E, then A+P is positive whenever A-B>D/2 or E<(A-B)^3/(4D). For a trigonometric polynomial, B<=sum_high |d_k|, E=sum_low |d_k|^2, and D<=2pi sum_low |k d_k|.",
+      "new_result": "FrequencySplitSobolevCertificateAndGlobalBudgetNoGo",
+      "discarded_route": "the unsplit global derivative-energy certificate as a necessary or asymptotically stable diagnostic",
+      "remaining_gap": "No target-uniform arithmetic decomposition bounds every high-frequency sup budget and low-frequency energy-derivative budget below the major term.",
+      "candidate_theorem": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain",
+      "claim_boundary": "No Goldbach proof or counterexample; one exact split certificate, one infinite positive no-go family, and five bounded prime diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T178-REJECTED",
+            "label": "GlobalDerivativeEnergyBudgetIsNecessaryForPositiveGoldbachCounts",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T178-CLOSED",
+            "label": "FrequencySplitSobolevCertificateAndGlobalBudgetNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T178-OPEN",
+            "label": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T178-REJECTED",
+            "GB-T178-CLOSED"
+          ],
+          [
+            "GB-T178-CLOSED",
+            "GB-T178-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ParityAliasedMinorHasUniformDyadicSplitSobolevBudgetBelowMajorMain"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-178",
+      "status": "open_not_proven",
+      "declared_proposition": "For finite-dimensional operators T_j, let H_ij=<T_i,T_j>_HS. Then 1^*H1=||sum_j T_j||_HS^2 and ||sum_j T_j||_op^2<=1^*H1. Therefore the signed cross-Gram zero mode bound 1^*H1<=eta sum_j||T_j||_HS^2 is a sufficient operator power-saving certificate. Absolute cross-Gram magnitudes do not determine this zero mode.",
+      "new_result": "CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo",
+      "discarded_route": "absolute cross-Gram magnitudes or average Fourier modes as sufficient statistics for the all-plus mode",
+      "remaining_gap": "No arithmetic theorem bounds the signed all-plus zero mode of actual prime-pair Haar cross-Gram data by a power-saving fraction of diagonal energy.",
+      "candidate_theorem": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy",
+      "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact zero-mode certificate and an infinite phase-erasure counterfamily only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T178-REJECTED",
+            "label": "AbsoluteCrossGramMagnitudesDetermineArithmeticZeroMode",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T178-CLOSED",
+            "label": "CrossGramZeroModeCertificateAndAbsolutePhaseErasureNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T178-OPEN",
+            "label": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T178-REJECTED",
+            "TP-T178-CLOSED"
+          ],
+          [
+            "TP-T178-CLOSED",
+            "TP-T178-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairHaarSignedCrossGramZeroModeHasPowerSavingRelativeToDiagonalEnergy"
+    }
+  ]
+}
