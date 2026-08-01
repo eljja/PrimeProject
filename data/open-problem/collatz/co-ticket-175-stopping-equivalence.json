@@ -1,0 +1,183 @@
+{
+  "schema": "primeproject.ticket175-relative-equivalence-signed-block.v1",
+  "generated_at": "2026-08-01T20:00:00+09:00",
+  "ticket_id": "CO-TICKET-175",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo",
+  "declared_proposition": "For the accelerated odd Collatz map T, the following are equivalent: (i) every positive integer reaches 1; (ii) every odd n>1 has some h with T^h(n)<n; and (iii) there is no natural orbit whose every accelerated iterate stays at least its start. After a natural cylinder ray stabilizes at n, TICKET-174's unique zero-lift child is exactly the next valuation of that orbit. Consequently the open statement NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren is Collatz-equivalent, not a strictly easier intermediate lemma.",
+  "mathematical_argument": "Collatz immediately implies descent below n by eventual arrival at 1. Conversely, assume every odd n>1 eventually reaches a smaller odd integer. Strong induction on n then sends every odd n to 1; even integers reduce to an odd integer after removing powers of two. The negation of the descent statement is exactly an orbit staying above its start. Once a cylinder modulus exceeds its natural representative n, n is the least positive representative of every later actual prefix, so all later lift quotients are the unique zero lifts.",
+  "reproducible_computation": {
+    "theorem": "For the accelerated odd Collatz map T, the following are equivalent: (i) every positive integer reaches 1; (ii) every odd n>1 has some h with T^h(n)<n; and (iii) there is no natural orbit whose every accelerated iterate stays at least its start. After a natural cylinder ray stabilizes at n, TICKET-174's unique zero-lift child is exactly the next valuation of that orbit. Consequently the open statement NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren is Collatz-equivalent, not a strictly easier intermediate lemma.",
+    "proof": "Collatz immediately implies descent below n by eventual arrival at 1. Conversely, assume every odd n>1 eventually reaches a smaller odd integer. Strong induction on n then sends every odd n to 1; even integers reduce to an odd integer after removing powers of two. The negation of the descent statement is exactly an orbit staying above its start. Once a cylinder modulus exceeds its natural representative n, n is the least positive representative of every later actual prefix, so all later lift quotients are the unique zero lifts.",
+    "finite_first_descent_rows": [
+      {
+        "odd_start_limit": 1000,
+        "odd_starts_checked": 499,
+        "first_descent_counterexamples": 0,
+        "maximum_first_descent_horizon": 51,
+        "maximum_horizon_start": 703,
+        "maximum_corrected_log_identity_error": 7.105427357601002e-15,
+        "checks": {
+          "all_audited_odd_starts_descend": true,
+          "corrected_log_identity_matches": true,
+          "finite_row_is_not_an_all_integer_proof": true
+        }
+      },
+      {
+        "odd_start_limit": 10000,
+        "odd_starts_checked": 4999,
+        "first_descent_counterexamples": 0,
+        "maximum_first_descent_horizon": 51,
+        "maximum_horizon_start": 703,
+        "maximum_corrected_log_identity_error": 9.325873406851315e-15,
+        "checks": {
+          "all_audited_odd_starts_descend": true,
+          "corrected_log_identity_matches": true,
+          "finite_row_is_not_an_all_integer_proof": true
+        }
+      },
+      {
+        "odd_start_limit": 100000,
+        "odd_starts_checked": 49999,
+        "first_descent_counterexamples": 0,
+        "maximum_first_descent_horizon": 85,
+        "maximum_horizon_start": 35655,
+        "maximum_corrected_log_identity_error": 1.3988810110276972e-14,
+        "checks": {
+          "all_audited_odd_starts_descend": true,
+          "corrected_log_identity_matches": true,
+          "finite_row_is_not_an_all_integer_proof": true
+        }
+      },
+      {
+        "odd_start_limit": 1000000,
+        "odd_starts_checked": 499999,
+        "first_descent_counterexamples": 0,
+        "maximum_first_descent_horizon": 111,
+        "maximum_horizon_start": 626331,
+        "maximum_corrected_log_identity_error": 2.4868995751603507e-14,
+        "checks": {
+          "all_audited_odd_starts_descend": true,
+          "corrected_log_identity_matches": true,
+          "finite_row_is_not_an_all_integer_proof": true
+        }
+      }
+    ],
+    "finite_stopping_time_record_rows": [
+      {
+        "start": 3,
+        "first_descent_horizon": 2,
+        "descent_value": 1,
+        "valuation_sum": 5,
+        "corrected_log_identity_error": 0.0
+      },
+      {
+        "start": 7,
+        "first_descent_horizon": 4,
+        "descent_value": 5,
+        "valuation_sum": 7,
+        "corrected_log_identity_error": 6.106226635438361e-16
+      },
+      {
+        "start": 27,
+        "first_descent_horizon": 37,
+        "descent_value": 23,
+        "valuation_sum": 59,
+        "corrected_log_identity_error": 5.88418203051333e-15
+      },
+      {
+        "start": 703,
+        "first_descent_horizon": 51,
+        "descent_value": 157,
+        "valuation_sum": 83,
+        "corrected_log_identity_error": 3.9968028886505635e-15
+      },
+      {
+        "start": 10087,
+        "first_descent_horizon": 66,
+        "descent_value": 961,
+        "valuation_sum": 108,
+        "corrected_log_identity_error": 9.769962616701378e-15
+      },
+      {
+        "start": 35655,
+        "first_descent_horizon": 85,
+        "descent_value": 29405,
+        "valuation_sum": 135,
+        "corrected_log_identity_error": 1.226796442210798e-14
+      },
+      {
+        "start": 270271,
+        "first_descent_horizon": 103,
+        "descent_value": 2513,
+        "valuation_sum": 170,
+        "corrected_log_identity_error": 1.7763568394002505e-15
+      },
+      {
+        "start": 362343,
+        "first_descent_horizon": 104,
+        "descent_value": 161717,
+        "valuation_sum": 166,
+        "corrected_log_identity_error": 2.3314683517128287e-14
+      },
+      {
+        "start": 381727,
+        "first_descent_horizon": 109,
+        "descent_value": 161717,
+        "valuation_sum": 174,
+        "corrected_log_identity_error": 2.220446049250313e-15
+      },
+      {
+        "start": 626331,
+        "first_descent_horizon": 111,
+        "descent_value": 597017,
+        "valuation_sum": 176,
+        "corrected_log_identity_error": 1.7735812818386876e-14
+      }
+    ],
+    "largest_finite_record": {
+      "start": 626331,
+      "first_descent_horizon": 111,
+      "descent_value": 597017,
+      "valuation_sum": 176,
+      "corrected_log_identity_error": 1.7735812818386876e-14
+    },
+    "exact_corrected_log_identity": "log2(T^h(n)/n)=h log2(3)-S_h+sum_{i<h} log2(1+1/(3 T^i(n)))",
+    "no_go_scope": "Renaming the every-orbit descent statement as a zero-lift ray lemma does not reduce its logical difficulty. The finite million-start audit supplies no all-integer quantifier.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating eventual unique-zero-lift non-descent exclusion as a strictly easier Collatz sublemma",
+  "remaining_gap": "No proof excludes an aperiodic natural valuation ray whose exact corrected valuation excess stays nonpositive at every prefix; nontrivial cycles also remain unexcluded by this ticket.",
+  "candidate_theorem": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary",
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact equivalence correction and a finite million-start audit only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T175-REJECTED",
+        "label": "UniqueZeroLiftNonDescentExclusionIsStrictlyWeakerThanCollatz",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T175-CLOSED",
+        "label": "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T175-OPEN",
+        "label": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T175-REJECTED",
+        "CO-T175-CLOSED"
+      ],
+      [
+        "CO-T175-CLOSED",
+        "CO-T175-OPEN"
+      ]
+    ]
+  }
+}

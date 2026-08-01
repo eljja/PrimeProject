@@ -1,0 +1,1405 @@
+{
+  "schema": "primeproject.ticket175-relative-equivalence-signed-block.v1",
+  "generated_at": "2026-08-01T20:00:00+09:00",
+  "status": "four_exact_reductions_all_conjectures_open",
+  "claim_boundary": "TICKET-175 proves four exact reductions or no-go statements and resolves none of the four conjectures. It identifies an absolute spectral-resolution barrier for the RH route, proves the selected zero-lift Collatz target equivalent to Collatz, quantifies the exact positive-minor double loss in a fixed Farey split, and replaces the Twin max-energy aggregation by a sharper block-operator reduction.",
+  "relative_equivalence_signed_block_audit": {
+    "theorem_name": "FourConjectureRelativeEquivalenceSignedBlockAudit",
+    "status": "four_exact_reductions_all_conjectures_open",
+    "proof_boundary": "TICKET-175 proves four exact reductions or no-go statements and resolves none of the four conjectures. It identifies an absolute spectral-resolution barrier for the RH route, proves the selected zero-lift Collatz target equivalent to Collatz, quantifies the exact positive-minor double loss in a fixed Farey split, and replaces the Twin max-energy aggregation by a sharper block-operator reduction.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-175",
+      "theorem_name": "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo",
+      "declared_proposition": "Let A be Hermitian and let A_T satisfy ||A-A_T||_op<=B(T). Weyl's inequality gives lambda_min(A)>=lambda_min(A_T)-B(T), so this absolute-error route can certify positivity only when a rigorous finite lower margin exceeds B(T). If T=N^k for fixed k>1, the explicit TICKET-174 tail bound is only polynomial in N (up to a logarithm), and therefore cannot resolve a spectral margin that is smaller than every inverse power of N.",
+      "mathematical_argument": "The eigenvalue inequality is the standard variational perturbation bound. Substituting T=N^k into the explicit formula gives U_N(T)=O(N^(1-k) log N). Hence U_N(T)/mu_N diverges whenever mu_N is superpolynomially small. The scalar approximation zero with error radius epsilon is compatible with both exact eigenvalues plus and minus epsilon, proving that sign cannot be inferred when the margin does not exceed the absolute error radius.",
+      "reproducible_computation": {
+        "theorem": "Let A be Hermitian and let A_T satisfy ||A-A_T||_op<=B(T). Weyl's inequality gives lambda_min(A)>=lambda_min(A_T)-B(T), so this absolute-error route can certify positivity only when a rigorous finite lower margin exceeds B(T). If T=N^k for fixed k>1, the explicit TICKET-174 tail bound is only polynomial in N (up to a logarithm), and therefore cannot resolve a spectral margin that is smaller than every inverse power of N.",
+        "proof": "The eigenvalue inequality is the standard variational perturbation bound. Substituting T=N^k into the explicit formula gives U_N(T)=O(N^(1-k) log N). Hence U_N(T)/mu_N diverges whenever mu_N is superpolynomially small. The scalar approximation zero with error radius epsilon is compatible with both exact eigenvalues plus and minus epsilon, proving that sign cannot be inferred when the margin does not exceed the absolute error radius.",
+        "published_branch_resolution_rows": [
+          {
+            "Galerkin_dimension_N": 100,
+            "published_positive_branch_minus_log10_magnitude": 190.92,
+            "quadratic_cutoff_log10_tail_bound": -1.240424676962079,
+            "cubic_cutoff_log10_tail_bound": -3.084365627666981,
+            "required_log10_T_for_explicit_bound_at_branch_scale": 195.31878478277872,
+            "solved_log10_tail_bound": -190.92,
+            "checks": {
+              "quadratic_tail_is_far_above_target_scale": true,
+              "cubic_tail_is_far_above_target_scale": true,
+              "solved_cutoff_hits_target_scale": true,
+              "required_cutoff_has_more_digits_than_inverse_margin": true
+            }
+          },
+          {
+            "Galerkin_dimension_N": 150,
+            "published_positive_branch_minus_log10_magnitude": 247.19,
+            "quadratic_cutoff_log10_tail_bound": -1.3859313682281584,
+            "cubic_cutoff_log10_tail_bound": -3.4030321780930137,
+            "required_log10_T_for_explicit_bound_at_branch_scale": 251.87437879850285,
+            "solved_log10_tail_bound": -247.19,
+            "checks": {
+              "quadratic_tail_is_far_above_target_scale": true,
+              "cubic_tail_is_far_above_target_scale": true,
+              "solved_cutoff_hits_target_scale": true,
+              "required_cutoff_has_more_digits_than_inverse_margin": true
+            }
+          },
+          {
+            "Galerkin_dimension_N": 200,
+            "published_positive_branch_minus_log10_magnitude": 294.31,
+            "quadratic_cutoff_log10_tail_bound": -1.4900743991357621,
+            "cubic_cutoff_log10_tail_bound": -3.630509839920498,
+            "required_log10_T_for_explicit_bound_at_branch_scale": 299.1936067478281,
+            "solved_log10_tail_bound": -294.31,
+            "checks": {
+              "quadratic_tail_is_far_above_target_scale": true,
+              "cubic_tail_is_far_above_target_scale": true,
+              "solved_cutoff_hits_target_scale": true,
+              "required_cutoff_has_more_digits_than_inverse_margin": true
+            }
+          },
+          {
+            "Galerkin_dimension_N": 250,
+            "published_positive_branch_minus_log10_magnitude": 333.68,
+            "quadratic_cutoff_log10_tail_bound": -1.5713679294869574,
+            "cubic_cutoff_log10_tail_bound": -3.807675762554788,
+            "required_log10_T_for_explicit_bound_at_branch_scale": 338.7141076240692,
+            "solved_log10_tail_bound": -333.68,
+            "checks": {
+              "quadratic_tail_is_far_above_target_scale": true,
+              "cubic_tail_is_far_above_target_scale": true,
+              "solved_cutoff_hits_target_scale": true,
+              "required_cutoff_has_more_digits_than_inverse_margin": true
+            }
+          }
+        ],
+        "exact_scalar_sign_ambiguity_rows": [
+          {
+            "approximate_small_eigenvalue": 0.0,
+            "absolute_error_radius": 1.0,
+            "compatible_exact_eigenvalues": [
+              -1.0,
+              1.0
+            ],
+            "checks": {
+              "positive_candidate_within_radius": true,
+              "negative_candidate_within_radius": true,
+              "candidate_signs_are_opposite": true
+            }
+          },
+          {
+            "approximate_small_eigenvalue": 0.0,
+            "absolute_error_radius": 0.1,
+            "compatible_exact_eigenvalues": [
+              -0.1,
+              0.1
+            ],
+            "checks": {
+              "positive_candidate_within_radius": true,
+              "negative_candidate_within_radius": true,
+              "candidate_signs_are_opposite": true
+            }
+          },
+          {
+            "approximate_small_eigenvalue": 0.0,
+            "absolute_error_radius": 0.01,
+            "compatible_exact_eigenvalues": [
+              -0.01,
+              0.01
+            ],
+            "checks": {
+              "positive_candidate_within_radius": true,
+              "negative_candidate_within_radius": true,
+              "candidate_signs_are_opposite": true
+            }
+          },
+          {
+            "approximate_small_eigenvalue": 0.0,
+            "absolute_error_radius": 0.001,
+            "compatible_exact_eigenvalues": [
+              -0.001,
+              0.001
+            ],
+            "checks": {
+              "positive_candidate_within_radius": true,
+              "negative_candidate_within_radius": true,
+              "candidate_signs_are_opposite": true
+            }
+          }
+        ],
+        "source_boundary": "The branch magnitudes are reported numerical Galerkin values from arXiv:2605.20224, not certified lower bounds. They are used only as resolution targets for the explicit arXiv:2607.02828 tail bound.",
+        "no_go_scope": "This rejects polynomial-cutoff absolute operator-norm certification at a superpolynomially small spectral edge. It does not reject structured, relative, sign-preserving, or analytic positivity proofs.",
+        "failure_count": 0
+      },
+      "logical_limit": "No structured or relative error theorem controls the sign of the actual pole-neutral Weil core below its tiny spectral edge.",
+      "route_decision": {
+        "discard": "polynomial-cutoff absolute operator-norm error as a route to resolving a superpolynomially small ground-state sign",
+        "retain": "sign-preserving structure, relative form bounds, or an analytic factorization that does not resolve the tiny eigenvalue in absolute norm",
+        "next_single_lemma": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T175-REJECTED",
+            "label": "QuadraticAbsoluteTailNormResolvesTheObservedGroundStateScale",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T175-CLOSED",
+            "label": "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T175-OPEN",
+            "label": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T175-REJECTED",
+            "RH-T175-CLOSED"
+          ],
+          [
+            "RH-T175-CLOSED",
+            "RH-T175-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no certified continuum sign; one exact perturbation barrier and published-scale resolution audit only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-175",
+      "theorem_name": "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo",
+      "declared_proposition": "For the accelerated odd Collatz map T, the following are equivalent: (i) every positive integer reaches 1; (ii) every odd n>1 has some h with T^h(n)<n; and (iii) there is no natural orbit whose every accelerated iterate stays at least its start. After a natural cylinder ray stabilizes at n, TICKET-174's unique zero-lift child is exactly the next valuation of that orbit. Consequently the open statement NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren is Collatz-equivalent, not a strictly easier intermediate lemma.",
+      "mathematical_argument": "Collatz immediately implies descent below n by eventual arrival at 1. Conversely, assume every odd n>1 eventually reaches a smaller odd integer. Strong induction on n then sends every odd n to 1; even integers reduce to an odd integer after removing powers of two. The negation of the descent statement is exactly an orbit staying above its start. Once a cylinder modulus exceeds its natural representative n, n is the least positive representative of every later actual prefix, so all later lift quotients are the unique zero lifts.",
+      "reproducible_computation": {
+        "theorem": "For the accelerated odd Collatz map T, the following are equivalent: (i) every positive integer reaches 1; (ii) every odd n>1 has some h with T^h(n)<n; and (iii) there is no natural orbit whose every accelerated iterate stays at least its start. After a natural cylinder ray stabilizes at n, TICKET-174's unique zero-lift child is exactly the next valuation of that orbit. Consequently the open statement NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren is Collatz-equivalent, not a strictly easier intermediate lemma.",
+        "proof": "Collatz immediately implies descent below n by eventual arrival at 1. Conversely, assume every odd n>1 eventually reaches a smaller odd integer. Strong induction on n then sends every odd n to 1; even integers reduce to an odd integer after removing powers of two. The negation of the descent statement is exactly an orbit staying above its start. Once a cylinder modulus exceeds its natural representative n, n is the least positive representative of every later actual prefix, so all later lift quotients are the unique zero lifts.",
+        "finite_first_descent_rows": [
+          {
+            "odd_start_limit": 1000,
+            "odd_starts_checked": 499,
+            "first_descent_counterexamples": 0,
+            "maximum_first_descent_horizon": 51,
+            "maximum_horizon_start": 703,
+            "maximum_corrected_log_identity_error": 7.105427357601002e-15,
+            "checks": {
+              "all_audited_odd_starts_descend": true,
+              "corrected_log_identity_matches": true,
+              "finite_row_is_not_an_all_integer_proof": true
+            }
+          },
+          {
+            "odd_start_limit": 10000,
+            "odd_starts_checked": 4999,
+            "first_descent_counterexamples": 0,
+            "maximum_first_descent_horizon": 51,
+            "maximum_horizon_start": 703,
+            "maximum_corrected_log_identity_error": 9.325873406851315e-15,
+            "checks": {
+              "all_audited_odd_starts_descend": true,
+              "corrected_log_identity_matches": true,
+              "finite_row_is_not_an_all_integer_proof": true
+            }
+          },
+          {
+            "odd_start_limit": 100000,
+            "odd_starts_checked": 49999,
+            "first_descent_counterexamples": 0,
+            "maximum_first_descent_horizon": 85,
+            "maximum_horizon_start": 35655,
+            "maximum_corrected_log_identity_error": 1.3988810110276972e-14,
+            "checks": {
+              "all_audited_odd_starts_descend": true,
+              "corrected_log_identity_matches": true,
+              "finite_row_is_not_an_all_integer_proof": true
+            }
+          },
+          {
+            "odd_start_limit": 1000000,
+            "odd_starts_checked": 499999,
+            "first_descent_counterexamples": 0,
+            "maximum_first_descent_horizon": 111,
+            "maximum_horizon_start": 626331,
+            "maximum_corrected_log_identity_error": 2.4868995751603507e-14,
+            "checks": {
+              "all_audited_odd_starts_descend": true,
+              "corrected_log_identity_matches": true,
+              "finite_row_is_not_an_all_integer_proof": true
+            }
+          }
+        ],
+        "finite_stopping_time_record_rows": [
+          {
+            "start": 3,
+            "first_descent_horizon": 2,
+            "descent_value": 1,
+            "valuation_sum": 5,
+            "corrected_log_identity_error": 0.0
+          },
+          {
+            "start": 7,
+            "first_descent_horizon": 4,
+            "descent_value": 5,
+            "valuation_sum": 7,
+            "corrected_log_identity_error": 6.106226635438361e-16
+          },
+          {
+            "start": 27,
+            "first_descent_horizon": 37,
+            "descent_value": 23,
+            "valuation_sum": 59,
+            "corrected_log_identity_error": 5.88418203051333e-15
+          },
+          {
+            "start": 703,
+            "first_descent_horizon": 51,
+            "descent_value": 157,
+            "valuation_sum": 83,
+            "corrected_log_identity_error": 3.9968028886505635e-15
+          },
+          {
+            "start": 10087,
+            "first_descent_horizon": 66,
+            "descent_value": 961,
+            "valuation_sum": 108,
+            "corrected_log_identity_error": 9.769962616701378e-15
+          },
+          {
+            "start": 35655,
+            "first_descent_horizon": 85,
+            "descent_value": 29405,
+            "valuation_sum": 135,
+            "corrected_log_identity_error": 1.226796442210798e-14
+          },
+          {
+            "start": 270271,
+            "first_descent_horizon": 103,
+            "descent_value": 2513,
+            "valuation_sum": 170,
+            "corrected_log_identity_error": 1.7763568394002505e-15
+          },
+          {
+            "start": 362343,
+            "first_descent_horizon": 104,
+            "descent_value": 161717,
+            "valuation_sum": 166,
+            "corrected_log_identity_error": 2.3314683517128287e-14
+          },
+          {
+            "start": 381727,
+            "first_descent_horizon": 109,
+            "descent_value": 161717,
+            "valuation_sum": 174,
+            "corrected_log_identity_error": 2.220446049250313e-15
+          },
+          {
+            "start": 626331,
+            "first_descent_horizon": 111,
+            "descent_value": 597017,
+            "valuation_sum": 176,
+            "corrected_log_identity_error": 1.7735812818386876e-14
+          }
+        ],
+        "largest_finite_record": {
+          "start": 626331,
+          "first_descent_horizon": 111,
+          "descent_value": 597017,
+          "valuation_sum": 176,
+          "corrected_log_identity_error": 1.7735812818386876e-14
+        },
+        "exact_corrected_log_identity": "log2(T^h(n)/n)=h log2(3)-S_h+sum_{i<h} log2(1+1/(3 T^i(n)))",
+        "no_go_scope": "Renaming the every-orbit descent statement as a zero-lift ray lemma does not reduce its logical difficulty. The finite million-start audit supplies no all-integer quantifier.",
+        "failure_count": 0
+      },
+      "logical_limit": "No proof excludes an aperiodic natural valuation ray whose exact corrected valuation excess stays nonpositive at every prefix; nontrivial cycles also remain unexcluded by this ticket.",
+      "route_decision": {
+        "discard": "treating eventual unique-zero-lift non-descent exclusion as a strictly easier Collatz sublemma",
+        "retain": "the exact corrected valuation-excess identity and a separate cycle-versus-aperiodic split",
+        "next_single_lemma": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T175-REJECTED",
+            "label": "UniqueZeroLiftNonDescentExclusionIsStrictlyWeakerThanCollatz",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T175-CLOSED",
+            "label": "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T175-OPEN",
+            "label": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T175-REJECTED",
+            "CO-T175-CLOSED"
+          ],
+          [
+            "CO-T175-CLOSED",
+            "CO-T175-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact equivalence correction and a finite million-start audit only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-175",
+      "theorem_name": "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed",
+      "declared_proposition": "Fix any target-independent Fourier major set M. Write the exact Goldbach convolution as R=Major+P_minor-N_minor, where P_minor and N_minor are the positive and negative aligned minor masses. The triangle-inequality certificate Major-(P_minor+N_minor)>0 is valid, but its margin is exactly R-2 P_minor. Thus absolute minor control charges every positive minor contribution twice and can fail even when the exact representation count is positive.",
+      "mathematical_argument": "Fourier inversion gives R=Major+P_minor-N_minor. Replacing the signed minor contribution by minus its absolute mass gives Major-P_minor-N_minor. Subtracting the two expressions yields exactly 2 P_minor. The Farey masks in the audit are fixed from rational centers before any target-aligned signs are inspected.",
+      "reproducible_computation": {
+        "theorem": "Fix any target-independent Fourier major set M. Write the exact Goldbach convolution as R=Major+P_minor-N_minor, where P_minor and N_minor are the positive and negative aligned minor masses. The triangle-inequality certificate Major-(P_minor+N_minor)>0 is valid, but its margin is exactly R-2 P_minor. Thus absolute minor control charges every positive minor contribution twice and can fail even when the exact representation count is positive.",
+        "proof": "Fourier inversion gives R=Major+P_minor-N_minor. Replacing the signed minor contribution by minus its absolute mass gives Major-P_minor-N_minor. Subtracting the two expressions yields exactly 2 P_minor. The Farey masks in the audit are fixed from rational centers before any target-aligned signs are inspected.",
+        "finite_fixed_farey_rows": [
+          {
+            "prime_support_limit": 64,
+            "zero_padded_transform_size": 256,
+            "even_targets_tested": 31,
+            "minimum_ordered_representation_count": 1,
+            "maximum_fourier_reconstruction_error": 3.907985046680551e-14,
+            "fixed_farey_rows": [
+              {
+                "denominator_limit_Q": 1,
+                "major_frequency_count": 5,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -7.483257486593726,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 9.318716532572576,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 2,
+                "major_frequency_count": 10,
+                "absolute_certificate_pass_count": 14,
+                "absolute_certificate_pass_fraction": 0.45161290322580644,
+                "minimum_absolute_margin": -4.99048536153028,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 5.79845637101935,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 4,
+                "major_frequency_count": 30,
+                "absolute_certificate_pass_count": 18,
+                "absolute_certificate_pass_fraction": 0.5806451612903226,
+                "minimum_absolute_margin": -3.658886814822999,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 4.344340691548511,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 8,
+                "major_frequency_count": 110,
+                "absolute_certificate_pass_count": 26,
+                "absolute_certificate_pass_fraction": 0.8387096774193549,
+                "minimum_absolute_margin": -1.052132074061917,
+                "minimum_margin_target": 6,
+                "maximum_positive_minor_mass": 2.255430297412283,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 16,
+                "major_frequency_count": 224,
+                "absolute_certificate_pass_count": 31,
+                "absolute_certificate_pass_fraction": 1.0,
+                "minimum_absolute_margin": 0.5213453209246658,
+                "minimum_margin_target": 6,
+                "maximum_positive_minor_mass": 1.0195950207599398,
+                "double_loss_identity_failures": 0
+              }
+            ],
+            "checks": {
+              "zero_padding_prevents_wraparound": true,
+              "all_finite_targets_have_representations": true,
+              "fourier_reconstruction_matches": true,
+              "double_loss_identity_holds_for_all_Q_and_targets": true
+            }
+          },
+          {
+            "prime_support_limit": 128,
+            "zero_padded_transform_size": 512,
+            "even_targets_tested": 63,
+            "minimum_ordered_representation_count": 1,
+            "maximum_fourier_reconstruction_error": 2.4158453015843406e-13,
+            "fixed_farey_rows": [
+              {
+                "denominator_limit_Q": 1,
+                "major_frequency_count": 5,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -14.198030126769531,
+                "minimum_margin_target": 6,
+                "maximum_positive_minor_mass": 19.03099484919126,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 2,
+                "major_frequency_count": 10,
+                "absolute_certificate_pass_count": 7,
+                "absolute_certificate_pass_fraction": 0.1111111111111111,
+                "minimum_absolute_margin": -9.859124345728398,
+                "minimum_margin_target": 6,
+                "maximum_positive_minor_mass": 13.288126883951481,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 4,
+                "major_frequency_count": 30,
+                "absolute_certificate_pass_count": 21,
+                "absolute_certificate_pass_fraction": 0.3333333333333333,
+                "minimum_absolute_margin": -8.118400994066432,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 10.498917703521956,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 8,
+                "major_frequency_count": 110,
+                "absolute_certificate_pass_count": 43,
+                "absolute_certificate_pass_fraction": 0.6825396825396826,
+                "minimum_absolute_margin": -4.6925540496636255,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 6.367909815358147,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 16,
+                "major_frequency_count": 342,
+                "absolute_certificate_pass_count": 56,
+                "absolute_certificate_pass_fraction": 0.8888888888888888,
+                "minimum_absolute_margin": -1.3628705904077196,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 3.331775621037685,
+                "double_loss_identity_failures": 0
+              }
+            ],
+            "checks": {
+              "zero_padding_prevents_wraparound": true,
+              "all_finite_targets_have_representations": true,
+              "fourier_reconstruction_matches": true,
+              "double_loss_identity_holds_for_all_Q_and_targets": true
+            }
+          },
+          {
+            "prime_support_limit": 256,
+            "zero_padded_transform_size": 1024,
+            "even_targets_tested": 127,
+            "minimum_ordered_representation_count": 1,
+            "maximum_fourier_reconstruction_error": 7.140954494389007e-13,
+            "fixed_farey_rows": [
+              {
+                "denominator_limit_Q": 1,
+                "major_frequency_count": 5,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -27.58301291757941,
+                "minimum_margin_target": 240,
+                "maximum_positive_minor_mass": 32.33463487687586,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 2,
+                "major_frequency_count": 10,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -19.34329111041938,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 23.392051888466654,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 4,
+                "major_frequency_count": 30,
+                "absolute_certificate_pass_count": 10,
+                "absolute_certificate_pass_fraction": 0.07874015748031496,
+                "minimum_absolute_margin": -16.63672139277614,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 19.06977390120924,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 8,
+                "major_frequency_count": 110,
+                "absolute_certificate_pass_count": 41,
+                "absolute_certificate_pass_fraction": 0.3228346456692913,
+                "minimum_absolute_margin": -12.343058847445155,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 11.953758061203853,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 16,
+                "major_frequency_count": 398,
+                "absolute_certificate_pass_count": 82,
+                "absolute_certificate_pass_fraction": 0.6456692913385826,
+                "minimum_absolute_margin": -7.607931876790957,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 8.073088086077512,
+                "double_loss_identity_failures": 0
+              }
+            ],
+            "checks": {
+              "zero_padding_prevents_wraparound": true,
+              "all_finite_targets_have_representations": true,
+              "fourier_reconstruction_matches": true,
+              "double_loss_identity_holds_for_all_Q_and_targets": true
+            }
+          },
+          {
+            "prime_support_limit": 512,
+            "zero_padded_transform_size": 2048,
+            "even_targets_tested": 255,
+            "minimum_ordered_representation_count": 1,
+            "maximum_fourier_reconstruction_error": 1.1723955140041653e-12,
+            "fixed_farey_rows": [
+              {
+                "denominator_limit_Q": 1,
+                "major_frequency_count": 5,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -51.56532031024459,
+                "minimum_margin_target": 510,
+                "maximum_positive_minor_mass": 57.78266015512221,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 2,
+                "major_frequency_count": 10,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -38.38812441303097,
+                "minimum_margin_target": 6,
+                "maximum_positive_minor_mass": 43.13375442684646,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 4,
+                "major_frequency_count": 30,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -33.24229567890561,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 35.95457667807431,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 8,
+                "major_frequency_count": 110,
+                "absolute_certificate_pass_count": 49,
+                "absolute_certificate_pass_fraction": 0.19215686274509805,
+                "minimum_absolute_margin": -25.400851230096162,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 25.036338590912617,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 16,
+                "major_frequency_count": 400,
+                "absolute_certificate_pass_count": 89,
+                "absolute_certificate_pass_fraction": 0.34901960784313724,
+                "minimum_absolute_margin": -18.911073299132035,
+                "minimum_margin_target": 68,
+                "maximum_positive_minor_mass": 18.391056845888997,
+                "double_loss_identity_failures": 0
+              }
+            ],
+            "checks": {
+              "zero_padding_prevents_wraparound": true,
+              "all_finite_targets_have_representations": true,
+              "fourier_reconstruction_matches": true,
+              "double_loss_identity_holds_for_all_Q_and_targets": true
+            }
+          },
+          {
+            "prime_support_limit": 1024,
+            "zero_padded_transform_size": 4096,
+            "even_targets_tested": 511,
+            "minimum_ordered_representation_count": 1,
+            "maximum_fourier_reconstruction_error": 7.602807272633072e-12,
+            "fixed_farey_rows": [
+              {
+                "denominator_limit_Q": 1,
+                "major_frequency_count": 5,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -97.32697865107309,
+                "minimum_margin_target": 1020,
+                "maximum_positive_minor_mass": 100.56379979647316,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 2,
+                "major_frequency_count": 10,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -72.51041291895513,
+                "minimum_margin_target": 4,
+                "maximum_positive_minor_mass": 76.92030802873735,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 4,
+                "major_frequency_count": 30,
+                "absolute_certificate_pass_count": 0,
+                "absolute_certificate_pass_fraction": 0.0,
+                "minimum_absolute_margin": -64.5805001822734,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 65.37454293365901,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 8,
+                "major_frequency_count": 110,
+                "absolute_certificate_pass_count": 77,
+                "absolute_certificate_pass_fraction": 0.1506849315068493,
+                "minimum_absolute_margin": -53.01135971392644,
+                "minimum_margin_target": 8,
+                "maximum_positive_minor_mass": 47.37576619789063,
+                "double_loss_identity_failures": 0
+              },
+              {
+                "denominator_limit_Q": 16,
+                "major_frequency_count": 400,
+                "absolute_certificate_pass_count": 109,
+                "absolute_certificate_pass_fraction": 0.21330724070450097,
+                "minimum_absolute_margin": -42.52280421706917,
+                "minimum_margin_target": 68,
+                "maximum_positive_minor_mass": 36.8297771545911,
+                "double_loss_identity_failures": 0
+              }
+            ],
+            "checks": {
+              "zero_padding_prevents_wraparound": true,
+              "all_finite_targets_have_representations": true,
+              "fourier_reconstruction_matches": true,
+              "double_loss_identity_holds_for_all_Q_and_targets": true
+            }
+          }
+        ],
+        "aggregate": {
+          "finite_targets": 987,
+          "farey_denominator_limits": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ],
+          "half_width_bins": 2,
+          "double_loss_identity_failures": 0,
+          "q16_pass_fractions_by_support": [
+            1.0,
+            0.8888888888888888,
+            0.6456692913385826,
+            0.34901960784313724,
+            0.21330724070450097
+          ]
+        },
+        "trend_checks": {
+          "q16_absolute_pass_fraction_strictly_decreases": true,
+          "all_double_loss_identities_hold": true
+        },
+        "no_go_scope": "The finite decline does not prove asymptotic failure of a fixed Farey system. The exact identity proves only that an L1 minor bound discards the signed cancellation that a binary Goldbach proof must recover.",
+        "failure_count": 0
+      },
+      "logical_limit": "No analytic target-uniform signed minor estimate is smaller than a separately proved positive fixed-Farey major main term.",
+      "route_decision": {
+        "discard": "replacing the fixed-Farey signed minor contribution by its full L1 mass and expecting a uniform binary Goldbach lower bound",
+        "retain": "a predeclared Farey major term together with genuine signed minor-arc cancellation",
+        "next_single_lemma": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T175-REJECTED",
+            "label": "AbsoluteMinorMassRetainsTheCancellationNeededForBinaryGoldbach",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T175-CLOSED",
+            "label": "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T175-OPEN",
+            "label": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T175-REJECTED",
+            "GB-T175-CLOSED"
+          ],
+          [
+            "GB-T175-CLOSED",
+            "GB-T175-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no counterexample; one exact L1 double-loss identity and finite fixed-Farey diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-175",
+      "theorem_name": "HaarBlockOperatorDominationAndLogLossRecovery",
+      "declared_proposition": "Decompose the nonconstant Haar domain and range by scales and let A_jk be the resulting operator blocks. If B is the scalar scale matrix B_jk=||A_jk||_op, then ||A||_op<=||B||_op. This can be a factor log2(N) sharper than the TICKET-174 bound based only on the largest block energy: a projection onto one wavelet at every matched scale has ||A||=||B||=1 while that previous bound equals log2(N).",
+      "mathematical_argument": "Write x as orthogonal scale components x_k and set y_k=||x_k||. The jth output block has norm at most sum_k B_jk y_k. Taking the Euclidean norm over j gives ||Ax||<=||B y||<=||B|| ||x||. In the matched-wavelet model the Haar coefficient matrix is an orthogonal projection, while B is the identity scale matrix. Orthogonal Haar conjugation preserves the physical operator norm and zero margins.",
+      "reproducible_computation": {
+        "theorem": "Decompose the nonconstant Haar domain and range by scales and let A_jk be the resulting operator blocks. If B is the scalar scale matrix B_jk=||A_jk||_op, then ||A||_op<=||B||_op. This can be a factor log2(N) sharper than the TICKET-174 bound based only on the largest block energy: a projection onto one wavelet at every matched scale has ||A||=||B||=1 while that previous bound equals log2(N).",
+        "proof": "Write x as orthogonal scale components x_k and set y_k=||x_k||. The jth output block has norm at most sum_k B_jk y_k. Taking the Euclidean norm over j gives ||Ax||<=||B y||<=||B|| ||x||. In the matched-wavelet model the Haar coefficient matrix is an orthogonal projection, while B is the identity scale matrix. Orthogonal Haar conjugation preserves the physical operator norm and zero margins.",
+        "matched_scale_projection_rows": [
+          {
+            "dyadic_dimension_N": 4,
+            "haar_level_count_L": 2,
+            "physical_operator_norm": 1.0,
+            "block_norm_scale_matrix": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ],
+            "block_matrix_operator_norm": 1.0,
+            "ticket174_L_times_max_block_bound": 2.0,
+            "improvement_factor": 2.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "physical_operator_norm_is_one": true,
+              "scale_block_matrix_is_identity": true,
+              "block_operator_bound_is_exact": true,
+              "max_energy_bound_loses_log_factor": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 8,
+            "haar_level_count_L": 3,
+            "physical_operator_norm": 1.0,
+            "block_norm_scale_matrix": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "block_matrix_operator_norm": 1.0,
+            "ticket174_L_times_max_block_bound": 3.0,
+            "improvement_factor": 3.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "physical_operator_norm_is_one": true,
+              "scale_block_matrix_is_identity": true,
+              "block_operator_bound_is_exact": true,
+              "max_energy_bound_loses_log_factor": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 16,
+            "haar_level_count_L": 4,
+            "physical_operator_norm": 1.0,
+            "block_norm_scale_matrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "block_matrix_operator_norm": 1.0,
+            "ticket174_L_times_max_block_bound": 4.0,
+            "improvement_factor": 4.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "physical_operator_norm_is_one": true,
+              "scale_block_matrix_is_identity": true,
+              "block_operator_bound_is_exact": true,
+              "max_energy_bound_loses_log_factor": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 32,
+            "haar_level_count_L": 5,
+            "physical_operator_norm": 1.0,
+            "block_norm_scale_matrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "block_matrix_operator_norm": 1.0,
+            "ticket174_L_times_max_block_bound": 5.0,
+            "improvement_factor": 5.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "physical_operator_norm_is_one": true,
+              "scale_block_matrix_is_identity": true,
+              "block_operator_bound_is_exact": true,
+              "max_energy_bound_loses_log_factor": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 64,
+            "haar_level_count_L": 6,
+            "physical_operator_norm": 1.0,
+            "block_norm_scale_matrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "block_matrix_operator_norm": 1.0,
+            "ticket174_L_times_max_block_bound": 6.0,
+            "improvement_factor": 6.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "physical_operator_norm_is_one": true,
+              "scale_block_matrix_is_identity": true,
+              "block_operator_bound_is_exact": true,
+              "max_energy_bound_loses_log_factor": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 128,
+            "haar_level_count_L": 7,
+            "physical_operator_norm": 1.0,
+            "block_norm_scale_matrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "block_matrix_operator_norm": 1.0,
+            "ticket174_L_times_max_block_bound": 7.0,
+            "improvement_factor": 7.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "physical_operator_norm_is_one": true,
+              "scale_block_matrix_is_identity": true,
+              "block_operator_bound_is_exact": true,
+              "max_energy_bound_loses_log_factor": true
+            }
+          }
+        ],
+        "finite_t161_block_operator_rows": [
+          {
+            "X": 10000,
+            "haar_levels": [
+              1,
+              2
+            ],
+            "block_norm_scale_matrix": [
+              [
+                109.31078935459216,
+                34.132096331752024
+              ],
+              [
+                60.20797289396147,
+                5.0
+              ]
+            ],
+            "physical_operator_norm": 127.62211249869566,
+            "block_matrix_operator_norm": 128.9457014842059,
+            "frobenius_norm": 130.42239071570495,
+            "ticket174_L_times_sqrt_max_pair_energy": 220.8619478316715,
+            "block_to_physical_ratio": 1.0103711571576106,
+            "checks": {
+              "physical_norm_is_bounded_by_scale_block_norm": true,
+              "scale_block_norm_is_bounded_by_frobenius": true,
+              "scale_block_bound_improves_frobenius_on_this_row": true,
+              "constant_haar_row_vanishes": true,
+              "constant_haar_column_vanishes": true
+            }
+          },
+          {
+            "X": 100000,
+            "haar_levels": [
+              1,
+              2
+            ],
+            "block_norm_scale_matrix": [
+              [
+                3363.7292393138528,
+                2597.107044386118
+              ],
+              [
+                1284.3274504580208,
+                1935.0
+              ]
+            ],
+            "physical_operator_norm": 4325.604454335457,
+            "block_matrix_operator_norm": 4797.483666354135,
+            "frobenius_norm": 4897.247798508873,
+            "ticket174_L_times_sqrt_max_pair_energy": 6883.124000045327,
+            "block_to_physical_ratio": 1.1090897739264447,
+            "checks": {
+              "physical_norm_is_bounded_by_scale_block_norm": true,
+              "scale_block_norm_is_bounded_by_frobenius": true,
+              "scale_block_bound_improves_frobenius_on_this_row": true,
+              "constant_haar_row_vanishes": true,
+              "constant_haar_column_vanishes": true
+            }
+          },
+          {
+            "X": 1000000,
+            "haar_levels": [
+              1,
+              2
+            ],
+            "block_norm_scale_matrix": [
+              [
+                28424.689907439068,
+                46528.52037191812
+              ],
+              [
+                37260.60946898212,
+                76212.0
+              ]
+            ],
+            "physical_operator_norm": 92730.90656301392,
+            "block_matrix_operator_norm": 100752.42198897178,
+            "frobenius_norm": 100972.26571687892,
+            "ticket174_L_times_sqrt_max_pair_energy": 152424.0,
+            "block_to_physical_ratio": 1.0865031489852517,
+            "checks": {
+              "physical_norm_is_bounded_by_scale_block_norm": true,
+              "scale_block_norm_is_bounded_by_frobenius": true,
+              "scale_block_bound_improves_frobenius_on_this_row": true,
+              "constant_haar_row_vanishes": true,
+              "constant_haar_column_vanishes": true
+            }
+          },
+          {
+            "X": 10000000,
+            "haar_levels": [
+              1,
+              2
+            ],
+            "block_norm_scale_matrix": [
+              [
+                1938810.8715640353,
+                1627858.2967678728
+              ],
+              [
+                622548.199226373,
+                3974126.0
+              ]
+            ],
+            "physical_operator_norm": 4499308.1114703305,
+            "block_matrix_operator_norm": 4516032.927481515,
+            "frobenius_norm": 4792699.113649427,
+            "ticket174_L_times_sqrt_max_pair_energy": 7948252.0,
+            "block_to_physical_ratio": 1.0037171973105259,
+            "checks": {
+              "physical_norm_is_bounded_by_scale_block_norm": true,
+              "scale_block_norm_is_bounded_by_frobenius": true,
+              "scale_block_bound_improves_frobenius_on_this_row": true,
+              "constant_haar_row_vanishes": true,
+              "constant_haar_column_vanishes": true
+            }
+          }
+        ],
+        "no_go_scope": "The reduction does not prove that the arithmetic scale matrix has a power-saving norm. It shows that controlling its collective operator geometry is sufficient and can be strictly cheaper than uniform energy control at every scale pair.",
+        "failure_count": 0
+      },
+      "logical_limit": "No arithmetic theorem gives a uniform power-saving bound for the operator norm of the prime-pair Haar block-norm scale matrix.",
+      "route_decision": {
+        "discard": "requiring separate uniform Frobenius-energy savings on every scale pair as the only aggregation route",
+        "retain": "the smaller scale interaction matrix of block operator norms and its collective spectral geometry",
+        "next_single_lemma": "PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T175-REJECTED",
+            "label": "EveryScalePairEnergyMustSeparatelySaveBeforeAggregationCanImprove",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T175-CLOSED",
+            "label": "HaarBlockOperatorDominationAndLogLossRecovery",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T175-OPEN",
+            "label": "PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T175-REJECTED",
+            "TP-T175-CLOSED"
+          ],
+          [
+            "TP-T175-CLOSED",
+            "TP-T175-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or parity-barrier breakthrough; one exact block-operator reduction and finite Type-II diagnostics only."
+    },
+    "cross_problem_synthesis": "The common correction is to preserve structure before taking an absolute bound: relative spectral sign, natural-orbit quantifiers, signed Fourier cancellation, and collective scale-block geometry.",
+    "literature_boundary": {
+      "riemann": "arXiv:2605.20224 supplies the reported finite Galerkin branch scales and explicitly disclaims RH; arXiv:2607.02828 supplies the tail bound used here.",
+      "collatz": "Lagarias arXiv:2111.02635 surveys coefficient stopping formulations; Tao arXiv:1909.03562 remains an almost-all logarithmic-density theorem rather than every-input descent.",
+      "goldbach": "Grimmelt-Bhowmik arXiv:2607.27282 supplies explicit major-arc context but not the uniform signed binary minor estimate isolated here.",
+      "twin_prime": "Ford-Maynard arXiv:2407.14368 shows substantial Type-II information is necessary; the block theorem only compresses the missing estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-175",
+      "status": "open_not_proven",
+      "declared_proposition": "Let A be Hermitian and let A_T satisfy ||A-A_T||_op<=B(T). Weyl's inequality gives lambda_min(A)>=lambda_min(A_T)-B(T), so this absolute-error route can certify positivity only when a rigorous finite lower margin exceeds B(T). If T=N^k for fixed k>1, the explicit TICKET-174 tail bound is only polynomial in N (up to a logarithm), and therefore cannot resolve a spectral margin that is smaller than every inverse power of N.",
+      "new_result": "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo",
+      "discarded_route": "polynomial-cutoff absolute operator-norm error as a route to resolving a superpolynomially small ground-state sign",
+      "remaining_gap": "No structured or relative error theorem controls the sign of the actual pole-neutral Weil core below its tiny spectral edge.",
+      "candidate_theorem": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale",
+      "claim_boundary": "No RH proof and no certified continuum sign; one exact perturbation barrier and published-scale resolution audit only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T175-REJECTED",
+            "label": "QuadraticAbsoluteTailNormResolvesTheObservedGroundStateScale",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T175-CLOSED",
+            "label": "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T175-OPEN",
+            "label": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T175-REJECTED",
+            "RH-T175-CLOSED"
+          ],
+          [
+            "RH-T175-CLOSED",
+            "RH-T175-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-175",
+      "status": "open_not_proven",
+      "declared_proposition": "For the accelerated odd Collatz map T, the following are equivalent: (i) every positive integer reaches 1; (ii) every odd n>1 has some h with T^h(n)<n; and (iii) there is no natural orbit whose every accelerated iterate stays at least its start. After a natural cylinder ray stabilizes at n, TICKET-174's unique zero-lift child is exactly the next valuation of that orbit. Consequently the open statement NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren is Collatz-equivalent, not a strictly easier intermediate lemma.",
+      "new_result": "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo",
+      "discarded_route": "treating eventual unique-zero-lift non-descent exclusion as a strictly easier Collatz sublemma",
+      "remaining_gap": "No proof excludes an aperiodic natural valuation ray whose exact corrected valuation excess stays nonpositive at every prefix; nontrivial cycles also remain unexcluded by this ticket.",
+      "candidate_theorem": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary",
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact equivalence correction and a finite million-start audit only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T175-REJECTED",
+            "label": "UniqueZeroLiftNonDescentExclusionIsStrictlyWeakerThanCollatz",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T175-CLOSED",
+            "label": "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T175-OPEN",
+            "label": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T175-REJECTED",
+            "CO-T175-CLOSED"
+          ],
+          [
+            "CO-T175-CLOSED",
+            "CO-T175-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-175",
+      "status": "open_not_proven",
+      "declared_proposition": "Fix any target-independent Fourier major set M. Write the exact Goldbach convolution as R=Major+P_minor-N_minor, where P_minor and N_minor are the positive and negative aligned minor masses. The triangle-inequality certificate Major-(P_minor+N_minor)>0 is valid, but its margin is exactly R-2 P_minor. Thus absolute minor control charges every positive minor contribution twice and can fail even when the exact representation count is positive.",
+      "new_result": "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed",
+      "discarded_route": "replacing the fixed-Farey signed minor contribution by its full L1 mass and expecting a uniform binary Goldbach lower bound",
+      "remaining_gap": "No analytic target-uniform signed minor estimate is smaller than a separately proved positive fixed-Farey major main term.",
+      "candidate_theorem": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+      "claim_boundary": "No Goldbach proof and no counterexample; one exact L1 double-loss identity and finite fixed-Farey diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T175-REJECTED",
+            "label": "AbsoluteMinorMassRetainsTheCancellationNeededForBinaryGoldbach",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T175-CLOSED",
+            "label": "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T175-OPEN",
+            "label": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T175-REJECTED",
+            "GB-T175-CLOSED"
+          ],
+          [
+            "GB-T175-CLOSED",
+            "GB-T175-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-175",
+      "status": "open_not_proven",
+      "declared_proposition": "Decompose the nonconstant Haar domain and range by scales and let A_jk be the resulting operator blocks. If B is the scalar scale matrix B_jk=||A_jk||_op, then ||A||_op<=||B||_op. This can be a factor log2(N) sharper than the TICKET-174 bound based only on the largest block energy: a projection onto one wavelet at every matched scale has ||A||=||B||=1 while that previous bound equals log2(N).",
+      "new_result": "HaarBlockOperatorDominationAndLogLossRecovery",
+      "discarded_route": "requiring separate uniform Frobenius-energy savings on every scale pair as the only aggregation route",
+      "remaining_gap": "No arithmetic theorem gives a uniform power-saving bound for the operator norm of the prime-pair Haar block-norm scale matrix.",
+      "candidate_theorem": "PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm",
+      "claim_boundary": "No Twin Prime proof or parity-barrier breakthrough; one exact block-operator reduction and finite Type-II diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T175-REJECTED",
+            "label": "EveryScalePairEnergyMustSeparatelySaveBeforeAggregationCanImprove",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T175-CLOSED",
+            "label": "HaarBlockOperatorDominationAndLogLossRecovery",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T175-OPEN",
+            "label": "PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T175-REJECTED",
+            "TP-T175-CLOSED"
+          ],
+          [
+            "TP-T175-CLOSED",
+            "TP-T175-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm"
+    }
+  ]
+}

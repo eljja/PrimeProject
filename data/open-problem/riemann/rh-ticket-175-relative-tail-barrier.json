@@ -1,0 +1,162 @@
+{
+  "schema": "primeproject.ticket175-relative-equivalence-signed-block.v1",
+  "generated_at": "2026-08-01T20:00:00+09:00",
+  "ticket_id": "RH-TICKET-175",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo",
+  "declared_proposition": "Let A be Hermitian and let A_T satisfy ||A-A_T||_op<=B(T). Weyl's inequality gives lambda_min(A)>=lambda_min(A_T)-B(T), so this absolute-error route can certify positivity only when a rigorous finite lower margin exceeds B(T). If T=N^k for fixed k>1, the explicit TICKET-174 tail bound is only polynomial in N (up to a logarithm), and therefore cannot resolve a spectral margin that is smaller than every inverse power of N.",
+  "mathematical_argument": "The eigenvalue inequality is the standard variational perturbation bound. Substituting T=N^k into the explicit formula gives U_N(T)=O(N^(1-k) log N). Hence U_N(T)/mu_N diverges whenever mu_N is superpolynomially small. The scalar approximation zero with error radius epsilon is compatible with both exact eigenvalues plus and minus epsilon, proving that sign cannot be inferred when the margin does not exceed the absolute error radius.",
+  "reproducible_computation": {
+    "theorem": "Let A be Hermitian and let A_T satisfy ||A-A_T||_op<=B(T). Weyl's inequality gives lambda_min(A)>=lambda_min(A_T)-B(T), so this absolute-error route can certify positivity only when a rigorous finite lower margin exceeds B(T). If T=N^k for fixed k>1, the explicit TICKET-174 tail bound is only polynomial in N (up to a logarithm), and therefore cannot resolve a spectral margin that is smaller than every inverse power of N.",
+    "proof": "The eigenvalue inequality is the standard variational perturbation bound. Substituting T=N^k into the explicit formula gives U_N(T)=O(N^(1-k) log N). Hence U_N(T)/mu_N diverges whenever mu_N is superpolynomially small. The scalar approximation zero with error radius epsilon is compatible with both exact eigenvalues plus and minus epsilon, proving that sign cannot be inferred when the margin does not exceed the absolute error radius.",
+    "published_branch_resolution_rows": [
+      {
+        "Galerkin_dimension_N": 100,
+        "published_positive_branch_minus_log10_magnitude": 190.92,
+        "quadratic_cutoff_log10_tail_bound": -1.240424676962079,
+        "cubic_cutoff_log10_tail_bound": -3.084365627666981,
+        "required_log10_T_for_explicit_bound_at_branch_scale": 195.31878478277872,
+        "solved_log10_tail_bound": -190.92,
+        "checks": {
+          "quadratic_tail_is_far_above_target_scale": true,
+          "cubic_tail_is_far_above_target_scale": true,
+          "solved_cutoff_hits_target_scale": true,
+          "required_cutoff_has_more_digits_than_inverse_margin": true
+        }
+      },
+      {
+        "Galerkin_dimension_N": 150,
+        "published_positive_branch_minus_log10_magnitude": 247.19,
+        "quadratic_cutoff_log10_tail_bound": -1.3859313682281584,
+        "cubic_cutoff_log10_tail_bound": -3.4030321780930137,
+        "required_log10_T_for_explicit_bound_at_branch_scale": 251.87437879850285,
+        "solved_log10_tail_bound": -247.19,
+        "checks": {
+          "quadratic_tail_is_far_above_target_scale": true,
+          "cubic_tail_is_far_above_target_scale": true,
+          "solved_cutoff_hits_target_scale": true,
+          "required_cutoff_has_more_digits_than_inverse_margin": true
+        }
+      },
+      {
+        "Galerkin_dimension_N": 200,
+        "published_positive_branch_minus_log10_magnitude": 294.31,
+        "quadratic_cutoff_log10_tail_bound": -1.4900743991357621,
+        "cubic_cutoff_log10_tail_bound": -3.630509839920498,
+        "required_log10_T_for_explicit_bound_at_branch_scale": 299.1936067478281,
+        "solved_log10_tail_bound": -294.31,
+        "checks": {
+          "quadratic_tail_is_far_above_target_scale": true,
+          "cubic_tail_is_far_above_target_scale": true,
+          "solved_cutoff_hits_target_scale": true,
+          "required_cutoff_has_more_digits_than_inverse_margin": true
+        }
+      },
+      {
+        "Galerkin_dimension_N": 250,
+        "published_positive_branch_minus_log10_magnitude": 333.68,
+        "quadratic_cutoff_log10_tail_bound": -1.5713679294869574,
+        "cubic_cutoff_log10_tail_bound": -3.807675762554788,
+        "required_log10_T_for_explicit_bound_at_branch_scale": 338.7141076240692,
+        "solved_log10_tail_bound": -333.68,
+        "checks": {
+          "quadratic_tail_is_far_above_target_scale": true,
+          "cubic_tail_is_far_above_target_scale": true,
+          "solved_cutoff_hits_target_scale": true,
+          "required_cutoff_has_more_digits_than_inverse_margin": true
+        }
+      }
+    ],
+    "exact_scalar_sign_ambiguity_rows": [
+      {
+        "approximate_small_eigenvalue": 0.0,
+        "absolute_error_radius": 1.0,
+        "compatible_exact_eigenvalues": [
+          -1.0,
+          1.0
+        ],
+        "checks": {
+          "positive_candidate_within_radius": true,
+          "negative_candidate_within_radius": true,
+          "candidate_signs_are_opposite": true
+        }
+      },
+      {
+        "approximate_small_eigenvalue": 0.0,
+        "absolute_error_radius": 0.1,
+        "compatible_exact_eigenvalues": [
+          -0.1,
+          0.1
+        ],
+        "checks": {
+          "positive_candidate_within_radius": true,
+          "negative_candidate_within_radius": true,
+          "candidate_signs_are_opposite": true
+        }
+      },
+      {
+        "approximate_small_eigenvalue": 0.0,
+        "absolute_error_radius": 0.01,
+        "compatible_exact_eigenvalues": [
+          -0.01,
+          0.01
+        ],
+        "checks": {
+          "positive_candidate_within_radius": true,
+          "negative_candidate_within_radius": true,
+          "candidate_signs_are_opposite": true
+        }
+      },
+      {
+        "approximate_small_eigenvalue": 0.0,
+        "absolute_error_radius": 0.001,
+        "compatible_exact_eigenvalues": [
+          -0.001,
+          0.001
+        ],
+        "checks": {
+          "positive_candidate_within_radius": true,
+          "negative_candidate_within_radius": true,
+          "candidate_signs_are_opposite": true
+        }
+      }
+    ],
+    "source_boundary": "The branch magnitudes are reported numerical Galerkin values from arXiv:2605.20224, not certified lower bounds. They are used only as resolution targets for the explicit arXiv:2607.02828 tail bound.",
+    "no_go_scope": "This rejects polynomial-cutoff absolute operator-norm certification at a superpolynomially small spectral edge. It does not reject structured, relative, sign-preserving, or analytic positivity proofs.",
+    "failure_count": 0
+  },
+  "discarded_route": "polynomial-cutoff absolute operator-norm error as a route to resolving a superpolynomially small ground-state sign",
+  "remaining_gap": "No structured or relative error theorem controls the sign of the actual pole-neutral Weil core below its tiny spectral edge.",
+  "candidate_theorem": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale",
+  "claim_boundary": "No RH proof and no certified continuum sign; one exact perturbation barrier and published-scale resolution audit only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T175-REJECTED",
+        "label": "QuadraticAbsoluteTailNormResolvesTheObservedGroundStateScale",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T175-CLOSED",
+        "label": "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T175-OPEN",
+        "label": "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T175-REJECTED",
+        "RH-T175-CLOSED"
+      ],
+      [
+        "RH-T175-CLOSED",
+        "RH-T175-OPEN"
+      ]
+    ]
+  }
+}

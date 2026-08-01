@@ -14,6 +14,7 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket175Load = openProblemSource.indexOf("const ticket175Loaded = await loadTicket175Attempt();");
   const ticket174Load = openProblemSource.indexOf("const ticket174Loaded = await loadTicket174Attempt();");
   const ticket173Load = openProblemSource.indexOf("const ticket173Loaded = await loadTicket173Attempt();");
   const ticket172Load = openProblemSource.indexOf("const ticket172Loaded = await loadTicket172Attempt();");
@@ -23,16 +24,16 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket174Load >= 0 && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET174 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket175Load >= 0 && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET175 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260807-ticket174")) {
-      errors.push(`${page}: missing TICKET174 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260801-ticket175")) {
+      errors.push(`${page}: missing TICKET175 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260807-ticket174")) {
-      errors.push(`${page}: missing TICKET174 style cache key`);
+    if (!source.includes("styles.css?v=20260801-ticket175")) {
+      errors.push(`${page}: missing TICKET175 style cache key`);
     }
   }
 
@@ -352,6 +353,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket175AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket175-relative-equivalence-signed-block .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket174AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket174-tail-lift-adaptive-scalepair .ticket161-audit-table .proof-table-wrap",
@@ -1326,9 +1333,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket175 title", "Ticket 175 relative spectral resolution, Collatz equivalence, signed Farey minors, and Haar block operators");
+    requireText("ticket175 table", "TICKET175 audit");
+    requireText("ticket175 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket175 resolutions", "Resolution count0");
+    requireText("ticket175 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket175AuditOverflow) checks.push(`${page.problemId}: ticket175 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket175 RH theorem", "AbsoluteTailMarginResolutionBarrierAndRelativeErrorNoGo");
+      requireText("ticket175 RH rows", "Resolution rows4");
+      requireText("ticket175 RH scale", "Largest target digits333.68");
+      requireText("ticket175 RH target", "StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket175 Collatz theorem", "ZeroLiftNonDescentEquivalenceAndIntermediateTargetNoGo");
+      requireText("ticket175 Collatz starts", "Odd starts499,999");
+      requireText("ticket175 Collatz failures", "Finite failures0");
+      requireText("ticket175 Collatz target", "EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket175 Goldbach theorem", "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed");
+      requireText("ticket175 Goldbach targets", "Finite targets987");
+      requireText("ticket175 Goldbach failures", "Identity failures0");
+      requireText("ticket175 Goldbach target", "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly");
+    } else {
+      requireText("ticket175 Twin theorem", "HaarBlockOperatorDominationAndLogLossRecovery");
+      requireText("ticket175 Twin projections", "Matched projections6");
+      requireText("ticket175 Twin finite", "Finite Type-II rows4");
+      requireText("ticket175 Twin target", "PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm");
+    }
     requireText("ticket174 title", "Ticket 174 tail schedules, unique zero lifts, adaptive Fourier selection, and sharp scale aggregation");
     requireText("ticket174 table", "TICKET174 audit");
-    requireText("ticket174 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket174 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket174 resolutions", "Resolution count0");
     requireText("ticket174 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket174AuditOverflow) checks.push(`${page.problemId}: ticket174 audit table overflow`);

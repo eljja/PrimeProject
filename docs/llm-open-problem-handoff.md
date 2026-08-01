@@ -62,7 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-174
+## Latest Continuation After TICKET-175
+
+All four conjectures remain open. TICKET-175 audits the four TICKET-174
+terminal nodes and removes one Collatz target that was equivalent to the whole
+conjecture. Continue only from these corrected nodes:
+
+1. Riemann:
+   `StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale`.
+   Weyl's inequality makes an absolute lower-margin certificate require a
+   margin larger than the tail norm. The explicit polynomial-cutoff tail bound
+   cannot resolve a superpolynomially small spectral edge. The published
+   branch values are numerical resolution targets, not certified lower bounds.
+2. Collatz:
+   `EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary`.
+   Excluding a natural orbit that forever follows the unique zero-lift child
+   while remaining above its start is exactly coefficient stopping and hence
+   Collatz-equivalent. Do not count that restatement as an intermediate result.
+   Nontrivial cycles remain a separate gap.
+3. Goldbach:
+   `FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly`.
+   For any predeclared major set, the absolute-minor certificate margin equals
+   the exact representation count minus twice the positive minor mass. The
+   missing estimate must preserve signed minor cancellation.
+4. Twin Prime:
+   `PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm`.
+   If `B_jk=||A_jk||_op` for Haar scale blocks, then `||A||_op<=||B||_op`.
+   This can recover the TICKET-174 logarithmic loss without separate
+   Frobenius-energy savings at every scale pair, but the arithmetic power
+   saving for `B` remains open.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket175-relative-equivalence-signed-block.json
+data/open-problem/riemann/rh-ticket-175-relative-tail-barrier.json
+data/open-problem/collatz/co-ticket-175-stopping-equivalence.json
+data/open-problem/goldbach/gb-ticket-175-fixed-farey-signed.json
+data/open-problem/twin-prime/tp-ticket-175-block-operator.json
+```
+
+한국어 인계: TICKET-175도 네 난제를 해결하지 않았다. 리만은 극소 고유값을
+절대 오차로 직접 해상하는 대신 구조적·상대적 부호 보존 정리가 필요하다.
+콜라츠의 이전 zero-lift 비하강 배제는 원 추측과 동치이므로 중간 진전으로
+세면 안 된다. 골드바흐는 고정 Farey minor의 signed cancellation을 보존해야
+한다. 쌍둥이 소수는 Haar block-norm scale 행렬 전체의 연산자 노름에
+power saving을 증명해야 한다.
+
+English report: [TICKET-175](relative-equivalence-signed-block.md). Korean
+report: [TICKET-175 한국어](relative-equivalence-signed-block.ko.md).
+
+## Preserved Continuation After TICKET-174
 
 All four conjectures remain open. TICKET-174 quantifies the four TICKET-173
 terminal nodes and removes four invalid promotions. Continue only from these

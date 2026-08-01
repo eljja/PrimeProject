@@ -6893,3 +6893,33 @@ conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-174 tail-lift-adaptive-scalepair](tail-lift-adaptive-scalepair.md).
 한국어 보고서: [TICKET-174 tail-lift-adaptive-scalepair](tail-lift-adaptive-scalepair.ko.md).
+
+## TICKET-175 continuation: relative resolution, equivalence correction, signed minors, and block operators
+
+TICKET-175 proves four exact reductions while keeping every conjecture
+resolution counter at zero:
+
+1. RH: Weyl perturbation makes an absolute positivity certificate require a
+   rigorous finite margin above the tail norm. The explicit polynomial-cutoff
+   tail bound cannot resolve a superpolynomially small spectral edge. Published
+   Galerkin branch magnitudes are used only as numerical resolution targets.
+   The next target is
+   `StructuredRelativeWeilCoreErrorPreservesNonnegativityBelowGroundStateScale`.
+2. Collatz: eventual non-descent along unique zero-lift children is equivalent
+   to coefficient stopping and therefore to Collatz. This target is rejected
+   as a weaker intermediate lemma. The next target isolates aperiodic rays:
+   `EveryAperiodicNaturalValuationRayCrossesItsCorrectedLogDescentBoundary`.
+3. Goldbach: for a fixed Fourier major mask, the absolute-minor certificate
+   margin is exactly `R-2 P_minor`. An L1 replacement loses every positive
+   minor term twice. The next target is
+   `FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly`.
+4. Twin Prime: with Haar scale blocks `A_jk` and scalar matrix
+   `B_jk=||A_jk||_op`, the exact domination `||A||_op<=||B||_op` can recover
+   the logarithmic max-energy loss. The next target is
+   `PrimePairHaarBlockNormScaleMatrixHasUniformPowerSavingOperatorNorm`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-175 relative-equivalence-signed-block](relative-equivalence-signed-block.md).
+한국어 보고서: [TICKET-175 relative-equivalence-signed-block](relative-equivalence-signed-block.ko.md).

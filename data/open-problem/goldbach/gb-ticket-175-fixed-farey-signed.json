@@ -1,0 +1,399 @@
+{
+  "schema": "primeproject.ticket175-relative-equivalence-signed-block.v1",
+  "generated_at": "2026-08-01T20:00:00+09:00",
+  "ticket_id": "GB-TICKET-175",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed",
+  "declared_proposition": "Fix any target-independent Fourier major set M. Write the exact Goldbach convolution as R=Major+P_minor-N_minor, where P_minor and N_minor are the positive and negative aligned minor masses. The triangle-inequality certificate Major-(P_minor+N_minor)>0 is valid, but its margin is exactly R-2 P_minor. Thus absolute minor control charges every positive minor contribution twice and can fail even when the exact representation count is positive.",
+  "mathematical_argument": "Fourier inversion gives R=Major+P_minor-N_minor. Replacing the signed minor contribution by minus its absolute mass gives Major-P_minor-N_minor. Subtracting the two expressions yields exactly 2 P_minor. The Farey masks in the audit are fixed from rational centers before any target-aligned signs are inspected.",
+  "reproducible_computation": {
+    "theorem": "Fix any target-independent Fourier major set M. Write the exact Goldbach convolution as R=Major+P_minor-N_minor, where P_minor and N_minor are the positive and negative aligned minor masses. The triangle-inequality certificate Major-(P_minor+N_minor)>0 is valid, but its margin is exactly R-2 P_minor. Thus absolute minor control charges every positive minor contribution twice and can fail even when the exact representation count is positive.",
+    "proof": "Fourier inversion gives R=Major+P_minor-N_minor. Replacing the signed minor contribution by minus its absolute mass gives Major-P_minor-N_minor. Subtracting the two expressions yields exactly 2 P_minor. The Farey masks in the audit are fixed from rational centers before any target-aligned signs are inspected.",
+    "finite_fixed_farey_rows": [
+      {
+        "prime_support_limit": 64,
+        "zero_padded_transform_size": 256,
+        "even_targets_tested": 31,
+        "minimum_ordered_representation_count": 1,
+        "maximum_fourier_reconstruction_error": 3.907985046680551e-14,
+        "fixed_farey_rows": [
+          {
+            "denominator_limit_Q": 1,
+            "major_frequency_count": 5,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -7.483257486593726,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 9.318716532572576,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 2,
+            "major_frequency_count": 10,
+            "absolute_certificate_pass_count": 14,
+            "absolute_certificate_pass_fraction": 0.45161290322580644,
+            "minimum_absolute_margin": -4.99048536153028,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 5.79845637101935,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 4,
+            "major_frequency_count": 30,
+            "absolute_certificate_pass_count": 18,
+            "absolute_certificate_pass_fraction": 0.5806451612903226,
+            "minimum_absolute_margin": -3.658886814822999,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 4.344340691548511,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 8,
+            "major_frequency_count": 110,
+            "absolute_certificate_pass_count": 26,
+            "absolute_certificate_pass_fraction": 0.8387096774193549,
+            "minimum_absolute_margin": -1.052132074061917,
+            "minimum_margin_target": 6,
+            "maximum_positive_minor_mass": 2.255430297412283,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 16,
+            "major_frequency_count": 224,
+            "absolute_certificate_pass_count": 31,
+            "absolute_certificate_pass_fraction": 1.0,
+            "minimum_absolute_margin": 0.5213453209246658,
+            "minimum_margin_target": 6,
+            "maximum_positive_minor_mass": 1.0195950207599398,
+            "double_loss_identity_failures": 0
+          }
+        ],
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches": true,
+          "double_loss_identity_holds_for_all_Q_and_targets": true
+        }
+      },
+      {
+        "prime_support_limit": 128,
+        "zero_padded_transform_size": 512,
+        "even_targets_tested": 63,
+        "minimum_ordered_representation_count": 1,
+        "maximum_fourier_reconstruction_error": 2.4158453015843406e-13,
+        "fixed_farey_rows": [
+          {
+            "denominator_limit_Q": 1,
+            "major_frequency_count": 5,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -14.198030126769531,
+            "minimum_margin_target": 6,
+            "maximum_positive_minor_mass": 19.03099484919126,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 2,
+            "major_frequency_count": 10,
+            "absolute_certificate_pass_count": 7,
+            "absolute_certificate_pass_fraction": 0.1111111111111111,
+            "minimum_absolute_margin": -9.859124345728398,
+            "minimum_margin_target": 6,
+            "maximum_positive_minor_mass": 13.288126883951481,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 4,
+            "major_frequency_count": 30,
+            "absolute_certificate_pass_count": 21,
+            "absolute_certificate_pass_fraction": 0.3333333333333333,
+            "minimum_absolute_margin": -8.118400994066432,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 10.498917703521956,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 8,
+            "major_frequency_count": 110,
+            "absolute_certificate_pass_count": 43,
+            "absolute_certificate_pass_fraction": 0.6825396825396826,
+            "minimum_absolute_margin": -4.6925540496636255,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 6.367909815358147,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 16,
+            "major_frequency_count": 342,
+            "absolute_certificate_pass_count": 56,
+            "absolute_certificate_pass_fraction": 0.8888888888888888,
+            "minimum_absolute_margin": -1.3628705904077196,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 3.331775621037685,
+            "double_loss_identity_failures": 0
+          }
+        ],
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches": true,
+          "double_loss_identity_holds_for_all_Q_and_targets": true
+        }
+      },
+      {
+        "prime_support_limit": 256,
+        "zero_padded_transform_size": 1024,
+        "even_targets_tested": 127,
+        "minimum_ordered_representation_count": 1,
+        "maximum_fourier_reconstruction_error": 7.140954494389007e-13,
+        "fixed_farey_rows": [
+          {
+            "denominator_limit_Q": 1,
+            "major_frequency_count": 5,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -27.58301291757941,
+            "minimum_margin_target": 240,
+            "maximum_positive_minor_mass": 32.33463487687586,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 2,
+            "major_frequency_count": 10,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -19.34329111041938,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 23.392051888466654,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 4,
+            "major_frequency_count": 30,
+            "absolute_certificate_pass_count": 10,
+            "absolute_certificate_pass_fraction": 0.07874015748031496,
+            "minimum_absolute_margin": -16.63672139277614,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 19.06977390120924,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 8,
+            "major_frequency_count": 110,
+            "absolute_certificate_pass_count": 41,
+            "absolute_certificate_pass_fraction": 0.3228346456692913,
+            "minimum_absolute_margin": -12.343058847445155,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 11.953758061203853,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 16,
+            "major_frequency_count": 398,
+            "absolute_certificate_pass_count": 82,
+            "absolute_certificate_pass_fraction": 0.6456692913385826,
+            "minimum_absolute_margin": -7.607931876790957,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 8.073088086077512,
+            "double_loss_identity_failures": 0
+          }
+        ],
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches": true,
+          "double_loss_identity_holds_for_all_Q_and_targets": true
+        }
+      },
+      {
+        "prime_support_limit": 512,
+        "zero_padded_transform_size": 2048,
+        "even_targets_tested": 255,
+        "minimum_ordered_representation_count": 1,
+        "maximum_fourier_reconstruction_error": 1.1723955140041653e-12,
+        "fixed_farey_rows": [
+          {
+            "denominator_limit_Q": 1,
+            "major_frequency_count": 5,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -51.56532031024459,
+            "minimum_margin_target": 510,
+            "maximum_positive_minor_mass": 57.78266015512221,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 2,
+            "major_frequency_count": 10,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -38.38812441303097,
+            "minimum_margin_target": 6,
+            "maximum_positive_minor_mass": 43.13375442684646,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 4,
+            "major_frequency_count": 30,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -33.24229567890561,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 35.95457667807431,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 8,
+            "major_frequency_count": 110,
+            "absolute_certificate_pass_count": 49,
+            "absolute_certificate_pass_fraction": 0.19215686274509805,
+            "minimum_absolute_margin": -25.400851230096162,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 25.036338590912617,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 16,
+            "major_frequency_count": 400,
+            "absolute_certificate_pass_count": 89,
+            "absolute_certificate_pass_fraction": 0.34901960784313724,
+            "minimum_absolute_margin": -18.911073299132035,
+            "minimum_margin_target": 68,
+            "maximum_positive_minor_mass": 18.391056845888997,
+            "double_loss_identity_failures": 0
+          }
+        ],
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches": true,
+          "double_loss_identity_holds_for_all_Q_and_targets": true
+        }
+      },
+      {
+        "prime_support_limit": 1024,
+        "zero_padded_transform_size": 4096,
+        "even_targets_tested": 511,
+        "minimum_ordered_representation_count": 1,
+        "maximum_fourier_reconstruction_error": 7.602807272633072e-12,
+        "fixed_farey_rows": [
+          {
+            "denominator_limit_Q": 1,
+            "major_frequency_count": 5,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -97.32697865107309,
+            "minimum_margin_target": 1020,
+            "maximum_positive_minor_mass": 100.56379979647316,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 2,
+            "major_frequency_count": 10,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -72.51041291895513,
+            "minimum_margin_target": 4,
+            "maximum_positive_minor_mass": 76.92030802873735,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 4,
+            "major_frequency_count": 30,
+            "absolute_certificate_pass_count": 0,
+            "absolute_certificate_pass_fraction": 0.0,
+            "minimum_absolute_margin": -64.5805001822734,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 65.37454293365901,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 8,
+            "major_frequency_count": 110,
+            "absolute_certificate_pass_count": 77,
+            "absolute_certificate_pass_fraction": 0.1506849315068493,
+            "minimum_absolute_margin": -53.01135971392644,
+            "minimum_margin_target": 8,
+            "maximum_positive_minor_mass": 47.37576619789063,
+            "double_loss_identity_failures": 0
+          },
+          {
+            "denominator_limit_Q": 16,
+            "major_frequency_count": 400,
+            "absolute_certificate_pass_count": 109,
+            "absolute_certificate_pass_fraction": 0.21330724070450097,
+            "minimum_absolute_margin": -42.52280421706917,
+            "minimum_margin_target": 68,
+            "maximum_positive_minor_mass": 36.8297771545911,
+            "double_loss_identity_failures": 0
+          }
+        ],
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches": true,
+          "double_loss_identity_holds_for_all_Q_and_targets": true
+        }
+      }
+    ],
+    "aggregate": {
+      "finite_targets": 987,
+      "farey_denominator_limits": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "half_width_bins": 2,
+      "double_loss_identity_failures": 0,
+      "q16_pass_fractions_by_support": [
+        1.0,
+        0.8888888888888888,
+        0.6456692913385826,
+        0.34901960784313724,
+        0.21330724070450097
+      ]
+    },
+    "trend_checks": {
+      "q16_absolute_pass_fraction_strictly_decreases": true,
+      "all_double_loss_identities_hold": true
+    },
+    "no_go_scope": "The finite decline does not prove asymptotic failure of a fixed Farey system. The exact identity proves only that an L1 minor bound discards the signed cancellation that a binary Goldbach proof must recover.",
+    "failure_count": 0
+  },
+  "discarded_route": "replacing the fixed-Farey signed minor contribution by its full L1 mass and expecting a uniform binary Goldbach lower bound",
+  "remaining_gap": "No analytic target-uniform signed minor estimate is smaller than a separately proved positive fixed-Farey major main term.",
+  "candidate_theorem": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+  "claim_boundary": "No Goldbach proof and no counterexample; one exact L1 double-loss identity and finite fixed-Farey diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T175-REJECTED",
+        "label": "AbsoluteMinorMassRetainsTheCancellationNeededForBinaryGoldbach",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T175-CLOSED",
+        "label": "FixedFareyAbsoluteMinorDoubleLossAndSignedCancellationNeed",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T175-OPEN",
+        "label": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T175-REJECTED",
+        "GB-T175-CLOSED"
+      ],
+      [
+        "GB-T175-CLOSED",
+        "GB-T175-OPEN"
+      ]
+    ]
+  }
+}
