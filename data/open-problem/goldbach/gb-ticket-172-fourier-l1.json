@@ -1,0 +1,638 @@
+{
+  "schema": "primeproject.ticket172-structure-equivalence-l1-variation.v1",
+  "generated_at": "2026-08-05T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-172",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "FourierL1AnchorCertificateAndShellMagnitudeSharpnessNoGo",
+  "declared_proposition": "For a real function g on Z/q with normalized Fourier transform, g(x)>=g_hat(0)-sum_{k!=0}|g_hat(k)| for every x. Hence a strict Fourier L1 budget below the zero-frequency anchor is a rigorous pointwise positivity certificate. This shell-magnitude certificate is best possible without arithmetic phase information: the nonnegative Z/4 family g_minus from TICKET-171 attains equality for every 0<epsilon<=1/2 while sharing all coefficient magnitudes with g_plus.",
+  "mathematical_argument": "Fourier inversion and the triangle inequality give the lower bound. For g_minus the normalized coefficients are (1,epsilon/2,-epsilon,epsilon/2), so the nonzero L1 budget is 2epsilon and g_minus(2)=1-2epsilon attains the bound. Therefore no universal lower bound using only these magnitudes can be larger.",
+  "reproducible_computation": {
+    "theorem": "For a real function g on Z/q with normalized Fourier transform, g(x)>=g_hat(0)-sum_{k!=0}|g_hat(k)| for every x. Hence a strict Fourier L1 budget below the zero-frequency anchor is a rigorous pointwise positivity certificate. This shell-magnitude certificate is best possible without arithmetic phase information: the nonnegative Z/4 family g_minus from TICKET-171 attains equality for every 0<epsilon<=1/2 while sharing all coefficient magnitudes with g_plus.",
+    "proof": "Fourier inversion and the triangle inequality give the lower bound. For g_minus the normalized coefficients are (1,epsilon/2,-epsilon,epsilon/2), so the nonzero L1 budget is 2epsilon and g_minus(2)=1-2epsilon attains the bound. Therefore no universal lower bound using only these magnitudes can be larger.",
+    "exact_l1_sharpness_rows": [
+      {
+        "epsilon": {
+          "exact": "1/10",
+          "decimal": 0.1
+        },
+        "mean_fourier_anchor": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "nonzero_signed_fourier_l1_budget": {
+          "exact": "1/5",
+          "decimal": 0.2
+        },
+        "certified_pointwise_lower_bound": {
+          "exact": "4/5",
+          "decimal": 0.8
+        },
+        "g_plus_values": [
+          {
+            "exact": "6/5",
+            "decimal": 1.2
+          },
+          {
+            "exact": "9/10",
+            "decimal": 0.9
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "9/10",
+            "decimal": 0.9
+          }
+        ],
+        "g_minus_values": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "11/10",
+            "decimal": 1.1
+          },
+          {
+            "exact": "4/5",
+            "decimal": 0.8
+          },
+          {
+            "exact": "11/10",
+            "decimal": 1.1
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          {
+            "exact": "1/10",
+            "decimal": 0.1
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          {
+            "exact": "-1/10",
+            "decimal": -0.1
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          }
+        ],
+        "actual_g_plus_minimum": {
+          "exact": "9/10",
+          "decimal": 0.9
+        },
+        "actual_g_minus_minimum": {
+          "exact": "4/5",
+          "decimal": 0.8
+        },
+        "checks": {
+          "signals_are_nonnegative": true,
+          "fourier_magnitude_profiles_match": true,
+          "l1_lower_bound_is_valid_for_both": true,
+          "minus_signal_saturates_l1_bound": true,
+          "strict_positivity_gate_matches_epsilon_range": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/5",
+          "decimal": 0.2
+        },
+        "mean_fourier_anchor": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "nonzero_signed_fourier_l1_budget": {
+          "exact": "2/5",
+          "decimal": 0.4
+        },
+        "certified_pointwise_lower_bound": {
+          "exact": "3/5",
+          "decimal": 0.6
+        },
+        "g_plus_values": [
+          {
+            "exact": "7/5",
+            "decimal": 1.4
+          },
+          {
+            "exact": "4/5",
+            "decimal": 0.8
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "4/5",
+            "decimal": 0.8
+          }
+        ],
+        "g_minus_values": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "6/5",
+            "decimal": 1.2
+          },
+          {
+            "exact": "3/5",
+            "decimal": 0.6
+          },
+          {
+            "exact": "6/5",
+            "decimal": 1.2
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/10",
+            "decimal": 0.1
+          },
+          {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "exact": "1/10",
+            "decimal": 0.1
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/10",
+            "decimal": 0.1
+          },
+          {
+            "exact": "-1/5",
+            "decimal": -0.2
+          },
+          {
+            "exact": "1/10",
+            "decimal": 0.1
+          }
+        ],
+        "actual_g_plus_minimum": {
+          "exact": "4/5",
+          "decimal": 0.8
+        },
+        "actual_g_minus_minimum": {
+          "exact": "3/5",
+          "decimal": 0.6
+        },
+        "checks": {
+          "signals_are_nonnegative": true,
+          "fourier_magnitude_profiles_match": true,
+          "l1_lower_bound_is_valid_for_both": true,
+          "minus_signal_saturates_l1_bound": true,
+          "strict_positivity_gate_matches_epsilon_range": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "mean_fourier_anchor": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "nonzero_signed_fourier_l1_budget": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_pointwise_lower_bound": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "g_plus_values": [
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/4",
+            "decimal": 0.75
+          }
+        ],
+        "g_minus_values": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "5/4",
+            "decimal": 1.25
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        ],
+        "actual_g_plus_minimum": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "actual_g_minus_minimum": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "checks": {
+          "signals_are_nonnegative": true,
+          "fourier_magnitude_profiles_match": true,
+          "l1_lower_bound_is_valid_for_both": true,
+          "minus_signal_saturates_l1_bound": true,
+          "strict_positivity_gate_matches_epsilon_range": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "mean_fourier_anchor": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "nonzero_signed_fourier_l1_budget": {
+          "exact": "2/3",
+          "decimal": 0.6666666666666666
+        },
+        "certified_pointwise_lower_bound": {
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "g_plus_values": [
+          {
+            "exact": "5/3",
+            "decimal": 1.6666666666666667
+          },
+          {
+            "exact": "2/3",
+            "decimal": 0.6666666666666666
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "2/3",
+            "decimal": 0.6666666666666666
+          }
+        ],
+        "g_minus_values": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "4/3",
+            "decimal": 1.3333333333333333
+          },
+          {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "exact": "4/3",
+            "decimal": 1.3333333333333333
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/6",
+            "decimal": 0.16666666666666666
+          },
+          {
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "exact": "1/6",
+            "decimal": 0.16666666666666666
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/6",
+            "decimal": 0.16666666666666666
+          },
+          {
+            "exact": "-1/3",
+            "decimal": -0.3333333333333333
+          },
+          {
+            "exact": "1/6",
+            "decimal": 0.16666666666666666
+          }
+        ],
+        "actual_g_plus_minimum": {
+          "exact": "2/3",
+          "decimal": 0.6666666666666666
+        },
+        "actual_g_minus_minimum": {
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "checks": {
+          "signals_are_nonnegative": true,
+          "fourier_magnitude_profiles_match": true,
+          "l1_lower_bound_is_valid_for_both": true,
+          "minus_signal_saturates_l1_bound": true,
+          "strict_positivity_gate_matches_epsilon_range": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "mean_fourier_anchor": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "nonzero_signed_fourier_l1_budget": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "certified_pointwise_lower_bound": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "g_plus_values": [
+          {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        ],
+        "g_minus_values": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          }
+        ],
+        "actual_g_plus_minimum": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "actual_g_minus_minimum": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "checks": {
+          "signals_are_nonnegative": true,
+          "fourier_magnitude_profiles_match": true,
+          "l1_lower_bound_is_valid_for_both": true,
+          "minus_signal_saturates_l1_bound": true,
+          "strict_positivity_gate_matches_epsilon_range": true
+        }
+      }
+    ],
+    "finite_prime_representation_spectral_rows": [
+      {
+        "even_target_count": 64,
+        "largest_even_target": 130,
+        "minimum_ordered_representation_count": 1,
+        "mean_fourier_anchor": 8.8125,
+        "nonzero_fourier_l1_budget": 27.71019662794916,
+        "generic_l1_pointwise_lower_bound": -18.89769662794916,
+        "checks": {
+          "sample_length_is_power_of_two": true,
+          "all_finite_even_targets_have_representations": true,
+          "fourier_l1_bound_is_valid": true,
+          "generic_l1_gate_is_not_yet_positive": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "even_target_count": 128,
+        "largest_even_target": 258,
+        "minimum_ordered_representation_count": 1,
+        "mean_fourier_anchor": 13.4765625,
+        "nonzero_fourier_l1_budget": 53.03323180177374,
+        "generic_l1_pointwise_lower_bound": -39.55666930177374,
+        "checks": {
+          "sample_length_is_power_of_two": true,
+          "all_finite_even_targets_have_representations": true,
+          "fourier_l1_bound_is_valid": true,
+          "generic_l1_gate_is_not_yet_positive": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "even_target_count": 256,
+        "largest_even_target": 514,
+        "minimum_ordered_representation_count": 1,
+        "mean_fourier_anchor": 21.06640625,
+        "nonzero_fourier_l1_budget": 104.5911538191319,
+        "generic_l1_pointwise_lower_bound": -83.5247475691319,
+        "checks": {
+          "sample_length_is_power_of_two": true,
+          "all_finite_even_targets_have_representations": true,
+          "fourier_l1_bound_is_valid": true,
+          "generic_l1_gate_is_not_yet_positive": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "even_target_count": 512,
+        "largest_even_target": 1026,
+        "minimum_ordered_representation_count": 1,
+        "mean_fourier_anchor": 33.380859375,
+        "nonzero_fourier_l1_budget": 202.495653115085,
+        "generic_l1_pointwise_lower_bound": -169.114793740085,
+        "checks": {
+          "sample_length_is_power_of_two": true,
+          "all_finite_even_targets_have_representations": true,
+          "fourier_l1_bound_is_valid": true,
+          "generic_l1_gate_is_not_yet_positive": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      }
+    ],
+    "no_go_scope": "The sharpness family is not a prime-supported Goldbach counterexample. The finite prime rows show that the generic triangle bound is too weak; a proof needs target-uniform arithmetic signed cancellation.",
+    "failure_count": 0
+  },
+  "discarded_route": "improving a pointwise lower bound from shell magnitudes alone beyond the sharp Fourier triangle bound",
+  "remaining_gap": "No prime-specific target-uniform signed Fourier cancellation bound places the nonzero-frequency L1 budget below the major-arc anchor.",
+  "candidate_theorem": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm",
+  "claim_boundary": "No Goldbach proof and no even counterexample; an exact universal positivity certificate, its sharpness family, and finite prime diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T172-REJECTED",
+        "label": "ShellMagnitudesAloneGiveAStrongerUniversalPointwiseLowerBound",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T172-CLOSED",
+        "label": "FourierL1AnchorCertificateAndShellMagnitudeSharpnessNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T172-OPEN",
+        "label": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T172-REJECTED",
+        "GB-T172-CLOSED"
+      ],
+      [
+        "GB-T172-CLOSED",
+        "GB-T172-OPEN"
+      ]
+    ]
+  }
+}

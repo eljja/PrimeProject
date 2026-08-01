@@ -1,0 +1,539 @@
+{
+  "schema": "primeproject.ticket172-structure-equivalence-l1-variation.v1",
+  "generated_at": "2026-08-05T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-172",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "StructuredKKTBlockInertiaCertificateAndWholeRelativeNormNecessityNoGo",
+  "declared_proposition": "Let K=[[A,B^T],[B,0]] be a real symmetric saddle-point matrix, with A positive definite and B of full row rank r. Then inertia(K)=(n,r,0). Consequently, interval bounds lambda_min(A0)>rho_A and sigma_min(B0)>rho_B certify the same inertia for every structured A,B in those operator balls. The whole-KKT relative condition from TICKET-171 is sufficient but not necessary: for K0=[[1,1],[1,0]] and E_t=[[t,0],[0,0]], t>=2, the relative norm is 2t/sqrt(5)>1, while det(K0+E_t)=-1 and its inertia remains (1,1,0).",
+  "mathematical_argument": "Block Gaussian congruence sends K to diag(A,-B A^(-1) B^T). The first block is positive definite and the second is negative definite because B has full row rank, so Sylvester's law gives the inertia. Weyl singular-value perturbation gives the two interval margins. For the no-go family, |K0|^(-1)=sqrt(5)^(-1)[[2,-1],[-1,3]], hence the rank-one relative norm is 2t/sqrt(5); the negative determinant proves one eigenvalue of each sign.",
+  "reproducible_computation": {
+    "theorem": "Let K=[[A,B^T],[B,0]] be a real symmetric saddle-point matrix, with A positive definite and B of full row rank r. Then inertia(K)=(n,r,0). Consequently, interval bounds lambda_min(A0)>rho_A and sigma_min(B0)>rho_B certify the same inertia for every structured A,B in those operator balls. The whole-KKT relative condition from TICKET-171 is sufficient but not necessary: for K0=[[1,1],[1,0]] and E_t=[[t,0],[0,0]], t>=2, the relative norm is 2t/sqrt(5)>1, while det(K0+E_t)=-1 and its inertia remains (1,1,0).",
+    "proof": "Block Gaussian congruence sends K to diag(A,-B A^(-1) B^T). The first block is positive definite and the second is negative definite because B has full row rank, so Sylvester's law gives the inertia. Weyl singular-value perturbation gives the two interval margins. For the no-go family, |K0|^(-1)=sqrt(5)^(-1)[[2,-1],[-1,3]], hence the rank-one relative norm is 2t/sqrt(5); the negative determinant proves one eigenvalue of each sign.",
+    "structured_interval_certificate_rows": [
+      {
+        "primal_dimension_n": 2,
+        "constraint_rank_r": 2,
+        "primal_center_lambda_min": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "primal_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_primal_margin": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "constraint_center_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "constraint_operator_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_constraint_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "certified_kkt_inertia": {
+          "positive": 2,
+          "negative": 2,
+          "zero": 0
+        },
+        "checks": {
+          "primal_interval_is_uniformly_positive": true,
+          "constraint_interval_is_uniformly_full_row_rank": true,
+          "schur_complement_is_negative_definite": true,
+          "kkt_inertia_is_certified": true
+        }
+      },
+      {
+        "primal_dimension_n": 4,
+        "constraint_rank_r": 2,
+        "primal_center_lambda_min": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "primal_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_primal_margin": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "constraint_center_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "constraint_operator_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_constraint_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "certified_kkt_inertia": {
+          "positive": 4,
+          "negative": 2,
+          "zero": 0
+        },
+        "checks": {
+          "primal_interval_is_uniformly_positive": true,
+          "constraint_interval_is_uniformly_full_row_rank": true,
+          "schur_complement_is_negative_definite": true,
+          "kkt_inertia_is_certified": true
+        }
+      },
+      {
+        "primal_dimension_n": 8,
+        "constraint_rank_r": 2,
+        "primal_center_lambda_min": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "primal_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_primal_margin": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "constraint_center_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "constraint_operator_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_constraint_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "certified_kkt_inertia": {
+          "positive": 8,
+          "negative": 2,
+          "zero": 0
+        },
+        "checks": {
+          "primal_interval_is_uniformly_positive": true,
+          "constraint_interval_is_uniformly_full_row_rank": true,
+          "schur_complement_is_negative_definite": true,
+          "kkt_inertia_is_certified": true
+        }
+      },
+      {
+        "primal_dimension_n": 16,
+        "constraint_rank_r": 2,
+        "primal_center_lambda_min": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "primal_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_primal_margin": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "constraint_center_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "constraint_operator_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_constraint_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "certified_kkt_inertia": {
+          "positive": 16,
+          "negative": 2,
+          "zero": 0
+        },
+        "checks": {
+          "primal_interval_is_uniformly_positive": true,
+          "constraint_interval_is_uniformly_full_row_rank": true,
+          "schur_complement_is_negative_definite": true,
+          "kkt_inertia_is_certified": true
+        }
+      },
+      {
+        "primal_dimension_n": 32,
+        "constraint_rank_r": 2,
+        "primal_center_lambda_min": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "primal_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_primal_margin": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "constraint_center_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "constraint_operator_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_constraint_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "certified_kkt_inertia": {
+          "positive": 32,
+          "negative": 2,
+          "zero": 0
+        },
+        "checks": {
+          "primal_interval_is_uniformly_positive": true,
+          "constraint_interval_is_uniformly_full_row_rank": true,
+          "schur_complement_is_negative_definite": true,
+          "kkt_inertia_is_certified": true
+        }
+      },
+      {
+        "primal_dimension_n": 64,
+        "constraint_rank_r": 2,
+        "primal_center_lambda_min": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "primal_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_primal_margin": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "constraint_center_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "constraint_operator_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_constraint_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "certified_kkt_inertia": {
+          "positive": 64,
+          "negative": 2,
+          "zero": 0
+        },
+        "checks": {
+          "primal_interval_is_uniformly_positive": true,
+          "constraint_interval_is_uniformly_full_row_rank": true,
+          "schur_complement_is_negative_definite": true,
+          "kkt_inertia_is_certified": true
+        }
+      }
+    ],
+    "whole_relative_norm_necessity_no_go_rows": [
+      {
+        "positive_block_update_t": 2,
+        "base_kkt_matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_kkt_matrix": [
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_trace": 3,
+        "perturbed_determinant": -1,
+        "whole_sign_normalized_relative_norm_squared": {
+          "exact": "16/5",
+          "decimal": 3.2
+        },
+        "whole_sign_normalized_relative_norm": 1.7888543819998317,
+        "perturbed_inertia": {
+          "positive": 1,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "whole_relative_norm_exceeds_one": true,
+          "structured_primal_block_remains_positive": true,
+          "constraint_block_remains_full_rank": true,
+          "determinant_remains_minus_one": true,
+          "inertia_remains_one_positive_one_negative": true
+        }
+      },
+      {
+        "positive_block_update_t": 4,
+        "base_kkt_matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_kkt_matrix": [
+          [
+            5,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_trace": 5,
+        "perturbed_determinant": -1,
+        "whole_sign_normalized_relative_norm_squared": {
+          "exact": "64/5",
+          "decimal": 12.8
+        },
+        "whole_sign_normalized_relative_norm": 3.5777087639996634,
+        "perturbed_inertia": {
+          "positive": 1,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "whole_relative_norm_exceeds_one": true,
+          "structured_primal_block_remains_positive": true,
+          "constraint_block_remains_full_rank": true,
+          "determinant_remains_minus_one": true,
+          "inertia_remains_one_positive_one_negative": true
+        }
+      },
+      {
+        "positive_block_update_t": 8,
+        "base_kkt_matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_kkt_matrix": [
+          [
+            9,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_trace": 9,
+        "perturbed_determinant": -1,
+        "whole_sign_normalized_relative_norm_squared": {
+          "exact": "256/5",
+          "decimal": 51.2
+        },
+        "whole_sign_normalized_relative_norm": 7.155417527999327,
+        "perturbed_inertia": {
+          "positive": 1,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "whole_relative_norm_exceeds_one": true,
+          "structured_primal_block_remains_positive": true,
+          "constraint_block_remains_full_rank": true,
+          "determinant_remains_minus_one": true,
+          "inertia_remains_one_positive_one_negative": true
+        }
+      },
+      {
+        "positive_block_update_t": 16,
+        "base_kkt_matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_kkt_matrix": [
+          [
+            17,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_trace": 17,
+        "perturbed_determinant": -1,
+        "whole_sign_normalized_relative_norm_squared": {
+          "exact": "1024/5",
+          "decimal": 204.8
+        },
+        "whole_sign_normalized_relative_norm": 14.310835055998654,
+        "perturbed_inertia": {
+          "positive": 1,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "whole_relative_norm_exceeds_one": true,
+          "structured_primal_block_remains_positive": true,
+          "constraint_block_remains_full_rank": true,
+          "determinant_remains_minus_one": true,
+          "inertia_remains_one_positive_one_negative": true
+        }
+      },
+      {
+        "positive_block_update_t": 32,
+        "base_kkt_matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_kkt_matrix": [
+          [
+            33,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_trace": 33,
+        "perturbed_determinant": -1,
+        "whole_sign_normalized_relative_norm_squared": {
+          "exact": "4096/5",
+          "decimal": 819.2
+        },
+        "whole_sign_normalized_relative_norm": 28.621670111997307,
+        "perturbed_inertia": {
+          "positive": 1,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "whole_relative_norm_exceeds_one": true,
+          "structured_primal_block_remains_positive": true,
+          "constraint_block_remains_full_rank": true,
+          "determinant_remains_minus_one": true,
+          "inertia_remains_one_positive_one_negative": true
+        }
+      },
+      {
+        "positive_block_update_t": 64,
+        "base_kkt_matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_kkt_matrix": [
+          [
+            65,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "perturbed_trace": 65,
+        "perturbed_determinant": -1,
+        "whole_sign_normalized_relative_norm_squared": {
+          "exact": "16384/5",
+          "decimal": 3276.8
+        },
+        "whole_sign_normalized_relative_norm": 57.243340223994615,
+        "perturbed_inertia": {
+          "positive": 1,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "whole_relative_norm_exceeds_one": true,
+          "structured_primal_block_remains_positive": true,
+          "constraint_block_remains_full_rank": true,
+          "determinant_remains_minus_one": true,
+          "inertia_remains_one_positive_one_negative": true
+        }
+      }
+    ],
+    "no_go_scope": "The family refutes necessity of a whole-matrix relative norm below one. It does not provide the primal positivity or constraint-rank bounds for an actual cofinal pole-neutral Guinand-Weil family.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring the whole sign-normalized KKT perturbation norm below one as a necessary condition",
+  "remaining_gap": "No cofinal fixed pole-neutral Guinand-Weil discretization has certified primal positivity and full constraint rank with interval margins.",
+  "candidate_theorem": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate",
+  "claim_boundary": "No RH proof and no off-critical zero exclusion; one exact structured saddle-point certificate and necessity no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T172-REJECTED",
+        "label": "WholeRelativeKKTNormBelowOneIsNecessary",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T172-CLOSED",
+        "label": "StructuredKKTBlockInertiaCertificateAndWholeRelativeNormNecessityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T172-OPEN",
+        "label": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T172-REJECTED",
+        "RH-T172-CLOSED"
+      ],
+      [
+        "RH-T172-CLOSED",
+        "RH-T172-OPEN"
+      ]
+    ]
+  }
+}

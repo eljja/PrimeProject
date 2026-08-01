@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket172AttemptGlobal = null;
 let ticket171AttemptGlobal = null;
 let ticket170AttemptGlobal = null;
 let ticket169AttemptGlobal = null;
@@ -9967,6 +9968,75 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket172StructureEquivalenceL1Variation(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.structure_equivalence_l1_variation_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.structured_interval_certificate_rows || [];
+    const noGo = computation.whole_relative_norm_necessity_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">K=[[A,B<sup>T</sup>],[B,0]] ∼ diag(A,−BA<sup>−1</sup>B<sup>T</sup>)</div>
+      ${table(["primal n", "constraint r", "A margin", "B rank margin", "certified inertia"], rows.map((row) => [row.primal_dimension_n, row.constraint_rank_r, row.certified_primal_margin?.exact, row.certified_constraint_rank_margin?.exact, JSON.stringify(row.certified_kkt_inertia)]))}
+      <div class="poc-head"><div><span>Structured certificates</span><strong>${rows.length}</strong></div><div><span>Relative-norm no-go rows</span><strong>${noGo.length}</strong></div><div><span>Resolution count</span><strong>0</strong></div></div>
+      <p class="proof-note">전체 KKT 상대 노름이 1보다 작을 필요는 없습니다. 실제 관성을 결정하는 primal 양성과 constraint rank를 구조적으로 인증해야 합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.exact_finite_prefix_bifurcation_rows || [];
+    const finite = computation.finite_first_descent_diagnostic || {};
+    detail = `
+      <div class="poc-equation">natural non-descending ray exclusion ⇔ every n&gt;1 has first descent ⇔ Collatz</div>
+      ${table(["prefix H", "least natural start", "ghost next v", "natural next v", "two continuations"], rows.map((row) => [row.horizon_H, String(row.least_natural_start_nH), row.ghost_next_valuation, row.natural_next_valuation, row.checks?.finite_prefix_has_both_natural_and_ghost_continuations]))}
+      <div class="poc-head"><div><span>Prefix bifurcations</span><strong>${rows.length}</strong></div><div><span>Finite odd starts</span><strong>${formatter.format(finite.odd_starts_tested || 0)}</strong></div><div><span>Missing descents</span><strong>${finite.missing_first_descent_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">TICKET-171의 자연수 경로 배제 목표는 Collatz와 동치이므로 더 쉬운 중간정리가 아닙니다. 유한 all-one 접두어는 자연수 연장과 2-adic 유령 연장을 동시에 가집니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.exact_l1_sharpness_rows || [];
+    const finite = computation.finite_prime_representation_spectral_rows || [];
+    detail = `
+      <div class="poc-equation">g(x) ≥ ĝ(0)−Σ<sub>k≠0</sub>|ĝ(k)|; strict positivity if the signed-frequency L1 budget is below the anchor</div>
+      ${table(["epsilon", "anchor", "nonzero L1", "certified lower", "g− minimum"], rows.map((row) => [row.epsilon?.exact, row.mean_fourier_anchor?.exact, row.nonzero_signed_fourier_l1_budget?.exact, row.certified_pointwise_lower_bound?.exact, row.actual_g_minus_minimum?.exact]))}
+      <div class="poc-head"><div><span>Exact sharpness rows</span><strong>${rows.length}</strong></div><div><span>Finite prime spectra</span><strong>${finite.length}</strong></div><div><span>Positive generic gates</span><strong>${finite.filter((row) => row.generic_l1_pointwise_lower_bound > 0).length}</strong></div></div>
+      <p class="proof-note">g−가 보편 L1 하한을 정확히 달성하므로 shell 크기만으로 더 강한 점별 하한을 만들 수 없습니다. 실제 소수 위상의 target-dependent 상쇄가 필요합니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_t161_mixed_variation_rows || [];
+    const noGo = computation.exact_marginal_control_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">E<sub>fine/fine</sub>=¼Σ(a<sub>00</sub>−a<sub>01</sub>−a<sub>10</sub>+a<sub>11</sub>)²</div>
+      ${table(["X", "mixed square sum", "exact Haar energy", "T171 energy", "identity"], rows.map((row) => [formatter.format(row.X || 0), row.mixed_difference_square_sum, row.exact_finest_fine_fine_haar_energy?.exact, Number(row.ticket171_transformed_fine_fine_energy).toFixed(3), row.checks?.mixed_difference_identity_matches_ticket171]))}
+      <div class="poc-head"><div><span>Finite Type-II identities</span><strong>${rows.length}</strong></div><div><span>Marginal no-go sizes</span><strong>${noGo.length}</strong></div><div><span>Checkerboard fine share</span><strong>1</strong></div></div>
+      <p class="proof-note">행·열 합이 모두 0이어도 checkerboard는 전체 에너지를 fine/fine 블록에 둡니다. 다음 목표는 prime-pair matrix의 가중 dyadic 혼합 변동 power saving입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket172-structure-equivalence-l1-variation" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 172 structured KKT blocks, Collatz bridge equivalence, Fourier L1, and dyadic mixed variation</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact structural results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET172 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/structure-equivalence-l1-variation.ko.md">한국어 보고서</a> · <a href="../docs/structure-equivalence-l1-variation.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket171RelativeGhostPhaseHaar(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.relative_ghost_phase_haar_audit || {};
@@ -10017,7 +10087,7 @@ function renderTicket171RelativeGhostPhaseHaar(attempt) {
   }
   return `
     <div id="ticket171-relative-ghost-phase-haar" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 171 relative KKT geometry, Collatz ghost rays, signed Goldbach phase, and Haar Type II</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact target corrections; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET171 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -10220,10 +10290,11 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
       <p class="proof-note">최미세 parity pairing은 오차가 아니라 목표 gap-2 상관의 정확히 절반입니다. 이를 o(N)으로 상쇄하려던 TICKET-167 다음 목표를 폐기하고 양의 von Mangoldt 주항 목표로 교정합니다.</p>
     `;
   }
-  const latestTicket171 = renderTicket171RelativeGhostPhaseHaar(ticket171AttemptGlobal);
+  const latestTicket172 = renderTicket172StructureEquivalenceL1Variation(ticket172AttemptGlobal);
+  const previousTicket171 = renderTicket171RelativeGhostPhaseHaar(ticket171AttemptGlobal);
   const previousTicket170 = renderTicket170IntervalTailBesovMultiscale(ticket170AttemptGlobal);
   const previousTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
-  return `${latestTicket171}${previousTicket170}${previousTicket169}
+  return `${latestTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
     <div id="ticket168-fixedcore-leastrealizer-phase-paritymain" class="poc-ticket17 poc-ticket128">
       <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms</h3>
@@ -13624,6 +13695,26 @@ async function loadTicket143Attempt() {
   }
 }
 
+async function loadTicket172Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket172-structure-equivalence-l1-variation.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket172AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket172AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket172AttemptGlobal) {
+      ticket172AttemptGlobal.bounded_result = ticket172AttemptGlobal.bounded_result || {};
+      ticket172AttemptGlobal.bounded_result.structure_equivalence_l1_variation_audit = payload.structure_equivalence_l1_variation_audit || {};
+    }
+    return Boolean(ticket172AttemptGlobal);
+  } catch (error) {
+    ticket172AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket171Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket171-relative-ghost-phase-haar.json", { cache: "no-store" });
@@ -14413,12 +14504,14 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket172Loaded = await loadTicket172Attempt();
   const ticket171Loaded = await loadTicket171Attempt();
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket172AttemptGlobal) await loadTicket172Attempt();
     if (!ticket171AttemptGlobal) await loadTicket171Attempt();
     if (!ticket170AttemptGlobal) await loadTicket170Attempt();
     if (!ticket169AttemptGlobal) await loadTicket169Attempt();
@@ -14468,7 +14561,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket171-priority";
+  document.documentElement.dataset.openProblemCache = "ticket172-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

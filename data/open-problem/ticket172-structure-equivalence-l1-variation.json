@@ -1,0 +1,1839 @@
+{
+  "schema": "primeproject.ticket172-structure-equivalence-l1-variation.v1",
+  "generated_at": "2026-08-05T18:00:00+09:00",
+  "status": "four_exact_bridge_audits_all_conjectures_open",
+  "claim_boundary": "TICKET-172 proves four exact intermediate results and resolves none of the four conjectures. It replaces a whole-KKT norm by an exact structured Schur certificate, proves the previous Collatz target circular, gives the sharp universal Fourier L1 positivity gate for Goldbach, and identifies the dyadic mixed variation exactly measured by Twin Type-II Haar energy.",
+  "structure_equivalence_l1_variation_audit": {
+    "theorem_name": "FourConjectureStructuredBridgeAndCircularityAudit",
+    "status": "four_exact_bridge_audits_all_conjectures_open",
+    "proof_boundary": "TICKET-172 proves four exact intermediate results and resolves none of the four conjectures. It replaces a whole-KKT norm by an exact structured Schur certificate, proves the previous Collatz target circular, gives the sharp universal Fourier L1 positivity gate for Goldbach, and identifies the dyadic mixed variation exactly measured by Twin Type-II Haar energy.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-172",
+      "theorem_name": "StructuredKKTBlockInertiaCertificateAndWholeRelativeNormNecessityNoGo",
+      "declared_proposition": "Let K=[[A,B^T],[B,0]] be a real symmetric saddle-point matrix, with A positive definite and B of full row rank r. Then inertia(K)=(n,r,0). Consequently, interval bounds lambda_min(A0)>rho_A and sigma_min(B0)>rho_B certify the same inertia for every structured A,B in those operator balls. The whole-KKT relative condition from TICKET-171 is sufficient but not necessary: for K0=[[1,1],[1,0]] and E_t=[[t,0],[0,0]], t>=2, the relative norm is 2t/sqrt(5)>1, while det(K0+E_t)=-1 and its inertia remains (1,1,0).",
+      "mathematical_argument": "Block Gaussian congruence sends K to diag(A,-B A^(-1) B^T). The first block is positive definite and the second is negative definite because B has full row rank, so Sylvester's law gives the inertia. Weyl singular-value perturbation gives the two interval margins. For the no-go family, |K0|^(-1)=sqrt(5)^(-1)[[2,-1],[-1,3]], hence the rank-one relative norm is 2t/sqrt(5); the negative determinant proves one eigenvalue of each sign.",
+      "reproducible_computation": {
+        "theorem": "Let K=[[A,B^T],[B,0]] be a real symmetric saddle-point matrix, with A positive definite and B of full row rank r. Then inertia(K)=(n,r,0). Consequently, interval bounds lambda_min(A0)>rho_A and sigma_min(B0)>rho_B certify the same inertia for every structured A,B in those operator balls. The whole-KKT relative condition from TICKET-171 is sufficient but not necessary: for K0=[[1,1],[1,0]] and E_t=[[t,0],[0,0]], t>=2, the relative norm is 2t/sqrt(5)>1, while det(K0+E_t)=-1 and its inertia remains (1,1,0).",
+        "proof": "Block Gaussian congruence sends K to diag(A,-B A^(-1) B^T). The first block is positive definite and the second is negative definite because B has full row rank, so Sylvester's law gives the inertia. Weyl singular-value perturbation gives the two interval margins. For the no-go family, |K0|^(-1)=sqrt(5)^(-1)[[2,-1],[-1,3]], hence the rank-one relative norm is 2t/sqrt(5); the negative determinant proves one eigenvalue of each sign.",
+        "structured_interval_certificate_rows": [
+          {
+            "primal_dimension_n": 2,
+            "constraint_rank_r": 2,
+            "primal_center_lambda_min": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "primal_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_primal_margin": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "constraint_center_sigma_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "constraint_operator_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_constraint_rank_margin": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "certified_kkt_inertia": {
+              "positive": 2,
+              "negative": 2,
+              "zero": 0
+            },
+            "checks": {
+              "primal_interval_is_uniformly_positive": true,
+              "constraint_interval_is_uniformly_full_row_rank": true,
+              "schur_complement_is_negative_definite": true,
+              "kkt_inertia_is_certified": true
+            }
+          },
+          {
+            "primal_dimension_n": 4,
+            "constraint_rank_r": 2,
+            "primal_center_lambda_min": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "primal_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_primal_margin": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "constraint_center_sigma_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "constraint_operator_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_constraint_rank_margin": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "certified_kkt_inertia": {
+              "positive": 4,
+              "negative": 2,
+              "zero": 0
+            },
+            "checks": {
+              "primal_interval_is_uniformly_positive": true,
+              "constraint_interval_is_uniformly_full_row_rank": true,
+              "schur_complement_is_negative_definite": true,
+              "kkt_inertia_is_certified": true
+            }
+          },
+          {
+            "primal_dimension_n": 8,
+            "constraint_rank_r": 2,
+            "primal_center_lambda_min": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "primal_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_primal_margin": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "constraint_center_sigma_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "constraint_operator_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_constraint_rank_margin": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "certified_kkt_inertia": {
+              "positive": 8,
+              "negative": 2,
+              "zero": 0
+            },
+            "checks": {
+              "primal_interval_is_uniformly_positive": true,
+              "constraint_interval_is_uniformly_full_row_rank": true,
+              "schur_complement_is_negative_definite": true,
+              "kkt_inertia_is_certified": true
+            }
+          },
+          {
+            "primal_dimension_n": 16,
+            "constraint_rank_r": 2,
+            "primal_center_lambda_min": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "primal_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_primal_margin": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "constraint_center_sigma_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "constraint_operator_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_constraint_rank_margin": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "certified_kkt_inertia": {
+              "positive": 16,
+              "negative": 2,
+              "zero": 0
+            },
+            "checks": {
+              "primal_interval_is_uniformly_positive": true,
+              "constraint_interval_is_uniformly_full_row_rank": true,
+              "schur_complement_is_negative_definite": true,
+              "kkt_inertia_is_certified": true
+            }
+          },
+          {
+            "primal_dimension_n": 32,
+            "constraint_rank_r": 2,
+            "primal_center_lambda_min": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "primal_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_primal_margin": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "constraint_center_sigma_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "constraint_operator_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_constraint_rank_margin": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "certified_kkt_inertia": {
+              "positive": 32,
+              "negative": 2,
+              "zero": 0
+            },
+            "checks": {
+              "primal_interval_is_uniformly_positive": true,
+              "constraint_interval_is_uniformly_full_row_rank": true,
+              "schur_complement_is_negative_definite": true,
+              "kkt_inertia_is_certified": true
+            }
+          },
+          {
+            "primal_dimension_n": 64,
+            "constraint_rank_r": 2,
+            "primal_center_lambda_min": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "primal_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_primal_margin": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "constraint_center_sigma_min": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "constraint_operator_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "certified_constraint_rank_margin": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "certified_kkt_inertia": {
+              "positive": 64,
+              "negative": 2,
+              "zero": 0
+            },
+            "checks": {
+              "primal_interval_is_uniformly_positive": true,
+              "constraint_interval_is_uniformly_full_row_rank": true,
+              "schur_complement_is_negative_definite": true,
+              "kkt_inertia_is_certified": true
+            }
+          }
+        ],
+        "whole_relative_norm_necessity_no_go_rows": [
+          {
+            "positive_block_update_t": 2,
+            "base_kkt_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_kkt_matrix": [
+              [
+                3,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_trace": 3,
+            "perturbed_determinant": -1,
+            "whole_sign_normalized_relative_norm_squared": {
+              "exact": "16/5",
+              "decimal": 3.2
+            },
+            "whole_sign_normalized_relative_norm": 1.7888543819998317,
+            "perturbed_inertia": {
+              "positive": 1,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "whole_relative_norm_exceeds_one": true,
+              "structured_primal_block_remains_positive": true,
+              "constraint_block_remains_full_rank": true,
+              "determinant_remains_minus_one": true,
+              "inertia_remains_one_positive_one_negative": true
+            }
+          },
+          {
+            "positive_block_update_t": 4,
+            "base_kkt_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_kkt_matrix": [
+              [
+                5,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_trace": 5,
+            "perturbed_determinant": -1,
+            "whole_sign_normalized_relative_norm_squared": {
+              "exact": "64/5",
+              "decimal": 12.8
+            },
+            "whole_sign_normalized_relative_norm": 3.5777087639996634,
+            "perturbed_inertia": {
+              "positive": 1,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "whole_relative_norm_exceeds_one": true,
+              "structured_primal_block_remains_positive": true,
+              "constraint_block_remains_full_rank": true,
+              "determinant_remains_minus_one": true,
+              "inertia_remains_one_positive_one_negative": true
+            }
+          },
+          {
+            "positive_block_update_t": 8,
+            "base_kkt_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_kkt_matrix": [
+              [
+                9,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_trace": 9,
+            "perturbed_determinant": -1,
+            "whole_sign_normalized_relative_norm_squared": {
+              "exact": "256/5",
+              "decimal": 51.2
+            },
+            "whole_sign_normalized_relative_norm": 7.155417527999327,
+            "perturbed_inertia": {
+              "positive": 1,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "whole_relative_norm_exceeds_one": true,
+              "structured_primal_block_remains_positive": true,
+              "constraint_block_remains_full_rank": true,
+              "determinant_remains_minus_one": true,
+              "inertia_remains_one_positive_one_negative": true
+            }
+          },
+          {
+            "positive_block_update_t": 16,
+            "base_kkt_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_kkt_matrix": [
+              [
+                17,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_trace": 17,
+            "perturbed_determinant": -1,
+            "whole_sign_normalized_relative_norm_squared": {
+              "exact": "1024/5",
+              "decimal": 204.8
+            },
+            "whole_sign_normalized_relative_norm": 14.310835055998654,
+            "perturbed_inertia": {
+              "positive": 1,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "whole_relative_norm_exceeds_one": true,
+              "structured_primal_block_remains_positive": true,
+              "constraint_block_remains_full_rank": true,
+              "determinant_remains_minus_one": true,
+              "inertia_remains_one_positive_one_negative": true
+            }
+          },
+          {
+            "positive_block_update_t": 32,
+            "base_kkt_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_kkt_matrix": [
+              [
+                33,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_trace": 33,
+            "perturbed_determinant": -1,
+            "whole_sign_normalized_relative_norm_squared": {
+              "exact": "4096/5",
+              "decimal": 819.2
+            },
+            "whole_sign_normalized_relative_norm": 28.621670111997307,
+            "perturbed_inertia": {
+              "positive": 1,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "whole_relative_norm_exceeds_one": true,
+              "structured_primal_block_remains_positive": true,
+              "constraint_block_remains_full_rank": true,
+              "determinant_remains_minus_one": true,
+              "inertia_remains_one_positive_one_negative": true
+            }
+          },
+          {
+            "positive_block_update_t": 64,
+            "base_kkt_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_kkt_matrix": [
+              [
+                65,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "perturbed_trace": 65,
+            "perturbed_determinant": -1,
+            "whole_sign_normalized_relative_norm_squared": {
+              "exact": "16384/5",
+              "decimal": 3276.8
+            },
+            "whole_sign_normalized_relative_norm": 57.243340223994615,
+            "perturbed_inertia": {
+              "positive": 1,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "whole_relative_norm_exceeds_one": true,
+              "structured_primal_block_remains_positive": true,
+              "constraint_block_remains_full_rank": true,
+              "determinant_remains_minus_one": true,
+              "inertia_remains_one_positive_one_negative": true
+            }
+          }
+        ],
+        "no_go_scope": "The family refutes necessity of a whole-matrix relative norm below one. It does not provide the primal positivity or constraint-rank bounds for an actual cofinal pole-neutral Guinand-Weil family.",
+        "failure_count": 0
+      },
+      "logical_limit": "No cofinal fixed pole-neutral Guinand-Weil discretization has certified primal positivity and full constraint rank with interval margins.",
+      "route_decision": {
+        "discard": "requiring the whole sign-normalized KKT perturbation norm below one as a necessary condition",
+        "retain": "structured primal positivity plus constraint-rank certification through the exact Schur complement",
+        "next_single_lemma": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T172-REJECTED",
+            "label": "WholeRelativeKKTNormBelowOneIsNecessary",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T172-CLOSED",
+            "label": "StructuredKKTBlockInertiaCertificateAndWholeRelativeNormNecessityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T172-OPEN",
+            "label": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T172-REJECTED",
+            "RH-T172-CLOSED"
+          ],
+          [
+            "RH-T172-CLOSED",
+            "RH-T172-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero exclusion; one exact structured saddle-point certificate and necessity no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-172",
+      "theorem_name": "NaturalSupportedResidualRayEquivalenceAndFinitePrefixDecisionNoGo",
+      "declared_proposition": "For the accelerated odd Collatz map, the following are equivalent: (i) every odd n>1 has an iterate below n; (ii) no infinite residual ray whose every prefix is non-descending has positive-natural support; (iii) every positive integer reaches 1. Thus the TICKET-171 target NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay is not a weaker bridge but an equivalent form of Collatz. Moreover no fixed prefix can decide natural support: the all-one prefix of every length H has both the 2-adic all-one ghost continuation and the distinct natural-orbit continuation of n_H=2^(H+1)-1.",
+      "mathematical_argument": "A natural-supported non-descending ray is exactly the valuation itinerary of an n>1 with T^j(n)>=n for all j, so (i) and (ii) are logical negations of the same witness. Property (i) implies convergence by strong induction on n; convergence trivially implies an iterate below every n>1. For finite indistinguishability, n_H has H valuation-one steps and endpoint 2*3^H-1. Its next natural valuation is 1+v2(3^(H+1)-1)>1, whereas the compatible 2-adic ghost continues with 1.",
+      "reproducible_computation": {
+        "theorem": "For the accelerated odd Collatz map, the following are equivalent: (i) every odd n>1 has an iterate below n; (ii) no infinite residual ray whose every prefix is non-descending has positive-natural support; (iii) every positive integer reaches 1. Thus the TICKET-171 target NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay is not a weaker bridge but an equivalent form of Collatz. Moreover no fixed prefix can decide natural support: the all-one prefix of every length H has both the 2-adic all-one ghost continuation and the distinct natural-orbit continuation of n_H=2^(H+1)-1.",
+        "proof": "A natural-supported non-descending ray is exactly the valuation itinerary of an n>1 with T^j(n)>=n for all j, so (i) and (ii) are logical negations of the same witness. Property (i) implies convergence by strong induction on n; convergence trivially implies an iterate below every n>1. For finite indistinguishability, n_H has H valuation-one steps and endpoint 2*3^H-1. Its next natural valuation is 1+v2(3^(H+1)-1)>1, whereas the compatible 2-adic ghost continues with 1.",
+        "exact_finite_prefix_bifurcation_rows": [
+          {
+            "horizon_H": 1,
+            "shared_all_one_prefix": [
+              1
+            ],
+            "prefix_truncated_in_json": false,
+            "least_natural_start_nH": 3,
+            "endpoint_after_prefix": 5,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 4,
+            "natural_next_iterate": 1,
+            "compatible_modulus": 4,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          },
+          {
+            "horizon_H": 2,
+            "shared_all_one_prefix": [
+              1,
+              1
+            ],
+            "prefix_truncated_in_json": false,
+            "least_natural_start_nH": 7,
+            "endpoint_after_prefix": 17,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 2,
+            "natural_next_iterate": 13,
+            "compatible_modulus": 8,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          },
+          {
+            "horizon_H": 4,
+            "shared_all_one_prefix": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "prefix_truncated_in_json": false,
+            "least_natural_start_nH": 31,
+            "endpoint_after_prefix": 161,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 2,
+            "natural_next_iterate": 121,
+            "compatible_modulus": 32,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          },
+          {
+            "horizon_H": 8,
+            "shared_all_one_prefix": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "prefix_truncated_in_json": false,
+            "least_natural_start_nH": 511,
+            "endpoint_after_prefix": 13121,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 2,
+            "natural_next_iterate": 9841,
+            "compatible_modulus": 512,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          },
+          {
+            "horizon_H": 16,
+            "shared_all_one_prefix": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "prefix_truncated_in_json": false,
+            "least_natural_start_nH": 131071,
+            "endpoint_after_prefix": 86093441,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 2,
+            "natural_next_iterate": 64570081,
+            "compatible_modulus": 131072,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          },
+          {
+            "horizon_H": 32,
+            "shared_all_one_prefix": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "prefix_truncated_in_json": true,
+            "least_natural_start_nH": 8589934591,
+            "endpoint_after_prefix": 3706040377703681,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 2,
+            "natural_next_iterate": 2779530283277761,
+            "compatible_modulus": 8589934592,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          },
+          {
+            "horizon_H": 64,
+            "shared_all_one_prefix": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "prefix_truncated_in_json": true,
+            "least_natural_start_nH": 36893488147419103231,
+            "endpoint_after_prefix": 6867367640585024969315698178561,
+            "ghost_next_valuation": 1,
+            "natural_next_valuation": 2,
+            "natural_next_iterate": 5150525730438768726986773633921,
+            "compatible_modulus": 36893488147419103232,
+            "checks": {
+              "finite_prefix_has_all_one_valuations": true,
+              "every_prefix_iterate_exceeds_start": true,
+              "ghost_extension_keeps_valuation_one": true,
+              "natural_extension_has_different_next_valuation": true,
+              "next_valuation_formula_holds": true,
+              "finite_prefix_has_both_natural_and_ghost_continuations": true
+            }
+          }
+        ],
+        "finite_first_descent_diagnostic": {
+          "odd_starts_tested": 49999,
+          "upper_bound": 100000,
+          "missing_first_descent_count": 0,
+          "maximum_first_descent_steps": 85,
+          "maximum_first_descent_start": 35655,
+          "boundary": "finite diagnostic only; the equivalence proof is symbolic"
+        },
+        "circularity_no_go": "Treating natural-ray exclusion as an independently easier final bridge is circular because it is equivalent to the coefficient-stopping formulation of the original conjecture.",
+        "failure_count": 0
+      },
+      "logical_limit": "No horizon-independent Archimedean height bound excludes a least positive counterexample from all non-descending cylinders.",
+      "route_decision": {
+        "discard": "treating positive-natural non-descending-ray exclusion as an easier bridge than Collatz itself",
+        "retain": "cross-scale Archimedean height control that can intersect a certified finite verification range",
+        "next_single_lemma": "LeastCounterexampleCrossScaleCylinderHeightBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T172-REJECTED",
+            "label": "NaturalSupportedNonDescendingRayExclusionIsAWeakerBridge",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T172-CLOSED",
+            "label": "NaturalSupportedResidualRayEquivalenceAndFinitePrefixDecisionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T172-OPEN",
+            "label": "LeastCounterexampleCrossScaleCylinderHeightBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T172-REJECTED",
+            "CO-T172-CLOSED"
+          ],
+          [
+            "CO-T172-CLOSED",
+            "CO-T172-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent natural orbit; the previous target is proved equivalent to Collatz and finite prefixes are proved indecisive."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-172",
+      "theorem_name": "FourierL1AnchorCertificateAndShellMagnitudeSharpnessNoGo",
+      "declared_proposition": "For a real function g on Z/q with normalized Fourier transform, g(x)>=g_hat(0)-sum_{k!=0}|g_hat(k)| for every x. Hence a strict Fourier L1 budget below the zero-frequency anchor is a rigorous pointwise positivity certificate. This shell-magnitude certificate is best possible without arithmetic phase information: the nonnegative Z/4 family g_minus from TICKET-171 attains equality for every 0<epsilon<=1/2 while sharing all coefficient magnitudes with g_plus.",
+      "mathematical_argument": "Fourier inversion and the triangle inequality give the lower bound. For g_minus the normalized coefficients are (1,epsilon/2,-epsilon,epsilon/2), so the nonzero L1 budget is 2epsilon and g_minus(2)=1-2epsilon attains the bound. Therefore no universal lower bound using only these magnitudes can be larger.",
+      "reproducible_computation": {
+        "theorem": "For a real function g on Z/q with normalized Fourier transform, g(x)>=g_hat(0)-sum_{k!=0}|g_hat(k)| for every x. Hence a strict Fourier L1 budget below the zero-frequency anchor is a rigorous pointwise positivity certificate. This shell-magnitude certificate is best possible without arithmetic phase information: the nonnegative Z/4 family g_minus from TICKET-171 attains equality for every 0<epsilon<=1/2 while sharing all coefficient magnitudes with g_plus.",
+        "proof": "Fourier inversion and the triangle inequality give the lower bound. For g_minus the normalized coefficients are (1,epsilon/2,-epsilon,epsilon/2), so the nonzero L1 budget is 2epsilon and g_minus(2)=1-2epsilon attains the bound. Therefore no universal lower bound using only these magnitudes can be larger.",
+        "exact_l1_sharpness_rows": [
+          {
+            "epsilon": {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            "mean_fourier_anchor": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "nonzero_signed_fourier_l1_budget": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "certified_pointwise_lower_bound": {
+              "exact": "4/5",
+              "decimal": 0.8
+            },
+            "g_plus_values": [
+              {
+                "exact": "6/5",
+                "decimal": 1.2
+              },
+              {
+                "exact": "9/10",
+                "decimal": 0.9
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "9/10",
+                "decimal": 0.9
+              }
+            ],
+            "g_minus_values": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "11/10",
+                "decimal": 1.1
+              },
+              {
+                "exact": "4/5",
+                "decimal": 0.8
+              },
+              {
+                "exact": "11/10",
+                "decimal": 1.1
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/20",
+                "decimal": 0.05
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              {
+                "exact": "1/20",
+                "decimal": 0.05
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/20",
+                "decimal": 0.05
+              },
+              {
+                "exact": "-1/10",
+                "decimal": -0.1
+              },
+              {
+                "exact": "1/20",
+                "decimal": 0.05
+              }
+            ],
+            "actual_g_plus_minimum": {
+              "exact": "9/10",
+              "decimal": 0.9
+            },
+            "actual_g_minus_minimum": {
+              "exact": "4/5",
+              "decimal": 0.8
+            },
+            "checks": {
+              "signals_are_nonnegative": true,
+              "fourier_magnitude_profiles_match": true,
+              "l1_lower_bound_is_valid_for_both": true,
+              "minus_signal_saturates_l1_bound": true,
+              "strict_positivity_gate_matches_epsilon_range": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "mean_fourier_anchor": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "nonzero_signed_fourier_l1_budget": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "certified_pointwise_lower_bound": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "g_plus_values": [
+              {
+                "exact": "7/5",
+                "decimal": 1.4
+              },
+              {
+                "exact": "4/5",
+                "decimal": 0.8
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "4/5",
+                "decimal": 0.8
+              }
+            ],
+            "g_minus_values": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "6/5",
+                "decimal": 1.2
+              },
+              {
+                "exact": "3/5",
+                "decimal": 0.6
+              },
+              {
+                "exact": "6/5",
+                "decimal": 1.2
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              {
+                "exact": "-1/5",
+                "decimal": -0.2
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              }
+            ],
+            "actual_g_plus_minimum": {
+              "exact": "4/5",
+              "decimal": 0.8
+            },
+            "actual_g_minus_minimum": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "checks": {
+              "signals_are_nonnegative": true,
+              "fourier_magnitude_profiles_match": true,
+              "l1_lower_bound_is_valid_for_both": true,
+              "minus_signal_saturates_l1_bound": true,
+              "strict_positivity_gate_matches_epsilon_range": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "mean_fourier_anchor": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "nonzero_signed_fourier_l1_budget": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "certified_pointwise_lower_bound": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "g_plus_values": [
+              {
+                "exact": "3/2",
+                "decimal": 1.5
+              },
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              }
+            ],
+            "g_minus_values": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "5/4",
+                "decimal": 1.25
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "5/4",
+                "decimal": 1.25
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              {
+                "exact": "-1/4",
+                "decimal": -0.25
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              }
+            ],
+            "actual_g_plus_minimum": {
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "actual_g_minus_minimum": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "checks": {
+              "signals_are_nonnegative": true,
+              "fourier_magnitude_profiles_match": true,
+              "l1_lower_bound_is_valid_for_both": true,
+              "minus_signal_saturates_l1_bound": true,
+              "strict_positivity_gate_matches_epsilon_range": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "mean_fourier_anchor": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "nonzero_signed_fourier_l1_budget": {
+              "exact": "2/3",
+              "decimal": 0.6666666666666666
+            },
+            "certified_pointwise_lower_bound": {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "g_plus_values": [
+              {
+                "exact": "5/3",
+                "decimal": 1.6666666666666667
+              },
+              {
+                "exact": "2/3",
+                "decimal": 0.6666666666666666
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "2/3",
+                "decimal": 0.6666666666666666
+              }
+            ],
+            "g_minus_values": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "4/3",
+                "decimal": 1.3333333333333333
+              },
+              {
+                "exact": "1/3",
+                "decimal": 0.3333333333333333
+              },
+              {
+                "exact": "4/3",
+                "decimal": 1.3333333333333333
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/6",
+                "decimal": 0.16666666666666666
+              },
+              {
+                "exact": "1/3",
+                "decimal": 0.3333333333333333
+              },
+              {
+                "exact": "1/6",
+                "decimal": 0.16666666666666666
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/6",
+                "decimal": 0.16666666666666666
+              },
+              {
+                "exact": "-1/3",
+                "decimal": -0.3333333333333333
+              },
+              {
+                "exact": "1/6",
+                "decimal": 0.16666666666666666
+              }
+            ],
+            "actual_g_plus_minimum": {
+              "exact": "2/3",
+              "decimal": 0.6666666666666666
+            },
+            "actual_g_minus_minimum": {
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "checks": {
+              "signals_are_nonnegative": true,
+              "fourier_magnitude_profiles_match": true,
+              "l1_lower_bound_is_valid_for_both": true,
+              "minus_signal_saturates_l1_bound": true,
+              "strict_positivity_gate_matches_epsilon_range": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "mean_fourier_anchor": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "nonzero_signed_fourier_l1_budget": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "certified_pointwise_lower_bound": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "g_plus_values": [
+              {
+                "exact": "2/1",
+                "decimal": 2.0
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              }
+            ],
+            "g_minus_values": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/2",
+                "decimal": 1.5
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "3/2",
+                "decimal": 1.5
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "-1/2",
+                "decimal": -0.5
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              }
+            ],
+            "actual_g_plus_minimum": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "actual_g_minus_minimum": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "checks": {
+              "signals_are_nonnegative": true,
+              "fourier_magnitude_profiles_match": true,
+              "l1_lower_bound_is_valid_for_both": true,
+              "minus_signal_saturates_l1_bound": true,
+              "strict_positivity_gate_matches_epsilon_range": true
+            }
+          }
+        ],
+        "finite_prime_representation_spectral_rows": [
+          {
+            "even_target_count": 64,
+            "largest_even_target": 130,
+            "minimum_ordered_representation_count": 1,
+            "mean_fourier_anchor": 8.8125,
+            "nonzero_fourier_l1_budget": 27.71019662794916,
+            "generic_l1_pointwise_lower_bound": -18.89769662794916,
+            "checks": {
+              "sample_length_is_power_of_two": true,
+              "all_finite_even_targets_have_representations": true,
+              "fourier_l1_bound_is_valid": true,
+              "generic_l1_gate_is_not_yet_positive": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          },
+          {
+            "even_target_count": 128,
+            "largest_even_target": 258,
+            "minimum_ordered_representation_count": 1,
+            "mean_fourier_anchor": 13.4765625,
+            "nonzero_fourier_l1_budget": 53.03323180177374,
+            "generic_l1_pointwise_lower_bound": -39.55666930177374,
+            "checks": {
+              "sample_length_is_power_of_two": true,
+              "all_finite_even_targets_have_representations": true,
+              "fourier_l1_bound_is_valid": true,
+              "generic_l1_gate_is_not_yet_positive": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          },
+          {
+            "even_target_count": 256,
+            "largest_even_target": 514,
+            "minimum_ordered_representation_count": 1,
+            "mean_fourier_anchor": 21.06640625,
+            "nonzero_fourier_l1_budget": 104.5911538191319,
+            "generic_l1_pointwise_lower_bound": -83.5247475691319,
+            "checks": {
+              "sample_length_is_power_of_two": true,
+              "all_finite_even_targets_have_representations": true,
+              "fourier_l1_bound_is_valid": true,
+              "generic_l1_gate_is_not_yet_positive": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          },
+          {
+            "even_target_count": 512,
+            "largest_even_target": 1026,
+            "minimum_ordered_representation_count": 1,
+            "mean_fourier_anchor": 33.380859375,
+            "nonzero_fourier_l1_budget": 202.495653115085,
+            "generic_l1_pointwise_lower_bound": -169.114793740085,
+            "checks": {
+              "sample_length_is_power_of_two": true,
+              "all_finite_even_targets_have_representations": true,
+              "fourier_l1_bound_is_valid": true,
+              "generic_l1_gate_is_not_yet_positive": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          }
+        ],
+        "no_go_scope": "The sharpness family is not a prime-supported Goldbach counterexample. The finite prime rows show that the generic triangle bound is too weak; a proof needs target-uniform arithmetic signed cancellation.",
+        "failure_count": 0
+      },
+      "logical_limit": "No prime-specific target-uniform signed Fourier cancellation bound places the nonzero-frequency L1 budget below the major-arc anchor.",
+      "route_decision": {
+        "discard": "improving a pointwise lower bound from shell magnitudes alone beyond the sharp Fourier triangle bound",
+        "retain": "prime-supported signed phase cancellation against each even target",
+        "next_single_lemma": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T172-REJECTED",
+            "label": "ShellMagnitudesAloneGiveAStrongerUniversalPointwiseLowerBound",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T172-CLOSED",
+            "label": "FourierL1AnchorCertificateAndShellMagnitudeSharpnessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T172-OPEN",
+            "label": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T172-REJECTED",
+            "GB-T172-CLOSED"
+          ],
+          [
+            "GB-T172-CLOSED",
+            "GB-T172-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; an exact universal positivity certificate, its sharpness family, and finite prime diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-172",
+      "theorem_name": "DyadicMixedVariationHaarIdentityAndMarginalControlNoGo",
+      "declared_proposition": "For every real matrix A of even side length, the total squared fine/fine coefficient in the first separable orthonormal Haar level equals one quarter of the sum over disjoint 2x2 blocks of (a00-a01-a10+a11)^2. Recursing on the normalized coarse block gives the corresponding identity at every dyadic scale. Therefore a weighted dyadic mixed-variation power saving is a sufficient growing-resolution Type-II energy certificate. Row and column margins alone cannot supply it: the alternating checkerboard has zero margins and all Frobenius energy in the finest fine/fine block at every dyadic size.",
+      "mathematical_argument": "The local Haar wavelet is (1,-1)/sqrt(2), so pairing a 2x2 block with its tensor square gives (a00-a01-a10+a11)/2. Squaring and summing disjoint blocks proves the identity; induction on the coarse matrix gives all scales. For the checkerboard every row and column sum cancels, each mixed difference equals 4a, and there are N^2/4 blocks, giving N^2 a^2, exactly its Frobenius energy.",
+      "reproducible_computation": {
+        "theorem": "For every real matrix A of even side length, the total squared fine/fine coefficient in the first separable orthonormal Haar level equals one quarter of the sum over disjoint 2x2 blocks of (a00-a01-a10+a11)^2. Recursing on the normalized coarse block gives the corresponding identity at every dyadic scale. Therefore a weighted dyadic mixed-variation power saving is a sufficient growing-resolution Type-II energy certificate. Row and column margins alone cannot supply it: the alternating checkerboard has zero margins and all Frobenius energy in the finest fine/fine block at every dyadic size.",
+        "proof": "The local Haar wavelet is (1,-1)/sqrt(2), so pairing a 2x2 block with its tensor square gives (a00-a01-a10+a11)/2. Squaring and summing disjoint blocks proves the identity; induction on the coarse matrix gives all scales. For the checkerboard every row and column sum cancels, each mixed difference equals 4a, and there are N^2/4 blocks, giving N^2 a^2, exactly its Frobenius energy.",
+        "finite_t161_mixed_variation_rows": [
+          {
+            "X": 10000,
+            "mixed_difference_square_sum": 48780,
+            "exact_finest_fine_fine_haar_energy": {
+              "exact": "12195/1",
+              "decimal": 12195.0
+            },
+            "ticket171_transformed_fine_fine_energy": 12194.999999999995,
+            "checks": {
+              "mixed_difference_identity_matches_ticket171": true,
+              "energy_is_nonnegative": true,
+              "matrix_is_four_by_four": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 100000,
+            "mixed_difference_square_sum": 47377396,
+            "exact_finest_fine_fine_haar_energy": {
+              "exact": "11844349/1",
+              "decimal": 11844349.0
+            },
+            "ticket171_transformed_fine_fine_energy": 11844348.999999996,
+            "checks": {
+              "mixed_difference_identity_matches_ticket171": true,
+              "energy_is_nonnegative": true,
+              "matrix_is_four_by_four": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 1000000,
+            "mixed_difference_square_sum": 3335493096,
+            "exact_finest_fine_fine_haar_energy": {
+              "exact": "833873274/1",
+              "decimal": 833873274.0
+            },
+            "ticket171_transformed_fine_fine_energy": 833873273.9999996,
+            "checks": {
+              "mixed_difference_identity_matches_ticket171": true,
+              "energy_is_nonnegative": true,
+              "matrix_is_four_by_four": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 10000000,
+            "mixed_difference_square_sum": 16555193741536,
+            "exact_finest_fine_fine_haar_energy": {
+              "exact": "4138798435384/1",
+              "decimal": 4138798435384.0
+            },
+            "ticket171_transformed_fine_fine_energy": 4138798435383.9976,
+            "checks": {
+              "mixed_difference_identity_matches_ticket171": true,
+              "energy_is_nonnegative": true,
+              "matrix_is_four_by_four": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          }
+        ],
+        "exact_marginal_control_no_go_rows": [
+          {
+            "dyadic_side_N": 2,
+            "checkerboard_amplitude": 1,
+            "row_and_column_margins": 0,
+            "mixed_difference_square_sum": 16,
+            "finest_fine_fine_haar_energy": 4,
+            "frobenius_energy": 4,
+            "fine_fine_energy_fraction": 1,
+            "checks": {
+              "every_row_sum_vanishes": true,
+              "every_column_sum_vanishes": true,
+              "mixed_energy_equals_full_frobenius_energy": true,
+              "fine_fine_energy_fraction_is_one": true,
+              "mixed_energy_grows_with_resolution": true
+            }
+          },
+          {
+            "dyadic_side_N": 4,
+            "checkerboard_amplitude": 2,
+            "row_and_column_margins": 0,
+            "mixed_difference_square_sum": 256,
+            "finest_fine_fine_haar_energy": 64,
+            "frobenius_energy": 64,
+            "fine_fine_energy_fraction": 1,
+            "checks": {
+              "every_row_sum_vanishes": true,
+              "every_column_sum_vanishes": true,
+              "mixed_energy_equals_full_frobenius_energy": true,
+              "fine_fine_energy_fraction_is_one": true,
+              "mixed_energy_grows_with_resolution": true
+            }
+          },
+          {
+            "dyadic_side_N": 8,
+            "checkerboard_amplitude": 4,
+            "row_and_column_margins": 0,
+            "mixed_difference_square_sum": 4096,
+            "finest_fine_fine_haar_energy": 1024,
+            "frobenius_energy": 1024,
+            "fine_fine_energy_fraction": 1,
+            "checks": {
+              "every_row_sum_vanishes": true,
+              "every_column_sum_vanishes": true,
+              "mixed_energy_equals_full_frobenius_energy": true,
+              "fine_fine_energy_fraction_is_one": true,
+              "mixed_energy_grows_with_resolution": true
+            }
+          },
+          {
+            "dyadic_side_N": 16,
+            "checkerboard_amplitude": 8,
+            "row_and_column_margins": 0,
+            "mixed_difference_square_sum": 65536,
+            "finest_fine_fine_haar_energy": 16384,
+            "frobenius_energy": 16384,
+            "fine_fine_energy_fraction": 1,
+            "checks": {
+              "every_row_sum_vanishes": true,
+              "every_column_sum_vanishes": true,
+              "mixed_energy_equals_full_frobenius_energy": true,
+              "fine_fine_energy_fraction_is_one": true,
+              "mixed_energy_grows_with_resolution": true
+            }
+          },
+          {
+            "dyadic_side_N": 32,
+            "checkerboard_amplitude": 16,
+            "row_and_column_margins": 0,
+            "mixed_difference_square_sum": 1048576,
+            "finest_fine_fine_haar_energy": 262144,
+            "frobenius_energy": 262144,
+            "fine_fine_energy_fraction": 1,
+            "checks": {
+              "every_row_sum_vanishes": true,
+              "every_column_sum_vanishes": true,
+              "mixed_energy_equals_full_frobenius_energy": true,
+              "fine_fine_energy_fraction_is_one": true,
+              "mixed_energy_grows_with_resolution": true
+            }
+          },
+          {
+            "dyadic_side_N": 64,
+            "checkerboard_amplitude": 32,
+            "row_and_column_margins": 0,
+            "mixed_difference_square_sum": 16777216,
+            "finest_fine_fine_haar_energy": 4194304,
+            "frobenius_energy": 4194304,
+            "fine_fine_energy_fraction": 1,
+            "checks": {
+              "every_row_sum_vanishes": true,
+              "every_column_sum_vanishes": true,
+              "mixed_energy_equals_full_frobenius_energy": true,
+              "fine_fine_energy_fraction_is_one": true,
+              "mixed_energy_grows_with_resolution": true
+            }
+          }
+        ],
+        "no_go_scope": "The identity translates Haar energy into arithmetic mixed variation but does not prove decay for the prime-pair Type-II matrices.",
+        "failure_count": 0
+      },
+      "logical_limit": "No prime-pair matrix estimate gives a power-saving weighted dyadic mixed variation uniformly through the sieve's growing resolution.",
+      "route_decision": {
+        "discard": "using row and column marginal cancellation as a substitute for mixed Type-II regularity",
+        "retain": "scale-weighted dyadic mixed-variation bounds equivalent to fine/fine Haar energy control",
+        "next_single_lemma": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T172-REJECTED",
+            "label": "VanishingOneDimensionalMarginsForceFineFineTypeIIDecay",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T172-CLOSED",
+            "label": "DyadicMixedVariationHaarIdentityAndMarginalControlNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T172-OPEN",
+            "label": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T172-REJECTED",
+            "TP-T172-CLOSED"
+          ],
+          [
+            "TP-T172-CLOSED",
+            "TP-T172-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; one exact Haar-mixed-variation identity, finite diagnostics, and marginal no-go only."
+    },
+    "cross_problem_synthesis": "The common improvement is structural localization: certify the block that determines inertia, expose equivalence before calling a statement a bridge, retain signed frequencies before pointwise inversion, and measure mixed rather than marginal variation.",
+    "literature_boundary": {
+      "riemann": "arXiv:2607.02828 supplies the finite Guinand-Weil setting; saddle-point Schur inertia is standard linear algebra and is not an RH result.",
+      "collatz": "Tao arXiv:1909.03562 and Niu arXiv:2605.13886 emphasize first-passage and finite parity results; neither closes the all-integer first-descent statement.",
+      "goldbach": "Grimmelt-Bhowmik arXiv:2607.27282 gives current exceptional-set and explicit major-arc context; exceptional-set control is not the pointwise signed bound required here.",
+      "twin_prime": "Ford-Maynard arXiv:2407.14368 requires substantial Type-II information for prime-producing sieves; the mixed-variation identity only specifies a sufficient coordinate target."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-172",
+      "status": "open_not_proven",
+      "declared_proposition": "Let K=[[A,B^T],[B,0]] be a real symmetric saddle-point matrix, with A positive definite and B of full row rank r. Then inertia(K)=(n,r,0). Consequently, interval bounds lambda_min(A0)>rho_A and sigma_min(B0)>rho_B certify the same inertia for every structured A,B in those operator balls. The whole-KKT relative condition from TICKET-171 is sufficient but not necessary: for K0=[[1,1],[1,0]] and E_t=[[t,0],[0,0]], t>=2, the relative norm is 2t/sqrt(5)>1, while det(K0+E_t)=-1 and its inertia remains (1,1,0).",
+      "new_result": "StructuredKKTBlockInertiaCertificateAndWholeRelativeNormNecessityNoGo",
+      "discarded_route": "requiring the whole sign-normalized KKT perturbation norm below one as a necessary condition",
+      "remaining_gap": "No cofinal fixed pole-neutral Guinand-Weil discretization has certified primal positivity and full constraint rank with interval margins.",
+      "candidate_theorem": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate",
+      "claim_boundary": "No RH proof and no off-critical zero exclusion; one exact structured saddle-point certificate and necessity no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T172-REJECTED",
+            "label": "WholeRelativeKKTNormBelowOneIsNecessary",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T172-CLOSED",
+            "label": "StructuredKKTBlockInertiaCertificateAndWholeRelativeNormNecessityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T172-OPEN",
+            "label": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T172-REJECTED",
+            "RH-T172-CLOSED"
+          ],
+          [
+            "RH-T172-CLOSED",
+            "RH-T172-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-172",
+      "status": "open_not_proven",
+      "declared_proposition": "For the accelerated odd Collatz map, the following are equivalent: (i) every odd n>1 has an iterate below n; (ii) no infinite residual ray whose every prefix is non-descending has positive-natural support; (iii) every positive integer reaches 1. Thus the TICKET-171 target NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay is not a weaker bridge but an equivalent form of Collatz. Moreover no fixed prefix can decide natural support: the all-one prefix of every length H has both the 2-adic all-one ghost continuation and the distinct natural-orbit continuation of n_H=2^(H+1)-1.",
+      "new_result": "NaturalSupportedResidualRayEquivalenceAndFinitePrefixDecisionNoGo",
+      "discarded_route": "treating positive-natural non-descending-ray exclusion as an easier bridge than Collatz itself",
+      "remaining_gap": "No horizon-independent Archimedean height bound excludes a least positive counterexample from all non-descending cylinders.",
+      "candidate_theorem": "LeastCounterexampleCrossScaleCylinderHeightBound",
+      "claim_boundary": "No Collatz proof and no divergent natural orbit; the previous target is proved equivalent to Collatz and finite prefixes are proved indecisive.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T172-REJECTED",
+            "label": "NaturalSupportedNonDescendingRayExclusionIsAWeakerBridge",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T172-CLOSED",
+            "label": "NaturalSupportedResidualRayEquivalenceAndFinitePrefixDecisionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T172-OPEN",
+            "label": "LeastCounterexampleCrossScaleCylinderHeightBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T172-REJECTED",
+            "CO-T172-CLOSED"
+          ],
+          [
+            "CO-T172-CLOSED",
+            "CO-T172-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "LeastCounterexampleCrossScaleCylinderHeightBound"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-172",
+      "status": "open_not_proven",
+      "declared_proposition": "For a real function g on Z/q with normalized Fourier transform, g(x)>=g_hat(0)-sum_{k!=0}|g_hat(k)| for every x. Hence a strict Fourier L1 budget below the zero-frequency anchor is a rigorous pointwise positivity certificate. This shell-magnitude certificate is best possible without arithmetic phase information: the nonnegative Z/4 family g_minus from TICKET-171 attains equality for every 0<epsilon<=1/2 while sharing all coefficient magnitudes with g_plus.",
+      "new_result": "FourierL1AnchorCertificateAndShellMagnitudeSharpnessNoGo",
+      "discarded_route": "improving a pointwise lower bound from shell magnitudes alone beyond the sharp Fourier triangle bound",
+      "remaining_gap": "No prime-specific target-uniform signed Fourier cancellation bound places the nonzero-frequency L1 budget below the major-arc anchor.",
+      "candidate_theorem": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm",
+      "claim_boundary": "No Goldbach proof and no even counterexample; an exact universal positivity certificate, its sharpness family, and finite prime diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T172-REJECTED",
+            "label": "ShellMagnitudesAloneGiveAStrongerUniversalPointwiseLowerBound",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T172-CLOSED",
+            "label": "FourierL1AnchorCertificateAndShellMagnitudeSharpnessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T172-OPEN",
+            "label": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T172-REJECTED",
+            "GB-T172-CLOSED"
+          ],
+          [
+            "GB-T172-CLOSED",
+            "GB-T172-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-172",
+      "status": "open_not_proven",
+      "declared_proposition": "For every real matrix A of even side length, the total squared fine/fine coefficient in the first separable orthonormal Haar level equals one quarter of the sum over disjoint 2x2 blocks of (a00-a01-a10+a11)^2. Recursing on the normalized coarse block gives the corresponding identity at every dyadic scale. Therefore a weighted dyadic mixed-variation power saving is a sufficient growing-resolution Type-II energy certificate. Row and column margins alone cannot supply it: the alternating checkerboard has zero margins and all Frobenius energy in the finest fine/fine block at every dyadic size.",
+      "new_result": "DyadicMixedVariationHaarIdentityAndMarginalControlNoGo",
+      "discarded_route": "using row and column marginal cancellation as a substitute for mixed Type-II regularity",
+      "remaining_gap": "No prime-pair matrix estimate gives a power-saving weighted dyadic mixed variation uniformly through the sieve's growing resolution.",
+      "candidate_theorem": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; one exact Haar-mixed-variation identity, finite diagnostics, and marginal no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T172-REJECTED",
+            "label": "VanishingOneDimensionalMarginsForceFineFineTypeIIDecay",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T172-CLOSED",
+            "label": "DyadicMixedVariationHaarIdentityAndMarginalControlNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T172-OPEN",
+            "label": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T172-REJECTED",
+            "TP-T172-CLOSED"
+          ],
+          [
+            "TP-T172-CLOSED",
+            "TP-T172-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving"
+    }
+  ]
+}

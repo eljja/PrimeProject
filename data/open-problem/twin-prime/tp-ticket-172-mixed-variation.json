@@ -1,0 +1,209 @@
+{
+  "schema": "primeproject.ticket172-structure-equivalence-l1-variation.v1",
+  "generated_at": "2026-08-05T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-172",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicMixedVariationHaarIdentityAndMarginalControlNoGo",
+  "declared_proposition": "For every real matrix A of even side length, the total squared fine/fine coefficient in the first separable orthonormal Haar level equals one quarter of the sum over disjoint 2x2 blocks of (a00-a01-a10+a11)^2. Recursing on the normalized coarse block gives the corresponding identity at every dyadic scale. Therefore a weighted dyadic mixed-variation power saving is a sufficient growing-resolution Type-II energy certificate. Row and column margins alone cannot supply it: the alternating checkerboard has zero margins and all Frobenius energy in the finest fine/fine block at every dyadic size.",
+  "mathematical_argument": "The local Haar wavelet is (1,-1)/sqrt(2), so pairing a 2x2 block with its tensor square gives (a00-a01-a10+a11)/2. Squaring and summing disjoint blocks proves the identity; induction on the coarse matrix gives all scales. For the checkerboard every row and column sum cancels, each mixed difference equals 4a, and there are N^2/4 blocks, giving N^2 a^2, exactly its Frobenius energy.",
+  "reproducible_computation": {
+    "theorem": "For every real matrix A of even side length, the total squared fine/fine coefficient in the first separable orthonormal Haar level equals one quarter of the sum over disjoint 2x2 blocks of (a00-a01-a10+a11)^2. Recursing on the normalized coarse block gives the corresponding identity at every dyadic scale. Therefore a weighted dyadic mixed-variation power saving is a sufficient growing-resolution Type-II energy certificate. Row and column margins alone cannot supply it: the alternating checkerboard has zero margins and all Frobenius energy in the finest fine/fine block at every dyadic size.",
+    "proof": "The local Haar wavelet is (1,-1)/sqrt(2), so pairing a 2x2 block with its tensor square gives (a00-a01-a10+a11)/2. Squaring and summing disjoint blocks proves the identity; induction on the coarse matrix gives all scales. For the checkerboard every row and column sum cancels, each mixed difference equals 4a, and there are N^2/4 blocks, giving N^2 a^2, exactly its Frobenius energy.",
+    "finite_t161_mixed_variation_rows": [
+      {
+        "X": 10000,
+        "mixed_difference_square_sum": 48780,
+        "exact_finest_fine_fine_haar_energy": {
+          "exact": "12195/1",
+          "decimal": 12195.0
+        },
+        "ticket171_transformed_fine_fine_energy": 12194.999999999995,
+        "checks": {
+          "mixed_difference_identity_matches_ticket171": true,
+          "energy_is_nonnegative": true,
+          "matrix_is_four_by_four": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 100000,
+        "mixed_difference_square_sum": 47377396,
+        "exact_finest_fine_fine_haar_energy": {
+          "exact": "11844349/1",
+          "decimal": 11844349.0
+        },
+        "ticket171_transformed_fine_fine_energy": 11844348.999999996,
+        "checks": {
+          "mixed_difference_identity_matches_ticket171": true,
+          "energy_is_nonnegative": true,
+          "matrix_is_four_by_four": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 1000000,
+        "mixed_difference_square_sum": 3335493096,
+        "exact_finest_fine_fine_haar_energy": {
+          "exact": "833873274/1",
+          "decimal": 833873274.0
+        },
+        "ticket171_transformed_fine_fine_energy": 833873273.9999996,
+        "checks": {
+          "mixed_difference_identity_matches_ticket171": true,
+          "energy_is_nonnegative": true,
+          "matrix_is_four_by_four": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 10000000,
+        "mixed_difference_square_sum": 16555193741536,
+        "exact_finest_fine_fine_haar_energy": {
+          "exact": "4138798435384/1",
+          "decimal": 4138798435384.0
+        },
+        "ticket171_transformed_fine_fine_energy": 4138798435383.9976,
+        "checks": {
+          "mixed_difference_identity_matches_ticket171": true,
+          "energy_is_nonnegative": true,
+          "matrix_is_four_by_four": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      }
+    ],
+    "exact_marginal_control_no_go_rows": [
+      {
+        "dyadic_side_N": 2,
+        "checkerboard_amplitude": 1,
+        "row_and_column_margins": 0,
+        "mixed_difference_square_sum": 16,
+        "finest_fine_fine_haar_energy": 4,
+        "frobenius_energy": 4,
+        "fine_fine_energy_fraction": 1,
+        "checks": {
+          "every_row_sum_vanishes": true,
+          "every_column_sum_vanishes": true,
+          "mixed_energy_equals_full_frobenius_energy": true,
+          "fine_fine_energy_fraction_is_one": true,
+          "mixed_energy_grows_with_resolution": true
+        }
+      },
+      {
+        "dyadic_side_N": 4,
+        "checkerboard_amplitude": 2,
+        "row_and_column_margins": 0,
+        "mixed_difference_square_sum": 256,
+        "finest_fine_fine_haar_energy": 64,
+        "frobenius_energy": 64,
+        "fine_fine_energy_fraction": 1,
+        "checks": {
+          "every_row_sum_vanishes": true,
+          "every_column_sum_vanishes": true,
+          "mixed_energy_equals_full_frobenius_energy": true,
+          "fine_fine_energy_fraction_is_one": true,
+          "mixed_energy_grows_with_resolution": true
+        }
+      },
+      {
+        "dyadic_side_N": 8,
+        "checkerboard_amplitude": 4,
+        "row_and_column_margins": 0,
+        "mixed_difference_square_sum": 4096,
+        "finest_fine_fine_haar_energy": 1024,
+        "frobenius_energy": 1024,
+        "fine_fine_energy_fraction": 1,
+        "checks": {
+          "every_row_sum_vanishes": true,
+          "every_column_sum_vanishes": true,
+          "mixed_energy_equals_full_frobenius_energy": true,
+          "fine_fine_energy_fraction_is_one": true,
+          "mixed_energy_grows_with_resolution": true
+        }
+      },
+      {
+        "dyadic_side_N": 16,
+        "checkerboard_amplitude": 8,
+        "row_and_column_margins": 0,
+        "mixed_difference_square_sum": 65536,
+        "finest_fine_fine_haar_energy": 16384,
+        "frobenius_energy": 16384,
+        "fine_fine_energy_fraction": 1,
+        "checks": {
+          "every_row_sum_vanishes": true,
+          "every_column_sum_vanishes": true,
+          "mixed_energy_equals_full_frobenius_energy": true,
+          "fine_fine_energy_fraction_is_one": true,
+          "mixed_energy_grows_with_resolution": true
+        }
+      },
+      {
+        "dyadic_side_N": 32,
+        "checkerboard_amplitude": 16,
+        "row_and_column_margins": 0,
+        "mixed_difference_square_sum": 1048576,
+        "finest_fine_fine_haar_energy": 262144,
+        "frobenius_energy": 262144,
+        "fine_fine_energy_fraction": 1,
+        "checks": {
+          "every_row_sum_vanishes": true,
+          "every_column_sum_vanishes": true,
+          "mixed_energy_equals_full_frobenius_energy": true,
+          "fine_fine_energy_fraction_is_one": true,
+          "mixed_energy_grows_with_resolution": true
+        }
+      },
+      {
+        "dyadic_side_N": 64,
+        "checkerboard_amplitude": 32,
+        "row_and_column_margins": 0,
+        "mixed_difference_square_sum": 16777216,
+        "finest_fine_fine_haar_energy": 4194304,
+        "frobenius_energy": 4194304,
+        "fine_fine_energy_fraction": 1,
+        "checks": {
+          "every_row_sum_vanishes": true,
+          "every_column_sum_vanishes": true,
+          "mixed_energy_equals_full_frobenius_energy": true,
+          "fine_fine_energy_fraction_is_one": true,
+          "mixed_energy_grows_with_resolution": true
+        }
+      }
+    ],
+    "no_go_scope": "The identity translates Haar energy into arithmetic mixed variation but does not prove decay for the prime-pair Type-II matrices.",
+    "failure_count": 0
+  },
+  "discarded_route": "using row and column marginal cancellation as a substitute for mixed Type-II regularity",
+  "remaining_gap": "No prime-pair matrix estimate gives a power-saving weighted dyadic mixed variation uniformly through the sieve's growing resolution.",
+  "candidate_theorem": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; one exact Haar-mixed-variation identity, finite diagnostics, and marginal no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T172-REJECTED",
+        "label": "VanishingOneDimensionalMarginsForceFineFineTypeIIDecay",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T172-CLOSED",
+        "label": "DyadicMixedVariationHaarIdentityAndMarginalControlNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T172-OPEN",
+        "label": "PrimePairMatrixWeightedDyadicMixedVariationPowerSaving",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T172-REJECTED",
+        "TP-T172-CLOSED"
+      ],
+      [
+        "TP-T172-CLOSED",
+        "TP-T172-OPEN"
+      ]
+    ]
+  }
+}

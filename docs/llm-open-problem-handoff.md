@@ -62,7 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-171
+## Latest Continuation After TICKET-172
+
+All four conjectures remain open. TICKET-172 audits the TICKET-171 terminal
+nodes and removes one circular Collatz target. Continue only from these nodes:
+
+1. Riemann:
+   `CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate`.
+   The exact saddle-point congruence reduces KKT inertia to positivity of `A`
+   and full row rank of `B`. A 2x2 family proves the whole sign-normalized KKT
+   norm below one is not necessary. No actual cofinal Weil-core interval
+   margins have been proved.
+2. Collatz:
+   `LeastCounterexampleCrossScaleCylinderHeightBound`.
+   Excluding every positive-natural non-descending residual ray is equivalent
+   to the original first-descent conjecture, so it is not an intermediate
+   bridge. Every finite all-one prefix has both a natural continuation and a
+   2-adic ghost continuation. Seek a horizon-independent Archimedean height
+   bound instead.
+3. Goldbach:
+   `UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm`.
+   Fourier inversion proves the exact L1 positivity gate. The positive Z/4
+   family saturates it while preserving every coefficient magnitude, so shell
+   magnitudes cannot improve the universal pointwise lower bound.
+4. Twin Prime:
+   `PrimePairMatrixWeightedDyadicMixedVariationPowerSaving`.
+   Fine/fine Haar energy is exactly one quarter of the dyadic mixed-difference
+   square sum. Checkerboards have zero row/column margins but all energy in the
+   mixed block, so marginal cancellation is not Type-II control.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket172-structure-equivalence-l1-variation.json
+data/open-problem/riemann/rh-ticket-172-structured-kkt.json
+data/open-problem/collatz/co-ticket-172-natural-support-equivalence.json
+data/open-problem/goldbach/gb-ticket-172-fourier-l1.json
+data/open-problem/twin-prime/tp-ticket-172-mixed-variation.json
+```
+
+한국어 인계: TICKET-172도 네 난제를 해결하지 않았다. 리만은 실제 Weil
+core에서 primal 양성과 constraint rank를 cofinal하게 인증해야 한다.
+콜라츠는 자연수 비하강 경로 배제를 다음 보조정리로 다시 제시하면 안 된다.
+그 명제는 원 추측과 동치다. 대신 최소 반례의 Archimedean 높이를 모든
+접두어 scale에서 동시에 제한해야 한다. 골드바흐는 shell 크기가 아니라
+각 짝수 target에 대한 소수 Fourier 부호 상쇄가 필요하다. 쌍둥이 소수는
+prime-pair matrix의 가중 dyadic 혼합 변동에 power saving이 필요하다.
+
+English report: [TICKET-172](structure-equivalence-l1-variation.md). Korean
+report: [TICKET-172 한국어](structure-equivalence-l1-variation.ko.md).
+
+## Preserved Continuation After TICKET-171
 
 All four conjectures remain open. TICKET-171 audits the four TICKET-170 next
 lemmas and proves that one of them is false as stated. Continue from the

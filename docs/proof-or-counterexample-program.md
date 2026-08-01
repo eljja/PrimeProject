@@ -6811,3 +6811,28 @@ Twin Haar 항등식은 좌표 변환일 뿐 점근 Type-II decay를 제공하지
 
 English report: [TICKET-171 relative-ghost-phase-haar](relative-ghost-phase-haar.md).
 한국어 보고서: [TICKET-171 상대-유령-위상-Haar](relative-ghost-phase-haar.ko.md).
+
+## TICKET-172 continuation: structured blocks, bridge equivalence, Fourier L1, and mixed variation
+
+TICKET-172 audits the latest four terminal nodes and proves four exact
+intermediate statements without resolving a conjecture:
+
+1. RH: saddle-point congruence reduces KKT inertia to primal positivity and
+   constraint full row rank. A 2x2 family refutes necessity of a whole relative
+   KKT norm below one. The next target is
+   `CofinalWeilPrimalBlockPositivityAndConstraintRankCertificate`.
+2. Collatz: exclusion of every positive-natural non-descending residual ray is
+   equivalent to Collatz first descent. The route is rejected as a weaker
+   bridge. The next target is `LeastCounterexampleCrossScaleCylinderHeightBound`.
+3. Goldbach: Fourier inversion gives the exact pointwise L1 positivity gate,
+   and the positive Z/4 family saturates it with unchanged magnitudes. The next
+   target is `UniformPrimeSpecificSignedGoldbachFourierCancellationBelowMainTerm`.
+4. Twin Prime: fine/fine Haar energy equals one quarter of the dyadic mixed
+   difference square sum. Checkerboards refute marginal-only control. The next
+   target is `PrimePairMatrixWeightedDyadicMixedVariationPowerSaving`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-172 structure-equivalence-l1-variation](structure-equivalence-l1-variation.md).
+한국어 보고서: [TICKET-172 구조-동치-L1-혼합변동](structure-equivalence-l1-variation.ko.md).

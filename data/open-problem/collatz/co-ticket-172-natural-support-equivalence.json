@@ -1,0 +1,262 @@
+{
+  "schema": "primeproject.ticket172-structure-equivalence-l1-variation.v1",
+  "generated_at": "2026-08-05T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-172",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "NaturalSupportedResidualRayEquivalenceAndFinitePrefixDecisionNoGo",
+  "declared_proposition": "For the accelerated odd Collatz map, the following are equivalent: (i) every odd n>1 has an iterate below n; (ii) no infinite residual ray whose every prefix is non-descending has positive-natural support; (iii) every positive integer reaches 1. Thus the TICKET-171 target NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay is not a weaker bridge but an equivalent form of Collatz. Moreover no fixed prefix can decide natural support: the all-one prefix of every length H has both the 2-adic all-one ghost continuation and the distinct natural-orbit continuation of n_H=2^(H+1)-1.",
+  "mathematical_argument": "A natural-supported non-descending ray is exactly the valuation itinerary of an n>1 with T^j(n)>=n for all j, so (i) and (ii) are logical negations of the same witness. Property (i) implies convergence by strong induction on n; convergence trivially implies an iterate below every n>1. For finite indistinguishability, n_H has H valuation-one steps and endpoint 2*3^H-1. Its next natural valuation is 1+v2(3^(H+1)-1)>1, whereas the compatible 2-adic ghost continues with 1.",
+  "reproducible_computation": {
+    "theorem": "For the accelerated odd Collatz map, the following are equivalent: (i) every odd n>1 has an iterate below n; (ii) no infinite residual ray whose every prefix is non-descending has positive-natural support; (iii) every positive integer reaches 1. Thus the TICKET-171 target NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay is not a weaker bridge but an equivalent form of Collatz. Moreover no fixed prefix can decide natural support: the all-one prefix of every length H has both the 2-adic all-one ghost continuation and the distinct natural-orbit continuation of n_H=2^(H+1)-1.",
+    "proof": "A natural-supported non-descending ray is exactly the valuation itinerary of an n>1 with T^j(n)>=n for all j, so (i) and (ii) are logical negations of the same witness. Property (i) implies convergence by strong induction on n; convergence trivially implies an iterate below every n>1. For finite indistinguishability, n_H has H valuation-one steps and endpoint 2*3^H-1. Its next natural valuation is 1+v2(3^(H+1)-1)>1, whereas the compatible 2-adic ghost continues with 1.",
+    "exact_finite_prefix_bifurcation_rows": [
+      {
+        "horizon_H": 1,
+        "shared_all_one_prefix": [
+          1
+        ],
+        "prefix_truncated_in_json": false,
+        "least_natural_start_nH": 3,
+        "endpoint_after_prefix": 5,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 4,
+        "natural_next_iterate": 1,
+        "compatible_modulus": 4,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      },
+      {
+        "horizon_H": 2,
+        "shared_all_one_prefix": [
+          1,
+          1
+        ],
+        "prefix_truncated_in_json": false,
+        "least_natural_start_nH": 7,
+        "endpoint_after_prefix": 17,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 2,
+        "natural_next_iterate": 13,
+        "compatible_modulus": 8,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      },
+      {
+        "horizon_H": 4,
+        "shared_all_one_prefix": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "prefix_truncated_in_json": false,
+        "least_natural_start_nH": 31,
+        "endpoint_after_prefix": 161,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 2,
+        "natural_next_iterate": 121,
+        "compatible_modulus": 32,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      },
+      {
+        "horizon_H": 8,
+        "shared_all_one_prefix": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "prefix_truncated_in_json": false,
+        "least_natural_start_nH": 511,
+        "endpoint_after_prefix": 13121,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 2,
+        "natural_next_iterate": 9841,
+        "compatible_modulus": 512,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      },
+      {
+        "horizon_H": 16,
+        "shared_all_one_prefix": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "prefix_truncated_in_json": false,
+        "least_natural_start_nH": 131071,
+        "endpoint_after_prefix": 86093441,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 2,
+        "natural_next_iterate": 64570081,
+        "compatible_modulus": 131072,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      },
+      {
+        "horizon_H": 32,
+        "shared_all_one_prefix": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "prefix_truncated_in_json": true,
+        "least_natural_start_nH": 8589934591,
+        "endpoint_after_prefix": 3706040377703681,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 2,
+        "natural_next_iterate": 2779530283277761,
+        "compatible_modulus": 8589934592,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      },
+      {
+        "horizon_H": 64,
+        "shared_all_one_prefix": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "prefix_truncated_in_json": true,
+        "least_natural_start_nH": 36893488147419103231,
+        "endpoint_after_prefix": 6867367640585024969315698178561,
+        "ghost_next_valuation": 1,
+        "natural_next_valuation": 2,
+        "natural_next_iterate": 5150525730438768726986773633921,
+        "compatible_modulus": 36893488147419103232,
+        "checks": {
+          "finite_prefix_has_all_one_valuations": true,
+          "every_prefix_iterate_exceeds_start": true,
+          "ghost_extension_keeps_valuation_one": true,
+          "natural_extension_has_different_next_valuation": true,
+          "next_valuation_formula_holds": true,
+          "finite_prefix_has_both_natural_and_ghost_continuations": true
+        }
+      }
+    ],
+    "finite_first_descent_diagnostic": {
+      "odd_starts_tested": 49999,
+      "upper_bound": 100000,
+      "missing_first_descent_count": 0,
+      "maximum_first_descent_steps": 85,
+      "maximum_first_descent_start": 35655,
+      "boundary": "finite diagnostic only; the equivalence proof is symbolic"
+    },
+    "circularity_no_go": "Treating natural-ray exclusion as an independently easier final bridge is circular because it is equivalent to the coefficient-stopping formulation of the original conjecture.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating positive-natural non-descending-ray exclusion as an easier bridge than Collatz itself",
+  "remaining_gap": "No horizon-independent Archimedean height bound excludes a least positive counterexample from all non-descending cylinders.",
+  "candidate_theorem": "LeastCounterexampleCrossScaleCylinderHeightBound",
+  "claim_boundary": "No Collatz proof and no divergent natural orbit; the previous target is proved equivalent to Collatz and finite prefixes are proved indecisive.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T172-REJECTED",
+        "label": "NaturalSupportedNonDescendingRayExclusionIsAWeakerBridge",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T172-CLOSED",
+        "label": "NaturalSupportedResidualRayEquivalenceAndFinitePrefixDecisionNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T172-OPEN",
+        "label": "LeastCounterexampleCrossScaleCylinderHeightBound",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T172-REJECTED",
+        "CO-T172-CLOSED"
+      ],
+      [
+        "CO-T172-CLOSED",
+        "CO-T172-OPEN"
+      ]
+    ]
+  }
+}
