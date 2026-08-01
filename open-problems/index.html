@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PrimeProject Proof Workbench</title>
-    <link rel="stylesheet" href="../assets/styles.css?v=20260717-ticket126" />
+    <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260802-research-brief" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -28,78 +29,101 @@
         </p>
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
-          <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>bounded evidence only</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4</strong></span>
+          <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-176</strong></span>
         </div>
       </header>
 
-      <section class="proof-grid">
-        <article class="proof-panel">
-          <h2>Riemann Hypothesis</h2>
-          <p data-i18n="proof.card.riemann.body">
-            Tracks zero-line evidence, equivalent criteria, proof obligations, and barriers that cannot be discharged
-            by finite verification.
-          </p>
-          <a class="proof-card-link" href="riemann.html" data-i18n="proof.open.riemann">Open Riemann page</a>
+      <section class="workbench-boundary">
+        <div>
+          <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
+          <h2>What TICKET-176 actually changed</h2>
+          <p>TICKET-176 did not solve a conjecture. It proved four exact structural statements that remove avoidable losses or expose circular targets.</p>
+          <p class="proof-boundary">TICKET-176은 난제를 해결하지 않았습니다. 대신 불필요한 손실을 제거하거나 순환적인 목표를 드러내는 네 개의 정확한 구조적 명제를 확립했습니다.</p>
+        </div>
+        <dl>
+          <div><dt>Conjectures</dt><dd>4 open</dd></div>
+          <div><dt>New exact results</dt><dd>4</dd></div>
+          <div><dt>Discarded routes</dt><dd>4</dd></div>
+          <div><dt>Resolution count</dt><dd>0</dd></div>
+        </dl>
+      </section>
+
+      <section class="workbench-problem-grid">
+        <article class="workbench-problem-card">
+          <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
+          <h2>Riemann Hypothesis <small>리만 가설</small></h2>
+          <dl>
+            <div><dt>Exact result / 확립</dt><dd>Relative Loewner PSD-cone certificate under a two-sided relative tail bound.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Diagonal-only tail data cannot certify the full quadratic form.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform core-relative Loewner control for the pole-neutral Weil tail below the truncated margin.</dd></div>
+          </dl>
+          <p class="workbench-ko">상대적 tail 상계를 실제 Weil 형식에 대해 증명하는 일이 남았습니다. 수치 고유값이나 대각 성분만으로는 충분하지 않습니다.</p>
+          <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
-        <article class="proof-panel">
-          <h2>Collatz Conjecture</h2>
-          <p data-i18n="proof.card.collatz.body">
-            Separates trajectory-scale computation from the missing global descent argument needed for a proof.
-          </p>
-          <a class="proof-card-link" href="collatz.html" data-i18n="proof.open.collatz">Open Collatz page</a>
+        <article class="workbench-problem-card">
+          <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
+          <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
+          <dl>
+            <div><dt>Exact result / 확립</dt><dd>Aperiodic non-descent corrections obey an explicit O(log h) harmonic envelope.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No fixed horizon suffices; the harmonic crossing criterion is not necessary.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Aperiodic valuation discrepancy must cross the distinct-state harmonic envelope, plus cycle exclusion.</dd></div>
+          </dl>
+          <p class="workbench-ko">유한 궤적 검사는 충분하지 않습니다. 모든 자연수 궤도에 적용되는 전역 valuation discrepancy 정리가 핵심 간극입니다.</p>
+          <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
-        <article class="proof-panel">
-          <h2>Goldbach Conjecture</h2>
-          <p data-i18n="proof.card.goldbach.body">
-            Organizes even-integer verification, density heuristics, exception search, and the finite-to-infinite gap.
-          </p>
-          <a class="proof-card-link" href="goldbach.html" data-i18n="proof.open.goldbach">Open Goldbach page</a>
+        <article class="workbench-problem-card">
+          <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
+          <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
+          <dl>
+            <div><dt>Exact result / 확립</dt><dd>Even-target parity aliases are quotiented exactly before absolute values.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Taking absolute values before aliasing introduces avoidable structural loss.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform deficit power saving for the parity-aliased fixed-Farey minor polynomial.</dd></div>
+          </dl>
+          <p class="workbench-ko">유한 짝수 검증이 아니라 모든 충분히 큰 짝수에 대한 signed minor-arc 상계가 필요합니다.</p>
+          <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
-        <article class="proof-panel">
-          <h2>Twin Prime Workbench</h2>
-          <p data-i18n="proof.card.twin.body">
-            Focuses on prime-pair gaps, residue constraints, admissible patterns, and why bounded twin-prime counts are
-            not yet infinitude.
-          </p>
-          <a class="proof-card-link" href="twin-prime.html" data-i18n="proof.open.twin">Open Twin Prime page</a>
+        <article class="workbench-problem-card">
+          <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
+          <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
+          <dl>
+            <div><dt>Exact result / 확립</dt><dd>Unrestricted optimized weighted-Schur control equals the original block spectral norm.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Weights derived from unknown singular vectors are circular.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Explicit arithmetic weights with two-sided power-saving Schur sums for prime-pair Haar blocks.</dd></div>
+          </dl>
+          <p class="workbench-ko">가중치는 결과를 본 뒤 최적화하면 안 됩니다. 소수쌍 산술에서 선험적으로 구성된 가중치가 필요합니다.</p>
+          <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
-        <section class="proof-panel proof-wide">
-          <h2 data-i18n="proof.boundary.title">Research Boundary</h2>
-          <p data-i18n="proof.boundary.body">
-            PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must
-            not present a conjecture as solved until an infinite argument survives formal and peer review.
-          </p>
-        </section>
-        <section class="proof-panel proof-wide">
-          <h2>Canonical Research Audit / 통합 연구 감사</h2>
-          <p>
-            The July 2026 consolidation separates exact problem-specific computation, replayable route
-            falsification, methodological transfers, and the infinite theorem still missing in each problem.
-          </p>
-          <p class="proof-boundary">
-            2026년 7월 통합 문서는 실제 문제 고유 계산, 재생 가능한 경로 반박, 방법론 전이, 각 문제에 남은
-            무한 정리를 구분합니다. TICKET85는 접근 가능한 periodic-word 계수 supremum이 정확히 1이고 달성되지 않음을
-            증명하고, 양의 메르센 지수 부분수열에서 `D(k)>log2(k)-2`를 얻었습니다. 이는 모든 subunit 로그 창을 폐기하지만
-            발산, 전 지수 upper bound, 네 난제 전체의 증명은 아닙니다.
-          </p>
-          <a class="proof-card-link" href="../docs/open-problem-research-consolidation-2026-07-10.md">Read the bilingual consolidation</a>
-        </section>
-        <section class="proof-panel proof-wide">
-          <h2>Proof or Counterexample Program</h2>
-          <p>
-            The four pages now include a direct proof-or-counterexample lab: direct bounded counterexample search,
-            candidate-proof falsification, contrapositive route tracking, and the next infinite theorem target.
-          </p>
-          <p class="proof-boundary">
-            현재 GitHub Pages는 반례 탐색, 후보 증명 반증, 대우법 경로, 다음 무한 정리 목표를 각 문제 페이지에 표시합니다.
-            아직 네 난제 중 어느 것도 증명 또는 반증했다고 주장하지 않습니다.
-          </p>
-          <a class="proof-card-link" href="../docs/proof-or-counterexample-program.md">Read the program note</a>
-        </section>
+      </section>
+
+      <section class="workbench-progression">
+        <div class="workbench-section-heading">
+          <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
+          <h2>176 tickets reduced to four meaningful eras</h2>
+          <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
+        </div>
+        <ol>
+          <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
+          <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
+          <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–176 · Structure-preserving reductions</strong><p>부호, 위상, 상대 스케일, 전 해상도 연산자 구조를 보존하는 현재 보조정리로 증명 목표를 좁혔습니다.</p></li>
+        </ol>
+      </section>
+
+      <section class="workbench-resources">
+        <div>
+          <h2>Claim boundary / 주장 경계</h2>
+          <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
+        </div>
+        <nav aria-label="Current research documents">
+          <a href="../docs/relative-cone-harmonic-alias-schur.ko.md">TICKET-176 한국어 보고서</a>
+          <a href="../docs/relative-cone-harmonic-alias-schur.md">TICKET-176 English report</a>
+          <a href="../docs/open-problem-workbench.md">Proof program / 증명 프로그램</a>
+          <a href="../docs/llm-open-problem-handoff.md">LLM handoff / 연구 인계</a>
+        </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260708-ticket39"></script>
+    <script src="../assets/i18n.js?v=20260802-research-brief"></script>
   </body>
 </html>
 

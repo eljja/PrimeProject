@@ -6,13 +6,13 @@
     <title>PrimeProject Conjecture Lab</title>
     <meta
       name="description"
-      content="Interactive visualization for algorithm-induced prime measures, next-prime sampling bias, and residue drift."
+      content="PrimeProject research dashboard for four open problems, reproducible proof-route audits, and cryptographic generator fingerprinting."
     />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260716-ticket125" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260802-research-brief" />
   </head>
   <body>
     <div class="app-shell">
@@ -34,34 +34,117 @@
       <main class="workspace">
         <aside class="navigation-rail" aria-label="Project navigation">
           <h2 class="rail-title" data-i18n="menu.title">PrimeProject Menu</h2>
+          <details class="navigation-disclosure" open>
+            <summary>Navigate / 메뉴 열기</summary>
           <nav class="side-nav" aria-label="Lab views">
-            <button class="nav-button is-active" data-scroll-target="overview-panel" data-i18n="nav.overview">Overview</button>
+            <span class="nav-group-label" data-i18n="nav.group.research">Research / 연구</span>
+            <button class="nav-button is-active" data-scroll-target="research-brief-panel" data-i18n="nav.currentBrief">Current Brief</button>
             <button class="nav-button" data-scroll-target="research-atlas-panel" data-i18n="nav.researchAtlas">Research Atlas</button>
             <button class="nav-button" data-scroll-target="evolution-panel" data-i18n="nav.evolution">Evolution</button>
             <a class="nav-button" href="open-problems/index.html" data-i18n="nav.proofWorkbench">Proof Workbench</a>
+            <span class="nav-group-label" data-i18n="nav.group.problems">Open Problems / 네 난제</span>
             <a class="nav-button proof-link" href="open-problems/riemann.html" data-i18n="nav.riemann">Riemann Hypothesis</a>
             <a class="nav-button proof-link" href="open-problems/collatz.html" data-i18n="nav.collatz">Collatz Conjecture</a>
             <a class="nav-button proof-link" href="open-problems/goldbach.html" data-i18n="nav.goldbach">Goldbach Conjecture</a>
             <a class="nav-button proof-link" href="open-problems/twin-prime.html" data-i18n="nav.twinPrime">Twin Prime Workbench</a>
-            <button class="nav-button" data-scroll-target="gap-panel" data-i18n="nav.gapMeasure">Gap Measure</button>
+            <span class="nav-group-label" data-i18n="nav.group.applied">Applied Labs / 응용 연구</span>
+            <button class="nav-button" data-scroll-target="overview-panel" data-i18n="nav.overview">Prime Explorer</button>
             <button class="nav-button" data-scroll-target="prediction-panel" data-i18n="nav.biasRanking">Bias Ranking</button>
             <button class="nav-button" data-scroll-target="bitcoin-panel" data-i18n="nav.bitcoinLab">Bitcoin Lab</button>
             <button class="nav-button" data-scroll-target="fingerprint-panel" data-i18n="nav.fingerprintLab">Fingerprint Lab</button>
             <button class="nav-button" data-scroll-target="baseline-panel" data-i18n="nav.baselineLab">Baseline Lab</button>
+            <span class="nav-group-label" data-i18n="nav.group.evidence">Evidence / 검증</span>
             <button class="nav-button" data-scroll-target="readiness-panel" data-i18n="nav.readiness">Readiness</button>
             <button class="nav-button" data-scroll-target="evidence-panel" data-i18n="nav.evidence">Evidence</button>
             <button class="nav-button" data-scroll-target="attribution-panel" data-i18n="nav.attributionGrid">Attribution Grid</button>
-            <button class="nav-button" data-scroll-target="residue-panel" data-i18n="nav.residueDrift">Residue Drift</button>
-            <button class="nav-button" data-scroll-target="gap-distribution-panel" data-i18n="nav.gapDistribution">Gap Distribution</button>
-            <button class="nav-button" data-scroll-target="snapshots-panel" data-i18n="nav.snapshots">Research Snapshots</button>
-            <button class="nav-button" data-scroll-target="heatmap-panel" data-i18n="nav.heatmap">Heatmap</button>
-            <button class="nav-button" data-scroll-target="comparisons-panel" data-i18n="nav.comparisons">Comparisons</button>
-            <button class="nav-button" data-scroll-target="logs-panel" data-i18n="nav.logs">Logs</button>
-            <button class="nav-button" data-scroll-target="notes-panel" data-i18n="nav.notes">Conjecture Notes</button>
+            <details class="nav-more">
+              <summary data-i18n="nav.group.more">More Analysis / 추가 분석</summary>
+              <button class="nav-button" data-scroll-target="gap-panel" data-i18n="nav.gapMeasure">Gap Measure</button>
+              <button class="nav-button" data-scroll-target="residue-panel" data-i18n="nav.residueDrift">Residue Drift</button>
+              <button class="nav-button" data-scroll-target="gap-distribution-panel" data-i18n="nav.gapDistribution">Gap Distribution</button>
+              <button class="nav-button" data-scroll-target="snapshots-panel" data-i18n="nav.snapshots">Research Snapshots</button>
+              <button class="nav-button" data-scroll-target="heatmap-panel" data-i18n="nav.heatmap">Heatmap</button>
+              <button class="nav-button" data-scroll-target="comparisons-panel" data-i18n="nav.comparisons">Comparisons</button>
+              <button class="nav-button" data-scroll-target="logs-panel" data-i18n="nav.logs">Logs</button>
+              <button class="nav-button" data-scroll-target="notes-panel" data-i18n="nav.notes">Conjecture Notes</button>
+            </details>
           </nav>
+          </details>
         </aside>
 
         <section class="visual-area" aria-label="Prime measure visualizations">
+          <section id="research-brief-panel" class="panel research-brief-panel">
+            <div class="brief-heading">
+              <div>
+                <p class="brief-kicker">TICKET-176 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, four exact reductions</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. It has made four proof obligations sharper and four tempting shortcuts formally unusable.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. 현재 성과는 결정적인 무한 논증이 아니라, 증명 의무를 더 정확히 만들고 잘못된 지름길을 폐기한 네 개의 구조적 부분정리입니다.</p>
+              </div>
+              <div class="brief-verdict" aria-label="Current proof verdict">
+                <span>CLAIM STATUS / 주장 상태</span>
+                <strong>OPEN · 미해결</strong>
+                <small>0 / 4 resolved</small>
+              </div>
+            </div>
+
+            <div class="brief-metrics" aria-label="Current research metrics">
+              <div><span>Latest ticket</span><strong>176</strong><small>2026-08-02</small></div>
+              <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
+              <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
+              <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
+            </div>
+
+            <div class="brief-problem-grid">
+              <article class="brief-problem-card">
+                <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
+                <p><strong>확립:</strong> 상대 Loewner PSD 원뿔 인증은 극소 고유값에서도 작동합니다.</p>
+                <p><strong>폐기:</strong> 대각 성분만으로 전체 tail의 양성을 승격할 수 없습니다.</p>
+                <p><strong>다음 핵심:</strong> pole-neutral Weil tail의 균일한 상대 quadratic-form 상계.</p>
+                <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
+              </article>
+              <article class="brief-problem-card">
+                <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
+                <p><strong>확립:</strong> 비주기 비하강 prefix의 affine 보정항은 명시적 조화 로그 포락선으로 제한됩니다.</p>
+                <p><strong>폐기:</strong> 고정 horizon과 조화 경계의 필요충분 해석은 성립하지 않습니다.</p>
+                <p><strong>다음 핵심:</strong> valuation discrepancy가 조화 포락선을 넘는다는 전역 정리와 주기 배제.</p>
+                <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
+              </article>
+              <article class="brief-problem-card">
+                <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
+                <p><strong>확립:</strong> 짝수 표적에서 같은 위상을 갖는 주파수를 절댓값 이전에 정확히 몫냅니다.</p>
+                <p><strong>폐기:</strong> parity alias 이전의 절댓값 minor 예산은 구조적 손실을 만듭니다.</p>
+                <p><strong>다음 핵심:</strong> aliased fixed-Farey minor polynomial의 균일한 deficit power saving.</p>
+                <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
+              </article>
+              <article class="brief-problem-card">
+                <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
+                <p><strong>확립:</strong> 제한 없는 weighted Schur 최적화는 정확히 원 block spectral norm과 같습니다.</p>
+                <p><strong>폐기:</strong> 미지 singular vector를 쓰는 자유 가중치는 문제를 다시 표현할 뿐입니다.</p>
+                <p><strong>다음 핵심:</strong> 소수쌍 산술에서 선험적으로 정한 가중치의 양방향 power saving.</p>
+                <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
+              </article>
+            </div>
+
+            <div class="brief-track-grid">
+              <section>
+                <span>PURE MATHEMATICS / 순수수학</span>
+                <h2>Proof route audit</h2>
+                <p>176번의 반복 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. 유한 계산은 반례 탐색과 경로 반박에만 사용하며 무한 명제의 증명으로 승격하지 않습니다.</p>
+              </section>
+              <section>
+                <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
+                <h2>Generator fingerprinting</h2>
+                <p>합성 생성기 편향과 재현 가능한 감사 파이프라인은 구축됐지만, OpenSSL·BoringSSL·Go의 승인된 실세계 소수 기준군은 아직 0개입니다. Bitcoin 서명 트랙은 논스 위험 진단만 제공하며 wallet/library metadata가 없어 attribution은 차단되어 있습니다.</p>
+              </section>
+            </div>
+            <div class="brief-actions">
+              <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
+              <a href="docs/relative-cone-harmonic-alias-schur.ko.md">최신 한국어 보고서</a>
+              <a href="docs/relative-cone-harmonic-alias-schur.md">Latest English report</a>
+            </div>
+          </section>
+
           <section id="overview-panel" class="overview-grid">
             <section class="panel main-panel">
               <div class="panel-heading">
@@ -574,6 +657,12 @@
         <aside id="notes-panel" class="insight-panel" aria-label="Conjecture notes">
           <section class="control-rail" aria-label="Experiment controls">
             <h2 class="rail-title">Experiment Control</h2>
+            <section class="rail-research-status" aria-label="Current research status">
+              <span>CURRENT / 현재</span>
+              <strong>TICKET-176</strong>
+              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 증명 경로를 좁힌 부분정리와 no-go 정리입니다.</p>
+              <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
+            </section>
             <section class="control-group">
               <h2>Generator</h2>
               <div class="segmented" role="group" aria-label="Generator">
@@ -707,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260601-i18n"></script>
-    <script src="assets/app.js?v=20260802-ticket176"></script>
+    <script src="assets/i18n.js?v=20260802-research-brief"></script>
+    <script src="assets/app.js?v=20260802-research-brief"></script>
   </body>
 </html>
 

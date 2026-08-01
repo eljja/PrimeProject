@@ -14,7 +14,7 @@
 
 ## English
 
-`PrimeProject` explores practical regularity analysis for cryptographic primes. The current implementation focuses on defensive audits of owned key material, key-quality policy checks, and synthetic generator-bias experiments.
+`PrimeProject` is a dual-track research platform: it audits proof routes for four open problems and studies generator fingerprints in cryptographic mathematical objects. The implementation separates exact mathematics, bounded computation, rejected routes, and blocked real-world attribution claims.
 
 Language support: the GitHub Pages app includes an `EN / KO` switch in the top bar. The switch localizes the page shell, navigation, main headings, proof workbench labels, and publication-boundary guidance while keeping canonical artifact schema labels in English for reproducibility.
 
@@ -136,6 +136,8 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
+The landing view is evidence-first. It starts with the current TICKET-176 boundary, four exact partial results, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+
 Open problem subpages:
 
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html)
@@ -147,9 +149,9 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-six-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 137-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
-The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
+The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
 The latest proof-search track is TICKET-176. It converts the RH target to a full
 relative Loewner form comparison, reduces the correction term on every
@@ -223,7 +225,7 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 ## 한국어
 
-`PrimeProject`는 암호 시스템이 만든 수학적 객체에서 생성기의 흔적과 약점을 찾기 위한 방어적 연구 도구입니다. 현재 구현은 보유 권한이 있는 키 자료의 품질 감사, 키 정책 검사, 합성 generator-bias 실험, 실세계 기준군 수집 계약, publication claim governance에 초점을 둡니다.
+`PrimeProject`는 네 난제의 증명 경로를 감사하고, 암호 시스템이 만든 수학적 객체에서 생성기의 흔적과 약점을 찾는 이중 연구 플랫폼입니다. 정확한 수학적 결과, 유한 계산, 폐기된 경로, 실세계 attribution의 차단 조건을 서로 구분합니다.
 
 언어 지원: [GitHub Pages KO](https://eljja.github.io/PrimeProject/?lang=ko)에서 `EN / KO` 전환 버튼을 사용할 수 있습니다. 전환 대상은 페이지 구조, 좌측 메뉴, 주요 제목, proof workbench 라벨, 논문 제출용 주장 경계 안내입니다. 재현 가능한 JSON artifact의 schema label은 논문/검증 스크립트와 맞추기 위해 영어 원문을 유지합니다.
 
@@ -241,8 +243,8 @@ Loewner 인증, 콜라츠의 로그 보정 상계, 골드바흐의 짝수 표적
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): 소수 간극, residue drift, research atlas, evidence pack, baseline/readiness panel을 한 화면에서 봅니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 미해결 문제의 bounded evidence, missing theorem, proof gate를 분리해 봅니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-176의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 176개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

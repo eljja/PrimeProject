@@ -30,11 +30,11 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260802-ticket176")) {
-      errors.push(`${page}: missing TICKET176 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260802-research-brief")) {
+      errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-ticket176")) {
-      errors.push(`${page}: missing TICKET176 style cache key`);
+    if (!source.includes("styles.css?v=20260802-research-brief")) {
+      errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
 
@@ -63,6 +63,10 @@ async function main() {
     });
 
     await page.goto(url, { waitUntil: "networkidle" });
+    await page.screenshot({
+      path: path.join(root, "data", "conjecture_lab_desktop.png"),
+      fullPage: false,
+    });
     await page.click("[data-generator='rejection']");
     await page.click("[data-generator='wheel30_next']");
     await page.locator("#limitRange").evaluate((input) => {
@@ -110,11 +114,6 @@ async function main() {
       const headerHeight = document.querySelector(".topbar").getBoundingClientRect().height;
       return rect.top >= headerHeight - 20 && rect.top <= headerHeight + 28;
     });
-    await page.screenshot({
-      path: path.join(root, "data", "conjecture_lab_desktop.png"),
-      fullPage: true,
-    });
-
     metrics = await page.evaluate(() => ({
       pageProtocol: window.location.protocol,
       dataSourceBadge: document.querySelector("#dataSourceBadge").textContent,
@@ -122,6 +121,56 @@ async function main() {
       languageSwitchButtons: document.querySelectorAll("[data-lang-set]").length,
       languageNote: document.querySelector(".language-note")?.textContent || "",
       sideNavText: document.querySelector(".side-nav").textContent,
+      navGroupCount: document.querySelectorAll(".nav-group-label").length,
+      currentBriefText: document.querySelector("#research-brief-panel")?.textContent || "",
+      currentBriefCards: document.querySelectorAll("#research-brief-panel .brief-problem-card").length,
+      desktopViewportWidth: window.innerWidth,
+      desktopHorizontalOverflow:
+        document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+      desktopWorkspaceFits: (() => {
+        const workspace = document.querySelector(".workspace")?.getBoundingClientRect();
+        const insight = document.querySelector(".insight-panel")?.getBoundingClientRect();
+        return Boolean(
+          workspace &&
+            insight &&
+            workspace.left >= -1 &&
+            workspace.right <= window.innerWidth + 1 &&
+            insight.left >= -1 &&
+            insight.right <= window.innerWidth + 1,
+        );
+      })(),
+      desktopColumnsDoNotOverlap: (() => {
+        const visual = document.querySelector(".visual-area")?.getBoundingClientRect();
+        const insight = document.querySelector(".insight-panel")?.getBoundingClientRect();
+        return Boolean(visual && insight && visual.right <= insight.left - 10);
+      })(),
+      currentBriefOverflow: (() => {
+        const panel = document.querySelector("#research-brief-panel");
+        return !panel || panel.scrollWidth > panel.clientWidth + 1;
+      })(),
+      currentBriefGeometry: (() => {
+        const measure = (selector) => {
+          const node = document.querySelector(selector);
+          const rect = node?.getBoundingClientRect();
+          const style = node ? getComputedStyle(node) : null;
+          return node && rect ? {
+            clientWidth: node.clientWidth,
+            scrollWidth: node.scrollWidth,
+            left: Math.round(rect.left),
+            right: Math.round(rect.right),
+            width: Math.round(rect.width),
+            whiteSpace: style.whiteSpace,
+            overflowWrap: style.overflowWrap,
+          } : null;
+        };
+        return {
+          panel: measure("#research-brief-panel"),
+          heading: measure(".brief-heading"),
+          title: measure(".brief-heading h1"),
+          verdict: measure(".brief-verdict"),
+          card: measure(".brief-problem-card:nth-child(2)"),
+        };
+      })(),
       proofWorkbenchHref: document.querySelector(".side-nav a[href='open-problems/index.html']")?.textContent || "",
       riemannNavHref: document.querySelector(".side-nav a[href='open-problems/riemann.html']")?.textContent || "",
       collatzNavHref: document.querySelector(".side-nav a[href='open-problems/collatz.html']")?.textContent || "",
@@ -243,9 +292,17 @@ async function main() {
       isMobile: true,
     });
     await mobile.goto(url, { waitUntil: "networkidle" });
+    metrics.mobileNavigationCollapsed = await mobile.evaluate(() => {
+      const disclosure = document.querySelector(".navigation-disclosure");
+      const brief = document.querySelector("#research-brief-panel");
+      return Boolean(disclosure && !disclosure.open && brief && brief.getBoundingClientRect().top < window.innerHeight);
+    });
+    metrics.mobileHorizontalOverflow = await mobile.evaluate(() =>
+      document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+    );
     await mobile.screenshot({
       path: path.join(root, "data", "conjecture_lab_mobile.png"),
-      fullPage: true,
+      fullPage: false,
     });
 
     metrics.openProblemPages = [];
@@ -254,12 +311,18 @@ async function main() {
       deviceScaleFactor: 1,
     });
     await proofHub.goto(new URL("open-problems/index.html", url).toString(), { waitUntil: "networkidle" });
+    await proofHub.screenshot({
+      path: path.join(root, "data", "conjecture_lab_proof_workbench_desktop.png"),
+      fullPage: false,
+    });
     metrics.proofHub = await proofHub.evaluate(() => ({
       title: document.title,
       heading: document.querySelector("h1").textContent,
       linkCount: document.querySelectorAll(".proof-card-link").length,
       links: [...document.querySelectorAll(".proof-card-link")].map((link) => link.getAttribute("href")),
       boundary: document.body.textContent,
+      currentCards: document.querySelectorAll(".workbench-problem-card").length,
+      progressionEras: document.querySelectorAll(".workbench-progression li").length,
     }));
     for (const [problemId, href] of [
       ["riemann", "open-problems/riemann.html"],
@@ -273,6 +336,12 @@ async function main() {
       });
       await problemPage.goto(new URL(href, url).toString(), { waitUntil: "networkidle" });
       await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
+      if (problemId === "riemann") {
+        await problemPage.screenshot({
+          path: path.join(root, "data", "conjecture_lab_riemann_workbench_desktop.png"),
+          fullPage: false,
+        });
+      }
       metrics.openProblemPages.push(
         await problemPage.evaluate((expectedProblemId) => ({
           problemId: expectedProblemId,
@@ -283,7 +352,10 @@ async function main() {
           proofVerdictText: document.querySelector("#proofVerdict").textContent,
           actualProofRunnerText: document.querySelector("#actualProofAttemptRunner").textContent,
           actualProofRunnerSteps: document.querySelectorAll("#actualProofAttemptRunner .runner-step").length,
-          proofOrCounterexampleText: document.querySelector("#proofOrCounterexampleLab")?.textContent || "",
+          proofOrCounterexampleText: `${document.querySelector("#currentResearch")?.textContent || ""}\n${document.querySelector("#proofOrCounterexampleLab")?.textContent || ""}`,
+          currentResearchText: document.querySelector("#currentResearch")?.textContent || "",
+          proofSectionGroups: document.querySelectorAll(".proof-section-group").length,
+          openProofSectionGroups: document.querySelectorAll(".proof-section-group[open]").length,
           proofOrCounterexampleCards: document.querySelectorAll("#proofOrCounterexampleLab .poc-grid section").length,
           candidateLemmaText: document.querySelector("#candidateLemmaWorkbench").textContent,
           candidateLemmaCards: document.querySelectorAll("#candidateLemmaWorkbench .lemma-card").length,
@@ -466,19 +538,48 @@ async function main() {
     process.exit(1);
   }
   if (
+    metrics.navGroupCount !== 4 ||
+    metrics.currentBriefCards !== 4 ||
+    metrics.desktopHorizontalOverflow ||
+    !metrics.desktopWorkspaceFits ||
+    !metrics.desktopColumnsDoNotOverlap ||
+    metrics.currentBriefOverflow ||
+    !metrics.currentBriefText.includes("TICKET-176") ||
+    !metrics.currentBriefText.includes("0 / 4 resolved") ||
+    !metrics.currentBriefText.includes("OpenSSL") ||
+    metrics.mobileHorizontalOverflow ||
+    !metrics.mobileNavigationCollapsed
+  ) {
+    console.error(JSON.stringify({ errors: ["evidence-first landing page contract failed"], metrics }, null, 2));
+    process.exit(1);
+  }
+  if (
     metrics.proofHub?.heading !== "Proof Workbench" ||
-    metrics.proofHub?.linkCount !== 6 ||
+    metrics.proofHub?.linkCount !== 4 ||
+    metrics.proofHub?.currentCards !== 4 ||
+    metrics.proofHub?.progressionEras !== 4 ||
     !metrics.proofHub?.links.includes("riemann.html") ||
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.links.includes("../docs/open-problem-research-consolidation-2026-07-10.md") ||
-    !metrics.proofHub?.links.includes("../docs/proof-or-counterexample-program.md") ||
-    !metrics.proofHub?.boundary.includes("Canonical Research Audit") ||
-    !metrics.proofHub?.boundary.includes("Proof or Counterexample Program") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-176 actually changed") ||
+    !metrics.proofHub?.boundary.includes("Resolution count") ||
+    !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
   ) {
     console.error(JSON.stringify({ errors, metrics }, null, 2));
+    process.exit(1);
+  }
+  const invalidProofOrganization = metrics.openProblemPages.flatMap((page) => {
+    const failures = [];
+    if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
+    if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
+    if (!page.currentResearchText.includes("Ticket 176 relative cones")) failures.push(`${page.problemId}: current TICKET-176 boundary missing`);
+    if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
+    return failures;
+  });
+  if (invalidProofOrganization.length) {
+    console.error(JSON.stringify({ errors: invalidProofOrganization, metrics }, null, 2));
     process.exit(1);
   }
   const missingTicket71Checks = metrics.openProblemPages.flatMap((page) => {

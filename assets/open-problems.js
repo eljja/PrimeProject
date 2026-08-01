@@ -10574,7 +10574,6 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
       <p class="proof-note">최미세 parity pairing은 오차가 아니라 목표 gap-2 상관의 정확히 절반입니다. 이를 o(N)으로 상쇄하려던 TICKET-167 다음 목표를 폐기하고 양의 von Mangoldt 주항 목표로 교정합니다.</p>
     `;
   }
-  const latestTicket176 = renderTicket176RelativeConeHarmonicAliasSchur(ticket176AttemptGlobal);
   const previousTicket175 = renderTicket175RelativeEquivalenceSignedBlock(ticket175AttemptGlobal);
   const previousTicket174 = renderTicket174TailLiftAdaptiveScalePair(ticket174AttemptGlobal);
   const previousTicket173 = renderTicket173FiniteSectionCylinderPhaseTensor(ticket173AttemptGlobal);
@@ -10582,7 +10581,7 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
   const previousTicket171 = renderTicket171RelativeGhostPhaseHaar(ticket171AttemptGlobal);
   const previousTicket170 = renderTicket170IntervalTailBesovMultiscale(ticket170AttemptGlobal);
   const previousTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
-  return `${latestTicket176}${previousTicket175}${previousTicket174}${previousTicket173}${previousTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
+  return `${previousTicket175}${previousTicket174}${previousTicket173}${previousTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
     <div id="ticket168-fixedcore-leastrealizer-phase-paritymain" class="poc-ticket17 poc-ticket128">
       <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms</h3>
@@ -13647,6 +13646,62 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
   `;
 }
 
+function organizeProofSections() {
+  const grid = document.querySelector(".proof-grid");
+  if (!grid || grid.dataset.organized === "true") return;
+
+  const groups = [
+    {
+      title: "Core proof status / 핵심 증명 상태",
+      description: "현재 판정, 후보 보조정리, 주장 게이트를 먼저 봅니다.",
+      open: true,
+      ids: new Set(["proofVerdict", "candidateLemmaWorkbench", "proofStatusGate"]),
+    },
+    {
+      title: "Reproducible evidence / 재현 가능한 증거",
+      description: "유한 계산, 인증서, 독립 재생 자료입니다. 무한 명제의 증명은 아닙니다.",
+      ids: new Set(["actualProofAttemptRunner", "machineProofSearchTrials", "metricCards", "toolPosition", "certificatePanel", "proofFrontierProbe", "formalReplayPackage"]),
+    },
+    {
+      title: "Proof program / 증명 프로그램",
+      description: "남은 보조정리와 공격 순서를 모았습니다.",
+      ids: new Set(["proofRouteTriage", "decisiveTheoremSpec", "decisiveTheoremSubgoals", "decisiveTheoremAttackTickets", "proofBreakthroughAgenda", "aiSolverFrontier", "aiBreakthroughProgram", "aiProofForge", "proofAttempt", "proofMap", "milestoneQueue", "decisiveLemmaLab", "candidateStrategy"]),
+    },
+    {
+      title: "Formal review / 형식 검증과 리뷰",
+      description: "형식화 계약, 장벽 감사, 반증 규칙과 검토 문서입니다.",
+      ids: new Set(["formalUpgradeMatrix", "proofKernelRoadmap", "formalKernelContractAudit", "invalidProofShortcutSuite", "proofExecutionProtocol", "knownBarrierAudit", "proofReviewDocket", "proofReductionContract", "proofCandidateIntake", "proofAttemptExecutionLog", "proofObligationDag", "formalSkeletonAudit", "formalContract", "proofGates", "claimPolicy", "blockedClaims"]),
+    },
+    {
+      title: "Historical ticket archive / 과거 티켓 기록",
+      description: "TICKET-1부터 이전 연구 경계까지의 재현 가능한 전체 장부입니다.",
+      ids: new Set(["proofOrCounterexampleLab"]),
+    },
+  ];
+
+  const containers = groups.map((group) => {
+    const details = document.createElement("details");
+    details.className = "proof-section-group";
+    details.open = Boolean(group.open);
+    const summary = document.createElement("summary");
+    summary.innerHTML = `<span>${group.title}</span><small>${group.description}</small>`;
+    const body = document.createElement("div");
+    body.className = "proof-section-body";
+    details.append(summary, body);
+    grid.append(details);
+    return { ...group, details, body };
+  });
+
+  const panels = [...grid.querySelectorAll(":scope > .proof-panel")];
+  panels.forEach((panel) => {
+    const ownedIds = new Set([...panel.querySelectorAll("[id]")].map((node) => node.id));
+    const target = containers.find((group) => [...group.ids].some((id) => ownedIds.has(id))) || containers[3];
+    target.body.append(panel);
+  });
+  containers.filter((group) => !group.body.children.length).forEach((group) => group.details.remove());
+  grid.dataset.organized = "true";
+}
+
 function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, ticket18Attempt, ticket19Attempt, ticket20Attempt, ticket21Attempt, ticket22Attempt, ticket23Attempt, ticket24Attempt, ticket25Attempt, ticket26Attempt, ticket27Attempt, ticket28Attempt, ticket29Attempt, ticket30Attempt, ticket31Attempt, ticket32Attempt, ticket33Attempt, ticket34Attempt, ticket35Attempt, ticket36Attempt, ticket37Attempt, ticket38Attempt, ticket39Attempt, ticket40Attempt, ticket41Attempt, ticket42Attempt, ticket43Attempt, ticket44Attempt, ticket45Attempt, ticket46Attempt, ticket47Attempt, ticket48Attempt, ticket49Attempt, ticket50Attempt, ticket51Attempt, ticket52Attempt, ticket53Attempt, ticket54Attempt, ticket55Attempt, ticket56Attempt, ticket57Attempt, ticket58Attempt, ticket59Attempt, ticket60Attempt, ticket61Attempt, ticket62Attempt, ticket63Attempt, ticket64Attempt, ticket65Attempt, ticket66Attempt, ticket67Attempt, ticket68Attempt, ticket69Attempt, ticket70Attempt, ticket71Attempt, ticket72Attempt, ticket73Attempt, ticket74Attempt, ticket75Attempt, ticket76Attempt, ticket77Attempt, ticket78Attempt, ticket79Attempt, ticket80Attempt, ticket81Attempt, ticket82Attempt, ticket83Attempt, ticket84Attempt, ticket85Attempt, ticket86Attempt, ticket87Attempt, ticket88Attempt, ticket89Attempt, ticket90Attempt, ticket91Attempt, ticket92Attempt, ticket93Attempt, ticket94Attempt, ticket95Attempt, ticket96Attempt, ticket97Attempt, ticket98Attempt, ticket99Attempt, ticket100Attempt, ticket101Attempt, ticket102Attempt, ticket103Attempt, ticket104Attempt, ticket105Attempt, ticket106Attempt, ticket107Attempt, ticket108Attempt, ticket109Attempt, ticket110Attempt, ticket111Attempt, ticket112Attempt, ticket113Attempt, ticket114Attempt, ticket115Attempt, ticket116Attempt, ticket117Attempt, ticket118Attempt) {
   document.title = `${problem.title} - PrimeProject Proof Workbench`;
   document.querySelector("#problemTitle").textContent = problem.title;
@@ -13660,6 +13715,11 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#claimBoundary").textContent = problem.claim_boundary;
   const existingGuide = document.querySelector("#problemKoGuide");
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
+  const currentResearch = document.querySelector("#currentResearch");
+  if (currentResearch) {
+    currentResearch.innerHTML = renderTicket176RelativeConeHarmonicAliasSchur(ticket176AttemptGlobal) ||
+      `<p class="proof-note">TICKET-176 data is unavailable. The conjecture remains open. / TICKET-176 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+  }
 
   document.querySelector("#problemNav").innerHTML = [
     `<a href="index.html">Workbench</a>`,
@@ -13720,6 +13780,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   document.querySelector("#blockedClaims").innerHTML = (payload.claim_policy.blocked_claims || [])
     .map((claim) => `<span>${escapeHtml(claim)}</span>`)
     .join("");
+  organizeProofSections();
   if (window.PrimeProjectI18n) window.PrimeProjectI18n.apply();
 }
 

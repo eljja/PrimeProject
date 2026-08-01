@@ -809,7 +809,7 @@ const bundledEvidencePack = {
     { role: "baseline_acceptance", schema: "primeproject.baseline-acceptance.v1", sha256: "11bfcc840ff2cda806a9abca4c914475bd0f049cf9f5a5f930eafc5aec8657b3" },
     { role: "baseline_promotion_plan", schema: "primeproject.baseline-promotion-plan.v1", sha256: "4636041a732e84825a9c0af28075583927e1be1edbe25bbf988eb1333a509bd6" },
     { role: "classifier_report", schema: "primeproject.crypto-classifier-report.v1", sha256: "970185d874983453e0a2a27562e30d02f1e96826ad55a0216e93b504e3f10663" },
-    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 126, scanned_line_count: 47217, claim_language_triggered_count: 121, claim_language_guarded_count: 121, claim_language_fail_count: 0 },
+    { role: "claim_language_audit", schema: "primeproject.claim-language-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", scanned_file_count: 126, scanned_line_count: 47322, claim_language_triggered_count: 125, claim_language_guarded_count: 125, claim_language_fail_count: 0 },
     { role: "collection_handoff", schema: "primeproject.collection-handoff.v1", sha256: "47e75e611e98837cac5ecc690cc49900a2b757a7b2d857d474988a4406a5f232" },
     { role: "collection_fixture_audit", schema: "primeproject.collection-fixture-audit.v1", sha256: "bundled-fallback", quality_gate_status: "pass", fixture_count: 10, failed_expectation_count: 0, public_safe_fixture_count: 10 },
     { role: "collection_intake", schema: "primeproject.collection-intake.v1", sha256: "9179e93a350bcebc96db80f095b4966f5514ae53c9866264d2c8731408d9469b" },
@@ -1264,9 +1264,9 @@ const bundledProjectEvolution = {
     publication_claim_level: "public_demo_only",
     checksummed_artifacts: 21,
     claim_language_scanned_files: 126,
-    claim_language_scanned_lines: 47217,
-    claim_language_triggered_mentions: 121,
-    claim_language_guarded_mentions: 121,
+    claim_language_scanned_lines: 47322,
+    claim_language_triggered_mentions: 125,
+    claim_language_guarded_mentions: 125,
     claim_language_failures: 0,
     blocking_gaps: 2,
     claim_ledger_allowed: 3,
@@ -1424,6 +1424,7 @@ const bundledProjectEvolution = {
         { marker: "134", title: "Tail schedules, unique zero-lift branches, adaptive selection, and sharp scale aggregation enforce quantifier-safe uniformity", state: "bounded", measure: "RH 9 four-schedule tail rows / Collatz 5,460 parents by 32 child valuations plus 5 density rows / Goldbach 987 adaptive-selection targets / Twin 6 sharp logarithmic-loss models plus 4 finite Type-II rows / 0 conjecture resolutions", proof: "TICKET-174 makes the explicit certified RH archimedean-tail upper bound vanish on quadratic schedules but leaves the arithmetic core sign open, isolates the unique Collatz zero-lift child missed by density arguments, proves post-hoc Goldbach positive-frequency selection circular, and proves the log2 N Haar scale-pair aggregation loss sharp" },
         { marker: "135", title: "Relative spectral resolution, Collatz equivalence, signed Farey minors, and Haar block operators preserve decisive structure", state: "bounded", measure: "RH 4 published-scale tail-resolution rows plus 4 exact sign-ambiguity rows / Collatz 499,999 odd starts through 1,000,000 with 0 finite descent failures and maximum horizon 111 / Goldbach 987 fixed-Farey targets across 25 support-Q cells with 0 double-loss identity failures / Twin 6 exact matched-scale projections plus 4 finite Type-II block matrices / 0 conjecture resolutions", proof: "TICKET-175 proves polynomial-cutoff absolute tail bounds cannot resolve a superpolynomially small RH spectral edge, proves the selected unique-zero-lift non-descent target equivalent to Collatz itself, proves an absolute fixed-Farey minor budget loses exactly twice the positive minor mass, and replaces maximum scale-pair energy aggregation by the exact operator norm of a Haar block-norm scale matrix" },
         { marker: "136", title: "Relative cones, harmonic corrections, parity aliases, and weighted Schur circularity remove four avoidable losses", state: "bounded", measure: "RH 4 relative-scale rows plus one diagonal-tail no-go / Collatz 49,999 starts with one harmonic-boundary non-crossing descent and 4 delay rows / Goldbach 987 parity-alias targets with 10 additional finite certificates / Twin 3 exact matrices plus 4 Type-II weighted-Schur rows / 0 conjecture resolutions", proof: "TICKET-176 proves a relative Loewner PSD-cone certificate, an explicit logarithmic Collatz correction envelope, a lossless even-target Goldbach parity quotient, and the exact circularity of unrestricted optimized weighted-Schur control" },
+        { marker: "137", title: "Evidence-first Pages make the current boundary visible without erasing the full research ledger", state: "published", measure: "1 current brief / 4 theorem cards / 5 evidence groups / 176 preserved tickets / 0 conjecture resolutions", proof: "GitHub Pages now presents TICKET-176 results, discarded routes, remaining gaps, and claim boundaries before exploratory tools while preserving detailed evidence in semantic archives" },
       ],
       evidence_flow: [
         { stage: "Explore", score: 100, status: "complete", evidence: "10M compute and static snapshots" },
@@ -1449,6 +1450,7 @@ const bundledProjectEvolution = {
       ],
     },
     latest_changes: [
+      { label: "Evidence-first Pages", impact: "Public entry points now lead with TICKET-176, exact partial results, discarded routes, and remaining proof gaps while preserving the full ledger in semantic archives.", metric: "4 current cards / 176 tickets" },
       { label: "Scale evidence", impact: "The browser demo is now backed by 10M live compute plus static 1M/10M snapshots.", metric: "10M live / 2 snapshots" },
       { label: "Controlled signal", impact: "Synthetic generator fingerprints must survive bit-length controls, null calibration, and replication before they count.", metric: "48 rows / 5,000 null / 8 settings" },
       { label: "Real-world gate", impact: "OpenSSL/BoringSSL/Go/Bitcoin targets are registered, but attribution remains blocked until accepted aggregate baselines arrive.", metric: "0 accepted / 10 blocked" },
@@ -1619,6 +1621,17 @@ const controls = {
   predictionSpan: document.querySelector("#predictionSpan"),
   runPrediction: document.querySelector("#runPrediction"),
 };
+
+const navigationDisclosure = document.querySelector(".navigation-disclosure");
+const navigationBreakpoint = window.matchMedia("(max-width: 760px)");
+
+function syncNavigationDisclosure() {
+  if (!navigationDisclosure) return;
+  navigationDisclosure.open = !navigationBreakpoint.matches;
+}
+
+syncNavigationDisclosure();
+navigationBreakpoint.addEventListener?.("change", syncNavigationDisclosure);
 
 const outputs = {
   dataSourceBadge: document.querySelector("#dataSourceBadge"),
