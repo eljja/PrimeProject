@@ -1,0 +1,772 @@
+{
+  "schema": "primeproject.ticket170-interval-tail-besov-multiscale.v1",
+  "generated_at": "2026-08-03T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-170",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo",
+  "declared_proposition": "For every accelerated Collatz prefix w with affine data (m,S,C), least realizer n0, and child correction C'=3C+2^S, there is an effectively computable A(w) such that every appended valuation a>=A(w) has n0(2^(S+a)-3^(m+1))>C'. Hence every natural realizer of that child strictly descends after the appended accelerated step. The remaining child valuations are finite for each prefix. No fixed global threshold can make this immediate one-step tail argument hold for every prefix: for w=1^m, positivity already requires 2^(m+a)>3^(m+1), whose required a is unbounded with m.",
+  "mathematical_argument": "TICKET-169 gives the exact child data and shows every child realizer n' is at least n0. Its endpoint is (3^(m+1)n'+C')/2^(S+a), so descent is equivalent to n'(2^(S+a)-3^(m+1))>C'. The displayed n0 inequality is therefore sufficient and eventually holds because 2^(S+a) grows with a. For w=1^m, C=3^m-2^m and n0=2^(m+1)-1. For any fixed a, 2^(m+a)/3^(m+1)=(2^a/3)(2/3)^m tends to zero, so even denominator positivity fails for all sufficiently large m.",
+  "reproducible_computation": {
+    "theorem": "For every accelerated Collatz prefix w with affine data (m,S,C), least realizer n0, and child correction C'=3C+2^S, there is an effectively computable A(w) such that every appended valuation a>=A(w) has n0(2^(S+a)-3^(m+1))>C'. Hence every natural realizer of that child strictly descends after the appended accelerated step. The remaining child valuations are finite for each prefix. No fixed global threshold can make this immediate one-step tail argument hold for every prefix: for w=1^m, positivity already requires 2^(m+a)>3^(m+1), whose required a is unbounded with m.",
+    "proof": "TICKET-169 gives the exact child data and shows every child realizer n' is at least n0. Its endpoint is (3^(m+1)n'+C')/2^(S+a), so descent is equivalent to n'(2^(S+a)-3^(m+1))>C'. The displayed n0 inequality is therefore sufficient and eventually holds because 2^(S+a) grows with a. For w=1^m, C=3^m-2^m and n0=2^(m+1)-1. For any fixed a, 2^(m+a)/3^(m+1)=(2^a/3)(2/3)^m tends to zero, so even denominator positivity fails for all sufficiently large m.",
+    "prefixwise_finite_tail_rows": [
+      {
+        "word": [
+          1
+        ],
+        "length_m": 1,
+        "valuation_sum_S": 1,
+        "correction_C": 1,
+        "least_prefix_start_n0": 3,
+        "child_correction_C_prime": 5,
+        "tail_threshold_A": 3,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 19,
+            "child_endpoint": 11,
+            "exact_descent_slack": 128,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 3,
+            "child_endpoint": 1,
+            "exact_descent_slack": 64,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 35,
+            "child_endpoint": 5,
+            "exact_descent_slack": 1920,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 99,
+            "child_endpoint": 7,
+            "exact_descent_slack": 11776,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 7,
+            "least_child_start": 483,
+            "child_endpoint": 17,
+            "exact_descent_slack": 119296,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          2
+        ],
+        "length_m": 1,
+        "valuation_sum_S": 2,
+        "correction_C": 1,
+        "least_prefix_start_n0": 9,
+        "child_correction_C_prime": 7,
+        "tail_threshold_A": 2,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 2,
+            "least_child_start": 33,
+            "child_endpoint": 19,
+            "exact_descent_slack": 224,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 17,
+            "child_endpoint": 5,
+            "exact_descent_slack": 384,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 49,
+            "child_endpoint": 7,
+            "exact_descent_slack": 2688,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 241,
+            "child_endpoint": 17,
+            "exact_descent_slack": 28672,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 369,
+            "child_endpoint": 13,
+            "exact_descent_slack": 91136,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          1,
+          1
+        ],
+        "length_m": 2,
+        "valuation_sum_S": 2,
+        "correction_C": 5,
+        "least_prefix_start_n0": 7,
+        "child_correction_C_prime": 19,
+        "tail_threshold_A": 3,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 55,
+            "child_endpoint": 47,
+            "exact_descent_slack": 256,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 87,
+            "child_endpoint": 37,
+            "exact_descent_slack": 3200,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 23,
+            "child_endpoint": 5,
+            "exact_descent_slack": 2304,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 407,
+            "child_endpoint": 43,
+            "exact_descent_slack": 93184,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 7,
+            "least_child_start": 663,
+            "child_endpoint": 35,
+            "exact_descent_slack": 321536,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          1,
+          2
+        ],
+        "length_m": 2,
+        "valuation_sum_S": 3,
+        "correction_C": 5,
+        "least_prefix_start_n0": 11,
+        "child_correction_C_prime": 23,
+        "tail_threshold_A": 2,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 2,
+            "least_child_start": 43,
+            "child_endpoint": 37,
+            "exact_descent_slack": 192,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 11,
+            "child_endpoint": 5,
+            "exact_descent_slack": 384,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 203,
+            "child_endpoint": 43,
+            "exact_descent_slack": 20480,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 331,
+            "child_endpoint": 35,
+            "exact_descent_slack": 75776,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 587,
+            "child_endpoint": 31,
+            "exact_descent_slack": 284672,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          2,
+          1
+        ],
+        "length_m": 2,
+        "valuation_sum_S": 3,
+        "correction_C": 7,
+        "least_prefix_start_n0": 9,
+        "child_correction_C_prime": 29,
+        "tail_threshold_A": 2,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 2,
+            "least_child_start": 57,
+            "child_endpoint": 49,
+            "exact_descent_slack": 256,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 25,
+            "child_endpoint": 11,
+            "exact_descent_slack": 896,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 89,
+            "child_endpoint": 19,
+            "exact_descent_slack": 8960,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 217,
+            "child_endpoint": 23,
+            "exact_descent_slack": 49664,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 473,
+            "child_endpoint": 25,
+            "exact_descent_slack": 229376,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          1,
+          1,
+          1
+        ],
+        "length_m": 3,
+        "valuation_sum_S": 3,
+        "correction_C": 19,
+        "least_prefix_start_n0": 15,
+        "child_correction_C_prime": 65,
+        "tail_threshold_A": 4,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 143,
+            "child_endpoint": 91,
+            "exact_descent_slack": 6656,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 15,
+            "child_endpoint": 5,
+            "exact_descent_slack": 2560,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 271,
+            "child_endpoint": 43,
+            "exact_descent_slack": 116736,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 7,
+            "least_child_start": 1807,
+            "child_endpoint": 143,
+            "exact_descent_slack": 1703936,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 8,
+            "least_child_start": 783,
+            "child_endpoint": 31,
+            "exact_descent_slack": 1540096,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          2,
+          2,
+          1
+        ],
+        "length_m": 3,
+        "valuation_sum_S": 5,
+        "correction_C": 37,
+        "least_prefix_start_n0": 33,
+        "child_correction_C_prime": 143,
+        "tail_threshold_A": 2,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 2,
+            "least_child_start": 161,
+            "child_endpoint": 103,
+            "exact_descent_slack": 7424,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 33,
+            "child_endpoint": 11,
+            "exact_descent_slack": 5632,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 801,
+            "child_endpoint": 127,
+            "exact_descent_slack": 345088,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 289,
+            "child_endpoint": 23,
+            "exact_descent_slack": 272384,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 6,
+            "least_child_start": 3361,
+            "child_endpoint": 133,
+            "exact_descent_slack": 6610944,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      },
+      {
+        "word": [
+          3,
+          1,
+          2
+        ],
+        "length_m": 3,
+        "valuation_sum_S": 6,
+        "correction_C": 49,
+        "least_prefix_start_n0": 29,
+        "child_correction_C_prime": 211,
+        "tail_threshold_A": 1,
+        "threshold_is_minimal": true,
+        "audited_tail_children": [
+          {
+            "appended_valuation_a": 1,
+            "least_child_start": 157,
+            "child_endpoint": 101,
+            "exact_descent_slack": 7168,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 2,
+            "least_child_start": 285,
+            "child_endpoint": 91,
+            "exact_descent_slack": 49664,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 3,
+            "least_child_start": 29,
+            "child_endpoint": 5,
+            "exact_descent_slack": 12288,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 4,
+            "least_child_start": 541,
+            "child_endpoint": 43,
+            "exact_descent_slack": 509952,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          },
+          {
+            "appended_valuation_a": 5,
+            "least_child_start": 3613,
+            "child_endpoint": 143,
+            "exact_descent_slack": 7106560,
+            "checks": {
+              "child_endpoint_is_integral": true,
+              "child_endpoint_is_odd": true,
+              "child_start_is_not_below_prefix_least_start": true,
+              "prefix_lower_bound_already_forces_positive_slack": true,
+              "least_child_realizer_descends": true
+            }
+          }
+        ]
+      }
+    ],
+    "all_one_global_cap_no_go_rows": [
+      {
+        "all_one_word_length_m": 1,
+        "correction_C": 1,
+        "least_start_n0": 3,
+        "tail_threshold_A": 3,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      },
+      {
+        "all_one_word_length_m": 2,
+        "correction_C": 5,
+        "least_start_n0": 7,
+        "tail_threshold_A": 3,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      },
+      {
+        "all_one_word_length_m": 4,
+        "correction_C": 65,
+        "least_start_n0": 31,
+        "tail_threshold_A": 4,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      },
+      {
+        "all_one_word_length_m": 8,
+        "correction_C": 6305,
+        "least_start_n0": 511,
+        "tail_threshold_A": 7,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      },
+      {
+        "all_one_word_length_m": 16,
+        "correction_C": 42981185,
+        "least_start_n0": 131071,
+        "tail_threshold_A": 11,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      },
+      {
+        "all_one_word_length_m": 32,
+        "correction_C": 1853015893884545,
+        "least_start_n0": 8589934591,
+        "tail_threshold_A": 21,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      },
+      {
+        "all_one_word_length_m": 64,
+        "correction_C": 3433683820274065740584139537665,
+        "least_start_n0": 36893488147419103231,
+        "tail_threshold_A": 40,
+        "checks": {
+          "correction_equals_three_power_minus_two_power": true,
+          "least_start_equals_two_to_m_plus_one_minus_one": true,
+          "tail_threshold_exceeds_denominator_positivity_floor": true
+        }
+      }
+    ],
+    "no_fixed_global_immediate_descent_tail_threshold": true,
+    "finite_boundary": "Prefixwise finite branching after tail closure does not prove that the remaining depth-dependent non-descending tree is well founded.",
+    "failure_count": 0
+  },
+  "discarded_route": "one cutoff-independent appended-valuation threshold claimed to force immediate child descent at every prefix",
+  "remaining_gap": "The finite hazardous child set depends on the prefix and its remaining non-descending tree is not proved well founded.",
+  "candidate_theorem": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+  "claim_boundary": "No Collatz proof and no divergent orbit; all large-valuation children close per prefix, but no global tree termination.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T170-REJECTED",
+        "label": "OneGlobalValuationThresholdForcesImmediateDescentAtEveryPrefix",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T170-CLOSED",
+        "label": "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T170-OPEN",
+        "label": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T170-REJECTED",
+        "CO-T170-CLOSED"
+      ],
+      [
+        "CO-T170-CLOSED",
+        "CO-T170-OPEN"
+      ]
+    ]
+  }
+}

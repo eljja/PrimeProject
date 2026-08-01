@@ -1,0 +1,589 @@
+{
+  "schema": "primeproject.ticket170-interval-tail-besov-multiscale.v1",
+  "generated_at": "2026-08-03T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-170",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo",
+  "declared_proposition": "For a centered incidence numerator H=T*C-r*c^T, the normalized spectral quantity ||H||_2/T^2 is exactly the worst normalized bilinear deviation over unit l2 test vectors; in particular every four-bin sign test is at most four times this quantity. However, any fixed coarse partition containing a cell with at least two fine rows and two fine columns can miss all dependence: embed [[a,-a],[-a,a]] inside that cell. Every coarse block sum and every fine marginal vanishes, while the fine spectral norm is 2a.",
+  "mathematical_argument": "The first statement is the variational definition of the top singular value; four-dimensional sign vectors have l2 norm two. For the no-go, summing the checkerboard over its rows, columns, or containing coarse block gives zero. Its eigenvalues are 2a and zero, so a fine bilinear witness remains.",
+  "reproducible_computation": {
+    "theorem": "For a centered incidence numerator H=T*C-r*c^T, the normalized spectral quantity ||H||_2/T^2 is exactly the worst normalized bilinear deviation over unit l2 test vectors; in particular every four-bin sign test is at most four times this quantity. However, any fixed coarse partition containing a cell with at least two fine rows and two fine columns can miss all dependence: embed [[a,-a],[-a,a]] inside that cell. Every coarse block sum and every fine marginal vanishes, while the fine spectral norm is 2a.",
+    "proof": "The first statement is the variational definition of the top singular value; four-dimensional sign vectors have l2 norm two. For the no-go, summing the checkerboard over its rows, columns, or containing coarse block gives zero. Its eigenvalues are 2a and zero, so a fine bilinear witness remains.",
+    "finite_t161_sign_bilinear_rows": [
+      {
+        "X": 10000,
+        "double_semiprime_pair_count_QQ": 35,
+        "coarse_partition_bin_count": 4,
+        "exact_max_sign_bilinear_numerator": 348,
+        "normalized_max_sign_bilinear_deviation": 0.28408163265306124,
+        "four_times_normalized_spectral_bound": 0.4167252653018634,
+        "normalized_top_singular_value": 0.10418131632546584,
+        "checks": {
+          "matrix_is_four_by_four": true,
+          "exact_sign_search_is_nonzero": true,
+          "sign_bilinear_deviation_obeys_spectral_bound": true,
+          "source_zero_margin_checks_pass": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 100000,
+        "double_semiprime_pair_count_QQ": 284,
+        "coarse_partition_bin_count": 4,
+        "exact_max_sign_bilinear_numerator": 11544,
+        "normalized_max_sign_bilinear_deviation": 0.14312636381670304,
+        "four_times_normalized_spectral_bound": 0.2145211492925737,
+        "normalized_top_singular_value": 0.05363028732314343,
+        "checks": {
+          "matrix_is_four_by_four": true,
+          "exact_sign_search_is_nonzero": true,
+          "sign_bilinear_deviation_obeys_spectral_bound": true,
+          "source_zero_margin_checks_pass": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 1000000,
+        "double_semiprime_pair_count_QQ": 2453,
+        "coarse_partition_bin_count": 4,
+        "exact_max_sign_bilinear_numerator": 304848,
+        "normalized_max_sign_bilinear_deviation": 0.050662690958549056,
+        "four_times_normalized_spectral_bound": 0.06164379968388264,
+        "normalized_top_singular_value": 0.01541094992097066,
+        "checks": {
+          "matrix_is_four_by_four": true,
+          "exact_sign_search_is_nonzero": true,
+          "sign_bilinear_deviation_obeys_spectral_bound": true,
+          "source_zero_margin_checks_pass": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 10000000,
+        "double_semiprime_pair_count_QQ": 19074,
+        "coarse_partition_bin_count": 4,
+        "exact_max_sign_bilinear_numerator": 15896504,
+        "normalized_max_sign_bilinear_deviation": 0.043693623997325515,
+        "four_times_normalized_spectral_bound": 0.04946775136739534,
+        "normalized_top_singular_value": 0.012366937841848835,
+        "checks": {
+          "matrix_is_four_by_four": true,
+          "exact_sign_search_is_nonzero": true,
+          "sign_bilinear_deviation_obeys_spectral_bound": true,
+          "source_zero_margin_checks_pass": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      }
+    ],
+    "exact_fixed_partition_invisibility_rows": [
+      {
+        "coarse_group_count": 2,
+        "fine_dimension": 4,
+        "embedded_checkerboard_amplitude": 1,
+        "coarse_aggregate_matrix": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "coarse_top_singular_value": 0,
+        "fine_top_singular_value": 2,
+        "fine_sign_bilinear_witness": 4,
+        "checks": {
+          "all_fine_row_margins_vanish": true,
+          "all_fine_column_margins_vanish": true,
+          "every_coarse_block_aggregate_vanishes": true,
+          "coarse_spectral_norm_is_zero": true,
+          "fine_spectral_norm_is_nonzero": true,
+          "fine_sign_bilinear_witness_is_nonzero": true
+        }
+      },
+      {
+        "coarse_group_count": 4,
+        "fine_dimension": 8,
+        "embedded_checkerboard_amplitude": 10,
+        "coarse_aggregate_matrix": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "coarse_top_singular_value": 0,
+        "fine_top_singular_value": 20,
+        "fine_sign_bilinear_witness": 40,
+        "checks": {
+          "all_fine_row_margins_vanish": true,
+          "all_fine_column_margins_vanish": true,
+          "every_coarse_block_aggregate_vanishes": true,
+          "coarse_spectral_norm_is_zero": true,
+          "fine_spectral_norm_is_nonzero": true,
+          "fine_sign_bilinear_witness_is_nonzero": true
+        }
+      },
+      {
+        "coarse_group_count": 8,
+        "fine_dimension": 16,
+        "embedded_checkerboard_amplitude": 100,
+        "coarse_aggregate_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "coarse_top_singular_value": 0,
+        "fine_top_singular_value": 200,
+        "fine_sign_bilinear_witness": 400,
+        "checks": {
+          "all_fine_row_margins_vanish": true,
+          "all_fine_column_margins_vanish": true,
+          "every_coarse_block_aggregate_vanishes": true,
+          "coarse_spectral_norm_is_zero": true,
+          "fine_spectral_norm_is_nonzero": true,
+          "fine_sign_bilinear_witness_is_nonzero": true
+        }
+      },
+      {
+        "coarse_group_count": 16,
+        "fine_dimension": 32,
+        "embedded_checkerboard_amplitude": 1000,
+        "coarse_aggregate_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "coarse_top_singular_value": 0,
+        "fine_top_singular_value": 2000,
+        "fine_sign_bilinear_witness": 4000,
+        "checks": {
+          "all_fine_row_margins_vanish": true,
+          "all_fine_column_margins_vanish": true,
+          "every_coarse_block_aggregate_vanishes": true,
+          "coarse_spectral_norm_is_zero": true,
+          "fine_spectral_norm_is_nonzero": true,
+          "fine_sign_bilinear_witness_is_nonzero": true
+        }
+      }
+    ],
+    "model_boundary": "The 4-bin finite trend through 10M neither controls refinements nor proves a uniform Type-II estimate. A multiscale theorem must specify a growing family of partitions and constants strong enough for a prime-producing sieve.",
+    "failure_count": 0
+  },
+  "discarded_route": "a fixed four-bin centered incidence trend as sufficient evidence for Type-II decay",
+  "remaining_gap": "No uniform multiscale Type-II decay estimate or prime-producing constants are proved.",
+  "candidate_theorem": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact bilinear bridge and fixed-partition invisibility no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T170-REJECTED",
+        "label": "FixedCoarseCenteredIncidenceControlsAllTypeIIDependence",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T170-CLOSED",
+        "label": "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T170-OPEN",
+        "label": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T170-REJECTED",
+        "TP-T170-CLOSED"
+      ],
+      [
+        "TP-T170-CLOSED",
+        "TP-T170-OPEN"
+      ]
+    ]
+  }
+}

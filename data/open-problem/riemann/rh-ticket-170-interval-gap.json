@@ -1,0 +1,329 @@
+{
+  "schema": "primeproject.ticket170-interval-tail-besov-multiscale.v1",
+  "generated_at": "2026-08-03T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-170",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo",
+  "declared_proposition": "Let K_tilde be real symmetric with gamma=min_j |lambda_j(K_tilde)|>0. Every symmetric K=K_tilde+E with ||E||_2<gamma has the same inertia; the computable interval condition sqrt(sum_ij r_ij^2)<gamma is sufficient. Vanishing maximum entry radius alone is not a dimension-uniform substitute: for diag(I_n,-I_r), the positive-block perturbation -(2/n)J_n has entry radius 2/n tending to zero but changes one eigenvalue from 1 to -1.",
+  "mathematical_argument": "Weyl's inequality moves every ordered eigenvalue by at most ||E||_2, so no eigenvalue can cross zero when ||E||_2<gamma. The interval Frobenius radius dominates the operator norm. For the no-go, J_n has eigenvalues n,0,...,0; therefore I_n-(2/n)J_n has eigenvalues -1,1,...,1 although every perturbation entry is 2/n. The stable comparison I_n-(1/(2n))J_n has eigenvalues 1/2,1,...,1 and satisfies the gap condition exactly.",
+  "reproducible_computation": {
+    "theorem": "Let K_tilde be real symmetric with gamma=min_j |lambda_j(K_tilde)|>0. Every symmetric K=K_tilde+E with ||E||_2<gamma has the same inertia; the computable interval condition sqrt(sum_ij r_ij^2)<gamma is sufficient. Vanishing maximum entry radius alone is not a dimension-uniform substitute: for diag(I_n,-I_r), the positive-block perturbation -(2/n)J_n has entry radius 2/n tending to zero but changes one eigenvalue from 1 to -1.",
+    "proof": "Weyl's inequality moves every ordered eigenvalue by at most ||E||_2, so no eigenvalue can cross zero when ||E||_2<gamma. The interval Frobenius radius dominates the operator norm. For the no-go, J_n has eigenvalues n,0,...,0; therefore I_n-(2/n)J_n has eigenvalues -1,1,...,1 although every perturbation entry is 2/n. The stable comparison I_n-(1/(2n))J_n has eigenvalues 1/2,1,...,1 and satisfies the gap condition exactly.",
+    "exact_interval_proxy_rows": [
+      {
+        "positive_block_dimension_n": 4,
+        "constraint_rank_r": 2,
+        "approximate_spectral_gap_gamma": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "approximate_kkt_canonical_inertia": {
+          "positive": 4,
+          "negative": 2,
+          "zero": 0
+        },
+        "stable_uniform_entry_radius": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "stable_frobenius_and_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "stable_certified_inertia": {
+          "positive": 4,
+          "negative": 2,
+          "zero": 0
+        },
+        "vanishing_but_unstable_entry_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "unstable_frobenius_and_operator_radius": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "unstable_exact_inertia": {
+          "positive": 3,
+          "negative": 3,
+          "zero": 0
+        },
+        "checks": {
+          "stable_frobenius_radius_is_below_gap": true,
+          "stable_inertia_is_unchanged": true,
+          "unstable_entry_radius_tends_to_zero_along_family": true,
+          "unstable_operator_radius_exceeds_gap": true,
+          "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+        }
+      },
+      {
+        "positive_block_dimension_n": 8,
+        "constraint_rank_r": 2,
+        "approximate_spectral_gap_gamma": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "approximate_kkt_canonical_inertia": {
+          "positive": 8,
+          "negative": 2,
+          "zero": 0
+        },
+        "stable_uniform_entry_radius": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "stable_frobenius_and_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "stable_certified_inertia": {
+          "positive": 8,
+          "negative": 2,
+          "zero": 0
+        },
+        "vanishing_but_unstable_entry_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "unstable_frobenius_and_operator_radius": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "unstable_exact_inertia": {
+          "positive": 7,
+          "negative": 3,
+          "zero": 0
+        },
+        "checks": {
+          "stable_frobenius_radius_is_below_gap": true,
+          "stable_inertia_is_unchanged": true,
+          "unstable_entry_radius_tends_to_zero_along_family": true,
+          "unstable_operator_radius_exceeds_gap": true,
+          "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+        }
+      },
+      {
+        "positive_block_dimension_n": 16,
+        "constraint_rank_r": 2,
+        "approximate_spectral_gap_gamma": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "approximate_kkt_canonical_inertia": {
+          "positive": 16,
+          "negative": 2,
+          "zero": 0
+        },
+        "stable_uniform_entry_radius": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "stable_frobenius_and_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "stable_certified_inertia": {
+          "positive": 16,
+          "negative": 2,
+          "zero": 0
+        },
+        "vanishing_but_unstable_entry_radius": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "unstable_frobenius_and_operator_radius": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "unstable_exact_inertia": {
+          "positive": 15,
+          "negative": 3,
+          "zero": 0
+        },
+        "checks": {
+          "stable_frobenius_radius_is_below_gap": true,
+          "stable_inertia_is_unchanged": true,
+          "unstable_entry_radius_tends_to_zero_along_family": true,
+          "unstable_operator_radius_exceeds_gap": true,
+          "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+        }
+      },
+      {
+        "positive_block_dimension_n": 32,
+        "constraint_rank_r": 2,
+        "approximate_spectral_gap_gamma": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "approximate_kkt_canonical_inertia": {
+          "positive": 32,
+          "negative": 2,
+          "zero": 0
+        },
+        "stable_uniform_entry_radius": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "stable_frobenius_and_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "stable_certified_inertia": {
+          "positive": 32,
+          "negative": 2,
+          "zero": 0
+        },
+        "vanishing_but_unstable_entry_radius": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "unstable_frobenius_and_operator_radius": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "unstable_exact_inertia": {
+          "positive": 31,
+          "negative": 3,
+          "zero": 0
+        },
+        "checks": {
+          "stable_frobenius_radius_is_below_gap": true,
+          "stable_inertia_is_unchanged": true,
+          "unstable_entry_radius_tends_to_zero_along_family": true,
+          "unstable_operator_radius_exceeds_gap": true,
+          "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+        }
+      },
+      {
+        "positive_block_dimension_n": 64,
+        "constraint_rank_r": 2,
+        "approximate_spectral_gap_gamma": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "approximate_kkt_canonical_inertia": {
+          "positive": 64,
+          "negative": 2,
+          "zero": 0
+        },
+        "stable_uniform_entry_radius": {
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "stable_frobenius_and_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "stable_certified_inertia": {
+          "positive": 64,
+          "negative": 2,
+          "zero": 0
+        },
+        "vanishing_but_unstable_entry_radius": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "unstable_frobenius_and_operator_radius": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "unstable_exact_inertia": {
+          "positive": 63,
+          "negative": 3,
+          "zero": 0
+        },
+        "checks": {
+          "stable_frobenius_radius_is_below_gap": true,
+          "stable_inertia_is_unchanged": true,
+          "unstable_entry_radius_tends_to_zero_along_family": true,
+          "unstable_operator_radius_exceeds_gap": true,
+          "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+        }
+      },
+      {
+        "positive_block_dimension_n": 128,
+        "constraint_rank_r": 2,
+        "approximate_spectral_gap_gamma": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "approximate_kkt_canonical_inertia": {
+          "positive": 128,
+          "negative": 2,
+          "zero": 0
+        },
+        "stable_uniform_entry_radius": {
+          "exact": "1/256",
+          "decimal": 0.00390625
+        },
+        "stable_frobenius_and_operator_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "stable_certified_inertia": {
+          "positive": 128,
+          "negative": 2,
+          "zero": 0
+        },
+        "vanishing_but_unstable_entry_radius": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "unstable_frobenius_and_operator_radius": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "unstable_exact_inertia": {
+          "positive": 127,
+          "negative": 3,
+          "zero": 0
+        },
+        "checks": {
+          "stable_frobenius_radius_is_below_gap": true,
+          "stable_inertia_is_unchanged": true,
+          "unstable_entry_radius_tends_to_zero_along_family": true,
+          "unstable_operator_radius_exceeds_gap": true,
+          "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+        }
+      }
+    ],
+    "vanishing_entrywise_radius_no_go_holds": true,
+    "coordinate_boundary": "The rank-one family is an exact canonical KKT-inertia obstruction. Entrywise radii after a poorly conditioned congruence need not equal entrywise radii in the original Guinand-Weil basis.",
+    "external_premise_boundary": "PrimeProject still has no cofinal interval enclosure whose dimension-scaled operator error lies below a certified spectral gap on one fixed dense, pole-neutral Guinand-Weil core.",
+    "failure_count": 0
+  },
+  "discarded_route": "entrywise interval radii tending to zero without dimension-scaled operator control",
+  "remaining_gap": "No actual cofinal Guinand-Weil KKT interval family has a certified operator error smaller than its spectral gap.",
+  "candidate_theorem": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore",
+  "claim_boundary": "No RH proof and no off-critical zero exclusion; exact inertia-stability criterion and entrywise no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T170-REJECTED",
+        "label": "VanishingEntrywiseKKTIntervalsPreserveInertiaUniformly",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T170-CLOSED",
+        "label": "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T170-OPEN",
+        "label": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T170-REJECTED",
+        "RH-T170-CLOSED"
+      ],
+      [
+        "RH-T170-CLOSED",
+        "RH-T170-OPEN"
+      ]
+    ]
+  }
+}

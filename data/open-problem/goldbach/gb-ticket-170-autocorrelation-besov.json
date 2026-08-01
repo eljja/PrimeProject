@@ -1,0 +1,330 @@
+{
+  "schema": "primeproject.ticket170-interval-tail-besov-multiscale.v1",
+  "generated_at": "2026-08-03T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-170",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo",
+  "declared_proposition": "Let G_h be the cyclic Fourier coefficients of |f|^2 on a cycle of length L, and partition lags into dyadic shells S_j. Then ||f||_infinity is at most sqrt(L^(-1) sum_j |S_j|^(1/2)(sum_{h in S_j}|G_h|^2)^(1/2)). This follows by shellwise Cauchy-Schwarz from the full autocorrelation l1 certificate. No fixed lag window |h|<=H can control ||f||_infinity: |f_0|^2=1 and |f_1|^2=1+cos(2*pi*(H+1)x/L) agree on every retained lag but have squared uniform norms 1 and 2.",
+  "mathematical_argument": "Fourier inversion gives |f(x)|^2=L^(-1)sum_h G_h exp(2*pi*i*h*x/L) under the transform convention used here. Triangle inequality followed by Cauchy-Schwarz on each shell gives the bound. In the no-go pair, the only nonzero normalized coefficients of the second squared signal are 1 at lag zero and 1/2 at lags plus and minus H+1; its maximum is 2 at x=0.",
+  "reproducible_computation": {
+    "theorem": "Let G_h be the cyclic Fourier coefficients of |f|^2 on a cycle of length L, and partition lags into dyadic shells S_j. Then ||f||_infinity is at most sqrt(L^(-1) sum_j |S_j|^(1/2)(sum_{h in S_j}|G_h|^2)^(1/2)). This follows by shellwise Cauchy-Schwarz from the full autocorrelation l1 certificate. No fixed lag window |h|<=H can control ||f||_infinity: |f_0|^2=1 and |f_1|^2=1+cos(2*pi*(H+1)x/L) agree on every retained lag but have squared uniform norms 1 and 2.",
+    "proof": "Fourier inversion gives |f(x)|^2=L^(-1)sum_h G_h exp(2*pi*i*h*x/L) under the transform convention used here. Triangle inequality followed by Cauchy-Schwarz on each shell gives the bound. In the no-go pair, the only nonzero normalized coefficients of the second squared signal are 1 at lag zero and 1/2 at lags plus and minus H+1; its maximum is 2 at x=0.",
+    "finite_goldbach_autocorrelation_shell_rows": [
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 16,
+        "dyadic_shell_count": 15,
+        "observed_uniform_tail": 0.16681511777970132,
+        "exact_autocorrelation_l1_sqrt_bound": 0.43061032287145007,
+        "autocorrelation_besov_shell_sqrt_bound": 0.47257213703318857,
+        "shell_to_observed_ratio": 2.8329095307613237,
+        "passes_subunit_shell_gate": true,
+        "checks": {
+          "shell_cauchy_budget_dominates_exact_l1_budget": true,
+          "shell_bound_dominates_exact_autocorrelation_bound": true,
+          "exact_autocorrelation_bound_dominates_observed_tail": true,
+          "finite_shell_bound_is_subunit": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 64,
+        "dyadic_shell_count": 15,
+        "observed_uniform_tail": 0.14444445440820225,
+        "exact_autocorrelation_l1_sqrt_bound": 0.42573834867223603,
+        "autocorrelation_besov_shell_sqrt_bound": 0.46790489084230197,
+        "shell_to_observed_ratio": 3.2393413285358506,
+        "passes_subunit_shell_gate": true,
+        "checks": {
+          "shell_cauchy_budget_dominates_exact_l1_budget": true,
+          "shell_bound_dominates_exact_autocorrelation_bound": true,
+          "exact_autocorrelation_bound_dominates_observed_tail": true,
+          "finite_shell_bound_is_subunit": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 256,
+        "dyadic_shell_count": 15,
+        "observed_uniform_tail": 0.14572509675378,
+        "exact_autocorrelation_l1_sqrt_bound": 0.42459229785893543,
+        "autocorrelation_besov_shell_sqrt_bound": 0.466548667962242,
+        "shell_to_observed_ratio": 3.201567048883363,
+        "passes_subunit_shell_gate": true,
+        "checks": {
+          "shell_cauchy_budget_dominates_exact_l1_budget": true,
+          "shell_bound_dominates_exact_autocorrelation_bound": true,
+          "exact_autocorrelation_bound_dominates_observed_tail": true,
+          "finite_shell_bound_is_subunit": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 1024,
+        "dyadic_shell_count": 15,
+        "observed_uniform_tail": 0.1381411807497186,
+        "exact_autocorrelation_l1_sqrt_bound": 0.42501788902938537,
+        "autocorrelation_besov_shell_sqrt_bound": 0.467782617021088,
+        "shell_to_observed_ratio": 3.386264794338244,
+        "passes_subunit_shell_gate": true,
+        "checks": {
+          "shell_cauchy_budget_dominates_exact_l1_budget": true,
+          "shell_bound_dominates_exact_autocorrelation_bound": true,
+          "exact_autocorrelation_bound_dominates_observed_tail": true,
+          "finite_shell_bound_is_subunit": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 4096,
+        "dyadic_shell_count": 15,
+        "observed_uniform_tail": 0.12326129564975533,
+        "exact_autocorrelation_l1_sqrt_bound": 0.3529909487746761,
+        "autocorrelation_besov_shell_sqrt_bound": 0.41663322988588153,
+        "shell_to_observed_ratio": 3.3800815388939047,
+        "passes_subunit_shell_gate": true,
+        "checks": {
+          "shell_cauchy_budget_dominates_exact_l1_budget": true,
+          "shell_bound_dominates_exact_autocorrelation_bound": true,
+          "exact_autocorrelation_bound_dominates_observed_tail": true,
+          "finite_shell_bound_is_subunit": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      }
+    ],
+    "exact_fixed_lag_window_no_go_rows": [
+      {
+        "cyclic_length_L": 16,
+        "retained_lag_window_H": 1,
+        "hidden_lag_q": 2,
+        "shared_normalized_zero_lag": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "shared_retained_nonzero_lags": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "hidden_normalized_coefficient_at_plus_minus_q": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "constant_signal_uniform_norm_squared": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "hidden_cosine_signal_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "checks": {
+          "both_squared_signals_have_identical_mean": true,
+          "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+          "hidden_lag_lies_outside_retained_window": true,
+          "hidden_signal_is_nonnegative_on_cycle": true,
+          "uniform_norms_differ": true
+        }
+      },
+      {
+        "cyclic_length_L": 24,
+        "retained_lag_window_H": 2,
+        "hidden_lag_q": 3,
+        "shared_normalized_zero_lag": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "shared_retained_nonzero_lags": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "hidden_normalized_coefficient_at_plus_minus_q": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "constant_signal_uniform_norm_squared": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "hidden_cosine_signal_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "checks": {
+          "both_squared_signals_have_identical_mean": true,
+          "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+          "hidden_lag_lies_outside_retained_window": true,
+          "hidden_signal_is_nonnegative_on_cycle": true,
+          "uniform_norms_differ": true
+        }
+      },
+      {
+        "cyclic_length_L": 40,
+        "retained_lag_window_H": 4,
+        "hidden_lag_q": 5,
+        "shared_normalized_zero_lag": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "shared_retained_nonzero_lags": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "hidden_normalized_coefficient_at_plus_minus_q": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "constant_signal_uniform_norm_squared": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "hidden_cosine_signal_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "checks": {
+          "both_squared_signals_have_identical_mean": true,
+          "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+          "hidden_lag_lies_outside_retained_window": true,
+          "hidden_signal_is_nonnegative_on_cycle": true,
+          "uniform_norms_differ": true
+        }
+      },
+      {
+        "cyclic_length_L": 72,
+        "retained_lag_window_H": 8,
+        "hidden_lag_q": 9,
+        "shared_normalized_zero_lag": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "shared_retained_nonzero_lags": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "hidden_normalized_coefficient_at_plus_minus_q": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "constant_signal_uniform_norm_squared": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "hidden_cosine_signal_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "checks": {
+          "both_squared_signals_have_identical_mean": true,
+          "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+          "hidden_lag_lies_outside_retained_window": true,
+          "hidden_signal_is_nonnegative_on_cycle": true,
+          "uniform_norms_differ": true
+        }
+      },
+      {
+        "cyclic_length_L": 136,
+        "retained_lag_window_H": 16,
+        "hidden_lag_q": 17,
+        "shared_normalized_zero_lag": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "shared_retained_nonzero_lags": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "hidden_normalized_coefficient_at_plus_minus_q": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "constant_signal_uniform_norm_squared": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "hidden_cosine_signal_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "checks": {
+          "both_squared_signals_have_identical_mean": true,
+          "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+          "hidden_lag_lies_outside_retained_window": true,
+          "hidden_signal_is_nonnegative_on_cycle": true,
+          "uniform_norms_differ": true
+        }
+      },
+      {
+        "cyclic_length_L": 264,
+        "retained_lag_window_H": 32,
+        "hidden_lag_q": 33,
+        "shared_normalized_zero_lag": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "shared_retained_nonzero_lags": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "hidden_normalized_coefficient_at_plus_minus_q": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "constant_signal_uniform_norm_squared": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "hidden_cosine_signal_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "checks": {
+          "both_squared_signals_have_identical_mean": true,
+          "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+          "hidden_lag_lies_outside_retained_window": true,
+          "hidden_signal_is_nonnegative_on_cycle": true,
+          "uniform_norms_differ": true
+        }
+      }
+    ],
+    "finite_diagnostic_boundary": "The five finite shell bounds are below one, but they are not uniform in the target size and are not yet compared with an independently proved Goldbach low-frequency anchor margin.",
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed finite autocorrelation-lag window as a uniform pointwise certificate",
+  "remaining_gap": "No target-uniform arithmetic shell budget below a proved low-frequency Goldbach anchor margin is available.",
+  "candidate_theorem": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact shell bridge, fixed-window no-go, and finite diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T170-REJECTED",
+        "label": "FixedAutocorrelationLagWindowControlsEveryPointwiseDeficit",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T170-CLOSED",
+        "label": "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T170-OPEN",
+        "label": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T170-REJECTED",
+        "GB-T170-CLOSED"
+      ],
+      [
+        "GB-T170-CLOSED",
+        "GB-T170-OPEN"
+      ]
+    ]
+  }
+}

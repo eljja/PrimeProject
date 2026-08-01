@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket170AttemptGlobal = null;
 let ticket169AttemptGlobal = null;
 let ticket168AttemptGlobal = null;
 let ticket167AttemptGlobal = null;
@@ -9965,6 +9966,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket170IntervalTailBesovMultiscale(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.interval_tail_besov_multiscale_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.exact_interval_proxy_rows || [];
+    detail = `
+      <div class="poc-equation">||E||₂ &lt; γ = min |λⱼ(K̃)| ⇒ inertia(K̃+E) = inertia(K̃)</div>
+      ${table(["positive block n", "gap γ", "stable radius", "vanishing entry radius", "flipped inertia"], rows.map((row) => [row.positive_block_dimension_n, row.approximate_spectral_gap_gamma?.exact, row.stable_frobenius_and_operator_radius?.exact, row.vanishing_but_unstable_entry_radius?.exact, `${row.unstable_exact_inertia?.positive},${row.unstable_exact_inertia?.negative},${row.unstable_exact_inertia?.zero}`]))}
+      <div class="poc-head"><div><span>Exact interval rows</span><strong>${rows.length}</strong></div><div><span>Largest n</span><strong>${rows[rows.length - 1]?.positive_block_dimension_n ?? "missing"}</strong></div><div><span>Entrywise no-go</span><strong>${computation.vanishing_entrywise_radius_no_go_holds ? "proved" : "failed"}</strong></div></div>
+      <p class="proof-note">원소별 구간 폭 2/n은 0으로 가지만 rank-one 오차의 연산자 노름은 2로 남아 관성을 바꿉니다. 실제 Weil core에는 dimension-scaled interval norm과 spectral gap을 함께 인증해야 합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.prefixwise_finite_tail_rows || [];
+    const noGo = computation.all_one_global_cap_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">n₀(2<sup>S+a</sup>−3<sup>m+1</sup>) &gt; C′ ⇒ every child with this a descends</div>
+      ${table(["prefix word", "threshold A(w)", "least start n₀", "audited tail children", "minimal"], rows.map((row) => [(row.word || []).join(","), row.tail_threshold_A, row.least_prefix_start_n0, (row.audited_tail_children || []).length, row.threshold_is_minimal]))}
+      <div class="poc-head"><div><span>Prefix tail rows</span><strong>${rows.length}</strong></div><div><span>All-one m=64 threshold</span><strong>${noGo[noGo.length - 1]?.tail_threshold_A ?? "missing"}</strong></div><div><span>Global one-step cap no-go</span><strong>${computation.no_fixed_global_immediate_descent_tail_threshold ? "proved" : "failed"}</strong></div></div>
+      <p class="proof-note">각 접두어의 큰 valuation 꼬리는 한 부등식으로 모두 즉시 하강합니다. 그러나 1<sup>m</sup> 패밀리의 임계값은 3,3,4,7,11,21,40으로 증가해 이 한 단계 논증에 하나의 전역 cap을 쓸 수 없습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_goldbach_autocorrelation_shell_rows || [];
+    const noGo = computation.exact_fixed_lag_window_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">||f||∞² ≤ L<sup>−1</sup>Σⱼ |Sⱼ|<sup>1/2</sup>(Σ<sub>h∈Sⱼ</sub>|G<sub>h</sub>|²)<sup>1/2</sup></div>
+      ${table(["bandwidth K", "observed tail", "exact autocorrelation", "shell bound", "gate < 1"], rows.map((row) => [Number(row.low_pass_bandwidth_K).toLocaleString(), Number(row.observed_uniform_tail).toFixed(4), Number(row.exact_autocorrelation_l1_sqrt_bound).toFixed(4), Number(row.autocorrelation_besov_shell_sqrt_bound).toFixed(4), row.passes_subunit_shell_gate]))}
+      <div class="poc-head"><div><span>Finite shell gates</span><strong>${rows.filter((row) => row.passes_subunit_shell_gate).length}</strong></div><div><span>Fixed windows refuted</span><strong>${noGo.length}</strong></div><div><span>Resolution count</span><strong>0</strong></div></div>
+      <p class="proof-note">dyadic shell L2 예산은 유한 진단에서 모두 1 아래지만 target-uniform 산술 추정이 아닙니다. 모든 고정 lag 창은 H+1의 숨은 cosine 계수를 놓칩니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_t161_sign_bilinear_rows || [];
+    const noGo = computation.exact_fixed_partition_invisibility_rows || [];
+    detail = `
+      <div class="poc-equation">||H||₂/T² = sup<sub>||u||=||v||=1</sub>|uᵀHv|/T²; fixed coarse blocks can still sum to zero</div>
+      ${table(["X", "QQ pairs", "max sign deviation", "spectral bound", "checks"], rows.map((row) => [Number(row.X).toLocaleString(), Number(row.double_semiprime_pair_count_QQ).toLocaleString(), Number(row.normalized_max_sign_bilinear_deviation).toFixed(5), Number(row.four_times_normalized_spectral_bound).toFixed(5), Object.values(row.checks || {}).every(Boolean)]))}
+      <div class="poc-head"><div><span>Finite Type-II rows</span><strong>${rows.length}</strong></div><div><span>Exact invisible refinements</span><strong>${noGo.length}</strong></div><div><span>Coarse norm in no-go</span><strong>0</strong></div></div>
+      <p class="proof-note">고정 4-bin spectral trend는 해당 해상도의 bilinear test만 제어합니다. coarse block 합이 모두 0이어도 fine checkerboard의 singular value는 2a로 남습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket170-interval-tail-besov-multiscale" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 170 interval KKT gaps, Collatz tail closure, autocorrelation Besov control, and multiscale Type II</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact scale or resolution results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET170 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/interval-tail-besov-multiscale.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket169KKTChildLiftAutocorrelationPrimePower(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.kkt_childlift_autocorrelation_primepower_audit || {};
@@ -10017,7 +10086,7 @@ function renderTicket169KKTChildLiftAutocorrelationPrimePower(attempt) {
   }
   return `
     <div id="ticket169-kkt-childlift-autocorrelation-primepower" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 169 KKT inertia, exact Collatz child lifts, spectral autocorrelation, and Twin prime-power removal</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact bridge or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET169 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -10084,8 +10153,9 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
       <p class="proof-note">최미세 parity pairing은 오차가 아니라 목표 gap-2 상관의 정확히 절반입니다. 이를 o(N)으로 상쇄하려던 TICKET-167 다음 목표를 폐기하고 양의 von Mangoldt 주항 목표로 교정합니다.</p>
     `;
   }
-  const latestTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
-  return `${latestTicket169}
+  const latestTicket170 = renderTicket170IntervalTailBesovMultiscale(ticket170AttemptGlobal);
+  const previousTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
+  return `${latestTicket170}${previousTicket169}
     <div id="ticket168-fixedcore-leastrealizer-phase-paritymain" class="poc-ticket17 poc-ticket128">
       <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms</h3>
@@ -13486,6 +13556,26 @@ async function loadTicket143Attempt() {
   }
 }
 
+async function loadTicket170Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket170-interval-tail-besov-multiscale.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket170AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket170AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket170AttemptGlobal) {
+      ticket170AttemptGlobal.bounded_result = ticket170AttemptGlobal.bounded_result || {};
+      ticket170AttemptGlobal.bounded_result.interval_tail_besov_multiscale_audit = payload.interval_tail_besov_multiscale_audit || {};
+    }
+    return Boolean(ticket170AttemptGlobal);
+  } catch (error) {
+    ticket170AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket169Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket169-kkt-childlift-autocorrelation-primepower.json", { cache: "no-store" });
@@ -14235,10 +14325,12 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket170AttemptGlobal) await loadTicket170Attempt();
     if (!ticket169AttemptGlobal) await loadTicket169Attempt();
     if (!ticket168AttemptGlobal) await loadTicket168Attempt();
     if (!ticket167AttemptGlobal) await loadTicket167Attempt();
@@ -14286,7 +14378,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket169-priority";
+  document.documentElement.dataset.openProblemCache = "ticket170-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

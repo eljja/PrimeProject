@@ -1,0 +1,2211 @@
+{
+  "schema": "primeproject.ticket170-interval-tail-besov-multiscale.v1",
+  "generated_at": "2026-08-03T18:00:00+09:00",
+  "status": "four_exact_scale_or_resolution_results_all_conjectures_open",
+  "claim_boundary": "TICKET-170 proves four exact scale or resolution results and resolves none of the four conjectures. It replaces entrywise KKT convergence by gap-relative operator control, closes the large-valuation Collatz child tail per prefix, turns Goldbach autocorrelation into a multiscale shell certificate, and proves that fixed coarse Type-II partitions can hide arbitrary fine dependence.",
+  "interval_tail_besov_multiscale_audit": {
+    "theorem_name": "FourConjectureResolutionCompletenessAudit",
+    "status": "four_exact_scale_or_resolution_results_all_conjectures_open",
+    "proof_boundary": "TICKET-170 proves four exact scale or resolution results and resolves none of the four conjectures. It replaces entrywise KKT convergence by gap-relative operator control, closes the large-valuation Collatz child tail per prefix, turns Goldbach autocorrelation into a multiscale shell certificate, and proves that fixed coarse Type-II partitions can hide arbitrary fine dependence.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-170",
+      "theorem_name": "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo",
+      "declared_proposition": "Let K_tilde be real symmetric with gamma=min_j |lambda_j(K_tilde)|>0. Every symmetric K=K_tilde+E with ||E||_2<gamma has the same inertia; the computable interval condition sqrt(sum_ij r_ij^2)<gamma is sufficient. Vanishing maximum entry radius alone is not a dimension-uniform substitute: for diag(I_n,-I_r), the positive-block perturbation -(2/n)J_n has entry radius 2/n tending to zero but changes one eigenvalue from 1 to -1.",
+      "mathematical_argument": "Weyl's inequality moves every ordered eigenvalue by at most ||E||_2, so no eigenvalue can cross zero when ||E||_2<gamma. The interval Frobenius radius dominates the operator norm. For the no-go, J_n has eigenvalues n,0,...,0; therefore I_n-(2/n)J_n has eigenvalues -1,1,...,1 although every perturbation entry is 2/n. The stable comparison I_n-(1/(2n))J_n has eigenvalues 1/2,1,...,1 and satisfies the gap condition exactly.",
+      "reproducible_computation": {
+        "theorem": "Let K_tilde be real symmetric with gamma=min_j |lambda_j(K_tilde)|>0. Every symmetric K=K_tilde+E with ||E||_2<gamma has the same inertia; the computable interval condition sqrt(sum_ij r_ij^2)<gamma is sufficient. Vanishing maximum entry radius alone is not a dimension-uniform substitute: for diag(I_n,-I_r), the positive-block perturbation -(2/n)J_n has entry radius 2/n tending to zero but changes one eigenvalue from 1 to -1.",
+        "proof": "Weyl's inequality moves every ordered eigenvalue by at most ||E||_2, so no eigenvalue can cross zero when ||E||_2<gamma. The interval Frobenius radius dominates the operator norm. For the no-go, J_n has eigenvalues n,0,...,0; therefore I_n-(2/n)J_n has eigenvalues -1,1,...,1 although every perturbation entry is 2/n. The stable comparison I_n-(1/(2n))J_n has eigenvalues 1/2,1,...,1 and satisfies the gap condition exactly.",
+        "exact_interval_proxy_rows": [
+          {
+            "positive_block_dimension_n": 4,
+            "constraint_rank_r": 2,
+            "approximate_spectral_gap_gamma": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "approximate_kkt_canonical_inertia": {
+              "positive": 4,
+              "negative": 2,
+              "zero": 0
+            },
+            "stable_uniform_entry_radius": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "stable_frobenius_and_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "stable_certified_inertia": {
+              "positive": 4,
+              "negative": 2,
+              "zero": 0
+            },
+            "vanishing_but_unstable_entry_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "unstable_frobenius_and_operator_radius": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "unstable_exact_inertia": {
+              "positive": 3,
+              "negative": 3,
+              "zero": 0
+            },
+            "checks": {
+              "stable_frobenius_radius_is_below_gap": true,
+              "stable_inertia_is_unchanged": true,
+              "unstable_entry_radius_tends_to_zero_along_family": true,
+              "unstable_operator_radius_exceeds_gap": true,
+              "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+            }
+          },
+          {
+            "positive_block_dimension_n": 8,
+            "constraint_rank_r": 2,
+            "approximate_spectral_gap_gamma": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "approximate_kkt_canonical_inertia": {
+              "positive": 8,
+              "negative": 2,
+              "zero": 0
+            },
+            "stable_uniform_entry_radius": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "stable_frobenius_and_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "stable_certified_inertia": {
+              "positive": 8,
+              "negative": 2,
+              "zero": 0
+            },
+            "vanishing_but_unstable_entry_radius": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "unstable_frobenius_and_operator_radius": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "unstable_exact_inertia": {
+              "positive": 7,
+              "negative": 3,
+              "zero": 0
+            },
+            "checks": {
+              "stable_frobenius_radius_is_below_gap": true,
+              "stable_inertia_is_unchanged": true,
+              "unstable_entry_radius_tends_to_zero_along_family": true,
+              "unstable_operator_radius_exceeds_gap": true,
+              "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+            }
+          },
+          {
+            "positive_block_dimension_n": 16,
+            "constraint_rank_r": 2,
+            "approximate_spectral_gap_gamma": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "approximate_kkt_canonical_inertia": {
+              "positive": 16,
+              "negative": 2,
+              "zero": 0
+            },
+            "stable_uniform_entry_radius": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "stable_frobenius_and_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "stable_certified_inertia": {
+              "positive": 16,
+              "negative": 2,
+              "zero": 0
+            },
+            "vanishing_but_unstable_entry_radius": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "unstable_frobenius_and_operator_radius": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "unstable_exact_inertia": {
+              "positive": 15,
+              "negative": 3,
+              "zero": 0
+            },
+            "checks": {
+              "stable_frobenius_radius_is_below_gap": true,
+              "stable_inertia_is_unchanged": true,
+              "unstable_entry_radius_tends_to_zero_along_family": true,
+              "unstable_operator_radius_exceeds_gap": true,
+              "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+            }
+          },
+          {
+            "positive_block_dimension_n": 32,
+            "constraint_rank_r": 2,
+            "approximate_spectral_gap_gamma": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "approximate_kkt_canonical_inertia": {
+              "positive": 32,
+              "negative": 2,
+              "zero": 0
+            },
+            "stable_uniform_entry_radius": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "stable_frobenius_and_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "stable_certified_inertia": {
+              "positive": 32,
+              "negative": 2,
+              "zero": 0
+            },
+            "vanishing_but_unstable_entry_radius": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "unstable_frobenius_and_operator_radius": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "unstable_exact_inertia": {
+              "positive": 31,
+              "negative": 3,
+              "zero": 0
+            },
+            "checks": {
+              "stable_frobenius_radius_is_below_gap": true,
+              "stable_inertia_is_unchanged": true,
+              "unstable_entry_radius_tends_to_zero_along_family": true,
+              "unstable_operator_radius_exceeds_gap": true,
+              "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+            }
+          },
+          {
+            "positive_block_dimension_n": 64,
+            "constraint_rank_r": 2,
+            "approximate_spectral_gap_gamma": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "approximate_kkt_canonical_inertia": {
+              "positive": 64,
+              "negative": 2,
+              "zero": 0
+            },
+            "stable_uniform_entry_radius": {
+              "exact": "1/128",
+              "decimal": 0.0078125
+            },
+            "stable_frobenius_and_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "stable_certified_inertia": {
+              "positive": 64,
+              "negative": 2,
+              "zero": 0
+            },
+            "vanishing_but_unstable_entry_radius": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "unstable_frobenius_and_operator_radius": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "unstable_exact_inertia": {
+              "positive": 63,
+              "negative": 3,
+              "zero": 0
+            },
+            "checks": {
+              "stable_frobenius_radius_is_below_gap": true,
+              "stable_inertia_is_unchanged": true,
+              "unstable_entry_radius_tends_to_zero_along_family": true,
+              "unstable_operator_radius_exceeds_gap": true,
+              "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+            }
+          },
+          {
+            "positive_block_dimension_n": 128,
+            "constraint_rank_r": 2,
+            "approximate_spectral_gap_gamma": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "approximate_kkt_canonical_inertia": {
+              "positive": 128,
+              "negative": 2,
+              "zero": 0
+            },
+            "stable_uniform_entry_radius": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "stable_frobenius_and_operator_radius": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "stable_certified_inertia": {
+              "positive": 128,
+              "negative": 2,
+              "zero": 0
+            },
+            "vanishing_but_unstable_entry_radius": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "unstable_frobenius_and_operator_radius": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "unstable_exact_inertia": {
+              "positive": 127,
+              "negative": 3,
+              "zero": 0
+            },
+            "checks": {
+              "stable_frobenius_radius_is_below_gap": true,
+              "stable_inertia_is_unchanged": true,
+              "unstable_entry_radius_tends_to_zero_along_family": true,
+              "unstable_operator_radius_exceeds_gap": true,
+              "rank_one_uncertainty_flips_exactly_one_positive_direction": true
+            }
+          }
+        ],
+        "vanishing_entrywise_radius_no_go_holds": true,
+        "coordinate_boundary": "The rank-one family is an exact canonical KKT-inertia obstruction. Entrywise radii after a poorly conditioned congruence need not equal entrywise radii in the original Guinand-Weil basis.",
+        "external_premise_boundary": "PrimeProject still has no cofinal interval enclosure whose dimension-scaled operator error lies below a certified spectral gap on one fixed dense, pole-neutral Guinand-Weil core.",
+        "failure_count": 0
+      },
+      "logical_limit": "No actual cofinal Guinand-Weil KKT interval family has a certified operator error smaller than its spectral gap.",
+      "route_decision": {
+        "discard": "entrywise interval radii tending to zero without dimension-scaled operator control",
+        "retain": "operator- or Frobenius-norm interval radii certified below the KKT spectral gap on one fixed dense core",
+        "next_single_lemma": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T170-REJECTED",
+            "label": "VanishingEntrywiseKKTIntervalsPreserveInertiaUniformly",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T170-CLOSED",
+            "label": "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T170-OPEN",
+            "label": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T170-REJECTED",
+            "RH-T170-CLOSED"
+          ],
+          [
+            "RH-T170-CLOSED",
+            "RH-T170-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero exclusion; exact inertia-stability criterion and entrywise no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-170",
+      "theorem_name": "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo",
+      "declared_proposition": "For every accelerated Collatz prefix w with affine data (m,S,C), least realizer n0, and child correction C'=3C+2^S, there is an effectively computable A(w) such that every appended valuation a>=A(w) has n0(2^(S+a)-3^(m+1))>C'. Hence every natural realizer of that child strictly descends after the appended accelerated step. The remaining child valuations are finite for each prefix. No fixed global threshold can make this immediate one-step tail argument hold for every prefix: for w=1^m, positivity already requires 2^(m+a)>3^(m+1), whose required a is unbounded with m.",
+      "mathematical_argument": "TICKET-169 gives the exact child data and shows every child realizer n' is at least n0. Its endpoint is (3^(m+1)n'+C')/2^(S+a), so descent is equivalent to n'(2^(S+a)-3^(m+1))>C'. The displayed n0 inequality is therefore sufficient and eventually holds because 2^(S+a) grows with a. For w=1^m, C=3^m-2^m and n0=2^(m+1)-1. For any fixed a, 2^(m+a)/3^(m+1)=(2^a/3)(2/3)^m tends to zero, so even denominator positivity fails for all sufficiently large m.",
+      "reproducible_computation": {
+        "theorem": "For every accelerated Collatz prefix w with affine data (m,S,C), least realizer n0, and child correction C'=3C+2^S, there is an effectively computable A(w) such that every appended valuation a>=A(w) has n0(2^(S+a)-3^(m+1))>C'. Hence every natural realizer of that child strictly descends after the appended accelerated step. The remaining child valuations are finite for each prefix. No fixed global threshold can make this immediate one-step tail argument hold for every prefix: for w=1^m, positivity already requires 2^(m+a)>3^(m+1), whose required a is unbounded with m.",
+        "proof": "TICKET-169 gives the exact child data and shows every child realizer n' is at least n0. Its endpoint is (3^(m+1)n'+C')/2^(S+a), so descent is equivalent to n'(2^(S+a)-3^(m+1))>C'. The displayed n0 inequality is therefore sufficient and eventually holds because 2^(S+a) grows with a. For w=1^m, C=3^m-2^m and n0=2^(m+1)-1. For any fixed a, 2^(m+a)/3^(m+1)=(2^a/3)(2/3)^m tends to zero, so even denominator positivity fails for all sufficiently large m.",
+        "prefixwise_finite_tail_rows": [
+          {
+            "word": [
+              1
+            ],
+            "length_m": 1,
+            "valuation_sum_S": 1,
+            "correction_C": 1,
+            "least_prefix_start_n0": 3,
+            "child_correction_C_prime": 5,
+            "tail_threshold_A": 3,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 19,
+                "child_endpoint": 11,
+                "exact_descent_slack": 128,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 3,
+                "child_endpoint": 1,
+                "exact_descent_slack": 64,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 35,
+                "child_endpoint": 5,
+                "exact_descent_slack": 1920,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 99,
+                "child_endpoint": 7,
+                "exact_descent_slack": 11776,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 7,
+                "least_child_start": 483,
+                "child_endpoint": 17,
+                "exact_descent_slack": 119296,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              2
+            ],
+            "length_m": 1,
+            "valuation_sum_S": 2,
+            "correction_C": 1,
+            "least_prefix_start_n0": 9,
+            "child_correction_C_prime": 7,
+            "tail_threshold_A": 2,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 2,
+                "least_child_start": 33,
+                "child_endpoint": 19,
+                "exact_descent_slack": 224,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 17,
+                "child_endpoint": 5,
+                "exact_descent_slack": 384,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 49,
+                "child_endpoint": 7,
+                "exact_descent_slack": 2688,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 241,
+                "child_endpoint": 17,
+                "exact_descent_slack": 28672,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 369,
+                "child_endpoint": 13,
+                "exact_descent_slack": 91136,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              1,
+              1
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 2,
+            "correction_C": 5,
+            "least_prefix_start_n0": 7,
+            "child_correction_C_prime": 19,
+            "tail_threshold_A": 3,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 55,
+                "child_endpoint": 47,
+                "exact_descent_slack": 256,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 87,
+                "child_endpoint": 37,
+                "exact_descent_slack": 3200,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 23,
+                "child_endpoint": 5,
+                "exact_descent_slack": 2304,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 407,
+                "child_endpoint": 43,
+                "exact_descent_slack": 93184,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 7,
+                "least_child_start": 663,
+                "child_endpoint": 35,
+                "exact_descent_slack": 321536,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              1,
+              2
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 3,
+            "correction_C": 5,
+            "least_prefix_start_n0": 11,
+            "child_correction_C_prime": 23,
+            "tail_threshold_A": 2,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 2,
+                "least_child_start": 43,
+                "child_endpoint": 37,
+                "exact_descent_slack": 192,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 11,
+                "child_endpoint": 5,
+                "exact_descent_slack": 384,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 203,
+                "child_endpoint": 43,
+                "exact_descent_slack": 20480,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 331,
+                "child_endpoint": 35,
+                "exact_descent_slack": 75776,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 587,
+                "child_endpoint": 31,
+                "exact_descent_slack": 284672,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              2,
+              1
+            ],
+            "length_m": 2,
+            "valuation_sum_S": 3,
+            "correction_C": 7,
+            "least_prefix_start_n0": 9,
+            "child_correction_C_prime": 29,
+            "tail_threshold_A": 2,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 2,
+                "least_child_start": 57,
+                "child_endpoint": 49,
+                "exact_descent_slack": 256,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 25,
+                "child_endpoint": 11,
+                "exact_descent_slack": 896,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 89,
+                "child_endpoint": 19,
+                "exact_descent_slack": 8960,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 217,
+                "child_endpoint": 23,
+                "exact_descent_slack": 49664,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 473,
+                "child_endpoint": 25,
+                "exact_descent_slack": 229376,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              1,
+              1,
+              1
+            ],
+            "length_m": 3,
+            "valuation_sum_S": 3,
+            "correction_C": 19,
+            "least_prefix_start_n0": 15,
+            "child_correction_C_prime": 65,
+            "tail_threshold_A": 4,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 143,
+                "child_endpoint": 91,
+                "exact_descent_slack": 6656,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 15,
+                "child_endpoint": 5,
+                "exact_descent_slack": 2560,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 271,
+                "child_endpoint": 43,
+                "exact_descent_slack": 116736,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 7,
+                "least_child_start": 1807,
+                "child_endpoint": 143,
+                "exact_descent_slack": 1703936,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 8,
+                "least_child_start": 783,
+                "child_endpoint": 31,
+                "exact_descent_slack": 1540096,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              2,
+              2,
+              1
+            ],
+            "length_m": 3,
+            "valuation_sum_S": 5,
+            "correction_C": 37,
+            "least_prefix_start_n0": 33,
+            "child_correction_C_prime": 143,
+            "tail_threshold_A": 2,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 2,
+                "least_child_start": 161,
+                "child_endpoint": 103,
+                "exact_descent_slack": 7424,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 33,
+                "child_endpoint": 11,
+                "exact_descent_slack": 5632,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 801,
+                "child_endpoint": 127,
+                "exact_descent_slack": 345088,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 289,
+                "child_endpoint": 23,
+                "exact_descent_slack": 272384,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 6,
+                "least_child_start": 3361,
+                "child_endpoint": 133,
+                "exact_descent_slack": 6610944,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          },
+          {
+            "word": [
+              3,
+              1,
+              2
+            ],
+            "length_m": 3,
+            "valuation_sum_S": 6,
+            "correction_C": 49,
+            "least_prefix_start_n0": 29,
+            "child_correction_C_prime": 211,
+            "tail_threshold_A": 1,
+            "threshold_is_minimal": true,
+            "audited_tail_children": [
+              {
+                "appended_valuation_a": 1,
+                "least_child_start": 157,
+                "child_endpoint": 101,
+                "exact_descent_slack": 7168,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 2,
+                "least_child_start": 285,
+                "child_endpoint": 91,
+                "exact_descent_slack": 49664,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 3,
+                "least_child_start": 29,
+                "child_endpoint": 5,
+                "exact_descent_slack": 12288,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 4,
+                "least_child_start": 541,
+                "child_endpoint": 43,
+                "exact_descent_slack": 509952,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              },
+              {
+                "appended_valuation_a": 5,
+                "least_child_start": 3613,
+                "child_endpoint": 143,
+                "exact_descent_slack": 7106560,
+                "checks": {
+                  "child_endpoint_is_integral": true,
+                  "child_endpoint_is_odd": true,
+                  "child_start_is_not_below_prefix_least_start": true,
+                  "prefix_lower_bound_already_forces_positive_slack": true,
+                  "least_child_realizer_descends": true
+                }
+              }
+            ]
+          }
+        ],
+        "all_one_global_cap_no_go_rows": [
+          {
+            "all_one_word_length_m": 1,
+            "correction_C": 1,
+            "least_start_n0": 3,
+            "tail_threshold_A": 3,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          },
+          {
+            "all_one_word_length_m": 2,
+            "correction_C": 5,
+            "least_start_n0": 7,
+            "tail_threshold_A": 3,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          },
+          {
+            "all_one_word_length_m": 4,
+            "correction_C": 65,
+            "least_start_n0": 31,
+            "tail_threshold_A": 4,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          },
+          {
+            "all_one_word_length_m": 8,
+            "correction_C": 6305,
+            "least_start_n0": 511,
+            "tail_threshold_A": 7,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          },
+          {
+            "all_one_word_length_m": 16,
+            "correction_C": 42981185,
+            "least_start_n0": 131071,
+            "tail_threshold_A": 11,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          },
+          {
+            "all_one_word_length_m": 32,
+            "correction_C": 1853015893884545,
+            "least_start_n0": 8589934591,
+            "tail_threshold_A": 21,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          },
+          {
+            "all_one_word_length_m": 64,
+            "correction_C": 3433683820274065740584139537665,
+            "least_start_n0": 36893488147419103231,
+            "tail_threshold_A": 40,
+            "checks": {
+              "correction_equals_three_power_minus_two_power": true,
+              "least_start_equals_two_to_m_plus_one_minus_one": true,
+              "tail_threshold_exceeds_denominator_positivity_floor": true
+            }
+          }
+        ],
+        "no_fixed_global_immediate_descent_tail_threshold": true,
+        "finite_boundary": "Prefixwise finite branching after tail closure does not prove that the remaining depth-dependent non-descending tree is well founded.",
+        "failure_count": 0
+      },
+      "logical_limit": "The finite hazardous child set depends on the prefix and its remaining non-descending tree is not proved well founded.",
+      "route_decision": {
+        "discard": "one cutoff-independent appended-valuation threshold claimed to force immediate child descent at every prefix",
+        "retain": "exact prefix-dependent tail closure followed by a well-foundedness proof for the finite residual child tree",
+        "next_single_lemma": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T170-REJECTED",
+            "label": "OneGlobalValuationThresholdForcesImmediateDescentAtEveryPrefix",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T170-CLOSED",
+            "label": "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T170-OPEN",
+            "label": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T170-REJECTED",
+            "CO-T170-CLOSED"
+          ],
+          [
+            "CO-T170-CLOSED",
+            "CO-T170-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit; all large-valuation children close per prefix, but no global tree termination."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-170",
+      "theorem_name": "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo",
+      "declared_proposition": "Let G_h be the cyclic Fourier coefficients of |f|^2 on a cycle of length L, and partition lags into dyadic shells S_j. Then ||f||_infinity is at most sqrt(L^(-1) sum_j |S_j|^(1/2)(sum_{h in S_j}|G_h|^2)^(1/2)). This follows by shellwise Cauchy-Schwarz from the full autocorrelation l1 certificate. No fixed lag window |h|<=H can control ||f||_infinity: |f_0|^2=1 and |f_1|^2=1+cos(2*pi*(H+1)x/L) agree on every retained lag but have squared uniform norms 1 and 2.",
+      "mathematical_argument": "Fourier inversion gives |f(x)|^2=L^(-1)sum_h G_h exp(2*pi*i*h*x/L) under the transform convention used here. Triangle inequality followed by Cauchy-Schwarz on each shell gives the bound. In the no-go pair, the only nonzero normalized coefficients of the second squared signal are 1 at lag zero and 1/2 at lags plus and minus H+1; its maximum is 2 at x=0.",
+      "reproducible_computation": {
+        "theorem": "Let G_h be the cyclic Fourier coefficients of |f|^2 on a cycle of length L, and partition lags into dyadic shells S_j. Then ||f||_infinity is at most sqrt(L^(-1) sum_j |S_j|^(1/2)(sum_{h in S_j}|G_h|^2)^(1/2)). This follows by shellwise Cauchy-Schwarz from the full autocorrelation l1 certificate. No fixed lag window |h|<=H can control ||f||_infinity: |f_0|^2=1 and |f_1|^2=1+cos(2*pi*(H+1)x/L) agree on every retained lag but have squared uniform norms 1 and 2.",
+        "proof": "Fourier inversion gives |f(x)|^2=L^(-1)sum_h G_h exp(2*pi*i*h*x/L) under the transform convention used here. Triangle inequality followed by Cauchy-Schwarz on each shell gives the bound. In the no-go pair, the only nonzero normalized coefficients of the second squared signal are 1 at lag zero and 1/2 at lags plus and minus H+1; its maximum is 2 at x=0.",
+        "finite_goldbach_autocorrelation_shell_rows": [
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 16,
+            "dyadic_shell_count": 15,
+            "observed_uniform_tail": 0.16681511777970132,
+            "exact_autocorrelation_l1_sqrt_bound": 0.43061032287145007,
+            "autocorrelation_besov_shell_sqrt_bound": 0.47257213703318857,
+            "shell_to_observed_ratio": 2.8329095307613237,
+            "passes_subunit_shell_gate": true,
+            "checks": {
+              "shell_cauchy_budget_dominates_exact_l1_budget": true,
+              "shell_bound_dominates_exact_autocorrelation_bound": true,
+              "exact_autocorrelation_bound_dominates_observed_tail": true,
+              "finite_shell_bound_is_subunit": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 64,
+            "dyadic_shell_count": 15,
+            "observed_uniform_tail": 0.14444445440820225,
+            "exact_autocorrelation_l1_sqrt_bound": 0.42573834867223603,
+            "autocorrelation_besov_shell_sqrt_bound": 0.46790489084230197,
+            "shell_to_observed_ratio": 3.2393413285358506,
+            "passes_subunit_shell_gate": true,
+            "checks": {
+              "shell_cauchy_budget_dominates_exact_l1_budget": true,
+              "shell_bound_dominates_exact_autocorrelation_bound": true,
+              "exact_autocorrelation_bound_dominates_observed_tail": true,
+              "finite_shell_bound_is_subunit": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 256,
+            "dyadic_shell_count": 15,
+            "observed_uniform_tail": 0.14572509675378,
+            "exact_autocorrelation_l1_sqrt_bound": 0.42459229785893543,
+            "autocorrelation_besov_shell_sqrt_bound": 0.466548667962242,
+            "shell_to_observed_ratio": 3.201567048883363,
+            "passes_subunit_shell_gate": true,
+            "checks": {
+              "shell_cauchy_budget_dominates_exact_l1_budget": true,
+              "shell_bound_dominates_exact_autocorrelation_bound": true,
+              "exact_autocorrelation_bound_dominates_observed_tail": true,
+              "finite_shell_bound_is_subunit": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 1024,
+            "dyadic_shell_count": 15,
+            "observed_uniform_tail": 0.1381411807497186,
+            "exact_autocorrelation_l1_sqrt_bound": 0.42501788902938537,
+            "autocorrelation_besov_shell_sqrt_bound": 0.467782617021088,
+            "shell_to_observed_ratio": 3.386264794338244,
+            "passes_subunit_shell_gate": true,
+            "checks": {
+              "shell_cauchy_budget_dominates_exact_l1_budget": true,
+              "shell_bound_dominates_exact_autocorrelation_bound": true,
+              "exact_autocorrelation_bound_dominates_observed_tail": true,
+              "finite_shell_bound_is_subunit": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 4096,
+            "dyadic_shell_count": 15,
+            "observed_uniform_tail": 0.12326129564975533,
+            "exact_autocorrelation_l1_sqrt_bound": 0.3529909487746761,
+            "autocorrelation_besov_shell_sqrt_bound": 0.41663322988588153,
+            "shell_to_observed_ratio": 3.3800815388939047,
+            "passes_subunit_shell_gate": true,
+            "checks": {
+              "shell_cauchy_budget_dominates_exact_l1_budget": true,
+              "shell_bound_dominates_exact_autocorrelation_bound": true,
+              "exact_autocorrelation_bound_dominates_observed_tail": true,
+              "finite_shell_bound_is_subunit": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          }
+        ],
+        "exact_fixed_lag_window_no_go_rows": [
+          {
+            "cyclic_length_L": 16,
+            "retained_lag_window_H": 1,
+            "hidden_lag_q": 2,
+            "shared_normalized_zero_lag": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "shared_retained_nonzero_lags": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_normalized_coefficient_at_plus_minus_q": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "constant_signal_uniform_norm_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "hidden_cosine_signal_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "checks": {
+              "both_squared_signals_have_identical_mean": true,
+              "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+              "hidden_lag_lies_outside_retained_window": true,
+              "hidden_signal_is_nonnegative_on_cycle": true,
+              "uniform_norms_differ": true
+            }
+          },
+          {
+            "cyclic_length_L": 24,
+            "retained_lag_window_H": 2,
+            "hidden_lag_q": 3,
+            "shared_normalized_zero_lag": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "shared_retained_nonzero_lags": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_normalized_coefficient_at_plus_minus_q": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "constant_signal_uniform_norm_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "hidden_cosine_signal_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "checks": {
+              "both_squared_signals_have_identical_mean": true,
+              "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+              "hidden_lag_lies_outside_retained_window": true,
+              "hidden_signal_is_nonnegative_on_cycle": true,
+              "uniform_norms_differ": true
+            }
+          },
+          {
+            "cyclic_length_L": 40,
+            "retained_lag_window_H": 4,
+            "hidden_lag_q": 5,
+            "shared_normalized_zero_lag": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "shared_retained_nonzero_lags": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_normalized_coefficient_at_plus_minus_q": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "constant_signal_uniform_norm_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "hidden_cosine_signal_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "checks": {
+              "both_squared_signals_have_identical_mean": true,
+              "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+              "hidden_lag_lies_outside_retained_window": true,
+              "hidden_signal_is_nonnegative_on_cycle": true,
+              "uniform_norms_differ": true
+            }
+          },
+          {
+            "cyclic_length_L": 72,
+            "retained_lag_window_H": 8,
+            "hidden_lag_q": 9,
+            "shared_normalized_zero_lag": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "shared_retained_nonzero_lags": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_normalized_coefficient_at_plus_minus_q": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "constant_signal_uniform_norm_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "hidden_cosine_signal_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "checks": {
+              "both_squared_signals_have_identical_mean": true,
+              "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+              "hidden_lag_lies_outside_retained_window": true,
+              "hidden_signal_is_nonnegative_on_cycle": true,
+              "uniform_norms_differ": true
+            }
+          },
+          {
+            "cyclic_length_L": 136,
+            "retained_lag_window_H": 16,
+            "hidden_lag_q": 17,
+            "shared_normalized_zero_lag": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "shared_retained_nonzero_lags": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_normalized_coefficient_at_plus_minus_q": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "constant_signal_uniform_norm_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "hidden_cosine_signal_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "checks": {
+              "both_squared_signals_have_identical_mean": true,
+              "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+              "hidden_lag_lies_outside_retained_window": true,
+              "hidden_signal_is_nonnegative_on_cycle": true,
+              "uniform_norms_differ": true
+            }
+          },
+          {
+            "cyclic_length_L": 264,
+            "retained_lag_window_H": 32,
+            "hidden_lag_q": 33,
+            "shared_normalized_zero_lag": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "shared_retained_nonzero_lags": {
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "hidden_normalized_coefficient_at_plus_minus_q": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "constant_signal_uniform_norm_squared": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "hidden_cosine_signal_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "checks": {
+              "both_squared_signals_have_identical_mean": true,
+              "all_retained_nonzero_autocorrelation_coefficients_agree": true,
+              "hidden_lag_lies_outside_retained_window": true,
+              "hidden_signal_is_nonnegative_on_cycle": true,
+              "uniform_norms_differ": true
+            }
+          }
+        ],
+        "finite_diagnostic_boundary": "The five finite shell bounds are below one, but they are not uniform in the target size and are not yet compared with an independently proved Goldbach low-frequency anchor margin.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform arithmetic shell budget below a proved low-frequency Goldbach anchor margin is available.",
+      "route_decision": {
+        "discard": "any fixed finite autocorrelation-lag window as a uniform pointwise certificate",
+        "retain": "a growing dyadic autocorrelation Besov-one budget with explicit target-uniform arithmetic estimates",
+        "next_single_lemma": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T170-REJECTED",
+            "label": "FixedAutocorrelationLagWindowControlsEveryPointwiseDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T170-CLOSED",
+            "label": "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T170-OPEN",
+            "label": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T170-REJECTED",
+            "GB-T170-CLOSED"
+          ],
+          [
+            "GB-T170-CLOSED",
+            "GB-T170-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact shell bridge, fixed-window no-go, and finite diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-170",
+      "theorem_name": "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo",
+      "declared_proposition": "For a centered incidence numerator H=T*C-r*c^T, the normalized spectral quantity ||H||_2/T^2 is exactly the worst normalized bilinear deviation over unit l2 test vectors; in particular every four-bin sign test is at most four times this quantity. However, any fixed coarse partition containing a cell with at least two fine rows and two fine columns can miss all dependence: embed [[a,-a],[-a,a]] inside that cell. Every coarse block sum and every fine marginal vanishes, while the fine spectral norm is 2a.",
+      "mathematical_argument": "The first statement is the variational definition of the top singular value; four-dimensional sign vectors have l2 norm two. For the no-go, summing the checkerboard over its rows, columns, or containing coarse block gives zero. Its eigenvalues are 2a and zero, so a fine bilinear witness remains.",
+      "reproducible_computation": {
+        "theorem": "For a centered incidence numerator H=T*C-r*c^T, the normalized spectral quantity ||H||_2/T^2 is exactly the worst normalized bilinear deviation over unit l2 test vectors; in particular every four-bin sign test is at most four times this quantity. However, any fixed coarse partition containing a cell with at least two fine rows and two fine columns can miss all dependence: embed [[a,-a],[-a,a]] inside that cell. Every coarse block sum and every fine marginal vanishes, while the fine spectral norm is 2a.",
+        "proof": "The first statement is the variational definition of the top singular value; four-dimensional sign vectors have l2 norm two. For the no-go, summing the checkerboard over its rows, columns, or containing coarse block gives zero. Its eigenvalues are 2a and zero, so a fine bilinear witness remains.",
+        "finite_t161_sign_bilinear_rows": [
+          {
+            "X": 10000,
+            "double_semiprime_pair_count_QQ": 35,
+            "coarse_partition_bin_count": 4,
+            "exact_max_sign_bilinear_numerator": 348,
+            "normalized_max_sign_bilinear_deviation": 0.28408163265306124,
+            "four_times_normalized_spectral_bound": 0.4167252653018634,
+            "normalized_top_singular_value": 0.10418131632546584,
+            "checks": {
+              "matrix_is_four_by_four": true,
+              "exact_sign_search_is_nonzero": true,
+              "sign_bilinear_deviation_obeys_spectral_bound": true,
+              "source_zero_margin_checks_pass": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 100000,
+            "double_semiprime_pair_count_QQ": 284,
+            "coarse_partition_bin_count": 4,
+            "exact_max_sign_bilinear_numerator": 11544,
+            "normalized_max_sign_bilinear_deviation": 0.14312636381670304,
+            "four_times_normalized_spectral_bound": 0.2145211492925737,
+            "normalized_top_singular_value": 0.05363028732314343,
+            "checks": {
+              "matrix_is_four_by_four": true,
+              "exact_sign_search_is_nonzero": true,
+              "sign_bilinear_deviation_obeys_spectral_bound": true,
+              "source_zero_margin_checks_pass": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 1000000,
+            "double_semiprime_pair_count_QQ": 2453,
+            "coarse_partition_bin_count": 4,
+            "exact_max_sign_bilinear_numerator": 304848,
+            "normalized_max_sign_bilinear_deviation": 0.050662690958549056,
+            "four_times_normalized_spectral_bound": 0.06164379968388264,
+            "normalized_top_singular_value": 0.01541094992097066,
+            "checks": {
+              "matrix_is_four_by_four": true,
+              "exact_sign_search_is_nonzero": true,
+              "sign_bilinear_deviation_obeys_spectral_bound": true,
+              "source_zero_margin_checks_pass": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 10000000,
+            "double_semiprime_pair_count_QQ": 19074,
+            "coarse_partition_bin_count": 4,
+            "exact_max_sign_bilinear_numerator": 15896504,
+            "normalized_max_sign_bilinear_deviation": 0.043693623997325515,
+            "four_times_normalized_spectral_bound": 0.04946775136739534,
+            "normalized_top_singular_value": 0.012366937841848835,
+            "checks": {
+              "matrix_is_four_by_four": true,
+              "exact_sign_search_is_nonzero": true,
+              "sign_bilinear_deviation_obeys_spectral_bound": true,
+              "source_zero_margin_checks_pass": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          }
+        ],
+        "exact_fixed_partition_invisibility_rows": [
+          {
+            "coarse_group_count": 2,
+            "fine_dimension": 4,
+            "embedded_checkerboard_amplitude": 1,
+            "coarse_aggregate_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "coarse_top_singular_value": 0,
+            "fine_top_singular_value": 2,
+            "fine_sign_bilinear_witness": 4,
+            "checks": {
+              "all_fine_row_margins_vanish": true,
+              "all_fine_column_margins_vanish": true,
+              "every_coarse_block_aggregate_vanishes": true,
+              "coarse_spectral_norm_is_zero": true,
+              "fine_spectral_norm_is_nonzero": true,
+              "fine_sign_bilinear_witness_is_nonzero": true
+            }
+          },
+          {
+            "coarse_group_count": 4,
+            "fine_dimension": 8,
+            "embedded_checkerboard_amplitude": 10,
+            "coarse_aggregate_matrix": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "coarse_top_singular_value": 0,
+            "fine_top_singular_value": 20,
+            "fine_sign_bilinear_witness": 40,
+            "checks": {
+              "all_fine_row_margins_vanish": true,
+              "all_fine_column_margins_vanish": true,
+              "every_coarse_block_aggregate_vanishes": true,
+              "coarse_spectral_norm_is_zero": true,
+              "fine_spectral_norm_is_nonzero": true,
+              "fine_sign_bilinear_witness_is_nonzero": true
+            }
+          },
+          {
+            "coarse_group_count": 8,
+            "fine_dimension": 16,
+            "embedded_checkerboard_amplitude": 100,
+            "coarse_aggregate_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "coarse_top_singular_value": 0,
+            "fine_top_singular_value": 200,
+            "fine_sign_bilinear_witness": 400,
+            "checks": {
+              "all_fine_row_margins_vanish": true,
+              "all_fine_column_margins_vanish": true,
+              "every_coarse_block_aggregate_vanishes": true,
+              "coarse_spectral_norm_is_zero": true,
+              "fine_spectral_norm_is_nonzero": true,
+              "fine_sign_bilinear_witness_is_nonzero": true
+            }
+          },
+          {
+            "coarse_group_count": 16,
+            "fine_dimension": 32,
+            "embedded_checkerboard_amplitude": 1000,
+            "coarse_aggregate_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "coarse_top_singular_value": 0,
+            "fine_top_singular_value": 2000,
+            "fine_sign_bilinear_witness": 4000,
+            "checks": {
+              "all_fine_row_margins_vanish": true,
+              "all_fine_column_margins_vanish": true,
+              "every_coarse_block_aggregate_vanishes": true,
+              "coarse_spectral_norm_is_zero": true,
+              "fine_spectral_norm_is_nonzero": true,
+              "fine_sign_bilinear_witness_is_nonzero": true
+            }
+          }
+        ],
+        "model_boundary": "The 4-bin finite trend through 10M neither controls refinements nor proves a uniform Type-II estimate. A multiscale theorem must specify a growing family of partitions and constants strong enough for a prime-producing sieve.",
+        "failure_count": 0
+      },
+      "logical_limit": "No uniform multiscale Type-II decay estimate or prime-producing constants are proved.",
+      "route_decision": {
+        "discard": "a fixed four-bin centered incidence trend as sufficient evidence for Type-II decay",
+        "retain": "growing multiscale partitions with uniform bilinear decay and explicit sieve constants",
+        "next_single_lemma": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T170-REJECTED",
+            "label": "FixedCoarseCenteredIncidenceControlsAllTypeIIDependence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T170-CLOSED",
+            "label": "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T170-OPEN",
+            "label": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T170-REJECTED",
+            "TP-T170-CLOSED"
+          ],
+          [
+            "TP-T170-CLOSED",
+            "TP-T170-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact bilinear bridge and fixed-partition invisibility no-go only."
+    },
+    "cross_problem_synthesis": "All four tracks now expose the same quantifier hazard: local coordinates, prefixwise finiteness, bounded lag windows, or fixed partitions do not survive the cofinal limit without a scale-aware uniform estimate.",
+    "literature_boundary": {
+      "riemann": "arXiv:2607.02828 supplies finite Guinand-Weil and interval-LDL context; the KKT gap/no-go theorem here is project-local and does not prove RH.",
+      "collatz": "Rozier-Terracol arXiv:2502.00948 studies finite parity-vector phenomena; it does not prove well-foundedness of the residual child tree.",
+      "goldbach": "arXiv:2607.27282 supplies exceptional-set and major-arc context; it does not supply this uniform autocorrelation shell budget.",
+      "twin_prime": "Ford-Maynard arXiv:2407.14368 identifies substantial Type-II information in a broad prime-producing sieve setting; PrimeProject proves no such asymptotic estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-170",
+      "status": "open_not_proven",
+      "declared_proposition": "Let K_tilde be real symmetric with gamma=min_j |lambda_j(K_tilde)|>0. Every symmetric K=K_tilde+E with ||E||_2<gamma has the same inertia; the computable interval condition sqrt(sum_ij r_ij^2)<gamma is sufficient. Vanishing maximum entry radius alone is not a dimension-uniform substitute: for diag(I_n,-I_r), the positive-block perturbation -(2/n)J_n has entry radius 2/n tending to zero but changes one eigenvalue from 1 to -1.",
+      "new_result": "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo",
+      "discarded_route": "entrywise interval radii tending to zero without dimension-scaled operator control",
+      "remaining_gap": "No actual cofinal Guinand-Weil KKT interval family has a certified operator error smaller than its spectral gap.",
+      "candidate_theorem": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore",
+      "claim_boundary": "No RH proof and no off-critical zero exclusion; exact inertia-stability criterion and entrywise no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T170-REJECTED",
+            "label": "VanishingEntrywiseKKTIntervalsPreserveInertiaUniformly",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T170-CLOSED",
+            "label": "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T170-OPEN",
+            "label": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T170-REJECTED",
+            "RH-T170-CLOSED"
+          ],
+          [
+            "RH-T170-CLOSED",
+            "RH-T170-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-170",
+      "status": "open_not_proven",
+      "declared_proposition": "For every accelerated Collatz prefix w with affine data (m,S,C), least realizer n0, and child correction C'=3C+2^S, there is an effectively computable A(w) such that every appended valuation a>=A(w) has n0(2^(S+a)-3^(m+1))>C'. Hence every natural realizer of that child strictly descends after the appended accelerated step. The remaining child valuations are finite for each prefix. No fixed global threshold can make this immediate one-step tail argument hold for every prefix: for w=1^m, positivity already requires 2^(m+a)>3^(m+1), whose required a is unbounded with m.",
+      "new_result": "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo",
+      "discarded_route": "one cutoff-independent appended-valuation threshold claimed to force immediate child descent at every prefix",
+      "remaining_gap": "The finite hazardous child set depends on the prefix and its remaining non-descending tree is not proved well founded.",
+      "candidate_theorem": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+      "claim_boundary": "No Collatz proof and no divergent orbit; all large-valuation children close per prefix, but no global tree termination.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T170-REJECTED",
+            "label": "OneGlobalValuationThresholdForcesImmediateDescentAtEveryPrefix",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T170-CLOSED",
+            "label": "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T170-OPEN",
+            "label": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T170-REJECTED",
+            "CO-T170-CLOSED"
+          ],
+          [
+            "CO-T170-CLOSED",
+            "CO-T170-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-170",
+      "status": "open_not_proven",
+      "declared_proposition": "Let G_h be the cyclic Fourier coefficients of |f|^2 on a cycle of length L, and partition lags into dyadic shells S_j. Then ||f||_infinity is at most sqrt(L^(-1) sum_j |S_j|^(1/2)(sum_{h in S_j}|G_h|^2)^(1/2)). This follows by shellwise Cauchy-Schwarz from the full autocorrelation l1 certificate. No fixed lag window |h|<=H can control ||f||_infinity: |f_0|^2=1 and |f_1|^2=1+cos(2*pi*(H+1)x/L) agree on every retained lag but have squared uniform norms 1 and 2.",
+      "new_result": "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo",
+      "discarded_route": "any fixed finite autocorrelation-lag window as a uniform pointwise certificate",
+      "remaining_gap": "No target-uniform arithmetic shell budget below a proved low-frequency Goldbach anchor margin is available.",
+      "candidate_theorem": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin",
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact shell bridge, fixed-window no-go, and finite diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T170-REJECTED",
+            "label": "FixedAutocorrelationLagWindowControlsEveryPointwiseDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T170-CLOSED",
+            "label": "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T170-OPEN",
+            "label": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T170-REJECTED",
+            "GB-T170-CLOSED"
+          ],
+          [
+            "GB-T170-CLOSED",
+            "GB-T170-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-170",
+      "status": "open_not_proven",
+      "declared_proposition": "For a centered incidence numerator H=T*C-r*c^T, the normalized spectral quantity ||H||_2/T^2 is exactly the worst normalized bilinear deviation over unit l2 test vectors; in particular every four-bin sign test is at most four times this quantity. However, any fixed coarse partition containing a cell with at least two fine rows and two fine columns can miss all dependence: embed [[a,-a],[-a,a]] inside that cell. Every coarse block sum and every fine marginal vanishes, while the fine spectral norm is 2a.",
+      "new_result": "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo",
+      "discarded_route": "a fixed four-bin centered incidence trend as sufficient evidence for Type-II decay",
+      "remaining_gap": "No uniform multiscale Type-II decay estimate or prime-producing constants are proved.",
+      "candidate_theorem": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact bilinear bridge and fixed-partition invisibility no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T170-REJECTED",
+            "label": "FixedCoarseCenteredIncidenceControlsAllTypeIIDependence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T170-CLOSED",
+            "label": "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T170-OPEN",
+            "label": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T170-REJECTED",
+            "TP-T170-CLOSED"
+          ],
+          [
+            "TP-T170-CLOSED",
+            "TP-T170-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants"
+    }
+  ]
+}

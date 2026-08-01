@@ -62,7 +62,52 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-169
+## Latest Continuation After TICKET-170
+
+All four conjectures remain open. TICKET-170 closes one infinite tail or
+establishes one exact scale obstruction in each track. Continue from these
+nodes; do not restore the discarded fixed-resolution substitutes:
+
+1. Riemann:
+   `CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore`.
+   TICKET-170 proves exact inertia stability when the interval operator error
+   is below the approximate KKT spectral gap. It also proves that maximum
+   entry radius tending to zero is insufficient as dimension grows.
+2. Collatz:
+   `WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure`.
+   TICKET-170 proves that every prefix has a computable threshold above which
+   all appended-valuation children descend immediately. The all-one family
+   proves that no single threshold guarantees this immediate descent at every
+   prefix, leaving a prefix-dependent finite tree for this argument.
+3. Goldbach:
+   `UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin`.
+   TICKET-170 reduces the pointwise certificate to dyadic autocorrelation
+   shell `L2` budgets and proves that every fixed lag window is insufficient.
+4. Twin Prime:
+   `UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants`.
+   TICKET-170 identifies the centered spectral norm as an exact bilinear
+   observable and proves that a fixed coarse partition can completely hide a
+   nonzero fine checkerboard dependence.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket170-interval-tail-besov-multiscale.json
+data/open-problem/riemann/rh-ticket-170-interval-gap.json
+data/open-problem/collatz/co-ticket-170-child-tail.json
+data/open-problem/goldbach/gb-ticket-170-autocorrelation-besov.json
+data/open-problem/twin-prime/tp-ticket-170-multiscale-typeii.json
+```
+
+한국어 인계: TICKET-170도 네 난제를 해결하지 않았다. 리만은 실제 고정
+Weil core의 차원 보정 구간 오차를 spectral gap 아래로 내려야 한다. 콜라츠는
+큰 valuation 꼬리를 제거하고 남은 prefix-dependent 유한 child tree의
+well-foundedness를 증명해야 한다. 골드바흐는 target에 균일한 자기상관 dyadic
+shell 예산을 anchor margin 아래로 내려야 한다. 쌍둥이 소수는 해상도가 증가하는
+partition 전체에서 prime-producing constant를 가진 Type-II decay를 증명해야
+한다.
+
+## Preserved Continuation After TICKET-169
 
 All four conjectures remain open. TICKET-169 improves the proof contracts and
 corrects one over-strong target before any further finite scale extension:

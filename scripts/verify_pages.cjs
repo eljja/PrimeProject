@@ -14,20 +14,21 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket170Load = openProblemSource.indexOf("const ticket170Loaded = await loadTicket170Attempt();");
   const ticket169Load = openProblemSource.indexOf("const ticket169Loaded = await loadTicket169Attempt();");
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket169Load >= 0 && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET169 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket170Load >= 0 && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET170 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260802-ticket169")) {
-      errors.push(`${page}: missing TICKET169 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260803-ticket170")) {
+      errors.push(`${page}: missing TICKET170 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-ticket169")) {
-      errors.push(`${page}: missing TICKET169 style cache key`);
+    if (!source.includes("styles.css?v=20260803-ticket170")) {
+      errors.push(`${page}: missing TICKET170 style cache key`);
     }
   }
 
@@ -347,6 +348,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket170AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket170-interval-tail-besov-multiscale .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket169AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket169-kkt-childlift-autocorrelation-primepower .ticket161-audit-table .proof-table-wrap",
@@ -1291,9 +1298,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket170 title", "Ticket 170 interval KKT gaps, Collatz tail closure, autocorrelation Besov control, and multiscale Type II");
+    requireText("ticket170 table", "TICKET170 audit");
+    requireText("ticket170 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket170 resolutions", "Resolution count0");
+    requireText("ticket170 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket170AuditOverflow) checks.push(`${page.problemId}: ticket170 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket170 RH theorem", "IntervalKKTGapStabilityAndVanishingEntrywiseRadiusNoGo");
+      requireText("ticket170 RH rows", "Exact interval rows6");
+      requireText("ticket170 RH no-go", "Entrywise no-goproved");
+      requireText("ticket170 RH target", "CofinalDimensionScaledIntervalKKTErrorBelowCertifiedSpectralGapOnFixedWeilCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket170 Collatz theorem", "PrefixwiseFiniteChildTailDescentAndGlobalImmediateDescentThresholdNoGo");
+      requireText("ticket170 Collatz rows", "Prefix tail rows8");
+      requireText("ticket170 Collatz threshold", "All-one m=64 threshold40");
+      requireText("ticket170 Collatz target", "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket170 Goldbach theorem", "AutocorrelationBesovPointwiseBridgeAndFixedLagWindowNoGo");
+      requireText("ticket170 Goldbach gates", "Finite shell gates5");
+      requireText("ticket170 Goldbach no-go", "Fixed windows refuted6");
+      requireText("ticket170 Goldbach target", "UniformBinaryGoldbachAutocorrelationBesovOneBudgetBelowAnchorMargin");
+    } else {
+      requireText("ticket170 Twin theorem", "TypeIISpectralBilinearBridgeAndFixedPartitionInvisibilityNoGo");
+      requireText("ticket170 Twin rows", "Finite Type-II rows4");
+      requireText("ticket170 Twin no-go", "Exact invisible refinements4");
+      requireText("ticket170 Twin target", "UniformMultiscaleCubicRoughTypeIISpectralDecayWithPrimeProducingConstants");
+    }
     requireText("ticket169 title", "Ticket 169 KKT inertia, exact Collatz child lifts, spectral autocorrelation, and Twin prime-power removal");
     requireText("ticket169 table", "TICKET169 audit");
-    requireText("ticket169 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket169 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket169 resolutions", "Resolution count0");
     requireText("ticket169 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket169AuditOverflow) checks.push(`${page.problemId}: ticket169 audit table overflow`);
@@ -3263,6 +3297,10 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-167") ||
     !metrics.evolutionPanel.includes("TICKET-168") ||
     !metrics.evolutionPanel.includes("TICKET-169") ||
+    !metrics.evolutionPanel.includes("TICKET-170") ||
+    !metrics.evolutionPanel.includes("gap-relative operator control") ||
+    !metrics.evolutionPanel.includes("large-valuation Collatz child tail") ||
+    !metrics.evolutionPanel.includes("fixed coarse Type-II partitions can hide") ||
     !metrics.evolutionPanel.includes("constrained RH positivity to KKT inertia") ||
     !metrics.evolutionPanel.includes("phase-sensitive Goldbach pointwise certificate") ||
     !metrics.evolutionPanel.includes("positive linear Twin finest-pairing bound is already an endgame theorem") ||

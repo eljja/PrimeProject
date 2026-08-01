@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 113,
-    "claim_language_scanned_lines": 43086,
+    "claim_language_scanned_files": 114,
+    "claim_language_scanned_lines": 43568,
     "claim_language_triggered_mentions": 121,
     "claim_language_guarded_mentions": 121,
     "claim_language_failures": 0,
@@ -1014,6 +1014,13 @@
           "state": "bounded",
           "measure": "RH 5 exact KKT inertia rows plus fixed-penalty no-go / Collatz 8 exact child lifts plus 15 fixed-residue-memory counterpairs / Goldbach 5 subunit phase-sensitive autocorrelation bounds plus 4 exact diagonal-energy counterpairs / Twin 6 prime-power decompositions through 65,536 with 860 twin pairs and 41 contaminated pairs / 0 conjecture resolutions",
           "proof": "TICKET-169 converts constrained RH positivity to KKT inertia, proves the exact Collatz child-lift recurrence while rejecting every fixed residue width, derives a phase-sensitive Goldbach pointwise certificate, and shows by explicit o(x) prime-power removal that a positive linear Twin finest-pairing bound is already an endgame theorem rather than an easier parity workaround"
+        },
+        {
+          "marker": "130",
+          "title": "Gap-relative intervals, Collatz tail closure, autocorrelation shells, and multiscale Type II expose resolution completeness",
+          "state": "bounded",
+          "measure": "RH 6 exact interval-gap rows plus vanishing-entrywise-radius no-go / Collatz 8 prefix tail closures plus 7 all-one global immediate-descent-threshold rows / Goldbach 5 subunit shell bounds plus 6 fixed-window counterpairs / Twin 4 finite sign-bilinear rows plus 4 exact invisible refinements / 0 conjecture resolutions",
+          "proof": "TICKET-170 replaces entrywise RH intervals by gap-relative operator control, analytically closes the large-valuation Collatz child tail at every prefix while refuting one global immediate-descent threshold for this argument, converts Goldbach autocorrelation to dyadic shell budgets while rejecting every fixed lag window, and proves fixed coarse Type-II partitions can hide nonzero fine dependence"
         }
       ],
       "evidence_flow": [
@@ -1135,9 +1142,9 @@
           "layer": "Open-Proof",
           "score": 99,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket169-kkt-childlift-autocorrelation-primepower.json", "data/open-problem/ticket168-fixedcore-leastrealizer-phase-paritymain.json", "docs/kkt-childlift-autocorrelation-primepower.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET169 proves four exact bridge or no-go theorems: constrained KKT inertia with a fixed-penalty no-go, exact Collatz child lifts with an all-width fixed-memory no-go, a phase-sensitive Goldbach spectral-autocorrelation pointwise bridge, and Twin prime-power removal showing the former positive-linear pairing target is already endgame. It records proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
-          "proof": "The workbench now requires cofinal interval-KKT inertia on one fixed pole-neutral Guinand-Weil core, a positive least-realizer slack invariant under unbounded-precision Collatz child lifts, a uniform binary-Goldbach spectral-autocorrelation budget below the anchor margin, and a prime-producing Type-II decay theorem with explicit constants."
+          "artifacts": ["data/open-problem/ticket170-interval-tail-besov-multiscale.json", "data/open-problem/ticket169-kkt-childlift-autocorrelation-primepower.json", "docs/interval-tail-besov-multiscale.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET170 proves four exact scale or resolution theorems: gap-relative KKT interval stability with an entrywise no-go, prefixwise Collatz child-tail closure with a global immediate-descent-threshold no-go for that argument, a Goldbach autocorrelation Besov shell bridge with a fixed-window no-go, and a Twin spectral bilinear bridge with fixed-partition invisibility. It records proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
+          "proof": "The workbench now requires dimension-scaled interval-KKT error below a certified fixed-core gap, well-foundedness of the residual Collatz child tree after analytic tail closure, a uniform Goldbach autocorrelation Besov-one budget below the anchor margin, and multiscale Type-II decay with prime-producing constants."
         }
       ]
     },
