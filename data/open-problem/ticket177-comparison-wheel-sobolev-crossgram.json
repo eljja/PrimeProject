@@ -1,0 +1,873 @@
+{
+  "schema": "primeproject.ticket177-comparison-wheel-sobolev-crossgram.v1",
+  "generated_at": "2026-08-02T23:00:00+09:00",
+  "status": "four_exact_refinements_all_conjectures_open",
+  "claim_boundary": "TICKET-177 proves four exact refinements or no-go statements and resolves none of the conjectures. It supplies an entrywise relative comparison certificate for RH, sharpens the Collatz correction envelope using the post-first-step six-wheel, restores a rigorous energy-to-pointwise bridge for parity-aliased Goldbach minors, and proves Twin block norms lose signed cross-scale information.",
+  "comparison_wheel_sobolev_crossgram_audit": {
+    "theorem_name": "FourConjectureComparisonWheelSobolevCrossGramAudit",
+    "status": "four_exact_refinements_all_conjectures_open",
+    "proof_boundary": "TICKET-177 proves four exact refinements or no-go statements and resolves none of the conjectures. It supplies an entrywise relative comparison certificate for RH, sharpens the Collatz correction envelope using the post-first-step six-wheel, restores a rigorous energy-to-pointwise bridge for parity-aliased Goldbach minors, and proves Twin block norms lose signed cross-scale information.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-177",
+      "theorem_name": "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo",
+      "declared_proposition": "Let G be positive definite, A_T and A Hermitian, and suppose A_T is at least delta G. In one fixed G-orthonormal basis, let M be a symmetric nonnegative matrix satisfying |[G^(-1/2)(A-A_T)G^(-1/2)]_ij| <= M_ij. Then A is at least (delta-rho(M))G. More generally every positive predeclared weight w gives rho(M)<=max_i (Mw)_i/w_i.",
+      "mathematical_argument": "For the whitened tail E and every vector x, componentwise |Ex|<=M|x|, hence ||E||_2<=||M||_2=rho(M). The variational bound gives E>=-rho(M)I and therefore the stated Loewner lower bound. The weighted row estimate is the Collatz-Wielandt upper bound after diagonal scaling. For irreducible M its infimum over all positive w equals rho(M), so unconstrained numerical weight optimization is circular; useful weights must come from a predeclared arithmetic majorant.",
+      "reproducible_computation": {
+        "theorem": "Let G be positive definite, A_T and A Hermitian, and suppose A_T is at least delta G. In one fixed G-orthonormal basis, let M be a symmetric nonnegative matrix satisfying |[G^(-1/2)(A-A_T)G^(-1/2)]_ij| <= M_ij. Then A is at least (delta-rho(M))G. More generally every positive predeclared weight w gives rho(M)<=max_i (Mw)_i/w_i.",
+        "proof": "For the whitened tail E and every vector x, componentwise |Ex|<=M|x|, hence ||E||_2<=||M||_2=rho(M). The variational bound gives E>=-rho(M)I and therefore the stated Loewner lower bound. The weighted row estimate is the Collatz-Wielandt upper bound after diagonal scaling. For irreducible M its infimum over all positive w equals rho(M), so unconstrained numerical weight optimization is circular; useful weights must come from a predeclared arithmetic majorant.",
+        "comparison_matrix": [
+          [
+            0.04,
+            0.08,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.08,
+            0.04,
+            0.08,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.08,
+            0.04,
+            0.08,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.08,
+            0.04,
+            0.08
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.08,
+            0.04
+          ]
+        ],
+        "predeclared_sine_weights": [
+          0.49999999999999994,
+          0.8660254037844386,
+          1.0,
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "relative_scale_rows": [
+          {
+            "metric_small_eigenvalue_decimal_digits": 4,
+            "metric_smallest_eigenvalue": 0.0001,
+            "truncated_relative_margin_delta": 0.25,
+            "comparison_spectral_radius": 0.1785640646055102,
+            "constant_weight_comparison_bound": 0.2,
+            "predeclared_sine_weight_bound": 0.1785640646055102,
+            "certified_relative_margin": 0.07143593539448981,
+            "certified_euclidean_smallest_scale": 7.143593539448981e-06,
+            "checks": {
+              "predeclared_sine_weight_recovers_exact_radius": true,
+              "constant_weight_is_valid_but_looser": true,
+              "comparison_radius_is_below_core_margin": true,
+              "certified_scale_is_positive": true
+            }
+          },
+          {
+            "metric_small_eigenvalue_decimal_digits": 16,
+            "metric_smallest_eigenvalue": 1e-16,
+            "truncated_relative_margin_delta": 0.25,
+            "comparison_spectral_radius": 0.1785640646055102,
+            "constant_weight_comparison_bound": 0.2,
+            "predeclared_sine_weight_bound": 0.1785640646055102,
+            "certified_relative_margin": 0.07143593539448981,
+            "certified_euclidean_smallest_scale": 7.14359353944898e-18,
+            "checks": {
+              "predeclared_sine_weight_recovers_exact_radius": true,
+              "constant_weight_is_valid_but_looser": true,
+              "comparison_radius_is_below_core_margin": true,
+              "certified_scale_is_positive": true
+            }
+          },
+          {
+            "metric_small_eigenvalue_decimal_digits": 64,
+            "metric_smallest_eigenvalue": 1e-64,
+            "truncated_relative_margin_delta": 0.25,
+            "comparison_spectral_radius": 0.1785640646055102,
+            "constant_weight_comparison_bound": 0.2,
+            "predeclared_sine_weight_bound": 0.1785640646055102,
+            "certified_relative_margin": 0.07143593539448981,
+            "certified_euclidean_smallest_scale": 7.143593539448981e-66,
+            "checks": {
+              "predeclared_sine_weight_recovers_exact_radius": true,
+              "constant_weight_is_valid_but_looser": true,
+              "comparison_radius_is_below_core_margin": true,
+              "certified_scale_is_positive": true
+            }
+          },
+          {
+            "metric_small_eigenvalue_decimal_digits": 128,
+            "metric_smallest_eigenvalue": 1e-128,
+            "truncated_relative_margin_delta": 0.25,
+            "comparison_spectral_radius": 0.1785640646055102,
+            "constant_weight_comparison_bound": 0.2,
+            "predeclared_sine_weight_bound": 0.1785640646055102,
+            "certified_relative_margin": 0.07143593539448981,
+            "certified_euclidean_smallest_scale": 7.143593539448981e-130,
+            "checks": {
+              "predeclared_sine_weight_recovers_exact_radius": true,
+              "constant_weight_is_valid_but_looser": true,
+              "comparison_radius_is_below_core_margin": true,
+              "certified_scale_is_positive": true
+            }
+          }
+        ],
+        "no_go_scope": "The theorem converts a full entrywise relative tail majorant into a PSD certificate. It does not construct that majorant for the actual pole-neutral Weil tail. Fitting arbitrary weights merely recomputes the comparison spectral radius.",
+        "failure_count": 0
+      },
+      "logical_limit": "No explicit symmetric comparison matrix majorizes every entry of the whitened arithmetic Weil tail below a certified fixed-core margin.",
+      "route_decision": {
+        "discard": "unrestricted fitted comparison weights or diagonal-only tail summaries",
+        "retain": "a predeclared entrywise relative tail majorant with an analytic comparison weight",
+        "next_single_lemma": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T177-REJECTED",
+            "label": "FreeComparisonWeightsOrDiagonalDataCloseWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T177-CLOSED",
+            "label": "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T177-OPEN",
+            "label": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T177-REJECTED",
+            "RH-T177-CLOSED"
+          ],
+          [
+            "RH-T177-CLOSED",
+            "RH-T177-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, zero exclusion, or actual Weil-tail comparison majorant; one exact comparison certificate and weight-circularity boundary only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-177",
+      "theorem_name": "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo",
+      "declared_proposition": "Let n_i be an aperiodic accelerated odd Collatz orbit with n_i>=n_0=n for 0<=i<h. Every n_i with i>=1 is odd and nonzero modulo 3. If b_1<b_2<... are the integers greater than n that are coprime to 6, then the affine correction satisfies C_h <= (3 ln 2)^(-1)[1/n+sum_(j<h)1/b_j] <= H_6(n,h), where H_6 has logarithmic coefficient 1/(9 ln 2), exactly two thirds of the odd-only coefficient in TICKET-176.",
+      "mathematical_argument": "After one accelerated step, 3n_i+1 is 1 modulo 3 and division by a power of two preserves nonzero residue modulo 3. Aperiodicity makes the states distinct, so their increasing rearrangement is bounded below by the six-wheel list b_j. A residue check modulo 6 gives b_j>=n+3j-2. Apply log2(1+x)<=x/ln 2 and the first-term-plus-integral bound to the progression n+1,n+4,... .",
+      "reproducible_computation": {
+        "theorem": "Let n_i be an aperiodic accelerated odd Collatz orbit with n_i>=n_0=n for 0<=i<h. Every n_i with i>=1 is odd and nonzero modulo 3. If b_1<b_2<... are the integers greater than n that are coprime to 6, then the affine correction satisfies C_h <= (3 ln 2)^(-1)[1/n+sum_(j<h)1/b_j] <= H_6(n,h), where H_6 has logarithmic coefficient 1/(9 ln 2), exactly two thirds of the odd-only coefficient in TICKET-176.",
+        "proof": "After one accelerated step, 3n_i+1 is 1 modulo 3 and division by a power of two preserves nonzero residue modulo 3. Aperiodicity makes the states distinct, so their increasing rearrangement is bounded below by the six-wheel list b_j. A residue check modulo 6 gives b_j>=n+3j-2. Apply log2(1+x)<=x/ln 2 and the first-term-plus-integral bound to the progression n+1,n+4,... .",
+        "finite_first_descent_audit": {
+          "odd_start_limit": 100000,
+          "odd_starts_checked": 49999,
+          "first_descent_failures": 0,
+          "six_wheel_boundary_crossing_count": 49998,
+          "six_wheel_boundary_non_crossing_count": 1,
+          "six_wheel_boundary_non_crossing_starts": [
+            63
+          ],
+          "maximum_first_descent_horizon": 85,
+          "maximum_horizon_start": 35655
+        },
+        "asymptotic_coefficients": {
+          "ticket176_odd_only_log_coefficient": 0.24044917348149392,
+          "ticket177_six_wheel_log_coefficient": 0.1602994489876626,
+          "new_to_old_ratio": 0.6666666666666666
+        },
+        "selected_exact_rows": [
+          {
+            "start": 3,
+            "first_descent_horizon": 2,
+            "descent_value": 1,
+            "centered_valuation_excess": 1.8300749985576878,
+            "exact_orbit_correction": 0.24511249783653152,
+            "six_wheel_discrete_envelope": 0.25647911838026016,
+            "six_wheel_analytic_envelope": 0.28052403572840956,
+            "odd_only_discrete_envelope": 0.25647911838026016,
+            "odd_only_analytic_envelope": 0.28312704801536365,
+            "crosses_sufficient_six_wheel_boundary": true,
+            "checks": {
+              "states_before_descent_are_distinct": true,
+              "post_first_states_lie_on_six_wheel": true,
+              "exact_correction_below_discrete_wheel_envelope": true,
+              "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+              "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+              "corrected_log_identity_holds": true
+            },
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 27,
+            "first_descent_horizon": 37,
+            "descent_value": 23,
+            "centered_valuation_excess": 0.356387473317227,
+            "exact_orbit_correction": 0.12506192721076545,
+            "six_wheel_discrete_envelope": 0.2755934961663377,
+            "six_wheel_analytic_envelope": 0.28475571456643595,
+            "odd_only_discrete_envelope": 0.3238475313341721,
+            "odd_only_analytic_envelope": 0.3302225695402083,
+            "crosses_sufficient_six_wheel_boundary": true,
+            "checks": {
+              "states_before_descent_are_distinct": true,
+              "post_first_states_lie_on_six_wheel": true,
+              "exact_correction_below_discrete_wheel_envelope": true,
+              "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+              "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+              "corrected_log_identity_holds": true
+            },
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 63,
+            "first_descent_horizon": 34,
+            "descent_value": 61,
+            "centered_valuation_excess": 0.11127497548069698,
+            "exact_orbit_correction": 0.0647323895436598,
+            "six_wheel_discrete_envelope": 0.15898659443107055,
+            "six_wheel_analytic_envelope": 0.16202824319787645,
+            "odd_only_discrete_envelope": 0.17802053156408798,
+            "odd_only_analytic_envelope": 0.17995786241520687,
+            "crosses_sufficient_six_wheel_boundary": false,
+            "checks": {
+              "states_before_descent_are_distinct": true,
+              "post_first_states_lie_on_six_wheel": true,
+              "exact_correction_below_discrete_wheel_envelope": true,
+              "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+              "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+              "corrected_log_identity_holds": true
+            },
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 703,
+            "first_descent_horizon": 51,
+            "descent_value": 157,
+            "centered_valuation_excess": 2.1669124632210384,
+            "exact_orbit_correction": 0.004152333040126074,
+            "six_wheel_discrete_envelope": 0.03160631407918475,
+            "six_wheel_analytic_envelope": 0.031765349397875765,
+            "odd_only_discrete_envelope": 0.032620725821160934,
+            "odd_only_analytic_envelope": 0.03266328233486431,
+            "crosses_sufficient_six_wheel_boundary": true,
+            "checks": {
+              "states_before_descent_are_distinct": true,
+              "post_first_states_lie_on_six_wheel": true,
+              "exact_correction_below_discrete_wheel_envelope": true,
+              "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+              "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+              "corrected_log_identity_holds": true
+            },
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 35655,
+            "first_descent_horizon": 85,
+            "descent_value": 29405,
+            "centered_valuation_excess": 0.27818743870173535,
+            "exact_orbit_correction": 0.00014452520006405902,
+            "six_wheel_discrete_envelope": 0.0011424562151386918,
+            "six_wheel_analytic_envelope": 0.0011425187578996277,
+            "odd_only_discrete_envelope": 0.0011437487493986512,
+            "odd_only_analytic_envelope": 0.0011437803752390755,
+            "crosses_sufficient_six_wheel_boundary": true,
+            "checks": {
+              "states_before_descent_are_distinct": true,
+              "post_first_states_lie_on_six_wheel": true,
+              "exact_correction_below_discrete_wheel_envelope": true,
+              "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+              "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+              "corrected_log_identity_holds": true
+            },
+            "cycle_detected_before_descent": false
+          }
+        ],
+        "no_go_scope": "The six-wheel refinement is strictly sharper asymptotically, but start 63 still descends at step 34 without crossing it. Static modulo-3 exclusion alone is therefore not equivalent to descent and does not exclude a nontrivial cycle.",
+        "failure_count": 0
+      },
+      "logical_limit": "No theorem forces every aperiodic non-descending natural orbit's valuation discrepancy above the sharper six-wheel envelope; nontrivial cycles remain unexcluded.",
+      "route_decision": {
+        "discard": "static odd-only spacing or modulo-three exclusion as an iff descent criterion",
+        "retain": "the exact post-first-step six-wheel correction envelope with its two-thirds logarithmic coefficient",
+        "next_single_lemma": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T177-REJECTED",
+            "label": "StaticSixWheelExclusionIsEquivalentToCollatzDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T177-CLOSED",
+            "label": "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T177-OPEN",
+            "label": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T177-REJECTED",
+            "CO-T177-CLOSED"
+          ],
+          [
+            "CO-T177-CLOSED",
+            "CO-T177-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact six-wheel envelope refinement and one finite non-equivalence witness only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-177",
+      "theorem_name": "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure",
+      "declared_proposition": "Let P be a real continuously differentiable one-periodic function of mean zero, D>=||P'||_infinity, and E>=integral P^2. For A>0, A+P is strictly positive if either A>D/2 or E<A^3/(4D). For a parity-aliased trigonometric minor polynomial, Parseval gives E=sum|d_k|^2 and D<=2pi sum |k d_k|, producing a fully computable pointwise certificate from pre-absolute-value coefficients.",
+      "mathematical_argument": "The oscillation of P on the unit circle is at most D/2, so mean zero gives min P>=-D/2. Otherwise A<=D/2. If P(x0)<=-A, then on the interval of radius A/(2D) around x0 one has P<=-A/2. That interval has length A/D, forcing integral P^2 at least A^3/(4D), a contradiction. Parseval and termwise differentiation give the Fourier formulas.",
+      "reproducible_computation": {
+        "theorem": "Let P be a real continuously differentiable one-periodic function of mean zero, D>=||P'||_infinity, and E>=integral P^2. For A>0, A+P is strictly positive if either A>D/2 or E<A^3/(4D). For a parity-aliased trigonometric minor polynomial, Parseval gives E=sum|d_k|^2 and D<=2pi sum |k d_k|, producing a fully computable pointwise certificate from pre-absolute-value coefficients.",
+        "proof": "The oscillation of P on the unit circle is at most D/2, so mean zero gives min P>=-D/2. Otherwise A<=D/2. If P(x0)<=-A, then on the interval of radius A/(2D) around x0 one has P<=-A/2. That interval has length A/D, forcing integral P^2 at least A^3/(4D), a contradiction. Parseval and termwise differentiation give the Fourier formulas.",
+        "finite_fixed_farey_rows": [
+          {
+            "prime_support_limit": 64,
+            "transform_size_L": 256,
+            "minimum_fixed_farey_major_value": 1.4847770129640847,
+            "aliased_minor_l2_energy": 0.1746696949377544,
+            "aliased_minor_derivative_upper_bound": 80.79172325765853,
+            "sobolev_cubic_ratio": 0.05798815367137464,
+            "raw_global_certificate_passes": false,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "parseval_energy_matches_full_grid": true,
+              "finite_major_lower_bound_is_positive": true,
+              "finite_goldbach_counts_are_positive": true,
+              "raw_global_certificate_is_honestly_reported_as_failed": true
+            }
+          },
+          {
+            "prime_support_limit": 128,
+            "transform_size_L": 512,
+            "minimum_fixed_farey_major_value": 2.1134265337073708,
+            "aliased_minor_l2_energy": 0.5916168080313451,
+            "aliased_minor_derivative_upper_bound": 1146.8273012478614,
+            "sobolev_cubic_ratio": 0.003478267256129277,
+            "raw_global_certificate_passes": false,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "parseval_energy_matches_full_grid": true,
+              "finite_major_lower_bound_is_positive": true,
+              "finite_goldbach_counts_are_positive": true,
+              "raw_global_certificate_is_honestly_reported_as_failed": true
+            }
+          },
+          {
+            "prime_support_limit": 256,
+            "transform_size_L": 1024,
+            "minimum_fixed_farey_major_value": 2.072207644108839,
+            "aliased_minor_l2_energy": 1.6768916506248916,
+            "aliased_minor_derivative_upper_bound": 8378.808162152172,
+            "sobolev_cubic_ratio": 0.00015832612167416066,
+            "raw_global_certificate_passes": false,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "parseval_energy_matches_full_grid": true,
+              "finite_major_lower_bound_is_positive": true,
+              "finite_goldbach_counts_are_positive": true,
+              "raw_global_certificate_is_honestly_reported_as_failed": true
+            }
+          },
+          {
+            "prime_support_limit": 512,
+            "transform_size_L": 2048,
+            "minimum_fixed_farey_major_value": 3.353133101040938,
+            "aliased_minor_l2_energy": 3.959891793965605,
+            "aliased_minor_derivative_upper_bound": 46736.00366595615,
+            "sobolev_cubic_ratio": 5.092810244203014e-05,
+            "raw_global_certificate_passes": false,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "parseval_energy_matches_full_grid": true,
+              "finite_major_lower_bound_is_positive": true,
+              "finite_goldbach_counts_are_positive": true,
+              "raw_global_certificate_is_honestly_reported_as_failed": true
+            }
+          },
+          {
+            "prime_support_limit": 1024,
+            "transform_size_L": 4096,
+            "minimum_fixed_farey_major_value": 4.030570977301597,
+            "aliased_minor_l2_energy": 9.39162269197392,
+            "aliased_minor_derivative_upper_bound": 214759.3821320447,
+            "sobolev_cubic_ratio": 8.116091722138417e-06,
+            "raw_global_certificate_passes": false,
+            "minimum_exact_ordered_goldbach_count": 1,
+            "checks": {
+              "aliased_polynomial_has_zero_mean": true,
+              "parseval_energy_matches_full_grid": true,
+              "finite_major_lower_bound_is_positive": true,
+              "finite_goldbach_counts_are_positive": true,
+              "raw_global_certificate_is_honestly_reported_as_failed": true
+            }
+          }
+        ],
+        "energy_only_cosine_counterfamily": [
+          {
+            "frequency": 1,
+            "major_constant": 1.0,
+            "cosine_amplitude": 1.1,
+            "minimum_major_plus_minor": -0.10000000000000009,
+            "l2_energy": 0.6050000000000001,
+            "derivative_bound": 6.911503837897546,
+            "sobolev_cubic_ratio": 0.059787732190794626,
+            "checks": {
+              "energy_is_frequency_independent": true,
+              "pointwise_positivity_fails": true,
+              "sobolev_certificate_rejects_the_false_claim": true
+            }
+          },
+          {
+            "frequency": 4,
+            "major_constant": 1.0,
+            "cosine_amplitude": 1.1,
+            "minimum_major_plus_minor": -0.10000000000000009,
+            "l2_energy": 0.6050000000000001,
+            "derivative_bound": 27.646015351590183,
+            "sobolev_cubic_ratio": 0.014946933047698657,
+            "checks": {
+              "energy_is_frequency_independent": true,
+              "pointwise_positivity_fails": true,
+              "sobolev_certificate_rejects_the_false_claim": true
+            }
+          },
+          {
+            "frequency": 16,
+            "major_constant": 1.0,
+            "cosine_amplitude": 1.1,
+            "minimum_major_plus_minor": -0.10000000000000009,
+            "l2_energy": 0.6050000000000001,
+            "derivative_bound": 110.58406140636073,
+            "sobolev_cubic_ratio": 0.003736733261924664,
+            "checks": {
+              "energy_is_frequency_independent": true,
+              "pointwise_positivity_fails": true,
+              "sobolev_certificate_rejects_the_false_claim": true
+            }
+          },
+          {
+            "frequency": 64,
+            "major_constant": 1.0,
+            "cosine_amplitude": 1.1,
+            "minimum_major_plus_minor": -0.10000000000000009,
+            "l2_energy": 0.6050000000000001,
+            "derivative_bound": 442.3362456254429,
+            "sobolev_cubic_ratio": 0.000934183315481166,
+            "checks": {
+              "energy_is_frequency_independent": true,
+              "pointwise_positivity_fails": true,
+              "sobolev_certificate_rejects_the_false_claim": true
+            }
+          }
+        ],
+        "aggregate": {
+          "support_count": 5,
+          "raw_global_certificate_pass_count": 0,
+          "cosine_counterexample_count": 4
+        },
+        "no_go_scope": "The exact Sobolev bridge repairs the logical gap between an L2 estimate and pointwise positivity only when derivative control is also strong. None of the five raw fixed-Farey prime diagnostics passes; this finite failure does not prove asymptotic impossibility. A multiscale arithmetic estimate must reduce energy and derivative together.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform multiscale arithmetic bounds make both the aliased-minor L2 energy and derivative budget small enough relative to a proved major lower bound.",
+      "route_decision": {
+        "discard": "L2 energy alone or the unsmoothed global Sobolev certificate at the tested fixed-Farey scales",
+        "retain": "a parity-aliased multiscale energy-plus-derivative certificate with an independent major lower bound",
+        "next_single_lemma": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T177-REJECTED",
+            "label": "AliasedMinorL2EnergyAloneForcesPointwiseGoldbachPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T177-CLOSED",
+            "label": "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T177-OPEN",
+            "label": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T177-REJECTED",
+            "GB-T177-CLOSED"
+          ],
+          [
+            "GB-T177-CLOSED",
+            "GB-T177-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact Sobolev positivity bridge, four cosine counterexamples, and five failed finite raw-scale certificates only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-177",
+      "theorem_name": "SignedCrossGramIdentityAndBlockNormInformationLossNoGo",
+      "declared_proposition": "For finite-dimensional operators T_j with common domain and codomain, ||sum_j T_j||^2 equals the operator norm of the signed cross-Gram sum sum_(i,j) T_i^*T_j. The list of component norms ||T_j|| does not determine this quantity: the aligned, cancelling, and orthogonal two-component families all have norm summary (1,1) but aggregate norms 2, 0, and 1.",
+      "mathematical_argument": "Expand (sum_j T_j)^*(sum_j T_j). The three displayed 2 by 2 families verify non-identifiability with exact matrices. Therefore compressing every Haar block to a nonnegative norm before the cross-scale sum can erase the cancellation needed for a Type-II power saving. A phase-preserving signed cross-Gram estimate is a strictly richer target.",
+      "reproducible_computation": {
+        "theorem": "For finite-dimensional operators T_j with common domain and codomain, ||sum_j T_j||^2 equals the operator norm of the signed cross-Gram sum sum_(i,j) T_i^*T_j. The list of component norms ||T_j|| does not determine this quantity: the aligned, cancelling, and orthogonal two-component families all have norm summary (1,1) but aggregate norms 2, 0, and 1.",
+        "proof": "Expand (sum_j T_j)^*(sum_j T_j). The three displayed 2 by 2 families verify non-identifiability with exact matrices. Therefore compressing every Haar block to a nonnegative norm before the cross-scale sum can erase the cancellation needed for a Type-II power saving. A phase-preserving signed cross-Gram estimate is a strictly richer target.",
+        "identical_norm_summary_counterfamilies": [
+          {
+            "family": "aligned",
+            "component_operator_norms": [
+              1.0,
+              1.0
+            ],
+            "aggregate_operator_norm": 2.0,
+            "signed_cross_gram": [
+              [
+                4.0,
+                0.0
+              ],
+              [
+                0.0,
+                4.0
+              ]
+            ],
+            "signed_cross_gram_operator_norm": 4.0,
+            "checks": {
+              "component_norm_summary_is_two_ones": true,
+              "signed_cross_gram_recovers_aggregate_norm_squared": true
+            }
+          },
+          {
+            "family": "cancelling",
+            "component_operator_norms": [
+              1.0,
+              1.0
+            ],
+            "aggregate_operator_norm": 0.0,
+            "signed_cross_gram": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            "signed_cross_gram_operator_norm": 0.0,
+            "checks": {
+              "component_norm_summary_is_two_ones": true,
+              "signed_cross_gram_recovers_aggregate_norm_squared": true
+            }
+          },
+          {
+            "family": "orthogonal",
+            "component_operator_norms": [
+              1.0,
+              1.0
+            ],
+            "aggregate_operator_norm": 1.0,
+            "signed_cross_gram": [
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ],
+            "signed_cross_gram_operator_norm": 1.0,
+            "checks": {
+              "component_norm_summary_is_two_ones": true,
+              "signed_cross_gram_recovers_aggregate_norm_squared": true
+            }
+          }
+        ],
+        "ticket176_schema_audit": [
+          {
+            "X": 10000,
+            "has_block_norm_scale_matrix": true,
+            "has_signed_cross_gram": false
+          },
+          {
+            "X": 100000,
+            "has_block_norm_scale_matrix": true,
+            "has_signed_cross_gram": false
+          },
+          {
+            "X": 1000000,
+            "has_block_norm_scale_matrix": true,
+            "has_signed_cross_gram": false
+          },
+          {
+            "X": 10000000,
+            "has_block_norm_scale_matrix": true,
+            "has_signed_cross_gram": false
+          }
+        ],
+        "aggregate": {
+          "counterfamily_count": 3,
+          "distinct_aggregate_norms": [
+            0.0,
+            1.0,
+            2.0
+          ],
+          "t161_rows_without_signed_cross_gram": 4
+        },
+        "no_go_scope": "This proves that the stored nonnegative block-norm matrices cannot by themselves certify or refute cross-block cancellation. It does not prove that the actual prime-pair Haar operator has favorable signed cross-Gram decay.",
+        "failure_count": 0
+      },
+      "logical_limit": "No signed cross-Gram dataset or theorem gives power-saving off-diagonal cancellation for the actual prime-pair Haar blocks.",
+      "route_decision": {
+        "discard": "nonnegative block-norm matrices as sufficient statistics for cross-scale Type-II cancellation",
+        "retain": "phase-preserving signed cross-Gram operators for a predeclared Haar decomposition",
+        "next_single_lemma": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T177-REJECTED",
+            "label": "HaarBlockNormMatrixDeterminesCrossScaleCancellation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T177-CLOSED",
+            "label": "SignedCrossGramIdentityAndBlockNormInformationLossNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T177-OPEN",
+            "label": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T177-REJECTED",
+            "TP-T177-CLOSED"
+          ],
+          [
+            "TP-T177-CLOSED",
+            "TP-T177-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact cross-Gram identity, three information-loss counterfamilies, and a data-contract correction only."
+    },
+    "cross_problem_synthesis": "The four tracks now require predeclared structure that survives compression: comparison weights, arithmetic wheel occupancy, frequency derivative information, and signed cross-block Gram data.",
+    "literature_boundary": {
+      "riemann": "The 2026 truncated-Weil and explicit-tail papers provide finite dictionaries and absolute tail budgets, not the actual predeclared relative comparison majorant isolated here.",
+      "collatz": "Tao's almost-all logarithmic-density theorem does not imply an every-orbit six-wheel discrepancy crossing.",
+      "goldbach": "The 2026 exceptional-set work gives an explicit major-arc formula but not a uniform binary multiscale energy-derivative estimate for every target.",
+      "twin_prime": "Ford-Maynard prime-producing sieves still require substantial Type-II information; the signed cross-Gram target specifies information absent from the current block-norm export."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-177",
+      "status": "open_not_proven",
+      "declared_proposition": "Let G be positive definite, A_T and A Hermitian, and suppose A_T is at least delta G. In one fixed G-orthonormal basis, let M be a symmetric nonnegative matrix satisfying |[G^(-1/2)(A-A_T)G^(-1/2)]_ij| <= M_ij. Then A is at least (delta-rho(M))G. More generally every positive predeclared weight w gives rho(M)<=max_i (Mw)_i/w_i.",
+      "new_result": "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo",
+      "discarded_route": "unrestricted fitted comparison weights or diagonal-only tail summaries",
+      "remaining_gap": "No explicit symmetric comparison matrix majorizes every entry of the whitened arithmetic Weil tail below a certified fixed-core margin.",
+      "candidate_theorem": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin",
+      "claim_boundary": "No RH proof, zero exclusion, or actual Weil-tail comparison majorant; one exact comparison certificate and weight-circularity boundary only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T177-REJECTED",
+            "label": "FreeComparisonWeightsOrDiagonalDataCloseWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T177-CLOSED",
+            "label": "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T177-OPEN",
+            "label": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T177-REJECTED",
+            "RH-T177-CLOSED"
+          ],
+          [
+            "RH-T177-CLOSED",
+            "RH-T177-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-177",
+      "status": "open_not_proven",
+      "declared_proposition": "Let n_i be an aperiodic accelerated odd Collatz orbit with n_i>=n_0=n for 0<=i<h. Every n_i with i>=1 is odd and nonzero modulo 3. If b_1<b_2<... are the integers greater than n that are coprime to 6, then the affine correction satisfies C_h <= (3 ln 2)^(-1)[1/n+sum_(j<h)1/b_j] <= H_6(n,h), where H_6 has logarithmic coefficient 1/(9 ln 2), exactly two thirds of the odd-only coefficient in TICKET-176.",
+      "new_result": "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo",
+      "discarded_route": "static odd-only spacing or modulo-three exclusion as an iff descent criterion",
+      "remaining_gap": "No theorem forces every aperiodic non-descending natural orbit's valuation discrepancy above the sharper six-wheel envelope; nontrivial cycles remain unexcluded.",
+      "candidate_theorem": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope",
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact six-wheel envelope refinement and one finite non-equivalence witness only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T177-REJECTED",
+            "label": "StaticSixWheelExclusionIsEquivalentToCollatzDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T177-CLOSED",
+            "label": "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T177-OPEN",
+            "label": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T177-REJECTED",
+            "CO-T177-CLOSED"
+          ],
+          [
+            "CO-T177-CLOSED",
+            "CO-T177-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-177",
+      "status": "open_not_proven",
+      "declared_proposition": "Let P be a real continuously differentiable one-periodic function of mean zero, D>=||P'||_infinity, and E>=integral P^2. For A>0, A+P is strictly positive if either A>D/2 or E<A^3/(4D). For a parity-aliased trigonometric minor polynomial, Parseval gives E=sum|d_k|^2 and D<=2pi sum |k d_k|, producing a fully computable pointwise certificate from pre-absolute-value coefficients.",
+      "new_result": "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure",
+      "discarded_route": "L2 energy alone or the unsmoothed global Sobolev certificate at the tested fixed-Farey scales",
+      "remaining_gap": "No target-uniform multiscale arithmetic bounds make both the aliased-minor L2 energy and derivative budget small enough relative to a proved major lower bound.",
+      "candidate_theorem": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain",
+      "claim_boundary": "No Goldbach proof or counterexample; one exact Sobolev positivity bridge, four cosine counterexamples, and five failed finite raw-scale certificates only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T177-REJECTED",
+            "label": "AliasedMinorL2EnergyAloneForcesPointwiseGoldbachPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T177-CLOSED",
+            "label": "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T177-OPEN",
+            "label": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T177-REJECTED",
+            "GB-T177-CLOSED"
+          ],
+          [
+            "GB-T177-CLOSED",
+            "GB-T177-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-177",
+      "status": "open_not_proven",
+      "declared_proposition": "For finite-dimensional operators T_j with common domain and codomain, ||sum_j T_j||^2 equals the operator norm of the signed cross-Gram sum sum_(i,j) T_i^*T_j. The list of component norms ||T_j|| does not determine this quantity: the aligned, cancelling, and orthogonal two-component families all have norm summary (1,1) but aggregate norms 2, 0, and 1.",
+      "new_result": "SignedCrossGramIdentityAndBlockNormInformationLossNoGo",
+      "discarded_route": "nonnegative block-norm matrices as sufficient statistics for cross-scale Type-II cancellation",
+      "remaining_gap": "No signed cross-Gram dataset or theorem gives power-saving off-diagonal cancellation for the actual prime-pair Haar blocks.",
+      "candidate_theorem": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy",
+      "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact cross-Gram identity, three information-loss counterfamilies, and a data-contract correction only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T177-REJECTED",
+            "label": "HaarBlockNormMatrixDeterminesCrossScaleCancellation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T177-CLOSED",
+            "label": "SignedCrossGramIdentityAndBlockNormInformationLossNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T177-OPEN",
+            "label": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T177-REJECTED",
+            "TP-T177-CLOSED"
+          ],
+          [
+            "TP-T177-CLOSED",
+            "TP-T177-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy"
+    }
+  ]
+}

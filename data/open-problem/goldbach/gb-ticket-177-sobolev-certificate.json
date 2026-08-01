@@ -1,0 +1,199 @@
+{
+  "schema": "primeproject.ticket177-comparison-wheel-sobolev-crossgram.v1",
+  "generated_at": "2026-08-02T23:00:00+09:00",
+  "ticket_id": "GB-TICKET-177",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure",
+  "declared_proposition": "Let P be a real continuously differentiable one-periodic function of mean zero, D>=||P'||_infinity, and E>=integral P^2. For A>0, A+P is strictly positive if either A>D/2 or E<A^3/(4D). For a parity-aliased trigonometric minor polynomial, Parseval gives E=sum|d_k|^2 and D<=2pi sum |k d_k|, producing a fully computable pointwise certificate from pre-absolute-value coefficients.",
+  "mathematical_argument": "The oscillation of P on the unit circle is at most D/2, so mean zero gives min P>=-D/2. Otherwise A<=D/2. If P(x0)<=-A, then on the interval of radius A/(2D) around x0 one has P<=-A/2. That interval has length A/D, forcing integral P^2 at least A^3/(4D), a contradiction. Parseval and termwise differentiation give the Fourier formulas.",
+  "reproducible_computation": {
+    "theorem": "Let P be a real continuously differentiable one-periodic function of mean zero, D>=||P'||_infinity, and E>=integral P^2. For A>0, A+P is strictly positive if either A>D/2 or E<A^3/(4D). For a parity-aliased trigonometric minor polynomial, Parseval gives E=sum|d_k|^2 and D<=2pi sum |k d_k|, producing a fully computable pointwise certificate from pre-absolute-value coefficients.",
+    "proof": "The oscillation of P on the unit circle is at most D/2, so mean zero gives min P>=-D/2. Otherwise A<=D/2. If P(x0)<=-A, then on the interval of radius A/(2D) around x0 one has P<=-A/2. That interval has length A/D, forcing integral P^2 at least A^3/(4D), a contradiction. Parseval and termwise differentiation give the Fourier formulas.",
+    "finite_fixed_farey_rows": [
+      {
+        "prime_support_limit": 64,
+        "transform_size_L": 256,
+        "minimum_fixed_farey_major_value": 1.4847770129640847,
+        "aliased_minor_l2_energy": 0.1746696949377544,
+        "aliased_minor_derivative_upper_bound": 80.79172325765853,
+        "sobolev_cubic_ratio": 0.05798815367137464,
+        "raw_global_certificate_passes": false,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "parseval_energy_matches_full_grid": true,
+          "finite_major_lower_bound_is_positive": true,
+          "finite_goldbach_counts_are_positive": true,
+          "raw_global_certificate_is_honestly_reported_as_failed": true
+        }
+      },
+      {
+        "prime_support_limit": 128,
+        "transform_size_L": 512,
+        "minimum_fixed_farey_major_value": 2.1134265337073708,
+        "aliased_minor_l2_energy": 0.5916168080313451,
+        "aliased_minor_derivative_upper_bound": 1146.8273012478614,
+        "sobolev_cubic_ratio": 0.003478267256129277,
+        "raw_global_certificate_passes": false,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "parseval_energy_matches_full_grid": true,
+          "finite_major_lower_bound_is_positive": true,
+          "finite_goldbach_counts_are_positive": true,
+          "raw_global_certificate_is_honestly_reported_as_failed": true
+        }
+      },
+      {
+        "prime_support_limit": 256,
+        "transform_size_L": 1024,
+        "minimum_fixed_farey_major_value": 2.072207644108839,
+        "aliased_minor_l2_energy": 1.6768916506248916,
+        "aliased_minor_derivative_upper_bound": 8378.808162152172,
+        "sobolev_cubic_ratio": 0.00015832612167416066,
+        "raw_global_certificate_passes": false,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "parseval_energy_matches_full_grid": true,
+          "finite_major_lower_bound_is_positive": true,
+          "finite_goldbach_counts_are_positive": true,
+          "raw_global_certificate_is_honestly_reported_as_failed": true
+        }
+      },
+      {
+        "prime_support_limit": 512,
+        "transform_size_L": 2048,
+        "minimum_fixed_farey_major_value": 3.353133101040938,
+        "aliased_minor_l2_energy": 3.959891793965605,
+        "aliased_minor_derivative_upper_bound": 46736.00366595615,
+        "sobolev_cubic_ratio": 5.092810244203014e-05,
+        "raw_global_certificate_passes": false,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "parseval_energy_matches_full_grid": true,
+          "finite_major_lower_bound_is_positive": true,
+          "finite_goldbach_counts_are_positive": true,
+          "raw_global_certificate_is_honestly_reported_as_failed": true
+        }
+      },
+      {
+        "prime_support_limit": 1024,
+        "transform_size_L": 4096,
+        "minimum_fixed_farey_major_value": 4.030570977301597,
+        "aliased_minor_l2_energy": 9.39162269197392,
+        "aliased_minor_derivative_upper_bound": 214759.3821320447,
+        "sobolev_cubic_ratio": 8.116091722138417e-06,
+        "raw_global_certificate_passes": false,
+        "minimum_exact_ordered_goldbach_count": 1,
+        "checks": {
+          "aliased_polynomial_has_zero_mean": true,
+          "parseval_energy_matches_full_grid": true,
+          "finite_major_lower_bound_is_positive": true,
+          "finite_goldbach_counts_are_positive": true,
+          "raw_global_certificate_is_honestly_reported_as_failed": true
+        }
+      }
+    ],
+    "energy_only_cosine_counterfamily": [
+      {
+        "frequency": 1,
+        "major_constant": 1.0,
+        "cosine_amplitude": 1.1,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "l2_energy": 0.6050000000000001,
+        "derivative_bound": 6.911503837897546,
+        "sobolev_cubic_ratio": 0.059787732190794626,
+        "checks": {
+          "energy_is_frequency_independent": true,
+          "pointwise_positivity_fails": true,
+          "sobolev_certificate_rejects_the_false_claim": true
+        }
+      },
+      {
+        "frequency": 4,
+        "major_constant": 1.0,
+        "cosine_amplitude": 1.1,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "l2_energy": 0.6050000000000001,
+        "derivative_bound": 27.646015351590183,
+        "sobolev_cubic_ratio": 0.014946933047698657,
+        "checks": {
+          "energy_is_frequency_independent": true,
+          "pointwise_positivity_fails": true,
+          "sobolev_certificate_rejects_the_false_claim": true
+        }
+      },
+      {
+        "frequency": 16,
+        "major_constant": 1.0,
+        "cosine_amplitude": 1.1,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "l2_energy": 0.6050000000000001,
+        "derivative_bound": 110.58406140636073,
+        "sobolev_cubic_ratio": 0.003736733261924664,
+        "checks": {
+          "energy_is_frequency_independent": true,
+          "pointwise_positivity_fails": true,
+          "sobolev_certificate_rejects_the_false_claim": true
+        }
+      },
+      {
+        "frequency": 64,
+        "major_constant": 1.0,
+        "cosine_amplitude": 1.1,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "l2_energy": 0.6050000000000001,
+        "derivative_bound": 442.3362456254429,
+        "sobolev_cubic_ratio": 0.000934183315481166,
+        "checks": {
+          "energy_is_frequency_independent": true,
+          "pointwise_positivity_fails": true,
+          "sobolev_certificate_rejects_the_false_claim": true
+        }
+      }
+    ],
+    "aggregate": {
+      "support_count": 5,
+      "raw_global_certificate_pass_count": 0,
+      "cosine_counterexample_count": 4
+    },
+    "no_go_scope": "The exact Sobolev bridge repairs the logical gap between an L2 estimate and pointwise positivity only when derivative control is also strong. None of the five raw fixed-Farey prime diagnostics passes; this finite failure does not prove asymptotic impossibility. A multiscale arithmetic estimate must reduce energy and derivative together.",
+    "failure_count": 0
+  },
+  "discarded_route": "L2 energy alone or the unsmoothed global Sobolev certificate at the tested fixed-Farey scales",
+  "remaining_gap": "No target-uniform multiscale arithmetic bounds make both the aliased-minor L2 energy and derivative budget small enough relative to a proved major lower bound.",
+  "candidate_theorem": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact Sobolev positivity bridge, four cosine counterexamples, and five failed finite raw-scale certificates only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T177-REJECTED",
+        "label": "AliasedMinorL2EnergyAloneForcesPointwiseGoldbachPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T177-CLOSED",
+        "label": "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T177-OPEN",
+        "label": "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T177-REJECTED",
+        "GB-T177-CLOSED"
+      ],
+      [
+        "GB-T177-CLOSED",
+        "GB-T177-OPEN"
+      ]
+    ]
+  }
+}

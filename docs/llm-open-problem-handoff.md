@@ -39,7 +39,7 @@ Regeneration and verification commands:
 ```powershell
 python scripts/generate_open_problem_workbench.py --limit 1000000 --output data/open_problem_workbench.json
 python scripts/verify_open_problem_workbench.py
-node scripts/verify_pages.cjs
+node --check assets/open-problems.js
 python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
@@ -62,7 +62,60 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-176
+## Latest Continuation After TICKET-177
+
+All four conjectures remain open. TICKET-177 continues from TICKET-176 and
+identifies one additional structure that each next theorem must retain:
+
+1. Riemann:
+   `PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin`.
+   A symmetric nonnegative entrywise majorant `M` for the whitened tail gives
+   the exact relative lower bound `A >= (delta-rho(M))G`. Optimizing arbitrary
+   positive weights is circular because its Collatz-Wielandt infimum is
+   `rho(M)`. The missing input is an arithmetic, predeclared `M` below an
+   independently certified pole-neutral core margin.
+2. Collatz:
+   `AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope`.
+   Every post-first-step accelerated odd state lies in `gcd(n,6)=1`, reducing
+   the harmonic logarithmic coefficient from `1/(6 ln 2)` to `1/(9 ln 2)`,
+   exactly a factor `2/3`. Start 63 still descends without crossing the sharper
+   sufficient envelope, and nontrivial cycles remain separate.
+3. Goldbach:
+   `ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain`.
+   For mean-zero `P`, either `A>D/2` or `E<A^3/(4D)` rigorously implies
+   `A+P>0`, where `D` bounds the derivative and `E` the L2 energy. All five
+   tested raw fixed-Farey scales fail this global certificate; energy alone is
+   refuted by an exact cosine counterfamily. The missing estimate must save
+   energy and derivative together at multiple scales.
+4. Twin Prime:
+   `PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy`.
+   The identity `||sum T_j||^2=||sum T_i^*T_j||` proves signed cross-Gram data
+   are essential. Three exact families have the same component norm summary
+   `(1,1)` but aggregate norms `2,0,1`. Existing Type-II block-norm rows lack
+   the signed data needed to certify cancellation.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket177-comparison-wheel-sobolev-crossgram.json
+data/open-problem/riemann/rh-ticket-177-comparison-majorant.json
+data/open-problem/collatz/co-ticket-177-six-wheel-envelope.json
+data/open-problem/goldbach/gb-ticket-177-sobolev-certificate.json
+data/open-problem/twin-prime/tp-ticket-177-signed-crossgram.json
+```
+
+한국어 인계: TICKET-177도 네 난제를 해결하지 않았다. 리만은 whitening한
+Weil 꼬리의 모든 성분을 지배하는 선험적 비교행렬이 필요하다. 콜라츠는
+6-휠로 개선한 조화 포락선을 모든 비주기 비하강 궤도가 결국 넘어야 함을
+증명하고 주기를 별도로 배제해야 한다. 골드바흐는 parity-aliased minor의
+에너지와 도함수를 major 하한보다 동시에 작게 만드는 다중스케일 산술
+절약이 필요하다. 쌍둥이 소수는 실제 prime-pair Haar 블록의 signed
+cross-Gram 비대각 항에 power saving이 있음을 증명해야 한다.
+
+English report: [TICKET-177](comparison-wheel-sobolev-crossgram.md). Korean
+report: [TICKET-177 한국어](comparison-wheel-sobolev-crossgram.ko.md).
+
+## Preserved Continuation After TICKET-176
 
 All four conjectures remain open. TICKET-176 continues the corrected
 TICKET-175 nodes and removes another avoidable information loss in each track.

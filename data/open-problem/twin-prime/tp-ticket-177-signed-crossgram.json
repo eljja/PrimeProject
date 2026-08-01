@@ -1,0 +1,151 @@
+{
+  "schema": "primeproject.ticket177-comparison-wheel-sobolev-crossgram.v1",
+  "generated_at": "2026-08-02T23:00:00+09:00",
+  "ticket_id": "TP-TICKET-177",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "SignedCrossGramIdentityAndBlockNormInformationLossNoGo",
+  "declared_proposition": "For finite-dimensional operators T_j with common domain and codomain, ||sum_j T_j||^2 equals the operator norm of the signed cross-Gram sum sum_(i,j) T_i^*T_j. The list of component norms ||T_j|| does not determine this quantity: the aligned, cancelling, and orthogonal two-component families all have norm summary (1,1) but aggregate norms 2, 0, and 1.",
+  "mathematical_argument": "Expand (sum_j T_j)^*(sum_j T_j). The three displayed 2 by 2 families verify non-identifiability with exact matrices. Therefore compressing every Haar block to a nonnegative norm before the cross-scale sum can erase the cancellation needed for a Type-II power saving. A phase-preserving signed cross-Gram estimate is a strictly richer target.",
+  "reproducible_computation": {
+    "theorem": "For finite-dimensional operators T_j with common domain and codomain, ||sum_j T_j||^2 equals the operator norm of the signed cross-Gram sum sum_(i,j) T_i^*T_j. The list of component norms ||T_j|| does not determine this quantity: the aligned, cancelling, and orthogonal two-component families all have norm summary (1,1) but aggregate norms 2, 0, and 1.",
+    "proof": "Expand (sum_j T_j)^*(sum_j T_j). The three displayed 2 by 2 families verify non-identifiability with exact matrices. Therefore compressing every Haar block to a nonnegative norm before the cross-scale sum can erase the cancellation needed for a Type-II power saving. A phase-preserving signed cross-Gram estimate is a strictly richer target.",
+    "identical_norm_summary_counterfamilies": [
+      {
+        "family": "aligned",
+        "component_operator_norms": [
+          1.0,
+          1.0
+        ],
+        "aggregate_operator_norm": 2.0,
+        "signed_cross_gram": [
+          [
+            4.0,
+            0.0
+          ],
+          [
+            0.0,
+            4.0
+          ]
+        ],
+        "signed_cross_gram_operator_norm": 4.0,
+        "checks": {
+          "component_norm_summary_is_two_ones": true,
+          "signed_cross_gram_recovers_aggregate_norm_squared": true
+        }
+      },
+      {
+        "family": "cancelling",
+        "component_operator_norms": [
+          1.0,
+          1.0
+        ],
+        "aggregate_operator_norm": 0.0,
+        "signed_cross_gram": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "signed_cross_gram_operator_norm": 0.0,
+        "checks": {
+          "component_norm_summary_is_two_ones": true,
+          "signed_cross_gram_recovers_aggregate_norm_squared": true
+        }
+      },
+      {
+        "family": "orthogonal",
+        "component_operator_norms": [
+          1.0,
+          1.0
+        ],
+        "aggregate_operator_norm": 1.0,
+        "signed_cross_gram": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "signed_cross_gram_operator_norm": 1.0,
+        "checks": {
+          "component_norm_summary_is_two_ones": true,
+          "signed_cross_gram_recovers_aggregate_norm_squared": true
+        }
+      }
+    ],
+    "ticket176_schema_audit": [
+      {
+        "X": 10000,
+        "has_block_norm_scale_matrix": true,
+        "has_signed_cross_gram": false
+      },
+      {
+        "X": 100000,
+        "has_block_norm_scale_matrix": true,
+        "has_signed_cross_gram": false
+      },
+      {
+        "X": 1000000,
+        "has_block_norm_scale_matrix": true,
+        "has_signed_cross_gram": false
+      },
+      {
+        "X": 10000000,
+        "has_block_norm_scale_matrix": true,
+        "has_signed_cross_gram": false
+      }
+    ],
+    "aggregate": {
+      "counterfamily_count": 3,
+      "distinct_aggregate_norms": [
+        0.0,
+        1.0,
+        2.0
+      ],
+      "t161_rows_without_signed_cross_gram": 4
+    },
+    "no_go_scope": "This proves that the stored nonnegative block-norm matrices cannot by themselves certify or refute cross-block cancellation. It does not prove that the actual prime-pair Haar operator has favorable signed cross-Gram decay.",
+    "failure_count": 0
+  },
+  "discarded_route": "nonnegative block-norm matrices as sufficient statistics for cross-scale Type-II cancellation",
+  "remaining_gap": "No signed cross-Gram dataset or theorem gives power-saving off-diagonal cancellation for the actual prime-pair Haar blocks.",
+  "candidate_theorem": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy",
+  "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact cross-Gram identity, three information-loss counterfamilies, and a data-contract correction only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T177-REJECTED",
+        "label": "HaarBlockNormMatrixDeterminesCrossScaleCancellation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T177-CLOSED",
+        "label": "SignedCrossGramIdentityAndBlockNormInformationLossNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T177-OPEN",
+        "label": "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T177-REJECTED",
+        "TP-T177-CLOSED"
+      ],
+      [
+        "TP-T177-CLOSED",
+        "TP-T177-OPEN"
+      ]
+    ]
+  }
+}

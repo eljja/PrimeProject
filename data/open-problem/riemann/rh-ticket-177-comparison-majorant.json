@@ -1,0 +1,159 @@
+{
+  "schema": "primeproject.ticket177-comparison-wheel-sobolev-crossgram.v1",
+  "generated_at": "2026-08-02T23:00:00+09:00",
+  "ticket_id": "RH-TICKET-177",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo",
+  "declared_proposition": "Let G be positive definite, A_T and A Hermitian, and suppose A_T is at least delta G. In one fixed G-orthonormal basis, let M be a symmetric nonnegative matrix satisfying |[G^(-1/2)(A-A_T)G^(-1/2)]_ij| <= M_ij. Then A is at least (delta-rho(M))G. More generally every positive predeclared weight w gives rho(M)<=max_i (Mw)_i/w_i.",
+  "mathematical_argument": "For the whitened tail E and every vector x, componentwise |Ex|<=M|x|, hence ||E||_2<=||M||_2=rho(M). The variational bound gives E>=-rho(M)I and therefore the stated Loewner lower bound. The weighted row estimate is the Collatz-Wielandt upper bound after diagonal scaling. For irreducible M its infimum over all positive w equals rho(M), so unconstrained numerical weight optimization is circular; useful weights must come from a predeclared arithmetic majorant.",
+  "reproducible_computation": {
+    "theorem": "Let G be positive definite, A_T and A Hermitian, and suppose A_T is at least delta G. In one fixed G-orthonormal basis, let M be a symmetric nonnegative matrix satisfying |[G^(-1/2)(A-A_T)G^(-1/2)]_ij| <= M_ij. Then A is at least (delta-rho(M))G. More generally every positive predeclared weight w gives rho(M)<=max_i (Mw)_i/w_i.",
+    "proof": "For the whitened tail E and every vector x, componentwise |Ex|<=M|x|, hence ||E||_2<=||M||_2=rho(M). The variational bound gives E>=-rho(M)I and therefore the stated Loewner lower bound. The weighted row estimate is the Collatz-Wielandt upper bound after diagonal scaling. For irreducible M its infimum over all positive w equals rho(M), so unconstrained numerical weight optimization is circular; useful weights must come from a predeclared arithmetic majorant.",
+    "comparison_matrix": [
+      [
+        0.04,
+        0.08,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.08,
+        0.04,
+        0.08,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.08,
+        0.04,
+        0.08,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.08,
+        0.04,
+        0.08
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.08,
+        0.04
+      ]
+    ],
+    "predeclared_sine_weights": [
+      0.49999999999999994,
+      0.8660254037844386,
+      1.0,
+      0.8660254037844387,
+      0.49999999999999994
+    ],
+    "relative_scale_rows": [
+      {
+        "metric_small_eigenvalue_decimal_digits": 4,
+        "metric_smallest_eigenvalue": 0.0001,
+        "truncated_relative_margin_delta": 0.25,
+        "comparison_spectral_radius": 0.1785640646055102,
+        "constant_weight_comparison_bound": 0.2,
+        "predeclared_sine_weight_bound": 0.1785640646055102,
+        "certified_relative_margin": 0.07143593539448981,
+        "certified_euclidean_smallest_scale": 7.143593539448981e-06,
+        "checks": {
+          "predeclared_sine_weight_recovers_exact_radius": true,
+          "constant_weight_is_valid_but_looser": true,
+          "comparison_radius_is_below_core_margin": true,
+          "certified_scale_is_positive": true
+        }
+      },
+      {
+        "metric_small_eigenvalue_decimal_digits": 16,
+        "metric_smallest_eigenvalue": 1e-16,
+        "truncated_relative_margin_delta": 0.25,
+        "comparison_spectral_radius": 0.1785640646055102,
+        "constant_weight_comparison_bound": 0.2,
+        "predeclared_sine_weight_bound": 0.1785640646055102,
+        "certified_relative_margin": 0.07143593539448981,
+        "certified_euclidean_smallest_scale": 7.14359353944898e-18,
+        "checks": {
+          "predeclared_sine_weight_recovers_exact_radius": true,
+          "constant_weight_is_valid_but_looser": true,
+          "comparison_radius_is_below_core_margin": true,
+          "certified_scale_is_positive": true
+        }
+      },
+      {
+        "metric_small_eigenvalue_decimal_digits": 64,
+        "metric_smallest_eigenvalue": 1e-64,
+        "truncated_relative_margin_delta": 0.25,
+        "comparison_spectral_radius": 0.1785640646055102,
+        "constant_weight_comparison_bound": 0.2,
+        "predeclared_sine_weight_bound": 0.1785640646055102,
+        "certified_relative_margin": 0.07143593539448981,
+        "certified_euclidean_smallest_scale": 7.143593539448981e-66,
+        "checks": {
+          "predeclared_sine_weight_recovers_exact_radius": true,
+          "constant_weight_is_valid_but_looser": true,
+          "comparison_radius_is_below_core_margin": true,
+          "certified_scale_is_positive": true
+        }
+      },
+      {
+        "metric_small_eigenvalue_decimal_digits": 128,
+        "metric_smallest_eigenvalue": 1e-128,
+        "truncated_relative_margin_delta": 0.25,
+        "comparison_spectral_radius": 0.1785640646055102,
+        "constant_weight_comparison_bound": 0.2,
+        "predeclared_sine_weight_bound": 0.1785640646055102,
+        "certified_relative_margin": 0.07143593539448981,
+        "certified_euclidean_smallest_scale": 7.143593539448981e-130,
+        "checks": {
+          "predeclared_sine_weight_recovers_exact_radius": true,
+          "constant_weight_is_valid_but_looser": true,
+          "comparison_radius_is_below_core_margin": true,
+          "certified_scale_is_positive": true
+        }
+      }
+    ],
+    "no_go_scope": "The theorem converts a full entrywise relative tail majorant into a PSD certificate. It does not construct that majorant for the actual pole-neutral Weil tail. Fitting arbitrary weights merely recomputes the comparison spectral radius.",
+    "failure_count": 0
+  },
+  "discarded_route": "unrestricted fitted comparison weights or diagonal-only tail summaries",
+  "remaining_gap": "No explicit symmetric comparison matrix majorizes every entry of the whitened arithmetic Weil tail below a certified fixed-core margin.",
+  "candidate_theorem": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin",
+  "claim_boundary": "No RH proof, zero exclusion, or actual Weil-tail comparison majorant; one exact comparison certificate and weight-circularity boundary only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T177-REJECTED",
+        "label": "FreeComparisonWeightsOrDiagonalDataCloseWeilPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T177-CLOSED",
+        "label": "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T177-OPEN",
+        "label": "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T177-REJECTED",
+        "RH-T177-CLOSED"
+      ],
+      [
+        "RH-T177-CLOSED",
+        "RH-T177-OPEN"
+      ]
+    ]
+  }
+}

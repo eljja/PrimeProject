@@ -14,6 +14,7 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket177Load = openProblemSource.indexOf("const ticket177Loaded = await loadTicket177Attempt();");
   const ticket176Load = openProblemSource.indexOf("const ticket176Loaded = await loadTicket176Attempt();");
   const ticket175Load = openProblemSource.indexOf("const ticket175Loaded = await loadTicket175Attempt();");
   const ticket174Load = openProblemSource.indexOf("const ticket174Loaded = await loadTicket174Attempt();");
@@ -25,15 +26,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket176Load >= 0 && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET176 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket177Load >= 0 && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET177 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260802-research-brief")) {
+    if (!source.includes("open-problems.js?v=20260802-ticket177")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-research-brief")) {
+    if (!source.includes("styles.css?v=20260802-ticket177")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -426,6 +427,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket177AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket177-comparison-wheel-sobolev-crossgram .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket176AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket176-relative-cone-harmonic-alias-schur .ticket161-audit-table .proof-table-wrap",
@@ -544,7 +551,7 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-176") ||
+    !metrics.currentBriefText.includes("TICKET-177") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
     metrics.mobileHorizontalOverflow ||
@@ -562,7 +569,7 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-176 actually changed") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-177 actually changed") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -574,7 +581,7 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentResearchText.includes("Ticket 176 relative cones")) failures.push(`${page.problemId}: current TICKET-176 boundary missing`);
+    if (!page.currentResearchText.includes("Ticket 177 comparison majorants")) failures.push(`${page.problemId}: current TICKET-177 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1441,9 +1448,38 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket177 title", "Ticket 177 comparison majorants, six-wheel envelopes, Sobolev certificates, and signed cross-Gram data");
+    requireText("ticket177 table", "TICKET177 audit");
+    requireText("ticket177 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket177 resolutions", "Resolution count0");
+    requireText("ticket177 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket177AuditOverflow) checks.push(`${page.problemId}: ticket177 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket177 RH theorem", "RelativeComparisonMajorantCertificateAndFreeWeightCircularityNoGo");
+      requireText("ticket177 RH target", "PoleNeutralWeilWhitenedTailHasPredeclaredComparisonMajorantBelowCoreMargin");
+      requireText("ticket177 RH metric", "comparison ρ(M)");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket177 Collatz theorem", "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo");
+      requireText("ticket177 Collatz starts", "Odd starts49,999");
+      requireText("ticket177 Collatz exception", "Non-crossing starts63");
+      requireText("ticket177 Collatz ratio", "Coefficient ratio0.6667");
+      requireText("ticket177 Collatz target", "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket177 Goldbach theorem", "AliasedMinorSobolevPointwiseCertificateAndRawScaleFailure");
+      requireText("ticket177 Goldbach supports", "Raw supports5");
+      requireText("ticket177 Goldbach failures", "Certificates passed0");
+      requireText("ticket177 Goldbach no-go", "Energy-only no-go4");
+      requireText("ticket177 Goldbach target", "ParityAliasedMinorHasMultiscaleEnergyDerivativePowerSavingBelowMajorMain");
+    } else {
+      requireText("ticket177 Twin theorem", "SignedCrossGramIdentityAndBlockNormInformationLossNoGo");
+      requireText("ticket177 Twin families", "Same norm summary3 families");
+      requireText("ticket177 Twin norms", "Aggregate norms0 / 1 / 2");
+      requireText("ticket177 Twin missing", "Missing cross-Gram4 rows");
+      requireText("ticket177 Twin target", "PrimePairHaarSignedCrossGramHasPowerSavingRelativeToDiagonalEnergy");
+    }
     requireText("ticket176 title", "Ticket 176 relative cones, harmonic corrections, parity aliases, and weighted Schur circularity");
     requireText("ticket176 table", "TICKET176 audit");
-    requireText("ticket176 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket176 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket176 resolutions", "Resolution count0");
     requireText("ticket176 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket176AuditOverflow) checks.push(`${page.problemId}: ticket176 audit table overflow`);

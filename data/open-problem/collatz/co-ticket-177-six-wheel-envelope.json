@@ -1,0 +1,173 @@
+{
+  "schema": "primeproject.ticket177-comparison-wheel-sobolev-crossgram.v1",
+  "generated_at": "2026-08-02T23:00:00+09:00",
+  "ticket_id": "CO-TICKET-177",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo",
+  "declared_proposition": "Let n_i be an aperiodic accelerated odd Collatz orbit with n_i>=n_0=n for 0<=i<h. Every n_i with i>=1 is odd and nonzero modulo 3. If b_1<b_2<... are the integers greater than n that are coprime to 6, then the affine correction satisfies C_h <= (3 ln 2)^(-1)[1/n+sum_(j<h)1/b_j] <= H_6(n,h), where H_6 has logarithmic coefficient 1/(9 ln 2), exactly two thirds of the odd-only coefficient in TICKET-176.",
+  "mathematical_argument": "After one accelerated step, 3n_i+1 is 1 modulo 3 and division by a power of two preserves nonzero residue modulo 3. Aperiodicity makes the states distinct, so their increasing rearrangement is bounded below by the six-wheel list b_j. A residue check modulo 6 gives b_j>=n+3j-2. Apply log2(1+x)<=x/ln 2 and the first-term-plus-integral bound to the progression n+1,n+4,... .",
+  "reproducible_computation": {
+    "theorem": "Let n_i be an aperiodic accelerated odd Collatz orbit with n_i>=n_0=n for 0<=i<h. Every n_i with i>=1 is odd and nonzero modulo 3. If b_1<b_2<... are the integers greater than n that are coprime to 6, then the affine correction satisfies C_h <= (3 ln 2)^(-1)[1/n+sum_(j<h)1/b_j] <= H_6(n,h), where H_6 has logarithmic coefficient 1/(9 ln 2), exactly two thirds of the odd-only coefficient in TICKET-176.",
+    "proof": "After one accelerated step, 3n_i+1 is 1 modulo 3 and division by a power of two preserves nonzero residue modulo 3. Aperiodicity makes the states distinct, so their increasing rearrangement is bounded below by the six-wheel list b_j. A residue check modulo 6 gives b_j>=n+3j-2. Apply log2(1+x)<=x/ln 2 and the first-term-plus-integral bound to the progression n+1,n+4,... .",
+    "finite_first_descent_audit": {
+      "odd_start_limit": 100000,
+      "odd_starts_checked": 49999,
+      "first_descent_failures": 0,
+      "six_wheel_boundary_crossing_count": 49998,
+      "six_wheel_boundary_non_crossing_count": 1,
+      "six_wheel_boundary_non_crossing_starts": [
+        63
+      ],
+      "maximum_first_descent_horizon": 85,
+      "maximum_horizon_start": 35655
+    },
+    "asymptotic_coefficients": {
+      "ticket176_odd_only_log_coefficient": 0.24044917348149392,
+      "ticket177_six_wheel_log_coefficient": 0.1602994489876626,
+      "new_to_old_ratio": 0.6666666666666666
+    },
+    "selected_exact_rows": [
+      {
+        "start": 3,
+        "first_descent_horizon": 2,
+        "descent_value": 1,
+        "centered_valuation_excess": 1.8300749985576878,
+        "exact_orbit_correction": 0.24511249783653152,
+        "six_wheel_discrete_envelope": 0.25647911838026016,
+        "six_wheel_analytic_envelope": 0.28052403572840956,
+        "odd_only_discrete_envelope": 0.25647911838026016,
+        "odd_only_analytic_envelope": 0.28312704801536365,
+        "crosses_sufficient_six_wheel_boundary": true,
+        "checks": {
+          "states_before_descent_are_distinct": true,
+          "post_first_states_lie_on_six_wheel": true,
+          "exact_correction_below_discrete_wheel_envelope": true,
+          "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+          "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+          "corrected_log_identity_holds": true
+        },
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 27,
+        "first_descent_horizon": 37,
+        "descent_value": 23,
+        "centered_valuation_excess": 0.356387473317227,
+        "exact_orbit_correction": 0.12506192721076545,
+        "six_wheel_discrete_envelope": 0.2755934961663377,
+        "six_wheel_analytic_envelope": 0.28475571456643595,
+        "odd_only_discrete_envelope": 0.3238475313341721,
+        "odd_only_analytic_envelope": 0.3302225695402083,
+        "crosses_sufficient_six_wheel_boundary": true,
+        "checks": {
+          "states_before_descent_are_distinct": true,
+          "post_first_states_lie_on_six_wheel": true,
+          "exact_correction_below_discrete_wheel_envelope": true,
+          "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+          "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+          "corrected_log_identity_holds": true
+        },
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 63,
+        "first_descent_horizon": 34,
+        "descent_value": 61,
+        "centered_valuation_excess": 0.11127497548069698,
+        "exact_orbit_correction": 0.0647323895436598,
+        "six_wheel_discrete_envelope": 0.15898659443107055,
+        "six_wheel_analytic_envelope": 0.16202824319787645,
+        "odd_only_discrete_envelope": 0.17802053156408798,
+        "odd_only_analytic_envelope": 0.17995786241520687,
+        "crosses_sufficient_six_wheel_boundary": false,
+        "checks": {
+          "states_before_descent_are_distinct": true,
+          "post_first_states_lie_on_six_wheel": true,
+          "exact_correction_below_discrete_wheel_envelope": true,
+          "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+          "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+          "corrected_log_identity_holds": true
+        },
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 703,
+        "first_descent_horizon": 51,
+        "descent_value": 157,
+        "centered_valuation_excess": 2.1669124632210384,
+        "exact_orbit_correction": 0.004152333040126074,
+        "six_wheel_discrete_envelope": 0.03160631407918475,
+        "six_wheel_analytic_envelope": 0.031765349397875765,
+        "odd_only_discrete_envelope": 0.032620725821160934,
+        "odd_only_analytic_envelope": 0.03266328233486431,
+        "crosses_sufficient_six_wheel_boundary": true,
+        "checks": {
+          "states_before_descent_are_distinct": true,
+          "post_first_states_lie_on_six_wheel": true,
+          "exact_correction_below_discrete_wheel_envelope": true,
+          "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+          "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+          "corrected_log_identity_holds": true
+        },
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 35655,
+        "first_descent_horizon": 85,
+        "descent_value": 29405,
+        "centered_valuation_excess": 0.27818743870173535,
+        "exact_orbit_correction": 0.00014452520006405902,
+        "six_wheel_discrete_envelope": 0.0011424562151386918,
+        "six_wheel_analytic_envelope": 0.0011425187578996277,
+        "odd_only_discrete_envelope": 0.0011437487493986512,
+        "odd_only_analytic_envelope": 0.0011437803752390755,
+        "crosses_sufficient_six_wheel_boundary": true,
+        "checks": {
+          "states_before_descent_are_distinct": true,
+          "post_first_states_lie_on_six_wheel": true,
+          "exact_correction_below_discrete_wheel_envelope": true,
+          "discrete_wheel_envelope_below_analytic_wheel_envelope": true,
+          "wheel_discrete_envelope_no_larger_than_odd_only_discrete_envelope": true,
+          "corrected_log_identity_holds": true
+        },
+        "cycle_detected_before_descent": false
+      }
+    ],
+    "no_go_scope": "The six-wheel refinement is strictly sharper asymptotically, but start 63 still descends at step 34 without crossing it. Static modulo-3 exclusion alone is therefore not equivalent to descent and does not exclude a nontrivial cycle.",
+    "failure_count": 0
+  },
+  "discarded_route": "static odd-only spacing or modulo-three exclusion as an iff descent criterion",
+  "remaining_gap": "No theorem forces every aperiodic non-descending natural orbit's valuation discrepancy above the sharper six-wheel envelope; nontrivial cycles remain unexcluded.",
+  "candidate_theorem": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope",
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact six-wheel envelope refinement and one finite non-equivalence witness only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T177-REJECTED",
+        "label": "StaticSixWheelExclusionIsEquivalentToCollatzDescent",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T177-CLOSED",
+        "label": "PostFirstStepSixWheelHarmonicEnvelopeAndStaticWheelNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T177-OPEN",
+        "label": "AperiodicNonDescendingValuationDiscrepancyExceedsSixWheelHarmonicEnvelope",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T177-REJECTED",
+        "CO-T177-CLOSED"
+      ],
+      [
+        "CO-T177-CLOSED",
+        "CO-T177-OPEN"
+      ]
+    ]
+  }
+}

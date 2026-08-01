@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact reductions",
-      ko: "네 개의 미해결 문제, 네 개의 정확한 구조적 환원",
+      en: "Four open problems, four structure-preserving certificates",
+      ko: "네 개의 미해결 문제, 구조를 보존하는 네 개의 인증",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. It has made four proof obligations sharper and four tempting shortcuts formally unusable.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. 대신 네 개의 증명 의무를 더 정확히 만들고, 그럴듯하지만 잘못된 네 경로를 엄밀히 폐기했습니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-177 identifies the information each next proof must retain and rejects four insufficient summaries.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-177은 다음 증명이 보존해야 할 정보를 특정하고, 그 정보를 잃는 네 요약 경로를 폐기했습니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {
