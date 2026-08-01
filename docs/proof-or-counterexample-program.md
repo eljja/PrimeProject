@@ -6864,3 +6864,32 @@ conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-173 finite-section-cylinder-phase-tensor](finite-section-cylinder-phase-tensor.md).
 한국어 보고서: [TICKET-173 유한단면-cylinder-위상-tensor](finite-section-cylinder-phase-tensor.ko.md).
+
+## TICKET-174 continuation: tail schedules, unique zero lifts, adaptive selection, and scale aggregation
+
+TICKET-174 proves four exact quantitative statements while keeping every
+conjecture resolution counter at zero:
+
+1. RH: if the truncated arithmetic defect plus the known archimedean tail
+   tends to zero on one diagonal schedule, dense-core nonnegativity follows.
+   The explicit certified tail upper bound vanishes for `T_N=N^2`, while
+   linear or critical `N log N` schedules do not certify closure through that
+   bound. The next target is
+   `PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero`.
+2. Collatz: every finite valuation cylinder has exactly one zero-lift child.
+   Its truncated local density is at most `1/A`, yet every stabilized natural
+   ray follows that exceptional child forever. The next target is
+   `NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren`.
+3. Goldbach: a target-dependent set of positive Fourier terms selected after
+   observing the aligned signs exists exactly when the representation count is
+   positive. This post-hoc route is circular. The next target is
+   `FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly`.
+4. Twin Prime: all tensor-Haar scale-pair energies aggregate with a sharp
+   `log2 N` loss from their maximum to the operator norm. The next target is
+   `PrimePairEveryScalePairHaarEnergyPowerSavingUniformly`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-174 tail-lift-adaptive-scalepair](tail-lift-adaptive-scalepair.md).
+한국어 보고서: [TICKET-174 tail-lift-adaptive-scalepair](tail-lift-adaptive-scalepair.ko.md).

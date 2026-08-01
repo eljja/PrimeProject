@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 120,
-    "claim_language_scanned_lines": 45418,
+    "claim_language_scanned_files": 122,
+    "claim_language_scanned_lines": 45981,
     "claim_language_triggered_mentions": 121,
     "claim_language_guarded_mentions": 121,
     "claim_language_failures": 0,
@@ -1042,6 +1042,13 @@
           "state": "bounded",
           "measure": "RH 7 exact vanishing-defect rows plus 7 one-stage rank rows / Collatz 5,460 exact word residues, 8 natural stabilization examples, and 7 exponential all-one no-go rows / Goldbach 987 zero-padded prime targets plus one exact weighted Z/8 no-go / Twin 4 finite all-scale-pair decompositions plus 5 unequal-scale rank-one no-go rows / 0 conjecture resolutions",
           "proof": "TICKET-173 proves dense finite-section lower defects tending to zero suffice without uniform coercivity, characterizes Collatz positive-natural support by eventual cylinder representative stabilization while rejecting horizon-only subexponential height, retains target-aligned positive and negative Goldbach Fourier mass while refuting necessity of the negative-only gate, and corrects Twin same-scale mixed variation to all tensor-Haar row/column scale pairs"
+        },
+        {
+          "marker": "134",
+          "title": "Tail schedules, unique zero-lift branches, adaptive selection, and sharp scale aggregation enforce quantifier-safe uniformity",
+          "state": "bounded",
+          "measure": "RH 9 exact four-schedule tail rows / Collatz 5,460 parent words by 32 child valuations plus 5 density rows / Goldbach 987 adaptive-selection targets with 0 equivalence failures / Twin 6 sharp logarithmic-loss models plus 4 finite Type-II rows / 0 conjecture resolutions",
+          "proof": "TICKET-174 proves a quadratic RH cutoff makes the explicit certified archimedean-tail upper bound vanish while leaving the arithmetic core sign open, isolates the unique Collatz zero-lift child that density arguments cannot discard, proves post-hoc Goldbach positive-frequency selection equivalent to the desired positivity and hence circular, and proves the log2 N tensor-Haar scale-pair aggregation loss sharp"
         }
       ],
       "evidence_flow": [
@@ -1163,9 +1170,9 @@
           "layer": "Open-Proof",
           "score": 99,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket173-finite-section-cylinder-phase-tensor.json", "data/open-problem/ticket172-structure-equivalence-l1-variation.json", "docs/finite-section-cylinder-phase-tensor.md", "docs/finite-section-cylinder-phase-tensor.ko.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET173 proves four exact structural results: dense finite-section nonnegativity from vanishing certified lower defects with a uniform-coercivity no-go, exact Collatz cylinder representatives and natural-support stabilization with an exponential horizon no-go, target-aligned Goldbach positive/negative Fourier decomposition with a negative-only necessity no-go, and complete tensor-Haar scale-pair energy with a same-scale no-go. It records proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
-          "proof": "The workbench now requires a pole-neutral Weil finite-section lower defect tending to zero, unbounded cylinder representatives on every prefixwise non-descending Collatz ray, target-uniform Goldbach major-arc positive mass dominating the signed minor-arc deficit, and prime-pair power saving over every tensor-Haar row/column scale pair."
+          "artifacts": ["data/open-problem/ticket174-tail-lift-adaptive-scalepair.json", "data/open-problem/ticket173-finite-section-cylinder-phase-tensor.json", "docs/tail-lift-adaptive-scalepair.md", "docs/tail-lift-adaptive-scalepair.ko.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET174 proves four exact quantitative bridge/no-go results: a quadratic diagonal schedule makes the explicit certified RH archimedean-tail upper bound vanish but does not control the arithmetic core defect, every Collatz cylinder has one exceptional zero-lift child, post-hoc Goldbach positive-frequency selection is circular, and the log2 N tensor-Haar aggregation loss is sharp. It records proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
+          "proof": "The workbench now requires a vanishing pole-neutral Weil-core defect on a quadratic cutoff, exclusion of any non-descending Collatz ray that eventually follows unique zero-lift children, fixed Farey-major positive mass dominating the complementary signed deficit uniformly, and prime-pair power saving uniform over every tensor-Haar row/column scale pair."
         }
       ]
     },

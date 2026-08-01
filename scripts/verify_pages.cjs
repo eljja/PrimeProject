@@ -14,6 +14,7 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket174Load = openProblemSource.indexOf("const ticket174Loaded = await loadTicket174Attempt();");
   const ticket173Load = openProblemSource.indexOf("const ticket173Loaded = await loadTicket173Attempt();");
   const ticket172Load = openProblemSource.indexOf("const ticket172Loaded = await loadTicket172Attempt();");
   const ticket171Load = openProblemSource.indexOf("const ticket171Loaded = await loadTicket171Attempt();");
@@ -22,16 +23,16 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket173Load >= 0 && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET173 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket174Load >= 0 && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET174 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260806-ticket173")) {
-      errors.push(`${page}: missing TICKET173 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260807-ticket174")) {
+      errors.push(`${page}: missing TICKET174 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260806-ticket173")) {
-      errors.push(`${page}: missing TICKET173 style cache key`);
+    if (!source.includes("styles.css?v=20260807-ticket174")) {
+      errors.push(`${page}: missing TICKET174 style cache key`);
     }
   }
 
@@ -351,6 +352,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket174AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket174-tail-lift-adaptive-scalepair .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket173AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket173-finite-section-cylinder-phase-tensor .ticket161-audit-table .proof-table-wrap",
@@ -1319,9 +1326,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket174 title", "Ticket 174 tail schedules, unique zero lifts, adaptive Fourier selection, and sharp scale aggregation");
+    requireText("ticket174 table", "TICKET174 audit");
+    requireText("ticket174 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket174 resolutions", "Resolution count0");
+    requireText("ticket174 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket174AuditOverflow) checks.push(`${page.problemId}: ticket174 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket174 RH theorem", "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo");
+      requireText("ticket174 RH rows", "Schedule rows9");
+      requireText("ticket174 RH open", "Core signOPEN");
+      requireText("ticket174 RH target", "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket174 Collatz theorem", "UniqueZeroLiftChildAndLocalDensityNoGo");
+      requireText("ticket174 Collatz words", "Words checked5,460");
+      requireText("ticket174 Collatz children", "Child valuations1..32");
+      requireText("ticket174 Collatz target", "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket174 Goldbach theorem", "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo");
+      requireText("ticket174 Goldbach targets", "Finite targets987");
+      requireText("ticket174 Goldbach failures", "Equivalence failures0");
+      requireText("ticket174 Goldbach target", "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly");
+    } else {
+      requireText("ticket174 Twin theorem", "ScalePairMaximumAggregationAndSharpLogarithmicLoss");
+      requireText("ticket174 Twin sizes", "Sharp sizes6");
+      requireText("ticket174 Twin norm", "Largest saturated norm7");
+      requireText("ticket174 Twin target", "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly");
+    }
     requireText("ticket173 title", "Ticket 173 finite-section defects, Collatz cylinder stabilization, target-aligned phase, and tensor-Haar pairs");
     requireText("ticket173 table", "TICKET173 audit");
-    requireText("ticket173 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket173 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket173 resolutions", "Resolution count0");
     requireText("ticket173 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket173AuditOverflow) checks.push(`${page.problemId}: ticket173 audit table overflow`);

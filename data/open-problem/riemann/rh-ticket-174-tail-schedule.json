@@ -1,0 +1,312 @@
+{
+  "schema": "primeproject.ticket174-tail-lift-adaptive-scalepair.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-174",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo",
+  "declared_proposition": "Let V_N be nested finite-dimensional subspaces with dense union. Suppose a truncated Hermitian form q_(N,T) satisfies |q(v)-q_(N,T)(v)| <= B_N(T)||v||^2 on V_N and lambda_min(q_(N,T)) >= -delta_(N,T). If a diagonal schedule T_N has delta_(N,T_N)+B_N(T_N) tending to zero, then q is nonnegative. For the explicit Corollary 3.3 upper bound U_N(T)=2(2N+1)rho/pi^2 times [log(T)/(T-rho N)+(rho N)^(-1)log(T/(T-rho N))], any schedule with T_N/(N log T_N) tending to infinity makes U_N(T_N) tend to zero. T_N=N^2 works, whereas T_N=C N and T_N=C N log N do not make this certified upper bound vanish.",
+  "mathematical_argument": "The perturbation inequality gives q(v)>=-[delta_(N,T)+B_N(T)]||v||^2 on each V_N. Apply the TICKET-173 dense-core argument along the diagonal schedule. In the explicit bound, the hypothesis makes rho N/T_N tend to zero, so T_N-rho N is asymptotic to T_N. The first term is O(N log(T_N)/T_N), and the second is O(N/T_N). With T_N=N^2 both vanish. With T_N=C N the first term grows like log N; with T_N=C N log N it approaches a positive constant.",
+  "reproducible_computation": {
+    "theorem": "Let V_N be nested finite-dimensional subspaces with dense union. Suppose a truncated Hermitian form q_(N,T) satisfies |q(v)-q_(N,T)(v)| <= B_N(T)||v||^2 on V_N and lambda_min(q_(N,T)) >= -delta_(N,T). If a diagonal schedule T_N has delta_(N,T_N)+B_N(T_N) tending to zero, then q is nonnegative. For the explicit Corollary 3.3 upper bound U_N(T)=2(2N+1)rho/pi^2 times [log(T)/(T-rho N)+(rho N)^(-1)log(T/(T-rho N))], any schedule with T_N/(N log T_N) tending to infinity makes U_N(T_N) tend to zero. T_N=N^2 works, whereas T_N=C N and T_N=C N log N do not make this certified upper bound vanish.",
+    "proof": "The perturbation inequality gives q(v)>=-[delta_(N,T)+B_N(T)]||v||^2 on each V_N. Apply the TICKET-173 dense-core argument along the diagonal schedule. In the explicit bound, the hypothesis makes rho N/T_N tend to zero, so T_N-rho N is asymptotic to T_N. The first term is O(N log(T_N)/T_N), and the second is O(N/T_N). With T_N=N^2 both vanish. With T_N=C N the first term grows like log N; with T_N=C N log N it approaches a positive constant.",
+    "source_parameters": {
+      "prime_cutoff_c": 100,
+      "rho": 1.3643763538418412,
+      "certified_upper_bound": "U_N(T)=2(2N+1)rho/pi^2*[log(T)/(T-rho*N)+log(T/(T-rho*N))/(rho*N)]",
+      "validity_condition": "T>max(rho*N,7)",
+      "fixed_N_asymptotic": "B_N(T)~(2N+1)rho*(log(T/(2pi))+1)/(pi^2*T)",
+      "source": "arXiv:2607.02828",
+      "published_c100_N200_T800_closed_form_bound": 1.5754527435280588,
+      "published_report_rounded_value": 1.58,
+      "published_scale_check_matches": true
+    },
+    "cutoff_schedule_rows": [
+      {
+        "finite_section_dimension_N": 16,
+        "cutoff_schedules_T": {
+          "linear_8N": 128,
+          "critical_8NlogN": 355,
+          "quadratic_N2": 256,
+          "cubic_N3": 4096
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.4951175053449773,
+          "critical_8NlogN": 0.1873330425872345,
+          "quadratic_N2": 0.2533060991662433,
+          "cubic_N3": 0.020860590314700087
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 1.6487943324445298,
+          "critical_8NlogN": 3.7784494104949,
+          "quadratic_N2": 2.8853900817779268,
+          "cubic_N3": 30.77749420563122
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 32,
+        "cutoff_schedules_T": {
+          "linear_8N": 256,
+          "critical_8NlogN": 888,
+          "quadratic_N2": 1024,
+          "cubic_N3": 32768
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.5462797054497925,
+          "critical_8NlogN": 0.16525118910617614,
+          "quadratic_N2": 0.1450003314700346,
+          "cubic_N3": 0.0062586398437445186
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 1.4426950408889634,
+          "critical_8NlogN": 4.087511489298005,
+          "quadratic_N2": 4.6166241308446825,
+          "cubic_N3": 98.4879814580199
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 64,
+        "cutoff_schedules_T": {
+          "linear_8N": 512,
+          "critical_8NlogN": 2130,
+          "quadratic_N2": 4096,
+          "cubic_N3": 262144
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.6002902729698641,
+          "critical_8NlogN": 0.15091174547684785,
+          "quadratic_N2": 0.08280639877741378,
+          "cubic_N3": 0.001834152607731314
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 1.2823955919013008,
+          "critical_8NlogN": 4.342612606719947,
+          "quadratic_N2": 7.694373551407805,
+          "cubic_N3": 328.293271526733
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 128,
+        "cutoff_schedules_T": {
+          "linear_8N": 1024,
+          "critical_8NlogN": 4969,
+          "quadratic_N2": 16384,
+          "cubic_N3": 2097152
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.6559506548917516,
+          "critical_8NlogN": 0.14069516300042464,
+          "quadratic_N2": 0.0468989572830479,
+          "cubic_N3": 0.0005271122663588476
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 1.1541560327111706,
+          "critical_8NlogN": 4.5612068600402536,
+          "quadratic_N2": 13.190354659556238,
+          "cubic_N3": 1125.576930948799
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 256,
+        "cutoff_schedules_T": {
+          "linear_8N": 2048,
+          "critical_8NlogN": 11357,
+          "quadratic_N2": 65536,
+          "cubic_N3": 16777216
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.7125487593616409,
+          "critical_8NlogN": 0.13299964685178256,
+          "quadratic_N2": 0.026300609846272256,
+          "cubic_N3": 0.00014909368955110227
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 1.0492327570101552,
+          "critical_8NlogN": 4.751042108210981,
+          "quadratic_N2": 23.083120654223414,
+          "cubic_N3": 3939.5192583207963
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 512,
+        "cutoff_schedules_T": {
+          "linear_8N": 4096,
+          "critical_8NlogN": 25553,
+          "quadratic_N2": 262144,
+          "cubic_N3": 134217728
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.7696721327790779,
+          "critical_8NlogN": 0.12695898136505396,
+          "quadratic_N2": 0.014606500465387577,
+          "cubic_N3": 4.16271641599603e-05
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 0.9617966939259757,
+          "critical_8NlogN": 4.917786265926124,
+          "quadratic_N2": 41.036658940841626,
+          "cubic_N3": 14007.179585140608
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 1024,
+        "cutoff_schedules_T": {
+          "linear_8N": 8192,
+          "critical_8NlogN": 56783,
+          "quadratic_N2": 1048576,
+          "cubic_N3": 1073741824
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.8270863445070623,
+          "critical_8NlogN": 0.12207163676273262,
+          "quadratic_N2": 0.008040274450046262,
+          "cubic_N3": 1.1498794153150224e-05
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 0.8878123328547468,
+          "critical_8NlogN": 5.065514535820601,
+          "quadratic_N2": 73.86598609351492,
+          "cubic_N3": 50425.84650650619
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 2048,
+        "cutoff_schedules_T": {
+          "linear_8N": 16384,
+          "critical_8NlogN": 124922,
+          "quadratic_N2": 4194304,
+          "cubic_N3": 8589934592
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.8846600773087075,
+          "critical_8NlogN": 0.11801730757843501,
+          "quadratic_N2": 0.004391208019731252,
+          "cubic_N3": 3.148206904613484e-06
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 0.8243971662222649,
+          "critical_8NlogN": 5.197678591668704,
+          "quadratic_N2": 134.30179289729986,
+          "cubic_N3": 183366.71456911342
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 4096,
+        "cutoff_schedules_T": {
+          "linear_8N": 32768,
+          "critical_8NlogN": 272557,
+          "quadratic_N2": 16777216,
+          "cubic_N3": 68719476736
+        },
+        "tail_budgets_B": {
+          "linear_8N": 0.9423206216063761,
+          "critical_8NlogN": 0.11459111529240061,
+          "quadratic_N2": 0.002381862309456778,
+          "cubic_N3": 8.555002516307535e-07
+        },
+        "cutoff_over_N_log_T": {
+          "linear_8N": 0.7694373551407805,
+          "critical_8NlogN": 5.316742316457981,
+          "quadratic_N2": 246.21995364504977,
+          "cubic_N3": 672344.6200867492
+        },
+        "checks": {
+          "all_cutoffs_exceed_dimension": true,
+          "all_budgets_are_positive": true,
+          "quadratic_beats_linear_at_this_scale": true,
+          "cubic_beats_quadratic_at_this_scale": true
+        }
+      }
+    ],
+    "asymptotic_checks": {
+      "linear_budget_grows_on_ladder": true,
+      "critical_budget_does_not_approach_zero_on_ladder": true,
+      "quadratic_budget_decreases_on_ladder": true,
+      "cubic_budget_decreases_on_ladder": true,
+      "quadratic_schedule_ratio_grows": true
+    },
+    "no_go_scope": "A fixed-ratio or critical N log N cutoff is inconclusive under this certified upper bound; failure of an upper bound to vanish does not prove that the exact tail fails to vanish. The sign of the actual pole-neutral truncated core defect delta_(N,T_N) remains unproved.",
+    "failure_count": 0
+  },
+  "discarded_route": "claiming tail closure from the available explicit upper bound on fixed-ratio or N log N cutoff schedules",
+  "remaining_gap": "No certified bound proves that the actual pole-neutral truncated Weil-core lower defect delta_(N,N^2) tends to zero.",
+  "candidate_theorem": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero",
+  "claim_boundary": "No RH proof and no certified arithmetic core sign; one conditional diagonal transfer theorem and an exact cutoff-rate no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T174-REJECTED",
+        "label": "LinearOrCriticalCutoffClosesTheArchimedeanTail",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T174-CLOSED",
+        "label": "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T174-OPEN",
+        "label": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T174-REJECTED",
+        "RH-T174-CLOSED"
+      ],
+      [
+        "RH-T174-CLOSED",
+        "RH-T174-OPEN"
+      ]
+    ]
+  }
+}

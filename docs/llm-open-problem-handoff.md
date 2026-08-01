@@ -62,7 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-173
+## Latest Continuation After TICKET-174
+
+All four conjectures remain open. TICKET-174 quantifies the four TICKET-173
+terminal nodes and removes four invalid promotions. Continue only from these
+nodes:
+
+1. Riemann:
+   `PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero`.
+   The explicit certified tail upper bound vanishes whenever
+   `T_N/(N log T_N)->infinity`; `T_N=N^2` works. Linear and critical
+   `N log N` schedules do not close that bound. The missing object is the
+   actual arithmetic lower defect, not a larger cutoff.
+2. Collatz:
+   `NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren`.
+   Every cylinder has exactly one child whose least representative does not
+   lift. Its local fraction is at most `1/A` among valuations `a<=A`, but an
+   eventually stabilized natural ray follows that one child forever. Density
+   cannot replace an every-ray argument.
+3. Goldbach:
+   `FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly`.
+   Choosing positive aligned frequencies after seeing their signs gives a
+   certificate if and only if the representation count was already positive.
+   This route is circular. Major arcs must be selected arithmetically in
+   advance and estimated uniformly.
+4. Twin Prime:
+   `PrimePairEveryScalePairHaarEnergyPowerSavingUniformly`.
+   The full operator norm is at most `log2(N)` times the square root of the
+   largest tensor-Haar scale-pair energy, and this logarithmic factor is sharp.
+   A uniform per-pair power saving would survive this loss, but is not proved.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket174-tail-lift-adaptive-scalepair.json
+data/open-problem/riemann/rh-ticket-174-tail-schedule.json
+data/open-problem/collatz/co-ticket-174-zero-lift-child.json
+data/open-problem/goldbach/gb-ticket-174-adaptive-major.json
+data/open-problem/twin-prime/tp-ticket-174-scale-pair-aggregation.json
+```
+
+한국어 인계: TICKET-174도 네 난제를 해결하지 않았다. 리만은 quadratic
+cutoff에서 실제 Weil core 결손의 0 수렴을 증명해야 한다. 콜라츠는 유일한
+zero-lift 자식을 계속 따르는 비하강 ray를 배제해야 한다. 골드바흐는 부호를
+보기 전에 정한 Farey major arc의 양의 질량으로 나머지 signed deficit을
+uniform하게 이겨야 한다. 쌍둥이 소수는 모든 Haar scale pair에 uniform한
+power saving을 증명해야 한다.
+
+English report: [TICKET-174](tail-lift-adaptive-scalepair.md). Korean report:
+[TICKET-174 한국어](tail-lift-adaptive-scalepair.ko.md).
+
+## Preserved Continuation After TICKET-173
 
 All four conjectures remain open. TICKET-173 converts the TICKET-172 targets
 into exact limiting coordinates and rejects two conditions that were still too

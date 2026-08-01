@@ -31,20 +31,25 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-174: Tail Schedules, Unique Collatz Zero Lifts, Adaptive Goldbach
+Selection, and Sharp Haar Scale Aggregation](docs/tail-lift-adaptive-scalepair.md),
+with a separate [Korean report](docs/tail-lift-adaptive-scalepair.ko.md).
+It proves four exact quantitative bridge/no-go statements. A quadratic RH
+cutoff makes the explicit certified archimedean-tail upper bound vanish but
+does not control the arithmetic core defect.
+Every Collatz cylinder has exactly one zero-lift child, so density-one positive
+lifts cannot imply an every-ray theorem. A post-hoc Goldbach positive-frequency
+certificate is equivalent to the desired positivity and therefore circular.
+The maximum tensor-Haar scale-pair energy controls the full Twin matrix with a
+sharp `log2 N` loss. Every conjecture remains `open_not_proven`; the machine
+resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-173: Finite-Section Defects, Collatz Cylinder Stabilization,
 Target-Aligned Goldbach Phase, and Tensor-Haar Scale Pairs](docs/finite-section-cylinder-phase-tensor.md),
 with a separate [Korean report](docs/finite-section-cylinder-phase-tensor.ko.md).
-It proves four exact structural results and rejects four incomplete routes.
-RH needs a vanishing finite-section lower defect, not a uniform coercive gap.
-Collatz natural support is exactly eventual stabilization of nested cylinder
-representatives, while all-one prefixes refute horizon-only subexponential
-height bounds. Goldbach receives a target-aligned positive/negative Fourier
-decomposition and an exact nonnegative countermodel to necessity of its
-negative-budget gate. Twin Type-II control is corrected from same-scale mixed
-variation to all tensor-Haar row/column scale pairs. Every conjecture remains
-`open_not_proven`; the machine resolution count is zero.
 
-The preserved previous boundary is
+The earlier boundary is
 [TICKET-172: Structured KKT Inertia, Collatz Bridge Equivalence, Fourier L1
 Positivity, and Dyadic Mixed Variation](docs/structure-equivalence-l1-variation.md),
 with a separate [Korean report](docs/structure-equivalence-l1-variation.ko.md).
@@ -134,18 +139,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-three-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-four-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-173. It replaces a uniform RH finite-
-section gap by a vanishing certified lower defect, turns Collatz natural support
-into exact stabilization of nested cylinder representatives, retains both
-positive and negative target-aligned Goldbach Fourier mass, and corrects Twin
-same-scale variation to a complete two-parameter tensor-Haar target. These are
-exact structural results and route corrections, not solutions. All four
-conjectures remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-174. It proves the sufficient RH tail
+schedule `T_N/(N log T_N)->infinity`, identifies the unique Collatz zero-lift
+child missed by local density, proves that adaptive Goldbach positive-frequency
+selection is circular, and proves a sharp `log2 N` tensor-Haar aggregation
+loss. These are exact quantitative results and route corrections, not
+solutions. All four conjectures remain open and the machine resolution count
+is zero.
 See
+[TICKET174 EN](docs/tail-lift-adaptive-scalepair.md),
+[TICKET174 KO](docs/tail-lift-adaptive-scalepair.ko.md),
 [TICKET173 EN](docs/finite-section-cylinder-phase-tensor.md),
 [TICKET173 KO](docs/finite-section-cylinder-phase-tensor.ko.md),
 [TICKET172 EN](docs/structure-equivalence-l1-variation.md),
@@ -181,15 +188,15 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-173입니다. 리만 트랙은 uniform
-finite-section gap 대신 0으로 수렴하는 인증 하한 결손이면 조밀 코어의
-비음성을 배제할 수 있음을 증명했습니다. 콜라츠 트랙은 무한 valuation
-ray의 양의 자연수 지지가 cylinder 최소대표의 eventual stabilization과
-동치임을 증명하고, all-one prefix로 지평선 기반 subexponential 높이 경로를
-폐기했습니다. 골드바흐 트랙은 target에 정렬된 양·음 Fourier 질량을 분리하고
-음의 budget 조건이 필요조건은 아님을 정확히 보였습니다. 쌍둥이 소수
-트랙은 same-scale 혼합 변동이 서로 다른 Haar scale pair를 놓친다는 반례를
-확정했습니다. 네 문제는 모두 미해결이며 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-174입니다. 리만 트랙은 알려진
+archimedean tail의 명시적 인증 상계를 0으로 보내려면
+`T_N/(N log T_N)`이 무한대로 가는 일정이면 충분하며 quadratic cutoff이
+작동함을 증명했습니다. 콜라츠 트랙은 모든
+cylinder에 zero-lift 자식이 정확히 하나여서 국소 밀도 논증이 그 예외 ray를
+버릴 수 없음을 보였습니다. 골드바흐 트랙은 결과를 본 뒤 양의 주파수를
+고르는 인증이 목표 양성과 동치인 순환 논증임을 확정했습니다. 쌍둥이 소수
+트랙은 모든 Haar scale pair를 합칠 때 `log2 N` 손실이 정확히 sharp임을
+증명했습니다. 네 문제는 모두 미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -209,13 +216,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-173입니다.
-[finite-section 결손, 콜라츠 cylinder 안정화, target Fourier 위상,
-tensor-Haar 한국어 보고서](docs/finite-section-cylinder-phase-tensor.ko.md)와
-[영문 보고서](docs/finite-section-cylinder-phase-tensor.md)는 네 트랙의 정확
-명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 리만의
-vanishing lower-defect closure, 콜라츠 자연수 지지 안정화, 골드바흐 target
-부호 분해, 쌍둥이 소수 all-scale-pair Haar 완전성을 확정했습니다.
+최신 난제 연구 트랙은 TICKET-174입니다.
+[tail 일정, 콜라츠 유일 zero-lift, 골드바흐 사후 선택,
+Haar scale 합산 한국어 보고서](docs/tail-lift-adaptive-scalepair.ko.md)와
+[영문 보고서](docs/tail-lift-adaptive-scalepair.md)는 네 트랙의 정확 명제,
+증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 리만의 대각
+cutoff 조건, 콜라츠의 유일한 예외 자식, 골드바흐 adaptive selection no-go,
+쌍둥이 소수의 sharp logarithmic scale 합산을 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

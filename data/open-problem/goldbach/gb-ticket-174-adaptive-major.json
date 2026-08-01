@@ -1,0 +1,190 @@
+{
+  "schema": "primeproject.ticket174-tail-lift-adaptive-scalepair.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-174",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo",
+  "declared_proposition": "Let R=a+P-N, where a>=0, P=sum_i p_i with p_i>0, and N>=0. Order p_1>=...>=p_m and define K* as the least k with a+sum_(i<=k)p_i>N, if it exists. Then K* exists if and only if R>0. Therefore a target-dependent frequency set chosen after inspecting the aligned positive contributions certifies Goldbach positivity if and only if the desired positivity was already true; this adaptive major-set rule is logically circular.",
+  "mathematical_argument": "If K* exists, P dominates its selected prefix, so R=a+P-N>=a+sum_(i<=K*)p_i-N>0. Conversely, if R>0, selecting all positive terms gives a+P>N, so a finite least K* exists. The argument is algebraic and does not use the finite computation. A non-circular circle-method proof must predeclare arithmetic major arcs independently of the sign pattern and prove their lower bound uniformly in the target.",
+  "reproducible_computation": {
+    "theorem": "Let R=a+P-N, where a>=0, P=sum_i p_i with p_i>0, and N>=0. Order p_1>=...>=p_m and define K* as the least k with a+sum_(i<=k)p_i>N, if it exists. Then K* exists if and only if R>0. Therefore a target-dependent frequency set chosen after inspecting the aligned positive contributions certifies Goldbach positivity if and only if the desired positivity was already true; this adaptive major-set rule is logically circular.",
+    "proof": "If K* exists, P dominates its selected prefix, so R=a+P-N>=a+sum_(i<=K*)p_i-N>0. Conversely, if R>0, selecting all positive terms gives a+P>N, so a finite least K* exists. The argument is algebraic and does not use the finite computation. A non-circular circle-method proof must predeclare arithmetic major arcs independently of the sign pattern and prove their lower bound uniformly in the target.",
+    "finite_prime_adaptive_selection_rows": [
+      {
+        "prime_support_limit": 64,
+        "zero_padded_transform_size": 256,
+        "even_targets_tested": 31,
+        "minimum_ordered_representation_count": 1,
+        "minimum_selected_positive_terms": 1,
+        "median_selected_positive_terms": 3,
+        "maximum_selected_positive_terms": 29,
+        "median_selected_positive_fraction": 0.024793388429752067,
+        "maximum_selected_positive_fraction": 0.2761904761904762,
+        "hardest_target": {
+          "target": 4,
+          "ordered_representation_count": 1,
+          "positive_frequency_count": 105,
+          "minimum_selected_positive_terms": 29,
+          "selected_positive_fraction": 0.2761904761904762,
+          "certificate_surplus": 0.009320192088119406
+        },
+        "maximum_fourier_reconstruction_error": 4.263256414560601e-14,
+        "equivalence_failures": 0,
+        "checks": {
+          "all_finite_targets_are_positive": true,
+          "adaptive_certificate_matches_positivity": true,
+          "fourier_reconstruction_matches_counts": true,
+          "selection_is_target_dependent_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 128,
+        "zero_padded_transform_size": 512,
+        "even_targets_tested": 63,
+        "minimum_ordered_representation_count": 1,
+        "minimum_selected_positive_terms": 0,
+        "median_selected_positive_terms": 4,
+        "maximum_selected_positive_terms": 74,
+        "median_selected_positive_fraction": 0.01532567049808429,
+        "maximum_selected_positive_fraction": 0.3148936170212766,
+        "hardest_target": {
+          "target": 4,
+          "ordered_representation_count": 1,
+          "positive_frequency_count": 235,
+          "minimum_selected_positive_terms": 74,
+          "selected_positive_fraction": 0.3148936170212766,
+          "certificate_surplus": 0.01137119543620635
+        },
+        "maximum_fourier_reconstruction_error": 2.3803181647963356e-13,
+        "equivalence_failures": 0,
+        "checks": {
+          "all_finite_targets_are_positive": true,
+          "adaptive_certificate_matches_positivity": true,
+          "fourier_reconstruction_matches_counts": true,
+          "selection_is_target_dependent_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 256,
+        "zero_padded_transform_size": 1024,
+        "even_targets_tested": 127,
+        "minimum_ordered_representation_count": 1,
+        "minimum_selected_positive_terms": 1,
+        "median_selected_positive_terms": 5,
+        "maximum_selected_positive_terms": 237,
+        "median_selected_positive_fraction": 0.010438413361169102,
+        "maximum_selected_positive_fraction": 0.4693069306930693,
+        "hardest_target": {
+          "target": 4,
+          "ordered_representation_count": 1,
+          "positive_frequency_count": 505,
+          "minimum_selected_positive_terms": 237,
+          "selected_positive_fraction": 0.4693069306930693,
+          "certificate_surplus": 0.006853159250095331
+        },
+        "maximum_fourier_reconstruction_error": 7.069900220812997e-13,
+        "equivalence_failures": 0,
+        "checks": {
+          "all_finite_targets_are_positive": true,
+          "adaptive_certificate_matches_positivity": true,
+          "fourier_reconstruction_matches_counts": true,
+          "selection_is_target_dependent_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 512,
+        "zero_padded_transform_size": 2048,
+        "even_targets_tested": 255,
+        "minimum_ordered_representation_count": 1,
+        "minimum_selected_positive_terms": 1,
+        "median_selected_positive_terms": 9,
+        "maximum_selected_positive_terms": 554,
+        "median_selected_positive_fraction": 0.008434864104967198,
+        "maximum_selected_positive_fraction": 0.5658835546475995,
+        "hardest_target": {
+          "target": 4,
+          "ordered_representation_count": 1,
+          "positive_frequency_count": 979,
+          "minimum_selected_positive_terms": 554,
+          "selected_positive_fraction": 0.5658835546475995,
+          "certificate_surplus": 0.0035307887738547095
+        },
+        "maximum_fourier_reconstruction_error": 1.1439738045737613e-12,
+        "equivalence_failures": 0,
+        "checks": {
+          "all_finite_targets_are_positive": true,
+          "adaptive_certificate_matches_positivity": true,
+          "fourier_reconstruction_matches_counts": true,
+          "selection_is_target_dependent_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 1024,
+        "zero_padded_transform_size": 4096,
+        "even_targets_tested": 511,
+        "minimum_ordered_representation_count": 1,
+        "minimum_selected_positive_terms": 3,
+        "median_selected_positive_terms": 16,
+        "maximum_selected_positive_terms": 1328,
+        "median_selected_positive_fraction": 0.0077034183919114105,
+        "maximum_selected_positive_fraction": 0.6654947262682069,
+        "hardest_target": {
+          "target": 6,
+          "ordered_representation_count": 1,
+          "positive_frequency_count": 1999,
+          "minimum_selected_positive_terms": 1328,
+          "selected_positive_fraction": 0.6643321660830416,
+          "certificate_surplus": 0.0023632062130616305
+        },
+        "maximum_fourier_reconstruction_error": 7.702283255639486e-12,
+        "equivalence_failures": 0,
+        "checks": {
+          "all_finite_targets_are_positive": true,
+          "adaptive_certificate_matches_positivity": true,
+          "fourier_reconstruction_matches_counts": true,
+          "selection_is_target_dependent_diagnostic_only": true
+        }
+      }
+    ],
+    "aggregate": {
+      "finite_targets": 987,
+      "adaptive_equivalence_failures": 0
+    },
+    "no_go_scope": "Post-hoc selection of enough positive Fourier terms merely rewrites R(n)>0. The no-go does not reject Farey/rational major arcs selected before observing the target-aligned signs.",
+    "failure_count": 0
+  },
+  "discarded_route": "choosing target-dependent positive Fourier frequencies after observing their aligned signs",
+  "remaining_gap": "No predeclared arithmetic major arcs have a target-uniform positive lower bound that dominates the complementary signed deficit.",
+  "candidate_theorem": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly",
+  "claim_boundary": "No Goldbach proof and no even counterexample; one exact selection-equivalence no-go and finite prime diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T174-REJECTED",
+        "label": "AdaptivePositiveFrequencySelectionIsANonCircularGoldbachBridge",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T174-CLOSED",
+        "label": "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T174-OPEN",
+        "label": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T174-REJECTED",
+        "GB-T174-CLOSED"
+      ],
+      [
+        "GB-T174-CLOSED",
+        "GB-T174-OPEN"
+      ]
+    ]
+  }
+}

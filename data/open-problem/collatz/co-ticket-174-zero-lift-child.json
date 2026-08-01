@@ -1,0 +1,315 @@
+{
+  "schema": "primeproject.ticket174-tail-lift-adaptive-scalepair.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-174",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "UniqueZeroLiftChildAndLocalDensityNoGo",
+  "declared_proposition": "Let w be an accelerated-odd Collatz valuation word, r_w its least positive cylinder representative, M_w its modulus, and y=T^H(r_w). Among all children wa with a>=1, exactly one has r_(wa)=r_w: a*=v_2(3y+1). Every other child has r_(wa)=r_w+k_a M_w with k_a>0. Consequently, among a<=A at most one child has zero lift, a fraction at most 1/A; nevertheless every eventually stabilized natural ray follows that unique zero-lift child forever.",
+  "mathematical_argument": "Child cylinders refine the parent cylinder, so r_(wa)=r_w+k_a M_w with 0<=k_a<2^a. The integer r_w has one actual next valuation a*=v_2(3T^H(r_w)+1), hence realizes wa* and, because r_w is already below the child modulus, is its least representative. If another a had k_a=0, the same integer would have two different exact 2-adic valuations, impossible. The density bound is immediate. Stabilization means consecutive representatives are equal, so each later edge is the unique zero-lift edge.",
+  "reproducible_computation": {
+    "theorem": "Let w be an accelerated-odd Collatz valuation word, r_w its least positive cylinder representative, M_w its modulus, and y=T^H(r_w). Among all children wa with a>=1, exactly one has r_(wa)=r_w: a*=v_2(3y+1). Every other child has r_(wa)=r_w+k_a M_w with k_a>0. Consequently, among a<=A at most one child has zero lift, a fraction at most 1/A; nevertheless every eventually stabilized natural ray follows that unique zero-lift child forever.",
+    "proof": "Child cylinders refine the parent cylinder, so r_(wa)=r_w+k_a M_w with 0<=k_a<2^a. The integer r_w has one actual next valuation a*=v_2(3T^H(r_w)+1), hence realizes wa* and, because r_w is already below the child modulus, is its least representative. If another a had k_a=0, the same integer would have two different exact 2-adic valuations, impossible. The density bound is immediate. Stabilization means consecutive representatives are equal, so each later edge is the unique zero-lift edge.",
+    "exhaustive_child_rows": [
+      {
+        "horizon_H": 1,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "next_valuations_checked": [
+          1,
+          32
+        ],
+        "words_checked": 4,
+        "maximum_actual_next_valuation": 4,
+        "failed_child_certificates": 0,
+        "checks": {
+          "each_actual_child_has_zero_lift": true,
+          "every_tested_nonactual_child_has_positive_lift": true
+        }
+      },
+      {
+        "horizon_H": 2,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "next_valuations_checked": [
+          1,
+          32
+        ],
+        "words_checked": 16,
+        "maximum_actual_next_valuation": 4,
+        "failed_child_certificates": 0,
+        "checks": {
+          "each_actual_child_has_zero_lift": true,
+          "every_tested_nonactual_child_has_positive_lift": true
+        }
+      },
+      {
+        "horizon_H": 3,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "next_valuations_checked": [
+          1,
+          32
+        ],
+        "words_checked": 64,
+        "maximum_actual_next_valuation": 5,
+        "failed_child_certificates": 0,
+        "checks": {
+          "each_actual_child_has_zero_lift": true,
+          "every_tested_nonactual_child_has_positive_lift": true
+        }
+      },
+      {
+        "horizon_H": 4,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "next_valuations_checked": [
+          1,
+          32
+        ],
+        "words_checked": 256,
+        "maximum_actual_next_valuation": 8,
+        "failed_child_certificates": 0,
+        "checks": {
+          "each_actual_child_has_zero_lift": true,
+          "every_tested_nonactual_child_has_positive_lift": true
+        }
+      },
+      {
+        "horizon_H": 5,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "next_valuations_checked": [
+          1,
+          32
+        ],
+        "words_checked": 1024,
+        "maximum_actual_next_valuation": 10,
+        "failed_child_certificates": 0,
+        "checks": {
+          "each_actual_child_has_zero_lift": true,
+          "every_tested_nonactual_child_has_positive_lift": true
+        }
+      },
+      {
+        "horizon_H": 6,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "next_valuations_checked": [
+          1,
+          32
+        ],
+        "words_checked": 4096,
+        "maximum_actual_next_valuation": 10,
+        "failed_child_certificates": 0,
+        "checks": {
+          "each_actual_child_has_zero_lift": true,
+          "every_tested_nonactual_child_has_positive_lift": true
+        }
+      }
+    ],
+    "truncated_branch_density_rows": [
+      {
+        "valuation_cap_A": 4,
+        "parent_words": 5460,
+        "children_checked_as_density_denominator": 21840,
+        "zero_lift_children_with_a_at_most_A": 5124,
+        "zero_lift_fraction": 0.23461538461538461,
+        "upper_bound_one_over_A": 0.25,
+        "checks": {
+          "at_most_one_zero_child_per_parent": true,
+          "aggregate_fraction_is_at_most_one_over_A": true
+        }
+      },
+      {
+        "valuation_cap_A": 8,
+        "parent_words": 5460,
+        "children_checked_as_density_denominator": 43680,
+        "zero_lift_children_with_a_at_most_A": 5438,
+        "zero_lift_fraction": 0.124496336996337,
+        "upper_bound_one_over_A": 0.125,
+        "checks": {
+          "at_most_one_zero_child_per_parent": true,
+          "aggregate_fraction_is_at_most_one_over_A": true
+        }
+      },
+      {
+        "valuation_cap_A": 16,
+        "parent_words": 5460,
+        "children_checked_as_density_denominator": 87360,
+        "zero_lift_children_with_a_at_most_A": 5460,
+        "zero_lift_fraction": 0.0625,
+        "upper_bound_one_over_A": 0.0625,
+        "checks": {
+          "at_most_one_zero_child_per_parent": true,
+          "aggregate_fraction_is_at_most_one_over_A": true
+        }
+      },
+      {
+        "valuation_cap_A": 32,
+        "parent_words": 5460,
+        "children_checked_as_density_denominator": 174720,
+        "zero_lift_children_with_a_at_most_A": 5460,
+        "zero_lift_fraction": 0.03125,
+        "upper_bound_one_over_A": 0.03125,
+        "checks": {
+          "at_most_one_zero_child_per_parent": true,
+          "aggregate_fraction_is_at_most_one_over_A": true
+        }
+      },
+      {
+        "valuation_cap_A": 64,
+        "parent_words": 5460,
+        "children_checked_as_density_denominator": 349440,
+        "zero_lift_children_with_a_at_most_A": 5460,
+        "zero_lift_fraction": 0.015625,
+        "upper_bound_one_over_A": 0.015625,
+        "checks": {
+          "at_most_one_zero_child_per_parent": true,
+          "aggregate_fraction_is_at_most_one_over_A": true
+        }
+      }
+    ],
+    "natural_stabilized_ray_rows": [
+      {
+        "natural_start": 3,
+        "first_stable_prefix_index_zero_based": 0,
+        "post_stabilization_unique_zero_lift_steps": 23,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 5,
+        "first_stable_prefix_index_zero_based": 0,
+        "post_stabilization_unique_zero_lift_steps": 23,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 7,
+        "first_stable_prefix_index_zero_based": 1,
+        "post_stabilization_unique_zero_lift_steps": 22,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 27,
+        "first_stable_prefix_index_zero_based": 2,
+        "post_stabilization_unique_zero_lift_steps": 21,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 31,
+        "first_stable_prefix_index_zero_based": 3,
+        "post_stabilization_unique_zero_lift_steps": 20,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 97,
+        "first_stable_prefix_index_zero_based": 3,
+        "post_stabilization_unique_zero_lift_steps": 20,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 871,
+        "first_stable_prefix_index_zero_based": 7,
+        "post_stabilization_unique_zero_lift_steps": 16,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      },
+      {
+        "natural_start": 6171,
+        "first_stable_prefix_index_zero_based": 7,
+        "post_stabilization_unique_zero_lift_steps": 16,
+        "checks": {
+          "representative_stabilizes_at_start": true,
+          "all_post_stabilization_lifts_are_zero": true,
+          "post_stabilization_steps_exist": true
+        }
+      }
+    ],
+    "no_go_scope": "A density-one statement about positive-lift children cannot exclude the single exceptional branch selected at every depth. Proving that a prefixwise non-descending ray cannot eventually follow those children is an every-orbit statement, not an almost-all consequence.",
+    "failure_count": 0
+  },
+  "discarded_route": "promoting density-one positive-lift children to an every-ray Collatz conclusion",
+  "remaining_gap": "No theorem excludes a prefixwise non-descending natural ray that eventually chooses the unique zero-lift child at every depth.",
+  "candidate_theorem": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren",
+  "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact child-lift theorem and an almost-all-to-every no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T174-REJECTED",
+        "label": "DensityOnePositiveLiftChildrenExcludeEveryStabilizedRay",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T174-CLOSED",
+        "label": "UniqueZeroLiftChildAndLocalDensityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T174-OPEN",
+        "label": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T174-REJECTED",
+        "CO-T174-CLOSED"
+      ],
+      [
+        "CO-T174-CLOSED",
+        "CO-T174-OPEN"
+      ]
+    ]
+  }
+}

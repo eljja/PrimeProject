@@ -1,0 +1,1211 @@
+{
+  "schema": "primeproject.ticket174-tail-lift-adaptive-scalepair.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "status": "four_exact_quantitative_audits_all_conjectures_open",
+  "claim_boundary": "TICKET-174 proves four exact quantitative bridge/no-go results and resolves none of the four conjectures. It closes the RH tail schedule but not the arithmetic core defect, isolates the unique Collatz branch that density arguments miss, proves post-hoc Goldbach major-frequency selection circular, and reduces full Twin scale aggregation to a uniform per-scale-pair estimate with a sharp logarithmic loss.",
+  "tail_lift_adaptive_scalepair_audit": {
+    "theorem_name": "FourConjectureTailLiftAdaptiveScalePairAudit",
+    "status": "four_exact_quantitative_audits_all_conjectures_open",
+    "proof_boundary": "TICKET-174 proves four exact quantitative bridge/no-go results and resolves none of the four conjectures. It closes the RH tail schedule but not the arithmetic core defect, isolates the unique Collatz branch that density arguments miss, proves post-hoc Goldbach major-frequency selection circular, and reduces full Twin scale aggregation to a uniform per-scale-pair estimate with a sharp logarithmic loss.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-174",
+      "theorem_name": "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo",
+      "declared_proposition": "Let V_N be nested finite-dimensional subspaces with dense union. Suppose a truncated Hermitian form q_(N,T) satisfies |q(v)-q_(N,T)(v)| <= B_N(T)||v||^2 on V_N and lambda_min(q_(N,T)) >= -delta_(N,T). If a diagonal schedule T_N has delta_(N,T_N)+B_N(T_N) tending to zero, then q is nonnegative. For the explicit Corollary 3.3 upper bound U_N(T)=2(2N+1)rho/pi^2 times [log(T)/(T-rho N)+(rho N)^(-1)log(T/(T-rho N))], any schedule with T_N/(N log T_N) tending to infinity makes U_N(T_N) tend to zero. T_N=N^2 works, whereas T_N=C N and T_N=C N log N do not make this certified upper bound vanish.",
+      "mathematical_argument": "The perturbation inequality gives q(v)>=-[delta_(N,T)+B_N(T)]||v||^2 on each V_N. Apply the TICKET-173 dense-core argument along the diagonal schedule. In the explicit bound, the hypothesis makes rho N/T_N tend to zero, so T_N-rho N is asymptotic to T_N. The first term is O(N log(T_N)/T_N), and the second is O(N/T_N). With T_N=N^2 both vanish. With T_N=C N the first term grows like log N; with T_N=C N log N it approaches a positive constant.",
+      "reproducible_computation": {
+        "theorem": "Let V_N be nested finite-dimensional subspaces with dense union. Suppose a truncated Hermitian form q_(N,T) satisfies |q(v)-q_(N,T)(v)| <= B_N(T)||v||^2 on V_N and lambda_min(q_(N,T)) >= -delta_(N,T). If a diagonal schedule T_N has delta_(N,T_N)+B_N(T_N) tending to zero, then q is nonnegative. For the explicit Corollary 3.3 upper bound U_N(T)=2(2N+1)rho/pi^2 times [log(T)/(T-rho N)+(rho N)^(-1)log(T/(T-rho N))], any schedule with T_N/(N log T_N) tending to infinity makes U_N(T_N) tend to zero. T_N=N^2 works, whereas T_N=C N and T_N=C N log N do not make this certified upper bound vanish.",
+        "proof": "The perturbation inequality gives q(v)>=-[delta_(N,T)+B_N(T)]||v||^2 on each V_N. Apply the TICKET-173 dense-core argument along the diagonal schedule. In the explicit bound, the hypothesis makes rho N/T_N tend to zero, so T_N-rho N is asymptotic to T_N. The first term is O(N log(T_N)/T_N), and the second is O(N/T_N). With T_N=N^2 both vanish. With T_N=C N the first term grows like log N; with T_N=C N log N it approaches a positive constant.",
+        "source_parameters": {
+          "prime_cutoff_c": 100,
+          "rho": 1.3643763538418412,
+          "certified_upper_bound": "U_N(T)=2(2N+1)rho/pi^2*[log(T)/(T-rho*N)+log(T/(T-rho*N))/(rho*N)]",
+          "validity_condition": "T>max(rho*N,7)",
+          "fixed_N_asymptotic": "B_N(T)~(2N+1)rho*(log(T/(2pi))+1)/(pi^2*T)",
+          "source": "arXiv:2607.02828",
+          "published_c100_N200_T800_closed_form_bound": 1.5754527435280588,
+          "published_report_rounded_value": 1.58,
+          "published_scale_check_matches": true
+        },
+        "cutoff_schedule_rows": [
+          {
+            "finite_section_dimension_N": 16,
+            "cutoff_schedules_T": {
+              "linear_8N": 128,
+              "critical_8NlogN": 355,
+              "quadratic_N2": 256,
+              "cubic_N3": 4096
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.4951175053449773,
+              "critical_8NlogN": 0.1873330425872345,
+              "quadratic_N2": 0.2533060991662433,
+              "cubic_N3": 0.020860590314700087
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 1.6487943324445298,
+              "critical_8NlogN": 3.7784494104949,
+              "quadratic_N2": 2.8853900817779268,
+              "cubic_N3": 30.77749420563122
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 32,
+            "cutoff_schedules_T": {
+              "linear_8N": 256,
+              "critical_8NlogN": 888,
+              "quadratic_N2": 1024,
+              "cubic_N3": 32768
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.5462797054497925,
+              "critical_8NlogN": 0.16525118910617614,
+              "quadratic_N2": 0.1450003314700346,
+              "cubic_N3": 0.0062586398437445186
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 1.4426950408889634,
+              "critical_8NlogN": 4.087511489298005,
+              "quadratic_N2": 4.6166241308446825,
+              "cubic_N3": 98.4879814580199
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 64,
+            "cutoff_schedules_T": {
+              "linear_8N": 512,
+              "critical_8NlogN": 2130,
+              "quadratic_N2": 4096,
+              "cubic_N3": 262144
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.6002902729698641,
+              "critical_8NlogN": 0.15091174547684785,
+              "quadratic_N2": 0.08280639877741378,
+              "cubic_N3": 0.001834152607731314
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 1.2823955919013008,
+              "critical_8NlogN": 4.342612606719947,
+              "quadratic_N2": 7.694373551407805,
+              "cubic_N3": 328.293271526733
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 128,
+            "cutoff_schedules_T": {
+              "linear_8N": 1024,
+              "critical_8NlogN": 4969,
+              "quadratic_N2": 16384,
+              "cubic_N3": 2097152
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.6559506548917516,
+              "critical_8NlogN": 0.14069516300042464,
+              "quadratic_N2": 0.0468989572830479,
+              "cubic_N3": 0.0005271122663588476
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 1.1541560327111706,
+              "critical_8NlogN": 4.5612068600402536,
+              "quadratic_N2": 13.190354659556238,
+              "cubic_N3": 1125.576930948799
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 256,
+            "cutoff_schedules_T": {
+              "linear_8N": 2048,
+              "critical_8NlogN": 11357,
+              "quadratic_N2": 65536,
+              "cubic_N3": 16777216
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.7125487593616409,
+              "critical_8NlogN": 0.13299964685178256,
+              "quadratic_N2": 0.026300609846272256,
+              "cubic_N3": 0.00014909368955110227
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 1.0492327570101552,
+              "critical_8NlogN": 4.751042108210981,
+              "quadratic_N2": 23.083120654223414,
+              "cubic_N3": 3939.5192583207963
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 512,
+            "cutoff_schedules_T": {
+              "linear_8N": 4096,
+              "critical_8NlogN": 25553,
+              "quadratic_N2": 262144,
+              "cubic_N3": 134217728
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.7696721327790779,
+              "critical_8NlogN": 0.12695898136505396,
+              "quadratic_N2": 0.014606500465387577,
+              "cubic_N3": 4.16271641599603e-05
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 0.9617966939259757,
+              "critical_8NlogN": 4.917786265926124,
+              "quadratic_N2": 41.036658940841626,
+              "cubic_N3": 14007.179585140608
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 1024,
+            "cutoff_schedules_T": {
+              "linear_8N": 8192,
+              "critical_8NlogN": 56783,
+              "quadratic_N2": 1048576,
+              "cubic_N3": 1073741824
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.8270863445070623,
+              "critical_8NlogN": 0.12207163676273262,
+              "quadratic_N2": 0.008040274450046262,
+              "cubic_N3": 1.1498794153150224e-05
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 0.8878123328547468,
+              "critical_8NlogN": 5.065514535820601,
+              "quadratic_N2": 73.86598609351492,
+              "cubic_N3": 50425.84650650619
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 2048,
+            "cutoff_schedules_T": {
+              "linear_8N": 16384,
+              "critical_8NlogN": 124922,
+              "quadratic_N2": 4194304,
+              "cubic_N3": 8589934592
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.8846600773087075,
+              "critical_8NlogN": 0.11801730757843501,
+              "quadratic_N2": 0.004391208019731252,
+              "cubic_N3": 3.148206904613484e-06
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 0.8243971662222649,
+              "critical_8NlogN": 5.197678591668704,
+              "quadratic_N2": 134.30179289729986,
+              "cubic_N3": 183366.71456911342
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          },
+          {
+            "finite_section_dimension_N": 4096,
+            "cutoff_schedules_T": {
+              "linear_8N": 32768,
+              "critical_8NlogN": 272557,
+              "quadratic_N2": 16777216,
+              "cubic_N3": 68719476736
+            },
+            "tail_budgets_B": {
+              "linear_8N": 0.9423206216063761,
+              "critical_8NlogN": 0.11459111529240061,
+              "quadratic_N2": 0.002381862309456778,
+              "cubic_N3": 8.555002516307535e-07
+            },
+            "cutoff_over_N_log_T": {
+              "linear_8N": 0.7694373551407805,
+              "critical_8NlogN": 5.316742316457981,
+              "quadratic_N2": 246.21995364504977,
+              "cubic_N3": 672344.6200867492
+            },
+            "checks": {
+              "all_cutoffs_exceed_dimension": true,
+              "all_budgets_are_positive": true,
+              "quadratic_beats_linear_at_this_scale": true,
+              "cubic_beats_quadratic_at_this_scale": true
+            }
+          }
+        ],
+        "asymptotic_checks": {
+          "linear_budget_grows_on_ladder": true,
+          "critical_budget_does_not_approach_zero_on_ladder": true,
+          "quadratic_budget_decreases_on_ladder": true,
+          "cubic_budget_decreases_on_ladder": true,
+          "quadratic_schedule_ratio_grows": true
+        },
+        "no_go_scope": "A fixed-ratio or critical N log N cutoff is inconclusive under this certified upper bound; failure of an upper bound to vanish does not prove that the exact tail fails to vanish. The sign of the actual pole-neutral truncated core defect delta_(N,T_N) remains unproved.",
+        "failure_count": 0
+      },
+      "logical_limit": "No certified bound proves that the actual pole-neutral truncated Weil-core lower defect delta_(N,N^2) tends to zero.",
+      "route_decision": {
+        "discard": "claiming tail closure from the available explicit upper bound on fixed-ratio or N log N cutoff schedules",
+        "retain": "a quadratic diagonal cutoff and a separately certified arithmetic finite-section defect",
+        "next_single_lemma": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T174-REJECTED",
+            "label": "LinearOrCriticalCutoffClosesTheArchimedeanTail",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T174-CLOSED",
+            "label": "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T174-OPEN",
+            "label": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T174-REJECTED",
+            "RH-T174-CLOSED"
+          ],
+          [
+            "RH-T174-CLOSED",
+            "RH-T174-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no certified arithmetic core sign; one conditional diagonal transfer theorem and an exact cutoff-rate no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-174",
+      "theorem_name": "UniqueZeroLiftChildAndLocalDensityNoGo",
+      "declared_proposition": "Let w be an accelerated-odd Collatz valuation word, r_w its least positive cylinder representative, M_w its modulus, and y=T^H(r_w). Among all children wa with a>=1, exactly one has r_(wa)=r_w: a*=v_2(3y+1). Every other child has r_(wa)=r_w+k_a M_w with k_a>0. Consequently, among a<=A at most one child has zero lift, a fraction at most 1/A; nevertheless every eventually stabilized natural ray follows that unique zero-lift child forever.",
+      "mathematical_argument": "Child cylinders refine the parent cylinder, so r_(wa)=r_w+k_a M_w with 0<=k_a<2^a. The integer r_w has one actual next valuation a*=v_2(3T^H(r_w)+1), hence realizes wa* and, because r_w is already below the child modulus, is its least representative. If another a had k_a=0, the same integer would have two different exact 2-adic valuations, impossible. The density bound is immediate. Stabilization means consecutive representatives are equal, so each later edge is the unique zero-lift edge.",
+      "reproducible_computation": {
+        "theorem": "Let w be an accelerated-odd Collatz valuation word, r_w its least positive cylinder representative, M_w its modulus, and y=T^H(r_w). Among all children wa with a>=1, exactly one has r_(wa)=r_w: a*=v_2(3y+1). Every other child has r_(wa)=r_w+k_a M_w with k_a>0. Consequently, among a<=A at most one child has zero lift, a fraction at most 1/A; nevertheless every eventually stabilized natural ray follows that unique zero-lift child forever.",
+        "proof": "Child cylinders refine the parent cylinder, so r_(wa)=r_w+k_a M_w with 0<=k_a<2^a. The integer r_w has one actual next valuation a*=v_2(3T^H(r_w)+1), hence realizes wa* and, because r_w is already below the child modulus, is its least representative. If another a had k_a=0, the same integer would have two different exact 2-adic valuations, impossible. The density bound is immediate. Stabilization means consecutive representatives are equal, so each later edge is the unique zero-lift edge.",
+        "exhaustive_child_rows": [
+          {
+            "horizon_H": 1,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_valuations_checked": [
+              1,
+              32
+            ],
+            "words_checked": 4,
+            "maximum_actual_next_valuation": 4,
+            "failed_child_certificates": 0,
+            "checks": {
+              "each_actual_child_has_zero_lift": true,
+              "every_tested_nonactual_child_has_positive_lift": true
+            }
+          },
+          {
+            "horizon_H": 2,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_valuations_checked": [
+              1,
+              32
+            ],
+            "words_checked": 16,
+            "maximum_actual_next_valuation": 4,
+            "failed_child_certificates": 0,
+            "checks": {
+              "each_actual_child_has_zero_lift": true,
+              "every_tested_nonactual_child_has_positive_lift": true
+            }
+          },
+          {
+            "horizon_H": 3,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_valuations_checked": [
+              1,
+              32
+            ],
+            "words_checked": 64,
+            "maximum_actual_next_valuation": 5,
+            "failed_child_certificates": 0,
+            "checks": {
+              "each_actual_child_has_zero_lift": true,
+              "every_tested_nonactual_child_has_positive_lift": true
+            }
+          },
+          {
+            "horizon_H": 4,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_valuations_checked": [
+              1,
+              32
+            ],
+            "words_checked": 256,
+            "maximum_actual_next_valuation": 8,
+            "failed_child_certificates": 0,
+            "checks": {
+              "each_actual_child_has_zero_lift": true,
+              "every_tested_nonactual_child_has_positive_lift": true
+            }
+          },
+          {
+            "horizon_H": 5,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_valuations_checked": [
+              1,
+              32
+            ],
+            "words_checked": 1024,
+            "maximum_actual_next_valuation": 10,
+            "failed_child_certificates": 0,
+            "checks": {
+              "each_actual_child_has_zero_lift": true,
+              "every_tested_nonactual_child_has_positive_lift": true
+            }
+          },
+          {
+            "horizon_H": 6,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "next_valuations_checked": [
+              1,
+              32
+            ],
+            "words_checked": 4096,
+            "maximum_actual_next_valuation": 10,
+            "failed_child_certificates": 0,
+            "checks": {
+              "each_actual_child_has_zero_lift": true,
+              "every_tested_nonactual_child_has_positive_lift": true
+            }
+          }
+        ],
+        "truncated_branch_density_rows": [
+          {
+            "valuation_cap_A": 4,
+            "parent_words": 5460,
+            "children_checked_as_density_denominator": 21840,
+            "zero_lift_children_with_a_at_most_A": 5124,
+            "zero_lift_fraction": 0.23461538461538461,
+            "upper_bound_one_over_A": 0.25,
+            "checks": {
+              "at_most_one_zero_child_per_parent": true,
+              "aggregate_fraction_is_at_most_one_over_A": true
+            }
+          },
+          {
+            "valuation_cap_A": 8,
+            "parent_words": 5460,
+            "children_checked_as_density_denominator": 43680,
+            "zero_lift_children_with_a_at_most_A": 5438,
+            "zero_lift_fraction": 0.124496336996337,
+            "upper_bound_one_over_A": 0.125,
+            "checks": {
+              "at_most_one_zero_child_per_parent": true,
+              "aggregate_fraction_is_at_most_one_over_A": true
+            }
+          },
+          {
+            "valuation_cap_A": 16,
+            "parent_words": 5460,
+            "children_checked_as_density_denominator": 87360,
+            "zero_lift_children_with_a_at_most_A": 5460,
+            "zero_lift_fraction": 0.0625,
+            "upper_bound_one_over_A": 0.0625,
+            "checks": {
+              "at_most_one_zero_child_per_parent": true,
+              "aggregate_fraction_is_at_most_one_over_A": true
+            }
+          },
+          {
+            "valuation_cap_A": 32,
+            "parent_words": 5460,
+            "children_checked_as_density_denominator": 174720,
+            "zero_lift_children_with_a_at_most_A": 5460,
+            "zero_lift_fraction": 0.03125,
+            "upper_bound_one_over_A": 0.03125,
+            "checks": {
+              "at_most_one_zero_child_per_parent": true,
+              "aggregate_fraction_is_at_most_one_over_A": true
+            }
+          },
+          {
+            "valuation_cap_A": 64,
+            "parent_words": 5460,
+            "children_checked_as_density_denominator": 349440,
+            "zero_lift_children_with_a_at_most_A": 5460,
+            "zero_lift_fraction": 0.015625,
+            "upper_bound_one_over_A": 0.015625,
+            "checks": {
+              "at_most_one_zero_child_per_parent": true,
+              "aggregate_fraction_is_at_most_one_over_A": true
+            }
+          }
+        ],
+        "natural_stabilized_ray_rows": [
+          {
+            "natural_start": 3,
+            "first_stable_prefix_index_zero_based": 0,
+            "post_stabilization_unique_zero_lift_steps": 23,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 5,
+            "first_stable_prefix_index_zero_based": 0,
+            "post_stabilization_unique_zero_lift_steps": 23,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 7,
+            "first_stable_prefix_index_zero_based": 1,
+            "post_stabilization_unique_zero_lift_steps": 22,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 27,
+            "first_stable_prefix_index_zero_based": 2,
+            "post_stabilization_unique_zero_lift_steps": 21,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 31,
+            "first_stable_prefix_index_zero_based": 3,
+            "post_stabilization_unique_zero_lift_steps": 20,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 97,
+            "first_stable_prefix_index_zero_based": 3,
+            "post_stabilization_unique_zero_lift_steps": 20,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 871,
+            "first_stable_prefix_index_zero_based": 7,
+            "post_stabilization_unique_zero_lift_steps": 16,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          },
+          {
+            "natural_start": 6171,
+            "first_stable_prefix_index_zero_based": 7,
+            "post_stabilization_unique_zero_lift_steps": 16,
+            "checks": {
+              "representative_stabilizes_at_start": true,
+              "all_post_stabilization_lifts_are_zero": true,
+              "post_stabilization_steps_exist": true
+            }
+          }
+        ],
+        "no_go_scope": "A density-one statement about positive-lift children cannot exclude the single exceptional branch selected at every depth. Proving that a prefixwise non-descending ray cannot eventually follow those children is an every-orbit statement, not an almost-all consequence.",
+        "failure_count": 0
+      },
+      "logical_limit": "No theorem excludes a prefixwise non-descending natural ray that eventually chooses the unique zero-lift child at every depth.",
+      "route_decision": {
+        "discard": "promoting density-one positive-lift children to an every-ray Collatz conclusion",
+        "retain": "the unique exceptional child as the exact branch that an every-orbit proof must eliminate",
+        "next_single_lemma": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T174-REJECTED",
+            "label": "DensityOnePositiveLiftChildrenExcludeEveryStabilizedRay",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T174-CLOSED",
+            "label": "UniqueZeroLiftChildAndLocalDensityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T174-OPEN",
+            "label": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T174-REJECTED",
+            "CO-T174-CLOSED"
+          ],
+          [
+            "CO-T174-CLOSED",
+            "CO-T174-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact child-lift theorem and an almost-all-to-every no-go only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-174",
+      "theorem_name": "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo",
+      "declared_proposition": "Let R=a+P-N, where a>=0, P=sum_i p_i with p_i>0, and N>=0. Order p_1>=...>=p_m and define K* as the least k with a+sum_(i<=k)p_i>N, if it exists. Then K* exists if and only if R>0. Therefore a target-dependent frequency set chosen after inspecting the aligned positive contributions certifies Goldbach positivity if and only if the desired positivity was already true; this adaptive major-set rule is logically circular.",
+      "mathematical_argument": "If K* exists, P dominates its selected prefix, so R=a+P-N>=a+sum_(i<=K*)p_i-N>0. Conversely, if R>0, selecting all positive terms gives a+P>N, so a finite least K* exists. The argument is algebraic and does not use the finite computation. A non-circular circle-method proof must predeclare arithmetic major arcs independently of the sign pattern and prove their lower bound uniformly in the target.",
+      "reproducible_computation": {
+        "theorem": "Let R=a+P-N, where a>=0, P=sum_i p_i with p_i>0, and N>=0. Order p_1>=...>=p_m and define K* as the least k with a+sum_(i<=k)p_i>N, if it exists. Then K* exists if and only if R>0. Therefore a target-dependent frequency set chosen after inspecting the aligned positive contributions certifies Goldbach positivity if and only if the desired positivity was already true; this adaptive major-set rule is logically circular.",
+        "proof": "If K* exists, P dominates its selected prefix, so R=a+P-N>=a+sum_(i<=K*)p_i-N>0. Conversely, if R>0, selecting all positive terms gives a+P>N, so a finite least K* exists. The argument is algebraic and does not use the finite computation. A non-circular circle-method proof must predeclare arithmetic major arcs independently of the sign pattern and prove their lower bound uniformly in the target.",
+        "finite_prime_adaptive_selection_rows": [
+          {
+            "prime_support_limit": 64,
+            "zero_padded_transform_size": 256,
+            "even_targets_tested": 31,
+            "minimum_ordered_representation_count": 1,
+            "minimum_selected_positive_terms": 1,
+            "median_selected_positive_terms": 3,
+            "maximum_selected_positive_terms": 29,
+            "median_selected_positive_fraction": 0.024793388429752067,
+            "maximum_selected_positive_fraction": 0.2761904761904762,
+            "hardest_target": {
+              "target": 4,
+              "ordered_representation_count": 1,
+              "positive_frequency_count": 105,
+              "minimum_selected_positive_terms": 29,
+              "selected_positive_fraction": 0.2761904761904762,
+              "certificate_surplus": 0.009320192088119406
+            },
+            "maximum_fourier_reconstruction_error": 4.263256414560601e-14,
+            "equivalence_failures": 0,
+            "checks": {
+              "all_finite_targets_are_positive": true,
+              "adaptive_certificate_matches_positivity": true,
+              "fourier_reconstruction_matches_counts": true,
+              "selection_is_target_dependent_diagnostic_only": true
+            }
+          },
+          {
+            "prime_support_limit": 128,
+            "zero_padded_transform_size": 512,
+            "even_targets_tested": 63,
+            "minimum_ordered_representation_count": 1,
+            "minimum_selected_positive_terms": 0,
+            "median_selected_positive_terms": 4,
+            "maximum_selected_positive_terms": 74,
+            "median_selected_positive_fraction": 0.01532567049808429,
+            "maximum_selected_positive_fraction": 0.3148936170212766,
+            "hardest_target": {
+              "target": 4,
+              "ordered_representation_count": 1,
+              "positive_frequency_count": 235,
+              "minimum_selected_positive_terms": 74,
+              "selected_positive_fraction": 0.3148936170212766,
+              "certificate_surplus": 0.01137119543620635
+            },
+            "maximum_fourier_reconstruction_error": 2.3803181647963356e-13,
+            "equivalence_failures": 0,
+            "checks": {
+              "all_finite_targets_are_positive": true,
+              "adaptive_certificate_matches_positivity": true,
+              "fourier_reconstruction_matches_counts": true,
+              "selection_is_target_dependent_diagnostic_only": true
+            }
+          },
+          {
+            "prime_support_limit": 256,
+            "zero_padded_transform_size": 1024,
+            "even_targets_tested": 127,
+            "minimum_ordered_representation_count": 1,
+            "minimum_selected_positive_terms": 1,
+            "median_selected_positive_terms": 5,
+            "maximum_selected_positive_terms": 237,
+            "median_selected_positive_fraction": 0.010438413361169102,
+            "maximum_selected_positive_fraction": 0.4693069306930693,
+            "hardest_target": {
+              "target": 4,
+              "ordered_representation_count": 1,
+              "positive_frequency_count": 505,
+              "minimum_selected_positive_terms": 237,
+              "selected_positive_fraction": 0.4693069306930693,
+              "certificate_surplus": 0.006853159250095331
+            },
+            "maximum_fourier_reconstruction_error": 7.069900220812997e-13,
+            "equivalence_failures": 0,
+            "checks": {
+              "all_finite_targets_are_positive": true,
+              "adaptive_certificate_matches_positivity": true,
+              "fourier_reconstruction_matches_counts": true,
+              "selection_is_target_dependent_diagnostic_only": true
+            }
+          },
+          {
+            "prime_support_limit": 512,
+            "zero_padded_transform_size": 2048,
+            "even_targets_tested": 255,
+            "minimum_ordered_representation_count": 1,
+            "minimum_selected_positive_terms": 1,
+            "median_selected_positive_terms": 9,
+            "maximum_selected_positive_terms": 554,
+            "median_selected_positive_fraction": 0.008434864104967198,
+            "maximum_selected_positive_fraction": 0.5658835546475995,
+            "hardest_target": {
+              "target": 4,
+              "ordered_representation_count": 1,
+              "positive_frequency_count": 979,
+              "minimum_selected_positive_terms": 554,
+              "selected_positive_fraction": 0.5658835546475995,
+              "certificate_surplus": 0.0035307887738547095
+            },
+            "maximum_fourier_reconstruction_error": 1.1439738045737613e-12,
+            "equivalence_failures": 0,
+            "checks": {
+              "all_finite_targets_are_positive": true,
+              "adaptive_certificate_matches_positivity": true,
+              "fourier_reconstruction_matches_counts": true,
+              "selection_is_target_dependent_diagnostic_only": true
+            }
+          },
+          {
+            "prime_support_limit": 1024,
+            "zero_padded_transform_size": 4096,
+            "even_targets_tested": 511,
+            "minimum_ordered_representation_count": 1,
+            "minimum_selected_positive_terms": 3,
+            "median_selected_positive_terms": 16,
+            "maximum_selected_positive_terms": 1328,
+            "median_selected_positive_fraction": 0.0077034183919114105,
+            "maximum_selected_positive_fraction": 0.6654947262682069,
+            "hardest_target": {
+              "target": 6,
+              "ordered_representation_count": 1,
+              "positive_frequency_count": 1999,
+              "minimum_selected_positive_terms": 1328,
+              "selected_positive_fraction": 0.6643321660830416,
+              "certificate_surplus": 0.0023632062130616305
+            },
+            "maximum_fourier_reconstruction_error": 7.702283255639486e-12,
+            "equivalence_failures": 0,
+            "checks": {
+              "all_finite_targets_are_positive": true,
+              "adaptive_certificate_matches_positivity": true,
+              "fourier_reconstruction_matches_counts": true,
+              "selection_is_target_dependent_diagnostic_only": true
+            }
+          }
+        ],
+        "aggregate": {
+          "finite_targets": 987,
+          "adaptive_equivalence_failures": 0
+        },
+        "no_go_scope": "Post-hoc selection of enough positive Fourier terms merely rewrites R(n)>0. The no-go does not reject Farey/rational major arcs selected before observing the target-aligned signs.",
+        "failure_count": 0
+      },
+      "logical_limit": "No predeclared arithmetic major arcs have a target-uniform positive lower bound that dominates the complementary signed deficit.",
+      "route_decision": {
+        "discard": "choosing target-dependent positive Fourier frequencies after observing their aligned signs",
+        "retain": "Farey/rational major arcs fixed independently of the target sign realization",
+        "next_single_lemma": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T174-REJECTED",
+            "label": "AdaptivePositiveFrequencySelectionIsANonCircularGoldbachBridge",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T174-CLOSED",
+            "label": "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T174-OPEN",
+            "label": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T174-REJECTED",
+            "GB-T174-CLOSED"
+          ],
+          [
+            "GB-T174-CLOSED",
+            "GB-T174-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; one exact selection-equivalence no-go and finite prime diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-174",
+      "theorem_name": "ScalePairMaximumAggregationAndSharpLogarithmicLoss",
+      "declared_proposition": "Let A be an N by N matrix with zero row and column sums, N=2^L, and let E_(j,k) be its tensor-Haar energy at row scale j and column scale k. Then ||A||_op <= ||A||_F = sqrt(sum_(j,k)E_(j,k)) <= L sqrt(max_(j,k)E_(j,k)). The factor L=log_2 N is sharp: there is a zero-margin matrix with every one of its L^2 scale-pair energies equal to one and operator norm L. Hence a uniform power saving for every scale pair closes the full operator estimate with only a logarithmic loss.",
+      "mathematical_argument": "TICKET-173 Parseval gives the equality. There are L^2 scale pairs, so their sum is at most L^2 times the largest energy. For sharpness, in Haar coordinates select one normalized wavelet at each scale and put coefficient one on every selected row/column pair. The coefficient matrix is u v^T with ||u||=||v||=sqrt(L), hence operator norm L; every scale pair contains one unit coefficient. Orthogonal inversion preserves norms and exclusion of the constant coordinate gives zero margins.",
+      "reproducible_computation": {
+        "theorem": "Let A be an N by N matrix with zero row and column sums, N=2^L, and let E_(j,k) be its tensor-Haar energy at row scale j and column scale k. Then ||A||_op <= ||A||_F = sqrt(sum_(j,k)E_(j,k)) <= L sqrt(max_(j,k)E_(j,k)). The factor L=log_2 N is sharp: there is a zero-margin matrix with every one of its L^2 scale-pair energies equal to one and operator norm L. Hence a uniform power saving for every scale pair closes the full operator estimate with only a logarithmic loss.",
+        "proof": "TICKET-173 Parseval gives the equality. There are L^2 scale pairs, so their sum is at most L^2 times the largest energy. For sharpness, in Haar coordinates select one normalized wavelet at each scale and put coefficient one on every selected row/column pair. The coefficient matrix is u v^T with ||u||=||v||=sqrt(L), hence operator norm L; every scale pair contains one unit coefficient. Orthogonal inversion preserves norms and exclusion of the constant coordinate gives zero margins.",
+        "sharp_logarithmic_loss_rows": [
+          {
+            "dyadic_dimension_N": 4,
+            "haar_level_count_L": 2,
+            "scale_pair_count": 4,
+            "maximum_scale_pair_energy": 1.0,
+            "frobenius_norm": 1.9999999999999998,
+            "operator_norm_exact": 2.0,
+            "L_times_sqrt_max_pair_energy": 2.0,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "every_scale_pair_energy_is_one": true,
+              "frobenius_energy_is_L_squared": true,
+              "operator_norm_is_L_by_rank_one_construction": true,
+              "aggregation_bound_is_saturated": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 8,
+            "haar_level_count_L": 3,
+            "scale_pair_count": 9,
+            "maximum_scale_pair_energy": 1.0000000000000004,
+            "frobenius_norm": 2.999999999999998,
+            "operator_norm_exact": 3.0,
+            "L_times_sqrt_max_pair_energy": 3.000000000000001,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "every_scale_pair_energy_is_one": true,
+              "frobenius_energy_is_L_squared": true,
+              "operator_norm_is_L_by_rank_one_construction": true,
+              "aggregation_bound_is_saturated": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 16,
+            "haar_level_count_L": 4,
+            "scale_pair_count": 16,
+            "maximum_scale_pair_energy": 1.0000000000000009,
+            "frobenius_norm": 3.999999999999997,
+            "operator_norm_exact": 4.0,
+            "L_times_sqrt_max_pair_energy": 4.000000000000002,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "every_scale_pair_energy_is_one": true,
+              "frobenius_energy_is_L_squared": true,
+              "operator_norm_is_L_by_rank_one_construction": true,
+              "aggregation_bound_is_saturated": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 32,
+            "haar_level_count_L": 5,
+            "scale_pair_count": 25,
+            "maximum_scale_pair_energy": 1.0000000000000018,
+            "frobenius_norm": 4.999999999999989,
+            "operator_norm_exact": 5.0,
+            "L_times_sqrt_max_pair_energy": 5.000000000000004,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "every_scale_pair_energy_is_one": true,
+              "frobenius_energy_is_L_squared": true,
+              "operator_norm_is_L_by_rank_one_construction": true,
+              "aggregation_bound_is_saturated": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 64,
+            "haar_level_count_L": 6,
+            "scale_pair_count": 36,
+            "maximum_scale_pair_energy": 1.0000000000000018,
+            "frobenius_norm": 6.000000000000253,
+            "operator_norm_exact": 6.0,
+            "L_times_sqrt_max_pair_energy": 6.000000000000005,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "every_scale_pair_energy_is_one": true,
+              "frobenius_energy_is_L_squared": true,
+              "operator_norm_is_L_by_rank_one_construction": true,
+              "aggregation_bound_is_saturated": true
+            }
+          },
+          {
+            "dyadic_dimension_N": 128,
+            "haar_level_count_L": 7,
+            "scale_pair_count": 49,
+            "maximum_scale_pair_energy": 1.000000000000008,
+            "frobenius_norm": 6.99999999999953,
+            "operator_norm_exact": 7.0,
+            "L_times_sqrt_max_pair_energy": 7.000000000000028,
+            "checks": {
+              "all_row_sums_vanish": true,
+              "all_column_sums_vanish": true,
+              "every_scale_pair_energy_is_one": true,
+              "frobenius_energy_is_L_squared": true,
+              "operator_norm_is_L_by_rank_one_construction": true,
+              "aggregation_bound_is_saturated": true
+            }
+          }
+        ],
+        "finite_t161_aggregation_rows": [
+          {
+            "X": 10000,
+            "haar_level_count_L": 2,
+            "maximum_scale_pair_energy": 12194.999999999995,
+            "operator_norm": 127.62211249869566,
+            "L_times_sqrt_max_pair_energy": 220.8619478316715,
+            "checks": {
+              "operator_norm_below_scale_pair_bound": true,
+              "all_energy_is_in_nonconstant_scale_pairs": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          },
+          {
+            "X": 100000,
+            "haar_level_count_L": 2,
+            "maximum_scale_pair_energy": 11844348.999999996,
+            "operator_norm": 4325.604454335457,
+            "L_times_sqrt_max_pair_energy": 6883.124000045327,
+            "checks": {
+              "operator_norm_below_scale_pair_bound": true,
+              "all_energy_is_in_nonconstant_scale_pairs": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          },
+          {
+            "X": 1000000,
+            "haar_level_count_L": 2,
+            "maximum_scale_pair_energy": 5808268944.0,
+            "operator_norm": 92730.90656301392,
+            "L_times_sqrt_max_pair_energy": 152424.0,
+            "checks": {
+              "operator_norm_below_scale_pair_bound": true,
+              "all_energy_is_in_nonconstant_scale_pairs": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          },
+          {
+            "X": 10000000,
+            "haar_level_count_L": 2,
+            "maximum_scale_pair_energy": 15793677463876.0,
+            "operator_norm": 4499308.1114703305,
+            "L_times_sqrt_max_pair_energy": 7948252.0,
+            "checks": {
+              "operator_norm_below_scale_pair_bound": true,
+              "all_energy_is_in_nonconstant_scale_pairs": true,
+              "row_is_finite_diagnostic_only": true
+            }
+          }
+        ],
+        "no_go_scope": "The logarithmic factor cannot be removed from a bound that knows only the largest scale-pair energy. This does not supply the missing uniform prime-pair cancellation estimate on each scale pair.",
+        "failure_count": 0
+      },
+      "logical_limit": "No uniform power saving is known for the prime-pair tensor-Haar energy at every row/column scale pair.",
+      "route_decision": {
+        "discard": "removing the logarithmic aggregation factor using only the maximum scale-pair energy",
+        "retain": "uniform two-parameter scale-pair cancellation; the logarithmic aggregation loss is harmless after a true power saving",
+        "next_single_lemma": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T174-REJECTED",
+            "label": "MaximumScalePairEnergyControlsOperatorNormWithoutScaleLoss",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T174-CLOSED",
+            "label": "ScalePairMaximumAggregationAndSharpLogarithmicLoss",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T174-OPEN",
+            "label": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T174-REJECTED",
+            "TP-T174-CLOSED"
+          ],
+          [
+            "TP-T174-CLOSED",
+            "TP-T174-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; one sharp scale aggregation theorem and finite matrix diagnostics only."
+    },
+    "cross_problem_synthesis": "The shared obstruction is quantifier-safe uniformity: a cutoff must be chosen on one cofinal schedule, a rare branch cannot be discarded by density, major arcs must be selected before seeing signs, and every scale pair must obey one uniform estimate.",
+    "literature_boundary": {
+      "riemann": "arXiv:2607.02828 supplies the finite Guinand-Weil dictionary and B_T asymptotic used for the schedule calculation; it explicitly makes no RH claim.",
+      "collatz": "Tao arXiv:1909.03562 proves an almost-all logarithmic-density result, not the every-ray exclusion isolated here; arXiv:2605.13886 remains finite/parity-vector analysis.",
+      "goldbach": "Grimmelt-Bhowmik arXiv:2607.27282 gives explicit major-arc and exceptional-set context; it does not prove the target-uniform binary domination named here.",
+      "twin_prime": "Ford-Maynard arXiv:2407.14368 emphasizes the necessity of substantial Type-II information; the Haar aggregation theorem is only a coordinate reduction for that missing estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-174",
+      "status": "open_not_proven",
+      "declared_proposition": "Let V_N be nested finite-dimensional subspaces with dense union. Suppose a truncated Hermitian form q_(N,T) satisfies |q(v)-q_(N,T)(v)| <= B_N(T)||v||^2 on V_N and lambda_min(q_(N,T)) >= -delta_(N,T). If a diagonal schedule T_N has delta_(N,T_N)+B_N(T_N) tending to zero, then q is nonnegative. For the explicit Corollary 3.3 upper bound U_N(T)=2(2N+1)rho/pi^2 times [log(T)/(T-rho N)+(rho N)^(-1)log(T/(T-rho N))], any schedule with T_N/(N log T_N) tending to infinity makes U_N(T_N) tend to zero. T_N=N^2 works, whereas T_N=C N and T_N=C N log N do not make this certified upper bound vanish.",
+      "new_result": "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo",
+      "discarded_route": "claiming tail closure from the available explicit upper bound on fixed-ratio or N log N cutoff schedules",
+      "remaining_gap": "No certified bound proves that the actual pole-neutral truncated Weil-core lower defect delta_(N,N^2) tends to zero.",
+      "candidate_theorem": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero",
+      "claim_boundary": "No RH proof and no certified arithmetic core sign; one conditional diagonal transfer theorem and an exact cutoff-rate no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T174-REJECTED",
+            "label": "LinearOrCriticalCutoffClosesTheArchimedeanTail",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T174-CLOSED",
+            "label": "DiagonalTailScheduleCertificateAndCriticalCutoffNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T174-OPEN",
+            "label": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T174-REJECTED",
+            "RH-T174-CLOSED"
+          ],
+          [
+            "RH-T174-CLOSED",
+            "RH-T174-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralQuadraticCutoffTruncatedCoreDefectConvergesToZero"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-174",
+      "status": "open_not_proven",
+      "declared_proposition": "Let w be an accelerated-odd Collatz valuation word, r_w its least positive cylinder representative, M_w its modulus, and y=T^H(r_w). Among all children wa with a>=1, exactly one has r_(wa)=r_w: a*=v_2(3y+1). Every other child has r_(wa)=r_w+k_a M_w with k_a>0. Consequently, among a<=A at most one child has zero lift, a fraction at most 1/A; nevertheless every eventually stabilized natural ray follows that unique zero-lift child forever.",
+      "new_result": "UniqueZeroLiftChildAndLocalDensityNoGo",
+      "discarded_route": "promoting density-one positive-lift children to an every-ray Collatz conclusion",
+      "remaining_gap": "No theorem excludes a prefixwise non-descending natural ray that eventually chooses the unique zero-lift child at every depth.",
+      "candidate_theorem": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren",
+      "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact child-lift theorem and an almost-all-to-every no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T174-REJECTED",
+            "label": "DensityOnePositiveLiftChildrenExcludeEveryStabilizedRay",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T174-CLOSED",
+            "label": "UniqueZeroLiftChildAndLocalDensityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T174-OPEN",
+            "label": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T174-REJECTED",
+            "CO-T174-CLOSED"
+          ],
+          [
+            "CO-T174-CLOSED",
+            "CO-T174-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoNonDescendingRayEventuallyFollowsUniqueZeroLiftChildren"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-174",
+      "status": "open_not_proven",
+      "declared_proposition": "Let R=a+P-N, where a>=0, P=sum_i p_i with p_i>0, and N>=0. Order p_1>=...>=p_m and define K* as the least k with a+sum_(i<=k)p_i>N, if it exists. Then K* exists if and only if R>0. Therefore a target-dependent frequency set chosen after inspecting the aligned positive contributions certifies Goldbach positivity if and only if the desired positivity was already true; this adaptive major-set rule is logically circular.",
+      "new_result": "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo",
+      "discarded_route": "choosing target-dependent positive Fourier frequencies after observing their aligned signs",
+      "remaining_gap": "No predeclared arithmetic major arcs have a target-uniform positive lower bound that dominates the complementary signed deficit.",
+      "candidate_theorem": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly",
+      "claim_boundary": "No Goldbach proof and no even counterexample; one exact selection-equivalence no-go and finite prime diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T174-REJECTED",
+            "label": "AdaptivePositiveFrequencySelectionIsANonCircularGoldbachBridge",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T174-CLOSED",
+            "label": "AdaptivePositiveSpectrumEquivalenceAndCircularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T174-OPEN",
+            "label": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T174-REJECTED",
+            "GB-T174-CLOSED"
+          ],
+          [
+            "GB-T174-CLOSED",
+            "GB-T174-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "FixedFareyMajorArcPositiveMassDominatesComplementSignedDeficitUniformly"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-174",
+      "status": "open_not_proven",
+      "declared_proposition": "Let A be an N by N matrix with zero row and column sums, N=2^L, and let E_(j,k) be its tensor-Haar energy at row scale j and column scale k. Then ||A||_op <= ||A||_F = sqrt(sum_(j,k)E_(j,k)) <= L sqrt(max_(j,k)E_(j,k)). The factor L=log_2 N is sharp: there is a zero-margin matrix with every one of its L^2 scale-pair energies equal to one and operator norm L. Hence a uniform power saving for every scale pair closes the full operator estimate with only a logarithmic loss.",
+      "new_result": "ScalePairMaximumAggregationAndSharpLogarithmicLoss",
+      "discarded_route": "removing the logarithmic aggregation factor using only the maximum scale-pair energy",
+      "remaining_gap": "No uniform power saving is known for the prime-pair tensor-Haar energy at every row/column scale pair.",
+      "candidate_theorem": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; one sharp scale aggregation theorem and finite matrix diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T174-REJECTED",
+            "label": "MaximumScalePairEnergyControlsOperatorNormWithoutScaleLoss",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T174-CLOSED",
+            "label": "ScalePairMaximumAggregationAndSharpLogarithmicLoss",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T174-OPEN",
+            "label": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T174-REJECTED",
+            "TP-T174-CLOSED"
+          ],
+          [
+            "TP-T174-CLOSED",
+            "TP-T174-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly"
+    }
+  ]
+}

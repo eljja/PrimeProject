@@ -1,0 +1,203 @@
+{
+  "schema": "primeproject.ticket174-tail-lift-adaptive-scalepair.v1",
+  "generated_at": "2026-08-01T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-174",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "ScalePairMaximumAggregationAndSharpLogarithmicLoss",
+  "declared_proposition": "Let A be an N by N matrix with zero row and column sums, N=2^L, and let E_(j,k) be its tensor-Haar energy at row scale j and column scale k. Then ||A||_op <= ||A||_F = sqrt(sum_(j,k)E_(j,k)) <= L sqrt(max_(j,k)E_(j,k)). The factor L=log_2 N is sharp: there is a zero-margin matrix with every one of its L^2 scale-pair energies equal to one and operator norm L. Hence a uniform power saving for every scale pair closes the full operator estimate with only a logarithmic loss.",
+  "mathematical_argument": "TICKET-173 Parseval gives the equality. There are L^2 scale pairs, so their sum is at most L^2 times the largest energy. For sharpness, in Haar coordinates select one normalized wavelet at each scale and put coefficient one on every selected row/column pair. The coefficient matrix is u v^T with ||u||=||v||=sqrt(L), hence operator norm L; every scale pair contains one unit coefficient. Orthogonal inversion preserves norms and exclusion of the constant coordinate gives zero margins.",
+  "reproducible_computation": {
+    "theorem": "Let A be an N by N matrix with zero row and column sums, N=2^L, and let E_(j,k) be its tensor-Haar energy at row scale j and column scale k. Then ||A||_op <= ||A||_F = sqrt(sum_(j,k)E_(j,k)) <= L sqrt(max_(j,k)E_(j,k)). The factor L=log_2 N is sharp: there is a zero-margin matrix with every one of its L^2 scale-pair energies equal to one and operator norm L. Hence a uniform power saving for every scale pair closes the full operator estimate with only a logarithmic loss.",
+    "proof": "TICKET-173 Parseval gives the equality. There are L^2 scale pairs, so their sum is at most L^2 times the largest energy. For sharpness, in Haar coordinates select one normalized wavelet at each scale and put coefficient one on every selected row/column pair. The coefficient matrix is u v^T with ||u||=||v||=sqrt(L), hence operator norm L; every scale pair contains one unit coefficient. Orthogonal inversion preserves norms and exclusion of the constant coordinate gives zero margins.",
+    "sharp_logarithmic_loss_rows": [
+      {
+        "dyadic_dimension_N": 4,
+        "haar_level_count_L": 2,
+        "scale_pair_count": 4,
+        "maximum_scale_pair_energy": 1.0,
+        "frobenius_norm": 1.9999999999999998,
+        "operator_norm_exact": 2.0,
+        "L_times_sqrt_max_pair_energy": 2.0,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "every_scale_pair_energy_is_one": true,
+          "frobenius_energy_is_L_squared": true,
+          "operator_norm_is_L_by_rank_one_construction": true,
+          "aggregation_bound_is_saturated": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 8,
+        "haar_level_count_L": 3,
+        "scale_pair_count": 9,
+        "maximum_scale_pair_energy": 1.0000000000000004,
+        "frobenius_norm": 2.999999999999998,
+        "operator_norm_exact": 3.0,
+        "L_times_sqrt_max_pair_energy": 3.000000000000001,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "every_scale_pair_energy_is_one": true,
+          "frobenius_energy_is_L_squared": true,
+          "operator_norm_is_L_by_rank_one_construction": true,
+          "aggregation_bound_is_saturated": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 16,
+        "haar_level_count_L": 4,
+        "scale_pair_count": 16,
+        "maximum_scale_pair_energy": 1.0000000000000009,
+        "frobenius_norm": 3.999999999999997,
+        "operator_norm_exact": 4.0,
+        "L_times_sqrt_max_pair_energy": 4.000000000000002,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "every_scale_pair_energy_is_one": true,
+          "frobenius_energy_is_L_squared": true,
+          "operator_norm_is_L_by_rank_one_construction": true,
+          "aggregation_bound_is_saturated": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 32,
+        "haar_level_count_L": 5,
+        "scale_pair_count": 25,
+        "maximum_scale_pair_energy": 1.0000000000000018,
+        "frobenius_norm": 4.999999999999989,
+        "operator_norm_exact": 5.0,
+        "L_times_sqrt_max_pair_energy": 5.000000000000004,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "every_scale_pair_energy_is_one": true,
+          "frobenius_energy_is_L_squared": true,
+          "operator_norm_is_L_by_rank_one_construction": true,
+          "aggregation_bound_is_saturated": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 64,
+        "haar_level_count_L": 6,
+        "scale_pair_count": 36,
+        "maximum_scale_pair_energy": 1.0000000000000018,
+        "frobenius_norm": 6.000000000000253,
+        "operator_norm_exact": 6.0,
+        "L_times_sqrt_max_pair_energy": 6.000000000000005,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "every_scale_pair_energy_is_one": true,
+          "frobenius_energy_is_L_squared": true,
+          "operator_norm_is_L_by_rank_one_construction": true,
+          "aggregation_bound_is_saturated": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 128,
+        "haar_level_count_L": 7,
+        "scale_pair_count": 49,
+        "maximum_scale_pair_energy": 1.000000000000008,
+        "frobenius_norm": 6.99999999999953,
+        "operator_norm_exact": 7.0,
+        "L_times_sqrt_max_pair_energy": 7.000000000000028,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "every_scale_pair_energy_is_one": true,
+          "frobenius_energy_is_L_squared": true,
+          "operator_norm_is_L_by_rank_one_construction": true,
+          "aggregation_bound_is_saturated": true
+        }
+      }
+    ],
+    "finite_t161_aggregation_rows": [
+      {
+        "X": 10000,
+        "haar_level_count_L": 2,
+        "maximum_scale_pair_energy": 12194.999999999995,
+        "operator_norm": 127.62211249869566,
+        "L_times_sqrt_max_pair_energy": 220.8619478316715,
+        "checks": {
+          "operator_norm_below_scale_pair_bound": true,
+          "all_energy_is_in_nonconstant_scale_pairs": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "X": 100000,
+        "haar_level_count_L": 2,
+        "maximum_scale_pair_energy": 11844348.999999996,
+        "operator_norm": 4325.604454335457,
+        "L_times_sqrt_max_pair_energy": 6883.124000045327,
+        "checks": {
+          "operator_norm_below_scale_pair_bound": true,
+          "all_energy_is_in_nonconstant_scale_pairs": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "X": 1000000,
+        "haar_level_count_L": 2,
+        "maximum_scale_pair_energy": 5808268944.0,
+        "operator_norm": 92730.90656301392,
+        "L_times_sqrt_max_pair_energy": 152424.0,
+        "checks": {
+          "operator_norm_below_scale_pair_bound": true,
+          "all_energy_is_in_nonconstant_scale_pairs": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "X": 10000000,
+        "haar_level_count_L": 2,
+        "maximum_scale_pair_energy": 15793677463876.0,
+        "operator_norm": 4499308.1114703305,
+        "L_times_sqrt_max_pair_energy": 7948252.0,
+        "checks": {
+          "operator_norm_below_scale_pair_bound": true,
+          "all_energy_is_in_nonconstant_scale_pairs": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      }
+    ],
+    "no_go_scope": "The logarithmic factor cannot be removed from a bound that knows only the largest scale-pair energy. This does not supply the missing uniform prime-pair cancellation estimate on each scale pair.",
+    "failure_count": 0
+  },
+  "discarded_route": "removing the logarithmic aggregation factor using only the maximum scale-pair energy",
+  "remaining_gap": "No uniform power saving is known for the prime-pair tensor-Haar energy at every row/column scale pair.",
+  "candidate_theorem": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; one sharp scale aggregation theorem and finite matrix diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T174-REJECTED",
+        "label": "MaximumScalePairEnergyControlsOperatorNormWithoutScaleLoss",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T174-CLOSED",
+        "label": "ScalePairMaximumAggregationAndSharpLogarithmicLoss",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T174-OPEN",
+        "label": "PrimePairEveryScalePairHaarEnergyPowerSavingUniformly",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T174-REJECTED",
+        "TP-T174-CLOSED"
+      ],
+      [
+        "TP-T174-CLOSED",
+        "TP-T174-OPEN"
+      ]
+    ]
+  }
+}
