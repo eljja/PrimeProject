@@ -62,6 +62,52 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
+## Latest Continuation After TICKET-181
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin`.
+   TICKET-181 proves the exact Lipschitz-Fejer bridge and refutes a modulus
+   inferred only from grid samples. Do not use sampled slopes, finite Fourier
+   agreement, or a model symbol as the required arithmetic modulus.
+2. Collatz:
+   `EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum`.
+   TICKET-181 proves `H` is a multiple of the natural-cylinder modulus and that
+   `H>-M` plus `H!=0` forces strict descent. The missing theorem must cover
+   arbitrary valuations and horizons and must address nontrivial equality
+   cycles; the depth-eight audit is not a substitute.
+3. Goldbach:
+   `ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock`.
+   TICKET-181 proves the exact discrete Fejer exception-removal inequality.
+   The smooth model and the search through 100,000 do not prove the arithmetic
+   adjacent-target modulus.
+4. Twin Prime:
+   `PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin`.
+   TICKET-181 proves the pathwise `l1` localization theorem and refutes
+   maximum-edge and pathwise `l2` surrogates. A proof still needs arithmetic
+   block variation and a parity-breaking positive lower bound.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket181-regularized-localization-quantized-slack.json
+data/open-problem/riemann/rh-ticket-181-fejer-modulus.json
+data/open-problem/collatz/co-ticket-181-slack-quantum.json
+data/open-problem/goldbach/gb-ticket-181-discrete-fejer.json
+data/open-problem/twin-prime/tp-ticket-181-tree-variation.json
+```
+
+한국어 인계: TICKET-181도 네 난제를 해결하지 않았다. 다만 TICKET-180의
+불충분성 결과를 전역 정규성, exact slack 양자, 인접 표적 modulus, 경로별
+`l1` variation이라는 검증 가능한 충분조건으로 좁혔다. 다음 LLM은 모델
+계산을 늘리는 대신 위 네 산술 보조정리 중 실제 무한 양화사를 공격해야 한다.
+반례가 나오면 명제 또는 경로를 폐기하고, 완전한 무한 논증이 없으면 해결을
+주장하지 않는다.
+
+English report: [TICKET-181](regularized-localization-quantized-slack.md).
+Korean report: [TICKET-181 한국어](regularized-localization-quantized-slack.ko.md).
+
 ## Latest Continuation After TICKET-180
 
 All four conjectures remain open. Continue from exactly these four nodes:

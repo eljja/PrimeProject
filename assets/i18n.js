@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact localization boundaries",
-      ko: "네 개의 미해결 문제, 정확한 네 개의 국소화 경계",
+      en: "Four open problems, four exact localization bridges",
+      ko: "네 개의 미해결 문제, 정확한 네 개의 국소화 연결 정리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-180 proves why finite, unordered, almost-all, and global summaries cannot supply four universal conclusions.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-180은 유한·무순서·거의 모든 값·전역 요약이 네 보편 결론에 충분하지 않음을 증명했습니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-181 turns four TICKET-180 no-go results into exact conditional bridges and identifies each missing arithmetic premise.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-181은 네 불가능성 결과를 정확한 조건부 연결 정리로 바꾸고 문제별로 빠진 산술 전제를 지정했습니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

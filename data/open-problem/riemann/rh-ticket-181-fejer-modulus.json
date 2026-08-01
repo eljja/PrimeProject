@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket181-regularized-localization-quantized-slack.v1",
+  "generated_at": "2026-08-02T22:10:00+09:00",
+  "ticket_id": "RH-TICKET-181",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+  "declared_proposition": "Let f be a real 2-pi-periodic L-Lipschitz symbol and let sigma_N f be its Fejer mean using Fourier modes |k|<N. If mu_N is the normalized first geodesic moment of the Fejer kernel, then ||f-sigma_N f||_infinity<=L mu_N. Hence ||sigma_N f||_infinity+L mu_N<delta certifies ||f||_infinity<delta. A Lipschitz constant inferred only from Q uniform samples is insufficient: A sin(Q theta) and zero agree at every sample and have zero sampled slopes, while the hidden sine has uniform norm A and true Lipschitz constant AQ.",
+  "mathematical_argument": "The Fejer kernel is nonnegative and has normalized mass one. Convolution and the Lipschitz inequality give |f(theta)-sigma_N f(theta)|<=L integral d(0,t)F_N(t)dt/(2pi). Expanding F_N gives mu_N=pi/2-(4/pi) sum over odd k<N of (1-k/N)/k^2. On the Q-grid, sin(Q*2pi*j/Q)=0 exactly, proving the sampled-regularity counterexample.",
+  "reproducible_computation": {
+    "theorem": "Let f be a real 2-pi-periodic L-Lipschitz symbol and let sigma_N f be its Fejer mean using Fourier modes |k|<N. If mu_N is the normalized first geodesic moment of the Fejer kernel, then ||f-sigma_N f||_infinity<=L mu_N. Hence ||sigma_N f||_infinity+L mu_N<delta certifies ||f||_infinity<delta. A Lipschitz constant inferred only from Q uniform samples is insufficient: A sin(Q theta) and zero agree at every sample and have zero sampled slopes, while the hidden sine has uniform norm A and true Lipschitz constant AQ.",
+    "proof": "The Fejer kernel is nonnegative and has normalized mass one. Convolution and the Lipschitz inequality give |f(theta)-sigma_N f(theta)|<=L integral d(0,t)F_N(t)dt/(2pi). Expanding F_N gives mu_N=pi/2-(4/pi) sum over odd k<N of (1-k/N)/k^2. On the Q-grid, sin(Q*2pi*j/Q)=0 exactly, proving the sampled-regularity counterexample.",
+    "fejer_certificate_rows": [
+      {
+        "fejer_order_N": 8,
+        "continuous_first_moment_mu_N": 0.34594565908867114,
+        "smooth_model_low_pass_norm": 0.08750000000000001,
+        "smooth_model_lipschitz_constant": 0.1,
+        "smooth_model_tail_budget": 0.034594565908867114,
+        "smooth_model_certified_norm": 0.12209456590886712,
+        "core_margin_delta": 0.25,
+        "hidden_sine_frequency_Q": 8,
+        "hidden_sine_sampled_values_max": 0.0,
+        "hidden_sine_sampled_slope_max": 0.0,
+        "hidden_sine_true_uniform_norm": 1.0,
+        "hidden_sine_true_lipschitz_constant": 8.0,
+        "hidden_sine_regularized_budget": 2.767565272709369,
+        "checks": {
+          "first_moment_is_positive": true,
+          "smooth_model_certificate_passes": true,
+          "hidden_mode_is_outside_fejer_band": true,
+          "hidden_mode_pays_nonzero_regularized_budget": true
+        }
+      },
+      {
+        "fejer_order_N": 16,
+        "continuous_first_moment_mu_N": 0.20062697296188947,
+        "smooth_model_low_pass_norm": 0.09375,
+        "smooth_model_lipschitz_constant": 0.1,
+        "smooth_model_tail_budget": 0.02006269729618895,
+        "smooth_model_certified_norm": 0.11381269729618895,
+        "core_margin_delta": 0.25,
+        "hidden_sine_frequency_Q": 16,
+        "hidden_sine_sampled_values_max": 0.0,
+        "hidden_sine_sampled_slope_max": 0.0,
+        "hidden_sine_true_uniform_norm": 1.0,
+        "hidden_sine_true_lipschitz_constant": 16.0,
+        "hidden_sine_regularized_budget": 3.2100315673902315,
+        "checks": {
+          "first_moment_is_positive": true,
+          "smooth_model_certificate_passes": true,
+          "hidden_mode_is_outside_fejer_band": true,
+          "hidden_mode_pays_nonzero_regularized_budget": true
+        }
+      },
+      {
+        "fejer_order_N": 32,
+        "continuous_first_moment_mu_N": 0.1141128273333214,
+        "smooth_model_low_pass_norm": 0.096875,
+        "smooth_model_lipschitz_constant": 0.1,
+        "smooth_model_tail_budget": 0.01141128273333214,
+        "smooth_model_certified_norm": 0.10828628273333214,
+        "core_margin_delta": 0.25,
+        "hidden_sine_frequency_Q": 32,
+        "hidden_sine_sampled_values_max": 0.0,
+        "hidden_sine_sampled_slope_max": 0.0,
+        "hidden_sine_true_uniform_norm": 1.0,
+        "hidden_sine_true_lipschitz_constant": 32.0,
+        "hidden_sine_regularized_budget": 3.6516104746662847,
+        "checks": {
+          "first_moment_is_positive": true,
+          "smooth_model_certificate_passes": true,
+          "hidden_mode_is_outside_fejer_band": true,
+          "hidden_mode_pays_nonzero_regularized_budget": true
+        }
+      },
+      {
+        "fejer_order_N": 64,
+        "continuous_first_moment_mu_N": 0.06395248732571845,
+        "smooth_model_low_pass_norm": 0.09843750000000001,
+        "smooth_model_lipschitz_constant": 0.1,
+        "smooth_model_tail_budget": 0.006395248732571846,
+        "smooth_model_certified_norm": 0.10483274873257185,
+        "core_margin_delta": 0.25,
+        "hidden_sine_frequency_Q": 64,
+        "hidden_sine_sampled_values_max": 0.0,
+        "hidden_sine_sampled_slope_max": 0.0,
+        "hidden_sine_true_uniform_norm": 1.0,
+        "hidden_sine_true_lipschitz_constant": 64.0,
+        "hidden_sine_regularized_budget": 4.092959188845981,
+        "checks": {
+          "first_moment_is_positive": true,
+          "smooth_model_certificate_passes": true,
+          "hidden_mode_is_outside_fejer_band": true,
+          "hidden_mode_pays_nonzero_regularized_budget": true
+        }
+      },
+      {
+        "fejer_order_N": 128,
+        "continuous_first_moment_mu_N": 0.03542382660004084,
+        "smooth_model_low_pass_norm": 0.09921875000000001,
+        "smooth_model_lipschitz_constant": 0.1,
+        "smooth_model_tail_budget": 0.0035423826600040845,
+        "smooth_model_certified_norm": 0.1027611326600041,
+        "core_margin_delta": 0.25,
+        "hidden_sine_frequency_Q": 128,
+        "hidden_sine_sampled_values_max": 0.0,
+        "hidden_sine_sampled_slope_max": 0.0,
+        "hidden_sine_true_uniform_norm": 1.0,
+        "hidden_sine_true_lipschitz_constant": 128.0,
+        "hidden_sine_regularized_budget": 4.534249804805228,
+        "checks": {
+          "first_moment_is_positive": true,
+          "smooth_model_certificate_passes": true,
+          "hidden_mode_is_outside_fejer_band": true,
+          "hidden_mode_pays_nonzero_regularized_budget": true
+        }
+      },
+      {
+        "fejer_order_N": 256,
+        "continuous_first_moment_mu_N": 0.019435647895922115,
+        "smooth_model_low_pass_norm": 0.099609375,
+        "smooth_model_lipschitz_constant": 0.1,
+        "smooth_model_tail_budget": 0.0019435647895922115,
+        "smooth_model_certified_norm": 0.1015529397895922,
+        "core_margin_delta": 0.25,
+        "hidden_sine_frequency_Q": 256,
+        "hidden_sine_sampled_values_max": 0.0,
+        "hidden_sine_sampled_slope_max": 0.0,
+        "hidden_sine_true_uniform_norm": 1.0,
+        "hidden_sine_true_lipschitz_constant": 256.0,
+        "hidden_sine_regularized_budget": 4.975525861356061,
+        "checks": {
+          "first_moment_is_positive": true,
+          "smooth_model_certificate_passes": true,
+          "hidden_mode_is_outside_fejer_band": true,
+          "hidden_mode_pays_nonzero_regularized_budget": true
+        }
+      }
+    ],
+    "aggregate": {
+      "order_count": 6,
+      "largest_order": 256,
+      "first_moment_decreases": true,
+      "all_smooth_model_certificates_pass": true,
+      "all_sampled_regularities_are_false_zero": true
+    },
+    "no_go_scope": "This repairs finite Fourier localization only when a global modulus of continuity is proved independently. A post-hoc finite-grid slope estimate can miss an arbitrarily large hidden frequency. No such modulus is proved for the actual pole-neutral whitened Weil symbol.",
+    "failure_count": 0
+  },
+  "discarded_route": "finite-grid slope estimates or observed Fourier modes as a substitute for a proved global symbol modulus",
+  "remaining_gap": "No certified global modulus of continuity places the actual pole-neutral whitened Weil symbol inside the Fejer tail budget below the core margin.",
+  "candidate_theorem": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin",
+  "claim_boundary": "No RH proof or zero exclusion; one exact Fejer-modulus bridge, six smooth witnesses, and one sampled-regularity counterfamily only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T181-REJECTED",
+        "label": "SampledRegularityControlsUnobservedWeilFrequencies",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T181-CLOSED",
+        "label": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T181-OPEN",
+        "label": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T181-REJECTED",
+        "RH-T181-CLOSED"
+      ],
+      [
+        "RH-T181-CLOSED",
+        "RH-T181-OPEN"
+      ]
+    ]
+  }
+}

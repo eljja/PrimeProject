@@ -1,0 +1,128 @@
+{
+  "schema": "primeproject.ticket181-regularized-localization-quantized-slack.v1",
+  "generated_at": "2026-08-02T22:10:00+09:00",
+  "ticket_id": "TP-TICKET-181",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+  "declared_proposition": "Let r(B) be a real normalized statistic on a rooted dyadic block tree and let epsilon_j be the supremum of |r(C)-r(parent(C))| over edges entering depth j. Every block B at depth ell satisfies |r(B)|<=|r(root)|+sum_(j<=ell) epsilon_j. Thus a root bound plus a summable path-oscillation budget gives uniform block localization. Neither max_j epsilon_j->0 nor a vanishing path l2 budget is enough.",
+  "mathematical_argument": "Telescoping r(B)-r(root) along the unique root-to-B path and applying the triangle inequality gives the bound. For depth L, assign values j/L along one selected path and freeze the parent value on every branch that leaves it. Every edge changes by at most 1/L and the selected path l2 variation is 1/sqrt(L), but its leaf value is one. The l1 path sum remains one and the bound is sharp.",
+  "reproducible_computation": {
+    "theorem": "Let r(B) be a real normalized statistic on a rooted dyadic block tree and let epsilon_j be the supremum of |r(C)-r(parent(C))| over edges entering depth j. Every block B at depth ell satisfies |r(B)|<=|r(root)|+sum_(j<=ell) epsilon_j. Thus a root bound plus a summable path-oscillation budget gives uniform block localization. Neither max_j epsilon_j->0 nor a vanishing path l2 budget is enough.",
+    "proof": "Telescoping r(B)-r(root) along the unique root-to-B path and applying the triangle inequality gives the bound. For depth L, assign values j/L along one selected path and freeze the parent value on every branch that leaves it. Every edge changes by at most 1/L and the selected path l2 variation is 1/sqrt(L), but its leaf value is one. The l1 path sum remains one and the bound is sharp.",
+    "tree_counterfamily": [
+      {
+        "tree_depth_L": 8,
+        "root_ratio": 0.0,
+        "bad_path_leaf_ratio": 1.0,
+        "maximum_single_edge_oscillation": 0.125,
+        "bad_path_l1_oscillation": 1.0,
+        "bad_path_l2_oscillation": 0.3535533905932738,
+        "checks": {
+          "telescoping_bound_is_sharp": true,
+          "maximum_edge_increment_is_one_over_depth": true,
+          "square_variation_is_inverse_sqrt_depth": true,
+          "bad_leaf_stays_one": true
+        }
+      },
+      {
+        "tree_depth_L": 16,
+        "root_ratio": 0.0,
+        "bad_path_leaf_ratio": 1.0,
+        "maximum_single_edge_oscillation": 0.0625,
+        "bad_path_l1_oscillation": 1.0,
+        "bad_path_l2_oscillation": 0.25,
+        "checks": {
+          "telescoping_bound_is_sharp": true,
+          "maximum_edge_increment_is_one_over_depth": true,
+          "square_variation_is_inverse_sqrt_depth": true,
+          "bad_leaf_stays_one": true
+        }
+      },
+      {
+        "tree_depth_L": 32,
+        "root_ratio": 0.0,
+        "bad_path_leaf_ratio": 1.0,
+        "maximum_single_edge_oscillation": 0.03125,
+        "bad_path_l1_oscillation": 1.0,
+        "bad_path_l2_oscillation": 0.1767766952966369,
+        "checks": {
+          "telescoping_bound_is_sharp": true,
+          "maximum_edge_increment_is_one_over_depth": true,
+          "square_variation_is_inverse_sqrt_depth": true,
+          "bad_leaf_stays_one": true
+        }
+      },
+      {
+        "tree_depth_L": 64,
+        "root_ratio": 0.0,
+        "bad_path_leaf_ratio": 1.0,
+        "maximum_single_edge_oscillation": 0.015625,
+        "bad_path_l1_oscillation": 1.0,
+        "bad_path_l2_oscillation": 0.125,
+        "checks": {
+          "telescoping_bound_is_sharp": true,
+          "maximum_edge_increment_is_one_over_depth": true,
+          "square_variation_is_inverse_sqrt_depth": true,
+          "bad_leaf_stays_one": true
+        }
+      },
+      {
+        "tree_depth_L": 128,
+        "root_ratio": 0.0,
+        "bad_path_leaf_ratio": 1.0,
+        "maximum_single_edge_oscillation": 0.0078125,
+        "bad_path_l1_oscillation": 1.0,
+        "bad_path_l2_oscillation": 0.08838834764831845,
+        "checks": {
+          "telescoping_bound_is_sharp": true,
+          "maximum_edge_increment_is_one_over_depth": true,
+          "square_variation_is_inverse_sqrt_depth": true,
+          "bad_leaf_stays_one": true
+        }
+      }
+    ],
+    "aggregate": {
+      "depth_case_count": 5,
+      "largest_depth": 128,
+      "maximum_edge_oscillation_decreases": true,
+      "l2_path_budget_decreases": true,
+      "bad_leaf_never_improves": true
+    },
+    "no_go_scope": "This gives an exact abstract localization contract for normalized prime-pair block statistics. It proves neither summable oscillation for actual arithmetic blocks nor a parity-breaking positive lower bound for twin primes.",
+    "failure_count": 0
+  },
+  "discarded_route": "vanishing per-scale or square-summed block oscillation as sufficient for every-block cancellation",
+  "remaining_gap": "No summable path-oscillation estimate is proved for normalized zero-mode ratios of actual prime-pair blocks, and parity-breaking positivity remains separate.",
+  "candidate_theorem": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin",
+  "claim_boundary": "No Twin Prime proof or positive exact-gap-two lower bound; one exact tree-localization theorem and five sharp path counterfamilies only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T181-REJECTED",
+        "label": "VanishingScaleL2OscillationForcesUniformBlockCancellation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T181-CLOSED",
+        "label": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T181-OPEN",
+        "label": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T181-REJECTED",
+        "TP-T181-CLOSED"
+      ],
+      [
+        "TP-T181-CLOSED",
+        "TP-T181-OPEN"
+      ]
+    ]
+  }
+}

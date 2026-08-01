@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket181AttemptGlobal = null;
 let ticket180AttemptGlobal = null;
 let ticket179AttemptGlobal = null;
 let ticket178AttemptGlobal = null;
@@ -9976,6 +9977,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket181RegularizedLocalizationQuantizedSlack(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.regularized_localization_quantized_slack_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.fejer_certificate_rows || [];
+    detail = `
+      <div class="poc-equation">||f−σ<sub>N</sub>f||∞ ≤ L μ<sub>N</sub>; sampled slopes cannot replace a proved global modulus</div>
+      ${table(["Fejer order N", "first moment μN", "certified norm", "core margin", "sampled hidden norm", "true hidden norm"], rows.map((row) => [row.fejer_order_N, Number(row.continuous_first_moment_mu_N).toFixed(6), Number(row.smooth_model_certified_norm).toFixed(6), Number(row.core_margin_delta).toFixed(2), Number(row.hidden_sine_sampled_values_max).toFixed(1), Number(row.hidden_sine_true_uniform_norm).toFixed(1)]))}
+      <div class="poc-head"><div><span>Fejer cases</span><strong>${computation.aggregate?.order_count || 0}</strong></div><div><span>Largest N</span><strong>${computation.aggregate?.largest_order || 0}</strong></div><div><span>Smooth certificates</span><strong>${computation.aggregate?.all_smooth_model_certificates_pass ? "pass" : "fail"}</strong></div></div>
+      <p class="proof-note">전역 Lipschitz 상수가 증명되면 유한 Fejer 평균에서 전체 기호 상계로 이동할 수 있습니다. 그러나 Q개 표본에서 0인 A sin(Qθ)는 실제 노름 A를 숨기므로, 표본 기울기는 전역 정규성 증명이 아닙니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.finite_alphabet_rows || [];
+    const fixed = computation.fixed_point_boundary || {};
+    detail = `
+      <div class="poc-equation">H=r(2<sup>S</sup>−3<sup>h</sup>)−B=2<sup>S</sup>(r−u) ∈ 2<sup>S+1</sup>ℤ</div>
+      ${table(["h", "words", "nonterminal contracting", "positive quantum", "zero", "negative"], rows.map((row) => [row.horizon_h, formatter.format(row.word_count || 0), formatter.format(row.nonterminal_contracting_count || 0), formatter.format(row.positive_slack_quantum_count || 0), row.zero_slack_quantum_count, row.negative_slack_quantum_count]))}
+      <div class="poc-head"><div><span>Words checked</span><strong>${formatter.format(computation.aggregate?.words_checked || 0)}</strong></div><div><span>Negative quantum</span><strong>${computation.aggregate?.finite_negative_quantum_count ?? "missing"}</strong></div><div><span>Fixed-point slack</span><strong>${fixed.descent_slack_H ?? "missing"}</strong></div></div>
+      <p class="proof-note">하강 slack은 연속량이 아니라 원통 주기 2^(S+1)의 정수배입니다. H&gt;−M과 H=0 배제를 함께 증명하면 H≥M이지만, (2)의 r=u=1 고정점은 equality 배제가 반드시 별도 정리여야 함을 보입니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.discrete_fejer_rows || [];
+    const finite = computation.finite_exact_search || {};
+    detail = `
+      <div class="poc-equation">||e−σ<sub>K</sub>e||∞ ≤ D μ<sub>K,L</sub>; low-pass margin &gt; target-modulus budget ⇒ every-target positivity</div>
+      ${table(["cycle L", "degree K", "smooth margin", "spike margin", "spike actual minimum"], rows.map((row) => [formatter.format(row.cycle_length_L || 0), row.fejer_degree_K, Number(row.smooth_model?.certificate_margin).toFixed(6), Number(row.exceptional_spike?.certificate_margin).toFixed(6), Number(row.exceptional_spike?.actual_minimum_total).toFixed(2)]))}
+      <div class="poc-head"><div><span>Cycle cases</span><strong>${computation.aggregate?.cycle_size_count || 0}</strong></div><div><span>Finite target</span><strong>${formatter.format(finite.even_target_limit || 0)}</strong></div><div><span>Counterexample</span><strong>${finite.counterexample_found ? "found" : "none in finite range"}</strong></div></div>
+      <p class="proof-note">이산 Fejer 저주파와 인접 짝수 표적 사이의 엄밀한 변화율을 결합하면 예외 하나도 없는 양성 인증이 됩니다. 현재 계산은 spike를 정확히 거부하지만 실제 Goldbach 잔차의 균일 modulus는 아직 증명되지 않았습니다.</p>
+    `;
+  } else {
+    const rows = computation.tree_counterfamily || [];
+    detail = `
+      <div class="poc-equation">|r(B)| ≤ |r(root)|+Σ ε<sub>j</sub>; max edge→0 and path l2→0 do not replace summable path l1</div>
+      ${table(["depth L", "max edge", "path l2", "path l1", "bad leaf"], rows.map((row) => [row.tree_depth_L, Number(row.maximum_single_edge_oscillation).toFixed(6), Number(row.bad_path_l2_oscillation).toFixed(6), Number(row.bad_path_l1_oscillation).toFixed(1), Number(row.bad_path_leaf_ratio).toFixed(1)]))}
+      <div class="poc-head"><div><span>Tree cases</span><strong>${computation.aggregate?.depth_case_count || 0}</strong></div><div><span>Largest depth</span><strong>${computation.aggregate?.largest_depth || 0}</strong></div><div><span>Bad leaf improves</span><strong>${computation.aggregate?.bad_leaf_never_improves ? "no" : "unexpected"}</strong></div></div>
+      <p class="proof-note">한 경로에서 1/L씩 누적하면 edge 최댓값과 l2 진동은 0으로 가지만 leaf 오차는 1로 남습니다. 모든 prime-pair block을 제어하려면 경로별 l1 진동의 합 가능성이 필요하며, 이는 parity 장벽을 넘는 양의 하계와도 별개입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket181-regularized-localization-quantized-slack" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 181 regularized localization, quantized slack, and path variation</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact conditional bridges or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET181 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/regularized-localization-quantized-slack.ko.md">한국어 보고서</a> · <a href="../docs/regularized-localization-quantized-slack.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket180FiniteInformationLocalization(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.finite_information_localization_audit || {};
@@ -14002,8 +14070,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket180FiniteInformationLocalization(ticket180AttemptGlobal) ||
-      `<p class="proof-note">TICKET-180 data is unavailable. The conjecture remains open. / TICKET-180 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+    currentResearch.innerHTML = renderTicket181RegularizedLocalizationQuantizedSlack(ticket181AttemptGlobal) ||
+      `<p class="proof-note">TICKET-181 data is unavailable. The conjecture remains open. / TICKET-181 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14325,6 +14393,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket181Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket181-regularized-localization-quantized-slack.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket181AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket181AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket181AttemptGlobal) {
+      ticket181AttemptGlobal.bounded_result = ticket181AttemptGlobal.bounded_result || {};
+      ticket181AttemptGlobal.bounded_result.regularized_localization_quantized_slack_audit = payload.regularized_localization_quantized_slack_audit || {};
+    }
+    return Boolean(ticket181AttemptGlobal);
+  } catch (error) {
+    ticket181AttemptGlobal = null;
     return false;
   }
 }
@@ -15298,6 +15386,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket181Loaded = await loadTicket181Attempt();
   const ticket180Loaded = await loadTicket180Attempt();
   const ticket179Loaded = await loadTicket179Attempt();
   const ticket178Loaded = await loadTicket178Attempt();
@@ -15311,8 +15400,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket181AttemptGlobal) await loadTicket181Attempt();
     if (!ticket180AttemptGlobal) await loadTicket180Attempt();
     if (!ticket179AttemptGlobal) await loadTicket179Attempt();
     if (!ticket178AttemptGlobal) await loadTicket178Attempt();
@@ -15371,7 +15461,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket180-priority";
+  document.documentElement.dataset.openProblemCache = "ticket181-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

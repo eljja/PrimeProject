@@ -1,0 +1,1110 @@
+{
+  "schema": "primeproject.ticket181-regularized-localization-quantized-slack.v1",
+  "generated_at": "2026-08-02T22:10:00+09:00",
+  "status": "four_exact_regularized_localization_bridges_all_conjectures_open",
+  "claim_boundary": "TICKET-181 proves four exact localization bridges or no-go results and resolves none of the conjectures. Regularity can convert Fejer averages to uniform bounds, Collatz slack is quantized, and dyadic block control requires pathwise l1 rather than scale l2 aggregation.",
+  "regularized_localization_quantized_slack_audit": {
+    "theorem_name": "FourConjectureRegularizedLocalizationAndQuantizedSlackAudit",
+    "status": "four_exact_regularized_localization_bridges_all_conjectures_open",
+    "proof_boundary": "TICKET-181 proves four exact localization bridges or no-go results and resolves none of the conjectures. Regularity can convert Fejer averages to uniform bounds, Collatz slack is quantized, and dyadic block control requires pathwise l1 rather than scale l2 aggregation.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-181",
+      "theorem_name": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+      "declared_proposition": "Let f be a real 2-pi-periodic L-Lipschitz symbol and let sigma_N f be its Fejer mean using Fourier modes |k|<N. If mu_N is the normalized first geodesic moment of the Fejer kernel, then ||f-sigma_N f||_infinity<=L mu_N. Hence ||sigma_N f||_infinity+L mu_N<delta certifies ||f||_infinity<delta. A Lipschitz constant inferred only from Q uniform samples is insufficient: A sin(Q theta) and zero agree at every sample and have zero sampled slopes, while the hidden sine has uniform norm A and true Lipschitz constant AQ.",
+      "mathematical_argument": "The Fejer kernel is nonnegative and has normalized mass one. Convolution and the Lipschitz inequality give |f(theta)-sigma_N f(theta)|<=L integral d(0,t)F_N(t)dt/(2pi). Expanding F_N gives mu_N=pi/2-(4/pi) sum over odd k<N of (1-k/N)/k^2. On the Q-grid, sin(Q*2pi*j/Q)=0 exactly, proving the sampled-regularity counterexample.",
+      "reproducible_computation": {
+        "theorem": "Let f be a real 2-pi-periodic L-Lipschitz symbol and let sigma_N f be its Fejer mean using Fourier modes |k|<N. If mu_N is the normalized first geodesic moment of the Fejer kernel, then ||f-sigma_N f||_infinity<=L mu_N. Hence ||sigma_N f||_infinity+L mu_N<delta certifies ||f||_infinity<delta. A Lipschitz constant inferred only from Q uniform samples is insufficient: A sin(Q theta) and zero agree at every sample and have zero sampled slopes, while the hidden sine has uniform norm A and true Lipschitz constant AQ.",
+        "proof": "The Fejer kernel is nonnegative and has normalized mass one. Convolution and the Lipschitz inequality give |f(theta)-sigma_N f(theta)|<=L integral d(0,t)F_N(t)dt/(2pi). Expanding F_N gives mu_N=pi/2-(4/pi) sum over odd k<N of (1-k/N)/k^2. On the Q-grid, sin(Q*2pi*j/Q)=0 exactly, proving the sampled-regularity counterexample.",
+        "fejer_certificate_rows": [
+          {
+            "fejer_order_N": 8,
+            "continuous_first_moment_mu_N": 0.34594565908867114,
+            "smooth_model_low_pass_norm": 0.08750000000000001,
+            "smooth_model_lipschitz_constant": 0.1,
+            "smooth_model_tail_budget": 0.034594565908867114,
+            "smooth_model_certified_norm": 0.12209456590886712,
+            "core_margin_delta": 0.25,
+            "hidden_sine_frequency_Q": 8,
+            "hidden_sine_sampled_values_max": 0.0,
+            "hidden_sine_sampled_slope_max": 0.0,
+            "hidden_sine_true_uniform_norm": 1.0,
+            "hidden_sine_true_lipschitz_constant": 8.0,
+            "hidden_sine_regularized_budget": 2.767565272709369,
+            "checks": {
+              "first_moment_is_positive": true,
+              "smooth_model_certificate_passes": true,
+              "hidden_mode_is_outside_fejer_band": true,
+              "hidden_mode_pays_nonzero_regularized_budget": true
+            }
+          },
+          {
+            "fejer_order_N": 16,
+            "continuous_first_moment_mu_N": 0.20062697296188947,
+            "smooth_model_low_pass_norm": 0.09375,
+            "smooth_model_lipschitz_constant": 0.1,
+            "smooth_model_tail_budget": 0.02006269729618895,
+            "smooth_model_certified_norm": 0.11381269729618895,
+            "core_margin_delta": 0.25,
+            "hidden_sine_frequency_Q": 16,
+            "hidden_sine_sampled_values_max": 0.0,
+            "hidden_sine_sampled_slope_max": 0.0,
+            "hidden_sine_true_uniform_norm": 1.0,
+            "hidden_sine_true_lipschitz_constant": 16.0,
+            "hidden_sine_regularized_budget": 3.2100315673902315,
+            "checks": {
+              "first_moment_is_positive": true,
+              "smooth_model_certificate_passes": true,
+              "hidden_mode_is_outside_fejer_band": true,
+              "hidden_mode_pays_nonzero_regularized_budget": true
+            }
+          },
+          {
+            "fejer_order_N": 32,
+            "continuous_first_moment_mu_N": 0.1141128273333214,
+            "smooth_model_low_pass_norm": 0.096875,
+            "smooth_model_lipschitz_constant": 0.1,
+            "smooth_model_tail_budget": 0.01141128273333214,
+            "smooth_model_certified_norm": 0.10828628273333214,
+            "core_margin_delta": 0.25,
+            "hidden_sine_frequency_Q": 32,
+            "hidden_sine_sampled_values_max": 0.0,
+            "hidden_sine_sampled_slope_max": 0.0,
+            "hidden_sine_true_uniform_norm": 1.0,
+            "hidden_sine_true_lipschitz_constant": 32.0,
+            "hidden_sine_regularized_budget": 3.6516104746662847,
+            "checks": {
+              "first_moment_is_positive": true,
+              "smooth_model_certificate_passes": true,
+              "hidden_mode_is_outside_fejer_band": true,
+              "hidden_mode_pays_nonzero_regularized_budget": true
+            }
+          },
+          {
+            "fejer_order_N": 64,
+            "continuous_first_moment_mu_N": 0.06395248732571845,
+            "smooth_model_low_pass_norm": 0.09843750000000001,
+            "smooth_model_lipschitz_constant": 0.1,
+            "smooth_model_tail_budget": 0.006395248732571846,
+            "smooth_model_certified_norm": 0.10483274873257185,
+            "core_margin_delta": 0.25,
+            "hidden_sine_frequency_Q": 64,
+            "hidden_sine_sampled_values_max": 0.0,
+            "hidden_sine_sampled_slope_max": 0.0,
+            "hidden_sine_true_uniform_norm": 1.0,
+            "hidden_sine_true_lipschitz_constant": 64.0,
+            "hidden_sine_regularized_budget": 4.092959188845981,
+            "checks": {
+              "first_moment_is_positive": true,
+              "smooth_model_certificate_passes": true,
+              "hidden_mode_is_outside_fejer_band": true,
+              "hidden_mode_pays_nonzero_regularized_budget": true
+            }
+          },
+          {
+            "fejer_order_N": 128,
+            "continuous_first_moment_mu_N": 0.03542382660004084,
+            "smooth_model_low_pass_norm": 0.09921875000000001,
+            "smooth_model_lipschitz_constant": 0.1,
+            "smooth_model_tail_budget": 0.0035423826600040845,
+            "smooth_model_certified_norm": 0.1027611326600041,
+            "core_margin_delta": 0.25,
+            "hidden_sine_frequency_Q": 128,
+            "hidden_sine_sampled_values_max": 0.0,
+            "hidden_sine_sampled_slope_max": 0.0,
+            "hidden_sine_true_uniform_norm": 1.0,
+            "hidden_sine_true_lipschitz_constant": 128.0,
+            "hidden_sine_regularized_budget": 4.534249804805228,
+            "checks": {
+              "first_moment_is_positive": true,
+              "smooth_model_certificate_passes": true,
+              "hidden_mode_is_outside_fejer_band": true,
+              "hidden_mode_pays_nonzero_regularized_budget": true
+            }
+          },
+          {
+            "fejer_order_N": 256,
+            "continuous_first_moment_mu_N": 0.019435647895922115,
+            "smooth_model_low_pass_norm": 0.099609375,
+            "smooth_model_lipschitz_constant": 0.1,
+            "smooth_model_tail_budget": 0.0019435647895922115,
+            "smooth_model_certified_norm": 0.1015529397895922,
+            "core_margin_delta": 0.25,
+            "hidden_sine_frequency_Q": 256,
+            "hidden_sine_sampled_values_max": 0.0,
+            "hidden_sine_sampled_slope_max": 0.0,
+            "hidden_sine_true_uniform_norm": 1.0,
+            "hidden_sine_true_lipschitz_constant": 256.0,
+            "hidden_sine_regularized_budget": 4.975525861356061,
+            "checks": {
+              "first_moment_is_positive": true,
+              "smooth_model_certificate_passes": true,
+              "hidden_mode_is_outside_fejer_band": true,
+              "hidden_mode_pays_nonzero_regularized_budget": true
+            }
+          }
+        ],
+        "aggregate": {
+          "order_count": 6,
+          "largest_order": 256,
+          "first_moment_decreases": true,
+          "all_smooth_model_certificates_pass": true,
+          "all_sampled_regularities_are_false_zero": true
+        },
+        "no_go_scope": "This repairs finite Fourier localization only when a global modulus of continuity is proved independently. A post-hoc finite-grid slope estimate can miss an arbitrarily large hidden frequency. No such modulus is proved for the actual pole-neutral whitened Weil symbol.",
+        "failure_count": 0
+      },
+      "logical_limit": "No certified global modulus of continuity places the actual pole-neutral whitened Weil symbol inside the Fejer tail budget below the core margin.",
+      "route_decision": {
+        "discard": "finite-grid slope estimates or observed Fourier modes as a substitute for a proved global symbol modulus",
+        "retain": "finite Fejer means plus an independently certified arithmetic modulus of continuity",
+        "next_single_lemma": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T181-REJECTED",
+            "label": "SampledRegularityControlsUnobservedWeilFrequencies",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T181-CLOSED",
+            "label": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T181-OPEN",
+            "label": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T181-REJECTED",
+            "RH-T181-CLOSED"
+          ],
+          [
+            "RH-T181-CLOSED",
+            "RH-T181-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or zero exclusion; one exact Fejer-modulus bridge, six smooth witnesses, and one sampled-regularity counterfamily only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-181",
+      "theorem_name": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+      "declared_proposition": "For every positive accelerated valuation word w with sum S, affine numerator B, least odd cylinder representative r, odd endpoint u, D=2^S-3^h, and M=2^(S+1), the descent slack H=rD-B=2^S(r-u) belongs to M times the integers. Therefore a rigorous lower bound H>-M implies H>=0; if equality H=0 is independently excluded, then H>=M and the least representative, hence every later natural realizer of a contracting word, strictly descends.",
+      "mathematical_argument": "Odd endpoint integrality gives 3^h r+B=2^S u with r and u odd. Subtracting from 2^S r gives H=2^S(r-u). The difference of two odd integers is even, so H is divisible by 2^(S+1)=M. For later cylinder members r+kM the slack increases by kMD when D>0. The one-step word (2) at r=1 has H=0 and is the fixed point, proving that a one-quantum lower bound without cycle exclusion does not imply strict descent.",
+      "reproducible_computation": {
+        "theorem": "For every positive accelerated valuation word w with sum S, affine numerator B, least odd cylinder representative r, odd endpoint u, D=2^S-3^h, and M=2^(S+1), the descent slack H=rD-B=2^S(r-u) belongs to M times the integers. Therefore a rigorous lower bound H>-M implies H>=0; if equality H=0 is independently excluded, then H>=M and the least representative, hence every later natural realizer of a contracting word, strictly descends.",
+        "proof": "Odd endpoint integrality gives 3^h r+B=2^S u with r and u odd. Subtracting from 2^S r gives H=2^S(r-u). The difference of two odd integers is even, so H is divisible by 2^(S+1)=M. For later cylinder members r+kM the slack increases by kMD when D>0. The one-step word (2) at r=1 has H=0 and is the fixed point, proving that a one-quantum lower bound without cycle exclusion does not imply strict descent.",
+        "finite_alphabet_rows": [
+          {
+            "horizon_h": 1,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 4,
+            "contracting_word_count": 3,
+            "nonterminal_contracting_count": 2,
+            "positive_slack_quantum_count": 2,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 2,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 16,
+            "contracting_word_count": 13,
+            "nonterminal_contracting_count": 12,
+            "positive_slack_quantum_count": 12,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 3,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 64,
+            "contracting_word_count": 60,
+            "nonterminal_contracting_count": 59,
+            "positive_slack_quantum_count": 59,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 4,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 256,
+            "contracting_word_count": 241,
+            "nonterminal_contracting_count": 240,
+            "positive_slack_quantum_count": 240,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 5,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 1024,
+            "contracting_word_count": 1003,
+            "nonterminal_contracting_count": 1002,
+            "positive_slack_quantum_count": 1002,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 6,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 4096,
+            "contracting_word_count": 4012,
+            "nonterminal_contracting_count": 4011,
+            "positive_slack_quantum_count": 4011,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 7,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 16384,
+            "contracting_word_count": 16061,
+            "nonterminal_contracting_count": 16060,
+            "positive_slack_quantum_count": 16060,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          },
+          {
+            "horizon_h": 8,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "word_count": 65536,
+            "contracting_word_count": 65049,
+            "nonterminal_contracting_count": 65048,
+            "positive_slack_quantum_count": 65048,
+            "zero_slack_quantum_count": 0,
+            "negative_slack_quantum_count": 0
+          }
+        ],
+        "selected_exact_words": [
+          {
+            "valuation_word": [
+              3
+            ],
+            "horizon_h": 1,
+            "valuation_sum_S": 3,
+            "affine_numerator_B": 1,
+            "least_cylinder_representative": 13,
+            "cylinder_modulus_M": 16,
+            "odd_endpoint": 5,
+            "multiplier_gap_D": 5,
+            "descent_slack_H": 64,
+            "slack_quantum_quotient_q": 4,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              4
+            ],
+            "horizon_h": 1,
+            "valuation_sum_S": 4,
+            "affine_numerator_B": 1,
+            "least_cylinder_representative": 5,
+            "cylinder_modulus_M": 32,
+            "odd_endpoint": 1,
+            "multiplier_gap_D": 13,
+            "descent_slack_H": 64,
+            "slack_quantum_quotient_q": 2,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              3
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 4,
+            "affine_numerator_B": 5,
+            "least_cylinder_representative": 19,
+            "cylinder_modulus_M": 32,
+            "odd_endpoint": 11,
+            "multiplier_gap_D": 7,
+            "descent_slack_H": 128,
+            "slack_quantum_quotient_q": 4,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              1,
+              4
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 5,
+            "affine_numerator_B": 5,
+            "least_cylinder_representative": 3,
+            "cylinder_modulus_M": 64,
+            "odd_endpoint": 1,
+            "multiplier_gap_D": 23,
+            "descent_slack_H": 64,
+            "slack_quantum_quotient_q": 1,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              3
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 5,
+            "affine_numerator_B": 7,
+            "least_cylinder_representative": 17,
+            "cylinder_modulus_M": 64,
+            "odd_endpoint": 5,
+            "multiplier_gap_D": 23,
+            "descent_slack_H": 384,
+            "slack_quantum_quotient_q": 6,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              4
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 6,
+            "affine_numerator_B": 7,
+            "least_cylinder_representative": 49,
+            "cylinder_modulus_M": 128,
+            "odd_endpoint": 7,
+            "multiplier_gap_D": 55,
+            "descent_slack_H": 2688,
+            "slack_quantum_quotient_q": 21,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              3,
+              1
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 4,
+            "affine_numerator_B": 11,
+            "least_cylinder_representative": 29,
+            "cylinder_modulus_M": 32,
+            "odd_endpoint": 17,
+            "multiplier_gap_D": 7,
+            "descent_slack_H": 192,
+            "slack_quantum_quotient_q": 6,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          },
+          {
+            "valuation_word": [
+              3,
+              2
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 5,
+            "affine_numerator_B": 11,
+            "least_cylinder_representative": 45,
+            "cylinder_modulus_M": 64,
+            "odd_endpoint": 13,
+            "multiplier_gap_D": 23,
+            "descent_slack_H": 1024,
+            "slack_quantum_quotient_q": 16,
+            "is_contracting_word": true,
+            "is_nonterminal_representative": true,
+            "least_representative_descends": true,
+            "checks": {
+              "endpoint_is_odd_integer": true,
+              "modulus_is_two_to_S_plus_one": true,
+              "slack_identity_holds": true,
+              "slack_is_quantized": true,
+              "quotient_is_half_endpoint_gap": true
+            }
+          }
+        ],
+        "fixed_point_boundary": {
+          "valuation_word": [
+            2
+          ],
+          "horizon_h": 1,
+          "valuation_sum_S": 2,
+          "affine_numerator_B": 1,
+          "least_cylinder_representative": 1,
+          "cylinder_modulus_M": 8,
+          "odd_endpoint": 1,
+          "multiplier_gap_D": 1,
+          "descent_slack_H": 0,
+          "slack_quantum_quotient_q": 0,
+          "is_contracting_word": true,
+          "is_nonterminal_representative": false,
+          "least_representative_descends": false,
+          "checks": {
+            "representative_is_one": true,
+            "endpoint_is_one": true,
+            "slack_is_zero": true,
+            "passes_open_one_quantum_lower_bound": true,
+            "does_not_strictly_descend": true
+          }
+        },
+        "aggregate": {
+          "words_checked": 87380,
+          "contracting_words_checked": 86442,
+          "nonterminal_contracting_words_checked": 86434,
+          "quantization_failure_count": 0,
+          "finite_negative_quantum_count": 0
+        },
+        "no_go_scope": "Slack quantization converts a rigorous near-zero estimate into an integer alternative, but it does not prove the estimate or exclude nontrivial cycle equalities. The finite alphabet and depth-eight audit does not cover arbitrary valuations or horizons.",
+        "failure_count": 0
+      },
+      "logical_limit": "No all-horizon theorem places every first-contracting nonterminal cylinder above zero slack quantum, and nontrivial cycle equalities remain unexcluded.",
+      "route_decision": {
+        "discard": "a near-nonnegative slack estimate without exact arithmetic enclosure and cycle-equality exclusion",
+        "retain": "rigorous one-quantum slack enclosure combined with a separate equality obstruction",
+        "next_single_lemma": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T181-REJECTED",
+            "label": "SubQuantumSlackLowerBoundAloneForcesStrictDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T181-CLOSED",
+            "label": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T181-OPEN",
+            "label": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T181-REJECTED",
+            "CO-T181-CLOSED"
+          ],
+          [
+            "CO-T181-CLOSED",
+            "CO-T181-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact slack quantization theorem and a depth-eight finite alphabet audit only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-181",
+      "theorem_name": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+      "declared_proposition": "Let e be a real sequence on Z/LZ, let D=max_j |e_(j+1)-e_j|, and let sigma_K e be its discrete Fejer mean with 2K<L. If w_t is the nonnegative Fejer convolution kernel and mu_(K,L)=sum_t w_t d_L(0,t), then ||e-sigma_K e||_infinity<=D mu_(K,L). Consequently, for a declared major sequence A, min_j(A_j+sigma_K e_j)>D mu_(K,L) implies A_j+e_j>0 at every target.",
+      "mathematical_argument": "The discrete Fejer weights are nonnegative and sum to one. The telescoping edge bound gives |e_j-e_(j-t)|<=D d_L(0,t). Averaging with the kernel proves the uniform approximation inequality, and subtracting the error budget proves every-target positivity. A single exceptional spike necessarily has a large edge modulus, so the certificate rejects rather than hides the TICKET-180 spike.",
+      "reproducible_computation": {
+        "theorem": "Let e be a real sequence on Z/LZ, let D=max_j |e_(j+1)-e_j|, and let sigma_K e be its discrete Fejer mean with 2K<L. If w_t is the nonnegative Fejer convolution kernel and mu_(K,L)=sum_t w_t d_L(0,t), then ||e-sigma_K e||_infinity<=D mu_(K,L). Consequently, for a declared major sequence A, min_j(A_j+sigma_K e_j)>D mu_(K,L) implies A_j+e_j>0 at every target.",
+        "proof": "The discrete Fejer weights are nonnegative and sum to one. The telescoping edge bound gives |e_j-e_(j-t)|<=D d_L(0,t). Averaging with the kernel proves the uniform approximation inequality, and subtracting the error budget proves every-target positivity. A single exceptional spike necessarily has a large edge modulus, so the certificate rejects rather than hides the TICKET-180 spike.",
+        "discrete_fejer_rows": [
+          {
+            "cycle_length_L": 32,
+            "fejer_degree_K": 5,
+            "discrete_first_moment_mu_KL": 2.1610793615825563,
+            "smooth_model": {
+              "major_value": 0.5,
+              "edge_lipschitz_D": 0.01950903220161285,
+              "low_pass_minimum_total": 0.41666666666666663,
+              "modulus_budget": 0.04216056685535503,
+              "certificate_margin": 0.3745060998113116
+            },
+            "exceptional_spike": {
+              "major_value": 1.0,
+              "edge_lipschitz_D": 1.1,
+              "low_pass_minimum_total": 0.79375,
+              "modulus_budget": 2.377187297740812,
+              "certificate_margin": -1.5834372977408122,
+              "actual_minimum_total": -0.1
+            },
+            "checks": {
+              "kernel_is_nonnegative": true,
+              "kernel_has_unit_mass": true,
+              "smooth_error_respects_modulus_budget": true,
+              "smooth_every_target_certificate_passes": true,
+              "spike_error_respects_modulus_budget": true,
+              "spike_certificate_rejects_false_positivity": true
+            }
+          },
+          {
+            "cycle_length_L": 64,
+            "fejer_degree_K": 8,
+            "discrete_first_moment_mu_KL": 3.198552288585361,
+            "smooth_model": {
+              "major_value": 0.5,
+              "edge_lipschitz_D": 0.009801714032956071,
+              "low_pass_minimum_total": 0.4111111111111111,
+              "modulus_budget": 0.03135129485217089,
+              "certificate_margin": 0.3797598162589402
+            },
+            "exceptional_spike": {
+              "major_value": 1.0,
+              "edge_lipschitz_D": 1.1,
+              "low_pass_minimum_total": 0.8453125,
+              "modulus_budget": 3.5184075174438973,
+              "certificate_margin": -2.6730950174438974,
+              "actual_minimum_total": -0.1
+            },
+            "checks": {
+              "kernel_is_nonnegative": true,
+              "kernel_has_unit_mass": true,
+              "smooth_error_respects_modulus_budget": true,
+              "smooth_every_target_certificate_passes": true,
+              "spike_error_respects_modulus_budget": true,
+              "spike_certificate_rejects_false_positivity": true
+            }
+          },
+          {
+            "cycle_length_L": 128,
+            "fejer_degree_K": 11,
+            "discrete_first_moment_mu_KL": 5.122397563362136,
+            "smooth_model": {
+              "major_value": 0.5,
+              "edge_lipschitz_D": 0.004906767432741807,
+              "low_pass_minimum_total": 0.4083333333333334,
+              "modulus_budget": 0.025134413541461315,
+              "certificate_margin": 0.38319891979187204
+            },
+            "exceptional_spike": {
+              "major_value": 1.0,
+              "edge_lipschitz_D": 1.1,
+              "low_pass_minimum_total": 0.896875,
+              "modulus_budget": 5.63463731969835,
+              "certificate_margin": -4.7377623196983505,
+              "actual_minimum_total": -0.1
+            },
+            "checks": {
+              "kernel_is_nonnegative": true,
+              "kernel_has_unit_mass": true,
+              "smooth_error_respects_modulus_budget": true,
+              "smooth_every_target_certificate_passes": true,
+              "spike_error_respects_modulus_budget": true,
+              "spike_certificate_rejects_false_positivity": true
+            }
+          },
+          {
+            "cycle_length_L": 256,
+            "fejer_degree_K": 16,
+            "discrete_first_moment_mu_KL": 7.777630692108332,
+            "smooth_model": {
+              "major_value": 0.5,
+              "edge_lipschitz_D": 0.0024541228522912207,
+              "low_pass_minimum_total": 0.4058823529411766,
+              "modulus_budget": 0.019087261218184638,
+              "certificate_margin": 0.3867950917229919
+            },
+            "exceptional_spike": {
+              "major_value": 1.0,
+              "edge_lipschitz_D": 1.1,
+              "low_pass_minimum_total": 0.926953125,
+              "modulus_budget": 8.555393761319166,
+              "certificate_margin": -7.628440636319167,
+              "actual_minimum_total": -0.1
+            },
+            "checks": {
+              "kernel_is_nonnegative": true,
+              "kernel_has_unit_mass": true,
+              "smooth_error_respects_modulus_budget": true,
+              "smooth_every_target_certificate_passes": true,
+              "spike_error_respects_modulus_budget": true,
+              "spike_certificate_rejects_false_positivity": true
+            }
+          },
+          {
+            "cycle_length_L": 512,
+            "fejer_degree_K": 22,
+            "discrete_first_moment_mu_KL": 12.186838179281832,
+            "smooth_model": {
+              "major_value": 0.5,
+              "edge_lipschitz_D": 0.001227153828572033,
+              "low_pass_minimum_total": 0.4043478260869565,
+              "modulus_budget": 0.014955125129893523,
+              "certificate_margin": 0.389392700957063
+            },
+            "exceptional_spike": {
+              "major_value": 1.0,
+              "edge_lipschitz_D": 1.1,
+              "low_pass_minimum_total": 0.9505859375,
+              "modulus_budget": 13.405521997210016,
+              "certificate_margin": -12.454936059710016,
+              "actual_minimum_total": -0.1
+            },
+            "checks": {
+              "kernel_is_nonnegative": true,
+              "kernel_has_unit_mass": true,
+              "smooth_error_respects_modulus_budget": true,
+              "smooth_every_target_certificate_passes": true,
+              "spike_error_respects_modulus_budget": true,
+              "spike_certificate_rejects_false_positivity": true
+            }
+          }
+        ],
+        "finite_exact_search": {
+          "even_target_limit": 100000,
+          "even_targets_checked": 49999,
+          "counterexample_found": false,
+          "first_counterexample": null,
+          "maximum_primes_probed_for_one_target": 62
+        },
+        "aggregate": {
+          "cycle_size_count": 5,
+          "largest_cycle": 512,
+          "all_smooth_certificates_pass": true,
+          "all_spike_certificates_reject": true,
+          "largest_finite_even_target": 100000
+        },
+        "no_go_scope": "Low-frequency Fejer data without a certified discrete modulus still misses an exceptional target. The exact search through 100,000 and the smooth models are finite diagnostics. No arithmetic modulus bound is proved for the parity-aliased binary Goldbach residual.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform arithmetic modulus controls the parity-aliased binary Goldbach residual below the discrete Fejer margin on every sufficiently large block.",
+      "route_decision": {
+        "discard": "low-frequency or almost-all control without a certified target-space modulus",
+        "retain": "discrete Fejer low-pass values plus a rigorous adjacent-target modulus budget",
+        "next_single_lemma": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T181-REJECTED",
+            "label": "GoldbachLowPassAverageRemovesEveryExceptionalSpike",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T181-CLOSED",
+            "label": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T181-OPEN",
+            "label": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T181-REJECTED",
+            "GB-T181-CLOSED"
+          ],
+          [
+            "GB-T181-CLOSED",
+            "GB-T181-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact discrete Fejer bridge, five model rows, and finite verification through 100,000 only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-181",
+      "theorem_name": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+      "declared_proposition": "Let r(B) be a real normalized statistic on a rooted dyadic block tree and let epsilon_j be the supremum of |r(C)-r(parent(C))| over edges entering depth j. Every block B at depth ell satisfies |r(B)|<=|r(root)|+sum_(j<=ell) epsilon_j. Thus a root bound plus a summable path-oscillation budget gives uniform block localization. Neither max_j epsilon_j->0 nor a vanishing path l2 budget is enough.",
+      "mathematical_argument": "Telescoping r(B)-r(root) along the unique root-to-B path and applying the triangle inequality gives the bound. For depth L, assign values j/L along one selected path and freeze the parent value on every branch that leaves it. Every edge changes by at most 1/L and the selected path l2 variation is 1/sqrt(L), but its leaf value is one. The l1 path sum remains one and the bound is sharp.",
+      "reproducible_computation": {
+        "theorem": "Let r(B) be a real normalized statistic on a rooted dyadic block tree and let epsilon_j be the supremum of |r(C)-r(parent(C))| over edges entering depth j. Every block B at depth ell satisfies |r(B)|<=|r(root)|+sum_(j<=ell) epsilon_j. Thus a root bound plus a summable path-oscillation budget gives uniform block localization. Neither max_j epsilon_j->0 nor a vanishing path l2 budget is enough.",
+        "proof": "Telescoping r(B)-r(root) along the unique root-to-B path and applying the triangle inequality gives the bound. For depth L, assign values j/L along one selected path and freeze the parent value on every branch that leaves it. Every edge changes by at most 1/L and the selected path l2 variation is 1/sqrt(L), but its leaf value is one. The l1 path sum remains one and the bound is sharp.",
+        "tree_counterfamily": [
+          {
+            "tree_depth_L": 8,
+            "root_ratio": 0.0,
+            "bad_path_leaf_ratio": 1.0,
+            "maximum_single_edge_oscillation": 0.125,
+            "bad_path_l1_oscillation": 1.0,
+            "bad_path_l2_oscillation": 0.3535533905932738,
+            "checks": {
+              "telescoping_bound_is_sharp": true,
+              "maximum_edge_increment_is_one_over_depth": true,
+              "square_variation_is_inverse_sqrt_depth": true,
+              "bad_leaf_stays_one": true
+            }
+          },
+          {
+            "tree_depth_L": 16,
+            "root_ratio": 0.0,
+            "bad_path_leaf_ratio": 1.0,
+            "maximum_single_edge_oscillation": 0.0625,
+            "bad_path_l1_oscillation": 1.0,
+            "bad_path_l2_oscillation": 0.25,
+            "checks": {
+              "telescoping_bound_is_sharp": true,
+              "maximum_edge_increment_is_one_over_depth": true,
+              "square_variation_is_inverse_sqrt_depth": true,
+              "bad_leaf_stays_one": true
+            }
+          },
+          {
+            "tree_depth_L": 32,
+            "root_ratio": 0.0,
+            "bad_path_leaf_ratio": 1.0,
+            "maximum_single_edge_oscillation": 0.03125,
+            "bad_path_l1_oscillation": 1.0,
+            "bad_path_l2_oscillation": 0.1767766952966369,
+            "checks": {
+              "telescoping_bound_is_sharp": true,
+              "maximum_edge_increment_is_one_over_depth": true,
+              "square_variation_is_inverse_sqrt_depth": true,
+              "bad_leaf_stays_one": true
+            }
+          },
+          {
+            "tree_depth_L": 64,
+            "root_ratio": 0.0,
+            "bad_path_leaf_ratio": 1.0,
+            "maximum_single_edge_oscillation": 0.015625,
+            "bad_path_l1_oscillation": 1.0,
+            "bad_path_l2_oscillation": 0.125,
+            "checks": {
+              "telescoping_bound_is_sharp": true,
+              "maximum_edge_increment_is_one_over_depth": true,
+              "square_variation_is_inverse_sqrt_depth": true,
+              "bad_leaf_stays_one": true
+            }
+          },
+          {
+            "tree_depth_L": 128,
+            "root_ratio": 0.0,
+            "bad_path_leaf_ratio": 1.0,
+            "maximum_single_edge_oscillation": 0.0078125,
+            "bad_path_l1_oscillation": 1.0,
+            "bad_path_l2_oscillation": 0.08838834764831845,
+            "checks": {
+              "telescoping_bound_is_sharp": true,
+              "maximum_edge_increment_is_one_over_depth": true,
+              "square_variation_is_inverse_sqrt_depth": true,
+              "bad_leaf_stays_one": true
+            }
+          }
+        ],
+        "aggregate": {
+          "depth_case_count": 5,
+          "largest_depth": 128,
+          "maximum_edge_oscillation_decreases": true,
+          "l2_path_budget_decreases": true,
+          "bad_leaf_never_improves": true
+        },
+        "no_go_scope": "This gives an exact abstract localization contract for normalized prime-pair block statistics. It proves neither summable oscillation for actual arithmetic blocks nor a parity-breaking positive lower bound for twin primes.",
+        "failure_count": 0
+      },
+      "logical_limit": "No summable path-oscillation estimate is proved for normalized zero-mode ratios of actual prime-pair blocks, and parity-breaking positivity remains separate.",
+      "route_decision": {
+        "discard": "vanishing per-scale or square-summed block oscillation as sufficient for every-block cancellation",
+        "retain": "a root anchor plus summable l1 oscillation along every dyadic block path",
+        "next_single_lemma": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T181-REJECTED",
+            "label": "VanishingScaleL2OscillationForcesUniformBlockCancellation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T181-CLOSED",
+            "label": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T181-OPEN",
+            "label": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T181-REJECTED",
+            "TP-T181-CLOSED"
+          ],
+          [
+            "TP-T181-CLOSED",
+            "TP-T181-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or positive exact-gap-two lower bound; one exact tree-localization theorem and five sharp path counterfamilies only."
+    },
+    "cross_problem_synthesis": "TICKET-180 showed that finite or averaged information is insufficient. TICKET-181 identifies the missing localization currency: a certified modulus for Fourier/target space, an exact arithmetic quantum for Collatz slack, and summable path variation on the dyadic block tree.",
+    "literature_boundary": {
+      "riemann": "Finite Guinand-Weil dictionaries and explicit archimedean tails do not provide the global symbol modulus required by this Fejer certificate.",
+      "collatz": "Almost-all Collatz transport does not imply the every-cylinder positive slack quantum selected here.",
+      "goldbach": "Exceptional-set and explicit-major-arc results still permit exceptions and do not supply the adjacent-target residual modulus required here.",
+      "twin_prime": "Prime-producing sieve theory still requires genuine Type-II information and a positive lower bound beyond parity; the tree theorem only localizes a cancellation statistic."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-181",
+      "status": "open_not_proven",
+      "declared_proposition": "Let f be a real 2-pi-periodic L-Lipschitz symbol and let sigma_N f be its Fejer mean using Fourier modes |k|<N. If mu_N is the normalized first geodesic moment of the Fejer kernel, then ||f-sigma_N f||_infinity<=L mu_N. Hence ||sigma_N f||_infinity+L mu_N<delta certifies ||f||_infinity<delta. A Lipschitz constant inferred only from Q uniform samples is insufficient: A sin(Q theta) and zero agree at every sample and have zero sampled slopes, while the hidden sine has uniform norm A and true Lipschitz constant AQ.",
+      "new_result": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+      "discarded_route": "finite-grid slope estimates or observed Fourier modes as a substitute for a proved global symbol modulus",
+      "remaining_gap": "No certified global modulus of continuity places the actual pole-neutral whitened Weil symbol inside the Fejer tail budget below the core margin.",
+      "candidate_theorem": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin",
+      "claim_boundary": "No RH proof or zero exclusion; one exact Fejer-modulus bridge, six smooth witnesses, and one sampled-regularity counterfamily only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T181-REJECTED",
+            "label": "SampledRegularityControlsUnobservedWeilFrequencies",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T181-CLOSED",
+            "label": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T181-OPEN",
+            "label": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T181-REJECTED",
+            "RH-T181-CLOSED"
+          ],
+          [
+            "RH-T181-CLOSED",
+            "RH-T181-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-181",
+      "status": "open_not_proven",
+      "declared_proposition": "For every positive accelerated valuation word w with sum S, affine numerator B, least odd cylinder representative r, odd endpoint u, D=2^S-3^h, and M=2^(S+1), the descent slack H=rD-B=2^S(r-u) belongs to M times the integers. Therefore a rigorous lower bound H>-M implies H>=0; if equality H=0 is independently excluded, then H>=M and the least representative, hence every later natural realizer of a contracting word, strictly descends.",
+      "new_result": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+      "discarded_route": "a near-nonnegative slack estimate without exact arithmetic enclosure and cycle-equality exclusion",
+      "remaining_gap": "No all-horizon theorem places every first-contracting nonterminal cylinder above zero slack quantum, and nontrivial cycle equalities remain unexcluded.",
+      "candidate_theorem": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum",
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact slack quantization theorem and a depth-eight finite alphabet audit only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T181-REJECTED",
+            "label": "SubQuantumSlackLowerBoundAloneForcesStrictDescent",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T181-CLOSED",
+            "label": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T181-OPEN",
+            "label": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T181-REJECTED",
+            "CO-T181-CLOSED"
+          ],
+          [
+            "CO-T181-CLOSED",
+            "CO-T181-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-181",
+      "status": "open_not_proven",
+      "declared_proposition": "Let e be a real sequence on Z/LZ, let D=max_j |e_(j+1)-e_j|, and let sigma_K e be its discrete Fejer mean with 2K<L. If w_t is the nonnegative Fejer convolution kernel and mu_(K,L)=sum_t w_t d_L(0,t), then ||e-sigma_K e||_infinity<=D mu_(K,L). Consequently, for a declared major sequence A, min_j(A_j+sigma_K e_j)>D mu_(K,L) implies A_j+e_j>0 at every target.",
+      "new_result": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+      "discarded_route": "low-frequency or almost-all control without a certified target-space modulus",
+      "remaining_gap": "No target-uniform arithmetic modulus controls the parity-aliased binary Goldbach residual below the discrete Fejer margin on every sufficiently large block.",
+      "candidate_theorem": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock",
+      "claim_boundary": "No Goldbach proof or counterexample; one exact discrete Fejer bridge, five model rows, and finite verification through 100,000 only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T181-REJECTED",
+            "label": "GoldbachLowPassAverageRemovesEveryExceptionalSpike",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T181-CLOSED",
+            "label": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T181-OPEN",
+            "label": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T181-REJECTED",
+            "GB-T181-CLOSED"
+          ],
+          [
+            "GB-T181-CLOSED",
+            "GB-T181-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-181",
+      "status": "open_not_proven",
+      "declared_proposition": "Let r(B) be a real normalized statistic on a rooted dyadic block tree and let epsilon_j be the supremum of |r(C)-r(parent(C))| over edges entering depth j. Every block B at depth ell satisfies |r(B)|<=|r(root)|+sum_(j<=ell) epsilon_j. Thus a root bound plus a summable path-oscillation budget gives uniform block localization. Neither max_j epsilon_j->0 nor a vanishing path l2 budget is enough.",
+      "new_result": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+      "discarded_route": "vanishing per-scale or square-summed block oscillation as sufficient for every-block cancellation",
+      "remaining_gap": "No summable path-oscillation estimate is proved for normalized zero-mode ratios of actual prime-pair blocks, and parity-breaking positivity remains separate.",
+      "candidate_theorem": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin",
+      "claim_boundary": "No Twin Prime proof or positive exact-gap-two lower bound; one exact tree-localization theorem and five sharp path counterfamilies only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T181-REJECTED",
+            "label": "VanishingScaleL2OscillationForcesUniformBlockCancellation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T181-CLOSED",
+            "label": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T181-OPEN",
+            "label": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T181-REJECTED",
+            "TP-T181-CLOSED"
+          ],
+          [
+            "TP-T181-CLOSED",
+            "TP-T181-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin"
+    }
+  ]
+}

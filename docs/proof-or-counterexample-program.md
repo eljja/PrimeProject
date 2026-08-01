@@ -37,6 +37,43 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-181 Regularized-Localization Audit
+
+TICKET-181 continues from the four TICKET-180 no-go nodes and keeps every
+parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `LipschitzFejerTailCertificateAndSampledRegularityNoGo`
+   proves that a global Lipschitz modulus converts a finite Fejer mean into a
+   uniform tail certificate, while a uniform-grid slope estimate can miss
+   `A sin(Q theta)` completely. The next obligation is
+   `PoleNeutralWeilSymbolHasCertifiedModulusWhoseFejerBudgetFitsBelowCoreMargin`.
+2. **Collatz:** `OddCylinderSlackQuantizationAndCycleEqualityObstruction`
+   proves that natural-cylinder descent slack is a multiple of `2^(S+1)`.
+   Thus a sub-quantum lower bound plus equality exclusion forces strict
+   descent; the fixed point proves equality exclusion is indispensable. The
+   next obligation is
+   `EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum`.
+3. **Goldbach:** `DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo`
+   proves that a discrete Fejer low pass plus an adjacent-target modulus gives
+   every-target positivity and rejects the TICKET-180 spike. The next
+   obligation is
+   `ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock`.
+4. **Twin Prime:** `DyadicPathVariationLocalizationAndScaleL2NoGo` proves a
+   root anchor plus pathwise `l1` oscillation controls every dyadic block and
+   constructs a sharp family where maximum-edge and pathwise `l2` variation
+   vanish while one bad leaf remains. The next obligation is
+   `PrimePairBlockZeroModeRatioHasSummableDyadicPathOscillationBelowCancellationMargin`.
+
+Finite diagnostics cover six RH orders, 87,380 Collatz words over
+`{1,2,3,4}` through depth eight plus the fixed point, five Goldbach model
+cycles plus exact counterexample search through 100,000, and five Twin tree
+depths. These ranges do not close any infinite quantifier. Machine audit: four
+exact theorems, four rejected routes, four proof DAGs, zero conjecture
+resolutions, and zero computational failures.
+
+English report: [TICKET-181](regularized-localization-quantized-slack.md).
+한국어 보고서: [TICKET-181](regularized-localization-quantized-slack.ko.md).
+
 ## 2026-08-02 TICKET-180 Finite-Information Localization Audit
 
 TICKET-180 audits the four open nodes left by TICKET-179 and keeps every parent

@@ -1,0 +1,402 @@
+{
+  "schema": "primeproject.ticket181-regularized-localization-quantized-slack.v1",
+  "generated_at": "2026-08-02T22:10:00+09:00",
+  "ticket_id": "CO-TICKET-181",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+  "declared_proposition": "For every positive accelerated valuation word w with sum S, affine numerator B, least odd cylinder representative r, odd endpoint u, D=2^S-3^h, and M=2^(S+1), the descent slack H=rD-B=2^S(r-u) belongs to M times the integers. Therefore a rigorous lower bound H>-M implies H>=0; if equality H=0 is independently excluded, then H>=M and the least representative, hence every later natural realizer of a contracting word, strictly descends.",
+  "mathematical_argument": "Odd endpoint integrality gives 3^h r+B=2^S u with r and u odd. Subtracting from 2^S r gives H=2^S(r-u). The difference of two odd integers is even, so H is divisible by 2^(S+1)=M. For later cylinder members r+kM the slack increases by kMD when D>0. The one-step word (2) at r=1 has H=0 and is the fixed point, proving that a one-quantum lower bound without cycle exclusion does not imply strict descent.",
+  "reproducible_computation": {
+    "theorem": "For every positive accelerated valuation word w with sum S, affine numerator B, least odd cylinder representative r, odd endpoint u, D=2^S-3^h, and M=2^(S+1), the descent slack H=rD-B=2^S(r-u) belongs to M times the integers. Therefore a rigorous lower bound H>-M implies H>=0; if equality H=0 is independently excluded, then H>=M and the least representative, hence every later natural realizer of a contracting word, strictly descends.",
+    "proof": "Odd endpoint integrality gives 3^h r+B=2^S u with r and u odd. Subtracting from 2^S r gives H=2^S(r-u). The difference of two odd integers is even, so H is divisible by 2^(S+1)=M. For later cylinder members r+kM the slack increases by kMD when D>0. The one-step word (2) at r=1 has H=0 and is the fixed point, proving that a one-quantum lower bound without cycle exclusion does not imply strict descent.",
+    "finite_alphabet_rows": [
+      {
+        "horizon_h": 1,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 4,
+        "contracting_word_count": 3,
+        "nonterminal_contracting_count": 2,
+        "positive_slack_quantum_count": 2,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 2,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 16,
+        "contracting_word_count": 13,
+        "nonterminal_contracting_count": 12,
+        "positive_slack_quantum_count": 12,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 3,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 64,
+        "contracting_word_count": 60,
+        "nonterminal_contracting_count": 59,
+        "positive_slack_quantum_count": 59,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 4,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 256,
+        "contracting_word_count": 241,
+        "nonterminal_contracting_count": 240,
+        "positive_slack_quantum_count": 240,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 5,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 1024,
+        "contracting_word_count": 1003,
+        "nonterminal_contracting_count": 1002,
+        "positive_slack_quantum_count": 1002,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 6,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 4096,
+        "contracting_word_count": 4012,
+        "nonterminal_contracting_count": 4011,
+        "positive_slack_quantum_count": 4011,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 7,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 16384,
+        "contracting_word_count": 16061,
+        "nonterminal_contracting_count": 16060,
+        "positive_slack_quantum_count": 16060,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      },
+      {
+        "horizon_h": 8,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "word_count": 65536,
+        "contracting_word_count": 65049,
+        "nonterminal_contracting_count": 65048,
+        "positive_slack_quantum_count": 65048,
+        "zero_slack_quantum_count": 0,
+        "negative_slack_quantum_count": 0
+      }
+    ],
+    "selected_exact_words": [
+      {
+        "valuation_word": [
+          3
+        ],
+        "horizon_h": 1,
+        "valuation_sum_S": 3,
+        "affine_numerator_B": 1,
+        "least_cylinder_representative": 13,
+        "cylinder_modulus_M": 16,
+        "odd_endpoint": 5,
+        "multiplier_gap_D": 5,
+        "descent_slack_H": 64,
+        "slack_quantum_quotient_q": 4,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          4
+        ],
+        "horizon_h": 1,
+        "valuation_sum_S": 4,
+        "affine_numerator_B": 1,
+        "least_cylinder_representative": 5,
+        "cylinder_modulus_M": 32,
+        "odd_endpoint": 1,
+        "multiplier_gap_D": 13,
+        "descent_slack_H": 64,
+        "slack_quantum_quotient_q": 2,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          1,
+          3
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 4,
+        "affine_numerator_B": 5,
+        "least_cylinder_representative": 19,
+        "cylinder_modulus_M": 32,
+        "odd_endpoint": 11,
+        "multiplier_gap_D": 7,
+        "descent_slack_H": 128,
+        "slack_quantum_quotient_q": 4,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          1,
+          4
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 5,
+        "affine_numerator_B": 5,
+        "least_cylinder_representative": 3,
+        "cylinder_modulus_M": 64,
+        "odd_endpoint": 1,
+        "multiplier_gap_D": 23,
+        "descent_slack_H": 64,
+        "slack_quantum_quotient_q": 1,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          3
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 5,
+        "affine_numerator_B": 7,
+        "least_cylinder_representative": 17,
+        "cylinder_modulus_M": 64,
+        "odd_endpoint": 5,
+        "multiplier_gap_D": 23,
+        "descent_slack_H": 384,
+        "slack_quantum_quotient_q": 6,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          4
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 6,
+        "affine_numerator_B": 7,
+        "least_cylinder_representative": 49,
+        "cylinder_modulus_M": 128,
+        "odd_endpoint": 7,
+        "multiplier_gap_D": 55,
+        "descent_slack_H": 2688,
+        "slack_quantum_quotient_q": 21,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          3,
+          1
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 4,
+        "affine_numerator_B": 11,
+        "least_cylinder_representative": 29,
+        "cylinder_modulus_M": 32,
+        "odd_endpoint": 17,
+        "multiplier_gap_D": 7,
+        "descent_slack_H": 192,
+        "slack_quantum_quotient_q": 6,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      },
+      {
+        "valuation_word": [
+          3,
+          2
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 5,
+        "affine_numerator_B": 11,
+        "least_cylinder_representative": 45,
+        "cylinder_modulus_M": 64,
+        "odd_endpoint": 13,
+        "multiplier_gap_D": 23,
+        "descent_slack_H": 1024,
+        "slack_quantum_quotient_q": 16,
+        "is_contracting_word": true,
+        "is_nonterminal_representative": true,
+        "least_representative_descends": true,
+        "checks": {
+          "endpoint_is_odd_integer": true,
+          "modulus_is_two_to_S_plus_one": true,
+          "slack_identity_holds": true,
+          "slack_is_quantized": true,
+          "quotient_is_half_endpoint_gap": true
+        }
+      }
+    ],
+    "fixed_point_boundary": {
+      "valuation_word": [
+        2
+      ],
+      "horizon_h": 1,
+      "valuation_sum_S": 2,
+      "affine_numerator_B": 1,
+      "least_cylinder_representative": 1,
+      "cylinder_modulus_M": 8,
+      "odd_endpoint": 1,
+      "multiplier_gap_D": 1,
+      "descent_slack_H": 0,
+      "slack_quantum_quotient_q": 0,
+      "is_contracting_word": true,
+      "is_nonterminal_representative": false,
+      "least_representative_descends": false,
+      "checks": {
+        "representative_is_one": true,
+        "endpoint_is_one": true,
+        "slack_is_zero": true,
+        "passes_open_one_quantum_lower_bound": true,
+        "does_not_strictly_descend": true
+      }
+    },
+    "aggregate": {
+      "words_checked": 87380,
+      "contracting_words_checked": 86442,
+      "nonterminal_contracting_words_checked": 86434,
+      "quantization_failure_count": 0,
+      "finite_negative_quantum_count": 0
+    },
+    "no_go_scope": "Slack quantization converts a rigorous near-zero estimate into an integer alternative, but it does not prove the estimate or exclude nontrivial cycle equalities. The finite alphabet and depth-eight audit does not cover arbitrary valuations or horizons.",
+    "failure_count": 0
+  },
+  "discarded_route": "a near-nonnegative slack estimate without exact arithmetic enclosure and cycle-equality exclusion",
+  "remaining_gap": "No all-horizon theorem places every first-contracting nonterminal cylinder above zero slack quantum, and nontrivial cycle equalities remain unexcluded.",
+  "candidate_theorem": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum",
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact slack quantization theorem and a depth-eight finite alphabet audit only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T181-REJECTED",
+        "label": "SubQuantumSlackLowerBoundAloneForcesStrictDescent",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T181-CLOSED",
+        "label": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T181-OPEN",
+        "label": "EveryFirstContractingNonterminalCylinderHasPositiveSlackQuantum",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T181-REJECTED",
+        "CO-T181-CLOSED"
+      ],
+      [
+        "CO-T181-CLOSED",
+        "CO-T181-OPEN"
+      ]
+    ]
+  }
+}

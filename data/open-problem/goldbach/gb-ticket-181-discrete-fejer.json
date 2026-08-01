@@ -1,0 +1,205 @@
+{
+  "schema": "primeproject.ticket181-regularized-localization-quantized-slack.v1",
+  "generated_at": "2026-08-02T22:10:00+09:00",
+  "ticket_id": "GB-TICKET-181",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+  "declared_proposition": "Let e be a real sequence on Z/LZ, let D=max_j |e_(j+1)-e_j|, and let sigma_K e be its discrete Fejer mean with 2K<L. If w_t is the nonnegative Fejer convolution kernel and mu_(K,L)=sum_t w_t d_L(0,t), then ||e-sigma_K e||_infinity<=D mu_(K,L). Consequently, for a declared major sequence A, min_j(A_j+sigma_K e_j)>D mu_(K,L) implies A_j+e_j>0 at every target.",
+  "mathematical_argument": "The discrete Fejer weights are nonnegative and sum to one. The telescoping edge bound gives |e_j-e_(j-t)|<=D d_L(0,t). Averaging with the kernel proves the uniform approximation inequality, and subtracting the error budget proves every-target positivity. A single exceptional spike necessarily has a large edge modulus, so the certificate rejects rather than hides the TICKET-180 spike.",
+  "reproducible_computation": {
+    "theorem": "Let e be a real sequence on Z/LZ, let D=max_j |e_(j+1)-e_j|, and let sigma_K e be its discrete Fejer mean with 2K<L. If w_t is the nonnegative Fejer convolution kernel and mu_(K,L)=sum_t w_t d_L(0,t), then ||e-sigma_K e||_infinity<=D mu_(K,L). Consequently, for a declared major sequence A, min_j(A_j+sigma_K e_j)>D mu_(K,L) implies A_j+e_j>0 at every target.",
+    "proof": "The discrete Fejer weights are nonnegative and sum to one. The telescoping edge bound gives |e_j-e_(j-t)|<=D d_L(0,t). Averaging with the kernel proves the uniform approximation inequality, and subtracting the error budget proves every-target positivity. A single exceptional spike necessarily has a large edge modulus, so the certificate rejects rather than hides the TICKET-180 spike.",
+    "discrete_fejer_rows": [
+      {
+        "cycle_length_L": 32,
+        "fejer_degree_K": 5,
+        "discrete_first_moment_mu_KL": 2.1610793615825563,
+        "smooth_model": {
+          "major_value": 0.5,
+          "edge_lipschitz_D": 0.01950903220161285,
+          "low_pass_minimum_total": 0.41666666666666663,
+          "modulus_budget": 0.04216056685535503,
+          "certificate_margin": 0.3745060998113116
+        },
+        "exceptional_spike": {
+          "major_value": 1.0,
+          "edge_lipschitz_D": 1.1,
+          "low_pass_minimum_total": 0.79375,
+          "modulus_budget": 2.377187297740812,
+          "certificate_margin": -1.5834372977408122,
+          "actual_minimum_total": -0.1
+        },
+        "checks": {
+          "kernel_is_nonnegative": true,
+          "kernel_has_unit_mass": true,
+          "smooth_error_respects_modulus_budget": true,
+          "smooth_every_target_certificate_passes": true,
+          "spike_error_respects_modulus_budget": true,
+          "spike_certificate_rejects_false_positivity": true
+        }
+      },
+      {
+        "cycle_length_L": 64,
+        "fejer_degree_K": 8,
+        "discrete_first_moment_mu_KL": 3.198552288585361,
+        "smooth_model": {
+          "major_value": 0.5,
+          "edge_lipschitz_D": 0.009801714032956071,
+          "low_pass_minimum_total": 0.4111111111111111,
+          "modulus_budget": 0.03135129485217089,
+          "certificate_margin": 0.3797598162589402
+        },
+        "exceptional_spike": {
+          "major_value": 1.0,
+          "edge_lipschitz_D": 1.1,
+          "low_pass_minimum_total": 0.8453125,
+          "modulus_budget": 3.5184075174438973,
+          "certificate_margin": -2.6730950174438974,
+          "actual_minimum_total": -0.1
+        },
+        "checks": {
+          "kernel_is_nonnegative": true,
+          "kernel_has_unit_mass": true,
+          "smooth_error_respects_modulus_budget": true,
+          "smooth_every_target_certificate_passes": true,
+          "spike_error_respects_modulus_budget": true,
+          "spike_certificate_rejects_false_positivity": true
+        }
+      },
+      {
+        "cycle_length_L": 128,
+        "fejer_degree_K": 11,
+        "discrete_first_moment_mu_KL": 5.122397563362136,
+        "smooth_model": {
+          "major_value": 0.5,
+          "edge_lipschitz_D": 0.004906767432741807,
+          "low_pass_minimum_total": 0.4083333333333334,
+          "modulus_budget": 0.025134413541461315,
+          "certificate_margin": 0.38319891979187204
+        },
+        "exceptional_spike": {
+          "major_value": 1.0,
+          "edge_lipschitz_D": 1.1,
+          "low_pass_minimum_total": 0.896875,
+          "modulus_budget": 5.63463731969835,
+          "certificate_margin": -4.7377623196983505,
+          "actual_minimum_total": -0.1
+        },
+        "checks": {
+          "kernel_is_nonnegative": true,
+          "kernel_has_unit_mass": true,
+          "smooth_error_respects_modulus_budget": true,
+          "smooth_every_target_certificate_passes": true,
+          "spike_error_respects_modulus_budget": true,
+          "spike_certificate_rejects_false_positivity": true
+        }
+      },
+      {
+        "cycle_length_L": 256,
+        "fejer_degree_K": 16,
+        "discrete_first_moment_mu_KL": 7.777630692108332,
+        "smooth_model": {
+          "major_value": 0.5,
+          "edge_lipschitz_D": 0.0024541228522912207,
+          "low_pass_minimum_total": 0.4058823529411766,
+          "modulus_budget": 0.019087261218184638,
+          "certificate_margin": 0.3867950917229919
+        },
+        "exceptional_spike": {
+          "major_value": 1.0,
+          "edge_lipschitz_D": 1.1,
+          "low_pass_minimum_total": 0.926953125,
+          "modulus_budget": 8.555393761319166,
+          "certificate_margin": -7.628440636319167,
+          "actual_minimum_total": -0.1
+        },
+        "checks": {
+          "kernel_is_nonnegative": true,
+          "kernel_has_unit_mass": true,
+          "smooth_error_respects_modulus_budget": true,
+          "smooth_every_target_certificate_passes": true,
+          "spike_error_respects_modulus_budget": true,
+          "spike_certificate_rejects_false_positivity": true
+        }
+      },
+      {
+        "cycle_length_L": 512,
+        "fejer_degree_K": 22,
+        "discrete_first_moment_mu_KL": 12.186838179281832,
+        "smooth_model": {
+          "major_value": 0.5,
+          "edge_lipschitz_D": 0.001227153828572033,
+          "low_pass_minimum_total": 0.4043478260869565,
+          "modulus_budget": 0.014955125129893523,
+          "certificate_margin": 0.389392700957063
+        },
+        "exceptional_spike": {
+          "major_value": 1.0,
+          "edge_lipschitz_D": 1.1,
+          "low_pass_minimum_total": 0.9505859375,
+          "modulus_budget": 13.405521997210016,
+          "certificate_margin": -12.454936059710016,
+          "actual_minimum_total": -0.1
+        },
+        "checks": {
+          "kernel_is_nonnegative": true,
+          "kernel_has_unit_mass": true,
+          "smooth_error_respects_modulus_budget": true,
+          "smooth_every_target_certificate_passes": true,
+          "spike_error_respects_modulus_budget": true,
+          "spike_certificate_rejects_false_positivity": true
+        }
+      }
+    ],
+    "finite_exact_search": {
+      "even_target_limit": 100000,
+      "even_targets_checked": 49999,
+      "counterexample_found": false,
+      "first_counterexample": null,
+      "maximum_primes_probed_for_one_target": 62
+    },
+    "aggregate": {
+      "cycle_size_count": 5,
+      "largest_cycle": 512,
+      "all_smooth_certificates_pass": true,
+      "all_spike_certificates_reject": true,
+      "largest_finite_even_target": 100000
+    },
+    "no_go_scope": "Low-frequency Fejer data without a certified discrete modulus still misses an exceptional target. The exact search through 100,000 and the smooth models are finite diagnostics. No arithmetic modulus bound is proved for the parity-aliased binary Goldbach residual.",
+    "failure_count": 0
+  },
+  "discarded_route": "low-frequency or almost-all control without a certified target-space modulus",
+  "remaining_gap": "No target-uniform arithmetic modulus controls the parity-aliased binary Goldbach residual below the discrete Fejer margin on every sufficiently large block.",
+  "candidate_theorem": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact discrete Fejer bridge, five model rows, and finite verification through 100,000 only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T181-REJECTED",
+        "label": "GoldbachLowPassAverageRemovesEveryExceptionalSpike",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T181-CLOSED",
+        "label": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T181-OPEN",
+        "label": "ParityAliasedGoldbachResidualHasCertifiedDiscreteModulusBelowFejerMarginOnEveryLargeBlock",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T181-REJECTED",
+        "GB-T181-CLOSED"
+      ],
+      [
+        "GB-T181-CLOSED",
+        "GB-T181-OPEN"
+      ]
+    ]
+  }
+}
