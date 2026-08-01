@@ -6836,3 +6836,31 @@ conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-172 structure-equivalence-l1-variation](structure-equivalence-l1-variation.md).
 한국어 보고서: [TICKET-172 구조-동치-L1-혼합변동](structure-equivalence-l1-variation.ko.md).
+
+## TICKET-173 continuation: finite sections, cylinder stabilization, target phase, and tensor-Haar pairs
+
+TICKET-173 proves four exact limiting-coordinate statements and keeps every
+conjecture resolution counter at zero:
+
+1. RH: nested dense finite sections with lower defect `eta_N->0` imply global
+   nonnegativity. `diag(1/j)` refutes necessity of a uniform positive gap. The
+   next target is `PoleNeutralWeilFiniteSectionLowerDefectConvergesToZero`.
+2. Collatz: every valuation word has one odd cylinder representative modulo
+   `2^(S+1)`, and positive-natural support is equivalent to eventual
+   stabilization. All-one prefixes reject horizon-only subexponential height.
+   The next target is
+   `EveryPrefixwiseNonDescendingRayHasUnboundedCylinderRepresentatives`.
+3. Goldbach: target-aligned inversion gives `R(n)=anchor+P(n)-N(n)`. A
+   nonnegative weighted Z/8 signal has positive convolution although
+   `N(n)>anchor`, rejecting necessity of the negative-only gate. The next
+   target is `UniformMajorArcPositiveMassDominatesMinorArcSignedDeficit`.
+4. Twin Prime: complete Type-II Haar energy uses independent row and column
+   scale indices. Unequal-scale rank-one wavelets have zero same-scale energy
+   and norm one. The corrected target is
+   `PrimePairMatrixAllScalePairHaarEnergyPowerSaving`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-173 finite-section-cylinder-phase-tensor](finite-section-cylinder-phase-tensor.md).
+한국어 보고서: [TICKET-173 유한단면-cylinder-위상-tensor](finite-section-cylinder-phase-tensor.ko.md).

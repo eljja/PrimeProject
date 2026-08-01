@@ -1,0 +1,603 @@
+{
+  "schema": "primeproject.ticket173-finite-section-cylinder-phase-tensor.v1",
+  "generated_at": "2026-08-06T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-173",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "NaturalSupportCylinderStabilizationAndSubexponentialHeightNoGo",
+  "declared_proposition": "For every finite accelerated-odd valuation word w=(a_1,...,a_H), with S=sum a_j and affine constant C(w), exactly one odd residue r_w modulo 2^(S+1) realizes w, namely r_w=(2^S-C(w))*3^(-H) mod 2^(S+1). Along an infinite ray these least positive representatives are nested. The ray has positive-natural support if and only if the representatives are bounded, equivalently eventually constant. No horizon-only subexponential bound can hold even for non-descending prefixes: the all-one word has least representative 2^(H+1)-1 and is non-descending for all H prefix steps.",
+  "mathematical_argument": "The affine identity 2^S T^H(n)=3^H n+C(w), together with oddness of T^H(n), is equivalent to 3^H n+C(w)=2^S mod 2^(S+1). Since 3 is invertible modulo powers of two, this gives one residue. Reducing the identity at every prefix gives divisibility by 2^S_j; the remaining suffix affine constant is odd, so each prefix quotient is odd and every valuation is exact. Extending a word refines its residue class, so representatives are compatible. A bounded compatible sequence in strictly increasing power-of-two moduli must eventually stabilize; the stable integer realizes every prefix. Conversely a natural start is the least representative once the modulus exceeds it. Direct substitution gives r_(1,...,1)=2^(H+1)-1.",
+  "reproducible_computation": {
+    "theorem": "For every finite accelerated-odd valuation word w=(a_1,...,a_H), with S=sum a_j and affine constant C(w), exactly one odd residue r_w modulo 2^(S+1) realizes w, namely r_w=(2^S-C(w))*3^(-H) mod 2^(S+1). Along an infinite ray these least positive representatives are nested. The ray has positive-natural support if and only if the representatives are bounded, equivalently eventually constant. No horizon-only subexponential bound can hold even for non-descending prefixes: the all-one word has least representative 2^(H+1)-1 and is non-descending for all H prefix steps.",
+    "proof": "The affine identity 2^S T^H(n)=3^H n+C(w), together with oddness of T^H(n), is equivalent to 3^H n+C(w)=2^S mod 2^(S+1). Since 3 is invertible modulo powers of two, this gives one residue. Reducing the identity at every prefix gives divisibility by 2^S_j; the remaining suffix affine constant is odd, so each prefix quotient is odd and every valuation is exact. Extending a word refines its residue class, so representatives are compatible. A bounded compatible sequence in strictly increasing power-of-two moduli must eventually stabilize; the stable integer realizes every prefix. Conversely a natural start is the least representative once the modulus exceeds it. Direct substitution gives r_(1,...,1)=2^(H+1)-1.",
+    "exhaustive_small_word_rows": [
+      {
+        "horizon_H": 1,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "words_checked": 4,
+        "failed_word_certificates": 0,
+        "checks": {
+          "all_words_have_unique_odd_cylinder_representative": true
+        }
+      },
+      {
+        "horizon_H": 2,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "words_checked": 16,
+        "failed_word_certificates": 0,
+        "checks": {
+          "all_words_have_unique_odd_cylinder_representative": true
+        }
+      },
+      {
+        "horizon_H": 3,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "words_checked": 64,
+        "failed_word_certificates": 0,
+        "checks": {
+          "all_words_have_unique_odd_cylinder_representative": true
+        }
+      },
+      {
+        "horizon_H": 4,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "words_checked": 256,
+        "failed_word_certificates": 0,
+        "checks": {
+          "all_words_have_unique_odd_cylinder_representative": true
+        }
+      },
+      {
+        "horizon_H": 5,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "words_checked": 1024,
+        "failed_word_certificates": 0,
+        "checks": {
+          "all_words_have_unique_odd_cylinder_representative": true
+        }
+      },
+      {
+        "horizon_H": 6,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "words_checked": 4096,
+        "failed_word_certificates": 0,
+        "checks": {
+          "all_words_have_unique_odd_cylinder_representative": true
+        }
+      }
+    ],
+    "natural_support_stabilization_rows": [
+      {
+        "natural_start": 3,
+        "first_stabilization_horizon": 1,
+        "representatives_first_12": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "moduli_first_12": [
+          4,
+          64,
+          256,
+          1024,
+          4096,
+          16384,
+          65536,
+          262144,
+          1048576,
+          4194304,
+          16777216,
+          67108864
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 5,
+        "first_stabilization_horizon": 1,
+        "representatives_first_12": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "moduli_first_12": [
+          32,
+          128,
+          512,
+          2048,
+          8192,
+          32768,
+          131072,
+          524288,
+          2097152,
+          8388608,
+          33554432,
+          134217728
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 7,
+        "first_stabilization_horizon": 2,
+        "representatives_first_12": [
+          3,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "moduli_first_12": [
+          4,
+          8,
+          32,
+          256,
+          4096,
+          16384,
+          65536,
+          262144,
+          1048576,
+          4194304,
+          16777216,
+          67108864
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 27,
+        "first_stabilization_horizon": 3,
+        "representatives_first_12": [
+          3,
+          11,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27,
+          27
+        ],
+        "moduli_first_12": [
+          4,
+          16,
+          32,
+          64,
+          128,
+          256,
+          1024,
+          4096,
+          8192,
+          32768,
+          65536,
+          131072
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 31,
+        "first_stabilization_horizon": 4,
+        "representatives_first_12": [
+          3,
+          7,
+          15,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31
+        ],
+        "moduli_first_12": [
+          4,
+          8,
+          16,
+          32,
+          128,
+          512,
+          1024,
+          4096,
+          8192,
+          16384,
+          65536,
+          131072
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 97,
+        "first_stabilization_horizon": 4,
+        "representatives_first_12": [
+          1,
+          1,
+          33,
+          97,
+          97,
+          97,
+          97,
+          97,
+          97,
+          97,
+          97,
+          97
+        ],
+        "moduli_first_12": [
+          8,
+          32,
+          64,
+          128,
+          1024,
+          2048,
+          4096,
+          8192,
+          32768,
+          131072,
+          262144,
+          1048576
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 871,
+        "first_stabilization_horizon": 8,
+        "representatives_first_12": [
+          3,
+          7,
+          7,
+          39,
+          103,
+          103,
+          359,
+          871,
+          871,
+          871,
+          871,
+          871
+        ],
+        "moduli_first_12": [
+          4,
+          8,
+          32,
+          64,
+          128,
+          256,
+          512,
+          1024,
+          4096,
+          8192,
+          16384,
+          32768
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      },
+      {
+        "natural_start": 6171,
+        "first_stabilization_horizon": 8,
+        "representatives_first_12": [
+          3,
+          11,
+          27,
+          27,
+          27,
+          27,
+          27,
+          6171,
+          6171,
+          6171,
+          6171,
+          6171
+        ],
+        "moduli_first_12": [
+          4,
+          16,
+          32,
+          64,
+          128,
+          256,
+          1024,
+          8192,
+          16384,
+          32768,
+          65536,
+          131072
+        ],
+        "checks": {
+          "representatives_are_nested": true,
+          "representatives_eventually_equal_start": true,
+          "stabilization_occurs_after_modulus_exceeds_start": true
+        }
+      }
+    ],
+    "all_one_subexponential_height_no_go_rows": [
+      {
+        "horizon_H": 1,
+        "all_one_word": [
+          1
+        ],
+        "word_truncated_in_json": false,
+        "least_cylinder_representative": 3,
+        "cylinder_modulus": 4,
+        "representative_over_two_to_H": 1.5,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      },
+      {
+        "horizon_H": 2,
+        "all_one_word": [
+          1,
+          1
+        ],
+        "word_truncated_in_json": false,
+        "least_cylinder_representative": 7,
+        "cylinder_modulus": 8,
+        "representative_over_two_to_H": 1.75,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      },
+      {
+        "horizon_H": 4,
+        "all_one_word": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "word_truncated_in_json": false,
+        "least_cylinder_representative": 31,
+        "cylinder_modulus": 32,
+        "representative_over_two_to_H": 1.9375,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      },
+      {
+        "horizon_H": 8,
+        "all_one_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "word_truncated_in_json": false,
+        "least_cylinder_representative": 511,
+        "cylinder_modulus": 512,
+        "representative_over_two_to_H": 1.99609375,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      },
+      {
+        "horizon_H": 16,
+        "all_one_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "word_truncated_in_json": false,
+        "least_cylinder_representative": 131071,
+        "cylinder_modulus": 131072,
+        "representative_over_two_to_H": 1.9999847412109375,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      },
+      {
+        "horizon_H": 32,
+        "all_one_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "word_truncated_in_json": true,
+        "least_cylinder_representative": 8589934591,
+        "cylinder_modulus": 8589934592,
+        "representative_over_two_to_H": 1.9999999997671694,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      },
+      {
+        "horizon_H": 64,
+        "all_one_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "word_truncated_in_json": true,
+        "least_cylinder_representative": 36893488147419103231,
+        "cylinder_modulus": 36893488147419103232,
+        "representative_over_two_to_H": 2.0,
+        "checks": {
+          "least_representative_is_exact": true,
+          "modulus_is_two_to_H_plus_one": true,
+          "prefix_is_non_descending": true,
+          "representative_has_exponential_scale": true
+        }
+      }
+    ],
+    "no_go_scope": "The exponential family rejects a universal horizon-only height bound. It is a sequence of finite natural starts, not one divergent orbit.",
+    "failure_count": 0
+  },
+  "discarded_route": "a universal horizon-only subexponential bound for least representatives of non-descending cylinders",
+  "remaining_gap": "No theorem forces the cylinder representatives of every infinite prefixwise non-descending ray to be unbounded.",
+  "candidate_theorem": "EveryPrefixwiseNonDescendingRayHasUnboundedCylinderRepresentatives",
+  "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact natural-support stabilization criterion and an exponential finite-prefix no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T173-REJECTED",
+        "label": "NonDescendingCylinderLeastRepresentativesHaveASubexponentialHorizonBound",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T173-CLOSED",
+        "label": "NaturalSupportCylinderStabilizationAndSubexponentialHeightNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T173-OPEN",
+        "label": "EveryPrefixwiseNonDescendingRayHasUnboundedCylinderRepresentatives",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T173-REJECTED",
+        "CO-T173-CLOSED"
+      ],
+      [
+        "CO-T173-CLOSED",
+        "CO-T173-OPEN"
+      ]
+    ]
+  }
+}

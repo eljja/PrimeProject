@@ -62,7 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-172
+## Latest Continuation After TICKET-173
+
+All four conjectures remain open. TICKET-173 converts the TICKET-172 targets
+into exact limiting coordinates and rejects two conditions that were still too
+strong or incomplete. Continue only from these nodes:
+
+1. Riemann:
+   `PoleNeutralWeilFiniteSectionLowerDefectConvergesToZero`.
+   Dense nested finite sections with certified lower defect `eta_N->0` imply
+   global nonnegativity. The compact diagonal operator `diag(1/j)` proves that
+   a uniform positive finite-section gap is not necessary. The missing work is
+   the actual arithmetic defect estimate on one fixed pole-neutral Weil core.
+2. Collatz:
+   `EveryPrefixwiseNonDescendingRayHasUnboundedCylinderRepresentatives`.
+   A valuation word has one exact odd residue modulo `2^(S+1)`, and an infinite
+   ray has positive-natural support exactly when its least representatives
+   eventually stabilize. All-one non-descending prefixes have representative
+   `2^(H+1)-1`, ruling out horizon-only subexponential bounds.
+3. Goldbach:
+   `UniformMajorArcPositiveMassDominatesMinorArcSignedDeficit`.
+   Target-aligned Fourier inversion gives `R(n)=anchor+P(n)-N(n)`. The exact
+   weighted Z/8 model has `R(4)=1` despite `N(4)>anchor`, proving that the
+   negative-budget gate is sufficient but not necessary. Preserve positive
+   major-arc mass rather than discarding it.
+4. Twin Prime:
+   `PrimePairMatrixAllScalePairHaarEnergyPowerSaving`.
+   Zero margins leave all tensor-Haar row-scale/column-scale pairs. Rank-one
+   matrices built from wavelets of unequal scales have norm one and zero
+   same-scale energy, so TICKET-172's diagonal scale target was incomplete.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket173-finite-section-cylinder-phase-tensor.json
+data/open-problem/riemann/rh-ticket-173-finite-section.json
+data/open-problem/collatz/co-ticket-173-cylinder-stabilization.json
+data/open-problem/goldbach/gb-ticket-173-target-phase.json
+data/open-problem/twin-prime/tp-ticket-173-tensor-haar.json
+```
+
+한국어 인계: TICKET-173도 네 난제를 해결하지 않았다. 리만은 실제 Weil
+finite section에서 음의 하한 결손이 0으로 수렴함을 증명해야 한다. 콜라츠는
+모든 무한 비하강 ray에서 cylinder 대표가 무한히 lift됨을 보여야 한다.
+골드바흐는 양의 major-arc 질량을 버리지 말고 signed minor-arc deficit과
+직접 비교해야 한다. 쌍둥이 소수는 같은 scale뿐 아니라 모든 row/column
+Haar scale pair의 Type-II 에너지를 제어해야 한다.
+
+English report: [TICKET-173](finite-section-cylinder-phase-tensor.md). Korean
+report: [TICKET-173 한국어](finite-section-cylinder-phase-tensor.ko.md).
+
+## Preserved Continuation After TICKET-172
 
 All four conjectures remain open. TICKET-172 audits the TICKET-171 terminal
 nodes and removes one circular Collatz target. Continue only from these nodes:

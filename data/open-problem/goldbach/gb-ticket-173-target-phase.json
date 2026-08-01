@@ -1,0 +1,202 @@
+{
+  "schema": "primeproject.ticket173-finite-section-cylinder-phase-tensor.v1",
+  "generated_at": "2026-08-06T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-173",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "TargetAlignedNegativeSpectrumCertificateAndPositiveMassNoGo",
+  "declared_proposition": "For a nonnegative function f on Z/q with unnormalized Fourier transform F, write c_k(n)=Re(F(k)^2 exp(2*pi*i*k*n/q))/q, P(n)=sum max(c_k,0), and N(n)=sum max(-c_k,0) over k nonzero. Then (f*f)(n)=F(0)^2/q+P(n)-N(n), so F(0)^2/q>N(n) is a rigorous target-aligned positivity certificate and is never weaker than the phase-blind L1 bound. It is not necessary: on Z/8, f=(0,0,0,0,0,0,1,2) has (f*f)(4)=1, anchor 9/8, and negative budget (1+sqrt(2))/2>9/8. Positive aligned frequencies are essential.",
+  "mathematical_argument": "Fourier inversion for convolution gives the exact decomposition after pairing conjugate terms and taking real parts. Dropping P gives the stated lower bound. Since N is at most the sum of all nonzero absolute Fourier contributions, it improves the phase-blind triangle bound. In the Z/8 model the seven aligned terms are the displayed exact list; their negative part is (1+sqrt(2))/2. The inequality against 9/8 reduces to 4sqrt(2)>5, whose square is 32>25, while direct convolution gives one representation.",
+  "reproducible_computation": {
+    "theorem": "For a nonnegative function f on Z/q with unnormalized Fourier transform F, write c_k(n)=Re(F(k)^2 exp(2*pi*i*k*n/q))/q, P(n)=sum max(c_k,0), and N(n)=sum max(-c_k,0) over k nonzero. Then (f*f)(n)=F(0)^2/q+P(n)-N(n), so F(0)^2/q>N(n) is a rigorous target-aligned positivity certificate and is never weaker than the phase-blind L1 bound. It is not necessary: on Z/8, f=(0,0,0,0,0,0,1,2) has (f*f)(4)=1, anchor 9/8, and negative budget (1+sqrt(2))/2>9/8. Positive aligned frequencies are essential.",
+    "proof": "Fourier inversion for convolution gives the exact decomposition after pairing conjugate terms and taking real parts. Dropping P gives the stated lower bound. Since N is at most the sum of all nonzero absolute Fourier contributions, it improves the phase-blind triangle bound. In the Z/8 model the seven aligned terms are the displayed exact list; their negative part is (1+sqrt(2))/2. The inequality against 9/8 reduces to 4sqrt(2)>5, whose square is 32>25, while direct convolution gives one representation.",
+    "exact_weighted_z8_no_go": {
+      "signal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "target": 4,
+      "aligned_nonzero_terms_exact": [
+        "1/8+sqrt(2)/4",
+        "-3/8",
+        "1/8-sqrt(2)/4",
+        "1/8",
+        "1/8-sqrt(2)/4",
+        "-3/8",
+        "1/8+sqrt(2)/4"
+      ],
+      "aligned_nonzero_terms_decimal": [
+        0.47855339059327356,
+        -0.37500000000000033,
+        -0.2285533905932738,
+        0.125,
+        -0.2285533905932739,
+        -0.37499999999999983,
+        0.47855339059327456
+      ],
+      "zero_frequency_anchor_exact": "9/8",
+      "zero_frequency_anchor_decimal": 1.125,
+      "negative_budget_exact": "(1+sqrt(2))/2",
+      "negative_budget_decimal": 1.207106781186548,
+      "positive_budget_decimal": 1.0821067811865481,
+      "exact_convolution_value": 1.0,
+      "checks": {
+        "exact_terms_match_numeric_dft": true,
+        "negative_budget_exceeds_anchor": true,
+        "convolution_is_positive": true,
+        "positive_terms_recover_exact_value": true,
+        "exact_inequality_4sqrt2_exceeds_5": true
+      }
+    },
+    "finite_prime_target_phase_rows": [
+      {
+        "prime_support_limit": 64,
+        "zero_padded_transform_size": 256,
+        "even_targets_tested": 31,
+        "minimum_ordered_representation_count": 1,
+        "zero_frequency_anchor": 1.265625,
+        "global_l1_margin": -15.468750000000068,
+        "target_phase_gate_pass_count": 0,
+        "target_phase_gate_pass_targets": [],
+        "minimum_target_phase_margin": -3.874222164107149,
+        "minimum_target_phase_margin_target": 62,
+        "maximum_fourier_reconstruction_error": 4.263256414560601e-14,
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches_exact_counts": true,
+          "target_phase_bound_has_no_violations": true,
+          "target_phase_gate_is_stronger_than_global_l1": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 128,
+        "zero_padded_transform_size": 512,
+        "even_targets_tested": 63,
+        "minimum_ordered_representation_count": 1,
+        "zero_frequency_anchor": 1.876953125,
+        "global_l1_margin": -27.24609374999979,
+        "target_phase_gate_pass_count": 1,
+        "target_phase_gate_pass_targets": [
+          120
+        ],
+        "minimum_target_phase_margin": -7.462048343577784,
+        "minimum_target_phase_margin_target": 6,
+        "maximum_fourier_reconstruction_error": 2.3803181647963356e-13,
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches_exact_counts": true,
+          "target_phase_bound_has_no_violations": true,
+          "target_phase_gate_is_stronger_than_global_l1": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 256,
+        "zero_padded_transform_size": 1024,
+        "even_targets_tested": 127,
+        "minimum_ordered_representation_count": 1,
+        "zero_frequency_anchor": 2.84765625,
+        "global_l1_margin": -48.30468749999891,
+        "target_phase_gate_pass_count": 0,
+        "target_phase_gate_pass_targets": [],
+        "minimum_target_phase_margin": -13.544354541142596,
+        "minimum_target_phase_margin_target": 6,
+        "maximum_fourier_reconstruction_error": 7.069900220812997e-13,
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches_exact_counts": true,
+          "target_phase_bound_has_no_violations": true,
+          "target_phase_gate_is_stronger_than_global_l1": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 512,
+        "zero_padded_transform_size": 2048,
+        "even_targets_tested": 255,
+        "minimum_ordered_representation_count": 1,
+        "zero_frequency_anchor": 4.59423828125,
+        "global_l1_margin": -87.81152343750061,
+        "target_phase_gate_pass_count": 0,
+        "target_phase_gate_pass_targets": [],
+        "minimum_target_phase_margin": -25.301911033844547,
+        "minimum_target_phase_margin_target": 6,
+        "maximum_fourier_reconstruction_error": 1.1439738045737613e-12,
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches_exact_counts": true,
+          "target_phase_bound_has_no_violations": true,
+          "target_phase_gate_is_stronger_than_global_l1": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      },
+      {
+        "prime_support_limit": 1024,
+        "zero_padded_transform_size": 4096,
+        "even_targets_tested": 511,
+        "minimum_ordered_representation_count": 1,
+        "zero_frequency_anchor": 7.22265625,
+        "global_l1_margin": -157.55468749998914,
+        "target_phase_gate_pass_count": 0,
+        "target_phase_gate_pass_targets": [],
+        "minimum_target_phase_margin": -46.084339091744106,
+        "minimum_target_phase_margin_target": 4,
+        "maximum_fourier_reconstruction_error": 7.702283255639486e-12,
+        "checks": {
+          "zero_padding_prevents_wraparound": true,
+          "all_finite_targets_have_representations": true,
+          "fourier_reconstruction_matches_exact_counts": true,
+          "target_phase_bound_has_no_violations": true,
+          "target_phase_gate_is_stronger_than_global_l1": true,
+          "row_is_finite_diagnostic_only": true
+        }
+      }
+    ],
+    "no_go_scope": "The target-aligned negative budget is a sufficient certificate, not a necessary one. A uniform Goldbach proof must retain positive major-arc mass together with the signed minor-arc deficit.",
+    "failure_count": 0
+  },
+  "discarded_route": "using the target-aligned negative Fourier budget below the zero-mode anchor as a necessary or uniformly expected gate",
+  "remaining_gap": "No target-uniform major-arc positive lower bound dominates the signed minor-arc deficit for every sufficiently large even integer.",
+  "candidate_theorem": "UniformMajorArcPositiveMassDominatesMinorArcSignedDeficit",
+  "claim_boundary": "No Goldbach proof and no even counterexample; one exact target-phase certificate, an exact weighted no-go, and finite prime diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T173-REJECTED",
+        "label": "TargetAlignedNegativeBudgetBelowAnchorIsNecessaryForGoldbachPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T173-CLOSED",
+        "label": "TargetAlignedNegativeSpectrumCertificateAndPositiveMassNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T173-OPEN",
+        "label": "UniformMajorArcPositiveMassDominatesMinorArcSignedDeficit",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T173-REJECTED",
+        "GB-T173-CLOSED"
+      ],
+      [
+        "GB-T173-CLOSED",
+        "GB-T173-OPEN"
+      ]
+    ]
+  }
+}

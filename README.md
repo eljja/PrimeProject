@@ -31,21 +31,25 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-173: Finite-Section Defects, Collatz Cylinder Stabilization,
+Target-Aligned Goldbach Phase, and Tensor-Haar Scale Pairs](docs/finite-section-cylinder-phase-tensor.md),
+with a separate [Korean report](docs/finite-section-cylinder-phase-tensor.ko.md).
+It proves four exact structural results and rejects four incomplete routes.
+RH needs a vanishing finite-section lower defect, not a uniform coercive gap.
+Collatz natural support is exactly eventual stabilization of nested cylinder
+representatives, while all-one prefixes refute horizon-only subexponential
+height bounds. Goldbach receives a target-aligned positive/negative Fourier
+decomposition and an exact nonnegative countermodel to necessity of its
+negative-budget gate. Twin Type-II control is corrected from same-scale mixed
+variation to all tensor-Haar row/column scale pairs. Every conjecture remains
+`open_not_proven`; the machine resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-172: Structured KKT Inertia, Collatz Bridge Equivalence, Fourier L1
 Positivity, and Dyadic Mixed Variation](docs/structure-equivalence-l1-variation.md),
 with a separate [Korean report](docs/structure-equivalence-l1-variation.ko.md).
-It proves four exact intermediate results. RH receives a structured Schur
-certificate based on primal positivity and constraint rank, together with a
-counterexample to necessity of a whole-KKT relative norm below one. The
-Collatz target left by TICKET-171 is proved equivalent to the original
-first-descent conjecture, so it is removed as a purportedly easier bridge.
-Goldbach receives the exact Fourier L1 pointwise positivity gate and a positive
-family proving shell-magnitude sharpness. Twin Type-II fine/fine Haar energy is
-identified exactly with dyadic mixed variation, while checkerboards refute
-marginal-only control. Every conjecture remains `open_not_proven`; the machine
-resolution count is zero.
 
-The preserved previous boundary is
+The earlier boundary is
 [TICKET-171: Relative KKT Geometry, a Collatz Ghost Ray, Signed Goldbach Phase,
 and Haar Type II](docs/relative-ghost-phase-haar.md), with a separate
 [Korean report](docs/relative-ghost-phase-haar.ko.md).
@@ -130,18 +134,20 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-two-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-three-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-172. It exploits saddle-point block
-structure for RH, proves that the previous Collatz natural-ray target is
-equivalent to Collatz rather than a weaker bridge, derives the sharp universal
-Fourier L1 positivity gate for Goldbach, and converts Twin fine/fine Haar
-energy into exact dyadic mixed variation. These are exact structural results
-and route corrections, not solutions. All four conjectures remain open and the
-machine resolution count is zero.
+The latest proof-search track is TICKET-173. It replaces a uniform RH finite-
+section gap by a vanishing certified lower defect, turns Collatz natural support
+into exact stabilization of nested cylinder representatives, retains both
+positive and negative target-aligned Goldbach Fourier mass, and corrects Twin
+same-scale variation to a complete two-parameter tensor-Haar target. These are
+exact structural results and route corrections, not solutions. All four
+conjectures remain open and the machine resolution count is zero.
 See
+[TICKET173 EN](docs/finite-section-cylinder-phase-tensor.md),
+[TICKET173 KO](docs/finite-section-cylinder-phase-tensor.ko.md),
 [TICKET172 EN](docs/structure-equivalence-l1-variation.md),
 [TICKET172 KO](docs/structure-equivalence-l1-variation.ko.md),
 [TICKET171 EN](docs/relative-ghost-phase-haar.md),
@@ -175,15 +181,15 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-172입니다. 리만 트랙은 전체 KKT
-상대 노름 대신 primal 양성 및 constraint full-rank를 Schur complement로
-인증합니다. 콜라츠 트랙은 TICKET-171의 자연수 비하강 경로 배제 목표가
-원 추측과 동치임을 증명해 순환적인 중간 목표를 폐기했습니다. 골드바흐
-트랙은 Fourier L1 점별 양성 조건과 shell 크기만으로는 이를 개선할 수
-없다는 최적성 반례를 확정했습니다. 쌍둥이 소수 트랙은 fine/fine Haar
-에너지가 dyadic 혼합 차분 제곱합의 1/4임을 증명하고, 행·열 합 상쇄만으로
-혼합 Type-II 감쇠가 나오지 않음을 보였습니다. 네 문제는 모두 미해결이며
-해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-173입니다. 리만 트랙은 uniform
+finite-section gap 대신 0으로 수렴하는 인증 하한 결손이면 조밀 코어의
+비음성을 배제할 수 있음을 증명했습니다. 콜라츠 트랙은 무한 valuation
+ray의 양의 자연수 지지가 cylinder 최소대표의 eventual stabilization과
+동치임을 증명하고, all-one prefix로 지평선 기반 subexponential 높이 경로를
+폐기했습니다. 골드바흐 트랙은 target에 정렬된 양·음 Fourier 질량을 분리하고
+음의 budget 조건이 필요조건은 아님을 정확히 보였습니다. 쌍둥이 소수
+트랙은 same-scale 혼합 변동이 서로 다른 Haar scale pair를 놓친다는 반례를
+확정했습니다. 네 문제는 모두 미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -203,12 +209,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-172입니다.
-[구조적 KKT, 콜라츠 동치성, Fourier L1, dyadic 혼합 변동 한국어 보고서](docs/structure-equivalence-l1-variation.ko.md)와
-[영문 보고서](docs/structure-equivalence-l1-variation.md)는 네 트랙의 정확
+최신 난제 연구 트랙은 TICKET-173입니다.
+[finite-section 결손, 콜라츠 cylinder 안정화, target Fourier 위상,
+tensor-Haar 한국어 보고서](docs/finite-section-cylinder-phase-tensor.ko.md)와
+[영문 보고서](docs/finite-section-cylinder-phase-tensor.md)는 네 트랙의 정확
 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 리만의
-구조적 Schur 인증, 콜라츠 이전 목표의 동치성, 골드바흐 L1 양성 gate의
-최적성, 쌍둥이 소수 Haar/혼합 변동 항등식을 확정했습니다.
+vanishing lower-defect closure, 콜라츠 자연수 지지 안정화, 골드바흐 target
+부호 분해, 쌍둥이 소수 all-scale-pair Haar 완전성을 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

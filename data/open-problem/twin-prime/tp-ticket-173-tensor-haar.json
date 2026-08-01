@@ -1,0 +1,323 @@
+{
+  "schema": "primeproject.ticket173-finite-section-cylinder-phase-tensor.v1",
+  "generated_at": "2026-08-06T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-173",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "TensorHaarAllScalePairCompletenessAndDiagonalScaleNoGo",
+  "declared_proposition": "Let H_N be the complete orthonormal discrete Haar basis and C=H_N A H_N^T. If every row and column sum of A vanishes, every coefficient with a constant Haar factor vanishes and Parseval gives ||A||_F^2=sum_{j,k>=1} E_{j,k} over all row-scale/column-scale pairs. Same-scale terms j=k are not complete. For every dyadic N>=4, the rank-one matrix formed from a finest row wavelet and a next-coarser column wavelet has zero margins, Frobenius and operator norm one, zero same-scale energy, and all energy in the off-diagonal pair (1,2).",
+  "mathematical_argument": "Orthogonality of H_N preserves Frobenius and operator norms. Zero row sums mean A times the constant vector is zero; zero column sums give the transpose statement, leaving precisely wavelet-wavelet coefficients. Parseval sums them over two independent scale indices. For A=u v^T with u and v normalized Haar wavelets of distinct scales, the transformed matrix is the outer product of two coordinate vectors, so it has one off-diagonal coefficient equal to one and no diagonal-scale coefficient.",
+  "reproducible_computation": {
+    "theorem": "Let H_N be the complete orthonormal discrete Haar basis and C=H_N A H_N^T. If every row and column sum of A vanishes, every coefficient with a constant Haar factor vanishes and Parseval gives ||A||_F^2=sum_{j,k>=1} E_{j,k} over all row-scale/column-scale pairs. Same-scale terms j=k are not complete. For every dyadic N>=4, the rank-one matrix formed from a finest row wavelet and a next-coarser column wavelet has zero margins, Frobenius and operator norm one, zero same-scale energy, and all energy in the off-diagonal pair (1,2).",
+    "proof": "Orthogonality of H_N preserves Frobenius and operator norms. Zero row sums mean A times the constant vector is zero; zero column sums give the transpose statement, leaving precisely wavelet-wavelet coefficients. Parseval sums them over two independent scale indices. For A=u v^T with u and v normalized Haar wavelets of distinct scales, the transformed matrix is the outer product of two coordinate vectors, so it has one off-diagonal coefficient equal to one and no diagonal-scale coefficient.",
+    "finite_t161_all_scale_pair_rows": [
+      {
+        "X": 10000,
+        "haar_scale_pair_energy": {
+          "1x1": 12194.999999999995,
+          "1x2": 1165.0,
+          "2x1": 3624.9999999999995,
+          "2x2": 25.0
+        },
+        "frobenius_energy": 17010.0,
+        "same_scale_pair_energy": 12219.999999999995,
+        "cross_scale_pair_energy": 4789.999999999998,
+        "cross_scale_energy_fraction": 0.28159905937683705,
+        "checks": {
+          "constant_transform_row_vanishes": true,
+          "constant_transform_column_vanishes": true,
+          "all_scale_pairs_preserve_frobenius_energy": true,
+          "diagonal_and_off_diagonal_partition_energy": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 100000,
+        "haar_scale_pair_energy": {
+          "1x1": 11844348.999999996,
+          "1x2": 6744964.999999998,
+          "2x1": 1649496.9999999998,
+          "2x2": 3744225.0
+        },
+        "frobenius_energy": 23983036.0,
+        "same_scale_pair_energy": 15588573.999999996,
+        "cross_scale_pair_energy": 8394461.999999996,
+        "cross_scale_energy_fraction": 0.3500166534378715,
+        "checks": {
+          "constant_transform_row_vanishes": true,
+          "constant_transform_column_vanishes": true,
+          "all_scale_pairs_preserve_frobenius_energy": true,
+          "diagonal_and_off_diagonal_partition_energy": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 1000000,
+        "haar_scale_pair_energy": {
+          "1x1": 833873273.9999996,
+          "1x2": 2164903207.9999995,
+          "2x1": 1388353018.0,
+          "2x2": 5808268944.0
+        },
+        "frobenius_energy": 10195398444.0,
+        "same_scale_pair_energy": 6642142218.0,
+        "cross_scale_pair_energy": 3553256226.0,
+        "cross_scale_energy_fraction": 0.3485156804333718,
+        "checks": {
+          "constant_transform_row_vanishes": true,
+          "constant_transform_column_vanishes": true,
+          "all_scale_pairs_preserve_frobenius_energy": true,
+          "diagonal_and_off_diagonal_partition_energy": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 10000000,
+        "haar_scale_pair_energy": {
+          "1x1": 4138798435383.9976,
+          "1x2": 2649922634355.9995,
+          "2x1": 387566260359.9999,
+          "2x2": 15793677463876.0
+        },
+        "frobenius_energy": 22969964793976.0,
+        "same_scale_pair_energy": 19932475899259.996,
+        "cross_scale_pair_energy": 3037488894716.0,
+        "cross_scale_energy_fraction": 0.13223742056028742,
+        "checks": {
+          "constant_transform_row_vanishes": true,
+          "constant_transform_column_vanishes": true,
+          "all_scale_pairs_preserve_frobenius_energy": true,
+          "diagonal_and_off_diagonal_partition_energy": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      }
+    ],
+    "different_scale_rank_one_no_go_rows": [
+      {
+        "dyadic_dimension_N": 4,
+        "row_wavelet_scale": 1,
+        "column_wavelet_scale": 2,
+        "same_scale_pair_energy": 0.0,
+        "cross_scale_pair_energy": 0.9999999999999996,
+        "nonzero_scale_pair_energy": {
+          "1x1": 0.0,
+          "1x2": 0.9999999999999996,
+          "2x1": 0.0,
+          "2x2": 0.0
+        },
+        "frobenius_energy": 0.9999999999999999,
+        "operator_norm": 1.0,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "frobenius_energy_is_one": true,
+          "operator_norm_is_one_by_rank_one_construction": true,
+          "same_scale_pair_energy_vanishes": true,
+          "cross_scale_pair_energy_is_one": true,
+          "single_nonzero_scale_pair_is_fine_by_coarse": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 8,
+        "row_wavelet_scale": 1,
+        "column_wavelet_scale": 2,
+        "same_scale_pair_energy": 0.0,
+        "cross_scale_pair_energy": 0.9999999999999996,
+        "nonzero_scale_pair_energy": {
+          "1x1": 0.0,
+          "1x2": 0.9999999999999996,
+          "1x3": 0.0,
+          "2x1": 0.0,
+          "2x2": 0.0,
+          "2x3": 0.0,
+          "3x1": 0.0,
+          "3x2": 0.0,
+          "3x3": 0.0
+        },
+        "frobenius_energy": 0.9999999999999999,
+        "operator_norm": 1.0,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "frobenius_energy_is_one": true,
+          "operator_norm_is_one_by_rank_one_construction": true,
+          "same_scale_pair_energy_vanishes": true,
+          "cross_scale_pair_energy_is_one": true,
+          "single_nonzero_scale_pair_is_fine_by_coarse": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 16,
+        "row_wavelet_scale": 1,
+        "column_wavelet_scale": 2,
+        "same_scale_pair_energy": 0.0,
+        "cross_scale_pair_energy": 0.9999999999999996,
+        "nonzero_scale_pair_energy": {
+          "1x1": 0.0,
+          "1x2": 0.9999999999999996,
+          "1x3": 0.0,
+          "1x4": 0.0,
+          "2x1": 0.0,
+          "2x2": 0.0,
+          "2x3": 0.0,
+          "2x4": 0.0,
+          "3x1": 0.0,
+          "3x2": 0.0,
+          "3x3": 0.0,
+          "3x4": 0.0,
+          "4x1": 0.0,
+          "4x2": 0.0,
+          "4x3": 0.0,
+          "4x4": 0.0
+        },
+        "frobenius_energy": 0.9999999999999999,
+        "operator_norm": 1.0,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "frobenius_energy_is_one": true,
+          "operator_norm_is_one_by_rank_one_construction": true,
+          "same_scale_pair_energy_vanishes": true,
+          "cross_scale_pair_energy_is_one": true,
+          "single_nonzero_scale_pair_is_fine_by_coarse": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 32,
+        "row_wavelet_scale": 1,
+        "column_wavelet_scale": 2,
+        "same_scale_pair_energy": 0.0,
+        "cross_scale_pair_energy": 0.9999999999999996,
+        "nonzero_scale_pair_energy": {
+          "1x1": 0.0,
+          "1x2": 0.9999999999999996,
+          "1x3": 0.0,
+          "1x4": 0.0,
+          "1x5": 0.0,
+          "2x1": 0.0,
+          "2x2": 0.0,
+          "2x3": 0.0,
+          "2x4": 0.0,
+          "2x5": 0.0,
+          "3x1": 0.0,
+          "3x2": 0.0,
+          "3x3": 0.0,
+          "3x4": 0.0,
+          "3x5": 0.0,
+          "4x1": 0.0,
+          "4x2": 0.0,
+          "4x3": 0.0,
+          "4x4": 0.0,
+          "4x5": 0.0,
+          "5x1": 0.0,
+          "5x2": 0.0,
+          "5x3": 0.0,
+          "5x4": 0.0,
+          "5x5": 0.0
+        },
+        "frobenius_energy": 0.9999999999999999,
+        "operator_norm": 1.0,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "frobenius_energy_is_one": true,
+          "operator_norm_is_one_by_rank_one_construction": true,
+          "same_scale_pair_energy_vanishes": true,
+          "cross_scale_pair_energy_is_one": true,
+          "single_nonzero_scale_pair_is_fine_by_coarse": true
+        }
+      },
+      {
+        "dyadic_dimension_N": 64,
+        "row_wavelet_scale": 1,
+        "column_wavelet_scale": 2,
+        "same_scale_pair_energy": 0.0,
+        "cross_scale_pair_energy": 0.9999999999999996,
+        "nonzero_scale_pair_energy": {
+          "1x1": 0.0,
+          "1x2": 0.9999999999999996,
+          "1x3": 0.0,
+          "1x4": 0.0,
+          "1x5": 0.0,
+          "1x6": 0.0,
+          "2x1": 0.0,
+          "2x2": 0.0,
+          "2x3": 0.0,
+          "2x4": 0.0,
+          "2x5": 0.0,
+          "2x6": 0.0,
+          "3x1": 0.0,
+          "3x2": 0.0,
+          "3x3": 0.0,
+          "3x4": 0.0,
+          "3x5": 0.0,
+          "3x6": 0.0,
+          "4x1": 0.0,
+          "4x2": 0.0,
+          "4x3": 0.0,
+          "4x4": 0.0,
+          "4x5": 0.0,
+          "4x6": 0.0,
+          "5x1": 0.0,
+          "5x2": 0.0,
+          "5x3": 0.0,
+          "5x4": 0.0,
+          "5x5": 0.0,
+          "5x6": 0.0,
+          "6x1": 0.0,
+          "6x2": 0.0,
+          "6x3": 0.0,
+          "6x4": 0.0,
+          "6x5": 0.0,
+          "6x6": 0.0
+        },
+        "frobenius_energy": 0.9999999999999999,
+        "operator_norm": 1.0,
+        "checks": {
+          "all_row_sums_vanish": true,
+          "all_column_sums_vanish": true,
+          "frobenius_energy_is_one": true,
+          "operator_norm_is_one_by_rank_one_construction": true,
+          "same_scale_pair_energy_vanishes": true,
+          "cross_scale_pair_energy_is_one": true,
+          "single_nonzero_scale_pair_is_fine_by_coarse": true
+        }
+      }
+    ],
+    "no_go_scope": "TICKET-172 same-scale dyadic mixed variation is not a complete Type-II certificate. A prime-pair estimate must control all row/column scale pairs.",
+    "failure_count": 0
+  },
+  "discarded_route": "controlling only equal row/column dyadic scales as a complete Type-II energy certificate",
+  "remaining_gap": "No prime-pair matrix estimate gives a power saving uniformly over every row-scale/column-scale Haar pair in the sieve range.",
+  "candidate_theorem": "PrimePairMatrixAllScalePairHaarEnergyPowerSaving",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; one exact tensor-Haar completeness theorem, finite diagnostics, and an anisotropic scale no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T173-REJECTED",
+        "label": "SameScaleDyadicMixedVariationControlsAllTypeIIEnergy",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T173-CLOSED",
+        "label": "TensorHaarAllScalePairCompletenessAndDiagonalScaleNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T173-OPEN",
+        "label": "PrimePairMatrixAllScalePairHaarEnergyPowerSaving",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T173-REJECTED",
+        "TP-T173-CLOSED"
+      ],
+      [
+        "TP-T173-CLOSED",
+        "TP-T173-OPEN"
+      ]
+    ]
+  }
+}

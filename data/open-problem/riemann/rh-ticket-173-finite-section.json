@@ -1,0 +1,424 @@
+{
+  "schema": "primeproject.ticket173-finite-section-cylinder-phase-tensor.v1",
+  "generated_at": "2026-08-06T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-173",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "CofinalFiniteSectionPositivityAndUniformCoercivityNoGo",
+  "declared_proposition": "Let q be a continuous Hermitian form on a Hilbert space and let V_N be nested finite-dimensional subspaces with dense union. Let A_N be the exact restriction in orthonormal coordinates and let ||A_N-Atilde_N||<=rho_N. If lambda_min(Atilde_N)-rho_N>=-eta_N with eta_N tending to zero, then q is nonnegative on the whole space. For a continuous constraint map B into R^r, one certified full-row-rank restriction B_N remains surjective on every larger nested domain. A uniform positive finite-section gap is not necessary: Q e_j=e_j/j is strictly positive, while lambda_min(Q restricted to span(e_1,...,e_N))=1/N tends to zero.",
+  "mathematical_argument": "Fix v in V_M. For every N>=M the certified bound gives q(v)>=-eta_N||v||^2; taking N to infinity gives q(v)>=0. Continuity and density extend this to the Hilbert-space closure. If B_N(V_N)=R^r, then B_M(V_M) contains that range for every M>=N. The diagonal model has q(v)=sum_j |v_j|^2/j>0 for nonzero v, but its Nth restriction has minimum eigenvalue 1/N, refuting necessity of uniform coercivity.",
+  "reproducible_computation": {
+    "theorem": "Let q be a continuous Hermitian form on a Hilbert space and let V_N be nested finite-dimensional subspaces with dense union. Let A_N be the exact restriction in orthonormal coordinates and let ||A_N-Atilde_N||<=rho_N. If lambda_min(Atilde_N)-rho_N>=-eta_N with eta_N tending to zero, then q is nonnegative on the whole space. For a continuous constraint map B into R^r, one certified full-row-rank restriction B_N remains surjective on every larger nested domain. A uniform positive finite-section gap is not necessary: Q e_j=e_j/j is strictly positive, while lambda_min(Q restricted to span(e_1,...,e_N))=1/N tends to zero.",
+    "proof": "Fix v in V_M. For every N>=M the certified bound gives q(v)>=-eta_N||v||^2; taking N to infinity gives q(v)>=0. Continuity and density extend this to the Hilbert-space closure. If B_N(V_N)=R^r, then B_M(V_M) contains that range for every M>=N. The diagonal model has q(v)=sum_j |v_j|^2/j>0 for nonzero v, but its Nth restriction has minimum eigenvalue 1/N, refuting necessity of uniform coercivity.",
+    "asymptotic_lower_defect_rows": [
+      {
+        "finite_section_dimension_N": 2,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "certified_lower_bound": {
+          "exact": "-1/2",
+          "decimal": -0.5
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 4,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_lower_bound": {
+          "exact": "-1/4",
+          "decimal": -0.25
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 8,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "certified_lower_bound": {
+          "exact": "-1/8",
+          "decimal": -0.125
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 16,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "certified_lower_bound": {
+          "exact": "-1/16",
+          "decimal": -0.0625
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 32,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "certified_lower_bound": {
+          "exact": "-1/32",
+          "decimal": -0.03125
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 64,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "certified_lower_bound": {
+          "exact": "-1/64",
+          "decimal": -0.015625
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 128,
+        "model_operator_diagonal": "q_j=1/j",
+        "exact_lambda_min": {
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "approximate_matrix": "A_N-(1/N)I",
+        "approximate_lambda_min": {
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "operator_error_radius": {
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "certified_lower_bound": {
+          "exact": "-1/128",
+          "decimal": -0.0078125
+        },
+        "lower_defect_eta_N": {
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "checks": {
+          "approximation_error_equals_radius": true,
+          "certified_lower_defect_is_eta_N": true,
+          "lower_defect_tends_toward_zero": true,
+          "exact_finite_section_is_positive": true,
+          "uniform_positive_gap_is_not_present": true
+        }
+      }
+    ],
+    "one_stage_constraint_rank_rows": [
+      {
+        "finite_section_dimension_N": 2,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 4,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 8,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 16,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 32,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 64,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 128,
+        "constraint_rank_r": 2,
+        "approximate_sigma_min": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "operator_error_radius": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "certified_rank_margin": {
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "checks": {
+          "one_stage_rank_margin_is_positive": true,
+          "nested_domain_preserves_surjectivity": true,
+          "constraint_rank_is_two": true
+        }
+      }
+    ],
+    "uniform_coercivity_no_go": "Finite-section positivity may converge to a zero spectral edge. Requiring one N-independent positive eigenvalue margin would prove coercivity, a strictly stronger property than Weil nonnegativity.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring a uniform positive finite-section eigenvalue gap as necessary for Weil nonnegativity",
+  "remaining_gap": "No actual pole-neutral Guinand-Weil finite-section family has a certified lower defect eta_N tending to zero.",
+  "candidate_theorem": "PoleNeutralWeilFiniteSectionLowerDefectConvergesToZero",
+  "claim_boundary": "No RH proof and no actual Weil-core positivity certificate; one abstract dense-core theorem and a uniform-coercivity no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T173-REJECTED",
+        "label": "UniformPositiveFiniteSectionGapIsNecessaryForWeilPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T173-CLOSED",
+        "label": "CofinalFiniteSectionPositivityAndUniformCoercivityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T173-OPEN",
+        "label": "PoleNeutralWeilFiniteSectionLowerDefectConvergesToZero",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T173-REJECTED",
+        "RH-T173-CLOSED"
+      ],
+      [
+        "RH-T173-CLOSED",
+        "RH-T173-OPEN"
+      ]
+    ]
+  }
+}
