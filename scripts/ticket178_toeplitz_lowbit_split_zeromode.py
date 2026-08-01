@@ -450,9 +450,13 @@ def goldbach_split_row(support: int) -> dict[str, object]:
         certificate = sobolev_pointwise_certificate(
             residual, low_derivative, low_energy
         )
-        score = max(
-            certificate["major_to_derivative_half"],
-            certificate["sobolev_cubic_ratio"],
+        score = (
+            max(
+                certificate["major_to_derivative_half"],
+                certificate["sobolev_cubic_ratio"],
+            )
+            if residual > 0.0
+            else -1.0
         )
         split_rows.append(
             {
@@ -462,7 +466,9 @@ def goldbach_split_row(support: int) -> dict[str, object]:
                 "residual_major_A_minus_B": residual,
                 "low_frequency_l2_energy": low_energy,
                 "low_frequency_derivative_bound": low_derivative,
-                "certificate_score": score,
+                "certificate_score": (
+                    score if math.isfinite(score) else "infinity"
+                ),
                 "frequency_split_certificate_passes": certificate[
                     "certificate_passes"
                 ],
@@ -474,7 +480,11 @@ def goldbach_split_row(support: int) -> dict[str, object]:
         key=lambda row: (
             row["frequency_split_certificate_passes"],
             row["residual_major_A_minus_B"] > 0,
-            row["certificate_score"],
+            (
+                math.inf
+                if row["certificate_score"] == "infinity"
+                else float(row["certificate_score"])
+            ),
         ),
     )
     return {

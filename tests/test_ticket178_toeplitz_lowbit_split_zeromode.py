@@ -115,6 +115,8 @@ class Ticket178ToeplitzLowBitSplitZeroModeTests(unittest.TestCase):
         )
         self.assertIn("T", payload["generated_at"])
         self.assertIn("+09:00", payload["generated_at"])
+        self.assertNotIn("Infinity", path.read_text(encoding="utf-8"))
+        self.assertNotIn("NaN", path.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":
