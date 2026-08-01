@@ -35,10 +35,10 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260802-ticket181")) {
+    if (!source.includes("open-problems.js?v=20260802-ticket181b")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-ticket181")) {
+    if (!source.includes("styles.css?v=20260802-ticket181b")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
