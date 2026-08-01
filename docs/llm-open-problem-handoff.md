@@ -62,7 +62,54 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-178
+## Latest Continuation After TICKET-179
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `PoleNeutralWeilWhitenedTailHasBoundedRealFourierSymbolBelowCoreMargin`.
+   TICKET-179 proves a bounded signed symbol is sufficient for every Toeplitz
+   section and refutes absolute summability as necessary using a square-wave
+   symbol. The missing premise is the corresponding arithmetic symbol for the
+   actual whitened Weil tail below an independently certified core margin.
+2. Collatz:
+   `EveryAperiodicNonDescendingOrbitAccumulatesAdaptiveValuationLayerSurplusBeyondExactCorrection`.
+   Adaptive valuation layers exactly recover a completed finite descent. Every
+   fixed layer depth misses an infinite cylinder family, so the next theorem
+   must be orbit-adaptive. Nontrivial-cycle exclusion remains separate.
+3. Goldbach:
+   `ParityAliasedMinorHasUniformDiscreteEvenTargetDeficitBelowMajorMain`.
+   Continuous interpolant positivity is stronger than the needed target-grid
+   positivity. The next theorem must control every actual even target after
+   exact parity and cyclic aliasing, not every point of an arbitrary circle
+   interpolation.
+4. Twin Prime:
+   `PrimePairHaarCenteredEnergySaturatesDiagonalAtPowerSavingRate`.
+   Signed zero-mode saving is exactly centered-energy saturation. Pairwise
+   incoherence is insufficient: orthogonal components have coherence zero but
+   zero-mode ratio one.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket179-symbol-adaptive-discrete-centering.json
+data/open-problem/riemann/rh-ticket-179-bounded-symbol.json
+data/open-problem/collatz/co-ticket-179-adaptive-layers.json
+data/open-problem/goldbach/gb-ticket-179-discrete-targets.json
+data/open-problem/twin-prime/tp-ticket-179-centering-energy.json
+```
+
+한국어 인계: TICKET-179도 네 난제를 해결하지 않았다. 리만은 실제 Weil
+꼬리의 유계 부호 기호, 콜라츠는 모든 비주기 비하강 궤도의 적응형 valuation
+층 잉여와 별도 주기 배제, 골드바흐는 모든 큰 짝수 표적에서의 이산 minor
+deficit, 쌍둥이 소수는 실제 prime-pair Haar 블록의 중심화 에너지 포화가
+필요하다. 절대합, 고정 비트 깊이, 연속 보간, 쌍별 coherence로 되돌아가지
+말아야 한다.
+
+English report: [TICKET-179](symbol-adaptive-discrete-centering.md).
+Korean report: [TICKET-179 한국어](symbol-adaptive-discrete-centering.ko.md).
+
+## Preserved Continuation After TICKET-178
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

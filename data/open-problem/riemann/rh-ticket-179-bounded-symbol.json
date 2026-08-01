@@ -1,0 +1,147 @@
+{
+  "schema": "primeproject.ticket179-symbol-adaptive-discrete-centering.v1",
+  "generated_at": "2026-08-02T04:30:00+09:00",
+  "ticket_id": "RH-TICKET-179",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "BoundedToeplitzSymbolCertificateAndAbsoluteSummabilityNoGo",
+  "declared_proposition": "Let f be a real essentially bounded function on the unit circle and let a_r be its Fourier coefficients. Every finite Hermitian Toeplitz section T_N=(a_(i-j)) satisfies ||T_N||_op<=||f||_infinity. Therefore a whitened core margin delta survives whenever ||f||_infinity<delta. Absolute summability of the coefficients is not necessary.",
+  "mathematical_argument": "For x in C^N and p_x(z)=sum_j x_j z^j, the Toeplitz quadratic form is x* T_N x=integral f(theta)|p_x(exp(i theta))|^2 dtheta/(2 pi). Its absolute value is at most ||f||_infinity||x||_2^2. For f(theta)=C sign(cos theta), a_(plus/minus(2k+1))=2C(-1)^k/[pi(2k+1)]. The absolute coefficient sum diverges, while every finite section remains bounded by C.",
+  "reproducible_computation": {
+    "theorem": "Let f be a real essentially bounded function on the unit circle and let a_r be its Fourier coefficients. Every finite Hermitian Toeplitz section T_N=(a_(i-j)) satisfies ||T_N||_op<=||f||_infinity. Therefore a whitened core margin delta survives whenever ||f||_infinity<delta. Absolute summability of the coefficients is not necessary.",
+    "proof": "For x in C^N and p_x(z)=sum_j x_j z^j, the Toeplitz quadratic form is x* T_N x=integral f(theta)|p_x(exp(i theta))|^2 dtheta/(2 pi). Its absolute value is at most ||f||_infinity||x||_2^2. For f(theta)=C sign(cos theta), a_(plus/minus(2k+1))=2C(-1)^k/[pi(2k+1)]. The absolute coefficient sum diverges, while every finite section remains bounded by C.",
+    "square_wave_counterfamily": {
+      "symbol": "f(theta)=C sign(cos theta)",
+      "amplitude_C": 0.2,
+      "core_margin_delta": 0.25,
+      "absolute_coefficients_are_summable": false,
+      "finite_sections": [
+        {
+          "dimension_N": 16,
+          "bounded_symbol_norm": 0.2,
+          "core_margin_delta": 0.25,
+          "fejer_rayleigh_at_zero": 0.1920727573400905,
+          "absolute_row_sum": 0.4268383997588355,
+          "absolute_row_sum_exceeds_symbol_norm": true,
+          "absolute_row_sum_exceeds_core_margin": true,
+          "checks": {
+            "bounded_symbol_is_below_core_margin": true,
+            "fejer_rayleigh_respects_symbol_bound": true,
+            "absolute_row_sum_is_monotone": true
+          }
+        },
+        {
+          "dimension_N": 32,
+          "bounded_symbol_norm": 0.2,
+          "core_margin_delta": 0.25,
+          "fejer_rayleigh_at_zero": 0.19602499328988307,
+          "absolute_row_sum": 0.5148472497197059,
+          "absolute_row_sum_exceeds_symbol_norm": true,
+          "absolute_row_sum_exceeds_core_margin": true,
+          "checks": {
+            "bounded_symbol_is_below_core_margin": true,
+            "fejer_rayleigh_respects_symbol_bound": true,
+            "absolute_row_sum_is_monotone": true
+          }
+        },
+        {
+          "dimension_N": 64,
+          "bounded_symbol_norm": 0.2,
+          "core_margin_delta": 0.25,
+          "fejer_rayleigh_at_zero": 0.1980110483225502,
+          "absolute_row_sum": 0.6030395305683033,
+          "absolute_row_sum_exceeds_symbol_norm": true,
+          "absolute_row_sum_exceeds_core_margin": true,
+          "checks": {
+            "bounded_symbol_is_below_core_margin": true,
+            "fejer_rayleigh_respects_symbol_bound": true,
+            "absolute_row_sum_is_monotone": true
+          }
+        },
+        {
+          "dimension_N": 128,
+          "bounded_symbol_norm": 0.2,
+          "core_margin_delta": 0.25,
+          "fejer_rayleigh_at_zero": 0.199005342299954,
+          "absolute_row_sum": 0.6912782414067786,
+          "absolute_row_sum_exceeds_symbol_norm": true,
+          "absolute_row_sum_exceeds_core_margin": true,
+          "checks": {
+            "bounded_symbol_is_below_core_margin": true,
+            "fejer_rayleigh_respects_symbol_bound": true,
+            "absolute_row_sum_is_monotone": true
+          }
+        },
+        {
+          "dimension_N": 256,
+          "bounded_symbol_norm": 0.2,
+          "core_margin_delta": 0.25,
+          "fejer_rayleigh_at_zero": 0.19950264839135798,
+          "absolute_row_sum": 0.7795285966787212,
+          "absolute_row_sum_exceeds_symbol_norm": true,
+          "absolute_row_sum_exceeds_core_margin": true,
+          "checks": {
+            "bounded_symbol_is_below_core_margin": true,
+            "fejer_rayleigh_respects_symbol_bound": true,
+            "absolute_row_sum_is_monotone": true
+          }
+        },
+        {
+          "dimension_N": 512,
+          "bounded_symbol_norm": 0.2,
+          "core_margin_delta": 0.25,
+          "fejer_rayleigh_at_zero": 0.1997513213500382,
+          "absolute_row_sum": 0.8677818653869713,
+          "absolute_row_sum_exceeds_symbol_norm": true,
+          "absolute_row_sum_exceeds_core_margin": true,
+          "checks": {
+            "bounded_symbol_is_below_core_margin": true,
+            "fejer_rayleigh_respects_symbol_bound": true,
+            "absolute_row_sum_is_monotone": true
+          }
+        }
+      ]
+    },
+    "aggregate": {
+      "dimension_count": 6,
+      "largest_dimension": 512,
+      "bounded_symbol_certificate_passes": true,
+      "absolute_row_sum_crosses_margin": true
+    },
+    "no_go_scope": "TICKET-178's summable absolute profile is sufficient but not necessary. A bounded signed Fourier symbol can control every finite section even when absolute row sums diverge. This does not construct the actual pole-neutral Weil symbol or prove its norm lies below the core margin.",
+    "failure_count": 0
+  },
+  "discarded_route": "absolute summability of the signed Weil tail as a necessary condition for uniform Toeplitz control",
+  "remaining_gap": "No arithmetic construction identifies the actual pole-neutral whitened Weil tail with a bounded real Fourier symbol whose essential supremum is below the core margin.",
+  "candidate_theorem": "PoleNeutralWeilWhitenedTailHasBoundedRealFourierSymbolBelowCoreMargin",
+  "claim_boundary": "No RH proof or zero exclusion; one exact phase-sensitive Toeplitz certificate and one nonsummable bounded-symbol counterfamily only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T179-REJECTED",
+        "label": "AbsoluteSummabilityIsNecessaryForUniformWeilToeplitzControl",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T179-CLOSED",
+        "label": "BoundedToeplitzSymbolCertificateAndAbsoluteSummabilityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T179-OPEN",
+        "label": "PoleNeutralWeilWhitenedTailHasBoundedRealFourierSymbolBelowCoreMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T179-REJECTED",
+        "RH-T179-CLOSED"
+      ],
+      [
+        "RH-T179-CLOSED",
+        "RH-T179-OPEN"
+      ]
+    ]
+  }
+}

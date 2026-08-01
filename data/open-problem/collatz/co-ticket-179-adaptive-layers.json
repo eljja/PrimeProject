@@ -1,0 +1,203 @@
+{
+  "schema": "primeproject.ticket179-symbol-adaptive-discrete-centering.v1",
+  "generated_at": "2026-08-02T04:30:00+09:00",
+  "ticket_id": "CO-TICKET-179",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "AdaptiveValuationLayerCompletenessAndFixedDepthIncompleteness",
+  "declared_proposition": "For an accelerated odd Collatz prefix with valuations v_i, define A_k(h)=#{i<h:v_i>=k}. Then sum_i v_i=sum_(k>=1) A_k(h), and n_h<n_0 exactly when this adaptive layer sum exceeds h log2(3)+sum_i log2(1+1/(3n_i)). No fixed layer depth K gives a complete first-descent certificate: for every K there is a finite natural cylinder with valuations 1,...,1,M whose first descent occurs at its terminal step but whose K-truncated layer sum stays below the exact boundary.",
+  "mathematical_argument": "The layer identity counts each valuation v_i once at every level k<=v_i. Iterating 3n_i+1=2^(v_i)n_(i+1) gives the exact logarithmic boundary. For fixed K choose h with h-1+K<=h log2(3), then choose M with h-1+M>h log2(3). Every positive valuation word determines one odd residue class modulo 2^(sum v_i+1). Adding a sufficiently large multiple of that modulus preserves the word; the first h-1 valuation-one steps strictly increase, while 2^(sum v_i)>3^h makes the terminal state smaller for large representatives.",
+  "reproducible_computation": {
+    "theorem": "For an accelerated odd Collatz prefix with valuations v_i, define A_k(h)=#{i<h:v_i>=k}. Then sum_i v_i=sum_(k>=1) A_k(h), and n_h<n_0 exactly when this adaptive layer sum exceeds h log2(3)+sum_i log2(1+1/(3n_i)). No fixed layer depth K gives a complete first-descent certificate: for every K there is a finite natural cylinder with valuations 1,...,1,M whose first descent occurs at its terminal step but whose K-truncated layer sum stays below the exact boundary.",
+    "proof": "The layer identity counts each valuation v_i once at every level k<=v_i. Iterating 3n_i+1=2^(v_i)n_(i+1) gives the exact logarithmic boundary. For fixed K choose h with h-1+K<=h log2(3), then choose M with h-1+M>h log2(3). Every positive valuation word determines one odd residue class modulo 2^(sum v_i+1). Adding a sufficiently large multiple of that modulus preserves the word; the first h-1 valuation-one steps strictly increase, while 2^(sum v_i)>3^h makes the terminal state smaller for large representatives.",
+    "fixed_depth_counterfamilies": [
+      {
+        "fixed_depth_K": 2,
+        "horizon_h": 3,
+        "terminal_valuation_M": 3,
+        "valuation_word": [
+          1,
+          1,
+          3
+        ],
+        "cylinder_representative": 55,
+        "cylinder_modulus": 64,
+        "selected_multiplier_q": 0,
+        "selected_start": 55,
+        "terminal_state": 47,
+        "exact_valuation_sum": 5,
+        "adaptive_layer_sum": 5,
+        "fixed_depth_layer_sum": 4,
+        "exact_log_boundary": 4.773229138152978,
+        "checks": {
+          "valuation_word_is_realized": true,
+          "adaptive_layer_cake_is_exact": true,
+          "prefix_before_terminal_step_is_non_descending": true,
+          "terminal_step_is_first_descent": true,
+          "exact_boundary_certifies_descent": true,
+          "fixed_depth_boundary_does_not_certify": true
+        }
+      },
+      {
+        "fixed_depth_K": 4,
+        "horizon_h": 7,
+        "terminal_valuation_M": 6,
+        "valuation_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          6
+        ],
+        "cylinder_representative": 383,
+        "cylinder_modulus": 8192,
+        "selected_multiplier_q": 0,
+        "selected_start": 383,
+        "terminal_state": 205,
+        "exact_valuation_sum": 12,
+        "adaptive_layer_sum": 12,
+        "fixed_depth_layer_sum": 10,
+        "exact_log_boundary": 11.098279517580488,
+        "checks": {
+          "valuation_word_is_realized": true,
+          "adaptive_layer_cake_is_exact": true,
+          "prefix_before_terminal_step_is_non_descending": true,
+          "terminal_step_is_first_descent": true,
+          "exact_boundary_certifies_descent": true,
+          "fixed_depth_boundary_does_not_certify": true
+        }
+      },
+      {
+        "fixed_depth_K": 8,
+        "horizon_h": 13,
+        "terminal_valuation_M": 9,
+        "valuation_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          9
+        ],
+        "cylinder_representative": 2842623,
+        "cylinder_modulus": 4194304,
+        "selected_multiplier_q": 0,
+        "selected_start": 2842623,
+        "terminal_state": 2161055,
+        "exact_valuation_sum": 21,
+        "adaptive_layer_sum": 21,
+        "fixed_depth_layer_sum": 20,
+        "exact_log_boundary": 20.60451301428964,
+        "checks": {
+          "valuation_word_is_realized": true,
+          "adaptive_layer_cake_is_exact": true,
+          "prefix_before_terminal_step_is_non_descending": true,
+          "terminal_step_is_first_descent": true,
+          "exact_boundary_certifies_descent": true,
+          "fixed_depth_boundary_does_not_certify": true
+        }
+      },
+      {
+        "fixed_depth_K": 16,
+        "horizon_h": 27,
+        "terminal_valuation_M": 17,
+        "valuation_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          17
+        ],
+        "cylinder_representative": 3760646520831,
+        "cylinder_modulus": 17592186044416,
+        "selected_multiplier_q": 0,
+        "selected_start": 3760646520831,
+        "terminal_state": 3260217528257,
+        "exact_valuation_sum": 43,
+        "adaptive_layer_sum": 43,
+        "fixed_depth_layer_sum": 42,
+        "exact_log_boundary": 42.7939875194716,
+        "checks": {
+          "valuation_word_is_realized": true,
+          "adaptive_layer_cake_is_exact": true,
+          "prefix_before_terminal_step_is_non_descending": true,
+          "terminal_step_is_first_descent": true,
+          "exact_boundary_certifies_descent": true,
+          "fixed_depth_boundary_does_not_certify": true
+        }
+      }
+    ],
+    "aggregate": {
+      "tested_fixed_depth_count": 4,
+      "largest_fixed_depth": 16,
+      "all_adaptive_certificates_pass": true,
+      "all_fixed_depth_certificates_fail": true
+    },
+    "no_go_scope": "This proves that every fixed low-bit depth loses decisive rare high valuations. Adaptive depth is complete for an already finite prefix, but it does not force an unknown infinite orbit to cross the boundary and does not exclude a nontrivial cycle.",
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed low-bit or fixed valuation-layer depth as a complete first-descent certificate",
+  "remaining_gap": "Adaptive layers exactly recognize a completed finite descent prefix but no theorem forces every natural orbit to produce such a prefix; nontrivial cycles remain unexcluded.",
+  "candidate_theorem": "EveryAperiodicNonDescendingOrbitAccumulatesAdaptiveValuationLayerSurplusBeyondExactCorrection",
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; an exact finite-prefix equivalence and an infinite fixed-depth no-go family only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T179-REJECTED",
+        "label": "FixedValuationLayerDepthCompletelyDetectsEveryFirstDescent",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T179-CLOSED",
+        "label": "AdaptiveValuationLayerCompletenessAndFixedDepthIncompleteness",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T179-OPEN",
+        "label": "EveryAperiodicNonDescendingOrbitAccumulatesAdaptiveValuationLayerSurplusBeyondExactCorrection",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T179-REJECTED",
+        "CO-T179-CLOSED"
+      ],
+      [
+        "CO-T179-CLOSED",
+        "CO-T179-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "schema": "primeproject.ticket179-symbol-adaptive-discrete-centering.v1",
+  "generated_at": "2026-08-02T04:30:00+09:00",
+  "ticket_id": "GB-TICKET-179",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "DiscreteTargetPositivityCertificateAndContinuousInterpolationNoGo",
+  "declared_proposition": "For a cyclic target grid G_M, positivity of a major-plus-minor Fourier model is needed only at the target residues: after aliasing coefficients modulo M, inverse DFT evaluation gives an exact finite certificate. Positivity of a chosen continuous trigonometric interpolant is sufficient but not necessary for grid positivity.",
+  "mathematical_argument": "Characters with frequencies congruent modulo M agree at every point of G_M, so coefficient aliasing followed by the inverse DFT is lossless. For even M, F_M(x)=A_M+cos(2 pi x+pi/M), where A_M=(1+cos(pi/M))/2, has grid minimum (1-cos(pi/M))/2>0 but continuous minimum -(1-cos(pi/M))/2<0. Hence a continuous Sobolev positivity certificate imposes a strictly stronger condition than the discrete Goldbach target requires.",
+  "reproducible_computation": {
+    "theorem": "For a cyclic target grid G_M, positivity of a major-plus-minor Fourier model is needed only at the target residues: after aliasing coefficients modulo M, inverse DFT evaluation gives an exact finite certificate. Positivity of a chosen continuous trigonometric interpolant is sufficient but not necessary for grid positivity.",
+    "proof": "Characters with frequencies congruent modulo M agree at every point of G_M, so coefficient aliasing followed by the inverse DFT is lossless. For even M, F_M(x)=A_M+cos(2 pi x+pi/M), where A_M=(1+cos(pi/M))/2, has grid minimum (1-cos(pi/M))/2>0 but continuous minimum -(1-cos(pi/M))/2<0. Hence a continuous Sobolev positivity certificate imposes a strictly stronger condition than the discrete Goldbach target requires.",
+    "continuous_interpolation_counterfamilies": [
+      {
+        "cyclic_grid_size_M": 8,
+        "phase_shift_pi_over_M": 0.39269908169872414,
+        "offset_A_M": 0.9619397662556434,
+        "minimum_grid_value": 0.03806023374435652,
+        "minimum_continuous_value": -0.03806023374435663,
+        "checks": {
+          "all_grid_targets_are_positive": true,
+          "continuous_interpolant_is_negative": true,
+          "analytic_grid_minimum_matches": true,
+          "margins_have_equal_magnitude": true
+        }
+      },
+      {
+        "cyclic_grid_size_M": 16,
+        "phase_shift_pi_over_M": 0.19634954084936207,
+        "offset_A_M": 0.9903926402016152,
+        "minimum_grid_value": 0.009607359798384785,
+        "minimum_continuous_value": -0.009607359798384785,
+        "checks": {
+          "all_grid_targets_are_positive": true,
+          "continuous_interpolant_is_negative": true,
+          "analytic_grid_minimum_matches": true,
+          "margins_have_equal_magnitude": true
+        }
+      },
+      {
+        "cyclic_grid_size_M": 32,
+        "phase_shift_pi_over_M": 0.09817477042468103,
+        "offset_A_M": 0.9975923633360985,
+        "minimum_grid_value": 0.0024076366639015356,
+        "minimum_continuous_value": -0.0024076366639015356,
+        "checks": {
+          "all_grid_targets_are_positive": true,
+          "continuous_interpolant_is_negative": true,
+          "analytic_grid_minimum_matches": true,
+          "margins_have_equal_magnitude": true
+        }
+      },
+      {
+        "cyclic_grid_size_M": 64,
+        "phase_shift_pi_over_M": 0.04908738521234052,
+        "offset_A_M": 0.9993977281025862,
+        "minimum_grid_value": 0.0006022718974137975,
+        "minimum_continuous_value": -0.0006022718974137975,
+        "checks": {
+          "all_grid_targets_are_positive": true,
+          "continuous_interpolant_is_negative": true,
+          "analytic_grid_minimum_matches": true,
+          "margins_have_equal_magnitude": true
+        }
+      }
+    ],
+    "finite_exact_goldbach_grid_rows": [
+      {
+        "even_target_limit": 64,
+        "even_targets_checked": 31,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 12,
+        "first_target_witness": [
+          2,
+          2
+        ],
+        "all_discrete_targets_positive": true
+      },
+      {
+        "even_target_limit": 128,
+        "even_targets_checked": 63,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 24,
+        "first_target_witness": [
+          2,
+          2
+        ],
+        "all_discrete_targets_positive": true
+      },
+      {
+        "even_target_limit": 256,
+        "even_targets_checked": 127,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 38,
+        "first_target_witness": [
+          2,
+          2
+        ],
+        "all_discrete_targets_positive": true
+      },
+      {
+        "even_target_limit": 512,
+        "even_targets_checked": 255,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 64,
+        "first_target_witness": [
+          2,
+          2
+        ],
+        "all_discrete_targets_positive": true
+      },
+      {
+        "even_target_limit": 1024,
+        "even_targets_checked": 511,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 104,
+        "first_target_witness": [
+          2,
+          2
+        ],
+        "all_discrete_targets_positive": true
+      }
+    ],
+    "aggregate": {
+      "counterfamily_size_count": 4,
+      "finite_support_count": 5,
+      "largest_finite_even_target": 1024,
+      "all_finite_discrete_counts_positive": true
+    },
+    "no_go_scope": "Failure of continuous interpolant positivity cannot refute discrete Goldbach positivity. The exact finite counts through 1024 are only bounded verification; no target-uniform major/minor deficit estimate for every sufficiently large even integer is obtained.",
+    "failure_count": 0
+  },
+  "discarded_route": "continuous-circle positivity of an interpolant as a necessary condition for discrete Goldbach targets",
+  "remaining_gap": "No arithmetic estimate bounds the parity-aliased minor contribution below the major main term at every sufficiently large even target.",
+  "candidate_theorem": "ParityAliasedMinorHasUniformDiscreteEvenTargetDeficitBelowMajorMain",
+  "claim_boundary": "No Goldbach proof or counterexample; an exact target-grid certificate, an infinite interpolation no-go family, and finite counts through 1024 only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T179-REJECTED",
+        "label": "ContinuousInterpolantPositivityIsNecessaryForDiscreteGoldbachTargets",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T179-CLOSED",
+        "label": "DiscreteTargetPositivityCertificateAndContinuousInterpolationNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T179-OPEN",
+        "label": "ParityAliasedMinorHasUniformDiscreteEvenTargetDeficitBelowMajorMain",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T179-REJECTED",
+        "GB-T179-CLOSED"
+      ],
+      [
+        "GB-T179-CLOSED",
+        "GB-T179-OPEN"
+      ]
+    ]
+  }
+}

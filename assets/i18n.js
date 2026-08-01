@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four quantified proof thresholds",
-      ko: "네 개의 미해결 문제, 정량화된 네 개의 증명 임계값",
+      en: "Four open problems, four exact representation boundaries",
+      ko: "네 개의 미해결 문제, 정확한 네 개의 표현 경계",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-178 isolates four exact thresholds and rejects four non-uniform proof routes.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-178은 네 개의 정확한 임계값을 분리하고 균일성이 없는 네 증명 경로를 폐기했습니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-179 proves four information-preserving contracts and rejects four inadequate representations.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-179은 정보를 보존하는 네 조건을 증명하고 부적절한 네 표현 경로를 폐기했습니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

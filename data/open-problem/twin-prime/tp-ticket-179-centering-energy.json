@@ -1,0 +1,201 @@
+{
+  "schema": "primeproject.ticket179-symbol-adaptive-discrete-centering.v1",
+  "generated_at": "2026-08-02T04:30:00+09:00",
+  "ticket_id": "TP-TICKET-179",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "CrossGramCenteringIdentityAndPairwiseIncoherenceNoGo",
+  "declared_proposition": "For Hilbert-space components T_1,...,T_m, let D=sum_j||T_j||^2, Z=||sum_j T_j||^2, bar(T)=m^(-1)sum_j T_j, and V=sum_j||T_j-bar(T)||^2. Then V=D-Z/m. Consequently Z<=eta D is exactly equivalent to V>=(1-eta/m)D. Pairwise incoherence alone cannot imply a zero-mode power saving.",
+  "mathematical_argument": "Expand the centered squares and use m||bar(T)||^2=Z/m. For an orthonormal family the off-diagonal coherence is zero, but Z=D, so no estimate Z<=eta D with eta<1 follows. Conversely scalar roots of unity have coherence one and Z=0. The required arithmetic statement is therefore saturation of centered energy, not generic pairwise decorrelation.",
+  "reproducible_computation": {
+    "theorem": "For Hilbert-space components T_1,...,T_m, let D=sum_j||T_j||^2, Z=||sum_j T_j||^2, bar(T)=m^(-1)sum_j T_j, and V=sum_j||T_j-bar(T)||^2. Then V=D-Z/m. Consequently Z<=eta D is exactly equivalent to V>=(1-eta/m)D. Pairwise incoherence alone cannot imply a zero-mode power saving.",
+    "proof": "Expand the centered squares and use m||bar(T)||^2=Z/m. For an orthonormal family the off-diagonal coherence is zero, but Z=D, so no estimate Z<=eta D with eta<1 follows. Conversely scalar roots of unity have coherence one and Z=0. The required arithmetic statement is therefore saturation of centered energy, not generic pairwise decorrelation.",
+    "centering_counterfamilies": [
+      {
+        "component_count_m": 4,
+        "families": {
+          "aligned": {
+            "diagonal_energy_D": 4.0,
+            "signed_zero_mode_Z": 16.0,
+            "centered_energy_V": 0.0,
+            "zero_mode_to_diagonal_ratio": 4.0,
+            "centered_to_diagonal_ratio": 0.0,
+            "maximum_pairwise_coherence": 1.0
+          },
+          "roots_of_unity": {
+            "diagonal_energy_D": 4.0,
+            "signed_zero_mode_Z": 8.304840168620503e-32,
+            "centered_energy_V": 4.0,
+            "zero_mode_to_diagonal_ratio": 2.0762100421551257e-32,
+            "centered_to_diagonal_ratio": 1.0,
+            "maximum_pairwise_coherence": 1.0
+          },
+          "orthonormal": {
+            "diagonal_energy_D": 4.0,
+            "signed_zero_mode_Z": 4.0,
+            "centered_energy_V": 3.0,
+            "zero_mode_to_diagonal_ratio": 1.0,
+            "centered_to_diagonal_ratio": 0.75,
+            "maximum_pairwise_coherence": 0.0
+          }
+        },
+        "maximum_centering_identity_error": 0.0,
+        "checks": {
+          "centering_identity_holds": true,
+          "orthonormal_family_has_zero_coherence": true,
+          "orthonormal_family_has_no_zero_mode_power_saving": true,
+          "coherent_root_family_cancels_zero_mode": true
+        }
+      },
+      {
+        "component_count_m": 8,
+        "families": {
+          "aligned": {
+            "diagonal_energy_D": 8.0,
+            "signed_zero_mode_Z": 64.0,
+            "centered_energy_V": 0.0,
+            "zero_mode_to_diagonal_ratio": 8.0,
+            "centered_to_diagonal_ratio": 0.0,
+            "maximum_pairwise_coherence": 1.0
+          },
+          "roots_of_unity": {
+            "diagonal_energy_D": 8.0,
+            "signed_zero_mode_Z": 3.5745259767827097e-31,
+            "centered_energy_V": 8.0,
+            "zero_mode_to_diagonal_ratio": 4.468157470978387e-32,
+            "centered_to_diagonal_ratio": 1.0,
+            "maximum_pairwise_coherence": 1.0
+          },
+          "orthonormal": {
+            "diagonal_energy_D": 8.0,
+            "signed_zero_mode_Z": 8.0,
+            "centered_energy_V": 7.0,
+            "zero_mode_to_diagonal_ratio": 1.0,
+            "centered_to_diagonal_ratio": 0.875,
+            "maximum_pairwise_coherence": 0.0
+          }
+        },
+        "maximum_centering_identity_error": 0.0,
+        "checks": {
+          "centering_identity_holds": true,
+          "orthonormal_family_has_zero_coherence": true,
+          "orthonormal_family_has_no_zero_mode_power_saving": true,
+          "coherent_root_family_cancels_zero_mode": true
+        }
+      },
+      {
+        "component_count_m": 16,
+        "families": {
+          "aligned": {
+            "diagonal_energy_D": 16.0,
+            "signed_zero_mode_Z": 256.0,
+            "centered_energy_V": 0.0,
+            "zero_mode_to_diagonal_ratio": 16.0,
+            "centered_to_diagonal_ratio": 0.0,
+            "maximum_pairwise_coherence": 1.0
+          },
+          "roots_of_unity": {
+            "diagonal_energy_D": 16.0,
+            "signed_zero_mode_Z": 3.2047474274603605e-31,
+            "centered_energy_V": 16.0,
+            "zero_mode_to_diagonal_ratio": 2.0029671421627253e-32,
+            "centered_to_diagonal_ratio": 1.0,
+            "maximum_pairwise_coherence": 1.0000000000000002
+          },
+          "orthonormal": {
+            "diagonal_energy_D": 16.0,
+            "signed_zero_mode_Z": 16.0,
+            "centered_energy_V": 15.0,
+            "zero_mode_to_diagonal_ratio": 1.0,
+            "centered_to_diagonal_ratio": 0.9375,
+            "maximum_pairwise_coherence": 0.0
+          }
+        },
+        "maximum_centering_identity_error": 0.0,
+        "checks": {
+          "centering_identity_holds": true,
+          "orthonormal_family_has_zero_coherence": true,
+          "orthonormal_family_has_no_zero_mode_power_saving": true,
+          "coherent_root_family_cancels_zero_mode": true
+        }
+      },
+      {
+        "component_count_m": 32,
+        "families": {
+          "aligned": {
+            "diagonal_energy_D": 32.0,
+            "signed_zero_mode_Z": 1024.0,
+            "centered_energy_V": 0.0,
+            "zero_mode_to_diagonal_ratio": 32.0,
+            "centered_to_diagonal_ratio": 0.0,
+            "maximum_pairwise_coherence": 1.0
+          },
+          "roots_of_unity": {
+            "diagonal_energy_D": 32.0,
+            "signed_zero_mode_Z": 1.0490155221088396e-29,
+            "centered_energy_V": 32.0,
+            "zero_mode_to_diagonal_ratio": 3.278173506590124e-31,
+            "centered_to_diagonal_ratio": 1.0,
+            "maximum_pairwise_coherence": 1.0000000000000002
+          },
+          "orthonormal": {
+            "diagonal_energy_D": 32.0,
+            "signed_zero_mode_Z": 32.0,
+            "centered_energy_V": 31.0,
+            "zero_mode_to_diagonal_ratio": 1.0,
+            "centered_to_diagonal_ratio": 0.96875,
+            "maximum_pairwise_coherence": 0.0
+          }
+        },
+        "maximum_centering_identity_error": 0.0,
+        "checks": {
+          "centering_identity_holds": true,
+          "orthonormal_family_has_zero_coherence": true,
+          "orthonormal_family_has_no_zero_mode_power_saving": true,
+          "coherent_root_family_cancels_zero_mode": true
+        }
+      }
+    ],
+    "aggregate": {
+      "component_count_cases": 4,
+      "largest_component_count": 32,
+      "zero_coherence_implies_power_saving": false,
+      "centering_identity_is_exact": true
+    },
+    "no_go_scope": "This is an exact reformulation and an incoherence no-go theorem. It does not prove that actual prime-pair Haar blocks saturate centered energy at a power-saving rate, nor does it supply the positive sieve main term needed for infinitely many twin primes.",
+    "failure_count": 0
+  },
+  "discarded_route": "small pairwise coherence as a sufficient substitute for signed all-plus zero-mode cancellation",
+  "remaining_gap": "No arithmetic theorem proves centered-energy saturation for actual prime-pair Haar blocks with a power-saving zero-mode defect.",
+  "candidate_theorem": "PrimePairHaarCenteredEnergySaturatesDiagonalAtPowerSavingRate",
+  "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact centering equivalence and two phase/coherence counterfamilies only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T179-REJECTED",
+        "label": "PairwiseIncoherenceForcesPrimePairAllPlusZeroModePowerSaving",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T179-CLOSED",
+        "label": "CrossGramCenteringIdentityAndPairwiseIncoherenceNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T179-OPEN",
+        "label": "PrimePairHaarCenteredEnergySaturatesDiagonalAtPowerSavingRate",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T179-REJECTED",
+        "TP-T179-CLOSED"
+      ],
+      [
+        "TP-T179-CLOSED",
+        "TP-T179-OPEN"
+      ]
+    ]
+  }
+}
