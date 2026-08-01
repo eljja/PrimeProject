@@ -1,0 +1,186 @@
+{
+  "schema": "primeproject.ticket171-relative-ghost-phase-haar.v1",
+  "generated_at": "2026-08-04T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-171",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo",
+  "declared_proposition": "The exact non-descending child tree left by TICKET-170 is not well founded. For w_m=1^m, C_m=3^m-2^m, the least positive realizer is n_m=2^(m+1)-1, and its endpoint is u_m=2*3^m-1>n_m. Appending valuation one gives w_(m+1), so these nodes form an infinite compatible ray. Their residues converge to -1 in Z_2, and no positive natural integer realizes every prefix. Thus the ray is a 2-adic ghost obstruction, not a divergent natural Collatz orbit.",
+  "mathematical_argument": "The affine correction follows by induction from C'=3C+2^m. Substitution of n_m into (3^m n+C_m)/2^m gives 2*3^m-1, which exceeds n_m because 3^m>2^m. Also n_(m+1) is congruent to n_m modulo 2^(m+1), so the ray is compatible. If a fixed positive n realized every prefix, then n+1 would be divisible by 2^(m+1) for every m, impossible once 2^(m+1)>n+1.",
+  "reproducible_computation": {
+    "theorem": "The exact non-descending child tree left by TICKET-170 is not well founded. For w_m=1^m, C_m=3^m-2^m, the least positive realizer is n_m=2^(m+1)-1, and its endpoint is u_m=2*3^m-1>n_m. Appending valuation one gives w_(m+1), so these nodes form an infinite compatible ray. Their residues converge to -1 in Z_2, and no positive natural integer realizes every prefix. Thus the ray is a 2-adic ghost obstruction, not a divergent natural Collatz orbit.",
+    "proof": "The affine correction follows by induction from C'=3C+2^m. Substitution of n_m into (3^m n+C_m)/2^m gives 2*3^m-1, which exceeds n_m because 3^m>2^m. Also n_(m+1) is congruent to n_m modulo 2^(m+1), so the ray is compatible. If a fixed positive n realized every prefix, then n+1 would be divisible by 2^(m+1) for every m, impossible once 2^(m+1)>n+1.",
+    "exact_all_one_ghost_rows": [
+      {
+        "all_one_prefix_length_m": 1,
+        "affine_correction_C": 1,
+        "least_positive_realizer_n_m": 3,
+        "odd_endpoint_after_m_steps_u_m": 5,
+        "exact_growth_u_m_minus_n_m": 2,
+        "next_child_least_realizer_n_m_plus_1": 7,
+        "analytic_tail_threshold_A": 3,
+        "compatible_residue": "-1 mod 2^2",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      },
+      {
+        "all_one_prefix_length_m": 2,
+        "affine_correction_C": 5,
+        "least_positive_realizer_n_m": 7,
+        "odd_endpoint_after_m_steps_u_m": 17,
+        "exact_growth_u_m_minus_n_m": 10,
+        "next_child_least_realizer_n_m_plus_1": 15,
+        "analytic_tail_threshold_A": 3,
+        "compatible_residue": "-1 mod 2^3",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      },
+      {
+        "all_one_prefix_length_m": 4,
+        "affine_correction_C": 65,
+        "least_positive_realizer_n_m": 31,
+        "odd_endpoint_after_m_steps_u_m": 161,
+        "exact_growth_u_m_minus_n_m": 130,
+        "next_child_least_realizer_n_m_plus_1": 63,
+        "analytic_tail_threshold_A": 4,
+        "compatible_residue": "-1 mod 2^5",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      },
+      {
+        "all_one_prefix_length_m": 8,
+        "affine_correction_C": 6305,
+        "least_positive_realizer_n_m": 511,
+        "odd_endpoint_after_m_steps_u_m": 13121,
+        "exact_growth_u_m_minus_n_m": 12610,
+        "next_child_least_realizer_n_m_plus_1": 1023,
+        "analytic_tail_threshold_A": 7,
+        "compatible_residue": "-1 mod 2^9",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      },
+      {
+        "all_one_prefix_length_m": 16,
+        "affine_correction_C": 42981185,
+        "least_positive_realizer_n_m": 131071,
+        "odd_endpoint_after_m_steps_u_m": 86093441,
+        "exact_growth_u_m_minus_n_m": 85962370,
+        "next_child_least_realizer_n_m_plus_1": 262143,
+        "analytic_tail_threshold_A": 11,
+        "compatible_residue": "-1 mod 2^17",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      },
+      {
+        "all_one_prefix_length_m": 32,
+        "affine_correction_C": 1853015893884545,
+        "least_positive_realizer_n_m": 8589934591,
+        "odd_endpoint_after_m_steps_u_m": 3706040377703681,
+        "exact_growth_u_m_minus_n_m": 3706031787769090,
+        "next_child_least_realizer_n_m_plus_1": 17179869183,
+        "analytic_tail_threshold_A": 21,
+        "compatible_residue": "-1 mod 2^33",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      },
+      {
+        "all_one_prefix_length_m": 64,
+        "affine_correction_C": 3433683820274065740584139537665,
+        "least_positive_realizer_n_m": 36893488147419103231,
+        "odd_endpoint_after_m_steps_u_m": 6867367640585024969315698178561,
+        "exact_growth_u_m_minus_n_m": 6867367640548131481168279075330,
+        "next_child_least_realizer_n_m_plus_1": 73786976294838206463,
+        "analytic_tail_threshold_A": 40,
+        "compatible_residue": "-1 mod 2^65",
+        "checks": {
+          "correction_formula_holds": true,
+          "least_realizer_formula_holds": true,
+          "endpoint_is_integral_and_odd": true,
+          "least_realizer_does_not_descend": true,
+          "appending_one_is_a_compatible_child": true,
+          "valuation_one_remains_in_residual_set": true
+        }
+      }
+    ],
+    "infinite_non_descending_residual_ray_exists": true,
+    "two_adic_limit": "-1 in Z_2",
+    "no_positive_natural_start_realizes_the_entire_ray": true,
+    "finite_positive_start_diagnostic": {
+      "bound": 1000000,
+      "largest_all_one_start_not_exceeding_bound": 524287,
+      "maximum_all_one_prefix_length": 18,
+      "boundary": "finite illustration only; the impossibility proof is divisibility-based"
+    },
+    "no_go_scope": "This refutes well-foundedness of the full residual prefix tree, not the Collatz conjecture and not a natural-ray exclusion theorem.",
+    "failure_count": 0
+  },
+  "discarded_route": "well-foundedness of the entire exact residual prefix tree after analytic tail closure",
+  "remaining_gap": "The ghost ray is not a positive natural orbit. Excluding every compatible non-descending residual ray generated by a fixed positive natural start remains open.",
+  "candidate_theorem": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay",
+  "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact infinite residual ray is proved to be a non-natural 2-adic ghost.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T171-REJECTED",
+        "label": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T171-CLOSED",
+        "label": "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T171-OPEN",
+        "label": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T171-REJECTED",
+        "CO-T171-CLOSED"
+      ],
+      [
+        "CO-T171-CLOSED",
+        "CO-T171-OPEN"
+      ]
+    ]
+  }
+}

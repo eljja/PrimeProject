@@ -1,0 +1,299 @@
+{
+  "schema": "primeproject.ticket171-relative-ghost-phase-haar.v1",
+  "generated_at": "2026-08-04T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-171",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo",
+  "declared_proposition": "For every square matrix A and orthogonal two-dimensional Haar transform Q, B=Q A Q^T satisfies ||B||_2=||A||_2 and ||B||_F=||A||_F. If every row and column sum of A is zero, B has zero constant row and column. Thus the complete nonconstant Haar coefficient matrix is an exact multiscale reparameterization of Type-II dependence, and its square-sum is a sufficient operator bound. No fixed maximum resolution is complete: a 2x2 checkerboard inside one next-scale cell has zero aggregates at every controlled coarser level but a next-scale Haar coefficient and singular value equal to 2a.",
+  "mathematical_argument": "Left and right multiplication by orthogonal matrices preserves singular values and Frobenius energy. Zero margins are orthogonality to the constant Haar vector. For the no-go, each row, column, and containing dyadic block sum of [[a,-a],[-a,a]] is zero, while the checkerboard Haar pairing and its only nonzero singular value are 2a.",
+  "reproducible_computation": {
+    "theorem": "For every square matrix A and orthogonal two-dimensional Haar transform Q, B=Q A Q^T satisfies ||B||_2=||A||_2 and ||B||_F=||A||_F. If every row and column sum of A is zero, B has zero constant row and column. Thus the complete nonconstant Haar coefficient matrix is an exact multiscale reparameterization of Type-II dependence, and its square-sum is a sufficient operator bound. No fixed maximum resolution is complete: a 2x2 checkerboard inside one next-scale cell has zero aggregates at every controlled coarser level but a next-scale Haar coefficient and singular value equal to 2a.",
+    "proof": "Left and right multiplication by orthogonal matrices preserves singular values and Frobenius energy. Zero margins are orthogonality to the constant Haar vector. For the no-go, each row, column, and containing dyadic block sum of [[a,-a],[-a,a]] is zero, while the checkerboard Haar pairing and its only nonzero singular value are 2a.",
+    "finite_t161_haar_resolution_rows": [
+      {
+        "X": 10000,
+        "double_semiprime_pair_count_QQ": 35,
+        "haar_coefficient_matrix": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            5.0,
+            -60.104076400856535,
+            3.5355339059327373
+          ],
+          [
+            3.774758283725532e-15,
+            33.23401871576773,
+            -105.49999999999997,
+            -18.499999999999996
+          ],
+          [
+            0.0,
+            -7.778174593052022,
+            -18.499999999999996,
+            -19.499999999999993
+          ]
+        ],
+        "original_top_singular_value": 127.62211249869566,
+        "haar_top_singular_value": 127.62211249869563,
+        "frobenius_energy": 17010.0,
+        "nonconstant_haar_energy": 17009.999999999993,
+        "fine_fine_haar_energy": 12194.999999999995,
+        "fine_fine_energy_fraction": 0.7169312169312169,
+        "checks": {
+          "haar_constant_row_vanishes": true,
+          "haar_constant_column_vanishes": true,
+          "frobenius_energy_is_preserved": true,
+          "operator_norm_is_preserved": true,
+          "all_energy_is_in_nonconstant_coefficients": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 100000,
+        "double_semiprime_pair_count_QQ": 284,
+        "haar_coefficient_matrix": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1935.0,
+            928.4312036979369,
+            -887.419010389117
+          ],
+          [
+            -5.684341886080802e-14,
+            1924.0375516085953,
+            -2472.4999999999995,
+            -2172.4999999999995
+          ],
+          [
+            2.842170943040401e-14,
+            -1744.4324291872126,
+            17.5,
+            1005.4999999999998
+          ]
+        ],
+        "original_top_singular_value": 4325.604454335457,
+        "haar_top_singular_value": 4325.6044543354565,
+        "frobenius_energy": 23983036.0,
+        "nonconstant_haar_energy": 23983035.999999993,
+        "fine_fine_haar_energy": 11844348.999999996,
+        "fine_fine_energy_fraction": 0.49386362093606495,
+        "checks": {
+          "haar_constant_row_vanishes": true,
+          "haar_constant_column_vanishes": true,
+          "frobenius_energy_is_preserved": true,
+          "operator_norm_is_preserved": true,
+          "all_energy_is_in_nonconstant_coefficients": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 1000000,
+        "double_semiprime_pair_count_QQ": 2453,
+        "haar_coefficient_matrix": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            76212.0,
+            34334.276867294,
+            14474.47581088863
+          ],
+          [
+            -4.547473508864641e-12,
+            35711.720877045394,
+            -992.0,
+            -4993.0
+          ],
+          [
+            -1.8189894035458565e-12,
+            29825.764030448572,
+            -27943.999999999993,
+            5204.999999999999
+          ]
+        ],
+        "original_top_singular_value": 92730.90656301392,
+        "haar_top_singular_value": 92730.90656301392,
+        "frobenius_energy": 10195398444.000002,
+        "nonconstant_haar_energy": 10195398444.0,
+        "fine_fine_haar_energy": 833873273.9999996,
+        "fine_fine_energy_fraction": 0.08178917955783618,
+        "checks": {
+          "haar_constant_row_vanishes": true,
+          "haar_constant_column_vanishes": true,
+          "frobenius_energy_is_preserved": true,
+          "operator_norm_is_preserved": true,
+          "all_energy_is_in_nonconstant_coefficients": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      },
+      {
+        "X": 10000000,
+        "double_semiprime_pair_count_QQ": 19074,
+        "haar_coefficient_matrix": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            3974126.0,
+            -63721.63469340699,
+            619278.4621089287
+          ],
+          [
+            -2.9103830456733704e-11,
+            387088.63679782685,
+            -525403.9999999999,
+            -402225.99999999994
+          ],
+          [
+            -2.3283064365386963e-10,
+            1581165.716051926,
+            -570903.9999999998,
+            1837125.9999999995
+          ]
+        ],
+        "original_top_singular_value": 4499308.1114703305,
+        "haar_top_singular_value": 4499308.1114703305,
+        "frobenius_energy": 22969964793976.004,
+        "nonconstant_haar_energy": 22969964793976.0,
+        "fine_fine_haar_energy": 4138798435383.9976,
+        "fine_fine_energy_fraction": 0.18018305524218392,
+        "checks": {
+          "haar_constant_row_vanishes": true,
+          "haar_constant_column_vanishes": true,
+          "frobenius_energy_is_preserved": true,
+          "operator_norm_is_preserved": true,
+          "all_energy_is_in_nonconstant_coefficients": true,
+          "row_is_finite_factorization_diagnostic_only": true
+        }
+      }
+    ],
+    "exact_finite_depth_invisibility_rows": [
+      {
+        "controlled_maximum_dyadic_level_J": 1,
+        "fine_dimension_N": 4,
+        "next_scale_checkerboard_amplitude": 1,
+        "all_controlled_coarse_aggregates": 0,
+        "next_scale_haar_coefficient": 2,
+        "fine_top_singular_value": 2,
+        "checks": {
+          "all_dyadic_block_sums_through_controlled_level_vanish": true,
+          "all_fine_row_and_column_margins_vanish": true,
+          "next_scale_haar_coefficient_is_nonzero": true,
+          "fine_operator_norm_is_nonzero": true
+        }
+      },
+      {
+        "controlled_maximum_dyadic_level_J": 2,
+        "fine_dimension_N": 8,
+        "next_scale_checkerboard_amplitude": 2,
+        "all_controlled_coarse_aggregates": 0,
+        "next_scale_haar_coefficient": 4,
+        "fine_top_singular_value": 4,
+        "checks": {
+          "all_dyadic_block_sums_through_controlled_level_vanish": true,
+          "all_fine_row_and_column_margins_vanish": true,
+          "next_scale_haar_coefficient_is_nonzero": true,
+          "fine_operator_norm_is_nonzero": true
+        }
+      },
+      {
+        "controlled_maximum_dyadic_level_J": 3,
+        "fine_dimension_N": 16,
+        "next_scale_checkerboard_amplitude": 4,
+        "all_controlled_coarse_aggregates": 0,
+        "next_scale_haar_coefficient": 8,
+        "fine_top_singular_value": 8,
+        "checks": {
+          "all_dyadic_block_sums_through_controlled_level_vanish": true,
+          "all_fine_row_and_column_margins_vanish": true,
+          "next_scale_haar_coefficient_is_nonzero": true,
+          "fine_operator_norm_is_nonzero": true
+        }
+      },
+      {
+        "controlled_maximum_dyadic_level_J": 4,
+        "fine_dimension_N": 32,
+        "next_scale_checkerboard_amplitude": 8,
+        "all_controlled_coarse_aggregates": 0,
+        "next_scale_haar_coefficient": 16,
+        "fine_top_singular_value": 16,
+        "checks": {
+          "all_dyadic_block_sums_through_controlled_level_vanish": true,
+          "all_fine_row_and_column_margins_vanish": true,
+          "next_scale_haar_coefficient_is_nonzero": true,
+          "fine_operator_norm_is_nonzero": true
+        }
+      },
+      {
+        "controlled_maximum_dyadic_level_J": 5,
+        "fine_dimension_N": 64,
+        "next_scale_checkerboard_amplitude": 16,
+        "all_controlled_coarse_aggregates": 0,
+        "next_scale_haar_coefficient": 32,
+        "fine_top_singular_value": 32,
+        "checks": {
+          "all_dyadic_block_sums_through_controlled_level_vanish": true,
+          "all_fine_row_and_column_margins_vanish": true,
+          "next_scale_haar_coefficient_is_nonzero": true,
+          "fine_operator_norm_is_nonzero": true
+        }
+      }
+    ],
+    "model_boundary": "Haar coordinates reorganize the missing Type-II information but do not supply asymptotic decay. A Frobenius bound may also lose dimension relative to the operator norm required by the sieve.",
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed finite dyadic depth as complete control of Type-II dependence",
+  "remaining_gap": "No growing-resolution Haar coefficient decay estimate with constants strong enough for a prime-producing sieve is proved.",
+  "candidate_theorem": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; an exact Haar bridge, finite diagnostics, and finite-depth no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T171-REJECTED",
+        "label": "FixedFiniteDyadicDepthControlsAllTypeIIDependence",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T171-CLOSED",
+        "label": "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T171-OPEN",
+        "label": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T171-REJECTED",
+        "TP-T171-CLOSED"
+      ],
+      [
+        "TP-T171-CLOSED",
+        "TP-T171-OPEN"
+      ]
+    ]
+  }
+}

@@ -62,7 +62,59 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-170
+## Latest Continuation After TICKET-171
+
+All four conjectures remain open. TICKET-171 audits the four TICKET-170 next
+lemmas and proves that one of them is false as stated. Continue from the
+corrected terminal nodes below:
+
+1. Riemann:
+   `CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore`.
+   TICKET-171 proves the exact relative inertia certificate
+   `|||K|^(-1/2)E|K|^(-1/2)||_2<1` and an interval Frobenius sufficient
+   condition. An anisotropic diagonal family proves that one global absolute
+   minimum-gap condition is not necessary. No actual cofinal Weil-core bound
+   has been proved.
+2. Collatz:
+   `NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay`.
+   TICKET-171 refutes well-foundedness of the entire residual tree: the
+   all-one words form an infinite non-descending compatible ray. Its limit is
+   `-1` in `Z_2`, and no positive natural start realizes the full ray. The
+   remaining target must exclude only positive-natural compatible rays.
+3. Goldbach:
+   `UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin`.
+   TICKET-171 gives nonnegative squared signals with equal Fourier magnitudes
+   and all equal shell energies but different maxima. A sharp certificate
+   must retain signed arithmetic phase; the shell Cauchy upper bound remains
+   valid but is not a pointwise determination theorem.
+4. Twin Prime:
+   `UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants`.
+   TICKET-171 proves exact orthogonal invariance in two-dimensional Haar
+   coordinates and an exact next-scale checkerboard against every fixed
+   maximum depth. It proves no asymptotic Type-II decay.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket171-relative-ghost-phase-haar.json
+data/open-problem/riemann/rh-ticket-171-relative-kkt.json
+data/open-problem/collatz/co-ticket-171-ghost-ray.json
+data/open-problem/goldbach/gb-ticket-171-shell-phase.json
+data/open-problem/twin-prime/tp-ticket-171-haar-resolution.json
+```
+
+한국어 인계: TICKET-171도 네 난제를 해결하지 않았다. 리만은 실제 고정
+Weil core의 상대 구간 KKT 오차를 1 아래로 내려야 한다. 콜라츠는 전체 잔여
+트리의 well-foundedness를 목표로 삼으면 안 된다. 모든-1 경로는 2-adic
+유령으로 실제 존재하기 때문이다. 대신 양의 자연수 하나와 호환되는 무한
+비하강 경로만 배제해야 한다. 골드바흐는 shell 에너지에서 사라진 부호 위상을
+실제 소수 spectrum의 산술 추정으로 복원해야 한다. 쌍둥이 소수는 증가하는
+Haar 해상도 전체에서 sieve에 충분한 Type-II decay와 상수를 증명해야 한다.
+
+English report: [TICKET-171](relative-ghost-phase-haar.md). Korean report:
+[TICKET-171 한국어](relative-ghost-phase-haar.ko.md).
+
+## Preserved Continuation After TICKET-170
 
 All four conjectures remain open. TICKET-170 closes one infinite tail or
 establishes one exact scale obstruction in each track. Continue from these

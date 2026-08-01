@@ -14,21 +14,22 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket171Load = openProblemSource.indexOf("const ticket171Loaded = await loadTicket171Attempt();");
   const ticket170Load = openProblemSource.indexOf("const ticket170Loaded = await loadTicket170Attempt();");
   const ticket169Load = openProblemSource.indexOf("const ticket169Loaded = await loadTicket169Attempt();");
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket170Load >= 0 && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET170 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket171Load >= 0 && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET171 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260803-ticket170")) {
-      errors.push(`${page}: missing TICKET170 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260804-ticket171")) {
+      errors.push(`${page}: missing TICKET171 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260803-ticket170")) {
-      errors.push(`${page}: missing TICKET170 style cache key`);
+    if (!source.includes("styles.css?v=20260804-ticket171")) {
+      errors.push(`${page}: missing TICKET171 style cache key`);
     }
   }
 
@@ -348,6 +349,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket171AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket171-relative-ghost-phase-haar .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket170AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket170-interval-tail-besov-multiscale .ticket161-audit-table .proof-table-wrap",
@@ -1298,9 +1305,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket171 title", "Ticket 171 relative KKT geometry, Collatz ghost rays, signed Goldbach phase, and Haar Type II");
+    requireText("ticket171 table", "TICKET171 audit");
+    requireText("ticket171 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket171 resolutions", "Resolution count0");
+    requireText("ticket171 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket171AuditOverflow) checks.push(`${page.problemId}: ticket171 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket171 RH theorem", "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo");
+      requireText("ticket171 RH rows", "Exact anisotropic rows6");
+      requireText("ticket171 RH gates", "Relative gates passed6");
+      requireText("ticket171 RH target", "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket171 Collatz theorem", "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo");
+      requireText("ticket171 Collatz rows", "Ghost-ray rows7");
+      requireText("ticket171 Collatz limit", "2-adic limit-1 in Z_2");
+      requireText("ticket171 Collatz target", "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket171 Goldbach theorem", "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo");
+      requireText("ticket171 Goldbach pairs", "Exact positive pairs5");
+      requireText("ticket171 Goldbach magnitudes", "Magnitude profiles equal5");
+      requireText("ticket171 Goldbach target", "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin");
+    } else {
+      requireText("ticket171 Twin theorem", "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo");
+      requireText("ticket171 Twin rows", "Finite Haar rows4");
+      requireText("ticket171 Twin no-go", "Fixed depths refuted5");
+      requireText("ticket171 Twin target", "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants");
+    }
     requireText("ticket170 title", "Ticket 170 interval KKT gaps, Collatz tail closure, autocorrelation Besov control, and multiscale Type II");
     requireText("ticket170 table", "TICKET170 audit");
-    requireText("ticket170 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket170 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket170 resolutions", "Resolution count0");
     requireText("ticket170 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket170AuditOverflow) checks.push(`${page.problemId}: ticket170 audit table overflow`);

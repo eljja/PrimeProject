@@ -1,0 +1,558 @@
+{
+  "schema": "primeproject.ticket171-relative-ghost-phase-haar.v1",
+  "generated_at": "2026-08-04T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-171",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo",
+  "declared_proposition": "Autocorrelation magnitudes and every dyadic shell energy do not determine the pointwise norm, even for nonnegative squared signals. On Z/4, for 0<epsilon<=1/2, let g_plus=1+epsilon*cos(t)+epsilon*cos(2t) and g_minus=1+epsilon*cos(t)-epsilon*cos(2t). Both are nonnegative and their normalized Fourier coefficient magnitudes agree at every frequency, but max(g_plus)=1+2*epsilon while max(g_minus)=1+epsilon.",
+  "mathematical_argument": "At t=0,pi/2,pi,3pi/2 the two vectors are respectively (1+2e,1-e,1,1-e) and (1,1+e,1-2e,1+e). Their normalized DFTs are (1,e/2,e,e/2) and (1,e/2,-e,e/2). This proves nonnegativity, equality of all magnitudes and shell energies, and the distinct maxima exactly.",
+  "reproducible_computation": {
+    "theorem": "Autocorrelation magnitudes and every dyadic shell energy do not determine the pointwise norm, even for nonnegative squared signals. On Z/4, for 0<epsilon<=1/2, let g_plus=1+epsilon*cos(t)+epsilon*cos(2t) and g_minus=1+epsilon*cos(t)-epsilon*cos(2t). Both are nonnegative and their normalized Fourier coefficient magnitudes agree at every frequency, but max(g_plus)=1+2*epsilon while max(g_minus)=1+epsilon.",
+    "proof": "At t=0,pi/2,pi,3pi/2 the two vectors are respectively (1+2e,1-e,1,1-e) and (1,1+e,1-2e,1+e). Their normalized DFTs are (1,e/2,e,e/2) and (1,e/2,-e,e/2). This proves nonnegativity, equality of all magnitudes and shell energies, and the distinct maxima exactly.",
+    "exact_positive_phase_ambiguity_rows": [
+      {
+        "epsilon": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "g_plus_squared_signal": [
+          {
+            "exact": "9/8",
+            "decimal": 1.125
+          },
+          {
+            "exact": "15/16",
+            "decimal": 0.9375
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "15/16",
+            "decimal": 0.9375
+          }
+        ],
+        "g_minus_squared_signal": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "17/16",
+            "decimal": 1.0625
+          },
+          {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          {
+            "exact": "17/16",
+            "decimal": 1.0625
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          {
+            "exact": "1/32",
+            "decimal": 0.03125
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          {
+            "exact": "-1/16",
+            "decimal": -0.0625
+          },
+          {
+            "exact": "1/32",
+            "decimal": 0.03125
+          }
+        ],
+        "shared_frequency_one_shell_energy": {
+          "exact": "1/512",
+          "decimal": 0.001953125
+        },
+        "shared_nyquist_shell_energy": {
+          "exact": "1/256",
+          "decimal": 0.00390625
+        },
+        "g_plus_uniform_norm_squared": {
+          "exact": "9/8",
+          "decimal": 1.125
+        },
+        "g_minus_uniform_norm_squared": {
+          "exact": "17/16",
+          "decimal": 1.0625
+        },
+        "checks": {
+          "both_squared_signals_are_nonnegative": true,
+          "normalized_fourier_magnitudes_match": true,
+          "dyadic_shell_energies_match": true,
+          "pointwise_maxima_differ": true,
+          "signed_nyquist_phase_is_opposite": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "g_plus_squared_signal": [
+          {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          {
+            "exact": "7/8",
+            "decimal": 0.875
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "7/8",
+            "decimal": 0.875
+          }
+        ],
+        "g_minus_squared_signal": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "9/8",
+            "decimal": 1.125
+          },
+          {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          {
+            "exact": "9/8",
+            "decimal": 1.125
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          {
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          {
+            "exact": "1/16",
+            "decimal": 0.0625
+          }
+        ],
+        "shared_frequency_one_shell_energy": {
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "shared_nyquist_shell_energy": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "g_plus_uniform_norm_squared": {
+          "exact": "5/4",
+          "decimal": 1.25
+        },
+        "g_minus_uniform_norm_squared": {
+          "exact": "9/8",
+          "decimal": 1.125
+        },
+        "checks": {
+          "both_squared_signals_are_nonnegative": true,
+          "normalized_fourier_magnitudes_match": true,
+          "dyadic_shell_energies_match": true,
+          "pointwise_maxima_differ": true,
+          "signed_nyquist_phase_is_opposite": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "g_plus_squared_signal": [
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          {
+            "exact": "3/4",
+            "decimal": 0.75
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/4",
+            "decimal": 0.75
+          }
+        ],
+        "g_minus_squared_signal": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "5/4",
+            "decimal": 1.25
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "5/4",
+            "decimal": 1.25
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          }
+        ],
+        "shared_frequency_one_shell_energy": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "shared_nyquist_shell_energy": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "g_plus_uniform_norm_squared": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "g_minus_uniform_norm_squared": {
+          "exact": "5/4",
+          "decimal": 1.25
+        },
+        "checks": {
+          "both_squared_signals_are_nonnegative": true,
+          "normalized_fourier_magnitudes_match": true,
+          "dyadic_shell_energies_match": true,
+          "pointwise_maxima_differ": true,
+          "signed_nyquist_phase_is_opposite": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "3/8",
+          "decimal": 0.375
+        },
+        "g_plus_squared_signal": [
+          {
+            "exact": "7/4",
+            "decimal": 1.75
+          },
+          {
+            "exact": "5/8",
+            "decimal": 0.625
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "5/8",
+            "decimal": 0.625
+          }
+        ],
+        "g_minus_squared_signal": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "11/8",
+            "decimal": 1.375
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "11/8",
+            "decimal": 1.375
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/16",
+            "decimal": 0.1875
+          },
+          {
+            "exact": "3/8",
+            "decimal": 0.375
+          },
+          {
+            "exact": "3/16",
+            "decimal": 0.1875
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/16",
+            "decimal": 0.1875
+          },
+          {
+            "exact": "-3/8",
+            "decimal": -0.375
+          },
+          {
+            "exact": "3/16",
+            "decimal": 0.1875
+          }
+        ],
+        "shared_frequency_one_shell_energy": {
+          "exact": "9/128",
+          "decimal": 0.0703125
+        },
+        "shared_nyquist_shell_energy": {
+          "exact": "9/64",
+          "decimal": 0.140625
+        },
+        "g_plus_uniform_norm_squared": {
+          "exact": "7/4",
+          "decimal": 1.75
+        },
+        "g_minus_uniform_norm_squared": {
+          "exact": "11/8",
+          "decimal": 1.375
+        },
+        "checks": {
+          "both_squared_signals_are_nonnegative": true,
+          "normalized_fourier_magnitudes_match": true,
+          "dyadic_shell_energies_match": true,
+          "pointwise_maxima_differ": true,
+          "signed_nyquist_phase_is_opposite": true
+        }
+      },
+      {
+        "epsilon": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "g_plus_squared_signal": [
+          {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          }
+        ],
+        "g_minus_squared_signal": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "3/2",
+            "decimal": 1.5
+          }
+        ],
+        "g_plus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          }
+        ],
+        "g_minus_normalized_dft": [
+          {
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          }
+        ],
+        "shared_frequency_one_shell_energy": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "shared_nyquist_shell_energy": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "g_plus_uniform_norm_squared": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "g_minus_uniform_norm_squared": {
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "checks": {
+          "both_squared_signals_are_nonnegative": true,
+          "normalized_fourier_magnitudes_match": true,
+          "dyadic_shell_energies_match": true,
+          "pointwise_maxima_differ": true,
+          "signed_nyquist_phase_is_opposite": true
+        }
+      }
+    ],
+    "shell_energy_only_pointwise_determination_no_go_holds": true,
+    "no_go_scope": "The example rejects shell-energy-only sharp certification. It does not invalidate the TICKET-170 Cauchy upper bound and is not a prime-specific Goldbach counterexample.",
+    "external_premise_boundary": "No target-uniform signed arithmetic autocorrelation dual certificate has been proved below an independently certified Goldbach anchor margin.",
+    "failure_count": 0
+  },
+  "discarded_route": "autocorrelation magnitude or dyadic shell energy alone as a sharp pointwise Goldbach certificate",
+  "remaining_gap": "No target-uniform signed arithmetic autocorrelation certificate is proved below an independently established major-arc anchor margin.",
+  "candidate_theorem": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin",
+  "claim_boundary": "No Goldbach proof and no even counterexample; an exact positive phase-ambiguity family only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T171-REJECTED",
+        "label": "AutocorrelationShellEnergyAloneDeterminesThePointwiseDeficit",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T171-CLOSED",
+        "label": "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T171-OPEN",
+        "label": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T171-REJECTED",
+        "GB-T171-CLOSED"
+      ],
+      [
+        "GB-T171-CLOSED",
+        "GB-T171-OPEN"
+      ]
+    ]
+  }
+}

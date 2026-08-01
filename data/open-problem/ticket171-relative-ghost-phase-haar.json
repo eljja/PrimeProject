@@ -1,0 +1,1671 @@
+{
+  "schema": "primeproject.ticket171-relative-ghost-phase-haar.v1",
+  "generated_at": "2026-08-04T18:00:00+09:00",
+  "status": "four_exact_target_corrections_all_conjectures_open",
+  "claim_boundary": "TICKET-171 proves four exact target corrections and resolves none of the four conjectures. It replaces an unnecessarily global RH error scale by a relative sign-normalized certificate, refutes Collatz residual-tree well-foundedness with a non-natural 2-adic ghost ray, proves that positive Goldbach autocorrelation shell energies lose signed phase, and makes Twin Type-II resolution completeness exact in Haar coordinates while refuting every fixed depth.",
+  "relative_ghost_phase_haar_audit": {
+    "theorem_name": "FourConjectureTargetCorrectionAudit",
+    "status": "four_exact_target_corrections_all_conjectures_open",
+    "proof_boundary": "TICKET-171 proves four exact target corrections and resolves none of the four conjectures. It replaces an unnecessarily global RH error scale by a relative sign-normalized certificate, refutes Collatz residual-tree well-foundedness with a non-natural 2-adic ghost ray, proves that positive Goldbach autocorrelation shell energies lose signed phase, and makes Twin Type-II resolution completeness exact in Haar coordinates while refuting every fixed depth.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-171",
+      "theorem_name": "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo",
+      "declared_proposition": "Let K_tilde be real symmetric and nonsingular, J=sign(K_tilde), and T=abs(K_tilde)^(-1/2). For symmetric E put F=T*E*T. Since K_tilde+E is congruent to J+F, ||F||_2<1 implies that K_tilde+E and K_tilde have the same inertia. For entry radii R in the original basis, ||abs(T) R abs(T)^T||_F<1 is a computable sufficient interval condition. Requiring ||E||_2<min|lambda(K_tilde)| is sufficient but not necessary: diag(1/n,n^2,-1) with E=diag(0,n^2/2,0) fails that absolute test by an unbounded factor while its relative norm is 1/2 and inertia is unchanged.",
+      "mathematical_argument": "Spectral calculus gives K_tilde=T^(-1) J T^(-1), hence K_tilde+E=T^(-1)(J+F)T^(-1). Sylvester's law reduces the question to J+F. Weyl's inequality and the unit spectral gap of J prevent a zero crossing when ||F||_2<1. If |E_ij|<=R_ij, entrywise triangle inequality gives |(TET)_ab|<=(abs(T)R abs(T)^T)_ab, whose Frobenius norm dominates the operator norm. The diagonal family is evaluated coordinatewise.",
+      "reproducible_computation": {
+        "theorem": "Let K_tilde be real symmetric and nonsingular, J=sign(K_tilde), and T=abs(K_tilde)^(-1/2). For symmetric E put F=T*E*T. Since K_tilde+E is congruent to J+F, ||F||_2<1 implies that K_tilde+E and K_tilde have the same inertia. For entry radii R in the original basis, ||abs(T) R abs(T)^T||_F<1 is a computable sufficient interval condition. Requiring ||E||_2<min|lambda(K_tilde)| is sufficient but not necessary: diag(1/n,n^2,-1) with E=diag(0,n^2/2,0) fails that absolute test by an unbounded factor while its relative norm is 1/2 and inertia is unchanged.",
+        "proof": "Spectral calculus gives K_tilde=T^(-1) J T^(-1), hence K_tilde+E=T^(-1)(J+F)T^(-1). Sylvester's law reduces the question to J+F. Weyl's inequality and the unit spectral gap of J prevent a zero crossing when ||F||_2<1. If |E_ij|<=R_ij, entrywise triangle inequality gives |(TET)_ab|<=(abs(T)R abs(T)^T)_ab, whose Frobenius norm dominates the operator norm. The diagonal family is evaluated coordinatewise.",
+        "exact_anisotropic_proxy_rows": [
+          {
+            "scale_n": 2,
+            "canonical_kkt_diagonal": [
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "4/1",
+                "decimal": 4.0
+              },
+              {
+                "exact": "-1/1",
+                "decimal": -1.0
+              }
+            ],
+            "perturbation_diagonal": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "2/1",
+                "decimal": 2.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "global_minimum_gap_gamma": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "absolute_operator_error": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "absolute_error_to_gap_ratio": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "sign_normalized_relative_operator_error": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "approximate_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "perturbed_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "absolute_global_gap_test_fails": true,
+              "relative_sign_normalized_test_passes": true,
+              "inertia_is_unchanged": true,
+              "anisotropy_grows_with_scale": true,
+              "relative_error_is_scale_independent": true
+            }
+          },
+          {
+            "scale_n": 4,
+            "canonical_kkt_diagonal": [
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "16/1",
+                "decimal": 16.0
+              },
+              {
+                "exact": "-1/1",
+                "decimal": -1.0
+              }
+            ],
+            "perturbation_diagonal": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "8/1",
+                "decimal": 8.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "global_minimum_gap_gamma": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "absolute_operator_error": {
+              "exact": "8/1",
+              "decimal": 8.0
+            },
+            "absolute_error_to_gap_ratio": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "sign_normalized_relative_operator_error": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "approximate_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "perturbed_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "absolute_global_gap_test_fails": true,
+              "relative_sign_normalized_test_passes": true,
+              "inertia_is_unchanged": true,
+              "anisotropy_grows_with_scale": true,
+              "relative_error_is_scale_independent": true
+            }
+          },
+          {
+            "scale_n": 8,
+            "canonical_kkt_diagonal": [
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              {
+                "exact": "64/1",
+                "decimal": 64.0
+              },
+              {
+                "exact": "-1/1",
+                "decimal": -1.0
+              }
+            ],
+            "perturbation_diagonal": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "32/1",
+                "decimal": 32.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "global_minimum_gap_gamma": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "absolute_operator_error": {
+              "exact": "32/1",
+              "decimal": 32.0
+            },
+            "absolute_error_to_gap_ratio": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "sign_normalized_relative_operator_error": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "approximate_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "perturbed_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "absolute_global_gap_test_fails": true,
+              "relative_sign_normalized_test_passes": true,
+              "inertia_is_unchanged": true,
+              "anisotropy_grows_with_scale": true,
+              "relative_error_is_scale_independent": true
+            }
+          },
+          {
+            "scale_n": 16,
+            "canonical_kkt_diagonal": [
+              {
+                "exact": "1/16",
+                "decimal": 0.0625
+              },
+              {
+                "exact": "256/1",
+                "decimal": 256.0
+              },
+              {
+                "exact": "-1/1",
+                "decimal": -1.0
+              }
+            ],
+            "perturbation_diagonal": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "128/1",
+                "decimal": 128.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "global_minimum_gap_gamma": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "absolute_operator_error": {
+              "exact": "128/1",
+              "decimal": 128.0
+            },
+            "absolute_error_to_gap_ratio": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "sign_normalized_relative_operator_error": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "approximate_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "perturbed_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "absolute_global_gap_test_fails": true,
+              "relative_sign_normalized_test_passes": true,
+              "inertia_is_unchanged": true,
+              "anisotropy_grows_with_scale": true,
+              "relative_error_is_scale_independent": true
+            }
+          },
+          {
+            "scale_n": 32,
+            "canonical_kkt_diagonal": [
+              {
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              {
+                "exact": "1024/1",
+                "decimal": 1024.0
+              },
+              {
+                "exact": "-1/1",
+                "decimal": -1.0
+              }
+            ],
+            "perturbation_diagonal": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "512/1",
+                "decimal": 512.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "global_minimum_gap_gamma": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "absolute_operator_error": {
+              "exact": "512/1",
+              "decimal": 512.0
+            },
+            "absolute_error_to_gap_ratio": {
+              "exact": "16384/1",
+              "decimal": 16384.0
+            },
+            "sign_normalized_relative_operator_error": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "approximate_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "perturbed_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "absolute_global_gap_test_fails": true,
+              "relative_sign_normalized_test_passes": true,
+              "inertia_is_unchanged": true,
+              "anisotropy_grows_with_scale": true,
+              "relative_error_is_scale_independent": true
+            }
+          },
+          {
+            "scale_n": 64,
+            "canonical_kkt_diagonal": [
+              {
+                "exact": "1/64",
+                "decimal": 0.015625
+              },
+              {
+                "exact": "4096/1",
+                "decimal": 4096.0
+              },
+              {
+                "exact": "-1/1",
+                "decimal": -1.0
+              }
+            ],
+            "perturbation_diagonal": [
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "2048/1",
+                "decimal": 2048.0
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              }
+            ],
+            "global_minimum_gap_gamma": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "absolute_operator_error": {
+              "exact": "2048/1",
+              "decimal": 2048.0
+            },
+            "absolute_error_to_gap_ratio": {
+              "exact": "131072/1",
+              "decimal": 131072.0
+            },
+            "sign_normalized_relative_operator_error": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "approximate_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "perturbed_inertia": {
+              "positive": 2,
+              "negative": 1,
+              "zero": 0
+            },
+            "checks": {
+              "absolute_global_gap_test_fails": true,
+              "relative_sign_normalized_test_passes": true,
+              "inertia_is_unchanged": true,
+              "anisotropy_grows_with_scale": true,
+              "relative_error_is_scale_independent": true
+            }
+          }
+        ],
+        "relative_certificate_holds_on_all_rows": true,
+        "no_go_scope": "The family refutes necessity of one global absolute minimum-gap test; it does not refute that test as a sufficient certificate.",
+        "external_premise_boundary": "No cofinal interval enclosure on an actual fixed dense pole-neutral Guinand-Weil core has sign-normalized radius below one.",
+        "failure_count": 0
+      },
+      "logical_limit": "No actual cofinal Guinand-Weil interval family has a certified sign-normalized relative radius below one on one fixed dense neutral core.",
+      "route_decision": {
+        "discard": "the global minimum spectral gap as a necessary absolute error scale in every KKT direction",
+        "retain": "sign-normalized relative interval control in the spectral geometry of the fixed KKT core",
+        "next_single_lemma": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T171-REJECTED",
+            "label": "GlobalMinimumGapConditionIsNecessaryForInertiaCertification",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T171-CLOSED",
+            "label": "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T171-OPEN",
+            "label": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T171-REJECTED",
+            "RH-T171-CLOSED"
+          ],
+          [
+            "RH-T171-CLOSED",
+            "RH-T171-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zero exclusion; an exact relative inertia certificate and anisotropic no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-171",
+      "theorem_name": "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo",
+      "declared_proposition": "The exact non-descending child tree left by TICKET-170 is not well founded. For w_m=1^m, C_m=3^m-2^m, the least positive realizer is n_m=2^(m+1)-1, and its endpoint is u_m=2*3^m-1>n_m. Appending valuation one gives w_(m+1), so these nodes form an infinite compatible ray. Their residues converge to -1 in Z_2, and no positive natural integer realizes every prefix. Thus the ray is a 2-adic ghost obstruction, not a divergent natural Collatz orbit.",
+      "mathematical_argument": "The affine correction follows by induction from C'=3C+2^m. Substitution of n_m into (3^m n+C_m)/2^m gives 2*3^m-1, which exceeds n_m because 3^m>2^m. Also n_(m+1) is congruent to n_m modulo 2^(m+1), so the ray is compatible. If a fixed positive n realized every prefix, then n+1 would be divisible by 2^(m+1) for every m, impossible once 2^(m+1)>n+1.",
+      "reproducible_computation": {
+        "theorem": "The exact non-descending child tree left by TICKET-170 is not well founded. For w_m=1^m, C_m=3^m-2^m, the least positive realizer is n_m=2^(m+1)-1, and its endpoint is u_m=2*3^m-1>n_m. Appending valuation one gives w_(m+1), so these nodes form an infinite compatible ray. Their residues converge to -1 in Z_2, and no positive natural integer realizes every prefix. Thus the ray is a 2-adic ghost obstruction, not a divergent natural Collatz orbit.",
+        "proof": "The affine correction follows by induction from C'=3C+2^m. Substitution of n_m into (3^m n+C_m)/2^m gives 2*3^m-1, which exceeds n_m because 3^m>2^m. Also n_(m+1) is congruent to n_m modulo 2^(m+1), so the ray is compatible. If a fixed positive n realized every prefix, then n+1 would be divisible by 2^(m+1) for every m, impossible once 2^(m+1)>n+1.",
+        "exact_all_one_ghost_rows": [
+          {
+            "all_one_prefix_length_m": 1,
+            "affine_correction_C": 1,
+            "least_positive_realizer_n_m": 3,
+            "odd_endpoint_after_m_steps_u_m": 5,
+            "exact_growth_u_m_minus_n_m": 2,
+            "next_child_least_realizer_n_m_plus_1": 7,
+            "analytic_tail_threshold_A": 3,
+            "compatible_residue": "-1 mod 2^2",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          },
+          {
+            "all_one_prefix_length_m": 2,
+            "affine_correction_C": 5,
+            "least_positive_realizer_n_m": 7,
+            "odd_endpoint_after_m_steps_u_m": 17,
+            "exact_growth_u_m_minus_n_m": 10,
+            "next_child_least_realizer_n_m_plus_1": 15,
+            "analytic_tail_threshold_A": 3,
+            "compatible_residue": "-1 mod 2^3",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          },
+          {
+            "all_one_prefix_length_m": 4,
+            "affine_correction_C": 65,
+            "least_positive_realizer_n_m": 31,
+            "odd_endpoint_after_m_steps_u_m": 161,
+            "exact_growth_u_m_minus_n_m": 130,
+            "next_child_least_realizer_n_m_plus_1": 63,
+            "analytic_tail_threshold_A": 4,
+            "compatible_residue": "-1 mod 2^5",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          },
+          {
+            "all_one_prefix_length_m": 8,
+            "affine_correction_C": 6305,
+            "least_positive_realizer_n_m": 511,
+            "odd_endpoint_after_m_steps_u_m": 13121,
+            "exact_growth_u_m_minus_n_m": 12610,
+            "next_child_least_realizer_n_m_plus_1": 1023,
+            "analytic_tail_threshold_A": 7,
+            "compatible_residue": "-1 mod 2^9",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          },
+          {
+            "all_one_prefix_length_m": 16,
+            "affine_correction_C": 42981185,
+            "least_positive_realizer_n_m": 131071,
+            "odd_endpoint_after_m_steps_u_m": 86093441,
+            "exact_growth_u_m_minus_n_m": 85962370,
+            "next_child_least_realizer_n_m_plus_1": 262143,
+            "analytic_tail_threshold_A": 11,
+            "compatible_residue": "-1 mod 2^17",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          },
+          {
+            "all_one_prefix_length_m": 32,
+            "affine_correction_C": 1853015893884545,
+            "least_positive_realizer_n_m": 8589934591,
+            "odd_endpoint_after_m_steps_u_m": 3706040377703681,
+            "exact_growth_u_m_minus_n_m": 3706031787769090,
+            "next_child_least_realizer_n_m_plus_1": 17179869183,
+            "analytic_tail_threshold_A": 21,
+            "compatible_residue": "-1 mod 2^33",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          },
+          {
+            "all_one_prefix_length_m": 64,
+            "affine_correction_C": 3433683820274065740584139537665,
+            "least_positive_realizer_n_m": 36893488147419103231,
+            "odd_endpoint_after_m_steps_u_m": 6867367640585024969315698178561,
+            "exact_growth_u_m_minus_n_m": 6867367640548131481168279075330,
+            "next_child_least_realizer_n_m_plus_1": 73786976294838206463,
+            "analytic_tail_threshold_A": 40,
+            "compatible_residue": "-1 mod 2^65",
+            "checks": {
+              "correction_formula_holds": true,
+              "least_realizer_formula_holds": true,
+              "endpoint_is_integral_and_odd": true,
+              "least_realizer_does_not_descend": true,
+              "appending_one_is_a_compatible_child": true,
+              "valuation_one_remains_in_residual_set": true
+            }
+          }
+        ],
+        "infinite_non_descending_residual_ray_exists": true,
+        "two_adic_limit": "-1 in Z_2",
+        "no_positive_natural_start_realizes_the_entire_ray": true,
+        "finite_positive_start_diagnostic": {
+          "bound": 1000000,
+          "largest_all_one_start_not_exceeding_bound": 524287,
+          "maximum_all_one_prefix_length": 18,
+          "boundary": "finite illustration only; the impossibility proof is divisibility-based"
+        },
+        "no_go_scope": "This refutes well-foundedness of the full residual prefix tree, not the Collatz conjecture and not a natural-ray exclusion theorem.",
+        "failure_count": 0
+      },
+      "logical_limit": "The ghost ray is not a positive natural orbit. Excluding every compatible non-descending residual ray generated by a fixed positive natural start remains open.",
+      "route_decision": {
+        "discard": "well-foundedness of the entire exact residual prefix tree after analytic tail closure",
+        "retain": "separation of positive-natural compatible rays from purely 2-adic ghost rays",
+        "next_single_lemma": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T171-REJECTED",
+            "label": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T171-CLOSED",
+            "label": "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T171-OPEN",
+            "label": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T171-REJECTED",
+            "CO-T171-CLOSED"
+          ],
+          [
+            "CO-T171-CLOSED",
+            "CO-T171-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact infinite residual ray is proved to be a non-natural 2-adic ghost."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-171",
+      "theorem_name": "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo",
+      "declared_proposition": "Autocorrelation magnitudes and every dyadic shell energy do not determine the pointwise norm, even for nonnegative squared signals. On Z/4, for 0<epsilon<=1/2, let g_plus=1+epsilon*cos(t)+epsilon*cos(2t) and g_minus=1+epsilon*cos(t)-epsilon*cos(2t). Both are nonnegative and their normalized Fourier coefficient magnitudes agree at every frequency, but max(g_plus)=1+2*epsilon while max(g_minus)=1+epsilon.",
+      "mathematical_argument": "At t=0,pi/2,pi,3pi/2 the two vectors are respectively (1+2e,1-e,1,1-e) and (1,1+e,1-2e,1+e). Their normalized DFTs are (1,e/2,e,e/2) and (1,e/2,-e,e/2). This proves nonnegativity, equality of all magnitudes and shell energies, and the distinct maxima exactly.",
+      "reproducible_computation": {
+        "theorem": "Autocorrelation magnitudes and every dyadic shell energy do not determine the pointwise norm, even for nonnegative squared signals. On Z/4, for 0<epsilon<=1/2, let g_plus=1+epsilon*cos(t)+epsilon*cos(2t) and g_minus=1+epsilon*cos(t)-epsilon*cos(2t). Both are nonnegative and their normalized Fourier coefficient magnitudes agree at every frequency, but max(g_plus)=1+2*epsilon while max(g_minus)=1+epsilon.",
+        "proof": "At t=0,pi/2,pi,3pi/2 the two vectors are respectively (1+2e,1-e,1,1-e) and (1,1+e,1-2e,1+e). Their normalized DFTs are (1,e/2,e,e/2) and (1,e/2,-e,e/2). This proves nonnegativity, equality of all magnitudes and shell energies, and the distinct maxima exactly.",
+        "exact_positive_phase_ambiguity_rows": [
+          {
+            "epsilon": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "g_plus_squared_signal": [
+              {
+                "exact": "9/8",
+                "decimal": 1.125
+              },
+              {
+                "exact": "15/16",
+                "decimal": 0.9375
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "15/16",
+                "decimal": 0.9375
+              }
+            ],
+            "g_minus_squared_signal": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "17/16",
+                "decimal": 1.0625
+              },
+              {
+                "exact": "7/8",
+                "decimal": 0.875
+              },
+              {
+                "exact": "17/16",
+                "decimal": 1.0625
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              {
+                "exact": "1/16",
+                "decimal": 0.0625
+              },
+              {
+                "exact": "1/32",
+                "decimal": 0.03125
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              {
+                "exact": "-1/16",
+                "decimal": -0.0625
+              },
+              {
+                "exact": "1/32",
+                "decimal": 0.03125
+              }
+            ],
+            "shared_frequency_one_shell_energy": {
+              "exact": "1/512",
+              "decimal": 0.001953125
+            },
+            "shared_nyquist_shell_energy": {
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "g_plus_uniform_norm_squared": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "g_minus_uniform_norm_squared": {
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            "checks": {
+              "both_squared_signals_are_nonnegative": true,
+              "normalized_fourier_magnitudes_match": true,
+              "dyadic_shell_energies_match": true,
+              "pointwise_maxima_differ": true,
+              "signed_nyquist_phase_is_opposite": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "g_plus_squared_signal": [
+              {
+                "exact": "5/4",
+                "decimal": 1.25
+              },
+              {
+                "exact": "7/8",
+                "decimal": 0.875
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "7/8",
+                "decimal": 0.875
+              }
+            ],
+            "g_minus_squared_signal": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "9/8",
+                "decimal": 1.125
+              },
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              },
+              {
+                "exact": "9/8",
+                "decimal": 1.125
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/16",
+                "decimal": 0.0625
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              {
+                "exact": "1/16",
+                "decimal": 0.0625
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/16",
+                "decimal": 0.0625
+              },
+              {
+                "exact": "-1/8",
+                "decimal": -0.125
+              },
+              {
+                "exact": "1/16",
+                "decimal": 0.0625
+              }
+            ],
+            "shared_frequency_one_shell_energy": {
+              "exact": "1/128",
+              "decimal": 0.0078125
+            },
+            "shared_nyquist_shell_energy": {
+              "exact": "1/64",
+              "decimal": 0.015625
+            },
+            "g_plus_uniform_norm_squared": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "g_minus_uniform_norm_squared": {
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            "checks": {
+              "both_squared_signals_are_nonnegative": true,
+              "normalized_fourier_magnitudes_match": true,
+              "dyadic_shell_energies_match": true,
+              "pointwise_maxima_differ": true,
+              "signed_nyquist_phase_is_opposite": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "g_plus_squared_signal": [
+              {
+                "exact": "3/2",
+                "decimal": 1.5
+              },
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/4",
+                "decimal": 0.75
+              }
+            ],
+            "g_minus_squared_signal": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "5/4",
+                "decimal": 1.25
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "5/4",
+                "decimal": 1.25
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              {
+                "exact": "-1/4",
+                "decimal": -0.25
+              },
+              {
+                "exact": "1/8",
+                "decimal": 0.125
+              }
+            ],
+            "shared_frequency_one_shell_energy": {
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "shared_nyquist_shell_energy": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "g_plus_uniform_norm_squared": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "g_minus_uniform_norm_squared": {
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            "checks": {
+              "both_squared_signals_are_nonnegative": true,
+              "normalized_fourier_magnitudes_match": true,
+              "dyadic_shell_energies_match": true,
+              "pointwise_maxima_differ": true,
+              "signed_nyquist_phase_is_opposite": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "g_plus_squared_signal": [
+              {
+                "exact": "7/4",
+                "decimal": 1.75
+              },
+              {
+                "exact": "5/8",
+                "decimal": 0.625
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "5/8",
+                "decimal": 0.625
+              }
+            ],
+            "g_minus_squared_signal": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "11/8",
+                "decimal": 1.375
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "11/8",
+                "decimal": 1.375
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/16",
+                "decimal": 0.1875
+              },
+              {
+                "exact": "3/8",
+                "decimal": 0.375
+              },
+              {
+                "exact": "3/16",
+                "decimal": 0.1875
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/16",
+                "decimal": 0.1875
+              },
+              {
+                "exact": "-3/8",
+                "decimal": -0.375
+              },
+              {
+                "exact": "3/16",
+                "decimal": 0.1875
+              }
+            ],
+            "shared_frequency_one_shell_energy": {
+              "exact": "9/128",
+              "decimal": 0.0703125
+            },
+            "shared_nyquist_shell_energy": {
+              "exact": "9/64",
+              "decimal": 0.140625
+            },
+            "g_plus_uniform_norm_squared": {
+              "exact": "7/4",
+              "decimal": 1.75
+            },
+            "g_minus_uniform_norm_squared": {
+              "exact": "11/8",
+              "decimal": 1.375
+            },
+            "checks": {
+              "both_squared_signals_are_nonnegative": true,
+              "normalized_fourier_magnitudes_match": true,
+              "dyadic_shell_energies_match": true,
+              "pointwise_maxima_differ": true,
+              "signed_nyquist_phase_is_opposite": true
+            }
+          },
+          {
+            "epsilon": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "g_plus_squared_signal": [
+              {
+                "exact": "2/1",
+                "decimal": 2.0
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              }
+            ],
+            "g_minus_squared_signal": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "3/2",
+                "decimal": 1.5
+              },
+              {
+                "exact": "0/1",
+                "decimal": 0.0
+              },
+              {
+                "exact": "3/2",
+                "decimal": 1.5
+              }
+            ],
+            "g_plus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              }
+            ],
+            "g_minus_normalized_dft": [
+              {
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              {
+                "exact": "-1/2",
+                "decimal": -0.5
+              },
+              {
+                "exact": "1/4",
+                "decimal": 0.25
+              }
+            ],
+            "shared_frequency_one_shell_energy": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "shared_nyquist_shell_energy": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "g_plus_uniform_norm_squared": {
+              "exact": "2/1",
+              "decimal": 2.0
+            },
+            "g_minus_uniform_norm_squared": {
+              "exact": "3/2",
+              "decimal": 1.5
+            },
+            "checks": {
+              "both_squared_signals_are_nonnegative": true,
+              "normalized_fourier_magnitudes_match": true,
+              "dyadic_shell_energies_match": true,
+              "pointwise_maxima_differ": true,
+              "signed_nyquist_phase_is_opposite": true
+            }
+          }
+        ],
+        "shell_energy_only_pointwise_determination_no_go_holds": true,
+        "no_go_scope": "The example rejects shell-energy-only sharp certification. It does not invalidate the TICKET-170 Cauchy upper bound and is not a prime-specific Goldbach counterexample.",
+        "external_premise_boundary": "No target-uniform signed arithmetic autocorrelation dual certificate has been proved below an independently certified Goldbach anchor margin.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform signed arithmetic autocorrelation certificate is proved below an independently established major-arc anchor margin.",
+      "route_decision": {
+        "discard": "autocorrelation magnitude or dyadic shell energy alone as a sharp pointwise Goldbach certificate",
+        "retain": "signed phase-aware autocorrelation dual estimates tied to the arithmetic prime spectrum",
+        "next_single_lemma": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T171-REJECTED",
+            "label": "AutocorrelationShellEnergyAloneDeterminesThePointwiseDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T171-CLOSED",
+            "label": "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T171-OPEN",
+            "label": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T171-REJECTED",
+            "GB-T171-CLOSED"
+          ],
+          [
+            "GB-T171-CLOSED",
+            "GB-T171-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; an exact positive phase-ambiguity family only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-171",
+      "theorem_name": "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo",
+      "declared_proposition": "For every square matrix A and orthogonal two-dimensional Haar transform Q, B=Q A Q^T satisfies ||B||_2=||A||_2 and ||B||_F=||A||_F. If every row and column sum of A is zero, B has zero constant row and column. Thus the complete nonconstant Haar coefficient matrix is an exact multiscale reparameterization of Type-II dependence, and its square-sum is a sufficient operator bound. No fixed maximum resolution is complete: a 2x2 checkerboard inside one next-scale cell has zero aggregates at every controlled coarser level but a next-scale Haar coefficient and singular value equal to 2a.",
+      "mathematical_argument": "Left and right multiplication by orthogonal matrices preserves singular values and Frobenius energy. Zero margins are orthogonality to the constant Haar vector. For the no-go, each row, column, and containing dyadic block sum of [[a,-a],[-a,a]] is zero, while the checkerboard Haar pairing and its only nonzero singular value are 2a.",
+      "reproducible_computation": {
+        "theorem": "For every square matrix A and orthogonal two-dimensional Haar transform Q, B=Q A Q^T satisfies ||B||_2=||A||_2 and ||B||_F=||A||_F. If every row and column sum of A is zero, B has zero constant row and column. Thus the complete nonconstant Haar coefficient matrix is an exact multiscale reparameterization of Type-II dependence, and its square-sum is a sufficient operator bound. No fixed maximum resolution is complete: a 2x2 checkerboard inside one next-scale cell has zero aggregates at every controlled coarser level but a next-scale Haar coefficient and singular value equal to 2a.",
+        "proof": "Left and right multiplication by orthogonal matrices preserves singular values and Frobenius energy. Zero margins are orthogonality to the constant Haar vector. For the no-go, each row, column, and containing dyadic block sum of [[a,-a],[-a,a]] is zero, while the checkerboard Haar pairing and its only nonzero singular value are 2a.",
+        "finite_t161_haar_resolution_rows": [
+          {
+            "X": 10000,
+            "double_semiprime_pair_count_QQ": 35,
+            "haar_coefficient_matrix": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                5.0,
+                -60.104076400856535,
+                3.5355339059327373
+              ],
+              [
+                3.774758283725532e-15,
+                33.23401871576773,
+                -105.49999999999997,
+                -18.499999999999996
+              ],
+              [
+                0.0,
+                -7.778174593052022,
+                -18.499999999999996,
+                -19.499999999999993
+              ]
+            ],
+            "original_top_singular_value": 127.62211249869566,
+            "haar_top_singular_value": 127.62211249869563,
+            "frobenius_energy": 17010.0,
+            "nonconstant_haar_energy": 17009.999999999993,
+            "fine_fine_haar_energy": 12194.999999999995,
+            "fine_fine_energy_fraction": 0.7169312169312169,
+            "checks": {
+              "haar_constant_row_vanishes": true,
+              "haar_constant_column_vanishes": true,
+              "frobenius_energy_is_preserved": true,
+              "operator_norm_is_preserved": true,
+              "all_energy_is_in_nonconstant_coefficients": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 100000,
+            "double_semiprime_pair_count_QQ": 284,
+            "haar_coefficient_matrix": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1935.0,
+                928.4312036979369,
+                -887.419010389117
+              ],
+              [
+                -5.684341886080802e-14,
+                1924.0375516085953,
+                -2472.4999999999995,
+                -2172.4999999999995
+              ],
+              [
+                2.842170943040401e-14,
+                -1744.4324291872126,
+                17.5,
+                1005.4999999999998
+              ]
+            ],
+            "original_top_singular_value": 4325.604454335457,
+            "haar_top_singular_value": 4325.6044543354565,
+            "frobenius_energy": 23983036.0,
+            "nonconstant_haar_energy": 23983035.999999993,
+            "fine_fine_haar_energy": 11844348.999999996,
+            "fine_fine_energy_fraction": 0.49386362093606495,
+            "checks": {
+              "haar_constant_row_vanishes": true,
+              "haar_constant_column_vanishes": true,
+              "frobenius_energy_is_preserved": true,
+              "operator_norm_is_preserved": true,
+              "all_energy_is_in_nonconstant_coefficients": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 1000000,
+            "double_semiprime_pair_count_QQ": 2453,
+            "haar_coefficient_matrix": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                76212.0,
+                34334.276867294,
+                14474.47581088863
+              ],
+              [
+                -4.547473508864641e-12,
+                35711.720877045394,
+                -992.0,
+                -4993.0
+              ],
+              [
+                -1.8189894035458565e-12,
+                29825.764030448572,
+                -27943.999999999993,
+                5204.999999999999
+              ]
+            ],
+            "original_top_singular_value": 92730.90656301392,
+            "haar_top_singular_value": 92730.90656301392,
+            "frobenius_energy": 10195398444.000002,
+            "nonconstant_haar_energy": 10195398444.0,
+            "fine_fine_haar_energy": 833873273.9999996,
+            "fine_fine_energy_fraction": 0.08178917955783618,
+            "checks": {
+              "haar_constant_row_vanishes": true,
+              "haar_constant_column_vanishes": true,
+              "frobenius_energy_is_preserved": true,
+              "operator_norm_is_preserved": true,
+              "all_energy_is_in_nonconstant_coefficients": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          },
+          {
+            "X": 10000000,
+            "double_semiprime_pair_count_QQ": 19074,
+            "haar_coefficient_matrix": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3974126.0,
+                -63721.63469340699,
+                619278.4621089287
+              ],
+              [
+                -2.9103830456733704e-11,
+                387088.63679782685,
+                -525403.9999999999,
+                -402225.99999999994
+              ],
+              [
+                -2.3283064365386963e-10,
+                1581165.716051926,
+                -570903.9999999998,
+                1837125.9999999995
+              ]
+            ],
+            "original_top_singular_value": 4499308.1114703305,
+            "haar_top_singular_value": 4499308.1114703305,
+            "frobenius_energy": 22969964793976.004,
+            "nonconstant_haar_energy": 22969964793976.0,
+            "fine_fine_haar_energy": 4138798435383.9976,
+            "fine_fine_energy_fraction": 0.18018305524218392,
+            "checks": {
+              "haar_constant_row_vanishes": true,
+              "haar_constant_column_vanishes": true,
+              "frobenius_energy_is_preserved": true,
+              "operator_norm_is_preserved": true,
+              "all_energy_is_in_nonconstant_coefficients": true,
+              "row_is_finite_factorization_diagnostic_only": true
+            }
+          }
+        ],
+        "exact_finite_depth_invisibility_rows": [
+          {
+            "controlled_maximum_dyadic_level_J": 1,
+            "fine_dimension_N": 4,
+            "next_scale_checkerboard_amplitude": 1,
+            "all_controlled_coarse_aggregates": 0,
+            "next_scale_haar_coefficient": 2,
+            "fine_top_singular_value": 2,
+            "checks": {
+              "all_dyadic_block_sums_through_controlled_level_vanish": true,
+              "all_fine_row_and_column_margins_vanish": true,
+              "next_scale_haar_coefficient_is_nonzero": true,
+              "fine_operator_norm_is_nonzero": true
+            }
+          },
+          {
+            "controlled_maximum_dyadic_level_J": 2,
+            "fine_dimension_N": 8,
+            "next_scale_checkerboard_amplitude": 2,
+            "all_controlled_coarse_aggregates": 0,
+            "next_scale_haar_coefficient": 4,
+            "fine_top_singular_value": 4,
+            "checks": {
+              "all_dyadic_block_sums_through_controlled_level_vanish": true,
+              "all_fine_row_and_column_margins_vanish": true,
+              "next_scale_haar_coefficient_is_nonzero": true,
+              "fine_operator_norm_is_nonzero": true
+            }
+          },
+          {
+            "controlled_maximum_dyadic_level_J": 3,
+            "fine_dimension_N": 16,
+            "next_scale_checkerboard_amplitude": 4,
+            "all_controlled_coarse_aggregates": 0,
+            "next_scale_haar_coefficient": 8,
+            "fine_top_singular_value": 8,
+            "checks": {
+              "all_dyadic_block_sums_through_controlled_level_vanish": true,
+              "all_fine_row_and_column_margins_vanish": true,
+              "next_scale_haar_coefficient_is_nonzero": true,
+              "fine_operator_norm_is_nonzero": true
+            }
+          },
+          {
+            "controlled_maximum_dyadic_level_J": 4,
+            "fine_dimension_N": 32,
+            "next_scale_checkerboard_amplitude": 8,
+            "all_controlled_coarse_aggregates": 0,
+            "next_scale_haar_coefficient": 16,
+            "fine_top_singular_value": 16,
+            "checks": {
+              "all_dyadic_block_sums_through_controlled_level_vanish": true,
+              "all_fine_row_and_column_margins_vanish": true,
+              "next_scale_haar_coefficient_is_nonzero": true,
+              "fine_operator_norm_is_nonzero": true
+            }
+          },
+          {
+            "controlled_maximum_dyadic_level_J": 5,
+            "fine_dimension_N": 64,
+            "next_scale_checkerboard_amplitude": 16,
+            "all_controlled_coarse_aggregates": 0,
+            "next_scale_haar_coefficient": 32,
+            "fine_top_singular_value": 32,
+            "checks": {
+              "all_dyadic_block_sums_through_controlled_level_vanish": true,
+              "all_fine_row_and_column_margins_vanish": true,
+              "next_scale_haar_coefficient_is_nonzero": true,
+              "fine_operator_norm_is_nonzero": true
+            }
+          }
+        ],
+        "model_boundary": "Haar coordinates reorganize the missing Type-II information but do not supply asymptotic decay. A Frobenius bound may also lose dimension relative to the operator norm required by the sieve.",
+        "failure_count": 0
+      },
+      "logical_limit": "No growing-resolution Haar coefficient decay estimate with constants strong enough for a prime-producing sieve is proved.",
+      "route_decision": {
+        "discard": "any fixed finite dyadic depth as complete control of Type-II dependence",
+        "retain": "a growing Haar resolution with uniform operator control and explicit sieve constants",
+        "next_single_lemma": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T171-REJECTED",
+            "label": "FixedFiniteDyadicDepthControlsAllTypeIIDependence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T171-CLOSED",
+            "label": "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T171-OPEN",
+            "label": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T171-REJECTED",
+            "TP-T171-CLOSED"
+          ],
+          [
+            "TP-T171-CLOSED",
+            "TP-T171-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; an exact Haar bridge, finite diagnostics, and finite-depth no-go only."
+    },
+    "cross_problem_synthesis": "The common obstruction is now sharper than finite-versus-infinite scale: proof-relevant geometry, natural-number compatibility, signed phase, and complete resolution cannot be replaced by one scalar proxy.",
+    "literature_boundary": {
+      "riemann": "arXiv:2607.02828 supplies finite Guinand-Weil and interval-LDL context; the relative KKT theorem here is project-local and proves no RH statement.",
+      "collatz": "Rozier-Terracol arXiv:2502.00948 studies finite paradoxical parity behavior; the all-one 2-adic ghost calculation here is an exact target correction, not a Collatz counterexample.",
+      "goldbach": "Grimmelt-Bhowmik arXiv:2607.27282 supplies current exceptional-set and explicit major-arc context; it does not provide the signed pointwise certificate required here.",
+      "twin_prime": "Ford-Maynard arXiv:2407.14368 makes substantial Type-II information necessary in a general prime-producing sieve framework; the Haar bridge supplies coordinates, not that estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-171",
+      "status": "open_not_proven",
+      "declared_proposition": "Let K_tilde be real symmetric and nonsingular, J=sign(K_tilde), and T=abs(K_tilde)^(-1/2). For symmetric E put F=T*E*T. Since K_tilde+E is congruent to J+F, ||F||_2<1 implies that K_tilde+E and K_tilde have the same inertia. For entry radii R in the original basis, ||abs(T) R abs(T)^T||_F<1 is a computable sufficient interval condition. Requiring ||E||_2<min|lambda(K_tilde)| is sufficient but not necessary: diag(1/n,n^2,-1) with E=diag(0,n^2/2,0) fails that absolute test by an unbounded factor while its relative norm is 1/2 and inertia is unchanged.",
+      "new_result": "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo",
+      "discarded_route": "the global minimum spectral gap as a necessary absolute error scale in every KKT direction",
+      "remaining_gap": "No actual cofinal Guinand-Weil interval family has a certified sign-normalized relative radius below one on one fixed dense neutral core.",
+      "candidate_theorem": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore",
+      "claim_boundary": "No RH proof and no off-critical zero exclusion; an exact relative inertia certificate and anisotropic no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T171-REJECTED",
+            "label": "GlobalMinimumGapConditionIsNecessaryForInertiaCertification",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T171-CLOSED",
+            "label": "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T171-OPEN",
+            "label": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T171-REJECTED",
+            "RH-T171-CLOSED"
+          ],
+          [
+            "RH-T171-CLOSED",
+            "RH-T171-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-171",
+      "status": "open_not_proven",
+      "declared_proposition": "The exact non-descending child tree left by TICKET-170 is not well founded. For w_m=1^m, C_m=3^m-2^m, the least positive realizer is n_m=2^(m+1)-1, and its endpoint is u_m=2*3^m-1>n_m. Appending valuation one gives w_(m+1), so these nodes form an infinite compatible ray. Their residues converge to -1 in Z_2, and no positive natural integer realizes every prefix. Thus the ray is a 2-adic ghost obstruction, not a divergent natural Collatz orbit.",
+      "new_result": "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo",
+      "discarded_route": "well-foundedness of the entire exact residual prefix tree after analytic tail closure",
+      "remaining_gap": "The ghost ray is not a positive natural orbit. Excluding every compatible non-descending residual ray generated by a fixed positive natural start remains open.",
+      "candidate_theorem": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay",
+      "claim_boundary": "No Collatz proof and no divergent natural orbit; one exact infinite residual ray is proved to be a non-natural 2-adic ghost.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T171-REJECTED",
+            "label": "WellFoundednessOfExactNonDescendingChildTreeAfterAnalyticTailClosure",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T171-CLOSED",
+            "label": "AllOneNonDescendingGhostRayAndResidualTreeWellFoundednessNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T171-OPEN",
+            "label": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T171-REJECTED",
+            "CO-T171-CLOSED"
+          ],
+          [
+            "CO-T171-CLOSED",
+            "CO-T171-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-171",
+      "status": "open_not_proven",
+      "declared_proposition": "Autocorrelation magnitudes and every dyadic shell energy do not determine the pointwise norm, even for nonnegative squared signals. On Z/4, for 0<epsilon<=1/2, let g_plus=1+epsilon*cos(t)+epsilon*cos(2t) and g_minus=1+epsilon*cos(t)-epsilon*cos(2t). Both are nonnegative and their normalized Fourier coefficient magnitudes agree at every frequency, but max(g_plus)=1+2*epsilon while max(g_minus)=1+epsilon.",
+      "new_result": "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo",
+      "discarded_route": "autocorrelation magnitude or dyadic shell energy alone as a sharp pointwise Goldbach certificate",
+      "remaining_gap": "No target-uniform signed arithmetic autocorrelation certificate is proved below an independently established major-arc anchor margin.",
+      "candidate_theorem": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin",
+      "claim_boundary": "No Goldbach proof and no even counterexample; an exact positive phase-ambiguity family only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T171-REJECTED",
+            "label": "AutocorrelationShellEnergyAloneDeterminesThePointwiseDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T171-CLOSED",
+            "label": "PositiveAutocorrelationPhaseAmbiguityAndShellEnergyOnlyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T171-OPEN",
+            "label": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T171-REJECTED",
+            "GB-T171-CLOSED"
+          ],
+          [
+            "GB-T171-CLOSED",
+            "GB-T171-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-171",
+      "status": "open_not_proven",
+      "declared_proposition": "For every square matrix A and orthogonal two-dimensional Haar transform Q, B=Q A Q^T satisfies ||B||_2=||A||_2 and ||B||_F=||A||_F. If every row and column sum of A is zero, B has zero constant row and column. Thus the complete nonconstant Haar coefficient matrix is an exact multiscale reparameterization of Type-II dependence, and its square-sum is a sufficient operator bound. No fixed maximum resolution is complete: a 2x2 checkerboard inside one next-scale cell has zero aggregates at every controlled coarser level but a next-scale Haar coefficient and singular value equal to 2a.",
+      "new_result": "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo",
+      "discarded_route": "any fixed finite dyadic depth as complete control of Type-II dependence",
+      "remaining_gap": "No growing-resolution Haar coefficient decay estimate with constants strong enough for a prime-producing sieve is proved.",
+      "candidate_theorem": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; an exact Haar bridge, finite diagnostics, and finite-depth no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T171-REJECTED",
+            "label": "FixedFiniteDyadicDepthControlsAllTypeIIDependence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T171-CLOSED",
+            "label": "HaarTypeIIResolutionCompletenessBridgeAndFiniteDepthNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T171-OPEN",
+            "label": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T171-REJECTED",
+            "TP-T171-CLOSED"
+          ],
+          [
+            "TP-T171-CLOSED",
+            "TP-T171-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants"
+    }
+  ]
+}

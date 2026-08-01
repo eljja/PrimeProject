@@ -1,0 +1,437 @@
+{
+  "schema": "primeproject.ticket171-relative-ghost-phase-haar.v1",
+  "generated_at": "2026-08-04T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-171",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo",
+  "declared_proposition": "Let K_tilde be real symmetric and nonsingular, J=sign(K_tilde), and T=abs(K_tilde)^(-1/2). For symmetric E put F=T*E*T. Since K_tilde+E is congruent to J+F, ||F||_2<1 implies that K_tilde+E and K_tilde have the same inertia. For entry radii R in the original basis, ||abs(T) R abs(T)^T||_F<1 is a computable sufficient interval condition. Requiring ||E||_2<min|lambda(K_tilde)| is sufficient but not necessary: diag(1/n,n^2,-1) with E=diag(0,n^2/2,0) fails that absolute test by an unbounded factor while its relative norm is 1/2 and inertia is unchanged.",
+  "mathematical_argument": "Spectral calculus gives K_tilde=T^(-1) J T^(-1), hence K_tilde+E=T^(-1)(J+F)T^(-1). Sylvester's law reduces the question to J+F. Weyl's inequality and the unit spectral gap of J prevent a zero crossing when ||F||_2<1. If |E_ij|<=R_ij, entrywise triangle inequality gives |(TET)_ab|<=(abs(T)R abs(T)^T)_ab, whose Frobenius norm dominates the operator norm. The diagonal family is evaluated coordinatewise.",
+  "reproducible_computation": {
+    "theorem": "Let K_tilde be real symmetric and nonsingular, J=sign(K_tilde), and T=abs(K_tilde)^(-1/2). For symmetric E put F=T*E*T. Since K_tilde+E is congruent to J+F, ||F||_2<1 implies that K_tilde+E and K_tilde have the same inertia. For entry radii R in the original basis, ||abs(T) R abs(T)^T||_F<1 is a computable sufficient interval condition. Requiring ||E||_2<min|lambda(K_tilde)| is sufficient but not necessary: diag(1/n,n^2,-1) with E=diag(0,n^2/2,0) fails that absolute test by an unbounded factor while its relative norm is 1/2 and inertia is unchanged.",
+    "proof": "Spectral calculus gives K_tilde=T^(-1) J T^(-1), hence K_tilde+E=T^(-1)(J+F)T^(-1). Sylvester's law reduces the question to J+F. Weyl's inequality and the unit spectral gap of J prevent a zero crossing when ||F||_2<1. If |E_ij|<=R_ij, entrywise triangle inequality gives |(TET)_ab|<=(abs(T)R abs(T)^T)_ab, whose Frobenius norm dominates the operator norm. The diagonal family is evaluated coordinatewise.",
+    "exact_anisotropic_proxy_rows": [
+      {
+        "scale_n": 2,
+        "canonical_kkt_diagonal": [
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "4/1",
+            "decimal": 4.0
+          },
+          {
+            "exact": "-1/1",
+            "decimal": -1.0
+          }
+        ],
+        "perturbation_diagonal": [
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "2/1",
+            "decimal": 2.0
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          }
+        ],
+        "global_minimum_gap_gamma": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "absolute_operator_error": {
+          "exact": "2/1",
+          "decimal": 2.0
+        },
+        "absolute_error_to_gap_ratio": {
+          "exact": "4/1",
+          "decimal": 4.0
+        },
+        "sign_normalized_relative_operator_error": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "perturbed_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "absolute_global_gap_test_fails": true,
+          "relative_sign_normalized_test_passes": true,
+          "inertia_is_unchanged": true,
+          "anisotropy_grows_with_scale": true,
+          "relative_error_is_scale_independent": true
+        }
+      },
+      {
+        "scale_n": 4,
+        "canonical_kkt_diagonal": [
+          {
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "exact": "16/1",
+            "decimal": 16.0
+          },
+          {
+            "exact": "-1/1",
+            "decimal": -1.0
+          }
+        ],
+        "perturbation_diagonal": [
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "8/1",
+            "decimal": 8.0
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          }
+        ],
+        "global_minimum_gap_gamma": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "absolute_operator_error": {
+          "exact": "8/1",
+          "decimal": 8.0
+        },
+        "absolute_error_to_gap_ratio": {
+          "exact": "32/1",
+          "decimal": 32.0
+        },
+        "sign_normalized_relative_operator_error": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "perturbed_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "absolute_global_gap_test_fails": true,
+          "relative_sign_normalized_test_passes": true,
+          "inertia_is_unchanged": true,
+          "anisotropy_grows_with_scale": true,
+          "relative_error_is_scale_independent": true
+        }
+      },
+      {
+        "scale_n": 8,
+        "canonical_kkt_diagonal": [
+          {
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          {
+            "exact": "64/1",
+            "decimal": 64.0
+          },
+          {
+            "exact": "-1/1",
+            "decimal": -1.0
+          }
+        ],
+        "perturbation_diagonal": [
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "32/1",
+            "decimal": 32.0
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          }
+        ],
+        "global_minimum_gap_gamma": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "absolute_operator_error": {
+          "exact": "32/1",
+          "decimal": 32.0
+        },
+        "absolute_error_to_gap_ratio": {
+          "exact": "256/1",
+          "decimal": 256.0
+        },
+        "sign_normalized_relative_operator_error": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "perturbed_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "absolute_global_gap_test_fails": true,
+          "relative_sign_normalized_test_passes": true,
+          "inertia_is_unchanged": true,
+          "anisotropy_grows_with_scale": true,
+          "relative_error_is_scale_independent": true
+        }
+      },
+      {
+        "scale_n": 16,
+        "canonical_kkt_diagonal": [
+          {
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          {
+            "exact": "256/1",
+            "decimal": 256.0
+          },
+          {
+            "exact": "-1/1",
+            "decimal": -1.0
+          }
+        ],
+        "perturbation_diagonal": [
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "128/1",
+            "decimal": 128.0
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          }
+        ],
+        "global_minimum_gap_gamma": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "absolute_operator_error": {
+          "exact": "128/1",
+          "decimal": 128.0
+        },
+        "absolute_error_to_gap_ratio": {
+          "exact": "2048/1",
+          "decimal": 2048.0
+        },
+        "sign_normalized_relative_operator_error": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "perturbed_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "absolute_global_gap_test_fails": true,
+          "relative_sign_normalized_test_passes": true,
+          "inertia_is_unchanged": true,
+          "anisotropy_grows_with_scale": true,
+          "relative_error_is_scale_independent": true
+        }
+      },
+      {
+        "scale_n": 32,
+        "canonical_kkt_diagonal": [
+          {
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          {
+            "exact": "1024/1",
+            "decimal": 1024.0
+          },
+          {
+            "exact": "-1/1",
+            "decimal": -1.0
+          }
+        ],
+        "perturbation_diagonal": [
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "512/1",
+            "decimal": 512.0
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          }
+        ],
+        "global_minimum_gap_gamma": {
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "absolute_operator_error": {
+          "exact": "512/1",
+          "decimal": 512.0
+        },
+        "absolute_error_to_gap_ratio": {
+          "exact": "16384/1",
+          "decimal": 16384.0
+        },
+        "sign_normalized_relative_operator_error": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "perturbed_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "absolute_global_gap_test_fails": true,
+          "relative_sign_normalized_test_passes": true,
+          "inertia_is_unchanged": true,
+          "anisotropy_grows_with_scale": true,
+          "relative_error_is_scale_independent": true
+        }
+      },
+      {
+        "scale_n": 64,
+        "canonical_kkt_diagonal": [
+          {
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          {
+            "exact": "4096/1",
+            "decimal": 4096.0
+          },
+          {
+            "exact": "-1/1",
+            "decimal": -1.0
+          }
+        ],
+        "perturbation_diagonal": [
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          },
+          {
+            "exact": "2048/1",
+            "decimal": 2048.0
+          },
+          {
+            "exact": "0/1",
+            "decimal": 0.0
+          }
+        ],
+        "global_minimum_gap_gamma": {
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "absolute_operator_error": {
+          "exact": "2048/1",
+          "decimal": 2048.0
+        },
+        "absolute_error_to_gap_ratio": {
+          "exact": "131072/1",
+          "decimal": 131072.0
+        },
+        "sign_normalized_relative_operator_error": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "approximate_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "perturbed_inertia": {
+          "positive": 2,
+          "negative": 1,
+          "zero": 0
+        },
+        "checks": {
+          "absolute_global_gap_test_fails": true,
+          "relative_sign_normalized_test_passes": true,
+          "inertia_is_unchanged": true,
+          "anisotropy_grows_with_scale": true,
+          "relative_error_is_scale_independent": true
+        }
+      }
+    ],
+    "relative_certificate_holds_on_all_rows": true,
+    "no_go_scope": "The family refutes necessity of one global absolute minimum-gap test; it does not refute that test as a sufficient certificate.",
+    "external_premise_boundary": "No cofinal interval enclosure on an actual fixed dense pole-neutral Guinand-Weil core has sign-normalized radius below one.",
+    "failure_count": 0
+  },
+  "discarded_route": "the global minimum spectral gap as a necessary absolute error scale in every KKT direction",
+  "remaining_gap": "No actual cofinal Guinand-Weil interval family has a certified sign-normalized relative radius below one on one fixed dense neutral core.",
+  "candidate_theorem": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore",
+  "claim_boundary": "No RH proof and no off-critical zero exclusion; an exact relative inertia certificate and anisotropic no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T171-REJECTED",
+        "label": "GlobalMinimumGapConditionIsNecessaryForInertiaCertification",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T171-CLOSED",
+        "label": "RelativeKKTSignNormalizationCertificateAndGlobalMinimumGapRequirementNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T171-OPEN",
+        "label": "CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T171-REJECTED",
+        "RH-T171-CLOSED"
+      ],
+      [
+        "RH-T171-CLOSED",
+        "RH-T171-OPEN"
+      ]
+    ]
+  }
+}

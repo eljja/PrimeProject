@@ -6778,3 +6778,36 @@ spectral 감소는 균일 Type-II 하계나 양의 twin-prime 하계를 주지
 
 Full bilingual report / 전체 한영 보고서:
 [TICKET-161 commoncore-baker-angle-typeii](commoncore-baker-angle-typeii.md).
+
+## TICKET-171 continuation: relative KKT geometry, a 2-adic ghost ray, signed phase, and Haar resolution
+
+TICKET-171 audits the latest four open lemmas rather than extending finite
+cutoffs. It proves four exact target corrections and keeps every conjecture
+resolution counter at zero.
+
+1. **Riemann Hypothesis.** The sign-normalized relative error
+   `F=|K|^(-1/2)E|K|^(-1/2)` preserves KKT inertia when `||F||_2<1`.
+   An anisotropic family proves that the global minimum gap is not a necessary
+   absolute error scale. The next target is
+   `CofinalRelativeIntervalKKTSignNormalizationBelowOneOnFixedPoleNeutralWeilCore`.
+2. **Collatz.** The full residual child tree is not well founded. The all-one
+   words have least realizers `2^(m+1)-1`, remain non-descending, and converge
+   to the non-natural 2-adic start `-1`. The corrected next target is
+   `NoPositiveNaturalStartSupportsAnInfiniteLeastRealizerNonDescendingResidualRay`.
+3. **Goldbach.** Two nonnegative squared signals on `Z/4` have identical
+   Fourier magnitudes and shell energies but maxima `1+2e` and `1+e`.
+   Shell-energy-only sharp certification is rejected. The next target is
+   `UniformSignedBinaryGoldbachAutocorrelationDualCertificateBelowAnchorMargin`.
+4. **Twin Prime.** A two-dimensional orthogonal Haar transform preserves the
+   full Type-II operator and Frobenius energy. Every fixed maximum depth misses
+   a next-scale checkerboard with singular value `2a`. The next target is
+   `UniformGrowingResolutionHaarTypeIIDecayWithPrimeProducingConstants`.
+
+한국어 경계: 상대 KKT 정리는 실제 Weil core의 cofinal 구간 상계를 만들지
+않는다. 콜라츠 all-one 경로는 양의 자연수 발산 궤도가 아니라 2-adic 유령
+경로다. 골드바흐 위상 반례는 일반 비음수 신호이며 소수 특화 반례가 아니다.
+Twin Haar 항등식은 좌표 변환일 뿐 점근 Type-II decay를 제공하지 않는다.
+네 추측은 모두 `open_not_proven`이다.
+
+English report: [TICKET-171 relative-ghost-phase-haar](relative-ghost-phase-haar.md).
+한국어 보고서: [TICKET-171 상대-유령-위상-Haar](relative-ghost-phase-haar.ko.md).
