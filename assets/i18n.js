@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact representation boundaries",
-      ko: "네 개의 미해결 문제, 정확한 네 개의 표현 경계",
+      en: "Four open problems, four exact localization boundaries",
+      ko: "네 개의 미해결 문제, 정확한 네 개의 국소화 경계",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-179 proves four information-preserving contracts and rejects four inadequate representations.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-179은 정보를 보존하는 네 조건을 증명하고 부적절한 네 표현 경로를 폐기했습니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-180 proves why finite, unordered, almost-all, and global summaries cannot supply four universal conclusions.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-180은 유한·무순서·거의 모든 값·전역 요약이 네 보편 결론에 충분하지 않음을 증명했습니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

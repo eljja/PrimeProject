@@ -62,7 +62,48 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-179
+## Latest Continuation After TICKET-180
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `ArithmeticWeilTailHasCertifiedUniformHighFrequencyEnvelopeBeyondObservedBand`.
+   TICKET-180 proves that finite Toeplitz sections cannot see Fourier modes
+   beyond their observed band. Do not promote finite spectral agreement without
+   a separate arithmetic tail envelope.
+2. Collatz:
+   `OrderedCylinderTransferHasUniformDescentOutsideExplicitFiniteExceptionalSet`.
+   Equal adaptive valuation layers can have different ordered affine numerators
+   and first-descent times on natural cylinders. Do not discard valuation order.
+3. Goldbach:
+   `ParityAliasedMinorHasUniformLInfinityDeficitBelowMajorMainOnEveryDyadicBlock`.
+   Vanishing RMS and exceptional density still allow one negative target. An
+   every-target exception-removal estimate is indispensable.
+4. Twin Prime:
+   `PrimePairHaarCenteredEnergySaturatesDiagonalUniformlyOnEveryLargeDyadicBlock`.
+   A global centered-energy average can hide one fully aligned block. The
+   required theorem must be uniform in the dyadic block.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket180-finite-information-localization.json
+data/open-problem/riemann/rh-ticket-180-hidden-frequency.json
+data/open-problem/collatz/co-ticket-180-ordered-prefix.json
+data/open-problem/goldbach/gb-ticket-180-exceptional-spike.json
+data/open-problem/twin-prime/tp-ticket-180-block-localization.json
+```
+
+한국어 인계: TICKET-180도 네 난제를 해결하지 않았다. 다음 연구는 유한에서
+무한, valuation multiset에서 순서 있는 자연수 궤도, 거의 모든 짝수에서 모든
+짝수, 전역 에너지에서 모든 dyadic block으로 넘어가는 균일 국소화 정리를
+공격해야 한다. 더 큰 유한 표본만으로 이 양화사 간극을 넘었다고 주장하면
+안 된다.
+
+English report: [TICKET-180](finite-information-localization.md).
+Korean report: [TICKET-180 한국어](finite-information-localization.ko.md).
+
+## Preserved Continuation After TICKET-179
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

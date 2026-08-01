@@ -37,7 +37,37 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-02 TICKET-179 Representation-Adequacy Audit
+## 2026-08-02 TICKET-180 Finite-Information Localization Audit
+
+TICKET-180 audits the four open nodes left by TICKET-179 and keeps every parent
+conjecture at `open_not_proven`.
+
+1. **Riemann:** `FiniteToeplitzMomentIndeterminacyAndTailEnvelopeNecessity`
+   proves that an arbitrary hidden Fourier mode can preserve every observed
+   Toeplitz section while violating the global symbol margin. The next
+   obligation is
+   `ArithmeticWeilTailHasCertifiedUniformHighFrequencyEnvelopeBeyondObservedBand`.
+2. **Collatz:** `ValuationLayerPermutationNoGoAndOrderedAffinePrefixIdentity`
+   proves the exact ordered affine numerator and exhibits natural cylinders
+   with equal valuation layers but different first-descent times. The next
+   obligation is
+   `OrderedCylinderTransferHasUniformDescentOutsideExplicitFiniteExceptionalSet`.
+3. **Goldbach:** `MeanSquareExceptionalSpikeNoGoForEveryTargetPositivity`
+   proves that normalized RMS and exceptional density can both vanish while a
+   single target remains negative. The next obligation is
+   `ParityAliasedMinorHasUniformLInfinityDeficitBelowMajorMainOnEveryDyadicBlock`.
+4. **Twin Prime:** `GlobalCenteredEnergyNoGoForUniformBlockCancellation`
+   proves that global centered-energy saturation can approach one while a
+   single block stays fully aligned. The next obligation is
+   `PrimePairHaarCenteredEnergySaturatesDiagonalUniformlyOnEveryLargeDyadicBlock`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-180](finite-information-localization.md).
+한국어 보고서: [TICKET-180](finite-information-localization.ko.md).
+
+## Preserved 2026-08-02 TICKET-179 Representation-Adequacy Audit
 
 TICKET-179 continues the four open nodes left by TICKET-178 and keeps every
 parent conjecture at `open_not_proven`.

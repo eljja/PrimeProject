@@ -1,0 +1,156 @@
+{
+  "schema": "primeproject.ticket180-finite-information-localization.v1",
+  "generated_at": "2026-08-02T06:30:00+09:00",
+  "ticket_id": "GB-TICKET-180",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "MeanSquareExceptionalSpikeNoGoForEveryTargetPositivity",
+  "declared_proposition": "Mean-square or exceptional-density control cannot certify binary Goldbach positivity at every target. For L targets with major value mu>0, put a minor error -(1+epsilon)mu at one target and zero elsewhere. The normalized RMS is (1+epsilon)mu/sqrt(L) and tends to zero, but the major-plus-minor value at that target is -epsilon mu.",
+  "mathematical_argument": "The squared error has one nonzero term, so its normalized mean square is (1+epsilon)^2 mu^2/L. The exceptional set has density 1/L, yet the single spike reverses the sign. Thus an exceptional-set theorem or an L2 minor-arc estimate requires a separate L-infinity exception-removal argument before it can imply the strong Goldbach conjecture.",
+  "reproducible_computation": {
+    "theorem": "Mean-square or exceptional-density control cannot certify binary Goldbach positivity at every target. For L targets with major value mu>0, put a minor error -(1+epsilon)mu at one target and zero elsewhere. The normalized RMS is (1+epsilon)mu/sqrt(L) and tends to zero, but the major-plus-minor value at that target is -epsilon mu.",
+    "proof": "The squared error has one nonzero term, so its normalized mean square is (1+epsilon)^2 mu^2/L. The exceptional set has density 1/L, yet the single spike reverses the sign. Thus an exceptional-set theorem or an L2 minor-arc estimate requires a separate L-infinity exception-removal argument before it can imply the strong Goldbach conjecture.",
+    "exceptional_spike_counterfamily": [
+      {
+        "target_count_L": 16,
+        "main_value_mu": 1.0,
+        "single_minor_spike": -1.1,
+        "normalized_minor_rms": 0.275,
+        "normalized_minor_mean_absolute": 0.06875,
+        "exception_density": 0.0625,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "checks": {
+          "normalized_rms_formula_holds": true,
+          "mean_absolute_formula_holds": true,
+          "one_target_is_negative": true,
+          "exception_density_tends_down": true
+        }
+      },
+      {
+        "target_count_L": 64,
+        "main_value_mu": 1.0,
+        "single_minor_spike": -1.1,
+        "normalized_minor_rms": 0.1375,
+        "normalized_minor_mean_absolute": 0.0171875,
+        "exception_density": 0.015625,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "checks": {
+          "normalized_rms_formula_holds": true,
+          "mean_absolute_formula_holds": true,
+          "one_target_is_negative": true,
+          "exception_density_tends_down": true
+        }
+      },
+      {
+        "target_count_L": 256,
+        "main_value_mu": 1.0,
+        "single_minor_spike": -1.1,
+        "normalized_minor_rms": 0.06875,
+        "normalized_minor_mean_absolute": 0.004296875,
+        "exception_density": 0.00390625,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "checks": {
+          "normalized_rms_formula_holds": true,
+          "mean_absolute_formula_holds": true,
+          "one_target_is_negative": true,
+          "exception_density_tends_down": true
+        }
+      },
+      {
+        "target_count_L": 1024,
+        "main_value_mu": 1.0,
+        "single_minor_spike": -1.1,
+        "normalized_minor_rms": 0.034375,
+        "normalized_minor_mean_absolute": 0.00107421875,
+        "exception_density": 0.0009765625,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "checks": {
+          "normalized_rms_formula_holds": true,
+          "mean_absolute_formula_holds": true,
+          "one_target_is_negative": true,
+          "exception_density_tends_down": true
+        }
+      },
+      {
+        "target_count_L": 4096,
+        "main_value_mu": 1.0,
+        "single_minor_spike": -1.1,
+        "normalized_minor_rms": 0.0171875,
+        "normalized_minor_mean_absolute": 0.0002685546875,
+        "exception_density": 0.000244140625,
+        "minimum_major_plus_minor": -0.10000000000000009,
+        "checks": {
+          "normalized_rms_formula_holds": true,
+          "mean_absolute_formula_holds": true,
+          "one_target_is_negative": true,
+          "exception_density_tends_down": true
+        }
+      }
+    ],
+    "finite_exact_goldbach_rows": [
+      {
+        "even_target_limit": 100,
+        "even_targets_checked": 49,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 18,
+        "counterexample_found": false
+      },
+      {
+        "even_target_limit": 1000,
+        "even_targets_checked": 499,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 104,
+        "counterexample_found": false
+      },
+      {
+        "even_target_limit": 10000,
+        "even_targets_checked": 4999,
+        "minimum_ordered_goldbach_count": 1,
+        "maximum_ordered_goldbach_count": 658,
+        "counterexample_found": false
+      }
+    ],
+    "aggregate": {
+      "spike_size_count": 5,
+      "largest_target_count": 4096,
+      "rms_decreases": true,
+      "every_spike_breaks_positivity": true,
+      "largest_finite_even_target": 10000
+    },
+    "no_go_scope": "This proves that average error and a vanishing exceptional density do not imply every-target positivity. Exact finite verification through 10,000 finds no counterexample but has no implication for unbounded targets. A target-uniform arithmetic L-infinity deficit remains open.",
+    "failure_count": 0
+  },
+  "discarded_route": "mean-square minor control or vanishing exceptional density as sufficient for every-target positivity",
+  "remaining_gap": "No target-uniform arithmetic L-infinity estimate keeps the parity-aliased minor contribution below the major term on every large dyadic block.",
+  "candidate_theorem": "ParityAliasedMinorHasUniformLInfinityDeficitBelowMajorMainOnEveryDyadicBlock",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact exceptional-spike no-go family and finite verification through 10,000 only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T180-REJECTED",
+        "label": "VanishingExceptionalDensityImpliesEveryTargetGoldbachPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T180-CLOSED",
+        "label": "MeanSquareExceptionalSpikeNoGoForEveryTargetPositivity",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T180-OPEN",
+        "label": "ParityAliasedMinorHasUniformLInfinityDeficitBelowMajorMainOnEveryDyadicBlock",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T180-REJECTED",
+        "GB-T180-CLOSED"
+      ],
+      [
+        "GB-T180-CLOSED",
+        "GB-T180-OPEN"
+      ]
+    ]
+  }
+}

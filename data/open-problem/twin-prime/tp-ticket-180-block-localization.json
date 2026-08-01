@@ -1,0 +1,133 @@
+{
+  "schema": "primeproject.ticket180-finite-information-localization.v1",
+  "generated_at": "2026-08-02T06:30:00+09:00",
+  "ticket_id": "TP-TICKET-180",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "GlobalCenteredEnergyNoGoForUniformBlockCancellation",
+  "declared_proposition": "Global centered-energy saturation does not imply uniform blockwise zero-mode cancellation. With m components, take K blocks whose components are scalar m-th roots of unity and one block whose components are all aligned. Then the global ratio sum Z_b/sum D_b equals m/(K+1) and tends to zero, while the bad block keeps Z_bad/D_bad=m and zero centered energy.",
+  "mathematical_argument": "Each cancelling block has D=m, Z=0, V=m. The aligned block has D=m, Z=m^2, V=0. Summing gives D_total=(K+1)m and Z_total=m^2, hence the stated global ratio. Arbitrarily strong average saturation can therefore hide a completely non-cancelling scale.",
+  "reproducible_computation": {
+    "theorem": "Global centered-energy saturation does not imply uniform blockwise zero-mode cancellation. With m components, take K blocks whose components are scalar m-th roots of unity and one block whose components are all aligned. Then the global ratio sum Z_b/sum D_b equals m/(K+1) and tends to zero, while the bad block keeps Z_bad/D_bad=m and zero centered energy.",
+    "proof": "Each cancelling block has D=m, Z=0, V=m. The aligned block has D=m, Z=m^2, V=0. Summing gives D_total=(K+1)m and Z_total=m^2, hence the stated global ratio. Arbitrarily strong average saturation can therefore hide a completely non-cancelling scale.",
+    "block_counterfamily": [
+      {
+        "component_count_m": 8,
+        "good_cancelling_block_count_K": 8,
+        "bad_aligned_block_count": 1,
+        "global_zero_mode_to_diagonal_ratio": 0.8888888888888888,
+        "global_centered_to_diagonal_ratio": 0.8888888888888888,
+        "bad_block_zero_mode_to_diagonal_ratio": 8.0,
+        "bad_block_centered_to_diagonal_ratio": 0.0,
+        "checks": {
+          "global_ratio_formula_holds": true,
+          "global_centered_ratio_formula_holds": true,
+          "bad_block_is_fully_aligned": true,
+          "bad_block_has_zero_centered_energy": true
+        }
+      },
+      {
+        "component_count_m": 8,
+        "good_cancelling_block_count_K": 32,
+        "bad_aligned_block_count": 1,
+        "global_zero_mode_to_diagonal_ratio": 0.24242424242424243,
+        "global_centered_to_diagonal_ratio": 0.9696969696969697,
+        "bad_block_zero_mode_to_diagonal_ratio": 8.0,
+        "bad_block_centered_to_diagonal_ratio": 0.0,
+        "checks": {
+          "global_ratio_formula_holds": true,
+          "global_centered_ratio_formula_holds": true,
+          "bad_block_is_fully_aligned": true,
+          "bad_block_has_zero_centered_energy": true
+        }
+      },
+      {
+        "component_count_m": 8,
+        "good_cancelling_block_count_K": 128,
+        "bad_aligned_block_count": 1,
+        "global_zero_mode_to_diagonal_ratio": 0.06201550387596899,
+        "global_centered_to_diagonal_ratio": 0.9922480620155039,
+        "bad_block_zero_mode_to_diagonal_ratio": 8.0,
+        "bad_block_centered_to_diagonal_ratio": 0.0,
+        "checks": {
+          "global_ratio_formula_holds": true,
+          "global_centered_ratio_formula_holds": true,
+          "bad_block_is_fully_aligned": true,
+          "bad_block_has_zero_centered_energy": true
+        }
+      },
+      {
+        "component_count_m": 8,
+        "good_cancelling_block_count_K": 512,
+        "bad_aligned_block_count": 1,
+        "global_zero_mode_to_diagonal_ratio": 0.015594541910331383,
+        "global_centered_to_diagonal_ratio": 0.9980506822612085,
+        "bad_block_zero_mode_to_diagonal_ratio": 8.0,
+        "bad_block_centered_to_diagonal_ratio": 0.0,
+        "checks": {
+          "global_ratio_formula_holds": true,
+          "global_centered_ratio_formula_holds": true,
+          "bad_block_is_fully_aligned": true,
+          "bad_block_has_zero_centered_energy": true
+        }
+      },
+      {
+        "component_count_m": 8,
+        "good_cancelling_block_count_K": 2048,
+        "bad_aligned_block_count": 1,
+        "global_zero_mode_to_diagonal_ratio": 0.003904343582235237,
+        "global_centered_to_diagonal_ratio": 0.9995119570522206,
+        "bad_block_zero_mode_to_diagonal_ratio": 8.0,
+        "bad_block_centered_to_diagonal_ratio": 0.0,
+        "checks": {
+          "global_ratio_formula_holds": true,
+          "global_centered_ratio_formula_holds": true,
+          "bad_block_is_fully_aligned": true,
+          "bad_block_has_zero_centered_energy": true
+        }
+      }
+    ],
+    "aggregate": {
+      "component_count": 8,
+      "good_block_count_cases": 5,
+      "largest_good_block_count": 2048,
+      "global_zero_mode_ratio_decreases": true,
+      "bad_block_never_improves": true
+    },
+    "no_go_scope": "This refutes a global or averaged centered-energy estimate as a substitute for uniform dyadic cancellation. It does not prove any centered-energy bound for actual prime-pair Haar blocks or overcome the parity barrier needed for a positive twin-prime lower bound.",
+    "failure_count": 0
+  },
+  "discarded_route": "global or averaged centered-energy saturation as sufficient for uniform scale cancellation",
+  "remaining_gap": "No arithmetic theorem gives centered-energy saturation uniformly for every sufficiently large prime-pair Haar block.",
+  "candidate_theorem": "PrimePairHaarCenteredEnergySaturatesDiagonalUniformlyOnEveryLargeDyadicBlock",
+  "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact global-to-local no-go theorem and five block counterfamilies only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T180-REJECTED",
+        "label": "GlobalCenteredEnergySaturationForcesUniformBlockCancellation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T180-CLOSED",
+        "label": "GlobalCenteredEnergyNoGoForUniformBlockCancellation",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T180-OPEN",
+        "label": "PrimePairHaarCenteredEnergySaturatesDiagonalUniformlyOnEveryLargeDyadicBlock",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T180-REJECTED",
+        "TP-T180-CLOSED"
+      ],
+      [
+        "TP-T180-CLOSED",
+        "TP-T180-OPEN"
+      ]
+    ]
+  }
+}

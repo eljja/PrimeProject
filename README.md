@@ -31,17 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-180: Finite-Information Localization](docs/finite-information-localization.md),
+with a separate [Korean report](docs/finite-information-localization.ko.md).
+It proves four exact localization no-go theorems: finite RH Toeplitz moments
+cannot control hidden Fourier modes, unordered Collatz valuation layers cannot
+recover ordered affine dynamics, mean-square Goldbach control cannot remove
+every exceptional target, and global Twin centered energy cannot force
+uniform block cancellation. These are exact intermediate results and route
+corrections, not solutions. Every conjecture remains `open_not_proven`; the
+machine resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-179: Signed Symbols, Adaptive Valuation Layers, Discrete Targets, and
 Centered Energy](docs/symbol-adaptive-discrete-centering.md), with a separate
-[Korean report](docs/symbol-adaptive-discrete-centering.ko.md). It proves that a
-bounded signed Fourier symbol controls every RH Toeplitz section without
-absolute summability; that adaptive Collatz valuation layers exactly recover a
-completed descent while every fixed layer depth misses an infinite cylinder
-family; that continuous interpolant positivity is not necessary on the
-discrete Goldbach target grid; and that Twin signed zero-mode saving is exactly
-centered-energy saturation while pairwise incoherence is insufficient. These
-are exact partial results and route corrections, not solutions. Every
-conjecture remains `open_not_proven`; the machine resolution count is zero.
+[Korean report](docs/symbol-adaptive-discrete-centering.ko.md).
 
 The preserved previous boundary is
 [TICKET-178: Toeplitz Summability, Collatz Low Bits, Goldbach Frequency Splits,
@@ -152,7 +155,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-179 boundary, four exact partial results, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-180 boundary, four exact localization results, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -169,14 +172,16 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-179. It replaces absolute RH tail
-summability by a bounded signed-symbol contract, proves adaptive Collatz
-valuation layers exact on completed prefixes while refuting every fixed depth,
-restricts Goldbach positivity to the actual discrete target grid, and rewrites
-the Twin all-plus zero-mode target as centered-energy saturation. These are
-exact partial results and no-go statements, not solutions. All four conjectures
-remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-180. It proves that finite RH moment
+data cannot identify an unobserved high-frequency symbol, equal Collatz layer
+counts can hide different ordered first-descent behavior, vanishing Goldbach
+RMS error can hide one negative target, and globally saturated Twin centered
+energy can hide one aligned block. These are exact localization no-go
+statements, not solutions. All four conjectures remain open and the machine
+resolution count is zero.
 See
+[TICKET180 EN](docs/finite-information-localization.md),
+[TICKET180 KO](docs/finite-information-localization.ko.md),
 [TICKET179 EN](docs/symbol-adaptive-discrete-centering.md),
 [TICKET179 KO](docs/symbol-adaptive-discrete-centering.ko.md),
 [TICKET178 EN](docs/toeplitz-lowbit-frequency-split-zeromode.md),
@@ -224,14 +229,12 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-179입니다. 리만 트랙은 절대합이
-발산해도 유계 부호 Fourier 기호가 모든 Toeplitz 절단을 제어함을
-증명했습니다. 콜라츠 트랙은 적응형 valuation 층이 완성된 하강 prefix에는
-정확하지만 모든 고정 깊이는 무한 cylinder 반례족을 갖는다는 것을
-증명했습니다. 골드바흐 트랙은 실제 이산 표적 양성과 연속 보간 양성을
-분리했습니다. 쌍둥이 소수 트랙은 signed 영모드 절약을 중심화 에너지
-포화로 정확히 바꾸고 쌍별 비상관 경로를 폐기했습니다. 네 문제는 모두
-미해결이며 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-180입니다. 리만 트랙은 유한 Toeplitz
+절단이 숨은 고주파를 보지 못함을, 콜라츠 트랙은 동일한 valuation layer가
+서로 다른 순서 있는 하강 행동을 가질 수 있음을 증명했습니다. 골드바흐
+트랙은 평균 오차와 예외 밀도가 0으로 가도 예외 표적 하나가 남을 수 있음을,
+쌍둥이 소수 트랙은 전역 중심화 에너지 평균이 완전히 정렬된 block 하나를
+숨길 수 있음을 증명했습니다. 네 문제는 모두 미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -251,20 +254,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-179입니다.
-[부호 기호, 적응형 valuation 층, 이산 표적, 중심화 에너지 한국어
-보고서](docs/symbol-adaptive-discrete-centering.ko.md)와
-[영문 보고서](docs/symbol-adaptive-discrete-centering.md)는 네 트랙의
-정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-리만의 유계 signed symbol, 콜라츠의 적응형 valuation 층, 골드바흐의 이산
-표적 인증, 쌍둥이 소수의 중심화 에너지 계약을 확정했습니다.
+최신 난제 연구 트랙은 TICKET-180입니다.
+[유한 정보 국소화 한국어 보고서](docs/finite-information-localization.ko.md)와
+[영문 보고서](docs/finite-information-localization.md)는 네 트랙의 정확 명제,
+증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 유한에서 무한,
+중복집합에서 순서 경로, 거의 모든 값에서 모든 표적, 전역 평균에서 모든
+block으로 넘어갈 때 필요한 균일 국소화 조건을 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-179의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 179개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-180의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 180개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

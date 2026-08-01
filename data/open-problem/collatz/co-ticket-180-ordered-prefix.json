@@ -1,0 +1,526 @@
+{
+  "schema": "primeproject.ticket180-finite-information-localization.v1",
+  "generated_at": "2026-08-02T06:30:00+09:00",
+  "ticket_id": "CO-TICKET-180",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ValuationLayerPermutationNoGoAndOrderedAffinePrefixIdentity",
+  "declared_proposition": "For a valuation word v=(v_0,...,v_(h-1)), the accelerated affine composition is T_v(n)=(3^h n+B(v))/2^S, where B(v)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)). Adaptive layer counts determine the valuation multiset and S, but not B(v) or first-descent time. In particular, the naturally realized words (2,1,1) and (1,2,1) have identical layers (3,1); the first descends at step one from 9 to 7, while the second starts at 27 and has no descent in its three-step prefix.",
+  "mathematical_argument": "Induction through (3n+1)/2^v gives the displayed affine numerator. Layer counts are invariant under permutation, whereas the powers of two in B(v) use ordered prefix sums. The cylinder congruence theorem realizes every positive valuation word as an odd residue class. Direct iteration of the two stated representatives proves the descent split.",
+  "reproducible_computation": {
+    "theorem": "For a valuation word v=(v_0,...,v_(h-1)), the accelerated affine composition is T_v(n)=(3^h n+B(v))/2^S, where B(v)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)). Adaptive layer counts determine the valuation multiset and S, but not B(v) or first-descent time. In particular, the naturally realized words (2,1,1) and (1,2,1) have identical layers (3,1); the first descends at step one from 9 to 7, while the second starts at 27 and has no descent in its three-step prefix.",
+    "proof": "Induction through (3n+1)/2^v gives the displayed affine numerator. Layer counts are invariant under permutation, whereas the powers of two in B(v) use ordered prefix sums. The cylinder congruence theorem realizes every positive valuation word as an odd residue class. Direct iteration of the two stated representatives proves the descent split.",
+    "permutation_counterfamilies": [
+      {
+        "high_valuation": 2,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              2,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1
+            ],
+            "valuation_sum_S": 4,
+            "ordered_affine_numerator_B": 29,
+            "cylinder_representative": 9,
+            "cylinder_modulus": 32,
+            "states": [
+              9,
+              7,
+              11,
+              17
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              2,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1
+            ],
+            "valuation_sum_S": 4,
+            "ordered_affine_numerator_B": 23,
+            "cylinder_representative": 27,
+            "cylinder_modulus": 32,
+            "states": [
+              27,
+              41,
+              31,
+              47
+            ],
+            "first_descent_time": null,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      },
+      {
+        "high_valuation": 3,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              3,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1
+            ],
+            "valuation_sum_S": 5,
+            "ordered_affine_numerator_B": 49,
+            "cylinder_representative": 61,
+            "cylinder_modulus": 64,
+            "states": [
+              61,
+              23,
+              35,
+              53
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              3,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1
+            ],
+            "valuation_sum_S": 5,
+            "ordered_affine_numerator_B": 31,
+            "cylinder_representative": 19,
+            "cylinder_modulus": 64,
+            "states": [
+              19,
+              29,
+              11,
+              17
+            ],
+            "first_descent_time": 2,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      },
+      {
+        "high_valuation": 4,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              4,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 6,
+            "ordered_affine_numerator_B": 89,
+            "cylinder_representative": 37,
+            "cylinder_modulus": 128,
+            "states": [
+              37,
+              7,
+              11,
+              17
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              4,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 6,
+            "ordered_affine_numerator_B": 47,
+            "cylinder_representative": 67,
+            "cylinder_modulus": 128,
+            "states": [
+              67,
+              101,
+              19,
+              29
+            ],
+            "first_descent_time": 2,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      },
+      {
+        "high_valuation": 5,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              5,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 7,
+            "ordered_affine_numerator_B": 169,
+            "cylinder_representative": 245,
+            "cylinder_modulus": 256,
+            "states": [
+              245,
+              23,
+              35,
+              53
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              5,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 7,
+            "ordered_affine_numerator_B": 79,
+            "cylinder_representative": 163,
+            "cylinder_modulus": 256,
+            "states": [
+              163,
+              245,
+              23,
+              35
+            ],
+            "first_descent_time": 2,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      },
+      {
+        "high_valuation": 6,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              6,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 8,
+            "ordered_affine_numerator_B": 329,
+            "cylinder_representative": 149,
+            "cylinder_modulus": 512,
+            "states": [
+              149,
+              7,
+              11,
+              17
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              6,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 8,
+            "ordered_affine_numerator_B": 143,
+            "cylinder_representative": 99,
+            "cylinder_modulus": 512,
+            "states": [
+              99,
+              149,
+              7,
+              11
+            ],
+            "first_descent_time": 2,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      },
+      {
+        "high_valuation": 7,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              7,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 9,
+            "ordered_affine_numerator_B": 649,
+            "cylinder_representative": 981,
+            "cylinder_modulus": 1024,
+            "states": [
+              981,
+              23,
+              35,
+              53
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              7,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 9,
+            "ordered_affine_numerator_B": 271,
+            "cylinder_representative": 995,
+            "cylinder_modulus": 1024,
+            "states": [
+              995,
+              1493,
+              35,
+              53
+            ],
+            "first_descent_time": 2,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      },
+      {
+        "high_valuation": 8,
+        "ordered_realizations": [
+          {
+            "label": "early_high_valuation",
+            "valuation_word": [
+              8,
+              1,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 10,
+            "ordered_affine_numerator_B": 1289,
+            "cylinder_representative": 597,
+            "cylinder_modulus": 2048,
+            "states": [
+              597,
+              7,
+              11,
+              17
+            ],
+            "first_descent_time": 1,
+            "word_is_realized": true
+          },
+          {
+            "label": "delayed_high_valuation",
+            "valuation_word": [
+              1,
+              8,
+              1
+            ],
+            "layer_counts": [
+              3,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "valuation_sum_S": 10,
+            "ordered_affine_numerator_B": 527,
+            "cylinder_representative": 1763,
+            "cylinder_modulus": 2048,
+            "states": [
+              1763,
+              2645,
+              31,
+              47
+            ],
+            "first_descent_time": 2,
+            "word_is_realized": true
+          }
+        ],
+        "checks": {
+          "same_valuation_multiset": true,
+          "same_adaptive_layer_counts": true,
+          "same_total_valuation": true,
+          "different_affine_numerators": true,
+          "different_first_descent_times": true,
+          "both_words_are_naturally_realized": true
+        }
+      }
+    ],
+    "aggregate": {
+      "high_valuation_cases": 7,
+      "largest_high_valuation": 8,
+      "all_layer_summaries_match": true,
+      "all_first_descent_times_differ": true
+    },
+    "no_go_scope": "Adaptive layer totals are exact for total valuation but erase order. They cannot alone classify first descent or cycle divisibility. This does not prove that every natural orbit eventually acquires an ordered prefix with descent, and it does not exclude nontrivial cycles.",
+    "failure_count": 0
+  },
+  "discarded_route": "unordered adaptive valuation layers as a complete first-descent or cycle certificate",
+  "remaining_gap": "No theorem forces every natural orbit to cross an ordered-prefix descent boundary, and nontrivial cycles remain unexcluded.",
+  "candidate_theorem": "OrderedCylinderTransferHasUniformDescentOutsideExplicitFiniteExceptionalSet",
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one ordered affine identity and seven natural permutation counterpairs only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T180-REJECTED",
+        "label": "AdaptiveValuationLayerTotalsDetermineFirstDescent",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T180-CLOSED",
+        "label": "ValuationLayerPermutationNoGoAndOrderedAffinePrefixIdentity",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T180-OPEN",
+        "label": "OrderedCylinderTransferHasUniformDescentOutsideExplicitFiniteExceptionalSet",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T180-REJECTED",
+        "CO-T180-CLOSED"
+      ],
+      [
+        "CO-T180-CLOSED",
+        "CO-T180-OPEN"
+      ]
+    ]
+  }
+}

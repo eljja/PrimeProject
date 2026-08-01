@@ -14,6 +14,7 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket180Load = openProblemSource.indexOf("const ticket180Loaded = await loadTicket180Attempt();");
   const ticket179Load = openProblemSource.indexOf("const ticket179Loaded = await loadTicket179Attempt();");
   const ticket178Load = openProblemSource.indexOf("const ticket178Loaded = await loadTicket178Attempt();");
   const ticket177Load = openProblemSource.indexOf("const ticket177Loaded = await loadTicket177Attempt();");
@@ -28,15 +29,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket179Load >= 0 && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET179 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket180Load >= 0 && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET180 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260802-ticket179")) {
+    if (!source.includes("open-problems.js?v=20260802-ticket180")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-ticket179")) {
+    if (!source.includes("styles.css?v=20260802-ticket180")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -429,6 +430,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket180AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket180-finite-information-localization .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket179AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket179-symbol-adaptive-discrete-centering .ticket161-audit-table .proof-table-wrap",
@@ -559,7 +566,7 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-179") ||
+    !metrics.currentBriefText.includes("TICKET-180") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
     metrics.mobileHorizontalOverflow ||
@@ -577,7 +584,7 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-179 actually changed") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-180 actually changed") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -589,7 +596,7 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentResearchText.includes("Ticket 179 signed symbols")) failures.push(`${page.problemId}: current TICKET-179 boundary missing`);
+    if (!page.currentResearchText.includes("Ticket 180 hidden frequencies")) failures.push(`${page.problemId}: current TICKET-180 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -601,6 +608,9 @@ async function main() {
     const checks = [];
     const requireText = (label, text) => {
       if (!page.proofOrCounterexampleText.includes(text)) checks.push(`${page.problemId}: ${label}`);
+    };
+    const requireCurrentText = (label, text) => {
+      if (!page.currentResearchText.includes(text)) checks.push(`${page.problemId}: ${label}`);
     };
     requireText("ticket71 title", "Ticket 71 stronger frontier coordinates");
     requireText("ticket71 result table", "Stronger coordinate result");
@@ -1456,33 +1466,33 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireText("ticket179 title", "Ticket 179 signed symbols, adaptive valuation layers, discrete targets, and centered energy");
-    requireText("ticket179 table", "TICKET179 audit");
-    requireText("ticket179 latest", "LATEST / 최신 연구 경계");
-    requireText("ticket179 resolutions", "Resolution count0");
-    requireText("ticket179 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket179AuditOverflow) checks.push(`${page.problemId}: ticket179 audit table overflow`);
+    requireCurrentText("ticket180 title", "Ticket 180 hidden frequencies, ordered prefixes, exceptional spikes, and block localization");
+    requireCurrentText("ticket180 table", "TICKET180 audit");
+    requireCurrentText("ticket180 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket180 resolutions", "Resolution count0");
+    requireCurrentText("ticket180 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket180AuditOverflow) checks.push(`${page.problemId}: ticket180 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireText("ticket179 RH theorem", "BoundedToeplitzSymbolCertificateAndAbsoluteSummabilityNoGo");
-      requireText("ticket179 RH target", "PoleNeutralWeilWhitenedTailHasBoundedRealFourierSymbolBelowCoreMargin");
-      requireText("ticket179 RH dimensions", "Dimensions6");
-      requireText("ticket179 RH symbol", "Symbol certificatepass");
+      requireCurrentText("ticket180 RH theorem", "FiniteToeplitzMomentIndeterminacyAndTailEnvelopeNecessity");
+      requireCurrentText("ticket180 RH target", "ArithmeticWeilTailHasCertifiedUniformHighFrequencyEnvelopeBeyondObservedBand");
+      requireCurrentText("ticket180 RH cases", "Hidden-mode cases5");
+      requireCurrentText("ticket180 RH sections", "Identical sectionspass");
     } else if (page.problemId === "collatz") {
-      requireText("ticket179 Collatz theorem", "AdaptiveValuationLayerCompletenessAndFixedDepthIncompleteness");
-      requireText("ticket179 Collatz depth", "Fixed depths refuted4");
-      requireText("ticket179 Collatz adaptive", "Adaptive certificatespass");
-      requireText("ticket179 Collatz target", "EveryAperiodicNonDescendingOrbitAccumulatesAdaptiveValuationLayerSurplusBeyondExactCorrection");
+      requireCurrentText("ticket180 Collatz theorem", "ValuationLayerPermutationNoGoAndOrderedAffinePrefixIdentity");
+      requireCurrentText("ticket180 Collatz pairs", "Natural counterpairs7");
+      requireCurrentText("ticket180 Collatz order", "Order changes descentpass");
+      requireCurrentText("ticket180 Collatz target", "OrderedCylinderTransferHasUniformDescentOutsideExplicitFiniteExceptionalSet");
     } else if (page.problemId === "goldbach") {
-      requireText("ticket179 Goldbach theorem", "DiscreteTargetPositivityCertificateAndContinuousInterpolationNoGo");
-      requireText("ticket179 Goldbach grids", "Interpolation no-go sizes4");
-      requireText("ticket179 Goldbach finite", "Finite limits5");
-      requireText("ticket179 Goldbach target", "ParityAliasedMinorHasUniformDiscreteEvenTargetDeficitBelowMajorMain");
+      requireCurrentText("ticket180 Goldbach theorem", "MeanSquareExceptionalSpikeNoGoForEveryTargetPositivity");
+      requireCurrentText("ticket180 Goldbach sizes", "Spike sizes5");
+      requireCurrentText("ticket180 Goldbach finite", "Finite target10,000");
+      requireCurrentText("ticket180 Goldbach target", "ParityAliasedMinorHasUniformLInfinityDeficitBelowMajorMainOnEveryDyadicBlock");
     } else {
-      requireText("ticket179 Twin theorem", "CrossGramCenteringIdentityAndPairwiseIncoherenceNoGo");
-      requireText("ticket179 Twin cases", "Component cases4");
-      requireText("ticket179 Twin maximum", "Largest m32");
-      requireText("ticket179 Twin no-go", "Zero coherence sufficientno");
-      requireText("ticket179 Twin target", "PrimePairHaarCenteredEnergySaturatesDiagonalAtPowerSavingRate");
+      requireCurrentText("ticket180 Twin theorem", "GlobalCenteredEnergyNoGoForUniformBlockCancellation");
+      requireCurrentText("ticket180 Twin cases", "Block families5");
+      requireCurrentText("ticket180 Twin maximum", "Largest K2,048");
+      requireCurrentText("ticket180 Twin no-go", "Bad block improvesno");
+      requireCurrentText("ticket180 Twin target", "PrimePairHaarCenteredEnergySaturatesDiagonalUniformlyOnEveryLargeDyadicBlock");
     }
     requireText("ticket177 title", "Ticket 177 comparison majorants, six-wheel envelopes, Sobolev certificates, and signed cross-Gram data");
     requireText("ticket177 table", "TICKET177 audit");

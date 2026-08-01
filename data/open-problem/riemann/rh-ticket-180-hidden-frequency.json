@@ -1,0 +1,137 @@
+{
+  "schema": "primeproject.ticket180-finite-information-localization.v1",
+  "generated_at": "2026-08-02T06:30:00+09:00",
+  "ticket_id": "RH-TICKET-180",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteToeplitzMomentIndeterminacyAndTailEnvelopeNecessity",
+  "declared_proposition": "Let T_N(f) be the N by N Toeplitz section formed from the Fourier coefficients of a real bounded symbol f. For every integer M>=N and A>0, g(theta)=f(theta)+A cos(M theta) has T_N(g)=T_N(f), while ||g-f||_infinity=A and ||g||_infinity>=A-||f||_infinity. Therefore no finite family of Toeplitz moments can certify an L-infinity tail bound without an independent high-frequency envelope.",
+  "mathematical_argument": "Entries of T_N use only Fourier modes i-j with |i-j|<=N-1. The perturbation A cos(M theta) has Fourier support only at plus/minus M, so it is invisible when M>=N. The reverse triangle inequality gives the norm lower bound. In the computed square-wave family, theta=0 witnesses the stronger value C+A.",
+  "reproducible_computation": {
+    "theorem": "Let T_N(f) be the N by N Toeplitz section formed from the Fourier coefficients of a real bounded symbol f. For every integer M>=N and A>0, g(theta)=f(theta)+A cos(M theta) has T_N(g)=T_N(f), while ||g-f||_infinity=A and ||g||_infinity>=A-||f||_infinity. Therefore no finite family of Toeplitz moments can certify an L-infinity tail bound without an independent high-frequency envelope.",
+    "proof": "Entries of T_N use only Fourier modes i-j with |i-j|<=N-1. The perturbation A cos(M theta) has Fourier support only at plus/minus M, so it is invisible when M>=N. The reverse triangle inequality gives the norm lower bound. In the computed square-wave family, theta=0 witnesses the stronger value C+A.",
+    "hidden_frequency_counterfamily": [
+      {
+        "dimension_N": 8,
+        "observed_fourier_band": 7,
+        "hidden_frequency_M": 17,
+        "hidden_amplitude_A": 1.0,
+        "finite_section_max_difference": 0.0,
+        "base_symbol_bound": 0.2,
+        "core_margin_delta": 0.25,
+        "perturbed_symbol_value_at_zero": 1.2,
+        "checks": {
+          "hidden_frequency_is_outside_observed_band": true,
+          "finite_toeplitz_section_is_identical": true,
+          "base_symbol_is_below_margin": true,
+          "perturbed_symbol_exceeds_margin": true
+        }
+      },
+      {
+        "dimension_N": 16,
+        "observed_fourier_band": 15,
+        "hidden_frequency_M": 33,
+        "hidden_amplitude_A": 1.0,
+        "finite_section_max_difference": 0.0,
+        "base_symbol_bound": 0.2,
+        "core_margin_delta": 0.25,
+        "perturbed_symbol_value_at_zero": 1.2,
+        "checks": {
+          "hidden_frequency_is_outside_observed_band": true,
+          "finite_toeplitz_section_is_identical": true,
+          "base_symbol_is_below_margin": true,
+          "perturbed_symbol_exceeds_margin": true
+        }
+      },
+      {
+        "dimension_N": 32,
+        "observed_fourier_band": 31,
+        "hidden_frequency_M": 65,
+        "hidden_amplitude_A": 1.0,
+        "finite_section_max_difference": 0.0,
+        "base_symbol_bound": 0.2,
+        "core_margin_delta": 0.25,
+        "perturbed_symbol_value_at_zero": 1.2,
+        "checks": {
+          "hidden_frequency_is_outside_observed_band": true,
+          "finite_toeplitz_section_is_identical": true,
+          "base_symbol_is_below_margin": true,
+          "perturbed_symbol_exceeds_margin": true
+        }
+      },
+      {
+        "dimension_N": 64,
+        "observed_fourier_band": 63,
+        "hidden_frequency_M": 129,
+        "hidden_amplitude_A": 1.0,
+        "finite_section_max_difference": 0.0,
+        "base_symbol_bound": 0.2,
+        "core_margin_delta": 0.25,
+        "perturbed_symbol_value_at_zero": 1.2,
+        "checks": {
+          "hidden_frequency_is_outside_observed_band": true,
+          "finite_toeplitz_section_is_identical": true,
+          "base_symbol_is_below_margin": true,
+          "perturbed_symbol_exceeds_margin": true
+        }
+      },
+      {
+        "dimension_N": 128,
+        "observed_fourier_band": 127,
+        "hidden_frequency_M": 257,
+        "hidden_amplitude_A": 1.0,
+        "finite_section_max_difference": 0.0,
+        "base_symbol_bound": 0.2,
+        "core_margin_delta": 0.25,
+        "perturbed_symbol_value_at_zero": 1.2,
+        "checks": {
+          "hidden_frequency_is_outside_observed_band": true,
+          "finite_toeplitz_section_is_identical": true,
+          "base_symbol_is_below_margin": true,
+          "perturbed_symbol_exceeds_margin": true
+        }
+      }
+    ],
+    "aggregate": {
+      "dimension_count": 5,
+      "largest_dimension": 128,
+      "all_finite_sections_identical": true,
+      "all_hidden_symbols_cross_margin": true
+    },
+    "no_go_scope": "This refutes finite-section agreement as a certificate for the unobserved Weil-symbol L-infinity norm. It does not identify the actual arithmetic tail or prove that its high-frequency modes obey a summable or uniform envelope.",
+    "failure_count": 0
+  },
+  "discarded_route": "finite Toeplitz-section agreement as a certificate for a global bounded Weil symbol",
+  "remaining_gap": "No certified arithmetic envelope controls the unobserved high-frequency modes of the actual pole-neutral Weil tail.",
+  "candidate_theorem": "ArithmeticWeilTailHasCertifiedUniformHighFrequencyEnvelopeBeyondObservedBand",
+  "claim_boundary": "No RH proof or zero exclusion; one exact finite-moment indeterminacy theorem and five hidden-frequency witnesses only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T180-REJECTED",
+        "label": "FiniteToeplitzSectionsCertifyTheGlobalWeilSymbolBound",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T180-CLOSED",
+        "label": "FiniteToeplitzMomentIndeterminacyAndTailEnvelopeNecessity",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T180-OPEN",
+        "label": "ArithmeticWeilTailHasCertifiedUniformHighFrequencyEnvelopeBeyondObservedBand",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T180-REJECTED",
+        "RH-T180-CLOSED"
+      ],
+      [
+        "RH-T180-CLOSED",
+        "RH-T180-OPEN"
+      ]
+    ]
+  }
+}
