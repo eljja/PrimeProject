@@ -6923,3 +6923,33 @@ conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-175 relative-equivalence-signed-block](relative-equivalence-signed-block.md).
 한국어 보고서: [TICKET-175 relative-equivalence-signed-block](relative-equivalence-signed-block.ko.md).
+
+## TICKET-176 continuation: relative cones, harmonic corrections, parity aliases, and weighted Schur circularity
+
+TICKET-176 proves four exact reductions and keeps all conjecture-resolution
+counters at zero:
+
+1. RH: `A_T>=delta G` and a two-sided relative tail bound imply
+   `A>=(delta-epsilon)G`. A 2-by-2 countermodel proves diagonal tail data cannot
+   replace the full form inequality. The next target is
+   `PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin`.
+2. Collatz: distinct odd states on an aperiodic non-descending prefix bound the
+   exact affine correction by an explicit `O(log h)` harmonic envelope. Start
+   63 refutes treating envelope crossing as an iff descent criterion, while
+   `2^m-1` refutes every fixed descent horizon. The next target is
+   `AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope`.
+3. Goldbach: frequencies `k` and `k+L/2` have identical phases on all even
+   targets, giving a lossless parity quotient before absolute values. The
+   finite Q=16 count improves from 367 to 377, but the next target remains the
+   arithmetic uniform theorem
+   `ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain`.
+4. Twin Prime: the infimum of the weighted-Schur bound over unrestricted
+   positive weights equals the block spectral norm. Therefore fitted weights
+   are circular; the next target is
+   `PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
+한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).

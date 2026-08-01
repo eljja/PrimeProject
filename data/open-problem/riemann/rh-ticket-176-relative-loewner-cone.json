@@ -1,0 +1,155 @@
+{
+  "schema": "primeproject.ticket176-relative-cone-harmonic-alias-schur.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-176",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "RelativeLoewnerConeCertificateAndDiagonalTailNoGo",
+  "declared_proposition": "Let G be positive definite and A_T,A Hermitian. If A_T is at least delta G in Loewner order and -epsilon G is at most A-A_T which is at most epsilon G, then A is at least (delta-epsilon)G. In particular delta at least epsilon certifies A positive semidefinite even when its Euclidean ground-state scale is arbitrarily small. Diagonal tail data alone cannot establish the required relative form inequality.",
+  "mathematical_argument": "For every vector x, add x*(A_T)x at least delta x*Gx to the lower tail inequality x*(A-A_T)x at least -epsilon x*Gx. This gives x*Ax at least (delta-epsilon)x*Gx. The 2 by 2 tails zero and [[0,1.25],[1.25,0]] have the same diagonal, while adding them to the identity gives smallest eigenvalues 1 and -0.25. Hence diagonal-only control cannot imply the Loewner premise.",
+  "reproducible_computation": {
+    "theorem": "Let G be positive definite and A_T,A Hermitian. If A_T is at least delta G in Loewner order and -epsilon G is at most A-A_T which is at most epsilon G, then A is at least (delta-epsilon)G. In particular delta at least epsilon certifies A positive semidefinite even when its Euclidean ground-state scale is arbitrarily small. Diagonal tail data alone cannot establish the required relative form inequality.",
+    "proof": "For every vector x, add x*(A_T)x at least delta x*Gx to the lower tail inequality x*(A-A_T)x at least -epsilon x*Gx. This gives x*Ax at least (delta-epsilon)x*Gx. The 2 by 2 tails zero and [[0,1.25],[1.25,0]] have the same diagonal, while adding them to the identity gives smallest eigenvalues 1 and -0.25. Hence diagonal-only control cannot imply the Loewner premise.",
+    "relative_scale_rows": [
+      {
+        "metric_small_eigenvalue_decimal_digits": 4,
+        "metric_smallest_eigenvalue": 0.0001,
+        "truncated_smallest_eigenvalue": 2.5e-05,
+        "absolute_error_operator_norm": 0.2,
+        "absolute_weyl_lower_bound": -0.199975,
+        "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+        "certified_exact_smallest_eigenvalue": 4.999999999999999e-06,
+        "checks": {
+          "absolute_global_norm_certificate_fails": true,
+          "relative_loewner_certificate_is_positive": true,
+          "exact_matrix_is_positive": true,
+          "relative_margin_is_scale_independent": true
+        }
+      },
+      {
+        "metric_small_eigenvalue_decimal_digits": 16,
+        "metric_smallest_eigenvalue": 1e-16,
+        "truncated_smallest_eigenvalue": 2.5e-17,
+        "absolute_error_operator_norm": 0.2,
+        "absolute_weyl_lower_bound": -0.19999999999999998,
+        "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+        "certified_exact_smallest_eigenvalue": 4.999999999999999e-18,
+        "checks": {
+          "absolute_global_norm_certificate_fails": true,
+          "relative_loewner_certificate_is_positive": true,
+          "exact_matrix_is_positive": true,
+          "relative_margin_is_scale_independent": true
+        }
+      },
+      {
+        "metric_small_eigenvalue_decimal_digits": 64,
+        "metric_smallest_eigenvalue": 1e-64,
+        "truncated_smallest_eigenvalue": 2.5e-65,
+        "absolute_error_operator_norm": 0.2,
+        "absolute_weyl_lower_bound": -0.2,
+        "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+        "certified_exact_smallest_eigenvalue": 4.999999999999999e-66,
+        "checks": {
+          "absolute_global_norm_certificate_fails": true,
+          "relative_loewner_certificate_is_positive": true,
+          "exact_matrix_is_positive": true,
+          "relative_margin_is_scale_independent": true
+        }
+      },
+      {
+        "metric_small_eigenvalue_decimal_digits": 128,
+        "metric_smallest_eigenvalue": 1e-128,
+        "truncated_smallest_eigenvalue": 2.5e-129,
+        "absolute_error_operator_norm": 0.2,
+        "absolute_weyl_lower_bound": -0.2,
+        "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+        "certified_exact_smallest_eigenvalue": 4.999999999999999e-130,
+        "checks": {
+          "absolute_global_norm_certificate_fails": true,
+          "relative_loewner_certificate_is_positive": true,
+          "exact_matrix_is_positive": true,
+          "relative_margin_is_scale_independent": true
+        }
+      }
+    ],
+    "diagonal_only_countermodel": {
+      "reference_matrix": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "harmless_tail": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "adverse_tail": [
+        [
+          0.0,
+          1.25
+        ],
+        [
+          1.25,
+          0.0
+        ]
+      ],
+      "shared_tail_diagonal": [
+        0.0,
+        0.0
+      ],
+      "harmless_smallest_eigenvalue": 1.0,
+      "adverse_smallest_eigenvalue": -0.25,
+      "checks": {
+        "tail_diagonals_are_identical": true,
+        "harmless_completion_is_positive": true,
+        "adverse_completion_is_indefinite": true
+      }
+    },
+    "distinction_from_ticket171": "TICKET-171 preserved inertia relative to an invertible signed KKT core. This theorem instead preserves the closed positive-semidefinite cone, including a zero spectral boundary, relative to a positive metric G.",
+    "no_go_scope": "The countermodel rejects diagonal-only tail summaries. It does not reject a full arithmetic relative-form estimate for the actual pole-neutral Weil operator.",
+    "failure_count": 0
+  },
+  "discarded_route": "diagonal-only or absolute tail summaries as substitutes for a full relative quadratic-form inequality",
+  "remaining_gap": "No full relative Loewner bound is known for the arithmetic tail of an actual fixed pole-neutral Weil core, and no certified truncated relative margin dominates such a tail.",
+  "candidate_theorem": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin",
+  "claim_boundary": "No RH proof, zero exclusion, or actual Weil-tail relative estimate; one exact PSD-cone certificate and diagonal-information countermodel only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T176-REJECTED",
+        "label": "DiagonalTailControlImpliesRelativeWeilCorePositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T176-CLOSED",
+        "label": "RelativeLoewnerConeCertificateAndDiagonalTailNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T176-OPEN",
+        "label": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T176-REJECTED",
+        "RH-T176-CLOSED"
+      ],
+      [
+        "RH-T176-CLOSED",
+        "RH-T176-OPEN"
+      ]
+    ]
+  }
+}

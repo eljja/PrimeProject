@@ -1,0 +1,205 @@
+{
+  "schema": "primeproject.ticket176-relative-cone-harmonic-alias-schur.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-176",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "AperiodicNonDescentHarmonicCorrectionBoundAndFixedHorizonNoGo",
+  "declared_proposition": "Let n_i be an aperiodic accelerated odd Collatz orbit and suppose n_i is at least its odd start n for 0<=i<h. With S_h the sum of the first h valuations, its affine correction C_h satisfies C_h <= (3 ln 2)^(-1) sum_(j<h) 1/(n+2j) <= H(n,h), where H(n,h)=(3 ln 2)^(-1)[1/n+(1/2)ln(1+2(h-1)/n)]. Therefore any aperiodic orbit that never descends must obey S_h-h log2(3)<=H(n,h)=O(log h) at every prefix.",
+  "mathematical_argument": "Aperiodicity makes the n_i distinct. Since they are odd and at least n, their increasing rearrangement dominates n,n+2,... . Use log2(1+x)<=x/ln 2 and then the decreasing-function integral bound for sum 1/(n+2j). The exact identity log2(n_h/n)=h log2(3)-S_h+C_h shows that excess above H forces descent.",
+  "reproducible_computation": {
+    "theorem": "Let n_i be an aperiodic accelerated odd Collatz orbit and suppose n_i is at least its odd start n for 0<=i<h. With S_h the sum of the first h valuations, its affine correction C_h satisfies C_h <= (3 ln 2)^(-1) sum_(j<h) 1/(n+2j) <= H(n,h), where H(n,h)=(3 ln 2)^(-1)[1/n+(1/2)ln(1+2(h-1)/n)]. Therefore any aperiodic orbit that never descends must obey S_h-h log2(3)<=H(n,h)=O(log h) at every prefix.",
+    "proof": "Aperiodicity makes the n_i distinct. Since they are odd and at least n, their increasing rearrangement dominates n,n+2,... . Use log2(1+x)<=x/ln 2 and then the decreasing-function integral bound for sum 1/(n+2j). The exact identity log2(n_h/n)=h log2(3)-S_h+C_h shows that excess above H forces descent.",
+    "finite_first_descent_audit": {
+      "odd_start_limit": 100000,
+      "odd_starts_checked": 49999,
+      "first_descent_failures": 0,
+      "harmonic_boundary_crossing_count": 49998,
+      "harmonic_boundary_non_crossing_count": 1,
+      "harmonic_boundary_non_crossing_starts": [
+        63
+      ],
+      "maximum_first_descent_horizon": 85,
+      "maximum_horizon_start": 35655
+    },
+    "selected_exact_rows": [
+      {
+        "start": 3,
+        "first_descent_horizon": 2,
+        "descent_value": 1,
+        "valuation_sum": 5,
+        "centered_valuation_excess": 1.8300749985576878,
+        "exact_orbit_correction": 0.24511249783653152,
+        "distinct_state_discrete_envelope": 0.25647911838026016,
+        "analytic_harmonic_envelope": 0.28312704801536365,
+        "crosses_sufficient_harmonic_boundary": true,
+        "states_before_descent_are_distinct": true,
+        "corrected_log_identity_error": 0.0,
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 27,
+        "first_descent_horizon": 37,
+        "descent_value": 23,
+        "valuation_sum": 59,
+        "centered_valuation_excess": 0.356387473317227,
+        "exact_orbit_correction": 0.12506192721076545,
+        "distinct_state_discrete_envelope": 0.3238475313341721,
+        "analytic_harmonic_envelope": 0.3302225695402083,
+        "crosses_sufficient_harmonic_boundary": true,
+        "states_before_descent_are_distinct": true,
+        "corrected_log_identity_error": 5.88418203051333e-15,
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 63,
+        "first_descent_horizon": 34,
+        "descent_value": 61,
+        "valuation_sum": 54,
+        "centered_valuation_excess": 0.11127497548069698,
+        "exact_orbit_correction": 0.0647323895436598,
+        "distinct_state_discrete_envelope": 0.17802053156408798,
+        "analytic_harmonic_envelope": 0.17995786241520687,
+        "crosses_sufficient_harmonic_boundary": false,
+        "states_before_descent_are_distinct": true,
+        "corrected_log_identity_error": 6.994405055138486e-15,
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 703,
+        "first_descent_horizon": 51,
+        "descent_value": 157,
+        "valuation_sum": 83,
+        "centered_valuation_excess": 2.1669124632210384,
+        "exact_orbit_correction": 0.004152333040126074,
+        "distinct_state_discrete_envelope": 0.032620725821160934,
+        "analytic_harmonic_envelope": 0.03266328233486431,
+        "crosses_sufficient_harmonic_boundary": true,
+        "states_before_descent_are_distinct": true,
+        "corrected_log_identity_error": 3.9968028886505635e-15,
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 35655,
+        "first_descent_horizon": 85,
+        "descent_value": 29405,
+        "valuation_sum": 135,
+        "centered_valuation_excess": 0.27818743870173535,
+        "exact_orbit_correction": 0.00014452520006405902,
+        "distinct_state_discrete_envelope": 0.0011437487493986512,
+        "analytic_harmonic_envelope": 0.0011437803752390755,
+        "crosses_sufficient_harmonic_boundary": true,
+        "states_before_descent_are_distinct": true,
+        "corrected_log_identity_error": 1.226796442210798e-14,
+        "cycle_detected_before_descent": false
+      },
+      {
+        "start": 626331,
+        "first_descent_horizon": 111,
+        "descent_value": 597017,
+        "valuation_sum": 176,
+        "centered_valuation_excess": 0.06916241995168093,
+        "exact_orbit_correction": 9.146306690273941e-06,
+        "distinct_state_discrete_envelope": 8.521108463765522e-05,
+        "analytic_harmonic_envelope": 8.521121943621522e-05,
+        "crosses_sufficient_harmonic_boundary": true,
+        "states_before_descent_are_distinct": true,
+        "corrected_log_identity_error": 1.7735812818386876e-14,
+        "cycle_detected_before_descent": false
+      }
+    ],
+    "mersenne_unbounded_delay_rows": [
+      {
+        "exponent_m": 4,
+        "start_2_to_m_minus_1": 15,
+        "certified_initial_valuation_one_steps": 3,
+        "last_certified_state": 53,
+        "formula_failures": 0,
+        "valuation_failures": 0,
+        "increase_failures": 0,
+        "checks": {
+          "closed_form_holds": true,
+          "all_certified_valuations_equal_one": true,
+          "all_certified_steps_increase": true
+        }
+      },
+      {
+        "exponent_m": 8,
+        "start_2_to_m_minus_1": 255,
+        "certified_initial_valuation_one_steps": 7,
+        "last_certified_state": 4373,
+        "formula_failures": 0,
+        "valuation_failures": 0,
+        "increase_failures": 0,
+        "checks": {
+          "closed_form_holds": true,
+          "all_certified_valuations_equal_one": true,
+          "all_certified_steps_increase": true
+        }
+      },
+      {
+        "exponent_m": 16,
+        "start_2_to_m_minus_1": 65535,
+        "certified_initial_valuation_one_steps": 15,
+        "last_certified_state": 28697813,
+        "formula_failures": 0,
+        "valuation_failures": 0,
+        "increase_failures": 0,
+        "checks": {
+          "closed_form_holds": true,
+          "all_certified_valuations_equal_one": true,
+          "all_certified_steps_increase": true
+        }
+      },
+      {
+        "exponent_m": 32,
+        "start_2_to_m_minus_1": 4294967295,
+        "certified_initial_valuation_one_steps": 31,
+        "last_certified_state": 1235346792567893,
+        "formula_failures": 0,
+        "valuation_failures": 0,
+        "increase_failures": 0,
+        "checks": {
+          "closed_form_holds": true,
+          "all_certified_valuations_equal_one": true,
+          "all_certified_steps_increase": true
+        }
+      }
+    ],
+    "no_go_scope": "Start 63 descends at step 34 without crossing the stronger harmonic envelope, so that envelope is sufficient but not equivalent to descent. The family 2^m-1 has m-1 initial increasing valuation-one steps, rejecting every universal fixed descent horizon. Neither fact supplies a divergent orbit or a nontrivial cycle.",
+    "failure_count": 0
+  },
+  "discarded_route": "a universal fixed descent horizon or treating the harmonic sufficient condition as equivalent to first descent",
+  "remaining_gap": "No theorem forces the centered valuation sum of every aperiodic non-descending natural orbit above the explicit harmonic envelope; nontrivial cycles remain a separate unclosed case.",
+  "candidate_theorem": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope",
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact logarithmic correction bound, one exact delay family, and a finite diagnostic only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T176-REJECTED",
+        "label": "FixedHorizonOrHarmonicIffCriterionClosesAllNaturalOrbits",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T176-CLOSED",
+        "label": "AperiodicNonDescentHarmonicCorrectionBoundAndFixedHorizonNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T176-OPEN",
+        "label": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T176-REJECTED",
+        "CO-T176-CLOSED"
+      ],
+      [
+        "CO-T176-CLOSED",
+        "CO-T176-OPEN"
+      ]
+    ]
+  }
+}

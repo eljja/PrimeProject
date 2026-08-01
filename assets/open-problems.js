@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket176AttemptGlobal = null;
 let ticket175AttemptGlobal = null;
 let ticket174AttemptGlobal = null;
 let ticket173AttemptGlobal = null;
@@ -9971,6 +9972,71 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket176RelativeConeHarmonicAliasSchur(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.relative_cone_harmonic_alias_schur_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.relative_scale_rows || [];
+    detail = `
+      <div class="poc-equation">A<sub>T</sub>≥δG and −εG≤A−A<sub>T</sub>≤εG imply A≥(δ−ε)G</div>
+      ${table(["metric digits", "absolute lower", "relative margin", "certified λmin"], rows.map((row) => [row.metric_small_eigenvalue_decimal_digits, Number(row.absolute_weyl_lower_bound).toExponential(2), Number(row.relative_lower_margin_delta_minus_epsilon).toFixed(2), Number(row.certified_exact_smallest_eigenvalue).toExponential(2)]))}
+      <p class="proof-note">상대 Loewner 인증은 극소 Euclidean 고유값에서도 작동하지만, 실제 pole-neutral Weil tail의 전체 quadratic-form 상계는 아직 없습니다. 같은 대각을 가진 2×2 tail 반례가 diagonal-only 경로를 폐기합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const finite = computation.finite_first_descent_audit || {};
+    const selected = computation.selected_exact_rows || [];
+    detail = `
+      <div class="poc-equation">aperiodic non-descent ⇒ C<sub>h</sub>≤H(n,h)=O(log h) and S<sub>h</sub>−h log₂3≤H(n,h)</div>
+      ${table(["start", "first descent", "valuation excess", "harmonic H", "crosses H"], selected.map((row) => [formatter.format(row.start || 0), row.first_descent_horizon, Number(row.centered_valuation_excess || 0).toFixed(4), Number(row.analytic_harmonic_envelope || 0).toFixed(4), row.crosses_sufficient_harmonic_boundary]))}
+      <div class="poc-head"><div><span>Odd starts</span><strong>${formatter.format(finite.odd_starts_checked || 0)}</strong></div><div><span>Non-crossing starts</span><strong>${(finite.harmonic_boundary_non_crossing_starts || []).join(", ") || "none"}</strong></div><div><span>Resolution</span><strong>OPEN</strong></div></div>
+      <p class="proof-note">63은 조화 경계를 넘지 않고도 34단계에서 하강하므로 이 경계는 충분조건이지 필요조건이 아닙니다. 2^m−1은 임의로 긴 초기 증가를 만들어 고정 horizon 경로도 폐기합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_fixed_farey_parity_alias_rows || [];
+    const aggregate = computation.aggregate || {};
+    detail = `
+      <div class="poc-equation">even n=2m: d<sub>r</sub>=c<sub>r</sub>+c<sub>r+L/2</sub> before |·|, because both phases are identical</div>
+      ${table(["support", "targets", "before alias", "after alias", "gain"], rows.map((row) => [formatter.format(row.prime_support_limit || 0), row.even_targets_tested, row.unaliased_targetwise_certificate_pass_count, row.parity_aliased_certificate_pass_count, row.additional_finite_certificates]))}
+      <div class="poc-head"><div><span>Finite targets</span><strong>${formatter.format(aggregate.finite_targets || 0)}</strong></div><div><span>Certificate gain</span><strong>+${aggregate.additional_finite_certificates || 0}</strong></div><div><span>Uniform theorem</span><strong>OPEN</strong></div></div>
+      <p class="proof-note">parity alias는 모든 짝수 표적에서 lossless이며 유한 Q=16 인증을 367에서 377로 늘립니다. 실제 소수 minor polynomial의 uniform one-sided deficit 상계는 아직 증명되지 않았습니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_t161_weighted_schur_rows || [];
+    detail = `
+      <div class="poc-equation">||B||₂≤√(RC), but inf<sub>u,v&gt;0</sub>√(RC)=||B||₂ for strictly positive B</div>
+      ${table(["X", "operator norm", "optimized Schur", "unweighted Schur", "ratio"], rows.map((row) => [formatter.format(row.X || 0), Number(row.block_matrix_operator_norm).toFixed(2), Number(row.optimized_weighted_schur_bound).toFixed(2), Number(row.unweighted_schur_bound).toFixed(2), Number(row.unweighted_to_operator_ratio).toFixed(2)]))}
+      <p class="proof-note">미지 singular vector로 자유 가중치를 최적화하면 원 block spectral norm을 그대로 다시 풉니다. 다음 정리는 소수쌍 산술에서 미리 정한 scale 가중치로 양방향 power saving을 증명해야 합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket176-relative-cone-harmonic-alias-schur" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 176 relative cones, harmonic corrections, parity aliases, and weighted Schur circularity</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact reductions or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET176 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/relative-cone-harmonic-alias-schur.ko.md">한국어 보고서</a> · <a href="../docs/relative-cone-harmonic-alias-schur.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket175RelativeEquivalenceSignedBlock(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.relative_equivalence_signed_block_audit || {};
@@ -10028,7 +10094,7 @@ function renderTicket175RelativeEquivalenceSignedBlock(attempt) {
   }
   return `
     <div id="ticket175-relative-equivalence-signed-block" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 175 relative spectral resolution, Collatz equivalence, signed Farey minors, and Haar block operators</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact reductions or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET175 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -10508,14 +10574,15 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
       <p class="proof-note">최미세 parity pairing은 오차가 아니라 목표 gap-2 상관의 정확히 절반입니다. 이를 o(N)으로 상쇄하려던 TICKET-167 다음 목표를 폐기하고 양의 von Mangoldt 주항 목표로 교정합니다.</p>
     `;
   }
-  const latestTicket175 = renderTicket175RelativeEquivalenceSignedBlock(ticket175AttemptGlobal);
+  const latestTicket176 = renderTicket176RelativeConeHarmonicAliasSchur(ticket176AttemptGlobal);
+  const previousTicket175 = renderTicket175RelativeEquivalenceSignedBlock(ticket175AttemptGlobal);
   const previousTicket174 = renderTicket174TailLiftAdaptiveScalePair(ticket174AttemptGlobal);
   const previousTicket173 = renderTicket173FiniteSectionCylinderPhaseTensor(ticket173AttemptGlobal);
   const previousTicket172 = renderTicket172StructureEquivalenceL1Variation(ticket172AttemptGlobal);
   const previousTicket171 = renderTicket171RelativeGhostPhaseHaar(ticket171AttemptGlobal);
   const previousTicket170 = renderTicket170IntervalTailBesovMultiscale(ticket170AttemptGlobal);
   const previousTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
-  return `${latestTicket175}${previousTicket174}${previousTicket173}${previousTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
+  return `${latestTicket176}${previousTicket175}${previousTicket174}${previousTicket173}${previousTicket172}${previousTicket171}${previousTicket170}${previousTicket169}
     <div id="ticket168-fixedcore-leastrealizer-phase-paritymain" class="poc-ticket17 poc-ticket128">
       <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms</h3>
@@ -13916,6 +13983,26 @@ async function loadTicket143Attempt() {
   }
 }
 
+async function loadTicket176Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket176-relative-cone-harmonic-alias-schur.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket176AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket176AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket176AttemptGlobal) {
+      ticket176AttemptGlobal.bounded_result = ticket176AttemptGlobal.bounded_result || {};
+      ticket176AttemptGlobal.bounded_result.relative_cone_harmonic_alias_schur_audit = payload.relative_cone_harmonic_alias_schur_audit || {};
+    }
+    return Boolean(ticket176AttemptGlobal);
+  } catch (error) {
+    ticket176AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket175Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket175-relative-equivalence-signed-block.json", { cache: "no-store" });
@@ -14785,6 +14872,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket176Loaded = await loadTicket176Attempt();
   const ticket175Loaded = await loadTicket175Attempt();
   const ticket174Loaded = await loadTicket174Attempt();
   const ticket173Loaded = await loadTicket173Attempt();
@@ -14793,8 +14881,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket176AttemptGlobal) await loadTicket176Attempt();
     if (!ticket175AttemptGlobal) await loadTicket175Attempt();
     if (!ticket174AttemptGlobal) await loadTicket174Attempt();
     if (!ticket173AttemptGlobal) await loadTicket173Attempt();
@@ -14848,7 +14937,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket174-priority";
+  document.documentElement.dataset.openProblemCache = "ticket176-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

@@ -31,18 +31,21 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-175: Relative Spectral Resolution, Collatz-Equivalent Zero Lifts,
-Signed Farey Minors, and Haar Block Operators](docs/relative-equivalence-signed-block.md),
-with a separate [Korean report](docs/relative-equivalence-signed-block.ko.md).
-It proves four exact reductions/no-go statements. The RH track quantifies why a
-polynomial-cutoff absolute tail norm cannot resolve a super-small spectral
-edge and redirects the proof obligation to structured relative sign control.
-The Collatz track proves the previous eventual zero-lift non-descent target is
-equivalent to Collatz itself, so it is not a weaker intermediate lemma. The
-Goldbach track proves that an absolute minor budget loses exactly twice the
-positive signed minor mass. The Twin track replaces the sharp maximum-energy
-aggregation loss by an exact Haar block-operator bound. Every conjecture
-remains `open_not_proven`; the machine resolution count is zero.
+[TICKET-176: Relative Cones, Harmonic Collatz Corrections, Parity Aliases, and
+Weighted Schur Circularity](docs/relative-cone-harmonic-alias-schur.md), with a
+separate [Korean report](docs/relative-cone-harmonic-alias-schur.ko.md). It
+proves a relative Loewner PSD-cone certificate and diagonal-tail no-go for RH,
+an explicit `O(log h)` correction bound for aperiodic non-descending Collatz
+orbits, a lossless even-target parity quotient for fixed-Farey Goldbach minor
+coefficients, and the exact equivalence between unrestricted optimized
+weighted Schur bounds and the Twin block spectral norm. These are exact
+reductions and route corrections, not solutions. Every conjecture remains
+`open_not_proven`; the machine resolution count is zero.
+
+The preserved previous boundary is [TICKET-175: Relative Spectral Resolution,
+Collatz-Equivalent Zero Lifts, Signed Farey Minors, and Haar Block
+Operators](docs/relative-equivalence-signed-block.md), with a separate
+[Korean report](docs/relative-equivalence-signed-block.ko.md).
 
 The preserved previous boundary is
 [TICKET-174: Tail Schedules, Unique Collatz Zero Lifts, Adaptive Goldbach
@@ -144,18 +147,21 @@ You can also open `index.html` locally for an offline smoke view. In direct `fil
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-five-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and now present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, next academic blockers, six decisive metrics, a one-hundred-thirty-six-step visual change trail, a Hardening Map for recent collection-contract fixes, one Evidence Spine for artifact-backed readiness, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims. Its publication layer includes the post-pack consistency audit so the visible research history does not stop one governance step before the Evidence Pack panel.
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-175. It proves an absolute spectral
-resolution barrier for the current RH tail certificate, proves the selected
-eventual zero-lift Collatz target equivalent to Collatz itself, proves the exact
-`2 P_minor` loss caused by an absolute fixed-Farey minor budget, and proves the
-full Twin operator is bounded by the operator norm of its Haar block-norm scale
-matrix. These are exact reductions and route corrections, not solutions. All
-four conjectures remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-176. It converts the RH target to a full
+relative Loewner form comparison, reduces the correction term on every
+aperiodic non-descending Collatz prefix to an explicit harmonic envelope,
+quotients Goldbach minor frequencies with identical phases on all even targets,
+and proves that optimizing unrestricted Twin weighted-Schur factors is exactly
+the original block spectral-norm problem. These are exact reductions and route
+corrections, not solutions. All four conjectures remain open and the machine
+resolution count is zero.
 See
+[TICKET176 EN](docs/relative-cone-harmonic-alias-schur.md),
+[TICKET176 KO](docs/relative-cone-harmonic-alias-schur.ko.md),
 [TICKET175 EN](docs/relative-equivalence-signed-block.md),
 [TICKET175 KO](docs/relative-equivalence-signed-block.ko.md),
 [TICKET174 EN](docs/tail-lift-adaptive-scalepair.md),
@@ -195,15 +201,15 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-175입니다. 리만 트랙은 현재의 절대
-tail 상계가 극도로 작은 스펙트럼 부호를 해상하기에는 규모가 맞지 않음을
-정량화하고 상대적·구조적 부호 보존 정리로 목표를 교정했습니다. 콜라츠
-트랙은 이전 zero-lift 비하강 ray 배제 명제가 원 추측과 동치임을 증명해 이를
-더 쉬운 보조정리로 취급하는 경로를 폐기했습니다. 골드바흐 트랙은 고정
-Farey minor의 절대값을 취하면 양의 minor 질량을 정확히 두 번 잃는다는
-항등식을 증명했습니다. 쌍둥이 소수 트랙은 모든 scale pair를 개별 에너지로
-합산하는 대신 Haar block-norm scale 행렬의 연산자 노름으로 전체를 지배하는
-더 강한 축약을 증명했습니다. 네 문제는 모두 미해결이며 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-176입니다. 리만 트랙은 극소 고유값을
+절대 노름으로 해상하는 대신 전체 relative Loewner form 상계를 증명해야 함을
+정확히 분리했습니다. 콜라츠 트랙은 비주기 비하강 궤도의 affine 보정항을
+명시적 `O(log h)` 조화 상계로 낮추고, 시작값 `63`으로 이 충분조건이 하강의
+필요조건은 아님을 확인했습니다. 골드바흐 트랙은 모든 짝수 표적에서 위상이
+같은 `k`와 `k+L/2`를 절댓값 전에 합치는 lossless parity alias를 증명했습니다.
+쌍둥이 소수 트랙은 자유 Schur 가중치 최적화가 원 block 스펙트럼 노름과
+정확히 같은 문제임을 증명했습니다. 네 문제는 모두 미해결이며 해결 수는
+0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -223,13 +229,13 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-175입니다.
-[상대 스펙트럼, 콜라츠 동치 zero-lift, signed Farey minor,
-Haar block 연산자 한국어 보고서](docs/relative-equivalence-signed-block.ko.md)와
-[영문 보고서](docs/relative-equivalence-signed-block.md)는 네 트랙의 정확 명제,
-증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 리만의 절대
-해상도 장벽, 콜라츠 목표의 원 추측 동치성, 골드바흐 minor의 정확한
-double-loss, 쌍둥이 소수의 block-operator 축약을 확정했습니다.
+최신 난제 연구 트랙은 TICKET-176입니다.
+[상대 원뿔, 콜라츠 조화 보정, parity alias, 가중 Schur 순환성 한국어
+보고서](docs/relative-cone-harmonic-alias-schur.ko.md)와
+[영문 보고서](docs/relative-cone-harmonic-alias-schur.md)는 네 트랙의 정확 명제,
+증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 리만의 relative
+Loewner 인증, 콜라츠의 로그 보정 상계, 골드바흐의 짝수 표적 parity quotient,
+쌍둥이 소수의 weighted-Schur 순환성 no-go를 확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

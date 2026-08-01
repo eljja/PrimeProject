@@ -1,0 +1,175 @@
+{
+  "schema": "primeproject.ticket176-relative-cone-harmonic-alias-schur.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-176",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "EvenTargetParityAliasQuotientAndPreAliasAbsoluteValueNoGo",
+  "declared_proposition": "Let L be even and c_k be the fixed-Farey minor Fourier coefficients. On even targets n=2m, frequencies k and k+L/2 have identical phases. Defining d_r=c_r 1_minor(r)+c_(r+L/2) 1_minor(r+L/2) gives the exact identity E_minor(2m)=sum_(r<L/2) d_r exp(2 pi i r m/(L/2)). Thus parity aliasing is lossless for every Goldbach target and its l1 envelope never exceeds the separate-bin envelope.",
+  "mathematical_argument": "The phase ratio between k+L/2 and k at target 2m is exp(2 pi i m)=1, so the two coefficients may be added before any absolute value. The triangle inequality proves the envelope comparison. The displayed conjugate-symmetric four-frequency family lies in the kernel of restriction to even targets while its separate spectral l1 mass is four.",
+  "reproducible_computation": {
+    "theorem": "Let L be even and c_k be the fixed-Farey minor Fourier coefficients. On even targets n=2m, frequencies k and k+L/2 have identical phases. Defining d_r=c_r 1_minor(r)+c_(r+L/2) 1_minor(r+L/2) gives the exact identity E_minor(2m)=sum_(r<L/2) d_r exp(2 pi i r m/(L/2)). Thus parity aliasing is lossless for every Goldbach target and its l1 envelope never exceeds the separate-bin envelope.",
+    "proof": "The phase ratio between k+L/2 and k at target 2m is exp(2 pi i m)=1, so the two coefficients may be added before any absolute value. The triangle inequality proves the envelope comparison. The displayed conjugate-symmetric four-frequency family lies in the kernel of restriction to even targets while its separate spectral l1 mass is four.",
+    "finite_fixed_farey_parity_alias_rows": [
+      {
+        "prime_support_limit": 64,
+        "transform_size_L": 256,
+        "even_targets_tested": 31,
+        "unaliased_targetwise_certificate_pass_count": 31,
+        "parity_aliased_certificate_pass_count": 31,
+        "additional_finite_certificates": 0,
+        "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9393596107662578,
+        "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9432276808162195,
+        "maximum_alias_identity_error": 4.440892098500626e-15,
+        "maximum_fourier_reconstruction_error": 4.263256414560601e-14,
+        "checks": {
+          "even_target_alias_identity_holds": true,
+          "fourier_reconstruction_matches": true,
+          "aliasing_never_reduces_certificate_count": true,
+          "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+        }
+      },
+      {
+        "prime_support_limit": 128,
+        "transform_size_L": 512,
+        "even_targets_tested": 63,
+        "unaliased_targetwise_certificate_pass_count": 56,
+        "parity_aliased_certificate_pass_count": 56,
+        "additional_finite_certificates": 0,
+        "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9640791724626524,
+        "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9627450320656029,
+        "maximum_alias_identity_error": 2.223221606811876e-14,
+        "maximum_fourier_reconstruction_error": 2.2026824808563106e-13,
+        "checks": {
+          "even_target_alias_identity_holds": true,
+          "fourier_reconstruction_matches": true,
+          "aliasing_never_reduces_certificate_count": true,
+          "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+        }
+      },
+      {
+        "prime_support_limit": 256,
+        "transform_size_L": 1024,
+        "even_targets_tested": 127,
+        "unaliased_targetwise_certificate_pass_count": 82,
+        "parity_aliased_certificate_pass_count": 86,
+        "additional_finite_certificates": 4,
+        "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9695563984549478,
+        "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9693286100579039,
+        "maximum_alias_identity_error": 7.877032359715486e-14,
+        "maximum_fourier_reconstruction_error": 7.247535904753022e-13,
+        "checks": {
+          "even_target_alias_identity_holds": true,
+          "fourier_reconstruction_matches": true,
+          "aliasing_never_reduces_certificate_count": true,
+          "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+        }
+      },
+      {
+        "prime_support_limit": 512,
+        "transform_size_L": 2048,
+        "even_targets_tested": 255,
+        "unaliased_targetwise_certificate_pass_count": 89,
+        "parity_aliased_certificate_pass_count": 93,
+        "additional_finite_certificates": 4,
+        "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9785747565056394,
+        "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9785457601305692,
+        "maximum_alias_identity_error": 2.3803181647963356e-13,
+        "maximum_fourier_reconstruction_error": 1.1723955140041653e-12,
+        "checks": {
+          "even_target_alias_identity_holds": true,
+          "fourier_reconstruction_matches": true,
+          "aliasing_never_reduces_certificate_count": true,
+          "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+        }
+      },
+      {
+        "prime_support_limit": 1024,
+        "transform_size_L": 4096,
+        "even_targets_tested": 511,
+        "unaliased_targetwise_certificate_pass_count": 109,
+        "parity_aliased_certificate_pass_count": 111,
+        "additional_finite_certificates": 2,
+        "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9882040454338856,
+        "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9881431181822702,
+        "maximum_alias_identity_error": 9.596767824859853e-13,
+        "maximum_fourier_reconstruction_error": 7.716494110354688e-12,
+        "checks": {
+          "even_target_alias_identity_holds": true,
+          "fourier_reconstruction_matches": true,
+          "aliasing_never_reduces_certificate_count": true,
+          "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+        }
+      }
+    ],
+    "aggregate": {
+      "finite_targets": 987,
+      "unaliased_certificate_pass_count": 367,
+      "parity_aliased_certificate_pass_count": 377,
+      "additional_finite_certificates": 10,
+      "denominator_limit_Q": 16,
+      "half_width_bins": 2
+    },
+    "exact_even_target_kernel_countermodel": {
+      "cyclic_length_L": 16,
+      "nonzero_coefficients": {
+        "c_1": 1,
+        "c_7": -1,
+        "c_9": -1,
+        "c_15": 1
+      },
+      "unaliased_spectral_l1": 4,
+      "aliased_spectral_l1": 0,
+      "all_even_target_minor_values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "checks": {
+        "coefficients_are_conjugate_symmetric": true,
+        "all_parity_alias_fibers_cancel": true,
+        "unaliased_budget_counts_a_null_direction": true
+      }
+    },
+    "no_go_scope": "This rejects taking per-bin absolute values before quotienting by the exact parity alias. The quotient still supplies no asymptotic one-sided L-infinity bound for the actual prime coefficients.",
+    "failure_count": 0
+  },
+  "discarded_route": "taking minor-bin absolute values before quotienting frequencies with identical phases on every even target",
+  "remaining_gap": "No target-uniform one-sided L-infinity estimate for the parity-aliased actual prime minor polynomial lies below a proved fixed-Farey major main term.",
+  "candidate_theorem": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact parity quotient, a null-direction countermodel, and 987 finite Fourier diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T176-REJECTED",
+        "label": "SeparateMinorBinAbsoluteValuesAreSharpOnEvenTargets",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T176-CLOSED",
+        "label": "EvenTargetParityAliasQuotientAndPreAliasAbsoluteValueNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T176-OPEN",
+        "label": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T176-REJECTED",
+        "GB-T176-CLOSED"
+      ],
+      [
+        "GB-T176-CLOSED",
+        "GB-T176-OPEN"
+      ]
+    ]
+  }
+}

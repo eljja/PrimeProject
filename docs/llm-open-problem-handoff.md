@@ -62,7 +62,59 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-175
+## Latest Continuation After TICKET-176
+
+All four conjectures remain open. TICKET-176 continues the corrected
+TICKET-175 nodes and removes another avoidable information loss in each track.
+Continue only from these nodes:
+
+1. Riemann:
+   `PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin`.
+   The exact relative-cone theorem proves `A_T>=delta G` and
+   `-epsilon G<=A-A_T<=epsilon G` imply `A>=(delta-epsilon)G`. Diagonal tail
+   data are insufficient by an exact 2-by-2 countermodel. The missing premise
+   is the full arithmetic relative-form estimate on one fixed pole-neutral core.
+2. Collatz:
+   `AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope`.
+   For an aperiodic non-descending orbit the affine correction is at most the
+   explicit `H(n,h)=O(log h)`, so such an orbit must keep
+   `S_h-h log2(3)<=H(n,h)` forever. Start 63 proves crossing this sufficient
+   envelope is not necessary for ordinary descent. Nontrivial cycles remain
+   separate.
+3. Goldbach:
+   `ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain`.
+   On even targets, `k` and `k+L/2` have identical phases and may be added
+   exactly before taking absolute values. The resulting quotient improved the
+   finite Q=16 certificate count from 367 to 377, but no uniform analytic
+   one-sided bound has been proved.
+4. Twin Prime:
+   `PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums`.
+   Optimizing arbitrary positive weighted-Schur factors gives exactly the
+   block spectral norm, so it is circular. The weights must be fixed from
+   arithmetic scale information and both directional sums must save a power.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket176-relative-cone-harmonic-alias-schur.json
+data/open-problem/riemann/rh-ticket-176-relative-loewner-cone.json
+data/open-problem/collatz/co-ticket-176-harmonic-correction.json
+data/open-problem/goldbach/gb-ticket-176-parity-alias.json
+data/open-problem/twin-prime/tp-ticket-176-weighted-schur.json
+```
+
+한국어 인계: TICKET-176도 네 난제를 해결하지 않았다. 리만은 실제 Weil tail의
+전체 상대 Loewner 상계가 필요하다. 콜라츠는 비주기 비하강 궤도의 중심화
+valuation 합이 명시적 로그 조화 경계를 결국 넘어야 함을 증명해야 하며,
+비자명 cycle은 별도다. 골드바흐는 parity alias를 끝낸 실제 minor polynomial의
+균일한 음의 `L-infinity` 결손을 major main 아래로 내려야 한다. 쌍둥이 소수는
+최적화된 미지 singular vector가 아니라 산술적으로 미리 정한 scale 가중치로
+양방향 power saving을 증명해야 한다.
+
+English report: [TICKET-176](relative-cone-harmonic-alias-schur.md). Korean
+report: [TICKET-176 한국어](relative-cone-harmonic-alias-schur.ko.md).
+
+## Preserved Continuation After TICKET-175
 
 All four conjectures remain open. TICKET-175 audits the four TICKET-174
 terminal nodes and removes one Collatz target that was equivalent to the whole

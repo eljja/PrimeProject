@@ -1,0 +1,983 @@
+{
+  "schema": "primeproject.ticket176-relative-cone-harmonic-alias-schur.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "status": "four_exact_reductions_all_conjectures_open",
+  "claim_boundary": "TICKET-176 proves four exact structural reductions or no-go statements and resolves none of the conjectures. It converts the RH target to a full relative Loewner comparison, bounds the aperiodic Collatz affine correction by an explicit logarithmic envelope, quotients Goldbach minor frequencies by exact even-target parity aliases, and proves unrestricted weighted-Schur optimization is spectrally circular for the Twin block route.",
+  "relative_cone_harmonic_alias_schur_audit": {
+    "theorem_name": "FourConjectureRelativeConeHarmonicAliasSchurAudit",
+    "status": "four_exact_reductions_all_conjectures_open",
+    "proof_boundary": "TICKET-176 proves four exact structural reductions or no-go statements and resolves none of the conjectures. It converts the RH target to a full relative Loewner comparison, bounds the aperiodic Collatz affine correction by an explicit logarithmic envelope, quotients Goldbach minor frequencies by exact even-target parity aliases, and proves unrestricted weighted-Schur optimization is spectrally circular for the Twin block route.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-176",
+      "theorem_name": "RelativeLoewnerConeCertificateAndDiagonalTailNoGo",
+      "declared_proposition": "Let G be positive definite and A_T,A Hermitian. If A_T is at least delta G in Loewner order and -epsilon G is at most A-A_T which is at most epsilon G, then A is at least (delta-epsilon)G. In particular delta at least epsilon certifies A positive semidefinite even when its Euclidean ground-state scale is arbitrarily small. Diagonal tail data alone cannot establish the required relative form inequality.",
+      "mathematical_argument": "For every vector x, add x*(A_T)x at least delta x*Gx to the lower tail inequality x*(A-A_T)x at least -epsilon x*Gx. This gives x*Ax at least (delta-epsilon)x*Gx. The 2 by 2 tails zero and [[0,1.25],[1.25,0]] have the same diagonal, while adding them to the identity gives smallest eigenvalues 1 and -0.25. Hence diagonal-only control cannot imply the Loewner premise.",
+      "reproducible_computation": {
+        "theorem": "Let G be positive definite and A_T,A Hermitian. If A_T is at least delta G in Loewner order and -epsilon G is at most A-A_T which is at most epsilon G, then A is at least (delta-epsilon)G. In particular delta at least epsilon certifies A positive semidefinite even when its Euclidean ground-state scale is arbitrarily small. Diagonal tail data alone cannot establish the required relative form inequality.",
+        "proof": "For every vector x, add x*(A_T)x at least delta x*Gx to the lower tail inequality x*(A-A_T)x at least -epsilon x*Gx. This gives x*Ax at least (delta-epsilon)x*Gx. The 2 by 2 tails zero and [[0,1.25],[1.25,0]] have the same diagonal, while adding them to the identity gives smallest eigenvalues 1 and -0.25. Hence diagonal-only control cannot imply the Loewner premise.",
+        "relative_scale_rows": [
+          {
+            "metric_small_eigenvalue_decimal_digits": 4,
+            "metric_smallest_eigenvalue": 0.0001,
+            "truncated_smallest_eigenvalue": 2.5e-05,
+            "absolute_error_operator_norm": 0.2,
+            "absolute_weyl_lower_bound": -0.199975,
+            "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+            "certified_exact_smallest_eigenvalue": 4.999999999999999e-06,
+            "checks": {
+              "absolute_global_norm_certificate_fails": true,
+              "relative_loewner_certificate_is_positive": true,
+              "exact_matrix_is_positive": true,
+              "relative_margin_is_scale_independent": true
+            }
+          },
+          {
+            "metric_small_eigenvalue_decimal_digits": 16,
+            "metric_smallest_eigenvalue": 1e-16,
+            "truncated_smallest_eigenvalue": 2.5e-17,
+            "absolute_error_operator_norm": 0.2,
+            "absolute_weyl_lower_bound": -0.19999999999999998,
+            "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+            "certified_exact_smallest_eigenvalue": 4.999999999999999e-18,
+            "checks": {
+              "absolute_global_norm_certificate_fails": true,
+              "relative_loewner_certificate_is_positive": true,
+              "exact_matrix_is_positive": true,
+              "relative_margin_is_scale_independent": true
+            }
+          },
+          {
+            "metric_small_eigenvalue_decimal_digits": 64,
+            "metric_smallest_eigenvalue": 1e-64,
+            "truncated_smallest_eigenvalue": 2.5e-65,
+            "absolute_error_operator_norm": 0.2,
+            "absolute_weyl_lower_bound": -0.2,
+            "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+            "certified_exact_smallest_eigenvalue": 4.999999999999999e-66,
+            "checks": {
+              "absolute_global_norm_certificate_fails": true,
+              "relative_loewner_certificate_is_positive": true,
+              "exact_matrix_is_positive": true,
+              "relative_margin_is_scale_independent": true
+            }
+          },
+          {
+            "metric_small_eigenvalue_decimal_digits": 128,
+            "metric_smallest_eigenvalue": 1e-128,
+            "truncated_smallest_eigenvalue": 2.5e-129,
+            "absolute_error_operator_norm": 0.2,
+            "absolute_weyl_lower_bound": -0.2,
+            "relative_lower_margin_delta_minus_epsilon": 0.04999999999999999,
+            "certified_exact_smallest_eigenvalue": 4.999999999999999e-130,
+            "checks": {
+              "absolute_global_norm_certificate_fails": true,
+              "relative_loewner_certificate_is_positive": true,
+              "exact_matrix_is_positive": true,
+              "relative_margin_is_scale_independent": true
+            }
+          }
+        ],
+        "diagonal_only_countermodel": {
+          "reference_matrix": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ],
+          "harmless_tail": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "adverse_tail": [
+            [
+              0.0,
+              1.25
+            ],
+            [
+              1.25,
+              0.0
+            ]
+          ],
+          "shared_tail_diagonal": [
+            0.0,
+            0.0
+          ],
+          "harmless_smallest_eigenvalue": 1.0,
+          "adverse_smallest_eigenvalue": -0.25,
+          "checks": {
+            "tail_diagonals_are_identical": true,
+            "harmless_completion_is_positive": true,
+            "adverse_completion_is_indefinite": true
+          }
+        },
+        "distinction_from_ticket171": "TICKET-171 preserved inertia relative to an invertible signed KKT core. This theorem instead preserves the closed positive-semidefinite cone, including a zero spectral boundary, relative to a positive metric G.",
+        "no_go_scope": "The countermodel rejects diagonal-only tail summaries. It does not reject a full arithmetic relative-form estimate for the actual pole-neutral Weil operator.",
+        "failure_count": 0
+      },
+      "logical_limit": "No full relative Loewner bound is known for the arithmetic tail of an actual fixed pole-neutral Weil core, and no certified truncated relative margin dominates such a tail.",
+      "route_decision": {
+        "discard": "diagonal-only or absolute tail summaries as substitutes for a full relative quadratic-form inequality",
+        "retain": "a two-sided Loewner tail majorant in the metric of one fixed positive pole-neutral core",
+        "next_single_lemma": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T176-REJECTED",
+            "label": "DiagonalTailControlImpliesRelativeWeilCorePositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T176-CLOSED",
+            "label": "RelativeLoewnerConeCertificateAndDiagonalTailNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T176-OPEN",
+            "label": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T176-REJECTED",
+            "RH-T176-CLOSED"
+          ],
+          [
+            "RH-T176-CLOSED",
+            "RH-T176-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, zero exclusion, or actual Weil-tail relative estimate; one exact PSD-cone certificate and diagonal-information countermodel only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-176",
+      "theorem_name": "AperiodicNonDescentHarmonicCorrectionBoundAndFixedHorizonNoGo",
+      "declared_proposition": "Let n_i be an aperiodic accelerated odd Collatz orbit and suppose n_i is at least its odd start n for 0<=i<h. With S_h the sum of the first h valuations, its affine correction C_h satisfies C_h <= (3 ln 2)^(-1) sum_(j<h) 1/(n+2j) <= H(n,h), where H(n,h)=(3 ln 2)^(-1)[1/n+(1/2)ln(1+2(h-1)/n)]. Therefore any aperiodic orbit that never descends must obey S_h-h log2(3)<=H(n,h)=O(log h) at every prefix.",
+      "mathematical_argument": "Aperiodicity makes the n_i distinct. Since they are odd and at least n, their increasing rearrangement dominates n,n+2,... . Use log2(1+x)<=x/ln 2 and then the decreasing-function integral bound for sum 1/(n+2j). The exact identity log2(n_h/n)=h log2(3)-S_h+C_h shows that excess above H forces descent.",
+      "reproducible_computation": {
+        "theorem": "Let n_i be an aperiodic accelerated odd Collatz orbit and suppose n_i is at least its odd start n for 0<=i<h. With S_h the sum of the first h valuations, its affine correction C_h satisfies C_h <= (3 ln 2)^(-1) sum_(j<h) 1/(n+2j) <= H(n,h), where H(n,h)=(3 ln 2)^(-1)[1/n+(1/2)ln(1+2(h-1)/n)]. Therefore any aperiodic orbit that never descends must obey S_h-h log2(3)<=H(n,h)=O(log h) at every prefix.",
+        "proof": "Aperiodicity makes the n_i distinct. Since they are odd and at least n, their increasing rearrangement dominates n,n+2,... . Use log2(1+x)<=x/ln 2 and then the decreasing-function integral bound for sum 1/(n+2j). The exact identity log2(n_h/n)=h log2(3)-S_h+C_h shows that excess above H forces descent.",
+        "finite_first_descent_audit": {
+          "odd_start_limit": 100000,
+          "odd_starts_checked": 49999,
+          "first_descent_failures": 0,
+          "harmonic_boundary_crossing_count": 49998,
+          "harmonic_boundary_non_crossing_count": 1,
+          "harmonic_boundary_non_crossing_starts": [
+            63
+          ],
+          "maximum_first_descent_horizon": 85,
+          "maximum_horizon_start": 35655
+        },
+        "selected_exact_rows": [
+          {
+            "start": 3,
+            "first_descent_horizon": 2,
+            "descent_value": 1,
+            "valuation_sum": 5,
+            "centered_valuation_excess": 1.8300749985576878,
+            "exact_orbit_correction": 0.24511249783653152,
+            "distinct_state_discrete_envelope": 0.25647911838026016,
+            "analytic_harmonic_envelope": 0.28312704801536365,
+            "crosses_sufficient_harmonic_boundary": true,
+            "states_before_descent_are_distinct": true,
+            "corrected_log_identity_error": 0.0,
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 27,
+            "first_descent_horizon": 37,
+            "descent_value": 23,
+            "valuation_sum": 59,
+            "centered_valuation_excess": 0.356387473317227,
+            "exact_orbit_correction": 0.12506192721076545,
+            "distinct_state_discrete_envelope": 0.3238475313341721,
+            "analytic_harmonic_envelope": 0.3302225695402083,
+            "crosses_sufficient_harmonic_boundary": true,
+            "states_before_descent_are_distinct": true,
+            "corrected_log_identity_error": 5.88418203051333e-15,
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 63,
+            "first_descent_horizon": 34,
+            "descent_value": 61,
+            "valuation_sum": 54,
+            "centered_valuation_excess": 0.11127497548069698,
+            "exact_orbit_correction": 0.0647323895436598,
+            "distinct_state_discrete_envelope": 0.17802053156408798,
+            "analytic_harmonic_envelope": 0.17995786241520687,
+            "crosses_sufficient_harmonic_boundary": false,
+            "states_before_descent_are_distinct": true,
+            "corrected_log_identity_error": 6.994405055138486e-15,
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 703,
+            "first_descent_horizon": 51,
+            "descent_value": 157,
+            "valuation_sum": 83,
+            "centered_valuation_excess": 2.1669124632210384,
+            "exact_orbit_correction": 0.004152333040126074,
+            "distinct_state_discrete_envelope": 0.032620725821160934,
+            "analytic_harmonic_envelope": 0.03266328233486431,
+            "crosses_sufficient_harmonic_boundary": true,
+            "states_before_descent_are_distinct": true,
+            "corrected_log_identity_error": 3.9968028886505635e-15,
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 35655,
+            "first_descent_horizon": 85,
+            "descent_value": 29405,
+            "valuation_sum": 135,
+            "centered_valuation_excess": 0.27818743870173535,
+            "exact_orbit_correction": 0.00014452520006405902,
+            "distinct_state_discrete_envelope": 0.0011437487493986512,
+            "analytic_harmonic_envelope": 0.0011437803752390755,
+            "crosses_sufficient_harmonic_boundary": true,
+            "states_before_descent_are_distinct": true,
+            "corrected_log_identity_error": 1.226796442210798e-14,
+            "cycle_detected_before_descent": false
+          },
+          {
+            "start": 626331,
+            "first_descent_horizon": 111,
+            "descent_value": 597017,
+            "valuation_sum": 176,
+            "centered_valuation_excess": 0.06916241995168093,
+            "exact_orbit_correction": 9.146306690273941e-06,
+            "distinct_state_discrete_envelope": 8.521108463765522e-05,
+            "analytic_harmonic_envelope": 8.521121943621522e-05,
+            "crosses_sufficient_harmonic_boundary": true,
+            "states_before_descent_are_distinct": true,
+            "corrected_log_identity_error": 1.7735812818386876e-14,
+            "cycle_detected_before_descent": false
+          }
+        ],
+        "mersenne_unbounded_delay_rows": [
+          {
+            "exponent_m": 4,
+            "start_2_to_m_minus_1": 15,
+            "certified_initial_valuation_one_steps": 3,
+            "last_certified_state": 53,
+            "formula_failures": 0,
+            "valuation_failures": 0,
+            "increase_failures": 0,
+            "checks": {
+              "closed_form_holds": true,
+              "all_certified_valuations_equal_one": true,
+              "all_certified_steps_increase": true
+            }
+          },
+          {
+            "exponent_m": 8,
+            "start_2_to_m_minus_1": 255,
+            "certified_initial_valuation_one_steps": 7,
+            "last_certified_state": 4373,
+            "formula_failures": 0,
+            "valuation_failures": 0,
+            "increase_failures": 0,
+            "checks": {
+              "closed_form_holds": true,
+              "all_certified_valuations_equal_one": true,
+              "all_certified_steps_increase": true
+            }
+          },
+          {
+            "exponent_m": 16,
+            "start_2_to_m_minus_1": 65535,
+            "certified_initial_valuation_one_steps": 15,
+            "last_certified_state": 28697813,
+            "formula_failures": 0,
+            "valuation_failures": 0,
+            "increase_failures": 0,
+            "checks": {
+              "closed_form_holds": true,
+              "all_certified_valuations_equal_one": true,
+              "all_certified_steps_increase": true
+            }
+          },
+          {
+            "exponent_m": 32,
+            "start_2_to_m_minus_1": 4294967295,
+            "certified_initial_valuation_one_steps": 31,
+            "last_certified_state": 1235346792567893,
+            "formula_failures": 0,
+            "valuation_failures": 0,
+            "increase_failures": 0,
+            "checks": {
+              "closed_form_holds": true,
+              "all_certified_valuations_equal_one": true,
+              "all_certified_steps_increase": true
+            }
+          }
+        ],
+        "no_go_scope": "Start 63 descends at step 34 without crossing the stronger harmonic envelope, so that envelope is sufficient but not equivalent to descent. The family 2^m-1 has m-1 initial increasing valuation-one steps, rejecting every universal fixed descent horizon. Neither fact supplies a divergent orbit or a nontrivial cycle.",
+        "failure_count": 0
+      },
+      "logical_limit": "No theorem forces the centered valuation sum of every aperiodic non-descending natural orbit above the explicit harmonic envelope; nontrivial cycles remain a separate unclosed case.",
+      "route_decision": {
+        "discard": "a universal fixed descent horizon or treating the harmonic sufficient condition as equivalent to first descent",
+        "retain": "the deterministic O(log h) correction envelope for aperiodic non-descending natural orbits",
+        "next_single_lemma": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T176-REJECTED",
+            "label": "FixedHorizonOrHarmonicIffCriterionClosesAllNaturalOrbits",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T176-CLOSED",
+            "label": "AperiodicNonDescentHarmonicCorrectionBoundAndFixedHorizonNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T176-OPEN",
+            "label": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T176-REJECTED",
+            "CO-T176-CLOSED"
+          ],
+          [
+            "CO-T176-CLOSED",
+            "CO-T176-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact logarithmic correction bound, one exact delay family, and a finite diagnostic only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-176",
+      "theorem_name": "EvenTargetParityAliasQuotientAndPreAliasAbsoluteValueNoGo",
+      "declared_proposition": "Let L be even and c_k be the fixed-Farey minor Fourier coefficients. On even targets n=2m, frequencies k and k+L/2 have identical phases. Defining d_r=c_r 1_minor(r)+c_(r+L/2) 1_minor(r+L/2) gives the exact identity E_minor(2m)=sum_(r<L/2) d_r exp(2 pi i r m/(L/2)). Thus parity aliasing is lossless for every Goldbach target and its l1 envelope never exceeds the separate-bin envelope.",
+      "mathematical_argument": "The phase ratio between k+L/2 and k at target 2m is exp(2 pi i m)=1, so the two coefficients may be added before any absolute value. The triangle inequality proves the envelope comparison. The displayed conjugate-symmetric four-frequency family lies in the kernel of restriction to even targets while its separate spectral l1 mass is four.",
+      "reproducible_computation": {
+        "theorem": "Let L be even and c_k be the fixed-Farey minor Fourier coefficients. On even targets n=2m, frequencies k and k+L/2 have identical phases. Defining d_r=c_r 1_minor(r)+c_(r+L/2) 1_minor(r+L/2) gives the exact identity E_minor(2m)=sum_(r<L/2) d_r exp(2 pi i r m/(L/2)). Thus parity aliasing is lossless for every Goldbach target and its l1 envelope never exceeds the separate-bin envelope.",
+        "proof": "The phase ratio between k+L/2 and k at target 2m is exp(2 pi i m)=1, so the two coefficients may be added before any absolute value. The triangle inequality proves the envelope comparison. The displayed conjugate-symmetric four-frequency family lies in the kernel of restriction to even targets while its separate spectral l1 mass is four.",
+        "finite_fixed_farey_parity_alias_rows": [
+          {
+            "prime_support_limit": 64,
+            "transform_size_L": 256,
+            "even_targets_tested": 31,
+            "unaliased_targetwise_certificate_pass_count": 31,
+            "parity_aliased_certificate_pass_count": 31,
+            "additional_finite_certificates": 0,
+            "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9393596107662578,
+            "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9432276808162195,
+            "maximum_alias_identity_error": 4.440892098500626e-15,
+            "maximum_fourier_reconstruction_error": 4.263256414560601e-14,
+            "checks": {
+              "even_target_alias_identity_holds": true,
+              "fourier_reconstruction_matches": true,
+              "aliasing_never_reduces_certificate_count": true,
+              "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+            }
+          },
+          {
+            "prime_support_limit": 128,
+            "transform_size_L": 512,
+            "even_targets_tested": 63,
+            "unaliased_targetwise_certificate_pass_count": 56,
+            "parity_aliased_certificate_pass_count": 56,
+            "additional_finite_certificates": 0,
+            "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9640791724626524,
+            "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9627450320656029,
+            "maximum_alias_identity_error": 2.223221606811876e-14,
+            "maximum_fourier_reconstruction_error": 2.2026824808563106e-13,
+            "checks": {
+              "even_target_alias_identity_holds": true,
+              "fourier_reconstruction_matches": true,
+              "aliasing_never_reduces_certificate_count": true,
+              "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+            }
+          },
+          {
+            "prime_support_limit": 256,
+            "transform_size_L": 1024,
+            "even_targets_tested": 127,
+            "unaliased_targetwise_certificate_pass_count": 82,
+            "parity_aliased_certificate_pass_count": 86,
+            "additional_finite_certificates": 4,
+            "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9695563984549478,
+            "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9693286100579039,
+            "maximum_alias_identity_error": 7.877032359715486e-14,
+            "maximum_fourier_reconstruction_error": 7.247535904753022e-13,
+            "checks": {
+              "even_target_alias_identity_holds": true,
+              "fourier_reconstruction_matches": true,
+              "aliasing_never_reduces_certificate_count": true,
+              "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+            }
+          },
+          {
+            "prime_support_limit": 512,
+            "transform_size_L": 2048,
+            "even_targets_tested": 255,
+            "unaliased_targetwise_certificate_pass_count": 89,
+            "parity_aliased_certificate_pass_count": 93,
+            "additional_finite_certificates": 4,
+            "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9785747565056394,
+            "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9785457601305692,
+            "maximum_alias_identity_error": 2.3803181647963356e-13,
+            "maximum_fourier_reconstruction_error": 1.1723955140041653e-12,
+            "checks": {
+              "even_target_alias_identity_holds": true,
+              "fourier_reconstruction_matches": true,
+              "aliasing_never_reduces_certificate_count": true,
+              "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+            }
+          },
+          {
+            "prime_support_limit": 1024,
+            "transform_size_L": 4096,
+            "even_targets_tested": 511,
+            "unaliased_targetwise_certificate_pass_count": 109,
+            "parity_aliased_certificate_pass_count": 111,
+            "additional_finite_certificates": 2,
+            "mean_targetwise_alias_to_unaliased_envelope_ratio": 0.9882040454338856,
+            "uniform_spectral_alias_to_unaliased_l1_ratio": 0.9881431181822702,
+            "maximum_alias_identity_error": 9.596767824859853e-13,
+            "maximum_fourier_reconstruction_error": 7.716494110354688e-12,
+            "checks": {
+              "even_target_alias_identity_holds": true,
+              "fourier_reconstruction_matches": true,
+              "aliasing_never_reduces_certificate_count": true,
+              "uniform_aliased_l1_no_larger_than_unaliased_l1": true
+            }
+          }
+        ],
+        "aggregate": {
+          "finite_targets": 987,
+          "unaliased_certificate_pass_count": 367,
+          "parity_aliased_certificate_pass_count": 377,
+          "additional_finite_certificates": 10,
+          "denominator_limit_Q": 16,
+          "half_width_bins": 2
+        },
+        "exact_even_target_kernel_countermodel": {
+          "cyclic_length_L": 16,
+          "nonzero_coefficients": {
+            "c_1": 1,
+            "c_7": -1,
+            "c_9": -1,
+            "c_15": 1
+          },
+          "unaliased_spectral_l1": 4,
+          "aliased_spectral_l1": 0,
+          "all_even_target_minor_values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "checks": {
+            "coefficients_are_conjugate_symmetric": true,
+            "all_parity_alias_fibers_cancel": true,
+            "unaliased_budget_counts_a_null_direction": true
+          }
+        },
+        "no_go_scope": "This rejects taking per-bin absolute values before quotienting by the exact parity alias. The quotient still supplies no asymptotic one-sided L-infinity bound for the actual prime coefficients.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform one-sided L-infinity estimate for the parity-aliased actual prime minor polynomial lies below a proved fixed-Farey major main term.",
+      "route_decision": {
+        "discard": "taking minor-bin absolute values before quotienting frequencies with identical phases on every even target",
+        "retain": "the lossless parity-aliased minor polynomial followed by a genuinely arithmetic one-sided bound",
+        "next_single_lemma": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T176-REJECTED",
+            "label": "SeparateMinorBinAbsoluteValuesAreSharpOnEvenTargets",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T176-CLOSED",
+            "label": "EvenTargetParityAliasQuotientAndPreAliasAbsoluteValueNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T176-OPEN",
+            "label": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T176-REJECTED",
+            "GB-T176-CLOSED"
+          ],
+          [
+            "GB-T176-CLOSED",
+            "GB-T176-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact parity quotient, a null-direction countermodel, and 987 finite Fourier diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-176",
+      "theorem_name": "WeightedSchurExactOptimizationAndCircularityNoGo",
+      "declared_proposition": "For every nonnegative block-norm matrix B and positive weights u,v, let R=max_i (Bv)_i/u_i and C=max_j (B^T u)_j/v_j. Then ||B||_2<=sqrt(RC). If B is strictly positive, minimizing this bound over all positive u,v gives equality with ||B||_2: positive top left and right singular vectors attain R=C=||B||_2.",
+      "mathematical_argument": "Weighted Cauchy-Schwarz gives (Bx)_i^2 <= (Bv)_i sum_j B_ij x_j^2/v_j. Sum in i, use (Bv)_i<=R u_i and (B^T u)_j<=C v_j, and obtain ||Bx||_2^2<=RC||x||_2^2. For a strictly positive matrix, Perron-Frobenius supplies positive singular vectors with Bv=sigma u and B^T u=sigma v, giving equality.",
+      "reproducible_computation": {
+        "theorem": "For every nonnegative block-norm matrix B and positive weights u,v, let R=max_i (Bv)_i/u_i and C=max_j (B^T u)_j/v_j. Then ||B||_2<=sqrt(RC). If B is strictly positive, minimizing this bound over all positive u,v gives equality with ||B||_2: positive top left and right singular vectors attain R=C=||B||_2.",
+        "proof": "Weighted Cauchy-Schwarz gives (Bx)_i^2 <= (Bv)_i sum_j B_ij x_j^2/v_j. Sum in i, use (Bv)_i<=R u_i and (B^T u)_j<=C v_j, and obtain ||Bx||_2^2<=RC||x||_2^2. For a strictly positive matrix, Perron-Frobenius supplies positive singular vectors with Bv=sigma u and B^T u=sigma v, giving equality.",
+        "synthetic_strictly_positive_rows": [
+          {
+            "matrix": [
+              [
+                1.0,
+                2.0
+              ],
+              [
+                3.0,
+                4.0
+              ]
+            ],
+            "operator_norm": 5.464985704219042,
+            "optimized_weighted_schur_bound": 5.464985704219043,
+            "unweighted_schur_bound": 6.48074069840786,
+            "left_singular_weight": [
+              0.40455358483375686,
+              0.9145142956773044
+            ],
+            "right_singular_weight": [
+              0.5760484367663208,
+              0.8174155604703632
+            ],
+            "checks": {
+              "optimized_weighted_schur_equals_operator_norm": true,
+              "unweighted_schur_is_valid": true,
+              "singular_vectors_are_positive": true
+            }
+          },
+          {
+            "matrix": [
+              [
+                1.0,
+                4.0
+              ],
+              [
+                2.0,
+                3.0
+              ]
+            ],
+            "operator_norm": 5.398345637668168,
+            "optimized_weighted_schur_bound": 5.398345637668169,
+            "unweighted_schur_bound": 5.916079783099616,
+            "left_singular_weight": [
+              0.7554539549957063,
+              0.6552017413601289
+            ],
+            "right_singular_weight": [
+              0.3826834323650898,
+              0.9238795325112867
+            ],
+            "checks": {
+              "optimized_weighted_schur_equals_operator_norm": true,
+              "unweighted_schur_is_valid": true,
+              "singular_vectors_are_positive": true
+            }
+          },
+          {
+            "matrix": [
+              [
+                1.0,
+                2.0
+              ],
+              [
+                2.0,
+                4.0
+              ]
+            ],
+            "operator_norm": 5.000000000000001,
+            "optimized_weighted_schur_bound": 5.0,
+            "unweighted_schur_bound": 6.0,
+            "left_singular_weight": [
+              0.447213595499958,
+              0.894427190999916
+            ],
+            "right_singular_weight": [
+              0.447213595499958,
+              0.894427190999916
+            ],
+            "checks": {
+              "optimized_weighted_schur_equals_operator_norm": true,
+              "unweighted_schur_is_valid": true,
+              "singular_vectors_are_positive": true
+            }
+          }
+        ],
+        "finite_t161_weighted_schur_rows": [
+          {
+            "X": 10000,
+            "block_norm_scale_matrix": [
+              [
+                109.31078935459216,
+                34.132096331752024
+              ],
+              [
+                60.20797289396147,
+                5.0
+              ]
+            ],
+            "block_matrix_operator_norm": 128.9457014842059,
+            "optimized_weighted_schur_bound": 128.9457014842059,
+            "unweighted_schur_bound": 155.9367193284181,
+            "unweighted_to_operator_ratio": 1.2093208035129286,
+            "optimized_left_weight": [
+              0.8871047200099408,
+              0.4615682135243767
+            ],
+            "optimized_right_weight": [
+              0.9675406177719109,
+              0.2527155574189071
+            ],
+            "checks": {
+              "recomputed_operator_norm_matches_ticket175": true,
+              "optimized_weighted_schur_is_spectral_norm": true,
+              "unweighted_schur_is_valid": true
+            }
+          },
+          {
+            "X": 100000,
+            "block_norm_scale_matrix": [
+              [
+                3363.7292393138528,
+                2597.107044386118
+              ],
+              [
+                1284.3274504580208,
+                1935.0
+              ]
+            ],
+            "block_matrix_operator_norm": 4797.4836663541355,
+            "optimized_weighted_schur_bound": 4797.483666354135,
+            "unweighted_schur_bound": 5263.677893363781,
+            "unweighted_to_operator_ratio": 1.0971747398076983,
+            "optimized_left_weight": [
+              0.8834524675106312,
+              0.4685207974566095
+            ],
+            "optimized_right_weight": [
+              0.7448548585698737,
+              0.6672265279984405
+            ],
+            "checks": {
+              "recomputed_operator_norm_matches_ticket175": true,
+              "optimized_weighted_schur_is_spectral_norm": true,
+              "unweighted_schur_is_valid": true
+            }
+          },
+          {
+            "X": 1000000,
+            "block_norm_scale_matrix": [
+              [
+                28424.689907439068,
+                46528.52037191812
+              ],
+              [
+                37260.60946898212,
+                76212.0
+              ]
+            ],
+            "block_matrix_operator_norm": 100752.4219889718,
+            "optimized_weighted_schur_bound": 100752.4219889718,
+            "unweighted_schur_bound": 118015.62241577303,
+            "unweighted_to_operator_ratio": 1.1713427834885284,
+            "optimized_left_weight": [
+              0.5399779448910065,
+              0.8416791663284088
+            ],
+            "optimized_right_weight": [
+              0.4636135135315872,
+              0.886037533105058
+            ],
+            "checks": {
+              "recomputed_operator_norm_matches_ticket175": true,
+              "optimized_weighted_schur_is_spectral_norm": true,
+              "unweighted_schur_is_valid": true
+            }
+          },
+          {
+            "X": 10000000,
+            "block_norm_scale_matrix": [
+              [
+                1938810.8715640353,
+                1627858.2967678728
+              ],
+              [
+                622548.199226373,
+                3974126.0
+              ]
+            ],
+            "block_matrix_operator_norm": 4516032.927481514,
+            "optimized_weighted_schur_bound": 4516032.927481515,
+            "unweighted_schur_bound": 5074494.721785035,
+            "unweighted_to_operator_ratio": 1.1236620288805028,
+            "optimized_left_weight": [
+              0.4811588636475895,
+              0.876633417075439
+            ],
+            "optimized_right_weight": [
+              0.3274162555311378,
+              0.9448802017261069
+            ],
+            "checks": {
+              "recomputed_operator_norm_matches_ticket175": true,
+              "optimized_weighted_schur_is_spectral_norm": true,
+              "unweighted_schur_is_valid": true
+            }
+          }
+        ],
+        "no_go_scope": "Optimizing unrestricted Schur weights is exactly the block spectral-norm problem and therefore does not simplify TICKET-175. A useful proof must prescribe weights from arithmetic scale information and verify both directional sums without using unknown singular vectors.",
+        "failure_count": 0
+      },
+      "logical_limit": "No explicit scale weights derived independently from prime-pair arithmetic give power-saving weighted row and column sums for the Haar block-norm matrix.",
+      "route_decision": {
+        "discard": "unrestricted numerical optimization of weighted Schur factors as an easier replacement for the block operator norm",
+        "retain": "predeclared arithmetic scale weights and two directional weighted Type-II sums",
+        "next_single_lemma": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T176-REJECTED",
+            "label": "OptimizedWeightedSchurIsStrictlyEasierThanBlockSpectralNorm",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T176-CLOSED",
+            "label": "WeightedSchurExactOptimizationAndCircularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T176-OPEN",
+            "label": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T176-REJECTED",
+            "TP-T176-CLOSED"
+          ],
+          [
+            "TP-T176-CLOSED",
+            "TP-T176-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or parity-breaking pair lower bound; one exact weighted-Schur theorem and finite block-matrix diagnostics only."
+    },
+    "cross_problem_synthesis": "Each track removes an avoidable information loss before the next hard estimate: Euclidean scale, orbit-dependent correction, parity-duplicate phases, or unconstrained numerical weights.",
+    "literature_boundary": {
+      "riemann": "Recent truncated-Weil numerical work supplies diagnostics but explicitly does not prove RH; TICKET-176 adds no continuum tail theorem.",
+      "collatz": "Tao's almost-all logarithmic-density result does not imply the every-orbit harmonic-envelope crossing isolated here.",
+      "goldbach": "Recent exceptional-set work does not supply the target-uniform binary one-sided aliased-minor estimate required here.",
+      "twin_prime": "Modern prime-producing sieve work still requires Type-II information; weighted Schur only reformulates the missing block estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-176",
+      "status": "open_not_proven",
+      "declared_proposition": "Let G be positive definite and A_T,A Hermitian. If A_T is at least delta G in Loewner order and -epsilon G is at most A-A_T which is at most epsilon G, then A is at least (delta-epsilon)G. In particular delta at least epsilon certifies A positive semidefinite even when its Euclidean ground-state scale is arbitrarily small. Diagonal tail data alone cannot establish the required relative form inequality.",
+      "new_result": "RelativeLoewnerConeCertificateAndDiagonalTailNoGo",
+      "discarded_route": "diagonal-only or absolute tail summaries as substitutes for a full relative quadratic-form inequality",
+      "remaining_gap": "No full relative Loewner bound is known for the arithmetic tail of an actual fixed pole-neutral Weil core, and no certified truncated relative margin dominates such a tail.",
+      "candidate_theorem": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin",
+      "claim_boundary": "No RH proof, zero exclusion, or actual Weil-tail relative estimate; one exact PSD-cone certificate and diagonal-information countermodel only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T176-REJECTED",
+            "label": "DiagonalTailControlImpliesRelativeWeilCorePositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T176-CLOSED",
+            "label": "RelativeLoewnerConeCertificateAndDiagonalTailNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T176-OPEN",
+            "label": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T176-REJECTED",
+            "RH-T176-CLOSED"
+          ],
+          [
+            "RH-T176-CLOSED",
+            "RH-T176-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilTailHasUniformCoreRelativeLoewnerBoundBelowTruncatedMargin"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-176",
+      "status": "open_not_proven",
+      "declared_proposition": "Let n_i be an aperiodic accelerated odd Collatz orbit and suppose n_i is at least its odd start n for 0<=i<h. With S_h the sum of the first h valuations, its affine correction C_h satisfies C_h <= (3 ln 2)^(-1) sum_(j<h) 1/(n+2j) <= H(n,h), where H(n,h)=(3 ln 2)^(-1)[1/n+(1/2)ln(1+2(h-1)/n)]. Therefore any aperiodic orbit that never descends must obey S_h-h log2(3)<=H(n,h)=O(log h) at every prefix.",
+      "new_result": "AperiodicNonDescentHarmonicCorrectionBoundAndFixedHorizonNoGo",
+      "discarded_route": "a universal fixed descent horizon or treating the harmonic sufficient condition as equivalent to first descent",
+      "remaining_gap": "No theorem forces the centered valuation sum of every aperiodic non-descending natural orbit above the explicit harmonic envelope; nontrivial cycles remain a separate unclosed case.",
+      "candidate_theorem": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope",
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle exclusion; one exact logarithmic correction bound, one exact delay family, and a finite diagnostic only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T176-REJECTED",
+            "label": "FixedHorizonOrHarmonicIffCriterionClosesAllNaturalOrbits",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T176-CLOSED",
+            "label": "AperiodicNonDescentHarmonicCorrectionBoundAndFixedHorizonNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T176-OPEN",
+            "label": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T176-REJECTED",
+            "CO-T176-CLOSED"
+          ],
+          [
+            "CO-T176-CLOSED",
+            "CO-T176-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "AperiodicNonDescendingValuationDiscrepancyExceedsDistinctStateHarmonicEnvelope"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-176",
+      "status": "open_not_proven",
+      "declared_proposition": "Let L be even and c_k be the fixed-Farey minor Fourier coefficients. On even targets n=2m, frequencies k and k+L/2 have identical phases. Defining d_r=c_r 1_minor(r)+c_(r+L/2) 1_minor(r+L/2) gives the exact identity E_minor(2m)=sum_(r<L/2) d_r exp(2 pi i r m/(L/2)). Thus parity aliasing is lossless for every Goldbach target and its l1 envelope never exceeds the separate-bin envelope.",
+      "new_result": "EvenTargetParityAliasQuotientAndPreAliasAbsoluteValueNoGo",
+      "discarded_route": "taking minor-bin absolute values before quotienting frequencies with identical phases on every even target",
+      "remaining_gap": "No target-uniform one-sided L-infinity estimate for the parity-aliased actual prime minor polynomial lies below a proved fixed-Farey major main term.",
+      "candidate_theorem": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain",
+      "claim_boundary": "No Goldbach proof or counterexample; one exact parity quotient, a null-direction countermodel, and 987 finite Fourier diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T176-REJECTED",
+            "label": "SeparateMinorBinAbsoluteValuesAreSharpOnEvenTargets",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T176-CLOSED",
+            "label": "EvenTargetParityAliasQuotientAndPreAliasAbsoluteValueNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T176-OPEN",
+            "label": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T176-REJECTED",
+            "GB-T176-CLOSED"
+          ],
+          [
+            "GB-T176-CLOSED",
+            "GB-T176-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ParityAliasedFixedFareyMinorPolynomialHasUniformDeficitPowerSavingBelowMajorMain"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-176",
+      "status": "open_not_proven",
+      "declared_proposition": "For every nonnegative block-norm matrix B and positive weights u,v, let R=max_i (Bv)_i/u_i and C=max_j (B^T u)_j/v_j. Then ||B||_2<=sqrt(RC). If B is strictly positive, minimizing this bound over all positive u,v gives equality with ||B||_2: positive top left and right singular vectors attain R=C=||B||_2.",
+      "new_result": "WeightedSchurExactOptimizationAndCircularityNoGo",
+      "discarded_route": "unrestricted numerical optimization of weighted Schur factors as an easier replacement for the block operator norm",
+      "remaining_gap": "No explicit scale weights derived independently from prime-pair arithmetic give power-saving weighted row and column sums for the Haar block-norm matrix.",
+      "candidate_theorem": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums",
+      "claim_boundary": "No Twin Prime proof or parity-breaking pair lower bound; one exact weighted-Schur theorem and finite block-matrix diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T176-REJECTED",
+            "label": "OptimizedWeightedSchurIsStrictlyEasierThanBlockSpectralNorm",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T176-CLOSED",
+            "label": "WeightedSchurExactOptimizationAndCircularityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T176-OPEN",
+            "label": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T176-REJECTED",
+            "TP-T176-CLOSED"
+          ],
+          [
+            "TP-T176-CLOSED",
+            "TP-T176-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums"
+    }
+  ]
+}

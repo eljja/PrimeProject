@@ -1,0 +1,257 @@
+{
+  "schema": "primeproject.ticket176-relative-cone-harmonic-alias-schur.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-176",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "WeightedSchurExactOptimizationAndCircularityNoGo",
+  "declared_proposition": "For every nonnegative block-norm matrix B and positive weights u,v, let R=max_i (Bv)_i/u_i and C=max_j (B^T u)_j/v_j. Then ||B||_2<=sqrt(RC). If B is strictly positive, minimizing this bound over all positive u,v gives equality with ||B||_2: positive top left and right singular vectors attain R=C=||B||_2.",
+  "mathematical_argument": "Weighted Cauchy-Schwarz gives (Bx)_i^2 <= (Bv)_i sum_j B_ij x_j^2/v_j. Sum in i, use (Bv)_i<=R u_i and (B^T u)_j<=C v_j, and obtain ||Bx||_2^2<=RC||x||_2^2. For a strictly positive matrix, Perron-Frobenius supplies positive singular vectors with Bv=sigma u and B^T u=sigma v, giving equality.",
+  "reproducible_computation": {
+    "theorem": "For every nonnegative block-norm matrix B and positive weights u,v, let R=max_i (Bv)_i/u_i and C=max_j (B^T u)_j/v_j. Then ||B||_2<=sqrt(RC). If B is strictly positive, minimizing this bound over all positive u,v gives equality with ||B||_2: positive top left and right singular vectors attain R=C=||B||_2.",
+    "proof": "Weighted Cauchy-Schwarz gives (Bx)_i^2 <= (Bv)_i sum_j B_ij x_j^2/v_j. Sum in i, use (Bv)_i<=R u_i and (B^T u)_j<=C v_j, and obtain ||Bx||_2^2<=RC||x||_2^2. For a strictly positive matrix, Perron-Frobenius supplies positive singular vectors with Bv=sigma u and B^T u=sigma v, giving equality.",
+    "synthetic_strictly_positive_rows": [
+      {
+        "matrix": [
+          [
+            1.0,
+            2.0
+          ],
+          [
+            3.0,
+            4.0
+          ]
+        ],
+        "operator_norm": 5.464985704219042,
+        "optimized_weighted_schur_bound": 5.464985704219043,
+        "unweighted_schur_bound": 6.48074069840786,
+        "left_singular_weight": [
+          0.40455358483375686,
+          0.9145142956773044
+        ],
+        "right_singular_weight": [
+          0.5760484367663208,
+          0.8174155604703632
+        ],
+        "checks": {
+          "optimized_weighted_schur_equals_operator_norm": true,
+          "unweighted_schur_is_valid": true,
+          "singular_vectors_are_positive": true
+        }
+      },
+      {
+        "matrix": [
+          [
+            1.0,
+            4.0
+          ],
+          [
+            2.0,
+            3.0
+          ]
+        ],
+        "operator_norm": 5.398345637668168,
+        "optimized_weighted_schur_bound": 5.398345637668169,
+        "unweighted_schur_bound": 5.916079783099616,
+        "left_singular_weight": [
+          0.7554539549957063,
+          0.6552017413601289
+        ],
+        "right_singular_weight": [
+          0.3826834323650898,
+          0.9238795325112867
+        ],
+        "checks": {
+          "optimized_weighted_schur_equals_operator_norm": true,
+          "unweighted_schur_is_valid": true,
+          "singular_vectors_are_positive": true
+        }
+      },
+      {
+        "matrix": [
+          [
+            1.0,
+            2.0
+          ],
+          [
+            2.0,
+            4.0
+          ]
+        ],
+        "operator_norm": 5.000000000000001,
+        "optimized_weighted_schur_bound": 5.0,
+        "unweighted_schur_bound": 6.0,
+        "left_singular_weight": [
+          0.447213595499958,
+          0.894427190999916
+        ],
+        "right_singular_weight": [
+          0.447213595499958,
+          0.894427190999916
+        ],
+        "checks": {
+          "optimized_weighted_schur_equals_operator_norm": true,
+          "unweighted_schur_is_valid": true,
+          "singular_vectors_are_positive": true
+        }
+      }
+    ],
+    "finite_t161_weighted_schur_rows": [
+      {
+        "X": 10000,
+        "block_norm_scale_matrix": [
+          [
+            109.31078935459216,
+            34.132096331752024
+          ],
+          [
+            60.20797289396147,
+            5.0
+          ]
+        ],
+        "block_matrix_operator_norm": 128.9457014842059,
+        "optimized_weighted_schur_bound": 128.9457014842059,
+        "unweighted_schur_bound": 155.9367193284181,
+        "unweighted_to_operator_ratio": 1.2093208035129286,
+        "optimized_left_weight": [
+          0.8871047200099408,
+          0.4615682135243767
+        ],
+        "optimized_right_weight": [
+          0.9675406177719109,
+          0.2527155574189071
+        ],
+        "checks": {
+          "recomputed_operator_norm_matches_ticket175": true,
+          "optimized_weighted_schur_is_spectral_norm": true,
+          "unweighted_schur_is_valid": true
+        }
+      },
+      {
+        "X": 100000,
+        "block_norm_scale_matrix": [
+          [
+            3363.7292393138528,
+            2597.107044386118
+          ],
+          [
+            1284.3274504580208,
+            1935.0
+          ]
+        ],
+        "block_matrix_operator_norm": 4797.4836663541355,
+        "optimized_weighted_schur_bound": 4797.483666354135,
+        "unweighted_schur_bound": 5263.677893363781,
+        "unweighted_to_operator_ratio": 1.0971747398076983,
+        "optimized_left_weight": [
+          0.8834524675106312,
+          0.4685207974566095
+        ],
+        "optimized_right_weight": [
+          0.7448548585698737,
+          0.6672265279984405
+        ],
+        "checks": {
+          "recomputed_operator_norm_matches_ticket175": true,
+          "optimized_weighted_schur_is_spectral_norm": true,
+          "unweighted_schur_is_valid": true
+        }
+      },
+      {
+        "X": 1000000,
+        "block_norm_scale_matrix": [
+          [
+            28424.689907439068,
+            46528.52037191812
+          ],
+          [
+            37260.60946898212,
+            76212.0
+          ]
+        ],
+        "block_matrix_operator_norm": 100752.4219889718,
+        "optimized_weighted_schur_bound": 100752.4219889718,
+        "unweighted_schur_bound": 118015.62241577303,
+        "unweighted_to_operator_ratio": 1.1713427834885284,
+        "optimized_left_weight": [
+          0.5399779448910065,
+          0.8416791663284088
+        ],
+        "optimized_right_weight": [
+          0.4636135135315872,
+          0.886037533105058
+        ],
+        "checks": {
+          "recomputed_operator_norm_matches_ticket175": true,
+          "optimized_weighted_schur_is_spectral_norm": true,
+          "unweighted_schur_is_valid": true
+        }
+      },
+      {
+        "X": 10000000,
+        "block_norm_scale_matrix": [
+          [
+            1938810.8715640353,
+            1627858.2967678728
+          ],
+          [
+            622548.199226373,
+            3974126.0
+          ]
+        ],
+        "block_matrix_operator_norm": 4516032.927481514,
+        "optimized_weighted_schur_bound": 4516032.927481515,
+        "unweighted_schur_bound": 5074494.721785035,
+        "unweighted_to_operator_ratio": 1.1236620288805028,
+        "optimized_left_weight": [
+          0.4811588636475895,
+          0.876633417075439
+        ],
+        "optimized_right_weight": [
+          0.3274162555311378,
+          0.9448802017261069
+        ],
+        "checks": {
+          "recomputed_operator_norm_matches_ticket175": true,
+          "optimized_weighted_schur_is_spectral_norm": true,
+          "unweighted_schur_is_valid": true
+        }
+      }
+    ],
+    "no_go_scope": "Optimizing unrestricted Schur weights is exactly the block spectral-norm problem and therefore does not simplify TICKET-175. A useful proof must prescribe weights from arithmetic scale information and verify both directional sums without using unknown singular vectors.",
+    "failure_count": 0
+  },
+  "discarded_route": "unrestricted numerical optimization of weighted Schur factors as an easier replacement for the block operator norm",
+  "remaining_gap": "No explicit scale weights derived independently from prime-pair arithmetic give power-saving weighted row and column sums for the Haar block-norm matrix.",
+  "candidate_theorem": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums",
+  "claim_boundary": "No Twin Prime proof or parity-breaking pair lower bound; one exact weighted-Schur theorem and finite block-matrix diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T176-REJECTED",
+        "label": "OptimizedWeightedSchurIsStrictlyEasierThanBlockSpectralNorm",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T176-CLOSED",
+        "label": "WeightedSchurExactOptimizationAndCircularityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T176-OPEN",
+        "label": "PrimePairHaarBlocksAdmitExplicitArithmeticWeightsWithPowerSavingSchurSums",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T176-REJECTED",
+        "TP-T176-CLOSED"
+      ],
+      [
+        "TP-T176-CLOSED",
+        "TP-T176-OPEN"
+      ]
+    ]
+  }
+}
