@@ -31,20 +31,24 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-168: Fixed Neutral Cores, Least-Realizer Descent, Phase-Blind Minimax,
-and Twin Parity Main Terms](docs/fixedcore-leastrealizer-phase-paritymain.md).
-It proves four exact intermediate or target-correction statements. For RH, a
-fixed finite-rank moment corrector produces a nested dense constrained core;
-cutoff-varying constraints are rejected by an exact negative witness. For
-Collatz, the descent gap over all natural realizers of one contracting word is
-strictly increasing, so its least realizer is the unique worst case. For
-Goldbach, spectral `l1` is the minimax-optimal phase-blind Fourier bound, so
-shell magnitudes alone cannot recover arithmetic cancellation. For Twin Prime,
-the finest parity projection contains exactly half of the desired odd gap-two
-correlation, correcting the prior target that tried to cancel it. Every
-conjecture remains `open_not_proven`.
+[TICKET-169: KKT Inertia, Exact Collatz Child Lifts, Spectral Autocorrelation,
+and Twin Prime-Power Removal](docs/kkt-childlift-autocorrelation-primepower.md).
+It proves four exact bridge or no-go statements. For RH, constrained positivity
+is converted to a KKT inertia certificate and one fixed penalty is refuted as a
+cofinal substitute. For Collatz, every appended valuation selects a unique
+prefix lift, while an all-`q` family refutes fixed-width residue memory. For
+Goldbach, cyclic spectral autocorrelation gives a phase-sensitive pointwise
+bound that is subunit on all five finite diagnostics; the missing step remains
+a uniform arithmetic bound below the true anchor margin. For Twin Prime,
+prime-power contamination is explicitly `O(sqrt(x) log^3 x)`, proving that the
+previous positive linear parity-pairing target is already an endgame theorem,
+not an easier intermediate. Every conjecture remains `open_not_proven`.
 
 The preserved previous boundary is
+[TICKET-168: Fixed Neutral Cores, Least-Realizer Descent, Phase-Blind Minimax,
+and Twin Parity Main Terms](docs/fixedcore-leastrealizer-phase-paritymain.md).
+
+The earlier boundary is
 [TICKET-167: Cofinal Cores, Exact Collatz Realizer Counts, Goldbach Besov
 Tails, and the Finest Twin Parity Scale](docs/cofinal-residue-besov-parity.md).
 
@@ -116,15 +120,15 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench adds four GitHub Pages subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. These pages deliberately keep `open_not_proven` status visible: PrimeProject shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, proof-route triage, decisive theorem specs, decisive theorem subgoals, decisive theorem attack tickets, breakthrough agendas, bounded computation, Merkle-rooted bounded certificates, proof-attempt ledgers, proof attack maps, machine proof-status gates, proof execution protocols, proof frontier probes, known-barrier audits, formal replay packages, proof review dockets, proof reduction contracts, proof candidate intake rules, proof attempt execution logs, proof obligation DAGs, formal skeleton audits, Lean-oriented formal proof contracts, proof milestone queues, decisive lemma labs with certified automated falsification probes, proof-gap taxonomies with work orders, proof gates, and candidate strategies, but it does not claim a solution until an independently checkable infinite argument exists.
 
-The latest proof-search track is TICKET-168. It constructs a fixed constrained
-RH core and rejects cutoff-varying neutral spaces; reduces each Collatz word to
-its least natural realizer and extends the finite audit through length 20;
-proves the spectral-`l1` minimax limit of phase-blind Goldbach bounds; and
-corrects the Twin target by proving that the finest parity term is half of the
-desired correlation, not an error to cancel. These are exact intermediate or
-target-correction statements, not solutions. All four conjectures remain open
-and the machine resolution count is zero.
+The latest proof-search track is TICKET-169. It provides a KKT inertia bridge
+for the fixed RH constraint core; an exact Collatz child-lift recurrence and an
+all-width residue-memory no-go; a phase-sensitive Goldbach spectral
+autocorrelation bound; and an explicit Twin prime-power removal theorem that
+corrects the previous linear pairing target from “intermediate” to “endgame.”
+These are exact bridge or route-correction statements, not solutions. All four
+conjectures remain open and the machine resolution count is zero.
 See
+[TICKET169](docs/kkt-childlift-autocorrelation-primepower.md),
 [TICKET168](docs/fixedcore-leastrealizer-phase-paritymain.md),
 [TICKET167](docs/cofinal-residue-besov-parity.md),
 [TICKET166](docs/tail-adaptive-bandlimited-diagonal.md),
@@ -152,15 +156,15 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-168입니다. 리만 트랙은 고정
-moment 보정자가 중첩된 중립 core의 조밀성을 보존함을 증명하고,
-cutoff마다 제약을 바꾸는 경로를 반례로 폐기했습니다. 콜라츠 트랙은
-한 word의 자연 실현값 중 최소 실현값이 유일한 최악 경우임을 증명하고
-길이 20까지 7,553,085개 후보를 검사했습니다. 골드바흐 트랙은 phase를
-버린 상계의 최적 한계가 spectral `l1`임을 증명해 magnitude-only 경로를
-폐기했습니다. 쌍둥이 소수 트랙은 최미세 parity 항이 목표 상관의
-정확히 절반이므로 상쇄 대상이 아니라 양의 주항 대상임을 증명했습니다.
-네 문제는 모두 미해결이며 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-169입니다. 리만 트랙은 제약 form의
+양성을 KKT 관성으로 바꾸고 고정 penalty 대체 경로를 폐기했습니다.
+콜라츠 트랙은 valuation을 붙일 때의 유일한 child lift를 증명하고, 모든
+고정 residue 폭이 다음 valuation을 결정하지 못한다는 반례 패밀리를
+확정했습니다. 골드바흐 트랙은 위상을 보존하는 spectral autocorrelation
+상계를 도입해 다섯 유한 진단에서 모두 1 아래의 인증값을 얻었습니다.
+쌍둥이 소수 트랙은 소수 거듭제곱 오염이 `o(x)`임을 분리해 기존 양의
+선형 pairing 목표가 사실상 종결 정리임을 보였습니다. 네 문제는 모두
+미해결이며 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -180,13 +184,14 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-168입니다.
-[고정 중립 코어, 최소 실현값 하강, 위상 비인지 최소최대 정리, 쌍둥이
-소수 parity 주항 보고서](docs/fixedcore-leastrealizer-phase-paritymain.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-169입니다.
+[KKT 관성, 콜라츠 자식 lift, 스펙트럼 자기상관, 쌍둥이 소수 거듭제곱
+제거 보고서](docs/kkt-childlift-autocorrelation-primepower.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 한글과
-영문으로 정리합니다. 리만 고정 constraint-core, 콜라츠 최소 실현값
-단조성, 골드바흐 phase-blind spectral-`l1` 한계, 쌍둥이 소수의 최미세
-parity 절반 주항 항등식을 확정했습니다.
+영문으로 정리합니다. 리만 KKT 관성 bridge, 콜라츠 exact child-lift
+재귀와 고정 residue-memory no-go, 골드바흐 phase-sensitive
+autocorrelation 상계, 쌍둥이 소수의 prime-power 제거와 endgame 동치를
+확정했습니다.
 각 proof DAG는 폐기된 표적, 이번에 닫힌 정확 정리, 다음 단일 미증명
 보조정리를 세 상태로 분리합니다.
 

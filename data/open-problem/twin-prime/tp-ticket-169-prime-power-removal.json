@@ -1,0 +1,166 @@
+{
+  "schema": "primeproject.ticket169-kkt-childlift-autocorrelation-primepower.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-169",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence",
+  "declared_proposition": "For x>=4, the full forward von Mangoldt gap-two correlation equals the odd-supported correlation plus (log 2)^2. The odd correlation is the weighted twin-prime sum plus a nonnegative term in which at least one coordinate is a prime power p^k with k>=2. This contamination is O(sqrt(x) log^3 x)=o(x) by an explicit elementary bound. Consequently any eventually positive linear lower bound for the TICKET-168 finest odd pairing implies a positive linear weighted twin-prime correlation and hence infinitely many twin primes. The proposed pairing bound is an endgame theorem, not a separate easier intermediate step.",
+  "mathematical_argument": "Only n=2 contributes to the even-start correlation, giving Lambda(2)Lambda(4)=(log 2)^2. Partition odd prime powers by whether both exponents are one. The number of higher prime powers at most x is at most floor(log_2 x)*sqrt(x); either coordinate may contain one, and each weight is at most log^2(x+2). This gives the stated explicit o(x) bound. Subtracting it from a cx lower bound leaves a positive weighted twin-prime sum for all sufficiently large x.",
+  "reproducible_computation": {
+    "theorem": "For x>=4, the full forward von Mangoldt gap-two correlation equals the odd-supported correlation plus (log 2)^2. The odd correlation is the weighted twin-prime sum plus a nonnegative term in which at least one coordinate is a prime power p^k with k>=2. This contamination is O(sqrt(x) log^3 x)=o(x) by an explicit elementary bound. Consequently any eventually positive linear lower bound for the TICKET-168 finest odd pairing implies a positive linear weighted twin-prime correlation and hence infinitely many twin primes. The proposed pairing bound is an endgame theorem, not a separate easier intermediate step.",
+    "proof": "Only n=2 contributes to the even-start correlation, giving Lambda(2)Lambda(4)=(log 2)^2. Partition odd prime powers by whether both exponents are one. The number of higher prime powers at most x is at most floor(log_2 x)*sqrt(x); either coordinate may contain one, and each weight is at most log^2(x+2). This gives the stated explicit o(x) bound. Subtracting it from a cx lower bound leaves a positive weighted twin-prime sum for all sufficiently large x.",
+    "finite_prime_power_removal_rows": [
+      {
+        "cutoff_x": 128,
+        "full_von_mangoldt_gap_two_correlation": 163.99608428097648,
+        "odd_von_mangoldt_gap_two_correlation": 163.51563126705824,
+        "even_boundary_log2_squared": 0.4804530139182014,
+        "twin_prime_weighted_contribution": 123.2862077946355,
+        "higher_prime_power_contamination": 40.22942347242278,
+        "exact_twin_prime_pair_count": 10,
+        "exact_contaminated_pair_count": 9,
+        "higher_prime_power_support_count": 13,
+        "explicit_contamination_upper_bound": 3781.967389469699,
+        "checks": {
+          "full_minus_odd_is_the_single_even_boundary_term": true,
+          "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+          "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+          "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+          "row_is_finite_evidence_only": true
+        }
+      },
+      {
+        "cutoff_x": 512,
+        "full_von_mangoldt_gap_two_correlation": 633.303225782775,
+        "odd_von_mangoldt_gap_two_correlation": 632.8227727688568,
+        "even_boundary_log2_squared": 0.4804530139182014,
+        "twin_prime_weighted_contribution": 556.1172052761341,
+        "higher_prime_power_contamination": 76.70556749272274,
+        "exact_twin_prime_pair_count": 24,
+        "exact_contaminated_pair_count": 12,
+        "higher_prime_power_support_count": 20,
+        "explicit_contamination_upper_bound": 15901.30107622563,
+        "checks": {
+          "full_minus_odd_is_the_single_even_boundary_term": true,
+          "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+          "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+          "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+          "row_is_finite_evidence_only": true
+        }
+      },
+      {
+        "cutoff_x": 2048,
+        "full_von_mangoldt_gap_two_correlation": 2625.200792358337,
+        "odd_von_mangoldt_gap_two_correlation": 2624.720339344419,
+        "even_boundary_log2_squared": 0.4804530139182014,
+        "twin_prime_weighted_contribution": 2463.7453919355626,
+        "higher_prime_power_contamination": 160.97494740885674,
+        "exact_twin_prime_pair_count": 62,
+        "exact_contaminated_pair_count": 16,
+        "higher_prime_power_support_count": 31,
+        "explicit_contamination_upper_bound": 57922.47241171952,
+        "checks": {
+          "full_minus_odd_is_the_single_even_boundary_term": true,
+          "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+          "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+          "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+          "row_is_finite_evidence_only": true
+        }
+      },
+      {
+        "cutoff_x": 8192,
+        "full_von_mangoldt_gap_two_correlation": 10978.269117941498,
+        "odd_von_mangoldt_gap_two_correlation": 10977.788664927579,
+        "even_boundary_log2_squared": 0.4804530139182014,
+        "twin_prime_weighted_contribution": 10625.93093261384,
+        "higher_prime_power_contamination": 351.8577323137393,
+        "exact_twin_prime_pair_count": 177,
+        "exact_contaminated_pair_count": 23,
+        "higher_prime_power_support_count": 50,
+        "explicit_contamination_upper_bound": 191109.5917452413,
+        "checks": {
+          "full_minus_odd_is_the_single_even_boundary_term": true,
+          "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+          "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+          "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+          "row_is_finite_evidence_only": true
+        }
+      },
+      {
+        "cutoff_x": 32768,
+        "full_von_mangoldt_gap_two_correlation": 43181.37518738885,
+        "odd_von_mangoldt_gap_two_correlation": 43180.894734374924,
+        "even_boundary_log2_squared": 0.4804530139182014,
+        "twin_prime_weighted_contribution": 42416.560059534684,
+        "higher_prime_power_contamination": 764.3346748402439,
+        "exact_twin_prime_pair_count": 505,
+        "exact_contaminated_pair_count": 34,
+        "higher_prime_power_support_count": 78,
+        "explicit_contamination_upper_bound": 587080.9851880522,
+        "checks": {
+          "full_minus_odd_is_the_single_even_boundary_term": true,
+          "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+          "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+          "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+          "row_is_finite_evidence_only": true
+        }
+      },
+      {
+        "cutoff_x": 65536,
+        "full_von_mangoldt_gap_two_correlation": 84698.22451841459,
+        "odd_von_mangoldt_gap_two_correlation": 84697.74406540066,
+        "even_boundary_log2_squared": 0.4804530139182014,
+        "twin_prime_weighted_contribution": 83591.8814772897,
+        "higher_prime_power_contamination": 1105.8625881109592,
+        "exact_twin_prime_pair_count": 860,
+        "exact_contaminated_pair_count": 41,
+        "higher_prime_power_support_count": 93,
+        "explicit_contamination_upper_bound": 1007603.9186088067,
+        "checks": {
+          "full_minus_odd_is_the_single_even_boundary_term": true,
+          "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+          "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+          "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+          "row_is_finite_evidence_only": true
+        }
+      }
+    ],
+    "endgame_target_no_go": "Treating PositiveLinearOddVonMangoldtFinestParityPairing as though it bypassed the sieve parity barrier is rejected: after the exact half-pairing identity and o(x) prime-power removal, it already contains the desired quantitative twin-prime conclusion.",
+    "model_boundary": "The finite rows verify decomposition identities only. They provide no positive asymptotic lower bound and no new Type II estimate.",
+    "failure_count": 0
+  },
+  "discarded_route": "presenting positive linear finest-parity pairing as an easier intermediate that avoids the parity barrier",
+  "remaining_gap": "No positive linear odd von Mangoldt correlation or new prime-producing Type II estimate is proved.",
+  "candidate_theorem": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants",
+  "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact prime-power removal and target-difficulty correction only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T169-REJECTED",
+        "label": "PositiveLinearFinestParityPairingIsAnEasyIntermediate",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T169-CLOSED",
+        "label": "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T169-OPEN",
+        "label": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T169-REJECTED",
+        "TP-T169-CLOSED"
+      ],
+      [
+        "TP-T169-CLOSED",
+        "TP-T169-OPEN"
+      ]
+    ]
+  }
+}

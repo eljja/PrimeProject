@@ -62,7 +62,49 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-168
+## Latest Continuation After TICKET-169
+
+All four conjectures remain open. TICKET-169 improves the proof contracts and
+corrects one over-strong target before any further finite scale extension:
+
+1. Riemann:
+   `CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore`.
+   TICKET-169 proves the exact constrained-form/KKT inertia equivalence and
+   refutes one fixed penalty as a cofinal replacement. It does not construct
+   the actual interval-certified Guinand-Weil KKT family.
+2. Collatz:
+   `UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts`.
+   TICKET-169 proves the exact unique child-lift recurrence and proves for
+   every fixed residue width that the next valuation is not determined. The
+   missing invariant must therefore support unbounded precision.
+3. Goldbach:
+   `UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin`.
+   TICKET-169 proves a phase-sensitive pointwise bridge. Its five finite
+   bounds are subunit, but no uniform arithmetic estimate in the target size
+   is proved.
+4. Twin Prime:
+   `UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants`.
+   TICKET-169 removes higher prime powers with an explicit `o(x)` bound and
+   proves that a positive linear finest pairing is already an endgame theorem.
+   The route therefore returns to a genuinely independent Type-II estimate.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket169-kkt-childlift-autocorrelation-primepower.json
+data/open-problem/riemann/rh-ticket-169-kkt-inertia.json
+data/open-problem/collatz/co-ticket-169-child-lift.json
+data/open-problem/goldbach/gb-ticket-169-autocorrelation.json
+data/open-problem/twin-prime/tp-ticket-169-prime-power-removal.json
+```
+
+한국어 인계: TICKET-169도 네 난제를 해결하지 않았다. 리만은 실제 고정
+pole-neutral core의 cofinal interval-KKT 관성, 콜라츠는 unbounded-precision
+child lift에서 보존되는 양의 최소 실현값 slack, 골드바흐는 anchor margin
+아래의 균일 spectral-autocorrelation 예산, 쌍둥이 소수는 소수를 생산할
+상수를 가진 독립 Type-II decay를 증명하거나 반례를 찾아야 한다.
+
+## Preserved Continuation After TICKET-168
 
 All four conjectures remain open. Continue from these corrected nodes and do
 not restore the discarded TICKET-167 Twin cancellation target:

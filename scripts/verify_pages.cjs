@@ -14,19 +14,20 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket169Load = openProblemSource.indexOf("const ticket169Loaded = await loadTicket169Attempt();");
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(priorityLoad >= 0 && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET168 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket169Load >= 0 && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET169 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260802-ticket168")) {
-      errors.push(`${page}: missing TICKET168 priority cache key`);
+    if (!source.includes("open-problems.js?v=20260802-ticket169")) {
+      errors.push(`${page}: missing TICKET169 priority cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-ticket168")) {
-      errors.push(`${page}: missing TICKET168 style cache key`);
+    if (!source.includes("styles.css?v=20260802-ticket169")) {
+      errors.push(`${page}: missing TICKET169 style cache key`);
     }
   }
 
@@ -346,6 +347,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket169AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket169-kkt-childlift-autocorrelation-primepower .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket168AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket168-fixedcore-leastrealizer-phase-paritymain .ticket161-audit-table .proof-table-wrap",
@@ -1284,9 +1291,36 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
+    requireText("ticket169 title", "Ticket 169 KKT inertia, exact Collatz child lifts, spectral autocorrelation, and Twin prime-power removal");
+    requireText("ticket169 table", "TICKET169 audit");
+    requireText("ticket169 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket169 resolutions", "Resolution count0");
+    requireText("ticket169 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket169AuditOverflow) checks.push(`${page.problemId}: ticket169 audit table overflow`);
+    if (page.problemId === "riemann") {
+      requireText("ticket169 RH theorem", "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo");
+      requireText("ticket169 RH rows", "Exact KKT rows5");
+      requireText("ticket169 RH no-go", "Fixed-penalty no-goproved");
+      requireText("ticket169 RH target", "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore");
+    } else if (page.problemId === "collatz") {
+      requireText("ticket169 Collatz theorem", "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo");
+      requireText("ticket169 Collatz child rows", "Exact child rows8");
+      requireText("ticket169 Collatz widths", "Residue widths refuted15");
+      requireText("ticket169 Collatz target", "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts");
+    } else if (page.problemId === "goldbach") {
+      requireText("ticket169 Goldbach theorem", "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo");
+      requireText("ticket169 Goldbach gates", "Finite gates passed5");
+      requireText("ticket169 Goldbach exact no-go", "Exact energy no-go rows4");
+      requireText("ticket169 Goldbach target", "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin");
+    } else {
+      requireText("ticket169 Twin theorem", "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence");
+      requireText("ticket169 Twin count", "Last finite twin count860");
+      requireText("ticket169 Twin contamination", "Last contaminated count41");
+      requireText("ticket169 Twin target", "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants");
+    }
     requireText("ticket168 title", "Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms");
     requireText("ticket168 table", "TICKET168 audit");
-    requireText("ticket168 latest", "LATEST / 최신 연구 경계");
+    requireText("ticket168 previous", "PREVIOUS / 이전 연구 경계");
     requireText("ticket168 resolutions", "Resolution count0");
     requireText("ticket168 proof DAG", "Proof DAG / 증명 의존성");
     if (page.ticket168AuditOverflow) checks.push(`${page.problemId}: ticket168 audit table overflow`);
@@ -3228,6 +3262,10 @@ async function main() {
     !metrics.evolutionPanel.includes("TICKET-166") ||
     !metrics.evolutionPanel.includes("TICKET-167") ||
     !metrics.evolutionPanel.includes("TICKET-168") ||
+    !metrics.evolutionPanel.includes("TICKET-169") ||
+    !metrics.evolutionPanel.includes("constrained RH positivity to KKT inertia") ||
+    !metrics.evolutionPanel.includes("phase-sensitive Goldbach pointwise certificate") ||
+    !metrics.evolutionPanel.includes("positive linear Twin finest-pairing bound is already an endgame theorem") ||
     !metrics.evolutionPanel.includes("TICKET-168 proves that a fixed bounded corrector") ||
     !metrics.evolutionPanel.includes("spectral l1 is the optimal phase-blind Goldbach bound") ||
     !metrics.evolutionPanel.includes("contains exactly half") ||

@@ -1,0 +1,257 @@
+{
+  "schema": "primeproject.ticket169-kkt-childlift-autocorrelation-primepower.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-169",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo",
+  "declared_proposition": "Let B be a real symmetric form, let L have full row rank r, let Z span ker L, and suppose A=Z^T B Z is nonsingular. Then the KKT matrix K=[[B,L^T],[L,0]] has inertia(K)=inertia(A)+(r,r,0). Thus positivity of B on ker L is equivalent to K having exactly r negative eigenvalues and no zero eigenvalues. Ambient positivity is not necessary. Nor can one fixed penalty tau replace this criterion over a cofinal family with unbounded negative normal curvature.",
+  "mathematical_argument": "Choose a right inverse U of L and coordinates [Z,U], so L becomes [0,I]. Congruence first removes the mixed Z-U block using the nonsingular restricted block A. The remaining 2r by 2r block has the form [[D,I],[I,0]]. Its Schur complement with respect to either normal coordinate, or a direct congruence, gives r positive and r negative directions independently of D. Sylvester inertia is congruence invariant. For the penalty no-go take B_N equal to the identity on ker L and -M_N on the normal directions with M_N tending to infinity; B_N+tau L^T L remains negative normally once M_N>tau.",
+  "reproducible_computation": {
+    "theorem": "Let B be a real symmetric form, let L have full row rank r, let Z span ker L, and suppose A=Z^T B Z is nonsingular. Then the KKT matrix K=[[B,L^T],[L,0]] has inertia(K)=inertia(A)+(r,r,0). Thus positivity of B on ker L is equivalent to K having exactly r negative eigenvalues and no zero eigenvalues. Ambient positivity is not necessary. Nor can one fixed penalty tau replace this criterion over a cofinal family with unbounded negative normal curvature.",
+    "proof": "Choose a right inverse U of L and coordinates [Z,U], so L becomes [0,I]. Congruence first removes the mixed Z-U block using the nonsingular restricted block A. The remaining 2r by 2r block has the form [[D,I],[I,0]]. Its Schur complement with respect to either normal coordinate, or a direct congruence, gives r positive and r negative directions independently of D. Sylvester inertia is congruence invariant. For the penalty no-go take B_N equal to the identity on ker L and -M_N on the normal directions with M_N tending to infinity; B_N+tau L^T L remains negative normally once M_N>tau.",
+    "exact_diagonal_proxy_rows": [
+      {
+        "ambient_dimension_N": 4,
+        "constraint_rank_r": 2,
+        "restricted_form_inertia": {
+          "positive": 2,
+          "negative": 0,
+          "zero": 0
+        },
+        "ambient_form_inertia": {
+          "positive": 2,
+          "negative": 2,
+          "zero": 0
+        },
+        "kkt_matrix_inertia": {
+          "positive": 4,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_tau": 64,
+        "normal_curvatures": [
+          16,
+          25
+        ],
+        "penalized_normal_diagonal": [
+          48,
+          39
+        ],
+        "penalized_form_inertia": {
+          "positive": 4,
+          "negative": 0,
+          "zero": 0
+        },
+        "fixed_penalty_is_positive_definite": true,
+        "checks": {
+          "kernel_restriction_is_positive_identity": true,
+          "ambient_form_has_two_negative_normal_directions": true,
+          "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+          "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+          "fixed_penalty_inertia_is_counted_exactly": true
+        }
+      },
+      {
+        "ambient_dimension_N": 8,
+        "constraint_rank_r": 2,
+        "restricted_form_inertia": {
+          "positive": 6,
+          "negative": 0,
+          "zero": 0
+        },
+        "ambient_form_inertia": {
+          "positive": 6,
+          "negative": 2,
+          "zero": 0
+        },
+        "kkt_matrix_inertia": {
+          "positive": 8,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_tau": 64,
+        "normal_curvatures": [
+          64,
+          81
+        ],
+        "penalized_normal_diagonal": [
+          0,
+          -17
+        ],
+        "penalized_form_inertia": {
+          "positive": 6,
+          "negative": 1,
+          "zero": 1
+        },
+        "fixed_penalty_is_positive_definite": false,
+        "checks": {
+          "kernel_restriction_is_positive_identity": true,
+          "ambient_form_has_two_negative_normal_directions": true,
+          "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+          "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+          "fixed_penalty_inertia_is_counted_exactly": true
+        }
+      },
+      {
+        "ambient_dimension_N": 16,
+        "constraint_rank_r": 2,
+        "restricted_form_inertia": {
+          "positive": 14,
+          "negative": 0,
+          "zero": 0
+        },
+        "ambient_form_inertia": {
+          "positive": 14,
+          "negative": 2,
+          "zero": 0
+        },
+        "kkt_matrix_inertia": {
+          "positive": 16,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_tau": 64,
+        "normal_curvatures": [
+          256,
+          289
+        ],
+        "penalized_normal_diagonal": [
+          -192,
+          -225
+        ],
+        "penalized_form_inertia": {
+          "positive": 14,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_is_positive_definite": false,
+        "checks": {
+          "kernel_restriction_is_positive_identity": true,
+          "ambient_form_has_two_negative_normal_directions": true,
+          "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+          "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+          "fixed_penalty_inertia_is_counted_exactly": true
+        }
+      },
+      {
+        "ambient_dimension_N": 32,
+        "constraint_rank_r": 2,
+        "restricted_form_inertia": {
+          "positive": 30,
+          "negative": 0,
+          "zero": 0
+        },
+        "ambient_form_inertia": {
+          "positive": 30,
+          "negative": 2,
+          "zero": 0
+        },
+        "kkt_matrix_inertia": {
+          "positive": 32,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_tau": 64,
+        "normal_curvatures": [
+          1024,
+          1089
+        ],
+        "penalized_normal_diagonal": [
+          -960,
+          -1025
+        ],
+        "penalized_form_inertia": {
+          "positive": 30,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_is_positive_definite": false,
+        "checks": {
+          "kernel_restriction_is_positive_identity": true,
+          "ambient_form_has_two_negative_normal_directions": true,
+          "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+          "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+          "fixed_penalty_inertia_is_counted_exactly": true
+        }
+      },
+      {
+        "ambient_dimension_N": 64,
+        "constraint_rank_r": 2,
+        "restricted_form_inertia": {
+          "positive": 62,
+          "negative": 0,
+          "zero": 0
+        },
+        "ambient_form_inertia": {
+          "positive": 62,
+          "negative": 2,
+          "zero": 0
+        },
+        "kkt_matrix_inertia": {
+          "positive": 64,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_tau": 64,
+        "normal_curvatures": [
+          4096,
+          4225
+        ],
+        "penalized_normal_diagonal": [
+          -4032,
+          -4161
+        ],
+        "penalized_form_inertia": {
+          "positive": 62,
+          "negative": 2,
+          "zero": 0
+        },
+        "fixed_penalty_is_positive_definite": false,
+        "checks": {
+          "kernel_restriction_is_positive_identity": true,
+          "ambient_form_has_two_negative_normal_directions": true,
+          "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+          "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+          "fixed_penalty_inertia_is_counted_exactly": true
+        }
+      }
+    ],
+    "fixed_penalty_no_go_holds_on_all_overcurved_rows": true,
+    "external_premise_boundary": "The theorem is an exact finite-dimensional bridge. PrimeProject has not supplied interval-certified KKT inertia for a cofinal fixed pole-neutral Guinand-Weil core, nor proved that this core is dense in the global Weil form domain.",
+    "failure_count": 0
+  },
+  "discarded_route": "ambient positivity or one cutoff-independent penalty parameter as a substitute for constrained inertia",
+  "remaining_gap": "No cofinal interval-certified KKT family on the actual fixed pole-neutral Guinand-Weil core is constructed.",
+  "candidate_theorem": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore",
+  "claim_boundary": "No RH proof and no zero exclusion; exact KKT inertia bridge and fixed-penalty no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T169-REJECTED",
+        "label": "AmbientPositivityOrFixedPenaltyCanReplaceKernelRestriction",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T169-CLOSED",
+        "label": "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T169-OPEN",
+        "label": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T169-REJECTED",
+        "RH-T169-CLOSED"
+      ],
+      [
+        "RH-T169-CLOSED",
+        "RH-T169-OPEN"
+      ]
+    ]
+  }
+}

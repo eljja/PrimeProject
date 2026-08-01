@@ -1,0 +1,507 @@
+{
+  "schema": "primeproject.ticket169-kkt-childlift-autocorrelation-primepower.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "CO-TICKET-169",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo",
+  "declared_proposition": "For an accelerated Collatz prefix w with affine data (m,S,C), least start n0, and endpoint u0, append a valuation a>=1. Among the 2^a old-prefix lifts n0+k*2^(S+1), 0<=k<2^a, exactly one has v2(3u_k+1)=a. The child has exact data (m+1,S+a,3C+2^S), so this unique lift is its least nonterminal realizer. However, no fixed q-bit residue state can determine the next valuation: two positive odd endpoints congruent modulo 2^q can have next valuations q and greater than q.",
+  "mathematical_argument": "Prefix lifts satisfy u_k=u0+2*3^m*k. After dividing 3u_k+1 by two, its dependence on k has an odd coefficient. Modulo 2^a, exact valuation a is therefore one affine congruence with one solution. Applying one more accelerated step gives C'=3C+2^S. For the no-go solve 3u+1=0 mod 2^q. The two lifts modulo 2^(q+1) split: one has quotient odd and exact valuation q, while the other is still divisible by 2^(q+1).",
+  "reproducible_computation": {
+    "theorem": "For an accelerated Collatz prefix w with affine data (m,S,C), least start n0, and endpoint u0, append a valuation a>=1. Among the 2^a old-prefix lifts n0+k*2^(S+1), 0<=k<2^a, exactly one has v2(3u_k+1)=a. The child has exact data (m+1,S+a,3C+2^S), so this unique lift is its least nonterminal realizer. However, no fixed q-bit residue state can determine the next valuation: two positive odd endpoints congruent modulo 2^q can have next valuations q and greater than q.",
+    "proof": "Prefix lifts satisfy u_k=u0+2*3^m*k. After dividing 3u_k+1 by two, its dependence on k has an odd coefficient. Modulo 2^a, exact valuation a is therefore one affine congruence with one solution. Applying one more accelerated step gives C'=3C+2^S. For the no-go solve 3u+1=0 mod 2^q. The two lifts modulo 2^(q+1) split: one has quotient odd and exact valuation q, while the other is still divisible by 2^(q+1).",
+    "exact_child_lift_rows": [
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 1,
+        "old_lift_search_count": 2,
+        "unique_selected_lift_k": 0,
+        "child_word": [
+          2,
+          1
+        ],
+        "child_valuation_sum": 3,
+        "child_correction": 7,
+        "least_child_start": 9,
+        "child_odd_endpoint": 11,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 2,
+        "old_lift_search_count": 4,
+        "unique_selected_lift_k": 3,
+        "child_word": [
+          2,
+          2
+        ],
+        "child_valuation_sum": 4,
+        "child_correction": 7,
+        "least_child_start": 33,
+        "child_odd_endpoint": 19,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 3,
+        "old_lift_search_count": 8,
+        "unique_selected_lift_k": 1,
+        "child_word": [
+          2,
+          3
+        ],
+        "child_valuation_sum": 5,
+        "child_correction": 7,
+        "least_child_start": 17,
+        "child_odd_endpoint": 5,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 4,
+        "old_lift_search_count": 16,
+        "unique_selected_lift_k": 5,
+        "child_word": [
+          2,
+          4
+        ],
+        "child_valuation_sum": 6,
+        "child_correction": 7,
+        "least_child_start": 49,
+        "child_odd_endpoint": 7,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 5,
+        "old_lift_search_count": 32,
+        "unique_selected_lift_k": 29,
+        "child_word": [
+          2,
+          5
+        ],
+        "child_valuation_sum": 7,
+        "child_correction": 7,
+        "least_child_start": 241,
+        "child_odd_endpoint": 17,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 6,
+        "old_lift_search_count": 64,
+        "unique_selected_lift_k": 45,
+        "child_word": [
+          2,
+          6
+        ],
+        "child_valuation_sum": 8,
+        "child_correction": 7,
+        "least_child_start": 369,
+        "child_odd_endpoint": 13,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 7,
+        "old_lift_search_count": 128,
+        "unique_selected_lift_k": 77,
+        "child_word": [
+          2,
+          7
+        ],
+        "child_valuation_sum": 9,
+        "child_correction": 7,
+        "least_child_start": 625,
+        "child_odd_endpoint": 11,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      },
+      {
+        "prefix_word": [
+          2
+        ],
+        "appended_valuation_a": 8,
+        "old_lift_search_count": 256,
+        "unique_selected_lift_k": 13,
+        "child_word": [
+          2,
+          8
+        ],
+        "child_valuation_sum": 10,
+        "child_correction": 7,
+        "least_child_start": 113,
+        "child_odd_endpoint": 1,
+        "checks": {
+          "exactly_one_old_lift_realizes_the_appended_valuation": true,
+          "child_correction_recurrence_holds": true,
+          "selected_start_is_the_child_least_nonterminal_realizer": true,
+          "affine_child_endpoint_matches_direct_accelerated_step": true,
+          "child_endpoint_is_odd": true
+        }
+      }
+    ],
+    "fixed_residue_memory_no_go_rows": [
+      {
+        "retained_residue_bits_q": 2,
+        "shared_residue_mod_2q": 1,
+        "odd_endpoint_pair": [
+          9,
+          13
+        ],
+        "next_valuations": [
+          2,
+          3
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 3,
+        "shared_residue_mod_2q": 5,
+        "odd_endpoint_pair": [
+          5,
+          13
+        ],
+        "next_valuations": [
+          4,
+          3
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 4,
+        "shared_residue_mod_2q": 5,
+        "odd_endpoint_pair": [
+          5,
+          21
+        ],
+        "next_valuations": [
+          4,
+          6
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 5,
+        "shared_residue_mod_2q": 21,
+        "odd_endpoint_pair": [
+          21,
+          53
+        ],
+        "next_valuations": [
+          6,
+          5
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 6,
+        "shared_residue_mod_2q": 21,
+        "odd_endpoint_pair": [
+          21,
+          85
+        ],
+        "next_valuations": [
+          6,
+          8
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 7,
+        "shared_residue_mod_2q": 85,
+        "odd_endpoint_pair": [
+          85,
+          213
+        ],
+        "next_valuations": [
+          8,
+          7
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 8,
+        "shared_residue_mod_2q": 85,
+        "odd_endpoint_pair": [
+          85,
+          341
+        ],
+        "next_valuations": [
+          8,
+          10
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 9,
+        "shared_residue_mod_2q": 341,
+        "odd_endpoint_pair": [
+          341,
+          853
+        ],
+        "next_valuations": [
+          10,
+          9
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 10,
+        "shared_residue_mod_2q": 341,
+        "odd_endpoint_pair": [
+          341,
+          1365
+        ],
+        "next_valuations": [
+          10,
+          12
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 11,
+        "shared_residue_mod_2q": 1365,
+        "odd_endpoint_pair": [
+          1365,
+          3413
+        ],
+        "next_valuations": [
+          12,
+          11
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 12,
+        "shared_residue_mod_2q": 1365,
+        "odd_endpoint_pair": [
+          1365,
+          5461
+        ],
+        "next_valuations": [
+          12,
+          14
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 13,
+        "shared_residue_mod_2q": 5461,
+        "odd_endpoint_pair": [
+          5461,
+          13653
+        ],
+        "next_valuations": [
+          14,
+          13
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 14,
+        "shared_residue_mod_2q": 5461,
+        "odd_endpoint_pair": [
+          5461,
+          21845
+        ],
+        "next_valuations": [
+          14,
+          16
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 15,
+        "shared_residue_mod_2q": 21845,
+        "odd_endpoint_pair": [
+          21845,
+          54613
+        ],
+        "next_valuations": [
+          16,
+          15
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      },
+      {
+        "retained_residue_bits_q": 16,
+        "shared_residue_mod_2q": 21845,
+        "odd_endpoint_pair": [
+          21845,
+          87381
+        ],
+        "next_valuations": [
+          16,
+          18
+        ],
+        "checks": {
+          "odd_endpoints_share_all_retained_residue_bits": true,
+          "one_next_valuation_is_exactly_q": true,
+          "the_other_next_valuation_exceeds_q": true,
+          "both_are_actual_positive_odd_collatz_states": true
+        }
+      }
+    ],
+    "finite_boundary": "The recurrence is exact for every finite prefix, but it does not bound the unbounded precision required along all first-crossing branches and does not prove descent for every branch.",
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed-width residue automaton claimed to determine all future accelerated valuations",
+  "remaining_gap": "The exact recursion does not prove a uniform positive descent slack over the infinite first-crossing tree.",
+  "candidate_theorem": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts",
+  "claim_boundary": "No Collatz proof and no divergent orbit; exact child recursion and an all-q fixed-memory no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T169-REJECTED",
+        "label": "FixedResidueWidthDeterminesEveryNextValuation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T169-CLOSED",
+        "label": "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T169-OPEN",
+        "label": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T169-REJECTED",
+        "CO-T169-CLOSED"
+      ],
+      [
+        "CO-T169-CLOSED",
+        "CO-T169-OPEN"
+      ]
+    ]
+  }
+}

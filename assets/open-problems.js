@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket169AttemptGlobal = null;
 let ticket168AttemptGlobal = null;
 let ticket167AttemptGlobal = null;
 let ticket166AttemptGlobal = null;
@@ -9964,6 +9965,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket169KKTChildLiftAutocorrelationPrimePower(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.kkt_childlift_autocorrelation_primepower_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.exact_diagonal_proxy_rows || [];
+    detail = `
+      <div class="poc-equation">inertia([[B,Lᵀ],[L,0]]) = inertia(ZᵀBZ) + (r,r,0)</div>
+      ${table(["ambient N", "restricted inertia", "KKT inertia", "penalty τ", "penalty positive"], rows.map((row) => [row.ambient_dimension_N, `${row.restricted_form_inertia?.positive},${row.restricted_form_inertia?.negative},${row.restricted_form_inertia?.zero}`, `${row.kkt_matrix_inertia?.positive},${row.kkt_matrix_inertia?.negative},${row.kkt_matrix_inertia?.zero}`, row.fixed_penalty_tau, row.fixed_penalty_is_positive_definite]))}
+      <div class="poc-head"><div><span>Exact KKT rows</span><strong>${rows.length}</strong></div><div><span>Constraint rank</span><strong>${rows[0]?.constraint_rank_r ?? "missing"}</strong></div><div><span>Fixed-penalty no-go</span><strong>${computation.fixed_penalty_no_go_holds_on_all_overcurved_rows ? "proved" : "failed"}</strong></div></div>
+      <p class="proof-note">제약공간의 양성은 ambient 양성이 아니라 KKT 음의 방향이 정확히 constraint rank와 같은지로 검사합니다. 고정 penalty는 커지는 법선 음의 곡률을 덮지 못합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.exact_child_lift_rows || [];
+    const noGo = computation.fixed_residue_memory_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">C′=3C+2<sup>S</sup>; among 0≤k&lt;2<sup>a</sup>, exactly one lift has v₂(3u<sub>k</sub>+1)=a</div>
+      ${table(["append a", "selected lift k", "least child start", "child endpoint", "exact checks"], rows.map((row) => [row.appended_valuation_a, row.unique_selected_lift_k, row.least_child_start, row.child_odd_endpoint, Object.values(row.checks || {}).every(Boolean)]))}
+      <div class="poc-head"><div><span>Exact child rows</span><strong>${rows.length}</strong></div><div><span>Residue widths refuted</span><strong>${noGo.length}</strong></div><div><span>Largest audited q</span><strong>${noGo[noGo.length - 1]?.retained_residue_bits_q ?? "missing"}</strong></div></div>
+      <p class="proof-note">모든 고정 q에 대해 같은 q비트 residue를 가지면서 다음 valuation이 q와 q 초과로 갈리는 실제 양의 홀수 상태가 존재합니다. 무한 branch에는 unbounded precision이 필요합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_goldbach_tail_rows || [];
+    const exact = computation.exact_diagonal_energy_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">C<sub>h</sub>=Σ<sub>k</sub>F<sub>k+h</sub>F̄<sub>k</sub> ⇒ ||f||∞≤√(Σ<sub>h</sub>|C<sub>h</sub>|)/L</div>
+      ${table(["bandwidth K", "observed tail", "autocorrelation bound", "phase-blind l1", "gate < 1"], rows.map((row) => [Number(row.low_pass_bandwidth_K).toLocaleString(), Number(row.observed_uniform_tail).toFixed(4), Number(row.phase_sensitive_autocorrelation_l1_sqrt_bound).toFixed(4), Number(row.phase_blind_spectral_l1_bound).toFixed(4), row.passes_subunit_autocorrelation_gate]))}
+      <div class="poc-head"><div><span>Finite gates passed</span><strong>${rows.filter((row) => row.passes_subunit_autocorrelation_gate).length}</strong></div><div><span>Exact energy no-go rows</span><strong>${exact.length}</strong></div><div><span>Resolution count</span><strong>0</strong></div></div>
+      <p class="proof-note">위상 자기상관 상계는 다섯 유한 진단에서 모두 1 아래입니다. 하지만 target 크기에 균일한 산술 상계와 실제 anchor margin 비교가 아직 없습니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_prime_power_removal_rows || [];
+    const last = rows[rows.length - 1] || {};
+    detail = `
+      <div class="poc-equation">odd Λ gap-2 correlation = weighted twin primes + O(√x log³x)</div>
+      ${table(["cutoff x", "twin pairs", "contaminated pairs", "twin weight", "prime-power weight"], rows.map((row) => [Number(row.cutoff_x).toLocaleString(), row.exact_twin_prime_pair_count, row.exact_contaminated_pair_count, Number(row.twin_prime_weighted_contribution).toFixed(2), Number(row.higher_prime_power_contamination).toFixed(2)]))}
+      <div class="poc-head"><div><span>Last finite twin count</span><strong>${last.exact_twin_prime_pair_count ?? "missing"}</strong></div><div><span>Last contaminated count</span><strong>${last.exact_contaminated_pair_count ?? "missing"}</strong></div><div><span>Endgame correction</span><strong>proved</strong></div></div>
+      <p class="proof-note">양의 선형 최미세 pairing은 소수 거듭제곱 o(x)를 빼면 쌍둥이 소수의 양의 선형 weighted 상관을 바로 줍니다. 쉬운 중간 목표가 아니라 parity 장벽을 포함한 종결 목표입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket169-kkt-childlift-autocorrelation-primepower" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 169 KKT inertia, exact Collatz child lifts, spectral autocorrelation, and Twin prime-power removal</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact bridge or no-go results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET169 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || "")}</p>
+      <p><a href="../docs/kkt-childlift-autocorrelation-primepower.md">Bilingual paper-style report / 한영 논문형 보고서</a></p>
+    </div>
+  `;
+}
+
 function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.fixedcore_leastrealizer_phase_paritymain_audit || {};
@@ -10015,9 +10084,10 @@ function renderTicket168FixedCoreLeastRealizerPhaseParityMain(attempt) {
       <p class="proof-note">최미세 parity pairing은 오차가 아니라 목표 gap-2 상관의 정확히 절반입니다. 이를 o(N)으로 상쇄하려던 TICKET-167 다음 목표를 폐기하고 양의 von Mangoldt 주항 목표로 교정합니다.</p>
     `;
   }
-  return `
+  const latestTicket169 = renderTicket169KKTChildLiftAutocorrelationPrimePower(ticket169AttemptGlobal);
+  return `${latestTicket169}
     <div id="ticket168-fixedcore-leastrealizer-phase-paritymain" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 168 fixed neutral cores, least-realizer descent, phase-blind minimax, and Twin parity main terms</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact intermediate or target-correction results; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET168 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -13416,6 +13486,26 @@ async function loadTicket143Attempt() {
   }
 }
 
+async function loadTicket169Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket169-kkt-childlift-autocorrelation-primepower.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket169AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket169AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket169AttemptGlobal) {
+      ticket169AttemptGlobal.bounded_result = ticket169AttemptGlobal.bounded_result || {};
+      ticket169AttemptGlobal.bounded_result.kkt_childlift_autocorrelation_primepower_audit = payload.kkt_childlift_autocorrelation_primepower_audit || {};
+    }
+    return Boolean(ticket169AttemptGlobal);
+  } catch (error) {
+    ticket169AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket168Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket168-fixedcore-leastrealizer-phase-paritymain.json", { cache: "no-store" });
@@ -14145,9 +14235,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket169AttemptGlobal) await loadTicket169Attempt();
     if (!ticket168AttemptGlobal) await loadTicket168Attempt();
     if (!ticket167AttemptGlobal) await loadTicket167Attempt();
     if (!ticket166AttemptGlobal) await loadTicket166Attempt();
@@ -14194,7 +14286,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket168-priority";
+  document.documentElement.dataset.openProblemCache = "ticket169-priority";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

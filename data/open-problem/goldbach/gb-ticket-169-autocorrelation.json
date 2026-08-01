@@ -1,0 +1,248 @@
+{
+  "schema": "primeproject.ticket169-kkt-childlift-autocorrelation-primepower.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "ticket_id": "GB-TICKET-169",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo",
+  "declared_proposition": "For f(x)=L^(-1) sum_k F_k exp(2*pi*i*k*x/L), define cyclic spectral autocorrelation C_h=sum_k F_(k+h) conjugate(F_k). Then |f(x)|^2=L^(-2) sum_h C_h exp(2*pi*i*h*x/L), and therefore ||f||_infinity <= sqrt(sum_h |C_h|)/L. This certificate retains relative phase. The diagonal energy C_0 alone cannot control the uniform norm: a single coefficient sqrt(L) and L aligned unit coefficients both have C_0=L, but their uniform norms are L^(-1/2) and 1.",
+  "mathematical_argument": "Expand f times its complex conjugate and group terms by frequency difference h. The triangle inequality applied to the resulting Fourier series for |f|^2 gives the bound. The two exact model signals follow from Fourier inversion: one frequency produces a constant-modulus wave, while equal aligned coefficients produce a unit point mass.",
+  "reproducible_computation": {
+    "theorem": "For f(x)=L^(-1) sum_k F_k exp(2*pi*i*k*x/L), define cyclic spectral autocorrelation C_h=sum_k F_(k+h) conjugate(F_k). Then |f(x)|^2=L^(-2) sum_h C_h exp(2*pi*i*h*x/L), and therefore ||f||_infinity <= sqrt(sum_h |C_h|)/L. This certificate retains relative phase. The diagonal energy C_0 alone cannot control the uniform norm: a single coefficient sqrt(L) and L aligned unit coefficients both have C_0=L, but their uniform norms are L^(-1/2) and 1.",
+    "proof": "Expand f times its complex conjugate and group terms by frequency difference h. The triangle inequality applied to the resulting Fourier series for |f|^2 gives the bound. The two exact model signals follow from Fourier inversion: one frequency produces a constant-modulus wave, while equal aligned coefficients produce a unit point mass.",
+    "finite_goldbach_tail_rows": [
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 16,
+        "observed_uniform_tail": 0.16681511777970132,
+        "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.43061032287145007,
+        "phase_blind_spectral_l1_bound": 2.685221558510439,
+        "autocorrelation_to_observed_ratio": 2.5813627002327264,
+        "passes_subunit_autocorrelation_gate": true,
+        "checks": {
+          "autocorrelation_bound_dominates_actual_tail": true,
+          "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+          "autocorrelation_improves_phase_blind_spectral_l1": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 64,
+        "observed_uniform_tail": 0.14444445440820225,
+        "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.42573834867223603,
+        "phase_blind_spectral_l1_bound": 2.6553313852338647,
+        "autocorrelation_to_observed_ratio": 2.9474191336490696,
+        "passes_subunit_autocorrelation_gate": true,
+        "checks": {
+          "autocorrelation_bound_dominates_actual_tail": true,
+          "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+          "autocorrelation_improves_phase_blind_spectral_l1": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 256,
+        "observed_uniform_tail": 0.14572509675378,
+        "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.42459229785893543,
+        "phase_blind_spectral_l1_bound": 2.6004980916031526,
+        "autocorrelation_to_observed_ratio": 2.913652536984312,
+        "passes_subunit_autocorrelation_gate": true,
+        "checks": {
+          "autocorrelation_bound_dominates_actual_tail": true,
+          "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+          "autocorrelation_improves_phase_blind_spectral_l1": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 1024,
+        "observed_uniform_tail": 0.1381411807497186,
+        "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.42501788902938537,
+        "phase_blind_spectral_l1_bound": 2.378410883111893,
+        "autocorrelation_to_observed_ratio": 3.076692169002263,
+        "passes_subunit_autocorrelation_gate": true,
+        "checks": {
+          "autocorrelation_bound_dominates_actual_tail": true,
+          "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+          "autocorrelation_improves_phase_blind_spectral_l1": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      },
+      {
+        "finite_target_count_L": 16384,
+        "low_pass_bandwidth_K": 4096,
+        "observed_uniform_tail": 0.12326129564975533,
+        "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.3529909487746761,
+        "phase_blind_spectral_l1_bound": 1.3749058206254823,
+        "autocorrelation_to_observed_ratio": 2.8637614663543154,
+        "passes_subunit_autocorrelation_gate": true,
+        "checks": {
+          "autocorrelation_bound_dominates_actual_tail": true,
+          "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+          "autocorrelation_improves_phase_blind_spectral_l1": true,
+          "row_is_floating_finite_diagnostic_only": true
+        }
+      }
+    ],
+    "exact_diagonal_energy_no_go_rows": [
+      {
+        "cyclic_length_L": 4,
+        "shared_diagonal_energy_C0": {
+          "exact": "4/1",
+          "decimal": 4.0
+        },
+        "single_mode_uniform_norm": {
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "aligned_all_mode_uniform_norm": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "single_mode_autocorrelation_l1": {
+          "exact": "4/1",
+          "decimal": 4.0
+        },
+        "aligned_all_mode_autocorrelation_l1": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "checks": {
+          "signals_have_identical_diagonal_fourier_energy": true,
+          "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+          "aligned_signal_supremum_is_one": true,
+          "full_autocorrelation_l1_distinguishes_the_signals": true,
+          "autocorrelation_bound_is_exact_for_both_models": true
+        }
+      },
+      {
+        "cyclic_length_L": 16,
+        "shared_diagonal_energy_C0": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "single_mode_uniform_norm": {
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "aligned_all_mode_uniform_norm": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "single_mode_autocorrelation_l1": {
+          "exact": "16/1",
+          "decimal": 16.0
+        },
+        "aligned_all_mode_autocorrelation_l1": {
+          "exact": "256/1",
+          "decimal": 256.0
+        },
+        "checks": {
+          "signals_have_identical_diagonal_fourier_energy": true,
+          "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+          "aligned_signal_supremum_is_one": true,
+          "full_autocorrelation_l1_distinguishes_the_signals": true,
+          "autocorrelation_bound_is_exact_for_both_models": true
+        }
+      },
+      {
+        "cyclic_length_L": 64,
+        "shared_diagonal_energy_C0": {
+          "exact": "64/1",
+          "decimal": 64.0
+        },
+        "single_mode_uniform_norm": {
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "aligned_all_mode_uniform_norm": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "single_mode_autocorrelation_l1": {
+          "exact": "64/1",
+          "decimal": 64.0
+        },
+        "aligned_all_mode_autocorrelation_l1": {
+          "exact": "4096/1",
+          "decimal": 4096.0
+        },
+        "checks": {
+          "signals_have_identical_diagonal_fourier_energy": true,
+          "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+          "aligned_signal_supremum_is_one": true,
+          "full_autocorrelation_l1_distinguishes_the_signals": true,
+          "autocorrelation_bound_is_exact_for_both_models": true
+        }
+      },
+      {
+        "cyclic_length_L": 256,
+        "shared_diagonal_energy_C0": {
+          "exact": "256/1",
+          "decimal": 256.0
+        },
+        "single_mode_uniform_norm": {
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "aligned_all_mode_uniform_norm": {
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "single_mode_autocorrelation_l1": {
+          "exact": "256/1",
+          "decimal": 256.0
+        },
+        "aligned_all_mode_autocorrelation_l1": {
+          "exact": "65536/1",
+          "decimal": 65536.0
+        },
+        "checks": {
+          "signals_have_identical_diagonal_fourier_energy": true,
+          "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+          "aligned_signal_supremum_is_one": true,
+          "full_autocorrelation_l1_distinguishes_the_signals": true,
+          "autocorrelation_bound_is_exact_for_both_models": true
+        }
+      }
+    ],
+    "finite_diagnostic_boundary": "All five 16,384-target autocorrelation bounds are subunit, but they are computed from one finite proxy. No uniform arithmetic bound in the target size or proof that it stays below the true low-pass Goldbach anchor margin is supplied.",
+    "failure_count": 0
+  },
+  "discarded_route": "diagonal Fourier energy alone as a uniform pointwise certificate",
+  "remaining_gap": "The subunit bounds are finite diagnostics, not a target-uniform arithmetic estimate below the true Goldbach anchor margin.",
+  "candidate_theorem": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin",
+  "claim_boundary": "No Goldbach proof and no even counterexample; exact autocorrelation bridge, energy no-go, and finite diagnostics only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T169-REJECTED",
+        "label": "DiagonalFourierEnergyControlsThePointwiseDeficit",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T169-CLOSED",
+        "label": "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T169-OPEN",
+        "label": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T169-REJECTED",
+        "GB-T169-CLOSED"
+      ],
+      [
+        "GB-T169-CLOSED",
+        "GB-T169-OPEN"
+      ]
+    ]
+  }
+}

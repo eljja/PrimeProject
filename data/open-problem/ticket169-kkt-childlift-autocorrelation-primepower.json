@@ -1,0 +1,1368 @@
+{
+  "schema": "primeproject.ticket169-kkt-childlift-autocorrelation-primepower.v1",
+  "generated_at": "2026-08-02T18:00:00+09:00",
+  "status": "four_exact_bridge_or_nogo_results_all_conjectures_open",
+  "claim_boundary": "TICKET-169 proves four exact bridge or no-go results and resolves none of the four conjectures. It converts constrained positivity to KKT inertia, gives an exact Collatz child-lift transducer while refuting fixed residue memory, derives a phase-sensitive Goldbach autocorrelation certificate, and proves that the proposed Twin linear pairing bound is already an endgame statement after prime-power removal.",
+  "kkt_childlift_autocorrelation_primepower_audit": {
+    "theorem_name": "FourConjectureKKTChildLiftAutocorrelationPrimePowerAudit",
+    "status": "four_exact_bridge_or_nogo_results_all_conjectures_open",
+    "proof_boundary": "TICKET-169 proves four exact bridge or no-go results and resolves none of the four conjectures. It converts constrained positivity to KKT inertia, gives an exact Collatz child-lift transducer while refuting fixed residue memory, derives a phase-sensitive Goldbach autocorrelation certificate, and proves that the proposed Twin linear pairing bound is already an endgame statement after prime-power removal.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-169",
+      "theorem_name": "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo",
+      "declared_proposition": "Let B be a real symmetric form, let L have full row rank r, let Z span ker L, and suppose A=Z^T B Z is nonsingular. Then the KKT matrix K=[[B,L^T],[L,0]] has inertia(K)=inertia(A)+(r,r,0). Thus positivity of B on ker L is equivalent to K having exactly r negative eigenvalues and no zero eigenvalues. Ambient positivity is not necessary. Nor can one fixed penalty tau replace this criterion over a cofinal family with unbounded negative normal curvature.",
+      "mathematical_argument": "Choose a right inverse U of L and coordinates [Z,U], so L becomes [0,I]. Congruence first removes the mixed Z-U block using the nonsingular restricted block A. The remaining 2r by 2r block has the form [[D,I],[I,0]]. Its Schur complement with respect to either normal coordinate, or a direct congruence, gives r positive and r negative directions independently of D. Sylvester inertia is congruence invariant. For the penalty no-go take B_N equal to the identity on ker L and -M_N on the normal directions with M_N tending to infinity; B_N+tau L^T L remains negative normally once M_N>tau.",
+      "reproducible_computation": {
+        "theorem": "Let B be a real symmetric form, let L have full row rank r, let Z span ker L, and suppose A=Z^T B Z is nonsingular. Then the KKT matrix K=[[B,L^T],[L,0]] has inertia(K)=inertia(A)+(r,r,0). Thus positivity of B on ker L is equivalent to K having exactly r negative eigenvalues and no zero eigenvalues. Ambient positivity is not necessary. Nor can one fixed penalty tau replace this criterion over a cofinal family with unbounded negative normal curvature.",
+        "proof": "Choose a right inverse U of L and coordinates [Z,U], so L becomes [0,I]. Congruence first removes the mixed Z-U block using the nonsingular restricted block A. The remaining 2r by 2r block has the form [[D,I],[I,0]]. Its Schur complement with respect to either normal coordinate, or a direct congruence, gives r positive and r negative directions independently of D. Sylvester inertia is congruence invariant. For the penalty no-go take B_N equal to the identity on ker L and -M_N on the normal directions with M_N tending to infinity; B_N+tau L^T L remains negative normally once M_N>tau.",
+        "exact_diagonal_proxy_rows": [
+          {
+            "ambient_dimension_N": 4,
+            "constraint_rank_r": 2,
+            "restricted_form_inertia": {
+              "positive": 2,
+              "negative": 0,
+              "zero": 0
+            },
+            "ambient_form_inertia": {
+              "positive": 2,
+              "negative": 2,
+              "zero": 0
+            },
+            "kkt_matrix_inertia": {
+              "positive": 4,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_tau": 64,
+            "normal_curvatures": [
+              16,
+              25
+            ],
+            "penalized_normal_diagonal": [
+              48,
+              39
+            ],
+            "penalized_form_inertia": {
+              "positive": 4,
+              "negative": 0,
+              "zero": 0
+            },
+            "fixed_penalty_is_positive_definite": true,
+            "checks": {
+              "kernel_restriction_is_positive_identity": true,
+              "ambient_form_has_two_negative_normal_directions": true,
+              "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+              "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+              "fixed_penalty_inertia_is_counted_exactly": true
+            }
+          },
+          {
+            "ambient_dimension_N": 8,
+            "constraint_rank_r": 2,
+            "restricted_form_inertia": {
+              "positive": 6,
+              "negative": 0,
+              "zero": 0
+            },
+            "ambient_form_inertia": {
+              "positive": 6,
+              "negative": 2,
+              "zero": 0
+            },
+            "kkt_matrix_inertia": {
+              "positive": 8,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_tau": 64,
+            "normal_curvatures": [
+              64,
+              81
+            ],
+            "penalized_normal_diagonal": [
+              0,
+              -17
+            ],
+            "penalized_form_inertia": {
+              "positive": 6,
+              "negative": 1,
+              "zero": 1
+            },
+            "fixed_penalty_is_positive_definite": false,
+            "checks": {
+              "kernel_restriction_is_positive_identity": true,
+              "ambient_form_has_two_negative_normal_directions": true,
+              "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+              "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+              "fixed_penalty_inertia_is_counted_exactly": true
+            }
+          },
+          {
+            "ambient_dimension_N": 16,
+            "constraint_rank_r": 2,
+            "restricted_form_inertia": {
+              "positive": 14,
+              "negative": 0,
+              "zero": 0
+            },
+            "ambient_form_inertia": {
+              "positive": 14,
+              "negative": 2,
+              "zero": 0
+            },
+            "kkt_matrix_inertia": {
+              "positive": 16,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_tau": 64,
+            "normal_curvatures": [
+              256,
+              289
+            ],
+            "penalized_normal_diagonal": [
+              -192,
+              -225
+            ],
+            "penalized_form_inertia": {
+              "positive": 14,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_is_positive_definite": false,
+            "checks": {
+              "kernel_restriction_is_positive_identity": true,
+              "ambient_form_has_two_negative_normal_directions": true,
+              "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+              "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+              "fixed_penalty_inertia_is_counted_exactly": true
+            }
+          },
+          {
+            "ambient_dimension_N": 32,
+            "constraint_rank_r": 2,
+            "restricted_form_inertia": {
+              "positive": 30,
+              "negative": 0,
+              "zero": 0
+            },
+            "ambient_form_inertia": {
+              "positive": 30,
+              "negative": 2,
+              "zero": 0
+            },
+            "kkt_matrix_inertia": {
+              "positive": 32,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_tau": 64,
+            "normal_curvatures": [
+              1024,
+              1089
+            ],
+            "penalized_normal_diagonal": [
+              -960,
+              -1025
+            ],
+            "penalized_form_inertia": {
+              "positive": 30,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_is_positive_definite": false,
+            "checks": {
+              "kernel_restriction_is_positive_identity": true,
+              "ambient_form_has_two_negative_normal_directions": true,
+              "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+              "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+              "fixed_penalty_inertia_is_counted_exactly": true
+            }
+          },
+          {
+            "ambient_dimension_N": 64,
+            "constraint_rank_r": 2,
+            "restricted_form_inertia": {
+              "positive": 62,
+              "negative": 0,
+              "zero": 0
+            },
+            "ambient_form_inertia": {
+              "positive": 62,
+              "negative": 2,
+              "zero": 0
+            },
+            "kkt_matrix_inertia": {
+              "positive": 64,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_tau": 64,
+            "normal_curvatures": [
+              4096,
+              4225
+            ],
+            "penalized_normal_diagonal": [
+              -4032,
+              -4161
+            ],
+            "penalized_form_inertia": {
+              "positive": 62,
+              "negative": 2,
+              "zero": 0
+            },
+            "fixed_penalty_is_positive_definite": false,
+            "checks": {
+              "kernel_restriction_is_positive_identity": true,
+              "ambient_form_has_two_negative_normal_directions": true,
+              "each_kkt_normal_block_has_negative_determinant_minus_one": true,
+              "kkt_inertia_matches_restricted_inertia_plus_two_saddles": true,
+              "fixed_penalty_inertia_is_counted_exactly": true
+            }
+          }
+        ],
+        "fixed_penalty_no_go_holds_on_all_overcurved_rows": true,
+        "external_premise_boundary": "The theorem is an exact finite-dimensional bridge. PrimeProject has not supplied interval-certified KKT inertia for a cofinal fixed pole-neutral Guinand-Weil core, nor proved that this core is dense in the global Weil form domain.",
+        "failure_count": 0
+      },
+      "logical_limit": "No cofinal interval-certified KKT family on the actual fixed pole-neutral Guinand-Weil core is constructed.",
+      "route_decision": {
+        "discard": "ambient positivity or one cutoff-independent penalty parameter as a substitute for constrained inertia",
+        "retain": "interval-certified KKT inertia with exactly r negative directions on one fixed dense pole-neutral core",
+        "next_single_lemma": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T169-REJECTED",
+            "label": "AmbientPositivityOrFixedPenaltyCanReplaceKernelRestriction",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T169-CLOSED",
+            "label": "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T169-OPEN",
+            "label": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T169-REJECTED",
+            "RH-T169-CLOSED"
+          ],
+          [
+            "RH-T169-CLOSED",
+            "RH-T169-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no zero exclusion; exact KKT inertia bridge and fixed-penalty no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-169",
+      "theorem_name": "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo",
+      "declared_proposition": "For an accelerated Collatz prefix w with affine data (m,S,C), least start n0, and endpoint u0, append a valuation a>=1. Among the 2^a old-prefix lifts n0+k*2^(S+1), 0<=k<2^a, exactly one has v2(3u_k+1)=a. The child has exact data (m+1,S+a,3C+2^S), so this unique lift is its least nonterminal realizer. However, no fixed q-bit residue state can determine the next valuation: two positive odd endpoints congruent modulo 2^q can have next valuations q and greater than q.",
+      "mathematical_argument": "Prefix lifts satisfy u_k=u0+2*3^m*k. After dividing 3u_k+1 by two, its dependence on k has an odd coefficient. Modulo 2^a, exact valuation a is therefore one affine congruence with one solution. Applying one more accelerated step gives C'=3C+2^S. For the no-go solve 3u+1=0 mod 2^q. The two lifts modulo 2^(q+1) split: one has quotient odd and exact valuation q, while the other is still divisible by 2^(q+1).",
+      "reproducible_computation": {
+        "theorem": "For an accelerated Collatz prefix w with affine data (m,S,C), least start n0, and endpoint u0, append a valuation a>=1. Among the 2^a old-prefix lifts n0+k*2^(S+1), 0<=k<2^a, exactly one has v2(3u_k+1)=a. The child has exact data (m+1,S+a,3C+2^S), so this unique lift is its least nonterminal realizer. However, no fixed q-bit residue state can determine the next valuation: two positive odd endpoints congruent modulo 2^q can have next valuations q and greater than q.",
+        "proof": "Prefix lifts satisfy u_k=u0+2*3^m*k. After dividing 3u_k+1 by two, its dependence on k has an odd coefficient. Modulo 2^a, exact valuation a is therefore one affine congruence with one solution. Applying one more accelerated step gives C'=3C+2^S. For the no-go solve 3u+1=0 mod 2^q. The two lifts modulo 2^(q+1) split: one has quotient odd and exact valuation q, while the other is still divisible by 2^(q+1).",
+        "exact_child_lift_rows": [
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 1,
+            "old_lift_search_count": 2,
+            "unique_selected_lift_k": 0,
+            "child_word": [
+              2,
+              1
+            ],
+            "child_valuation_sum": 3,
+            "child_correction": 7,
+            "least_child_start": 9,
+            "child_odd_endpoint": 11,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 2,
+            "old_lift_search_count": 4,
+            "unique_selected_lift_k": 3,
+            "child_word": [
+              2,
+              2
+            ],
+            "child_valuation_sum": 4,
+            "child_correction": 7,
+            "least_child_start": 33,
+            "child_odd_endpoint": 19,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 3,
+            "old_lift_search_count": 8,
+            "unique_selected_lift_k": 1,
+            "child_word": [
+              2,
+              3
+            ],
+            "child_valuation_sum": 5,
+            "child_correction": 7,
+            "least_child_start": 17,
+            "child_odd_endpoint": 5,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 4,
+            "old_lift_search_count": 16,
+            "unique_selected_lift_k": 5,
+            "child_word": [
+              2,
+              4
+            ],
+            "child_valuation_sum": 6,
+            "child_correction": 7,
+            "least_child_start": 49,
+            "child_odd_endpoint": 7,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 5,
+            "old_lift_search_count": 32,
+            "unique_selected_lift_k": 29,
+            "child_word": [
+              2,
+              5
+            ],
+            "child_valuation_sum": 7,
+            "child_correction": 7,
+            "least_child_start": 241,
+            "child_odd_endpoint": 17,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 6,
+            "old_lift_search_count": 64,
+            "unique_selected_lift_k": 45,
+            "child_word": [
+              2,
+              6
+            ],
+            "child_valuation_sum": 8,
+            "child_correction": 7,
+            "least_child_start": 369,
+            "child_odd_endpoint": 13,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 7,
+            "old_lift_search_count": 128,
+            "unique_selected_lift_k": 77,
+            "child_word": [
+              2,
+              7
+            ],
+            "child_valuation_sum": 9,
+            "child_correction": 7,
+            "least_child_start": 625,
+            "child_odd_endpoint": 11,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          },
+          {
+            "prefix_word": [
+              2
+            ],
+            "appended_valuation_a": 8,
+            "old_lift_search_count": 256,
+            "unique_selected_lift_k": 13,
+            "child_word": [
+              2,
+              8
+            ],
+            "child_valuation_sum": 10,
+            "child_correction": 7,
+            "least_child_start": 113,
+            "child_odd_endpoint": 1,
+            "checks": {
+              "exactly_one_old_lift_realizes_the_appended_valuation": true,
+              "child_correction_recurrence_holds": true,
+              "selected_start_is_the_child_least_nonterminal_realizer": true,
+              "affine_child_endpoint_matches_direct_accelerated_step": true,
+              "child_endpoint_is_odd": true
+            }
+          }
+        ],
+        "fixed_residue_memory_no_go_rows": [
+          {
+            "retained_residue_bits_q": 2,
+            "shared_residue_mod_2q": 1,
+            "odd_endpoint_pair": [
+              9,
+              13
+            ],
+            "next_valuations": [
+              2,
+              3
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 3,
+            "shared_residue_mod_2q": 5,
+            "odd_endpoint_pair": [
+              5,
+              13
+            ],
+            "next_valuations": [
+              4,
+              3
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 4,
+            "shared_residue_mod_2q": 5,
+            "odd_endpoint_pair": [
+              5,
+              21
+            ],
+            "next_valuations": [
+              4,
+              6
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 5,
+            "shared_residue_mod_2q": 21,
+            "odd_endpoint_pair": [
+              21,
+              53
+            ],
+            "next_valuations": [
+              6,
+              5
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 6,
+            "shared_residue_mod_2q": 21,
+            "odd_endpoint_pair": [
+              21,
+              85
+            ],
+            "next_valuations": [
+              6,
+              8
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 7,
+            "shared_residue_mod_2q": 85,
+            "odd_endpoint_pair": [
+              85,
+              213
+            ],
+            "next_valuations": [
+              8,
+              7
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 8,
+            "shared_residue_mod_2q": 85,
+            "odd_endpoint_pair": [
+              85,
+              341
+            ],
+            "next_valuations": [
+              8,
+              10
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 9,
+            "shared_residue_mod_2q": 341,
+            "odd_endpoint_pair": [
+              341,
+              853
+            ],
+            "next_valuations": [
+              10,
+              9
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 10,
+            "shared_residue_mod_2q": 341,
+            "odd_endpoint_pair": [
+              341,
+              1365
+            ],
+            "next_valuations": [
+              10,
+              12
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 11,
+            "shared_residue_mod_2q": 1365,
+            "odd_endpoint_pair": [
+              1365,
+              3413
+            ],
+            "next_valuations": [
+              12,
+              11
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 12,
+            "shared_residue_mod_2q": 1365,
+            "odd_endpoint_pair": [
+              1365,
+              5461
+            ],
+            "next_valuations": [
+              12,
+              14
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 13,
+            "shared_residue_mod_2q": 5461,
+            "odd_endpoint_pair": [
+              5461,
+              13653
+            ],
+            "next_valuations": [
+              14,
+              13
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 14,
+            "shared_residue_mod_2q": 5461,
+            "odd_endpoint_pair": [
+              5461,
+              21845
+            ],
+            "next_valuations": [
+              14,
+              16
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 15,
+            "shared_residue_mod_2q": 21845,
+            "odd_endpoint_pair": [
+              21845,
+              54613
+            ],
+            "next_valuations": [
+              16,
+              15
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          },
+          {
+            "retained_residue_bits_q": 16,
+            "shared_residue_mod_2q": 21845,
+            "odd_endpoint_pair": [
+              21845,
+              87381
+            ],
+            "next_valuations": [
+              16,
+              18
+            ],
+            "checks": {
+              "odd_endpoints_share_all_retained_residue_bits": true,
+              "one_next_valuation_is_exactly_q": true,
+              "the_other_next_valuation_exceeds_q": true,
+              "both_are_actual_positive_odd_collatz_states": true
+            }
+          }
+        ],
+        "finite_boundary": "The recurrence is exact for every finite prefix, but it does not bound the unbounded precision required along all first-crossing branches and does not prove descent for every branch.",
+        "failure_count": 0
+      },
+      "logical_limit": "The exact recursion does not prove a uniform positive descent slack over the infinite first-crossing tree.",
+      "route_decision": {
+        "discard": "any fixed-width residue automaton claimed to determine all future accelerated valuations",
+        "retain": "unbounded-precision child-lift recursion together with an inductive positive slack invariant",
+        "next_single_lemma": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T169-REJECTED",
+            "label": "FixedResidueWidthDeterminesEveryNextValuation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T169-CLOSED",
+            "label": "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T169-OPEN",
+            "label": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T169-REJECTED",
+            "CO-T169-CLOSED"
+          ],
+          [
+            "CO-T169-CLOSED",
+            "CO-T169-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact child recursion and an all-q fixed-memory no-go only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-169",
+      "theorem_name": "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo",
+      "declared_proposition": "For f(x)=L^(-1) sum_k F_k exp(2*pi*i*k*x/L), define cyclic spectral autocorrelation C_h=sum_k F_(k+h) conjugate(F_k). Then |f(x)|^2=L^(-2) sum_h C_h exp(2*pi*i*h*x/L), and therefore ||f||_infinity <= sqrt(sum_h |C_h|)/L. This certificate retains relative phase. The diagonal energy C_0 alone cannot control the uniform norm: a single coefficient sqrt(L) and L aligned unit coefficients both have C_0=L, but their uniform norms are L^(-1/2) and 1.",
+      "mathematical_argument": "Expand f times its complex conjugate and group terms by frequency difference h. The triangle inequality applied to the resulting Fourier series for |f|^2 gives the bound. The two exact model signals follow from Fourier inversion: one frequency produces a constant-modulus wave, while equal aligned coefficients produce a unit point mass.",
+      "reproducible_computation": {
+        "theorem": "For f(x)=L^(-1) sum_k F_k exp(2*pi*i*k*x/L), define cyclic spectral autocorrelation C_h=sum_k F_(k+h) conjugate(F_k). Then |f(x)|^2=L^(-2) sum_h C_h exp(2*pi*i*h*x/L), and therefore ||f||_infinity <= sqrt(sum_h |C_h|)/L. This certificate retains relative phase. The diagonal energy C_0 alone cannot control the uniform norm: a single coefficient sqrt(L) and L aligned unit coefficients both have C_0=L, but their uniform norms are L^(-1/2) and 1.",
+        "proof": "Expand f times its complex conjugate and group terms by frequency difference h. The triangle inequality applied to the resulting Fourier series for |f|^2 gives the bound. The two exact model signals follow from Fourier inversion: one frequency produces a constant-modulus wave, while equal aligned coefficients produce a unit point mass.",
+        "finite_goldbach_tail_rows": [
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 16,
+            "observed_uniform_tail": 0.16681511777970132,
+            "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.43061032287145007,
+            "phase_blind_spectral_l1_bound": 2.685221558510439,
+            "autocorrelation_to_observed_ratio": 2.5813627002327264,
+            "passes_subunit_autocorrelation_gate": true,
+            "checks": {
+              "autocorrelation_bound_dominates_actual_tail": true,
+              "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+              "autocorrelation_improves_phase_blind_spectral_l1": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 64,
+            "observed_uniform_tail": 0.14444445440820225,
+            "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.42573834867223603,
+            "phase_blind_spectral_l1_bound": 2.6553313852338647,
+            "autocorrelation_to_observed_ratio": 2.9474191336490696,
+            "passes_subunit_autocorrelation_gate": true,
+            "checks": {
+              "autocorrelation_bound_dominates_actual_tail": true,
+              "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+              "autocorrelation_improves_phase_blind_spectral_l1": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 256,
+            "observed_uniform_tail": 0.14572509675378,
+            "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.42459229785893543,
+            "phase_blind_spectral_l1_bound": 2.6004980916031526,
+            "autocorrelation_to_observed_ratio": 2.913652536984312,
+            "passes_subunit_autocorrelation_gate": true,
+            "checks": {
+              "autocorrelation_bound_dominates_actual_tail": true,
+              "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+              "autocorrelation_improves_phase_blind_spectral_l1": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 1024,
+            "observed_uniform_tail": 0.1381411807497186,
+            "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.42501788902938537,
+            "phase_blind_spectral_l1_bound": 2.378410883111893,
+            "autocorrelation_to_observed_ratio": 3.076692169002263,
+            "passes_subunit_autocorrelation_gate": true,
+            "checks": {
+              "autocorrelation_bound_dominates_actual_tail": true,
+              "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+              "autocorrelation_improves_phase_blind_spectral_l1": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          },
+          {
+            "finite_target_count_L": 16384,
+            "low_pass_bandwidth_K": 4096,
+            "observed_uniform_tail": 0.12326129564975533,
+            "phase_sensitive_autocorrelation_l1_sqrt_bound": 0.3529909487746761,
+            "phase_blind_spectral_l1_bound": 1.3749058206254823,
+            "autocorrelation_to_observed_ratio": 2.8637614663543154,
+            "passes_subunit_autocorrelation_gate": true,
+            "checks": {
+              "autocorrelation_bound_dominates_actual_tail": true,
+              "autocorrelation_bound_is_subunit_on_this_finite_diagnostic": true,
+              "autocorrelation_improves_phase_blind_spectral_l1": true,
+              "row_is_floating_finite_diagnostic_only": true
+            }
+          }
+        ],
+        "exact_diagonal_energy_no_go_rows": [
+          {
+            "cyclic_length_L": 4,
+            "shared_diagonal_energy_C0": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "single_mode_uniform_norm": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "aligned_all_mode_uniform_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "single_mode_autocorrelation_l1": {
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "aligned_all_mode_autocorrelation_l1": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "checks": {
+              "signals_have_identical_diagonal_fourier_energy": true,
+              "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+              "aligned_signal_supremum_is_one": true,
+              "full_autocorrelation_l1_distinguishes_the_signals": true,
+              "autocorrelation_bound_is_exact_for_both_models": true
+            }
+          },
+          {
+            "cyclic_length_L": 16,
+            "shared_diagonal_energy_C0": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "single_mode_uniform_norm": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "aligned_all_mode_uniform_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "single_mode_autocorrelation_l1": {
+              "exact": "16/1",
+              "decimal": 16.0
+            },
+            "aligned_all_mode_autocorrelation_l1": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "checks": {
+              "signals_have_identical_diagonal_fourier_energy": true,
+              "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+              "aligned_signal_supremum_is_one": true,
+              "full_autocorrelation_l1_distinguishes_the_signals": true,
+              "autocorrelation_bound_is_exact_for_both_models": true
+            }
+          },
+          {
+            "cyclic_length_L": 64,
+            "shared_diagonal_energy_C0": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "single_mode_uniform_norm": {
+              "exact": "1/8",
+              "decimal": 0.125
+            },
+            "aligned_all_mode_uniform_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "single_mode_autocorrelation_l1": {
+              "exact": "64/1",
+              "decimal": 64.0
+            },
+            "aligned_all_mode_autocorrelation_l1": {
+              "exact": "4096/1",
+              "decimal": 4096.0
+            },
+            "checks": {
+              "signals_have_identical_diagonal_fourier_energy": true,
+              "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+              "aligned_signal_supremum_is_one": true,
+              "full_autocorrelation_l1_distinguishes_the_signals": true,
+              "autocorrelation_bound_is_exact_for_both_models": true
+            }
+          },
+          {
+            "cyclic_length_L": 256,
+            "shared_diagonal_energy_C0": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "single_mode_uniform_norm": {
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "aligned_all_mode_uniform_norm": {
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "single_mode_autocorrelation_l1": {
+              "exact": "256/1",
+              "decimal": 256.0
+            },
+            "aligned_all_mode_autocorrelation_l1": {
+              "exact": "65536/1",
+              "decimal": 65536.0
+            },
+            "checks": {
+              "signals_have_identical_diagonal_fourier_energy": true,
+              "concentrated_signal_supremum_is_inverse_sqrt_L": true,
+              "aligned_signal_supremum_is_one": true,
+              "full_autocorrelation_l1_distinguishes_the_signals": true,
+              "autocorrelation_bound_is_exact_for_both_models": true
+            }
+          }
+        ],
+        "finite_diagnostic_boundary": "All five 16,384-target autocorrelation bounds are subunit, but they are computed from one finite proxy. No uniform arithmetic bound in the target size or proof that it stays below the true low-pass Goldbach anchor margin is supplied.",
+        "failure_count": 0
+      },
+      "logical_limit": "The subunit bounds are finite diagnostics, not a target-uniform arithmetic estimate below the true Goldbach anchor margin.",
+      "route_decision": {
+        "discard": "diagonal Fourier energy alone as a uniform pointwise certificate",
+        "retain": "the full cyclic spectral autocorrelation l1 budget with explicit arithmetic control uniform in the target",
+        "next_single_lemma": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T169-REJECTED",
+            "label": "DiagonalFourierEnergyControlsThePointwiseDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T169-CLOSED",
+            "label": "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T169-OPEN",
+            "label": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T169-REJECTED",
+            "GB-T169-CLOSED"
+          ],
+          [
+            "GB-T169-CLOSED",
+            "GB-T169-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact autocorrelation bridge, energy no-go, and finite diagnostics only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-169",
+      "theorem_name": "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence",
+      "declared_proposition": "For x>=4, the full forward von Mangoldt gap-two correlation equals the odd-supported correlation plus (log 2)^2. The odd correlation is the weighted twin-prime sum plus a nonnegative term in which at least one coordinate is a prime power p^k with k>=2. This contamination is O(sqrt(x) log^3 x)=o(x) by an explicit elementary bound. Consequently any eventually positive linear lower bound for the TICKET-168 finest odd pairing implies a positive linear weighted twin-prime correlation and hence infinitely many twin primes. The proposed pairing bound is an endgame theorem, not a separate easier intermediate step.",
+      "mathematical_argument": "Only n=2 contributes to the even-start correlation, giving Lambda(2)Lambda(4)=(log 2)^2. Partition odd prime powers by whether both exponents are one. The number of higher prime powers at most x is at most floor(log_2 x)*sqrt(x); either coordinate may contain one, and each weight is at most log^2(x+2). This gives the stated explicit o(x) bound. Subtracting it from a cx lower bound leaves a positive weighted twin-prime sum for all sufficiently large x.",
+      "reproducible_computation": {
+        "theorem": "For x>=4, the full forward von Mangoldt gap-two correlation equals the odd-supported correlation plus (log 2)^2. The odd correlation is the weighted twin-prime sum plus a nonnegative term in which at least one coordinate is a prime power p^k with k>=2. This contamination is O(sqrt(x) log^3 x)=o(x) by an explicit elementary bound. Consequently any eventually positive linear lower bound for the TICKET-168 finest odd pairing implies a positive linear weighted twin-prime correlation and hence infinitely many twin primes. The proposed pairing bound is an endgame theorem, not a separate easier intermediate step.",
+        "proof": "Only n=2 contributes to the even-start correlation, giving Lambda(2)Lambda(4)=(log 2)^2. Partition odd prime powers by whether both exponents are one. The number of higher prime powers at most x is at most floor(log_2 x)*sqrt(x); either coordinate may contain one, and each weight is at most log^2(x+2). This gives the stated explicit o(x) bound. Subtracting it from a cx lower bound leaves a positive weighted twin-prime sum for all sufficiently large x.",
+        "finite_prime_power_removal_rows": [
+          {
+            "cutoff_x": 128,
+            "full_von_mangoldt_gap_two_correlation": 163.99608428097648,
+            "odd_von_mangoldt_gap_two_correlation": 163.51563126705824,
+            "even_boundary_log2_squared": 0.4804530139182014,
+            "twin_prime_weighted_contribution": 123.2862077946355,
+            "higher_prime_power_contamination": 40.22942347242278,
+            "exact_twin_prime_pair_count": 10,
+            "exact_contaminated_pair_count": 9,
+            "higher_prime_power_support_count": 13,
+            "explicit_contamination_upper_bound": 3781.967389469699,
+            "checks": {
+              "full_minus_odd_is_the_single_even_boundary_term": true,
+              "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+              "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+              "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+              "row_is_finite_evidence_only": true
+            }
+          },
+          {
+            "cutoff_x": 512,
+            "full_von_mangoldt_gap_two_correlation": 633.303225782775,
+            "odd_von_mangoldt_gap_two_correlation": 632.8227727688568,
+            "even_boundary_log2_squared": 0.4804530139182014,
+            "twin_prime_weighted_contribution": 556.1172052761341,
+            "higher_prime_power_contamination": 76.70556749272274,
+            "exact_twin_prime_pair_count": 24,
+            "exact_contaminated_pair_count": 12,
+            "higher_prime_power_support_count": 20,
+            "explicit_contamination_upper_bound": 15901.30107622563,
+            "checks": {
+              "full_minus_odd_is_the_single_even_boundary_term": true,
+              "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+              "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+              "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+              "row_is_finite_evidence_only": true
+            }
+          },
+          {
+            "cutoff_x": 2048,
+            "full_von_mangoldt_gap_two_correlation": 2625.200792358337,
+            "odd_von_mangoldt_gap_two_correlation": 2624.720339344419,
+            "even_boundary_log2_squared": 0.4804530139182014,
+            "twin_prime_weighted_contribution": 2463.7453919355626,
+            "higher_prime_power_contamination": 160.97494740885674,
+            "exact_twin_prime_pair_count": 62,
+            "exact_contaminated_pair_count": 16,
+            "higher_prime_power_support_count": 31,
+            "explicit_contamination_upper_bound": 57922.47241171952,
+            "checks": {
+              "full_minus_odd_is_the_single_even_boundary_term": true,
+              "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+              "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+              "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+              "row_is_finite_evidence_only": true
+            }
+          },
+          {
+            "cutoff_x": 8192,
+            "full_von_mangoldt_gap_two_correlation": 10978.269117941498,
+            "odd_von_mangoldt_gap_two_correlation": 10977.788664927579,
+            "even_boundary_log2_squared": 0.4804530139182014,
+            "twin_prime_weighted_contribution": 10625.93093261384,
+            "higher_prime_power_contamination": 351.8577323137393,
+            "exact_twin_prime_pair_count": 177,
+            "exact_contaminated_pair_count": 23,
+            "higher_prime_power_support_count": 50,
+            "explicit_contamination_upper_bound": 191109.5917452413,
+            "checks": {
+              "full_minus_odd_is_the_single_even_boundary_term": true,
+              "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+              "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+              "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+              "row_is_finite_evidence_only": true
+            }
+          },
+          {
+            "cutoff_x": 32768,
+            "full_von_mangoldt_gap_two_correlation": 43181.37518738885,
+            "odd_von_mangoldt_gap_two_correlation": 43180.894734374924,
+            "even_boundary_log2_squared": 0.4804530139182014,
+            "twin_prime_weighted_contribution": 42416.560059534684,
+            "higher_prime_power_contamination": 764.3346748402439,
+            "exact_twin_prime_pair_count": 505,
+            "exact_contaminated_pair_count": 34,
+            "higher_prime_power_support_count": 78,
+            "explicit_contamination_upper_bound": 587080.9851880522,
+            "checks": {
+              "full_minus_odd_is_the_single_even_boundary_term": true,
+              "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+              "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+              "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+              "row_is_finite_evidence_only": true
+            }
+          },
+          {
+            "cutoff_x": 65536,
+            "full_von_mangoldt_gap_two_correlation": 84698.22451841459,
+            "odd_von_mangoldt_gap_two_correlation": 84697.74406540066,
+            "even_boundary_log2_squared": 0.4804530139182014,
+            "twin_prime_weighted_contribution": 83591.8814772897,
+            "higher_prime_power_contamination": 1105.8625881109592,
+            "exact_twin_prime_pair_count": 860,
+            "exact_contaminated_pair_count": 41,
+            "higher_prime_power_support_count": 93,
+            "explicit_contamination_upper_bound": 1007603.9186088067,
+            "checks": {
+              "full_minus_odd_is_the_single_even_boundary_term": true,
+              "odd_pairing_splits_into_twin_primes_and_prime_power_contamination": true,
+              "contaminated_support_is_bounded_by_two_higher_prime_powers": true,
+              "weighted_contamination_is_below_explicit_sqrt_x_log_cubed_bound": true,
+              "row_is_finite_evidence_only": true
+            }
+          }
+        ],
+        "endgame_target_no_go": "Treating PositiveLinearOddVonMangoldtFinestParityPairing as though it bypassed the sieve parity barrier is rejected: after the exact half-pairing identity and o(x) prime-power removal, it already contains the desired quantitative twin-prime conclusion.",
+        "model_boundary": "The finite rows verify decomposition identities only. They provide no positive asymptotic lower bound and no new Type II estimate.",
+        "failure_count": 0
+      },
+      "logical_limit": "No positive linear odd von Mangoldt correlation or new prime-producing Type II estimate is proved.",
+      "route_decision": {
+        "discard": "presenting positive linear finest-parity pairing as an easier intermediate that avoids the parity barrier",
+        "retain": "return to an independently provable Type II decay statement whose constants feed a prime-producing lower-bound sieve",
+        "next_single_lemma": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T169-REJECTED",
+            "label": "PositiveLinearFinestParityPairingIsAnEasyIntermediate",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T169-CLOSED",
+            "label": "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T169-OPEN",
+            "label": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T169-REJECTED",
+            "TP-T169-CLOSED"
+          ],
+          [
+            "TP-T169-CLOSED",
+            "TP-T169-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact prime-power removal and target-difficulty correction only."
+    },
+    "literature_boundary": {
+      "riemann": "arXiv:2607.02828 gives a finite Guinand-Weil dictionary and interval-LDL setting but makes no RH claim; the KKT bridge here is project-local.",
+      "collatz": "arXiv:2502.00948 studies finite parity-vector phenomena and paradoxical sequences; it supplies no all-branch slack invariant.",
+      "goldbach": "arXiv:2607.27282 provides exceptional-set and explicit major-arc context, not the uniform spectral-autocorrelation budget required here.",
+      "twin_prime": "Ford-Maynard arXiv:2407.14368 identifies substantial Type II information as necessary in a broad prime-producing sieve framework; no such estimate is proved here."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-169",
+      "status": "open_not_proven",
+      "declared_proposition": "Let B be a real symmetric form, let L have full row rank r, let Z span ker L, and suppose A=Z^T B Z is nonsingular. Then the KKT matrix K=[[B,L^T],[L,0]] has inertia(K)=inertia(A)+(r,r,0). Thus positivity of B on ker L is equivalent to K having exactly r negative eigenvalues and no zero eigenvalues. Ambient positivity is not necessary. Nor can one fixed penalty tau replace this criterion over a cofinal family with unbounded negative normal curvature.",
+      "new_result": "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo",
+      "discarded_route": "ambient positivity or one cutoff-independent penalty parameter as a substitute for constrained inertia",
+      "remaining_gap": "No cofinal interval-certified KKT family on the actual fixed pole-neutral Guinand-Weil core is constructed.",
+      "candidate_theorem": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore",
+      "claim_boundary": "No RH proof and no zero exclusion; exact KKT inertia bridge and fixed-penalty no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T169-REJECTED",
+            "label": "AmbientPositivityOrFixedPenaltyCanReplaceKernelRestriction",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T169-CLOSED",
+            "label": "ConstrainedFormKKTInertiaBridgeAndFixedPenaltyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T169-OPEN",
+            "label": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T169-REJECTED",
+            "RH-T169-CLOSED"
+          ],
+          [
+            "RH-T169-CLOSED",
+            "RH-T169-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CofinalIntervalKKTInertiaCertificatesOnFixedPoleNeutralGuinandWeilCore"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-169",
+      "status": "open_not_proven",
+      "declared_proposition": "For an accelerated Collatz prefix w with affine data (m,S,C), least start n0, and endpoint u0, append a valuation a>=1. Among the 2^a old-prefix lifts n0+k*2^(S+1), 0<=k<2^a, exactly one has v2(3u_k+1)=a. The child has exact data (m+1,S+a,3C+2^S), so this unique lift is its least nonterminal realizer. However, no fixed q-bit residue state can determine the next valuation: two positive odd endpoints congruent modulo 2^q can have next valuations q and greater than q.",
+      "new_result": "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo",
+      "discarded_route": "any fixed-width residue automaton claimed to determine all future accelerated valuations",
+      "remaining_gap": "The exact recursion does not prove a uniform positive descent slack over the infinite first-crossing tree.",
+      "candidate_theorem": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts",
+      "claim_boundary": "No Collatz proof and no divergent orbit; exact child recursion and an all-q fixed-memory no-go only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T169-REJECTED",
+            "label": "FixedResidueWidthDeterminesEveryNextValuation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T169-CLOSED",
+            "label": "ExactChildLiftRecurrenceAndFixedResidueMemoryNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T169-OPEN",
+            "label": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T169-REJECTED",
+            "CO-T169-CLOSED"
+          ],
+          [
+            "CO-T169-CLOSED",
+            "CO-T169-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformPositiveLeastRealizerSlackInvariantUnderExactChildLifts"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-169",
+      "status": "open_not_proven",
+      "declared_proposition": "For f(x)=L^(-1) sum_k F_k exp(2*pi*i*k*x/L), define cyclic spectral autocorrelation C_h=sum_k F_(k+h) conjugate(F_k). Then |f(x)|^2=L^(-2) sum_h C_h exp(2*pi*i*h*x/L), and therefore ||f||_infinity <= sqrt(sum_h |C_h|)/L. This certificate retains relative phase. The diagonal energy C_0 alone cannot control the uniform norm: a single coefficient sqrt(L) and L aligned unit coefficients both have C_0=L, but their uniform norms are L^(-1/2) and 1.",
+      "new_result": "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo",
+      "discarded_route": "diagonal Fourier energy alone as a uniform pointwise certificate",
+      "remaining_gap": "The subunit bounds are finite diagnostics, not a target-uniform arithmetic estimate below the true Goldbach anchor margin.",
+      "candidate_theorem": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin",
+      "claim_boundary": "No Goldbach proof and no even counterexample; exact autocorrelation bridge, energy no-go, and finite diagnostics only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T169-REJECTED",
+            "label": "DiagonalFourierEnergyControlsThePointwiseDeficit",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T169-CLOSED",
+            "label": "SpectralAutocorrelationPointwiseBridgeAndDiagonalEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T169-OPEN",
+            "label": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T169-REJECTED",
+            "GB-T169-CLOSED"
+          ],
+          [
+            "GB-T169-CLOSED",
+            "GB-T169-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformBinaryGoldbachSpectralAutocorrelationBudgetBelowAnchorMargin"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-169",
+      "status": "open_not_proven",
+      "declared_proposition": "For x>=4, the full forward von Mangoldt gap-two correlation equals the odd-supported correlation plus (log 2)^2. The odd correlation is the weighted twin-prime sum plus a nonnegative term in which at least one coordinate is a prime power p^k with k>=2. This contamination is O(sqrt(x) log^3 x)=o(x) by an explicit elementary bound. Consequently any eventually positive linear lower bound for the TICKET-168 finest odd pairing implies a positive linear weighted twin-prime correlation and hence infinitely many twin primes. The proposed pairing bound is an endgame theorem, not a separate easier intermediate step.",
+      "new_result": "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence",
+      "discarded_route": "presenting positive linear finest-parity pairing as an easier intermediate that avoids the parity barrier",
+      "remaining_gap": "No positive linear odd von Mangoldt correlation or new prime-producing Type II estimate is proved.",
+      "candidate_theorem": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants",
+      "claim_boundary": "No Twin Prime proof and no terminal counterexample; exact prime-power removal and target-difficulty correction only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T169-REJECTED",
+            "label": "PositiveLinearFinestParityPairingIsAnEasyIntermediate",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T169-CLOSED",
+            "label": "OddVonMangoldtPrimePowerRemovalAndEndgameEquivalence",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T169-OPEN",
+            "label": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T169-REJECTED",
+            "TP-T169-CLOSED"
+          ],
+          [
+            "TP-T169-CLOSED",
+            "TP-T169-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformCubicRoughCenteredIncidenceSpectralDecayWithPrimeProducingConstants"
+    }
+  ]
+}
