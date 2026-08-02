@@ -62,7 +62,54 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-182
+## Latest Continuation After TICKET-183
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `PoleNeutralWeilTestConeHasUniformAbelDesmoothingModulus`.
+   TICKET-183 proves that Abel-smoothed H1 energy is insufficient without an
+   explicit desmoothing remainder. The next proof must work on the actual
+   pole-neutral Weil test cone and preserve its moment constraints.
+2. Collatz:
+   `NoPrimitiveContractingValuationWordContainingOneSatisfiesAffineDivisibility`.
+   TICKET-183 removes all repeated-word duplicates and completely excludes the
+   `v_j>=2` stratum. Do not treat the length-eight audit as exhaustive: the
+   primitive contracting family `(1,2,...,2)` exists at arbitrary length.
+3. Goldbach:
+   `GoldbachMajorMinorPhaseErrorIsUniformlyBelowSingularSeriesMargin`.
+   TICKET-183 proves an exact target-indexed Fourier error identity, then uses
+   a phase-blind absolute budget for its sufficient certificate. It refutes
+   constant-density absolute-spectrum control in every sparse regime. The
+   missing theorem must retain singular-series structure and target phase.
+4. Twin Prime:
+   `PrimePairNegativeHaarPathSquareStaysBelowRootMargin`.
+   TICKET-183 proves the weighted Haar identity and path-square certificate.
+   Global energy can vanish while one bad leaf persists, and parity-breaking
+   positivity remains an independent requirement.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket183-abel-primitive-spectral-haar.json
+data/open-problem/riemann/rh-ticket-183-abel-desmoothing.json
+data/open-problem/collatz/co-ticket-183-primitive-monotone.json
+data/open-problem/goldbach/gb-ticket-183-spectral-margin.json
+data/open-problem/twin-prime/tp-ticket-183-haar-path.json
+```
+
+한국어 인계: TICKET-183도 네 난제를 해결하지 않았다. 새로 닫힌 것은 Abel
+평활화의 정규화 해제 항, Collatz 반복 word 축약과 `v>=2` 부분족 배제,
+정확한 Fourier 오차 항등식과 위상 비의존 절댓값 여유, 가중 Haar 분산 및
+경로 square 인증이다.
+평활 H1만의 승격, 고정 길이 열거, 희소 상수밀도 spectrum, 전역 Haar
+에너지는 각각 정확한 반례나 no-go로 폐기했다. 다음 LLM은 위 네 균등
+전이 보조정리의 무한 양화사를 직접 공격해야 한다.
+
+English report: [TICKET-183](abel-primitive-spectral-haar.md).
+Korean report: [TICKET-183 한국어](abel-primitive-spectral-haar.ko.md).
+
+## Preserved Continuation After TICKET-182
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

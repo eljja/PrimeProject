@@ -1,0 +1,173 @@
+{
+  "schema": "primeproject.ticket183-abel-primitive-spectral-haar.v1",
+  "generated_at": "2026-08-02T13:20:00+09:00",
+  "ticket_id": "RH-TICKET-183",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "AbelFejerDesmoothingCertificateAndHighFrequencyNoGo",
+  "declared_proposition": "For an absolutely summable periodic Fourier series f with coefficients a_k, let A_rho f have coefficients rho^|k| a_k. Then ||f||_infinity is at most ||sigma_N A_rho f||_infinity plus C_N (sum k^2 rho^(2|k|)|a_k|^2)^(1/2) plus R_rho=sum |1-rho^|k|| |a_k|. The first two terms alone cannot control f: for f_M(theta)=cos(M theta), fixed rho<1 and N<M, the smoothed low-pass norm is zero and the smoothed H1 tail tends to zero, while ||f_M||_infinity=1 and R_rho=1-rho^M tends to one.",
+  "mathematical_argument": "Insert A_rho f between f and its Fejer mean and apply the triangle inequality. The TICKET-182 Fejer multiplier estimate and Parseval give the H1 term exactly, while absolute convergence gives the coefficient desmoothing remainder. A single cosine has Abel attenuation rho^M and normalized derivative L2 norm M rho^M/sqrt(2), proving the counterfamily.",
+  "reproducible_computation": {
+    "theorem": "For an absolutely summable periodic Fourier series f with coefficients a_k, let A_rho f have coefficients rho^|k| a_k. Then ||f||_infinity is at most ||sigma_N A_rho f||_infinity plus C_N (sum k^2 rho^(2|k|)|a_k|^2)^(1/2) plus R_rho=sum |1-rho^|k|| |a_k|. The first two terms alone cannot control f: for f_M(theta)=cos(M theta), fixed rho<1 and N<M, the smoothed low-pass norm is zero and the smoothed H1 tail tends to zero, while ||f_M||_infinity=1 and R_rho=1-rho^M tends to one.",
+    "proof": "Insert A_rho f between f and its Fejer mean and apply the triangle inequality. The TICKET-182 Fejer multiplier estimate and Parseval give the H1 term exactly, while absolute convergence gives the coefficient desmoothing remainder. A single cosine has Abel attenuation rho^M and normalized derivative L2 norm M rho^M/sqrt(2), proving the counterfamily.",
+    "high_frequency_counterfamily": [
+      {
+        "rho": 0.9,
+        "frequency_M": 32,
+        "fejer_order_N": 16,
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.03433683820292515,
+        "abel_derivative_l2": 0.7769539564093977,
+        "low_pass_norm": 0.0,
+        "h1_tail_budget": 0.38549372650612396,
+        "smoothed_only_certificate": 0.38549372650612396,
+        "explicit_desmoothing_remainder": 0.9656631617970749,
+        "full_certificate": 1.3511568883031988,
+        "core_margin_delta": 0.25,
+        "checks": {
+          "smoothed_h1_energy_matches_single_mode": true,
+          "desmoothing_remainder_is_exact": true,
+          "full_bound_covers_original_norm": true
+        }
+      },
+      {
+        "rho": 0.9,
+        "frequency_M": 64,
+        "fejer_order_N": 16,
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.0011790184577738603,
+        "abel_derivative_l2": 0.05335628458470411,
+        "low_pass_norm": 0.0,
+        "h1_tail_budget": 0.02647327143056692,
+        "smoothed_only_certificate": 0.02647327143056692,
+        "explicit_desmoothing_remainder": 0.9988209815422261,
+        "full_certificate": 1.025294252972793,
+        "core_margin_delta": 0.25,
+        "checks": {
+          "smoothed_h1_energy_matches_single_mode": true,
+          "desmoothing_remainder_is_exact": true,
+          "full_bound_covers_original_norm": true
+        }
+      },
+      {
+        "rho": 0.9,
+        "frequency_M": 128,
+        "fejer_order_N": 16,
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 1.3900845237714517e-06,
+        "abel_derivative_l2": 0.00012581608872720205,
+        "low_pass_norm": 0.0,
+        "h1_tail_budget": 6.242495130859159e-05,
+        "smoothed_only_certificate": 6.242495130859159e-05,
+        "explicit_desmoothing_remainder": 0.9999986099154762,
+        "full_certificate": 1.0000610348667847,
+        "core_margin_delta": 0.25,
+        "checks": {
+          "smoothed_h1_energy_matches_single_mode": true,
+          "desmoothing_remainder_is_exact": true,
+          "full_bound_covers_original_norm": true
+        }
+      },
+      {
+        "rho": 0.9,
+        "frequency_M": 256,
+        "fejer_order_N": 16,
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 1.9323349832289036e-12,
+        "abel_derivative_l2": 3.4978999556227873e-10,
+        "low_pass_norm": 0.0,
+        "h1_tail_budget": 1.735519174225192e-10,
+        "smoothed_only_certificate": 1.735519174225192e-10,
+        "explicit_desmoothing_remainder": 0.9999999999980677,
+        "full_certificate": 1.0000000001716196,
+        "core_margin_delta": 0.25,
+        "checks": {
+          "smoothed_h1_energy_matches_single_mode": true,
+          "desmoothing_remainder_is_exact": true,
+          "full_bound_covers_original_norm": true
+        }
+      }
+    ],
+    "abel_prime_proxy_diagnostic": [
+      {
+        "rho": 0.9,
+        "prime_proxy_cutoff_P": 100000,
+        "abel_derivative_l2_squared": 19.526960941596293,
+        "abel_derivative_l2": 4.418932104207564,
+        "finite_cutoff_desmoothing_l1": 626.9973780483186
+      },
+      {
+        "rho": 0.95,
+        "prime_proxy_cutoff_P": 100000,
+        "abel_derivative_l2_squared": 114.90083338519545,
+        "abel_derivative_l2": 10.719180630309177,
+        "finite_cutoff_desmoothing_l1": 624.7157157276818
+      },
+      {
+        "rho": 0.98,
+        "prime_proxy_cutoff_P": 100000,
+        "abel_derivative_l2_squared": 1036.7532897302597,
+        "abel_derivative_l2": 32.19865353908855,
+        "finite_cutoff_desmoothing_l1": 620.1228283782625
+      },
+      {
+        "rho": 0.99,
+        "prime_proxy_cutoff_P": 100000,
+        "abel_derivative_l2_squared": 5098.945800298419,
+        "abel_derivative_l2": 71.40690302973809,
+        "finite_cutoff_desmoothing_l1": 614.930044594034
+      }
+    ],
+    "aggregate": {
+      "counterfamily_case_count": 4,
+      "smoothed_only_certificate_eventually_passes": true,
+      "original_norm_stays_one": true,
+      "desmoothing_remainder_tends_to_one": true,
+      "prime_proxy_cutoff": 100000
+    },
+    "no_go_scope": "Abel smoothing makes the H1 energy finite, but a small smoothed certificate does not transfer to the unsmoothed symbol without an independent desmoothing modulus on the pole-neutral Weil test cone.",
+    "failure_count": 0
+  },
+  "discarded_route": "small Abel-smoothed H1 energy by itself as a certificate for the unsmoothed Weil symbol",
+  "remaining_gap": "No uniform Abel desmoothing modulus is proved for the pole-neutral Weil test cone, so a smoothed H1 margin cannot yet be transferred to the unsmoothed quadratic form.",
+  "candidate_theorem": "PoleNeutralWeilTestConeHasUniformAbelDesmoothingModulus",
+  "claim_boundary": "No RH proof or zero exclusion; one exact regularization-transfer inequality, one high-frequency counterfamily, and finite Abel-prime proxy energies only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T182-INPUT",
+        "label": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "RH-T183-CLOSED",
+        "label": "AbelFejerDesmoothingCertificateAndHighFrequencyNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T183-REJECTED",
+        "label": "SmallSmoothedH1EnergyTransfersToUnsmoothedWeilSymbol",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T183-OPEN",
+        "label": "PoleNeutralWeilTestConeHasUniformAbelDesmoothingModulus",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T182-INPUT",
+        "RH-T183-CLOSED"
+      ],
+      [
+        "RH-T183-CLOSED",
+        "RH-T183-OPEN"
+      ],
+      [
+        "RH-T183-REJECTED",
+        "RH-T183-OPEN"
+      ]
+    ]
+  }
+}

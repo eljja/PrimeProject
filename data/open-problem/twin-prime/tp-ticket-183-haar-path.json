@@ -1,0 +1,140 @@
+{
+  "schema": "primeproject.ticket183-abel-primitive-spectral-haar.v1",
+  "generated_at": "2026-08-02T13:20:00+09:00",
+  "ticket_id": "TP-TICKET-183",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "WeightedHaarVarianceIdentityAndNegativePathSquareCertificate",
+  "declared_proposition": "For a finite dyadic tree with positive leaf masses and leaf ratios, the weighted leaf variance equals the sum over internal nodes of m_L m_R/(m_L+m_R) times (r_L-r_R)^2. Along a depth-d path, if Q_minus is the sum of the squares of its negative increments, then r_leaf is at least r_root-sqrt(d Q_minus); positivity follows when that lower bound is positive. Global Haar energy alone is insufficient: one zero leaf among 2^d unit-background leaves has global normalized energy (2^d-1)/2^(2d) tending to zero while the zero leaf persists.",
+  "mathematical_argument": "The two-child weighted variance decomposition is an identity; recursing proves the Haar energy formula. The leaf ratio telescopes along its path, and Cauchy-Schwarz bounds the total negative increment by sqrt(d Q_minus). The one-zero-leaf family has root 1-2^(-d), and direct variance evaluation gives the stated vanishing global energy despite a fixed bad leaf.",
+  "reproducible_computation": {
+    "theorem": "For a finite dyadic tree with positive leaf masses and leaf ratios, the weighted leaf variance equals the sum over internal nodes of m_L m_R/(m_L+m_R) times (r_L-r_R)^2. Along a depth-d path, if Q_minus is the sum of the squares of its negative increments, then r_leaf is at least r_root-sqrt(d Q_minus); positivity follows when that lower bound is positive. Global Haar energy alone is insufficient: one zero leaf among 2^d unit-background leaves has global normalized energy (2^d-1)/2^(2d) tending to zero while the zero leaf persists.",
+    "proof": "The two-child weighted variance decomposition is an identity; recursing proves the Haar energy formula. The leaf ratio telescopes along its path, and Cauchy-Schwarz bounds the total negative increment by sqrt(d Q_minus). The one-zero-leaf family has root 1-2^(-d), and direct variance evaluation gives the stated vanishing global energy despite a fixed bad leaf.",
+    "global_energy_counterfamily": [
+      {
+        "tree_depth_L": 4,
+        "leaf_count": 16,
+        "root_ratio": 0.9375,
+        "global_haar_energy": 0.05859375,
+        "selected_bad_leaf_ratio": 0.0,
+        "selected_negative_path_square": 0.33203125,
+        "minimum_certified_leaf_lower_bound": -0.21494305716161088,
+        "checks": {
+          "variance_identity_holds": true,
+          "global_energy_matches_formula": true,
+          "bad_leaf_remains_zero": true
+        }
+      },
+      {
+        "tree_depth_L": 8,
+        "leaf_count": 256,
+        "root_ratio": 0.99609375,
+        "global_haar_energy": 0.0038909912109375,
+        "selected_bad_leaf_ratio": 0.0,
+        "selected_negative_path_square": 0.3333282470703125,
+        "minimum_certified_leaf_lower_bound": -0.6368869530588268,
+        "checks": {
+          "variance_identity_holds": true,
+          "global_energy_matches_formula": true,
+          "bad_leaf_remains_zero": true
+        }
+      },
+      {
+        "tree_depth_L": 12,
+        "leaf_count": 4096,
+        "root_ratio": 0.999755859375,
+        "global_haar_energy": 0.0002440810203552246,
+        "selected_bad_leaf_ratio": 0.0,
+        "selected_negative_path_square": 0.3333333134651184,
+        "minimum_certified_leaf_lower_bound": -1.0002440810203543,
+        "checks": {
+          "variance_identity_holds": true,
+          "global_energy_matches_formula": true,
+          "bad_leaf_remains_zero": true
+        }
+      },
+      {
+        "tree_depth_L": 16,
+        "leaf_count": 65536,
+        "root_ratio": 0.9999847412109375,
+        "global_haar_energy": 1.5258556231856346e-05,
+        "selected_bad_leaf_ratio": 0.0,
+        "selected_negative_path_square": 0.3333333332557231,
+        "minimum_certified_leaf_lower_bound": -1.309416335278716,
+        "checks": {
+          "variance_identity_holds": true,
+          "global_energy_matches_formula": true,
+          "bad_leaf_remains_zero": true
+        }
+      }
+    ],
+    "finite_prime_pair_haar_diagnostic": {
+      "interval_start": 100000,
+      "interval_stop": 362144,
+      "interval_length": 262144,
+      "leaf_width": 1024,
+      "leaf_count": 256,
+      "actual_twin_pair_count": 2298,
+      "root_actual_to_expected_ratio": 1.0003782652130326,
+      "weighted_leaf_variance": 0.07854464661712764,
+      "summed_weighted_haar_energy": 0.07854464661712766,
+      "variance_identity_error": 2.7755575615628914e-17,
+      "maximum_negative_path_square": 0.3571490232517877,
+      "minimum_actual_leaf_ratio": 0.1199370721328891,
+      "minimum_certified_leaf_lower_bound": -0.6899448358579732,
+      "all_leaf_certificates_pass": false,
+      "claim_boundary": "This finite Hardy-Littlewood-normalized block tree verifies the Haar identity only. It gives no uniform future-block estimate and does not overcome the parity barrier."
+    },
+    "aggregate": {
+      "counterfamily_case_count": 4,
+      "largest_counterfamily_depth": 16,
+      "global_energy_tends_to_zero": true,
+      "bad_leaf_stays_zero": true,
+      "finite_interval_stop": 362144
+    },
+    "no_go_scope": "The global square energy is exact but averaged. Uniform positivity needs a negative square-function bound on every path, plus an arithmetic lower margin that sieve parity does not provide.",
+    "failure_count": 0
+  },
+  "discarded_route": "global Haar energy decay as a substitute for every-path lower control",
+  "remaining_gap": "No uniform negative Haar path-square bound or parity-breaking positive root margin is proved for prime-pair blocks.",
+  "candidate_theorem": "PrimePairNegativeHaarPathSquareStaysBelowRootMargin",
+  "claim_boundary": "No Twin Prime proof or exact-gap-two lower bound; one exact Haar identity, one every-path sufficient condition, a sharp global-energy counterfamily, and one finite prime-pair tree only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T182-INPUT",
+        "label": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "TP-T183-CLOSED",
+        "label": "WeightedHaarVarianceIdentityAndNegativePathSquareCertificate",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T183-REJECTED",
+        "label": "VanishingGlobalHaarEnergyForcesEveryLeafPositive",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T183-OPEN",
+        "label": "PrimePairNegativeHaarPathSquareStaysBelowRootMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T182-INPUT",
+        "TP-T183-CLOSED"
+      ],
+      [
+        "TP-T183-CLOSED",
+        "TP-T183-OPEN"
+      ],
+      [
+        "TP-T183-REJECTED",
+        "TP-T183-OPEN"
+      ]
+    ]
+  }
+}

@@ -31,15 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-183: Abel Transfer, Primitive Collatz Words, Fourier Margins, and Haar Paths](docs/abel-primitive-spectral-haar.md),
+with a separate [Korean report](docs/abel-primitive-spectral-haar.ko.md).
+It proves four exact reductions: an Abel-Fejer-H1 certificate with the missing
+desmoothing remainder made explicit; primitive-root reduction and complete
+exclusion of the Collatz `v_j>=2` cycle stratum; an exact Fourier-error
+positivity margin plus a Parseval no-go for sparse constant-density models; and
+the weighted Haar variance identity plus a negative path-square positivity
+certificate. Finite arithmetic diagnostics do not close the remaining
+universal estimates. Every conjecture remains `open_not_proven`; the machine
+resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-182: Sobolev, Divisibility, Translation, and Sibling Localization](docs/sobolev-divisibility-translation-sibling.md),
 with a separate [Korean report](docs/sobolev-divisibility-translation-sibling.ko.md).
-It proves four exact refinements: an `H1` energy certificate for an RH Fejer
-tail plus a raw-prime energy no-go; an iff reduction of accelerated Collatz
-cycles to `D|B(w)`; a weighted uniform-translation certificate for Goldbach
-residuals plus an RMS-spike no-go; and a mass-weighted sibling-contrast
-identity for Twin blocks plus a mean-path no-go. Finite arithmetic diagnostics
-do not close the remaining universal estimates. Every conjecture remains
-`open_not_proven`; the machine resolution count is zero.
 
 The preserved previous boundary is
 [TICKET-181: Regularized Localization and Quantized Slack](docs/regularized-localization-quantized-slack.md),
@@ -163,7 +168,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-182 boundary, four exact representation-aligned results, four discarded concentration surrogates, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-183 boundary, four exact transfer results, four discarded average-to-uniform promotions, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -176,19 +181,21 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 143-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 144-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-182. It refines the TICKET-181 bridges
-with Fourier-multiplier `H1` energy, exact Collatz affine divisibility,
-Fejer-weighted uniform translations, and mass-weighted sibling contrasts. It
-also proves that raw prime `H1` energy, average valuation surplus, RMS
-translation regularity, and level-averaged tree variation cannot supply the
-required universal conclusions. These are intermediate theorems, not
+The latest proof-search track is TICKET-183. It refines the TICKET-182 targets
+with an explicit Abel desmoothing remainder, exact Collatz primitive-word
+reduction, an exact Fourier-error margin, and a weighted Haar path-square
+certificate. It also proves that smoothed H1 energy alone, fixed-horizon word
+search, sparse constant-density spectra, and global Haar energy cannot supply
+the required universal conclusions. These are intermediate theorems, not
 solutions. All four conjectures remain open and the machine resolution count
 is zero.
 See
+[TICKET183 EN](docs/abel-primitive-spectral-haar.md),
+[TICKET183 KO](docs/abel-primitive-spectral-haar.ko.md),
 [TICKET182 EN](docs/sobolev-divisibility-translation-sibling.md),
 [TICKET182 KO](docs/sobolev-divisibility-translation-sibling.ko.md),
 [TICKET181 EN](docs/regularized-localization-quantized-slack.md),
@@ -242,13 +249,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-182입니다. 리만 트랙은 전역 `H1`
-에너지가 Fejer 꼬리를 제어하지만 smoothing 없는 prime proxy 에너지는
-발산함을, 콜라츠 트랙은 주기 존재가 정확히 `D|B(w)`와 동치임을
-증명했습니다. 골드바흐 트랙은 가중 균일 평행이동 modulus와 RMS spike
-반례를, 쌍둥이 소수 트랙은 형제 block 대비 항등식과 level 평균의 예외
-경로 반례를 증명했습니다. 실제 산술 객체에 필요한 균일 상계는 모두
-미증명이며 네 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-183입니다. 리만 트랙은 Abel 평활
+H1 인증에 정규화 해제 오차가 반드시 필요함을, 콜라츠 트랙은 반복 word의
+원시근 축약과 `v_j>=2` 부분족의 고정점 외 순환 불가능성을 증명했습니다.
+골드바흐 트랙은 정확한 Fourier 오차 항등식과 희소 상수밀도 Parseval no-go를,
+쌍둥이 소수 트랙은 Haar 분산 항등식과 음의 경로 square 인증을
+증명했습니다. 실제 산술 객체에 필요한 균일 상계는 모두 미증명이며 네
+문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -268,19 +275,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-182입니다.
-[Sobolev·나눗셈·평행이동·형제 block 한국어 보고서](docs/sobolev-divisibility-translation-sibling.ko.md)와
-[영문 보고서](docs/sobolev-divisibility-translation-sibling.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-183입니다.
+[Abel·원시 word·Fourier 여유·Haar 경로 한국어 보고서](docs/abel-primitive-spectral-haar.ko.md)와
+[영문 보고서](docs/abel-primitive-spectral-haar.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-`H1` 에너지, affine cycle 나눗셈, 균일 평행이동 modulus, 질량 가중 형제
-대비가 각각 조건부 연결을 제공하지만 실제 산술 전제는 남아 있습니다.
-각 proof DAG는 TICKET-181 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
+Abel 정규화 해제, 원시 Collatz word, 정확한 Fourier 오차, 음의 Haar
+경로 square가 각각 정확한 조건부 연결을 제공하지만 실제 산술 전제는 남아
+있습니다. 각 proof DAG는 TICKET-182 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-182의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 182개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-183의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 183개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

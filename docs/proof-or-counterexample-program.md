@@ -37,6 +37,43 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-183 Uniform-Transfer Audit
+
+TICKET-183 continues from the four TICKET-182 open nodes and keeps every
+parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `AbelFejerDesmoothingCertificateAndHighFrequencyNoGo` proves
+   an exact three-term Abel-Fejer-H1 certificate and a high-frequency family
+   showing that the desmoothing remainder cannot be omitted. The next
+   obligation is `PoleNeutralWeilTestConeHasUniformAbelDesmoothingModulus`.
+2. **Collatz:** `PrimitiveWordReductionAndMonotoneValuationExclusion` proves
+   that repeated valuation words have exactly the same cycle-divisibility
+   status as their primitive root and excludes every non-fixed cycle with
+   `v_j>=2`. The remaining words are primitive, contracting, and contain
+   `v=1`. The next obligation is
+   `NoPrimitiveContractingValuationWordContainingOneSatisfiesAffineDivisibility`.
+3. **Goldbach:** `ExactFourierErrorIdentityAndSparseDensityNoGo` proves an
+   exact target-indexed finite-group Fourier error identity and then applies
+   an absolute error budget for a sufficient positivity margin. Parseval shows
+   that a sparse constant-density prime model cannot pass that phase-blind
+   budget. The next obligation is
+   `GoldbachMajorMinorPhaseErrorIsUniformlyBelowSingularSeriesMargin`.
+4. **Twin Prime:** `WeightedHaarVarianceIdentityAndNegativePathSquareCertificate`
+   proves the exact weighted variance decomposition and a pathwise sufficient
+   positivity condition. A one-zero-leaf family refutes global Haar-energy
+   promotion. The next obligation is
+   `PrimePairNegativeHaarPathSquareStaysBelowRootMargin`.
+
+Finite diagnostics cover Abel prime proxies through 100,000; 488,280 Collatz
+words with 87,380 words in the completely excluded monotone stratum; exact
+strong-Goldbach enumeration through 50,000; and 2,298 actual twin pairs on
+`[100000,362144)`. These ranges do not close an infinite quantifier. Machine
+audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-183](abel-primitive-spectral-haar.md).
+한국어 보고서: [TICKET-183](abel-primitive-spectral-haar.ko.md).
+
 ## 2026-08-02 TICKET-182 Representation-Aligned Localization Audit
 
 TICKET-182 continues from the four TICKET-181 open nodes and keeps every

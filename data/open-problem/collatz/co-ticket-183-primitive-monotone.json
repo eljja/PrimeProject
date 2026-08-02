@@ -1,0 +1,253 @@
+{
+  "schema": "primeproject.ticket183-abel-primitive-spectral-haar.v1",
+  "generated_at": "2026-08-02T13:20:00+09:00",
+  "ticket_id": "CO-TICKET-183",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "PrimitiveWordReductionAndMonotoneValuationExclusion",
+  "declared_proposition": "If u has affine cycle data (B,D) and w=u^r, then D(w)=D(u)Q_r and B(w)=B(u)Q_r for the same positive geometric factor Q_r; hence D(w) divides B(w) exactly when D(u) divides B(u). In addition, a positive accelerated cycle whose valuations all satisfy v_j>=2 is only the fixed point n=1 with constant word (2,...,2). Therefore every nontrivial cycle candidate reduces to a primitive contracting word containing valuation one.",
+  "mathematical_argument": "The affine map of u is F(n)=(3^h n+B)/2^S. Iterating F r times factors both 2^(rS)-3^(rh) and B(u^r) by the same geometric sum, which proves primitive-root equivalence. If every v_j>=2, then T(n)=(3n+1)/2^v is strictly smaller than n for every odd n>1. A positive cycle is therefore impossible unless it reaches n=1, where the exact valuation is two and the orbit stays fixed.",
+  "reproducible_computation": {
+    "theorem": "If u has affine cycle data (B,D) and w=u^r, then D(w)=D(u)Q_r and B(w)=B(u)Q_r for the same positive geometric factor Q_r; hence D(w) divides B(w) exactly when D(u) divides B(u). In addition, a positive accelerated cycle whose valuations all satisfy v_j>=2 is only the fixed point n=1 with constant word (2,...,2). Therefore every nontrivial cycle candidate reduces to a primitive contracting word containing valuation one.",
+    "proof": "The affine map of u is F(n)=(3^h n+B)/2^S. Iterating F r times factors both 2^(rS)-3^(rh) and B(u^r) by the same geometric sum, which proves primitive-root equivalence. If every v_j>=2, then T(n)=(3n+1)/2^v is strictly smaller than n for every odd n>1. A positive cycle is therefore impossible unless it reaches n=1, where the exact valuation is two and the orbit stays fixed.",
+    "repetition_identity_rows": [
+      {
+        "primitive_word": [
+          2
+        ],
+        "repetitions_r": 5,
+        "repeated_word_length": 5,
+        "factor_Q": 781,
+        "root_D": 1,
+        "repeated_D": 781,
+        "root_B": 1,
+        "repeated_B": 781,
+        "root_divisibility_hit": true,
+        "repeated_divisibility_hit": true,
+        "checks": {
+          "denominator_factorization": true,
+          "numerator_factorization": true,
+          "divisibility_equivalence": true
+        }
+      },
+      {
+        "primitive_word": [
+          1,
+          2,
+          3
+        ],
+        "repetitions_r": 3,
+        "repeated_word_length": 9,
+        "factor_Q": 6553,
+        "root_D": 37,
+        "repeated_D": 242461,
+        "root_B": 23,
+        "repeated_B": 150719,
+        "root_divisibility_hit": false,
+        "repeated_divisibility_hit": false,
+        "checks": {
+          "denominator_factorization": true,
+          "numerator_factorization": true,
+          "divisibility_equivalence": true
+        }
+      },
+      {
+        "primitive_word": [
+          1,
+          2,
+          2
+        ],
+        "repetitions_r": 4,
+        "repeated_word_length": 12,
+        "factor_Q": 103427,
+        "root_D": 5,
+        "repeated_D": 517135,
+        "root_B": 23,
+        "repeated_B": 2378821,
+        "root_divisibility_hit": false,
+        "repeated_divisibility_hit": false,
+        "checks": {
+          "denominator_factorization": true,
+          "numerator_factorization": true,
+          "divisibility_equivalence": true
+        }
+      }
+    ],
+    "finite_primitive_rows": [
+      {
+        "horizon_h": 1,
+        "word_count": 5,
+        "primitive_word_count": 5,
+        "contracting_word_count": 4,
+        "primitive_contracting_with_one_count": 0,
+        "all_valuations_at_least_two_count": 4,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 2,
+        "word_count": 25,
+        "primitive_word_count": 20,
+        "contracting_word_count": 22,
+        "primitive_contracting_with_one_count": 6,
+        "all_valuations_at_least_two_count": 16,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 3,
+        "word_count": 125,
+        "primitive_word_count": 120,
+        "contracting_word_count": 121,
+        "primitive_contracting_with_one_count": 57,
+        "all_valuations_at_least_two_count": 64,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 4,
+        "word_count": 625,
+        "primitive_word_count": 600,
+        "contracting_word_count": 610,
+        "primitive_contracting_with_one_count": 348,
+        "all_valuations_at_least_two_count": 256,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 5,
+        "word_count": 3125,
+        "primitive_word_count": 3120,
+        "contracting_word_count": 3104,
+        "primitive_contracting_with_one_count": 2080,
+        "all_valuations_at_least_two_count": 1024,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 6,
+        "word_count": 15625,
+        "primitive_word_count": 15480,
+        "contracting_word_count": 15541,
+        "primitive_contracting_with_one_count": 11382,
+        "all_valuations_at_least_two_count": 4096,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 7,
+        "word_count": 78125,
+        "primitive_word_count": 78120,
+        "contracting_word_count": 77795,
+        "primitive_contracting_with_one_count": 61411,
+        "all_valuations_at_least_two_count": 16384,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      },
+      {
+        "horizon_h": 8,
+        "word_count": 390625,
+        "primitive_word_count": 390000,
+        "contracting_word_count": 390130,
+        "primitive_contracting_with_one_count": 324240,
+        "all_valuations_at_least_two_count": 65536,
+        "all_valuations_at_least_two_nontrivial_hit_count": 0,
+        "divisibility_hit_count": 1
+      }
+    ],
+    "unbounded_primitive_contracting_family": [
+      {
+        "horizon_h": 3,
+        "exponent_sum_S": 5,
+        "cycle_denominator_D": 5,
+        "is_primitive": true,
+        "is_contracting": true,
+        "contains_valuation_one": true
+      },
+      {
+        "horizon_h": 4,
+        "exponent_sum_S": 7,
+        "cycle_denominator_D": 47,
+        "is_primitive": true,
+        "is_contracting": true,
+        "contains_valuation_one": true
+      },
+      {
+        "horizon_h": 8,
+        "exponent_sum_S": 15,
+        "cycle_denominator_D": 26207,
+        "is_primitive": true,
+        "is_contracting": true,
+        "contains_valuation_one": true
+      },
+      {
+        "horizon_h": 16,
+        "exponent_sum_S": 31,
+        "cycle_denominator_D": 2104436927,
+        "is_primitive": true,
+        "is_contracting": true,
+        "contains_valuation_one": true
+      },
+      {
+        "horizon_h": 32,
+        "exponent_sum_S": 63,
+        "cycle_denominator_D": 9221519016665923967,
+        "is_primitive": true,
+        "is_contracting": true,
+        "contains_valuation_one": true
+      }
+    ],
+    "aggregate": {
+      "words_checked": 488280,
+      "primitive_contracting_with_one_checked": 399524,
+      "all_valuations_at_least_two_words_checked": 87380,
+      "all_valuations_at_least_two_nontrivial_hits": 0,
+      "largest_finite_horizon": 8,
+      "unbounded_family_largest_demonstrated_horizon": 32
+    },
+    "no_go_scope": "Primitive reduction removes duplicate repeated words, and monotone descent removes the v_j>=2 stratum. It does not exclude primitive contracting words containing v=1; the explicit family (1,2,...,2) shows that no fixed horizon exhausts that stratum.",
+    "failure_count": 0
+  },
+  "discarded_route": "counting repeated words as independent candidates or treating any fixed horizon as exhaustive",
+  "remaining_gap": "Primitive contracting valuation words containing v=1 remain unexcluded at arbitrary length.",
+  "candidate_theorem": "NoPrimitiveContractingValuationWordContainingOneSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof or complete nontrivial-cycle exclusion; exact primitive reduction, a complete v>=2 exclusion, and a finite alphabet 1..5 horizon-eight classification only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T182-INPUT",
+        "label": "AcceleratedCycleIffAffineDivisibility",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "CO-T183-CLOSED",
+        "label": "PrimitiveWordReductionAndMonotoneValuationExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T183-REJECTED",
+        "label": "FiniteHorizonEnumerationExhaustsPrimitiveContractingWords",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T183-OPEN",
+        "label": "NoPrimitiveContractingValuationWordContainingOneSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T182-INPUT",
+        "CO-T183-CLOSED"
+      ],
+      [
+        "CO-T183-CLOSED",
+        "CO-T183-OPEN"
+      ],
+      [
+        "CO-T183-REJECTED",
+        "CO-T183-OPEN"
+      ]
+    ]
+  }
+}

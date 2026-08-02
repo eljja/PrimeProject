@@ -1,0 +1,157 @@
+{
+  "schema": "primeproject.ticket183-abel-primitive-spectral-haar.v1",
+  "generated_at": "2026-08-02T13:20:00+09:00",
+  "ticket_id": "GB-TICKET-183",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "ExactFourierErrorIdentityAndSparseDensityNoGo",
+  "declared_proposition": "On a finite cyclic group with normalized convolution, write f=g+h. Then f*f=g*g+E and the Fourier coefficients of E are exactly 2 g_hat(k) h_hat(k)+h_hat(k)^2. Hence f*f is positive at every target if min(g*g) exceeds the sum of the absolute values of those error coefficients. For an indicator of density alpha with the constant model g=alpha, Parseval makes this phase-blind budget alpha(1-alpha), while the model margin is alpha^2; the certificate is therefore impossible whenever alpha<=1/2.",
+  "mathematical_argument": "The convolution theorem gives the error coefficients and Fourier inversion bounds every target error by their l1 norm. For the constant model, h has zero mean and Parseval gives sum |h_hat|^2=alpha(1-alpha); all cross terms vanish. Comparing with alpha^2 proves the sparse-model no-go without a limiting argument.",
+  "reproducible_computation": {
+    "theorem": "On a finite cyclic group with normalized convolution, write f=g+h. Then f*f=g*g+E and the Fourier coefficients of E are exactly 2 g_hat(k) h_hat(k)+h_hat(k)^2. Hence f*f is positive at every target if min(g*g) exceeds the sum of the absolute values of those error coefficients. For an indicator of density alpha with the constant model g=alpha, Parseval makes this phase-blind budget alpha(1-alpha), while the model margin is alpha^2; the certificate is therefore impossible whenever alpha<=1/2.",
+    "proof": "The convolution theorem gives the error coefficients and Fourier inversion bounds every target error by their l1 norm. For the constant model, h has zero mean and Parseval gives sum |h_hat|^2=alpha(1-alpha); all cross terms vanish. Comparing with alpha^2 proves the sparse-model no-go without a limiting argument.",
+    "phase_preserving_model_rows": [
+      {
+        "cycle_length_L": 32,
+        "major_convolution_minimum": 0.995,
+        "phase_blind_fourier_error_budget": 5.0000000000055195e-05,
+        "actual_convolution_minimum": 0.99495,
+        "certificate_passes": true,
+        "exact_fourier_identity_error": 5.129224952757361e-16,
+        "parseval_actual_energy": 1.00505
+      },
+      {
+        "cycle_length_L": 64,
+        "major_convolution_minimum": 0.9949999999999998,
+        "phase_blind_fourier_error_budget": 5.000000000003357e-05,
+        "actual_convolution_minimum": 0.9949500000000002,
+        "certificate_passes": true,
+        "exact_fourier_identity_error": 9.075144878200464e-16,
+        "parseval_actual_energy": 1.0050499999999998
+      },
+      {
+        "cycle_length_L": 128,
+        "major_convolution_minimum": 0.995,
+        "phase_blind_fourier_error_budget": 4.999999999999668e-05,
+        "actual_convolution_minimum": 0.9949500000000003,
+        "certificate_passes": true,
+        "exact_fourier_identity_error": 1.4207046455071148e-15,
+        "parseval_actual_energy": 1.0050499999999996
+      }
+    ],
+    "sparse_prime_indicator_no_go_rows": [
+      {
+        "cycle_length_L": 64,
+        "odd_prime_indicator_density_alpha": 0.46875,
+        "constant_model_margin_alpha_squared": 0.2197265625,
+        "phase_blind_budget_alpha_one_minus_alpha": 0.2490234375,
+        "budget_to_margin_ratio": 1.1333333333333333,
+        "minimum_cyclic_normalized_representation": 0.09375,
+        "constant_model_certificate_passes": false,
+        "checks": {
+          "prime_indicator_is_sparse": true,
+          "parseval_budget_blocks_certificate": true
+        }
+      },
+      {
+        "cycle_length_L": 128,
+        "odd_prime_indicator_density_alpha": 0.4140625,
+        "constant_model_margin_alpha_squared": 0.17144775390625,
+        "phase_blind_budget_alpha_one_minus_alpha": 0.24261474609375,
+        "budget_to_margin_ratio": 1.4150943396226414,
+        "minimum_cyclic_normalized_representation": 0.09375,
+        "constant_model_certificate_passes": false,
+        "checks": {
+          "prime_indicator_is_sparse": true,
+          "parseval_budget_blocks_certificate": true
+        }
+      },
+      {
+        "cycle_length_L": 256,
+        "odd_prime_indicator_density_alpha": 0.375,
+        "constant_model_margin_alpha_squared": 0.140625,
+        "phase_blind_budget_alpha_one_minus_alpha": 0.234375,
+        "budget_to_margin_ratio": 1.6666666666666667,
+        "minimum_cyclic_normalized_representation": 0.0703125,
+        "constant_model_certificate_passes": false,
+        "checks": {
+          "prime_indicator_is_sparse": true,
+          "parseval_budget_blocks_certificate": true
+        }
+      },
+      {
+        "cycle_length_L": 512,
+        "odd_prime_indicator_density_alpha": 0.333984375,
+        "constant_model_margin_alpha_squared": 0.11154556274414062,
+        "phase_blind_budget_alpha_one_minus_alpha": 0.22243881225585938,
+        "budget_to_margin_ratio": 1.9941520467836258,
+        "minimum_cyclic_normalized_representation": 0.0546875,
+        "constant_model_certificate_passes": false,
+        "checks": {
+          "prime_indicator_is_sparse": true,
+          "parseval_budget_blocks_certificate": true
+        }
+      }
+    ],
+    "finite_strong_goldbach_diagnostic": {
+      "even_target_limit": 50000,
+      "even_targets_checked": 24998,
+      "minimum_unordered_odd_prime_representation_count": 1,
+      "maximum_unordered_odd_prime_representation_count": 1205,
+      "counterexamples_found": [],
+      "claim_boundary": "This is a finite exact enumeration, not an asymptotic major/minor arc estimate and not a proof for all even integers."
+    },
+    "aggregate": {
+      "phase_model_case_count": 3,
+      "all_phase_model_certificates_pass": true,
+      "sparse_no_go_case_count": 4,
+      "all_constant_density_prime_models_fail": true,
+      "finite_even_target_limit": 50000,
+      "finite_counterexample_count": 0
+    },
+    "no_go_scope": "The exact Fourier certificate preserves target phases, but replacing the prime major arcs by a constant density and taking an absolute spectral budget cannot work in the sparse regime. A singular-series major term and phase-sensitive minor-arc cancellation remain necessary.",
+    "failure_count": 0
+  },
+  "discarded_route": "a constant-density prime model with a phase-blind absolute Fourier error budget",
+  "remaining_gap": "No singular-series major model with a uniformly smaller phase-sensitive minor-arc error is proved for every even target.",
+  "candidate_theorem": "GoldbachMajorMinorPhaseErrorIsUniformlyBelowSingularSeriesMargin",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact finite-group Fourier certificate, one Parseval sparse-density no-go, and exact enumeration through 50,000 only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T182-INPUT",
+        "label": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "GB-T183-CLOSED",
+        "label": "ExactFourierErrorIdentityAndSparseDensityNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T183-REJECTED",
+        "label": "ConstantPrimeDensityAndAbsoluteSpectrumProveEveryTargetPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T183-OPEN",
+        "label": "GoldbachMajorMinorPhaseErrorIsUniformlyBelowSingularSeriesMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T182-INPUT",
+        "GB-T183-CLOSED"
+      ],
+      [
+        "GB-T183-CLOSED",
+        "GB-T183-OPEN"
+      ],
+      [
+        "GB-T183-REJECTED",
+        "GB-T183-OPEN"
+      ]
+    ]
+  }
+}

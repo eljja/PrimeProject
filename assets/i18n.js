@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four representation-aligned refinements",
-      ko: "네 개의 미해결 문제, 구조에 맞춘 네 개의 정밀화 정리",
+      en: "Four open problems, four exact uniform-transfer audits",
+      ko: "네 개의 미해결 문제, 네 가지 균일 전이 감사",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-182 replaces four coarse surrogates with exact Sobolev, divisibility, translation-modulus, and sibling-contrast statements.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-182는 거친 대리량을 H1 에너지, affine 나눗셈, 가중 평행이동 변화율, 형제 block 대비라는 정확한 명제로 교체했습니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-183 isolates the missing transfer from smoothing or averages to uniform arithmetic conclusions.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-183은 평활화·평균 제어를 균일 산술 결론으로 승격할 때 빠지는 항을 정확히 분리합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {
