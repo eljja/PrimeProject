@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket186AttemptGlobal = null;
 let ticket185AttemptGlobal = null;
 let ticket184AttemptGlobal = null;
 let ticket183AttemptGlobal = null;
@@ -9981,6 +9982,75 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket186CodimensionTwoOneLayerCakeQuantization(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.codimension_cycle_layercake_quantization_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.finite_coordinate_quotient_rows || [];
+    detail = `
+      <div class="poc-equation">A e<sub>n</sub>=e<sub>n</sub>/n; finite-dimensional T를 제거해도 inf<sub>x⊥T, ||x||=1</sub> &lt;Ax,x&gt;=0</div>
+      ${table(["section N", "removed modes", "quotient dimension", "exact minimum"], rows.map((row) => [row.finite_section_dimension_N, row.removed_coordinate_modes, row.quotient_section_dimension, row.smallest_quotient_quadratic_value?.exact]))}
+      <div class="poc-head"><div><span>Finite sections</span><strong>${aggregate.finite_section_count || 0}</strong></div><div><span>Largest N</span><strong>${aggregate.largest_dimension || 0}</strong></div><div><span>Limit infimum</span><strong>${aggregate.infinite_quotient_infimum?.exact || "0/1"}</strong></div></div>
+      <p class="proof-note">유한 개의 spectral 또는 nuisance mode를 제거하는 것만으로 비음성이 균일 coercivity가 되지는 않습니다. 실제 RH 목표는 명시적 pole-neutral Weil core의 비음성이며, 이 대각 countermodel은 실제 Weil 형식이 아닙니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.small_h_complete_rows || [];
+    const horizons = [...new Set(rows.map((row) => row.horizon_h))];
+    detail = `
+      <div class="poc-equation">B<sub>a,b</sub>=4<sup>h-1</sup>−3<sup>h-1</sup>+4<sup>a</sup>3<sup>b-1</sup>; D<sub>h</sub>=4<sup>h-1</sup>−3<sup>h</sup>; h≥9 ⇒ 1&lt;B/D&lt;3 and B,D odd</div>
+      ${table(["exception horizon h", "all cyclic separations", "divisibility hits", "all recurrence checks"], horizons.map((horizon) => { const group = rows.filter((row) => row.horizon_h === horizon); return [horizon, group.length, group.filter((row) => !row.checks?.affine_divisibility_fails).length, group.every((row) => row.checks?.closed_form_matches_recurrence) ? "yes" : "no"]; }))}
+      <div class="poc-head"><div><span>Exact analytic range</span><strong>all h ≥ ${aggregate.analytic_range_starts_at_h || 9}</strong></div><div><span>Finite exceptions closed</span><strong>${aggregate.small_h_complete_case_count || 0}</strong></div><div><span>Divisibility hits</span><strong>${aggregate.divisibility_hits ?? "missing"}</strong></div></div>
+      <p class="proof-note">정확히 두 번의 v=1과 나머지 v=2를 갖는 모든 수축 주기를 primitive 여부와 무관하게 배제했습니다. h≥9는 전칭 부등식으로, h=5..8만 완전 열거로 닫았습니다. 세 개 이상의 v=1과 발산 궤도는 여전히 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.target_layer_cake_rows || [];
+    detail = `
+      <div class="poc-equation">B<sub>N</sub>(y)=# bad pairs with γ&gt;y; Σ<sub>0≤y&lt;τN</sub>B<sub>N</sub>(y)=Σ<sub>bad</sub>γ, and B<sub>N</sub>(y)&gt;0 below τ<sub>N</sub></div>
+      ${table(["N", "factor horizon τN", "bad pairs", "layer-cake area", "last bad layer"], rows.map((row) => [formatter.format(row.even_target_N || 0), row.factor_horizon_tau_N, formatter.format(row.bad_candidate_pair_count || 0), formatter.format(row.bad_survivor_layer_area || 0), row.last_subhorizon_bad_survivor_count]))}
+      <div class="poc-head"><div><span>Targets audited</span><strong>${aggregate.target_count || 0}</strong></div><div><span>Largest layer area</span><strong>${formatter.format(aggregate.largest_layer_area || 0)}</strong></div><div><span>Identity failures</span><strong>${aggregate.layer_cake_identity_failures ?? "missing"}</strong></div></div>
+      <p class="proof-note">인수 지평 아래에서는 최대 gate를 가진 합성수 모조쌍이 항상 남으므로 비음수 생존 점유량의 어떤 비자명한 조합도 오염을 0으로 만들 수 없습니다. 다음 단계는 부호를 보존한 prime-weighted 상쇄이며, 표의 유한 소수 표현은 골드바흐 증명이 아닙니다.</p>
+    `;
+  } else {
+    const finiteRows = computation.finite_cubic_rough_ledger_rows || [];
+    const counterRows = computation.abstract_vanishing_margin_counterledgers || [];
+    detail = `
+      <div class="poc-equation">Δ=A<sub>00</sub>−A<sub>10</sub>−A<sub>01</sub>+A<sub>11</sub>=4C; Δ&gt;0 ⇔ Δ≥4, but Δ/A<sub>00</sub> need not stay above a fixed constant</div>
+      ${table(["X", "rough mass A00", "projector Δ", "direct twin count", "Δ/A00"], finiteRows.map((row) => [formatter.format(row.X || 0), formatter.format(row.A00 || 0), formatter.format(row.quantized_projector_Delta || 0), formatter.format(row.direct_twin_count || 0), Number(row.normalized_projector_margin || 0).toFixed(6)]))}
+      ${table(["abstract A00", "twin class count", "projector Δ", "relative margin"], counterRows.map((row) => [formatter.format(row.A00 || 0), row.twin_class_count, row.quantized_projector_Delta, Number(row.normalized_projector_margin || 0).toExponential(2)]))}
+      <div class="poc-head"><div><span>Exact threshold</span><strong>4 units</strong></div><div><span>Largest finite scale</span><strong>${formatter.format(aggregate.largest_finite_scale || 0)}</strong></div><div><span>Resolution count</span><strong>${aggregate.conjecture_resolution_count ?? 0}</strong></div></div>
+      <p class="proof-note">쌍둥이 소수 존재의 정확한 projector 문턱은 4입니다. 한 블록에 하나만 남는 추상 parity ledger는 상대 margin이 0으로 가도 양성을 유지하므로 고정 비율 하한은 필요조건이 아닙니다. 추상 표는 실제 Liouville 함수의 반례가 아니며 parity 장벽은 남아 있습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket186-codimension-twoone-layercake-quantization" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 186 codimension, two-one cycles, survivor layers, and quantized margins</h3>
+      <div class="poc-head"><div><span>Status</span><strong>one infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET186 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/codimension-twoone-layercake-quantization.ko.md">한국어 보고서</a> · <a href="../docs/codimension-twoone-layercake-quantization.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket185SpectralCycleFactorGranularity(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.resolution_barrier_route_correction_audit || {};
@@ -10031,7 +10101,7 @@ function renderTicket185SpectralCycleFactorGranularity(attempt) {
   }
   return `
     <div id="ticket185-spectral-cycle-factor-granularity" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 185 spectral escape, cycle exclusion, factor horizons, and integer granularity</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact boundaries; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET185 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -14122,6 +14192,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal)}
     ${renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal)}
     ${renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal)}
     ${renderTicket182SobolevDivisibilityTranslationSibling(ticket182AttemptGlobal)}
@@ -14355,10 +14426,11 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal) ||
+      renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-185 data is unavailable. The conjecture remains open. / TICKET-185 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-186 data is unavailable. The conjecture remains open. / TICKET-186 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14680,6 +14752,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket186Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket186-codimension-twoone-layercake-quantization.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket186AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket186AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket186AttemptGlobal) {
+      ticket186AttemptGlobal.bounded_result = ticket186AttemptGlobal.bounded_result || {};
+      ticket186AttemptGlobal.bounded_result.codimension_cycle_layercake_quantization_audit = payload.codimension_cycle_layercake_quantization_audit || {};
+    }
+    return Boolean(ticket186AttemptGlobal);
+  } catch (error) {
+    ticket186AttemptGlobal = null;
     return false;
   }
 }
@@ -15753,6 +15845,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket186Loaded = await loadTicket186Attempt();
   const ticket185Loaded = await loadTicket185Attempt();
   const ticket184Loaded = await loadTicket184Attempt();
   const ticket183Loaded = await loadTicket183Attempt();
@@ -15771,8 +15864,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket186AttemptGlobal) await loadTicket186Attempt();
     if (!ticket185AttemptGlobal) await loadTicket185Attempt();
     if (!ticket184AttemptGlobal) await loadTicket184Attempt();
     if (!ticket183AttemptGlobal) await loadTicket183Attempt();

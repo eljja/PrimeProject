@@ -1,0 +1,246 @@
+{
+  "schema": "primeproject.ticket186-codimension-twoone-layercake-quantization.v1",
+  "generated_at": "2026-08-02T21:15:00+09:00",
+  "ticket_id": "TP-TICKET-186",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "QuantizedTwinProjectorAndFixedRelativeMarginNoGo",
+  "declared_proposition": "On every cubic-rough Twin block the Walsh projector Delta=A00-A10-A01+A11 equals four times the integer twin count C. Hence Delta>0 is exactly the quantized condition Delta>=4. On a fixed predeclared partition into finite disjoint blocks that covers all sufficiently large candidate starts, infinitely many positive projectors are equivalent to infinitely many twin primes. No fixed relative margin Delta>=delta*A00 is logically necessary: valid sign ledgers can have C=1, A00 tending to infinity, and Delta/A00=4/A00 tending to zero.",
+  "mathematical_argument": "Walsh inversion gives C=Delta/4 and category counts are integers, so Delta is a nonnegative multiple of four on the exact projector. The abstract category table N--=1, N++=A00-1 and both mixed categories zero has (A10,A01,A11)=(A00-2,A00-2,A00), hence Delta=4 for arbitrarily large A00. This proves the fixed-relative-margin no-go while preserving one positive twin class per block.",
+  "reproducible_computation": {
+    "theorem": "On every cubic-rough Twin block the Walsh projector Delta=A00-A10-A01+A11 equals four times the integer twin count C. Hence Delta>0 is exactly the quantized condition Delta>=4. On a fixed predeclared partition into finite disjoint blocks that covers all sufficiently large candidate starts, infinitely many positive projectors are equivalent to infinitely many twin primes. No fixed relative margin Delta>=delta*A00 is logically necessary: valid sign ledgers can have C=1, A00 tending to infinity, and Delta/A00=4/A00 tending to zero.",
+    "proof": "Walsh inversion gives C=Delta/4 and category counts are integers, so Delta is a nonnegative multiple of four on the exact projector. The abstract category table N--=1, N++=A00-1 and both mixed categories zero has (A10,A01,A11)=(A00-2,A00-2,A00), hence Delta=4 for arbitrarily large A00. This proves the fixed-relative-margin no-go while preserving one positive twin class per block.",
+    "finite_cubic_rough_ledger_rows": [
+      {
+        "X": 1000,
+        "A00": 59,
+        "A10": -17,
+        "A01": -19,
+        "A11": 9,
+        "reconstructed_twin_count": 26,
+        "direct_twin_count": 26,
+        "checks": {
+          "ledger_divisible_by_four": true,
+          "projector_matches_direct_twin_count": true,
+          "rough_pair_mass_dominates_twins": true,
+          "positive_projector_is_at_least_four": true,
+          "projector_equals_four_times_count": true
+        },
+        "quantized_projector_Delta": 104,
+        "normalized_projector_margin": 1.7627118644067796
+      },
+      {
+        "X": 10000,
+        "A00": 358,
+        "A10": -104,
+        "A01": -84,
+        "A11": 2,
+        "reconstructed_twin_count": 137,
+        "direct_twin_count": 137,
+        "checks": {
+          "ledger_divisible_by_four": true,
+          "projector_matches_direct_twin_count": true,
+          "rough_pair_mass_dominates_twins": true,
+          "positive_projector_is_at_least_four": true,
+          "projector_equals_four_times_count": true
+        },
+        "quantized_projector_Delta": 548,
+        "normalized_projector_margin": 1.5307262569832403
+      },
+      {
+        "X": 100000,
+        "A00": 2486,
+        "A10": -564,
+        "A01": -556,
+        "A11": 138,
+        "reconstructed_twin_count": 936,
+        "direct_twin_count": 936,
+        "checks": {
+          "ledger_divisible_by_four": true,
+          "projector_matches_direct_twin_count": true,
+          "rough_pair_mass_dominates_twins": true,
+          "positive_projector_is_at_least_four": true,
+          "projector_equals_four_times_count": true
+        },
+        "quantized_projector_Delta": 3744,
+        "normalized_projector_margin": 1.5060337892196298
+      },
+      {
+        "X": 1000000,
+        "A00": 17634,
+        "A10": -3970,
+        "A01": -3992,
+        "A11": 1212,
+        "reconstructed_twin_count": 6702,
+        "direct_twin_count": 6702,
+        "checks": {
+          "ledger_divisible_by_four": true,
+          "projector_matches_direct_twin_count": true,
+          "rough_pair_mass_dominates_twins": true,
+          "positive_projector_is_at_least_four": true,
+          "projector_equals_four_times_count": true
+        },
+        "quantized_projector_Delta": 26808,
+        "normalized_projector_margin": 1.5202449812861518
+      }
+    ],
+    "abstract_vanishing_margin_counterledgers": [
+      {
+        "A00": 10,
+        "A10": 8,
+        "A01": 8,
+        "A11": 10,
+        "categories": {
+          "N_plus_plus": 9,
+          "N_plus_minus": 0,
+          "N_minus_plus": 0,
+          "N_minus_minus": 1
+        },
+        "quantized_projector_Delta": 4,
+        "twin_class_count": 1,
+        "normalized_projector_margin": 0.4,
+        "checks": {
+          "projector_is_exactly_four": true,
+          "one_twin_class_entry": true,
+          "category_mass_matches_A00": true,
+          "all_category_counts_are_nonnegative": true
+        }
+      },
+      {
+        "A00": 100,
+        "A10": 98,
+        "A01": 98,
+        "A11": 100,
+        "categories": {
+          "N_plus_plus": 99,
+          "N_plus_minus": 0,
+          "N_minus_plus": 0,
+          "N_minus_minus": 1
+        },
+        "quantized_projector_Delta": 4,
+        "twin_class_count": 1,
+        "normalized_projector_margin": 0.04,
+        "checks": {
+          "projector_is_exactly_four": true,
+          "one_twin_class_entry": true,
+          "category_mass_matches_A00": true,
+          "all_category_counts_are_nonnegative": true
+        }
+      },
+      {
+        "A00": 1000,
+        "A10": 998,
+        "A01": 998,
+        "A11": 1000,
+        "categories": {
+          "N_plus_plus": 999,
+          "N_plus_minus": 0,
+          "N_minus_plus": 0,
+          "N_minus_minus": 1
+        },
+        "quantized_projector_Delta": 4,
+        "twin_class_count": 1,
+        "normalized_projector_margin": 0.004,
+        "checks": {
+          "projector_is_exactly_four": true,
+          "one_twin_class_entry": true,
+          "category_mass_matches_A00": true,
+          "all_category_counts_are_nonnegative": true
+        }
+      },
+      {
+        "A00": 10000,
+        "A10": 9998,
+        "A01": 9998,
+        "A11": 10000,
+        "categories": {
+          "N_plus_plus": 9999,
+          "N_plus_minus": 0,
+          "N_minus_plus": 0,
+          "N_minus_minus": 1
+        },
+        "quantized_projector_Delta": 4,
+        "twin_class_count": 1,
+        "normalized_projector_margin": 0.0004,
+        "checks": {
+          "projector_is_exactly_four": true,
+          "one_twin_class_entry": true,
+          "category_mass_matches_A00": true,
+          "all_category_counts_are_nonnegative": true
+        }
+      },
+      {
+        "A00": 100000,
+        "A10": 99998,
+        "A01": 99998,
+        "A11": 100000,
+        "categories": {
+          "N_plus_plus": 99999,
+          "N_plus_minus": 0,
+          "N_minus_plus": 0,
+          "N_minus_minus": 1
+        },
+        "quantized_projector_Delta": 4,
+        "twin_class_count": 1,
+        "normalized_projector_margin": 4e-05,
+        "checks": {
+          "projector_is_exactly_four": true,
+          "one_twin_class_entry": true,
+          "category_mass_matches_A00": true,
+          "all_category_counts_are_nonnegative": true
+        }
+      }
+    ],
+    "aggregate": {
+      "finite_scale_count": 4,
+      "largest_finite_scale": 1000000,
+      "smallest_abstract_relative_margin": 4e-05,
+      "all_finite_projectors_match_counts": true,
+      "conjecture_resolution_count": 0
+    },
+    "no_go_scope": "The vanishing-margin ledgers are abstract sign tables, not alternative values of the arithmetic Liouville function. They show only that a fixed positive normalized margin is stronger than Twin infinitude. The finite actual ledgers do not prove recurring positive projectors on unbounded blocks or break sieve parity.",
+    "failure_count": 0
+  },
+  "discarded_route": "a fixed positive normalized joint-Liouville margin as a necessary formulation of Twin Prime infinitude",
+  "remaining_gap": "No actual unbounded-block Liouville or Type I/II lower bound is proved; the parity barrier remains.",
+  "candidate_theorem": "PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof, infinitude theorem, or parity-breaking estimate; one exact four-unit projector threshold and fixed-relative-margin no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T185-INPUT",
+        "label": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "TP-T186-CLOSED",
+        "label": "QuantizedTwinProjectorAndFixedRelativeMarginNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T186-REJECTED",
+        "label": "TwinInfinitudeRequiresAUniformPositiveRelativeProjectorMargin",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "TP-T186-OPEN",
+        "label": "PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T185-INPUT",
+        "TP-T186-CLOSED"
+      ],
+      [
+        "TP-T186-CLOSED",
+        "TP-T186-OPEN"
+      ],
+      [
+        "TP-T186-REJECTED",
+        "TP-T186-OPEN"
+      ]
+    ]
+  }
+}

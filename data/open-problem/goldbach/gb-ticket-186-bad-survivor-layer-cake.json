@@ -1,0 +1,175 @@
+{
+  "schema": "primeproject.ticket186-codimension-twoone-layercake-quantization.v1",
+  "generated_at": "2026-08-02T21:15:00+09:00",
+  "ticket_id": "GB-TICKET-186",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "BadSurvivorLayerCakeAndNonnegativeSubhorizonNoGo",
+  "declared_proposition": "For a fixed even N, let gamma(a) be the smaller least prime factor of a bad odd pair (a,N-a), define tau as the maximum gamma with max(empty set)=0, and let B_N(y) count bad pairs with gamma>y. Then B_N(y)>=1 for every integer 0<=y<tau and the exact layer-cake identity sum_{y=0}^{tau-1} B_N(y)=sum_bad gamma(a) holds. Consequently, when tau>0, any nonzero nonnegative linear combination of subhorizon survivor counts remains strictly contaminated.",
+  "mathematical_argument": "A bad pair with gate gamma survives exactly the integer depths y=0,...,gamma-1, so exchanging the two finite sums proves the identity. If tau>0, a pair attaining the maximum gate tau survives every depth y<tau, proving strict contamination. If weights w_y are nonnegative and at least one is positive below tau, then sum w_y B_N(y)>0. When tau=0 all these subhorizon statements are vacuous. Cancellation in the nonempty case therefore requires signed prime-sensitive information or completion to the exact factor horizon.",
+  "reproducible_computation": {
+    "theorem": "For a fixed even N, let gamma(a) be the smaller least prime factor of a bad odd pair (a,N-a), define tau as the maximum gamma with max(empty set)=0, and let B_N(y) count bad pairs with gamma>y. Then B_N(y)>=1 for every integer 0<=y<tau and the exact layer-cake identity sum_{y=0}^{tau-1} B_N(y)=sum_bad gamma(a) holds. Consequently, when tau>0, any nonzero nonnegative linear combination of subhorizon survivor counts remains strictly contaminated.",
+    "proof": "A bad pair with gate gamma survives exactly the integer depths y=0,...,gamma-1, so exchanging the two finite sums proves the identity. If tau>0, a pair attaining the maximum gate tau survives every depth y<tau, proving strict contamination. If weights w_y are nonnegative and at least one is positive below tau, then sum w_y B_N(y)>0. When tau=0 all these subhorizon statements are vacuous. Cancellation in the nonempty case therefore requires signed prime-sensitive information or completion to the exact factor horizon.",
+    "target_layer_cake_rows": [
+      {
+        "even_target_N": 100,
+        "bad_candidate_pair_count": 18,
+        "prime_representation_count": 6,
+        "factor_horizon_tau_N": 7,
+        "bad_survivor_layer_area": 62,
+        "sum_of_bad_pair_gates": 62,
+        "initial_bad_survivor_count": 18,
+        "last_subhorizon_bad_survivor_count": 1,
+        "maximum_gate_multiplicity": 1,
+        "normalized_layer_area_per_bad_pair": 3.4444444444444446,
+        "checks": {
+          "layer_cake_identity_is_exact": true,
+          "every_subhorizon_layer_is_contaminated": true,
+          "last_layer_equals_max_gate_multiplicity": true,
+          "finite_target_has_prime_representation": true
+        }
+      },
+      {
+        "even_target_N": 500,
+        "bad_candidate_pair_count": 111,
+        "prime_representation_count": 13,
+        "factor_horizon_tau_N": 19,
+        "bad_survivor_layer_area": 495,
+        "sum_of_bad_pair_gates": 495,
+        "initial_bad_survivor_count": 111,
+        "last_subhorizon_bad_survivor_count": 1,
+        "maximum_gate_multiplicity": 1,
+        "normalized_layer_area_per_bad_pair": 4.45945945945946,
+        "checks": {
+          "layer_cake_identity_is_exact": true,
+          "every_subhorizon_layer_is_contaminated": true,
+          "last_layer_equals_max_gate_multiplicity": true,
+          "finite_target_has_prime_representation": true
+        }
+      },
+      {
+        "even_target_N": 1000,
+        "bad_candidate_pair_count": 221,
+        "prime_representation_count": 28,
+        "factor_horizon_tau_N": 29,
+        "bad_survivor_layer_area": 1015,
+        "sum_of_bad_pair_gates": 1015,
+        "initial_bad_survivor_count": 221,
+        "last_subhorizon_bad_survivor_count": 1,
+        "maximum_gate_multiplicity": 1,
+        "normalized_layer_area_per_bad_pair": 4.592760180995475,
+        "checks": {
+          "layer_cake_identity_is_exact": true,
+          "every_subhorizon_layer_is_contaminated": true,
+          "last_layer_equals_max_gate_multiplicity": true,
+          "finite_target_has_prime_representation": true
+        }
+      },
+      {
+        "even_target_N": 5000,
+        "bad_candidate_pair_count": 1173,
+        "prime_representation_count": 76,
+        "factor_horizon_tau_N": 67,
+        "bad_survivor_layer_area": 7073,
+        "sum_of_bad_pair_gates": 7073,
+        "initial_bad_survivor_count": 1173,
+        "last_subhorizon_bad_survivor_count": 1,
+        "maximum_gate_multiplicity": 1,
+        "normalized_layer_area_per_bad_pair": 6.029838022165388,
+        "checks": {
+          "layer_cake_identity_is_exact": true,
+          "every_subhorizon_layer_is_contaminated": true,
+          "last_layer_equals_max_gate_multiplicity": true,
+          "finite_target_has_prime_representation": true
+        }
+      },
+      {
+        "even_target_N": 10000,
+        "bad_candidate_pair_count": 2372,
+        "prime_representation_count": 127,
+        "factor_horizon_tau_N": 89,
+        "bad_survivor_layer_area": 15472,
+        "sum_of_bad_pair_gates": 15472,
+        "initial_bad_survivor_count": 2372,
+        "last_subhorizon_bad_survivor_count": 1,
+        "maximum_gate_multiplicity": 1,
+        "normalized_layer_area_per_bad_pair": 6.522765598650928,
+        "checks": {
+          "layer_cake_identity_is_exact": true,
+          "every_subhorizon_layer_is_contaminated": true,
+          "last_layer_equals_max_gate_multiplicity": true,
+          "finite_target_has_prime_representation": true
+        }
+      },
+      {
+        "even_target_N": 50000,
+        "bad_candidate_pair_count": 12049,
+        "prime_representation_count": 450,
+        "factor_horizon_tau_N": 223,
+        "bad_survivor_layer_area": 103001,
+        "sum_of_bad_pair_gates": 103001,
+        "initial_bad_survivor_count": 12049,
+        "last_subhorizon_bad_survivor_count": 1,
+        "maximum_gate_multiplicity": 1,
+        "normalized_layer_area_per_bad_pair": 8.548510249813262,
+        "checks": {
+          "layer_cake_identity_is_exact": true,
+          "every_subhorizon_layer_is_contaminated": true,
+          "last_layer_equals_max_gate_multiplicity": true,
+          "finite_target_has_prime_representation": true
+        }
+      }
+    ],
+    "aggregate": {
+      "target_count": 6,
+      "largest_target": 50000,
+      "largest_factor_horizon": 223,
+      "largest_layer_area": 103001,
+      "layer_cake_identity_failures": 0
+    },
+    "no_go_scope": "This theorem concerns nonnegative survivor occupancy only. It does not bound a von Mangoldt-weighted signed sum, a minor-arc term, or the exceptional set uniformly in N. Finite prime representations in the replay table do not prove Goldbach.",
+    "failure_count": 0
+  },
+  "discarded_route": "any nonnegative combination of subhorizon wheel survivor occupancies as a mechanism for cancelling all composite contamination",
+  "remaining_gap": "No signed prime-weighted cancellation, target-uniform minor-arc bound, or exceptional-set elimination is proved.",
+  "candidate_theorem": "SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving",
+  "claim_boundary": "No Goldbach proof, counterexample, or every-target minor-arc theorem; one exact survivor layer-cake identity and nonnegative-information no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T185-INPUT",
+        "label": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T186-CLOSED",
+        "label": "BadSurvivorLayerCakeAndNonnegativeSubhorizonNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T186-REJECTED",
+        "label": "NonnegativeSubhorizonOccupancyCancelsCompositeContamination",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "GB-T186-OPEN",
+        "label": "SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T185-INPUT",
+        "GB-T186-CLOSED"
+      ],
+      [
+        "GB-T186-CLOSED",
+        "GB-T186-OPEN"
+      ],
+      [
+        "GB-T186-REJECTED",
+        "GB-T186-OPEN"
+      ]
+    ]
+  }
+}

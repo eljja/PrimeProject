@@ -31,19 +31,23 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-185: Spectral Escape, Cycle Exclusion, Factor Horizons, and Integer Granularity](docs/spectral-cycle-factor-granularity.md),
-with a separate [Korean report](docs/spectral-cycle-factor-granularity.ko.md).
-It proves four exact boundaries: two neutral moments do not prevent spectral
-escape in the declared logarithmic autocorrelation model; every primitive
-Collatz period with exactly one valuation one and all remaining valuations two
-fails affine divisibility; each finite Goldbach target has an exact least-factor
-decision horizon; and symmetric Twin block remainder domination is impossible
-below half-unit expected mass even when one-sided positivity is the relevant
-existence condition. These are exact partial results and route corrections,
+[TICKET-186: Codimension, Two-One Cycles, Survivor Layers, and Quantized Margins](docs/codimension-twoone-layercake-quantization.md),
+with a separate [Korean report](docs/codimension-twoone-layercake-quantization.ko.md).
+It closes every accelerated Collatz cycle word containing exactly two
+valuation-one entries and otherwise only valuation two. It also proves that a
+finite-dimensional quotient does not make coercivity necessary for Weil
+nonnegativity, derives the exact Goldbach bad-survivor layer-cake identity and
+its nonnegative-information no-go, and reduces a positive Twin projector to
+the exact four-unit threshold while rejecting a fixed relative margin as a
+necessary condition. These are exact partial results and route corrections,
 not resolutions. Every conjecture remains `open_not_proven`; the machine
 resolution count is zero.
 
 The preserved previous boundary is
+[TICKET-185: Spectral Escape, Cycle Exclusion, Factor Horizons, and Integer Granularity](docs/spectral-cycle-factor-granularity.md),
+with a separate [Korean report](docs/spectral-cycle-factor-granularity.ko.md).
+
+An earlier preserved boundary is
 [TICKET-184: Information Sufficiency and Proof-Route Correction](docs/information-sufficiency-route-correction.md),
 with a separate [Korean report](docs/information-sufficiency-route-correction.ko.md).
 
@@ -173,7 +177,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-185 boundary, four exact partial results, four discarded or corrected routes, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-186 boundary, four exact partial results, four discarded or corrected routes, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -190,16 +194,18 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-185. It advances from generic
-information audits to four exact structural boundaries: spectral escape after
-two neutral constraints, exclusion of an infinite single-one Collatz cycle
-stratum, exact target-specific Goldbach factor horizons, and integer
-granularity of Twin block certificates. It also corrects the TICKET-184
-Collatz regression: universal first descent is equivalent to the full Collatz
-conjecture and is not a smaller auxiliary lemma. These results are partial
-theorems and route corrections, not solutions. All four conjectures remain
-open and the machine resolution count is zero.
+The latest proof-search track is TICKET-186. It closes the complete
+exactly-two-one/rest-two accelerated Collatz cycle stratum for all horizons.
+The other three tracks make exact target corrections: finite-codimension
+coercivity is not necessary for RH-equivalent nonnegativity, nonnegative
+subhorizon Goldbach survivor layers cannot cancel composite contamination,
+and Twin positivity has an exact four-unit projector threshold without a
+necessary fixed relative margin. These results are partial theorems and route
+corrections, not solutions. All four conjectures remain open and the machine
+resolution count is zero.
 See
+[TICKET186 EN](docs/codimension-twoone-layercake-quantization.md),
+[TICKET186 KO](docs/codimension-twoone-layercake-quantization.ko.md),
 [TICKET185 EN](docs/spectral-cycle-factor-granularity.md),
 [TICKET185 KO](docs/spectral-cycle-factor-granularity.ko.md),
 [TICKET184 EN](docs/information-sufficiency-route-correction.md),
@@ -259,14 +265,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-185입니다. 리만 트랙은 두 극점 중립
-모멘트를 만족해도 스펙트럼 질량이 고정 구간 밖으로 탈출하는 정확한 반례족을
-구성했습니다. 콜라츠 트랙은 정확히 한 번의 `v=1`과 나머지 `v=2`를 갖는
-모든 원시 주기족을 배제했고, 전체 추측과 동치인 보편 하강을 작은 보조정리로
-취급하던 경로를 철회했습니다. 골드바흐 트랙은 각 유한 목표의 정확한 최소
-소인수 지평을, 쌍둥이 소수 트랙은 작은 기대질량에서 대칭 절댓값 인증이
-불가능한 정수 격자 경계를 증명했습니다. 실제 무한 산술 전제는 모두
-미증명이며 네 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-186입니다. 콜라츠 트랙은 정확히 두
+번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 주기족을 전 길이에서 배제했습니다.
+리만 트랙은 유한 개 모드를 제거해도 비음성에서 균일 coercivity가 나오지
+않음을, 골드바흐 트랙은 인수 지평 이전의 비음수 생존층 정보가 합성수 오염을
+상쇄할 수 없음을, 쌍둥이 소수 트랙은 양의 projector가 정확히 4단위로
+양자화되며 고정 비율 margin은 필요조건이 아님을 증명했습니다. 실제 무한
+산술 전제는 남아 있고 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -286,18 +291,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-185입니다.
-[스펙트럼 탈출·주기 배제·인수 지평·정수 격자 한국어 보고서](docs/spectral-cycle-factor-granularity.ko.md)와
-[영문 보고서](docs/spectral-cycle-factor-granularity.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-186입니다.
+[유한 여차원·두-1 주기·생존층·양자화 한국어 보고서](docs/codimension-twoone-layercake-quantization.ko.md)와
+[영문 보고서](docs/codimension-twoone-layercake-quantization.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-두 중립 모멘트, 한-개 `v=1` 주기족, 목표별 인수 지평, 대칭 block 인증의
-한계를 증명했지만 실제 산술 전제는 남아 있습니다. 각 proof DAG는 TICKET-184 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
+두-개 `v=1` 주기족 전체를 새로 닫았지만 실제 산술 전제는 남아 있습니다.
+각 proof DAG는 TICKET-185 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-185의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 185개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-186의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 186개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

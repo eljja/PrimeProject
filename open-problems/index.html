@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260802-ticket185-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260802-ticket186-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-185</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-186</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-185 actually changed</h2>
-          <p>TICKET-185 did not solve a conjecture. It proves spectral escape under two neutral moments, excludes an infinite Collatz cycle stratum, identifies each finite Goldbach target's exact factor horizon, and proves the integer-granularity obstruction to symmetric Twin block certificates.</p>
-          <p class="proof-boundary">TICKET-185는 난제를 해결하지 않았습니다. 리만에서는 두 중립 모멘트만으로 꼬리 긴밀성을 얻는 경로를 반박했고, 콜라츠에서는 한 번의 v=1과 나머지 v=2인 무한 주기족을 배제했습니다. 골드바흐에서는 목표별 정확 인수 지평을, 쌍둥이 소수에서는 작은 주항에서 대칭 절댓값 인증이 불가능한 정수 격자 경계를 확립했습니다. 다음 산술 보조정리의 무한 양화사는 모두 미증명입니다.</p>
+          <h2>What TICKET-186 actually changed</h2>
+          <p>TICKET-186 did not solve a conjecture. It closes every Collatz cycle word with exactly two valuation-one entries and all other entries two, and proves exact coercivity, survivor-sign, and relative-margin target corrections in the other tracks.</p>
+          <p class="proof-boundary">TICKET-186은 난제를 해결하지 않았습니다. 콜라츠에서는 정확히 두 번의 v=1과 나머지 v=2인 모든 수축 주기족을 배제했습니다. 리만에서는 유한 모드 제거 뒤의 coercivity가 비음성에 필수가 아님을, 골드바흐에서는 비음수 subhorizon 생존층이 합성수 오염을 상쇄하지 못함을, 쌍둥이 소수에서는 projector의 정확한 4단위 문턱과 고정 비율 margin의 불필요성을 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Two neutral moments still admit positive-definite autocorrelations whose spectral mass escapes every fixed band.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Support, positivity, normalization, and two neutral moments do not force spectral-tail tightness.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Weil-form coercivity modulo spectral translations on an explicit pole-neutral core.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Finite-dimensional mode removal does not turn positive nonnegativity into a uniform coercive gap.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Uniform coercivity is not a necessary generic consequence of Weil nonnegativity.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Actual Weil-form nonnegativity on an explicit pole-neutral core with vanishing certified defect.</dd></div>
           </dl>
-          <p class="workbench-ko">평활 H1만으로 원래 기호를 제어할 수 없습니다. moment 조건을 보존하는 정규화 해제 정리가 남았습니다.</p>
+          <p class="workbench-ko">유한 모드 제거만으로 양의 틈이 생기지 않습니다. 실제 Weil 형식의 조밀한 pole-neutral core 비음성을 직접 증명해야 합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every primitive cycle word with exactly one valuation one and all other valuations two fails affine divisibility.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Universal first descent is Collatz-equivalent, not a smaller post-TICKET-184 lemma.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Exclude affine divisibility for the exactly-two-ones/rest-two primitive stratum.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every contracting cycle word with exactly two valuation ones and all other valuations two fails affine divisibility.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Bounded horizon enumeration cannot replace the all-horizon odd-quotient proof.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Exclude affine divisibility for the exactly-three-ones/rest-two stratum.</dd></div>
           </dl>
-          <p class="workbench-ko">한 번의 `v=1` 부분족은 모든 길이에서 닫혔습니다. 다음에는 정확히 두 번의 `v=1`을 갖는 무한 부분족을 공격합니다.</p>
+          <p class="workbench-ko">두 번의 `v=1` 부분족은 primitive 여부와 무관하게 모든 길이에서 닫혔습니다. 다음에는 정확히 세 번의 `v=1`을 갖는 무한 부분족을 공격합니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The target-specific factor horizon is the exact cutoff that removes every bad candidate pair.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Reaching that horizon is a finite factor-decision procedure, not an analytic breakthrough.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Signed cancellation of bad survivors below the exact horizon stays under the target margin.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The bad-survivor layer sum equals the exact sum of least-factor gates.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Every nonzero nonnegative subhorizon weighting remains composite-contaminated.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform signed prime-weighted subhorizon power saving.</dd></div>
           </dl>
-          <p class="workbench-ko">상수 밀도가 아니라 singular series와 목표별 위상을 보존한 균일 오차 상계가 남았습니다.</p>
+          <p class="workbench-ko">비음수 생존량은 합성수 오염을 지우지 못합니다. 부호 있는 소수 가중 상관의 균일 power saving이 남았습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The one-sided remainder condition is exactly positivity; symmetric domination is impossible when expected mass is at most one half.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Absolute remainder domination is stronger than the integer-valued existence question.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>A cubic-rough one-sided joint Liouville block margin on unbounded scales.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The cubic-rough Twin projector is quantized as Delta=4C.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A fixed positive relative projector margin is stronger than Twin infinitude.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Predeclared signed Type I/II main-term domination on infinitely many dyadic blocks.</dd></div>
           </dl>
-          <p class="workbench-ko">전역 에너지가 아니라 각 경로의 음의 square를 제어해야 합니다. parity를 넘는 양의 root margin도 별도입니다.</p>
+          <p class="workbench-ko">정확한 목표는 고정 비율 여유가 아니라 4단위 문턱입니다. 미리 정한 무한 블록에서 이를 반복해 넘는 산술 정리가 남았습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>185 tickets reduced to four meaningful eras</h2>
+          <h2>186 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–185 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, TICKET-185에서 스펙트럼 탈출·무한 주기족·인수 지평·정수 격자 경계를 정확히 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–186 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, TICKET-186에서 두-1 콜라츠 주기층을 닫고 세 트랙의 과도한 목표를 교정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,15 +117,16 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/spectral-cycle-factor-granularity.ko.md">TICKET-185 한국어 보고서</a>
-          <a href="../docs/spectral-cycle-factor-granularity.md">TICKET-185 English report</a>
+          <a href="../docs/codimension-twoone-layercake-quantization.ko.md">TICKET-186 한국어 보고서</a>
+          <a href="../docs/codimension-twoone-layercake-quantization.md">TICKET-186 English report</a>
+          <a href="../docs/spectral-cycle-factor-granularity.ko.md">TICKET-185 이전 보고서</a>
           <a href="../docs/information-sufficiency-route-correction.ko.md">TICKET-184 이전 보고서</a>
           <a href="../docs/open-problem-workbench.md">Proof program / 증명 프로그램</a>
           <a href="../docs/llm-open-problem-handoff.md">LLM handoff / 연구 인계</a>
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260802-ticket185"></script>
+    <script src="../assets/i18n.js?v=20260802-ticket186"></script>
   </body>
 </html>
 

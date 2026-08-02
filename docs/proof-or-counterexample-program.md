@@ -37,6 +37,40 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-186 Quantifier and Margin Corrections
+
+TICKET-186 continues from TICKET-185 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:** `FiniteCodimensionCoercivityIsNotNecessaryForNonnegativity`
+   proves that the positive compact model `diag(1/n)` has quotient infimum
+   zero after removing any finite-dimensional subspace. Uniform coercivity is
+   therefore not a necessary generic consequence of Weil nonnegativity. The
+   next obligation is
+   `WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect`.
+2. **Collatz:** `ExactlyTwoValuationOnesOtherwiseTwoCycleExclusion` closes the
+   full contracting stratum with exactly two valuation-one entries and all
+   remaining entries two. For `h>=9`, oddness and `1<B/D<3` rule out affine
+   divisibility; the 22 cases at `h=5..8` are exact finite exceptions. The next
+   obligation is
+   `NoContractingValuationWordWithExactlyThreeOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+3. **Goldbach:** `BadSurvivorLayerCakeAndNonnegativeSubhorizonNoGo` proves
+   `sum_(y<tau) B_N(y)=sum_bad gamma_N(a)` and shows every nonzero nonnegative
+   subhorizon weighting remains composite-contaminated. The next obligation is
+   `SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving`.
+4. **Twin Prime:** `QuantizedTwinProjectorAndFixedRelativeMarginNoGo` proves
+   `A00-A10-A01+A11=4C`, so positivity has the exact four-unit threshold. An
+   abstract one-twin ledger has relative margin `4/A00 -> 0`, rejecting a fixed
+   normalized margin as necessary. The next obligation is
+   `PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks`.
+
+Machine audit: four exact theorems, one newly closed infinite cycle stratum,
+four rejected targets, zero conjecture resolutions, and zero computational
+failures.
+
+English report: [TICKET-186](codimension-twoone-layercake-quantization.md).
+한국어 보고서: [TICKET-186](codimension-twoone-layercake-quantization.ko.md).
+
 ## 2026-08-02 TICKET-185 Exact Resolution Barriers
 
 TICKET-185 continues from TICKET-184 and keeps every parent conjecture at

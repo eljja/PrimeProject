@@ -1,0 +1,180 @@
+{
+  "schema": "primeproject.ticket186-codimension-twoone-layercake-quantization.v1",
+  "generated_at": "2026-08-02T21:15:00+09:00",
+  "ticket_id": "RH-TICKET-186",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteCodimensionCoercivityIsNotNecessaryForNonnegativity",
+  "declared_proposition": "Let H be an infinite-dimensional Hilbert space and let A be the positive injective compact operator Ae_n=e_n/n on an orthonormal basis. For every finite-dimensional subspace T, the infimum of <Ax,x> over unit vectors x perpendicular to T is zero. Therefore nonnegativity and injectivity, even after quotienting any finite list of nuisance or translation modes, do not imply a positive coercive gap.",
+  "mathematical_argument": "Let P_T be the orthogonal projection onto T. Finite rank implies ||P_T e_n|| tends to zero. Normalize x_n=(I-P_T)e_n. Then x_n is perpendicular to T, ||x_n-e_n|| tends to zero, and boundedness of A gives <Ax_n,x_n>-<Ae_n,e_n> tending to zero. Since <Ae_n,e_n>=1/n, the quotient infimum is zero. Positivity of A makes the infimum nonnegative, completing the proof.",
+  "reproducible_computation": {
+    "theorem": "Let H be an infinite-dimensional Hilbert space and let A be the positive injective compact operator Ae_n=e_n/n on an orthonormal basis. For every finite-dimensional subspace T, the infimum of <Ax,x> over unit vectors x perpendicular to T is zero. Therefore nonnegativity and injectivity, even after quotienting any finite list of nuisance or translation modes, do not imply a positive coercive gap.",
+    "proof": "Let P_T be the orthogonal projection onto T. Finite rank implies ||P_T e_n|| tends to zero. Normalize x_n=(I-P_T)e_n. Then x_n is perpendicular to T, ||x_n-e_n|| tends to zero, and boundedness of A gives <Ax_n,x_n>-<Ae_n,e_n> tending to zero. Since <Ae_n,e_n>=1/n, the quotient infimum is zero. Positivity of A makes the infimum nonnegative, completing the proof.",
+    "finite_coordinate_quotient_rows": [
+      {
+        "finite_section_dimension_N": 8,
+        "removed_coordinate_modes": 3,
+        "quotient_section_dimension": 5,
+        "smallest_quotient_quadratic_value": {
+          "numerator": 1,
+          "denominator": 8,
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "witness_coordinate": 8,
+        "checks": {
+          "finite_section_is_strictly_positive": true,
+          "witness_avoids_removed_modes": true,
+          "closed_form_is_one_over_N": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 16,
+        "removed_coordinate_modes": 3,
+        "quotient_section_dimension": 13,
+        "smallest_quotient_quadratic_value": {
+          "numerator": 1,
+          "denominator": 16,
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "witness_coordinate": 16,
+        "checks": {
+          "finite_section_is_strictly_positive": true,
+          "witness_avoids_removed_modes": true,
+          "closed_form_is_one_over_N": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 32,
+        "removed_coordinate_modes": 3,
+        "quotient_section_dimension": 29,
+        "smallest_quotient_quadratic_value": {
+          "numerator": 1,
+          "denominator": 32,
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "witness_coordinate": 32,
+        "checks": {
+          "finite_section_is_strictly_positive": true,
+          "witness_avoids_removed_modes": true,
+          "closed_form_is_one_over_N": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 64,
+        "removed_coordinate_modes": 3,
+        "quotient_section_dimension": 61,
+        "smallest_quotient_quadratic_value": {
+          "numerator": 1,
+          "denominator": 64,
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "witness_coordinate": 64,
+        "checks": {
+          "finite_section_is_strictly_positive": true,
+          "witness_avoids_removed_modes": true,
+          "closed_form_is_one_over_N": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 128,
+        "removed_coordinate_modes": 3,
+        "quotient_section_dimension": 125,
+        "smallest_quotient_quadratic_value": {
+          "numerator": 1,
+          "denominator": 128,
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "witness_coordinate": 128,
+        "checks": {
+          "finite_section_is_strictly_positive": true,
+          "witness_avoids_removed_modes": true,
+          "closed_form_is_one_over_N": true
+        }
+      },
+      {
+        "finite_section_dimension_N": 256,
+        "removed_coordinate_modes": 3,
+        "quotient_section_dimension": 253,
+        "smallest_quotient_quadratic_value": {
+          "numerator": 1,
+          "denominator": 256,
+          "exact": "1/256",
+          "decimal": 0.00390625
+        },
+        "witness_coordinate": 256,
+        "checks": {
+          "finite_section_is_strictly_positive": true,
+          "witness_avoids_removed_modes": true,
+          "closed_form_is_one_over_N": true
+        }
+      }
+    ],
+    "aggregate": {
+      "finite_section_count": 6,
+      "largest_dimension": 256,
+      "smallest_observed_quotient_gap": {
+        "numerator": 1,
+        "denominator": 256,
+        "exact": "1/256",
+        "decimal": 0.00390625
+      },
+      "all_finite_sections_strictly_positive": true,
+      "infinite_quotient_infimum": {
+        "numerator": 0,
+        "denominator": 1,
+        "exact": "0/1",
+        "decimal": 0.0
+      }
+    },
+    "route_correction": "TICKET-185's coercivity wording is stronger than the RH-equivalent Weil nonnegativity target unless an independently proved spectral gap is available. A valid promotion route may use nonnegativity on a dense pole-neutral form core together with certified negative defects tending to zero.",
+    "no_go_scope": "This is an exact operator-theoretic countermodel, not the zeta Weil operator. It refutes coercivity as a logically necessary generic target and finite-dimensional mode removal as a generic repair; it does not establish actual Weil-form nonnegativity or exclude a zeta zero off the critical line.",
+    "failure_count": 0
+  },
+  "discarded_route": "a uniform positive coercive gap, even after removing finitely many declared spectral modes, as a necessary consequence of Weil nonnegativity",
+  "remaining_gap": "The countermodel is not the zeta Weil form; actual nonnegativity on a dense pole-neutral core remains unproved.",
+  "candidate_theorem": "WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect",
+  "claim_boundary": "No RH proof, no actual Weil-form positivity, and no off-critical zero exclusion; one exact finite-codimension coercivity no-go only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T185-INPUT",
+        "label": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "RH-T186-CLOSED",
+        "label": "FiniteCodimensionCoercivityIsNotNecessaryForNonnegativity",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T186-REJECTED",
+        "label": "FiniteModeQuotientTurnsWeilNonnegativityIntoUniformCoercivity",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "RH-T186-OPEN",
+        "label": "WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T185-INPUT",
+        "RH-T186-CLOSED"
+      ],
+      [
+        "RH-T186-CLOSED",
+        "RH-T186-OPEN"
+      ],
+      [
+        "RH-T186-REJECTED",
+        "RH-T186-OPEN"
+      ]
+    ]
+  }
+}

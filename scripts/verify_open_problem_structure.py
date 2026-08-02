@@ -182,6 +182,7 @@ TICKET165_SCHEMA = (
 TICKET166_SCHEMA = "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1"
 TICKET167_SCHEMA = "primeproject.ticket167-cofinal-residue-besov-parity.v1"
 TICKET168_SCHEMA = "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1"
+TICKET186_SCHEMA = "primeproject.ticket186-codimension-twoone-layercake-quantization.v1"
 
 
 def fail(message: str) -> int:
@@ -12984,6 +12985,163 @@ def main() -> int:
         or "resolves none" not in str(ticket168.get("claim_boundary", "")).lower()
     ):
         return fail("ticket168 proof boundary changed")
+
+    path186 = Path(
+        "data/open-problem/ticket186-codimension-twoone-layercake-quantization.json"
+    )
+    if not path186.exists():
+        return fail("missing ticket186 codimension/cycle/layer-cake/quantization audit")
+    ticket186 = read_json(path186)
+    if (
+        ticket186.get("schema") != TICKET186_SCHEMA
+        or ticket186.get("status")
+        != "one_infinite_cycle_stratum_closed_three_exact_target_corrections_all_open"
+    ):
+        return fail("ticket186 schema or status changed")
+    audit186 = ticket186.get(
+        "codimension_cycle_layercake_quantization_audit", {}
+    )
+    if audit186.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_stratum_closure_count": 1,
+        "rejected_target_count": 4,
+        "proof_dag_count": 4,
+        "finite_arithmetic_diagnostic_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket186 global machine audit changed")
+
+    attempts186 = ticket186.get("attempts", [])
+    by_id186 = {
+        str(row.get("problem_id")): row
+        for row in attempts186
+        if isinstance(row, dict)
+    }
+    if set(by_id186) != EXPECTED_PROBLEMS:
+        return fail("ticket186 attempts missing problems")
+    paths186 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-186-finite-codimension-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-186-two-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-186-bad-survivor-layer-cake.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-186-quantized-projector.json"
+        ),
+    }
+    expected_names186 = {
+        "riemann": "FiniteCodimensionCoercivityIsNotNecessaryForNonnegativity",
+        "collatz": "ExactlyTwoValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "BadSurvivorLayerCakeAndNonnegativeSubhorizonNoGo",
+        "twin-prime": "QuantizedTwinProjectorAndFixedRelativeMarginNoGo",
+    }
+    next186 = {
+        "riemann": "WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect",
+        "collatz": "NoContractingValuationWordWithExactlyThreeOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving",
+        "twin-prime": "PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks",
+    }
+    sections186 = {
+        "riemann": audit186.get("riemann", {}),
+        "collatz": audit186.get("collatz", {}),
+        "goldbach": audit186.get("goldbach", {}),
+        "twin-prime": audit186.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id186.items():
+        artifact_path = paths186[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket186 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections186[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET186_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names186[problem_id]
+            or artifact.get("theorem_name") != expected_names186[problem_id]
+            or attempt.get("candidate_theorem") != next186[problem_id]
+            or artifact.get("candidate_theorem") != next186[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_overstrong",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next186[problem_id]
+            or int(
+                section.get("reproducible_computation", {}).get(
+                    "failure_count", -1
+                )
+            )
+            != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket186 contract changed")
+
+    riemann186 = sections186["riemann"]["reproducible_computation"]
+    rows186 = riemann186.get("finite_coordinate_quotient_rows", [])
+    if (
+        [row.get("finite_section_dimension_N") for row in rows186]
+        != [8, 16, 32, 64, 128, 256]
+        or rows186[-1].get("smallest_quotient_quadratic_value", {}).get("exact")
+        != "1/256"
+        or riemann186.get("aggregate", {})
+        .get("infinite_quotient_infimum", {})
+        .get("exact")
+        != "0/1"
+        or any(not all(row.get("checks", {}).values()) for row in rows186)
+    ):
+        return fail("ticket186 RH finite-codimension audit changed")
+
+    collatz186 = sections186["collatz"]["reproducible_computation"]
+    small186 = collatz186.get("small_h_complete_rows", [])
+    aggregate186 = collatz186.get("aggregate", {})
+    if (
+        len(small186) != 22
+        or aggregate186.get("analytic_range_starts_at_h") != 9
+        or aggregate186.get("divisibility_hits") != 0
+        or aggregate186.get("largest_replayed_horizon") != 128
+        or any(not all(row.get("checks", {}).values()) for row in small186)
+    ):
+        return fail("ticket186 Collatz two-one cycle audit changed")
+
+    goldbach186 = sections186["goldbach"]["reproducible_computation"]
+    layers186 = goldbach186.get("target_layer_cake_rows", [])
+    if (
+        [row.get("even_target_N") for row in layers186]
+        != [100, 500, 1000, 5000, 10000, 50000]
+        or goldbach186.get("aggregate", {}).get("largest_layer_area") != 103001
+        or any(not all(row.get("checks", {}).values()) for row in layers186)
+    ):
+        return fail("ticket186 Goldbach layer-cake audit changed")
+
+    twin186 = sections186["twin-prime"]["reproducible_computation"]
+    finite186 = twin186.get("finite_cubic_rough_ledger_rows", [])
+    abstract186 = twin186.get("abstract_vanishing_margin_counterledgers", [])
+    if (
+        [row.get("X") for row in finite186] != [1000, 10000, 100000, 1000000]
+        or any(
+            row.get("quantized_projector_Delta")
+            != 4 * row.get("direct_twin_count")
+            or not all(row.get("checks", {}).values())
+            for row in finite186
+        )
+        or abstract186[-1].get("normalized_projector_margin") != 0.00004
+        or twin186.get("aggregate", {}).get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket186 Twin quantized-projector audit changed")
+    if (
+        "resolves none" not in str(audit186.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket186.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket186 proof boundary changed")
 
     print("open problem structure verified")
     return 0

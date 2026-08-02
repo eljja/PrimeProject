@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-185 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, four exact resolution barriers</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-185 proves one exact boundary in each track and replaces three misleading proof targets.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-185는 각 트랙에서 정확한 경계 하나를 확립하고, 증명에 도움이 되지 않거나 과도한 목표 세 개를 교정했습니다.</p>
+                <p class="brief-kicker">TICKET-186 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, one new infinite stratum closed</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-186 closes one Collatz cycle stratum and proves three exact target corrections.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-186은 콜라츠 순환의 무한 부분족 하나를 닫고, 나머지 세 트랙의 과도하거나 부호를 잃은 목표를 교정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>185</strong><small>2026-08-02</small></div>
+              <div><span>Latest ticket</span><strong>186</strong><small>2026-08-02</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 두 극점 중립 모멘트까지 만족하지만 고정 주파수 구간 밖으로 질량이 탈출하는 양의 정부호 자기상관 반례족을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 지지집합·양의 정부호성·정규화·두 중립 모멘트만으로 스펙트럼 꼬리 긴밀성을 얻는 경로는 불가능합니다.</p>
-                <p><strong>다음 핵심:</strong> 스펙트럼 이동을 몫낸 명시적 극점 중립 core에서 실제 Weil 이차형식의 coercivity.</p>
+                <p><strong>확립:</strong> 양의 compact 연산자는 어떤 유한차원 모드를 제거해도 quotient의 최소 이차형식 값이 0에 접근할 수 있음을 증명했습니다.</p>
+                <p><strong>폐기:</strong> Weil 비음성의 필수 결과로 균일 coercivity를 요구하는 경로는 실제 목표보다 강합니다.</p>
+                <p><strong>다음 핵심:</strong> 명시적이고 조밀한 pole-neutral core에서 0으로 가는 인증 결손을 허용한 실제 Weil 비음성.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 정확히 한 번의 `v=1`과 나머지 `v=2`를 갖는 모든 원시 수축 주기족은 affine 나눗셈을 만족하지 않음을 무한히 증명했습니다.</p>
-                <p><strong>폐기:</strong> 보편 최초 하강은 콜라츠 추측과 동치이므로 더 작은 후속 보조정리로 제시할 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> 정확히 두 번의 `v=1`과 나머지 `v=2`를 갖는 원시 수축 word 전체의 affine 나눗셈 배제.</p>
+                <p><strong>확립:</strong> 정확히 두 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 주기족은 affine 나눗셈을 만족하지 않음을 전 길이에서 증명했습니다.</p>
+                <p><strong>폐기:</strong> 유한 길이 열거를 모든 horizon의 증명으로 외삽하는 경로를 폐기하고, `h≥9`를 하나의 부등식으로 닫았습니다.</p>
+                <p><strong>다음 핵심:</strong> 정확히 세 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 word의 affine 나눗셈 배제.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 각 짝수 N에서 모든 비소수 표현 후보를 처음 제거하는 정확한 최소 소인수 지평 `τN`을 정의하고 필요충분성을 증명했습니다.</p>
-                <p><strong>폐기:</strong> `τN`까지 성장하는 wheel은 목표별 인수분해 결정 절차이므로 해석적 돌파로 승격할 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> `τN`보다 작은 지평에서 prime-weighted 나쁜 생존자의 부호 있는 상쇄가 주항 여유보다 작다는 정리.</p>
+                <p><strong>확립:</strong> 나쁜 후보쌍의 subhorizon 생존층 합이 최소소인수 gate의 합과 정확히 같다는 layer-cake 항등식을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 인수 지평 이전의 비음수 wheel 점유량은 최대 gate 합성수쌍을 항상 남겨 오염을 상쇄할 수 없습니다.</p>
+                <p><strong>다음 핵심:</strong> 부호 있는 prime-weighted 나쁜 생존자 상관의 목표 균일 subhorizon power saving.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 정수 block count에서는 한쪽 조건 `R&gt;-M`이 정확히 `C&gt;0`이고, `M≤1/2`이면 대칭 조건 `|R|&lt;M`이 불가능함을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 작은 기대질량에서 대칭 절댓값 나머지 지배를 존재 인증으로 요구하는 경로는 정수 격자와 충돌합니다.</p>
-                <p><strong>다음 핵심:</strong> 무한한 scale에서 cubic rough 소수쌍의 한쪽 joint Liouville block margin.</p>
+                <p><strong>확립:</strong> cubic-rough Walsh projector는 정확히 `Δ=4C`이므로 양성 문턱은 4단위임을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 블록마다 twin 하나만 있어도 `Δ/A00→0`일 수 있어 고정 양의 상대 margin은 무한성의 필요조건이 아닙니다.</p>
+                <p><strong>다음 핵심:</strong> 미리 정한 cubic-rough signed Type I/II 주항이 무한히 많은 dyadic block에서 나머지를 지배한다는 정리.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>185개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-185는 스펙트럼 탈출, 무한 주기족 배제, 정확 인수 지평, 정수 격자 한계를 통해 다음 증명 의무를 더 작고 검증 가능하게 정렬합니다.</p>
+                <p>186개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-186은 두-1 콜라츠 주기층을 완전히 닫고, coercivity·비음수 생존층·고정 비율 margin의 논리적 강도를 교정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/spectral-cycle-factor-granularity.ko.md">최신 한국어 보고서</a>
-              <a href="docs/spectral-cycle-factor-granularity.md">Latest English report</a>
+              <a href="docs/codimension-twoone-layercake-quantization.ko.md">최신 한국어 보고서</a>
+              <a href="docs/codimension-twoone-layercake-quantization.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-185</strong>
-              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 정확한 경계 4개, 폐기·교정 경로 4개, 결정적 목표 교정 3개, 해결 0개입니다.</p>
+              <strong>TICKET-186</strong>
+              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 정확한 정리 4개, 새로 닫힌 무한 콜라츠 부분족 1개, 폐기·교정 경로 4개, 해결 0개입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
             <section class="control-group">

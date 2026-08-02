@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact resolution barriers",
-      ko: "네 개의 미해결 문제, 네 가지 정확한 해결 경계",
+      en: "Four open problems, one new infinite stratum closed",
+      ko: "네 개의 미해결 문제, 새로 닫힌 무한 부분족 하나",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-185 proves one exact boundary in each track and replaces three misleading proof targets.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-185는 각 트랙의 정확한 경계 하나를 증명하고 오해를 부르는 목표 세 개를 교정합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-186 closes one Collatz cycle stratum and proves three exact target corrections.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-186은 콜라츠 순환 부분족 하나를 닫고 정확한 목표 교정 세 개를 증명합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {
