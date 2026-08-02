@@ -40,7 +40,7 @@ async function main() {
     if (!source.includes("open-problems.js?v=20260802-ticket183")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260802-ticket183")) {
+    if (!source.includes("styles.css?v=20260802-ticket183-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
