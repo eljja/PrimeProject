@@ -37,6 +37,41 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-184 Information-Sufficiency Audit
+
+TICKET-184 continues from TICKET-183 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:**
+   `FiniteMomentCancellationDoesNotGiveUniformAbelDesmoothing` gives an
+   explicit family that cancels any fixed finite number of polynomial Fourier
+   moments while its Abel mean vanishes and its original norm remains one.
+   The next obligation is
+   `NormalizedWeilAdmissibleConeHasUniformFourierTailTightnessFromFullMellinConstraints`.
+2. **Collatz:** `CounterexampleDichotomyAndMinimalCyclePrefixBarrier` separates
+   nontrivial cycles from unbounded orbits and proves a necessary least-cycle
+   prefix barrier. The barrier is not sufficient, and cycle exclusion alone
+   is not a full proof. The next obligation is
+   `EveryPositiveOddIntegerAboveOneHasAnAcceleratedIterateBelowItsStart`.
+3. **Goldbach:** `SquarefreeWheelFactorizationAndCompositeImpostorNoGo` proves
+   the exact CRT local factor and constructs a composite-only copy of every
+   unit residue. The next obligation is
+   `GrowingWheelPrimeWeightedMinorErrorIsUniformlyBelowTheLocalSingularMargin`.
+4. **Twin Prime:** `PositiveRootMassSufficesAndCantelliExceptionalMassIsSharp`
+   proves that recurring positive total block mass is enough and that
+   every-leaf positivity is unnecessarily strong. The next obligation is
+   `PrimePairBlockMainTermDominatesParityRemainderOnAnUnboundedDisjointSequence`.
+
+Finite diagnostics include 12 exact moment-cancellation cases, first descent
+for every odd start through one million, exact wheel factorization through
+`Q=1155` with 480 composite impostors, and a finite block containing 2,298
+twin pairs. Machine audit: four exact theorems, four rejected or corrected
+routes, two decisive-target corrections, zero conjecture resolutions, and
+zero computational failures.
+
+English report: [TICKET-184](information-sufficiency-route-correction.md).
+한국어 보고서: [TICKET-184](information-sufficiency-route-correction.ko.md).
+
 ## 2026-08-02 TICKET-183 Uniform-Transfer Audit
 
 TICKET-183 continues from the four TICKET-182 open nodes and keeps every

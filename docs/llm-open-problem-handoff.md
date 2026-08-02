@@ -62,52 +62,57 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-183
+## Latest Continuation After TICKET-184
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
 1. Riemann:
-   `PoleNeutralWeilTestConeHasUniformAbelDesmoothingModulus`.
-   TICKET-183 proves that Abel-smoothed H1 energy is insufficient without an
-   explicit desmoothing remainder. The next proof must work on the actual
-   pole-neutral Weil test cone and preserve its moment constraints.
+   `NormalizedWeilAdmissibleConeHasUniformFourierTailTightnessFromFullMellinConstraints`.
+   TICKET-184 proves that any fixed finite list of polynomial Fourier moments
+   still permits Abel-hidden unit high-frequency mass. The next proof must use
+   the full normalized Mellin support, positivity, and pole-neutral cone.
 2. Collatz:
-   `NoPrimitiveContractingValuationWordContainingOneSatisfiesAffineDivisibility`.
-   TICKET-183 removes all repeated-word duplicates and completely excludes the
-   `v_j>=2` stratum. Do not treat the length-eight audit as exhaustive: the
-   primitive contracting family `(1,2,...,2)` exists at arbitrary length.
+   `EveryPositiveOddIntegerAboveOneHasAnAcceleratedIterateBelowItsStart`.
+   TICKET-184 proves that a counterexample is either a nontrivial cycle or an
+   orbit unbounded in limsup. Cycle-word exclusion is only one branch; do not
+   report a cycle theorem as a full Collatz proof.
 3. Goldbach:
-   `GoldbachMajorMinorPhaseErrorIsUniformlyBelowSingularSeriesMargin`.
-   TICKET-183 proves an exact target-indexed Fourier error identity, then uses
-   a phase-blind absolute budget for its sufficient certificate. It refutes
-   constant-density absolute-spectrum control in every sparse regime. The
-   missing theorem must retain singular-series structure and target phase.
+   `GrowingWheelPrimeWeightedMinorErrorIsUniformlyBelowTheLocalSingularMargin`.
+   TICKET-184 proves the exact fixed-wheel local factor and constructs a
+   composite-only impostor for every unit residue. No fixed modulus can
+   distinguish prime support; the next proof needs growing scale and
+   prime-weighted targetwise error.
 4. Twin Prime:
-   `PrimePairNegativeHaarPathSquareStaysBelowRootMargin`.
-   TICKET-183 proves the weighted Haar identity and path-square certificate.
-   Global energy can vanish while one bad leaf persists, and parity-breaking
-   positivity remains an independent requirement.
+   `PrimePairBlockMainTermDominatesParityRemainderOnAnUnboundedDisjointSequence`.
+   TICKET-184 corrects the former every-path target: positive total mass on
+   infinitely many disjoint intervals is sufficient, while every-leaf
+   positivity is not necessary. The parity-breaking block lower bound remains.
 
 Exact machine artifacts:
 
 ```text
-data/open-problem/ticket183-abel-primitive-spectral-haar.json
-data/open-problem/riemann/rh-ticket-183-abel-desmoothing.json
-data/open-problem/collatz/co-ticket-183-primitive-monotone.json
-data/open-problem/goldbach/gb-ticket-183-spectral-margin.json
-data/open-problem/twin-prime/tp-ticket-183-haar-path.json
+data/open-problem/ticket184-information-sufficiency-route-correction.json
+data/open-problem/riemann/rh-ticket-184-finite-moment-no-go.json
+data/open-problem/collatz/co-ticket-184-dichotomy-prefix-barrier.json
+data/open-problem/goldbach/gb-ticket-184-wheel-impostor.json
+data/open-problem/twin-prime/tp-ticket-184-root-cantelli.json
 ```
 
-한국어 인계: TICKET-183도 네 난제를 해결하지 않았다. 새로 닫힌 것은 Abel
-평활화의 정규화 해제 항, Collatz 반복 word 축약과 `v>=2` 부분족 배제,
-정확한 Fourier 오차 항등식과 위상 비의존 절댓값 여유, 가중 Haar 분산 및
-경로 square 인증이다.
-평활 H1만의 승격, 고정 길이 열거, 희소 상수밀도 spectrum, 전역 Haar
-에너지는 각각 정확한 반례나 no-go로 폐기했다. 다음 LLM은 위 네 균등
-전이 보조정리의 무한 양화사를 직접 공격해야 한다.
+한국어 인계: TICKET-184도 네 난제를 해결하지 않았다. 유한 모멘트만의 Abel
+정규화 해제, 순환 배제만의 콜라츠 증명, 고정 wheel만의 골드바흐 증명, 모든 Haar
+leaf 양성을 쌍둥이 소수의 필수 목표로 보는 경로를 폐기하거나 교정했다.
+다음 LLM은 위 네 단일 보조정리의 무한 양화사와 실제 산술 구조를 직접
+공격해야 한다.
 
-English report: [TICKET-183](abel-primitive-spectral-haar.md).
-Korean report: [TICKET-183 한국어](abel-primitive-spectral-haar.ko.md).
+English report: [TICKET-184](information-sufficiency-route-correction.md).
+Korean report: [TICKET-184 한국어](information-sufficiency-route-correction.ko.md).
+
+## Preserved Continuation After TICKET-183
+
+The TICKET-183 Abel, primitive-word, Fourier-margin, and Haar-path results
+remain exact inputs. Their former next targets were audited and narrowed by
+TICKET-184; see [English](abel-primitive-spectral-haar.md) and
+[한국어](abel-primitive-spectral-haar.ko.md).
 
 ## Preserved Continuation After TICKET-182
 

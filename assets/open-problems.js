@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket184AttemptGlobal = null;
 let ticket183AttemptGlobal = null;
 let ticket182AttemptGlobal = null;
 let ticket181AttemptGlobal = null;
@@ -9979,6 +9980,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket184InformationSufficiencyRouteCorrection(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.information_sufficiency_route_correction_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = (computation.counterfamily_rows || []).filter((row) => row.base_frequency_M === 64);
+    detail = `
+      <div class="poc-equation">f<sub>M,m</sub>=2<sup>−m</sup>e<sup>iMθ</sup>(1−e<sup>iθ</sup>)<sup>m</sup>: m moments vanish, but ||f−A<sub>ρ</sub>f||∞→1</div>
+      ${table(["moments m", "frequency M", "Abel norm", "desmoothing lower bound", "exact cancellation"], rows.map((row) => [row.cancellation_order_m, row.base_frequency_M, Number(row.abel_uniform_norm).toExponential(4), Number(row.desmoothing_distance_lower_bound).toFixed(6), row.checks?.all_declared_moments_cancel_exactly ? "yes" : "no"]))}
+      <div class="poc-head"><div><span>Exact cases</span><strong>${computation.aggregate?.case_count || 0}</strong></div><div><span>Moments cancelled</span><strong>${computation.aggregate?.largest_cancellation_order || 0}</strong></div><div><span>Largest error lower bound</span><strong>${Number(computation.aggregate?.largest_desmoothing_lower_bound || 0).toFixed(6)}</strong></div></div>
+      <p class="proof-note">유한 개의 주파수 모멘트를 모두 소거해도 Abel 평활화가 단위 고주파 질량을 숨길 수 있습니다. 이 반례는 실제 Weil 원뿔이 아니라, 그 전체 Mellin 조건을 유한 모멘트로 대체하는 경로를 폐기합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.finite_prefix_barrier_rows || [];
+    const descent = computation.finite_first_descent_diagnostic || {};
+    detail = `
+      <div class="poc-equation">counterexample ⇒ nontrivial cycle OR limsup-unbounded orbit; least-cycle rotation ⇒ v<sub>0</sub>=1 and B<sub>k</sub>D≥D<sub>k</sub>B</div>
+      ${table(["h", "primitive contracting", "prefix barrier passes", "barrier but no divisibility"], rows.map((row) => [row.horizon_h, formatter.format(row.primitive_contracting_start_one_count || 0), formatter.format(row.minimal_prefix_barrier_pass_count || 0), formatter.format(row.barrier_without_divisibility_count || 0)]))}
+      <div class="poc-head"><div><span>Barrier no-go witnesses</span><strong>${formatter.format(computation.aggregate?.barrier_without_divisibility || 0)}</strong></div><div><span>Finite descent cutoff</span><strong>${formatter.format(descent.odd_start_limit || 0)}</strong></div><div><span>Unresolved below cutoff</span><strong>${(descent.unresolved_starts || []).length}</strong></div></div>
+      <p class="proof-note">순환 배제만으로는 발산 궤도 분기가 남습니다. (1,3)은 최소원소 prefix 장벽을 모두 통과하지만 D=7이 B=5를 나누지 않아, 장벽 역시 필요조건일 뿐 충분조건이 아닙니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.wheel_factorization_rows || [];
+    const impostor = computation.composite_impostor || {};
+    detail = `
+      <div class="poc-equation">R<sub>Q</sub>(n)=∏<sub>p|Q</sub>(p−1 if p|n, else p−2); fixed-wheel unit data can be copied entirely by composites</div>
+      ${table(["Q", "prime factors", "unit residues", "minimum local count", "maximum local count"], rows.map((row) => [row.squarefree_odd_modulus_Q, (row.prime_factors || []).join("×"), formatter.format(row.unit_residue_count || 0), formatter.format(row.minimum_local_representation_count || 0), formatter.format(row.maximum_local_representation_count || 0)]))}
+      <div class="poc-head"><div><span>Largest wheel</span><strong>${formatter.format(computation.aggregate?.largest_modulus || 0)}</strong></div><div><span>Composite impostors</span><strong>${formatter.format(impostor.composite_representative_count || 0)}</strong></div><div><span>CRT mismatches</span><strong>${rows.reduce((sum, row) => sum + (row.factorization_mismatches || []).length, 0)}</strong></div></div>
+      <p class="proof-note">고정 wheel의 국소 양성은 정확하지만 소수 지지집합을 식별하지 못합니다. 각 단위 잉여류를 알려진 진약수가 있는 합성수로 복제했으므로, 성장 modulus와 소수 가중 minor-arc 오차가 별도로 필요합니다.</p>
+    `;
+  } else {
+    const rows = computation.cantelli_sharpness_rows || [];
+    const finite = computation.finite_prime_pair_root_diagnostic || {};
+    detail = `
+      <div class="poc-equation">root ratio R&gt;0 ⇔ block union contains a twin-pair start; μ{r≤r̄−t}≤V/(V+t²) is sharp</div>
+      ${table(["depth", "bad-leaf mass", "variance", "Cantelli bound", "actual bad mass"], rows.map((row) => [row.tree_depth_L, Number(row.bad_leaf_mass).toExponential(3), Number(row.weighted_variance).toExponential(3), Number(row.cantelli_upper_bound).toExponential(3), Number(row.actual_lower_tail_mass).toExponential(3)]))}
+      <div class="poc-head"><div><span>Actual twin pairs</span><strong>${formatter.format(finite.actual_twin_pair_count || 0)}</strong></div><div><span>Root ratio</span><strong>${Number(finite.root_actual_to_expected_ratio || 0).toFixed(6)}</strong></div><div><span>Former all-leaf target</span><strong>${finite.all_leaf_certificates_pass ? "pass" : "unnecessary fail"}</strong></div></div>
+      <p class="proof-note">쌍둥이 소수의 무한성에는 모든 leaf의 양성이 필요하지 않습니다. 무한히 먼 서로 겹치지 않는 block에서 전체 개수가 양수이면 충분하므로, Haar는 예외 위치 진단으로 유지하고 결정적 목표를 parity-breaking root 총량 하계로 교정합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket184-information-sufficiency-route-correction" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 184 information sufficiency and proof-route correction</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact information boundaries; all conjectures open</strong></div><div><span>Route corrections</span><strong>${audit.machine_audit?.decisive_route_correction_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET184 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/information-sufficiency-route-correction.ko.md">한국어 보고서</a> · <a href="../docs/information-sufficiency-route-correction.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket183AbelPrimitiveSpectralHaar(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.abel_primitive_spectral_haar_audit || {};
@@ -10034,7 +10103,7 @@ function renderTicket183AbelPrimitiveSpectralHaar(attempt) {
   }
   return `
     <div id="ticket183-abel-primitive-spectral-haar" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 183 Abel transfer, primitive Collatz words, Fourier margins, and Haar paths</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact transfer reductions; all conjectures open</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div><div><span>Machine failures</span><strong>${audit.machine_audit?.total_failure_count ?? "missing"}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET183 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -13986,6 +14055,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal)}
     ${renderTicket182SobolevDivisibilityTranslationSibling(ticket182AttemptGlobal)}
     ${renderTicket181RegularizedLocalizationQuantizedSlack(ticket181AttemptGlobal)}
     ${renderTicket180FiniteInformationLocalization(ticket180AttemptGlobal)}
@@ -14217,8 +14287,9 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-183 data is unavailable. The conjecture remains open. / TICKET-183 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+    currentResearch.innerHTML = renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
+      renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
+      `<p class="proof-note">TICKET-184 data is unavailable. The conjecture remains open. / TICKET-184 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14540,6 +14611,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket184Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket184-information-sufficiency-route-correction.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket184AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket184AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket184AttemptGlobal) {
+      ticket184AttemptGlobal.bounded_result = ticket184AttemptGlobal.bounded_result || {};
+      ticket184AttemptGlobal.bounded_result.information_sufficiency_route_correction_audit = payload.information_sufficiency_route_correction_audit || {};
+    }
+    return Boolean(ticket184AttemptGlobal);
+  } catch (error) {
+    ticket184AttemptGlobal = null;
     return false;
   }
 }
@@ -15573,6 +15664,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket184Loaded = await loadTicket184Attempt();
   const ticket183Loaded = await loadTicket183Attempt();
   const ticket182Loaded = await loadTicket182Attempt();
   const ticket181Loaded = await loadTicket181Attempt();
@@ -15589,8 +15681,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket184AttemptGlobal) await loadTicket184Attempt();
     if (!ticket183AttemptGlobal) await loadTicket183Attempt();
     if (!ticket182AttemptGlobal) await loadTicket182Attempt();
     if (!ticket181AttemptGlobal) await loadTicket181Attempt();

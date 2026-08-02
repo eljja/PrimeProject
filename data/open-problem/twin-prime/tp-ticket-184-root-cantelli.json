@@ -1,0 +1,146 @@
+{
+  "schema": "primeproject.ticket184-information-sufficiency-route-correction.v1",
+  "generated_at": "2026-08-02T16:30:00+09:00",
+  "ticket_id": "TP-TICKET-184",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "PositiveRootMassSufficesAndCantelliExceptionalMassIsSharp",
+  "declared_proposition": "For finite disjoint blocks of candidate first coordinates, with positive expected masses E_j and nonnegative actual twin-start counts C_j, the root ratio R=sum C_j/sum E_j is positive exactly when their union contains a twin-pair start. Positive roots on infinitely many pairwise disjoint intervals escaping to infinity therefore suffice for the Twin Prime conjecture; positivity of every leaf is unnecessary. Moreover the weighted lower-tail mass obeys Cantelli's sharp bound mu{r<=r_bar-t}<=V/(V+t^2).",
+  "mathematical_argument": "The denominator of R is positive and its numerator is the total actual count, proving the root equivalence and the disjoint-block implication. Cantelli follows by applying Markov's inequality to a shifted square and optimizing the shift. A two-level distribution with one zero leaf and all other leaves equal to one attains the bound exactly, so average energy cannot remove the last bad leaf.",
+  "reproducible_computation": {
+    "theorem": "For finite disjoint blocks of candidate first coordinates, with positive expected masses E_j and nonnegative actual twin-start counts C_j, the root ratio R=sum C_j/sum E_j is positive exactly when their union contains a twin-pair start. Positive roots on infinitely many pairwise disjoint intervals escaping to infinity therefore suffice for the Twin Prime conjecture; positivity of every leaf is unnecessary. Moreover the weighted lower-tail mass obeys Cantelli's sharp bound mu{r<=r_bar-t}<=V/(V+t^2).",
+    "proof": "The denominator of R is positive and its numerator is the total actual count, proving the root equivalence and the disjoint-block implication. Cantelli follows by applying Markov's inequality to a shifted square and optimizing the shift. A two-level distribution with one zero leaf and all other leaves equal to one attains the bound exactly, so average energy cannot remove the last bad leaf.",
+    "cantelli_sharpness_rows": [
+      {
+        "tree_depth_L": 4,
+        "leaf_count": 16,
+        "bad_leaf_mass": 0.0625,
+        "weighted_mean": 0.9375,
+        "weighted_variance": 0.05859375,
+        "lower_tail_threshold_t": 0.9375,
+        "actual_lower_tail_mass": 0.0625,
+        "cantelli_upper_bound": 0.0625,
+        "bound_slack": 0.0,
+        "checks": {
+          "cantelli_is_exact_for_two_level_family": true,
+          "positive_root_coexists_with_zero_leaf": true
+        }
+      },
+      {
+        "tree_depth_L": 8,
+        "leaf_count": 256,
+        "bad_leaf_mass": 0.00390625,
+        "weighted_mean": 0.99609375,
+        "weighted_variance": 0.0038909912109375,
+        "lower_tail_threshold_t": 0.99609375,
+        "actual_lower_tail_mass": 0.00390625,
+        "cantelli_upper_bound": 0.00390625,
+        "bound_slack": 0.0,
+        "checks": {
+          "cantelli_is_exact_for_two_level_family": true,
+          "positive_root_coexists_with_zero_leaf": true
+        }
+      },
+      {
+        "tree_depth_L": 12,
+        "leaf_count": 4096,
+        "bad_leaf_mass": 0.000244140625,
+        "weighted_mean": 0.999755859375,
+        "weighted_variance": 0.0002440810203552246,
+        "lower_tail_threshold_t": 0.999755859375,
+        "actual_lower_tail_mass": 0.000244140625,
+        "cantelli_upper_bound": 0.000244140625,
+        "bound_slack": 0.0,
+        "checks": {
+          "cantelli_is_exact_for_two_level_family": true,
+          "positive_root_coexists_with_zero_leaf": true
+        }
+      },
+      {
+        "tree_depth_L": 16,
+        "leaf_count": 65536,
+        "bad_leaf_mass": 1.52587890625e-05,
+        "weighted_mean": 0.9999847412109375,
+        "weighted_variance": 1.5258556231856346e-05,
+        "lower_tail_threshold_t": 0.9999847412109375,
+        "actual_lower_tail_mass": 1.52587890625e-05,
+        "cantelli_upper_bound": 1.52587890625e-05,
+        "bound_slack": 0.0,
+        "checks": {
+          "cantelli_is_exact_for_two_level_family": true,
+          "positive_root_coexists_with_zero_leaf": true
+        }
+      }
+    ],
+    "finite_prime_pair_root_diagnostic": {
+      "interval_start": 100000,
+      "interval_stop": 362144,
+      "interval_length": 262144,
+      "leaf_width": 1024,
+      "leaf_count": 256,
+      "actual_twin_pair_count": 2298,
+      "root_actual_to_expected_ratio": 1.0003782652130326,
+      "weighted_leaf_variance": 0.07854464661712764,
+      "summed_weighted_haar_energy": 0.07854464661712766,
+      "variance_identity_error": 2.7755575615628914e-17,
+      "maximum_negative_path_square": 0.3571490232517877,
+      "minimum_actual_leaf_ratio": 0.1199370721328891,
+      "minimum_certified_leaf_lower_bound": -0.6899448358579732,
+      "all_leaf_certificates_pass": false,
+      "claim_boundary": "This finite Hardy-Littlewood-normalized block tree verifies the Haar identity only. It gives no uniform future-block estimate and does not overcome the parity barrier.",
+      "root_positive_implies_at_least_one_pair": true
+    },
+    "aggregate": {
+      "sharpness_case_count": 4,
+      "largest_depth": 16,
+      "smallest_persistent_bad_mass": 1.52587890625e-05,
+      "finite_actual_twin_pair_count": 2298,
+      "finite_root_ratio": 1.0003782652130326,
+      "former_every_leaf_certificate_passes": false
+    },
+    "no_go_scope": "The TICKET-183 every-path positivity target is sufficient but strictly stronger than twin infinitude. Haar energy remains useful for locating exceptional blocks, but the decisive arithmetic target is recurring positive total mass after a parity-breaking remainder estimate.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring every Haar leaf or every dyadic path to be positive as the decisive Twin Prime target",
+  "remaining_gap": "No positive prime-pair block total is proved on an unbounded disjoint sequence; finite root positivity does not break sieve parity.",
+  "candidate_theorem": "PrimePairBlockMainTermDominatesParityRemainderOnAnUnboundedDisjointSequence",
+  "claim_boundary": "No Twin Prime proof or parity-breaking lower bound; one exact root sufficiency theorem, one sharp exceptional-mass bound, and one finite block only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T183-INPUT",
+        "label": "WeightedHaarVarianceIdentityAndNegativePathSquareCertificate",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "TP-T184-CLOSED",
+        "label": "PositiveRootMassSufficesAndCantelliExceptionalMassIsSharp",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T184-REJECTED",
+        "label": "EveryLeafPositivityIsNecessaryForTwinPrimeInfinitude",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "TP-T184-OPEN",
+        "label": "PrimePairBlockMainTermDominatesParityRemainderOnAnUnboundedDisjointSequence",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T183-INPUT",
+        "TP-T184-CLOSED"
+      ],
+      [
+        "TP-T184-CLOSED",
+        "TP-T184-OPEN"
+      ],
+      [
+        "TP-T184-REJECTED",
+        "TP-T184-OPEN"
+      ]
+    ]
+  }
+}

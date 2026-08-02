@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact uniform-transfer audits",
-      ko: "네 개의 미해결 문제, 네 가지 균일 전이 감사",
+      en: "Four open problems, four information-sufficiency audits",
+      ko: "네 개의 미해결 문제, 네 가지 정보 충분성 검증",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-183 isolates the missing transfer from smoothing or averages to uniform arithmetic conclusions.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-183은 평활화·평균 제어를 균일 산술 결론으로 승격할 때 빠지는 항을 정확히 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-184 separates sufficient proof information from finite proxies and corrects two overstrong targets.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-184는 유한 대리량과 증명에 충분한 정보를 분리하고 과도한 목표 두 개를 교정합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

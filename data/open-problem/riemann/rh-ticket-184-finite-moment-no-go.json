@@ -1,0 +1,374 @@
+{
+  "schema": "primeproject.ticket184-information-sufficiency-route-correction.v1",
+  "generated_at": "2026-08-02T16:30:00+09:00",
+  "ticket_id": "RH-TICKET-184",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteMomentCancellationDoesNotGiveUniformAbelDesmoothing",
+  "declared_proposition": "Fix an integer m>=1. For every M>=1, the trigonometric polynomial f_(M,m)(theta)=2^(-m)e^(iMtheta)(1-e^(itheta))^m has uniform norm one and its Fourier coefficients c_r satisfy sum_r c_r(M+r)^j=0 for every 0<=j<m. Nevertheless its Abel mean has uniform norm rho^M((1+rho)/2)^m, and at theta=pi the desmoothing error is exactly 1-rho^M((1+rho)/2)^m. Thus any fixed finite list of polynomial frequency-moment cancellations still permits Abel-hidden unit high-frequency mass.",
+  "mathematical_argument": "Expand (1-e^(itheta))^m. The moment sums are m-th finite differences of polynomials of degree below m and therefore vanish exactly. The maximum of |1-e^(itheta)| is two, attained at pi. Abel multiplication contributes rho^(M+r), so the transformed binomial factors as rho^M(1-rho e^(itheta))^m/2^m. Evaluating at pi proves both the norm formula and the lower bound.",
+  "reproducible_computation": {
+    "theorem": "Fix an integer m>=1. For every M>=1, the trigonometric polynomial f_(M,m)(theta)=2^(-m)e^(iMtheta)(1-e^(itheta))^m has uniform norm one and its Fourier coefficients c_r satisfy sum_r c_r(M+r)^j=0 for every 0<=j<m. Nevertheless its Abel mean has uniform norm rho^M((1+rho)/2)^m, and at theta=pi the desmoothing error is exactly 1-rho^M((1+rho)/2)^m. Thus any fixed finite list of polynomial frequency-moment cancellations still permits Abel-hidden unit high-frequency mass.",
+    "proof": "Expand (1-e^(itheta))^m. The moment sums are m-th finite differences of polynomials of degree below m and therefore vanish exactly. The maximum of |1-e^(itheta)| is two, attained at pi. Abel multiplication contributes rho^(M+r), so the transformed binomial factors as rho^M(1-rho e^(itheta))^m/2^m. Evaluating at pi proves both the norm formula and the lower bound.",
+    "counterfamily_rows": [
+      {
+        "cancellation_order_m": 1,
+        "base_frequency_M": 16,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -1
+        ],
+        "cancelled_moment_numerators": [
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.17603691794092494,
+        "desmoothing_distance_lower_bound": 0.8239630820590751,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 1,
+        "base_frequency_M": 32,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -1
+        ],
+        "cancelled_moment_numerators": [
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.03261999629277889,
+        "desmoothing_distance_lower_bound": 0.9673800037072211,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 1,
+        "base_frequency_M": 64,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -1
+        ],
+        "cancelled_moment_numerators": [
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.0011200675348851672,
+        "desmoothing_distance_lower_bound": 0.9988799324651149,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 2,
+        "base_frequency_M": 16,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -2,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.1672350720438787,
+        "desmoothing_distance_lower_bound": 0.8327649279561213,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 2,
+        "base_frequency_M": 32,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -2,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.030988996478139946,
+        "desmoothing_distance_lower_bound": 0.9690110035218601,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 2,
+        "base_frequency_M": 64,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -2,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.0010640641581409088,
+        "desmoothing_distance_lower_bound": 0.9989359358418591,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 4,
+        "base_frequency_M": 16,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -4,
+          6,
+          -4,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.1509296525196005,
+        "desmoothing_distance_lower_bound": 0.8490703474803996,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 4,
+        "base_frequency_M": 32,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -4,
+          6,
+          -4,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.0279675693215213,
+        "desmoothing_distance_lower_bound": 0.9720324306784787,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 4,
+        "base_frequency_M": 64,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -4,
+          6,
+          -4,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.0009603179027221702,
+        "desmoothing_distance_lower_bound": 0.9990396820972778,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 8,
+        "base_frequency_M": 16,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -8,
+          28,
+          -56,
+          70,
+          -56,
+          28,
+          -8,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.12293314528754283,
+        "desmoothing_distance_lower_bound": 0.8770668547124572,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 8,
+        "base_frequency_M": 32,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -8,
+          28,
+          -56,
+          70,
+          -56,
+          28,
+          -8,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.02277976000968735,
+        "desmoothing_distance_lower_bound": 0.9772202399903126,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      },
+      {
+        "cancellation_order_m": 8,
+        "base_frequency_M": 64,
+        "rho": 0.9,
+        "integer_fourier_coefficients_before_2_pow_minus_m": [
+          1,
+          -8,
+          28,
+          -56,
+          70,
+          -56,
+          28,
+          -8,
+          1
+        ],
+        "cancelled_moment_numerators": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "original_uniform_norm": 1.0,
+        "abel_uniform_norm": 0.0007821849337540994,
+        "desmoothing_distance_lower_bound": 0.9992178150662459,
+        "checks": {
+          "all_declared_moments_cancel_exactly": true,
+          "abel_norm_has_closed_form": true,
+          "distance_at_pi_is_exact_lower_bound": true
+        }
+      }
+    ],
+    "aggregate": {
+      "case_count": 12,
+      "largest_cancellation_order": 8,
+      "largest_frequency": 64,
+      "all_finite_moments_cancel": true,
+      "smallest_abel_norm": 0.0007821849337540994,
+      "largest_desmoothing_lower_bound": 0.9992178150662459
+    },
+    "no_go_scope": "This refutes finite polynomial Fourier-moment cancellation as a standalone compactness mechanism. It does not refute a theorem using the full Mellin support, positivity, and pole-neutral admissibility conditions of the Weil test cone.",
+    "failure_count": 0
+  },
+  "discarded_route": "any proof of uniform Abel desmoothing that uses only a fixed finite list of polynomial Fourier moments",
+  "remaining_gap": "The counterfamily is a periodic Fourier proxy, not a member proof for the full pole-neutral Weil cone; full Mellin support and positivity may impose additional compactness.",
+  "candidate_theorem": "NormalizedWeilAdmissibleConeHasUniformFourierTailTightnessFromFullMellinConstraints",
+  "claim_boundary": "No RH proof, zero exclusion, or Weil-cone compactness theorem; one exact moment-cancelling high-frequency counterfamily only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T183-INPUT",
+        "label": "AbelFejerDesmoothingCertificateAndHighFrequencyNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "RH-T184-CLOSED",
+        "label": "FiniteMomentCancellationDoesNotGiveUniformAbelDesmoothing",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T184-REJECTED",
+        "label": "FinitePolynomialMomentsForceUniformAbelDesmoothing",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "RH-T184-OPEN",
+        "label": "NormalizedWeilAdmissibleConeHasUniformFourierTailTightnessFromFullMellinConstraints",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T183-INPUT",
+        "RH-T184-CLOSED"
+      ],
+      [
+        "RH-T184-CLOSED",
+        "RH-T184-OPEN"
+      ],
+      [
+        "RH-T184-REJECTED",
+        "RH-T184-OPEN"
+      ]
+    ]
+  }
+}

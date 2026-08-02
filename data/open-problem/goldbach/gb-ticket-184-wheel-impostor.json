@@ -1,0 +1,166 @@
+{
+  "schema": "primeproject.ticket184-information-sufficiency-route-correction.v1",
+  "generated_at": "2026-08-02T16:30:00+09:00",
+  "ticket_id": "GB-TICKET-184",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "SquarefreeWheelFactorizationAndCompositeImpostorNoGo",
+  "declared_proposition": "Let Q be a squarefree product of odd primes and U_Q its units. The number R_Q(n) of residues a with a and n-a both in U_Q is exactly product_(p|Q)(p-1 if p|n, otherwise p-2). Hence every target has a positive fixed-wheel local margin. Nevertheless, for every unit residue one can construct a composite integer in that residue, so a complete unit-residue histogram can be reproduced by a set containing no primes. Fixed-Q local data alone cannot imply a Goldbach representation by primes.",
+  "mathematical_argument": "Modulo p, the conditions exclude residues zero and n. They coincide when p divides n, leaving p-1 choices, and are distinct otherwise, leaving p-2. The Chinese remainder theorem multiplies the counts. For the no-go, choose a prime ell not dividing Q and solve ell*t congruent to r modulo Q; replacing t by t+Q if needed makes ell*t composite while preserving residue r.",
+  "reproducible_computation": {
+    "theorem": "Let Q be a squarefree product of odd primes and U_Q its units. The number R_Q(n) of residues a with a and n-a both in U_Q is exactly product_(p|Q)(p-1 if p|n, otherwise p-2). Hence every target has a positive fixed-wheel local margin. Nevertheless, for every unit residue one can construct a composite integer in that residue, so a complete unit-residue histogram can be reproduced by a set containing no primes. Fixed-Q local data alone cannot imply a Goldbach representation by primes.",
+    "proof": "Modulo p, the conditions exclude residues zero and n. They coincide when p divides n, leaving p-1 choices, and are distinct otherwise, leaving p-2. The Chinese remainder theorem multiplies the counts. For the no-go, choose a prime ell not dividing Q and solve ell*t congruent to r modulo Q; replacing t by t+Q if needed makes ell*t composite while preserving residue r.",
+    "wheel_factorization_rows": [
+      {
+        "squarefree_odd_modulus_Q": 15,
+        "prime_factors": [
+          3,
+          5
+        ],
+        "unit_residue_count": 8,
+        "minimum_local_representation_count": 3,
+        "maximum_local_representation_count": 8,
+        "factorization_mismatches": [],
+        "checks": {
+          "crt_factorization_exact_for_every_target": true,
+          "every_local_target_has_positive_margin": true
+        }
+      },
+      {
+        "squarefree_odd_modulus_Q": 105,
+        "prime_factors": [
+          3,
+          5,
+          7
+        ],
+        "unit_residue_count": 48,
+        "minimum_local_representation_count": 15,
+        "maximum_local_representation_count": 48,
+        "factorization_mismatches": [],
+        "checks": {
+          "crt_factorization_exact_for_every_target": true,
+          "every_local_target_has_positive_margin": true
+        }
+      },
+      {
+        "squarefree_odd_modulus_Q": 1155,
+        "prime_factors": [
+          3,
+          5,
+          7,
+          11
+        ],
+        "unit_residue_count": 480,
+        "minimum_local_representation_count": 135,
+        "maximum_local_representation_count": 480,
+        "factorization_mismatches": [],
+        "checks": {
+          "crt_factorization_exact_for_every_target": true,
+          "every_local_target_has_positive_margin": true
+        }
+      }
+    ],
+    "composite_impostor": {
+      "modulus_Q": 1155,
+      "unit_residue_count": 480,
+      "composite_representative_count": 480,
+      "largest_composite_representative": 3641644,
+      "sample": [
+        {
+          "unit_residue": 1,
+          "composite_representative": 1156,
+          "known_divisor": 2
+        },
+        {
+          "unit_residue": 2,
+          "composite_representative": 1157,
+          "known_divisor": 13
+        },
+        {
+          "unit_residue": 4,
+          "composite_representative": 4624,
+          "known_divisor": 17
+        },
+        {
+          "unit_residue": 8,
+          "composite_representative": 2318,
+          "known_divisor": 19
+        },
+        {
+          "unit_residue": 13,
+          "composite_representative": 2323,
+          "known_divisor": 23
+        },
+        {
+          "unit_residue": 16,
+          "composite_representative": 10411,
+          "known_divisor": 29
+        },
+        {
+          "unit_residue": 17,
+          "composite_representative": 28892,
+          "known_divisor": 31
+        },
+        {
+          "unit_residue": 19,
+          "composite_representative": 34669,
+          "known_divisor": 37
+        }
+      ],
+      "checks": {
+        "one_representative_per_unit_residue": true,
+        "all_representatives_have_proper_known_divisor": true
+      }
+    },
+    "aggregate": {
+      "largest_modulus": 1155,
+      "largest_unit_residue_count": 480,
+      "all_local_factorizations_exact": true,
+      "composite_impostor_size": 480
+    },
+    "no_go_scope": "The theorem closes the finite local-factor calculation, not the prime-support problem. A growing-modulus major term and a uniform prime-weighted minor-arc error below that local margin are still required.",
+    "failure_count": 0
+  },
+  "discarded_route": "fixed-modulus residue occupancy as a standalone proof of prime Goldbach representations",
+  "remaining_gap": "Fixed wheel positivity contains no information that distinguishes prime support from composite impostors and supplies no uniform minor-arc bound.",
+  "candidate_theorem": "GrowingWheelPrimeWeightedMinorErrorIsUniformlyBelowTheLocalSingularMargin",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact CRT local factorization and one fixed-information composite impostor construction only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T183-INPUT",
+        "label": "ExactFourierErrorIdentityAndSparseDensityNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "GB-T184-CLOSED",
+        "label": "SquarefreeWheelFactorizationAndCompositeImpostorNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T184-REJECTED",
+        "label": "FixedWheelLocalPositivityImpliesPrimeGoldbachRepresentations",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "GB-T184-OPEN",
+        "label": "GrowingWheelPrimeWeightedMinorErrorIsUniformlyBelowTheLocalSingularMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T183-INPUT",
+        "GB-T184-CLOSED"
+      ],
+      [
+        "GB-T184-CLOSED",
+        "GB-T184-OPEN"
+      ],
+      [
+        "GB-T184-REJECTED",
+        "GB-T184-OPEN"
+      ]
+    ]
+  }
+}

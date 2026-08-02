@@ -1,0 +1,261 @@
+{
+  "schema": "primeproject.ticket184-information-sufficiency-route-correction.v1",
+  "generated_at": "2026-08-02T16:30:00+09:00",
+  "ticket_id": "CO-TICKET-184",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "CounterexampleDichotomyAndMinimalCyclePrefixBarrier",
+  "declared_proposition": "A positive accelerated Collatz counterexample has exactly two possible types: a nontrivial periodic orbit, or an orbit unbounded in limsup. If a nontrivial cycle is rotated to its least odd member n=B/D, then its first valuation is one and every prefix k satisfies B_k D >= (2^S_k-3^k)B. These prefix barriers are necessary but not sufficient; for example w=(1,3) passes every barrier while D=7 does not divide B=5.",
+  "mathematical_argument": "A bounded orbit in the positive integers repeats, hence is periodic; otherwise its limsup is infinite. At the least member n>1, a first valuation at least two would give (3n+1)/4<n, a contradiction. The prefix affine identity n_k=(3^k n+B_k)/2^S_k and n_k>=n gives the cross-multiplied barrier. The explicit word (1,3) proves that barriers without affine divisibility do not close the cycle branch.",
+  "reproducible_computation": {
+    "theorem": "A positive accelerated Collatz counterexample has exactly two possible types: a nontrivial periodic orbit, or an orbit unbounded in limsup. If a nontrivial cycle is rotated to its least odd member n=B/D, then its first valuation is one and every prefix k satisfies B_k D >= (2^S_k-3^k)B. These prefix barriers are necessary but not sufficient; for example w=(1,3) passes every barrier while D=7 does not divide B=5.",
+    "proof": "A bounded orbit in the positive integers repeats, hence is periodic; otherwise its limsup is infinite. At the least member n>1, a first valuation at least two would give (3n+1)/4<n, a contradiction. The prefix affine identity n_k=(3^k n+B_k)/2^S_k and n_k>=n gives the cross-multiplied barrier. The explicit word (1,3) proves that barriers without affine divisibility do not close the cycle branch.",
+    "finite_prefix_barrier_rows": [
+      {
+        "horizon_h": 2,
+        "primitive_contracting_start_one_count": 3,
+        "minimal_prefix_barrier_pass_count": 3,
+        "barrier_without_divisibility_count": 3
+      },
+      {
+        "horizon_h": 3,
+        "primitive_contracting_start_one_count": 22,
+        "minimal_prefix_barrier_pass_count": 15,
+        "barrier_without_divisibility_count": 15
+      },
+      {
+        "horizon_h": 4,
+        "primitive_contracting_start_one_count": 112,
+        "minimal_prefix_barrier_pass_count": 54,
+        "barrier_without_divisibility_count": 54
+      },
+      {
+        "horizon_h": 5,
+        "primitive_contracting_start_one_count": 610,
+        "minimal_prefix_barrier_pass_count": 230,
+        "barrier_without_divisibility_count": 230
+      },
+      {
+        "horizon_h": 6,
+        "primitive_contracting_start_one_count": 3044,
+        "minimal_prefix_barrier_pass_count": 913,
+        "barrier_without_divisibility_count": 913
+      },
+      {
+        "horizon_h": 7,
+        "primitive_contracting_start_one_count": 15415,
+        "minimal_prefix_barrier_pass_count": 3821,
+        "barrier_without_divisibility_count": 3821
+      }
+    ],
+    "barrier_no_go_examples": [
+      {
+        "word": [
+          1,
+          3
+        ],
+        "horizon_h": 2,
+        "affine_numerator_B": 5,
+        "cycle_denominator_D": 7,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          12,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "horizon_h": 2,
+        "affine_numerator_B": 5,
+        "cycle_denominator_D": 23,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          28,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          5
+        ],
+        "horizon_h": 2,
+        "affine_numerator_B": 5,
+        "cycle_denominator_D": 55,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          60,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          1,
+          3
+        ],
+        "horizon_h": 3,
+        "affine_numerator_B": 19,
+        "cycle_denominator_D": 5,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          24,
+          120,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          1,
+          4
+        ],
+        "horizon_h": 3,
+        "affine_numerator_B": 19,
+        "cycle_denominator_D": 37,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          56,
+          280,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          1,
+          5
+        ],
+        "horizon_h": 3,
+        "affine_numerator_B": 19,
+        "cycle_denominator_D": 101,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          120,
+          600,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          2,
+          2
+        ],
+        "horizon_h": 3,
+        "affine_numerator_B": 23,
+        "cycle_denominator_D": 5,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          28,
+          48,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      },
+      {
+        "word": [
+          1,
+          2,
+          3
+        ],
+        "horizon_h": 3,
+        "affine_numerator_B": 23,
+        "cycle_denominator_D": 37,
+        "starts_with_one": true,
+        "contracting": true,
+        "prefix_barrier_slacks": [
+          60,
+          208,
+          0
+        ],
+        "prefix_barrier_passes": true,
+        "affine_divisibility_hit": false
+      }
+    ],
+    "finite_first_descent_diagnostic": {
+      "odd_start_limit": 1000000,
+      "odd_starts_checked": 499999,
+      "first_descent_step_cap": 10000,
+      "unresolved_starts": [],
+      "maximum_first_descent_steps": 111,
+      "first_descent_step_maximizer": 626331,
+      "maximum_intermediate_odd_value": 18997161173,
+      "claim_boundary": "This is a bounded exact integer computation. It cannot establish finite descent for an unbounded set of starting values."
+    },
+    "aggregate": {
+      "prefix_barrier_passes": 5036,
+      "barrier_without_divisibility": 5036,
+      "largest_word_horizon": 7,
+      "first_descent_limit": 1000000,
+      "first_descent_unresolved_count": 0
+    },
+    "no_go_scope": "Excluding every nontrivial cycle would still leave the divergent orbit branch open. The TICKET-183 primitive-word lemma is therefore a cycle-branch target, not a complete Collatz proof target.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating nontrivial-cycle exclusion as a complete proof of the Collatz conjecture, or treating minimal-prefix barriers as sufficient",
+  "remaining_gap": "Neither all primitive cycle words nor the divergent-orbit branch is excluded; first descent was checked only through one million.",
+  "candidate_theorem": "EveryPositiveOddIntegerAboveOneHasAnAcceleratedIterateBelowItsStart",
+  "claim_boundary": "No Collatz proof, divergence exclusion, or universal descent theorem; one exact failure dichotomy, one necessary cycle barrier, and bounded descent evidence only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T183-INPUT",
+        "label": "PrimitiveWordReductionAndMonotoneValuationExclusion",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "CO-T184-CLOSED",
+        "label": "CounterexampleDichotomyAndMinimalCyclePrefixBarrier",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T184-REJECTED",
+        "label": "CycleExclusionAloneProvesCollatzOrPrefixBarrierIsSufficient",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "CO-T184-OPEN",
+        "label": "EveryPositiveOddIntegerAboveOneHasAnAcceleratedIterateBelowItsStart",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T183-INPUT",
+        "CO-T184-CLOSED"
+      ],
+      [
+        "CO-T184-CLOSED",
+        "CO-T184-OPEN"
+      ],
+      [
+        "CO-T184-REJECTED",
+        "CO-T184-OPEN"
+      ]
+    ]
+  }
+}
