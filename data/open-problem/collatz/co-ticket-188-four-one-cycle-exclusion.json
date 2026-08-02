@@ -1,0 +1,257 @@
+{
+  "schema": "primeproject.ticket188-nested-fourone-primepower-dyadic.v1",
+  "generated_at": "2026-08-02T23:58:00+09:00",
+  "ticket_id": "CO-TICKET-188",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactlyFourValuationOnesOtherwiseTwoCycleExclusion",
+  "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly four entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+  "mathematical_argument": "Rotate the four ones into cyclic gaps a,b,c,d>=1 with d largest. Then h=a+b+c+d, d>=ceil(h/4), c+d>=ceil(h/4)+1, and h-a>=ceil((h+2)/2). The exact cycle numerator is B=4^h/16-3^(h-1)+4^a3^(h-a-1)+2*4^(a+b-1)3^(c+d-1)+4^(a+b+c-1)3^(d-1), while D=4^h/16-3^h. Thus B>D and both are odd. With u=3/4, B<3D follows if (16/3)u^(h-a)+(8/3)u^(c+d)+(4/3)u^d+(128/3)u^h<2. The displayed gap bounds give a decreasing all-word majorant equal to 63175275/33554432<2 at h=16. Hence B/D is strictly between one and three for every h>=16; if integral it would have to be odd, which is impossible. Contraction starts at h=10, and exact enumeration of all sum_{h=10}^{15} C(h,4)=4116 remaining words finds no divisibility hit. Cyclic rotation preserves divisibility through 2^v B_shift=3B+D.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly four entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+    "proof": "Rotate the four ones into cyclic gaps a,b,c,d>=1 with d largest. Then h=a+b+c+d, d>=ceil(h/4), c+d>=ceil(h/4)+1, and h-a>=ceil((h+2)/2). The exact cycle numerator is B=4^h/16-3^(h-1)+4^a3^(h-a-1)+2*4^(a+b-1)3^(c+d-1)+4^(a+b+c-1)3^(d-1), while D=4^h/16-3^h. Thus B>D and both are odd. With u=3/4, B<3D follows if (16/3)u^(h-a)+(8/3)u^(c+d)+(4/3)u^d+(128/3)u^h<2. The displayed gap bounds give a decreasing all-word majorant equal to 63175275/33554432<2 at h=16. Hence B/D is strictly between one and three for every h>=16; if integral it would have to be odd, which is impossible. Contraction starts at h=10, and exact enumeration of all sum_{h=10}^{15} C(h,4)=4116 remaining words finds no divisibility hit. Cyclic rotation preserves divisibility through 2^v B_shift=3B+D.",
+    "finite_exception_horizon_rows": [
+      {
+        "horizon_h": 10,
+        "contracting": true,
+        "word_count": 210,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "closed_form_failure_count": 0,
+        "rotation_identity_failure_count": 0,
+        "remainder_transcript_sha256": "f0172122b012ed103d599ff8df1d7dbe906a7a5aee026c72c8b07ef2788b4eca"
+      },
+      {
+        "horizon_h": 11,
+        "contracting": true,
+        "word_count": 330,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "closed_form_failure_count": 0,
+        "rotation_identity_failure_count": 0,
+        "remainder_transcript_sha256": "3d4d2d7367f3405add29b002ba03da33e770120e8740fb6d1160b9eb93299525"
+      },
+      {
+        "horizon_h": 12,
+        "contracting": true,
+        "word_count": 495,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "closed_form_failure_count": 0,
+        "rotation_identity_failure_count": 0,
+        "remainder_transcript_sha256": "58dc477204d4e84e4d63c410039be1f45adc97e58bec610ba08ab6566ab26775"
+      },
+      {
+        "horizon_h": 13,
+        "contracting": true,
+        "word_count": 715,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "closed_form_failure_count": 0,
+        "rotation_identity_failure_count": 0,
+        "remainder_transcript_sha256": "fef4d76c4ff06b9a864bc02e3486cc9fd3a376a3d2e87211ae2a70c23e0dc084"
+      },
+      {
+        "horizon_h": 14,
+        "contracting": true,
+        "word_count": 1001,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "closed_form_failure_count": 0,
+        "rotation_identity_failure_count": 0,
+        "remainder_transcript_sha256": "ae4fa5f3ccfa93663358ac8c86509893a5a0bb291456c7cfa7aad360a989e80d"
+      },
+      {
+        "horizon_h": 15,
+        "contracting": true,
+        "word_count": 1365,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "closed_form_failure_count": 0,
+        "rotation_identity_failure_count": 0,
+        "remainder_transcript_sha256": "46b92a825ca31228682c4d1212f3f85f05811aceb7d931be27c834936012d1d2"
+      }
+    ],
+    "analytic_replay_rows": [
+      {
+        "horizon_h": 16,
+        "cyclic_gaps": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "largest_gap_is_d": true,
+        "affine_numerator_B": "484346005",
+        "cycle_denominator_D": "225388735",
+        "B_mod_D": "33568535",
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "B_exceeds_D": true,
+          "B_is_below_3D": true,
+          "B_and_D_are_odd": true,
+          "rotation_identity": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 20,
+        "cyclic_gaps": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "largest_gap_is_d": true,
+        "affine_numerator_B": "104517808165",
+        "cycle_denominator_D": "65232692335",
+        "B_mod_D": "39285115830",
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "B_exceeds_D": true,
+          "B_is_below_3D": true,
+          "B_and_D_are_odd": true,
+          "rotation_identity": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 32,
+        "cyclic_gaps": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "largest_gap_is_d": true,
+        "affine_numerator_B": "1343184085243893205",
+        "cycle_denominator_D": "1151068484417995135",
+        "B_mod_D": "192115600825898070",
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "B_exceeds_D": true,
+          "B_is_below_3D": true,
+          "B_and_D_are_odd": true,
+          "rotation_identity": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 64,
+        "cyclic_gaps": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "largest_gap_is_d": true,
+        "affine_numerator_B": "21557667401541202437043179229117355605",
+        "cycle_denominator_D": "21267644498874833673948428306636423935",
+        "B_mod_D": "290022902666368763094750922480931670",
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "B_exceeds_D": true,
+          "B_is_below_3D": true,
+          "B_and_D_are_odd": true,
+          "rotation_identity": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 128,
+        "cyclic_gaps": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "largest_gap_is_d": true,
+        "affine_numerator_B": "7237975071795320535612544495618956779661047400657160074421812156861553432405",
+        "cycle_denominator_D": "7237005577332250423788608824459822719956512629083869574254506724653461505535",
+        "B_mod_D": "969494463070111823935671159134059704534771573290500167305432208091926870",
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "B_exceeds_D": true,
+          "B_is_below_3D": true,
+          "B_and_D_are_odd": true,
+          "rotation_identity": true,
+          "affine_divisibility_fails": true
+        }
+      }
+    ],
+    "analytic_bound": {
+      "bound_at_h_16": {
+        "numerator": 63175275,
+        "denominator": 33554432,
+        "exact": "63175275/33554432",
+        "decimal": 1.882769912481308
+      },
+      "required_upper_threshold": {
+        "numerator": 2,
+        "denominator": 1,
+        "exact": "2/1",
+        "decimal": 2.0
+      },
+      "analytic_range_starts_at_h": 16,
+      "bound_is_nonincreasing_after_threshold": true
+    },
+    "aggregate": {
+      "infinite_family_proved": true,
+      "includes_imprimitive_words": true,
+      "contracting_range_starts_at_h": 10,
+      "analytic_range_starts_at_h": 16,
+      "finite_exception_word_count": 4116,
+      "divisibility_hits": 0,
+      "largest_replayed_horizon": 128
+    },
+    "no_go_scope": "This closes one additional infinite periodic stratum. Words with five or more valuation-one entries, any valuation at least three, and divergent aperiodic natural-number orbits remain untreated.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating bounded four-one enumeration as evidence for all horizons",
+  "remaining_gap": "Five-or-more-one words, valuations at least three, and all aperiodic divergence questions remain open.",
+  "candidate_theorem": "NoContractingValuationWordWithExactlyFiveOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof or complete cycle exclusion; the entire exactly-four-one/rest-two periodic stratum is newly excluded.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T187-INPUT",
+        "label": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "CO-T188-CLOSED",
+        "label": "ExactlyFourValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T188-REJECTED",
+        "label": "FiniteFourOneEnumerationProvesEveryHorizon",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T188-OPEN",
+        "label": "NoContractingValuationWordWithExactlyFiveOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T187-INPUT",
+        "CO-T188-CLOSED"
+      ],
+      [
+        "CO-T188-CLOSED",
+        "CO-T188-OPEN"
+      ],
+      [
+        "CO-T188-REJECTED",
+        "CO-T188-OPEN"
+      ]
+    ]
+  }
+}

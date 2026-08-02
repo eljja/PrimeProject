@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260802-ticket187-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260803-ticket188-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-187 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, a second adjacent Collatz stratum closed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-187 closes the three-one Collatz cycle stratum and proves three exact certification boundaries.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-187은 콜라츠 순환의 세-1 부분족을 전 길이에서 닫고, 리만·골드바흐·쌍둥이 소수 트랙의 인증 가능 범위를 정확히 구분했습니다.</p>
+                <p class="brief-kicker">TICKET-188 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, a third adjacent Collatz stratum closed</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-188 closes the four-one Collatz cycle stratum and proves three exact promotion boundaries.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-188은 콜라츠 순환의 네-1 부분족을 전 길이에서 닫고, 리만·골드바흐·쌍둥이 소수 트랙에서 전역 결론에 필요한 조건을 더 정확히 구분했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>187</strong><small>2026-08-02</small></div>
+              <div><span>Latest ticket</span><strong>188</strong><small>2026-08-03</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 공개된 401차원 interval-LDL 양성 provenance와 SHA-256을 고정해 필드 일관성을 감사했습니다. PrimeProject가 9000-bit Arb 계산을 재실행한 것은 아닙니다.</p>
-                <p><strong>폐기:</strong> 하나의 유한 양성 절단면만으로 전역 Weil 비음성을 추론하는 경로는 <code>diag(M,-1)</code> 확장 반례로 막힙니다.</p>
-                <p><strong>다음 핵심:</strong> cofinal pole-neutral Guinand-Weil 절단면 전체에서 음의 결손이 0으로 가는 interval-LDL 인증.</p>
+                <p><strong>확립:</strong> 정확히 중첩된 유한 절단면에서는 음의 결함이 감소할 수 없으며, 결함을 전역 양성으로 승격하려면 하나의 공통 형식으로의 인증된 수렴이 필요합니다.</p>
+                <p><strong>폐기:</strong> <code>diag(1,...,1,-1/N)</code>은 결함이 0으로 가지만 모든 차원에서 부정부호이므로, 이동하는 음의 방향을 무시한 경로는 실패합니다.</p>
+                <p><strong>다음 핵심:</strong> pole-neutral Guinand-Weil 행렬이 하나의 공통 형식으로 인증된 연산자 오차와 함께 수렴한다는 정리.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 정확히 세 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 수축 주기족을 primitive 여부와 무관하게 배제했습니다.</p>
-                <p><strong>증명 범위:</strong> <code>h≥13</code>은 홀수 몫 부등식으로, <code>h=8..12</code>의 645개 word는 정확한 정수 열거로 닫았습니다.</p>
-                <p><strong>다음 핵심:</strong> 정확히 네 번의 <code>v=1</code>과 나머지 <code>v=2</code>를 갖는 모든 수축 word의 affine 나눗셈 배제.</p>
+                <p><strong>확립:</strong> 정확히 네 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 수축 주기족을 primitive 여부와 무관하게 배제했습니다.</p>
+                <p><strong>증명 범위:</strong> <code>h≥16</code>은 홀수 몫 부등식으로, <code>h=10..15</code>의 4,116개 word는 정확한 정수 열거로 닫았습니다.</p>
+                <p><strong>다음 핵심:</strong> 정확히 다섯 번의 <code>v=1</code>과 나머지 <code>v=2</code>를 갖는 모든 수축 word의 affine 나눗셈 배제.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 공유 지평 <code>σN</code> 아래에서는 소수쌍과 합성수 모조쌍이 동일한 truncated roughness signature를 가질 수 있음을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 같은 생존 bit만 쓰는 부호 가중·비선형 후처리는 잃어버린 소수 라벨을 복원할 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> 부호 있는 von Mangoldt subhorizon 잔차가 모든 큰 짝수에서 명시적 주항보다 작다는 정리.</p>
+                <p><strong>확립:</strong> 이항 폰 망골트 합을 소수-소수 질량과 진정한 소수 거듭제곱 오염으로 정확히 분해하고 <code>Epp≤2A(N)(log N)^2</code>를 증명했습니다.</p>
+                <p><strong>폐기:</strong> <code>N=18</code>의 <code>9+9</code>처럼 전체 폰 망골트 합에는 소수가 아닌 항이 있으므로 전체 합과 소수쌍 질량을 동일시할 수 없습니다.</p>
+                <p><strong>다음 핵심:</strong> 모든 큰 짝수에서 전체 가중 하계가 명시적 소수 거듭제곱 오염 상계를 이긴다는 정리.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> <code>Δ=4C</code>와 인증구간 <code>[L,U]</code>가 주어지면 가능한 twin 수의 정확한 정수 구간을 ceiling/floor로 복원합니다.</p>
-                <p><strong>교정:</strong> 엄밀한 <code>L&gt;0</code>이면 <code>L&lt;4</code>여도 양자화 때문에 이미 <code>C≥1</code>입니다. <code>[0,4]</code>는 정확히 모호합니다.</p>
-                <p><strong>다음 핵심:</strong> 미리 선언한 무한히 많은 dyadic block에서 엄밀히 양수인 projector 하단을 만드는 정리.</p>
+                <p><strong>확립:</strong> <code>Δj=4Cj</code>를 포함하는 폭 4 미만 구간은 dyadic block의 twin 개수를 정확히 복원하며 <code>L&gt;0</code>은 block 점유와 동치입니다.</p>
+                <p><strong>교정:</strong> 모든 block에서 폭 4 미만 구간을 만드는 것은 약한 근사가 아니라 정확한 개수 oracle입니다. <code>[0,4]</code>는 날카로운 모호성 경계입니다.</p>
+                <p><strong>다음 핵심:</strong> 무한히 많은 dyadic block에서 독립적으로 양수가 되는 Type II projector 하계를 만드는 정리.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>187개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-187은 세-1 콜라츠 주기층을 추가로 닫고, 유한 양성 절단면·truncated signature·양자화 구간의 정확한 증명 한계를 확정했습니다.</p>
+                <p>188개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-188은 네-1 콜라츠 주기층을 추가로 닫고, 공통 형식 수렴·소수 거듭제곱 오염·dyadic 구간 폭의 정확한 증명 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/positive-ray-threeone-signature-interval.ko.md">최신 한국어 보고서</a>
-              <a href="docs/positive-ray-threeone-signature-interval.md">Latest English report</a>
+              <a href="docs/nested-fourone-primepower-dyadic.ko.md">최신 한국어 보고서</a>
+              <a href="docs/nested-fourone-primepower-dyadic.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,7 +659,7 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-187</strong>
+              <strong>TICKET-188</strong>
               <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 정확한 정리 4개, 추가로 닫힌 무한 콜라츠 부분족 1개, 폐기·교정 경로 4개, 해결 0개입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260802-ticket187"></script>
-    <script src="assets/app.js?v=20260802-ticket187"></script>
+    <script src="assets/i18n.js?v=20260803-ticket188"></script>
+    <script src="assets/app.js?v=20260803-ticket188"></script>
   </body>
 </html>
 

@@ -31,17 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-188: Common Forms, Four-One Cycles, Prime-Power Contamination, and Dyadic Oracles](docs/nested-fourone-primepower-dyadic.md),
+with a separate [Korean report](docs/nested-fourone-primepower-dyadic.ko.md).
+It excludes every accelerated Collatz cycle word containing exactly four
+valuation-one entries and otherwise only valuation two. It also proves the
+common-form convergence contract needed to promote vanishing finite Weil-matrix
+defects, separates prime-prime mass from proper-prime-power contamination in the
+binary von Mangoldt convolution, and proves that sound Twin projector intervals
+of width below four recover exact dyadic counts. These are exact partial results
+and promotion boundaries, not resolutions. Every conjecture remains
+`open_not_proven`; the machine resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-187: Finite Weil Provenance, Three-One Cycles, Survivor Signatures, and Quantized Intervals](docs/positive-ray-threeone-signature-interval.md),
 with a separate [Korean report](docs/positive-ray-threeone-signature-interval.ko.md).
-It excludes every accelerated Collatz cycle word containing exactly three
-valuation-one entries and otherwise only valuation two. It also pins but does
-not independently rerun a published 401-dimensional Guinand-Weil interval-LDL
-provenance record, proves that no post-processing of unchanged subhorizon
-Goldbach roughness signatures can restore the lost prime/composite label, and
-derives the sharp interval-rounding rule for the Twin projector lattice
-`Delta in 4Z`. These are exact partial results and certification boundaries,
-not resolutions. Every conjecture remains `open_not_proven`; the machine
-resolution count is zero.
 
 The preserved previous boundary is
 [TICKET-186: Codimension, Two-One Cycles, Survivor Layers, and Quantized Margins](docs/codimension-twoone-layercake-quantization.md),
@@ -181,7 +184,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-187 boundary, four exact partial results, four discarded or corrected routes, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-188 boundary, four exact partial results, four discarded or corrected routes, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -194,22 +197,23 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 146-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 149-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-187. It closes the complete
-exactly-three-one/rest-two accelerated Collatz cycle stratum for all horizons:
-an analytic parity interval covers `h>=13`, and exact integer enumeration closes
-the 645 contracting words at `h=8..12`. The RH track pins a published finite
-interval-LDL provenance record while explicitly separating provenance review
-from independent replay and global promotion. Goldbach receives a stronger
-signed/nonlinear subhorizon information no-go, and Twin Prime receives the
-sharp quantized interval rule showing that any rigorous lower endpoint above
-zero is sufficient. These are partial theorems and route corrections, not
-solutions. All four conjectures remain open and the machine resolution count is
-zero.
+The latest proof-search track is TICKET-188. It closes the complete
+exactly-four-one/rest-two accelerated Collatz cycle stratum for all horizons:
+an analytic odd-quotient interval covers `h>=16`, and exact integer enumeration
+closes the 4,116 contracting words at `h=10..15`. The RH track proves that
+vanishing finite defect promotes only under exact nesting or certified
+convergence to one common form. Goldbach receives an exact von Mangoldt
+prime-power contamination subtraction, and Twin Prime receives a sharp theorem
+showing that sound intervals narrower than four are exact dyadic-count oracles.
+These are partial theorems and route corrections, not solutions. All four
+conjectures remain open and the machine resolution count is zero.
 See
+[TICKET188 EN](docs/nested-fourone-primepower-dyadic.md),
+[TICKET188 KO](docs/nested-fourone-primepower-dyadic.ko.md),
 [TICKET187 EN](docs/positive-ray-threeone-signature-interval.md),
 [TICKET187 KO](docs/positive-ray-threeone-signature-interval.ko.md),
 [TICKET186 EN](docs/codimension-twoone-layercake-quantization.md),
@@ -273,14 +277,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-187입니다. 콜라츠 트랙은 정확히 세
+한국어 최신 요약: 최신 탐색은 TICKET-188입니다. 콜라츠 트랙은 정확히 네
 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 주기족을 전 길이에서 배제했습니다.
-리만 트랙은 공개된 401차원 interval-LDL provenance를 고정했지만 독립 Arb
-재실행이나 전역 승격으로 과장하지 않습니다. 골드바흐 트랙은 같은 인수 지평
-아래 생존 bit를 부호·비선형 처리해도 소수쌍과 합성수 모조쌍을 구분할 수
-없음을 증명했고, 쌍둥이 소수 트랙은 엄밀한 하단이 0보다 크기만 하면
-`Delta in 4Z`가 실제 존재를 인증한다는 sharp 구간 규칙을 증명했습니다. 실제
-무한 산술 전제는 남아 있고 네 문제의 해결 수는 0입니다.
+리만 트랙은 결함 감소만으로는 부족하고 실제 Weil 형식 하나에 대한 인증된
+수렴이 필요함을 증명했습니다. 골드바흐 트랙은 폰 망골트 합에서 소수
+거듭제곱 오염을 정확히 분리했고, 쌍둥이 소수 트랙은 폭 4 미만의 sound
+interval이 각 dyadic block의 정확한 개수 oracle임을 증명했습니다. 실제 무한
+산술 전제는 남아 있고 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -300,18 +303,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-187입니다.
-[유한 Weil 인증·세-1 주기·생존 서명·양자화 구간 한국어 보고서](docs/positive-ray-threeone-signature-interval.ko.md)와
-[영문 보고서](docs/positive-ray-threeone-signature-interval.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-188입니다.
+[공통 형식·네-1 주기·소수 거듭제곱 오염·이진 구간 한국어 보고서](docs/nested-fourone-primepower-dyadic.ko.md)와
+[영문 보고서](docs/nested-fourone-primepower-dyadic.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-세-개 `v=1` 주기족 전체를 새로 닫았지만 실제 산술 전제는 남아 있습니다.
-각 proof DAG는 TICKET-186 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
+네-개 `v=1` 주기족 전체를 새로 닫았지만 실제 산술 전제는 남아 있습니다.
+각 proof DAG는 TICKET-187 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-187의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 187개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-188의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 188개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

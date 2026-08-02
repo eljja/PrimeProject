@@ -184,6 +184,7 @@ TICKET167_SCHEMA = "primeproject.ticket167-cofinal-residue-besov-parity.v1"
 TICKET168_SCHEMA = "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1"
 TICKET186_SCHEMA = "primeproject.ticket186-codimension-twoone-layercake-quantization.v1"
 TICKET187_SCHEMA = "primeproject.ticket187-positive-ray-threeone-signature-interval.v1"
+TICKET188_SCHEMA = "primeproject.ticket188-nested-fourone-primepower-dyadic.v1"
 
 
 def fail(message: str) -> int:
@@ -13307,6 +13308,166 @@ def main() -> int:
         or "resolves none" not in str(ticket187.get("claim_boundary", "")).lower()
     ):
         return fail("ticket187 proof boundary changed")
+
+    path188 = Path(
+        "data/open-problem/ticket188-nested-fourone-primepower-dyadic.json"
+    )
+    if not path188.exists():
+        return fail("missing ticket188 nested/four-one/prime-power/dyadic audit")
+    ticket188 = read_json(path188)
+    if (
+        ticket188.get("schema") != TICKET188_SCHEMA
+        or ticket188.get("status")
+        != "one_additional_infinite_cycle_stratum_closed_three_exact_promotion_boundaries_all_open"
+    ):
+        return fail("ticket188 schema or status changed")
+    audit188 = ticket188.get("nested_fourone_primepower_dyadic_audit", {})
+    if audit188.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_stratum_closure_count": 1,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket188 global machine audit changed")
+
+    by_id188 = {
+        str(row.get("problem_id")): row
+        for row in ticket188.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id188) != EXPECTED_PROBLEMS:
+        return fail("ticket188 attempts missing problems")
+    paths188 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-188-common-form-defect.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-188-four-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-188-prime-power-contamination.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-188-dyadic-interval-oracle.json"
+        ),
+    }
+    expected_names188 = {
+        "riemann": "CommonFormDefectPromotionAndMovingDirectionNoGo",
+        "collatz": "ExactlyFourValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "VonMangoldtPrimePowerContaminationBridge",
+        "twin-prime": "SubFourTwinIntervalExactCountOracleAndDyadicEquivalence",
+    }
+    next188 = {
+        "riemann": "PoleNeutralGuinandWeilMatricesConvergeToOneCommonFormWithCertifiedVanishingOperatorError",
+        "collatz": "NoContractingValuationWordWithExactlyFiveOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "ExplicitBinaryGoldbachVonMangoldtLowerBoundDominatesPrimePowerContaminationForEveryLargeEvenTarget",
+        "twin-prime": "IndependentTypeIITwinProjectorLowerEndpointIsPositiveOnInfinitelyManyDyadicBlocks",
+    }
+    sections188 = {
+        "riemann": audit188.get("riemann", {}),
+        "collatz": audit188.get("collatz", {}),
+        "goldbach": audit188.get("goldbach", {}),
+        "twin-prime": audit188.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id188.items():
+        artifact_path = paths188[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket188 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections188[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET188_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names188[problem_id]
+            or artifact.get("theorem_name") != expected_names188[problem_id]
+            or attempt.get("candidate_theorem") != next188[problem_id]
+            or artifact.get("candidate_theorem") != next188[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_insufficient",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next188[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count") != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket188 contract changed")
+
+    rh188 = sections188["riemann"]["reproducible_computation"]
+    nested188 = rh188.get("exact_nested_interlacing_rows", [])
+    moving188 = rh188.get("moving_negative_direction_counterfamily", [])
+    if (
+        [row.get("dimension_N") for row in nested188] != [2, 3, 4, 8, 16, 32]
+        or [row.get("negative_defect", {}).get("exact") for row in nested188]
+        != ["0/1", "1/7", "1/7", "1/7", "1/7", "1/7"]
+        or any(not row.get("indefinite") or row.get("exactly_nested") for row in moving188)
+        or rh188.get("aggregate", {}).get("common_form_weil_contract_verified")
+        is not False
+    ):
+        return fail("ticket188 RH common-form boundary changed")
+
+    collatz188 = sections188["collatz"]["reproducible_computation"]
+    finite188 = collatz188.get("finite_exception_horizon_rows", [])
+    aggregate188 = collatz188.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite188] != [10, 11, 12, 13, 14, 15]
+        or sum(int(row.get("word_count", 0)) for row in finite188) != 4116
+        or aggregate188.get("analytic_range_starts_at_h") != 16
+        or aggregate188.get("divisibility_hits") != 0
+        or collatz188.get("analytic_bound", {}).get("bound_at_h_16", {}).get("exact")
+        != "63175275/33554432"
+        or any(
+            row.get("divisibility_hit_count") != 0
+            or row.get("closed_form_failure_count") != 0
+            or row.get("rotation_identity_failure_count") != 0
+            for row in finite188
+        )
+    ):
+        return fail("ticket188 Collatz four-one cycle audit changed")
+
+    goldbach188 = sections188["goldbach"]["reproducible_computation"]
+    gold_rows188 = goldbach188.get("finite_decomposition_rows", [])
+    if (
+        [row.get("even_target_N") for row in gold_rows188]
+        != [18, 100, 1000, 10000, 100000]
+        or gold_rows188[0].get("ordered_prime_power_contamination_count") != 3
+        or [9, 9, 2, 2]
+        not in gold_rows188[0].get("contamination_examples_left_right_exponents", [])
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows188)
+        or goldbach188.get("aggregate", {}).get(
+            "every_target_weighted_lower_bound_proved"
+        )
+        is not False
+    ):
+        return fail("ticket188 Goldbach prime-power audit changed")
+
+    twin188 = sections188["twin-prime"]["reproducible_computation"]
+    twin_rows188 = twin188.get("finite_dyadic_rows", [])
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows188]
+        != list(range(4, 20))
+        or twin_rows188[-1].get("direct_twin_count_C_j") != 3785
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows188)
+        or not twin188.get("sharp_width_four_counterinterval", {}).get(
+            "ambiguous_between_zero_and_positive"
+        )
+        or twin188.get("aggregate", {}).get(
+            "independent_analytic_interval_construction"
+        )
+        is not False
+    ):
+        return fail("ticket188 Twin dyadic interval audit changed")
+    if (
+        "resolves none" not in str(audit188.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket188.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket188 proof boundary changed")
 
     print("open problem structure verified")
     return 0

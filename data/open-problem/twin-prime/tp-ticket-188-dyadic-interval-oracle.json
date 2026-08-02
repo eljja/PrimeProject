@@ -1,0 +1,650 @@
+{
+  "schema": "primeproject.ticket188-nested-fourone-primepower-dyadic.v1",
+  "generated_at": "2026-08-02T23:58:00+09:00",
+  "ticket_id": "TP-TICKET-188",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "SubFourTwinIntervalExactCountOracleAndDyadicEquivalence",
+  "declared_proposition": "Let C_j count twin-prime starts in the dyadic block [2^j,2^(j+1)) and Delta_j=4C_j. Every sound interval [L_j,U_j] of width strictly below four that contains Delta_j contains exactly one point of 4 times the nonnegative integers. It therefore recovers C_j exactly, and L_j>0 if and only if C_j>0. Width four is sharp because [0,4] is compatible with both zero and one. Consequently the Twin Prime conjecture is equivalent to positive lower endpoints on infinitely many dyadic blocks, but demanding sub-four intervals on every block is an exact-count oracle and is strictly more information than a one-sided infinitude proof needs.",
+  "mathematical_argument": "Distinct points of 4 times the nonnegative integers are separated by four, so an interval of smaller width contains at most one. Soundness supplies Delta_j, hence the count is exact. If C_j=0, soundness gives L_j<=0. If C_j>=1, then U_j>=4 and U_j-L_j<4, so L_j>0. Every twin belongs to one dyadic block and every bounded collection of blocks is finite, proving the infinitude equivalence.",
+  "reproducible_computation": {
+    "theorem": "Let C_j count twin-prime starts in the dyadic block [2^j,2^(j+1)) and Delta_j=4C_j. Every sound interval [L_j,U_j] of width strictly below four that contains Delta_j contains exactly one point of 4 times the nonnegative integers. It therefore recovers C_j exactly, and L_j>0 if and only if C_j>0. Width four is sharp because [0,4] is compatible with both zero and one. Consequently the Twin Prime conjecture is equivalent to positive lower endpoints on infinitely many dyadic blocks, but demanding sub-four intervals on every block is an exact-count oracle and is strictly more information than a one-sided infinitude proof needs.",
+    "proof": "Distinct points of 4 times the nonnegative integers are separated by four, so an interval of smaller width contains at most one. Soundness supplies Delta_j, hence the count is exact. If C_j=0, soundness gives L_j<=0. If C_j>=1, then U_j>=4 and U_j-L_j<4, so L_j>0. Every twin belongs to one dyadic block and every bounded collection of blocks is finite, proving the infinitude equivalence.",
+    "finite_dyadic_rows": [
+      {
+        "dyadic_exponent_j": 4,
+        "block": [
+          16,
+          32
+        ],
+        "direct_twin_count_C_j": 2,
+        "projector_Delta_j": 8,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 25,
+            "denominator": 4,
+            "exact": "25/4",
+            "decimal": 6.25
+          },
+          "upper": {
+            "numerator": 39,
+            "denominator": 4,
+            "exact": "39/4",
+            "decimal": 9.75
+          },
+          "minimum_compatible_twin_count": 2,
+          "maximum_compatible_twin_count": 2,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 5,
+        "block": [
+          32,
+          64
+        ],
+        "direct_twin_count_C_j": 2,
+        "projector_Delta_j": 8,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 25,
+            "denominator": 4,
+            "exact": "25/4",
+            "decimal": 6.25
+          },
+          "upper": {
+            "numerator": 39,
+            "denominator": 4,
+            "exact": "39/4",
+            "decimal": 9.75
+          },
+          "minimum_compatible_twin_count": 2,
+          "maximum_compatible_twin_count": 2,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 6,
+        "block": [
+          64,
+          128
+        ],
+        "direct_twin_count_C_j": 3,
+        "projector_Delta_j": 12,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 41,
+            "denominator": 4,
+            "exact": "41/4",
+            "decimal": 10.25
+          },
+          "upper": {
+            "numerator": 55,
+            "denominator": 4,
+            "exact": "55/4",
+            "decimal": 13.75
+          },
+          "minimum_compatible_twin_count": 3,
+          "maximum_compatible_twin_count": 3,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 7,
+        "block": [
+          128,
+          256
+        ],
+        "direct_twin_count_C_j": 7,
+        "projector_Delta_j": 28,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 105,
+            "denominator": 4,
+            "exact": "105/4",
+            "decimal": 26.25
+          },
+          "upper": {
+            "numerator": 119,
+            "denominator": 4,
+            "exact": "119/4",
+            "decimal": 29.75
+          },
+          "minimum_compatible_twin_count": 7,
+          "maximum_compatible_twin_count": 7,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 8,
+        "block": [
+          256,
+          512
+        ],
+        "direct_twin_count_C_j": 7,
+        "projector_Delta_j": 28,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 105,
+            "denominator": 4,
+            "exact": "105/4",
+            "decimal": 26.25
+          },
+          "upper": {
+            "numerator": 119,
+            "denominator": 4,
+            "exact": "119/4",
+            "decimal": 29.75
+          },
+          "minimum_compatible_twin_count": 7,
+          "maximum_compatible_twin_count": 7,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 9,
+        "block": [
+          512,
+          1024
+        ],
+        "direct_twin_count_C_j": 12,
+        "projector_Delta_j": 48,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 185,
+            "denominator": 4,
+            "exact": "185/4",
+            "decimal": 46.25
+          },
+          "upper": {
+            "numerator": 199,
+            "denominator": 4,
+            "exact": "199/4",
+            "decimal": 49.75
+          },
+          "minimum_compatible_twin_count": 12,
+          "maximum_compatible_twin_count": 12,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 10,
+        "block": [
+          1024,
+          2048
+        ],
+        "direct_twin_count_C_j": 26,
+        "projector_Delta_j": 104,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 409,
+            "denominator": 4,
+            "exact": "409/4",
+            "decimal": 102.25
+          },
+          "upper": {
+            "numerator": 423,
+            "denominator": 4,
+            "exact": "423/4",
+            "decimal": 105.75
+          },
+          "minimum_compatible_twin_count": 26,
+          "maximum_compatible_twin_count": 26,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 11,
+        "block": [
+          2048,
+          4096
+        ],
+        "direct_twin_count_C_j": 45,
+        "projector_Delta_j": 180,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 713,
+            "denominator": 4,
+            "exact": "713/4",
+            "decimal": 178.25
+          },
+          "upper": {
+            "numerator": 727,
+            "denominator": 4,
+            "exact": "727/4",
+            "decimal": 181.75
+          },
+          "minimum_compatible_twin_count": 45,
+          "maximum_compatible_twin_count": 45,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 12,
+        "block": [
+          4096,
+          8192
+        ],
+        "direct_twin_count_C_j": 70,
+        "projector_Delta_j": 280,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 1113,
+            "denominator": 4,
+            "exact": "1113/4",
+            "decimal": 278.25
+          },
+          "upper": {
+            "numerator": 1127,
+            "denominator": 4,
+            "exact": "1127/4",
+            "decimal": 281.75
+          },
+          "minimum_compatible_twin_count": 70,
+          "maximum_compatible_twin_count": 70,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 13,
+        "block": [
+          8192,
+          16384
+        ],
+        "direct_twin_count_C_j": 113,
+        "projector_Delta_j": 452,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 1801,
+            "denominator": 4,
+            "exact": "1801/4",
+            "decimal": 450.25
+          },
+          "upper": {
+            "numerator": 1815,
+            "denominator": 4,
+            "exact": "1815/4",
+            "decimal": 453.75
+          },
+          "minimum_compatible_twin_count": 113,
+          "maximum_compatible_twin_count": 113,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 14,
+        "block": [
+          16384,
+          32768
+        ],
+        "direct_twin_count_C_j": 215,
+        "projector_Delta_j": 860,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 3433,
+            "denominator": 4,
+            "exact": "3433/4",
+            "decimal": 858.25
+          },
+          "upper": {
+            "numerator": 3447,
+            "denominator": 4,
+            "exact": "3447/4",
+            "decimal": 861.75
+          },
+          "minimum_compatible_twin_count": 215,
+          "maximum_compatible_twin_count": 215,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 15,
+        "block": [
+          32768,
+          65536
+        ],
+        "direct_twin_count_C_j": 355,
+        "projector_Delta_j": 1420,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 5673,
+            "denominator": 4,
+            "exact": "5673/4",
+            "decimal": 1418.25
+          },
+          "upper": {
+            "numerator": 5687,
+            "denominator": 4,
+            "exact": "5687/4",
+            "decimal": 1421.75
+          },
+          "minimum_compatible_twin_count": 355,
+          "maximum_compatible_twin_count": 355,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 16,
+        "block": [
+          65536,
+          131072
+        ],
+        "direct_twin_count_C_j": 666,
+        "projector_Delta_j": 2664,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 10649,
+            "denominator": 4,
+            "exact": "10649/4",
+            "decimal": 2662.25
+          },
+          "upper": {
+            "numerator": 10663,
+            "denominator": 4,
+            "exact": "10663/4",
+            "decimal": 2665.75
+          },
+          "minimum_compatible_twin_count": 666,
+          "maximum_compatible_twin_count": 666,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 17,
+        "block": [
+          131072,
+          262144
+        ],
+        "direct_twin_count_C_j": 1153,
+        "projector_Delta_j": 4612,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 18441,
+            "denominator": 4,
+            "exact": "18441/4",
+            "decimal": 4610.25
+          },
+          "upper": {
+            "numerator": 18455,
+            "denominator": 4,
+            "exact": "18455/4",
+            "decimal": 4613.75
+          },
+          "minimum_compatible_twin_count": 1153,
+          "maximum_compatible_twin_count": 1153,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 18,
+        "block": [
+          262144,
+          524288
+        ],
+        "direct_twin_count_C_j": 2071,
+        "projector_Delta_j": 8284,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 33129,
+            "denominator": 4,
+            "exact": "33129/4",
+            "decimal": 8282.25
+          },
+          "upper": {
+            "numerator": 33143,
+            "denominator": 4,
+            "exact": "33143/4",
+            "decimal": 8285.75
+          },
+          "minimum_compatible_twin_count": 2071,
+          "maximum_compatible_twin_count": 2071,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 19,
+        "block": [
+          524288,
+          1048576
+        ],
+        "direct_twin_count_C_j": 3785,
+        "projector_Delta_j": 15140,
+        "sound_subfour_interval": {
+          "lower": {
+            "numerator": 60553,
+            "denominator": 4,
+            "exact": "60553/4",
+            "decimal": 15138.25
+          },
+          "upper": {
+            "numerator": 60567,
+            "denominator": 4,
+            "exact": "60567/4",
+            "decimal": 15141.75
+          },
+          "minimum_compatible_twin_count": 3785,
+          "maximum_compatible_twin_count": 3785,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "interval_width_is_seven_halves": true,
+          "interval_certifies_exact_count": true,
+          "positive_lower_endpoint_iff_block_occupied": true
+        }
+      }
+    ],
+    "sharp_width_four_counterinterval": {
+      "lower": {
+        "numerator": 0,
+        "denominator": 1,
+        "exact": "0/1",
+        "decimal": 0.0
+      },
+      "upper": {
+        "numerator": 4,
+        "denominator": 1,
+        "exact": "4/1",
+        "decimal": 4.0
+      },
+      "minimum_compatible_twin_count": 0,
+      "maximum_compatible_twin_count": 1,
+      "feasible_nonnegative_quantized_projector": true,
+      "positive_count_certified": false,
+      "zero_count_certified": false,
+      "exact_count_certified": false,
+      "ambiguous_between_zero_and_positive": true
+    },
+    "aggregate": {
+      "dyadic_block_count": 16,
+      "largest_upper_endpoint": 1048576,
+      "occupied_block_count": 16,
+      "subfour_intervals_recover_exact_count": true,
+      "width_four_is_ambiguous": true,
+      "independent_analytic_interval_construction": false,
+      "conjecture_resolution_count": 0
+    },
+    "no_go_scope": "The displayed intervals are centered on directly counted twins and are only exact replay witnesses. No independent Type I/II estimate constructs a positive lower endpoint on infinitely many unbounded blocks.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating uniform sub-four interval width as a modest relaxation; it recovers every dyadic twin count exactly",
+  "remaining_gap": "No independent arithmetic estimate yields positive certified lower endpoints on infinitely many unbounded dyadic blocks.",
+  "candidate_theorem": "IndependentTypeIITwinProjectorLowerEndpointIsPositiveOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof. The exact dyadic equivalence and width-four information threshold are proved; no infinite positive lower-bound sequence is constructed.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T187-INPUT",
+        "label": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "TP-T188-CLOSED",
+        "label": "SubFourTwinIntervalExactCountOracleAndDyadicEquivalence",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T188-REJECTED",
+        "label": "UniformSubFourTwinIntervalsAreOnlyAWeakApproximationRequirement",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T188-OPEN",
+        "label": "IndependentTypeIITwinProjectorLowerEndpointIsPositiveOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T187-INPUT",
+        "TP-T188-CLOSED"
+      ],
+      [
+        "TP-T188-CLOSED",
+        "TP-T188-OPEN"
+      ],
+      [
+        "TP-T188-REJECTED",
+        "TP-T188-OPEN"
+      ]
+    ]
+  }
+}

@@ -37,6 +37,38 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-188 Common Forms, Four-One Cycles, Prime Powers, and Dyadic Oracles
+
+TICKET-188 continues from TICKET-187 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:** `CommonFormDefectPromotionAndMovingDirectionNoGo` proves that
+   exact nested negative defect is nondecreasing and that approximate promotion
+   requires certified convergence to one fixed form. The family
+   `diag(1,...,1,-1/N)` refutes defect-only reasoning. The next obligation is
+   `PoleNeutralGuinandWeilMatricesConvergeToOneCommonFormWithCertifiedVanishingOperatorError`.
+2. **Collatz:** `ExactlyFourValuationOnesOtherwiseTwoCycleExclusion` closes
+   every contracting word with exactly four valuation-one entries and all
+   remaining entries two. A cyclic-gap bound proves `1<B/D<3` for `h>=16`;
+   exact enumeration closes all 4,116 words at `h=10..15`. The next obligation
+   is `NoContractingValuationWordWithExactlyFiveOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+3. **Goldbach:** `VonMangoldtPrimePowerContaminationBridge` proves
+   `R_Lambda=P_Lambda+E_pp` and `E_pp<=2A(N)(log N)^2`. It rejects identifying
+   total von Mangoldt mass with prime-prime mass. The next obligation is
+   `ExplicitBinaryGoldbachVonMangoldtLowerBoundDominatesPrimePowerContaminationForEveryLargeEvenTarget`.
+4. **Twin Prime:** `SubFourTwinIntervalExactCountOracleAndDyadicEquivalence`
+   proves that every sound interval narrower than four recovers the exact
+   dyadic twin count and that positive lower endpoints on infinitely many
+   dyadic blocks are equivalent to twin infinitude. The next obligation is
+   `IndependentTypeIITwinProjectorLowerEndpointIsPositiveOnInfinitelyManyDyadicBlocks`.
+
+Machine audit: four exact theorems, one newly closed infinite cycle stratum,
+four rejected or corrected routes, zero conjecture resolutions, and zero
+computational failures.
+
+English report: [TICKET-188](nested-fourone-primepower-dyadic.md).
+한국어 보고서: [TICKET-188](nested-fourone-primepower-dyadic.ko.md).
+
 ## 2026-08-02 TICKET-187 Provenance, Three-One Cycles, Signatures, and Intervals
 
 TICKET-187 continues from TICKET-186 and keeps every parent conjecture at

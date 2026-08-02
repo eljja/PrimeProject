@@ -1,0 +1,291 @@
+{
+  "schema": "primeproject.ticket188-nested-fourone-primepower-dyadic.v1",
+  "generated_at": "2026-08-02T23:58:00+09:00",
+  "ticket_id": "GB-TICKET-188",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "VonMangoldtPrimePowerContaminationBridge",
+  "declared_proposition": "For every even N, the binary von Mangoldt convolution R_Lambda(N) decomposes exactly as P_Lambda(N)+E_pp(N), where P_Lambda is the ordered prime-prime mass and E_pp is the nonnegative mass from terms with at least one proper prime power. If A(N) counts proper prime powers at most N, then E_pp(N)<=2 A(N)(log N)^2. Therefore a certified lower bound L(N)>2 A(N)(log N)^2 implies P_Lambda(N)>0 and hence a Goldbach representation. Positivity of R_Lambda alone, or identifying R_Lambda with P_Lambda, does not perform this subtraction; N=18 already has the contaminating term 9+9.",
+  "mathematical_argument": "Partition every nonzero summand Lambda(m)Lambda(N-m) according to whether both exponents are one. This gives the exact decomposition and E_pp>=0. A contaminated ordered pair has a proper prime power in at least one endpoint. There are at most A(N) choices for each endpoint position and every Lambda weight is at most log N, proving the upper bound. Subtracting this bound from any rigorous lower bound for R_Lambda leaves positive prime-prime mass.",
+  "reproducible_computation": {
+    "theorem": "For every even N, the binary von Mangoldt convolution R_Lambda(N) decomposes exactly as P_Lambda(N)+E_pp(N), where P_Lambda is the ordered prime-prime mass and E_pp is the nonnegative mass from terms with at least one proper prime power. If A(N) counts proper prime powers at most N, then E_pp(N)<=2 A(N)(log N)^2. Therefore a certified lower bound L(N)>2 A(N)(log N)^2 implies P_Lambda(N)>0 and hence a Goldbach representation. Positivity of R_Lambda alone, or identifying R_Lambda with P_Lambda, does not perform this subtraction; N=18 already has the contaminating term 9+9.",
+    "proof": "Partition every nonzero summand Lambda(m)Lambda(N-m) according to whether both exponents are one. This gives the exact decomposition and E_pp>=0. A contaminated ordered pair has a proper prime power in at least one endpoint. There are at most A(N) choices for each endpoint position and every Lambda weight is at most log N, proving the upper bound. Subtracting this bound from any rigorous lower bound for R_Lambda leaves positive prime-prime mass.",
+    "finite_decomposition_rows": [
+      {
+        "even_target_N": 18,
+        "ordered_von_mangoldt_support_count": 7,
+        "ordered_prime_pair_support_count": 4,
+        "ordered_prime_power_contamination_count": 3,
+        "weighted_total_convolution": 19.756285962813365,
+        "weighted_prime_pair_mass": 17.588430974164382,
+        "weighted_prime_power_contamination": 2.167854988648985,
+        "decomposition_rounding_residual": 1.7763568394002505e-15,
+        "proper_prime_power_count_A_N": 4,
+        "coarse_prime_power_count_upper_bound": 8,
+        "contamination_mass_upper_bound": 66.83399119075011,
+        "contamination_examples_left_right_exponents": [
+          [
+            2,
+            16,
+            1,
+            4
+          ],
+          [
+            9,
+            9,
+            2,
+            2
+          ],
+          [
+            16,
+            2,
+            4,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 100,
+        "ordered_von_mangoldt_support_count": 16,
+        "ordered_prime_pair_support_count": 12,
+        "ordered_prime_power_contamination_count": 4,
+        "weighted_total_convolution": 162.07824666735928,
+        "weighted_prime_pair_mass": 146.1815500437125,
+        "weighted_prime_power_contamination": 15.896696623646738,
+        "decomposition_rounding_residual": 5.1514348342607263e-14,
+        "proper_prime_power_count_A_N": 10,
+        "coarse_prime_power_count_upper_bound": 21,
+        "contamination_mass_upper_bound": 424.1518488382719,
+        "contamination_examples_left_right_exponents": [
+          [
+            19,
+            81,
+            1,
+            4
+          ],
+          [
+            27,
+            73,
+            3,
+            1
+          ],
+          [
+            73,
+            27,
+            1,
+            3
+          ],
+          [
+            81,
+            19,
+            4,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 1000,
+        "ordered_von_mangoldt_support_count": 64,
+        "ordered_prime_pair_support_count": 56,
+        "ordered_prime_power_contamination_count": 8,
+        "weighted_total_convolution": 1880.0702208146952,
+        "weighted_prime_pair_mass": 1823.0445906906646,
+        "weighted_prime_power_contamination": 57.02563012403055,
+        "decomposition_rounding_residual": 6.394884621840902e-14,
+        "proper_prime_power_count_A_N": 25,
+        "coarse_prime_power_count_upper_bound": 58,
+        "contamination_mass_upper_bound": 2385.8541497152787,
+        "contamination_examples_left_right_exponents": [
+          [
+            9,
+            991,
+            2,
+            1
+          ],
+          [
+            81,
+            919,
+            4,
+            1
+          ],
+          [
+            243,
+            757,
+            5,
+            1
+          ],
+          [
+            271,
+            729,
+            1,
+            6
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 10000,
+        "ordered_von_mangoldt_support_count": 260,
+        "ordered_prime_pair_support_count": 254,
+        "ordered_prime_power_contamination_count": 6,
+        "weighted_total_convolution": 16855.213722554072,
+        "weighted_prime_pair_mass": 16743.136805577,
+        "weighted_prime_power_contamination": 112.07691697707244,
+        "decomposition_rounding_residual": 4.831690603168681e-13,
+        "proper_prime_power_count_A_N": 51,
+        "coarse_prime_power_count_upper_bound": 157,
+        "contamination_mass_upper_bound": 8652.697716300747,
+        "contamination_examples_left_right_exponents": [
+          [
+            27,
+            9973,
+            3,
+            1
+          ],
+          [
+            1331,
+            8669,
+            3,
+            1
+          ],
+          [
+            4913,
+            5087,
+            3,
+            1
+          ],
+          [
+            5087,
+            4913,
+            1,
+            3
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 100000,
+        "ordered_von_mangoldt_support_count": 1636,
+        "ordered_prime_pair_support_count": 1620,
+        "ordered_prime_power_contamination_count": 16,
+        "weighted_total_convolution": 176573.64981384535,
+        "weighted_prime_pair_mass": 176154.32529638355,
+        "weighted_prime_power_contamination": 419.32451746187246,
+        "decomposition_rounding_residual": 8.105871529551223e-11,
+        "proper_prime_power_count_A_N": 108,
+        "coarse_prime_power_count_upper_bound": 422,
+        "contamination_mass_upper_bound": 28630.24979658335,
+        "contamination_examples_left_right_exponents": [
+          [
+            9,
+            99991,
+            2,
+            1
+          ],
+          [
+            1331,
+            98669,
+            3,
+            1
+          ],
+          [
+            2187,
+            97813,
+            7,
+            1
+          ],
+          [
+            4913,
+            95087,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      }
+    ],
+    "aggregate": {
+      "target_count": 5,
+      "largest_target": 100000,
+      "n18_contamination_present": true,
+      "all_finite_prime_pair_masses_positive": true,
+      "every_target_weighted_lower_bound_proved": false
+    },
+    "no_go_scope": "The decomposition does not provide the required lower bound for R_Lambda on every even target. The finite rows use already known representations and are diagnostics only. Exceptional-set and major-arc formulae do not by themselves remove every target.",
+    "failure_count": 0
+  },
+  "discarded_route": "identifying the full von Mangoldt convolution with prime-prime mass or using its positivity without a prime-power contamination subtraction",
+  "remaining_gap": "No every-target lower bound for the weighted binary convolution is proved, so the contamination bound cannot yet force prime-prime mass.",
+  "candidate_theorem": "ExplicitBinaryGoldbachVonMangoldtLowerBoundDominatesPrimePowerContaminationForEveryLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof or counterexample. The exact prime-power correction and a sufficient domination inequality are proved; the uniform lower bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T187-INPUT",
+        "label": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T188-CLOSED",
+        "label": "VonMangoldtPrimePowerContaminationBridge",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T188-REJECTED",
+        "label": "PositiveVonMangoldtConvolutionEqualsPositivePrimePairMassWithoutSubtraction",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T188-OPEN",
+        "label": "ExplicitBinaryGoldbachVonMangoldtLowerBoundDominatesPrimePowerContaminationForEveryLargeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T187-INPUT",
+        "GB-T188-CLOSED"
+      ],
+      [
+        "GB-T188-CLOSED",
+        "GB-T188-OPEN"
+      ],
+      [
+        "GB-T188-REJECTED",
+        "GB-T188-OPEN"
+      ]
+    ]
+  }
+}

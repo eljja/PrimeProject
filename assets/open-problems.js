@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket188AttemptGlobal = null;
 let ticket187AttemptGlobal = null;
 let ticket186AttemptGlobal = null;
 let ticket185AttemptGlobal = null;
@@ -9983,6 +9984,75 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket188NestedFourOnePrimePowerDyadic(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.nested_fourone_primepower_dyadic_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const nested = computation.exact_nested_interlacing_rows || [];
+    const moving = computation.moving_negative_direction_counterfamily || [];
+    detail = `
+      <div class="poc-equation">exact nesting ⇒ δ<sub>N</sub>=max(0,−λ<sub>min</sub>(A<sub>N</sub>)) is nondecreasing; common-form convergence + δ<sub>N</sub>→0 ⇒ Q≥0</div>
+      ${table(["dimension N", "nested defect", "moving defect", "moving family nested"], nested.map((row, index) => [row.dimension_N, row.negative_defect?.exact, moving[index]?.negative_defect?.exact, moving[index]?.exactly_nested ? "yes" : "no"]))}
+      <div class="poc-head"><div><span>Nested dimensions</span><strong>${aggregate.nested_dimension_count || 0}</strong></div><div><span>Moving family indefinite</span><strong>${aggregate.moving_family_is_indefinite_at_every_dimension ? "yes" : "no"}</strong></div><div><span>Actual Weil contract</span><strong>${aggregate.common_form_weil_contract_verified ? "yes" : "no"}</strong></div></div>
+      <p class="proof-note">정확히 중첩된 절단면의 음의 결함은 감소할 수 없습니다. 반면 diag(1,…,1,−1/N)은 결함이 0으로 가지만 음의 방향이 이동하므로 모든 N에서 부정부호입니다. 실제 Guinand-Weil 행렬에는 하나의 공통 형식으로의 인증된 수렴이 아직 필요합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.finite_exception_horizon_rows || [];
+    const bound = computation.analytic_bound || {};
+    detail = `
+      <div class="poc-equation">four cyclic gaps; h≥16 ⇒ 1&lt;B/D&lt;3 with B,D odd; h=10..15 closed by exact enumeration</div>
+      ${table(["finite horizon h", "all four-one words", "divisibility hits", "transcript SHA-256"], rows.map((row) => [row.horizon_h, row.word_count, row.divisibility_hit_count, String(row.remainder_transcript_sha256 || "").slice(0, 12)]))}
+      <div class="poc-head"><div><span>Analytic range</span><strong>all h ≥ ${bound.analytic_range_starts_at_h || 16}</strong></div><div><span>Finite words closed</span><strong>${aggregate.finite_exception_word_count || 0}</strong></div><div><span>Divisibility hits</span><strong>${aggregate.divisibility_hits ?? "missing"}</strong></div></div>
+      <p class="proof-note">정확히 네 번의 v=1과 나머지 v=2인 모든 수축 주기를 primitive 여부와 무관하게 배제했습니다. h≥16은 순환 간격 majorant로, h=10..15의 4,116개 word는 정확한 정수 열거로 닫았습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_decomposition_rows || [];
+    detail = `
+      <div class="poc-equation">R<sub>Λ</sub>(N)=P<sub>Λ</sub>(N)+E<sub>pp</sub>(N), 0≤E<sub>pp</sub>(N)≤2A(N)(log N)<sup>2</sup></div>
+      ${table(["N", "prime-pair support", "prime-power contamination", "proper powers A(N)"], rows.map((row) => [formatter.format(row.even_target_N || 0), row.ordered_prime_pair_support_count, row.ordered_prime_power_contamination_count, row.proper_prime_power_count_A_N]))}
+      <div class="poc-head"><div><span>Targets audited</span><strong>${aggregate.target_count || 0}</strong></div><div><span>N=18 contamination</span><strong>${aggregate.n18_contamination_present ? "present" : "missing"}</strong></div><div><span>Every-target lower bound</span><strong>${aggregate.every_target_weighted_lower_bound_proved ? "yes" : "no"}</strong></div></div>
+      <p class="proof-note">폰 망골트 합에는 9+9 같은 소수 거듭제곱 항이 포함됩니다. 전체 합의 양성을 소수쌍 질량으로 승격하려면 이 오염 상계보다 큰 모든-짝수 하계가 필요하며, 이번 유한 표는 그 분해만 재현합니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_dyadic_rows || [];
+    const boundary = computation.sharp_width_four_counterinterval || {};
+    detail = `
+      <div class="poc-equation">Δ<sub>j</sub>=4C<sub>j</sub>; sound width&lt;4 interval ⇒ exact C<sub>j</sub>; L<sub>j</sub>&gt;0 ⇔ C<sub>j</sub>&gt;0</div>
+      ${table(["dyadic j", "block", "direct Cj", "exact interval count"], rows.map((row) => [row.dyadic_exponent_j, (row.block || []).map((value) => formatter.format(value)).join(" – "), row.direct_twin_count_C_j, row.sound_subfour_interval?.minimum_compatible_twin_count]))}
+      <div class="poc-head"><div><span>Dyadic blocks</span><strong>${aggregate.dyadic_block_count || 0}</strong></div><div><span>Width 4 ambiguous</span><strong>${boundary.ambiguous_between_zero_and_positive ? "yes" : "no"}</strong></div><div><span>Independent intervals</span><strong>${aggregate.independent_analytic_interval_construction ? "yes" : "no"}</strong></div></div>
+      <p class="proof-note">폭 4 미만의 sound interval은 근사가 아니라 각 dyadic block의 정확한 twin 개수 oracle입니다. 직접 센 개수로 만든 표는 반올림 검증일 뿐이며, 독립적인 Type I/II 하단을 무한히 자주 양수로 만드는 문제는 그대로 열려 있습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket188-nested-fourone-primepower-dyadic" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 188 common forms, four-one cycles, prime-power contamination, and dyadic oracles</h3>
+      <div class="poc-head"><div><span>Status</span><strong>one additional infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET188 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/nested-fourone-primepower-dyadic.ko.md">한국어 보고서</a> · <a href="../docs/nested-fourone-primepower-dyadic.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket187PositiveRayThreeOneSignatureInterval(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.positive_ray_threeone_signature_interval_audit || {};
@@ -10043,7 +10113,7 @@ function renderTicket187PositiveRayThreeOneSignatureInterval(attempt) {
   }
   return `
     <div id="ticket187-positive-ray-threeone-signature-interval" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 187 finite Weil provenance, three-one cycles, survivor signatures, and quantized intervals</h3>
       <div class="poc-head"><div><span>Status</span><strong>one additional infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET187 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -14269,6 +14339,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket187PositiveRayThreeOneSignatureInterval(ticket187AttemptGlobal)}
     ${renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal)}
     ${renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal)}
     ${renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal)}
@@ -14504,12 +14575,13 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket187PositiveRayThreeOneSignatureInterval(ticket187AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket188NestedFourOnePrimePowerDyadic(ticket188AttemptGlobal) ||
+      renderTicket187PositiveRayThreeOneSignatureInterval(ticket187AttemptGlobal) ||
       renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal) ||
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-187 data is unavailable. The conjecture remains open. / TICKET-187 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-188 data is unavailable. The conjecture remains open. / TICKET-188 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14831,6 +14903,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket188Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket188-nested-fourone-primepower-dyadic.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket188AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket188AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket188AttemptGlobal) {
+      ticket188AttemptGlobal.bounded_result = ticket188AttemptGlobal.bounded_result || {};
+      ticket188AttemptGlobal.bounded_result.nested_fourone_primepower_dyadic_audit = payload.nested_fourone_primepower_dyadic_audit || {};
+    }
+    return Boolean(ticket188AttemptGlobal);
+  } catch (error) {
+    ticket188AttemptGlobal = null;
     return false;
   }
 }
@@ -15944,6 +16036,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket188Loaded = await loadTicket188Attempt();
   const ticket187Loaded = await loadTicket187Attempt();
   const ticket186Loaded = await loadTicket186Attempt();
   const ticket185Loaded = await loadTicket185Attempt();
@@ -15964,8 +16057,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket188AttemptGlobal) await loadTicket188Attempt();
     if (!ticket187AttemptGlobal) await loadTicket187Attempt();
     if (!ticket186AttemptGlobal) await loadTicket186Attempt();
     if (!ticket185AttemptGlobal) await loadTicket185Attempt();
