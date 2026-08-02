@@ -1,0 +1,1410 @@
+{
+  "schema": "primeproject.ticket187-positive-ray-threeone-signature-interval.v1",
+  "generated_at": "2026-08-02T23:40:00+09:00",
+  "status": "one_additional_infinite_cycle_stratum_closed_three_exact_certification_boundaries_all_open",
+  "claim_boundary": "TICKET-187 resolves none of the four conjectures. It excludes the entire accelerated Collatz cycle stratum with exactly three valuation-one entries and all other entries two. The RH result is an attributed audit of one published positive finite ray; the Goldbach and Twin results are exact information and interval certification boundaries.",
+  "positive_ray_threeone_signature_interval_audit": {
+    "theorem_name": "FourConjecturePositiveRayThreeOneSignatureIntervalAudit",
+    "status": "one_additional_infinite_cycle_stratum_closed_three_exact_certification_boundaries_all_open",
+    "proof_boundary": "TICKET-187 resolves none of the four conjectures. It excludes the entire accelerated Collatz cycle stratum with exactly three valuation-one entries and all other entries two. The RH result is an attributed audit of one published positive finite ray; the Goldbach and Twin results are exact information and interval certification boundaries.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-187",
+      "theorem_name": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+      "declared_proposition": "The pinned provenance artifact for the published c=100, N=200 cutoff-free Guinand-Weil block reports 401 positive interval-LDL pivots, zero negative pivots, and no undetermined pivot. The separate c=29, N=6 pole-neutral archive has positive closed-form and source-side numerical values whose discrepancy is below its reported tail remainder. Even accepting the reported 401-dimensional certificate, one finite positive section cannot imply global Weil nonnegativity: for every positive matrix M, the block extension diag(M,-1) agrees with M on that section and is indefinite.",
+      "mathematical_argument": "The provenance checks are exact checks of the archived JSON fields and pinned SHA-256, not a rerun of Arb. Treating the selected three-route decimals as exact transcript strings confirms that both displayed values are positive, their difference is below the reported route-2 tail remainder, and the rounded source components recombine within 1e-28. The fields guard_K and guard_g are retained only as closed-form-versus-quadrature diagnostics, not interval radii. The finite-section no-go is exact linear algebra: append a negative orthogonal coordinate to any accepted positive matrix.",
+      "reproducible_computation": {
+        "theorem": "The pinned provenance artifact for the published c=100, N=200 cutoff-free Guinand-Weil block reports 401 positive interval-LDL pivots, zero negative pivots, and no undetermined pivot. The separate c=29, N=6 pole-neutral archive has positive closed-form and source-side numerical values whose discrepancy is below its reported tail remainder. Even accepting the reported 401-dimensional certificate, one finite positive section cannot imply global Weil nonnegativity: for every positive matrix M, the block extension diag(M,-1) agrees with M on that section and is indefinite.",
+        "proof": "The provenance checks are exact checks of the archived JSON fields and pinned SHA-256, not a rerun of Arb. Treating the selected three-route decimals as exact transcript strings confirms that both displayed values are positive, their difference is below the reported route-2 tail remainder, and the rounded source components recombine within 1e-28. The fields guard_K and guard_g are retained only as closed-form-versus-quadrature diagnostics, not interval radii. The finite-section no-go is exact linear algebra: append a negative orthogonal coordinate to any accepted positive matrix.",
+        "source_provenance": {
+          "title": "A finite Guinand-Weil dictionary and archimedean tail order for the truncated Weil quadratic form",
+          "author": "Akiva Groskin",
+          "arxiv": "2607.02828v1",
+          "source_url": "https://arxiv.org/src/2607.02828v1/anc/threeroute_c29N6_poleneutral.json",
+          "license": "CC BY 4.0",
+          "source_sha256": "95e0f1d613d217478b1145ddef7fd884b0aa2c42bb477474848e44256df8f83d",
+          "tag": "c29N6_poleneutral",
+          "c": 29,
+          "N": 6,
+          "vector": [
+            "-0.068849362039686715138",
+            "0.54868385077863014544",
+            "1.0",
+            "0.5",
+            "-3.0",
+            "2.0",
+            "-1.0"
+          ]
+        },
+        "reported_interval_ldlt_provenance": {
+          "source_url": "https://arxiv.org/src/2607.02828v1/anc/c100_N200_arb_ldlt_prec9000_provenance.json",
+          "source_sha256": "ccb6327eb2f5fc2d81fae923b2db272d4371b7bcbd0ef995562fb99e04538e98",
+          "script": "arb_ldlt_certify.py",
+          "c": 100,
+          "N": 200,
+          "dimension": 401,
+          "prec_bits": 9000,
+          "n_pos": 401,
+          "n_neg": 0,
+          "undetermined_pivot": null,
+          "certified_positive_definite": true,
+          "independently_rerun_by_primeproject": false
+        },
+        "pole_neutral_numerical_replay": {
+          "route1_center": {
+            "exact_decimal": "0.028981466814873948251427313471228345",
+            "scientific": "2.8981466814873948251427313471228345E-2"
+          },
+          "guard_K_closed_form_vs_quadrature": {
+            "exact_decimal": "0.0000000000000000000000000000000000000000459177",
+            "scientific": "4.59177E-41"
+          },
+          "route2_center": {
+            "exact_decimal": "0.028981466814884184353882396894187551",
+            "scientific": "2.8981466814884184353882396894187551E-2"
+          },
+          "route2_tail_remainder_bound": {
+            "exact_decimal": "0.00000000000107788",
+            "scientific": "1.07788E-12"
+          },
+          "route_difference": {
+            "exact_decimal": "0.000000000000010236102455083422959206",
+            "scientific": "1.0236102455083422959206E-14"
+          },
+          "difference_below_reported_tail_remainder": true,
+          "both_archived_values_positive": true,
+          "is_rigorous_interval_certificate": false
+        },
+        "source_components": {
+          "prime": {
+            "exact_decimal": "-2.80667490260305724378367431208",
+            "scientific": "-2.80667490260305724378367431208E+0"
+          },
+          "pole": {
+            "exact_decimal": "-0.0000000000000000000000000000000000000000942207347425325302663222483685",
+            "scientific": "-9.42207347425325302663222483685E-41"
+          },
+          "archimedean": {
+            "exact_decimal": "2.83565636941794142813755670898",
+            "scientific": "2.83565636941794142813755670898E+0"
+          },
+          "component_sum": {
+            "exact_decimal": "0.0289814668148841843538823968999999999999057792652574674697336777516315",
+            "scientific": "2.89814668148841843538823968999999999999057792652574674697336777516315E-2"
+          },
+          "component_rounding_residual": {
+            "exact_decimal": "0.0000000000000000000000000000058124489999057792652574674697336777516315",
+            "scientific": "5.8124489999057792652574674697336777516315E-30"
+          },
+          "absolute_cancellation_condition_number": {
+            "exact_decimal": "194.687567336075378637570969084278132804089820946835606117273206207366144530934821993240911",
+            "scientific": "1.94687567336075378637570969084278132804089820946835606117273206207366144530934821993240911E+2"
+          }
+        },
+        "finite_section_no_go_extension": {
+          "input": "any positive-definite finite matrix M",
+          "extension": "diag(M,-1)",
+          "agrees_on_original_section": true,
+          "extension_is_indefinite": true
+        },
+        "aggregate": {
+          "audited_vector_dimension": 7,
+          "reported_ldlt_dimension": 401,
+          "reported_positive_pivots": 401,
+          "reported_negative_pivots": 0,
+          "reported_undetermined_pivots": 0,
+          "primeproject_independent_arb_rerun": false,
+          "pole_neutral_replay_values_positive": true,
+          "cofinal_family_certified": false
+        },
+        "no_go_scope": "PrimeProject verifies the provenance transcript and its internal claims but has not rerun the 9000-bit Arb LDL calculation. Even an independently accepted finite positive block supplies no cofinal nested family, actual global Weil nonnegativity, or RH.",
+        "failure_count": 0
+      },
+      "logical_limit": "The external 9000-bit Arb run was not independently rerun, and one finite positive block does not certify a cofinal family, the global Weil form, or RH.",
+      "route_decision": {
+        "discard": "promoting one reported positive finite Guinand-Weil block or one positive pole-neutral numerical ray to the global Weil form",
+        "retain": "independently replayable interval certificates for complete pole-neutral finite matrices on one cofinal nested family",
+        "next_single_lemma": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T186-INPUT",
+            "label": "WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T187-CLOSED",
+            "label": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T187-REJECTED",
+            "label": "OnePositiveFiniteGuinandWeilBlockImpliesGlobalWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T187-OPEN",
+            "label": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T186-INPUT",
+            "RH-T187-CLOSED"
+          ],
+          [
+            "RH-T187-CLOSED",
+            "RH-T187-OPEN"
+          ],
+          [
+            "RH-T187-REJECTED",
+            "RH-T187-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or global Weil positivity. One external finite interval-LDL provenance record is pinned but not independently rerun; one finite-section promotion is refuted exactly."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-187",
+      "theorem_name": "ExactlyThreeValuationOnesOtherwiseTwoCycleExclusion",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly three entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "mathematical_argument": "Rotate the word to gaps a,b,c>=1 with a+b+c=h and choose c as a largest gap, so c>=3. Its exact numerator is B=2^(2h-3)-3^(h-1)+4^a*3^(h-a-1)+2*4^(a+b-1)*3^(c-1), and D=2^(2h-3)-3^h. Thus B>D and B,D are odd. Put u=3/4 and Q=4^h/8. The inequality B<3D follows from (8/3)u^(b+c)+(4/3)u^c+(64/3)u^h<2. Since c>=3 and b+c>=4, the first two terms are at most 45/32; at h=13 the last term is already below 19/32 and decreases thereafter. Hence for h>=13, divisibility would make B/D an odd integer strictly between one and three, impossible. Contraction starts at h=8. Exact enumeration of all C(h,3) words for h=8,...,12 gives 645 cases and no divisibility hit. Cyclic rotation preserves divisibility because 2^v B_shift=3B+D and D is odd.",
+      "reproducible_computation": {
+        "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly three entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+        "proof": "Rotate the word to gaps a,b,c>=1 with a+b+c=h and choose c as a largest gap, so c>=3. Its exact numerator is B=2^(2h-3)-3^(h-1)+4^a*3^(h-a-1)+2*4^(a+b-1)*3^(c-1), and D=2^(2h-3)-3^h. Thus B>D and B,D are odd. Put u=3/4 and Q=4^h/8. The inequality B<3D follows from (8/3)u^(b+c)+(4/3)u^c+(64/3)u^h<2. Since c>=3 and b+c>=4, the first two terms are at most 45/32; at h=13 the last term is already below 19/32 and decreases thereafter. Hence for h>=13, divisibility would make B/D an odd integer strictly between one and three, impossible. Contraction starts at h=8. Exact enumeration of all C(h,3) words for h=8,...,12 gives 645 cases and no divisibility hit. Cyclic rotation preserves divisibility because 2^v B_shift=3B+D and D is odd.",
+        "finite_exception_horizon_rows": [
+          {
+            "horizon_h": 8,
+            "contracting": true,
+            "word_count": 56,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "closed_form_failure_count": 0,
+            "rotation_identity_failure_count": 0,
+            "remainder_transcript_sha256": "bdef152a6abd5aa4e2d4d1fc123f21e4ded2f2e618e4b37093ac9ea1076dfc31"
+          },
+          {
+            "horizon_h": 9,
+            "contracting": true,
+            "word_count": 84,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "closed_form_failure_count": 0,
+            "rotation_identity_failure_count": 0,
+            "remainder_transcript_sha256": "ede2239afa6d2983037b0116dea01e5bac933f26aeebf0913cb831ba42092ee9"
+          },
+          {
+            "horizon_h": 10,
+            "contracting": true,
+            "word_count": 120,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "closed_form_failure_count": 0,
+            "rotation_identity_failure_count": 0,
+            "remainder_transcript_sha256": "0e54f10ddb9d49c18e408cf697befef3e0623b0ce00f417a3f77f689a2b9aafa"
+          },
+          {
+            "horizon_h": 11,
+            "contracting": true,
+            "word_count": 165,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "closed_form_failure_count": 0,
+            "rotation_identity_failure_count": 0,
+            "remainder_transcript_sha256": "c564eb6aa407a186873c4d3bbf1c162616c1901c23dedf085e681aa494976e1a"
+          },
+          {
+            "horizon_h": 12,
+            "contracting": true,
+            "word_count": 220,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "closed_form_failure_count": 0,
+            "rotation_identity_failure_count": 0,
+            "remainder_transcript_sha256": "03fb6db59865d5fe8de5d9e4c110e3d3028fe6916413c8a746fad1ed73bb2483"
+          }
+        ],
+        "analytic_replay_rows": [
+          {
+            "horizon_h": 13,
+            "cyclic_gaps": [
+              4,
+              4,
+              5
+            ],
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2
+            ],
+            "affine_numerator_B": "12190991",
+            "cycle_denominator_D": "6794285",
+            "B_mod_D": "5396706",
+            "B_over_D_decimal": 1.7943007983915893,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "B_exceeds_D": true,
+              "B_is_below_3D": true,
+              "B_and_D_are_odd": true,
+              "rotation_identity": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 16,
+            "cyclic_gaps": [
+              5,
+              5,
+              6
+            ],
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "affine_numerator_B": "710390165",
+            "cycle_denominator_D": "493824191",
+            "B_mod_D": "216565974",
+            "B_over_D_decimal": 1.4385487344422137,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "B_exceeds_D": true,
+              "B_is_below_3D": true,
+              "B_and_D_are_odd": true,
+              "rotation_identity": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 32,
+            "cyclic_gaps": [
+              10,
+              11,
+              11
+            ],
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "affine_numerator_B": "2446043935354688981",
+            "cycle_denominator_D": "2303989989024842111",
+            "B_mod_D": "142053946329846870",
+            "B_over_D_decimal": 1.061655626546351,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "B_exceeds_D": true,
+              "B_is_below_3D": true,
+              "B_and_D_are_odd": true,
+              "rotation_identity": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 64,
+            "cyclic_gaps": [
+              21,
+              21,
+              22
+            ],
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "affine_numerator_B": "42636942278914595168617133199120340565",
+            "cycle_denominator_D": "42535292431433487640409341271121937151",
+            "B_mod_D": "101649847481107528207791927998403414",
+            "B_over_D_decimal": 1.0023897766224357,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "B_exceeds_D": true,
+              "B_is_below_3D": true,
+              "B_and_D_are_odd": true,
+              "rotation_identity": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 128,
+            "cyclic_gaps": [
+              42,
+              43,
+              43
+            ],
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "affine_numerator_B": "14474093032367533517284410583765532106023972374025460590389103344101185410901",
+            "cycle_denominator_D": "14474011154664512637761795387502816960785886670686404826720605725148032108031",
+            "B_mod_D": "81877703020879522615196262715145238085703339055763668497618953153302870",
+            "B_over_D_decimal": 1.0000056568771536,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "B_exceeds_D": true,
+              "B_is_below_3D": true,
+              "B_and_D_are_odd": true,
+              "rotation_identity": true,
+              "affine_divisibility_fails": true
+            }
+          }
+        ],
+        "analytic_bound": {
+          "tail_at_h_13": {
+            "numerator": 531441,
+            "denominator": 1048576,
+            "exact": "531441/1048576",
+            "decimal": 0.5068216323852539
+          },
+          "available_budget": {
+            "numerator": 19,
+            "denominator": 32,
+            "exact": "19/32",
+            "decimal": 0.59375
+          },
+          "first_two_term_bound": {
+            "numerator": 45,
+            "denominator": 32,
+            "exact": "45/32",
+            "decimal": 1.40625
+          },
+          "analytic_range_starts_at_h": 13
+        },
+        "aggregate": {
+          "infinite_family_proved": true,
+          "includes_imprimitive_words": true,
+          "contracting_range_starts_at_h": 8,
+          "analytic_range_starts_at_h": 13,
+          "finite_exception_word_count": 645,
+          "divisibility_hits": 0,
+          "largest_replayed_horizon": 128
+        },
+        "no_go_scope": "This closes one more infinite periodic stratum. It does not exclude words with four or more valuation-one entries, valuations at least three, or divergent aperiodic natural-number orbits.",
+        "failure_count": 0
+      },
+      "logical_limit": "Four-or-more-one words, valuations at least three, and divergent aperiodic orbits remain open.",
+      "route_decision": {
+        "discard": "treating bounded search beyond h=12 as evidence for the remaining exactly-three-one horizons",
+        "retain": "cyclic-gap closed forms, an all-horizon parity interval, and exact enumeration only below the analytic threshold",
+        "next_single_lemma": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T186-INPUT",
+            "label": "NoContractingValuationWordWithExactlyThreeOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T187-CLOSED",
+            "label": "ExactlyThreeValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T187-REJECTED",
+            "label": "FiniteThreeOneEnumerationProvesEveryHorizon",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T187-OPEN",
+            "label": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T186-INPUT",
+            "CO-T187-CLOSED"
+          ],
+          [
+            "CO-T187-CLOSED",
+            "CO-T187-OPEN"
+          ],
+          [
+            "CO-T187-REJECTED",
+            "CO-T187-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or complete cycle exclusion; the entire exactly-three-one/rest-two periodic stratum is newly excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-187",
+      "theorem_name": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+      "declared_proposition": "Fix an even N having both a Goldbach representation and a bad odd candidate pair. Let tau_N be the largest bad-pair least-factor gate, let rho_N be the largest smaller endpoint of a prime pair, and put sigma_N=min(tau_N,rho_N). For every integer Y<sigma_N, one prime pair and a bad pair have the same truncated small-factor survivor signature through depth Y. Consequently no function of that signature alone, linear or nonlinear and with arbitrary signed weights, classifies every candidate pair correctly.",
+      "mathematical_argument": "Choose a bad pair attaining tau_N and a prime pair attaining rho_N. Through every depth below sigma_N, neither witness is removed by a trial divisor, so both signatures are all ones. Equal inputs receive equal outputs under every deterministic function; therefore signed depth weights do not repair the information loss.",
+      "reproducible_computation": {
+        "theorem": "Fix an even N having both a Goldbach representation and a bad odd candidate pair. Let tau_N be the largest bad-pair least-factor gate, let rho_N be the largest smaller endpoint of a prime pair, and put sigma_N=min(tau_N,rho_N). For every integer Y<sigma_N, one prime pair and a bad pair have the same truncated small-factor survivor signature through depth Y. Consequently no function of that signature alone, linear or nonlinear and with arbitrary signed weights, classifies every candidate pair correctly.",
+        "proof": "Choose a bad pair attaining tau_N and a prime pair attaining rho_N. Through every depth below sigma_N, neither witness is removed by a trial divisor, so both signatures are all ones. Equal inputs receive equal outputs under every deterministic function; therefore signed depth weights do not repair the information loss.",
+        "target_signature_rows": [
+          {
+            "even_target_N": 100,
+            "prime_pair_count": 6,
+            "bad_pair_count": 18,
+            "maximum_bad_gate_tau_N": 7,
+            "maximum_prime_pair_small_endpoint_rho_N": 47,
+            "shared_gate_sigma_N": 7,
+            "maximum_indistinguishable_depth_Y": 6,
+            "prime_pair_witness": [
+              47,
+              53
+            ],
+            "bad_pair_witness": [
+              23,
+              77
+            ],
+            "bad_pair_gate": 7,
+            "shared_signature_length": 7,
+            "shared_signature_sha256": "2558a34d4d20964ca1d272ab26ccce9511d880579593cd4c9e01ab91ed00f325",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          },
+          {
+            "even_target_N": 500,
+            "prime_pair_count": 13,
+            "bad_pair_count": 111,
+            "maximum_bad_gate_tau_N": 19,
+            "maximum_prime_pair_small_endpoint_rho_N": 229,
+            "shared_gate_sigma_N": 19,
+            "maximum_indistinguishable_depth_Y": 18,
+            "prime_pair_witness": [
+              229,
+              271
+            ],
+            "bad_pair_witness": [
+              139,
+              361
+            ],
+            "bad_pair_gate": 19,
+            "shared_signature_length": 19,
+            "shared_signature_sha256": "b4db3abdc9d8c88b51aac2b2d3d14e74678b32ef413a9354911109e9cfa3d2e9",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          },
+          {
+            "even_target_N": 1000,
+            "prime_pair_count": 28,
+            "bad_pair_count": 221,
+            "maximum_bad_gate_tau_N": 29,
+            "maximum_prime_pair_small_endpoint_rho_N": 491,
+            "shared_gate_sigma_N": 29,
+            "maximum_indistinguishable_depth_Y": 28,
+            "prime_pair_witness": [
+              491,
+              509
+            ],
+            "bad_pair_witness": [
+              101,
+              899
+            ],
+            "bad_pair_gate": 29,
+            "shared_signature_length": 29,
+            "shared_signature_sha256": "a271343c7b1a5dca128e19f5b1874a355ce12439838b7c02c22e38da5ae37ef4",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          },
+          {
+            "even_target_N": 5000,
+            "prime_pair_count": 76,
+            "bad_pair_count": 1173,
+            "maximum_bad_gate_tau_N": 67,
+            "maximum_prime_pair_small_endpoint_rho_N": 2383,
+            "shared_gate_sigma_N": 67,
+            "maximum_indistinguishable_depth_Y": 66,
+            "prime_pair_witness": [
+              2383,
+              2617
+            ],
+            "bad_pair_witness": [
+              109,
+              4891
+            ],
+            "bad_pair_gate": 67,
+            "shared_signature_length": 67,
+            "shared_signature_sha256": "d2fbb23b84794b6f91ef2ca81f059374496fe59a952aa29892e7f86c974ce388",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          },
+          {
+            "even_target_N": 10000,
+            "prime_pair_count": 127,
+            "bad_pair_count": 2372,
+            "maximum_bad_gate_tau_N": 89,
+            "maximum_prime_pair_small_endpoint_rho_N": 4919,
+            "shared_gate_sigma_N": 89,
+            "maximum_indistinguishable_depth_Y": 88,
+            "prime_pair_witness": [
+              4919,
+              5081
+            ],
+            "bad_pair_witness": [
+              1367,
+              8633
+            ],
+            "bad_pair_gate": 89,
+            "shared_signature_length": 89,
+            "shared_signature_sha256": "a8431ebd4fecf16f2cf1615e99542b6dbc6bc25ea4b4299056f306a8c5b353af",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          },
+          {
+            "even_target_N": 50000,
+            "prime_pair_count": 450,
+            "bad_pair_count": 12049,
+            "maximum_bad_gate_tau_N": 223,
+            "maximum_prime_pair_small_endpoint_rho_N": 24967,
+            "shared_gate_sigma_N": 223,
+            "maximum_indistinguishable_depth_Y": 222,
+            "prime_pair_witness": [
+              24967,
+              25033
+            ],
+            "bad_pair_witness": [
+              271,
+              49729
+            ],
+            "bad_pair_gate": 223,
+            "shared_signature_length": 223,
+            "shared_signature_sha256": "f4fde78937826f3651abe1f61c179203ade6501867b8e5a82b1dab1a105a5ff2",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          },
+          {
+            "even_target_N": 100000,
+            "prime_pair_count": 810,
+            "bad_pair_count": 24189,
+            "maximum_bad_gate_tau_N": 311,
+            "maximum_prime_pair_small_endpoint_rho_N": 49877,
+            "shared_gate_sigma_N": 311,
+            "maximum_indistinguishable_depth_Y": 310,
+            "prime_pair_witness": [
+              49877,
+              50123
+            ],
+            "bad_pair_witness": [
+              2657,
+              97343
+            ],
+            "bad_pair_gate": 311,
+            "shared_signature_length": 311,
+            "shared_signature_sha256": "ccf5db45063d305bb076db6270f2321dc910a5663c6e6c638286eab7b52d35aa",
+            "checks": {
+              "prime_witness_is_prime_pair": 1,
+              "bad_witness_is_not_prime_pair": true,
+              "bad_witness_survives_through_Y": true,
+              "prime_witness_survives_through_Y": true,
+              "truncated_signatures_are_identical": true
+            }
+          }
+        ],
+        "aggregate": {
+          "target_count": 7,
+          "largest_target": 100000,
+          "largest_shared_signature_length": 311,
+          "largest_indistinguishable_depth": 310,
+          "signature_separation_failures": 0
+        },
+        "no_go_scope": "The theorem is conditional on a target already having a prime pair and therefore proves no Goldbach case. It shows that even signed or nonlinear reuse of the same truncated roughness bits is insufficient; new prime-sensitive amplitude or phase information is required.",
+        "failure_count": 0
+      },
+      "logical_limit": "No prime-weighted every-target lower bound, signed minor-arc power saving, or exceptional-set elimination is proved.",
+      "route_decision": {
+        "discard": "expecting arbitrary signed or nonlinear post-processing of the same subhorizon roughness signature to distinguish prime pairs from all composite impostors",
+        "retain": "new von Mangoldt amplitude or target-aligned phase information with a uniform signed residual estimate",
+        "next_single_lemma": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T186-INPUT",
+            "label": "SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T187-CLOSED",
+            "label": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T187-REJECTED",
+            "label": "SignedWeightsOnUnchangedSurvivorBitsBreakCompositeContamination",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T187-OPEN",
+            "label": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T186-INPUT",
+            "GB-T187-CLOSED"
+          ],
+          [
+            "GB-T187-CLOSED",
+            "GB-T187-OPEN"
+          ],
+          [
+            "GB-T187-REJECTED",
+            "GB-T187-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact information-theoretic no-go for subhorizon roughness signatures only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-187",
+      "theorem_name": "QuantizedTwinProjectorIntervalRoundingCertificate",
+      "declared_proposition": "Let a certified interval [L,U] contain the exact cubic-rough twin projector Delta=4C with C a nonnegative integer. Then the complete compatible count interval is ceil(max(L,0)/4)<=C<=floor(U/4). In particular L>0 certifies C>=1 even when L<4, U<4 certifies C=0, and [0,4] is sharply ambiguous between C=0 and C=1.",
+      "mathematical_argument": "Intersect [L,U] with the lattice 4 times the nonnegative integers and divide by four. Ceiling and floor give the exact compatible integer counts. The intervals containing only 4, only 0, and both 0 and 4 prove the three stated decisions and sharpness. Thus an analytic lower endpoint need only be rigorously strict-positive; integrality promotes it to the four-unit arithmetic threshold.",
+      "reproducible_computation": {
+        "theorem": "Let a certified interval [L,U] contain the exact cubic-rough twin projector Delta=4C with C a nonnegative integer. Then the complete compatible count interval is ceil(max(L,0)/4)<=C<=floor(U/4). In particular L>0 certifies C>=1 even when L<4, U<4 certifies C=0, and [0,4] is sharply ambiguous between C=0 and C=1.",
+        "proof": "Intersect [L,U] with the lattice 4 times the nonnegative integers and divide by four. Ceiling and floor give the exact compatible integer counts. The intervals containing only 4, only 0, and both 0 and 4 prove the three stated decisions and sharpness. Thus an analytic lower endpoint need only be rigorously strict-positive; integrality promotes it to the four-unit arithmetic threshold.",
+        "sharp_interval_rows": [
+          {
+            "name": "strict-positive-small-lower-endpoint",
+            "lower": {
+              "numerator": 1,
+              "denominator": 1000,
+              "exact": "1/1000",
+              "decimal": 0.001
+            },
+            "upper": {
+              "numerator": 7999,
+              "denominator": 1000,
+              "exact": "7999/1000",
+              "decimal": 7.999
+            },
+            "minimum_compatible_twin_count": 1,
+            "maximum_compatible_twin_count": 1,
+            "feasible_nonnegative_quantized_projector": true,
+            "positive_count_certified": true,
+            "zero_count_certified": false,
+            "exact_count_certified": true,
+            "ambiguous_between_zero_and_positive": false
+          },
+          {
+            "name": "sub-four-upper-endpoint",
+            "lower": {
+              "numerator": -1,
+              "denominator": 1000,
+              "exact": "-1/1000",
+              "decimal": -0.001
+            },
+            "upper": {
+              "numerator": 3999,
+              "denominator": 1000,
+              "exact": "3999/1000",
+              "decimal": 3.999
+            },
+            "minimum_compatible_twin_count": 0,
+            "maximum_compatible_twin_count": 0,
+            "feasible_nonnegative_quantized_projector": true,
+            "positive_count_certified": false,
+            "zero_count_certified": true,
+            "exact_count_certified": true,
+            "ambiguous_between_zero_and_positive": false
+          },
+          {
+            "name": "zero-four-boundary-ambiguity",
+            "lower": {
+              "numerator": 0,
+              "denominator": 1,
+              "exact": "0/1",
+              "decimal": 0.0
+            },
+            "upper": {
+              "numerator": 4,
+              "denominator": 1,
+              "exact": "4/1",
+              "decimal": 4.0
+            },
+            "minimum_compatible_twin_count": 0,
+            "maximum_compatible_twin_count": 1,
+            "feasible_nonnegative_quantized_projector": true,
+            "positive_count_certified": false,
+            "zero_count_certified": false,
+            "exact_count_certified": false,
+            "ambiguous_between_zero_and_positive": true
+          }
+        ],
+        "finite_cubic_rough_interval_rows": [
+          {
+            "X": 1000,
+            "projector_Delta": 104,
+            "direct_twin_count": 26,
+            "certified_count_interval": {
+              "lower": {
+                "numerator": 207,
+                "denominator": 2,
+                "exact": "207/2",
+                "decimal": 103.5
+              },
+              "upper": {
+                "numerator": 209,
+                "denominator": 2,
+                "exact": "209/2",
+                "decimal": 104.5
+              },
+              "minimum_compatible_twin_count": 26,
+              "maximum_compatible_twin_count": 26,
+              "feasible_nonnegative_quantized_projector": true,
+              "positive_count_certified": true,
+              "zero_count_certified": false,
+              "exact_count_certified": true,
+              "ambiguous_between_zero_and_positive": false
+            },
+            "checks": {
+              "projector_is_four_times_count": true,
+              "half_unit_interval_certifies_exact_count": true
+            }
+          },
+          {
+            "X": 10000,
+            "projector_Delta": 548,
+            "direct_twin_count": 137,
+            "certified_count_interval": {
+              "lower": {
+                "numerator": 1095,
+                "denominator": 2,
+                "exact": "1095/2",
+                "decimal": 547.5
+              },
+              "upper": {
+                "numerator": 1097,
+                "denominator": 2,
+                "exact": "1097/2",
+                "decimal": 548.5
+              },
+              "minimum_compatible_twin_count": 137,
+              "maximum_compatible_twin_count": 137,
+              "feasible_nonnegative_quantized_projector": true,
+              "positive_count_certified": true,
+              "zero_count_certified": false,
+              "exact_count_certified": true,
+              "ambiguous_between_zero_and_positive": false
+            },
+            "checks": {
+              "projector_is_four_times_count": true,
+              "half_unit_interval_certifies_exact_count": true
+            }
+          },
+          {
+            "X": 100000,
+            "projector_Delta": 3744,
+            "direct_twin_count": 936,
+            "certified_count_interval": {
+              "lower": {
+                "numerator": 7487,
+                "denominator": 2,
+                "exact": "7487/2",
+                "decimal": 3743.5
+              },
+              "upper": {
+                "numerator": 7489,
+                "denominator": 2,
+                "exact": "7489/2",
+                "decimal": 3744.5
+              },
+              "minimum_compatible_twin_count": 936,
+              "maximum_compatible_twin_count": 936,
+              "feasible_nonnegative_quantized_projector": true,
+              "positive_count_certified": true,
+              "zero_count_certified": false,
+              "exact_count_certified": true,
+              "ambiguous_between_zero_and_positive": false
+            },
+            "checks": {
+              "projector_is_four_times_count": true,
+              "half_unit_interval_certifies_exact_count": true
+            }
+          },
+          {
+            "X": 1000000,
+            "projector_Delta": 26808,
+            "direct_twin_count": 6702,
+            "certified_count_interval": {
+              "lower": {
+                "numerator": 53615,
+                "denominator": 2,
+                "exact": "53615/2",
+                "decimal": 26807.5
+              },
+              "upper": {
+                "numerator": 53617,
+                "denominator": 2,
+                "exact": "53617/2",
+                "decimal": 26808.5
+              },
+              "minimum_compatible_twin_count": 6702,
+              "maximum_compatible_twin_count": 6702,
+              "feasible_nonnegative_quantized_projector": true,
+              "positive_count_certified": true,
+              "zero_count_certified": false,
+              "exact_count_certified": true,
+              "ambiguous_between_zero_and_positive": false
+            },
+            "checks": {
+              "projector_is_four_times_count": true,
+              "half_unit_interval_certifies_exact_count": true
+            }
+          }
+        ],
+        "aggregate": {
+          "sharp_rule_count": 3,
+          "finite_scale_count": 4,
+          "largest_finite_scale": 1000000,
+          "strict_positive_lower_endpoint_is_sufficient": true,
+          "zero_to_four_interval_is_ambiguous": true,
+          "conjecture_resolution_count": 0
+        },
+        "no_go_scope": "Quantized rounding reduces the certification margin but does not produce a positive lower endpoint. No Type I/II estimate, parity break, or infinitely recurring positive block is proved.",
+        "failure_count": 0
+      },
+      "logical_limit": "No arithmetic estimate supplies positive lower endpoints on infinitely many unbounded predeclared blocks.",
+      "route_decision": {
+        "discard": "requiring an analytic lower endpoint of at least four before using the known four-integer quantization",
+        "retain": "rigorous strict-positive projector intervals, promoted by Delta in 4Z to an actual twin count",
+        "next_single_lemma": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T186-INPUT",
+            "label": "PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T187-CLOSED",
+            "label": "QuantizedTwinProjectorIntervalRoundingCertificate",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T187-REJECTED",
+            "label": "AnalyticLowerBoundMustReachFourBeforeQuantizationCanCertifyATwin",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T187-OPEN",
+            "label": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T186-INPUT",
+            "TP-T187-CLOSED"
+          ],
+          [
+            "TP-T187-CLOSED",
+            "TP-T187-OPEN"
+          ],
+          [
+            "TP-T187-REJECTED",
+            "TP-T187-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or Type I/II breakthrough; one exact interval-lattice promotion rule and its sharp ambiguity boundary only."
+    },
+    "cross_problem_synthesis": "Exact finite information helps only when its quantifier is kept: a positive ray is not a positive operator, a closed affine formula can cover every cycle horizon, unchanged roughness bits remain indistinguishable under any post-processing, and arithmetic quantization can promote any rigorous strict-positive interval.",
+    "literature_boundary": {
+      "riemann": "The selected c=29,N=6 ray is attributed to arXiv:2607.02828v1 (CC BY 4.0); PrimeProject independently checks only its archived decimals and imports no RH conclusion.",
+      "collatz": "The proof is project-derived exact affine arithmetic; almost-all orbit results do not supply the missing universal aperiodic conclusion.",
+      "goldbach": "The 2026 exceptional-set work supplies major-arc context, not the every-target signed residual required here.",
+      "twin_prime": "Prime-producing sieve theory still requires genuine Type I/II information; interval rounding does not create that estimate."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_infinite_stratum_closure_count": 1,
+      "attributed_primary_artifact_audit_count": 1,
+      "rejected_or_corrected_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-187",
+      "status": "open_not_proven",
+      "declared_proposition": "The pinned provenance artifact for the published c=100, N=200 cutoff-free Guinand-Weil block reports 401 positive interval-LDL pivots, zero negative pivots, and no undetermined pivot. The separate c=29, N=6 pole-neutral archive has positive closed-form and source-side numerical values whose discrepancy is below its reported tail remainder. Even accepting the reported 401-dimensional certificate, one finite positive section cannot imply global Weil nonnegativity: for every positive matrix M, the block extension diag(M,-1) agrees with M on that section and is indefinite.",
+      "new_result": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+      "discarded_route": "promoting one reported positive finite Guinand-Weil block or one positive pole-neutral numerical ray to the global Weil form",
+      "remaining_gap": "The external 9000-bit Arb run was not independently rerun, and one finite positive block does not certify a cofinal family, the global Weil form, or RH.",
+      "candidate_theorem": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect",
+      "claim_boundary": "No RH proof or global Weil positivity. One external finite interval-LDL provenance record is pinned but not independently rerun; one finite-section promotion is refuted exactly.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T186-INPUT",
+            "label": "WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T187-CLOSED",
+            "label": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T187-REJECTED",
+            "label": "OnePositiveFiniteGuinandWeilBlockImpliesGlobalWeilPositivity",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T187-OPEN",
+            "label": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T186-INPUT",
+            "RH-T187-CLOSED"
+          ],
+          [
+            "RH-T187-CLOSED",
+            "RH-T187-OPEN"
+          ],
+          [
+            "RH-T187-REJECTED",
+            "RH-T187-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-187",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly three entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "new_result": "ExactlyThreeValuationOnesOtherwiseTwoCycleExclusion",
+      "discarded_route": "treating bounded search beyond h=12 as evidence for the remaining exactly-three-one horizons",
+      "remaining_gap": "Four-or-more-one words, valuations at least three, and divergent aperiodic orbits remain open.",
+      "candidate_theorem": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+      "claim_boundary": "No Collatz proof or complete cycle exclusion; the entire exactly-three-one/rest-two periodic stratum is newly excluded.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T186-INPUT",
+            "label": "NoContractingValuationWordWithExactlyThreeOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T187-CLOSED",
+            "label": "ExactlyThreeValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T187-REJECTED",
+            "label": "FiniteThreeOneEnumerationProvesEveryHorizon",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T187-OPEN",
+            "label": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T186-INPUT",
+            "CO-T187-CLOSED"
+          ],
+          [
+            "CO-T187-CLOSED",
+            "CO-T187-OPEN"
+          ],
+          [
+            "CO-T187-REJECTED",
+            "CO-T187-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-187",
+      "status": "open_not_proven",
+      "declared_proposition": "Fix an even N having both a Goldbach representation and a bad odd candidate pair. Let tau_N be the largest bad-pair least-factor gate, let rho_N be the largest smaller endpoint of a prime pair, and put sigma_N=min(tau_N,rho_N). For every integer Y<sigma_N, one prime pair and a bad pair have the same truncated small-factor survivor signature through depth Y. Consequently no function of that signature alone, linear or nonlinear and with arbitrary signed weights, classifies every candidate pair correctly.",
+      "new_result": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+      "discarded_route": "expecting arbitrary signed or nonlinear post-processing of the same subhorizon roughness signature to distinguish prime pairs from all composite impostors",
+      "remaining_gap": "No prime-weighted every-target lower bound, signed minor-arc power saving, or exceptional-set elimination is proved.",
+      "candidate_theorem": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+      "claim_boundary": "No Goldbach proof or counterexample; one exact information-theoretic no-go for subhorizon roughness signatures only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T186-INPUT",
+            "label": "SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T187-CLOSED",
+            "label": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T187-REJECTED",
+            "label": "SignedWeightsOnUnchangedSurvivorBitsBreakCompositeContamination",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T187-OPEN",
+            "label": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T186-INPUT",
+            "GB-T187-CLOSED"
+          ],
+          [
+            "GB-T187-CLOSED",
+            "GB-T187-OPEN"
+          ],
+          [
+            "GB-T187-REJECTED",
+            "GB-T187-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-187",
+      "status": "open_not_proven",
+      "declared_proposition": "Let a certified interval [L,U] contain the exact cubic-rough twin projector Delta=4C with C a nonnegative integer. Then the complete compatible count interval is ceil(max(L,0)/4)<=C<=floor(U/4). In particular L>0 certifies C>=1 even when L<4, U<4 certifies C=0, and [0,4] is sharply ambiguous between C=0 and C=1.",
+      "new_result": "QuantizedTwinProjectorIntervalRoundingCertificate",
+      "discarded_route": "requiring an analytic lower endpoint of at least four before using the known four-integer quantization",
+      "remaining_gap": "No arithmetic estimate supplies positive lower endpoints on infinitely many unbounded predeclared blocks.",
+      "candidate_theorem": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+      "claim_boundary": "No Twin Prime proof or Type I/II breakthrough; one exact interval-lattice promotion rule and its sharp ambiguity boundary only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T186-INPUT",
+            "label": "PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T187-CLOSED",
+            "label": "QuantizedTwinProjectorIntervalRoundingCertificate",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T187-REJECTED",
+            "label": "AnalyticLowerBoundMustReachFourBeforeQuantizationCanCertifyATwin",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T187-OPEN",
+            "label": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T186-INPUT",
+            "TP-T187-CLOSED"
+          ],
+          [
+            "TP-T187-CLOSED",
+            "TP-T187-OPEN"
+          ],
+          [
+            "TP-T187-REJECTED",
+            "TP-T187-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks"
+    }
+  ]
+}

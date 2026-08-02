@@ -37,6 +37,44 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-187 Provenance, Three-One Cycles, Signatures, and Intervals
+
+TICKET-187 continues from TICKET-186 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:** `PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo` pins the
+   published `c=100,N=200` provenance report containing 401 positive interval-
+   LDL pivots and no negative or undetermined pivot. PrimeProject does not
+   claim an independent 9000-bit Arb rerun. The exact extension `diag(M,-1)`
+   proves that any one positive finite section remains insufficient for global
+   Weil positivity. The next obligation is
+   `CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect`.
+2. **Collatz:** `ExactlyThreeValuationOnesOtherwiseTwoCycleExclusion` closes
+   every contracting word with exactly three valuation-one entries and all
+   remaining entries two. A cyclic-gap bound proves `1<B/D<3` for `h>=13`;
+   exact integer enumeration closes all 645 words at `h=8..12`. The next
+   obligation is
+   `NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+3. **Goldbach:** `SignedSubhorizonSurvivorSignatureIndistinguishability`
+   proves that a prime pair and a bad pair can have identical truncated
+   roughness signatures through the exact shared gate. Therefore signed and
+   nonlinear post-processing of the same bits cannot restore primality labels.
+   The next obligation is
+   `SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget`.
+4. **Twin Prime:** `QuantizedTwinProjectorIntervalRoundingCertificate` proves
+   the exact compatible count range for any certified projector interval.
+   A rigorous lower endpoint greater than zero already certifies at least one
+   twin because `Delta in 4 Z_{>=0}`; `[0,4]` is sharply ambiguous. The next
+   obligation is
+   `CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks`.
+
+Machine audit: four exact theorems, one newly closed infinite cycle stratum,
+one attributed primary-artifact audit, four rejected or corrected routes, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-187](positive-ray-threeone-signature-interval.md).
+한국어 보고서: [TICKET-187](positive-ray-threeone-signature-interval.ko.md).
+
 ## 2026-08-02 TICKET-186 Quantifier and Margin Corrections
 
 TICKET-186 continues from TICKET-185 and keeps every parent conjecture at

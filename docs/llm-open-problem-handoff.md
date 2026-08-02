@@ -62,7 +62,54 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-186
+## Latest Continuation After TICKET-187
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect`.
+   TICKET-187 pins the published `c=100,N=200`, 401-dimensional interval-LDL
+   provenance record but does not independently rerun its 9000-bit Arb
+   calculation. One positive finite section cannot imply global positivity;
+   the next result must be cofinal and use one explicit form core.
+2. Collatz:
+   `NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The exactly-three-one/rest-two stratum is now excluded at every horizon.
+   The proof is analytic for `h>=13` and closes exactly 645 finite words at
+   `h=8..12`; do not replace the next all-horizon theorem with more enumeration.
+3. Goldbach:
+   `SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget`.
+   TICKET-187 proves that signed or nonlinear post-processing of unchanged
+   truncated roughness bits cannot recover a lost prime/composite label. The
+   next estimate must add new prime-sensitive amplitude or phase information.
+4. Twin Prime:
+   `CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks`.
+   Since the exact projector lies in `4 Z_{>=0}`, any rigorous lower endpoint
+   above zero already certifies a twin pair. The missing theorem is the
+   parity-sensitive Type I/II estimate that supplies this endpoint infinitely
+   often, not a four-unit analytic margin.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket187-positive-ray-threeone-signature-interval.json
+data/open-problem/riemann/rh-ticket-187-pole-neutral-positive-ray.json
+data/open-problem/collatz/co-ticket-187-three-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-187-subhorizon-signature-no-go.json
+data/open-problem/twin-prime/tp-ticket-187-quantized-interval-certificate.json
+```
+
+한국어 인계: TICKET-187도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 세 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 콜라츠 주기족의
+배제다. 리만은 공개 인증의 출처 감사와 독립 재실행을 구분했고, 골드바흐는
+같은 roughness bit의 어떤 후처리도 잃어버린 라벨을 복원하지 못함을,
+Twin은 엄밀한 양의 하단만으로 4단위 정수 문턱을 넘는 정확한 규칙을
+확정했다.
+
+English report: [TICKET-187](positive-ray-threeone-signature-interval.md).
+Korean report: [TICKET-187 한국어](positive-ray-threeone-signature-interval.ko.md).
+
+## Preserved Continuation After TICKET-186
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

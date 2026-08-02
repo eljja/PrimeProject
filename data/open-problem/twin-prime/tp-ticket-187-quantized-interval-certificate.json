@@ -1,0 +1,256 @@
+{
+  "schema": "primeproject.ticket187-positive-ray-threeone-signature-interval.v1",
+  "generated_at": "2026-08-02T23:40:00+09:00",
+  "ticket_id": "TP-TICKET-187",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "QuantizedTwinProjectorIntervalRoundingCertificate",
+  "declared_proposition": "Let a certified interval [L,U] contain the exact cubic-rough twin projector Delta=4C with C a nonnegative integer. Then the complete compatible count interval is ceil(max(L,0)/4)<=C<=floor(U/4). In particular L>0 certifies C>=1 even when L<4, U<4 certifies C=0, and [0,4] is sharply ambiguous between C=0 and C=1.",
+  "mathematical_argument": "Intersect [L,U] with the lattice 4 times the nonnegative integers and divide by four. Ceiling and floor give the exact compatible integer counts. The intervals containing only 4, only 0, and both 0 and 4 prove the three stated decisions and sharpness. Thus an analytic lower endpoint need only be rigorously strict-positive; integrality promotes it to the four-unit arithmetic threshold.",
+  "reproducible_computation": {
+    "theorem": "Let a certified interval [L,U] contain the exact cubic-rough twin projector Delta=4C with C a nonnegative integer. Then the complete compatible count interval is ceil(max(L,0)/4)<=C<=floor(U/4). In particular L>0 certifies C>=1 even when L<4, U<4 certifies C=0, and [0,4] is sharply ambiguous between C=0 and C=1.",
+    "proof": "Intersect [L,U] with the lattice 4 times the nonnegative integers and divide by four. Ceiling and floor give the exact compatible integer counts. The intervals containing only 4, only 0, and both 0 and 4 prove the three stated decisions and sharpness. Thus an analytic lower endpoint need only be rigorously strict-positive; integrality promotes it to the four-unit arithmetic threshold.",
+    "sharp_interval_rows": [
+      {
+        "name": "strict-positive-small-lower-endpoint",
+        "lower": {
+          "numerator": 1,
+          "denominator": 1000,
+          "exact": "1/1000",
+          "decimal": 0.001
+        },
+        "upper": {
+          "numerator": 7999,
+          "denominator": 1000,
+          "exact": "7999/1000",
+          "decimal": 7.999
+        },
+        "minimum_compatible_twin_count": 1,
+        "maximum_compatible_twin_count": 1,
+        "feasible_nonnegative_quantized_projector": true,
+        "positive_count_certified": true,
+        "zero_count_certified": false,
+        "exact_count_certified": true,
+        "ambiguous_between_zero_and_positive": false
+      },
+      {
+        "name": "sub-four-upper-endpoint",
+        "lower": {
+          "numerator": -1,
+          "denominator": 1000,
+          "exact": "-1/1000",
+          "decimal": -0.001
+        },
+        "upper": {
+          "numerator": 3999,
+          "denominator": 1000,
+          "exact": "3999/1000",
+          "decimal": 3.999
+        },
+        "minimum_compatible_twin_count": 0,
+        "maximum_compatible_twin_count": 0,
+        "feasible_nonnegative_quantized_projector": true,
+        "positive_count_certified": false,
+        "zero_count_certified": true,
+        "exact_count_certified": true,
+        "ambiguous_between_zero_and_positive": false
+      },
+      {
+        "name": "zero-four-boundary-ambiguity",
+        "lower": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "upper": {
+          "numerator": 4,
+          "denominator": 1,
+          "exact": "4/1",
+          "decimal": 4.0
+        },
+        "minimum_compatible_twin_count": 0,
+        "maximum_compatible_twin_count": 1,
+        "feasible_nonnegative_quantized_projector": true,
+        "positive_count_certified": false,
+        "zero_count_certified": false,
+        "exact_count_certified": false,
+        "ambiguous_between_zero_and_positive": true
+      }
+    ],
+    "finite_cubic_rough_interval_rows": [
+      {
+        "X": 1000,
+        "projector_Delta": 104,
+        "direct_twin_count": 26,
+        "certified_count_interval": {
+          "lower": {
+            "numerator": 207,
+            "denominator": 2,
+            "exact": "207/2",
+            "decimal": 103.5
+          },
+          "upper": {
+            "numerator": 209,
+            "denominator": 2,
+            "exact": "209/2",
+            "decimal": 104.5
+          },
+          "minimum_compatible_twin_count": 26,
+          "maximum_compatible_twin_count": 26,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "projector_is_four_times_count": true,
+          "half_unit_interval_certifies_exact_count": true
+        }
+      },
+      {
+        "X": 10000,
+        "projector_Delta": 548,
+        "direct_twin_count": 137,
+        "certified_count_interval": {
+          "lower": {
+            "numerator": 1095,
+            "denominator": 2,
+            "exact": "1095/2",
+            "decimal": 547.5
+          },
+          "upper": {
+            "numerator": 1097,
+            "denominator": 2,
+            "exact": "1097/2",
+            "decimal": 548.5
+          },
+          "minimum_compatible_twin_count": 137,
+          "maximum_compatible_twin_count": 137,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "projector_is_four_times_count": true,
+          "half_unit_interval_certifies_exact_count": true
+        }
+      },
+      {
+        "X": 100000,
+        "projector_Delta": 3744,
+        "direct_twin_count": 936,
+        "certified_count_interval": {
+          "lower": {
+            "numerator": 7487,
+            "denominator": 2,
+            "exact": "7487/2",
+            "decimal": 3743.5
+          },
+          "upper": {
+            "numerator": 7489,
+            "denominator": 2,
+            "exact": "7489/2",
+            "decimal": 3744.5
+          },
+          "minimum_compatible_twin_count": 936,
+          "maximum_compatible_twin_count": 936,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "projector_is_four_times_count": true,
+          "half_unit_interval_certifies_exact_count": true
+        }
+      },
+      {
+        "X": 1000000,
+        "projector_Delta": 26808,
+        "direct_twin_count": 6702,
+        "certified_count_interval": {
+          "lower": {
+            "numerator": 53615,
+            "denominator": 2,
+            "exact": "53615/2",
+            "decimal": 26807.5
+          },
+          "upper": {
+            "numerator": 53617,
+            "denominator": 2,
+            "exact": "53617/2",
+            "decimal": 26808.5
+          },
+          "minimum_compatible_twin_count": 6702,
+          "maximum_compatible_twin_count": 6702,
+          "feasible_nonnegative_quantized_projector": true,
+          "positive_count_certified": true,
+          "zero_count_certified": false,
+          "exact_count_certified": true,
+          "ambiguous_between_zero_and_positive": false
+        },
+        "checks": {
+          "projector_is_four_times_count": true,
+          "half_unit_interval_certifies_exact_count": true
+        }
+      }
+    ],
+    "aggregate": {
+      "sharp_rule_count": 3,
+      "finite_scale_count": 4,
+      "largest_finite_scale": 1000000,
+      "strict_positive_lower_endpoint_is_sufficient": true,
+      "zero_to_four_interval_is_ambiguous": true,
+      "conjecture_resolution_count": 0
+    },
+    "no_go_scope": "Quantized rounding reduces the certification margin but does not produce a positive lower endpoint. No Type I/II estimate, parity break, or infinitely recurring positive block is proved.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring an analytic lower endpoint of at least four before using the known four-integer quantization",
+  "remaining_gap": "No arithmetic estimate supplies positive lower endpoints on infinitely many unbounded predeclared blocks.",
+  "candidate_theorem": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof or Type I/II breakthrough; one exact interval-lattice promotion rule and its sharp ambiguity boundary only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T186-INPUT",
+        "label": "PredeclaredCubicRoughSignedTypeIIMainDominatesRemainderOnInfinitelyManyDyadicBlocks",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "TP-T187-CLOSED",
+        "label": "QuantizedTwinProjectorIntervalRoundingCertificate",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T187-REJECTED",
+        "label": "AnalyticLowerBoundMustReachFourBeforeQuantizationCanCertifyATwin",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T187-OPEN",
+        "label": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T186-INPUT",
+        "TP-T187-CLOSED"
+      ],
+      [
+        "TP-T187-CLOSED",
+        "TP-T187-OPEN"
+      ],
+      [
+        "TP-T187-REJECTED",
+        "TP-T187-OPEN"
+      ]
+    ]
+  }
+}

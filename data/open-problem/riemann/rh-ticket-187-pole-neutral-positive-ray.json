@@ -1,0 +1,159 @@
+{
+  "schema": "primeproject.ticket187-positive-ray-threeone-signature-interval.v1",
+  "generated_at": "2026-08-02T23:40:00+09:00",
+  "ticket_id": "RH-TICKET-187",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+  "declared_proposition": "The pinned provenance artifact for the published c=100, N=200 cutoff-free Guinand-Weil block reports 401 positive interval-LDL pivots, zero negative pivots, and no undetermined pivot. The separate c=29, N=6 pole-neutral archive has positive closed-form and source-side numerical values whose discrepancy is below its reported tail remainder. Even accepting the reported 401-dimensional certificate, one finite positive section cannot imply global Weil nonnegativity: for every positive matrix M, the block extension diag(M,-1) agrees with M on that section and is indefinite.",
+  "mathematical_argument": "The provenance checks are exact checks of the archived JSON fields and pinned SHA-256, not a rerun of Arb. Treating the selected three-route decimals as exact transcript strings confirms that both displayed values are positive, their difference is below the reported route-2 tail remainder, and the rounded source components recombine within 1e-28. The fields guard_K and guard_g are retained only as closed-form-versus-quadrature diagnostics, not interval radii. The finite-section no-go is exact linear algebra: append a negative orthogonal coordinate to any accepted positive matrix.",
+  "reproducible_computation": {
+    "theorem": "The pinned provenance artifact for the published c=100, N=200 cutoff-free Guinand-Weil block reports 401 positive interval-LDL pivots, zero negative pivots, and no undetermined pivot. The separate c=29, N=6 pole-neutral archive has positive closed-form and source-side numerical values whose discrepancy is below its reported tail remainder. Even accepting the reported 401-dimensional certificate, one finite positive section cannot imply global Weil nonnegativity: for every positive matrix M, the block extension diag(M,-1) agrees with M on that section and is indefinite.",
+    "proof": "The provenance checks are exact checks of the archived JSON fields and pinned SHA-256, not a rerun of Arb. Treating the selected three-route decimals as exact transcript strings confirms that both displayed values are positive, their difference is below the reported route-2 tail remainder, and the rounded source components recombine within 1e-28. The fields guard_K and guard_g are retained only as closed-form-versus-quadrature diagnostics, not interval radii. The finite-section no-go is exact linear algebra: append a negative orthogonal coordinate to any accepted positive matrix.",
+    "source_provenance": {
+      "title": "A finite Guinand-Weil dictionary and archimedean tail order for the truncated Weil quadratic form",
+      "author": "Akiva Groskin",
+      "arxiv": "2607.02828v1",
+      "source_url": "https://arxiv.org/src/2607.02828v1/anc/threeroute_c29N6_poleneutral.json",
+      "license": "CC BY 4.0",
+      "source_sha256": "95e0f1d613d217478b1145ddef7fd884b0aa2c42bb477474848e44256df8f83d",
+      "tag": "c29N6_poleneutral",
+      "c": 29,
+      "N": 6,
+      "vector": [
+        "-0.068849362039686715138",
+        "0.54868385077863014544",
+        "1.0",
+        "0.5",
+        "-3.0",
+        "2.0",
+        "-1.0"
+      ]
+    },
+    "reported_interval_ldlt_provenance": {
+      "source_url": "https://arxiv.org/src/2607.02828v1/anc/c100_N200_arb_ldlt_prec9000_provenance.json",
+      "source_sha256": "ccb6327eb2f5fc2d81fae923b2db272d4371b7bcbd0ef995562fb99e04538e98",
+      "script": "arb_ldlt_certify.py",
+      "c": 100,
+      "N": 200,
+      "dimension": 401,
+      "prec_bits": 9000,
+      "n_pos": 401,
+      "n_neg": 0,
+      "undetermined_pivot": null,
+      "certified_positive_definite": true,
+      "independently_rerun_by_primeproject": false
+    },
+    "pole_neutral_numerical_replay": {
+      "route1_center": {
+        "exact_decimal": "0.028981466814873948251427313471228345",
+        "scientific": "2.8981466814873948251427313471228345E-2"
+      },
+      "guard_K_closed_form_vs_quadrature": {
+        "exact_decimal": "0.0000000000000000000000000000000000000000459177",
+        "scientific": "4.59177E-41"
+      },
+      "route2_center": {
+        "exact_decimal": "0.028981466814884184353882396894187551",
+        "scientific": "2.8981466814884184353882396894187551E-2"
+      },
+      "route2_tail_remainder_bound": {
+        "exact_decimal": "0.00000000000107788",
+        "scientific": "1.07788E-12"
+      },
+      "route_difference": {
+        "exact_decimal": "0.000000000000010236102455083422959206",
+        "scientific": "1.0236102455083422959206E-14"
+      },
+      "difference_below_reported_tail_remainder": true,
+      "both_archived_values_positive": true,
+      "is_rigorous_interval_certificate": false
+    },
+    "source_components": {
+      "prime": {
+        "exact_decimal": "-2.80667490260305724378367431208",
+        "scientific": "-2.80667490260305724378367431208E+0"
+      },
+      "pole": {
+        "exact_decimal": "-0.0000000000000000000000000000000000000000942207347425325302663222483685",
+        "scientific": "-9.42207347425325302663222483685E-41"
+      },
+      "archimedean": {
+        "exact_decimal": "2.83565636941794142813755670898",
+        "scientific": "2.83565636941794142813755670898E+0"
+      },
+      "component_sum": {
+        "exact_decimal": "0.0289814668148841843538823968999999999999057792652574674697336777516315",
+        "scientific": "2.89814668148841843538823968999999999999057792652574674697336777516315E-2"
+      },
+      "component_rounding_residual": {
+        "exact_decimal": "0.0000000000000000000000000000058124489999057792652574674697336777516315",
+        "scientific": "5.8124489999057792652574674697336777516315E-30"
+      },
+      "absolute_cancellation_condition_number": {
+        "exact_decimal": "194.687567336075378637570969084278132804089820946835606117273206207366144530934821993240911",
+        "scientific": "1.94687567336075378637570969084278132804089820946835606117273206207366144530934821993240911E+2"
+      }
+    },
+    "finite_section_no_go_extension": {
+      "input": "any positive-definite finite matrix M",
+      "extension": "diag(M,-1)",
+      "agrees_on_original_section": true,
+      "extension_is_indefinite": true
+    },
+    "aggregate": {
+      "audited_vector_dimension": 7,
+      "reported_ldlt_dimension": 401,
+      "reported_positive_pivots": 401,
+      "reported_negative_pivots": 0,
+      "reported_undetermined_pivots": 0,
+      "primeproject_independent_arb_rerun": false,
+      "pole_neutral_replay_values_positive": true,
+      "cofinal_family_certified": false
+    },
+    "no_go_scope": "PrimeProject verifies the provenance transcript and its internal claims but has not rerun the 9000-bit Arb LDL calculation. Even an independently accepted finite positive block supplies no cofinal nested family, actual global Weil nonnegativity, or RH.",
+    "failure_count": 0
+  },
+  "discarded_route": "promoting one reported positive finite Guinand-Weil block or one positive pole-neutral numerical ray to the global Weil form",
+  "remaining_gap": "The external 9000-bit Arb run was not independently rerun, and one finite positive block does not certify a cofinal family, the global Weil form, or RH.",
+  "candidate_theorem": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect",
+  "claim_boundary": "No RH proof or global Weil positivity. One external finite interval-LDL provenance record is pinned but not independently rerun; one finite-section promotion is refuted exactly.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T186-INPUT",
+        "label": "WeilQuadraticFormNonnegativityOnExplicitPoleNeutralCoreWithVanishingCertifiedDefect",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "RH-T187-CLOSED",
+        "label": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T187-REJECTED",
+        "label": "OnePositiveFiniteGuinandWeilBlockImpliesGlobalWeilPositivity",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T187-OPEN",
+        "label": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T186-INPUT",
+        "RH-T187-CLOSED"
+      ],
+      [
+        "RH-T187-CLOSED",
+        "RH-T187-OPEN"
+      ],
+      [
+        "RH-T187-REJECTED",
+        "RH-T187-OPEN"
+      ]
+    ]
+  }
+}

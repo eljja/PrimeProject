@@ -183,6 +183,7 @@ TICKET166_SCHEMA = "primeproject.ticket166-tail-adaptive-bandlimited-diagonal.v1
 TICKET167_SCHEMA = "primeproject.ticket167-cofinal-residue-besov-parity.v1"
 TICKET168_SCHEMA = "primeproject.ticket168-fixedcore-leastrealizer-phase-paritymain.v1"
 TICKET186_SCHEMA = "primeproject.ticket186-codimension-twoone-layercake-quantization.v1"
+TICKET187_SCHEMA = "primeproject.ticket187-positive-ray-threeone-signature-interval.v1"
 
 
 def fail(message: str) -> int:
@@ -13142,6 +13143,170 @@ def main() -> int:
         or "resolves none" not in str(ticket186.get("claim_boundary", "")).lower()
     ):
         return fail("ticket186 proof boundary changed")
+
+    path187 = Path(
+        "data/open-problem/ticket187-positive-ray-threeone-signature-interval.json"
+    )
+    if not path187.exists():
+        return fail("missing ticket187 positive-ray/three-one/signature/interval audit")
+    ticket187 = read_json(path187)
+    if (
+        ticket187.get("schema") != TICKET187_SCHEMA
+        or ticket187.get("status")
+        != "one_additional_infinite_cycle_stratum_closed_three_exact_certification_boundaries_all_open"
+    ):
+        return fail("ticket187 schema or status changed")
+    audit187 = ticket187.get("positive_ray_threeone_signature_interval_audit", {})
+    if audit187.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_stratum_closure_count": 1,
+        "attributed_primary_artifact_audit_count": 1,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket187 global machine audit changed")
+
+    by_id187 = {
+        str(row.get("problem_id")): row
+        for row in ticket187.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id187) != EXPECTED_PROBLEMS:
+        return fail("ticket187 attempts missing problems")
+    paths187 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-187-pole-neutral-positive-ray.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-187-three-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-187-subhorizon-signature-no-go.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-187-quantized-interval-certificate.json"
+        ),
+    }
+    expected_names187 = {
+        "riemann": "PublishedFiniteWeilLDLTProvenanceAndOneSectionNoGo",
+        "collatz": "ExactlyThreeValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+        "twin-prime": "QuantizedTwinProjectorIntervalRoundingCertificate",
+    }
+    next187 = {
+        "riemann": "CofinalPoleNeutralGuinandWeilIntervalLDLCertificatesHaveVanishingNegativeDefect",
+        "collatz": "NoContractingValuationWordWithExactlyFourOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+        "twin-prime": "CertifiedStrictlyPositiveTwinProjectorLowerEndpointOnInfinitelyManyPredeclaredDyadicBlocks",
+    }
+    sections187 = {
+        "riemann": audit187.get("riemann", {}),
+        "collatz": audit187.get("collatz", {}),
+        "goldbach": audit187.get("goldbach", {}),
+        "twin-prime": audit187.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id187.items():
+        artifact_path = paths187[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket187 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections187[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET187_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names187[problem_id]
+            or artifact.get("theorem_name") != expected_names187[problem_id]
+            or attempt.get("candidate_theorem") != next187[problem_id]
+            or artifact.get("candidate_theorem") != next187[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_insufficient",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next187[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count") != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket187 contract changed")
+
+    rh187 = sections187["riemann"]["reproducible_computation"]
+    provenance187 = rh187.get("reported_interval_ldlt_provenance", {})
+    replay187 = rh187.get("pole_neutral_numerical_replay", {})
+    if (
+        provenance187.get("source_sha256")
+        != "ccb6327eb2f5fc2d81fae923b2db272d4371b7bcbd0ef995562fb99e04538e98"
+        or provenance187.get("dimension") != 401
+        or provenance187.get("n_pos") != 401
+        or provenance187.get("n_neg") != 0
+        or provenance187.get("undetermined_pivot") is not None
+        or provenance187.get("independently_rerun_by_primeproject") is not False
+        or replay187.get("is_rigorous_interval_certificate") is not False
+        or rh187.get("aggregate", {}).get("cofinal_family_certified") is not False
+    ):
+        return fail("ticket187 RH provenance boundary changed")
+
+    collatz187 = sections187["collatz"]["reproducible_computation"]
+    finite187 = collatz187.get("finite_exception_horizon_rows", [])
+    aggregate187 = collatz187.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite187] != [8, 9, 10, 11, 12]
+        or sum(int(row.get("word_count", 0)) for row in finite187) != 645
+        or aggregate187.get("analytic_range_starts_at_h") != 13
+        or aggregate187.get("divisibility_hits") != 0
+        or any(
+            row.get("divisibility_hit_count") != 0
+            or row.get("closed_form_failure_count") != 0
+            or row.get("rotation_identity_failure_count") != 0
+            for row in finite187
+        )
+    ):
+        return fail("ticket187 Collatz three-one cycle audit changed")
+
+    goldbach187 = sections187["goldbach"]["reproducible_computation"]
+    signature187 = goldbach187.get("target_signature_rows", [])
+    if (
+        [row.get("even_target_N") for row in signature187]
+        != [100, 500, 1000, 5000, 10000, 50000, 100000]
+        or goldbach187.get("aggregate", {}).get("largest_indistinguishable_depth")
+        != 310
+        or any(not all(row.get("checks", {}).values()) for row in signature187)
+    ):
+        return fail("ticket187 Goldbach signature no-go audit changed")
+
+    twin187 = sections187["twin-prime"]["reproducible_computation"]
+    sharp187 = twin187.get("sharp_interval_rows", [])
+    finite_twin187 = twin187.get("finite_cubic_rough_interval_rows", [])
+    if (
+        [row.get("name") for row in sharp187]
+        != [
+            "strict-positive-small-lower-endpoint",
+            "sub-four-upper-endpoint",
+            "zero-four-boundary-ambiguity",
+        ]
+        or not sharp187[0].get("positive_count_certified")
+        or not sharp187[1].get("zero_count_certified")
+        or not sharp187[2].get("ambiguous_between_zero_and_positive")
+        or [row.get("X") for row in finite_twin187]
+        != [1000, 10000, 100000, 1000000]
+        or any(
+            not row.get("certified_count_interval", {}).get(
+                "exact_count_certified"
+            )
+            for row in finite_twin187
+        )
+    ):
+        return fail("ticket187 Twin interval certificate audit changed")
+    if (
+        "resolves none" not in str(audit187.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket187.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket187 proof boundary changed")
 
     print("open problem structure verified")
     return 0

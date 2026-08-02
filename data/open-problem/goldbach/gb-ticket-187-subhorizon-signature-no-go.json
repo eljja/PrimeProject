@@ -1,0 +1,256 @@
+{
+  "schema": "primeproject.ticket187-positive-ray-threeone-signature-interval.v1",
+  "generated_at": "2026-08-02T23:40:00+09:00",
+  "ticket_id": "GB-TICKET-187",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+  "declared_proposition": "Fix an even N having both a Goldbach representation and a bad odd candidate pair. Let tau_N be the largest bad-pair least-factor gate, let rho_N be the largest smaller endpoint of a prime pair, and put sigma_N=min(tau_N,rho_N). For every integer Y<sigma_N, one prime pair and a bad pair have the same truncated small-factor survivor signature through depth Y. Consequently no function of that signature alone, linear or nonlinear and with arbitrary signed weights, classifies every candidate pair correctly.",
+  "mathematical_argument": "Choose a bad pair attaining tau_N and a prime pair attaining rho_N. Through every depth below sigma_N, neither witness is removed by a trial divisor, so both signatures are all ones. Equal inputs receive equal outputs under every deterministic function; therefore signed depth weights do not repair the information loss.",
+  "reproducible_computation": {
+    "theorem": "Fix an even N having both a Goldbach representation and a bad odd candidate pair. Let tau_N be the largest bad-pair least-factor gate, let rho_N be the largest smaller endpoint of a prime pair, and put sigma_N=min(tau_N,rho_N). For every integer Y<sigma_N, one prime pair and a bad pair have the same truncated small-factor survivor signature through depth Y. Consequently no function of that signature alone, linear or nonlinear and with arbitrary signed weights, classifies every candidate pair correctly.",
+    "proof": "Choose a bad pair attaining tau_N and a prime pair attaining rho_N. Through every depth below sigma_N, neither witness is removed by a trial divisor, so both signatures are all ones. Equal inputs receive equal outputs under every deterministic function; therefore signed depth weights do not repair the information loss.",
+    "target_signature_rows": [
+      {
+        "even_target_N": 100,
+        "prime_pair_count": 6,
+        "bad_pair_count": 18,
+        "maximum_bad_gate_tau_N": 7,
+        "maximum_prime_pair_small_endpoint_rho_N": 47,
+        "shared_gate_sigma_N": 7,
+        "maximum_indistinguishable_depth_Y": 6,
+        "prime_pair_witness": [
+          47,
+          53
+        ],
+        "bad_pair_witness": [
+          23,
+          77
+        ],
+        "bad_pair_gate": 7,
+        "shared_signature_length": 7,
+        "shared_signature_sha256": "2558a34d4d20964ca1d272ab26ccce9511d880579593cd4c9e01ab91ed00f325",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      },
+      {
+        "even_target_N": 500,
+        "prime_pair_count": 13,
+        "bad_pair_count": 111,
+        "maximum_bad_gate_tau_N": 19,
+        "maximum_prime_pair_small_endpoint_rho_N": 229,
+        "shared_gate_sigma_N": 19,
+        "maximum_indistinguishable_depth_Y": 18,
+        "prime_pair_witness": [
+          229,
+          271
+        ],
+        "bad_pair_witness": [
+          139,
+          361
+        ],
+        "bad_pair_gate": 19,
+        "shared_signature_length": 19,
+        "shared_signature_sha256": "b4db3abdc9d8c88b51aac2b2d3d14e74678b32ef413a9354911109e9cfa3d2e9",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      },
+      {
+        "even_target_N": 1000,
+        "prime_pair_count": 28,
+        "bad_pair_count": 221,
+        "maximum_bad_gate_tau_N": 29,
+        "maximum_prime_pair_small_endpoint_rho_N": 491,
+        "shared_gate_sigma_N": 29,
+        "maximum_indistinguishable_depth_Y": 28,
+        "prime_pair_witness": [
+          491,
+          509
+        ],
+        "bad_pair_witness": [
+          101,
+          899
+        ],
+        "bad_pair_gate": 29,
+        "shared_signature_length": 29,
+        "shared_signature_sha256": "a271343c7b1a5dca128e19f5b1874a355ce12439838b7c02c22e38da5ae37ef4",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      },
+      {
+        "even_target_N": 5000,
+        "prime_pair_count": 76,
+        "bad_pair_count": 1173,
+        "maximum_bad_gate_tau_N": 67,
+        "maximum_prime_pair_small_endpoint_rho_N": 2383,
+        "shared_gate_sigma_N": 67,
+        "maximum_indistinguishable_depth_Y": 66,
+        "prime_pair_witness": [
+          2383,
+          2617
+        ],
+        "bad_pair_witness": [
+          109,
+          4891
+        ],
+        "bad_pair_gate": 67,
+        "shared_signature_length": 67,
+        "shared_signature_sha256": "d2fbb23b84794b6f91ef2ca81f059374496fe59a952aa29892e7f86c974ce388",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      },
+      {
+        "even_target_N": 10000,
+        "prime_pair_count": 127,
+        "bad_pair_count": 2372,
+        "maximum_bad_gate_tau_N": 89,
+        "maximum_prime_pair_small_endpoint_rho_N": 4919,
+        "shared_gate_sigma_N": 89,
+        "maximum_indistinguishable_depth_Y": 88,
+        "prime_pair_witness": [
+          4919,
+          5081
+        ],
+        "bad_pair_witness": [
+          1367,
+          8633
+        ],
+        "bad_pair_gate": 89,
+        "shared_signature_length": 89,
+        "shared_signature_sha256": "a8431ebd4fecf16f2cf1615e99542b6dbc6bc25ea4b4299056f306a8c5b353af",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      },
+      {
+        "even_target_N": 50000,
+        "prime_pair_count": 450,
+        "bad_pair_count": 12049,
+        "maximum_bad_gate_tau_N": 223,
+        "maximum_prime_pair_small_endpoint_rho_N": 24967,
+        "shared_gate_sigma_N": 223,
+        "maximum_indistinguishable_depth_Y": 222,
+        "prime_pair_witness": [
+          24967,
+          25033
+        ],
+        "bad_pair_witness": [
+          271,
+          49729
+        ],
+        "bad_pair_gate": 223,
+        "shared_signature_length": 223,
+        "shared_signature_sha256": "f4fde78937826f3651abe1f61c179203ade6501867b8e5a82b1dab1a105a5ff2",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      },
+      {
+        "even_target_N": 100000,
+        "prime_pair_count": 810,
+        "bad_pair_count": 24189,
+        "maximum_bad_gate_tau_N": 311,
+        "maximum_prime_pair_small_endpoint_rho_N": 49877,
+        "shared_gate_sigma_N": 311,
+        "maximum_indistinguishable_depth_Y": 310,
+        "prime_pair_witness": [
+          49877,
+          50123
+        ],
+        "bad_pair_witness": [
+          2657,
+          97343
+        ],
+        "bad_pair_gate": 311,
+        "shared_signature_length": 311,
+        "shared_signature_sha256": "ccf5db45063d305bb076db6270f2321dc910a5663c6e6c638286eab7b52d35aa",
+        "checks": {
+          "prime_witness_is_prime_pair": 1,
+          "bad_witness_is_not_prime_pair": true,
+          "bad_witness_survives_through_Y": true,
+          "prime_witness_survives_through_Y": true,
+          "truncated_signatures_are_identical": true
+        }
+      }
+    ],
+    "aggregate": {
+      "target_count": 7,
+      "largest_target": 100000,
+      "largest_shared_signature_length": 311,
+      "largest_indistinguishable_depth": 310,
+      "signature_separation_failures": 0
+    },
+    "no_go_scope": "The theorem is conditional on a target already having a prime pair and therefore proves no Goldbach case. It shows that even signed or nonlinear reuse of the same truncated roughness bits is insufficient; new prime-sensitive amplitude or phase information is required.",
+    "failure_count": 0
+  },
+  "discarded_route": "expecting arbitrary signed or nonlinear post-processing of the same subhorizon roughness signature to distinguish prime pairs from all composite impostors",
+  "remaining_gap": "No prime-weighted every-target lower bound, signed minor-arc power saving, or exceptional-set elimination is proved.",
+  "candidate_theorem": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact information-theoretic no-go for subhorizon roughness signatures only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T186-INPUT",
+        "label": "SignedPrimeWeightedBadSurvivorCorrelationHasUniformSubHorizonPowerSaving",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T187-CLOSED",
+        "label": "SignedSubhorizonSurvivorSignatureIndistinguishability",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T187-REJECTED",
+        "label": "SignedWeightsOnUnchangedSurvivorBitsBreakCompositeContamination",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T187-OPEN",
+        "label": "SignedVonMangoldtSubhorizonResidualIsBelowExplicitMajorMainForEveryLargeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T186-INPUT",
+        "GB-T187-CLOSED"
+      ],
+      [
+        "GB-T187-CLOSED",
+        "GB-T187-OPEN"
+      ],
+      [
+        "GB-T187-REJECTED",
+        "GB-T187-OPEN"
+      ]
+    ]
+  }
+}

@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket187AttemptGlobal = null;
 let ticket186AttemptGlobal = null;
 let ticket185AttemptGlobal = null;
 let ticket184AttemptGlobal = null;
@@ -9982,6 +9983,82 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket187PositiveRayThreeOneSignatureInterval(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.positive_ray_threeone_signature_interval_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const provenance = computation.reported_interval_ldlt_provenance || {};
+    const replay = computation.pole_neutral_numerical_replay || {};
+    detail = `
+      <div class="poc-equation">published finite block: c=100, N=200, dim=401; one-section extension diag(M,−1) blocks global promotion</div>
+      ${table(["artifact field", "value", "PrimeProject interpretation"], [
+        ["positive pivots", provenance.n_pos ?? "missing", "published provenance"],
+        ["negative pivots", provenance.n_neg ?? "missing", "published provenance"],
+        ["undetermined pivot", provenance.undetermined_pivot ?? "none", "published provenance"],
+        ["independent Arb rerun", provenance.independently_rerun_by_primeproject ? "yes" : "no", "not claimed"],
+        ["pole-neutral two-route difference", replay.route_difference?.scientific || "missing", "numerical replay only"],
+      ])}
+      <div class="poc-head"><div><span>Reported dimension</span><strong>${aggregate.reported_ldlt_dimension || 0}</strong></div><div><span>Reported positive pivots</span><strong>${aggregate.reported_positive_pivots || 0}</strong></div><div><span>Cofinal family</span><strong>${aggregate.cofinal_family_certified ? "yes" : "no"}</strong></div></div>
+      <p class="proof-note">공개 interval-LDL provenance의 URL·CC BY 4.0·SHA-256과 필드 일관성을 고정했습니다. 9000-bit Arb 계산은 독립 재실행하지 않았으며, 한 유한 양성 블록은 전역 Weil 비음성이나 RH를 증명하지 않습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.finite_exception_horizon_rows || [];
+    const bound = computation.analytic_bound || {};
+    detail = `
+      <div class="poc-equation">B=2<sup>2h−3</sup>−3<sup>h−1</sup>+4<sup>a</sup>3<sup>h−a−1</sup>+2·4<sup>a+b−1</sup>3<sup>c−1</sup>; h≥13 ⇒ 1&lt;B/D&lt;3, B,D odd</div>
+      ${table(["finite horizon h", "all three-one words", "divisibility hits", "transcript SHA-256"], rows.map((row) => [row.horizon_h, row.word_count, row.divisibility_hit_count, String(row.remainder_transcript_sha256 || "").slice(0, 12)]))}
+      <div class="poc-head"><div><span>Analytic range</span><strong>all h ≥ ${bound.analytic_range_starts_at_h || 13}</strong></div><div><span>Finite words closed</span><strong>${aggregate.finite_exception_word_count || 0}</strong></div><div><span>Divisibility hits</span><strong>${aggregate.divisibility_hits ?? "missing"}</strong></div></div>
+      <p class="proof-note">정확히 세 번의 v=1과 나머지 v=2인 모든 수축 주기를 배제했습니다. h≥13은 순환 간격 부등식으로, h=8..12의 645개 word만 정확한 정수 열거로 닫았습니다. 네 개 이상의 v=1과 비주기 발산은 남아 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.target_signature_rows || [];
+    detail = `
+      <div class="poc-equation">σ<sub>N</sub>=min(τ<sub>N</sub>,ρ<sub>N</sub>); Y&lt;σ<sub>N</sub>이면 prime pair와 bad pair의 truncated survivor signature가 동일</div>
+      ${table(["N", "shared gate σN", "last indistinguishable Y", "prime witness", "bad witness"], rows.map((row) => [formatter.format(row.even_target_N || 0), row.shared_gate_sigma_N, row.maximum_indistinguishable_depth_Y, (row.prime_pair_witness || []).join(" + "), (row.bad_pair_witness || []).join(" + ")]))}
+      <div class="poc-head"><div><span>Targets audited</span><strong>${aggregate.target_count || 0}</strong></div><div><span>Largest shared signature</span><strong>${aggregate.largest_shared_signature_length || 0}</strong></div><div><span>Separation failures</span><strong>${aggregate.signature_separation_failures ?? "missing"}</strong></div></div>
+      <p class="proof-note">같은 roughness bit를 부호 가중하거나 비선형 처리해도 잃어버린 소수/합성수 라벨은 돌아오지 않습니다. 표는 이미 소수쌍이 있는 유한 N의 정보 no-go이며 골드바흐 존재 증명이 아닙니다.</p>
+    `;
+  } else {
+    const sharpRows = computation.sharp_interval_rows || [];
+    const finiteRows = computation.finite_cubic_rough_interval_rows || [];
+    detail = `
+      <div class="poc-equation">Δ=4C∈4ℤ<sub>≥0</sub>; [L,U] ⇒ ceil(max(L,0)/4)≤C≤floor(U/4); L&gt;0이면 C≥1</div>
+      ${table(["interval case", "L", "U", "minimum C", "maximum C", "decision"], sharpRows.map((row) => [row.name, row.lower?.exact, row.upper?.exact, row.minimum_compatible_twin_count, row.maximum_compatible_twin_count, row.positive_count_certified ? "positive" : row.zero_count_certified ? "zero" : "ambiguous"]))}
+      ${table(["X", "projector Δ", "direct twin count", "interval exact"], finiteRows.map((row) => [formatter.format(row.X || 0), formatter.format(row.projector_Delta || 0), formatter.format(row.direct_twin_count || 0), row.certified_count_interval?.exact_count_certified ? "yes" : "no"]))}
+      <div class="poc-head"><div><span>Sharp rules</span><strong>${aggregate.sharp_rule_count || 0}</strong></div><div><span>Strict L &gt; 0 sufficient</span><strong>${aggregate.strict_positive_lower_endpoint_is_sufficient ? "yes" : "no"}</strong></div><div><span>Resolution count</span><strong>${aggregate.conjecture_resolution_count ?? 0}</strong></div></div>
+      <p class="proof-note">해석적 하단이 4에 도달할 필요는 없습니다. 엄밀히 0보다 크면 4의 배수 양자화가 실제 twin 한 쌍 이상으로 승격합니다. 그러나 그런 양의 하단을 무한히 자주 만드는 Type I/II 추정은 여전히 열려 있습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket187-positive-ray-threeone-signature-interval" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 187 finite Weil provenance, three-one cycles, survivor signatures, and quantized intervals</h3>
+      <div class="poc-head"><div><span>Status</span><strong>one additional infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET187 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/positive-ray-threeone-signature-interval.ko.md">한국어 보고서</a> · <a href="../docs/positive-ray-threeone-signature-interval.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket186CodimensionTwoOneLayerCakeQuantization(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.codimension_cycle_layercake_quantization_audit || {};
@@ -10035,7 +10112,7 @@ function renderTicket186CodimensionTwoOneLayerCakeQuantization(attempt) {
   }
   return `
     <div id="ticket186-codimension-twoone-layercake-quantization" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 186 codimension, two-one cycles, survivor layers, and quantized margins</h3>
       <div class="poc-head"><div><span>Status</span><strong>one infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET186 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -14192,6 +14269,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal)}
     ${renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal)}
     ${renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal)}
     ${renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal)}
@@ -14426,11 +14504,12 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket187PositiveRayThreeOneSignatureInterval(ticket187AttemptGlobal) ||
+      renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal) ||
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-186 data is unavailable. The conjecture remains open. / TICKET-186 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-187 data is unavailable. The conjecture remains open. / TICKET-187 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14752,6 +14831,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket187Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket187-positive-ray-threeone-signature-interval.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket187AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket187AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket187AttemptGlobal) {
+      ticket187AttemptGlobal.bounded_result = ticket187AttemptGlobal.bounded_result || {};
+      ticket187AttemptGlobal.bounded_result.positive_ray_threeone_signature_interval_audit = payload.positive_ray_threeone_signature_interval_audit || {};
+    }
+    return Boolean(ticket187AttemptGlobal);
+  } catch (error) {
+    ticket187AttemptGlobal = null;
     return false;
   }
 }
@@ -15845,6 +15944,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket187Loaded = await loadTicket187Attempt();
   const ticket186Loaded = await loadTicket186Attempt();
   const ticket185Loaded = await loadTicket185Attempt();
   const ticket184Loaded = await loadTicket184Attempt();
@@ -15864,8 +15964,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket187AttemptGlobal) await loadTicket187Attempt();
     if (!ticket186AttemptGlobal) await loadTicket186Attempt();
     if (!ticket185AttemptGlobal) await loadTicket185Attempt();
     if (!ticket184AttemptGlobal) await loadTicket184Attempt();
