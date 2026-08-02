@@ -1,0 +1,203 @@
+{
+  "schema": "primeproject.ticket185-spectral-cycle-factor-granularity.v1",
+  "generated_at": "2026-08-02T17:30:00+09:00",
+  "ticket_id": "RH-TICKET-185",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "TwoNeutralMomentAutocorrelationSpectralEscapeNoGo",
+  "declared_proposition": "In the logarithmic autocorrelation model on [-A,A], impose the two neutral conditions integral g(x)e^(x/2)dx=0 and integral g(x)e^(-x/2)dx=0. There is a normalized sequence of compactly supported positive-definite autocorrelations F_M=g_M*tilde(g_M) whose Fourier probability measures escape every fixed compact frequency interval. Support, positive definiteness, normalization, and these two neutral moments therefore do not imply uniform Fourier-tail tightness.",
+  "mathematical_argument": "Start with h_M(x)=1_[-A,A](x)cos(Mx) and subtract its orthogonal projection onto span{e^(x/2),e^(-x/2)}. The projection coefficients tend to zero by the Riemann-Lebesgue lemma, while ||h_M||_2 stays bounded away from zero. The normalized autocorrelation is compactly supported and positive definite, and its Fourier density is |hat(g_M)|^2/||g_M||_2^2. The two cosine sidebands move to plus and minus M and the vanishing projection cannot retain mass in a fixed band, proving spectral escape.",
+  "reproducible_computation": {
+    "theorem": "In the logarithmic autocorrelation model on [-A,A], impose the two neutral conditions integral g(x)e^(x/2)dx=0 and integral g(x)e^(-x/2)dx=0. There is a normalized sequence of compactly supported positive-definite autocorrelations F_M=g_M*tilde(g_M) whose Fourier probability measures escape every fixed compact frequency interval. Support, positive definiteness, normalization, and these two neutral moments therefore do not imply uniform Fourier-tail tightness.",
+    "proof": "Start with h_M(x)=1_[-A,A](x)cos(Mx) and subtract its orthogonal projection onto span{e^(x/2),e^(-x/2)}. The projection coefficients tend to zero by the Riemann-Lebesgue lemma, while ||h_M||_2 stays bounded away from zero. The normalized autocorrelation is compactly supported and positive definite, and its Fourier density is |hat(g_M)|^2/||g_M||_2^2. The two cosine sidebands move to plus and minus M and the vanishing projection cannot retain mass in a fixed band, proving spectral escape.",
+    "spectral_escape_rows": [
+      {
+        "carrier_frequency_M": 8,
+        "support_interval": [
+          -1.0,
+          1.0
+        ],
+        "neutral_exponents": [
+          0.5,
+          -0.5
+        ],
+        "projection_coefficients": [
+          0.06358979692680752,
+          0.06358979692680752
+        ],
+        "neutral_moment_residuals": [
+          -5.551115123125783e-17,
+          -5.551115123125783e-17
+        ],
+        "projected_l2_norm_squared": 0.9468229266950694,
+        "normalized_autocorrelation_value_at_zero": 1.0,
+        "audited_low_frequency_band": [
+          -4.0,
+          4.0
+        ],
+        "normalized_low_band_spectral_mass": 0.05384626061306901,
+        "normalized_outside_band_spectral_mass": 0.946153739386931,
+        "checks": {
+          "two_neutral_constraints_hold": true,
+          "positive_definite_by_autocorrelation_construction": true,
+          "compact_support_preserved": true,
+          "normalization_is_nonzero": true,
+          "spectral_mass_is_a_probability_up_to_quadrature": true
+        }
+      },
+      {
+        "carrier_frequency_M": 16,
+        "support_interval": [
+          -1.0,
+          1.0
+        ],
+        "neutral_exponents": [
+          0.5,
+          -0.5
+        ],
+        "projection_coefficients": [
+          -0.009766626948300416,
+          -0.009766626948300416
+        ],
+        "neutral_moment_residuals": [
+          6.938893903907228e-18,
+          6.938893903907228e-18
+        ],
+        "projected_l2_norm_squared": 1.0164021401068277,
+        "normalized_autocorrelation_value_at_zero": 1.0,
+        "audited_low_frequency_band": [
+          -4.0,
+          4.0
+        ],
+        "normalized_low_band_spectral_mass": 0.001343763681606844,
+        "normalized_outside_band_spectral_mass": 0.9986562363183932,
+        "checks": {
+          "two_neutral_constraints_hold": true,
+          "positive_definite_by_autocorrelation_construction": true,
+          "compact_support_preserved": true,
+          "normalization_is_nonzero": true,
+          "spectral_mass_is_a_probability_up_to_quadrature": true
+        }
+      },
+      {
+        "carrier_frequency_M": 32,
+        "support_interval": [
+          -1.0,
+          1.0
+        ],
+        "neutral_exponents": [
+          0.5,
+          -0.5
+        ],
+        "projection_coefficients": [
+          0.009028503304750643,
+          0.009028503304750643
+        ],
+        "neutral_moment_residuals": [
+          -6.938893903907228e-18,
+          -6.938893903907228e-18
+        ],
+        "projected_l2_norm_squared": 1.0136661705607954,
+        "normalized_autocorrelation_value_at_zero": 1.0,
+        "audited_low_frequency_band": [
+          -4.0,
+          4.0
+        ],
+        "normalized_low_band_spectral_mass": 0.0008673753886343767,
+        "normalized_outside_band_spectral_mass": 0.9991326246113656,
+        "checks": {
+          "two_neutral_constraints_hold": true,
+          "positive_definite_by_autocorrelation_construction": true,
+          "compact_support_preserved": true,
+          "normalization_is_nonzero": true,
+          "spectral_mass_is_a_probability_up_to_quadrature": true
+        }
+      },
+      {
+        "carrier_frequency_M": 64,
+        "support_interval": [
+          -1.0,
+          1.0
+        ],
+        "neutral_exponents": [
+          0.5,
+          -0.5
+        ],
+        "projection_coefficients": [
+          0.007463225638855055,
+          0.007463225638855055
+        ],
+        "neutral_moment_residuals": [
+          6.938893903907228e-18,
+          6.938893903907228e-18
+        ],
+        "projected_l2_norm_squared": 1.0051484745762154,
+        "normalized_autocorrelation_value_at_zero": 1.0,
+        "audited_low_frequency_band": [
+          -4.0,
+          4.0
+        ],
+        "normalized_low_band_spectral_mass": 0.0005611472834966888,
+        "normalized_outside_band_spectral_mass": 0.9994388527165033,
+        "checks": {
+          "two_neutral_constraints_hold": true,
+          "positive_definite_by_autocorrelation_construction": true,
+          "compact_support_preserved": true,
+          "normalization_is_nonzero": true,
+          "spectral_mass_is_a_probability_up_to_quadrature": true
+        }
+      }
+    ],
+    "aggregate": {
+      "case_count": 4,
+      "largest_carrier_frequency": 64,
+      "smallest_low_band_mass": 0.0005611472834966888,
+      "largest_outside_band_mass": 0.9994388527165033,
+      "all_neutral_constraints_hold": true
+    },
+    "no_go_scope": "This is an exact functional-analytic counterfamily for a stated logarithmic two-neutral-moment autocorrelation model. It is not a proof that every technical version of the full Weil test cone has the same closure, and it neither evaluates the Weil quadratic form nor excludes a zeta zero.",
+    "failure_count": 0
+  },
+  "discarded_route": "uniform spectral-tail compactness derived only from compact support, positive definiteness, normalization, and two neutral moments",
+  "remaining_gap": "The construction is a logarithmic two-neutral-moment model and does not evaluate the actual Weil quadratic form or prove that every full-cone formulation contains this sequence.",
+  "candidate_theorem": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore",
+  "claim_boundary": "No RH proof, off-critical zero exclusion, or actual Weil-form coercivity theorem; one exact spectral-escape counterfamily in a declared neutral autocorrelation model only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T184-INPUT",
+        "label": "FiniteMomentCancellationDoesNotGiveUniformAbelDesmoothing",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "RH-T185-CLOSED",
+        "label": "TwoNeutralMomentAutocorrelationSpectralEscapeNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T185-REJECTED",
+        "label": "SupportPositivityAndTwoNeutralMomentsForceSpectralTailTightness",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "RH-T185-OPEN",
+        "label": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T184-INPUT",
+        "RH-T185-CLOSED"
+      ],
+      [
+        "RH-T185-CLOSED",
+        "RH-T185-OPEN"
+      ],
+      [
+        "RH-T185-REJECTED",
+        "RH-T185-OPEN"
+      ]
+    ]
+  }
+}

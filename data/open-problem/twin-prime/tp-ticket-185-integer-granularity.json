@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket185-spectral-cycle-factor-granularity.v1",
+  "generated_at": "2026-08-02T17:30:00+09:00",
+  "ticket_id": "TP-TICKET-185",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "IntegerGranularityAndOneSidedBlockCertificate",
+  "declared_proposition": "Let C be a nonnegative integer block count, M>0 a proposed main term, and R=C-M. Then |R|<M holds exactly when 0<C<2M, whereas the one-sided inequality R>-M holds exactly when C>0. Hence an absolute main-term domination certificate is strictly stronger than positive block mass. If M<=1/2, no integer C can satisfy the absolute certificate at all.",
+  "mathematical_argument": "Expanding |C-M|<M gives -M<C-M<M, hence 0<C<2M. The one-sided inequality C-M>-M reduces to C>0. If M<=1/2, the interval (0,2M) contains no positive integer. This is an exact integer-granularity obstruction, independent of any probabilistic model.",
+  "reproducible_computation": {
+    "theorem": "Let C be a nonnegative integer block count, M>0 a proposed main term, and R=C-M. Then |R|<M holds exactly when 0<C<2M, whereas the one-sided inequality R>-M holds exactly when C>0. Hence an absolute main-term domination certificate is strictly stronger than positive block mass. If M<=1/2, no integer C can satisfy the absolute certificate at all.",
+    "proof": "Expanding |C-M|<M gives -M<C-M<M, hence 0<C<2M. The one-sided inequality C-M>-M reduces to C>0. If M<=1/2, the interval (0,2M) contains no positive integer. This is an exact integer-granularity obstruction, independent of any probabilistic model.",
+    "finite_prime_pair_block_rows": [
+      {
+        "block_width": 16,
+        "block_count": 16384,
+        "minimum_expected_mass": 0.12894241333474066,
+        "maximum_expected_mass": 0.15937615132079386,
+        "positive_actual_blocks": 2246,
+        "one_sided_certified_blocks": 2246,
+        "absolute_dominance_blocks": 0,
+        "positive_but_absolute_fails": 2246,
+        "subhalf_expected_blocks": 16384,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      },
+      {
+        "block_width": 32,
+        "block_count": 8192,
+        "minimum_expected_mass": 0.25788571686257933,
+        "maximum_expected_mass": 0.3187478736135332,
+        "positive_actual_blocks": 2122,
+        "one_sided_certified_blocks": 2122,
+        "absolute_dominance_blocks": 0,
+        "positive_but_absolute_fails": 2122,
+        "subhalf_expected_blocks": 8192,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      },
+      {
+        "block_width": 64,
+        "block_count": 4096,
+        "minimum_expected_mass": 0.5157749946917661,
+        "maximum_expected_mass": 0.6374780346865112,
+        "positive_actual_blocks": 1876,
+        "one_sided_certified_blocks": 1876,
+        "absolute_dominance_blocks": 1498,
+        "positive_but_absolute_fails": 378,
+        "subhalf_expected_blocks": 0,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      },
+      {
+        "block_width": 128,
+        "block_count": 2048,
+        "minimum_expected_mass": 1.031564234803955,
+        "maximum_expected_mass": 1.2748852477658914,
+        "positive_actual_blocks": 1461,
+        "one_sided_certified_blocks": 1461,
+        "absolute_dominance_blocks": 1288,
+        "positive_but_absolute_fails": 173,
+        "subhalf_expected_blocks": 0,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      },
+      {
+        "block_width": 256,
+        "block_count": 1024,
+        "minimum_expected_mass": 2.063185463725882,
+        "maximum_expected_mass": 2.5494874372530414,
+        "positive_actual_blocks": 940,
+        "one_sided_certified_blocks": 940,
+        "absolute_dominance_blocks": 891,
+        "positive_but_absolute_fails": 49,
+        "subhalf_expected_blocks": 0,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      },
+      {
+        "block_width": 512,
+        "block_count": 512,
+        "minimum_expected_mass": 4.126599003483145,
+        "maximum_expected_mass": 5.097844461948988,
+        "positive_actual_blocks": 508,
+        "one_sided_certified_blocks": 508,
+        "absolute_dominance_blocks": 501,
+        "positive_but_absolute_fails": 7,
+        "subhalf_expected_blocks": 0,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      },
+      {
+        "block_width": 1024,
+        "block_count": 256,
+        "minimum_expected_mass": 8.254111108678147,
+        "maximum_expected_mass": 10.191181764351729,
+        "positive_actual_blocks": 256,
+        "one_sided_certified_blocks": 256,
+        "absolute_dominance_blocks": 256,
+        "positive_but_absolute_fails": 0,
+        "subhalf_expected_blocks": 0,
+        "subhalf_absolute_dominance_blocks": 0,
+        "checks": {
+          "one_sided_is_exactly_positive_count": true,
+          "subhalf_absolute_certificate_is_impossible": true
+        }
+      }
+    ],
+    "aggregate": {
+      "audited_interval": [
+        100000,
+        362144
+      ],
+      "audited_width_count": 7,
+      "smallest_block_width": 16,
+      "largest_block_width": 1024,
+      "positive_but_absolute_failure_count": 4975,
+      "subhalf_absolute_pass_count": 0
+    },
+    "route_correction": "Positive counts on infinitely many disjoint blocks are equivalent to Twin Prime infinitude, not a weaker intermediate theorem. An absolute remainder bound adds an unnecessary upper-count condition. The missing arithmetic input must be a signed one-sided parity estimate, not a symmetric norm bound.",
+    "no_go_scope": "The theorem calibrates certificate resolution and rejects symmetric absolute-error promotion. It proves no one-sided estimate for the actual prime-pair remainder on unbounded blocks and does not cross the sieve parity barrier.",
+    "failure_count": 0
+  },
+  "discarded_route": "symmetric absolute remainder domination as though it were the minimal positive-root condition, especially below half-unit expected mass",
+  "remaining_gap": "No signed prime-pair remainder bound is proved on unbounded blocks; the parity barrier is unchanged.",
+  "candidate_theorem": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales",
+  "claim_boundary": "No Twin Prime proof, infinitude result, or parity-breaking estimate; one exact certificate-granularity theorem and bounded block audit only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T184-INPUT",
+        "label": "PositiveRootMassSufficesAndCantelliExceptionalMassIsSharp",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "TP-T185-CLOSED",
+        "label": "IntegerGranularityAndOneSidedBlockCertificate",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T185-REJECTED",
+        "label": "AbsoluteRemainderDominanceIsEquivalentToPositiveBlockMass",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "TP-T185-OPEN",
+        "label": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T184-INPUT",
+        "TP-T185-CLOSED"
+      ],
+      [
+        "TP-T185-CLOSED",
+        "TP-T185-OPEN"
+      ],
+      [
+        "TP-T185-REJECTED",
+        "TP-T185-OPEN"
+      ]
+    ]
+  }
+}

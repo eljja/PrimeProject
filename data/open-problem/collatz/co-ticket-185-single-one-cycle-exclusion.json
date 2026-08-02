@@ -1,0 +1,180 @@
+{
+  "schema": "primeproject.ticket185-spectral-cycle-factor-granularity.v1",
+  "generated_at": "2026-08-02T17:30:00+09:00",
+  "ticket_id": "CO-TICKET-185",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "SingleValuationOneOtherwiseTwoCycleExclusion",
+  "declared_proposition": "No positive accelerated Collatz cycle has a primitive valuation period containing exactly one valuation one and all remaining valuations equal to two. After cyclic rotation such a word is w_h=(1,2,...,2). For every h>=3 it is contracting, but its affine numerator B_h and cycle denominator D_h are coprime, so D_h does not divide B_h.",
+  "mathematical_argument": "Iterating x maps to (3x+1)/4 after the initial valuation-one step gives B_h=2*4^(h-1)-3^(h-1) and D_h=2*4^(h-1)-3^h. Hence B_h-D_h=2*3^(h-1). The odd number D_h is congruent to two modulo three, so gcd(D_h,2*3^(h-1))=1 and therefore gcd(B_h,D_h)=1. Also D_h>=5 for h>=3. Thus D_h cannot divide B_h. Any period with one valuation one can be rotated to this form.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a primitive valuation period containing exactly one valuation one and all remaining valuations equal to two. After cyclic rotation such a word is w_h=(1,2,...,2). For every h>=3 it is contracting, but its affine numerator B_h and cycle denominator D_h are coprime, so D_h does not divide B_h.",
+    "proof": "Iterating x maps to (3x+1)/4 after the initial valuation-one step gives B_h=2*4^(h-1)-3^(h-1) and D_h=2*4^(h-1)-3^h. Hence B_h-D_h=2*3^(h-1). The odd number D_h is congruent to two modulo three, so gcd(D_h,2*3^(h-1))=1 and therefore gcd(B_h,D_h)=1. Also D_h>=5 for h>=3. Thus D_h cannot divide B_h. Any period with one valuation one can be rotated to this form.",
+    "single_one_cycle_rows": [
+      {
+        "horizon_h": 3,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "23",
+        "cycle_denominator_D": "5",
+        "B_minus_D": "18",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 3,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 4,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "101",
+        "cycle_denominator_D": "47",
+        "B_minus_D": "54",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 6,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 8,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "30581",
+        "cycle_denominator_D": "26207",
+        "B_minus_D": "4374",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 15,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 16,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "2133134741",
+        "cycle_denominator_D": "2104436927",
+        "B_minus_D": "28697814",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 31,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 32,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "9222754363458491861",
+        "cycle_denominator_D": "9221519016665923967",
+        "B_minus_D": "1235346792567894",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 63,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 64,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "170141182315907958300849808829934409301",
+        "cycle_denominator_D": "170141180026785411439174819058035016447",
+        "B_minus_D": "2289122546861674989771899392854",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 127,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      },
+      {
+        "horizon_h": 128,
+        "word_description": "(1,2^(h-1))",
+        "affine_numerator_B": "57896044618658093781723966591482896753010705195314060126991594578676195120981",
+        "cycle_denominator_D": "57896044618658085921600914765760782405762130920301616341517199728115455723007",
+        "B_minus_D": "7860123051825722114347248574275012443785474394850560739397974",
+        "gcd_B_D": 1,
+        "denominator_bit_length": 255,
+        "checks": {
+          "closed_form_matches_recurrence": true,
+          "contracting": true,
+          "primitive": true,
+          "gcd_is_one": true,
+          "affine_divisibility_fails": true
+        }
+      }
+    ],
+    "aggregate": {
+      "infinite_family_proved": true,
+      "finite_rows_replayed": 7,
+      "largest_replayed_horizon": 128,
+      "largest_denominator_bit_length": 255,
+      "divisibility_hits": 0
+    },
+    "route_correction": "TICKET-184's universal first-descent target is equivalent to the full Collatz conjecture, as already proved in TICKET-172. It is not a smaller auxiliary lemma. TICKET-185 restores a strict partial target by closing one infinite primitive-cycle stratum.",
+    "no_go_scope": "The theorem excludes only periods with exactly one valuation one and all other valuations two. Periods with two or more valuation-one entries, valuations at least three, and the divergent-orbit branch remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "presenting universal first descent as a smaller post-TICKET-184 auxiliary lemma; TICKET-172 already proved it equivalent to Collatz",
+  "remaining_gap": "Only one infinite primitive cycle stratum is excluded; multi-one words, valuations at least three, and divergent orbits remain.",
+  "candidate_theorem": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof, complete cycle exclusion, or divergent-orbit exclusion; one infinite primitive valuation stratum is excluded exactly.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T184-INPUT",
+        "label": "CounterexampleDichotomyAndMinimalCyclePrefixBarrier",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "CO-T185-CLOSED",
+        "label": "SingleValuationOneOtherwiseTwoCycleExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T185-REJECTED",
+        "label": "UniversalFirstDescentIsAStrictlyWeakerLemmaThanCollatz",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "CO-T185-OPEN",
+        "label": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T184-INPUT",
+        "CO-T185-CLOSED"
+      ],
+      [
+        "CO-T185-CLOSED",
+        "CO-T185-OPEN"
+      ],
+      [
+        "CO-T185-REJECTED",
+        "CO-T185-OPEN"
+      ]
+    ]
+  }
+}

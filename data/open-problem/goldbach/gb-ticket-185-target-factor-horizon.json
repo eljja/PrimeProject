@@ -1,0 +1,223 @@
+{
+  "schema": "primeproject.ticket185-spectral-cycle-factor-granularity.v1",
+  "generated_at": "2026-08-02T17:30:00+09:00",
+  "ticket_id": "GB-TICKET-185",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "TargetSpecificGoldbachFactorHorizonEquivalence",
+  "declared_proposition": "For an even target N>=6, let tau_N be zero when there is no bad odd candidate pair, and otherwise the maximum, over every unordered odd candidate pair a+(N-a)=N that is not prime-prime, of min(P^-(a),P^-(N-a)). Sieving both endpoints by every prime at most y leaves only prime-prime pairs if and only if y>=tau_N. Thus a positive survivor count beyond tau_N is an exact Goldbach certificate, while every y<tau_N leaves a composite-contaminated survivor. Moreover tau_N is at most square-root scale.",
+  "mathematical_argument": "For y>=0, a candidate pair survives depth y exactly when both least prime factors exceed y. A bad pair is therefore removed exactly when y reaches the smaller of its two least factors. Taking the maximum of these gates proves both directions; when the bad set is empty, the convention tau_N=0 makes the claim immediate. In every bad pair at least one endpoint is composite; if the other endpoint is a large prime, the composite endpoint is below N and has least factor at most its square root, while a small prime endpoint only lowers the gate.",
+  "reproducible_computation": {
+    "theorem": "For an even target N>=6, let tau_N be zero when there is no bad odd candidate pair, and otherwise the maximum, over every unordered odd candidate pair a+(N-a)=N that is not prime-prime, of min(P^-(a),P^-(N-a)). Sieving both endpoints by every prime at most y leaves only prime-prime pairs if and only if y>=tau_N. Thus a positive survivor count beyond tau_N is an exact Goldbach certificate, while every y<tau_N leaves a composite-contaminated survivor. Moreover tau_N is at most square-root scale.",
+    "proof": "For y>=0, a candidate pair survives depth y exactly when both least prime factors exceed y. A bad pair is therefore removed exactly when y reaches the smaller of its two least factors. Taking the maximum of these gates proves both directions; when the bad set is empty, the convention tau_N=0 makes the claim immediate. In every bad pair at least one endpoint is composite; if the other endpoint is a large prime, the composite endpoint is below N and has least factor at most its square root, while a small prime endpoint only lowers the gate.",
+    "target_factor_horizon_rows": [
+      {
+        "even_target_N": 100,
+        "unordered_odd_candidate_pairs": 24,
+        "unordered_prime_representation_count": 6,
+        "exact_bad_pair_factor_horizon_tau_N": 7,
+        "tau_over_sqrt_N": 0.7,
+        "last_bad_survivor_witness": [
+          23,
+          77
+        ],
+        "last_bad_survivor_gate": 7,
+        "survivors_before_horizon": 6,
+        "prime_survivors_before_horizon": 5,
+        "bad_survivors_before_horizon": 1,
+        "survivors_at_horizon": 5,
+        "prime_survivors_at_horizon": 5,
+        "bad_survivors_at_horizon": 0,
+        "checks": {
+          "bad_witness_survives_one_step_before": true,
+          "all_bad_pairs_removed_at_horizon": true,
+          "horizon_is_minimal_or_bad_set_is_empty": true,
+          "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+          "horizon_is_at_most_square_root_scale": true,
+          "finite_target_has_goldbach_representation": true
+        }
+      },
+      {
+        "even_target_N": 500,
+        "unordered_odd_candidate_pairs": 124,
+        "unordered_prime_representation_count": 13,
+        "exact_bad_pair_factor_horizon_tau_N": 19,
+        "tau_over_sqrt_N": 0.8497058314499201,
+        "last_bad_survivor_witness": [
+          139,
+          361
+        ],
+        "last_bad_survivor_gate": 19,
+        "survivors_before_horizon": 13,
+        "prime_survivors_before_horizon": 12,
+        "bad_survivors_before_horizon": 1,
+        "survivors_at_horizon": 12,
+        "prime_survivors_at_horizon": 12,
+        "bad_survivors_at_horizon": 0,
+        "checks": {
+          "bad_witness_survives_one_step_before": true,
+          "all_bad_pairs_removed_at_horizon": true,
+          "horizon_is_minimal_or_bad_set_is_empty": true,
+          "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+          "horizon_is_at_most_square_root_scale": true,
+          "finite_target_has_goldbach_representation": true
+        }
+      },
+      {
+        "even_target_N": 1000,
+        "unordered_odd_candidate_pairs": 249,
+        "unordered_prime_representation_count": 28,
+        "exact_bad_pair_factor_horizon_tau_N": 29,
+        "tau_over_sqrt_N": 0.91706052144883,
+        "last_bad_survivor_witness": [
+          101,
+          899
+        ],
+        "last_bad_survivor_gate": 29,
+        "survivors_before_horizon": 26,
+        "prime_survivors_before_horizon": 25,
+        "bad_survivors_before_horizon": 1,
+        "survivors_at_horizon": 24,
+        "prime_survivors_at_horizon": 24,
+        "bad_survivors_at_horizon": 0,
+        "checks": {
+          "bad_witness_survives_one_step_before": true,
+          "all_bad_pairs_removed_at_horizon": true,
+          "horizon_is_minimal_or_bad_set_is_empty": true,
+          "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+          "horizon_is_at_most_square_root_scale": true,
+          "finite_target_has_goldbach_representation": true
+        }
+      },
+      {
+        "even_target_N": 5000,
+        "unordered_odd_candidate_pairs": 1249,
+        "unordered_prime_representation_count": 76,
+        "exact_bad_pair_factor_horizon_tau_N": 67,
+        "tau_over_sqrt_N": 0.9475230867899737,
+        "last_bad_survivor_witness": [
+          109,
+          4891
+        ],
+        "last_bad_survivor_gate": 67,
+        "survivors_before_horizon": 73,
+        "prime_survivors_before_horizon": 72,
+        "bad_survivors_before_horizon": 1,
+        "survivors_at_horizon": 71,
+        "prime_survivors_at_horizon": 71,
+        "bad_survivors_at_horizon": 0,
+        "checks": {
+          "bad_witness_survives_one_step_before": true,
+          "all_bad_pairs_removed_at_horizon": true,
+          "horizon_is_minimal_or_bad_set_is_empty": true,
+          "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+          "horizon_is_at_most_square_root_scale": true,
+          "finite_target_has_goldbach_representation": true
+        }
+      },
+      {
+        "even_target_N": 10000,
+        "unordered_odd_candidate_pairs": 2499,
+        "unordered_prime_representation_count": 127,
+        "exact_bad_pair_factor_horizon_tau_N": 89,
+        "tau_over_sqrt_N": 0.89,
+        "last_bad_survivor_witness": [
+          1367,
+          8633
+        ],
+        "last_bad_survivor_gate": 89,
+        "survivors_before_horizon": 126,
+        "prime_survivors_before_horizon": 125,
+        "bad_survivors_before_horizon": 1,
+        "survivors_at_horizon": 125,
+        "prime_survivors_at_horizon": 125,
+        "bad_survivors_at_horizon": 0,
+        "checks": {
+          "bad_witness_survives_one_step_before": true,
+          "all_bad_pairs_removed_at_horizon": true,
+          "horizon_is_minimal_or_bad_set_is_empty": true,
+          "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+          "horizon_is_at_most_square_root_scale": true,
+          "finite_target_has_goldbach_representation": true
+        }
+      },
+      {
+        "even_target_N": 50000,
+        "unordered_odd_candidate_pairs": 12499,
+        "unordered_prime_representation_count": 450,
+        "exact_bad_pair_factor_horizon_tau_N": 223,
+        "tau_over_sqrt_N": 0.9972863179649062,
+        "last_bad_survivor_witness": [
+          271,
+          49729
+        ],
+        "last_bad_survivor_gate": 223,
+        "survivors_before_horizon": 441,
+        "prime_survivors_before_horizon": 440,
+        "bad_survivors_before_horizon": 1,
+        "survivors_at_horizon": 440,
+        "prime_survivors_at_horizon": 440,
+        "bad_survivors_at_horizon": 0,
+        "checks": {
+          "bad_witness_survives_one_step_before": true,
+          "all_bad_pairs_removed_at_horizon": true,
+          "horizon_is_minimal_or_bad_set_is_empty": true,
+          "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+          "horizon_is_at_most_square_root_scale": true,
+          "finite_target_has_goldbach_representation": true
+        }
+      }
+    ],
+    "aggregate": {
+      "target_count": 6,
+      "largest_target": 50000,
+      "largest_factor_horizon": 223,
+      "largest_tau_over_sqrt_N": 0.9972863179649062,
+      "bad_survivors_at_exact_horizon": 0
+    },
+    "no_go_scope": "The factor horizon is an exact finite decision threshold obtained from least-factor information. Reaching it by trial division is not a uniform analytic Goldbach proof. The theorem shows precisely where a pure growing-wheel route becomes equivalent to resolving the composite support it was meant to avoid.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a growing wheel as an analytic breakthrough when it reaches the target's exact least-factor decision horizon",
+  "remaining_gap": "The exact horizon is targetwise factor information; no sub-root prime-weighted cancellation or uniform all-target bound is proved.",
+  "candidate_theorem": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin",
+  "claim_boundary": "No Goldbach proof, counterexample, or uniform minor-arc theorem; one exact finite target-specific wheel completeness threshold only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T184-INPUT",
+        "label": "SquarefreeWheelFactorizationAndCompositeImpostorNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "GB-T185-CLOSED",
+        "label": "TargetSpecificGoldbachFactorHorizonEquivalence",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T185-REJECTED",
+        "label": "SubRootWheelOccupancyAloneCertifiesPrimeSupportUniformly",
+        "status": "refuted_or_overstrong"
+      },
+      {
+        "id": "GB-T185-OPEN",
+        "label": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T184-INPUT",
+        "GB-T185-CLOSED"
+      ],
+      [
+        "GB-T185-CLOSED",
+        "GB-T185-OPEN"
+      ],
+      [
+        "GB-T185-REJECTED",
+        "GB-T185-OPEN"
+      ]
+    ]
+  }
+}

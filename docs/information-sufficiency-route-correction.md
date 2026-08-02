@@ -1,5 +1,12 @@
 # TICKET-184: Information Sufficiency and Proof-Route Correction
 
+> Historical boundary notice (2026-08-02): TICKET-185 supersedes this as the
+> current frontier. In particular, TICKET-172 had already shown that universal
+> accelerated first descent is equivalent to Collatz, so the TICKET-184
+> Collatz “next obligation” below is retained only as a historical full-strength
+> target, not as a smaller auxiliary lemma. See
+> [TICKET-185](spectral-cycle-factor-granularity.md).
+
 ## Abstract
 
 TICKET-184 does **not** prove or disprove the Riemann Hypothesis, the Collatz

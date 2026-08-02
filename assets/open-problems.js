@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket185AttemptGlobal = null;
 let ticket184AttemptGlobal = null;
 let ticket183AttemptGlobal = null;
 let ticket182AttemptGlobal = null;
@@ -9980,6 +9981,72 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket185SpectralCycleFactorGranularity(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.resolution_barrier_route_correction_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.spectral_escape_rows || [];
+    detail = `
+      <div class="poc-equation">g<sub>M</sub> = h<sub>M</sub> - Proj<sub>span(e<sup>x/2</sup>,e<sup>-x/2</sup>)</sub>h<sub>M</sub>; F<sub>M</sub> = g<sub>M</sub> * g&#771;<sub>M</sub></div>
+      ${table(["carrier M", "neutral residual max", "low-band mass", "outside-band mass"], rows.map((row) => [row.carrier_frequency_M, Math.max(...(row.neutral_moment_residuals || [0]).map((value) => Math.abs(value))).toExponential(2), Number(row.normalized_low_band_spectral_mass).toFixed(6), Number(row.normalized_outside_band_spectral_mass).toFixed(6)]))}
+      <div class="poc-head"><div><span>Escape cases</span><strong>${aggregate.case_count || 0}</strong></div><div><span>Largest carrier</span><strong>${aggregate.largest_carrier_frequency || 0}</strong></div><div><span>Outside fixed band</span><strong>${Number(aggregate.largest_outside_band_mass || 0).toFixed(6)}</strong></div></div>
+      <p class="proof-note">지지집합, 양의 정부호성, 정규화와 두 극점 중립 모멘트만으로는 스펙트럼 꼬리의 균일 긴밀성을 얻을 수 없습니다. 이 반례족은 명시한 로그 자기상관 모형에 한정되며 실제 Weil 이차형식을 평가하지 않습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.single_one_cycle_rows || [];
+    detail = `
+      <div class="poc-equation">w<sub>h</sub>=(1,2,...,2): B<sub>h</sub>=2·4<sup>h-1</sup>-3<sup>h-1</sup>, D<sub>h</sub>=2·4<sup>h-1</sup>-3<sup>h</sup>, gcd(B<sub>h</sub>,D<sub>h</sub>)=1</div>
+      ${table(["h", "D bit length", "gcd(B,D)", "D divides B"], rows.map((row) => [row.horizon_h, row.denominator_bit_length, row.gcd_B_D, row.checks?.cycle_divisibility_hit ? "yes" : "no"]))}
+      <div class="poc-head"><div><span>Exact scope</span><strong>all h ≥ 3</strong></div><div><span>Replay horizon</span><strong>${aggregate.largest_replayed_horizon || 0}</strong></div><div><span>Divisibility hits</span><strong>${aggregate.divisibility_hits ?? "missing"}</strong></div></div>
+      <p class="proof-note">정확히 한 번의 v=1과 나머지 v=2를 갖는 모든 원시 주기족은 무한히 배제됩니다. 보편적 최초 하강은 TICKET-172에서 이미 콜라츠 추측과 동치임을 증명했으므로, 더 작은 보조정리로 제시했던 TICKET-184 목표는 철회합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.target_factor_horizon_rows || [];
+    detail = `
+      <div class="poc-equation">τ<sub>N</sub> = max<sub>bad pairs (a,N-a)</sub> min(P<sup>-</sup>(a),P<sup>-</sup>(N-a)); exact rejection iff y ≥ τ<sub>N</sub></div>
+      ${table(["N", "exact horizon τN", "τN / √N", "prime-pair survivors", "bad survivors at τN"], rows.map((row) => [formatter.format(row.even_target_N || 0), row.exact_bad_pair_factor_horizon_tau_N, Number(row.tau_over_sqrt_N).toFixed(3), row.prime_survivors_at_horizon, row.bad_survivors_at_horizon]))}
+      <div class="poc-head"><div><span>Targets audited</span><strong>${aggregate.target_count || 0}</strong></div><div><span>Largest exact horizon</span><strong>${aggregate.largest_factor_horizon || 0}</strong></div><div><span>Bad survivors</span><strong>${aggregate.bad_survivors_at_exact_horizon ?? "missing"}</strong></div></div>
+      <p class="proof-note">각 유한 목표의 정확한 최소 소인수 지평을 계산했습니다. 그러나 그 지평까지 체질하는 것은 사실상 목표별 인수분해·결정 절차이며, 모든 큰 짝수에 대한 해석적 증명이 아닙니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_prime_pair_block_rows || [];
+    detail = `
+      <div class="poc-equation">R=C-M: |R|&lt;M ⇔ 0&lt;C&lt;2M; R&gt;-M ⇔ C&gt;0; M≤1/2이면 정수 C에 대한 대칭 인증은 불가능</div>
+      ${table(["block width", "positive blocks", "absolute passes", "positive but absolute fails"], rows.map((row) => [row.block_width, row.positive_actual_blocks, row.absolute_dominance_blocks, row.positive_but_absolute_fails]))}
+      <div class="poc-head"><div><span>Widths audited</span><strong>${aggregate.audited_width_count || 0}</strong></div><div><span>Positive / abs failures</span><strong>${formatter.format(aggregate.positive_but_absolute_failure_count || 0)}</strong></div><div><span>Sub-half abs passes</span><strong>${aggregate.subhalf_absolute_pass_count ?? "missing"}</strong></div></div>
+      <p class="proof-note">쌍둥이 소수 존재에 필요한 최소 조건은 한쪽 하계 C&gt;0입니다. 작은 기대질량에서 |R|&lt;M은 정수 격자 때문에 구조적으로 불가능하므로, 향후 경로는 절댓값 지배가 아니라 parity-breaking 한쪽 블록 여유를 직접 증명해야 합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket185-spectral-cycle-factor-granularity" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 185 spectral escape, cycle exclusion, factor horizons, and integer granularity</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact boundaries; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET185 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/spectral-cycle-factor-granularity.ko.md">한국어 보고서</a> · <a href="../docs/spectral-cycle-factor-granularity.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket184InformationSufficiencyRouteCorrection(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.information_sufficiency_route_correction_audit || {};
@@ -10032,7 +10099,7 @@ function renderTicket184InformationSufficiencyRouteCorrection(attempt) {
   }
   return `
     <div id="ticket184-information-sufficiency-route-correction" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 184 information sufficiency and proof-route correction</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact information boundaries; all conjectures open</strong></div><div><span>Route corrections</span><strong>${audit.machine_audit?.decisive_route_correction_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET184 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -14055,6 +14122,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal)}
     ${renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal)}
     ${renderTicket182SobolevDivisibilityTranslationSibling(ticket182AttemptGlobal)}
     ${renderTicket181RegularizedLocalizationQuantizedSlack(ticket181AttemptGlobal)}
@@ -14287,9 +14355,10 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
+      renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-184 data is unavailable. The conjecture remains open. / TICKET-184 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-185 data is unavailable. The conjecture remains open. / TICKET-185 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14611,6 +14680,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket185Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket185-spectral-cycle-factor-granularity.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket185AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket185AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket185AttemptGlobal) {
+      ticket185AttemptGlobal.bounded_result = ticket185AttemptGlobal.bounded_result || {};
+      ticket185AttemptGlobal.bounded_result.resolution_barrier_route_correction_audit = payload.resolution_barrier_route_correction_audit || {};
+    }
+    return Boolean(ticket185AttemptGlobal);
+  } catch (error) {
+    ticket185AttemptGlobal = null;
     return false;
   }
 }
@@ -15664,6 +15753,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket185Loaded = await loadTicket185Attempt();
   const ticket184Loaded = await loadTicket184Attempt();
   const ticket183Loaded = await loadTicket183Attempt();
   const ticket182Loaded = await loadTicket182Attempt();
@@ -15681,8 +15771,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket185AttemptGlobal) await loadTicket185Attempt();
     if (!ticket184AttemptGlobal) await loadTicket184Attempt();
     if (!ticket183AttemptGlobal) await loadTicket183Attempt();
     if (!ticket182AttemptGlobal) await loadTicket182Attempt();

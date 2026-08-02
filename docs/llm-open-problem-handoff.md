@@ -62,7 +62,52 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-184
+## Latest Continuation After TICKET-185
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore`.
+   TICKET-185 proves that support, positive definiteness, normalization, and
+   the two pole-neutral moments still allow spectral escape in the declared
+   logarithmic autocorrelation model. The next proof must evaluate the actual
+   Weil quadratic form on a precisely specified core.
+2. Collatz:
+   `NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The single-one/rest-two stratum is excluded for every length. Universal
+   first descent must not be presented as a smaller target: TICKET-172 proved
+   it equivalent to Collatz by strong induction.
+3. Goldbach:
+   `SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin`.
+   The exact factor horizon is now characterized for each finite target, but
+   reaching it is merely a factor-decision procedure. Progress requires
+   signed prime-weighted cancellation strictly below that horizon.
+4. Twin Prime:
+   `CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales`.
+   Symmetric absolute domination is arithmetically overstrong below half-unit
+   expected mass. The next proof must establish the minimal one-sided positive
+   margin on unbounded scales and cross the parity barrier.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket185-spectral-cycle-factor-granularity.json
+data/open-problem/riemann/rh-ticket-185-neutral-autocorrelation-escape.json
+data/open-problem/collatz/co-ticket-185-single-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-185-target-factor-horizon.json
+data/open-problem/twin-prime/tp-ticket-185-integer-granularity.json
+```
+
+한국어 인계: TICKET-185도 네 난제를 해결하지 않았다. 두 중립 모멘트만의
+스펙트럼 긴밀성, 콜라츠와 동치인 보편 하강을 작은 보조정리로 부르는 경로,
+목표별 인수 지평 도달을 해석적 돌파로 보는 경로, 작은 주항에서 대칭 절댓값
+쌍둥이 소수 인증을 요구하는 경로를 폐기하거나 교정했다. 실제로 닫힌 무한
+결과는 정확히 한 번의 `v=1`과 나머지 `v=2`를 갖는 콜라츠 주기족 배제다.
+
+English report: [TICKET-185](spectral-cycle-factor-granularity.md).
+Korean report: [TICKET-185 한국어](spectral-cycle-factor-granularity.ko.md).
+
+## Preserved Continuation After TICKET-184
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

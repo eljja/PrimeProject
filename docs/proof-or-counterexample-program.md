@@ -37,6 +37,43 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-185 Exact Resolution Barriers
+
+TICKET-185 continues from TICKET-184 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:** `TwoNeutralMomentAutocorrelationSpectralEscapeNoGo` constructs
+   a normalized, compactly supported, positive-definite autocorrelation family
+   satisfying both pole-neutral moments while its Fourier probability mass
+   escapes every fixed compact band. The next obligation is
+   `WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore`.
+2. **Collatz:** `SingleValuationOneOtherwiseTwoCycleExclusion` proves for every
+   `h>=3` that the primitive period `(1,2,...,2)` has coprime affine numerator
+   and cycle denominator, excluding the whole infinite stratum. It also
+   withdraws universal first descent as a “smaller” auxiliary because
+   TICKET-172 proved it Collatz-equivalent. The next obligation is
+   `NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+3. **Goldbach:** `TargetSpecificGoldbachFactorHorizonEquivalence` identifies
+   the exact least-factor cutoff `tau_N` at which every non-prime candidate
+   pair for a fixed even `N` disappears. Reaching `tau_N` is a finite decision
+   procedure, not an analytic proof. The next obligation is
+   `SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin`.
+4. **Twin Prime:** `IntegerGranularityAndOneSidedBlockCertificate` proves that
+   the one-sided remainder inequality is exactly positivity and that symmetric
+   absolute domination is impossible when expected block mass is at most one
+   half. The next obligation is
+   `CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales`.
+
+The replay uses four spectral carriers, Collatz horizons through 128, six
+Goldbach targets through 50,000, and seven Twin block widths on
+`[100000,362144)`. These diagnostics check the formulas but do not close an
+infinite conjecture. Machine audit: four exact theorems, four rejected targets,
+three decisive route corrections, zero conjecture resolutions, and zero
+computational failures.
+
+English report: [TICKET-185](spectral-cycle-factor-granularity.md).
+한국어 보고서: [TICKET-185](spectral-cycle-factor-granularity.ko.md).
+
 ## 2026-08-02 TICKET-184 Information-Sufficiency Audit
 
 TICKET-184 continues from TICKET-183 and keeps every parent conjecture at

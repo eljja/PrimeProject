@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four information-sufficiency audits",
-      ko: "네 개의 미해결 문제, 네 가지 정보 충분성 검증",
+      en: "Four open problems, four exact resolution barriers",
+      ko: "네 개의 미해결 문제, 네 가지 정확한 해결 경계",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-184 separates sufficient proof information from finite proxies and corrects two overstrong targets.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-184는 유한 대리량과 증명에 충분한 정보를 분리하고 과도한 목표 두 개를 교정합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-185 proves one exact boundary in each track and replaces three misleading proof targets.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-185는 각 트랙의 정확한 경계 하나를 증명하고 오해를 부르는 목표 세 개를 교정합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

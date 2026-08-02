@@ -1,0 +1,1019 @@
+{
+  "schema": "primeproject.ticket185-spectral-cycle-factor-granularity.v1",
+  "generated_at": "2026-08-02T17:30:00+09:00",
+  "status": "four_exact_resolution_barriers_and_route_corrections_all_open",
+  "claim_boundary": "TICKET-185 resolves none of the four conjectures. It proves one spectral-escape no-go, excludes one infinite Collatz cycle stratum, identifies an exact Goldbach factor horizon, and derives the exact integer resolution limit of symmetric Twin block certificates.",
+  "resolution_barrier_route_correction_audit": {
+    "theorem_name": "FourConjectureResolutionBarrierAndRouteCorrectionAudit",
+    "status": "four_exact_resolution_barriers_and_route_corrections_all_open",
+    "proof_boundary": "TICKET-185 resolves none of the four conjectures. It proves one spectral-escape no-go, excludes one infinite Collatz cycle stratum, identifies an exact Goldbach factor horizon, and derives the exact integer resolution limit of symmetric Twin block certificates.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-185",
+      "theorem_name": "TwoNeutralMomentAutocorrelationSpectralEscapeNoGo",
+      "declared_proposition": "In the logarithmic autocorrelation model on [-A,A], impose the two neutral conditions integral g(x)e^(x/2)dx=0 and integral g(x)e^(-x/2)dx=0. There is a normalized sequence of compactly supported positive-definite autocorrelations F_M=g_M*tilde(g_M) whose Fourier probability measures escape every fixed compact frequency interval. Support, positive definiteness, normalization, and these two neutral moments therefore do not imply uniform Fourier-tail tightness.",
+      "mathematical_argument": "Start with h_M(x)=1_[-A,A](x)cos(Mx) and subtract its orthogonal projection onto span{e^(x/2),e^(-x/2)}. The projection coefficients tend to zero by the Riemann-Lebesgue lemma, while ||h_M||_2 stays bounded away from zero. The normalized autocorrelation is compactly supported and positive definite, and its Fourier density is |hat(g_M)|^2/||g_M||_2^2. The two cosine sidebands move to plus and minus M and the vanishing projection cannot retain mass in a fixed band, proving spectral escape.",
+      "reproducible_computation": {
+        "theorem": "In the logarithmic autocorrelation model on [-A,A], impose the two neutral conditions integral g(x)e^(x/2)dx=0 and integral g(x)e^(-x/2)dx=0. There is a normalized sequence of compactly supported positive-definite autocorrelations F_M=g_M*tilde(g_M) whose Fourier probability measures escape every fixed compact frequency interval. Support, positive definiteness, normalization, and these two neutral moments therefore do not imply uniform Fourier-tail tightness.",
+        "proof": "Start with h_M(x)=1_[-A,A](x)cos(Mx) and subtract its orthogonal projection onto span{e^(x/2),e^(-x/2)}. The projection coefficients tend to zero by the Riemann-Lebesgue lemma, while ||h_M||_2 stays bounded away from zero. The normalized autocorrelation is compactly supported and positive definite, and its Fourier density is |hat(g_M)|^2/||g_M||_2^2. The two cosine sidebands move to plus and minus M and the vanishing projection cannot retain mass in a fixed band, proving spectral escape.",
+        "spectral_escape_rows": [
+          {
+            "carrier_frequency_M": 8,
+            "support_interval": [
+              -1.0,
+              1.0
+            ],
+            "neutral_exponents": [
+              0.5,
+              -0.5
+            ],
+            "projection_coefficients": [
+              0.06358979692680752,
+              0.06358979692680752
+            ],
+            "neutral_moment_residuals": [
+              -5.551115123125783e-17,
+              -5.551115123125783e-17
+            ],
+            "projected_l2_norm_squared": 0.9468229266950694,
+            "normalized_autocorrelation_value_at_zero": 1.0,
+            "audited_low_frequency_band": [
+              -4.0,
+              4.0
+            ],
+            "normalized_low_band_spectral_mass": 0.05384626061306901,
+            "normalized_outside_band_spectral_mass": 0.946153739386931,
+            "checks": {
+              "two_neutral_constraints_hold": true,
+              "positive_definite_by_autocorrelation_construction": true,
+              "compact_support_preserved": true,
+              "normalization_is_nonzero": true,
+              "spectral_mass_is_a_probability_up_to_quadrature": true
+            }
+          },
+          {
+            "carrier_frequency_M": 16,
+            "support_interval": [
+              -1.0,
+              1.0
+            ],
+            "neutral_exponents": [
+              0.5,
+              -0.5
+            ],
+            "projection_coefficients": [
+              -0.009766626948300416,
+              -0.009766626948300416
+            ],
+            "neutral_moment_residuals": [
+              6.938893903907228e-18,
+              6.938893903907228e-18
+            ],
+            "projected_l2_norm_squared": 1.0164021401068277,
+            "normalized_autocorrelation_value_at_zero": 1.0,
+            "audited_low_frequency_band": [
+              -4.0,
+              4.0
+            ],
+            "normalized_low_band_spectral_mass": 0.001343763681606844,
+            "normalized_outside_band_spectral_mass": 0.9986562363183932,
+            "checks": {
+              "two_neutral_constraints_hold": true,
+              "positive_definite_by_autocorrelation_construction": true,
+              "compact_support_preserved": true,
+              "normalization_is_nonzero": true,
+              "spectral_mass_is_a_probability_up_to_quadrature": true
+            }
+          },
+          {
+            "carrier_frequency_M": 32,
+            "support_interval": [
+              -1.0,
+              1.0
+            ],
+            "neutral_exponents": [
+              0.5,
+              -0.5
+            ],
+            "projection_coefficients": [
+              0.009028503304750643,
+              0.009028503304750643
+            ],
+            "neutral_moment_residuals": [
+              -6.938893903907228e-18,
+              -6.938893903907228e-18
+            ],
+            "projected_l2_norm_squared": 1.0136661705607954,
+            "normalized_autocorrelation_value_at_zero": 1.0,
+            "audited_low_frequency_band": [
+              -4.0,
+              4.0
+            ],
+            "normalized_low_band_spectral_mass": 0.0008673753886343767,
+            "normalized_outside_band_spectral_mass": 0.9991326246113656,
+            "checks": {
+              "two_neutral_constraints_hold": true,
+              "positive_definite_by_autocorrelation_construction": true,
+              "compact_support_preserved": true,
+              "normalization_is_nonzero": true,
+              "spectral_mass_is_a_probability_up_to_quadrature": true
+            }
+          },
+          {
+            "carrier_frequency_M": 64,
+            "support_interval": [
+              -1.0,
+              1.0
+            ],
+            "neutral_exponents": [
+              0.5,
+              -0.5
+            ],
+            "projection_coefficients": [
+              0.007463225638855055,
+              0.007463225638855055
+            ],
+            "neutral_moment_residuals": [
+              6.938893903907228e-18,
+              6.938893903907228e-18
+            ],
+            "projected_l2_norm_squared": 1.0051484745762154,
+            "normalized_autocorrelation_value_at_zero": 1.0,
+            "audited_low_frequency_band": [
+              -4.0,
+              4.0
+            ],
+            "normalized_low_band_spectral_mass": 0.0005611472834966888,
+            "normalized_outside_band_spectral_mass": 0.9994388527165033,
+            "checks": {
+              "two_neutral_constraints_hold": true,
+              "positive_definite_by_autocorrelation_construction": true,
+              "compact_support_preserved": true,
+              "normalization_is_nonzero": true,
+              "spectral_mass_is_a_probability_up_to_quadrature": true
+            }
+          }
+        ],
+        "aggregate": {
+          "case_count": 4,
+          "largest_carrier_frequency": 64,
+          "smallest_low_band_mass": 0.0005611472834966888,
+          "largest_outside_band_mass": 0.9994388527165033,
+          "all_neutral_constraints_hold": true
+        },
+        "no_go_scope": "This is an exact functional-analytic counterfamily for a stated logarithmic two-neutral-moment autocorrelation model. It is not a proof that every technical version of the full Weil test cone has the same closure, and it neither evaluates the Weil quadratic form nor excludes a zeta zero.",
+        "failure_count": 0
+      },
+      "logical_limit": "The construction is a logarithmic two-neutral-moment model and does not evaluate the actual Weil quadratic form or prove that every full-cone formulation contains this sequence.",
+      "route_decision": {
+        "discard": "uniform spectral-tail compactness derived only from compact support, positive definiteness, normalization, and two neutral moments",
+        "retain": "direct Weil quadratic-form coercivity on an explicit pole-neutral core after quotienting or controlling spectral translations",
+        "next_single_lemma": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T184-INPUT",
+            "label": "FiniteMomentCancellationDoesNotGiveUniformAbelDesmoothing",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "RH-T185-CLOSED",
+            "label": "TwoNeutralMomentAutocorrelationSpectralEscapeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T185-REJECTED",
+            "label": "SupportPositivityAndTwoNeutralMomentsForceSpectralTailTightness",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "RH-T185-OPEN",
+            "label": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T184-INPUT",
+            "RH-T185-CLOSED"
+          ],
+          [
+            "RH-T185-CLOSED",
+            "RH-T185-OPEN"
+          ],
+          [
+            "RH-T185-REJECTED",
+            "RH-T185-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, off-critical zero exclusion, or actual Weil-form coercivity theorem; one exact spectral-escape counterfamily in a declared neutral autocorrelation model only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-185",
+      "theorem_name": "SingleValuationOneOtherwiseTwoCycleExclusion",
+      "declared_proposition": "No positive accelerated Collatz cycle has a primitive valuation period containing exactly one valuation one and all remaining valuations equal to two. After cyclic rotation such a word is w_h=(1,2,...,2). For every h>=3 it is contracting, but its affine numerator B_h and cycle denominator D_h are coprime, so D_h does not divide B_h.",
+      "mathematical_argument": "Iterating x maps to (3x+1)/4 after the initial valuation-one step gives B_h=2*4^(h-1)-3^(h-1) and D_h=2*4^(h-1)-3^h. Hence B_h-D_h=2*3^(h-1). The odd number D_h is congruent to two modulo three, so gcd(D_h,2*3^(h-1))=1 and therefore gcd(B_h,D_h)=1. Also D_h>=5 for h>=3. Thus D_h cannot divide B_h. Any period with one valuation one can be rotated to this form.",
+      "reproducible_computation": {
+        "theorem": "No positive accelerated Collatz cycle has a primitive valuation period containing exactly one valuation one and all remaining valuations equal to two. After cyclic rotation such a word is w_h=(1,2,...,2). For every h>=3 it is contracting, but its affine numerator B_h and cycle denominator D_h are coprime, so D_h does not divide B_h.",
+        "proof": "Iterating x maps to (3x+1)/4 after the initial valuation-one step gives B_h=2*4^(h-1)-3^(h-1) and D_h=2*4^(h-1)-3^h. Hence B_h-D_h=2*3^(h-1). The odd number D_h is congruent to two modulo three, so gcd(D_h,2*3^(h-1))=1 and therefore gcd(B_h,D_h)=1. Also D_h>=5 for h>=3. Thus D_h cannot divide B_h. Any period with one valuation one can be rotated to this form.",
+        "single_one_cycle_rows": [
+          {
+            "horizon_h": 3,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "23",
+            "cycle_denominator_D": "5",
+            "B_minus_D": "18",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 3,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 4,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "101",
+            "cycle_denominator_D": "47",
+            "B_minus_D": "54",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 6,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 8,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "30581",
+            "cycle_denominator_D": "26207",
+            "B_minus_D": "4374",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 15,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 16,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "2133134741",
+            "cycle_denominator_D": "2104436927",
+            "B_minus_D": "28697814",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 31,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 32,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "9222754363458491861",
+            "cycle_denominator_D": "9221519016665923967",
+            "B_minus_D": "1235346792567894",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 63,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 64,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "170141182315907958300849808829934409301",
+            "cycle_denominator_D": "170141180026785411439174819058035016447",
+            "B_minus_D": "2289122546861674989771899392854",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 127,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          },
+          {
+            "horizon_h": 128,
+            "word_description": "(1,2^(h-1))",
+            "affine_numerator_B": "57896044618658093781723966591482896753010705195314060126991594578676195120981",
+            "cycle_denominator_D": "57896044618658085921600914765760782405762130920301616341517199728115455723007",
+            "B_minus_D": "7860123051825722114347248574275012443785474394850560739397974",
+            "gcd_B_D": 1,
+            "denominator_bit_length": 255,
+            "checks": {
+              "closed_form_matches_recurrence": true,
+              "contracting": true,
+              "primitive": true,
+              "gcd_is_one": true,
+              "affine_divisibility_fails": true
+            }
+          }
+        ],
+        "aggregate": {
+          "infinite_family_proved": true,
+          "finite_rows_replayed": 7,
+          "largest_replayed_horizon": 128,
+          "largest_denominator_bit_length": 255,
+          "divisibility_hits": 0
+        },
+        "route_correction": "TICKET-184's universal first-descent target is equivalent to the full Collatz conjecture, as already proved in TICKET-172. It is not a smaller auxiliary lemma. TICKET-185 restores a strict partial target by closing one infinite primitive-cycle stratum.",
+        "no_go_scope": "The theorem excludes only periods with exactly one valuation one and all other valuations two. Periods with two or more valuation-one entries, valuations at least three, and the divergent-orbit branch remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Only one infinite primitive cycle stratum is excluded; multi-one words, valuations at least three, and divergent orbits remain.",
+      "route_decision": {
+        "discard": "presenting universal first descent as a smaller post-TICKET-184 auxiliary lemma; TICKET-172 already proved it equivalent to Collatz",
+        "retain": "exact affine divisibility exclusion on increasingly broad primitive contracting word strata, kept separate from divergent-orbit analysis",
+        "next_single_lemma": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T184-INPUT",
+            "label": "CounterexampleDichotomyAndMinimalCyclePrefixBarrier",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "CO-T185-CLOSED",
+            "label": "SingleValuationOneOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T185-REJECTED",
+            "label": "UniversalFirstDescentIsAStrictlyWeakerLemmaThanCollatz",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "CO-T185-OPEN",
+            "label": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T184-INPUT",
+            "CO-T185-CLOSED"
+          ],
+          [
+            "CO-T185-CLOSED",
+            "CO-T185-OPEN"
+          ],
+          [
+            "CO-T185-REJECTED",
+            "CO-T185-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, complete cycle exclusion, or divergent-orbit exclusion; one infinite primitive valuation stratum is excluded exactly."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-185",
+      "theorem_name": "TargetSpecificGoldbachFactorHorizonEquivalence",
+      "declared_proposition": "For an even target N>=6, let tau_N be zero when there is no bad odd candidate pair, and otherwise the maximum, over every unordered odd candidate pair a+(N-a)=N that is not prime-prime, of min(P^-(a),P^-(N-a)). Sieving both endpoints by every prime at most y leaves only prime-prime pairs if and only if y>=tau_N. Thus a positive survivor count beyond tau_N is an exact Goldbach certificate, while every y<tau_N leaves a composite-contaminated survivor. Moreover tau_N is at most square-root scale.",
+      "mathematical_argument": "For y>=0, a candidate pair survives depth y exactly when both least prime factors exceed y. A bad pair is therefore removed exactly when y reaches the smaller of its two least factors. Taking the maximum of these gates proves both directions; when the bad set is empty, the convention tau_N=0 makes the claim immediate. In every bad pair at least one endpoint is composite; if the other endpoint is a large prime, the composite endpoint is below N and has least factor at most its square root, while a small prime endpoint only lowers the gate.",
+      "reproducible_computation": {
+        "theorem": "For an even target N>=6, let tau_N be zero when there is no bad odd candidate pair, and otherwise the maximum, over every unordered odd candidate pair a+(N-a)=N that is not prime-prime, of min(P^-(a),P^-(N-a)). Sieving both endpoints by every prime at most y leaves only prime-prime pairs if and only if y>=tau_N. Thus a positive survivor count beyond tau_N is an exact Goldbach certificate, while every y<tau_N leaves a composite-contaminated survivor. Moreover tau_N is at most square-root scale.",
+        "proof": "For y>=0, a candidate pair survives depth y exactly when both least prime factors exceed y. A bad pair is therefore removed exactly when y reaches the smaller of its two least factors. Taking the maximum of these gates proves both directions; when the bad set is empty, the convention tau_N=0 makes the claim immediate. In every bad pair at least one endpoint is composite; if the other endpoint is a large prime, the composite endpoint is below N and has least factor at most its square root, while a small prime endpoint only lowers the gate.",
+        "target_factor_horizon_rows": [
+          {
+            "even_target_N": 100,
+            "unordered_odd_candidate_pairs": 24,
+            "unordered_prime_representation_count": 6,
+            "exact_bad_pair_factor_horizon_tau_N": 7,
+            "tau_over_sqrt_N": 0.7,
+            "last_bad_survivor_witness": [
+              23,
+              77
+            ],
+            "last_bad_survivor_gate": 7,
+            "survivors_before_horizon": 6,
+            "prime_survivors_before_horizon": 5,
+            "bad_survivors_before_horizon": 1,
+            "survivors_at_horizon": 5,
+            "prime_survivors_at_horizon": 5,
+            "bad_survivors_at_horizon": 0,
+            "checks": {
+              "bad_witness_survives_one_step_before": true,
+              "all_bad_pairs_removed_at_horizon": true,
+              "horizon_is_minimal_or_bad_set_is_empty": true,
+              "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+              "horizon_is_at_most_square_root_scale": true,
+              "finite_target_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_target_N": 500,
+            "unordered_odd_candidate_pairs": 124,
+            "unordered_prime_representation_count": 13,
+            "exact_bad_pair_factor_horizon_tau_N": 19,
+            "tau_over_sqrt_N": 0.8497058314499201,
+            "last_bad_survivor_witness": [
+              139,
+              361
+            ],
+            "last_bad_survivor_gate": 19,
+            "survivors_before_horizon": 13,
+            "prime_survivors_before_horizon": 12,
+            "bad_survivors_before_horizon": 1,
+            "survivors_at_horizon": 12,
+            "prime_survivors_at_horizon": 12,
+            "bad_survivors_at_horizon": 0,
+            "checks": {
+              "bad_witness_survives_one_step_before": true,
+              "all_bad_pairs_removed_at_horizon": true,
+              "horizon_is_minimal_or_bad_set_is_empty": true,
+              "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+              "horizon_is_at_most_square_root_scale": true,
+              "finite_target_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_target_N": 1000,
+            "unordered_odd_candidate_pairs": 249,
+            "unordered_prime_representation_count": 28,
+            "exact_bad_pair_factor_horizon_tau_N": 29,
+            "tau_over_sqrt_N": 0.91706052144883,
+            "last_bad_survivor_witness": [
+              101,
+              899
+            ],
+            "last_bad_survivor_gate": 29,
+            "survivors_before_horizon": 26,
+            "prime_survivors_before_horizon": 25,
+            "bad_survivors_before_horizon": 1,
+            "survivors_at_horizon": 24,
+            "prime_survivors_at_horizon": 24,
+            "bad_survivors_at_horizon": 0,
+            "checks": {
+              "bad_witness_survives_one_step_before": true,
+              "all_bad_pairs_removed_at_horizon": true,
+              "horizon_is_minimal_or_bad_set_is_empty": true,
+              "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+              "horizon_is_at_most_square_root_scale": true,
+              "finite_target_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_target_N": 5000,
+            "unordered_odd_candidate_pairs": 1249,
+            "unordered_prime_representation_count": 76,
+            "exact_bad_pair_factor_horizon_tau_N": 67,
+            "tau_over_sqrt_N": 0.9475230867899737,
+            "last_bad_survivor_witness": [
+              109,
+              4891
+            ],
+            "last_bad_survivor_gate": 67,
+            "survivors_before_horizon": 73,
+            "prime_survivors_before_horizon": 72,
+            "bad_survivors_before_horizon": 1,
+            "survivors_at_horizon": 71,
+            "prime_survivors_at_horizon": 71,
+            "bad_survivors_at_horizon": 0,
+            "checks": {
+              "bad_witness_survives_one_step_before": true,
+              "all_bad_pairs_removed_at_horizon": true,
+              "horizon_is_minimal_or_bad_set_is_empty": true,
+              "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+              "horizon_is_at_most_square_root_scale": true,
+              "finite_target_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_target_N": 10000,
+            "unordered_odd_candidate_pairs": 2499,
+            "unordered_prime_representation_count": 127,
+            "exact_bad_pair_factor_horizon_tau_N": 89,
+            "tau_over_sqrt_N": 0.89,
+            "last_bad_survivor_witness": [
+              1367,
+              8633
+            ],
+            "last_bad_survivor_gate": 89,
+            "survivors_before_horizon": 126,
+            "prime_survivors_before_horizon": 125,
+            "bad_survivors_before_horizon": 1,
+            "survivors_at_horizon": 125,
+            "prime_survivors_at_horizon": 125,
+            "bad_survivors_at_horizon": 0,
+            "checks": {
+              "bad_witness_survives_one_step_before": true,
+              "all_bad_pairs_removed_at_horizon": true,
+              "horizon_is_minimal_or_bad_set_is_empty": true,
+              "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+              "horizon_is_at_most_square_root_scale": true,
+              "finite_target_has_goldbach_representation": true
+            }
+          },
+          {
+            "even_target_N": 50000,
+            "unordered_odd_candidate_pairs": 12499,
+            "unordered_prime_representation_count": 450,
+            "exact_bad_pair_factor_horizon_tau_N": 223,
+            "tau_over_sqrt_N": 0.9972863179649062,
+            "last_bad_survivor_witness": [
+              271,
+              49729
+            ],
+            "last_bad_survivor_gate": 223,
+            "survivors_before_horizon": 441,
+            "prime_survivors_before_horizon": 440,
+            "bad_survivors_before_horizon": 1,
+            "survivors_at_horizon": 440,
+            "prime_survivors_at_horizon": 440,
+            "bad_survivors_at_horizon": 0,
+            "checks": {
+              "bad_witness_survives_one_step_before": true,
+              "all_bad_pairs_removed_at_horizon": true,
+              "horizon_is_minimal_or_bad_set_is_empty": true,
+              "factor_horizon_is_zero_exactly_for_empty_bad_set": true,
+              "horizon_is_at_most_square_root_scale": true,
+              "finite_target_has_goldbach_representation": true
+            }
+          }
+        ],
+        "aggregate": {
+          "target_count": 6,
+          "largest_target": 50000,
+          "largest_factor_horizon": 223,
+          "largest_tau_over_sqrt_N": 0.9972863179649062,
+          "bad_survivors_at_exact_horizon": 0
+        },
+        "no_go_scope": "The factor horizon is an exact finite decision threshold obtained from least-factor information. Reaching it by trial division is not a uniform analytic Goldbach proof. The theorem shows precisely where a pure growing-wheel route becomes equivalent to resolving the composite support it was meant to avoid.",
+        "failure_count": 0
+      },
+      "logical_limit": "The exact horizon is targetwise factor information; no sub-root prime-weighted cancellation or uniform all-target bound is proved.",
+      "route_decision": {
+        "discard": "treating a growing wheel as an analytic breakthrough when it reaches the target's exact least-factor decision horizon",
+        "retain": "sub-horizon wheel localization combined with signed prime-weighted cancellation of the remaining bad survivors",
+        "next_single_lemma": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T184-INPUT",
+            "label": "SquarefreeWheelFactorizationAndCompositeImpostorNoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "GB-T185-CLOSED",
+            "label": "TargetSpecificGoldbachFactorHorizonEquivalence",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T185-REJECTED",
+            "label": "SubRootWheelOccupancyAloneCertifiesPrimeSupportUniformly",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "GB-T185-OPEN",
+            "label": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T184-INPUT",
+            "GB-T185-CLOSED"
+          ],
+          [
+            "GB-T185-CLOSED",
+            "GB-T185-OPEN"
+          ],
+          [
+            "GB-T185-REJECTED",
+            "GB-T185-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof, counterexample, or uniform minor-arc theorem; one exact finite target-specific wheel completeness threshold only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-185",
+      "theorem_name": "IntegerGranularityAndOneSidedBlockCertificate",
+      "declared_proposition": "Let C be a nonnegative integer block count, M>0 a proposed main term, and R=C-M. Then |R|<M holds exactly when 0<C<2M, whereas the one-sided inequality R>-M holds exactly when C>0. Hence an absolute main-term domination certificate is strictly stronger than positive block mass. If M<=1/2, no integer C can satisfy the absolute certificate at all.",
+      "mathematical_argument": "Expanding |C-M|<M gives -M<C-M<M, hence 0<C<2M. The one-sided inequality C-M>-M reduces to C>0. If M<=1/2, the interval (0,2M) contains no positive integer. This is an exact integer-granularity obstruction, independent of any probabilistic model.",
+      "reproducible_computation": {
+        "theorem": "Let C be a nonnegative integer block count, M>0 a proposed main term, and R=C-M. Then |R|<M holds exactly when 0<C<2M, whereas the one-sided inequality R>-M holds exactly when C>0. Hence an absolute main-term domination certificate is strictly stronger than positive block mass. If M<=1/2, no integer C can satisfy the absolute certificate at all.",
+        "proof": "Expanding |C-M|<M gives -M<C-M<M, hence 0<C<2M. The one-sided inequality C-M>-M reduces to C>0. If M<=1/2, the interval (0,2M) contains no positive integer. This is an exact integer-granularity obstruction, independent of any probabilistic model.",
+        "finite_prime_pair_block_rows": [
+          {
+            "block_width": 16,
+            "block_count": 16384,
+            "minimum_expected_mass": 0.12894241333474066,
+            "maximum_expected_mass": 0.15937615132079386,
+            "positive_actual_blocks": 2246,
+            "one_sided_certified_blocks": 2246,
+            "absolute_dominance_blocks": 0,
+            "positive_but_absolute_fails": 2246,
+            "subhalf_expected_blocks": 16384,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          },
+          {
+            "block_width": 32,
+            "block_count": 8192,
+            "minimum_expected_mass": 0.25788571686257933,
+            "maximum_expected_mass": 0.3187478736135332,
+            "positive_actual_blocks": 2122,
+            "one_sided_certified_blocks": 2122,
+            "absolute_dominance_blocks": 0,
+            "positive_but_absolute_fails": 2122,
+            "subhalf_expected_blocks": 8192,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          },
+          {
+            "block_width": 64,
+            "block_count": 4096,
+            "minimum_expected_mass": 0.5157749946917661,
+            "maximum_expected_mass": 0.6374780346865112,
+            "positive_actual_blocks": 1876,
+            "one_sided_certified_blocks": 1876,
+            "absolute_dominance_blocks": 1498,
+            "positive_but_absolute_fails": 378,
+            "subhalf_expected_blocks": 0,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          },
+          {
+            "block_width": 128,
+            "block_count": 2048,
+            "minimum_expected_mass": 1.031564234803955,
+            "maximum_expected_mass": 1.2748852477658914,
+            "positive_actual_blocks": 1461,
+            "one_sided_certified_blocks": 1461,
+            "absolute_dominance_blocks": 1288,
+            "positive_but_absolute_fails": 173,
+            "subhalf_expected_blocks": 0,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          },
+          {
+            "block_width": 256,
+            "block_count": 1024,
+            "minimum_expected_mass": 2.063185463725882,
+            "maximum_expected_mass": 2.5494874372530414,
+            "positive_actual_blocks": 940,
+            "one_sided_certified_blocks": 940,
+            "absolute_dominance_blocks": 891,
+            "positive_but_absolute_fails": 49,
+            "subhalf_expected_blocks": 0,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          },
+          {
+            "block_width": 512,
+            "block_count": 512,
+            "minimum_expected_mass": 4.126599003483145,
+            "maximum_expected_mass": 5.097844461948988,
+            "positive_actual_blocks": 508,
+            "one_sided_certified_blocks": 508,
+            "absolute_dominance_blocks": 501,
+            "positive_but_absolute_fails": 7,
+            "subhalf_expected_blocks": 0,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          },
+          {
+            "block_width": 1024,
+            "block_count": 256,
+            "minimum_expected_mass": 8.254111108678147,
+            "maximum_expected_mass": 10.191181764351729,
+            "positive_actual_blocks": 256,
+            "one_sided_certified_blocks": 256,
+            "absolute_dominance_blocks": 256,
+            "positive_but_absolute_fails": 0,
+            "subhalf_expected_blocks": 0,
+            "subhalf_absolute_dominance_blocks": 0,
+            "checks": {
+              "one_sided_is_exactly_positive_count": true,
+              "subhalf_absolute_certificate_is_impossible": true
+            }
+          }
+        ],
+        "aggregate": {
+          "audited_interval": [
+            100000,
+            362144
+          ],
+          "audited_width_count": 7,
+          "smallest_block_width": 16,
+          "largest_block_width": 1024,
+          "positive_but_absolute_failure_count": 4975,
+          "subhalf_absolute_pass_count": 0
+        },
+        "route_correction": "Positive counts on infinitely many disjoint blocks are equivalent to Twin Prime infinitude, not a weaker intermediate theorem. An absolute remainder bound adds an unnecessary upper-count condition. The missing arithmetic input must be a signed one-sided parity estimate, not a symmetric norm bound.",
+        "no_go_scope": "The theorem calibrates certificate resolution and rejects symmetric absolute-error promotion. It proves no one-sided estimate for the actual prime-pair remainder on unbounded blocks and does not cross the sieve parity barrier.",
+        "failure_count": 0
+      },
+      "logical_limit": "No signed prime-pair remainder bound is proved on unbounded blocks; the parity barrier is unchanged.",
+      "route_decision": {
+        "discard": "symmetric absolute remainder domination as though it were the minimal positive-root condition, especially below half-unit expected mass",
+        "retain": "one-sided signed parity estimates on blocks whose resolution is chosen before inspecting prime-pair counts",
+        "next_single_lemma": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T184-INPUT",
+            "label": "PositiveRootMassSufficesAndCantelliExceptionalMassIsSharp",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "TP-T185-CLOSED",
+            "label": "IntegerGranularityAndOneSidedBlockCertificate",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T185-REJECTED",
+            "label": "AbsoluteRemainderDominanceIsEquivalentToPositiveBlockMass",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "TP-T185-OPEN",
+            "label": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T184-INPUT",
+            "TP-T185-CLOSED"
+          ],
+          [
+            "TP-T185-CLOSED",
+            "TP-T185-OPEN"
+          ],
+          [
+            "TP-T185-REJECTED",
+            "TP-T185-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof, infinitude result, or parity-breaking estimate; one exact certificate-granularity theorem and bounded block audit only."
+    },
+    "cross_problem_synthesis": "The decisive missing information is signed and scale-sensitive: spectral translation evades compactness, Collatz needs exact affine divisibility across broader words plus a separate divergence route, Goldbach needs cancellation before trial-division depth, and Twin needs a one-sided parity estimate rather than an absolute norm.",
+    "literature_boundary": {
+      "riemann": "Weil positivity remains a quadratic-form problem on a constrained test space; this model counterfamily is not imported as a statement about every published cone realization.",
+      "collatz": "Finite exponent-code and density theorems do not exclude all primitive cycles or divergent natural orbits.",
+      "goldbach": "Exceptional-set and major-arc advances do not supply an every-target binary minor-arc bound.",
+      "twin_prime": "Prime-producing lower-bound sieves require substantial Type I/II information; no exact-gap-two one-sided margin is supplied here."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "finite_arithmetic_diagnostic_count": 4,
+      "decisive_route_correction_count": 3,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-185",
+      "status": "open_not_proven",
+      "declared_proposition": "In the logarithmic autocorrelation model on [-A,A], impose the two neutral conditions integral g(x)e^(x/2)dx=0 and integral g(x)e^(-x/2)dx=0. There is a normalized sequence of compactly supported positive-definite autocorrelations F_M=g_M*tilde(g_M) whose Fourier probability measures escape every fixed compact frequency interval. Support, positive definiteness, normalization, and these two neutral moments therefore do not imply uniform Fourier-tail tightness.",
+      "new_result": "TwoNeutralMomentAutocorrelationSpectralEscapeNoGo",
+      "discarded_route": "uniform spectral-tail compactness derived only from compact support, positive definiteness, normalization, and two neutral moments",
+      "remaining_gap": "The construction is a logarithmic two-neutral-moment model and does not evaluate the actual Weil quadratic form or prove that every full-cone formulation contains this sequence.",
+      "candidate_theorem": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore",
+      "claim_boundary": "No RH proof, off-critical zero exclusion, or actual Weil-form coercivity theorem; one exact spectral-escape counterfamily in a declared neutral autocorrelation model only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T184-INPUT",
+            "label": "FiniteMomentCancellationDoesNotGiveUniformAbelDesmoothing",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "RH-T185-CLOSED",
+            "label": "TwoNeutralMomentAutocorrelationSpectralEscapeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T185-REJECTED",
+            "label": "SupportPositivityAndTwoNeutralMomentsForceSpectralTailTightness",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "RH-T185-OPEN",
+            "label": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T184-INPUT",
+            "RH-T185-CLOSED"
+          ],
+          [
+            "RH-T185-CLOSED",
+            "RH-T185-OPEN"
+          ],
+          [
+            "RH-T185-REJECTED",
+            "RH-T185-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "WeilQuadraticFormCoercivityModuloSpectralTranslationsOnExplicitPoleNeutralCore"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-185",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive accelerated Collatz cycle has a primitive valuation period containing exactly one valuation one and all remaining valuations equal to two. After cyclic rotation such a word is w_h=(1,2,...,2). For every h>=3 it is contracting, but its affine numerator B_h and cycle denominator D_h are coprime, so D_h does not divide B_h.",
+      "new_result": "SingleValuationOneOtherwiseTwoCycleExclusion",
+      "discarded_route": "presenting universal first descent as a smaller post-TICKET-184 auxiliary lemma; TICKET-172 already proved it equivalent to Collatz",
+      "remaining_gap": "Only one infinite primitive cycle stratum is excluded; multi-one words, valuations at least three, and divergent orbits remain.",
+      "candidate_theorem": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+      "claim_boundary": "No Collatz proof, complete cycle exclusion, or divergent-orbit exclusion; one infinite primitive valuation stratum is excluded exactly.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T184-INPUT",
+            "label": "CounterexampleDichotomyAndMinimalCyclePrefixBarrier",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "CO-T185-CLOSED",
+            "label": "SingleValuationOneOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T185-REJECTED",
+            "label": "UniversalFirstDescentIsAStrictlyWeakerLemmaThanCollatz",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "CO-T185-OPEN",
+            "label": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T184-INPUT",
+            "CO-T185-CLOSED"
+          ],
+          [
+            "CO-T185-CLOSED",
+            "CO-T185-OPEN"
+          ],
+          [
+            "CO-T185-REJECTED",
+            "CO-T185-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoPrimitiveContractingValuationWordWithExactlyTwoOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-185",
+      "status": "open_not_proven",
+      "declared_proposition": "For an even target N>=6, let tau_N be zero when there is no bad odd candidate pair, and otherwise the maximum, over every unordered odd candidate pair a+(N-a)=N that is not prime-prime, of min(P^-(a),P^-(N-a)). Sieving both endpoints by every prime at most y leaves only prime-prime pairs if and only if y>=tau_N. Thus a positive survivor count beyond tau_N is an exact Goldbach certificate, while every y<tau_N leaves a composite-contaminated survivor. Moreover tau_N is at most square-root scale.",
+      "new_result": "TargetSpecificGoldbachFactorHorizonEquivalence",
+      "discarded_route": "treating a growing wheel as an analytic breakthrough when it reaches the target's exact least-factor decision horizon",
+      "remaining_gap": "The exact horizon is targetwise factor information; no sub-root prime-weighted cancellation or uniform all-target bound is proved.",
+      "candidate_theorem": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin",
+      "claim_boundary": "No Goldbach proof, counterexample, or uniform minor-arc theorem; one exact finite target-specific wheel completeness threshold only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T184-INPUT",
+            "label": "SquarefreeWheelFactorizationAndCompositeImpostorNoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "GB-T185-CLOSED",
+            "label": "TargetSpecificGoldbachFactorHorizonEquivalence",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T185-REJECTED",
+            "label": "SubRootWheelOccupancyAloneCertifiesPrimeSupportUniformly",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "GB-T185-OPEN",
+            "label": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T184-INPUT",
+            "GB-T185-CLOSED"
+          ],
+          [
+            "GB-T185-CLOSED",
+            "GB-T185-OPEN"
+          ],
+          [
+            "GB-T185-REJECTED",
+            "GB-T185-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "SubHorizonPrimeWeightedBadSurvivorCancellationBelowTargetMargin"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-185",
+      "status": "open_not_proven",
+      "declared_proposition": "Let C be a nonnegative integer block count, M>0 a proposed main term, and R=C-M. Then |R|<M holds exactly when 0<C<2M, whereas the one-sided inequality R>-M holds exactly when C>0. Hence an absolute main-term domination certificate is strictly stronger than positive block mass. If M<=1/2, no integer C can satisfy the absolute certificate at all.",
+      "new_result": "IntegerGranularityAndOneSidedBlockCertificate",
+      "discarded_route": "symmetric absolute remainder domination as though it were the minimal positive-root condition, especially below half-unit expected mass",
+      "remaining_gap": "No signed prime-pair remainder bound is proved on unbounded blocks; the parity barrier is unchanged.",
+      "candidate_theorem": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales",
+      "claim_boundary": "No Twin Prime proof, infinitude result, or parity-breaking estimate; one exact certificate-granularity theorem and bounded block audit only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T184-INPUT",
+            "label": "PositiveRootMassSufficesAndCantelliExceptionalMassIsSharp",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "TP-T185-CLOSED",
+            "label": "IntegerGranularityAndOneSidedBlockCertificate",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T185-REJECTED",
+            "label": "AbsoluteRemainderDominanceIsEquivalentToPositiveBlockMass",
+            "status": "refuted_or_overstrong"
+          },
+          {
+            "id": "TP-T185-OPEN",
+            "label": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T184-INPUT",
+            "TP-T185-CLOSED"
+          ],
+          [
+            "TP-T185-CLOSED",
+            "TP-T185-OPEN"
+          ],
+          [
+            "TP-T185-REJECTED",
+            "TP-T185-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CubicRoughOneSidedJointLiouvilleBlockMarginOnUnboundedScales"
+    }
+  ]
+}
