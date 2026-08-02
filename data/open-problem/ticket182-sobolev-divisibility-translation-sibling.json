@@ -1,0 +1,1369 @@
+{
+  "schema": "primeproject.ticket182-sobolev-divisibility-translation-sibling.v1",
+  "generated_at": "2026-08-02T23:10:00+09:00",
+  "status": "four_exact_refinements_with_finite_arithmetic_diagnostics_all_conjectures_open",
+  "claim_boundary": "TICKET-182 proves four exact refinements and resolves none of the conjectures. It replaces global Lipschitz control by an H1 Fejer certificate, cycle equality by exact affine divisibility, adjacent Goldbach variation by weighted translation moduli, and abstract tree increments by weighted sibling contrasts.",
+  "sobolev_divisibility_translation_sibling_audit": {
+    "theorem_name": "FourConjectureSobolevDivisibilityTranslationSiblingAudit",
+    "status": "four_exact_refinements_with_finite_arithmetic_diagnostics_all_conjectures_open",
+    "proof_boundary": "TICKET-182 proves four exact refinements and resolves none of the conjectures. It replaces global Lipschitz control by an H1 Fejer certificate, cycle equality by exact affine divisibility, adjacent Goldbach variation by weighted translation moduli, and abstract tree increments by weighted sibling contrasts.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-182",
+      "theorem_name": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+      "declared_proposition": "Let f(theta)=sum_k a_k exp(ik theta) be absolutely continuous and let D2=(integral |f'|^2/(2*pi))^(1/2). For the Fejer mean sigma_N, ||f-sigma_N f||_infinity<=C_N D2, where C_N^2=2((N-1)/N^2+sum_(k>=N)1/k^2). Hence ||sigma_N f||_infinity+C_N D2<delta certifies ||f||_infinity<delta. Values and derivatives sampled on an N-grid cannot certify D2: A(1-cos(N theta)) and zero agree in both sampled values and sampled derivatives but have uniform distance 2A.",
+      "mathematical_argument": "The Fejer residual multiplier is q_N(k)=min(|k|/N,1). Apply Cauchy-Schwarz to sum_(k!=0) q_N(k)|a_k| after inserting |k| and 1/|k|. Parseval identifies sum k^2|a_k|^2 with D2^2, while the remaining multiplier sum is exactly C_N^2. The sampled no-go follows because both 1-cos(N theta) and its derivative N sin(N theta) vanish at theta=2*pi*j/N. For the raw prime proxy with coefficients Lambda(n)/sqrt(n), D2^2=(1/2)sum n Lambda(n)^2, which diverges already along the infinitely many prime terms.",
+      "reproducible_computation": {
+        "theorem": "Let f(theta)=sum_k a_k exp(ik theta) be absolutely continuous and let D2=(integral |f'|^2/(2*pi))^(1/2). For the Fejer mean sigma_N, ||f-sigma_N f||_infinity<=C_N D2, where C_N^2=2((N-1)/N^2+sum_(k>=N)1/k^2). Hence ||sigma_N f||_infinity+C_N D2<delta certifies ||f||_infinity<delta. Values and derivatives sampled on an N-grid cannot certify D2: A(1-cos(N theta)) and zero agree in both sampled values and sampled derivatives but have uniform distance 2A.",
+        "proof": "The Fejer residual multiplier is q_N(k)=min(|k|/N,1). Apply Cauchy-Schwarz to sum_(k!=0) q_N(k)|a_k| after inserting |k| and 1/|k|. Parseval identifies sum k^2|a_k|^2 with D2^2, while the remaining multiplier sum is exactly C_N^2. The sampled no-go follows because both 1-cos(N theta) and its derivative N sin(N theta) vanish at theta=2*pi*j/N. For the raw prime proxy with coefficients Lambda(n)/sqrt(n), D2^2=(1/2)sum n Lambda(n)^2, which diverges already along the infinitely many prime terms.",
+        "h1_certificate_rows": [
+          {
+            "fejer_order_N": 8,
+            "h1_tail_constant_C_N": 0.6964366657407282,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.08750000000000001,
+            "smooth_tail_budget": 0.04924550890122178,
+            "smooth_certified_norm": 0.13674550890122178,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(8 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 5.65685424949238,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          },
+          {
+            "fejer_order_N": 16,
+            "h1_tail_constant_C_N": 0.49616032369233093,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.09375,
+            "smooth_tail_budget": 0.03508383294385596,
+            "smooth_certified_norm": 0.12883383294385597,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(16 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 11.31370849898476,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          },
+          {
+            "fejer_order_N": 32,
+            "h1_tail_constant_C_N": 0.352184054211153,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.096875,
+            "smooth_tail_budget": 0.024903173295847694,
+            "smooth_certified_norm": 0.1217781732958477,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(32 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 22.62741699796952,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          },
+          {
+            "fejer_order_N": 64,
+            "h1_tail_constant_C_N": 0.249513788954997,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.09843750000000001,
+            "smooth_tail_budget": 0.017643289216962746,
+            "smooth_certified_norm": 0.11608078921696276,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(64 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 45.25483399593904,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          },
+          {
+            "fejer_order_N": 128,
+            "h1_tail_constant_C_N": 0.1766044274290154,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.09921875000000001,
+            "smooth_tail_budget": 0.01248781882226243,
+            "smooth_certified_norm": 0.11170656882226243,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(128 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 90.50966799187808,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          },
+          {
+            "fejer_order_N": 256,
+            "h1_tail_constant_C_N": 0.12493902944673703,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.099609375,
+            "smooth_tail_budget": 0.00883452349566535,
+            "smooth_certified_norm": 0.10844389849566535,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(256 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 181.01933598375615,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          },
+          {
+            "fejer_order_N": 512,
+            "h1_tail_constant_C_N": 0.08836677987943072,
+            "smooth_normalized_derivative_l2": 0.07071067811865475,
+            "smooth_low_pass_norm": 0.0998046875,
+            "smooth_tail_budget": 0.006248474928436443,
+            "smooth_certified_norm": 0.10605316242843645,
+            "core_margin_delta": 0.25,
+            "hidden_function": "1-cos(512 theta)",
+            "hidden_grid_value_max": 0.0,
+            "hidden_grid_derivative_max": 0.0,
+            "hidden_true_uniform_norm": 2.0,
+            "hidden_normalized_derivative_l2": 362.0386719675123,
+            "checks": {
+              "tail_constant_is_positive": true,
+              "smooth_certificate_passes": true,
+              "hidden_values_vanish_on_grid": true,
+              "hidden_derivatives_vanish_on_grid": true,
+              "hidden_uniform_norm_is_two": true,
+              "hidden_h1_budget_is_nonzero": true
+            }
+          }
+        ],
+        "raw_prime_proxy_rows": [
+          {
+            "prime_proxy_cutoff_P": 100,
+            "normalized_derivative_l2_squared": 8918.12136943573,
+            "normalized_derivative_l2": 94.43580554766147
+          },
+          {
+            "prime_proxy_cutoff_P": 1000,
+            "normalized_derivative_l2_squared": 1572495.5332651727,
+            "normalized_derivative_l2": 1253.9918393933722
+          },
+          {
+            "prime_proxy_cutoff_P": 10000,
+            "normalized_derivative_l2_squared": 217628539.51982555,
+            "normalized_derivative_l2": 14752.238457936664
+          },
+          {
+            "prime_proxy_cutoff_P": 100000,
+            "normalized_derivative_l2_squared": 27527213831.257423,
+            "normalized_derivative_l2": 165913.2720166094
+          }
+        ],
+        "aggregate": {
+          "order_count": 7,
+          "largest_order": 512,
+          "tail_constant_decreases": true,
+          "all_smooth_certificates_pass": true,
+          "raw_prime_proxy_energy_increases": true,
+          "largest_raw_proxy_cutoff": 100000
+        },
+        "no_go_scope": "The H1 bridge is weaker than a global Lipschitz assumption but a raw, unsmoothed positive prime-coefficient proxy has divergent derivative energy. The actual pole-neutral symbol needs smoothing and phase-aware cancellation before this certificate can approach the core margin.",
+        "failure_count": 0
+      },
+      "logical_limit": "No smoothed pole-neutral Weil symbol has a proved normalized derivative L2 budget small enough to preserve the certified core margin.",
+      "route_decision": {
+        "discard": "a raw unsmoothed prime-coefficient H1 budget or grid-sampled value-and-derivative estimates",
+        "retain": "a phase-preserving smoothed pole-neutral symbol with an independently certified H1 energy budget",
+        "next_single_lemma": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T181-INPUT",
+            "label": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "RH-T182-CLOSED",
+            "label": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T182-REJECTED",
+            "label": "RawPrimeCoefficientH1BudgetClosesWeilTail",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T182-OPEN",
+            "label": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T181-INPUT",
+            "RH-T182-CLOSED"
+          ],
+          [
+            "RH-T182-CLOSED",
+            "RH-T182-OPEN"
+          ],
+          [
+            "RH-T182-REJECTED",
+            "RH-T182-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or zero exclusion; one exact H1-Fejer bridge, seven smooth models, one sampled value-and-derivative counterfamily, and finite raw-prime proxy energies only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-182",
+      "theorem_name": "AcceleratedCycleIffAffineDivisibility",
+      "declared_proposition": "For a positive valuation word w=(v_0,...,v_(h-1)), let S=sum v_j, B(w)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)), and D=2^S-3^h. The word is the exact accelerated valuation word of a positive odd cycle if and only if D>0 and D divides B(w). In that case every cyclic rotation w_j has orbit value n_j=B(w_j)/D and 3n_j+1=2^(v_j)n_(j+1).",
+      "mathematical_argument": "A cycle gives 2^S n_0=3^h n_0+B(w), so D n_0=B(w). Conversely, write B_j for the affine numerator of the j-th cyclic rotation. The exact identity 3B_j+D=2^(v_j)B_(j+1) holds. Since D is odd, D|B_0 propagates to every B_j. Thus n_j=B_j/D is a positive odd integer and 3n_j+1=2^(v_j)n_(j+1), proving both the exact valuations and cyclic closure.",
+      "reproducible_computation": {
+        "theorem": "For a positive valuation word w=(v_0,...,v_(h-1)), let S=sum v_j, B(w)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)), and D=2^S-3^h. The word is the exact accelerated valuation word of a positive odd cycle if and only if D>0 and D divides B(w). In that case every cyclic rotation w_j has orbit value n_j=B(w_j)/D and 3n_j+1=2^(v_j)n_(j+1).",
+        "proof": "A cycle gives 2^S n_0=3^h n_0+B(w), so D n_0=B(w). Conversely, write B_j for the affine numerator of the j-th cyclic rotation. The exact identity 3B_j+D=2^(v_j)B_(j+1) holds. Since D is odd, D|B_0 propagates to every B_j. Thus n_j=B_j/D is a positive odd integer and 3n_j+1=2^(v_j)n_(j+1), proving both the exact valuations and cyclic closure.",
+        "finite_alphabet_rows": [
+          {
+            "horizon_h": 1,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 5,
+            "contracting_word_count": 4,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 2,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 25,
+            "contracting_word_count": 22,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 3,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 125,
+            "contracting_word_count": 121,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 4,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 625,
+            "contracting_word_count": 610,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 5,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 3125,
+            "contracting_word_count": 3104,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 6,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 15625,
+            "contracting_word_count": 15541,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 7,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 78125,
+            "contracting_word_count": 77795,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          },
+          {
+            "horizon_h": 8,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "word_count": 390625,
+            "contracting_word_count": 390130,
+            "cycle_divisibility_hit_count": 1,
+            "trivial_fixed_point_repeat_count": 1,
+            "nontrivial_cycle_candidate_count": 0
+          }
+        ],
+        "selected_divisibility_hits": [
+          {
+            "valuation_word": [
+              2
+            ],
+            "horizon_h": 1,
+            "valuation_sum_S": 2,
+            "cycle_denominator_D": 1,
+            "rotation_affine_numerators": [
+              1
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2
+            ],
+            "horizon_h": 2,
+            "valuation_sum_S": 4,
+            "cycle_denominator_D": 7,
+            "rotation_affine_numerators": [
+              7,
+              7
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              2
+            ],
+            "horizon_h": 3,
+            "valuation_sum_S": 6,
+            "cycle_denominator_D": 37,
+            "rotation_affine_numerators": [
+              37,
+              37,
+              37
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "horizon_h": 4,
+            "valuation_sum_S": 8,
+            "cycle_denominator_D": 175,
+            "rotation_affine_numerators": [
+              175,
+              175,
+              175,
+              175
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "horizon_h": 5,
+            "valuation_sum_S": 10,
+            "cycle_denominator_D": 781,
+            "rotation_affine_numerators": [
+              781,
+              781,
+              781,
+              781,
+              781
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "horizon_h": 6,
+            "valuation_sum_S": 12,
+            "cycle_denominator_D": 3367,
+            "rotation_affine_numerators": [
+              3367,
+              3367,
+              3367,
+              3367,
+              3367,
+              3367
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "horizon_h": 7,
+            "valuation_sum_S": 14,
+            "cycle_denominator_D": 14197,
+            "rotation_affine_numerators": [
+              14197,
+              14197,
+              14197,
+              14197,
+              14197,
+              14197,
+              14197
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          },
+          {
+            "valuation_word": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "horizon_h": 8,
+            "valuation_sum_S": 16,
+            "cycle_denominator_D": 58975,
+            "rotation_affine_numerators": [
+              58975,
+              58975,
+              58975,
+              58975,
+              58975,
+              58975,
+              58975,
+              58975
+            ],
+            "is_contracting": true,
+            "cycle_divisibility_hit": true,
+            "cycle_candidates": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exact_cycle_transition": true,
+            "is_trivial_fixed_point_repeat": true,
+            "checks": {
+              "rotation_identity_holds": true,
+              "divisibility_implies_exact_cycle_transitions": true,
+              "candidate_values_are_positive_odd": true
+            }
+          }
+        ],
+        "aggregate": {
+          "words_checked": 488280,
+          "contracting_words_checked": 487327,
+          "divisibility_hits": 8,
+          "trivial_fixed_point_repeats": 8,
+          "nontrivial_cycle_candidates": 0,
+          "largest_horizon": 8
+        },
+        "no_go_scope": "The scalar average S/h cannot exclude equality because the all-two word has D>0 and D|B at every repeated horizon, representing the fixed point one. The bounded alphabet audit finds no nontrivial hit but cannot establish the all-word nondivisibility theorem.",
+        "failure_count": 0
+      },
+      "logical_limit": "No theorem excludes D dividing B(w) for every nonconstant positive valuation word of arbitrary length.",
+      "route_decision": {
+        "discard": "average valuation surplus or finite slack positivity as a substitute for exact cycle divisibility exclusion",
+        "retain": "the exact all-rotation affine divisibility criterion for nontrivial cycle exclusion",
+        "next_single_lemma": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T181-INPUT",
+            "label": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "CO-T182-CLOSED",
+            "label": "AcceleratedCycleIffAffineDivisibility",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T182-REJECTED",
+            "label": "AverageValuationSurplusExcludesCycleEquality",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T182-OPEN",
+            "label": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T181-INPUT",
+            "CO-T182-CLOSED"
+          ],
+          [
+            "CO-T182-CLOSED",
+            "CO-T182-OPEN"
+          ],
+          [
+            "CO-T182-REJECTED",
+            "CO-T182-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle exclusion; one exact cycle-divisibility equivalence and a valuation-alphabet 1..5, horizon-eight audit only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-182",
+      "theorem_name": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+      "declared_proposition": "Let e be a real sequence on Z/LZ and let sigma_w e=w*e for any nonnegative unit-mass kernel w. With the uniform translation modulus omega_e(t)=max_j|e_j-e_(j-t)|, ||e-sigma_w e||_infinity<=sum_t w_t omega_e(t). This bound is no larger than the adjacent-difference budget from TICKET-181. Replacing omega_e(t) by an RMS translation modulus is invalid: a one-site spike has RMS translations O(L^(-1/2)) while its Fejer residual stays O(1) when the degree is o(L).",
+      "mathematical_argument": "For each target j, write e_j-(w*e)_j=sum_t w_t(e_j-e_(j-t)); the triangle inequality and maximum over j give the bound. Also omega_e(t)<=D d_L(0,t), so this strictly refines the TICKET-181 telescoping certificate whenever long shifts cancel. For a spike of height A, every nonzero translation has RMS A sqrt(2/L), but the residual at the spike is A(1-w_0), proving the RMS no-go.",
+      "reproducible_computation": {
+        "theorem": "Let e be a real sequence on Z/LZ and let sigma_w e=w*e for any nonnegative unit-mass kernel w. With the uniform translation modulus omega_e(t)=max_j|e_j-e_(j-t)|, ||e-sigma_w e||_infinity<=sum_t w_t omega_e(t). This bound is no larger than the adjacent-difference budget from TICKET-181. Replacing omega_e(t) by an RMS translation modulus is invalid: a one-site spike has RMS translations O(L^(-1/2)) while its Fejer residual stays O(1) when the degree is o(L).",
+        "proof": "For each target j, write e_j-(w*e)_j=sum_t w_t(e_j-e_(j-t)); the triangle inequality and maximum over j give the bound. Also omega_e(t)<=D d_L(0,t), so this strictly refines the TICKET-181 telescoping certificate whenever long shifts cancel. For a spike of height A, every nonzero translation has RMS A sqrt(2/L), but the residual at the spike is A(1-w_0), proving the RMS no-go.",
+        "translation_certificate_rows": [
+          {
+            "cycle_length_L": 64,
+            "fejer_degree_K": 8,
+            "smooth": {
+              "actual_fejer_error": 0.011111111111111141,
+              "weighted_uniform_translation_budget": 0.02918518611764538
+            },
+            "exceptional_spike": {
+              "actual_fejer_error": 0.9453125000000001,
+              "weighted_uniform_translation_budget": 0.9453124999999997,
+              "weighted_rms_translation_budget": 0.16710921977260196,
+              "rms_to_actual_ratio": 0.17677669529663675
+            },
+            "checks": {
+              "kernel_has_unit_mass": true,
+              "kernel_is_nonnegative": true,
+              "smooth_error_below_uniform_translation_budget": true,
+              "spike_error_below_uniform_translation_budget": true,
+              "rms_budget_falsely_underestimates_spike_error": true
+            }
+          },
+          {
+            "cycle_length_L": 128,
+            "fejer_degree_K": 11,
+            "smooth": {
+              "actual_fejer_error": 0.008333333333333401,
+              "weighted_uniform_translation_budget": 0.023520617682429187
+            },
+            "exceptional_spike": {
+              "actual_fejer_error": 0.9968750000000001,
+              "weighted_uniform_translation_budget": 0.9968749999999988,
+              "weighted_rms_translation_budget": 0.12460937499999986,
+              "rms_to_actual_ratio": 0.12499999999999985
+            },
+            "checks": {
+              "kernel_has_unit_mass": true,
+              "kernel_is_nonnegative": true,
+              "smooth_error_below_uniform_translation_budget": true,
+              "spike_error_below_uniform_translation_budget": true,
+              "rms_budget_falsely_underestimates_spike_error": true
+            }
+          },
+          {
+            "cycle_length_L": 256,
+            "fejer_degree_K": 16,
+            "smooth": {
+              "actual_fejer_error": 0.0058823529411765885,
+              "weighted_uniform_translation_budget": 0.01793553363696402
+            },
+            "exceptional_spike": {
+              "actual_fejer_error": 1.0269531250000001,
+              "weighted_uniform_translation_budget": 1.0269531249999986,
+              "weighted_rms_translation_budget": 0.09077068983102693,
+              "rms_to_actual_ratio": 0.08838834764831834
+            },
+            "checks": {
+              "kernel_has_unit_mass": true,
+              "kernel_is_nonnegative": true,
+              "smooth_error_below_uniform_translation_budget": true,
+              "spike_error_below_uniform_translation_budget": true,
+              "rms_budget_falsely_underestimates_spike_error": true
+            }
+          },
+          {
+            "cycle_length_L": 512,
+            "fejer_degree_K": 22,
+            "smooth": {
+              "actual_fejer_error": 0.004347826086956552,
+              "weighted_uniform_translation_budget": 0.014104486220502208
+            },
+            "exceptional_spike": {
+              "actual_fejer_error": 1.0505859375000002,
+              "weighted_uniform_translation_budget": 1.0505859374999973,
+              "weighted_rms_translation_budget": 0.06566162109374983,
+              "rms_to_actual_ratio": 0.062499999999999827
+            },
+            "checks": {
+              "kernel_has_unit_mass": true,
+              "kernel_is_nonnegative": true,
+              "smooth_error_below_uniform_translation_budget": true,
+              "spike_error_below_uniform_translation_budget": true,
+              "rms_budget_falsely_underestimates_spike_error": true
+            }
+          },
+          {
+            "cycle_length_L": 1024,
+            "fejer_degree_K": 32,
+            "smooth": {
+              "actual_fejer_error": 0.003030303030303161,
+              "weighted_uniform_translation_budget": 0.010529949646092
+            },
+            "exceptional_spike": {
+              "actual_fejer_error": 1.0645507812500001,
+              "weighted_uniform_translation_budget": 1.0645507812499972,
+              "weighted_rms_translation_budget": 0.047046942271206996,
+              "rms_to_actual_ratio": 0.04419417382415921
+            },
+            "checks": {
+              "kernel_has_unit_mass": true,
+              "kernel_is_nonnegative": true,
+              "smooth_error_below_uniform_translation_budget": true,
+              "spike_error_below_uniform_translation_budget": true,
+              "rms_budget_falsely_underestimates_spike_error": true
+            }
+          }
+        ],
+        "finite_prime_indicator_diagnostic": {
+          "even_target_limit": 20000,
+          "block_start": 10002,
+          "block_target_count": 5000,
+          "odd_prime_pair_count_mean": 202.416,
+          "minimum_odd_prime_pair_count": 92.0,
+          "maximum_odd_prime_pair_count": 571.0,
+          "translation_rows": [
+            {
+              "even_target_shift": 2,
+              "uniform_translation_modulus": 2.055173504070824,
+              "rms_translation_modulus": 0.6664984668840931
+            },
+            {
+              "even_target_shift": 4,
+              "uniform_translation_modulus": 2.0057702948383525,
+              "rms_translation_modulus": 0.6642395065211453
+            },
+            {
+              "even_target_shift": 8,
+              "uniform_translation_modulus": 2.0699944668405657,
+              "rms_translation_modulus": 0.6663508890302584
+            },
+            {
+              "even_target_shift": 16,
+              "uniform_translation_modulus": 1.9958896529918584,
+              "rms_translation_modulus": 0.6643753422950323
+            },
+            {
+              "even_target_shift": 32,
+              "uniform_translation_modulus": 2.0304718994545885,
+              "rms_translation_modulus": 0.6668834525803886
+            },
+            {
+              "even_target_shift": 64,
+              "uniform_translation_modulus": 2.050233183147577,
+              "rms_translation_modulus": 0.6638786418812733
+            }
+          ],
+          "claim_boundary": "The residual is normalized by its empirical block mean, not by a proved circle-method major term. These are finite prime-indicator data."
+        },
+        "aggregate": {
+          "cycle_case_count": 5,
+          "largest_cycle": 1024,
+          "all_uniform_translation_certificates_hold": true,
+          "all_rms_spike_surrogates_fail": true,
+          "finite_even_target_limit": 20000
+        },
+        "no_go_scope": "Uniform translation moduli are a sharper sufficient currency, not a proved estimate for the actual parity-aliased Goldbach residual. The finite prime-indicator block cannot promote the result to all targets.",
+        "failure_count": 0
+      },
+      "logical_limit": "No every-block theorem bounds the actual parity-aliased Goldbach residual's weighted uniform translation modulus below its low-pass positivity margin.",
+      "route_decision": {
+        "discard": "RMS or averaged translation regularity as a replacement for every-target control",
+        "retain": "a Fejer-weighted uniform translation modulus tailored to the actual arithmetic residual",
+        "next_single_lemma": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T181-INPUT",
+            "label": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "GB-T182-CLOSED",
+            "label": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T182-REJECTED",
+            "label": "RmsTranslationRegularityRemovesEveryExceptionalTarget",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T182-OPEN",
+            "label": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T181-INPUT",
+            "GB-T182-CLOSED"
+          ],
+          [
+            "GB-T182-CLOSED",
+            "GB-T182-OPEN"
+          ],
+          [
+            "GB-T182-REJECTED",
+            "GB-T182-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact translation-modulus bridge, five model rows, and finite prime-indicator diagnostics through 20,000 only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-182",
+      "theorem_name": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+      "declared_proposition": "Let an additive block statistic have positive child masses m_L,m_R and ratios r_L,r_R. The parent ratio is their mass-weighted mean and r_L-r_P=(m_R/(m_L+m_R))(r_L-r_R), with the symmetric formula for r_R-r_P. Therefore every root-to-block variation budget is exactly a weighted sibling-contrast budget. Averaging increments over all edges at each depth is insufficient: one unit leaf spike on a depth-L uniform tree has total level-mean variation L/2^L tending to zero but selected-path variation 1-2^(-L) and leaf ratio one.",
+      "mathematical_argument": "Subtract the weighted parent mean from each child ratio to obtain the two identities. For the spike tree, only the two children adjacent to the selected path change at a given level. Their total absolute increment divided by the 2^j edges is 2^(-L), so summing levels gives L/2^L. Along the selected path the block averages telescope from 2^(-L) to one, giving variation 1-2^(-L).",
+      "reproducible_computation": {
+        "theorem": "Let an additive block statistic have positive child masses m_L,m_R and ratios r_L,r_R. The parent ratio is their mass-weighted mean and r_L-r_P=(m_R/(m_L+m_R))(r_L-r_R), with the symmetric formula for r_R-r_P. Therefore every root-to-block variation budget is exactly a weighted sibling-contrast budget. Averaging increments over all edges at each depth is insufficient: one unit leaf spike on a depth-L uniform tree has total level-mean variation L/2^L tending to zero but selected-path variation 1-2^(-L) and leaf ratio one.",
+        "proof": "Subtract the weighted parent mean from each child ratio to obtain the two identities. For the spike tree, only the two children adjacent to the selected path change at a given level. Their total absolute increment divided by the 2^j edges is 2^(-L), so summing levels gives L/2^L. Along the selected path the block averages telescope from 2^(-L) to one, giving variation 1-2^(-L).",
+        "identity_example": {
+          "parent_ratio": 0.125,
+          "left_increment": 1.875,
+          "right_increment": -1.125,
+          "left_formula": 1.875,
+          "right_formula": -1.125
+        },
+        "mean_path_counterfamily": [
+          {
+            "tree_depth_L": 4,
+            "leaf_count": 16,
+            "root_ratio": 0.0625,
+            "selected_leaf_ratio": 1.0,
+            "selected_path_l1_variation": 0.9375,
+            "mean_absolute_increment_per_level": 0.0625,
+            "sum_of_level_mean_increments": 0.25,
+            "checks": {
+              "selected_leaf_ratio_is_one": true,
+              "path_variation_telescopes": true,
+              "summed_level_mean_formula": true
+            }
+          },
+          {
+            "tree_depth_L": 8,
+            "leaf_count": 256,
+            "root_ratio": 0.00390625,
+            "selected_leaf_ratio": 1.0,
+            "selected_path_l1_variation": 0.99609375,
+            "mean_absolute_increment_per_level": 0.00390625,
+            "sum_of_level_mean_increments": 0.03125,
+            "checks": {
+              "selected_leaf_ratio_is_one": true,
+              "path_variation_telescopes": true,
+              "summed_level_mean_formula": true
+            }
+          },
+          {
+            "tree_depth_L": 12,
+            "leaf_count": 4096,
+            "root_ratio": 0.000244140625,
+            "selected_leaf_ratio": 1.0,
+            "selected_path_l1_variation": 0.999755859375,
+            "mean_absolute_increment_per_level": 0.000244140625,
+            "sum_of_level_mean_increments": 0.0029296875,
+            "checks": {
+              "selected_leaf_ratio_is_one": true,
+              "path_variation_telescopes": true,
+              "summed_level_mean_formula": true
+            }
+          },
+          {
+            "tree_depth_L": 16,
+            "leaf_count": 65536,
+            "root_ratio": 1.52587890625e-05,
+            "selected_leaf_ratio": 1.0,
+            "selected_path_l1_variation": 0.9999847412109375,
+            "mean_absolute_increment_per_level": 1.52587890625e-05,
+            "sum_of_level_mean_increments": 0.000244140625,
+            "checks": {
+              "selected_leaf_ratio_is_one": true,
+              "path_variation_telescopes": true,
+              "summed_level_mean_formula": true
+            }
+          },
+          {
+            "tree_depth_L": 20,
+            "leaf_count": 1048576,
+            "root_ratio": 9.5367431640625e-07,
+            "selected_leaf_ratio": 1.0,
+            "selected_path_l1_variation": 0.9999990463256836,
+            "mean_absolute_increment_per_level": 9.5367431640625e-07,
+            "sum_of_level_mean_increments": 1.9073486328125e-05,
+            "checks": {
+              "selected_leaf_ratio_is_one": true,
+              "path_variation_telescopes": true,
+              "summed_level_mean_formula": true
+            }
+          }
+        ],
+        "finite_prime_pair_diagnostic": {
+          "interval_start": 100000,
+          "interval_stop": 362144,
+          "interval_length": 262144,
+          "leaf_width": 1024,
+          "tree_depth": 8,
+          "actual_twin_pair_count": 2298,
+          "hardy_littlewood_expected_mass": 2297.1310752245367,
+          "root_actual_to_expected_ratio": 1.000378265213002,
+          "highest_leaf_actual_to_expected_ratio": 1.9427488123050811,
+          "highest_leaf_pair_count": 18,
+          "highest_leaf_expected_mass": 9.265222496079105,
+          "highest_leaf_path_l1_variation": 1.0817922121316683,
+          "maximum_sibling_identity_error": 1.1102230246251565e-16,
+          "selected_path": [
+            {
+              "level": 1,
+              "absolute_start": 100000,
+              "block_length": 131072,
+              "selected_ratio": 1.0013876141078097,
+              "sibling_ratio": 0.9992639659515115,
+              "selected_increment": 0.001009348894807749
+            },
+            {
+              "level": 2,
+              "absolute_start": 165536,
+              "block_length": 65536,
+              "selected_ratio": 1.0014885942238483,
+              "sibling_ratio": 1.0012932873021247,
+              "selected_increment": 0.0001009801160385404
+            },
+            {
+              "level": 3,
+              "absolute_start": 165536,
+              "block_length": 32768,
+              "selected_ratio": 1.0032819330341365,
+              "sibling_ratio": 0.9996457217565458,
+              "selected_increment": 0.001793338810288203
+            },
+            {
+              "level": 4,
+              "absolute_start": 165536,
+              "block_length": 16384,
+              "selected_ratio": 1.009322022796055,
+              "sibling_ratio": 0.9971511907699363,
+              "selected_increment": 0.00604008976191861
+            },
+            {
+              "level": 5,
+              "absolute_start": 173728,
+              "block_length": 8192,
+              "selected_ratio": 1.2024303352315804,
+              "sibling_ratio": 0.8177179461157966,
+              "selected_increment": 0.1931083124355253
+            },
+            {
+              "level": 6,
+              "absolute_start": 173728,
+              "block_length": 4096,
+              "selected_ratio": 1.1327195027117858,
+              "sibling_ratio": 1.2724073638716085,
+              "selected_increment": -0.0697108325197946
+            },
+            {
+              "level": 7,
+              "absolute_start": 175776,
+              "block_length": 2048,
+              "selected_ratio": 1.3497778294659322,
+              "sibling_ratio": 0.9160795968789074,
+              "selected_increment": 0.21705832675414638
+            },
+            {
+              "level": 8,
+              "absolute_start": 175776,
+              "block_length": 1024,
+              "selected_ratio": 1.9427488123050811,
+              "sibling_ratio": 0.7562380893632576,
+              "selected_increment": 0.592970982839149
+            }
+          ],
+          "claim_boundary": "This is a finite prime-pair diagnostic using the Hardy-Littlewood expected mass as normalization. It is not a lower bound for all future blocks and does not break the parity barrier."
+        },
+        "aggregate": {
+          "counterfamily_case_count": 5,
+          "largest_depth": 20,
+          "level_mean_sum_decreases_eventually": true,
+          "bad_leaf_stays_one": true,
+          "finite_interval_stop": 362144
+        },
+        "no_go_scope": "The sibling identity identifies the exact local quantity, but neither mean edge control nor one finite prime-pair tree supplies a uniform Carleson path budget or a positive exact-gap-two lower bound.",
+        "failure_count": 0
+      },
+      "logical_limit": "No uniform weighted sibling-contrast Carleson path budget is proved for actual prime-pair blocks, and positivity beyond parity remains separate.",
+      "route_decision": {
+        "discard": "level-averaged edge oscillation or one favorable finite block tree as a uniform path certificate",
+        "retain": "mass-weighted sibling contrasts controlled along every dyadic prime-pair path",
+        "next_single_lemma": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T181-INPUT",
+            "label": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "TP-T182-CLOSED",
+            "label": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T182-REJECTED",
+            "label": "VanishingLevelMeanOscillationForcesEveryBlockCancellation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T182-OPEN",
+            "label": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T181-INPUT",
+            "TP-T182-CLOSED"
+          ],
+          [
+            "TP-T182-CLOSED",
+            "TP-T182-OPEN"
+          ],
+          [
+            "TP-T182-REJECTED",
+            "TP-T182-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or positive exact-gap-two lower bound; one exact sibling identity, five sharp spike trees, and one finite actual prime-pair tree only."
+    },
+    "cross_problem_synthesis": "The common upgrade is representation-aligned localization: energy is attached to Fourier multipliers, Collatz equality to an integer divisor, Goldbach exceptions to uniform translations, and prime-pair block drift to sibling contrasts. Average surrogates fail in each track because they can hide a concentrated obstruction.",
+    "literature_boundary": {
+      "riemann": "Recent finite Weil-operator realizations explicitly remain numerical and do not provide the smoothed arithmetic H1 bound required here.",
+      "collatz": "Almost-all orbit control does not exclude the exact affine divisibility condition for every valuation word.",
+      "goldbach": "Exceptional-set estimates do not imply the weighted uniform translation modulus required for every target.",
+      "twin_prime": "Sieve upper bounds and averaged distribution do not supply a uniform sibling-contrast path budget or overcome parity."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "rejected_target_count": 4,
+      "proof_dag_count": 4,
+      "finite_arithmetic_diagnostic_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-182",
+      "status": "open_not_proven",
+      "declared_proposition": "Let f(theta)=sum_k a_k exp(ik theta) be absolutely continuous and let D2=(integral |f'|^2/(2*pi))^(1/2). For the Fejer mean sigma_N, ||f-sigma_N f||_infinity<=C_N D2, where C_N^2=2((N-1)/N^2+sum_(k>=N)1/k^2). Hence ||sigma_N f||_infinity+C_N D2<delta certifies ||f||_infinity<delta. Values and derivatives sampled on an N-grid cannot certify D2: A(1-cos(N theta)) and zero agree in both sampled values and sampled derivatives but have uniform distance 2A.",
+      "new_result": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+      "discarded_route": "a raw unsmoothed prime-coefficient H1 budget or grid-sampled value-and-derivative estimates",
+      "remaining_gap": "No smoothed pole-neutral Weil symbol has a proved normalized derivative L2 budget small enough to preserve the certified core margin.",
+      "candidate_theorem": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin",
+      "claim_boundary": "No RH proof or zero exclusion; one exact H1-Fejer bridge, seven smooth models, one sampled value-and-derivative counterfamily, and finite raw-prime proxy energies only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T181-INPUT",
+            "label": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "RH-T182-CLOSED",
+            "label": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T182-REJECTED",
+            "label": "RawPrimeCoefficientH1BudgetClosesWeilTail",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T182-OPEN",
+            "label": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T181-INPUT",
+            "RH-T182-CLOSED"
+          ],
+          [
+            "RH-T182-CLOSED",
+            "RH-T182-OPEN"
+          ],
+          [
+            "RH-T182-REJECTED",
+            "RH-T182-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-182",
+      "status": "open_not_proven",
+      "declared_proposition": "For a positive valuation word w=(v_0,...,v_(h-1)), let S=sum v_j, B(w)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)), and D=2^S-3^h. The word is the exact accelerated valuation word of a positive odd cycle if and only if D>0 and D divides B(w). In that case every cyclic rotation w_j has orbit value n_j=B(w_j)/D and 3n_j+1=2^(v_j)n_(j+1).",
+      "new_result": "AcceleratedCycleIffAffineDivisibility",
+      "discarded_route": "average valuation surplus or finite slack positivity as a substitute for exact cycle divisibility exclusion",
+      "remaining_gap": "No theorem excludes D dividing B(w) for every nonconstant positive valuation word of arbitrary length.",
+      "candidate_theorem": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility",
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle exclusion; one exact cycle-divisibility equivalence and a valuation-alphabet 1..5, horizon-eight audit only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T181-INPUT",
+            "label": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "CO-T182-CLOSED",
+            "label": "AcceleratedCycleIffAffineDivisibility",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T182-REJECTED",
+            "label": "AverageValuationSurplusExcludesCycleEquality",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T182-OPEN",
+            "label": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T181-INPUT",
+            "CO-T182-CLOSED"
+          ],
+          [
+            "CO-T182-CLOSED",
+            "CO-T182-OPEN"
+          ],
+          [
+            "CO-T182-REJECTED",
+            "CO-T182-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-182",
+      "status": "open_not_proven",
+      "declared_proposition": "Let e be a real sequence on Z/LZ and let sigma_w e=w*e for any nonnegative unit-mass kernel w. With the uniform translation modulus omega_e(t)=max_j|e_j-e_(j-t)|, ||e-sigma_w e||_infinity<=sum_t w_t omega_e(t). This bound is no larger than the adjacent-difference budget from TICKET-181. Replacing omega_e(t) by an RMS translation modulus is invalid: a one-site spike has RMS translations O(L^(-1/2)) while its Fejer residual stays O(1) when the degree is o(L).",
+      "new_result": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+      "discarded_route": "RMS or averaged translation regularity as a replacement for every-target control",
+      "remaining_gap": "No every-block theorem bounds the actual parity-aliased Goldbach residual's weighted uniform translation modulus below its low-pass positivity margin.",
+      "candidate_theorem": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock",
+      "claim_boundary": "No Goldbach proof or counterexample; one exact translation-modulus bridge, five model rows, and finite prime-indicator diagnostics through 20,000 only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T181-INPUT",
+            "label": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "GB-T182-CLOSED",
+            "label": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T182-REJECTED",
+            "label": "RmsTranslationRegularityRemovesEveryExceptionalTarget",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T182-OPEN",
+            "label": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T181-INPUT",
+            "GB-T182-CLOSED"
+          ],
+          [
+            "GB-T182-CLOSED",
+            "GB-T182-OPEN"
+          ],
+          [
+            "GB-T182-REJECTED",
+            "GB-T182-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-182",
+      "status": "open_not_proven",
+      "declared_proposition": "Let an additive block statistic have positive child masses m_L,m_R and ratios r_L,r_R. The parent ratio is their mass-weighted mean and r_L-r_P=(m_R/(m_L+m_R))(r_L-r_R), with the symmetric formula for r_R-r_P. Therefore every root-to-block variation budget is exactly a weighted sibling-contrast budget. Averaging increments over all edges at each depth is insufficient: one unit leaf spike on a depth-L uniform tree has total level-mean variation L/2^L tending to zero but selected-path variation 1-2^(-L) and leaf ratio one.",
+      "new_result": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+      "discarded_route": "level-averaged edge oscillation or one favorable finite block tree as a uniform path certificate",
+      "remaining_gap": "No uniform weighted sibling-contrast Carleson path budget is proved for actual prime-pair blocks, and positivity beyond parity remains separate.",
+      "candidate_theorem": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin",
+      "claim_boundary": "No Twin Prime proof or positive exact-gap-two lower bound; one exact sibling identity, five sharp spike trees, and one finite actual prime-pair tree only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T181-INPUT",
+            "label": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+            "status": "proved_exact_input"
+          },
+          {
+            "id": "TP-T182-CLOSED",
+            "label": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T182-REJECTED",
+            "label": "VanishingLevelMeanOscillationForcesEveryBlockCancellation",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T182-OPEN",
+            "label": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T181-INPUT",
+            "TP-T182-CLOSED"
+          ],
+          [
+            "TP-T182-CLOSED",
+            "TP-T182-OPEN"
+          ],
+          [
+            "TP-T182-REJECTED",
+            "TP-T182-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin"
+    }
+  ]
+}

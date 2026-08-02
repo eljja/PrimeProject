@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact localization bridges",
-      ko: "네 개의 미해결 문제, 정확한 네 개의 국소화 연결 정리",
+      en: "Four open problems, four representation-aligned refinements",
+      ko: "네 개의 미해결 문제, 구조에 맞춘 네 개의 정밀화 정리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-181 turns four TICKET-180 no-go results into exact conditional bridges and identifies each missing arithmetic premise.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-181은 네 불가능성 결과를 정확한 조건부 연결 정리로 바꾸고 문제별로 빠진 산술 전제를 지정했습니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-182 replaces four coarse surrogates with exact Sobolev, divisibility, translation-modulus, and sibling-contrast statements.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-182는 거친 대리량을 H1 에너지, affine 나눗셈, 가중 평행이동 변화율, 형제 block 대비라는 정확한 명제로 교체했습니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

@@ -37,6 +37,42 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-02 TICKET-182 Representation-Aligned Localization Audit
+
+TICKET-182 continues from the four TICKET-181 open nodes and keeps every
+parent conjecture at `open_not_proven`.
+
+1. **Riemann:** `FejerH1TailCertificateAndRawPrimeEnergyNoGo` replaces a
+   global Lipschitz constant by an exact periodic `H1` multiplier budget. It
+   also proves that a raw `Lambda(n)/sqrt(n)` cosine proxy has divergent
+   derivative energy and that grid values plus derivatives do not determine
+   the global budget. The next obligation is
+   `SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin`.
+2. **Collatz:** `AcceleratedCycleIffAffineDivisibility` proves that a positive
+   valuation word is an exact accelerated cycle iff `D=2^S-3^h>0` divides its
+   ordered affine numerator `B(w)`. The next obligation is
+   `OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility`.
+3. **Goldbach:** `WeightedTranslationModulusCertificateAndRmsSpikeNoGo`
+   sharpens the adjacent-target budget to a Fejer-weighted uniform translation
+   modulus and proves RMS translations can hide one exceptional target. The
+   next obligation is
+   `GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock`.
+4. **Twin Prime:** `WeightedSiblingContrastIdentityAndMeanPathNoGo` identifies
+   each additive block increment with an exact mass-weighted sibling contrast
+   and proves level-averaged variation can hide one bad path. The next
+   obligation is
+   `PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin`.
+
+Finite diagnostics cover seven RH Fejer orders and raw prime proxies through
+100,000; 488,280 Collatz words over `{1,...,5}` through horizon eight; actual
+Goldbach prime-indicator translations through 20,000; and 2,298 actual twin
+pairs on `[100000,362144)`. These ranges do not close any infinite quantifier.
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-182](sobolev-divisibility-translation-sibling.md).
+한국어 보고서: [TICKET-182](sobolev-divisibility-translation-sibling.ko.md).
+
 ## 2026-08-02 TICKET-181 Regularized-Localization Audit
 
 TICKET-181 continues from the four TICKET-180 no-go nodes and keeps every

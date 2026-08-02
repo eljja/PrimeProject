@@ -1,0 +1,226 @@
+{
+  "schema": "primeproject.ticket182-sobolev-divisibility-translation-sibling.v1",
+  "generated_at": "2026-08-02T23:10:00+09:00",
+  "ticket_id": "TP-TICKET-182",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+  "declared_proposition": "Let an additive block statistic have positive child masses m_L,m_R and ratios r_L,r_R. The parent ratio is their mass-weighted mean and r_L-r_P=(m_R/(m_L+m_R))(r_L-r_R), with the symmetric formula for r_R-r_P. Therefore every root-to-block variation budget is exactly a weighted sibling-contrast budget. Averaging increments over all edges at each depth is insufficient: one unit leaf spike on a depth-L uniform tree has total level-mean variation L/2^L tending to zero but selected-path variation 1-2^(-L) and leaf ratio one.",
+  "mathematical_argument": "Subtract the weighted parent mean from each child ratio to obtain the two identities. For the spike tree, only the two children adjacent to the selected path change at a given level. Their total absolute increment divided by the 2^j edges is 2^(-L), so summing levels gives L/2^L. Along the selected path the block averages telescope from 2^(-L) to one, giving variation 1-2^(-L).",
+  "reproducible_computation": {
+    "theorem": "Let an additive block statistic have positive child masses m_L,m_R and ratios r_L,r_R. The parent ratio is their mass-weighted mean and r_L-r_P=(m_R/(m_L+m_R))(r_L-r_R), with the symmetric formula for r_R-r_P. Therefore every root-to-block variation budget is exactly a weighted sibling-contrast budget. Averaging increments over all edges at each depth is insufficient: one unit leaf spike on a depth-L uniform tree has total level-mean variation L/2^L tending to zero but selected-path variation 1-2^(-L) and leaf ratio one.",
+    "proof": "Subtract the weighted parent mean from each child ratio to obtain the two identities. For the spike tree, only the two children adjacent to the selected path change at a given level. Their total absolute increment divided by the 2^j edges is 2^(-L), so summing levels gives L/2^L. Along the selected path the block averages telescope from 2^(-L) to one, giving variation 1-2^(-L).",
+    "identity_example": {
+      "parent_ratio": 0.125,
+      "left_increment": 1.875,
+      "right_increment": -1.125,
+      "left_formula": 1.875,
+      "right_formula": -1.125
+    },
+    "mean_path_counterfamily": [
+      {
+        "tree_depth_L": 4,
+        "leaf_count": 16,
+        "root_ratio": 0.0625,
+        "selected_leaf_ratio": 1.0,
+        "selected_path_l1_variation": 0.9375,
+        "mean_absolute_increment_per_level": 0.0625,
+        "sum_of_level_mean_increments": 0.25,
+        "checks": {
+          "selected_leaf_ratio_is_one": true,
+          "path_variation_telescopes": true,
+          "summed_level_mean_formula": true
+        }
+      },
+      {
+        "tree_depth_L": 8,
+        "leaf_count": 256,
+        "root_ratio": 0.00390625,
+        "selected_leaf_ratio": 1.0,
+        "selected_path_l1_variation": 0.99609375,
+        "mean_absolute_increment_per_level": 0.00390625,
+        "sum_of_level_mean_increments": 0.03125,
+        "checks": {
+          "selected_leaf_ratio_is_one": true,
+          "path_variation_telescopes": true,
+          "summed_level_mean_formula": true
+        }
+      },
+      {
+        "tree_depth_L": 12,
+        "leaf_count": 4096,
+        "root_ratio": 0.000244140625,
+        "selected_leaf_ratio": 1.0,
+        "selected_path_l1_variation": 0.999755859375,
+        "mean_absolute_increment_per_level": 0.000244140625,
+        "sum_of_level_mean_increments": 0.0029296875,
+        "checks": {
+          "selected_leaf_ratio_is_one": true,
+          "path_variation_telescopes": true,
+          "summed_level_mean_formula": true
+        }
+      },
+      {
+        "tree_depth_L": 16,
+        "leaf_count": 65536,
+        "root_ratio": 1.52587890625e-05,
+        "selected_leaf_ratio": 1.0,
+        "selected_path_l1_variation": 0.9999847412109375,
+        "mean_absolute_increment_per_level": 1.52587890625e-05,
+        "sum_of_level_mean_increments": 0.000244140625,
+        "checks": {
+          "selected_leaf_ratio_is_one": true,
+          "path_variation_telescopes": true,
+          "summed_level_mean_formula": true
+        }
+      },
+      {
+        "tree_depth_L": 20,
+        "leaf_count": 1048576,
+        "root_ratio": 9.5367431640625e-07,
+        "selected_leaf_ratio": 1.0,
+        "selected_path_l1_variation": 0.9999990463256836,
+        "mean_absolute_increment_per_level": 9.5367431640625e-07,
+        "sum_of_level_mean_increments": 1.9073486328125e-05,
+        "checks": {
+          "selected_leaf_ratio_is_one": true,
+          "path_variation_telescopes": true,
+          "summed_level_mean_formula": true
+        }
+      }
+    ],
+    "finite_prime_pair_diagnostic": {
+      "interval_start": 100000,
+      "interval_stop": 362144,
+      "interval_length": 262144,
+      "leaf_width": 1024,
+      "tree_depth": 8,
+      "actual_twin_pair_count": 2298,
+      "hardy_littlewood_expected_mass": 2297.1310752245367,
+      "root_actual_to_expected_ratio": 1.000378265213002,
+      "highest_leaf_actual_to_expected_ratio": 1.9427488123050811,
+      "highest_leaf_pair_count": 18,
+      "highest_leaf_expected_mass": 9.265222496079105,
+      "highest_leaf_path_l1_variation": 1.0817922121316683,
+      "maximum_sibling_identity_error": 1.1102230246251565e-16,
+      "selected_path": [
+        {
+          "level": 1,
+          "absolute_start": 100000,
+          "block_length": 131072,
+          "selected_ratio": 1.0013876141078097,
+          "sibling_ratio": 0.9992639659515115,
+          "selected_increment": 0.001009348894807749
+        },
+        {
+          "level": 2,
+          "absolute_start": 165536,
+          "block_length": 65536,
+          "selected_ratio": 1.0014885942238483,
+          "sibling_ratio": 1.0012932873021247,
+          "selected_increment": 0.0001009801160385404
+        },
+        {
+          "level": 3,
+          "absolute_start": 165536,
+          "block_length": 32768,
+          "selected_ratio": 1.0032819330341365,
+          "sibling_ratio": 0.9996457217565458,
+          "selected_increment": 0.001793338810288203
+        },
+        {
+          "level": 4,
+          "absolute_start": 165536,
+          "block_length": 16384,
+          "selected_ratio": 1.009322022796055,
+          "sibling_ratio": 0.9971511907699363,
+          "selected_increment": 0.00604008976191861
+        },
+        {
+          "level": 5,
+          "absolute_start": 173728,
+          "block_length": 8192,
+          "selected_ratio": 1.2024303352315804,
+          "sibling_ratio": 0.8177179461157966,
+          "selected_increment": 0.1931083124355253
+        },
+        {
+          "level": 6,
+          "absolute_start": 173728,
+          "block_length": 4096,
+          "selected_ratio": 1.1327195027117858,
+          "sibling_ratio": 1.2724073638716085,
+          "selected_increment": -0.0697108325197946
+        },
+        {
+          "level": 7,
+          "absolute_start": 175776,
+          "block_length": 2048,
+          "selected_ratio": 1.3497778294659322,
+          "sibling_ratio": 0.9160795968789074,
+          "selected_increment": 0.21705832675414638
+        },
+        {
+          "level": 8,
+          "absolute_start": 175776,
+          "block_length": 1024,
+          "selected_ratio": 1.9427488123050811,
+          "sibling_ratio": 0.7562380893632576,
+          "selected_increment": 0.592970982839149
+        }
+      ],
+      "claim_boundary": "This is a finite prime-pair diagnostic using the Hardy-Littlewood expected mass as normalization. It is not a lower bound for all future blocks and does not break the parity barrier."
+    },
+    "aggregate": {
+      "counterfamily_case_count": 5,
+      "largest_depth": 20,
+      "level_mean_sum_decreases_eventually": true,
+      "bad_leaf_stays_one": true,
+      "finite_interval_stop": 362144
+    },
+    "no_go_scope": "The sibling identity identifies the exact local quantity, but neither mean edge control nor one finite prime-pair tree supplies a uniform Carleson path budget or a positive exact-gap-two lower bound.",
+    "failure_count": 0
+  },
+  "discarded_route": "level-averaged edge oscillation or one favorable finite block tree as a uniform path certificate",
+  "remaining_gap": "No uniform weighted sibling-contrast Carleson path budget is proved for actual prime-pair blocks, and positivity beyond parity remains separate.",
+  "candidate_theorem": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin",
+  "claim_boundary": "No Twin Prime proof or positive exact-gap-two lower bound; one exact sibling identity, five sharp spike trees, and one finite actual prime-pair tree only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T181-INPUT",
+        "label": "DyadicPathVariationLocalizationAndScaleL2NoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "TP-T182-CLOSED",
+        "label": "WeightedSiblingContrastIdentityAndMeanPathNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T182-REJECTED",
+        "label": "VanishingLevelMeanOscillationForcesEveryBlockCancellation",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T182-OPEN",
+        "label": "PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T181-INPUT",
+        "TP-T182-CLOSED"
+      ],
+      [
+        "TP-T182-CLOSED",
+        "TP-T182-OPEN"
+      ],
+      [
+        "TP-T182-REJECTED",
+        "TP-T182-OPEN"
+      ]
+    ]
+  }
+}

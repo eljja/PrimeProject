@@ -1,0 +1,213 @@
+{
+  "schema": "primeproject.ticket182-sobolev-divisibility-translation-sibling.v1",
+  "generated_at": "2026-08-02T23:10:00+09:00",
+  "ticket_id": "GB-TICKET-182",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+  "declared_proposition": "Let e be a real sequence on Z/LZ and let sigma_w e=w*e for any nonnegative unit-mass kernel w. With the uniform translation modulus omega_e(t)=max_j|e_j-e_(j-t)|, ||e-sigma_w e||_infinity<=sum_t w_t omega_e(t). This bound is no larger than the adjacent-difference budget from TICKET-181. Replacing omega_e(t) by an RMS translation modulus is invalid: a one-site spike has RMS translations O(L^(-1/2)) while its Fejer residual stays O(1) when the degree is o(L).",
+  "mathematical_argument": "For each target j, write e_j-(w*e)_j=sum_t w_t(e_j-e_(j-t)); the triangle inequality and maximum over j give the bound. Also omega_e(t)<=D d_L(0,t), so this strictly refines the TICKET-181 telescoping certificate whenever long shifts cancel. For a spike of height A, every nonzero translation has RMS A sqrt(2/L), but the residual at the spike is A(1-w_0), proving the RMS no-go.",
+  "reproducible_computation": {
+    "theorem": "Let e be a real sequence on Z/LZ and let sigma_w e=w*e for any nonnegative unit-mass kernel w. With the uniform translation modulus omega_e(t)=max_j|e_j-e_(j-t)|, ||e-sigma_w e||_infinity<=sum_t w_t omega_e(t). This bound is no larger than the adjacent-difference budget from TICKET-181. Replacing omega_e(t) by an RMS translation modulus is invalid: a one-site spike has RMS translations O(L^(-1/2)) while its Fejer residual stays O(1) when the degree is o(L).",
+    "proof": "For each target j, write e_j-(w*e)_j=sum_t w_t(e_j-e_(j-t)); the triangle inequality and maximum over j give the bound. Also omega_e(t)<=D d_L(0,t), so this strictly refines the TICKET-181 telescoping certificate whenever long shifts cancel. For a spike of height A, every nonzero translation has RMS A sqrt(2/L), but the residual at the spike is A(1-w_0), proving the RMS no-go.",
+    "translation_certificate_rows": [
+      {
+        "cycle_length_L": 64,
+        "fejer_degree_K": 8,
+        "smooth": {
+          "actual_fejer_error": 0.011111111111111141,
+          "weighted_uniform_translation_budget": 0.02918518611764538
+        },
+        "exceptional_spike": {
+          "actual_fejer_error": 0.9453125000000001,
+          "weighted_uniform_translation_budget": 0.9453124999999997,
+          "weighted_rms_translation_budget": 0.16710921977260196,
+          "rms_to_actual_ratio": 0.17677669529663675
+        },
+        "checks": {
+          "kernel_has_unit_mass": true,
+          "kernel_is_nonnegative": true,
+          "smooth_error_below_uniform_translation_budget": true,
+          "spike_error_below_uniform_translation_budget": true,
+          "rms_budget_falsely_underestimates_spike_error": true
+        }
+      },
+      {
+        "cycle_length_L": 128,
+        "fejer_degree_K": 11,
+        "smooth": {
+          "actual_fejer_error": 0.008333333333333401,
+          "weighted_uniform_translation_budget": 0.023520617682429187
+        },
+        "exceptional_spike": {
+          "actual_fejer_error": 0.9968750000000001,
+          "weighted_uniform_translation_budget": 0.9968749999999988,
+          "weighted_rms_translation_budget": 0.12460937499999986,
+          "rms_to_actual_ratio": 0.12499999999999985
+        },
+        "checks": {
+          "kernel_has_unit_mass": true,
+          "kernel_is_nonnegative": true,
+          "smooth_error_below_uniform_translation_budget": true,
+          "spike_error_below_uniform_translation_budget": true,
+          "rms_budget_falsely_underestimates_spike_error": true
+        }
+      },
+      {
+        "cycle_length_L": 256,
+        "fejer_degree_K": 16,
+        "smooth": {
+          "actual_fejer_error": 0.0058823529411765885,
+          "weighted_uniform_translation_budget": 0.01793553363696402
+        },
+        "exceptional_spike": {
+          "actual_fejer_error": 1.0269531250000001,
+          "weighted_uniform_translation_budget": 1.0269531249999986,
+          "weighted_rms_translation_budget": 0.09077068983102693,
+          "rms_to_actual_ratio": 0.08838834764831834
+        },
+        "checks": {
+          "kernel_has_unit_mass": true,
+          "kernel_is_nonnegative": true,
+          "smooth_error_below_uniform_translation_budget": true,
+          "spike_error_below_uniform_translation_budget": true,
+          "rms_budget_falsely_underestimates_spike_error": true
+        }
+      },
+      {
+        "cycle_length_L": 512,
+        "fejer_degree_K": 22,
+        "smooth": {
+          "actual_fejer_error": 0.004347826086956552,
+          "weighted_uniform_translation_budget": 0.014104486220502208
+        },
+        "exceptional_spike": {
+          "actual_fejer_error": 1.0505859375000002,
+          "weighted_uniform_translation_budget": 1.0505859374999973,
+          "weighted_rms_translation_budget": 0.06566162109374983,
+          "rms_to_actual_ratio": 0.062499999999999827
+        },
+        "checks": {
+          "kernel_has_unit_mass": true,
+          "kernel_is_nonnegative": true,
+          "smooth_error_below_uniform_translation_budget": true,
+          "spike_error_below_uniform_translation_budget": true,
+          "rms_budget_falsely_underestimates_spike_error": true
+        }
+      },
+      {
+        "cycle_length_L": 1024,
+        "fejer_degree_K": 32,
+        "smooth": {
+          "actual_fejer_error": 0.003030303030303161,
+          "weighted_uniform_translation_budget": 0.010529949646092
+        },
+        "exceptional_spike": {
+          "actual_fejer_error": 1.0645507812500001,
+          "weighted_uniform_translation_budget": 1.0645507812499972,
+          "weighted_rms_translation_budget": 0.047046942271206996,
+          "rms_to_actual_ratio": 0.04419417382415921
+        },
+        "checks": {
+          "kernel_has_unit_mass": true,
+          "kernel_is_nonnegative": true,
+          "smooth_error_below_uniform_translation_budget": true,
+          "spike_error_below_uniform_translation_budget": true,
+          "rms_budget_falsely_underestimates_spike_error": true
+        }
+      }
+    ],
+    "finite_prime_indicator_diagnostic": {
+      "even_target_limit": 20000,
+      "block_start": 10002,
+      "block_target_count": 5000,
+      "odd_prime_pair_count_mean": 202.416,
+      "minimum_odd_prime_pair_count": 92.0,
+      "maximum_odd_prime_pair_count": 571.0,
+      "translation_rows": [
+        {
+          "even_target_shift": 2,
+          "uniform_translation_modulus": 2.055173504070824,
+          "rms_translation_modulus": 0.6664984668840931
+        },
+        {
+          "even_target_shift": 4,
+          "uniform_translation_modulus": 2.0057702948383525,
+          "rms_translation_modulus": 0.6642395065211453
+        },
+        {
+          "even_target_shift": 8,
+          "uniform_translation_modulus": 2.0699944668405657,
+          "rms_translation_modulus": 0.6663508890302584
+        },
+        {
+          "even_target_shift": 16,
+          "uniform_translation_modulus": 1.9958896529918584,
+          "rms_translation_modulus": 0.6643753422950323
+        },
+        {
+          "even_target_shift": 32,
+          "uniform_translation_modulus": 2.0304718994545885,
+          "rms_translation_modulus": 0.6668834525803886
+        },
+        {
+          "even_target_shift": 64,
+          "uniform_translation_modulus": 2.050233183147577,
+          "rms_translation_modulus": 0.6638786418812733
+        }
+      ],
+      "claim_boundary": "The residual is normalized by its empirical block mean, not by a proved circle-method major term. These are finite prime-indicator data."
+    },
+    "aggregate": {
+      "cycle_case_count": 5,
+      "largest_cycle": 1024,
+      "all_uniform_translation_certificates_hold": true,
+      "all_rms_spike_surrogates_fail": true,
+      "finite_even_target_limit": 20000
+    },
+    "no_go_scope": "Uniform translation moduli are a sharper sufficient currency, not a proved estimate for the actual parity-aliased Goldbach residual. The finite prime-indicator block cannot promote the result to all targets.",
+    "failure_count": 0
+  },
+  "discarded_route": "RMS or averaged translation regularity as a replacement for every-target control",
+  "remaining_gap": "No every-block theorem bounds the actual parity-aliased Goldbach residual's weighted uniform translation modulus below its low-pass positivity margin.",
+  "candidate_theorem": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock",
+  "claim_boundary": "No Goldbach proof or counterexample; one exact translation-modulus bridge, five model rows, and finite prime-indicator diagnostics through 20,000 only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T181-INPUT",
+        "label": "DiscreteFejerExceptionRemovalCertificateAndSpikeModulusNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "GB-T182-CLOSED",
+        "label": "WeightedTranslationModulusCertificateAndRmsSpikeNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T182-REJECTED",
+        "label": "RmsTranslationRegularityRemovesEveryExceptionalTarget",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T182-OPEN",
+        "label": "GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T181-INPUT",
+        "GB-T182-CLOSED"
+      ],
+      [
+        "GB-T182-CLOSED",
+        "GB-T182-OPEN"
+      ],
+      [
+        "GB-T182-REJECTED",
+        "GB-T182-OPEN"
+      ]
+    ]
+  }
+}

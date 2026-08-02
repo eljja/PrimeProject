@@ -1,0 +1,458 @@
+{
+  "schema": "primeproject.ticket182-sobolev-divisibility-translation-sibling.v1",
+  "generated_at": "2026-08-02T23:10:00+09:00",
+  "ticket_id": "CO-TICKET-182",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "AcceleratedCycleIffAffineDivisibility",
+  "declared_proposition": "For a positive valuation word w=(v_0,...,v_(h-1)), let S=sum v_j, B(w)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)), and D=2^S-3^h. The word is the exact accelerated valuation word of a positive odd cycle if and only if D>0 and D divides B(w). In that case every cyclic rotation w_j has orbit value n_j=B(w_j)/D and 3n_j+1=2^(v_j)n_(j+1).",
+  "mathematical_argument": "A cycle gives 2^S n_0=3^h n_0+B(w), so D n_0=B(w). Conversely, write B_j for the affine numerator of the j-th cyclic rotation. The exact identity 3B_j+D=2^(v_j)B_(j+1) holds. Since D is odd, D|B_0 propagates to every B_j. Thus n_j=B_j/D is a positive odd integer and 3n_j+1=2^(v_j)n_(j+1), proving both the exact valuations and cyclic closure.",
+  "reproducible_computation": {
+    "theorem": "For a positive valuation word w=(v_0,...,v_(h-1)), let S=sum v_j, B(w)=sum_j 3^(h-1-j)2^(v_0+...+v_(j-1)), and D=2^S-3^h. The word is the exact accelerated valuation word of a positive odd cycle if and only if D>0 and D divides B(w). In that case every cyclic rotation w_j has orbit value n_j=B(w_j)/D and 3n_j+1=2^(v_j)n_(j+1).",
+    "proof": "A cycle gives 2^S n_0=3^h n_0+B(w), so D n_0=B(w). Conversely, write B_j for the affine numerator of the j-th cyclic rotation. The exact identity 3B_j+D=2^(v_j)B_(j+1) holds. Since D is odd, D|B_0 propagates to every B_j. Thus n_j=B_j/D is a positive odd integer and 3n_j+1=2^(v_j)n_(j+1), proving both the exact valuations and cyclic closure.",
+    "finite_alphabet_rows": [
+      {
+        "horizon_h": 1,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 5,
+        "contracting_word_count": 4,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 2,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 25,
+        "contracting_word_count": 22,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 3,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 125,
+        "contracting_word_count": 121,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 4,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 625,
+        "contracting_word_count": 610,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 5,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 3125,
+        "contracting_word_count": 3104,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 6,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 15625,
+        "contracting_word_count": 15541,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 7,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 78125,
+        "contracting_word_count": 77795,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      },
+      {
+        "horizon_h": 8,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word_count": 390625,
+        "contracting_word_count": 390130,
+        "cycle_divisibility_hit_count": 1,
+        "trivial_fixed_point_repeat_count": 1,
+        "nontrivial_cycle_candidate_count": 0
+      }
+    ],
+    "selected_divisibility_hits": [
+      {
+        "valuation_word": [
+          2
+        ],
+        "horizon_h": 1,
+        "valuation_sum_S": 2,
+        "cycle_denominator_D": 1,
+        "rotation_affine_numerators": [
+          1
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2
+        ],
+        "horizon_h": 2,
+        "valuation_sum_S": 4,
+        "cycle_denominator_D": 7,
+        "rotation_affine_numerators": [
+          7,
+          7
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2,
+          2
+        ],
+        "horizon_h": 3,
+        "valuation_sum_S": 6,
+        "cycle_denominator_D": 37,
+        "rotation_affine_numerators": [
+          37,
+          37,
+          37
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "horizon_h": 4,
+        "valuation_sum_S": 8,
+        "cycle_denominator_D": 175,
+        "rotation_affine_numerators": [
+          175,
+          175,
+          175,
+          175
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "horizon_h": 5,
+        "valuation_sum_S": 10,
+        "cycle_denominator_D": 781,
+        "rotation_affine_numerators": [
+          781,
+          781,
+          781,
+          781,
+          781
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "horizon_h": 6,
+        "valuation_sum_S": 12,
+        "cycle_denominator_D": 3367,
+        "rotation_affine_numerators": [
+          3367,
+          3367,
+          3367,
+          3367,
+          3367,
+          3367
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "horizon_h": 7,
+        "valuation_sum_S": 14,
+        "cycle_denominator_D": 14197,
+        "rotation_affine_numerators": [
+          14197,
+          14197,
+          14197,
+          14197,
+          14197,
+          14197,
+          14197
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      },
+      {
+        "valuation_word": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "horizon_h": 8,
+        "valuation_sum_S": 16,
+        "cycle_denominator_D": 58975,
+        "rotation_affine_numerators": [
+          58975,
+          58975,
+          58975,
+          58975,
+          58975,
+          58975,
+          58975,
+          58975
+        ],
+        "is_contracting": true,
+        "cycle_divisibility_hit": true,
+        "cycle_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_cycle_transition": true,
+        "is_trivial_fixed_point_repeat": true,
+        "checks": {
+          "rotation_identity_holds": true,
+          "divisibility_implies_exact_cycle_transitions": true,
+          "candidate_values_are_positive_odd": true
+        }
+      }
+    ],
+    "aggregate": {
+      "words_checked": 488280,
+      "contracting_words_checked": 487327,
+      "divisibility_hits": 8,
+      "trivial_fixed_point_repeats": 8,
+      "nontrivial_cycle_candidates": 0,
+      "largest_horizon": 8
+    },
+    "no_go_scope": "The scalar average S/h cannot exclude equality because the all-two word has D>0 and D|B at every repeated horizon, representing the fixed point one. The bounded alphabet audit finds no nontrivial hit but cannot establish the all-word nondivisibility theorem.",
+    "failure_count": 0
+  },
+  "discarded_route": "average valuation surplus or finite slack positivity as a substitute for exact cycle divisibility exclusion",
+  "remaining_gap": "No theorem excludes D dividing B(w) for every nonconstant positive valuation word of arbitrary length.",
+  "candidate_theorem": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility",
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle exclusion; one exact cycle-divisibility equivalence and a valuation-alphabet 1..5, horizon-eight audit only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T181-INPUT",
+        "label": "OddCylinderSlackQuantizationAndCycleEqualityObstruction",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "CO-T182-CLOSED",
+        "label": "AcceleratedCycleIffAffineDivisibility",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T182-REJECTED",
+        "label": "AverageValuationSurplusExcludesCycleEquality",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T182-OPEN",
+        "label": "OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T181-INPUT",
+        "CO-T182-CLOSED"
+      ],
+      [
+        "CO-T182-CLOSED",
+        "CO-T182-OPEN"
+      ],
+      [
+        "CO-T182-REJECTED",
+        "CO-T182-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "schema": "primeproject.ticket182-sobolev-divisibility-translation-sibling.v1",
+  "generated_at": "2026-08-02T23:10:00+09:00",
+  "ticket_id": "RH-TICKET-182",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+  "declared_proposition": "Let f(theta)=sum_k a_k exp(ik theta) be absolutely continuous and let D2=(integral |f'|^2/(2*pi))^(1/2). For the Fejer mean sigma_N, ||f-sigma_N f||_infinity<=C_N D2, where C_N^2=2((N-1)/N^2+sum_(k>=N)1/k^2). Hence ||sigma_N f||_infinity+C_N D2<delta certifies ||f||_infinity<delta. Values and derivatives sampled on an N-grid cannot certify D2: A(1-cos(N theta)) and zero agree in both sampled values and sampled derivatives but have uniform distance 2A.",
+  "mathematical_argument": "The Fejer residual multiplier is q_N(k)=min(|k|/N,1). Apply Cauchy-Schwarz to sum_(k!=0) q_N(k)|a_k| after inserting |k| and 1/|k|. Parseval identifies sum k^2|a_k|^2 with D2^2, while the remaining multiplier sum is exactly C_N^2. The sampled no-go follows because both 1-cos(N theta) and its derivative N sin(N theta) vanish at theta=2*pi*j/N. For the raw prime proxy with coefficients Lambda(n)/sqrt(n), D2^2=(1/2)sum n Lambda(n)^2, which diverges already along the infinitely many prime terms.",
+  "reproducible_computation": {
+    "theorem": "Let f(theta)=sum_k a_k exp(ik theta) be absolutely continuous and let D2=(integral |f'|^2/(2*pi))^(1/2). For the Fejer mean sigma_N, ||f-sigma_N f||_infinity<=C_N D2, where C_N^2=2((N-1)/N^2+sum_(k>=N)1/k^2). Hence ||sigma_N f||_infinity+C_N D2<delta certifies ||f||_infinity<delta. Values and derivatives sampled on an N-grid cannot certify D2: A(1-cos(N theta)) and zero agree in both sampled values and sampled derivatives but have uniform distance 2A.",
+    "proof": "The Fejer residual multiplier is q_N(k)=min(|k|/N,1). Apply Cauchy-Schwarz to sum_(k!=0) q_N(k)|a_k| after inserting |k| and 1/|k|. Parseval identifies sum k^2|a_k|^2 with D2^2, while the remaining multiplier sum is exactly C_N^2. The sampled no-go follows because both 1-cos(N theta) and its derivative N sin(N theta) vanish at theta=2*pi*j/N. For the raw prime proxy with coefficients Lambda(n)/sqrt(n), D2^2=(1/2)sum n Lambda(n)^2, which diverges already along the infinitely many prime terms.",
+    "h1_certificate_rows": [
+      {
+        "fejer_order_N": 8,
+        "h1_tail_constant_C_N": 0.6964366657407282,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.08750000000000001,
+        "smooth_tail_budget": 0.04924550890122178,
+        "smooth_certified_norm": 0.13674550890122178,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(8 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 5.65685424949238,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      },
+      {
+        "fejer_order_N": 16,
+        "h1_tail_constant_C_N": 0.49616032369233093,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.09375,
+        "smooth_tail_budget": 0.03508383294385596,
+        "smooth_certified_norm": 0.12883383294385597,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(16 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 11.31370849898476,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      },
+      {
+        "fejer_order_N": 32,
+        "h1_tail_constant_C_N": 0.352184054211153,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.096875,
+        "smooth_tail_budget": 0.024903173295847694,
+        "smooth_certified_norm": 0.1217781732958477,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(32 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 22.62741699796952,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      },
+      {
+        "fejer_order_N": 64,
+        "h1_tail_constant_C_N": 0.249513788954997,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.09843750000000001,
+        "smooth_tail_budget": 0.017643289216962746,
+        "smooth_certified_norm": 0.11608078921696276,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(64 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 45.25483399593904,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      },
+      {
+        "fejer_order_N": 128,
+        "h1_tail_constant_C_N": 0.1766044274290154,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.09921875000000001,
+        "smooth_tail_budget": 0.01248781882226243,
+        "smooth_certified_norm": 0.11170656882226243,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(128 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 90.50966799187808,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      },
+      {
+        "fejer_order_N": 256,
+        "h1_tail_constant_C_N": 0.12493902944673703,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.099609375,
+        "smooth_tail_budget": 0.00883452349566535,
+        "smooth_certified_norm": 0.10844389849566535,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(256 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 181.01933598375615,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      },
+      {
+        "fejer_order_N": 512,
+        "h1_tail_constant_C_N": 0.08836677987943072,
+        "smooth_normalized_derivative_l2": 0.07071067811865475,
+        "smooth_low_pass_norm": 0.0998046875,
+        "smooth_tail_budget": 0.006248474928436443,
+        "smooth_certified_norm": 0.10605316242843645,
+        "core_margin_delta": 0.25,
+        "hidden_function": "1-cos(512 theta)",
+        "hidden_grid_value_max": 0.0,
+        "hidden_grid_derivative_max": 0.0,
+        "hidden_true_uniform_norm": 2.0,
+        "hidden_normalized_derivative_l2": 362.0386719675123,
+        "checks": {
+          "tail_constant_is_positive": true,
+          "smooth_certificate_passes": true,
+          "hidden_values_vanish_on_grid": true,
+          "hidden_derivatives_vanish_on_grid": true,
+          "hidden_uniform_norm_is_two": true,
+          "hidden_h1_budget_is_nonzero": true
+        }
+      }
+    ],
+    "raw_prime_proxy_rows": [
+      {
+        "prime_proxy_cutoff_P": 100,
+        "normalized_derivative_l2_squared": 8918.12136943573,
+        "normalized_derivative_l2": 94.43580554766147
+      },
+      {
+        "prime_proxy_cutoff_P": 1000,
+        "normalized_derivative_l2_squared": 1572495.5332651727,
+        "normalized_derivative_l2": 1253.9918393933722
+      },
+      {
+        "prime_proxy_cutoff_P": 10000,
+        "normalized_derivative_l2_squared": 217628539.51982555,
+        "normalized_derivative_l2": 14752.238457936664
+      },
+      {
+        "prime_proxy_cutoff_P": 100000,
+        "normalized_derivative_l2_squared": 27527213831.257423,
+        "normalized_derivative_l2": 165913.2720166094
+      }
+    ],
+    "aggregate": {
+      "order_count": 7,
+      "largest_order": 512,
+      "tail_constant_decreases": true,
+      "all_smooth_certificates_pass": true,
+      "raw_prime_proxy_energy_increases": true,
+      "largest_raw_proxy_cutoff": 100000
+    },
+    "no_go_scope": "The H1 bridge is weaker than a global Lipschitz assumption but a raw, unsmoothed positive prime-coefficient proxy has divergent derivative energy. The actual pole-neutral symbol needs smoothing and phase-aware cancellation before this certificate can approach the core margin.",
+    "failure_count": 0
+  },
+  "discarded_route": "a raw unsmoothed prime-coefficient H1 budget or grid-sampled value-and-derivative estimates",
+  "remaining_gap": "No smoothed pole-neutral Weil symbol has a proved normalized derivative L2 budget small enough to preserve the certified core margin.",
+  "candidate_theorem": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin",
+  "claim_boundary": "No RH proof or zero exclusion; one exact H1-Fejer bridge, seven smooth models, one sampled value-and-derivative counterfamily, and finite raw-prime proxy energies only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T181-INPUT",
+        "label": "LipschitzFejerTailCertificateAndSampledRegularityNoGo",
+        "status": "proved_exact_input"
+      },
+      {
+        "id": "RH-T182-CLOSED",
+        "label": "FejerH1TailCertificateAndRawPrimeEnergyNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T182-REJECTED",
+        "label": "RawPrimeCoefficientH1BudgetClosesWeilTail",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T182-OPEN",
+        "label": "SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T181-INPUT",
+        "RH-T182-CLOSED"
+      ],
+      [
+        "RH-T182-CLOSED",
+        "RH-T182-OPEN"
+      ],
+      [
+        "RH-T182-REJECTED",
+        "RH-T182-OPEN"
+      ]
+    ]
+  }
+}

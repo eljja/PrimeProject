@@ -62,7 +62,52 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-181
+## Latest Continuation After TICKET-182
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `SmoothedPoleNeutralWeilSymbolHasWeightedH1EnergyBelowCoreMargin`.
+   TICKET-182 proves the exact `H1` Fejer-tail bound. Do not use the divergent
+   raw positive prime proxy or values and derivatives sampled only on a grid as
+   the required global arithmetic energy.
+2. Collatz:
+   `OnlyConstantTwoValuationWordsSatisfyPositiveAffineCycleDivisibility`.
+   TICKET-182 proves cycle existence is equivalent to `D|B(w)`. The audit of
+   488,280 words finds only fixed-point repeats, but the missing theorem must
+   exclude every nonconstant word of arbitrary length and valuation size.
+3. Goldbach:
+   `GoldbachResidualHasWeightedUniformTranslationModulusBelowLowPassMarginOnEveryLargeBlock`.
+   TICKET-182 proves the exact weighted-translation certificate and refutes RMS
+   translation control with a one-site spike. The finite 20,000 diagnostic is
+   not a circle-method residual estimate.
+4. Twin Prime:
+   `PrimePairSiblingContrastHasUniformCarlesonPathBudgetBelowCancellationMargin`.
+   TICKET-182 proves the weighted sibling identity and refutes level-mean
+   promotion. The finite prime-pair tree does not supply uniform future-block
+   control or a parity-breaking positive lower bound.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket182-sobolev-divisibility-translation-sibling.json
+data/open-problem/riemann/rh-ticket-182-h1-fejer.json
+data/open-problem/collatz/co-ticket-182-cycle-divisibility.json
+data/open-problem/goldbach/gb-ticket-182-translation-modulus.json
+data/open-problem/twin-prime/tp-ticket-182-sibling-contrast.json
+```
+
+한국어 인계: TICKET-182도 네 난제를 해결하지 않았다. 새로 닫힌 것은
+`H1`-Fejer 부등식, Collatz cycle의 `D|B(w)` 필요충분조건, 가중 균일
+평행이동 부등식, 형제 block 대비 항등식이다. 원시 에너지, 평균 valuation,
+RMS modulus, level 평균은 각각 정확한 반례로 폐기했다. 다음 LLM은 위 네
+산술 보조정리의 무한 양화사를 직접 공격해야 하며, 유한 진단을 증명으로
+승격하면 안 된다.
+
+English report: [TICKET-182](sobolev-divisibility-translation-sibling.md).
+Korean report: [TICKET-182 한국어](sobolev-divisibility-translation-sibling.ko.md).
+
+## Preserved Continuation After TICKET-181
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
