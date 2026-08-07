@@ -31,16 +31,22 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-194: Dense-Core Extension, Ten-One Cycles, and Theta Layers](docs/densecore-tenone-theta-layers.md),
+with a separate [Korean report](docs/densecore-tenone-theta-layers.ko.md).
+It excludes every accelerated Collatz cycle word containing exactly ten
+valuation-one entries and otherwise only valuation two, representing all
+470,772,500 finite-horizon words with an exact 5+4 meet-in-the-middle audit.
+It also proves that a uniform form bound plus convergence on a dense core
+extends convergence to the whole Hilbert space, while a positive monotone
+dense-core sequence alone is insufficient. Exact theta-layer identities reduce
+the Goldbach and Twin Prime proper-prime-power contamination scale to
+`O(sqrt(X) log X)`. These are exact partial results and no-go boundaries, not
+resolutions. Every conjecture remains `open_not_proven`; the machine resolution
+count is zero.
+
+The preserved previous boundary is
 [TICKET-193: Everywhere Extension, Nine-One Cycles, and Parity Envelopes](docs/everywhere-nineone-parity-envelope.md),
 with a separate [Korean report](docs/everywhere-nineone-parity-envelope.ko.md).
-It excludes every accelerated Collatz cycle word containing exactly nine
-valuation-one entries and otherwise only valuation two, representing all
-52,157,326 finite-horizon words with an exact 4+4 meet-in-the-middle audit. It
-also proves that everywhere pointwise convergence on a complete Hilbert space
-forces the uniform form bound missing from the Riemann route, and removes even
-prime-power overcharging from the Goldbach and Twin Prime envelopes. These are
-exact partial results and no-go boundaries, not resolutions. Every conjecture
-remains `open_not_proven`; the machine resolution count is zero.
 
 The preserved previous boundary is
 [TICKET-192: Uniform Extension, Eight-One Cycles, and Weighted Envelopes](docs/uniform-eightone-weighted-envelope.md),
@@ -204,7 +210,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-193 boundary, four exact partial results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-194 boundary, four exact partial results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -217,21 +223,23 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 154-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 155-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-193. It closes the complete
-exactly-nine-one/rest-two accelerated Collatz cycle stratum for all horizons:
-noncontraction covers `h<=21`, an exact 4+4 meet-in-the-middle residue audit
-represents 52,157,326 normalized words at `h=22..34`, and
-`512(5/6)^h<1` closes `h>=35`. The RH track proves an everywhere pointwise
-convergence promotion theorem and gives an explicit dense-core no-go witness.
-Goldbach and Twin Prime use parity to remove unnecessary even prime-power
-charges from their weighted contamination envelopes. These are partial
-theorems and route corrections, not solutions. All four conjectures remain
-open and the machine resolution count is zero.
+The latest proof-search track is TICKET-194. It closes the complete
+exactly-ten-one/rest-two accelerated Collatz cycle stratum for all horizons:
+noncontraction covers `h<=24`, an exact 5+4 meet-in-the-middle residue audit
+represents 470,772,500 normalized words at `h=25..38`, and
+`1024(5/6)^h<1` closes `h>=39`. The RH track proves the extension theorem from
+a uniformly bounded dense core and strengthens the no-go to positive monotone
+forms. Goldbach and Twin Prime use exact theta layers to reduce the analytical
+proper-prime-power contamination scale to `O(sqrt(X) log X)`. These are partial
+theorems and route corrections, not solutions. All four conjectures remain open
+and the machine resolution count is zero.
 See
+[TICKET194 EN](docs/densecore-tenone-theta-layers.md),
+[TICKET194 KO](docs/densecore-tenone-theta-layers.ko.md),
 [TICKET193 EN](docs/everywhere-nineone-parity-envelope.md),
 [TICKET193 KO](docs/everywhere-nineone-parity-envelope.ko.md),
 [TICKET192 EN](docs/uniform-eightone-weighted-envelope.md),
@@ -307,12 +315,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-193입니다. 콜라츠 트랙은 정확히 아홉
+한국어 최신 요약: 최신 탐색은 TICKET-194입니다. 콜라츠 트랙은 정확히 열
 번의 `v=1`과 나머지 `v=2`를 갖는 모든 주기족을 전 길이에서 배제했습니다.
-리만 트랙은 완비 Hilbert 공간 전체의 점별 수렴이 균일 유계성과 유계
-극한형식을 강제함을 증명하고, 조밀 코어만으로는 부족하다는 명시적 반례를
-제시했습니다. 골드바흐와 쌍둥이 소수는 parity로 짝수 prime-power 과대계상을
-제거했습니다. 실제 무한 전제는 남아 있고 네 문제의 해결 수는 0입니다.
+리만 트랙은 균일 유계인 형식열의 조밀 코어 수렴이 전체 힐베르트 공간의
+수렴으로 확장됨을 증명하고, 양성·단조·조밀 코어 수렴만으로는 부족하다는
+명시적 반례를 제시했습니다. 골드바흐와 쌍둥이 소수는 정확한 세타층
+항등식으로 소수거듭제곱 오염 규모를 `O(sqrt(X) log X)`로 낮췄습니다.
+실제 무한 전제는 남아 있고 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -332,18 +341,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-193입니다.
-[전체공간 확장·아홉-1 주기·parity 오염 상계 한국어 보고서](docs/everywhere-nineone-parity-envelope.ko.md)와
-[영문 보고서](docs/everywhere-nineone-parity-envelope.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-194입니다.
+[조밀 코어 확장·열-1 주기·세타층 한국어 보고서](docs/densecore-tenone-theta-layers.ko.md)와
+[영문 보고서](docs/densecore-tenone-theta-layers.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-아홉-개 `v=1` 주기족 전체를 새로 닫았지만 실제 무한 전제는 남아 있습니다.
-각 proof DAG는 TICKET-192 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
+열 개 `v=1` 주기족 전체를 새로 닫았지만 실제 무한 전제는 남아 있습니다.
+각 proof DAG는 TICKET-193 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-193의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 193개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-194의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 194개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

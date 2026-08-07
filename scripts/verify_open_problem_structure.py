@@ -192,6 +192,7 @@ TICKET192_SCHEMA = "primeproject.ticket192-uniform-eightone-weighted-envelope.v1
 TICKET193_SCHEMA = (
     "primeproject.ticket193-everywhere-nineone-parity-envelope.v1"
 )
+TICKET194_SCHEMA = "primeproject.ticket194-densecore-tenone-theta-layers.v1"
 
 
 def fail(message: str) -> int:
@@ -14312,6 +14313,177 @@ def main() -> int:
         or "resolves none" not in str(ticket193.get("claim_boundary", "")).lower()
     ):
         return fail("ticket193 proof boundary changed")
+
+    path194 = Path(
+        "data/open-problem/ticket194-densecore-tenone-theta-layers.json"
+    )
+    if not path194.exists():
+        return fail("missing ticket194 dense-core/ten-one/theta-layer audit")
+    ticket194 = read_json(path194)
+    if (
+        ticket194.get("schema") != TICKET194_SCHEMA
+        or ticket194.get("status")
+        != "dense_core_extension_and_ten_one_cycle_stratum_closed_theta_layer_prime_power_scale_proved_all_open"
+    ):
+        return fail("ticket194 schema or status changed")
+    audit194 = ticket194.get("densecore_tenone_theta_layer_audit", {})
+    if audit194.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_cycle_stratum_closure_count": 1,
+        "theta_layer_identity_count": 2,
+        "represented_collatz_word_count": 470772500,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket194 global machine audit changed")
+
+    by_id194 = {
+        str(row.get("problem_id")): row
+        for row in ticket194.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id194) != EXPECTED_PROBLEMS:
+        return fail("ticket194 attempts missing problems")
+    paths194 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-194-dense-core-extension.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-194-ten-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-194-theta-layer-envelope.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-194-theta-layer-local-envelope.json"
+        ),
+    }
+    expected_names194 = {
+        "riemann": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+        "collatz": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+        "twin-prime": "OddPrimePowerIntervalThetaLayerCompression",
+    }
+    next194 = {
+        "riemann": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+        "collatz": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget",
+        "twin-prime": "ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks",
+    }
+    sections194 = {
+        "riemann": audit194.get("riemann", {}),
+        "collatz": audit194.get("collatz", {}),
+        "goldbach": audit194.get("goldbach", {}),
+        "twin-prime": audit194.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id194.items():
+        artifact_path = paths194[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket194 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections194[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET194_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names194[problem_id]
+            or artifact.get("theorem_name") != expected_names194[problem_id]
+            or attempt.get("candidate_theorem") != next194[problem_id]
+            or artifact.get("candidate_theorem") != next194[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_coarse_surrogate",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next194[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count")
+            != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket194 contract changed")
+
+    rh194 = sections194["riemann"]["reproducible_computation"]
+    rh_contract194 = rh194.get("extension_contract", {})
+    rh_no_go194 = rh194.get("positive_monotone_dense_core_no_go_rows", [])
+    if (
+        rh_contract194.get(
+            "uniform_bound_plus_dense_core_convergence_extends_everywhere"
+        )
+        is not True
+        or rh_contract194.get(
+            "positive_monotone_dense_core_convergence_alone_is_sufficient"
+        )
+        is not False
+        or rh_contract194.get("actual_weil_uniform_bound_verified") is not False
+        or rh_contract194.get("actual_weil_dense_core_convergence_verified")
+        is not False
+        or [row.get("witness_quadratic_value") for row in rh_no_go194]
+        != list(range(1, 13))
+    ):
+        return fail("ticket194 RH dense-core extension boundary changed")
+
+    collatz194 = sections194["collatz"]["reproducible_computation"]
+    finite194 = collatz194.get("finite_exception_horizon_rows", [])
+    aggregate194 = collatz194.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite194] != list(range(25, 39))
+        or sum(int(row.get("represented_word_count", 0)) for row in finite194)
+        != 470772500
+        or aggregate194.get("left_tuple_count") != 2626085
+        or aggregate194.get("right_tuple_count") != 225708
+        or aggregate194.get("rotation_normalization_is_complete") is not True
+        or aggregate194.get("mitm_coverage_is_complete") is not True
+        or aggregate194.get("analytic_range_starts_at_h") != 39
+        or aggregate194.get("divisibility_hits") != 0
+        or collatz194.get("boundary_formula_validation", {}).get(
+            "formula_mismatch_count"
+        )
+        != 0
+        or any(row.get("divisibility_hit_count") != 0 for row in finite194)
+    ):
+        return fail("ticket194 Collatz ten-one cycle audit changed")
+
+    goldbach194 = sections194["goldbach"]["reproducible_computation"]
+    gold_rows194 = goldbach194.get("theta_layer_rows", [])
+    if (
+        [row.get("target_N") for row in gold_rows194]
+        != [2**j for j in range(10, 21)]
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows194)
+        or goldbach194.get("aggregate", {}).get("theta_layer_identity_proved")
+        is not True
+        or goldbach194.get("aggregate", {}).get("contamination_scale")
+        != "O(sqrt(N) log(N))"
+        or goldbach194.get("aggregate", {}).get("all_large_even_targets_proved")
+        is not False
+    ):
+        return fail("ticket194 Goldbach theta-layer boundary changed")
+
+    twin194 = sections194["twin-prime"]["reproducible_computation"]
+    twin_rows194 = twin194.get("finite_dyadic_rows", [])
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows194]
+        != list(range(4, 20))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows194)
+        or twin194.get("aggregate", {}).get("theta_interval_identity_proved")
+        is not True
+        or twin194.get("aggregate", {}).get("contamination_scale")
+        != "O(sqrt(X) log(X))"
+        or twin194.get("aggregate", {}).get(
+            "infinitely_many_envelope_successes_proved"
+        )
+        is not False
+    ):
+        return fail("ticket194 Twin theta-layer boundary changed")
+    if (
+        "resolves none" not in str(audit194.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket194.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket194 proof boundary changed")
 
     print("open problem structure verified")
     return 0

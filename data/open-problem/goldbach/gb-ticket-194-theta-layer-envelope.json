@@ -1,0 +1,1153 @@
+{
+  "schema": "primeproject.ticket194-densecore-tenone-theta-layers.v1",
+  "generated_at": "2026-08-08T06:30:00+09:00",
+  "ticket_id": "GB-TICKET-194",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+  "declared_proposition": "For every Y>=1, the odd proper-prime-power mass satisfies the exact identity W_odd(Y)=sum_(k>=2) theta_odd(floor(Y^(1/k))). By the classical Chebyshev bound theta(t)=O(t), W_odd(Y)=O(sqrt(Y)); hence the TICKET-193 Goldbach contamination envelope is O(sqrt(N) log N), not merely the earlier elementary O(sqrt(N) log^2 N). The power-of-two term is exactly classified by the binary expansion of N.",
+  "mathematical_argument": "Each exponent k>=2 contributes log p exactly when p^k<=Y, giving the theta-layer identity after exchanging two finite sums. Chebyshev gives theta(t)<=Ct. The k=2 layer is O(sqrt Y); the remaining O(log Y) layers are each O(Y^(1/3)), whose total is O(sqrt Y). Binary uniqueness gives one ordered pair when N is a power of two, two when its even binary expansion has two one-bits, and none otherwise, for N>=6.",
+  "reproducible_computation": {
+    "theorem": "For every Y>=1, the odd proper-prime-power mass satisfies the exact identity W_odd(Y)=sum_(k>=2) theta_odd(floor(Y^(1/k))). By the classical Chebyshev bound theta(t)=O(t), W_odd(Y)=O(sqrt(Y)); hence the TICKET-193 Goldbach contamination envelope is O(sqrt(N) log N), not merely the earlier elementary O(sqrt(N) log^2 N). The power-of-two term is exactly classified by the binary expansion of N.",
+    "proof": "Each exponent k>=2 contributes log p exactly when p^k<=Y, giving the theta-layer identity after exchanging two finite sums. Chebyshev gives theta(t)<=Ct. The k=2 layer is O(sqrt Y); the remaining O(log Y) layers are each O(Y^(1/3)), whose total is O(sqrt Y). Binary uniqueness gives one ordered pair when N is a power of two, two when its even binary expansion has two one-bits, and none otherwise, for N>=6.",
+    "theta_layer_rows": [
+      {
+        "target_N": 1024,
+        "theta_layers": {
+          "limit_Y": 1024,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 32,
+              "theta_odd_root": 25.331234554040858
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 10,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 5,
+          "reconstructed_mass": 34.89046968263681
+        },
+        "actual_odd_weighted_proper_power_mass": 34.89046968263681,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              9,
+              9
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            10
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 484.1650667925573,
+        "weighted_total_convolution": 1393.796065987939,
+        "actual_contamination": 15.65174110605954,
+        "mass_over_sqrt_N": 1.0903271775824004,
+        "envelope_over_sqrt_N_log_N": 2.1828204401040505,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 2048,
+        "theta_layers": {
+          "limit_Y": 2048,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 45,
+              "theta_odd_root": 36.41692464908295
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 12,
+              "theta_odd_root": 7.051855622955894
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 6,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 5,
+          "reconstructed_mass": 48.374055050477274
+        },
+        "actual_odd_weighted_proper_power_mass": 48.374055050477274,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              10,
+              10
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            11
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 738.1479301646962,
+        "weighted_total_convolution": 2413.9510446835966,
+        "actual_contamination": 298.66778914186114,
+        "mass_over_sqrt_N": 1.06892569874012,
+        "envelope_over_sqrt_N_log_N": 2.1392438096158486,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 4096,
+        "theta_layers": {
+          "limit_Y": 4096,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 64,
+              "theta_odd_root": 52.425775472424164
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 16,
+              "theta_odd_root": 9.616804980417431
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 8,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 6,
+          "reconstructed_mass": 71.60181558143755
+        },
+        "actual_odd_weighted_proper_power_mass": 71.60181558143755,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              11,
+              11
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            12
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 1191.6147712518364,
+        "weighted_total_convolution": 5296.348647829686,
+        "actual_contamination": 40.762552381279555,
+        "mass_over_sqrt_N": 1.1187783684599617,
+        "envelope_over_sqrt_N_log_N": 2.2384592723112773,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 8192,
+        "theta_layers": {
+          "limit_Y": 8192,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 90,
+              "theta_odd_root": 78.46053224000059
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 20,
+              "theta_odd_root": 15.394457303640086
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 9,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 6,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 7,
+          "reconstructed_mass": 104.51283696090474
+        },
+        "actual_odd_weighted_proper_power_mass": 104.51283696090475,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              12,
+              12
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            13
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 1883.9926880799994,
+        "weighted_total_convolution": 9977.286055191847,
+        "actual_contamination": 472.1601705553935,
+        "mass_over_sqrt_N": 1.154714620876559,
+        "envelope_over_sqrt_N_log_N": 2.3100183391951066,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 16384,
+        "theta_layers": {
+          "limit_Y": 16384,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 128,
+              "theta_odd_root": 111.22084434543686
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 25,
+              "theta_odd_root": 18.529951519569238
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 11,
+              "theta_odd_root": 7.051855622955894
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 6,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 7,
+          "reconstructed_mass": 144.41597646750262
+        },
+        "actual_odd_weighted_proper_power_mass": 144.41597646750262,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              13,
+              13
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            14
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 2803.3232066692217,
+        "weighted_total_convolution": 22378.482555409926,
+        "actual_contamination": 224.7746237623914,
+        "mass_over_sqrt_N": 1.1282498161523642,
+        "envelope_over_sqrt_N_log_N": 2.2568864331867373,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 32768,
+        "theta_layers": {
+          "limit_Y": 32768,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 181,
+              "theta_odd_root": 166.77888692053338
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 32,
+              "theta_odd_root": 25.331234554040858
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 13,
+              "theta_odd_root": 9.616804980417431
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 8,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 9,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 8,
+          "reconstructed_mass": 212.38477387225572
+        },
+        "actual_odd_weighted_proper_power_mass": 212.38477387225575,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              14,
+              14
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            15
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 4416.897669116385,
+        "weighted_total_convolution": 44095.58893079547,
+        "actual_contamination": 1637.8871610449337,
+        "mass_over_sqrt_N": 1.1732712017644025,
+        "envelope_over_sqrt_N_log_N": 2.3467976790869995,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 65536,
+        "theta_layers": {
+          "limit_Y": 65536,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 256,
+              "theta_odd_root": 231.42581289503886
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 40,
+              "theta_odd_root": 28.94215246668508
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 16,
+              "theta_odd_root": 9.616804980417431
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 9,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 6,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 9,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 10,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 9,
+          "reconstructed_mass": 281.74123004807353
+        },
+        "actual_odd_weighted_proper_power_mass": 281.74123004807353,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              15,
+              15
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            16
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 6249.700909183937,
+        "weighted_total_convolution": 87237.3472688245,
+        "actual_contamination": 110.82465818844793,
+        "mass_over_sqrt_N": 1.1005516798752872,
+        "envelope_over_sqrt_N_log_N": 2.2012725851364534,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 131072,
+        "theta_layers": {
+          "limit_Y": 131072,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 362,
+              "theta_odd_root": 334.37999897225893
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 50,
+              "theta_odd_root": 40.267072250793014
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 19,
+              "theta_odd_root": 15.394457303640086
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 10,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 7,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 9,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 10,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 9,
+          "reconstructed_mass": 405.3533362941136
+        },
+        "actual_odd_weighted_proper_power_mass": 405.3533362941136,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              16,
+              16
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            17
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 9553.444207230214,
+        "weighted_total_convolution": 173848.5733746382,
+        "actual_contamination": 2450.121181041351,
+        "mass_over_sqrt_N": 1.1196409877740576,
+        "envelope_over_sqrt_N_log_N": 2.2393945971179074,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 262144,
+        "theta_layers": {
+          "limit_Y": 262144,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 512,
+              "theta_odd_root": 486.3143351607845
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 64,
+              "theta_odd_root": 52.425775472424164
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 22,
+              "theta_odd_root": 15.394457303640086
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 12,
+              "theta_odd_root": 7.051855622955894
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 8,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 9,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 10,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 11,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 10,
+          "reconstructed_mass": 572.9428832657368
+        },
+        "actual_odd_weighted_proper_power_mass": 572.9428832657368,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              17,
+              17
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            18
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 14297.295242685046,
+        "weighted_total_convolution": 341281.5358202622,
+        "actual_contamination": 40.602635121380274,
+        "mass_over_sqrt_N": 1.1190290688783922,
+        "envelope_over_sqrt_N_log_N": 2.2381333490393973,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 524288,
+        "theta_layers": {
+          "limit_Y": 524288,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 724,
+              "theta_odd_root": 685.4695922003051
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 80,
+              "theta_odd_root": 69.55305526247186
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 26,
+              "theta_odd_root": 18.529951519569238
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 13,
+              "theta_odd_root": 9.616804980417431
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 8,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 6,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 9,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 10,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 11,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 10,
+          "reconstructed_mass": 796.5353015811299
+        },
+        "actual_odd_weighted_proper_power_mass": 796.5353015811299,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              18,
+              18
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            19
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 20980.895996296105,
+        "weighted_total_convolution": 698198.5291051933,
+        "actual_contamination": 6034.961357623845,
+        "mass_over_sqrt_N": 1.1000693617236106,
+        "envelope_over_sqrt_N_log_N": 2.200189106781076,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      },
+      {
+        "target_N": 1048576,
+        "theta_layers": {
+          "limit_Y": 1048576,
+          "layers": [
+            {
+              "exponent_k": 2,
+              "integer_root": 1024,
+              "theta_odd_root": 983.2446193154886
+            },
+            {
+              "exponent_k": 3,
+              "integer_root": 101,
+              "theta_odd_root": 87.65036373534524
+            },
+            {
+              "exponent_k": 4,
+              "integer_root": 32,
+              "theta_odd_root": 25.331234554040858
+            },
+            {
+              "exponent_k": 5,
+              "integer_root": 16,
+              "theta_odd_root": 9.616804980417431
+            },
+            {
+              "exponent_k": 6,
+              "integer_root": 10,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 7,
+              "integer_root": 7,
+              "theta_odd_root": 4.653960350157523
+            },
+            {
+              "exponent_k": 8,
+              "integer_root": 5,
+              "theta_odd_root": 2.70805020110221
+            },
+            {
+              "exponent_k": 9,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 10,
+              "integer_root": 4,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 11,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            },
+            {
+              "exponent_k": 12,
+              "integer_root": 3,
+              "theta_odd_root": 1.0986122886681098
+            }
+          ],
+          "layer_count": 11,
+          "reconstructed_mass": 1122.253442641382
+        },
+        "actual_odd_weighted_proper_power_mass": 1122.2534426413818,
+        "binary_mass": {
+          "ordered_exponent_pairs": [
+            [
+              19,
+              19
+            ]
+          ],
+          "ordered_pair_count": 1,
+          "exact_weight": 0.4804530139182014,
+          "at_most_two_ordered_pairs": true,
+          "binary_one_bit_positions": [
+            20
+          ],
+          "classification": "one repeated power-of-two pair",
+          "expected_ordered_pair_count": 1,
+          "classification_matches_direct_enumeration": true
+        },
+        "theta_layer_parity_envelope": 31115.952838636567,
+        "weighted_total_convolution": 1388031.9124054494,
+        "actual_contamination": 170.34091545973897,
+        "mass_over_sqrt_N": 1.0959506275794744,
+        "envelope_over_sqrt_N_log_N": 2.191935100236125,
+        "checks": {
+          "theta_layers_reconstruct_odd_mass": true,
+          "binary_classification_exact": true,
+          "actual_contamination_below_theta_layer_envelope": true,
+          "finite_total_exceeds_theta_layer_envelope": true
+        }
+      }
+    ],
+    "binary_classification_rows": [
+      {
+        "ordered_exponent_pairs": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          1,
+          2
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            2,
+            2
+          ]
+        ],
+        "ordered_pair_count": 1,
+        "exact_weight": 0.4804530139182014,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          3
+        ],
+        "classification": "one repeated power-of-two pair",
+        "expected_ordered_pair_count": 1,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          1,
+          3
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          2,
+          3
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [],
+        "ordered_pair_count": 0,
+        "exact_weight": 0.0,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          1,
+          2,
+          3
+        ],
+        "classification": "no admissible power-of-two pair",
+        "expected_ordered_pair_count": 0,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          1,
+          4
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          2,
+          4
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          3,
+          4
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [],
+        "ordered_pair_count": 0,
+        "exact_weight": 0.0,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "classification": "no admissible power-of-two pair",
+        "expected_ordered_pair_count": 0,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            4,
+            4
+          ]
+        ],
+        "ordered_pair_count": 1,
+        "exact_weight": 0.4804530139182014,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          5
+        ],
+        "classification": "one repeated power-of-two pair",
+        "expected_ordered_pair_count": 1,
+        "classification_matches_direct_enumeration": true
+      },
+      {
+        "ordered_exponent_pairs": [
+          [
+            1,
+            5
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "ordered_pair_count": 2,
+        "exact_weight": 0.9609060278364028,
+        "at_most_two_ordered_pairs": true,
+        "binary_one_bit_positions": [
+          1,
+          5
+        ],
+        "classification": "two ordered distinct power-of-two pairs",
+        "expected_ordered_pair_count": 2,
+        "classification_matches_direct_enumeration": true
+      }
+    ],
+    "aggregate": {
+      "target_count": 11,
+      "largest_target": 1048576,
+      "theta_layer_identity_proved": true,
+      "chebyshev_mass_scale": "O(sqrt(N))",
+      "contamination_scale": "O(sqrt(N) log(N))",
+      "binary_mass_exactly_classified": true,
+      "finite_sample_success_count": 11,
+      "all_large_even_targets_proved": false
+    },
+    "no_go_scope": "The theta layers improve the analytic contamination scale but do not prove a pointwise lower bound for every sufficiently large even target.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating the elementary O(sqrt(N) log^2 N) contamination majorant as the intrinsic analytic scale",
+  "remaining_gap": "No pointwise lower bound exceeds the exact theta-layer envelope for every sufficiently large even target.",
+  "candidate_theorem": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof. The exact contamination representation and sharper asymptotic scale are proved; the universal lower bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T193-INPUT",
+        "label": "ParitySeparatedPrimePowerContaminationEnvelope",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T194-CLOSED",
+        "label": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T194-REJECTED",
+        "label": "PrimePowerContaminationRequiresASqrtNLogSquaredNThreshold",
+        "status": "refuted_or_coarse_surrogate"
+      },
+      {
+        "id": "GB-T194-OPEN",
+        "label": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T193-INPUT",
+        "GB-T194-CLOSED"
+      ],
+      [
+        "GB-T194-CLOSED",
+        "GB-T194-OPEN"
+      ],
+      [
+        "GB-T194-REJECTED",
+        "GB-T194-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,4643 @@
+{
+  "schema": "primeproject.ticket194-densecore-tenone-theta-layers.v1",
+  "generated_at": "2026-08-08T06:30:00+09:00",
+  "status": "dense_core_extension_and_ten_one_cycle_stratum_closed_theta_layer_prime_power_scale_proved_all_open",
+  "claim_boundary": "TICKET-194 resolves none of the four conjectures. It closes the complete exactly-ten-one/rest-two accelerated Collatz cycle stratum, completes the uniformly-bounded dense-core extension step for the RH route, and proves exact theta-layer identities that lower both prime-power contamination scales by one log.",
+  "densecore_tenone_theta_layer_audit": {
+    "theorem_name": "FourConjectureDenseCoreTenOneThetaLayerAudit",
+    "status": "dense_core_extension_and_ten_one_cycle_stratum_closed_theta_layer_prime_power_scale_proved_all_open",
+    "proof_boundary": "TICKET-194 resolves none of the four conjectures. It closes the complete exactly-ten-one/rest-two accelerated Collatz cycle stratum, completes the uniformly-bounded dense-core extension step for the RH route, and proves exact theta-layer identities that lower both prime-power contamination scales by one log.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-194",
+      "theorem_name": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+      "declared_proposition": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated forms B_n, and let D be dense in H. If sup_n ||B_n||<infinity and q_n(x) converges for every x in D, then B_n(x,y) and q_n(x) converge for every x,y in H to a bounded Hermitian form. Positivity passes to the limit. Positivity and monotonicity on D do not replace the uniform bound: q_n(x)=sum_(k<=n) k|x_k|^2 has all those core properties on c_00 while ||B_n||=n and diverges at an explicit l^2 vector.",
+      "mathematical_argument": "Polarization gives convergence of B_n(u,v) for u,v in D. If ||B_n||<=M and u,v approximate x,y, then the Cauchy difference B_n-B_m away from D is bounded by 2M(||x-u||||y||+||u||||y-v||). First choose u,v, then use core convergence. This proves convergence everywhere and a norm-M limit. For the no-go, positive diagonal sections sum_(k<=n) k|x_k|^2 increase and stabilize on every c_00 vector. The l^2 vector with |x_(2^j)|^2=2^(-j) has norm one but q_(2^J)(x)=J.",
+      "reproducible_computation": {
+        "theorem": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated forms B_n, and let D be dense in H. If sup_n ||B_n||<infinity and q_n(x) converges for every x in D, then B_n(x,y) and q_n(x) converge for every x,y in H to a bounded Hermitian form. Positivity passes to the limit. Positivity and monotonicity on D do not replace the uniform bound: q_n(x)=sum_(k<=n) k|x_k|^2 has all those core properties on c_00 while ||B_n||=n and diverges at an explicit l^2 vector.",
+        "proof": "Polarization gives convergence of B_n(u,v) for u,v in D. If ||B_n||<=M and u,v approximate x,y, then the Cauchy difference B_n-B_m away from D is bounded by 2M(||x-u||||y||+||u||||y-v||). First choose u,v, then use core convergence. This proves convergence everywhere and a norm-M limit. For the no-go, positive diagonal sections sum_(k<=n) k|x_k|^2 increase and stabilize on every c_00 vector. The l^2 vector with |x_(2^j)|^2=2^(-j) has norm one but q_(2^J)(x)=J.",
+        "uniform_projection_rows": [
+          {
+            "level_n": 1,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 12,
+              "exact": "1/12",
+              "decimal": 0.08333333333333333
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 2,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 5,
+              "denominator": 16,
+              "exact": "5/16",
+              "decimal": 0.3125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 48,
+              "exact": "1/48",
+              "decimal": 0.020833333333333332
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 3,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 21,
+              "denominator": 64,
+              "exact": "21/64",
+              "decimal": 0.328125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 192,
+              "exact": "1/192",
+              "decimal": 0.005208333333333333
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 4,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 85,
+              "denominator": 256,
+              "exact": "85/256",
+              "decimal": 0.33203125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 768,
+              "exact": "1/768",
+              "decimal": 0.0013020833333333333
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 5,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 341,
+              "denominator": 1024,
+              "exact": "341/1024",
+              "decimal": 0.3330078125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 3072,
+              "exact": "1/3072",
+              "decimal": 0.0003255208333333333
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 6,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 1365,
+              "denominator": 4096,
+              "exact": "1365/4096",
+              "decimal": 0.333251953125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 12288,
+              "exact": "1/12288",
+              "decimal": 8.138020833333333e-05
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 7,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 5461,
+              "denominator": 16384,
+              "exact": "5461/16384",
+              "decimal": 0.33331298828125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 49152,
+              "exact": "1/49152",
+              "decimal": 2.0345052083333332e-05
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 8,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 21845,
+              "denominator": 65536,
+              "exact": "21845/65536",
+              "decimal": 0.3333282470703125
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 196608,
+              "exact": "1/196608",
+              "decimal": 5.086263020833333e-06
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 9,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 87381,
+              "denominator": 262144,
+              "exact": "87381/262144",
+              "decimal": 0.3333320617675781
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 786432,
+              "exact": "1/786432",
+              "decimal": 1.2715657552083333e-06
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 10,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 349525,
+              "denominator": 1048576,
+              "exact": "349525/1048576",
+              "decimal": 0.33333301544189453
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 3145728,
+              "exact": "1/3145728",
+              "decimal": 3.178914388020833e-07
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 11,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 1398101,
+              "denominator": 4194304,
+              "exact": "1398101/4194304",
+              "decimal": 0.33333325386047363
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 12582912,
+              "exact": "1/12582912",
+              "decimal": 7.947285970052083e-08
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          },
+          {
+            "level_n": 12,
+            "operator_norm": 1,
+            "quadratic_value": {
+              "numerator": 5592405,
+              "denominator": 16777216,
+              "exact": "5592405/16777216",
+              "decimal": 0.3333333134651184
+            },
+            "limit_value": {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            "exact_tail": {
+              "numerator": 1,
+              "denominator": 50331648,
+              "exact": "1/50331648",
+              "decimal": 1.9868214925130207e-08
+            },
+            "tail_is_four_to_minus_n_over_three": true
+          }
+        ],
+        "positive_monotone_dense_core_no_go_rows": [
+          {
+            "level_j": 1,
+            "section_n": 2,
+            "operator_norm": 2,
+            "witness_partial_norm_square": {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "witness_quadratic_value": 1,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 2,
+            "section_n": 4,
+            "operator_norm": 4,
+            "witness_partial_norm_square": {
+              "numerator": 3,
+              "denominator": 4,
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            "witness_quadratic_value": 2,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 3,
+            "section_n": 8,
+            "operator_norm": 8,
+            "witness_partial_norm_square": {
+              "numerator": 7,
+              "denominator": 8,
+              "exact": "7/8",
+              "decimal": 0.875
+            },
+            "witness_quadratic_value": 3,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 4,
+            "section_n": 16,
+            "operator_norm": 16,
+            "witness_partial_norm_square": {
+              "numerator": 15,
+              "denominator": 16,
+              "exact": "15/16",
+              "decimal": 0.9375
+            },
+            "witness_quadratic_value": 4,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 5,
+            "section_n": 32,
+            "operator_norm": 32,
+            "witness_partial_norm_square": {
+              "numerator": 31,
+              "denominator": 32,
+              "exact": "31/32",
+              "decimal": 0.96875
+            },
+            "witness_quadratic_value": 5,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 6,
+            "section_n": 64,
+            "operator_norm": 64,
+            "witness_partial_norm_square": {
+              "numerator": 63,
+              "denominator": 64,
+              "exact": "63/64",
+              "decimal": 0.984375
+            },
+            "witness_quadratic_value": 6,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 7,
+            "section_n": 128,
+            "operator_norm": 128,
+            "witness_partial_norm_square": {
+              "numerator": 127,
+              "denominator": 128,
+              "exact": "127/128",
+              "decimal": 0.9921875
+            },
+            "witness_quadratic_value": 7,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 8,
+            "section_n": 256,
+            "operator_norm": 256,
+            "witness_partial_norm_square": {
+              "numerator": 255,
+              "denominator": 256,
+              "exact": "255/256",
+              "decimal": 0.99609375
+            },
+            "witness_quadratic_value": 8,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 9,
+            "section_n": 512,
+            "operator_norm": 512,
+            "witness_partial_norm_square": {
+              "numerator": 511,
+              "denominator": 512,
+              "exact": "511/512",
+              "decimal": 0.998046875
+            },
+            "witness_quadratic_value": 9,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 10,
+            "section_n": 1024,
+            "operator_norm": 1024,
+            "witness_partial_norm_square": {
+              "numerator": 1023,
+              "denominator": 1024,
+              "exact": "1023/1024",
+              "decimal": 0.9990234375
+            },
+            "witness_quadratic_value": 10,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 11,
+            "section_n": 2048,
+            "operator_norm": 2048,
+            "witness_partial_norm_square": {
+              "numerator": 2047,
+              "denominator": 2048,
+              "exact": "2047/2048",
+              "decimal": 0.99951171875
+            },
+            "witness_quadratic_value": 11,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          },
+          {
+            "level_j": 12,
+            "section_n": 4096,
+            "operator_norm": 4096,
+            "witness_partial_norm_square": {
+              "numerator": 4095,
+              "denominator": 4096,
+              "exact": "4095/4096",
+              "decimal": 0.999755859375
+            },
+            "witness_quadratic_value": 12,
+            "positive_semidefinite": true,
+            "monotone_on_the_dense_core": true
+          }
+        ],
+        "extension_contract": {
+          "uniform_bound_plus_dense_core_convergence_extends_everywhere": true,
+          "positivity_passes_to_limit": true,
+          "positive_monotone_dense_core_convergence_alone_is_sufficient": false,
+          "actual_weil_uniform_bound_verified": false,
+          "actual_weil_dense_core_convergence_verified": false
+        },
+        "no_go_scope": "This is an exact extension criterion, not a proof that the pole-neutral Weil sections satisfy either premise.",
+        "failure_count": 0
+      },
+      "logical_limit": "Neither uniform boundedness nor dense-core convergence of the actual pole-neutral Weil sections is proved.",
+      "route_decision": {
+        "discard": "using positivity and monotonicity on a dense core as a substitute for a uniform operator bound",
+        "retain": "prove one uniform bound and dense-core convergence for the actual pole-neutral Weil finite sections",
+        "next_single_lemma": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T193-INPUT",
+            "label": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T194-CLOSED",
+            "label": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T194-REJECTED",
+            "label": "PositiveMonotoneDenseCoreConvergenceReplacesUniformBoundedness",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "RH-T194-OPEN",
+            "label": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T193-INPUT",
+            "RH-T194-CLOSED"
+          ],
+          [
+            "RH-T194-CLOSED",
+            "RH-T194-OPEN"
+          ],
+          [
+            "RH-T194-REJECTED",
+            "RH-T194-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof. The extension mechanism is complete, but both arithmetic Weil premises remain open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-194",
+      "theorem_name": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly ten entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "mathematical_argument": "For length h the affine denominator is D=2^(2h-10)-3^h, positive exactly from h=25. Rotate to v_0=1. The numerator is a constant plus nine boundary terms. An exact 5+4 residue MITM covers every normalized word for h=25..38 and finds no divisibility hit. For a nontrivial positive odd cycle, 1<=1024(5/6)^h; this is below one from h=39 onward.",
+      "reproducible_computation": {
+        "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly ten entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+        "proof": "For length h the affine denominator is D=2^(2h-10)-3^h, positive exactly from h=25. Rotate to v_0=1. The numerator is a constant plus nine boundary terms. An exact 5+4 residue MITM covers every normalized word for h=25..38 and finds no divisibility hit. For a nontrivial positive odd cycle, 1<=1024(5/6)^h; this is below one from h=39 onward.",
+        "boundary_formula_validation": {
+          "horizons": [
+            10,
+            16
+          ],
+          "normalized_words_checked": 8008,
+          "formula_mismatch_count": 0,
+          "transcript_sha256": "c8340b8f1d60b7f461ab0717f76f94950e4ff49d67c500b314fb2fe4e55fae42"
+        },
+        "finite_exception_horizon_rows": [
+          {
+            "horizon_h": 25,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 42504,
+            "expected_left_tuple_count": 42504,
+            "right_tuple_count": 3876,
+            "expected_right_tuple_count": 3876,
+            "represented_word_count": 1307504,
+            "expected_word_count": 1307504,
+            "active_left_residue_count_at_final_boundary": 15504,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "f1a8a6ca3527faf7a656a508f1f37029e0995194893552a8983d38767476469c"
+          },
+          {
+            "horizon_h": 26,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 53130,
+            "expected_left_tuple_count": 53130,
+            "right_tuple_count": 4845,
+            "expected_right_tuple_count": 4845,
+            "represented_word_count": 2042975,
+            "expected_word_count": 2042975,
+            "active_left_residue_count_at_final_boundary": 20349,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "1cedbf58f68c8939c6effb8879e722fe44714266ea96c1916573e9f8c46370a5"
+          },
+          {
+            "horizon_h": 27,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 65780,
+            "expected_left_tuple_count": 65780,
+            "right_tuple_count": 5985,
+            "expected_right_tuple_count": 5985,
+            "represented_word_count": 3124550,
+            "expected_word_count": 3124550,
+            "active_left_residue_count_at_final_boundary": 26334,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "d61dd2d1e567cfca97ec91b09ce8865f42640e6b3ef03a3c363587af792a2c54"
+          },
+          {
+            "horizon_h": 28,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 80730,
+            "expected_left_tuple_count": 80730,
+            "right_tuple_count": 7315,
+            "expected_right_tuple_count": 7315,
+            "represented_word_count": 4686825,
+            "expected_word_count": 4686825,
+            "active_left_residue_count_at_final_boundary": 33649,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "c776ba9f0767f67e30d0e89d25df033045990de600d6e4ca048e4c056985a337"
+          },
+          {
+            "horizon_h": 29,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 98280,
+            "expected_left_tuple_count": 98280,
+            "right_tuple_count": 8855,
+            "expected_right_tuple_count": 8855,
+            "represented_word_count": 6906900,
+            "expected_word_count": 6906900,
+            "active_left_residue_count_at_final_boundary": 42504,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "dbdebd13f6b1d52367047fa4b00bb3ae2e7e40e3f7d16209b7f0c6d5b71af1b1"
+          },
+          {
+            "horizon_h": 30,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 118755,
+            "expected_left_tuple_count": 118755,
+            "right_tuple_count": 10626,
+            "expected_right_tuple_count": 10626,
+            "represented_word_count": 10015005,
+            "expected_word_count": 10015005,
+            "active_left_residue_count_at_final_boundary": 53130,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "00233861b0d158f64d35f6fd85d78b6d027acd67bc7e5de1bd95e2a486431daf"
+          },
+          {
+            "horizon_h": 31,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 142506,
+            "expected_left_tuple_count": 142506,
+            "right_tuple_count": 12650,
+            "expected_right_tuple_count": 12650,
+            "represented_word_count": 14307150,
+            "expected_word_count": 14307150,
+            "active_left_residue_count_at_final_boundary": 65780,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "b9c42f5c4320d8c2c34a695536937ed0e5eaa8defcfc4c2957789c3c12174706"
+          },
+          {
+            "horizon_h": 32,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 169911,
+            "expected_left_tuple_count": 169911,
+            "right_tuple_count": 14950,
+            "expected_right_tuple_count": 14950,
+            "represented_word_count": 20160075,
+            "expected_word_count": 20160075,
+            "active_left_residue_count_at_final_boundary": 80730,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "b92143b0a4b6f8b899461adea3651d44a82e2fbc827dc52a0768fc1f04b0a08f"
+          },
+          {
+            "horizon_h": 33,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 201376,
+            "expected_left_tuple_count": 201376,
+            "right_tuple_count": 17550,
+            "expected_right_tuple_count": 17550,
+            "represented_word_count": 28048800,
+            "expected_word_count": 28048800,
+            "active_left_residue_count_at_final_boundary": 98280,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "a5ce01630353c6ce4ff1303edac7b823a09f76798e7649bc197dc36592f26ff3"
+          },
+          {
+            "horizon_h": 34,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 237336,
+            "expected_left_tuple_count": 237336,
+            "right_tuple_count": 20475,
+            "expected_right_tuple_count": 20475,
+            "represented_word_count": 38567100,
+            "expected_word_count": 38567100,
+            "active_left_residue_count_at_final_boundary": 118755,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "3dc363cd7f1a7f2fe2ff170c48ba49cf2184fad62eb3f7e52bea637ef6311234"
+          },
+          {
+            "horizon_h": 35,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 278256,
+            "expected_left_tuple_count": 278256,
+            "right_tuple_count": 23751,
+            "expected_right_tuple_count": 23751,
+            "represented_word_count": 52451256,
+            "expected_word_count": 52451256,
+            "active_left_residue_count_at_final_boundary": 142506,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "5751ea5684046872930736757e2ebf0a7771d43546af7f76a87b7924ebcc4f6e"
+          },
+          {
+            "horizon_h": 36,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 324632,
+            "expected_left_tuple_count": 324632,
+            "right_tuple_count": 27405,
+            "expected_right_tuple_count": 27405,
+            "represented_word_count": 70607460,
+            "expected_word_count": 70607460,
+            "active_left_residue_count_at_final_boundary": 169911,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "af0ad0a72e474b7fc40c323d761a30b9823ad0607223e5776706a4f836a063fc"
+          },
+          {
+            "horizon_h": 37,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 376992,
+            "expected_left_tuple_count": 376992,
+            "right_tuple_count": 31465,
+            "expected_right_tuple_count": 31465,
+            "represented_word_count": 94143280,
+            "expected_word_count": 94143280,
+            "active_left_residue_count_at_final_boundary": 201376,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "b2d5640c9e10bd1e5262bc55745f71b2aa41e59b5ba304232f5793197a0b1891"
+          },
+          {
+            "horizon_h": 38,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 435897,
+            "expected_left_tuple_count": 435897,
+            "right_tuple_count": 35960,
+            "expected_right_tuple_count": 35960,
+            "represented_word_count": 124403620,
+            "expected_word_count": 124403620,
+            "active_left_residue_count_at_final_boundary": 237336,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "28bec683e35ef3af60d13c9578cfb2f37bc614f312e1009f7143e361cae47c3e"
+          }
+        ],
+        "analytic_product_rows": [
+          {
+            "horizon_h": 39,
+            "cycle_product_upper_bound": {
+              "numerator": 1818989403545856475830078125,
+              "denominator": 2175698980931597341770645504,
+              "exact": "1818989403545856475830078125/2175698980931597341770645504",
+              "decimal": 0.8360482858557006
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 40,
+            "cycle_product_upper_bound": {
+              "numerator": 9094947017729282379150390625,
+              "denominator": 13054193885589584050623873024,
+              "exact": "9094947017729282379150390625/13054193885589584050623873024",
+              "decimal": 0.6967069048797505
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 48,
+            "cycle_product_upper_bound": {
+              "numerator": 3552713678800500929355621337890625,
+              "denominator": 21926032917338434804772667113078784,
+              "exact": "3552713678800500929355621337890625/21926032917338434804772667113078784",
+              "decimal": 0.16203175887741753
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 64,
+            "cycle_product_upper_bound": {
+              "numerator": 542101086242752217003726400434970855712890625,
+              "denominator": 61855748694309841509924108346495983017477013504,
+              "exact": "542101086242752217003726400434970855712890625/61855748694309841509924108346495983017477013504",
+              "decimal": 0.008763956425809466
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 96,
+            "cycle_product_upper_bound": {
+              "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+              "denominator": 492288941560021600490007013133904969419987966634834098565803408300703744,
+              "exact": "12621774483536188886587657044524579674771302961744368076324462890625/492288941560021600490007013133904969419987966634834098565803408300703744",
+              "decimal": 2.5638955942294508e-05
+            },
+            "strictly_below_one": true
+          }
+        ],
+        "analytic_bound": {
+          "bound_at_h_38": {
+            "numerator": 363797880709171295166015625,
+            "denominator": 362616496821932890295107584,
+            "exact": "363797880709171295166015625/362616496821932890295107584",
+            "decimal": 1.0032579430268407
+          },
+          "bound_at_h_39": {
+            "numerator": 1818989403545856475830078125,
+            "denominator": 2175698980931597341770645504,
+            "exact": "1818989403545856475830078125/2175698980931597341770645504",
+            "decimal": 0.8360482858557006
+          },
+          "analytic_range_starts_at_h": 39,
+          "bound_is_strictly_decreasing": true
+        },
+        "aggregate": {
+          "infinite_family_proved": true,
+          "includes_imprimitive_words": true,
+          "rotation_normalization_is_complete": true,
+          "mitm_coverage_is_complete": true,
+          "contracting_range_starts_at_h": 25,
+          "analytic_range_starts_at_h": 39,
+          "finite_exception_word_count": 470772500,
+          "finite_word_count_identity": "C(38,10)-C(24,10)=470772500",
+          "left_tuple_count": 2626085,
+          "right_tuple_count": 225708,
+          "divisibility_hits": 0
+        },
+        "no_go_scope": "This closes only the exactly-ten-one/rest-two periodic stratum. Eleven-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Eleven-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "the exactly-ten-one/rest-two valuation stratum as a source of positive Collatz cycles",
+        "retain": "boundary-term MITM plus a uniform product contradiction, generalized one stratum at a time",
+        "next_single_lemma": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T193-INPUT",
+            "label": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T194-CLOSED",
+            "label": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T194-REJECTED",
+            "label": "ExactlyTenOneRestTwoCanContainAPositiveCycle",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "CO-T194-OPEN",
+            "label": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T193-INPUT",
+            "CO-T194-CLOSED"
+          ],
+          [
+            "CO-T194-CLOSED",
+            "CO-T194-OPEN"
+          ],
+          [
+            "CO-T194-REJECTED",
+            "CO-T194-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof. The complete exactly-ten-one/rest-two periodic valuation stratum is excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-194",
+      "theorem_name": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+      "declared_proposition": "For every Y>=1, the odd proper-prime-power mass satisfies the exact identity W_odd(Y)=sum_(k>=2) theta_odd(floor(Y^(1/k))). By the classical Chebyshev bound theta(t)=O(t), W_odd(Y)=O(sqrt(Y)); hence the TICKET-193 Goldbach contamination envelope is O(sqrt(N) log N), not merely the earlier elementary O(sqrt(N) log^2 N). The power-of-two term is exactly classified by the binary expansion of N.",
+      "mathematical_argument": "Each exponent k>=2 contributes log p exactly when p^k<=Y, giving the theta-layer identity after exchanging two finite sums. Chebyshev gives theta(t)<=Ct. The k=2 layer is O(sqrt Y); the remaining O(log Y) layers are each O(Y^(1/3)), whose total is O(sqrt Y). Binary uniqueness gives one ordered pair when N is a power of two, two when its even binary expansion has two one-bits, and none otherwise, for N>=6.",
+      "reproducible_computation": {
+        "theorem": "For every Y>=1, the odd proper-prime-power mass satisfies the exact identity W_odd(Y)=sum_(k>=2) theta_odd(floor(Y^(1/k))). By the classical Chebyshev bound theta(t)=O(t), W_odd(Y)=O(sqrt(Y)); hence the TICKET-193 Goldbach contamination envelope is O(sqrt(N) log N), not merely the earlier elementary O(sqrt(N) log^2 N). The power-of-two term is exactly classified by the binary expansion of N.",
+        "proof": "Each exponent k>=2 contributes log p exactly when p^k<=Y, giving the theta-layer identity after exchanging two finite sums. Chebyshev gives theta(t)<=Ct. The k=2 layer is O(sqrt Y); the remaining O(log Y) layers are each O(Y^(1/3)), whose total is O(sqrt Y). Binary uniqueness gives one ordered pair when N is a power of two, two when its even binary expansion has two one-bits, and none otherwise, for N>=6.",
+        "theta_layer_rows": [
+          {
+            "target_N": 1024,
+            "theta_layers": {
+              "limit_Y": 1024,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 32,
+                  "theta_odd_root": 25.331234554040858
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 10,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 5,
+              "reconstructed_mass": 34.89046968263681
+            },
+            "actual_odd_weighted_proper_power_mass": 34.89046968263681,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  9,
+                  9
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                10
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 484.1650667925573,
+            "weighted_total_convolution": 1393.796065987939,
+            "actual_contamination": 15.65174110605954,
+            "mass_over_sqrt_N": 1.0903271775824004,
+            "envelope_over_sqrt_N_log_N": 2.1828204401040505,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 2048,
+            "theta_layers": {
+              "limit_Y": 2048,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 45,
+                  "theta_odd_root": 36.41692464908295
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 12,
+                  "theta_odd_root": 7.051855622955894
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 6,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 5,
+              "reconstructed_mass": 48.374055050477274
+            },
+            "actual_odd_weighted_proper_power_mass": 48.374055050477274,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  10,
+                  10
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                11
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 738.1479301646962,
+            "weighted_total_convolution": 2413.9510446835966,
+            "actual_contamination": 298.66778914186114,
+            "mass_over_sqrt_N": 1.06892569874012,
+            "envelope_over_sqrt_N_log_N": 2.1392438096158486,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 4096,
+            "theta_layers": {
+              "limit_Y": 4096,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 64,
+                  "theta_odd_root": 52.425775472424164
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 16,
+                  "theta_odd_root": 9.616804980417431
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 8,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 6,
+              "reconstructed_mass": 71.60181558143755
+            },
+            "actual_odd_weighted_proper_power_mass": 71.60181558143755,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  11,
+                  11
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                12
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 1191.6147712518364,
+            "weighted_total_convolution": 5296.348647829686,
+            "actual_contamination": 40.762552381279555,
+            "mass_over_sqrt_N": 1.1187783684599617,
+            "envelope_over_sqrt_N_log_N": 2.2384592723112773,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 8192,
+            "theta_layers": {
+              "limit_Y": 8192,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 90,
+                  "theta_odd_root": 78.46053224000059
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 20,
+                  "theta_odd_root": 15.394457303640086
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 9,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 6,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 7,
+              "reconstructed_mass": 104.51283696090474
+            },
+            "actual_odd_weighted_proper_power_mass": 104.51283696090475,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  12,
+                  12
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                13
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 1883.9926880799994,
+            "weighted_total_convolution": 9977.286055191847,
+            "actual_contamination": 472.1601705553935,
+            "mass_over_sqrt_N": 1.154714620876559,
+            "envelope_over_sqrt_N_log_N": 2.3100183391951066,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 16384,
+            "theta_layers": {
+              "limit_Y": 16384,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 128,
+                  "theta_odd_root": 111.22084434543686
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 25,
+                  "theta_odd_root": 18.529951519569238
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 11,
+                  "theta_odd_root": 7.051855622955894
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 6,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 7,
+              "reconstructed_mass": 144.41597646750262
+            },
+            "actual_odd_weighted_proper_power_mass": 144.41597646750262,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  13,
+                  13
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                14
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 2803.3232066692217,
+            "weighted_total_convolution": 22378.482555409926,
+            "actual_contamination": 224.7746237623914,
+            "mass_over_sqrt_N": 1.1282498161523642,
+            "envelope_over_sqrt_N_log_N": 2.2568864331867373,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 32768,
+            "theta_layers": {
+              "limit_Y": 32768,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 181,
+                  "theta_odd_root": 166.77888692053338
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 32,
+                  "theta_odd_root": 25.331234554040858
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 13,
+                  "theta_odd_root": 9.616804980417431
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 8,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 9,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 8,
+              "reconstructed_mass": 212.38477387225572
+            },
+            "actual_odd_weighted_proper_power_mass": 212.38477387225575,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  14,
+                  14
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                15
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 4416.897669116385,
+            "weighted_total_convolution": 44095.58893079547,
+            "actual_contamination": 1637.8871610449337,
+            "mass_over_sqrt_N": 1.1732712017644025,
+            "envelope_over_sqrt_N_log_N": 2.3467976790869995,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 65536,
+            "theta_layers": {
+              "limit_Y": 65536,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 256,
+                  "theta_odd_root": 231.42581289503886
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 40,
+                  "theta_odd_root": 28.94215246668508
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 16,
+                  "theta_odd_root": 9.616804980417431
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 9,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 6,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 9,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 10,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 9,
+              "reconstructed_mass": 281.74123004807353
+            },
+            "actual_odd_weighted_proper_power_mass": 281.74123004807353,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  15,
+                  15
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                16
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 6249.700909183937,
+            "weighted_total_convolution": 87237.3472688245,
+            "actual_contamination": 110.82465818844793,
+            "mass_over_sqrt_N": 1.1005516798752872,
+            "envelope_over_sqrt_N_log_N": 2.2012725851364534,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 131072,
+            "theta_layers": {
+              "limit_Y": 131072,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 362,
+                  "theta_odd_root": 334.37999897225893
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 50,
+                  "theta_odd_root": 40.267072250793014
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 19,
+                  "theta_odd_root": 15.394457303640086
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 10,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 7,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 9,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 10,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 9,
+              "reconstructed_mass": 405.3533362941136
+            },
+            "actual_odd_weighted_proper_power_mass": 405.3533362941136,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  16,
+                  16
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                17
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 9553.444207230214,
+            "weighted_total_convolution": 173848.5733746382,
+            "actual_contamination": 2450.121181041351,
+            "mass_over_sqrt_N": 1.1196409877740576,
+            "envelope_over_sqrt_N_log_N": 2.2393945971179074,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 262144,
+            "theta_layers": {
+              "limit_Y": 262144,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 512,
+                  "theta_odd_root": 486.3143351607845
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 64,
+                  "theta_odd_root": 52.425775472424164
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 22,
+                  "theta_odd_root": 15.394457303640086
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 12,
+                  "theta_odd_root": 7.051855622955894
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 8,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 9,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 10,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 11,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 10,
+              "reconstructed_mass": 572.9428832657368
+            },
+            "actual_odd_weighted_proper_power_mass": 572.9428832657368,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  17,
+                  17
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                18
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 14297.295242685046,
+            "weighted_total_convolution": 341281.5358202622,
+            "actual_contamination": 40.602635121380274,
+            "mass_over_sqrt_N": 1.1190290688783922,
+            "envelope_over_sqrt_N_log_N": 2.2381333490393973,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 524288,
+            "theta_layers": {
+              "limit_Y": 524288,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 724,
+                  "theta_odd_root": 685.4695922003051
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 80,
+                  "theta_odd_root": 69.55305526247186
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 26,
+                  "theta_odd_root": 18.529951519569238
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 13,
+                  "theta_odd_root": 9.616804980417431
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 8,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 6,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 9,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 10,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 11,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 10,
+              "reconstructed_mass": 796.5353015811299
+            },
+            "actual_odd_weighted_proper_power_mass": 796.5353015811299,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  18,
+                  18
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                19
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 20980.895996296105,
+            "weighted_total_convolution": 698198.5291051933,
+            "actual_contamination": 6034.961357623845,
+            "mass_over_sqrt_N": 1.1000693617236106,
+            "envelope_over_sqrt_N_log_N": 2.200189106781076,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          },
+          {
+            "target_N": 1048576,
+            "theta_layers": {
+              "limit_Y": 1048576,
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "integer_root": 1024,
+                  "theta_odd_root": 983.2446193154886
+                },
+                {
+                  "exponent_k": 3,
+                  "integer_root": 101,
+                  "theta_odd_root": 87.65036373534524
+                },
+                {
+                  "exponent_k": 4,
+                  "integer_root": 32,
+                  "theta_odd_root": 25.331234554040858
+                },
+                {
+                  "exponent_k": 5,
+                  "integer_root": 16,
+                  "theta_odd_root": 9.616804980417431
+                },
+                {
+                  "exponent_k": 6,
+                  "integer_root": 10,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 7,
+                  "integer_root": 7,
+                  "theta_odd_root": 4.653960350157523
+                },
+                {
+                  "exponent_k": 8,
+                  "integer_root": 5,
+                  "theta_odd_root": 2.70805020110221
+                },
+                {
+                  "exponent_k": 9,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 10,
+                  "integer_root": 4,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 11,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                },
+                {
+                  "exponent_k": 12,
+                  "integer_root": 3,
+                  "theta_odd_root": 1.0986122886681098
+                }
+              ],
+              "layer_count": 11,
+              "reconstructed_mass": 1122.253442641382
+            },
+            "actual_odd_weighted_proper_power_mass": 1122.2534426413818,
+            "binary_mass": {
+              "ordered_exponent_pairs": [
+                [
+                  19,
+                  19
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true,
+              "binary_one_bit_positions": [
+                20
+              ],
+              "classification": "one repeated power-of-two pair",
+              "expected_ordered_pair_count": 1,
+              "classification_matches_direct_enumeration": true
+            },
+            "theta_layer_parity_envelope": 31115.952838636567,
+            "weighted_total_convolution": 1388031.9124054494,
+            "actual_contamination": 170.34091545973897,
+            "mass_over_sqrt_N": 1.0959506275794744,
+            "envelope_over_sqrt_N_log_N": 2.191935100236125,
+            "checks": {
+              "theta_layers_reconstruct_odd_mass": true,
+              "binary_classification_exact": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            }
+          }
+        ],
+        "binary_classification_rows": [
+          {
+            "ordered_exponent_pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              1,
+              2
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                2,
+                2
+              ]
+            ],
+            "ordered_pair_count": 1,
+            "exact_weight": 0.4804530139182014,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              3
+            ],
+            "classification": "one repeated power-of-two pair",
+            "expected_ordered_pair_count": 1,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                1,
+                3
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              1,
+              3
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              2,
+              3
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [],
+            "ordered_pair_count": 0,
+            "exact_weight": 0.0,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              1,
+              2,
+              3
+            ],
+            "classification": "no admissible power-of-two pair",
+            "expected_ordered_pair_count": 0,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                1,
+                4
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              1,
+              4
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              2,
+              4
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                3,
+                4
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              3,
+              4
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [],
+            "ordered_pair_count": 0,
+            "exact_weight": 0.0,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "classification": "no admissible power-of-two pair",
+            "expected_ordered_pair_count": 0,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                4,
+                4
+              ]
+            ],
+            "ordered_pair_count": 1,
+            "exact_weight": 0.4804530139182014,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              5
+            ],
+            "classification": "one repeated power-of-two pair",
+            "expected_ordered_pair_count": 1,
+            "classification_matches_direct_enumeration": true
+          },
+          {
+            "ordered_exponent_pairs": [
+              [
+                1,
+                5
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "ordered_pair_count": 2,
+            "exact_weight": 0.9609060278364028,
+            "at_most_two_ordered_pairs": true,
+            "binary_one_bit_positions": [
+              1,
+              5
+            ],
+            "classification": "two ordered distinct power-of-two pairs",
+            "expected_ordered_pair_count": 2,
+            "classification_matches_direct_enumeration": true
+          }
+        ],
+        "aggregate": {
+          "target_count": 11,
+          "largest_target": 1048576,
+          "theta_layer_identity_proved": true,
+          "chebyshev_mass_scale": "O(sqrt(N))",
+          "contamination_scale": "O(sqrt(N) log(N))",
+          "binary_mass_exactly_classified": true,
+          "finite_sample_success_count": 11,
+          "all_large_even_targets_proved": false
+        },
+        "no_go_scope": "The theta layers improve the analytic contamination scale but do not prove a pointwise lower bound for every sufficiently large even target.",
+        "failure_count": 0
+      },
+      "logical_limit": "No pointwise lower bound exceeds the exact theta-layer envelope for every sufficiently large even target.",
+      "route_decision": {
+        "discard": "treating the elementary O(sqrt(N) log^2 N) contamination majorant as the intrinsic analytic scale",
+        "retain": "prove every-large-even binary correlation above the exact theta-layer parity envelope",
+        "next_single_lemma": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T193-INPUT",
+            "label": "ParitySeparatedPrimePowerContaminationEnvelope",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T194-CLOSED",
+            "label": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T194-REJECTED",
+            "label": "PrimePowerContaminationRequiresASqrtNLogSquaredNThreshold",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "GB-T194-OPEN",
+            "label": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T193-INPUT",
+            "GB-T194-CLOSED"
+          ],
+          [
+            "GB-T194-CLOSED",
+            "GB-T194-OPEN"
+          ],
+          [
+            "GB-T194-REJECTED",
+            "GB-T194-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof. The exact contamination representation and sharper asymptotic scale are proved; the universal lower bound is open."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-194",
+      "theorem_name": "OddPrimePowerIntervalThetaLayerCompression",
+      "declared_proposition": "For every integer interval [A,B), its odd proper-prime-power mass is exactly sum_(k>=2)[theta_odd(floor((B-1)^(1/k)))-theta_odd(floor((A-1)^(1/k)))]. Therefore the TICKET-193 shift-two odd local contamination has exact theta-layer form and is O(sqrt(X) log X) on [X,2X). Correlation above that exact envelope still forces a twin prime in the block.",
+      "mathematical_argument": "Subtract the two cumulative theta-layer identities at B-1 and A-1. Each proper prime power in [A,B) is counted once at its exponent. Both translated intervals lie below 2X+2, so the Chebyshev O(sqrt Y) cumulative bound makes their total mass O(sqrt X); multiplication by the partner log weight gives O(sqrt X log X). TICKET-193 supplies the exact forcing bridge.",
+      "reproducible_computation": {
+        "theorem": "For every integer interval [A,B), its odd proper-prime-power mass is exactly sum_(k>=2)[theta_odd(floor((B-1)^(1/k)))-theta_odd(floor((A-1)^(1/k)))]. Therefore the TICKET-193 shift-two odd local contamination has exact theta-layer form and is O(sqrt(X) log X) on [X,2X). Correlation above that exact envelope still forces a twin prime in the block.",
+        "proof": "Subtract the two cumulative theta-layer identities at B-1 and A-1. Each proper prime power in [A,B) is counted once at its exponent. Both translated intervals lie below 2X+2, so the Chebyshev O(sqrt Y) cumulative bound makes their total mass O(sqrt X); multiplication by the partner log weight gives O(sqrt X log X). TICKET-193 supplies the exact forcing bridge.",
+        "finite_dyadic_rows": [
+          {
+            "dyadic_exponent_j": 4,
+            "block": [
+              16,
+              32
+            ],
+            "shift_two_von_mangoldt_support_count": 5,
+            "twin_prime_support_count": 2,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 30.419358712610045,
+            "weighted_twin_prime_mass": 19.905474600423364,
+            "weighted_prime_power_contamination": 10.51388411218668,
+            "proper_prime_power_count_A_2X_plus_2": 7,
+            "contamination_mass_upper_bound": 174.09305969399637,
+            "contamination_examples_left_right_exponents": [
+              [
+                23,
+                25,
+                1,
+                2
+              ],
+              [
+                25,
+                27,
+                2,
+                3
+              ],
+              [
+                27,
+                29,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                16,
+                32
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 2.70805020110221
+            },
+            "right_theta_interval": {
+              "interval": [
+                18,
+                34
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 2.70805020110221
+            },
+            "left_actual_odd_mass": 2.70805020110221,
+            "right_actual_odd_mass": 2.70805020110221,
+            "theta_layer_odd_local_envelope": 19.09912265569138,
+            "local_mass_over_sqrt_X": 1.354025100551105,
+            "envelope_over_sqrt_X_log_X": 1.7221380962935005
+          },
+          {
+            "dyadic_exponent_j": 5,
+            "block": [
+              32,
+              64
+            ],
+            "shift_two_von_mangoldt_support_count": 3,
+            "twin_prime_support_count": 2,
+            "proper_prime_power_contamination_support_count": 1,
+            "weighted_shift_two_correlation": 38.221771088793275,
+            "weighted_twin_prime_mass": 30.729729795264696,
+            "weighted_prime_power_contamination": 7.492041293528577,
+            "proper_prime_power_count_A_2X_plus_2": 9,
+            "contamination_mass_upper_bound": 315.9577234329212,
+            "contamination_examples_left_right_exponents": [
+              [
+                47,
+                49,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                32,
+                64
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 1.945910149055313
+            },
+            "right_theta_interval": {
+              "interval": [
+                34,
+                66
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 1.945910149055313
+            },
+            "left_actual_odd_mass": 1.9459101490553132,
+            "right_actual_odd_mass": 1.9459101490553132,
+            "theta_layer_odd_local_envelope": 16.30538336709388,
+            "local_mass_over_sqrt_X": 0.6879831309883687,
+            "envelope_over_sqrt_X_log_X": 0.8316882382327823
+          },
+          {
+            "dyadic_exponent_j": 6,
+            "block": [
+              64,
+              128
+            ],
+            "shift_two_von_mangoldt_support_count": 6,
+            "twin_prime_support_count": 3,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 79.05189367387074,
+            "weighted_twin_prime_mass": 61.60055362319484,
+            "weighted_prime_power_contamination": 17.451340050675896,
+            "proper_prime_power_count_A_2X_plus_2": 13,
+            "contamination_mass_upper_bound": 616.0151822856701,
+            "contamination_examples_left_right_exponents": [
+              [
+                79,
+                81,
+                1,
+                4
+              ],
+              [
+                81,
+                83,
+                4,
+                1
+              ],
+              [
+                125,
+                127,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                64,
+                128
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 11,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 5.105945473900581
+            },
+            "right_theta_interval": {
+              "interval": [
+                66,
+                130
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 11,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 5.105945473900581
+            },
+            "left_actual_odd_mass": 5.105945473900581,
+            "right_actual_odd_mass": 5.105945473900581,
+            "theta_layer_odd_local_envelope": 49.70673099271767,
+            "local_mass_over_sqrt_X": 1.2764863684751453,
+            "envelope_over_sqrt_X_log_X": 1.4939927979582401
+          },
+          {
+            "dyadic_exponent_j": 7,
+            "block": [
+              128,
+              256
+            ],
+            "shift_two_von_mangoldt_support_count": 9,
+            "twin_prime_support_count": 7,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 210.62504290038592,
+            "weighted_twin_prime_mass": 191.4719826477534,
+            "weighted_prime_power_contamination": 19.153060252632475,
+            "proper_prime_power_count_A_2X_plus_2": 16,
+            "contamination_mass_upper_bound": 986.7315248567315,
+            "contamination_examples_left_right_exponents": [
+              [
+                167,
+                169,
+                1,
+                2
+              ],
+              [
+                241,
+                243,
+                1,
+                5
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                128,
+                256
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 15,
+                  "lower_integer_root": 11,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 3.663561646129647
+            },
+            "right_theta_interval": {
+              "interval": [
+                130,
+                258
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 16,
+                  "lower_integer_root": 11,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 3.663561646129647
+            },
+            "left_actual_odd_mass": 3.6635616461296463,
+            "right_actual_odd_mass": 3.6635616461296463,
+            "theta_layer_odd_local_envelope": 40.68721951565369,
+            "local_mass_over_sqrt_X": 0.6476323208183059,
+            "envelope_over_sqrt_X_log_X": 0.7411899571475187
+          },
+          {
+            "dyadic_exponent_j": 8,
+            "block": [
+              256,
+              512
+            ],
+            "shift_two_von_mangoldt_support_count": 8,
+            "twin_prime_support_count": 7,
+            "proper_prime_power_contamination_support_count": 1,
+            "weighted_shift_two_correlation": 258.68209860141263,
+            "weighted_twin_prime_mass": 241.35901483374516,
+            "weighted_prime_power_contamination": 17.32308376766749,
+            "proper_prime_power_count_A_2X_plus_2": 20,
+            "contamination_mass_upper_bound": 1558.6140518315901,
+            "contamination_examples_left_right_exponents": [
+              [
+                359,
+                361,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                256,
+                512
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 22,
+                  "lower_integer_root": 15,
+                  "theta_odd_difference": 5.7776523232226555
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 7.723562472277969
+            },
+            "right_theta_interval": {
+              "interval": [
+                258,
+                514
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 22,
+                  "lower_integer_root": 16,
+                  "theta_odd_difference": 5.7776523232226555
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 7.723562472277969
+            },
+            "left_actual_odd_mass": 7.72356247227797,
+            "right_actual_odd_mass": 7.72356247227797,
+            "theta_layer_odd_local_envelope": 96.42440271329991,
+            "local_mass_over_sqrt_X": 0.9654453090347462,
+            "envelope_over_sqrt_X_log_X": 1.0868047469934226
+          },
+          {
+            "dyadic_exponent_j": 9,
+            "block": [
+              512,
+              1024
+            ],
+            "shift_two_von_mangoldt_support_count": 14,
+            "twin_prime_support_count": 12,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 550.1506096955326,
+            "weighted_twin_prime_mass": 520.2425890597062,
+            "weighted_prime_power_contamination": 29.908020635826325,
+            "proper_prime_power_count_A_2X_plus_2": 26,
+            "contamination_mass_upper_bound": 2499.7624523941085,
+            "contamination_examples_left_right_exponents": [
+              [
+                727,
+                729,
+                1,
+                6
+              ],
+              [
+                839,
+                841,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                512,
+                1024
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 31,
+                  "lower_integer_root": 22,
+                  "theta_odd_difference": 9.936777250400771
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 10,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 12.644827451502982
+            },
+            "right_theta_interval": {
+              "interval": [
+                514,
+                1026
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 32,
+                  "lower_integer_root": 22,
+                  "theta_odd_difference": 9.936777250400771
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 10,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 12.644827451502982
+            },
+            "left_actual_odd_mass": 12.64482745150298,
+            "right_actual_odd_mass": 12.64482745150298,
+            "theta_layer_odd_local_envelope": 175.34387561728522,
+            "local_mass_over_sqrt_X": 1.1176554047364458,
+            "envelope_over_sqrt_X_log_X": 1.2421889183080113
+          },
+          {
+            "dyadic_exponent_j": 10,
+            "block": [
+              1024,
+              2048
+            ],
+            "shift_two_von_mangoldt_support_count": 28,
+            "twin_prime_support_count": 26,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 1441.7469568800293,
+            "weighted_twin_prime_mass": 1387.3855975997217,
+            "weighted_prime_power_contamination": 54.36135928030767,
+            "proper_prime_power_count_A_2X_plus_2": 31,
+            "contamination_mass_upper_bound": 3605.281412656107,
+            "contamination_examples_left_right_exponents": [
+              [
+                1367,
+                1369,
+                1,
+                2
+              ],
+              [
+                1847,
+                1849,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                1024,
+                2048
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 45,
+                  "lower_integer_root": 31,
+                  "theta_odd_difference": 11.085690095042093
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 12,
+                  "lower_integer_root": 10,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 13.483585367840464
+            },
+            "right_theta_interval": {
+              "interval": [
+                1026,
+                2050
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 45,
+                  "lower_integer_root": 32,
+                  "theta_odd_difference": 11.085690095042093
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 12,
+                  "lower_integer_root": 10,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 13.483585367840464
+            },
+            "left_actual_odd_mass": 13.483585367840465,
+            "right_actual_odd_mass": 13.483585367840465,
+            "theta_layer_odd_local_envelope": 205.64072427136298,
+            "local_mass_over_sqrt_X": 0.8427240854900291,
+            "envelope_over_sqrt_X_log_X": 0.927115165972219
+          },
+          {
+            "dyadic_exponent_j": 11,
+            "block": [
+              2048,
+              4096
+            ],
+            "shift_two_von_mangoldt_support_count": 48,
+            "twin_prime_support_count": 45,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 2972.656172857228,
+            "weighted_twin_prime_mass": 2894.071385852201,
+            "weighted_prime_power_contamination": 78.58478700502675,
+            "proper_prime_power_count_A_2X_plus_2": 40,
+            "contamination_mass_upper_bound": 5535.468406286459,
+            "contamination_examples_left_right_exponents": [
+              [
+                2207,
+                2209,
+                1,
+                2
+              ],
+              [
+                2399,
+                2401,
+                1,
+                4
+              ],
+              [
+                3719,
+                3721,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                2048,
+                4096
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 63,
+                  "lower_integer_root": 45,
+                  "theta_odd_difference": 16.008850823341213
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 15,
+                  "lower_integer_root": 12,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 23.227760530960275
+            },
+            "right_theta_interval": {
+              "interval": [
+                2050,
+                4098
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 64,
+                  "lower_integer_root": 45,
+                  "theta_odd_difference": 16.008850823341213
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 16,
+                  "lower_integer_root": 12,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 23.227760530960275
+            },
+            "left_actual_odd_mass": 23.22776053096027,
+            "right_actual_odd_mass": 23.22776053096027,
+            "theta_layer_odd_local_envelope": 386.42883916992656,
+            "local_mass_over_sqrt_X": 1.026531686451203,
+            "envelope_over_sqrt_X_log_X": 1.1199184719882063
+          },
+          {
+            "dyadic_exponent_j": 12,
+            "block": [
+              4096,
+              8192
+            ],
+            "shift_two_von_mangoldt_support_count": 74,
+            "twin_prime_support_count": 70,
+            "proper_prime_power_contamination_support_count": 4,
+            "weighted_shift_two_correlation": 5380.412152725935,
+            "weighted_twin_prime_mass": 5268.114154826079,
+            "weighted_prime_power_contamination": 112.29799789985574,
+            "proper_prime_power_count_A_2X_plus_2": 50,
+            "contamination_mass_upper_bound": 8120.095873479411,
+            "contamination_examples_left_right_exponents": [
+              [
+                5039,
+                5041,
+                1,
+                2
+              ],
+              [
+                6561,
+                6563,
+                8,
+                1
+              ],
+              [
+                6857,
+                6859,
+                1,
+                3
+              ],
+              [
+                7919,
+                7921,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                4096,
+                8192
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 90,
+                  "lower_integer_root": 63,
+                  "theta_odd_difference": 26.034756767576425
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 20,
+                  "lower_integer_root": 15,
+                  "theta_odd_difference": 5.7776523232226555
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 9,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 32.91102137946719
+            },
+            "right_theta_interval": {
+              "interval": [
+                4098,
+                8194
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 90,
+                  "lower_integer_root": 64,
+                  "theta_odd_difference": 26.034756767576425
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 20,
+                  "lower_integer_root": 16,
+                  "theta_odd_difference": 5.7776523232226555
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 9,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 32.91102137946719
+            },
+            "left_actual_odd_mass": 32.9110213794672,
+            "right_actual_odd_mass": 32.9110213794672,
+            "theta_layer_odd_local_envelope": 593.1327915149974,
+            "local_mass_over_sqrt_X": 1.02846941810835,
+            "envelope_over_sqrt_X_log_X": 1.1142053865980655
+          },
+          {
+            "dyadic_exponent_j": 13,
+            "block": [
+              8192,
+              16384
+            ],
+            "shift_two_von_mangoldt_support_count": 117,
+            "twin_prime_support_count": 113,
+            "proper_prime_power_contamination_support_count": 4,
+            "weighted_shift_two_correlation": 10099.841514010854,
+            "weighted_twin_prime_mass": 9943.280144249258,
+            "weighted_prime_power_contamination": 156.56136976159559,
+            "proper_prime_power_count_A_2X_plus_2": 61,
+            "contamination_mass_upper_bound": 11488.881489948855,
+            "contamination_examples_left_right_exponents": [
+              [
+                10607,
+                10609,
+                1,
+                2
+              ],
+              [
+                11447,
+                11449,
+                1,
+                2
+              ],
+              [
+                14639,
+                14641,
+                1,
+                4
+              ],
+              [
+                16127,
+                16129,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                8192,
+                16384
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 127,
+                  "lower_integer_root": 90,
+                  "theta_odd_difference": 32.76031210543627
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 25,
+                  "lower_integer_root": 20,
+                  "theta_odd_difference": 3.1354942159291515
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 11,
+                  "lower_integer_root": 9,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 39.903139506597896
+            },
+            "right_theta_interval": {
+              "interval": [
+                8194,
+                16386
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 128,
+                  "lower_integer_root": 90,
+                  "theta_odd_difference": 32.76031210543627
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 25,
+                  "lower_integer_root": 20,
+                  "theta_odd_difference": 3.1354942159291515
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 11,
+                  "lower_integer_root": 9,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 39.903139506597896
+            },
+            "left_actual_odd_mass": 39.90313950659788,
+            "right_actual_odd_mass": 39.90313950659788,
+            "theta_layer_odd_local_envelope": 774.4547034285418,
+            "local_mass_over_sqrt_X": 0.8817431417421309,
+            "envelope_over_sqrt_X_log_X": 0.9495814814541749
+          },
+          {
+            "dyadic_exponent_j": 14,
+            "block": [
+              16384,
+              32768
+            ],
+            "shift_two_von_mangoldt_support_count": 222,
+            "twin_prime_support_count": 215,
+            "proper_prime_power_contamination_support_count": 7,
+            "weighted_shift_two_correlation": 22103.264555436494,
+            "weighted_twin_prime_mass": 21847.34898267158,
+            "weighted_prime_power_contamination": 255.91557276490903,
+            "proper_prime_power_count_A_2X_plus_2": 78,
+            "contamination_mass_upper_bound": 16864.098776769417,
+            "contamination_examples_left_right_exponents": [
+              [
+                17159,
+                17161,
+                1,
+                2
+              ],
+              [
+                19319,
+                19321,
+                1,
+                2
+              ],
+              [
+                19681,
+                19683,
+                1,
+                9
+              ],
+              [
+                24389,
+                24391,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                16384,
+                32768
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 181,
+                  "lower_integer_root": 127,
+                  "theta_odd_difference": 55.55804257509652
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 31,
+                  "lower_integer_root": 25,
+                  "theta_odd_difference": 6.80128303447162
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 13,
+                  "lower_integer_root": 11,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 67.9687974047531
+            },
+            "right_theta_interval": {
+              "interval": [
+                16386,
+                32770
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 181,
+                  "lower_integer_root": 128,
+                  "theta_odd_difference": 55.55804257509652
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 32,
+                  "lower_integer_root": 25,
+                  "theta_odd_difference": 6.80128303447162
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 13,
+                  "lower_integer_root": 11,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 67.9687974047531
+            },
+            "left_actual_odd_mass": 67.96879740475312,
+            "right_actual_odd_mass": 67.96879740475312,
+            "theta_layer_odd_local_envelope": 1413.3797053337885,
+            "local_mass_over_sqrt_X": 1.0620124594492675,
+            "envelope_over_sqrt_X_log_X": 1.137877171751206
+          },
+          {
+            "dyadic_exponent_j": 15,
+            "block": [
+              32768,
+              65536
+            ],
+            "shift_two_von_mangoldt_support_count": 362,
+            "twin_prime_support_count": 355,
+            "proper_prime_power_contamination_support_count": 7,
+            "weighted_shift_two_correlation": 41516.84933102578,
+            "weighted_twin_prime_mass": 41175.32141775507,
+            "weighted_prime_power_contamination": 341.52791327071526,
+            "proper_prime_power_count_A_2X_plus_2": 93,
+            "contamination_mass_upper_bound": 22877.376612668297,
+            "contamination_examples_left_right_exponents": [
+              [
+                36479,
+                36481,
+                1,
+                2
+              ],
+              [
+                44519,
+                44521,
+                1,
+                2
+              ],
+              [
+                49727,
+                49729,
+                1,
+                2
+              ],
+              [
+                50651,
+                50653,
+                1,
+                3
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                32768,
+                65536
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 255,
+                  "lower_integer_root": 181,
+                  "theta_odd_difference": 64.64692597450548
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 40,
+                  "lower_integer_root": 31,
+                  "theta_odd_difference": 3.610917912644222
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 15,
+                  "lower_integer_root": 13,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 9,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 69.35645617581781
+            },
+            "right_theta_interval": {
+              "interval": [
+                32770,
+                65538
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 256,
+                  "lower_integer_root": 181,
+                  "theta_odd_difference": 64.64692597450548
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 40,
+                  "lower_integer_root": 32,
+                  "theta_odd_difference": 3.610917912644222
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 16,
+                  "lower_integer_root": 13,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 9,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 69.35645617581781
+            },
+            "left_actual_odd_mass": 69.35645617581781,
+            "right_actual_odd_mass": 69.35645617581781,
+            "theta_layer_odd_local_envelope": 1538.3796587782685,
+            "local_mass_over_sqrt_X": 0.7662878200154434,
+            "envelope_over_sqrt_X_log_X": 0.8173759238342816
+          },
+          {
+            "dyadic_exponent_j": 16,
+            "block": [
+              65536,
+              131072
+            ],
+            "shift_two_von_mangoldt_support_count": 671,
+            "twin_prime_support_count": 666,
+            "proper_prime_power_contamination_support_count": 5,
+            "weighted_shift_two_correlation": 87982.41778641171,
+            "weighted_twin_prime_mass": 87653.29378784791,
+            "weighted_prime_power_contamination": 329.12399856379926,
+            "proper_prime_power_count_A_2X_plus_2": 119,
+            "contamination_mass_upper_bound": 33046.60478846309,
+            "contamination_examples_left_right_exponents": [
+              [
+                66047,
+                66049,
+                1,
+                2
+              ],
+              [
+                85847,
+                85849,
+                1,
+                2
+              ],
+              [
+                97967,
+                97969,
+                1,
+                2
+              ],
+              [
+                113567,
+                113569,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                65536,
+                131072
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 362,
+                  "lower_integer_root": 255,
+                  "theta_odd_difference": 102.95418607722007
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 50,
+                  "lower_integer_root": 40,
+                  "theta_odd_difference": 11.324919784107934
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 19,
+                  "lower_integer_root": 15,
+                  "theta_odd_difference": 5.7776523232226555
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 10,
+                  "lower_integer_root": 9,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 123.61210624604007
+            },
+            "right_theta_interval": {
+              "interval": [
+                65538,
+                131074
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 362,
+                  "lower_integer_root": 256,
+                  "theta_odd_difference": 102.95418607722007
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 50,
+                  "lower_integer_root": 40,
+                  "theta_odd_difference": 11.324919784107934
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 19,
+                  "lower_integer_root": 16,
+                  "theta_odd_difference": 5.7776523232226555
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 10,
+                  "lower_integer_root": 9,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 123.61210624604007
+            },
+            "left_actual_odd_mass": 123.61210624604006,
+            "right_actual_odd_mass": 123.61210624604006,
+            "theta_layer_odd_local_envelope": 2913.170791848978,
+            "local_mass_over_sqrt_X": 0.9657195800471879,
+            "envelope_over_sqrt_X_log_X": 1.0260783824861073
+          },
+          {
+            "dyadic_exponent_j": 17,
+            "block": [
+              131072,
+              262144
+            ],
+            "shift_two_von_mangoldt_support_count": 1159,
+            "twin_prime_support_count": 1153,
+            "proper_prime_power_contamination_support_count": 6,
+            "weighted_shift_two_correlation": 170925.14354747848,
+            "weighted_twin_prime_mass": 170522.16627598935,
+            "weighted_prime_power_contamination": 402.9772714891503,
+            "proper_prime_power_count_A_2X_plus_2": 150,
+            "contamination_mass_upper_bound": 46700.09006621651,
+            "contamination_examples_left_right_exponents": [
+              [
+                161051,
+                161053,
+                5,
+                1
+              ],
+              [
+                177239,
+                177241,
+                1,
+                2
+              ],
+              [
+                196247,
+                196249,
+                1,
+                2
+              ],
+              [
+                201599,
+                201601,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                131072,
+                262144
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 511,
+                  "lower_integer_root": 362,
+                  "theta_odd_difference": 151.93433618852555
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 63,
+                  "lower_integer_root": 50,
+                  "theta_odd_difference": 12.15870322163115
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 22,
+                  "lower_integer_root": 19,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 12,
+                  "lower_integer_root": 10,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 11,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 167.58954697162318
+            },
+            "right_theta_interval": {
+              "interval": [
+                131074,
+                262146
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 512,
+                  "lower_integer_root": 362,
+                  "theta_odd_difference": 151.93433618852555
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 64,
+                  "lower_integer_root": 50,
+                  "theta_odd_difference": 12.15870322163115
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 22,
+                  "lower_integer_root": 19,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 12,
+                  "lower_integer_root": 10,
+                  "theta_odd_difference": 2.3978952727983707
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 11,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 167.58954697162318
+            },
+            "left_actual_odd_mass": 167.5895469716232,
+            "right_actual_odd_mass": 167.5895469716232,
+            "theta_layer_odd_local_envelope": 4181.91454829296,
+            "local_mass_over_sqrt_X": 0.9258101962470014,
+            "envelope_over_sqrt_X_log_X": 0.9802702189822249
+          },
+          {
+            "dyadic_exponent_j": 18,
+            "block": [
+              262144,
+              524288
+            ],
+            "shift_two_von_mangoldt_support_count": 2082,
+            "twin_prime_support_count": 2071,
+            "proper_prime_power_contamination_support_count": 11,
+            "weighted_shift_two_correlation": 343017.38147934974,
+            "weighted_twin_prime_mass": 342219.9300581405,
+            "weighted_prime_power_contamination": 797.4514212092325,
+            "proper_prime_power_count_A_2X_plus_2": 189,
+            "contamination_mass_upper_bound": 65561.69535370552,
+            "contamination_examples_left_right_exponents": [
+              [
+                273527,
+                273529,
+                1,
+                2
+              ],
+              [
+                292679,
+                292681,
+                1,
+                2
+              ],
+              [
+                300761,
+                300763,
+                1,
+                3
+              ],
+              [
+                323759,
+                323761,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                262144,
+                524288
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 724,
+                  "lower_integer_root": 511,
+                  "theta_odd_difference": 199.15525703952062
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 80,
+                  "lower_integer_root": 63,
+                  "theta_odd_difference": 17.127279790047695
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 26,
+                  "lower_integer_root": 22,
+                  "theta_odd_difference": 3.1354942159291515
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 13,
+                  "lower_integer_root": 12,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 7,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 11,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 223.5924183153931
+            },
+            "right_theta_interval": {
+              "interval": [
+                262146,
+                524290
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 724,
+                  "lower_integer_root": 512,
+                  "theta_odd_difference": 199.15525703952062
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 80,
+                  "lower_integer_root": 64,
+                  "theta_odd_difference": 17.127279790047695
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 26,
+                  "lower_integer_root": 22,
+                  "theta_odd_difference": 3.1354942159291515
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 13,
+                  "lower_integer_root": 12,
+                  "theta_odd_difference": 2.564949357461537
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 8,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 6,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 1.6094379124341003
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 11,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                }
+              ],
+              "reconstructed_mass": 223.5924183153931
+            },
+            "left_actual_odd_mass": 223.59241831539308,
+            "right_actual_odd_mass": 223.59241831539308,
+            "theta_layer_odd_local_envelope": 5889.334971167515,
+            "local_mass_over_sqrt_X": 0.8734078840445042,
+            "envelope_over_sqrt_X_log_X": 0.921930811310473
+          },
+          {
+            "dyadic_exponent_j": 19,
+            "block": [
+              524288,
+              1048576
+            ],
+            "shift_two_von_mangoldt_support_count": 3800,
+            "twin_prime_support_count": 3785,
+            "proper_prime_power_contamination_support_count": 15,
+            "weighted_shift_two_correlation": 696510.2058858308,
+            "weighted_twin_prime_mass": 695300.6983668064,
+            "weighted_prime_power_contamination": 1209.507519024261,
+            "proper_prime_power_count_A_2X_plus_2": 242,
+            "contamination_mass_upper_bound": 93015.72908988077,
+            "contamination_examples_left_right_exponents": [
+              [
+                528527,
+                528529,
+                1,
+                2
+              ],
+              [
+                537287,
+                537289,
+                1,
+                2
+              ],
+              [
+                552047,
+                552049,
+                1,
+                2
+              ],
+              [
+                563999,
+                564001,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "left_theta_layers_reconstruct_mass": true,
+              "right_theta_layers_reconstruct_mass": true,
+              "actual_contamination_below_theta_layer_envelope": true,
+              "finite_total_exceeds_theta_layer_envelope": true
+            },
+            "left_theta_interval": {
+              "interval": [
+                524288,
+                1048576
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 1023,
+                  "lower_integer_root": 724,
+                  "theta_odd_difference": 297.77502711518355
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 101,
+                  "lower_integer_root": 80,
+                  "theta_odd_difference": 18.09730847287338
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 31,
+                  "lower_integer_root": 26,
+                  "theta_odd_difference": 6.80128303447162
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 15,
+                  "lower_integer_root": 13,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 10,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 11,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 12,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 325.718141060252
+            },
+            "right_theta_interval": {
+              "interval": [
+                524290,
+                1048578
+              ],
+              "layers": [
+                {
+                  "exponent_k": 2,
+                  "upper_integer_root": 1024,
+                  "lower_integer_root": 724,
+                  "theta_odd_difference": 297.77502711518355
+                },
+                {
+                  "exponent_k": 3,
+                  "upper_integer_root": 101,
+                  "lower_integer_root": 80,
+                  "theta_odd_difference": 18.09730847287338
+                },
+                {
+                  "exponent_k": 4,
+                  "upper_integer_root": 32,
+                  "lower_integer_root": 26,
+                  "theta_odd_difference": 6.80128303447162
+                },
+                {
+                  "exponent_k": 5,
+                  "upper_integer_root": 16,
+                  "lower_integer_root": 13,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 6,
+                  "upper_integer_root": 10,
+                  "lower_integer_root": 8,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 7,
+                  "upper_integer_root": 7,
+                  "lower_integer_root": 6,
+                  "theta_odd_difference": 1.945910149055313
+                },
+                {
+                  "exponent_k": 8,
+                  "upper_integer_root": 5,
+                  "lower_integer_root": 5,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 9,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 4,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 10,
+                  "upper_integer_root": 4,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 11,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 3,
+                  "theta_odd_difference": 0.0
+                },
+                {
+                  "exponent_k": 12,
+                  "upper_integer_root": 3,
+                  "lower_integer_root": 2,
+                  "theta_odd_difference": 1.0986122886681098
+                }
+              ],
+              "reconstructed_mass": 325.718141060252
+            },
+            "left_actual_odd_mass": 325.7181410602519,
+            "right_actual_odd_mass": 325.7181410602519,
+            "theta_layer_odd_local_envelope": 9030.825687840526,
+            "local_mass_over_sqrt_X": 0.8996777589811741,
+            "envelope_over_sqrt_X_log_X": 0.9470293502781358
+          }
+        ],
+        "aggregate": {
+          "dyadic_block_count": 16,
+          "largest_upper_endpoint": 1048576,
+          "theta_interval_identity_proved": true,
+          "odd_local_mass_scale": "O(sqrt(X))",
+          "contamination_scale": "O(sqrt(X) log(X))",
+          "finite_block_success_count": 16,
+          "infinitely_many_envelope_successes_proved": false
+        },
+        "no_go_scope": "The exact theta-layer form and sublinear contamination scale do not establish a correlation lower bound on infinitely many unbounded dyadic blocks.",
+        "failure_count": 0
+      },
+      "logical_limit": "No proof exceeds the exact theta-layer local envelope on infinitely many unbounded dyadic blocks.",
+      "route_decision": {
+        "discard": "treating the earlier sqrt(X) log^2(X) global majorant as the natural shift-two contamination scale",
+        "retain": "prove shift-two correlation above the exact two-interval theta-layer envelope on infinitely many blocks",
+        "next_single_lemma": "ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T193-INPUT",
+            "label": "OddOnlyShiftTwoContaminationEnvelope",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T194-CLOSED",
+            "label": "OddPrimePowerIntervalThetaLayerCompression",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T194-REJECTED",
+            "label": "ShiftTwoContaminationRequiresASqrtXLogSquaredXThreshold",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "TP-T194-OPEN",
+            "label": "ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T193-INPUT",
+            "TP-T194-CLOSED"
+          ],
+          [
+            "TP-T194-CLOSED",
+            "TP-T194-OPEN"
+          ],
+          [
+            "TP-T194-REJECTED",
+            "TP-T194-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof. The local contamination is exactly layered and sublinear, but infinitely many positive blocks are not proved."
+    },
+    "cross_problem_synthesis": "Uniform boundedness and Chebyshev theta layers convert local information into controlled global extensions. The Collatz boundary decomposition converts a 470-million-word finite exception range into an exact low-dimensional residue audit.",
+    "literature_boundary": {
+      "riemann": "No external result supplies the two actual pole-neutral Weil premises required by the extension theorem.",
+      "collatz": "No global Collatz convergence result is claimed; one complete periodic valuation stratum is removed.",
+      "goldbach": "The classical Chebyshev theta bound is used only for contamination scale; no every-even exceptional-set upgrade is inferred.",
+      "twin_prime": "The theta-layer identity does not overcome the parity barrier or produce a lower bound for exact gap two."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_infinite_cycle_stratum_closure_count": 1,
+      "theta_layer_identity_count": 2,
+      "represented_collatz_word_count": 470772500,
+      "rejected_or_corrected_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-194",
+      "status": "open_not_proven",
+      "declared_proposition": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated forms B_n, and let D be dense in H. If sup_n ||B_n||<infinity and q_n(x) converges for every x in D, then B_n(x,y) and q_n(x) converge for every x,y in H to a bounded Hermitian form. Positivity passes to the limit. Positivity and monotonicity on D do not replace the uniform bound: q_n(x)=sum_(k<=n) k|x_k|^2 has all those core properties on c_00 while ||B_n||=n and diverges at an explicit l^2 vector.",
+      "new_result": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+      "discarded_route": "using positivity and monotonicity on a dense core as a substitute for a uniform operator bound",
+      "remaining_gap": "Neither uniform boundedness nor dense-core convergence of the actual pole-neutral Weil sections is proved.",
+      "candidate_theorem": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+      "claim_boundary": "No RH proof. The extension mechanism is complete, but both arithmetic Weil premises remain open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T193-INPUT",
+            "label": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T194-CLOSED",
+            "label": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T194-REJECTED",
+            "label": "PositiveMonotoneDenseCoreConvergenceReplacesUniformBoundedness",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "RH-T194-OPEN",
+            "label": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T193-INPUT",
+            "RH-T194-CLOSED"
+          ],
+          [
+            "RH-T194-CLOSED",
+            "RH-T194-OPEN"
+          ],
+          [
+            "RH-T194-REJECTED",
+            "RH-T194-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-194",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly ten entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "new_result": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+      "discarded_route": "the exactly-ten-one/rest-two valuation stratum as a source of positive Collatz cycles",
+      "remaining_gap": "Eleven-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+      "candidate_theorem": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+      "claim_boundary": "No Collatz proof. The complete exactly-ten-one/rest-two periodic valuation stratum is excluded.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T193-INPUT",
+            "label": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T194-CLOSED",
+            "label": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T194-REJECTED",
+            "label": "ExactlyTenOneRestTwoCanContainAPositiveCycle",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "CO-T194-OPEN",
+            "label": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T193-INPUT",
+            "CO-T194-CLOSED"
+          ],
+          [
+            "CO-T194-CLOSED",
+            "CO-T194-OPEN"
+          ],
+          [
+            "CO-T194-REJECTED",
+            "CO-T194-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-194",
+      "status": "open_not_proven",
+      "declared_proposition": "For every Y>=1, the odd proper-prime-power mass satisfies the exact identity W_odd(Y)=sum_(k>=2) theta_odd(floor(Y^(1/k))). By the classical Chebyshev bound theta(t)=O(t), W_odd(Y)=O(sqrt(Y)); hence the TICKET-193 Goldbach contamination envelope is O(sqrt(N) log N), not merely the earlier elementary O(sqrt(N) log^2 N). The power-of-two term is exactly classified by the binary expansion of N.",
+      "new_result": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+      "discarded_route": "treating the elementary O(sqrt(N) log^2 N) contamination majorant as the intrinsic analytic scale",
+      "remaining_gap": "No pointwise lower bound exceeds the exact theta-layer envelope for every sufficiently large even target.",
+      "candidate_theorem": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget",
+      "claim_boundary": "No Goldbach proof. The exact contamination representation and sharper asymptotic scale are proved; the universal lower bound is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T193-INPUT",
+            "label": "ParitySeparatedPrimePowerContaminationEnvelope",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T194-CLOSED",
+            "label": "OddPrimePowerThetaLayerCompressionAndBinaryMassClassification",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T194-REJECTED",
+            "label": "PrimePowerContaminationRequiresASqrtNLogSquaredNThreshold",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "GB-T194-OPEN",
+            "label": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T193-INPUT",
+            "GB-T194-CLOSED"
+          ],
+          [
+            "GB-T194-CLOSED",
+            "GB-T194-OPEN"
+          ],
+          [
+            "GB-T194-REJECTED",
+            "GB-T194-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-194",
+      "status": "open_not_proven",
+      "declared_proposition": "For every integer interval [A,B), its odd proper-prime-power mass is exactly sum_(k>=2)[theta_odd(floor((B-1)^(1/k)))-theta_odd(floor((A-1)^(1/k)))]. Therefore the TICKET-193 shift-two odd local contamination has exact theta-layer form and is O(sqrt(X) log X) on [X,2X). Correlation above that exact envelope still forces a twin prime in the block.",
+      "new_result": "OddPrimePowerIntervalThetaLayerCompression",
+      "discarded_route": "treating the earlier sqrt(X) log^2(X) global majorant as the natural shift-two contamination scale",
+      "remaining_gap": "No proof exceeds the exact theta-layer local envelope on infinitely many unbounded dyadic blocks.",
+      "candidate_theorem": "ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks",
+      "claim_boundary": "No Twin Prime proof. The local contamination is exactly layered and sublinear, but infinitely many positive blocks are not proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T193-INPUT",
+            "label": "OddOnlyShiftTwoContaminationEnvelope",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T194-CLOSED",
+            "label": "OddPrimePowerIntervalThetaLayerCompression",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T194-REJECTED",
+            "label": "ShiftTwoContaminationRequiresASqrtXLogSquaredXThreshold",
+            "status": "refuted_or_coarse_surrogate"
+          },
+          {
+            "id": "TP-T194-OPEN",
+            "label": "ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T193-INPUT",
+            "TP-T194-CLOSED"
+          ],
+          [
+            "TP-T194-CLOSED",
+            "TP-T194-OPEN"
+          ],
+          [
+            "TP-T194-REJECTED",
+            "TP-T194-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks"
+    }
+  ]
+}

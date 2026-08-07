@@ -1,0 +1,513 @@
+{
+  "schema": "primeproject.ticket194-densecore-tenone-theta-layers.v1",
+  "generated_at": "2026-08-08T06:30:00+09:00",
+  "ticket_id": "RH-TICKET-194",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+  "declared_proposition": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated forms B_n, and let D be dense in H. If sup_n ||B_n||<infinity and q_n(x) converges for every x in D, then B_n(x,y) and q_n(x) converge for every x,y in H to a bounded Hermitian form. Positivity passes to the limit. Positivity and monotonicity on D do not replace the uniform bound: q_n(x)=sum_(k<=n) k|x_k|^2 has all those core properties on c_00 while ||B_n||=n and diverges at an explicit l^2 vector.",
+  "mathematical_argument": "Polarization gives convergence of B_n(u,v) for u,v in D. If ||B_n||<=M and u,v approximate x,y, then the Cauchy difference B_n-B_m away from D is bounded by 2M(||x-u||||y||+||u||||y-v||). First choose u,v, then use core convergence. This proves convergence everywhere and a norm-M limit. For the no-go, positive diagonal sections sum_(k<=n) k|x_k|^2 increase and stabilize on every c_00 vector. The l^2 vector with |x_(2^j)|^2=2^(-j) has norm one but q_(2^J)(x)=J.",
+  "reproducible_computation": {
+    "theorem": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated forms B_n, and let D be dense in H. If sup_n ||B_n||<infinity and q_n(x) converges for every x in D, then B_n(x,y) and q_n(x) converge for every x,y in H to a bounded Hermitian form. Positivity passes to the limit. Positivity and monotonicity on D do not replace the uniform bound: q_n(x)=sum_(k<=n) k|x_k|^2 has all those core properties on c_00 while ||B_n||=n and diverges at an explicit l^2 vector.",
+    "proof": "Polarization gives convergence of B_n(u,v) for u,v in D. If ||B_n||<=M and u,v approximate x,y, then the Cauchy difference B_n-B_m away from D is bounded by 2M(||x-u||||y||+||u||||y-v||). First choose u,v, then use core convergence. This proves convergence everywhere and a norm-M limit. For the no-go, positive diagonal sections sum_(k<=n) k|x_k|^2 increase and stabilize on every c_00 vector. The l^2 vector with |x_(2^j)|^2=2^(-j) has norm one but q_(2^J)(x)=J.",
+    "uniform_projection_rows": [
+      {
+        "level_n": 1,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 1,
+          "denominator": 4,
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 12,
+          "exact": "1/12",
+          "decimal": 0.08333333333333333
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 2,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 5,
+          "denominator": 16,
+          "exact": "5/16",
+          "decimal": 0.3125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 48,
+          "exact": "1/48",
+          "decimal": 0.020833333333333332
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 3,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 21,
+          "denominator": 64,
+          "exact": "21/64",
+          "decimal": 0.328125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 192,
+          "exact": "1/192",
+          "decimal": 0.005208333333333333
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 4,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 85,
+          "denominator": 256,
+          "exact": "85/256",
+          "decimal": 0.33203125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 768,
+          "exact": "1/768",
+          "decimal": 0.0013020833333333333
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 5,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 341,
+          "denominator": 1024,
+          "exact": "341/1024",
+          "decimal": 0.3330078125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 3072,
+          "exact": "1/3072",
+          "decimal": 0.0003255208333333333
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 6,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 1365,
+          "denominator": 4096,
+          "exact": "1365/4096",
+          "decimal": 0.333251953125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 12288,
+          "exact": "1/12288",
+          "decimal": 8.138020833333333e-05
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 7,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 5461,
+          "denominator": 16384,
+          "exact": "5461/16384",
+          "decimal": 0.33331298828125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 49152,
+          "exact": "1/49152",
+          "decimal": 2.0345052083333332e-05
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 8,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 21845,
+          "denominator": 65536,
+          "exact": "21845/65536",
+          "decimal": 0.3333282470703125
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 196608,
+          "exact": "1/196608",
+          "decimal": 5.086263020833333e-06
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 9,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 87381,
+          "denominator": 262144,
+          "exact": "87381/262144",
+          "decimal": 0.3333320617675781
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 786432,
+          "exact": "1/786432",
+          "decimal": 1.2715657552083333e-06
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 10,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 349525,
+          "denominator": 1048576,
+          "exact": "349525/1048576",
+          "decimal": 0.33333301544189453
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 3145728,
+          "exact": "1/3145728",
+          "decimal": 3.178914388020833e-07
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 11,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 1398101,
+          "denominator": 4194304,
+          "exact": "1398101/4194304",
+          "decimal": 0.33333325386047363
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 12582912,
+          "exact": "1/12582912",
+          "decimal": 7.947285970052083e-08
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      },
+      {
+        "level_n": 12,
+        "operator_norm": 1,
+        "quadratic_value": {
+          "numerator": 5592405,
+          "denominator": 16777216,
+          "exact": "5592405/16777216",
+          "decimal": 0.3333333134651184
+        },
+        "limit_value": {
+          "numerator": 1,
+          "denominator": 3,
+          "exact": "1/3",
+          "decimal": 0.3333333333333333
+        },
+        "exact_tail": {
+          "numerator": 1,
+          "denominator": 50331648,
+          "exact": "1/50331648",
+          "decimal": 1.9868214925130207e-08
+        },
+        "tail_is_four_to_minus_n_over_three": true
+      }
+    ],
+    "positive_monotone_dense_core_no_go_rows": [
+      {
+        "level_j": 1,
+        "section_n": 2,
+        "operator_norm": 2,
+        "witness_partial_norm_square": {
+          "numerator": 1,
+          "denominator": 2,
+          "exact": "1/2",
+          "decimal": 0.5
+        },
+        "witness_quadratic_value": 1,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 2,
+        "section_n": 4,
+        "operator_norm": 4,
+        "witness_partial_norm_square": {
+          "numerator": 3,
+          "denominator": 4,
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "witness_quadratic_value": 2,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 3,
+        "section_n": 8,
+        "operator_norm": 8,
+        "witness_partial_norm_square": {
+          "numerator": 7,
+          "denominator": 8,
+          "exact": "7/8",
+          "decimal": 0.875
+        },
+        "witness_quadratic_value": 3,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 4,
+        "section_n": 16,
+        "operator_norm": 16,
+        "witness_partial_norm_square": {
+          "numerator": 15,
+          "denominator": 16,
+          "exact": "15/16",
+          "decimal": 0.9375
+        },
+        "witness_quadratic_value": 4,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 5,
+        "section_n": 32,
+        "operator_norm": 32,
+        "witness_partial_norm_square": {
+          "numerator": 31,
+          "denominator": 32,
+          "exact": "31/32",
+          "decimal": 0.96875
+        },
+        "witness_quadratic_value": 5,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 6,
+        "section_n": 64,
+        "operator_norm": 64,
+        "witness_partial_norm_square": {
+          "numerator": 63,
+          "denominator": 64,
+          "exact": "63/64",
+          "decimal": 0.984375
+        },
+        "witness_quadratic_value": 6,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 7,
+        "section_n": 128,
+        "operator_norm": 128,
+        "witness_partial_norm_square": {
+          "numerator": 127,
+          "denominator": 128,
+          "exact": "127/128",
+          "decimal": 0.9921875
+        },
+        "witness_quadratic_value": 7,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 8,
+        "section_n": 256,
+        "operator_norm": 256,
+        "witness_partial_norm_square": {
+          "numerator": 255,
+          "denominator": 256,
+          "exact": "255/256",
+          "decimal": 0.99609375
+        },
+        "witness_quadratic_value": 8,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 9,
+        "section_n": 512,
+        "operator_norm": 512,
+        "witness_partial_norm_square": {
+          "numerator": 511,
+          "denominator": 512,
+          "exact": "511/512",
+          "decimal": 0.998046875
+        },
+        "witness_quadratic_value": 9,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 10,
+        "section_n": 1024,
+        "operator_norm": 1024,
+        "witness_partial_norm_square": {
+          "numerator": 1023,
+          "denominator": 1024,
+          "exact": "1023/1024",
+          "decimal": 0.9990234375
+        },
+        "witness_quadratic_value": 10,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 11,
+        "section_n": 2048,
+        "operator_norm": 2048,
+        "witness_partial_norm_square": {
+          "numerator": 2047,
+          "denominator": 2048,
+          "exact": "2047/2048",
+          "decimal": 0.99951171875
+        },
+        "witness_quadratic_value": 11,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      },
+      {
+        "level_j": 12,
+        "section_n": 4096,
+        "operator_norm": 4096,
+        "witness_partial_norm_square": {
+          "numerator": 4095,
+          "denominator": 4096,
+          "exact": "4095/4096",
+          "decimal": 0.999755859375
+        },
+        "witness_quadratic_value": 12,
+        "positive_semidefinite": true,
+        "monotone_on_the_dense_core": true
+      }
+    ],
+    "extension_contract": {
+      "uniform_bound_plus_dense_core_convergence_extends_everywhere": true,
+      "positivity_passes_to_limit": true,
+      "positive_monotone_dense_core_convergence_alone_is_sufficient": false,
+      "actual_weil_uniform_bound_verified": false,
+      "actual_weil_dense_core_convergence_verified": false
+    },
+    "no_go_scope": "This is an exact extension criterion, not a proof that the pole-neutral Weil sections satisfy either premise.",
+    "failure_count": 0
+  },
+  "discarded_route": "using positivity and monotonicity on a dense core as a substitute for a uniform operator bound",
+  "remaining_gap": "Neither uniform boundedness nor dense-core convergence of the actual pole-neutral Weil sections is proved.",
+  "candidate_theorem": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+  "claim_boundary": "No RH proof. The extension mechanism is complete, but both arithmetic Weil premises remain open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T193-INPUT",
+        "label": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "RH-T194-CLOSED",
+        "label": "UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T194-REJECTED",
+        "label": "PositiveMonotoneDenseCoreConvergenceReplacesUniformBoundedness",
+        "status": "refuted_or_coarse_surrogate"
+      },
+      {
+        "id": "RH-T194-OPEN",
+        "label": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T193-INPUT",
+        "RH-T194-CLOSED"
+      ],
+      [
+        "RH-T194-CLOSED",
+        "RH-T194-OPEN"
+      ],
+      [
+        "RH-T194-REJECTED",
+        "RH-T194-OPEN"
+      ]
+    ]
+  }
+}

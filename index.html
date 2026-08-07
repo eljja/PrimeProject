@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260808-ticket193-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260808-ticket194-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-193 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, a ninth adjacent Collatz stratum closed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-193 closes the nine-one Collatz cycle stratum and sharpens three global proof targets.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-193은 콜라츠 순환의 아홉-1 부분족을 전 길이에서 닫고, 리만의 완비공간 전체 수렴 조건과 골드바흐·쌍둥이 소수의 parity 분리 오염 상계를 정확히 정리했습니다.</p>
+                <p class="brief-kicker">TICKET-194 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, a tenth adjacent Collatz stratum closed</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-194 closes the ten-one Collatz cycle stratum and sharpens three infinite proof targets.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-194는 콜라츠 순환의 열-1 부분족을 전 길이에서 닫고, 리만의 균일 유계 조밀 코어 확장과 골드바흐·쌍둥이 소수의 세타층 오염 규모를 정확히 정리했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>193</strong><small>2026-08-08</small></div>
+              <div><span>Latest ticket</span><strong>194</strong><small>2026-08-08</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 완비 Hilbert 공간의 모든 벡터에서 연속 Hermitian 이차형식열이 점별 수렴하면 연산자 norm은 균일 유계이고 유계 극한형식이 존재합니다.</p>
-                <p><strong>폐기:</strong> <code>q_n(x)=n|x_n|²</code> 반례는 조밀 코어 수렴만으로 균일 유계성 원리를 적용할 수 없음을 보입니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 pole-neutral Weil 유한절단이 완비 admissible Hilbert 공간의 모든 벡터에서 수렴함을 증명.</p>
+                <p><strong>확립:</strong> 연속 Hermitian 이차형식열이 균일 유계이고 조밀 코어에서 수렴하면 완비 Hilbert 공간 전체에서 유계 극한형식으로 수렴합니다.</p>
+                <p><strong>폐기:</strong> 양성·단조 조밀 코어 수렴만으로는 부족합니다. <code>q_n(x)=Σ_{k≤n}k|x_k|²</code>는 명시적 <code>l²</code> 벡터에서 발산합니다.</p>
+                <p><strong>다음 핵심:</strong> 실제 pole-neutral Weil 유한절단의 균일 유계성과 조밀 코어 수렴을 함께 증명.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 정확히 아홉 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 주기족을 원시·비원시 여부와 무관하게 배제했습니다.</p>
-                <p><strong>증명 범위:</strong> <code>h≥35</code>는 <code>512(5/6)^h&lt;1</code>로, <code>h=22..34</code>의 52,157,326개 정규화 word는 정확 4+4 MITM residue 감사로 닫았습니다.</p>
-                <p><strong>다음 핵심:</strong> 정확히 열 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 word의 아핀 나눗셈 배제.</p>
+                <p><strong>확립:</strong> 정확히 열 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 주기족을 원시·비원시 여부와 무관하게 배제했습니다.</p>
+                <p><strong>증명 범위:</strong> <code>h≥39</code>는 <code>1024(5/6)^h&lt;1</code>로, <code>h=25..38</code>의 470,772,500개 정규화 word는 정확 5+4 MITM residue 감사로 닫았습니다.</p>
+                <p><strong>다음 핵심:</strong> 정확히 열한 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 word의 아핀 나눗셈 배제.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 짝수 N에서 오염은 <code>2 log(N)W_odd(N)+C₂(N)</code> 이하이고, 2의 거듭제곱 쌍은 정확히 분리됩니다.</p>
-                <p><strong>폐기:</strong> 짝수 prime power를 홀수 proper-prime-power와 같은 union bound로 과대계상할 필요가 없습니다.</p>
-                <p><strong>다음 핵심:</strong> 모든 충분히 큰 짝수에서 상관합이 parity 분리 상계를 넘는다는 점별 정리.</p>
+                <p><strong>확립:</strong> <code>W_odd(Y)=Σ_{k≥2}θ_odd(⌊Y^(1/k)⌋)</code>이고 고전 Chebyshev 상계로 오염 규모는 <code>O(√N log N)</code>입니다.</p>
+                <p><strong>폐기:</strong> 이전의 <code>O(√N log²N)</code> 초등 상계를 본질적인 오염 규모로 취급할 필요가 없습니다.</p>
+                <p><strong>다음 핵심:</strong> 모든 충분히 큰 짝수에서 상관합이 정확한 세타층 parity 상계를 넘는다는 점별 정리.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> <code>X≥4</code>의 간격-2 Λ 지원쌍은 모두 홀수이므로 홀수 proper-prime-power 국소 질량만 오염시킵니다.</p>
-                <p><strong>폐기:</strong> 짝수 Λ 지원쌍은 유일한 쌍 {2,4} 밖에 없어 X≥4 블록의 오염 예산에서 제외됩니다.</p>
-                <p><strong>다음 핵심:</strong> 무한히 많은 이진 블록에서 간격-2 상관합이 odd-only 국소 상계를 넘는다는 정리.</p>
+                <p><strong>확립:</strong> 모든 정수 구간의 홀수 proper-prime-power 질량은 두 누적 세타층의 정확한 차이며 간격-2 오염은 <code>O(√X log X)</code>입니다.</p>
+                <p><strong>폐기:</strong> <code>O(√X log²X)</code> 전역 상계를 간격-2 국소 오염의 자연 규모로 취급할 필요가 없습니다.</p>
+                <p><strong>다음 핵심:</strong> 무한히 많은 이진 블록에서 간격-2 상관합이 정확한 세타층 국소 상계를 넘는다는 정리.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>193개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-193은 아홉-1 콜라츠 주기층을 추가로 닫고, 리만의 everywhere 확장 정리와 두 소수 상관 문제의 parity 분리 오염 상계를 확정했습니다.</p>
+                <p>194개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-194는 열-1 콜라츠 주기층을 추가로 닫고, 리만의 조밀 코어 확장 정리와 두 소수 상관 문제의 세타층 오염 규모를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/everywhere-nineone-parity-envelope.ko.md">최신 한국어 보고서</a>
-              <a href="docs/everywhere-nineone-parity-envelope.md">Latest English report</a>
+              <a href="docs/densecore-tenone-theta-layers.ko.md">최신 한국어 보고서</a>
+              <a href="docs/densecore-tenone-theta-layers.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,7 +659,7 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-193</strong>
+              <strong>TICKET-194</strong>
               <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 정확한 정리 4개, 추가로 닫힌 무한 콜라츠 부분족 1개, 폐기·교정 경로 4개, 해결 0개입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260808-ticket193"></script>
-    <script src="assets/app.js?v=20260808-ticket193"></script>
+    <script src="assets/i18n.js?v=20260808-ticket194"></script>
+    <script src="assets/app.js?v=20260808-ticket194"></script>
   </body>
 </html>
 

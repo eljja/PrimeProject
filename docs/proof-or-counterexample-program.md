@@ -37,6 +37,35 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-194 Dense-Core Extension, Ten-One Cycles, and Theta Layers
+
+TICKET-194 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results.
+
+1. **Riemann:** `UniformlyBoundedDenseCoreQuadraticConvergenceExtendsEverywhere`
+   proves that one uniform operator bound plus convergence on a dense core
+   yields a bounded Hermitian limit on the whole Hilbert space. The positive,
+   monotone family `q_n(x)=sum_(k<=n) k|x_k|^2` proves that those core
+   properties alone do not imply the uniform bound.
+2. **Collatz:** `ExactlyTenValuationOnesOtherwiseTwoCycleExclusion` closes the
+   complete ten-one/rest-two periodic stratum. Noncontraction closes `h<=24`,
+   a complete 5+4 MITM residue audit represents 470,772,500 normalized words at
+   `h=25..38`, and `1024(5/6)^h<1` closes `h>=39`.
+3. **Goldbach:** `OddPrimePowerThetaLayerCompressionAndBinaryMassClassification`
+   proves the exact odd proper-prime-power theta-layer identity and classifies
+   the power-of-two pair mass. The classical Chebyshev bound lowers the
+   analytical contamination scale to `O(sqrt(N) log N)`.
+4. **Twin Prime:** `OddPrimePowerIntervalThetaLayerCompression` proves the exact
+   interval theta-layer identity and lowers the shift-two contamination scale
+   to `O(sqrt(X) log X)`.
+
+Machine audit: four exact theorems, one newly closed infinite Collatz stratum,
+two exact theta-layer identities, 470,772,500 represented Collatz words, four
+rejected or corrected routes, zero conjecture resolutions, and zero failures.
+
+English report: [TICKET-194](densecore-tenone-theta-layers.md).
+한국어 보고서: [TICKET-194](densecore-tenone-theta-layers.ko.md).
+
 ## 2026-08-08 TICKET-193 Everywhere Extension, Nine-One Cycles, and Parity Envelopes
 
 TICKET-193 keeps all four parent conjectures at `open_not_proven` and proves

@@ -1,0 +1,360 @@
+{
+  "schema": "primeproject.ticket194-densecore-tenone-theta-layers.v1",
+  "generated_at": "2026-08-08T06:30:00+09:00",
+  "ticket_id": "CO-TICKET-194",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+  "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly ten entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+  "mathematical_argument": "For length h the affine denominator is D=2^(2h-10)-3^h, positive exactly from h=25. Rotate to v_0=1. The numerator is a constant plus nine boundary terms. An exact 5+4 residue MITM covers every normalized word for h=25..38 and finds no divisibility hit. For a nontrivial positive odd cycle, 1<=1024(5/6)^h; this is below one from h=39 onward.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly ten entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+    "proof": "For length h the affine denominator is D=2^(2h-10)-3^h, positive exactly from h=25. Rotate to v_0=1. The numerator is a constant plus nine boundary terms. An exact 5+4 residue MITM covers every normalized word for h=25..38 and finds no divisibility hit. For a nontrivial positive odd cycle, 1<=1024(5/6)^h; this is below one from h=39 onward.",
+    "boundary_formula_validation": {
+      "horizons": [
+        10,
+        16
+      ],
+      "normalized_words_checked": 8008,
+      "formula_mismatch_count": 0,
+      "transcript_sha256": "c8340b8f1d60b7f461ab0717f76f94950e4ff49d67c500b314fb2fe4e55fae42"
+    },
+    "finite_exception_horizon_rows": [
+      {
+        "horizon_h": 25,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 42504,
+        "expected_left_tuple_count": 42504,
+        "right_tuple_count": 3876,
+        "expected_right_tuple_count": 3876,
+        "represented_word_count": 1307504,
+        "expected_word_count": 1307504,
+        "active_left_residue_count_at_final_boundary": 15504,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "f1a8a6ca3527faf7a656a508f1f37029e0995194893552a8983d38767476469c"
+      },
+      {
+        "horizon_h": 26,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 53130,
+        "expected_left_tuple_count": 53130,
+        "right_tuple_count": 4845,
+        "expected_right_tuple_count": 4845,
+        "represented_word_count": 2042975,
+        "expected_word_count": 2042975,
+        "active_left_residue_count_at_final_boundary": 20349,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "1cedbf58f68c8939c6effb8879e722fe44714266ea96c1916573e9f8c46370a5"
+      },
+      {
+        "horizon_h": 27,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 65780,
+        "expected_left_tuple_count": 65780,
+        "right_tuple_count": 5985,
+        "expected_right_tuple_count": 5985,
+        "represented_word_count": 3124550,
+        "expected_word_count": 3124550,
+        "active_left_residue_count_at_final_boundary": 26334,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "d61dd2d1e567cfca97ec91b09ce8865f42640e6b3ef03a3c363587af792a2c54"
+      },
+      {
+        "horizon_h": 28,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 80730,
+        "expected_left_tuple_count": 80730,
+        "right_tuple_count": 7315,
+        "expected_right_tuple_count": 7315,
+        "represented_word_count": 4686825,
+        "expected_word_count": 4686825,
+        "active_left_residue_count_at_final_boundary": 33649,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "c776ba9f0767f67e30d0e89d25df033045990de600d6e4ca048e4c056985a337"
+      },
+      {
+        "horizon_h": 29,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 98280,
+        "expected_left_tuple_count": 98280,
+        "right_tuple_count": 8855,
+        "expected_right_tuple_count": 8855,
+        "represented_word_count": 6906900,
+        "expected_word_count": 6906900,
+        "active_left_residue_count_at_final_boundary": 42504,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "dbdebd13f6b1d52367047fa4b00bb3ae2e7e40e3f7d16209b7f0c6d5b71af1b1"
+      },
+      {
+        "horizon_h": 30,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 118755,
+        "expected_left_tuple_count": 118755,
+        "right_tuple_count": 10626,
+        "expected_right_tuple_count": 10626,
+        "represented_word_count": 10015005,
+        "expected_word_count": 10015005,
+        "active_left_residue_count_at_final_boundary": 53130,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "00233861b0d158f64d35f6fd85d78b6d027acd67bc7e5de1bd95e2a486431daf"
+      },
+      {
+        "horizon_h": 31,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 142506,
+        "expected_left_tuple_count": 142506,
+        "right_tuple_count": 12650,
+        "expected_right_tuple_count": 12650,
+        "represented_word_count": 14307150,
+        "expected_word_count": 14307150,
+        "active_left_residue_count_at_final_boundary": 65780,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "b9c42f5c4320d8c2c34a695536937ed0e5eaa8defcfc4c2957789c3c12174706"
+      },
+      {
+        "horizon_h": 32,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 169911,
+        "expected_left_tuple_count": 169911,
+        "right_tuple_count": 14950,
+        "expected_right_tuple_count": 14950,
+        "represented_word_count": 20160075,
+        "expected_word_count": 20160075,
+        "active_left_residue_count_at_final_boundary": 80730,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "b92143b0a4b6f8b899461adea3651d44a82e2fbc827dc52a0768fc1f04b0a08f"
+      },
+      {
+        "horizon_h": 33,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 201376,
+        "expected_left_tuple_count": 201376,
+        "right_tuple_count": 17550,
+        "expected_right_tuple_count": 17550,
+        "represented_word_count": 28048800,
+        "expected_word_count": 28048800,
+        "active_left_residue_count_at_final_boundary": 98280,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "a5ce01630353c6ce4ff1303edac7b823a09f76798e7649bc197dc36592f26ff3"
+      },
+      {
+        "horizon_h": 34,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 237336,
+        "expected_left_tuple_count": 237336,
+        "right_tuple_count": 20475,
+        "expected_right_tuple_count": 20475,
+        "represented_word_count": 38567100,
+        "expected_word_count": 38567100,
+        "active_left_residue_count_at_final_boundary": 118755,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "3dc363cd7f1a7f2fe2ff170c48ba49cf2184fad62eb3f7e52bea637ef6311234"
+      },
+      {
+        "horizon_h": 35,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 278256,
+        "expected_left_tuple_count": 278256,
+        "right_tuple_count": 23751,
+        "expected_right_tuple_count": 23751,
+        "represented_word_count": 52451256,
+        "expected_word_count": 52451256,
+        "active_left_residue_count_at_final_boundary": 142506,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "5751ea5684046872930736757e2ebf0a7771d43546af7f76a87b7924ebcc4f6e"
+      },
+      {
+        "horizon_h": 36,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 324632,
+        "expected_left_tuple_count": 324632,
+        "right_tuple_count": 27405,
+        "expected_right_tuple_count": 27405,
+        "represented_word_count": 70607460,
+        "expected_word_count": 70607460,
+        "active_left_residue_count_at_final_boundary": 169911,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "af0ad0a72e474b7fc40c323d761a30b9823ad0607223e5776706a4f836a063fc"
+      },
+      {
+        "horizon_h": 37,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 376992,
+        "expected_left_tuple_count": 376992,
+        "right_tuple_count": 31465,
+        "expected_right_tuple_count": 31465,
+        "represented_word_count": 94143280,
+        "expected_word_count": 94143280,
+        "active_left_residue_count_at_final_boundary": 201376,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "b2d5640c9e10bd1e5262bc55745f71b2aa41e59b5ba304232f5793197a0b1891"
+      },
+      {
+        "horizon_h": 38,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "left_tuple_count": 435897,
+        "expected_left_tuple_count": 435897,
+        "right_tuple_count": 35960,
+        "expected_right_tuple_count": 35960,
+        "represented_word_count": 124403620,
+        "expected_word_count": 124403620,
+        "active_left_residue_count_at_final_boundary": 237336,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "28bec683e35ef3af60d13c9578cfb2f37bc614f312e1009f7143e361cae47c3e"
+      }
+    ],
+    "analytic_product_rows": [
+      {
+        "horizon_h": 39,
+        "cycle_product_upper_bound": {
+          "numerator": 1818989403545856475830078125,
+          "denominator": 2175698980931597341770645504,
+          "exact": "1818989403545856475830078125/2175698980931597341770645504",
+          "decimal": 0.8360482858557006
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 40,
+        "cycle_product_upper_bound": {
+          "numerator": 9094947017729282379150390625,
+          "denominator": 13054193885589584050623873024,
+          "exact": "9094947017729282379150390625/13054193885589584050623873024",
+          "decimal": 0.6967069048797505
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 48,
+        "cycle_product_upper_bound": {
+          "numerator": 3552713678800500929355621337890625,
+          "denominator": 21926032917338434804772667113078784,
+          "exact": "3552713678800500929355621337890625/21926032917338434804772667113078784",
+          "decimal": 0.16203175887741753
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 64,
+        "cycle_product_upper_bound": {
+          "numerator": 542101086242752217003726400434970855712890625,
+          "denominator": 61855748694309841509924108346495983017477013504,
+          "exact": "542101086242752217003726400434970855712890625/61855748694309841509924108346495983017477013504",
+          "decimal": 0.008763956425809466
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 96,
+        "cycle_product_upper_bound": {
+          "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+          "denominator": 492288941560021600490007013133904969419987966634834098565803408300703744,
+          "exact": "12621774483536188886587657044524579674771302961744368076324462890625/492288941560021600490007013133904969419987966634834098565803408300703744",
+          "decimal": 2.5638955942294508e-05
+        },
+        "strictly_below_one": true
+      }
+    ],
+    "analytic_bound": {
+      "bound_at_h_38": {
+        "numerator": 363797880709171295166015625,
+        "denominator": 362616496821932890295107584,
+        "exact": "363797880709171295166015625/362616496821932890295107584",
+        "decimal": 1.0032579430268407
+      },
+      "bound_at_h_39": {
+        "numerator": 1818989403545856475830078125,
+        "denominator": 2175698980931597341770645504,
+        "exact": "1818989403545856475830078125/2175698980931597341770645504",
+        "decimal": 0.8360482858557006
+      },
+      "analytic_range_starts_at_h": 39,
+      "bound_is_strictly_decreasing": true
+    },
+    "aggregate": {
+      "infinite_family_proved": true,
+      "includes_imprimitive_words": true,
+      "rotation_normalization_is_complete": true,
+      "mitm_coverage_is_complete": true,
+      "contracting_range_starts_at_h": 25,
+      "analytic_range_starts_at_h": 39,
+      "finite_exception_word_count": 470772500,
+      "finite_word_count_identity": "C(38,10)-C(24,10)=470772500",
+      "left_tuple_count": 2626085,
+      "right_tuple_count": 225708,
+      "divisibility_hits": 0
+    },
+    "no_go_scope": "This closes only the exactly-ten-one/rest-two periodic stratum. Eleven-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "the exactly-ten-one/rest-two valuation stratum as a source of positive Collatz cycles",
+  "remaining_gap": "Eleven-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+  "candidate_theorem": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof. The complete exactly-ten-one/rest-two periodic valuation stratum is excluded.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T193-INPUT",
+        "label": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "CO-T194-CLOSED",
+        "label": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T194-REJECTED",
+        "label": "ExactlyTenOneRestTwoCanContainAPositiveCycle",
+        "status": "refuted_or_coarse_surrogate"
+      },
+      {
+        "id": "CO-T194-OPEN",
+        "label": "NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T193-INPUT",
+        "CO-T194-CLOSED"
+      ],
+      [
+        "CO-T194-CLOSED",
+        "CO-T194-OPEN"
+      ],
+      [
+        "CO-T194-REJECTED",
+        "CO-T194-OPEN"
+      ]
+    ]
+  }
+}
