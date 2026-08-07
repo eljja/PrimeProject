@@ -1,0 +1,196 @@
+{
+  "schema": "primeproject.ticket192-uniform-eightone-weighted-envelope.v1",
+  "generated_at": "2026-08-08T03:00:00+09:00",
+  "ticket_id": "GB-TICKET-192",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+  "declared_proposition": "Let W_pp(X)=sum_{p^k<=X,k>=2} log p. The proper-prime-power part E_pp(N) of the binary von Mangoldt correlation satisfies E_pp(N)<=2 log(N) W_pp(N). If A(N) counts proper prime powers, then W_pp(N)<=A(N)log(N)/2 and hence E_pp(N)<=A(N)(log N)^2, halving the corresponding count-based factor in the TICKET-191 sufficient budget.",
+  "mathematical_argument": "Charge each contaminated ordered pair to a proper prime power in its left or right coordinate. The other von Mangoldt factor is at most log N, giving the first union bound. For q=p^k with k>=2 and q<=N, log p=log q/k<=log N/2. Summing over the A(N) proper powers gives the second bound. Strict total correlation above this envelope leaves positive prime-prime mass.",
+  "reproducible_computation": {
+    "theorem": "Let W_pp(X)=sum_{p^k<=X,k>=2} log p. The proper-prime-power part E_pp(N) of the binary von Mangoldt correlation satisfies E_pp(N)<=2 log(N) W_pp(N). If A(N) counts proper prime powers, then W_pp(N)<=A(N)log(N)/2 and hence E_pp(N)<=A(N)(log N)^2, halving the corresponding count-based factor in the TICKET-191 sufficient budget.",
+    "proof": "Charge each contaminated ordered pair to a proper prime power in its left or right coordinate. The other von Mangoldt factor is at most log N, giving the first union bound. For q=p^k with k>=2 and q<=N, log p=log q/k<=log N/2. Summing over the A(N) proper powers gives the second bound. Strict total correlation above this envelope leaves positive prime-prime mass.",
+    "weighted_budget_rows": [
+      {
+        "target_N": 64,
+        "weighted_proper_prime_power_mass": 9.21830854162536,
+        "actual_proper_prime_power_count": 9,
+        "actual_contamination": 8.414450598323691,
+        "weighted_contamination_envelope": 76.67573490191135,
+        "count_envelope": 155.66677650949723,
+        "ticket191_simplified_budget": 830.2228080506518,
+        "weighted_total_convolution": 94.71708540714664,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 256,
+        "weighted_proper_prime_power_mass": 19.374110022775476,
+        "actual_proper_prime_power_count": 16,
+        "actual_contamination": 33.747985119491766,
+        "weighted_contamination_envelope": 214.86575581031997,
+        "count_envelope": 491.9838862522382,
+        "ticket191_simplified_budget": 3197.8952606395483,
+        "weighted_total_convolution": 334.6227993418635,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 1024,
+        "weighted_proper_prime_power_mass": 41.128794307676316,
+        "actual_proper_prime_power_count": 26,
+        "actual_contamination": 15.65174110605954,
+        "weighted_contamination_envelope": 570.1661562839154,
+        "count_envelope": 1249.1778361873237,
+        "ticket191_simplified_budget": 10762.147511767711,
+        "weighted_total_convolution": 1393.796065987939,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 4096,
+        "weighted_proper_prime_power_mass": 79.22643456759694,
+        "actual_proper_prime_power_count": 40,
+        "actual_contamination": 40.762552381279555,
+        "weighted_contamination_envelope": 1317.9739139123233,
+        "count_envelope": 2767.4093601688396,
+        "ticket191_simplified_budget": 30994.984833891,
+        "weighted_total_convolution": 5296.348647829686,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 16384,
+        "weighted_proper_prime_power_mass": 153.4268898147819,
+        "actual_proper_prime_power_count": 61,
+        "actual_contamination": 224.7746237623914,
+        "weighted_contamination_envelope": 2977.727650721529,
+        "count_envelope": 5744.296234406015,
+        "ticket191_simplified_budget": 80608.48486314015,
+        "weighted_total_convolution": 22378.482555409926,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 65536,
+        "weighted_proper_prime_power_mass": 292.13843775647274,
+        "actual_proper_prime_power_count": 93,
+        "actual_contamination": 110.82465818844793,
+        "weighted_contamination_envelope": 6479.837902850757,
+        "count_envelope": 11438.625355364538,
+        "ticket191_simplified_budget": 200729.4255909132,
+        "weighted_total_convolution": 87237.3472688245,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 262144,
+        "weighted_proper_prime_power_mass": 584.7263853352559,
+        "actual_proper_prime_power_count": 150,
+        "actual_contamination": 40.602635121380274,
+        "weighted_contamination_envelope": 14590.852034189069,
+        "count_envelope": 23350.01647642459,
+        "ticket191_simplified_budget": 478208.33743717556,
+        "weighted_total_convolution": 341281.5358202622,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      },
+      {
+        "target_N": 1048576,
+        "weighted_proper_prime_power_mass": 1135.4232390720208,
+        "actual_proper_prime_power_count": 242,
+        "actual_contamination": 170.34091545973897,
+        "weighted_contamination_envelope": 31480.61667620048,
+        "count_envelope": 46507.85174728189,
+        "ticket191_simplified_budget": 1092357.9724444228,
+        "weighted_total_convolution": 1388031.9124054494,
+        "checks": {
+          "actual_contamination_below_weighted_envelope": true,
+          "weighted_envelope_below_count_envelope": true,
+          "count_envelope_below_half_ticket191_budget": true,
+          "finite_total_exceeds_weighted_envelope": true
+        }
+      }
+    ],
+    "aggregate": {
+      "target_count": 8,
+      "largest_target": 1048576,
+      "weighted_envelope_theorem_proved": true,
+      "count_budget_factor_two_removed": true,
+      "finite_sample_budget_excess_count": 8,
+      "all_large_even_targets_proved": false
+    },
+    "no_go_scope": "The finite rows verify the sharper sufficient inequality only at listed targets. They do not establish it for every sufficiently large even integer, so strong Goldbach remains open.",
+    "failure_count": 0
+  },
+  "discarded_route": "using the unweighted count budget as the primary sufficient target after exponent weights are available",
+  "remaining_gap": "No every-large-even lower bound above the weighted envelope is proved.",
+  "candidate_theorem": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof. The sufficient contamination envelope is reduced by a factor of at least two, but the universal correlation lower bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T191-INPUT",
+        "label": "BinaryVonMangoldtCorrelationExceedsExplicitPrimePowerBudgetForEveryLargeEvenTarget",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T192-CLOSED",
+        "label": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T192-REJECTED",
+        "label": "UnweightedCountEnvelopeIsTheSharpestPracticalSufficientTarget",
+        "status": "refuted_or_stronger_than_necessary"
+      },
+      {
+        "id": "GB-T192-OPEN",
+        "label": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T191-INPUT",
+        "GB-T192-CLOSED"
+      ],
+      [
+        "GB-T192-CLOSED",
+        "GB-T192-OPEN"
+      ],
+      [
+        "GB-T192-REJECTED",
+        "GB-T192-OPEN"
+      ]
+    ]
+  }
+}

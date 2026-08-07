@@ -1,16 +1,16 @@
 {
-  "schema": "primeproject.ticket191-probe-sevenone-budget-granularity.v1",
-  "generated_at": "2026-08-08T00:30:00+09:00",
-  "ticket_id": "TP-TICKET-191",
+  "schema": "primeproject.ticket192-uniform-eightone-weighted-envelope.v1",
+  "generated_at": "2026-08-08T03:00:00+09:00",
+  "ticket_id": "TP-TICKET-192",
   "problem_id": "twin-prime",
   "status": "open_not_proven",
-  "theorem_name": "ArithmeticBlockGranularityEquivalenceAndLinearDensityNoGo",
-  "declared_proposition": "After exact proper-prime-power subtraction on the dyadic block [2^j,2^(j+1)), the remaining shift-two von Mangoldt excess b_j is the weighted twin-prime mass. Hence b_j>0 exactly when that block contains a twin-prime pair, and any positive b_j is at least (j log 2)^2. The Twin Prime conjecture is therefore equivalent to b_j>0 for infinitely many j, and also to unbounded cumulative sum of b_j. Positive linear cumulative density is strictly stronger: the formal arithmetic-scale sequence b_j=(j log 2)^2 on power-of-two indices and zero elsewhere has unbounded mass but zero linear density.",
-  "mathematical_argument": "The exact decomposition classifies each supported pair as either prime-prime or as involving a proper prime power. Subtraction leaves a nonnegative sum over twin primes only. A pair in block j contributes log p log(p+2)>=(j log 2)^2. Thus infinitely many pairs, infinitely many positive blocks, and unbounded cumulative mass are equivalent. For the sparse model the normalized cumulative mass through J is at most (log_2 J)J^2, which divided by 2^J tends to zero.",
+  "theorem_name": "LocalTwoSidedWeightedEnvelopeBridge",
+  "declared_proposition": "For the dyadic block [X,2X), let W_pp(I) be the sum of log p over proper prime powers p^k in I. The shift-two prime-power contamination is at most log(2X+2) times [W_pp([X,2X))+W_pp([X+2,2X+2))]. Correlation above this local weighted envelope forces a twin prime in the block. Each weighted mass is at most one half log(2X+2) per proper power, so this also removes the factor two from the earlier global count envelope.",
+  "mathematical_argument": "A contaminated term has n or n+2 equal to a proper prime power. Charge it to the appropriate local interval; its partner has von Mangoldt weight at most log(2X+2). The union bound gives the local envelope. Subtracting it from the full correlation leaves a strictly positive prime-prime contribution. The exponent k>=2 again gives log p<=log(2X+2)/2.",
   "reproducible_computation": {
-    "theorem": "After exact proper-prime-power subtraction on the dyadic block [2^j,2^(j+1)), the remaining shift-two von Mangoldt excess b_j is the weighted twin-prime mass. Hence b_j>0 exactly when that block contains a twin-prime pair, and any positive b_j is at least (j log 2)^2. The Twin Prime conjecture is therefore equivalent to b_j>0 for infinitely many j, and also to unbounded cumulative sum of b_j. Positive linear cumulative density is strictly stronger: the formal arithmetic-scale sequence b_j=(j log 2)^2 on power-of-two indices and zero elsewhere has unbounded mass but zero linear density.",
-    "proof": "The exact decomposition classifies each supported pair as either prime-prime or as involving a proper prime power. Subtraction leaves a nonnegative sum over twin primes only. A pair in block j contributes log p log(p+2)>=(j log 2)^2. Thus infinitely many pairs, infinitely many positive blocks, and unbounded cumulative mass are equivalent. For the sparse model the normalized cumulative mass through J is at most (log_2 J)J^2, which divided by 2^J tends to zero.",
-    "finite_arithmetic_rows": [
+    "theorem": "For the dyadic block [X,2X), let W_pp(I) be the sum of log p over proper prime powers p^k in I. The shift-two prime-power contamination is at most log(2X+2) times [W_pp([X,2X))+W_pp([X+2,2X+2))]. Correlation above this local weighted envelope forces a twin prime in the block. Each weighted mass is at most one half log(2X+2) per proper power, so this also removes the factor two from the earlier global count envelope.",
+    "proof": "A contaminated term has n or n+2 equal to a proper prime power. Charge it to the appropriate local interval; its partner has von Mangoldt weight at most log(2X+2). The union bound gives the local envelope. Subtracting it from the full correlation leaves a strictly positive prime-prime contribution. The exponent k>=2 again gives log p<=log(2X+2)/2.",
+    "finite_dyadic_rows": [
       {
         "dyadic_exponent_j": 4,
         "block": [
@@ -49,11 +49,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 7.687248222691222,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 3.4011973816621555,
+        "right_local_weighted_proper_power_mass": 3.4011973816621555,
+        "local_weighted_contamination_envelope": 23.98769636624255,
+        "half_global_count_envelope": 87.04652984699818
       },
       {
         "dyadic_exponent_j": 5,
@@ -81,11 +85,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 12.011325347955035,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 2.6390573296152584,
+        "right_local_weighted_proper_power_mass": 2.6390573296152584,
+        "local_weighted_contamination_envelope": 22.113478111004323,
+        "half_global_count_envelope": 157.9788617164606
       },
       {
         "dyadic_exponent_j": 6,
@@ -125,11 +133,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 17.29630850105525,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 5.799092654460526,
+        "right_local_weighted_proper_power_mass": 5.799092654460526,
+        "local_weighted_contamination_envelope": 56.454566553941035,
+        "half_global_count_envelope": 308.00759114283505
       },
       {
         "dyadic_exponent_j": 7,
@@ -163,11 +175,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 23.54219768199187,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 4.356708826689592,
+        "right_local_weighted_proper_power_mass": 4.356708826689592,
+        "local_weighted_contamination_envelope": 48.38525607575716,
+        "half_global_count_envelope": 493.36576242836577
       },
       {
         "dyadic_exponent_j": 8,
@@ -195,11 +211,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 30.74899289076489,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 8.416709652837914,
+        "right_local_weighted_proper_power_mass": 8.416709652837914,
+        "local_weighted_contamination_envelope": 105.07796162705179,
+        "half_global_count_envelope": 779.3070259157951
       },
       {
         "dyadic_exponent_j": 9,
@@ -233,11 +253,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 38.91669412737431,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 13.337974632062926,
+        "right_local_weighted_proper_power_mass": 13.337974632062926,
+        "local_weighted_contamination_envelope": 184.9556408611145,
+        "half_global_count_envelope": 1249.8812261970543
       },
       {
         "dyadic_exponent_j": 10,
@@ -271,11 +295,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 48.04530139182014,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 14.17673254840041,
+        "right_local_weighted_proper_power_mass": 14.17673254840041,
+        "local_weighted_contamination_envelope": 216.21204372004385,
+        "half_global_count_envelope": 1802.6407063280535
       },
       {
         "dyadic_exponent_j": 11,
@@ -315,11 +343,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 58.134814684102366,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 23.92090771152022,
+        "right_local_weighted_proper_power_mass": 23.92090771152022,
+        "local_weighted_contamination_envelope": 397.9603882403015,
+        "half_global_count_envelope": 2767.7342031432295
       },
       {
         "dyadic_exponent_j": 12,
@@ -365,11 +397,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 69.185234004221,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 33.60416856002714,
+        "right_local_weighted_proper_power_mass": 33.60416856002714,
+        "local_weighted_contamination_envelope": 605.6249082863344,
+        "half_global_count_envelope": 4060.0479367397056
       },
       {
         "dyadic_exponent_j": 13,
@@ -415,11 +451,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 81.19655935217604,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 40.59628668715783,
+        "right_local_weighted_proper_power_mass": 40.59628668715783,
+        "local_weighted_contamination_envelope": 787.9075570333093,
+        "half_global_count_envelope": 5744.440744974428
       },
       {
         "dyadic_exponent_j": 14,
@@ -465,11 +505,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 94.16879072796748,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 68.66194458531307,
+        "right_local_weighted_proper_power_mass": 68.66194458531307,
+        "local_weighted_contamination_envelope": 1427.7933803614458,
+        "half_global_count_envelope": 8432.049388384708
       },
       {
         "dyadic_exponent_j": 15,
@@ -515,11 +559,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 108.10192813159532,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 70.04960335637776,
+        "right_local_weighted_proper_power_mass": 70.04960335637776,
+        "local_weighted_contamination_envelope": 1553.754197529352,
+        "half_global_count_envelope": 11438.688306334148
       },
       {
         "dyadic_exponent_j": 16,
@@ -565,11 +613,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 122.99597156305956,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 124.3052534266,
+        "right_local_weighted_proper_power_mass": 124.3052534266,
+        "local_weighted_contamination_envelope": 2929.5062154752086,
+        "half_global_count_envelope": 16523.302394231545
       },
       {
         "dyadic_exponent_j": 17,
@@ -615,11 +667,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 138.8509210223602,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 168.28269415218315,
+        "right_local_weighted_proper_power_mass": 168.28269415218315,
+        "local_weighted_contamination_envelope": 4199.2108673705625,
+        "half_global_count_envelope": 23350.045033108254
       },
       {
         "dyadic_exponent_j": 18,
@@ -665,11 +721,15 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 155.66677650949725,
-        "positive_mass_respects_granularity": true
+        "left_local_weighted_proper_power_mass": 224.28556549595302,
+        "right_local_weighted_proper_power_mass": 224.28556549595302,
+        "local_weighted_contamination_envelope": 5907.592190984689,
+        "half_global_count_envelope": 32780.84767685276
       },
       {
         "dyadic_exponent_j": 19,
@@ -715,155 +775,67 @@
           "support_decomposition_exact": true,
           "weighted_decomposition_replays": true,
           "contamination_support_below_two_A": true,
-          "contamination_mass_below_explicit_bound": true
+          "contamination_mass_below_explicit_bound": true,
+          "actual_contamination_below_local_envelope": true,
+          "local_envelope_below_half_global_count_envelope": true,
+          "finite_total_exceeds_local_envelope": true
         },
-        "positive_excess_iff_twin_pair_in_block": true,
-        "minimum_mass_if_positive": 173.4435380244707,
-        "positive_mass_respects_granularity": true
-      }
-    ],
-    "sparse_arithmetic_scale_no_go_rows": [
-      {
-        "block_exponent_cutoff_J": 8,
-        "active_exponents_j": [
-          2,
-          4
-        ],
-        "normalized_block_rule": "b_j/(log 2)^2=j^2 when j is a power of two; zero otherwise",
-        "normalized_cumulative_mass": 20,
-        "normalized_cumulative_over_2_to_J": {
-          "numerator": 5,
-          "denominator": 64,
-          "exact": "5/64",
-          "decimal": 0.078125
-        },
-        "positive_block_count": 2
-      },
-      {
-        "block_exponent_cutoff_J": 16,
-        "active_exponents_j": [
-          2,
-          4,
-          8
-        ],
-        "normalized_block_rule": "b_j/(log 2)^2=j^2 when j is a power of two; zero otherwise",
-        "normalized_cumulative_mass": 84,
-        "normalized_cumulative_over_2_to_J": {
-          "numerator": 21,
-          "denominator": 16384,
-          "exact": "21/16384",
-          "decimal": 0.00128173828125
-        },
-        "positive_block_count": 3
-      },
-      {
-        "block_exponent_cutoff_J": 32,
-        "active_exponents_j": [
-          2,
-          4,
-          8,
-          16
-        ],
-        "normalized_block_rule": "b_j/(log 2)^2=j^2 when j is a power of two; zero otherwise",
-        "normalized_cumulative_mass": 340,
-        "normalized_cumulative_over_2_to_J": {
-          "numerator": 85,
-          "denominator": 1073741824,
-          "exact": "85/1073741824",
-          "decimal": 7.916241884231567e-08
-        },
-        "positive_block_count": 4
-      },
-      {
-        "block_exponent_cutoff_J": 64,
-        "active_exponents_j": [
-          2,
-          4,
-          8,
-          16,
-          32
-        ],
-        "normalized_block_rule": "b_j/(log 2)^2=j^2 when j is a power of two; zero otherwise",
-        "normalized_cumulative_mass": 1364,
-        "normalized_cumulative_over_2_to_J": {
-          "numerator": 341,
-          "denominator": 4611686018427387904,
-          "exact": "341/4611686018427387904",
-          "decimal": 7.39425881635114e-17
-        },
-        "positive_block_count": 5
-      },
-      {
-        "block_exponent_cutoff_J": 128,
-        "active_exponents_j": [
-          2,
-          4,
-          8,
-          16,
-          32,
-          64
-        ],
-        "normalized_block_rule": "b_j/(log 2)^2=j^2 when j is a power of two; zero otherwise",
-        "normalized_cumulative_mass": 5460,
-        "normalized_cumulative_over_2_to_J": {
-          "numerator": 1365,
-          "denominator": 85070591730234615865843651857942052864,
-          "exact": "1365/85070591730234615865843651857942052864",
-          "decimal": 1.6045497888724224e-35
-        },
-        "positive_block_count": 6
+        "left_local_weighted_proper_power_mass": 326.41128824081187,
+        "right_local_weighted_proper_power_mass": 326.41128824081187,
+        "local_weighted_contamination_envelope": 9050.043811041396,
+        "half_global_count_envelope": 46507.864544940385
       }
     ],
     "aggregate": {
       "dyadic_block_count": 16,
       "largest_upper_endpoint": 1048576,
-      "block_positivity_equivalence_proved": true,
-      "unbounded_cumulative_equivalence_proved": true,
-      "positive_linear_density_is_necessary": false,
-      "infinitely_many_actual_positive_blocks_proved": false
+      "local_weighted_envelope_theorem_proved": true,
+      "count_budget_factor_two_removed": true,
+      "finite_block_envelope_success_count": 16,
+      "infinitely_many_envelope_successes_proved": false
     },
-    "no_go_scope": "The sparse sequence is a logical model respecting the minimum arithmetic mass scale, not observed prime data. The theorem does not prove that the actual exact excess is positive on infinitely many blocks, so it does not prove the Twin Prime conjecture.",
+    "no_go_scope": "All displayed finite blocks pass the sufficient envelope, but a finite prefix cannot establish infinitely many successful blocks. No unbounded dyadic sequence estimate is proved, so the Twin Prime conjecture remains open.",
     "failure_count": 0
   },
-  "discarded_route": "requiring positive linear cumulative or block density as though it were equivalent to twin-prime infinitude",
-  "remaining_gap": "No proof establishes positive exact shift-two excess on infinitely many unbounded dyadic blocks.",
-  "candidate_theorem": "ShiftTwoCorrelationExceedsExactPrimePowerContaminationOnInfinitelyManyDyadicBlocks",
-  "claim_boundary": "No Twin Prime proof. Exact block positivity and unbounded cumulative excess are proved equivalent to infinitude; linear density is refuted as necessary.",
+  "discarded_route": "using a global unweighted proper-power count when only two translated local intervals can contaminate a block",
+  "remaining_gap": "No proof gives correlation above the local weighted envelope on infinitely many unbounded dyadic blocks.",
+  "candidate_theorem": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof. A local weighted sufficient envelope is proved and passes finite replay, but infinitude is open.",
   "proof_dag": {
     "nodes": [
       {
-        "id": "TP-T190-INPUT",
-        "label": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+        "id": "TP-T191-INPUT",
+        "label": "ShiftTwoCorrelationExceedsExactPrimePowerContaminationOnInfinitelyManyDyadicBlocks",
         "status": "proved_exact_input_or_open_target"
       },
       {
-        "id": "TP-T191-CLOSED",
-        "label": "ArithmeticBlockGranularityEquivalenceAndLinearDensityNoGo",
+        "id": "TP-T192-CLOSED",
+        "label": "LocalTwoSidedWeightedEnvelopeBridge",
         "status": "proved_exact"
       },
       {
-        "id": "TP-T191-REJECTED",
-        "label": "TwinPrimeInfinitudeRequiresPositiveLinearDyadicDensity",
+        "id": "TP-T192-REJECTED",
+        "label": "GlobalUnweightedCountIsTheSharpestDyadicContaminationTarget",
         "status": "refuted_or_stronger_than_necessary"
       },
       {
-        "id": "TP-T191-OPEN",
-        "label": "ShiftTwoCorrelationExceedsExactPrimePowerContaminationOnInfinitelyManyDyadicBlocks",
+        "id": "TP-T192-OPEN",
+        "label": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks",
         "status": "open_not_proven"
       }
     ],
     "edges": [
       [
-        "TP-T190-INPUT",
-        "TP-T191-CLOSED"
+        "TP-T191-INPUT",
+        "TP-T192-CLOSED"
       ],
       [
-        "TP-T191-CLOSED",
-        "TP-T191-OPEN"
+        "TP-T192-CLOSED",
+        "TP-T192-OPEN"
       ],
       [
-        "TP-T191-REJECTED",
-        "TP-T191-OPEN"
+        "TP-T192-REJECTED",
+        "TP-T192-OPEN"
       ]
     ]
   }

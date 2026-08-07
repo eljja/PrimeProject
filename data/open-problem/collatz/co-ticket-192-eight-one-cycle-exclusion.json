@@ -1,0 +1,248 @@
+{
+  "schema": "primeproject.ticket192-uniform-eightone-weighted-envelope.v1",
+  "generated_at": "2026-08-08T03:00:00+09:00",
+  "ticket_id": "CO-TICKET-192",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+  "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly eight entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+  "mathematical_argument": "For period length h the affine denominator is D=2^(2h-8)-3^h, positive from h=20. Rotate any word so one of its eight ones is first. Divisibility is rotation invariant via 2^v B_shift=3B+D, and D is odd. Exact enumeration of all sum_{h=20}^{30} C(h-1,7)=5,777,343 normalized words finds no D|B hit. A nontrivial positive odd cycle has every value at least three, so multiplication gives 1<=256(5/6)^h. The right side is strictly below one at h=31 and decreases thereafter.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly eight entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+    "proof": "For period length h the affine denominator is D=2^(2h-8)-3^h, positive from h=20. Rotate any word so one of its eight ones is first. Divisibility is rotation invariant via 2^v B_shift=3B+D, and D is odd. Exact enumeration of all sum_{h=20}^{30} C(h-1,7)=5,777,343 normalized words finds no D|B hit. A nontrivial positive odd cycle has every value at least three, so multiplication gives 1<=256(5/6)^h. The right side is strictly below one at h=31 and decreases thereafter.",
+    "finite_exception_horizon_rows": [
+      {
+        "horizon_h": 20,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 50388,
+        "expected_word_count": 50388,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "dfd9ba015e62a5c4cb872a4b5ade623a7d4db7a36a4bdca6d441696f4dc7fa07"
+      },
+      {
+        "horizon_h": 21,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 77520,
+        "expected_word_count": 77520,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "981a28073e09fa9079eb439b2bc62ea570fe2a7c711ef0462501f486b686a94c"
+      },
+      {
+        "horizon_h": 22,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 116280,
+        "expected_word_count": 116280,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "2bba4c86e71afeab1c3b798e2c242a792cf5a358fb07d46a99ea1843bba97a65"
+      },
+      {
+        "horizon_h": 23,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 170544,
+        "expected_word_count": 170544,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "674836f62e46c52447a5c03a3bbc0f2f38dd5fe77a7bbe4f1273b7fbc20ba62e"
+      },
+      {
+        "horizon_h": 24,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 245157,
+        "expected_word_count": 245157,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "1d35430b6c17703b3d485de96a69a06d11707609679f2a1c3a0e8fc4ae9e85fa"
+      },
+      {
+        "horizon_h": 25,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 346104,
+        "expected_word_count": 346104,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "bf5f2535fad440286b0eec2ff99a98297b8672a050b58f01ff82d509b59f9573"
+      },
+      {
+        "horizon_h": 26,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 480700,
+        "expected_word_count": 480700,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "1d5512f860ebc736e2fd700e55051a6908ebcdc7ef966c4b40b2bb47d89eb7a9"
+      },
+      {
+        "horizon_h": 27,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 657800,
+        "expected_word_count": 657800,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "53e4cc807de45a33840af40482256ceaac461733cd1620c36dac4a9bc2b963b8"
+      },
+      {
+        "horizon_h": 28,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 888030,
+        "expected_word_count": 888030,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "1e4216cc24a63f5c357f04df021e34360d93aed4d653c1937f1d8c9ccff6944b"
+      },
+      {
+        "horizon_h": 29,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 1184040,
+        "expected_word_count": 1184040,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "a19ed52ffc193992bcbde84c3f65574aa9a4f64c362488516711766949d54ff8"
+      },
+      {
+        "horizon_h": 30,
+        "rotation_normalization": "v_0=1",
+        "contracting": true,
+        "word_count": 1560780,
+        "expected_word_count": 1560780,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "2daf6393041a6a369f6626aa0c104d82c1dabf89b3832ae42dbff3f114b40903"
+      }
+    ],
+    "analytic_product_rows": [
+      {
+        "horizon_h": 31,
+        "cycle_product_upper_bound": {
+          "numerator": 4656612873077392578125,
+          "denominator": 5181419993454688075776,
+          "exact": "4656612873077392578125/5181419993454688075776",
+          "decimal": 0.8987136497253173
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 32,
+        "cycle_product_upper_bound": {
+          "numerator": 23283064365386962890625,
+          "denominator": 31088519960728128454656,
+          "exact": "23283064365386962890625/31088519960728128454656",
+          "decimal": 0.7489280414377645
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 40,
+        "cycle_product_upper_bound": {
+          "numerator": 9094947017729282379150390625,
+          "denominator": 52216775542358336202495492096,
+          "exact": "9094947017729282379150390625/52216775542358336202495492096",
+          "decimal": 0.17417672621993763
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 64,
+        "cycle_product_upper_bound": {
+          "numerator": 542101086242752217003726400434970855712890625,
+          "denominator": 247422994777239366039696433385983932069908054016,
+          "exact": "542101086242752217003726400434970855712890625/247422994777239366039696433385983932069908054016",
+          "decimal": 0.0021909891064523664
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 96,
+        "cycle_product_upper_bound": {
+          "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+          "denominator": 1969155766240086401960028052535619877679951866539336394263213633202814976,
+          "exact": "12621774483536188886587657044524579674771302961744368076324462890625/1969155766240086401960028052535619877679951866539336394263213633202814976",
+          "decimal": 6.409738985573627e-06
+        },
+        "strictly_below_one": true
+      }
+    ],
+    "analytic_bound": {
+      "bound_at_h_31": {
+        "numerator": 4656612873077392578125,
+        "denominator": 5181419993454688075776,
+        "exact": "4656612873077392578125/5181419993454688075776",
+        "decimal": 0.8987136497253173
+      },
+      "required_upper_threshold": {
+        "numerator": 1,
+        "denominator": 1,
+        "exact": "1/1",
+        "decimal": 1.0
+      },
+      "analytic_range_starts_at_h": 31,
+      "bound_is_strictly_decreasing": true
+    },
+    "aggregate": {
+      "infinite_family_proved": true,
+      "includes_imprimitive_words": true,
+      "rotation_normalization_is_complete": true,
+      "contracting_range_starts_at_h": 20,
+      "analytic_range_starts_at_h": 31,
+      "finite_exception_word_count": 5777343,
+      "finite_word_count_identity": "C(30,8)-C(19,8)=5777343",
+      "divisibility_hits": 0
+    },
+    "no_go_scope": "This closes only the exactly-eight-one/rest-two periodic valuation stratum. Nine-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "enumerating every cyclic rotation separately and continuing enumeration beyond the exact product cutoff",
+  "remaining_gap": "Nine-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+  "candidate_theorem": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof. The complete exactly-eight-one/rest-two periodic valuation stratum is excluded.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T191-INPUT",
+        "label": "NoContractingValuationWordWithExactlyEightOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "CO-T192-CLOSED",
+        "label": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T192-REJECTED",
+        "label": "AllCyclicRotationsMustBeEnumeratedIndependently",
+        "status": "refuted_or_stronger_than_necessary"
+      },
+      {
+        "id": "CO-T192-OPEN",
+        "label": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T191-INPUT",
+        "CO-T192-CLOSED"
+      ],
+      [
+        "CO-T192-CLOSED",
+        "CO-T192-OPEN"
+      ],
+      [
+        "CO-T192-REJECTED",
+        "CO-T192-OPEN"
+      ]
+    ]
+  }
+}

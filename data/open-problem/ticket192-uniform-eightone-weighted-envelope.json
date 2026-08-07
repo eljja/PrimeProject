@@ -1,0 +1,1785 @@
+{
+  "schema": "primeproject.ticket192-uniform-eightone-weighted-envelope.v1",
+  "generated_at": "2026-08-08T03:00:00+09:00",
+  "status": "one_additional_infinite_cycle_stratum_closed_three_uniformity_or_weighted_targets_sharpened_all_open",
+  "claim_boundary": "TICKET-192 resolves none of the four conjectures. It closes the complete exactly-eight-one/rest-two accelerated Collatz cycle stratum, proves the uniform boundedness criterion missing from the RH core-promotion route, and replaces count-only prime-power budgets by sharper weighted envelopes for Goldbach and Twin Prime.",
+  "uniform_eightone_weighted_envelope_audit": {
+    "theorem_name": "FourConjectureUniformEightOneWeightedEnvelopeAudit",
+    "status": "one_additional_infinite_cycle_stratum_closed_three_uniformity_or_weighted_targets_sharpened_all_open",
+    "proof_boundary": "TICKET-192 resolves none of the four conjectures. It closes the complete exactly-eight-one/rest-two accelerated Collatz cycle stratum, proves the uniform boundedness criterion missing from the RH core-promotion route, and replaces count-only prime-power budgets by sharper weighted envelopes for Goldbach and Twin Prime.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-192",
+      "theorem_name": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+      "declared_proposition": "Let D be dense in a complex Hilbert space H and q a Hermitian quadratic form on D. The form extends uniquely to a bounded Hermitian form on H if and only if |q(x)|<=C||x||^2 on D for some finite C. Positivity then passes to H. Pointwise Cauchy convergence on a countable dense core is not sufficient: the positive finite sections q_N(x)=sum_{k<=N} k|x_k|^2 stabilize on c_00 but their limit has q(e_k)=k and no bounded extension to l^2.",
+      "mathematical_argument": "Necessity follows by restricting a bounded extension to D. For sufficiency, complex polarization and rescaling give |B(x,y)|<=2C||x||||y||, so B extends uniquely by density. The quadratic form of the extension is continuous, and nonnegativity passes from D to H. In the counterexample every finite-support vector is eventually unchanged by the truncations, while the unit coordinate values k are unbounded; a bounded extension would bound all of them by one common constant.",
+      "reproducible_computation": {
+        "theorem": "Let D be dense in a complex Hilbert space H and q a Hermitian quadratic form on D. The form extends uniquely to a bounded Hermitian form on H if and only if |q(x)|<=C||x||^2 on D for some finite C. Positivity then passes to H. Pointwise Cauchy convergence on a countable dense core is not sufficient: the positive finite sections q_N(x)=sum_{k<=N} k|x_k|^2 stabilize on c_00 but their limit has q(e_k)=k and no bounded extension to l^2.",
+        "proof": "Necessity follows by restricting a bounded extension to D. For sufficiency, complex polarization and rescaling give |B(x,y)|<=2C||x||||y||, so B extends uniquely by density. The quadratic form of the extension is continuous, and nonnegativity passes from D to H. In the counterexample every finite-support vector is eventually unchanged by the truncations, while the unit coordinate values k are unbounded; a bounded extension would bound all of them by one common constant.",
+        "finite_section_counterexample_rows": [
+          {
+            "dimension_N": 2,
+            "diagonal": [
+              1,
+              2
+            ],
+            "unit_coordinate_witness": 2,
+            "witness_quadratic_value": 2,
+            "operator_norm": 2,
+            "positive_semidefinite": true,
+            "pointwise_stable_on_vectors_supported_below_N": true
+          },
+          {
+            "dimension_N": 4,
+            "diagonal": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "unit_coordinate_witness": 4,
+            "witness_quadratic_value": 4,
+            "operator_norm": 4,
+            "positive_semidefinite": true,
+            "pointwise_stable_on_vectors_supported_below_N": true
+          },
+          {
+            "dimension_N": 8,
+            "diagonal": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "unit_coordinate_witness": 8,
+            "witness_quadratic_value": 8,
+            "operator_norm": 8,
+            "positive_semidefinite": true,
+            "pointwise_stable_on_vectors_supported_below_N": true
+          },
+          {
+            "dimension_N": 16,
+            "diagonal": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "unit_coordinate_witness": 16,
+            "witness_quadratic_value": 16,
+            "operator_norm": 16,
+            "positive_semidefinite": true,
+            "pointwise_stable_on_vectors_supported_below_N": true
+          },
+          {
+            "dimension_N": 32,
+            "diagonal": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "unit_coordinate_witness": 32,
+            "witness_quadratic_value": 32,
+            "operator_norm": 32,
+            "positive_semidefinite": true,
+            "pointwise_stable_on_vectors_supported_below_N": true
+          },
+          {
+            "dimension_N": 64,
+            "diagonal": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64
+            ],
+            "unit_coordinate_witness": 64,
+            "witness_quadratic_value": 64,
+            "operator_norm": 64,
+            "positive_semidefinite": true,
+            "pointwise_stable_on_vectors_supported_below_N": true
+          }
+        ],
+        "fixed_vector_stabilization_rows": [
+          {
+            "support": 1,
+            "eventual_value": 1
+          },
+          {
+            "support": 2,
+            "eventual_value": 3
+          },
+          {
+            "support": 4,
+            "eventual_value": 10
+          },
+          {
+            "support": 8,
+            "eventual_value": 36
+          }
+        ],
+        "extension_contract": {
+          "uniform_quadratic_bound_is_necessary_and_sufficient": true,
+          "positivity_passes_under_continuous_extension": true,
+          "pointwise_dense_core_cauchy_is_sufficient": false,
+          "actual_pole_neutral_weil_uniform_bound_verified": false
+        },
+        "no_go_scope": "This is an abstract extension theorem and an exact no-go for pointwise-only promotion. It proves no convergence or uniform admissible-norm bound for the actual Weil quadratic form and does not prove the Riemann hypothesis.",
+        "failure_count": 0
+      },
+      "logical_limit": "No uniform admissible-norm bound is proved for the actual pole-neutral Weil quadratic values.",
+      "route_decision": {
+        "discard": "promoting pointwise Cauchy convergence on a dense countable core without one uniform continuity bound",
+        "retain": "Gaussian-rational probe convergence together with a uniform admissible-norm quadratic bound",
+        "next_single_lemma": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T191-INPUT",
+            "label": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreAndExtendContinuouslyToAdmissibleTestFunctions",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T192-CLOSED",
+            "label": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T192-REJECTED",
+            "label": "PointwiseDenseCoreCauchyConvergenceAloneImpliesContinuousExtension",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "RH-T192-OPEN",
+            "label": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T191-INPUT",
+            "RH-T192-CLOSED"
+          ],
+          [
+            "RH-T192-CLOSED",
+            "RH-T192-OPEN"
+          ],
+          [
+            "RH-T192-REJECTED",
+            "RH-T192-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof. The exact continuity criterion is proved abstractly; its actual Weil-form premise remains open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-192",
+      "theorem_name": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly eight entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "mathematical_argument": "For period length h the affine denominator is D=2^(2h-8)-3^h, positive from h=20. Rotate any word so one of its eight ones is first. Divisibility is rotation invariant via 2^v B_shift=3B+D, and D is odd. Exact enumeration of all sum_{h=20}^{30} C(h-1,7)=5,777,343 normalized words finds no D|B hit. A nontrivial positive odd cycle has every value at least three, so multiplication gives 1<=256(5/6)^h. The right side is strictly below one at h=31 and decreases thereafter.",
+      "reproducible_computation": {
+        "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly eight entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+        "proof": "For period length h the affine denominator is D=2^(2h-8)-3^h, positive from h=20. Rotate any word so one of its eight ones is first. Divisibility is rotation invariant via 2^v B_shift=3B+D, and D is odd. Exact enumeration of all sum_{h=20}^{30} C(h-1,7)=5,777,343 normalized words finds no D|B hit. A nontrivial positive odd cycle has every value at least three, so multiplication gives 1<=256(5/6)^h. The right side is strictly below one at h=31 and decreases thereafter.",
+        "finite_exception_horizon_rows": [
+          {
+            "horizon_h": 20,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 50388,
+            "expected_word_count": 50388,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "dfd9ba015e62a5c4cb872a4b5ade623a7d4db7a36a4bdca6d441696f4dc7fa07"
+          },
+          {
+            "horizon_h": 21,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 77520,
+            "expected_word_count": 77520,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "981a28073e09fa9079eb439b2bc62ea570fe2a7c711ef0462501f486b686a94c"
+          },
+          {
+            "horizon_h": 22,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 116280,
+            "expected_word_count": 116280,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "2bba4c86e71afeab1c3b798e2c242a792cf5a358fb07d46a99ea1843bba97a65"
+          },
+          {
+            "horizon_h": 23,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 170544,
+            "expected_word_count": 170544,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "674836f62e46c52447a5c03a3bbc0f2f38dd5fe77a7bbe4f1273b7fbc20ba62e"
+          },
+          {
+            "horizon_h": 24,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 245157,
+            "expected_word_count": 245157,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "1d35430b6c17703b3d485de96a69a06d11707609679f2a1c3a0e8fc4ae9e85fa"
+          },
+          {
+            "horizon_h": 25,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 346104,
+            "expected_word_count": 346104,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "bf5f2535fad440286b0eec2ff99a98297b8672a050b58f01ff82d509b59f9573"
+          },
+          {
+            "horizon_h": 26,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 480700,
+            "expected_word_count": 480700,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "1d5512f860ebc736e2fd700e55051a6908ebcdc7ef966c4b40b2bb47d89eb7a9"
+          },
+          {
+            "horizon_h": 27,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 657800,
+            "expected_word_count": 657800,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "53e4cc807de45a33840af40482256ceaac461733cd1620c36dac4a9bc2b963b8"
+          },
+          {
+            "horizon_h": 28,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 888030,
+            "expected_word_count": 888030,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "1e4216cc24a63f5c357f04df021e34360d93aed4d653c1937f1d8c9ccff6944b"
+          },
+          {
+            "horizon_h": 29,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 1184040,
+            "expected_word_count": 1184040,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "a19ed52ffc193992bcbde84c3f65574aa9a4f64c362488516711766949d54ff8"
+          },
+          {
+            "horizon_h": 30,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "word_count": 1560780,
+            "expected_word_count": 1560780,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "2daf6393041a6a369f6626aa0c104d82c1dabf89b3832ae42dbff3f114b40903"
+          }
+        ],
+        "analytic_product_rows": [
+          {
+            "horizon_h": 31,
+            "cycle_product_upper_bound": {
+              "numerator": 4656612873077392578125,
+              "denominator": 5181419993454688075776,
+              "exact": "4656612873077392578125/5181419993454688075776",
+              "decimal": 0.8987136497253173
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 32,
+            "cycle_product_upper_bound": {
+              "numerator": 23283064365386962890625,
+              "denominator": 31088519960728128454656,
+              "exact": "23283064365386962890625/31088519960728128454656",
+              "decimal": 0.7489280414377645
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 40,
+            "cycle_product_upper_bound": {
+              "numerator": 9094947017729282379150390625,
+              "denominator": 52216775542358336202495492096,
+              "exact": "9094947017729282379150390625/52216775542358336202495492096",
+              "decimal": 0.17417672621993763
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 64,
+            "cycle_product_upper_bound": {
+              "numerator": 542101086242752217003726400434970855712890625,
+              "denominator": 247422994777239366039696433385983932069908054016,
+              "exact": "542101086242752217003726400434970855712890625/247422994777239366039696433385983932069908054016",
+              "decimal": 0.0021909891064523664
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 96,
+            "cycle_product_upper_bound": {
+              "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+              "denominator": 1969155766240086401960028052535619877679951866539336394263213633202814976,
+              "exact": "12621774483536188886587657044524579674771302961744368076324462890625/1969155766240086401960028052535619877679951866539336394263213633202814976",
+              "decimal": 6.409738985573627e-06
+            },
+            "strictly_below_one": true
+          }
+        ],
+        "analytic_bound": {
+          "bound_at_h_31": {
+            "numerator": 4656612873077392578125,
+            "denominator": 5181419993454688075776,
+            "exact": "4656612873077392578125/5181419993454688075776",
+            "decimal": 0.8987136497253173
+          },
+          "required_upper_threshold": {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "analytic_range_starts_at_h": 31,
+          "bound_is_strictly_decreasing": true
+        },
+        "aggregate": {
+          "infinite_family_proved": true,
+          "includes_imprimitive_words": true,
+          "rotation_normalization_is_complete": true,
+          "contracting_range_starts_at_h": 20,
+          "analytic_range_starts_at_h": 31,
+          "finite_exception_word_count": 5777343,
+          "finite_word_count_identity": "C(30,8)-C(19,8)=5777343",
+          "divisibility_hits": 0
+        },
+        "no_go_scope": "This closes only the exactly-eight-one/rest-two periodic valuation stratum. Nine-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Nine-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "enumerating every cyclic rotation separately and continuing enumeration beyond the exact product cutoff",
+        "retain": "rotation-normalized affine divisibility for h=20..30 and the product contradiction for h>=31",
+        "next_single_lemma": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T191-INPUT",
+            "label": "NoContractingValuationWordWithExactlyEightOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T192-CLOSED",
+            "label": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T192-REJECTED",
+            "label": "AllCyclicRotationsMustBeEnumeratedIndependently",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "CO-T192-OPEN",
+            "label": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T191-INPUT",
+            "CO-T192-CLOSED"
+          ],
+          [
+            "CO-T192-CLOSED",
+            "CO-T192-OPEN"
+          ],
+          [
+            "CO-T192-REJECTED",
+            "CO-T192-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof. The complete exactly-eight-one/rest-two periodic valuation stratum is excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-192",
+      "theorem_name": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+      "declared_proposition": "Let W_pp(X)=sum_{p^k<=X,k>=2} log p. The proper-prime-power part E_pp(N) of the binary von Mangoldt correlation satisfies E_pp(N)<=2 log(N) W_pp(N). If A(N) counts proper prime powers, then W_pp(N)<=A(N)log(N)/2 and hence E_pp(N)<=A(N)(log N)^2, halving the corresponding count-based factor in the TICKET-191 sufficient budget.",
+      "mathematical_argument": "Charge each contaminated ordered pair to a proper prime power in its left or right coordinate. The other von Mangoldt factor is at most log N, giving the first union bound. For q=p^k with k>=2 and q<=N, log p=log q/k<=log N/2. Summing over the A(N) proper powers gives the second bound. Strict total correlation above this envelope leaves positive prime-prime mass.",
+      "reproducible_computation": {
+        "theorem": "Let W_pp(X)=sum_{p^k<=X,k>=2} log p. The proper-prime-power part E_pp(N) of the binary von Mangoldt correlation satisfies E_pp(N)<=2 log(N) W_pp(N). If A(N) counts proper prime powers, then W_pp(N)<=A(N)log(N)/2 and hence E_pp(N)<=A(N)(log N)^2, halving the corresponding count-based factor in the TICKET-191 sufficient budget.",
+        "proof": "Charge each contaminated ordered pair to a proper prime power in its left or right coordinate. The other von Mangoldt factor is at most log N, giving the first union bound. For q=p^k with k>=2 and q<=N, log p=log q/k<=log N/2. Summing over the A(N) proper powers gives the second bound. Strict total correlation above this envelope leaves positive prime-prime mass.",
+        "weighted_budget_rows": [
+          {
+            "target_N": 64,
+            "weighted_proper_prime_power_mass": 9.21830854162536,
+            "actual_proper_prime_power_count": 9,
+            "actual_contamination": 8.414450598323691,
+            "weighted_contamination_envelope": 76.67573490191135,
+            "count_envelope": 155.66677650949723,
+            "ticket191_simplified_budget": 830.2228080506518,
+            "weighted_total_convolution": 94.71708540714664,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 256,
+            "weighted_proper_prime_power_mass": 19.374110022775476,
+            "actual_proper_prime_power_count": 16,
+            "actual_contamination": 33.747985119491766,
+            "weighted_contamination_envelope": 214.86575581031997,
+            "count_envelope": 491.9838862522382,
+            "ticket191_simplified_budget": 3197.8952606395483,
+            "weighted_total_convolution": 334.6227993418635,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 1024,
+            "weighted_proper_prime_power_mass": 41.128794307676316,
+            "actual_proper_prime_power_count": 26,
+            "actual_contamination": 15.65174110605954,
+            "weighted_contamination_envelope": 570.1661562839154,
+            "count_envelope": 1249.1778361873237,
+            "ticket191_simplified_budget": 10762.147511767711,
+            "weighted_total_convolution": 1393.796065987939,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 4096,
+            "weighted_proper_prime_power_mass": 79.22643456759694,
+            "actual_proper_prime_power_count": 40,
+            "actual_contamination": 40.762552381279555,
+            "weighted_contamination_envelope": 1317.9739139123233,
+            "count_envelope": 2767.4093601688396,
+            "ticket191_simplified_budget": 30994.984833891,
+            "weighted_total_convolution": 5296.348647829686,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 16384,
+            "weighted_proper_prime_power_mass": 153.4268898147819,
+            "actual_proper_prime_power_count": 61,
+            "actual_contamination": 224.7746237623914,
+            "weighted_contamination_envelope": 2977.727650721529,
+            "count_envelope": 5744.296234406015,
+            "ticket191_simplified_budget": 80608.48486314015,
+            "weighted_total_convolution": 22378.482555409926,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 65536,
+            "weighted_proper_prime_power_mass": 292.13843775647274,
+            "actual_proper_prime_power_count": 93,
+            "actual_contamination": 110.82465818844793,
+            "weighted_contamination_envelope": 6479.837902850757,
+            "count_envelope": 11438.625355364538,
+            "ticket191_simplified_budget": 200729.4255909132,
+            "weighted_total_convolution": 87237.3472688245,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 262144,
+            "weighted_proper_prime_power_mass": 584.7263853352559,
+            "actual_proper_prime_power_count": 150,
+            "actual_contamination": 40.602635121380274,
+            "weighted_contamination_envelope": 14590.852034189069,
+            "count_envelope": 23350.01647642459,
+            "ticket191_simplified_budget": 478208.33743717556,
+            "weighted_total_convolution": 341281.5358202622,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          },
+          {
+            "target_N": 1048576,
+            "weighted_proper_prime_power_mass": 1135.4232390720208,
+            "actual_proper_prime_power_count": 242,
+            "actual_contamination": 170.34091545973897,
+            "weighted_contamination_envelope": 31480.61667620048,
+            "count_envelope": 46507.85174728189,
+            "ticket191_simplified_budget": 1092357.9724444228,
+            "weighted_total_convolution": 1388031.9124054494,
+            "checks": {
+              "actual_contamination_below_weighted_envelope": true,
+              "weighted_envelope_below_count_envelope": true,
+              "count_envelope_below_half_ticket191_budget": true,
+              "finite_total_exceeds_weighted_envelope": true
+            }
+          }
+        ],
+        "aggregate": {
+          "target_count": 8,
+          "largest_target": 1048576,
+          "weighted_envelope_theorem_proved": true,
+          "count_budget_factor_two_removed": true,
+          "finite_sample_budget_excess_count": 8,
+          "all_large_even_targets_proved": false
+        },
+        "no_go_scope": "The finite rows verify the sharper sufficient inequality only at listed targets. They do not establish it for every sufficiently large even integer, so strong Goldbach remains open.",
+        "failure_count": 0
+      },
+      "logical_limit": "No every-large-even lower bound above the weighted envelope is proved.",
+      "route_decision": {
+        "discard": "using the unweighted count budget as the primary sufficient target after exponent weights are available",
+        "retain": "pointwise binary von Mangoldt correlation above 2 log(N) W_pp(N)",
+        "next_single_lemma": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T191-INPUT",
+            "label": "BinaryVonMangoldtCorrelationExceedsExplicitPrimePowerBudgetForEveryLargeEvenTarget",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T192-CLOSED",
+            "label": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T192-REJECTED",
+            "label": "UnweightedCountEnvelopeIsTheSharpestPracticalSufficientTarget",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "GB-T192-OPEN",
+            "label": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T191-INPUT",
+            "GB-T192-CLOSED"
+          ],
+          [
+            "GB-T192-CLOSED",
+            "GB-T192-OPEN"
+          ],
+          [
+            "GB-T192-REJECTED",
+            "GB-T192-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof. The sufficient contamination envelope is reduced by a factor of at least two, but the universal correlation lower bound is open."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-192",
+      "theorem_name": "LocalTwoSidedWeightedEnvelopeBridge",
+      "declared_proposition": "For the dyadic block [X,2X), let W_pp(I) be the sum of log p over proper prime powers p^k in I. The shift-two prime-power contamination is at most log(2X+2) times [W_pp([X,2X))+W_pp([X+2,2X+2))]. Correlation above this local weighted envelope forces a twin prime in the block. Each weighted mass is at most one half log(2X+2) per proper power, so this also removes the factor two from the earlier global count envelope.",
+      "mathematical_argument": "A contaminated term has n or n+2 equal to a proper prime power. Charge it to the appropriate local interval; its partner has von Mangoldt weight at most log(2X+2). The union bound gives the local envelope. Subtracting it from the full correlation leaves a strictly positive prime-prime contribution. The exponent k>=2 again gives log p<=log(2X+2)/2.",
+      "reproducible_computation": {
+        "theorem": "For the dyadic block [X,2X), let W_pp(I) be the sum of log p over proper prime powers p^k in I. The shift-two prime-power contamination is at most log(2X+2) times [W_pp([X,2X))+W_pp([X+2,2X+2))]. Correlation above this local weighted envelope forces a twin prime in the block. Each weighted mass is at most one half log(2X+2) per proper power, so this also removes the factor two from the earlier global count envelope.",
+        "proof": "A contaminated term has n or n+2 equal to a proper prime power. Charge it to the appropriate local interval; its partner has von Mangoldt weight at most log(2X+2). The union bound gives the local envelope. Subtracting it from the full correlation leaves a strictly positive prime-prime contribution. The exponent k>=2 again gives log p<=log(2X+2)/2.",
+        "finite_dyadic_rows": [
+          {
+            "dyadic_exponent_j": 4,
+            "block": [
+              16,
+              32
+            ],
+            "shift_two_von_mangoldt_support_count": 5,
+            "twin_prime_support_count": 2,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 30.419358712610045,
+            "weighted_twin_prime_mass": 19.905474600423364,
+            "weighted_prime_power_contamination": 10.51388411218668,
+            "proper_prime_power_count_A_2X_plus_2": 7,
+            "contamination_mass_upper_bound": 174.09305969399637,
+            "contamination_examples_left_right_exponents": [
+              [
+                23,
+                25,
+                1,
+                2
+              ],
+              [
+                25,
+                27,
+                2,
+                3
+              ],
+              [
+                27,
+                29,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 3.4011973816621555,
+            "right_local_weighted_proper_power_mass": 3.4011973816621555,
+            "local_weighted_contamination_envelope": 23.98769636624255,
+            "half_global_count_envelope": 87.04652984699818
+          },
+          {
+            "dyadic_exponent_j": 5,
+            "block": [
+              32,
+              64
+            ],
+            "shift_two_von_mangoldt_support_count": 3,
+            "twin_prime_support_count": 2,
+            "proper_prime_power_contamination_support_count": 1,
+            "weighted_shift_two_correlation": 38.221771088793275,
+            "weighted_twin_prime_mass": 30.729729795264696,
+            "weighted_prime_power_contamination": 7.492041293528577,
+            "proper_prime_power_count_A_2X_plus_2": 9,
+            "contamination_mass_upper_bound": 315.9577234329212,
+            "contamination_examples_left_right_exponents": [
+              [
+                47,
+                49,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 2.6390573296152584,
+            "right_local_weighted_proper_power_mass": 2.6390573296152584,
+            "local_weighted_contamination_envelope": 22.113478111004323,
+            "half_global_count_envelope": 157.9788617164606
+          },
+          {
+            "dyadic_exponent_j": 6,
+            "block": [
+              64,
+              128
+            ],
+            "shift_two_von_mangoldt_support_count": 6,
+            "twin_prime_support_count": 3,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 79.05189367387074,
+            "weighted_twin_prime_mass": 61.60055362319484,
+            "weighted_prime_power_contamination": 17.451340050675896,
+            "proper_prime_power_count_A_2X_plus_2": 13,
+            "contamination_mass_upper_bound": 616.0151822856701,
+            "contamination_examples_left_right_exponents": [
+              [
+                79,
+                81,
+                1,
+                4
+              ],
+              [
+                81,
+                83,
+                4,
+                1
+              ],
+              [
+                125,
+                127,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 5.799092654460526,
+            "right_local_weighted_proper_power_mass": 5.799092654460526,
+            "local_weighted_contamination_envelope": 56.454566553941035,
+            "half_global_count_envelope": 308.00759114283505
+          },
+          {
+            "dyadic_exponent_j": 7,
+            "block": [
+              128,
+              256
+            ],
+            "shift_two_von_mangoldt_support_count": 9,
+            "twin_prime_support_count": 7,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 210.62504290038592,
+            "weighted_twin_prime_mass": 191.4719826477534,
+            "weighted_prime_power_contamination": 19.153060252632475,
+            "proper_prime_power_count_A_2X_plus_2": 16,
+            "contamination_mass_upper_bound": 986.7315248567315,
+            "contamination_examples_left_right_exponents": [
+              [
+                167,
+                169,
+                1,
+                2
+              ],
+              [
+                241,
+                243,
+                1,
+                5
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 4.356708826689592,
+            "right_local_weighted_proper_power_mass": 4.356708826689592,
+            "local_weighted_contamination_envelope": 48.38525607575716,
+            "half_global_count_envelope": 493.36576242836577
+          },
+          {
+            "dyadic_exponent_j": 8,
+            "block": [
+              256,
+              512
+            ],
+            "shift_two_von_mangoldt_support_count": 8,
+            "twin_prime_support_count": 7,
+            "proper_prime_power_contamination_support_count": 1,
+            "weighted_shift_two_correlation": 258.68209860141263,
+            "weighted_twin_prime_mass": 241.35901483374516,
+            "weighted_prime_power_contamination": 17.32308376766749,
+            "proper_prime_power_count_A_2X_plus_2": 20,
+            "contamination_mass_upper_bound": 1558.6140518315901,
+            "contamination_examples_left_right_exponents": [
+              [
+                359,
+                361,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 8.416709652837914,
+            "right_local_weighted_proper_power_mass": 8.416709652837914,
+            "local_weighted_contamination_envelope": 105.07796162705179,
+            "half_global_count_envelope": 779.3070259157951
+          },
+          {
+            "dyadic_exponent_j": 9,
+            "block": [
+              512,
+              1024
+            ],
+            "shift_two_von_mangoldt_support_count": 14,
+            "twin_prime_support_count": 12,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 550.1506096955326,
+            "weighted_twin_prime_mass": 520.2425890597062,
+            "weighted_prime_power_contamination": 29.908020635826325,
+            "proper_prime_power_count_A_2X_plus_2": 26,
+            "contamination_mass_upper_bound": 2499.7624523941085,
+            "contamination_examples_left_right_exponents": [
+              [
+                727,
+                729,
+                1,
+                6
+              ],
+              [
+                839,
+                841,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 13.337974632062926,
+            "right_local_weighted_proper_power_mass": 13.337974632062926,
+            "local_weighted_contamination_envelope": 184.9556408611145,
+            "half_global_count_envelope": 1249.8812261970543
+          },
+          {
+            "dyadic_exponent_j": 10,
+            "block": [
+              1024,
+              2048
+            ],
+            "shift_two_von_mangoldt_support_count": 28,
+            "twin_prime_support_count": 26,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 1441.7469568800293,
+            "weighted_twin_prime_mass": 1387.3855975997217,
+            "weighted_prime_power_contamination": 54.36135928030767,
+            "proper_prime_power_count_A_2X_plus_2": 31,
+            "contamination_mass_upper_bound": 3605.281412656107,
+            "contamination_examples_left_right_exponents": [
+              [
+                1367,
+                1369,
+                1,
+                2
+              ],
+              [
+                1847,
+                1849,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 14.17673254840041,
+            "right_local_weighted_proper_power_mass": 14.17673254840041,
+            "local_weighted_contamination_envelope": 216.21204372004385,
+            "half_global_count_envelope": 1802.6407063280535
+          },
+          {
+            "dyadic_exponent_j": 11,
+            "block": [
+              2048,
+              4096
+            ],
+            "shift_two_von_mangoldt_support_count": 48,
+            "twin_prime_support_count": 45,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 2972.656172857228,
+            "weighted_twin_prime_mass": 2894.071385852201,
+            "weighted_prime_power_contamination": 78.58478700502675,
+            "proper_prime_power_count_A_2X_plus_2": 40,
+            "contamination_mass_upper_bound": 5535.468406286459,
+            "contamination_examples_left_right_exponents": [
+              [
+                2207,
+                2209,
+                1,
+                2
+              ],
+              [
+                2399,
+                2401,
+                1,
+                4
+              ],
+              [
+                3719,
+                3721,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 23.92090771152022,
+            "right_local_weighted_proper_power_mass": 23.92090771152022,
+            "local_weighted_contamination_envelope": 397.9603882403015,
+            "half_global_count_envelope": 2767.7342031432295
+          },
+          {
+            "dyadic_exponent_j": 12,
+            "block": [
+              4096,
+              8192
+            ],
+            "shift_two_von_mangoldt_support_count": 74,
+            "twin_prime_support_count": 70,
+            "proper_prime_power_contamination_support_count": 4,
+            "weighted_shift_two_correlation": 5380.412152725935,
+            "weighted_twin_prime_mass": 5268.114154826079,
+            "weighted_prime_power_contamination": 112.29799789985574,
+            "proper_prime_power_count_A_2X_plus_2": 50,
+            "contamination_mass_upper_bound": 8120.095873479411,
+            "contamination_examples_left_right_exponents": [
+              [
+                5039,
+                5041,
+                1,
+                2
+              ],
+              [
+                6561,
+                6563,
+                8,
+                1
+              ],
+              [
+                6857,
+                6859,
+                1,
+                3
+              ],
+              [
+                7919,
+                7921,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 33.60416856002714,
+            "right_local_weighted_proper_power_mass": 33.60416856002714,
+            "local_weighted_contamination_envelope": 605.6249082863344,
+            "half_global_count_envelope": 4060.0479367397056
+          },
+          {
+            "dyadic_exponent_j": 13,
+            "block": [
+              8192,
+              16384
+            ],
+            "shift_two_von_mangoldt_support_count": 117,
+            "twin_prime_support_count": 113,
+            "proper_prime_power_contamination_support_count": 4,
+            "weighted_shift_two_correlation": 10099.841514010854,
+            "weighted_twin_prime_mass": 9943.280144249258,
+            "weighted_prime_power_contamination": 156.56136976159559,
+            "proper_prime_power_count_A_2X_plus_2": 61,
+            "contamination_mass_upper_bound": 11488.881489948855,
+            "contamination_examples_left_right_exponents": [
+              [
+                10607,
+                10609,
+                1,
+                2
+              ],
+              [
+                11447,
+                11449,
+                1,
+                2
+              ],
+              [
+                14639,
+                14641,
+                1,
+                4
+              ],
+              [
+                16127,
+                16129,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 40.59628668715783,
+            "right_local_weighted_proper_power_mass": 40.59628668715783,
+            "local_weighted_contamination_envelope": 787.9075570333093,
+            "half_global_count_envelope": 5744.440744974428
+          },
+          {
+            "dyadic_exponent_j": 14,
+            "block": [
+              16384,
+              32768
+            ],
+            "shift_two_von_mangoldt_support_count": 222,
+            "twin_prime_support_count": 215,
+            "proper_prime_power_contamination_support_count": 7,
+            "weighted_shift_two_correlation": 22103.264555436494,
+            "weighted_twin_prime_mass": 21847.34898267158,
+            "weighted_prime_power_contamination": 255.91557276490903,
+            "proper_prime_power_count_A_2X_plus_2": 78,
+            "contamination_mass_upper_bound": 16864.098776769417,
+            "contamination_examples_left_right_exponents": [
+              [
+                17159,
+                17161,
+                1,
+                2
+              ],
+              [
+                19319,
+                19321,
+                1,
+                2
+              ],
+              [
+                19681,
+                19683,
+                1,
+                9
+              ],
+              [
+                24389,
+                24391,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 68.66194458531307,
+            "right_local_weighted_proper_power_mass": 68.66194458531307,
+            "local_weighted_contamination_envelope": 1427.7933803614458,
+            "half_global_count_envelope": 8432.049388384708
+          },
+          {
+            "dyadic_exponent_j": 15,
+            "block": [
+              32768,
+              65536
+            ],
+            "shift_two_von_mangoldt_support_count": 362,
+            "twin_prime_support_count": 355,
+            "proper_prime_power_contamination_support_count": 7,
+            "weighted_shift_two_correlation": 41516.84933102578,
+            "weighted_twin_prime_mass": 41175.32141775507,
+            "weighted_prime_power_contamination": 341.52791327071526,
+            "proper_prime_power_count_A_2X_plus_2": 93,
+            "contamination_mass_upper_bound": 22877.376612668297,
+            "contamination_examples_left_right_exponents": [
+              [
+                36479,
+                36481,
+                1,
+                2
+              ],
+              [
+                44519,
+                44521,
+                1,
+                2
+              ],
+              [
+                49727,
+                49729,
+                1,
+                2
+              ],
+              [
+                50651,
+                50653,
+                1,
+                3
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 70.04960335637776,
+            "right_local_weighted_proper_power_mass": 70.04960335637776,
+            "local_weighted_contamination_envelope": 1553.754197529352,
+            "half_global_count_envelope": 11438.688306334148
+          },
+          {
+            "dyadic_exponent_j": 16,
+            "block": [
+              65536,
+              131072
+            ],
+            "shift_two_von_mangoldt_support_count": 671,
+            "twin_prime_support_count": 666,
+            "proper_prime_power_contamination_support_count": 5,
+            "weighted_shift_two_correlation": 87982.41778641171,
+            "weighted_twin_prime_mass": 87653.29378784791,
+            "weighted_prime_power_contamination": 329.12399856379926,
+            "proper_prime_power_count_A_2X_plus_2": 119,
+            "contamination_mass_upper_bound": 33046.60478846309,
+            "contamination_examples_left_right_exponents": [
+              [
+                66047,
+                66049,
+                1,
+                2
+              ],
+              [
+                85847,
+                85849,
+                1,
+                2
+              ],
+              [
+                97967,
+                97969,
+                1,
+                2
+              ],
+              [
+                113567,
+                113569,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 124.3052534266,
+            "right_local_weighted_proper_power_mass": 124.3052534266,
+            "local_weighted_contamination_envelope": 2929.5062154752086,
+            "half_global_count_envelope": 16523.302394231545
+          },
+          {
+            "dyadic_exponent_j": 17,
+            "block": [
+              131072,
+              262144
+            ],
+            "shift_two_von_mangoldt_support_count": 1159,
+            "twin_prime_support_count": 1153,
+            "proper_prime_power_contamination_support_count": 6,
+            "weighted_shift_two_correlation": 170925.14354747848,
+            "weighted_twin_prime_mass": 170522.16627598935,
+            "weighted_prime_power_contamination": 402.9772714891503,
+            "proper_prime_power_count_A_2X_plus_2": 150,
+            "contamination_mass_upper_bound": 46700.09006621651,
+            "contamination_examples_left_right_exponents": [
+              [
+                161051,
+                161053,
+                5,
+                1
+              ],
+              [
+                177239,
+                177241,
+                1,
+                2
+              ],
+              [
+                196247,
+                196249,
+                1,
+                2
+              ],
+              [
+                201599,
+                201601,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 168.28269415218315,
+            "right_local_weighted_proper_power_mass": 168.28269415218315,
+            "local_weighted_contamination_envelope": 4199.2108673705625,
+            "half_global_count_envelope": 23350.045033108254
+          },
+          {
+            "dyadic_exponent_j": 18,
+            "block": [
+              262144,
+              524288
+            ],
+            "shift_two_von_mangoldt_support_count": 2082,
+            "twin_prime_support_count": 2071,
+            "proper_prime_power_contamination_support_count": 11,
+            "weighted_shift_two_correlation": 343017.38147934974,
+            "weighted_twin_prime_mass": 342219.9300581405,
+            "weighted_prime_power_contamination": 797.4514212092325,
+            "proper_prime_power_count_A_2X_plus_2": 189,
+            "contamination_mass_upper_bound": 65561.69535370552,
+            "contamination_examples_left_right_exponents": [
+              [
+                273527,
+                273529,
+                1,
+                2
+              ],
+              [
+                292679,
+                292681,
+                1,
+                2
+              ],
+              [
+                300761,
+                300763,
+                1,
+                3
+              ],
+              [
+                323759,
+                323761,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 224.28556549595302,
+            "right_local_weighted_proper_power_mass": 224.28556549595302,
+            "local_weighted_contamination_envelope": 5907.592190984689,
+            "half_global_count_envelope": 32780.84767685276
+          },
+          {
+            "dyadic_exponent_j": 19,
+            "block": [
+              524288,
+              1048576
+            ],
+            "shift_two_von_mangoldt_support_count": 3800,
+            "twin_prime_support_count": 3785,
+            "proper_prime_power_contamination_support_count": 15,
+            "weighted_shift_two_correlation": 696510.2058858308,
+            "weighted_twin_prime_mass": 695300.6983668064,
+            "weighted_prime_power_contamination": 1209.507519024261,
+            "proper_prime_power_count_A_2X_plus_2": 242,
+            "contamination_mass_upper_bound": 93015.72908988077,
+            "contamination_examples_left_right_exponents": [
+              [
+                528527,
+                528529,
+                1,
+                2
+              ],
+              [
+                537287,
+                537289,
+                1,
+                2
+              ],
+              [
+                552047,
+                552049,
+                1,
+                2
+              ],
+              [
+                563999,
+                564001,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "actual_contamination_below_local_envelope": true,
+              "local_envelope_below_half_global_count_envelope": true,
+              "finite_total_exceeds_local_envelope": true
+            },
+            "left_local_weighted_proper_power_mass": 326.41128824081187,
+            "right_local_weighted_proper_power_mass": 326.41128824081187,
+            "local_weighted_contamination_envelope": 9050.043811041396,
+            "half_global_count_envelope": 46507.864544940385
+          }
+        ],
+        "aggregate": {
+          "dyadic_block_count": 16,
+          "largest_upper_endpoint": 1048576,
+          "local_weighted_envelope_theorem_proved": true,
+          "count_budget_factor_two_removed": true,
+          "finite_block_envelope_success_count": 16,
+          "infinitely_many_envelope_successes_proved": false
+        },
+        "no_go_scope": "All displayed finite blocks pass the sufficient envelope, but a finite prefix cannot establish infinitely many successful blocks. No unbounded dyadic sequence estimate is proved, so the Twin Prime conjecture remains open.",
+        "failure_count": 0
+      },
+      "logical_limit": "No proof gives correlation above the local weighted envelope on infinitely many unbounded dyadic blocks.",
+      "route_decision": {
+        "discard": "using a global unweighted proper-power count when only two translated local intervals can contaminate a block",
+        "retain": "shift-two correlation above the local two-sided weighted envelope on infinitely many blocks",
+        "next_single_lemma": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T191-INPUT",
+            "label": "ShiftTwoCorrelationExceedsExactPrimePowerContaminationOnInfinitelyManyDyadicBlocks",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T192-CLOSED",
+            "label": "LocalTwoSidedWeightedEnvelopeBridge",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T192-REJECTED",
+            "label": "GlobalUnweightedCountIsTheSharpestDyadicContaminationTarget",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "TP-T192-OPEN",
+            "label": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T191-INPUT",
+            "TP-T192-CLOSED"
+          ],
+          [
+            "TP-T192-CLOSED",
+            "TP-T192-OPEN"
+          ],
+          [
+            "TP-T192-REJECTED",
+            "TP-T192-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof. A local weighted sufficient envelope is proved and passes finite replay, but infinitude is open."
+    },
+    "cross_problem_synthesis": "All four tracks isolate the uniform estimate that finite evidence cannot supply by itself: a uniform form bound, a finite-plus-global cycle cutoff, every-target additive excess, or infinitely-many-block shift excess. The same weighted proper-prime-power mass controls both additive and shift-two contamination.",
+    "literature_boundary": {
+      "riemann": "The 2026 screw-function operator program still states the decisive limiting operator as conjectural; this ticket supplies only an abstract extension criterion.",
+      "collatz": "Recent accelerated-map parity-vector work explicitly makes no claim toward Collatz; this ticket excludes one periodic valuation stratum only.",
+      "goldbach": "Exceptional-set advances do not provide every-even-target binary correlation control.",
+      "twin_prime": "Bounded-gap theorems do not force exact gap two; finite successful blocks do not imply infinitely many."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_infinite_cycle_stratum_closure_count": 1,
+      "weighted_envelope_bridge_count": 2,
+      "rejected_or_corrected_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-192",
+      "status": "open_not_proven",
+      "declared_proposition": "Let D be dense in a complex Hilbert space H and q a Hermitian quadratic form on D. The form extends uniquely to a bounded Hermitian form on H if and only if |q(x)|<=C||x||^2 on D for some finite C. Positivity then passes to H. Pointwise Cauchy convergence on a countable dense core is not sufficient: the positive finite sections q_N(x)=sum_{k<=N} k|x_k|^2 stabilize on c_00 but their limit has q(e_k)=k and no bounded extension to l^2.",
+      "new_result": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+      "discarded_route": "promoting pointwise Cauchy convergence on a dense countable core without one uniform continuity bound",
+      "remaining_gap": "No uniform admissible-norm bound is proved for the actual pole-neutral Weil quadratic values.",
+      "candidate_theorem": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound",
+      "claim_boundary": "No RH proof. The exact continuity criterion is proved abstractly; its actual Weil-form premise remains open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T191-INPUT",
+            "label": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreAndExtendContinuouslyToAdmissibleTestFunctions",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T192-CLOSED",
+            "label": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T192-REJECTED",
+            "label": "PointwiseDenseCoreCauchyConvergenceAloneImpliesContinuousExtension",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "RH-T192-OPEN",
+            "label": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T191-INPUT",
+            "RH-T192-CLOSED"
+          ],
+          [
+            "RH-T192-CLOSED",
+            "RH-T192-OPEN"
+          ],
+          [
+            "RH-T192-REJECTED",
+            "RH-T192-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-192",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly eight entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "new_result": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+      "discarded_route": "enumerating every cyclic rotation separately and continuing enumeration beyond the exact product cutoff",
+      "remaining_gap": "Nine-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+      "candidate_theorem": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+      "claim_boundary": "No Collatz proof. The complete exactly-eight-one/rest-two periodic valuation stratum is excluded.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T191-INPUT",
+            "label": "NoContractingValuationWordWithExactlyEightOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T192-CLOSED",
+            "label": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T192-REJECTED",
+            "label": "AllCyclicRotationsMustBeEnumeratedIndependently",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "CO-T192-OPEN",
+            "label": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T191-INPUT",
+            "CO-T192-CLOSED"
+          ],
+          [
+            "CO-T192-CLOSED",
+            "CO-T192-OPEN"
+          ],
+          [
+            "CO-T192-REJECTED",
+            "CO-T192-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-192",
+      "status": "open_not_proven",
+      "declared_proposition": "Let W_pp(X)=sum_{p^k<=X,k>=2} log p. The proper-prime-power part E_pp(N) of the binary von Mangoldt correlation satisfies E_pp(N)<=2 log(N) W_pp(N). If A(N) counts proper prime powers, then W_pp(N)<=A(N)log(N)/2 and hence E_pp(N)<=A(N)(log N)^2, halving the corresponding count-based factor in the TICKET-191 sufficient budget.",
+      "new_result": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+      "discarded_route": "using the unweighted count budget as the primary sufficient target after exponent weights are available",
+      "remaining_gap": "No every-large-even lower bound above the weighted envelope is proved.",
+      "candidate_theorem": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget",
+      "claim_boundary": "No Goldbach proof. The sufficient contamination envelope is reduced by a factor of at least two, but the universal correlation lower bound is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T191-INPUT",
+            "label": "BinaryVonMangoldtCorrelationExceedsExplicitPrimePowerBudgetForEveryLargeEvenTarget",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T192-CLOSED",
+            "label": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T192-REJECTED",
+            "label": "UnweightedCountEnvelopeIsTheSharpestPracticalSufficientTarget",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "GB-T192-OPEN",
+            "label": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T191-INPUT",
+            "GB-T192-CLOSED"
+          ],
+          [
+            "GB-T192-CLOSED",
+            "GB-T192-OPEN"
+          ],
+          [
+            "GB-T192-REJECTED",
+            "GB-T192-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-192",
+      "status": "open_not_proven",
+      "declared_proposition": "For the dyadic block [X,2X), let W_pp(I) be the sum of log p over proper prime powers p^k in I. The shift-two prime-power contamination is at most log(2X+2) times [W_pp([X,2X))+W_pp([X+2,2X+2))]. Correlation above this local weighted envelope forces a twin prime in the block. Each weighted mass is at most one half log(2X+2) per proper power, so this also removes the factor two from the earlier global count envelope.",
+      "new_result": "LocalTwoSidedWeightedEnvelopeBridge",
+      "discarded_route": "using a global unweighted proper-power count when only two translated local intervals can contaminate a block",
+      "remaining_gap": "No proof gives correlation above the local weighted envelope on infinitely many unbounded dyadic blocks.",
+      "candidate_theorem": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks",
+      "claim_boundary": "No Twin Prime proof. A local weighted sufficient envelope is proved and passes finite replay, but infinitude is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T191-INPUT",
+            "label": "ShiftTwoCorrelationExceedsExactPrimePowerContaminationOnInfinitelyManyDyadicBlocks",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T192-CLOSED",
+            "label": "LocalTwoSidedWeightedEnvelopeBridge",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T192-REJECTED",
+            "label": "GlobalUnweightedCountIsTheSharpestDyadicContaminationTarget",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "TP-T192-OPEN",
+            "label": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T191-INPUT",
+            "TP-T192-CLOSED"
+          ],
+          [
+            "TP-T192-CLOSED",
+            "TP-T192-OPEN"
+          ],
+          [
+            "TP-T192-REJECTED",
+            "TP-T192-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks"
+    }
+  ]
+}

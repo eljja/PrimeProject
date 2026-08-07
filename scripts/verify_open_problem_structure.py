@@ -188,6 +188,7 @@ TICKET188_SCHEMA = "primeproject.ticket188-nested-fourone-primepower-dyadic.v1"
 TICKET189_SCHEMA = "primeproject.ticket189-corefive-sublinear-shift.v1"
 TICKET190_SCHEMA = "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1"
 TICKET191_SCHEMA = "primeproject.ticket191-probe-sevenone-budget-granularity.v1"
+TICKET192_SCHEMA = "primeproject.ticket192-uniform-eightone-weighted-envelope.v1"
 
 
 def fail(message: str) -> int:
@@ -13965,6 +13966,170 @@ def main() -> int:
         or "resolves none" not in str(ticket191.get("claim_boundary", "")).lower()
     ):
         return fail("ticket191 proof boundary changed")
+
+    path192 = Path(
+        "data/open-problem/ticket192-uniform-eightone-weighted-envelope.json"
+    )
+    if not path192.exists():
+        return fail("missing ticket192 uniform/eight-one/weighted-envelope audit")
+    ticket192 = read_json(path192)
+    if (
+        ticket192.get("schema") != TICKET192_SCHEMA
+        or ticket192.get("status")
+        != "one_additional_infinite_cycle_stratum_closed_three_uniformity_or_weighted_targets_sharpened_all_open"
+    ):
+        return fail("ticket192 schema or status changed")
+    audit192 = ticket192.get("uniform_eightone_weighted_envelope_audit", {})
+    if audit192.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_cycle_stratum_closure_count": 1,
+        "weighted_envelope_bridge_count": 2,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket192 global machine audit changed")
+
+    by_id192 = {
+        str(row.get("problem_id")): row
+        for row in ticket192.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id192) != EXPECTED_PROBLEMS:
+        return fail("ticket192 attempts missing problems")
+    paths192 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-192-uniform-extension.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-192-eight-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-192-weighted-envelope.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-192-local-weighted-envelope.json"
+        ),
+    }
+    expected_names192 = {
+        "riemann": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+        "collatz": "ExactlyEightValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+        "twin-prime": "LocalTwoSidedWeightedEnvelopeBridge",
+    }
+    next192 = {
+        "riemann": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound",
+        "collatz": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget",
+        "twin-prime": "ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks",
+    }
+    sections192 = {
+        "riemann": audit192.get("riemann", {}),
+        "collatz": audit192.get("collatz", {}),
+        "goldbach": audit192.get("goldbach", {}),
+        "twin-prime": audit192.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id192.items():
+        artifact_path = paths192[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket192 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections192[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET192_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names192[problem_id]
+            or artifact.get("theorem_name") != expected_names192[problem_id]
+            or attempt.get("candidate_theorem") != next192[problem_id]
+            or artifact.get("candidate_theorem") != next192[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_stronger_than_necessary",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next192[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count") != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket192 contract changed")
+
+    rh192 = sections192["riemann"]["reproducible_computation"]
+    rh_rows192 = rh192.get("finite_section_counterexample_rows", [])
+    if (
+        [row.get("operator_norm") for row in rh_rows192]
+        != [2, 4, 8, 16, 32, 64]
+        or any(not row.get("positive_semidefinite") for row in rh_rows192)
+        or rh192.get("extension_contract", {}).get(
+            "uniform_quadratic_bound_is_necessary_and_sufficient"
+        )
+        is not True
+        or rh192.get("extension_contract", {}).get(
+            "pointwise_dense_core_cauchy_is_sufficient"
+        )
+        is not False
+        or rh192.get("extension_contract", {}).get(
+            "actual_pole_neutral_weil_uniform_bound_verified"
+        )
+        is not False
+    ):
+        return fail("ticket192 RH uniform-extension boundary changed")
+
+    collatz192 = sections192["collatz"]["reproducible_computation"]
+    finite192 = collatz192.get("finite_exception_horizon_rows", [])
+    aggregate192 = collatz192.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite192] != list(range(20, 31))
+        or sum(int(row.get("word_count", 0)) for row in finite192) != 5777343
+        or aggregate192.get("rotation_normalization_is_complete") is not True
+        or aggregate192.get("analytic_range_starts_at_h") != 31
+        or aggregate192.get("divisibility_hits") != 0
+        or collatz192.get("analytic_bound", {}).get("bound_at_h_31", {}).get(
+            "exact"
+        )
+        != "4656612873077392578125/5181419993454688075776"
+        or any(row.get("divisibility_hit_count") != 0 for row in finite192)
+    ):
+        return fail("ticket192 Collatz eight-one cycle audit changed")
+
+    goldbach192 = sections192["goldbach"]["reproducible_computation"]
+    gold_rows192 = goldbach192.get("weighted_budget_rows", [])
+    if (
+        [row.get("target_N") for row in gold_rows192]
+        != [64, 256, 1024, 4096, 16384, 65536, 262144, 1048576]
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows192)
+        or goldbach192.get("aggregate", {}).get("count_budget_factor_two_removed")
+        is not True
+        or goldbach192.get("aggregate", {}).get("all_large_even_targets_proved")
+        is not False
+    ):
+        return fail("ticket192 Goldbach weighted-envelope boundary changed")
+
+    twin192 = sections192["twin-prime"]["reproducible_computation"]
+    twin_rows192 = twin192.get("finite_dyadic_rows", [])
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows192]
+        != list(range(4, 20))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows192)
+        or twin192.get("aggregate", {}).get(
+            "local_weighted_envelope_theorem_proved"
+        )
+        is not True
+        or twin192.get("aggregate", {}).get(
+            "infinitely_many_envelope_successes_proved"
+        )
+        is not False
+    ):
+        return fail("ticket192 Twin local weighted-envelope boundary changed")
+    if (
+        "resolves none" not in str(audit192.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket192.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket192 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -62,7 +62,47 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-191
+## Latest Continuation After TICKET-192
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound`.
+   TICKET-192 proves the abstract bounded-extension criterion and refutes
+   pointwise-only dense-core promotion. The next result must concern the actual
+   Weil form, not another diagonal model.
+2. Collatz:
+   `NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The exactly-eight-one/rest-two stratum is excluded at every horizon. Preserve
+   rotation normalization and the finite-plus-product-cutoff proof split.
+3. Goldbach:
+   `BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget`.
+   The new sufficient target is `2log(N)W_pp(N)`, at most half the earlier
+   count-based budget. A finite table cannot replace the every-even quantifier.
+4. Twin Prime:
+   `ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks`.
+   The local two-sided envelope is rigorous and passes finite replay. The next
+   result must establish infinitely many unbounded successful blocks.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket192-uniform-eightone-weighted-envelope.json
+data/open-problem/riemann/rh-ticket-192-uniform-extension.json
+data/open-problem/collatz/co-ticket-192-eight-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-192-weighted-envelope.json
+data/open-problem/twin-prime/tp-ticket-192-local-weighted-envelope.json
+```
+
+한국어 인계: TICKET-192도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 여덟 번의 `v=1`과 나머지 `v=2`인 모든 콜라츠 주기족의 배제다.
+리만은 균일 유계 확장 조건을, 골드바흐와 Twin은 공통 가중
+proper-prime-power 오염 상계를 확정했다. 남은 단계는 모두 무한 균일성 정리다.
+
+English report: [TICKET-192](uniform-eightone-weighted-envelope.md).
+Korean report: [TICKET-192 한국어](uniform-eightone-weighted-envelope.ko.md).
+
+## Preserved Continuation After TICKET-191
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

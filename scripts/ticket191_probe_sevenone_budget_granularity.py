@@ -20,7 +20,7 @@ from ticket189_corefive_sublinear_shift import (
 )
 
 
-GENERATED_AT = "2026-08-09T00:30:00+09:00"
+GENERATED_AT = "2026-08-08T00:30:00+09:00"
 SCHEMA = "primeproject.ticket191-probe-sevenone-budget-granularity.v1"
 STATUS = (
     "one_additional_infinite_cycle_stratum_closed_"

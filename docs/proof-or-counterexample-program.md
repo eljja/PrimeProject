@@ -37,6 +37,33 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-192 Uniform Extension, Eight-One Cycles, and Weighted Envelopes
+
+TICKET-192 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results.
+
+1. **Riemann:** `UniformBoundedCoreExtensionAndPointwiseCauchyNoGo` proves that
+   a dense-core Hermitian quadratic form extends boundedly exactly when it has
+   one uniform quadratic norm bound. Positive pointwise-Cauchy sections with
+   norms tending to infinity refute pointwise-only promotion.
+2. **Collatz:** `ExactlyEightValuationOnesOtherwiseTwoCycleExclusion` closes
+   the complete eight-one/rest-two periodic stratum. Noncontraction closes
+   `h<20`, rotation-normalized exact arithmetic closes 5,777,343 words at
+   `h=20..30`, and `256(5/6)^h<1` closes `h>=31`.
+3. **Goldbach:** `WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction`
+   proves `E_pp(N)<=2log(N)W_pp(N)<=A(N)(log N)^2`, removing the earlier
+   count-budget factor two. The every-large-even correlation lower bound is open.
+4. **Twin Prime:** `LocalTwoSidedWeightedEnvelopeBridge` bounds contamination
+   by the weighted proper-power mass in the two translated local intervals.
+   Finite blocks pass; infinitely many unbounded successful blocks are open.
+
+Machine audit: four exact theorems, one newly closed infinite Collatz stratum,
+two weighted-envelope bridges, four rejected or corrected routes, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-192](uniform-eightone-weighted-envelope.md).
+한국어 보고서: [TICKET-192](uniform-eightone-weighted-envelope.ko.md).
+
 ## 2026-08-08 TICKET-191 Probe Topology, Seven-One Cycles, and Exact Arithmetic Targets
 
 TICKET-191 keeps all four parent conjectures at `open_not_proven` and proves
