@@ -1,0 +1,905 @@
+{
+  "schema": "primeproject.ticket191-probe-sevenone-budget-granularity.v1",
+  "generated_at": "2026-08-09T00:30:00+09:00",
+  "ticket_id": "RH-TICKET-191",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "GaussianRationalProbePromotionAndCoordinateTestNoGo",
+  "declared_proposition": "Let q_N be Hermitian quadratic forms on nested finite-support cores. If q_N(x) is Cauchy for every Gaussian-rational finite-support vector x, then the pointwise limits and complex polarization define one Hermitian form q on c_00. If q_N(x)>=-epsilon_N||x||^2 with epsilon_N tending to zero on every fixed core, then q is positive semidefinite. Testing only the coordinate vectors is insufficient: [[1,-a],[-a,1]] has positive coordinate values but a negative eigenvalue for every rational a>1.",
+  "mathematical_argument": "Limits preserve the quadratic identities on the countable Gaussian-rational core. The complex polarization identity therefore recovers compatible sesquilinear matrix entries on every finite support, and scalar extension gives a Hermitian form on c_00. Passing to the limit in the lower-floor inequality gives q(x)>=0. For the counterfamily the coordinate values are both one, whereas q(1,1)=2-2a<0 and the eigenvalues are 1-a and 1+a.",
+  "reproducible_computation": {
+    "theorem": "Let q_N be Hermitian quadratic forms on nested finite-support cores. If q_N(x) is Cauchy for every Gaussian-rational finite-support vector x, then the pointwise limits and complex polarization define one Hermitian form q on c_00. If q_N(x)>=-epsilon_N||x||^2 with epsilon_N tending to zero on every fixed core, then q is positive semidefinite. Testing only the coordinate vectors is insufficient: [[1,-a],[-a,1]] has positive coordinate values but a negative eigenvalue for every rational a>1.",
+    "proof": "Limits preserve the quadratic identities on the countable Gaussian-rational core. The complex polarization identity therefore recovers compatible sesquilinear matrix entries on every finite support, and scalar extension gives a Hermitian form on c_00. Passing to the limit in the lower-floor inequality gives q(x)>=0. For the counterfamily the coordinate values are both one, whereas q(1,1)=2-2a<0 and the eigenvalues are 1-a and 1+a.",
+    "finite_probe_rows": [
+      {
+        "rational_probe_vector": [
+          1,
+          0
+        ],
+        "left_N": 8,
+        "right_M": 17,
+        "left_value": {
+          "numerator": 2213,
+          "denominator": 840,
+          "exact": "2213/840",
+          "decimal": 2.6345238095238095
+        },
+        "right_value": {
+          "numerator": 6669373,
+          "denominator": 2450448,
+          "exact": "6669373/2450448",
+          "decimal": 2.721695379783615
+        },
+        "exact_difference": {
+          "numerator": 1068047,
+          "denominator": 12252240,
+          "exact": "1068047/12252240",
+          "decimal": 0.08717157025980556
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 9,
+          "exact": "1/9",
+          "decimal": 0.1111111111111111
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          0
+        ],
+        "left_N": 16,
+        "right_M": 33,
+        "left_value": {
+          "numerator": 383837,
+          "denominator": 144144,
+          "exact": "383837/144144",
+          "decimal": 2.6628718503718503
+        },
+        "right_value": {
+          "numerator": 55864974093767,
+          "denominator": 20629078984800,
+          "exact": "55864974093767/20629078984800",
+          "decimal": 2.708069232510557
+        },
+        "exact_difference": {
+          "numerator": 6526662562319,
+          "denominator": 144403552893600,
+          "exact": "6526662562319/144403552893600",
+          "decimal": 0.045197382138706804
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 17,
+          "exact": "1/17",
+          "decimal": 0.058823529411764705
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          0
+        ],
+        "left_N": 32,
+        "right_M": 65,
+        "left_value": {
+          "numerator": 55239850488167,
+          "denominator": 20629078984800,
+          "exact": "55239850488167/20629078984800",
+          "decimal": 2.677766202207527
+        },
+        "right_value": {
+          "numerator": 3193043137892466006742308557,
+          "denominator": 1182266884102822267511361600,
+          "exact": "3193043137892466006742308557/1182266884102822267511361600",
+          "decimal": 2.700780323653864
+        },
+        "exact_difference": {
+          "numerator": 27208833652725295571733043,
+          "denominator": 1182266884102822267511361600,
+          "exact": "27208833652725295571733043/1182266884102822267511361600",
+          "decimal": 0.023014121446337434
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 33,
+          "exact": "1/33",
+          "decimal": 0.030303030303030304
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          0
+        ],
+        "left_N": 64,
+        "right_M": 129,
+        "left_value": {
+          "numerator": 3174854416598576433395979917,
+          "denominator": 1182266884102822267511361600,
+          "exact": "3174854416598576433395979917/1182266884102822267511361600",
+          "decimal": 2.685395708269249
+        },
+        "right_value": {
+          "numerator": 36015188701631732372879743536512803859322311475863438531,
+          "denominator": 13353756090997411579403749204440236542538872688049072000,
+          "exact": "36015188701631732372879743536512803859322311475863438531/13353756090997411579403749204440236542538872688049072000",
+          "decimal": 2.6970081268678996
+        },
+        "exact_difference": {
+          "numerator": 155069405592941429648045533101636291302118471891278141,
+          "denominator": 13353756090997411579403749204440236542538872688049072000,
+          "exact": "155069405592941429648045533101636291302118471891278141/13353756090997411579403749204440236542538872688049072000",
+          "decimal": 0.011612418598650552
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 65,
+          "exact": "1/65",
+          "decimal": 0.015384615384615385
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          0,
+          1
+        ],
+        "left_N": 8,
+        "right_M": 17,
+        "left_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "right_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "exact_difference": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "certified_probe_modulus": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          0,
+          1
+        ],
+        "left_N": 16,
+        "right_M": 33,
+        "left_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "right_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "exact_difference": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "certified_probe_modulus": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          0,
+          1
+        ],
+        "left_N": 32,
+        "right_M": 65,
+        "left_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "right_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "exact_difference": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "certified_probe_modulus": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          0,
+          1
+        ],
+        "left_N": 64,
+        "right_M": 129,
+        "left_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "right_value": {
+          "numerator": 3,
+          "denominator": 1,
+          "exact": "3/1",
+          "decimal": 3.0
+        },
+        "exact_difference": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "certified_probe_modulus": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          1
+        ],
+        "left_N": 8,
+        "right_M": 17,
+        "left_value": {
+          "numerator": 5293,
+          "denominator": 840,
+          "exact": "5293/840",
+          "decimal": 6.3011904761904765
+        },
+        "right_value": {
+          "numerator": 15654349,
+          "denominator": 2450448,
+          "exact": "15654349/2450448",
+          "decimal": 6.388362046450282
+        },
+        "exact_difference": {
+          "numerator": 1068047,
+          "denominator": 12252240,
+          "exact": "1068047/12252240",
+          "decimal": 0.08717157025980556
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 9,
+          "exact": "1/9",
+          "decimal": 0.1111111111111111
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          1
+        ],
+        "left_N": 16,
+        "right_M": 33,
+        "left_value": {
+          "numerator": 912365,
+          "denominator": 144144,
+          "exact": "912365/144144",
+          "decimal": 6.329538517038517
+        },
+        "right_value": {
+          "numerator": 131504930371367,
+          "denominator": 20629078984800,
+          "exact": "131504930371367/20629078984800",
+          "decimal": 6.374735899177224
+        },
+        "exact_difference": {
+          "numerator": 6526662562319,
+          "denominator": 144403552893600,
+          "exact": "6526662562319/144403552893600",
+          "decimal": 0.045197382138706804
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 17,
+          "exact": "1/17",
+          "decimal": 0.058823529411764705
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          1
+        ],
+        "left_N": 32,
+        "right_M": 65,
+        "left_value": {
+          "numerator": 130879806765767,
+          "denominator": 20629078984800,
+          "exact": "130879806765767/20629078984800",
+          "decimal": 6.344432868874193
+        },
+        "right_value": {
+          "numerator": 7528021712936147654283967757,
+          "denominator": 1182266884102822267511361600,
+          "exact": "7528021712936147654283967757/1182266884102822267511361600",
+          "decimal": 6.367446990320531
+        },
+        "exact_difference": {
+          "numerator": 27208833652725295571733043,
+          "denominator": 1182266884102822267511361600,
+          "exact": "27208833652725295571733043/1182266884102822267511361600",
+          "decimal": 0.023014121446337434
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 33,
+          "exact": "1/33",
+          "decimal": 0.030303030303030304
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          1,
+          1
+        ],
+        "left_N": 64,
+        "right_M": 129,
+        "left_value": {
+          "numerator": 7509832991642258080937639117,
+          "denominator": 1182266884102822267511361600,
+          "exact": "7509832991642258080937639117/1182266884102822267511361600",
+          "decimal": 6.352062374935915
+        },
+        "right_value": {
+          "numerator": 84978961035288908164026823952793671181964844665376702531,
+          "denominator": 13353756090997411579403749204440236542538872688049072000,
+          "exact": "84978961035288908164026823952793671181964844665376702531/13353756090997411579403749204440236542538872688049072000",
+          "decimal": 6.3636747935345666
+        },
+        "exact_difference": {
+          "numerator": 155069405592941429648045533101636291302118471891278141,
+          "denominator": 13353756090997411579403749204440236542538872688049072000,
+          "exact": "155069405592941429648045533101636291302118471891278141/13353756090997411579403749204440236542538872688049072000",
+          "decimal": 0.011612418598650552
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 65,
+          "exact": "1/65",
+          "decimal": 0.015384615384615385
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          2,
+          -1
+        ],
+        "left_N": 8,
+        "right_M": 17,
+        "left_value": {
+          "numerator": 2563,
+          "denominator": 210,
+          "exact": "2563/210",
+          "decimal": 12.204761904761904
+        },
+        "right_value": {
+          "numerator": 7690393,
+          "denominator": 612612,
+          "exact": "7690393/612612",
+          "decimal": 12.553448185801127
+        },
+        "exact_difference": {
+          "numerator": 1068047,
+          "denominator": 3063060,
+          "exact": "1068047/3063060",
+          "decimal": 0.3486862810392222
+        },
+        "certified_probe_modulus": {
+          "numerator": 4,
+          "denominator": 9,
+          "exact": "4/9",
+          "decimal": 0.4444444444444444
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          2,
+          -1
+        ],
+        "left_N": 16,
+        "right_M": 33,
+        "left_value": {
+          "numerator": 443897,
+          "denominator": 36036,
+          "exact": "443897/36036",
+          "decimal": 12.318154068154069
+        },
+        "right_value": {
+          "numerator": 64460423670767,
+          "denominator": 5157269746200,
+          "exact": "64460423670767/5157269746200",
+          "decimal": 12.498943596708896
+        },
+        "exact_difference": {
+          "numerator": 6526662562319,
+          "denominator": 36100888223400,
+          "exact": "6526662562319/36100888223400",
+          "decimal": 0.18078952855482722
+        },
+        "certified_probe_modulus": {
+          "numerator": 4,
+          "denominator": 17,
+          "exact": "4/17",
+          "decimal": 0.23529411764705882
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          2,
+          -1
+        ],
+        "left_N": 32,
+        "right_M": 65,
+        "left_value": {
+          "numerator": 63835300065167,
+          "denominator": 5157269746200,
+          "exact": "63835300065167/5157269746200",
+          "decimal": 12.377731475496773
+        },
+        "right_value": {
+          "numerator": 3685654339601975284872042557,
+          "denominator": 295566721025705566877840400,
+          "exact": "3685654339601975284872042557/295566721025705566877840400",
+          "decimal": 12.469787961282124
+        },
+        "exact_difference": {
+          "numerator": 27208833652725295571733043,
+          "denominator": 295566721025705566877840400,
+          "exact": "27208833652725295571733043/295566721025705566877840400",
+          "decimal": 0.09205648578534974
+        },
+        "certified_probe_modulus": {
+          "numerator": 4,
+          "denominator": 33,
+          "exact": "4/33",
+          "decimal": 0.12121212121212122
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          2,
+          -1
+        ],
+        "left_N": 64,
+        "right_M": 129,
+        "left_value": {
+          "numerator": 3667465618308085711525713917,
+          "denominator": 295566721025705566877840400,
+          "exact": "3667465618308085711525713917/295566721025705566877840400",
+          "decimal": 12.408249499743663
+        },
+        "right_value": {
+          "numerator": 41579253739547320530964639038362902418713508429217218531,
+          "denominator": 3338439022749352894850937301110059135634718172012268000,
+          "exact": "41579253739547320530964639038362902418713508429217218531/3338439022749352894850937301110059135634718172012268000",
+          "decimal": 12.454699174138264
+        },
+        "exact_difference": {
+          "numerator": 155069405592941429648045533101636291302118471891278141,
+          "denominator": 3338439022749352894850937301110059135634718172012268000,
+          "exact": "155069405592941429648045533101636291302118471891278141/3338439022749352894850937301110059135634718172012268000",
+          "decimal": 0.04644967439460221
+        },
+        "certified_probe_modulus": {
+          "numerator": 4,
+          "denominator": 65,
+          "exact": "4/65",
+          "decimal": 0.06153846153846154
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          3,
+          2
+        ],
+        "left_N": 8,
+        "right_M": 17,
+        "left_value": {
+          "numerator": 11119,
+          "denominator": 280,
+          "exact": "11119/280",
+          "decimal": 39.71071428571429
+        },
+        "right_value": {
+          "numerator": 11025725,
+          "denominator": 272272,
+          "exact": "11025725/272272",
+          "decimal": 40.495258418052536
+        },
+        "exact_difference": {
+          "numerator": 1068047,
+          "denominator": 1361360,
+          "exact": "1068047/1361360",
+          "decimal": 0.7845441323382499
+        },
+        "certified_probe_modulus": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          3,
+          2
+        ],
+        "left_N": 16,
+        "right_M": 33,
+        "left_value": {
+          "numerator": 640093,
+          "denominator": 16016,
+          "exact": "640093/16016",
+          "decimal": 39.96584665334665
+        },
+        "right_value": {
+          "numerator": 92538892288967,
+          "denominator": 2292119887200,
+          "exact": "92538892288967/2292119887200",
+          "decimal": 40.37262309259501
+        },
+        "exact_difference": {
+          "numerator": 6526662562319,
+          "denominator": 16044839210400,
+          "exact": "6526662562319/16044839210400",
+          "decimal": 0.40677643924836127
+        },
+        "certified_probe_modulus": {
+          "numerator": 9,
+          "denominator": 17,
+          "exact": "9/17",
+          "decimal": 0.5294117647058824
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          3,
+          2
+        ],
+        "left_N": 32,
+        "right_M": 65,
+        "left_value": {
+          "numerator": 91913768683367,
+          "denominator": 2292119887200,
+          "exact": "91913768683367/2292119887200",
+          "decimal": 40.09989581986774
+        },
+        "right_value": {
+          "numerator": 5294850931853038926762506957,
+          "denominator": 131362987122535807501262400,
+          "exact": "5294850931853038926762506957/131362987122535807501262400",
+          "decimal": 40.307022912884776
+        },
+        "exact_difference": {
+          "numerator": 27208833652725295571733043,
+          "denominator": 131362987122535807501262400,
+          "exact": "27208833652725295571733043/131362987122535807501262400",
+          "decimal": 0.2071270930170369
+        },
+        "certified_probe_modulus": {
+          "numerator": 3,
+          "denominator": 11,
+          "exact": "3/11",
+          "decimal": 0.2727272727272727
+        },
+        "difference_below_modulus": true
+      },
+      {
+        "rational_probe_vector": [
+          3,
+          2
+        ],
+        "left_N": 64,
+        "right_M": 129,
+        "left_value": {
+          "numerator": 5276662210559149353416178317,
+          "denominator": 131362987122535807501262400,
+          "exact": "5276662210559149353416178317/131362987122535807501262400",
+          "decimal": 40.16856137442324
+        },
+        "right_value": {
+          "numerator": 59755199530071575180708631011073224379391418476839566531,
+          "denominator": 1483750676777490175489305467160026282504319187561008000,
+          "exact": "59755199530071575180708631011073224379391418476839566531/1483750676777490175489305467160026282504319187561008000",
+          "decimal": 40.273073141811096
+        },
+        "exact_difference": {
+          "numerator": 155069405592941429648045533101636291302118471891278141,
+          "denominator": 1483750676777490175489305467160026282504319187561008000,
+          "exact": "155069405592941429648045533101636291302118471891278141/1483750676777490175489305467160026282504319187561008000",
+          "decimal": 0.10451176738785496
+        },
+        "certified_probe_modulus": {
+          "numerator": 9,
+          "denominator": 65,
+          "exact": "9/65",
+          "decimal": 0.13846153846153847
+        },
+        "difference_below_modulus": true
+      }
+    ],
+    "coordinate_only_counterexamples": [
+      {
+        "matrix": [
+          [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": -6,
+              "denominator": 5,
+              "exact": "-6/5",
+              "decimal": -1.2
+            }
+          ],
+          [
+            {
+              "numerator": -6,
+              "denominator": 5,
+              "exact": "-6/5",
+              "decimal": -1.2
+            },
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "coordinate_probe_values": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          }
+        ],
+        "negative_witness": [
+          1,
+          1
+        ],
+        "negative_witness_value": {
+          "numerator": -2,
+          "denominator": 5,
+          "exact": "-2/5",
+          "decimal": -0.4
+        },
+        "minimum_eigenvalue_symbolic": "1-a",
+        "coordinates_are_positive": true,
+        "form_is_positive_semidefinite": false
+      },
+      {
+        "matrix": [
+          [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": -3,
+              "denominator": 2,
+              "exact": "-3/2",
+              "decimal": -1.5
+            }
+          ],
+          [
+            {
+              "numerator": -3,
+              "denominator": 2,
+              "exact": "-3/2",
+              "decimal": -1.5
+            },
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "coordinate_probe_values": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          }
+        ],
+        "negative_witness": [
+          1,
+          1
+        ],
+        "negative_witness_value": {
+          "numerator": -1,
+          "denominator": 1,
+          "exact": "-1/1",
+          "decimal": -1.0
+        },
+        "minimum_eigenvalue_symbolic": "1-a",
+        "coordinates_are_positive": true,
+        "form_is_positive_semidefinite": false
+      },
+      {
+        "matrix": [
+          [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": -2,
+              "denominator": 1,
+              "exact": "-2/1",
+              "decimal": -2.0
+            }
+          ],
+          [
+            {
+              "numerator": -2,
+              "denominator": 1,
+              "exact": "-2/1",
+              "decimal": -2.0
+            },
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            }
+          ]
+        ],
+        "coordinate_probe_values": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          }
+        ],
+        "negative_witness": [
+          1,
+          1
+        ],
+        "negative_witness_value": {
+          "numerator": -2,
+          "denominator": 1,
+          "exact": "-2/1",
+          "decimal": -2.0
+        },
+        "minimum_eigenvalue_symbolic": "1-a",
+        "coordinates_are_positive": true,
+        "form_is_positive_semidefinite": false
+      }
+    ],
+    "promotion_contract": {
+      "gaussian_rational_scalar_cauchy_values_suffice_on_c00": true,
+      "coordinate_probe_positivity_suffices": false,
+      "continuity_is_required_to_extend_beyond_c00": true,
+      "actual_pole_neutral_weil_probe_convergence_verified": false
+    },
+    "no_go_scope": "This is a countable-core promotion theorem and a coordinate-test no-go result. It proves neither convergence nor positivity for the actual pole-neutral Weil or screw-function quadratic form and does not prove the Riemann hypothesis.",
+    "failure_count": 0
+  },
+  "discarded_route": "testing positivity only on coordinate vectors or demanding operator-norm convergence before scalar probe convergence",
+  "remaining_gap": "Convergence, a vanishing negative floor, and continuity are not proved for the actual pole-neutral Weil/screw-function probes.",
+  "candidate_theorem": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreAndExtendContinuouslyToAdmissibleTestFunctions",
+  "claim_boundary": "No RH proof. A weaker countable-probe promotion theorem and an exact coordinate-test counterexample are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T190-INPUT",
+        "label": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "RH-T191-CLOSED",
+        "label": "GaussianRationalProbePromotionAndCoordinateTestNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T191-REJECTED",
+        "label": "CoordinateProbePositivityImpliesHermitianPositivity",
+        "status": "refuted_or_stronger_than_necessary"
+      },
+      {
+        "id": "RH-T191-OPEN",
+        "label": "PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreAndExtendContinuouslyToAdmissibleTestFunctions",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T190-INPUT",
+        "RH-T191-CLOSED"
+      ],
+      [
+        "RH-T191-CLOSED",
+        "RH-T191-OPEN"
+      ],
+      [
+        "RH-T191-REJECTED",
+        "RH-T191-OPEN"
+      ]
+    ]
+  }
+}

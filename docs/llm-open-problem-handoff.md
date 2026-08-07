@@ -62,52 +62,54 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-190
+## Latest Continuation After TICKET-191
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
 1. Riemann:
-   `PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor`.
-   TICKET-190 proves that a direct Cauchy modulus is sufficient and that
-   absolute adjacent-drift summability is not necessary. It also separates a
-   compatible positive form on `c_00` from a bounded `l_2` operator. The next
-   result must estimate the actual arithmetic cores, not another model family.
+   `PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreAndExtendContinuouslyToAdmissibleTestFunctions`.
+   TICKET-191 proves the abstract countable-probe promotion theorem and refutes
+   coordinate-only positivity. The next result must estimate the actual Weil
+   quadratic values and prove continuity, not another model family.
 2. Collatz:
-   `NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
-   The exactly-six-one/rest-two stratum is excluded at every horizon. The
-   product inequality `64(5/6)^h<1` closes `h>=23`, and exact arithmetic closes
-   238,722 words at `h=15..22`. Do not replace the next all-horizon theorem
-   with additional bounded enumeration.
+   `NoContractingValuationWordWithExactlyEightOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The exactly-seven-one/rest-two stratum is excluded at every horizon. The
+   product inequality `128(5/6)^h<1` closes `h>=27`, and exact arithmetic closes
+   2,195,765 words at `h=17..26`. Preserve the finite-plus-analytic split.
 3. Goldbach:
-   `ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget`.
-   TICKET-190 proves with a sparse-hole countermodel that density-one
-   positivity and asymptotically complete average mass cannot imply positivity
-   at every even target. The next result must be pointwise and uniform.
+   `BinaryVonMangoldtCorrelationExceedsExplicitPrimePowerBudgetForEveryLargeEvenTarget`.
+   TICKET-191 proves that this exact pointwise threshold is sufficient and
+   sublinear. The next result must prove the every-large-even lower bound; a
+   linear lower bound is optional and stronger than required.
 4. Twin Prime:
-   `CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope`.
-   Positive linear cumulative mass and positive linear mass on infinitely many
-   dyadic blocks are equivalent, but the model `b_j=1` proves that linear growth
-   is stronger than infinitude. The quantifier-matched target is unbounded exact
-   cumulative excess after prime-power subtraction.
+   `ShiftTwoCorrelationExceedsExactPrimePowerContaminationOnInfinitelyManyDyadicBlocks`.
+   TICKET-191 proves that exact block positivity is equivalent to a twin pair
+   in that block and that linear density is not necessary. The next result must
+   establish actual positivity on infinitely many unbounded blocks.
 
 Exact machine artifacts:
 
 ```text
-data/open-problem/ticket190-cauchy-sixone-quantifier-transfer.json
-data/open-problem/riemann/rh-ticket-190-direct-cauchy-boundary.json
-data/open-problem/collatz/co-ticket-190-six-one-cycle-exclusion.json
-data/open-problem/goldbach/gb-ticket-190-quantifier-no-go.json
-data/open-problem/twin-prime/tp-ticket-190-cumulative-dyadic-transfer.json
+data/open-problem/ticket191-probe-sevenone-budget-granularity.json
+data/open-problem/riemann/rh-ticket-191-rational-probe-boundary.json
+data/open-problem/collatz/co-ticket-191-seven-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-191-exact-budget-reduction.json
+data/open-problem/twin-prime/tp-ticket-191-block-granularity.json
 ```
 
-한국어 인계: TICKET-190도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
-정확히 여섯 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 콜라츠 주기족의
-배제다. 리만은 직접 Cauchy 승격과 절대합 필요성 no-go를, 골드바흐는
-평균에서 전칭 명제로의 승격 no-go를, Twin은 누적–dyadic 선형 전이와
-무한성·선형 밀도의 차이를 확정했다.
+한국어 인계: TICKET-191도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 일곱 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 콜라츠 주기족의
+배제다. 리만은 가산 탐침 승격과 좌표 검사 no-go를, 골드바흐는 정확한
+점별 오염 예산을, Twin은 블록 양성과 쌍둥이 소수 존재의 동치를 확정했다.
 
-English report: [TICKET-190](cauchy-sixone-quantifier-transfer.md).
-Korean report: [TICKET-190 한국어](cauchy-sixone-quantifier-transfer.ko.md).
+English report: [TICKET-191](probe-sevenone-budget-granularity.md).
+Korean report: [TICKET-191 한국어](probe-sevenone-budget-granularity.ko.md).
+
+## Preserved Continuation After TICKET-190
+
+The TICKET-190 continuation nodes remain in
+`data/open-problem/ticket190-cauchy-sixone-quantifier-transfer.json`; TICKET-191
+supersedes them as the active frontier without rewriting their historical proofs.
 
 ## Preserved Continuation After TICKET-189
 

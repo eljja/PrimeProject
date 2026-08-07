@@ -1,0 +1,227 @@
+{
+  "schema": "primeproject.ticket191-probe-sevenone-budget-granularity.v1",
+  "generated_at": "2026-08-09T00:30:00+09:00",
+  "ticket_id": "CO-TICKET-191",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactlySevenValuationOnesOtherwiseTwoCycleExclusion",
+  "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly seven entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+  "mathematical_argument": "For such a period of length h, the affine denominator is D=2^(2h-7)-3^h, which is positive from h=17. A nontrivial positive odd cycle cannot contain one, hence each orbit value is at least three. Multiplication around the cycle gives 1<=128(5/6)^h. At h=27 the right side is strictly below one and decreases thereafter. For 17<=h<=26, exhaustive exact enumeration of sum C(h,7)=2,195,765 words finds no affine-divisibility hit.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly seven entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+    "proof": "For such a period of length h, the affine denominator is D=2^(2h-7)-3^h, which is positive from h=17. A nontrivial positive odd cycle cannot contain one, hence each orbit value is at least three. Multiplication around the cycle gives 1<=128(5/6)^h. At h=27 the right side is strictly below one and decreases thereafter. For 17<=h<=26, exhaustive exact enumeration of sum C(h,7)=2,195,765 words finds no affine-divisibility hit.",
+    "finite_exception_horizon_rows": [
+      {
+        "horizon_h": 17,
+        "contracting": true,
+        "word_count": 19448,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "cad1f99a8a4667e8a2c5e8119192ed051f09787e2cb7138603001dd4824a46a4"
+      },
+      {
+        "horizon_h": 18,
+        "contracting": true,
+        "word_count": 31824,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "0723b5d465dc690ee49a2bea1f83dcd87470be985cf0d41cec74f84a448a9c18"
+      },
+      {
+        "horizon_h": 19,
+        "contracting": true,
+        "word_count": 50388,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "117cfedc89310a5d8eac6fee4b26e4ea9bf3450d830431c5ec1ddfb9d98f4fc6"
+      },
+      {
+        "horizon_h": 20,
+        "contracting": true,
+        "word_count": 77520,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "7969c7f2894beb1ced429675cc2c0bffa23b587b8594286a29cd1a494b8bd5b2"
+      },
+      {
+        "horizon_h": 21,
+        "contracting": true,
+        "word_count": 116280,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "8b87562ff68a923890cebcbeb6040619bea7a88251d1cabce52057b7865d9d2f"
+      },
+      {
+        "horizon_h": 22,
+        "contracting": true,
+        "word_count": 170544,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "15bdfb5f7c583c047f55e33a55fd18699a770dde1921f2d7493552f98102dded"
+      },
+      {
+        "horizon_h": 23,
+        "contracting": true,
+        "word_count": 245157,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "32cd0903a43dc261226a17e13479ac8471874a7f78639668bca90b7dccb8f302"
+      },
+      {
+        "horizon_h": 24,
+        "contracting": true,
+        "word_count": 346104,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "46aced09efaaa10d1b9b16dddbe754bceb9440f5c7ed99e7d2df132e5e904457"
+      },
+      {
+        "horizon_h": 25,
+        "contracting": true,
+        "word_count": 480700,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "f371d44bffe22f7c96cb5700d0698dc4ebeb21a1843f60bc8eb3d78c7c13160a"
+      },
+      {
+        "horizon_h": 26,
+        "contracting": true,
+        "word_count": 657800,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "3a1c89e42e7dc569dc48c1d287a0ecedbc994395a6e99a4953b673cf2e2f66bd"
+      }
+    ],
+    "analytic_product_rows": [
+      {
+        "horizon_h": 27,
+        "cycle_product_upper_bound": {
+          "numerator": 7450580596923828125,
+          "denominator": 7996018508417728512,
+          "exact": "7450580596923828125/7996018508417728512",
+          "decimal": 0.931786312035209
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 28,
+        "cycle_product_upper_bound": {
+          "numerator": 37252902984619140625,
+          "denominator": 47976111050506371072,
+          "exact": "37252902984619140625/47976111050506371072",
+          "decimal": 0.7764885933626742
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 32,
+        "cycle_product_upper_bound": {
+          "numerator": 23283064365386962890625,
+          "denominator": 62177039921456256909312,
+          "exact": "23283064365386962890625/62177039921456256909312",
+          "decimal": 0.37446402071888224
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 48,
+        "cycle_product_upper_bound": {
+          "numerator": 3552713678800500929355621337890625,
+          "denominator": 175408263338707478438181336904630272,
+          "exact": "3552713678800500929355621337890625/175408263338707478438181336904630272",
+          "decimal": 0.02025396985967719
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 64,
+        "cycle_product_upper_bound": {
+          "numerator": 542101086242752217003726400434970855712890625,
+          "denominator": 494845989554478732079392866771967864139816108032,
+          "exact": "542101086242752217003726400434970855712890625/494845989554478732079392866771967864139816108032",
+          "decimal": 0.0010954945532261832
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 96,
+        "cycle_product_upper_bound": {
+          "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+          "denominator": 3938311532480172803920056105071239755359903733078672788526427266405629952,
+          "exact": "12621774483536188886587657044524579674771302961744368076324462890625/3938311532480172803920056105071239755359903733078672788526427266405629952",
+          "decimal": 3.2048694927868134e-06
+        },
+        "strictly_below_one": true
+      }
+    ],
+    "analytic_bound": {
+      "bound_at_h_27": {
+        "numerator": 7450580596923828125,
+        "denominator": 7996018508417728512,
+        "exact": "7450580596923828125/7996018508417728512",
+        "decimal": 0.931786312035209
+      },
+      "required_upper_threshold": {
+        "numerator": 1,
+        "denominator": 1,
+        "exact": "1/1",
+        "decimal": 1.0
+      },
+      "analytic_range_starts_at_h": 27,
+      "bound_is_strictly_decreasing": true
+    },
+    "aggregate": {
+      "infinite_family_proved": true,
+      "includes_imprimitive_words": true,
+      "contracting_range_starts_at_h": 17,
+      "analytic_range_starts_at_h": 27,
+      "finite_exception_word_count": 2195765,
+      "finite_word_count_identity": "C(27,8)-C(17,8)=2195765",
+      "divisibility_hits": 0
+    },
+    "no_go_scope": "This closes only the exactly-seven-one/rest-two periodic valuation stratum. Eight-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "unbounded brute-force enumeration without the exact cycle product cutoff",
+  "remaining_gap": "Eight-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+  "candidate_theorem": "NoContractingValuationWordWithExactlyEightOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof. The complete exactly-seven-one/rest-two periodic valuation stratum is excluded, including imprimitive periods.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T190-INPUT",
+        "label": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "CO-T191-CLOSED",
+        "label": "ExactlySevenValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T191-REJECTED",
+        "label": "FiniteSevenOneEnumerationAloneProvesEveryHorizon",
+        "status": "refuted_or_stronger_than_necessary"
+      },
+      {
+        "id": "CO-T191-OPEN",
+        "label": "NoContractingValuationWordWithExactlyEightOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T190-INPUT",
+        "CO-T191-CLOSED"
+      ],
+      [
+        "CO-T191-CLOSED",
+        "CO-T191-OPEN"
+      ],
+      [
+        "CO-T191-REJECTED",
+        "CO-T191-OPEN"
+      ]
+    ]
+  }
+}

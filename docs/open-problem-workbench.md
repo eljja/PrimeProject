@@ -15,6 +15,18 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
+## Current research boundary: TICKET-191
+
+The current executable frontier is
+`data/open-problem/ticket191-probe-sevenone-budget-granularity.json`. It records
+four exact intermediate theorems and keeps all four conjectures at
+`open_not_proven`. The seven-one/rest-two accelerated Collatz cycle stratum is
+excluded. RH is reduced to actual scalar Weil-probe convergence plus continuity,
+strong Goldbach to an every-target correlation lower bound above an explicit
+`o(N)` prime-power budget, and Twin Prime to positive exact excess on infinitely
+many dyadic blocks. See the [English report](probe-sevenone-budget-granularity.md)
+and [한국어 보고서](probe-sevenone-budget-granularity.ko.md).
+
 ## Public Pages
 
 - `open-problems/riemann.html`

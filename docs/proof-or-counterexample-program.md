@@ -37,6 +37,35 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-191 Probe Topology, Seven-One Cycles, and Exact Arithmetic Targets
+
+TICKET-191 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results.
+
+1. **Riemann:** `GaussianRationalProbePromotionAndCoordinateTestNoGo` lowers
+   the promotion target to Cauchy convergence of Gaussian-rational finite-support
+   probes plus a vanishing negative floor. The matrix `[[1,-a],[-a,1]]`, `a>1`,
+   refutes coordinate-only positivity. Actual Weil-probe estimates remain open.
+2. **Collatz:** `ExactlySevenValuationOnesOtherwiseTwoCycleExclusion` closes
+   the complete seven-one/rest-two periodic stratum. The product bound
+   `128(5/6)^h<1` closes `h>=27`; exact arithmetic closes all 2,195,765 words at
+   `h=17..26` with zero divisibility hits.
+3. **Goldbach:** `ExactPrimePowerBudgetPointwiseReductionAndLinearScaleNoGo`
+   proves that pointwise excess above the explicit proper-prime-power budget is
+   sufficient and that the budget is `o(N)`. The required every-target excess
+   remains unproved.
+4. **Twin Prime:** `ArithmeticBlockGranularityEquivalenceAndLinearDensityNoGo`
+   proves exact equivalence between positive prime-power-subtracted block excess
+   and a twin pair in that block. Linear density is not necessary; positivity
+   on infinitely many actual blocks remains open.
+
+Machine audit: four exact theorems, one newly closed infinite Collatz stratum,
+three sharpened quantifier-matched targets, four rejected or corrected routes,
+zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-191](probe-sevenone-budget-granularity.md).
+한국어 보고서: [TICKET-191](probe-sevenone-budget-granularity.ko.md).
+
 ## 2026-08-08 TICKET-190 Cauchy Cores, Six-One Cycles, and Quantifier Transfer
 
 TICKET-190 continues from TICKET-189 and keeps every parent conjecture at
