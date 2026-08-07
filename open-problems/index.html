@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260808-ticket194-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260808-ticket195-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-194</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-195</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-194 actually changed</h2>
-          <p>TICKET-194 did not solve a conjecture. It closes the complete ten-one/rest-two Collatz cycle stratum, proves the uniformly-bounded dense-core extension required by the RH route, and gives exact Chebyshev theta-layer identities that lower the Goldbach and Twin Prime contamination scales by one logarithm.</p>
-          <p class="proof-boundary">TICKET-194는 난제를 해결하지 않았습니다. 콜라츠에서는 정확히 열 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 주기를 470,772,500개 단어를 빠짐없이 대표하는 5+4 MITM 감사와 전 길이 부등식으로 배제했습니다. 리만 트랙은 균일 유계성과 조밀 코어 수렴의 전체공간 확장을 증명했고, 골드바흐와 쌍둥이 소수는 정확한 정수근 세타층 항등식으로 오염 규모를 <code>O(√N log N)</code>과 <code>O(√X log X)</code>로 낮췄습니다.</p>
+          <h2>What TICKET-195 actually changed</h2>
+          <p>TICKET-195 did not solve a conjecture. It proves that finite even Taylor data alone cannot certify the RH zero property, closes the eleven-one/rest-two Collatz cycle stratum and proves every fixed one-count stratum decidable, and separates the dominant prime-square contamination from a cubic-scale higher-power tail for Goldbach and Twin Prime.</p>
+          <p class="proof-boundary">TICKET-195는 난제를 해결하지 않았습니다. 리만 트랙은 동일한 유한 짝함수 제트를 가지면서 <code>±i</code> 영점을 강제하는 확장을 구성해 유한 자료만의 승격을 폐기했습니다. 콜라츠에서는 3,151,735,808개 정규화 word를 포괄하는 5+5 MITM과 곱 부등식으로 열한-1 층을 닫고 모든 고정 one-count 층의 결정 가능성을 증명했습니다. 골드바흐와 쌍둥이 소수에서는 주도 소수 제곱층과 <code>O(N^(1/3))</code>, <code>O(X^(1/3))</code> 고차 꼬리를 분리했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,9 +55,9 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A uniform operator bound plus convergence on a dense core extends Hermitian quadratic forms to a bounded limit on the complete Hilbert space.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Positivity and monotonicity on a dense core do not replace uniform boundedness; weighted diagonal sections give an exact counterexample.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove the actual pole-neutral Weil finite sections are uniformly bounded and converge on a dense core.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every finite real even Taylor jet has an extension with the same declared coefficients and forced nonreal zeros at ±i.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Finite Xi coefficients, Jensen polynomials, or Hankel checks alone cannot certify the all-zero statement without a uniform tail class.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Certify Rouché tail margins for actual Xi Taylor sections on an exhausting family of off-real domains.</dd></div>
           </dl>
           <p class="workbench-ko">가산 스칼라 탐침의 점별 수렴만으로는 부족합니다. 실제 Weil 형식에서 수렴과 균일 admissible-norm 상계를 함께 증명해야 합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
@@ -66,9 +66,9 @@
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every cycle word with exactly ten valuation ones and all other valuations two fails affine divisibility.</dd></div>
-            <div><dt>Proof split / 증명 분할</dt><dd>An exact 5+4 MITM audit represents 470,772,500 normalized words at h=25..38; the product inequality closes h≥39.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Exclude affine divisibility for the exactly-eleven-ones/rest-two stratum.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every fixed one-count/rest-two cycle stratum is decidable, and the complete eleven-one stratum is empty.</dd></div>
+            <div><dt>Proof split / 증명 분할</dt><dd>An exact 5+5 MITM audit represents 3,151,735,808 normalized words at h=27..41; the product inequality closes h≥42.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Exclude every positive accelerated cycle whose valuations all lie in {1,2}, uniformly over the one-count.</dd></div>
           </dl>
           <p class="workbench-ko">열 번의 <code>v=1</code> 부분족까지 원시·비원시 여부와 무관하게 전 길이에서 닫혔습니다. 콜라츠 전체가 아니라 한 주기 valuation 층을 추가로 확장한 결과입니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
@@ -77,9 +77,9 @@
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Odd proper-prime-power mass is an exact sum of Chebyshev theta layers and is O(sqrt(N)); the power-of-two mass has an exact binary classification.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The elementary O(sqrt(N) log²N) envelope is not the intrinsic contamination scale; theta layers remove one logarithm.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Beat the exact theta-layer parity envelope pointwise for every sufficiently large even target.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Odd proper-prime-power mass splits into a dominant prime-square layer and an O(N^(1/3)) higher-exponent remainder.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Square-only support is not exact: 32=3³+5 is a concrete omitted contamination term.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Beat the prime-square layer plus cubic-tail envelope for every sufficiently large even target.</dd></div>
           </dl>
           <p class="workbench-ko">소수 거듭제곱의 실제 <code>log p</code> 가중치를 유지해 충분 예산을 더 줄였습니다. 모든 큰 짝수에서 새 가중 예산을 넘는 점별 하한은 아직 미증명입니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
@@ -88,9 +88,9 @@
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every odd proper-prime-power interval mass is an exact difference of theta layers, giving O(sqrt(X) log X) shift-two contamination.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The earlier O(sqrt(X) log²X) global majorant is not the natural local shift-two contamination scale.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Beat the exact two-interval theta-layer envelope on infinitely many unbounded dyadic blocks.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Local proper-prime-power mass splits into a prime-square interval layer and an O(X^(1/3)) higher-exponent remainder.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The pair (27,29) is a real gap-two contamination term outside square-only support.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Beat the prime-square layer plus cubic-tail envelope on infinitely many unbounded dyadic blocks.</dd></div>
           </dl>
           <p class="workbench-ko">두 국소 평행이동 구간의 가중 질량만으로 오염을 상계할 수 있습니다. 유한 블록의 성공을 무한히 많은 블록으로 승격하는 것이 남은 핵심입니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>194 tickets reduced to four meaningful eras</h2>
+          <h2>195 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–194 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 두-1부터 열-1까지의 콜라츠 주기층을 연속으로 닫았으며 조밀 코어 확장과 세타층 오염 압축으로 세 트랙의 목표를 더 정밀하게 교정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–195 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 두-1부터 열한-1까지의 콜라츠 주기층을 연속으로 닫았으며 유한 제트 no-go와 주도 소수 제곱층 분해로 세 트랙의 목표를 더 정밀하게 교정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/densecore-tenone-theta-layers.ko.md">TICKET-194 한국어 보고서</a>
-          <a href="../docs/densecore-tenone-theta-layers.md">TICKET-194 English report</a>
+          <a href="../docs/finitejet-elevenone-squarelayer.ko.md">TICKET-195 한국어 보고서</a>
+          <a href="../docs/finitejet-elevenone-squarelayer.md">TICKET-195 English report</a>
+          <a href="../docs/densecore-tenone-theta-layers.ko.md">TICKET-194 이전 보고서</a>
           <a href="../docs/everywhere-nineone-parity-envelope.ko.md">TICKET-193 이전 보고서</a>
           <a href="../docs/uniform-eightone-weighted-envelope.ko.md">TICKET-192 이전 보고서</a>
           <a href="../docs/probe-sevenone-budget-granularity.ko.md">TICKET-191 이전 보고서</a>
@@ -133,7 +134,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260808-ticket194"></script>
+    <script src="../assets/i18n.js?v=20260808-ticket195"></script>
   </body>
 </html>
 

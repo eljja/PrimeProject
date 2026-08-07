@@ -15,18 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-194
+## Current research boundary: TICKET-195
 
 The current executable frontier is
-`data/open-problem/ticket194-densecore-tenone-theta-layers.json`. It records
+`data/open-problem/ticket195-finitejet-elevenone-squarelayer.json`. It records
 four exact intermediate theorems and keeps all four conjectures at
-`open_not_proven`. The ten-one/rest-two accelerated Collatz cycle stratum is
-excluded. RH is reduced to uniform boundedness plus dense-core convergence of
-the actual pole-neutral Weil finite sections. Strong Goldbach and Twin Prime
-use exact theta-layer decompositions with `O(sqrt(X) log X)` contamination,
-while the every-target and infinitely-many-block lower bounds remain open. See
-the [English report](densecore-tenone-theta-layers.md) and
-[한국어 보고서](densecore-tenone-theta-layers.ko.md).
+`open_not_proven`. The eleven-one/rest-two accelerated Collatz cycle stratum is
+excluded, and every fixed one-count/rest-two stratum is proved decidable. RH
+now has an exact finite-even-jet ambiguity no-go and a valid conditional
+Rouché tail bridge, but no actual Xi tail certificate. Strong Goldbach and Twin
+Prime split prime-power contamination into a dominant prime-square layer and a
+cubic-scale higher-exponent tail, while the every-target and
+infinitely-many-block lower bounds remain open. See the
+[English report](finitejet-elevenone-squarelayer.md) and
+[한국어 보고서](finitejet-elevenone-squarelayer.ko.md).
 
 ## Public Pages
 

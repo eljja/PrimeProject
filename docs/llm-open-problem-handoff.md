@@ -62,47 +62,54 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-194
+## Latest Continuation After TICKET-195
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
 1. Riemann:
-   `PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore`.
-   TICKET-194 proves the extension from uniformly bounded dense-core
-   convergence and gives a positive monotone dense-core no-go. The next result
-   must prove both premises for the actual Weil finite sections.
+   `XiTaylorSectionsAdmitCertifiedRoucheTailBoundsOnAnExhaustingOffRealDomainFamily`.
+   TICKET-195 proves that finite real even Taylor data alone cannot certify the
+   all-real-zero property. The next result must prove strict tail margins for
+   the actual Xi sections, not for a synthetic polynomial family.
 2. Collatz:
-   `NoContractingValuationWordWithExactlyElevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
-   The exactly-ten-one/rest-two stratum is excluded at every horizon. Preserve
-   rotation normalization, the boundary-term MITM decomposition, and the
-   finite-plus-product-cutoff proof split.
+   `NoPositiveAcceleratedCollatzCycleHasAllValuationsInTheSetOneTwo`.
+   The exactly-eleven-one/rest-two stratum is excluded at every horizon, and
+   every fixed one-count stratum is decidable. The next result must be uniform
+   in the one-count; running one more fixed stratum is not this theorem.
 3. Goldbach:
-   `BinaryCorrelationExceedsThetaLayerPrimePowerEnvelopeForEveryLargeEvenTarget`.
-   The odd proper-prime-power mass now has an exact theta-layer expression and
-   `O(sqrt(N))` scale. A finite table cannot replace the every-even quantifier.
+   `BinaryCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeForEveryLargeEvenTarget`.
+   The leading prime-square contamination and `O(N^(1/3) log N)` higher-layer
+   tail are separated. A finite table cannot replace the every-even quantifier.
 4. Twin Prime:
-   `ShiftTwoCorrelationExceedsThetaLayerOddLocalEnvelopeOnInfinitelyManyDyadicBlocks`.
-   The odd-only local envelope now has an exact interval theta-layer expression.
+   `ShiftTwoCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeOnInfinitelyManyDyadicBlocks`.
+   The local prime-square layer and cubic-scale higher-layer tail are separated.
    The next result must establish infinitely many unbounded successful blocks.
 
 Exact machine artifacts:
 
 ```text
-data/open-problem/ticket194-densecore-tenone-theta-layers.json
-data/open-problem/riemann/rh-ticket-194-dense-core-extension.json
-data/open-problem/collatz/co-ticket-194-ten-one-cycle-exclusion.json
-data/open-problem/goldbach/gb-ticket-194-theta-layer-envelope.json
-data/open-problem/twin-prime/tp-ticket-194-theta-layer-local-envelope.json
+data/open-problem/ticket195-finitejet-elevenone-squarelayer.json
+data/open-problem/riemann/rh-ticket-195-finite-jet-rouche.json
+data/open-problem/collatz/co-ticket-195-eleven-one-decidability.json
+data/open-problem/goldbach/gb-ticket-195-prime-square-layer.json
+data/open-problem/twin-prime/tp-ticket-195-prime-square-local-layer.json
 ```
 
-한국어 인계: TICKET-194도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
-정확히 열 번의 `v=1`과 나머지 `v=2`인 모든 콜라츠 주기족의 배제다.
-리만은 균일 유계 조밀 코어 수렴의 전체공간 확장을, 골드바흐와 Twin은
-정확한 세타층 항등식과 개선된 오염 규모를 확정했다. 남은 단계는 모두 실제
-산술 객체에 대한 무한 정리다.
+한국어 인계: TICKET-195도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 열한 번의 `v=1`과 나머지 `v=2`인 모든 콜라츠 주기족의 배제이며,
+각 고정 one-count 층의 결정 가능성도 증명했다. 리만은 유한 제트만의 승격을
+폐기했고, 골드바흐와 Twin은 주도 소수 제곱층과 세제곱 꼬리를 분리했다.
+남은 단계는 모두 실제 산술 객체에 대한 무한 정리다.
 
-English report: [TICKET-194](densecore-tenone-theta-layers.md).
-Korean report: [TICKET-194 한국어](densecore-tenone-theta-layers.ko.md).
+English report: [TICKET-195](finitejet-elevenone-squarelayer.md).
+Korean report: [TICKET-195 한국어](finitejet-elevenone-squarelayer.ko.md).
+
+## Preserved Continuation After TICKET-194
+
+TICKET-194 remains available in
+[English](densecore-tenone-theta-layers.md) and
+[한국어](densecore-tenone-theta-layers.ko.md). Its next nodes were consumed or
+sharpened by TICKET-195; use the TICKET-195 nodes above for new work.
 
 ## Preserved Continuation After TICKET-193
 

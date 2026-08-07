@@ -193,6 +193,7 @@ TICKET193_SCHEMA = (
     "primeproject.ticket193-everywhere-nineone-parity-envelope.v1"
 )
 TICKET194_SCHEMA = "primeproject.ticket194-densecore-tenone-theta-layers.v1"
+TICKET195_SCHEMA = "primeproject.ticket195-finitejet-elevenone-squarelayer.v1"
 
 
 def fail(message: str) -> int:
@@ -14484,6 +14485,203 @@ def main() -> int:
         or "resolves none" not in str(ticket194.get("claim_boundary", "")).lower()
     ):
         return fail("ticket194 proof boundary changed")
+
+    path195 = Path(
+        "data/open-problem/ticket195-finitejet-elevenone-squarelayer.json"
+    )
+    if not path195.exists():
+        return fail("missing ticket195 finite-jet/eleven-one/square-layer audit")
+    ticket195 = read_json(path195)
+    if (
+        ticket195.get("schema") != TICKET195_SCHEMA
+        or ticket195.get("status")
+        != "finite_jet_no_go_and_fixed_stratum_decidability_proved_eleven_one_cycle_stratum_closed_square_layer_decompositions_proved_all_open"
+    ):
+        return fail("ticket195 schema or status changed")
+    audit195 = ticket195.get("finitejet_elevenone_squarelayer_audit", {})
+    if audit195.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "finite_jet_no_go_count": 1,
+        "fixed_stratum_decidability_theorem_count": 1,
+        "new_infinite_cycle_stratum_closure_count": 1,
+        "prime_square_layer_decomposition_count": 2,
+        "represented_collatz_word_count": 3151735808,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket195 global machine audit changed")
+
+    by_id195 = {
+        str(row.get("problem_id")): row
+        for row in ticket195.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id195) != EXPECTED_PROBLEMS:
+        return fail("ticket195 attempts missing problems")
+    paths195 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-195-finite-jet-rouche.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-195-eleven-one-decidability.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-195-prime-square-layer.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-195-prime-square-local-layer.json"
+        ),
+    }
+    expected_names195 = {
+        "riemann": "FiniteEvenJetAmbiguityAndRoucheTailBridge",
+        "collatz": "FixedOneCountRestTwoDecidabilityAndElevenStratumExclusion",
+        "goldbach": "PrimeSquareDominantThetaLayerDecomposition",
+        "twin-prime": "PrimeSquareDominantIntervalThetaLayerDecomposition",
+    }
+    next195 = {
+        "riemann": "XiTaylorSectionsAdmitCertifiedRoucheTailBoundsOnAnExhaustingOffRealDomainFamily",
+        "collatz": "NoPositiveAcceleratedCollatzCycleHasAllValuationsInTheSetOneTwo",
+        "goldbach": "BinaryCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeForEveryLargeEvenTarget",
+        "twin-prime": "ShiftTwoCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeOnInfinitelyManyDyadicBlocks",
+    }
+    sections195 = {
+        "riemann": audit195.get("riemann", {}),
+        "collatz": audit195.get("collatz", {}),
+        "goldbach": audit195.get("goldbach", {}),
+        "twin-prime": audit195.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id195.items():
+        artifact_path = paths195[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket195 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections195[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET195_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names195[problem_id]
+            or artifact.get("theorem_name") != expected_names195[problem_id]
+            or attempt.get("candidate_theorem") != next195[problem_id]
+            or artifact.get("candidate_theorem") != next195[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_incomplete_surrogate",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next195[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count")
+            != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket195 contract changed")
+
+    rh195 = sections195["riemann"]["reproducible_computation"]
+    rh_jet195 = rh195.get("finite_even_jet_ambiguity_rows", [])
+    rh_rouche195 = rh195.get("rouche_synthetic_certificate_rows", [])
+    rh_contract195 = rh195.get("contract", {})
+    if (
+        [row.get("order_m") for row in rh_jet195] != list(range(13))
+        or any(
+            row.get("extended_polynomial_value_at_i", {}).get("numerator") != 0
+            or row.get("shares_entire_declared_even_jet") is not True
+            for row in rh_jet195
+        )
+        or [row.get("order_m") for row in rh_rouche195] != list(range(1, 13))
+        or any(
+            row.get("strict_rouche_margin", {}).get("numerator", 0) <= 0
+            or row.get("same_zero_count_inside") is not True
+            for row in rh_rouche195
+        )
+        or rh_contract195.get(
+            "finite_even_jet_alone_certifies_real_zero_property"
+        )
+        is not False
+        or rh_contract195.get(
+            "strict_rouche_tail_margin_certifies_bounded_zero_count"
+        )
+        is not True
+        or rh_contract195.get(
+            "actual_xi_tail_margin_on_exhausting_off_real_domains_verified"
+        )
+        is not False
+    ):
+        return fail("ticket195 RH finite-jet/Rouche boundary changed")
+
+    collatz195 = sections195["collatz"]["reproducible_computation"]
+    finite195 = collatz195.get("finite_exception_horizon_rows", [])
+    aggregate195 = collatz195.get("aggregate", {})
+    analytic195 = collatz195.get("analytic_bound", {})
+    if (
+        [row.get("horizon_h") for row in finite195] != list(range(27, 42))
+        or sum(int(row.get("represented_word_count", 0)) for row in finite195)
+        != 3151735808
+        or aggregate195.get("fixed_r_decidability_theorem_proved") is not True
+        or aggregate195.get("decidability_rows") != 32
+        or aggregate195.get("eleven_one_infinite_family_proved_empty") is not True
+        or aggregate195.get("left_tuple_count") != 4266158
+        or aggregate195.get("right_tuple_count") != 1893528
+        or aggregate195.get("divisibility_hits") != 0
+        or aggregate195.get("analytic_range_starts_at_h") != 42
+        or collatz195.get("boundary_formula_validation", {}).get(
+            "formula_mismatch_count"
+        )
+        != 0
+        or analytic195.get("h_41", {}).get("decimal", 0) < 1
+        or analytic195.get("h_42", {}).get("decimal", 1) >= 1
+        or any(row.get("divisibility_hit_count") != 0 for row in finite195)
+    ):
+        return fail("ticket195 Collatz fixed-stratum boundary changed")
+
+    goldbach195 = sections195["goldbach"]["reproducible_computation"]
+    gold_rows195 = goldbach195.get("prime_square_layer_rows", [])
+    gold_aggregate195 = goldbach195.get("aggregate", {})
+    gold_witness195 = goldbach195.get("cube_support_no_go_witness", {})
+    if (
+        [row.get("target_N") for row in gold_rows195]
+        != [2**j for j in range(10, 22)]
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows195)
+        or gold_aggregate195.get("prime_square_layer_decomposition_proved")
+        is not True
+        or gold_aggregate195.get("higher_layer_mass_scale") != "O(N^(1/3))"
+        or gold_aggregate195.get("finite_sample_success_count") != 12
+        or gold_aggregate195.get("all_large_even_targets_proved") is not False
+        or gold_witness195.get("target_N") != 32
+        or gold_witness195.get("ordered_pair") != [27, 5]
+        or gold_witness195.get("omitted_by_square_only_support") is not True
+    ):
+        return fail("ticket195 Goldbach square-layer boundary changed")
+
+    twin195 = sections195["twin-prime"]["reproducible_computation"]
+    twin_rows195 = twin195.get("finite_dyadic_rows", [])
+    twin_aggregate195 = twin195.get("aggregate", {})
+    twin_witness195 = twin195.get("cube_support_no_go_witness", {})
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows195]
+        != list(range(4, 21))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows195)
+        or twin_aggregate195.get("prime_square_interval_decomposition_proved")
+        is not True
+        or twin_aggregate195.get("higher_layer_local_mass_scale")
+        != "O(X^(1/3))"
+        or twin_aggregate195.get("finite_block_success_count") != 17
+        or twin_aggregate195.get("infinitely_many_envelope_successes_proved")
+        is not False
+        or twin_witness195.get("dyadic_block") != [16, 32]
+        or twin_witness195.get("shift_two_pair") != [27, 29]
+        or twin_witness195.get("omitted_by_square_only_support") is not True
+    ):
+        return fail("ticket195 Twin square-layer boundary changed")
+    if (
+        "resolves none" not in str(audit195.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket195.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket195 proof boundary changed")
 
     print("open problem structure verified")
     return 0

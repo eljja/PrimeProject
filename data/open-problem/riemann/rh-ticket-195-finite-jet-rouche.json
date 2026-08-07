@@ -1,0 +1,1303 @@
+{
+  "schema": "primeproject.ticket195-finitejet-elevenone-squarelayer.v1",
+  "generated_at": "2026-08-08T08:30:00+09:00",
+  "ticket_id": "RH-TICKET-195",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteEvenJetAmbiguityAndRoucheTailBridge",
+  "declared_proposition": "Let J_m(z)=sum_(r=0)^m a_r z^(2r) be any finite real even Taylor jet. Since J_m(i) is real, c=(-1)^m J_m(i) is real and P_m(z)=J_m(z)+c z^(2m+2) shares every declared coefficient but satisfies P_m(i)=P_m(-i)=0. Thus no finite even Taylor jet, by itself, certifies that all zeros are real. A valid bounded-domain bridge is instead Rouche: if an entire F=P+R satisfies sup_boundary |R|<inf_boundary |P|, then F and P have the same zero count inside.",
+  "mathematical_argument": "Evenness and real coefficients give J_m(i)=sum a_r(-1)^r in R. Because i^(2m+2)=(-1)^(m+1), the chosen c makes the added term equal -J_m(i) at i; evenness gives the root -i. The coefficient change starts only at degree 2m+2. Rouche's theorem supplies the positive bridge once a strict uniform tail inequality is proved on a contour.",
+  "reproducible_computation": {
+    "theorem": "Let J_m(z)=sum_(r=0)^m a_r z^(2r) be any finite real even Taylor jet. Since J_m(i) is real, c=(-1)^m J_m(i) is real and P_m(z)=J_m(z)+c z^(2m+2) shares every declared coefficient but satisfies P_m(i)=P_m(-i)=0. Thus no finite even Taylor jet, by itself, certifies that all zeros are real. A valid bounded-domain bridge is instead Rouche: if an entire F=P+R satisfies sup_boundary |R|<inf_boundary |P|, then F and P have the same zero count inside.",
+    "proof": "Evenness and real coefficients give J_m(i)=sum a_r(-1)^r in R. Because i^(2m+2)=(-1)^(m+1), the chosen c makes the added term equal -J_m(i) at i; evenness gives the root -i. The coefficient change starts only at degree 2m+2. Rouche's theorem supplies the positive bridge once a strict uniform tail inequality is proved on a contour.",
+    "finite_even_jet_ambiguity_rows": [
+      {
+        "order_m": 0,
+        "matched_through_degree": 0,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 1,
+        "matched_through_degree": 2,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 3,
+          "denominator": 2,
+          "exact": "3/2",
+          "decimal": 1.5
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": -3,
+          "denominator": 2,
+          "exact": "-3/2",
+          "decimal": -1.5
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 2,
+        "matched_through_degree": 4,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 11,
+          "denominator": 6,
+          "exact": "11/6",
+          "decimal": 1.8333333333333333
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 11,
+          "denominator": 6,
+          "exact": "11/6",
+          "decimal": 1.8333333333333333
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 3,
+        "matched_through_degree": 6,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 25,
+          "denominator": 12,
+          "exact": "25/12",
+          "decimal": 2.0833333333333335
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": -25,
+          "denominator": 12,
+          "exact": "-25/12",
+          "decimal": -2.0833333333333335
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 4,
+        "matched_through_degree": 8,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 137,
+          "denominator": 60,
+          "exact": "137/60",
+          "decimal": 2.283333333333333
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 137,
+          "denominator": 60,
+          "exact": "137/60",
+          "decimal": 2.283333333333333
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 5,
+        "matched_through_degree": 10,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 49,
+          "denominator": 20,
+          "exact": "49/20",
+          "decimal": 2.45
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": -49,
+          "denominator": 20,
+          "exact": "-49/20",
+          "decimal": -2.45
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 6,
+        "matched_through_degree": 12,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 363,
+          "denominator": 140,
+          "exact": "363/140",
+          "decimal": 2.592857142857143
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 363,
+          "denominator": 140,
+          "exact": "363/140",
+          "decimal": 2.592857142857143
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 7,
+        "matched_through_degree": 14,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          {
+            "numerator": -1,
+            "denominator": 8,
+            "exact": "-1/8",
+            "decimal": -0.125
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 761,
+          "denominator": 280,
+          "exact": "761/280",
+          "decimal": 2.717857142857143
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": -761,
+          "denominator": 280,
+          "exact": "-761/280",
+          "decimal": -2.717857142857143
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 8,
+        "matched_through_degree": 16,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          {
+            "numerator": -1,
+            "denominator": 8,
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          {
+            "numerator": 1,
+            "denominator": 9,
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 7129,
+          "denominator": 2520,
+          "exact": "7129/2520",
+          "decimal": 2.828968253968254
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 7129,
+          "denominator": 2520,
+          "exact": "7129/2520",
+          "decimal": 2.828968253968254
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 9,
+        "matched_through_degree": 18,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          {
+            "numerator": -1,
+            "denominator": 8,
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          {
+            "numerator": 1,
+            "denominator": 9,
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          {
+            "numerator": -1,
+            "denominator": 10,
+            "exact": "-1/10",
+            "decimal": -0.1
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 7381,
+          "denominator": 2520,
+          "exact": "7381/2520",
+          "decimal": 2.9289682539682538
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": -7381,
+          "denominator": 2520,
+          "exact": "-7381/2520",
+          "decimal": -2.9289682539682538
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 10,
+        "matched_through_degree": 20,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          {
+            "numerator": -1,
+            "denominator": 8,
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          {
+            "numerator": 1,
+            "denominator": 9,
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          {
+            "numerator": -1,
+            "denominator": 10,
+            "exact": "-1/10",
+            "decimal": -0.1
+          },
+          {
+            "numerator": 1,
+            "denominator": 11,
+            "exact": "1/11",
+            "decimal": 0.09090909090909091
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 83711,
+          "denominator": 27720,
+          "exact": "83711/27720",
+          "decimal": 3.019877344877345
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 83711,
+          "denominator": 27720,
+          "exact": "83711/27720",
+          "decimal": 3.019877344877345
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 11,
+        "matched_through_degree": 22,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          {
+            "numerator": -1,
+            "denominator": 8,
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          {
+            "numerator": 1,
+            "denominator": 9,
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          {
+            "numerator": -1,
+            "denominator": 10,
+            "exact": "-1/10",
+            "decimal": -0.1
+          },
+          {
+            "numerator": 1,
+            "denominator": 11,
+            "exact": "1/11",
+            "decimal": 0.09090909090909091
+          },
+          {
+            "numerator": -1,
+            "denominator": 12,
+            "exact": "-1/12",
+            "decimal": -0.08333333333333333
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 86021,
+          "denominator": 27720,
+          "exact": "86021/27720",
+          "decimal": 3.103210678210678
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": -86021,
+          "denominator": 27720,
+          "exact": "-86021/27720",
+          "decimal": -3.103210678210678
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      },
+      {
+        "order_m": 12,
+        "matched_through_degree": 24,
+        "jet_coefficients": [
+          {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          {
+            "numerator": -1,
+            "denominator": 2,
+            "exact": "-1/2",
+            "decimal": -0.5
+          },
+          {
+            "numerator": 1,
+            "denominator": 3,
+            "exact": "1/3",
+            "decimal": 0.3333333333333333
+          },
+          {
+            "numerator": -1,
+            "denominator": 4,
+            "exact": "-1/4",
+            "decimal": -0.25
+          },
+          {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          {
+            "numerator": -1,
+            "denominator": 6,
+            "exact": "-1/6",
+            "decimal": -0.16666666666666666
+          },
+          {
+            "numerator": 1,
+            "denominator": 7,
+            "exact": "1/7",
+            "decimal": 0.14285714285714285
+          },
+          {
+            "numerator": -1,
+            "denominator": 8,
+            "exact": "-1/8",
+            "decimal": -0.125
+          },
+          {
+            "numerator": 1,
+            "denominator": 9,
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          },
+          {
+            "numerator": -1,
+            "denominator": 10,
+            "exact": "-1/10",
+            "decimal": -0.1
+          },
+          {
+            "numerator": 1,
+            "denominator": 11,
+            "exact": "1/11",
+            "decimal": 0.09090909090909091
+          },
+          {
+            "numerator": -1,
+            "denominator": 12,
+            "exact": "-1/12",
+            "decimal": -0.08333333333333333
+          },
+          {
+            "numerator": 1,
+            "denominator": 13,
+            "exact": "1/13",
+            "decimal": 0.07692307692307693
+          }
+        ],
+        "jet_value_at_i": {
+          "numerator": 1145993,
+          "denominator": 360360,
+          "exact": "1145993/360360",
+          "decimal": 3.180133755133755
+        },
+        "extension_coefficient_degree_2m_plus_2": {
+          "numerator": 1145993,
+          "denominator": 360360,
+          "exact": "1145993/360360",
+          "decimal": 3.180133755133755
+        },
+        "extended_polynomial_value_at_i": {
+          "numerator": 0,
+          "denominator": 1,
+          "exact": "0/1",
+          "decimal": 0.0
+        },
+        "shares_entire_declared_even_jet": true,
+        "forced_nonreal_roots": [
+          "i",
+          "-i"
+        ]
+      }
+    ],
+    "rouche_synthetic_certificate_rows": [
+      {
+        "order_m": 1,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-2) z^4",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 4,
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "strict_rouche_margin": {
+          "numerator": 3,
+          "denominator": 4,
+          "exact": "3/4",
+          "decimal": 0.75
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 2,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-3) z^6",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 8,
+          "exact": "1/8",
+          "decimal": 0.125
+        },
+        "strict_rouche_margin": {
+          "numerator": 7,
+          "denominator": 8,
+          "exact": "7/8",
+          "decimal": 0.875
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 3,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-4) z^8",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 16,
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "strict_rouche_margin": {
+          "numerator": 15,
+          "denominator": 16,
+          "exact": "15/16",
+          "decimal": 0.9375
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 4,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-5) z^10",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 32,
+          "exact": "1/32",
+          "decimal": 0.03125
+        },
+        "strict_rouche_margin": {
+          "numerator": 31,
+          "denominator": 32,
+          "exact": "31/32",
+          "decimal": 0.96875
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 5,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-6) z^12",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 64,
+          "exact": "1/64",
+          "decimal": 0.015625
+        },
+        "strict_rouche_margin": {
+          "numerator": 63,
+          "denominator": 64,
+          "exact": "63/64",
+          "decimal": 0.984375
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 6,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-7) z^14",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 128,
+          "exact": "1/128",
+          "decimal": 0.0078125
+        },
+        "strict_rouche_margin": {
+          "numerator": 127,
+          "denominator": 128,
+          "exact": "127/128",
+          "decimal": 0.9921875
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 7,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-8) z^16",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 256,
+          "exact": "1/256",
+          "decimal": 0.00390625
+        },
+        "strict_rouche_margin": {
+          "numerator": 255,
+          "denominator": 256,
+          "exact": "255/256",
+          "decimal": 0.99609375
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 8,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-9) z^18",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 512,
+          "exact": "1/512",
+          "decimal": 0.001953125
+        },
+        "strict_rouche_margin": {
+          "numerator": 511,
+          "denominator": 512,
+          "exact": "511/512",
+          "decimal": 0.998046875
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 9,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-10) z^20",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 1024,
+          "exact": "1/1024",
+          "decimal": 0.0009765625
+        },
+        "strict_rouche_margin": {
+          "numerator": 1023,
+          "denominator": 1024,
+          "exact": "1023/1024",
+          "decimal": 0.9990234375
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 10,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-11) z^22",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 2048,
+          "exact": "1/2048",
+          "decimal": 0.00048828125
+        },
+        "strict_rouche_margin": {
+          "numerator": 2047,
+          "denominator": 2048,
+          "exact": "2047/2048",
+          "decimal": 0.99951171875
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 11,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-12) z^24",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 4096,
+          "exact": "1/4096",
+          "decimal": 0.000244140625
+        },
+        "strict_rouche_margin": {
+          "numerator": 4095,
+          "denominator": 4096,
+          "exact": "4095/4096",
+          "decimal": 0.999755859375
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      },
+      {
+        "order_m": 12,
+        "approximant": "P(z)=1",
+        "tail": "R(z)=2^(-13) z^26",
+        "boundary": "|z|=1",
+        "approximant_boundary_minimum": {
+          "numerator": 1,
+          "denominator": 1,
+          "exact": "1/1",
+          "decimal": 1.0
+        },
+        "tail_boundary_supremum": {
+          "numerator": 1,
+          "denominator": 8192,
+          "exact": "1/8192",
+          "decimal": 0.0001220703125
+        },
+        "strict_rouche_margin": {
+          "numerator": 8191,
+          "denominator": 8192,
+          "exact": "8191/8192",
+          "decimal": 0.9998779296875
+        },
+        "same_zero_count_inside": true,
+        "certified_zero_count_inside": 0
+      }
+    ],
+    "contract": {
+      "finite_even_jet_alone_certifies_real_zero_property": false,
+      "strict_rouche_tail_margin_certifies_bounded_zero_count": true,
+      "actual_xi_tail_margin_on_exhausting_off_real_domains_verified": false,
+      "actual_pole_neutral_weil_premises_verified": false
+    },
+    "no_go_scope": "The ambiguity theorem blocks finite coefficient or finite Jensen data without a tail class. It neither places a nonreal zero of the actual Xi function nor proves the required Xi or Weil tail bound.",
+    "failure_count": 0
+  },
+  "discarded_route": "promoting finitely many Xi Taylor coefficients, Jensen polynomials, or Hankel checks to the all-zero statement without a uniform tail class",
+  "remaining_gap": "No certified Xi tail margin is proved on an exhausting family of off-real domains, and the actual Weil premises remain open.",
+  "candidate_theorem": "XiTaylorSectionsAdmitCertifiedRoucheTailBoundsOnAnExhaustingOffRealDomainFamily",
+  "claim_boundary": "No RH proof or counterexample. Finite-jet promotion is refuted; only a conditional bounded-domain tail bridge is proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T194-INPUT",
+        "label": "PoleNeutralWeilFiniteSectionsAreUniformlyBoundedAndConvergeOnADenseCore",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "RH-T195-CLOSED",
+        "label": "FiniteEvenJetAmbiguityAndRoucheTailBridge",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T195-REJECTED",
+        "label": "FiniteXiTaylorJetAloneCertifiesTheRealZeroProperty",
+        "status": "refuted_or_incomplete_surrogate"
+      },
+      {
+        "id": "RH-T195-OPEN",
+        "label": "XiTaylorSectionsAdmitCertifiedRoucheTailBoundsOnAnExhaustingOffRealDomainFamily",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T194-INPUT",
+        "RH-T195-CLOSED"
+      ],
+      [
+        "RH-T195-CLOSED",
+        "RH-T195-OPEN"
+      ],
+      [
+        "RH-T195-REJECTED",
+        "RH-T195-OPEN"
+      ]
+    ]
+  }
+}

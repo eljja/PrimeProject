@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, a tenth adjacent Collatz stratum closed",
-      ko: "네 개의 미해결 문제, 연속해서 닫힌 열 번째 콜라츠 부분족",
+      en: "Four open problems, finite-data limits separated from infinite bridges",
+      ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-194 closes the ten-one Collatz cycle stratum and sharpens the RH, Goldbach, and Twin Prime proof targets.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-194는 열-1 콜라츠 순환 부분족을 닫고 리만·골드바흐·쌍둥이 소수의 증명 목표를 더 날카롭게 정리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-195 proves four exact intermediate results and isolates the remaining infinite lemmas.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-195는 정확한 중간 정리 네 개를 증명하고 각 난제에 남은 무한 보조정리를 분리합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

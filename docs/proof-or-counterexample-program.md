@@ -37,6 +37,37 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-195 Finite-Jet Boundaries, Eleven-One Decidability, and Prime-Square Layers
+
+TICKET-195 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results.
+
+1. **Riemann:** `FiniteEvenJetAmbiguityAndRoucheTailBridge` constructs, for
+   every finite real even Taylor jet, an extension with the same declared jet
+   and nonreal zeros at `+i` and `-i`. This refutes finite-jet-only promotion.
+   Strict Rouché tail control remains a valid bounded-domain bridge, but the
+   actual Xi tail margin is not proved.
+2. **Collatz:** `FixedOneCountRestTwoDecidabilityAndElevenStratumExclusion`
+   proves every fixed one-count/rest-two stratum decidable and closes the
+   complete eleven-one stratum. Noncontraction closes `h<=26`, a complete 5+5
+   MITM audit represents 3,151,735,808 normalized words at `h=27..41`, and
+   `2048(5/6)^h<1` closes `h>=42`.
+3. **Goldbach:** `PrimeSquareDominantThetaLayerDecomposition` splits odd
+   proper-prime-power mass into the prime-square layer and an `O(N^(1/3))`
+   higher-exponent remainder. The identity `32=3^3+5` refutes exact
+   square-only support deletion.
+4. **Twin Prime:** `PrimeSquareDominantIntervalThetaLayerDecomposition` proves
+   the interval analogue with an `O(X^(1/3))` higher-layer remainder. The pair
+   `(27,29)` refutes exact square-only gap-two support deletion.
+
+Machine audit: four exact theorems, one finite-jet no-go, one fixed-stratum
+decidability theorem, one newly closed infinite Collatz stratum, two
+prime-square layer decompositions, 3,151,735,808 represented Collatz words,
+zero conjecture resolutions, and zero failures.
+
+English report: [TICKET-195](finitejet-elevenone-squarelayer.md).
+한국어 보고서: [TICKET-195](finitejet-elevenone-squarelayer.ko.md).
+
 ## 2026-08-08 TICKET-194 Dense-Core Extension, Ten-One Cycles, and Theta Layers
 
 TICKET-194 keeps all four parent conjectures at `open_not_proven` and proves

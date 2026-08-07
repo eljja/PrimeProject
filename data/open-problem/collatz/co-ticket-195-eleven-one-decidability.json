@@ -1,0 +1,647 @@
+{
+  "schema": "primeproject.ticket195-finitejet-elevenone-squarelayer.v1",
+  "generated_at": "2026-08-08T08:30:00+09:00",
+  "ticket_id": "CO-TICKET-195",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "FixedOneCountRestTwoDecidabilityAndElevenStratumExclusion",
+  "declared_proposition": "For every fixed r>=1, positive accelerated Collatz cycles whose valuations contain exactly r ones and otherwise only twos are decidable by a finite exact computation: noncontraction removes an initial interval and 1<=2^r(5/6)^h removes an infinite tail. For r=11 the remaining horizons are h=27..41; an exact 5+5 boundary-term MITM finds no affine divisibility hit, so the entire eleven-one/rest-two cycle stratum is empty, including imprimitive words.",
+  "mathematical_argument": "A contracting word requires 2^(2h-r)>3^h. Rotating one of its r ones to the first position preserves affine divisibility. Every state of a nontrivial positive odd cycle is at least three, so multiplying step ratios gives 1<=2^r(5/6)^h. For fixed r these two inequalities leave finitely many h and finitely many normalized words. At r=11, h<=26 is noncontracting, h>=42 contradicts the product bound, and the exact residue search closes h=27..41.",
+  "reproducible_computation": {
+    "theorem": "For every fixed r>=1, positive accelerated Collatz cycles whose valuations contain exactly r ones and otherwise only twos are decidable by a finite exact computation: noncontraction removes an initial interval and 1<=2^r(5/6)^h removes an infinite tail. For r=11 the remaining horizons are h=27..41; an exact 5+5 boundary-term MITM finds no affine divisibility hit, so the entire eleven-one/rest-two cycle stratum is empty, including imprimitive words.",
+    "proof": "A contracting word requires 2^(2h-r)>3^h. Rotating one of its r ones to the first position preserves affine divisibility. Every state of a nontrivial positive odd cycle is at least three, so multiplying step ratios gives 1<=2^r(5/6)^h. For fixed r these two inequalities leave finitely many h and finitely many normalized words. At r=11, h<=26 is noncontracting, h>=42 contradicts the product bound, and the exact residue search closes h=27..41.",
+    "fixed_stratum_decidability_rows": [
+      {
+        "one_count_r": 1,
+        "contracting_range_starts_at_h": 3,
+        "analytic_exclusion_starts_at_h": 4,
+        "finite_exact_horizons": [
+          3,
+          3
+        ],
+        "normalized_words_in_finite_decision_range": 1,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 2,
+        "contracting_range_starts_at_h": 5,
+        "analytic_exclusion_starts_at_h": 8,
+        "finite_exact_horizons": [
+          5,
+          7
+        ],
+        "normalized_words_in_finite_decision_range": 15,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 3,
+        "contracting_range_starts_at_h": 8,
+        "analytic_exclusion_starts_at_h": 12,
+        "finite_exact_horizons": [
+          8,
+          11
+        ],
+        "normalized_words_in_finite_decision_range": 130,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 4,
+        "contracting_range_starts_at_h": 10,
+        "analytic_exclusion_starts_at_h": 16,
+        "finite_exact_horizons": [
+          10,
+          15
+        ],
+        "normalized_words_in_finite_decision_range": 1239,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 5,
+        "contracting_range_starts_at_h": 13,
+        "analytic_exclusion_starts_at_h": 20,
+        "finite_exact_horizons": [
+          13,
+          19
+        ],
+        "normalized_words_in_finite_decision_range": 10836,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 6,
+        "contracting_range_starts_at_h": 15,
+        "analytic_exclusion_starts_at_h": 23,
+        "finite_exact_horizons": [
+          15,
+          22
+        ],
+        "normalized_words_in_finite_decision_range": 71610,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 7,
+        "contracting_range_starts_at_h": 17,
+        "analytic_exclusion_starts_at_h": 27,
+        "finite_exact_horizons": [
+          17,
+          26
+        ],
+        "normalized_words_in_finite_decision_range": 646360,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 8,
+        "contracting_range_starts_at_h": 20,
+        "analytic_exclusion_starts_at_h": 31,
+        "finite_exact_horizons": [
+          20,
+          30
+        ],
+        "normalized_words_in_finite_decision_range": 5777343,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 9,
+        "contracting_range_starts_at_h": 22,
+        "analytic_exclusion_starts_at_h": 35,
+        "finite_exact_horizons": [
+          22,
+          34
+        ],
+        "normalized_words_in_finite_decision_range": 52157326,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 10,
+        "contracting_range_starts_at_h": 25,
+        "analytic_exclusion_starts_at_h": 39,
+        "finite_exact_horizons": [
+          25,
+          38
+        ],
+        "normalized_words_in_finite_decision_range": 470772500,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 11,
+        "contracting_range_starts_at_h": 27,
+        "analytic_exclusion_starts_at_h": 42,
+        "finite_exact_horizons": [
+          27,
+          41
+        ],
+        "normalized_words_in_finite_decision_range": 3151735808,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 12,
+        "contracting_range_starts_at_h": 29,
+        "analytic_exclusion_starts_at_h": 46,
+        "finite_exact_horizons": [
+          29,
+          45
+        ],
+        "normalized_words_in_finite_decision_range": 28729599990,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 13,
+        "contracting_range_starts_at_h": 32,
+        "analytic_exclusion_starts_at_h": 50,
+        "finite_exact_horizons": [
+          32,
+          49
+        ],
+        "normalized_words_in_finite_decision_range": 262390530689,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 14,
+        "contracting_range_starts_at_h": 34,
+        "analytic_exclusion_starts_at_h": 54,
+        "finite_exact_horizons": [
+          34,
+          53
+        ],
+        "normalized_words_in_finite_decision_range": 2403161095000,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 15,
+        "contracting_range_starts_at_h": 37,
+        "analytic_exclusion_starts_at_h": 58,
+        "finite_exact_horizons": [
+          37,
+          57
+        ],
+        "normalized_words_in_finite_decision_range": 22052413559880,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 16,
+        "contracting_range_starts_at_h": 39,
+        "analytic_exclusion_starts_at_h": 61,
+        "finite_exact_horizons": [
+          39,
+          60
+        ],
+        "normalized_words_in_finite_decision_range": 149586135880095,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 17,
+        "contracting_range_starts_at_h": 41,
+        "analytic_exclusion_starts_at_h": 65,
+        "finite_exact_horizons": [
+          41,
+          64
+        ],
+        "normalized_words_in_finite_decision_range": 1379281442904720,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 18,
+        "contracting_range_starts_at_h": 44,
+        "analytic_exclusion_starts_at_h": 69,
+        "finite_exact_horizons": [
+          44,
+          68
+        ],
+        "normalized_words_in_finite_decision_range": 12735654454991130,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 19,
+        "contracting_range_starts_at_h": 46,
+        "analytic_exclusion_starts_at_h": 73,
+        "finite_exact_horizons": [
+          46,
+          72
+        ],
+        "normalized_words_in_finite_decision_range": 117751922024218020,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 20,
+        "contracting_range_starts_at_h": 49,
+        "analytic_exclusion_starts_at_h": 77,
+        "finite_exact_horizons": [
+          49,
+          76
+        ],
+        "normalized_words_in_finite_decision_range": 1089996976562506644,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 21,
+        "contracting_range_starts_at_h": 51,
+        "analytic_exclusion_starts_at_h": 80,
+        "finite_exact_horizons": [
+          51,
+          79
+        ],
+        "normalized_words_in_finite_decision_range": 7449348829358161660,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 22,
+        "contracting_range_starts_at_h": 54,
+        "analytic_exclusion_starts_at_h": 84,
+        "finite_exact_horizons": [
+          54,
+          83
+        ],
+        "normalized_words_in_finite_decision_range": 69156101762662597280,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 23,
+        "contracting_range_starts_at_h": 56,
+        "analytic_exclusion_starts_at_h": 88,
+        "finite_exact_horizons": [
+          56,
+          87
+        ],
+        "normalized_words_in_finite_decision_range": 642551607589095962550,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 24,
+        "contracting_range_starts_at_h": 58,
+        "analytic_exclusion_starts_at_h": 92,
+        "finite_exact_horizons": [
+          58,
+          91
+        ],
+        "normalized_words_in_finite_decision_range": 5974780751127311964750,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 25,
+        "contracting_range_starts_at_h": 61,
+        "analytic_exclusion_starts_at_h": 96,
+        "finite_exact_horizons": [
+          61,
+          95
+        ],
+        "normalized_words_in_finite_decision_range": 55596608176679408513961,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 26,
+        "contracting_range_starts_at_h": 63,
+        "analytic_exclusion_starts_at_h": 99,
+        "finite_exact_horizons": [
+          63,
+          98
+        ],
+        "normalized_words_in_finite_decision_range": 381727382022312818101365,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 27,
+        "contracting_range_starts_at_h": 66,
+        "analytic_exclusion_starts_at_h": 103,
+        "finite_exact_horizons": [
+          66,
+          102
+        ],
+        "normalized_words_in_finite_decision_range": 3559020655307893498199344,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 28,
+        "contracting_range_starts_at_h": 68,
+        "analytic_exclusion_starts_at_h": 107,
+        "finite_exact_horizons": [
+          68,
+          106
+        ],
+        "normalized_words_in_finite_decision_range": 33200099506456568822804920,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 29,
+        "contracting_range_starts_at_h": 70,
+        "analytic_exclusion_starts_at_h": 111,
+        "finite_exact_horizons": [
+          70,
+          110
+        ],
+        "normalized_words_in_finite_decision_range": 309860380640259418927986028,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 30,
+        "contracting_range_starts_at_h": 73,
+        "analytic_exclusion_starts_at_h": 115,
+        "finite_exact_horizons": [
+          73,
+          114
+        ],
+        "normalized_words_in_finite_decision_range": 2893329328729295636941145000,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 31,
+        "contracting_range_starts_at_h": 75,
+        "analytic_exclusion_starts_at_h": 118,
+        "finite_exact_horizons": [
+          75,
+          117
+        ],
+        "normalized_words_in_finite_decision_range": 19927852501001145830357056752,
+        "finite_decision_range_is_finite": true
+      },
+      {
+        "one_count_r": 32,
+        "contracting_range_starts_at_h": 78,
+        "analytic_exclusion_starts_at_h": 122,
+        "finite_exact_horizons": [
+          78,
+          121
+        ],
+        "normalized_words_in_finite_decision_range": 186343470291860236896171276415,
+        "finite_decision_range_is_finite": true
+      }
+    ],
+    "boundary_formula_validation": {
+      "horizons": [
+        11,
+        17
+      ],
+      "normalized_words_checked": 12376,
+      "formula_mismatch_count": 0,
+      "transcript_sha256": "6cb2575901fcdb74635421e426a64fb11666e01b809c5b958935ca72ac7ad381"
+    },
+    "finite_exception_horizon_rows": [
+      {
+        "horizon_h": 27,
+        "denominator": 1170495537221,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 65780,
+        "right_tuple_count": 20349,
+        "represented_word_count": 5311735,
+        "expected_normalized_word_count": 5311735,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "44029e4c87d69654e8be033dfe29000a6f741750dc0507b1a60b913120082420"
+      },
+      {
+        "horizon_h": 28,
+        "denominator": 12307579633871,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 80730,
+        "right_tuple_count": 26334,
+        "represented_word_count": 8436285,
+        "expected_normalized_word_count": 8436285,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "dddf9753a5dbd71ca568d6c10a4146f1f28b8c174502a2d1de60933492d05bdb"
+      },
+      {
+        "horizon_h": 29,
+        "denominator": 72107110990445,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 98280,
+        "right_tuple_count": 33649,
+        "represented_word_count": 13123110,
+        "expected_normalized_word_count": 13123110,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "7ff320edaa14a1db096d10f5bd4a4bf74900047a24469579797d8f26c6f0e058"
+      },
+      {
+        "horizon_h": 30,
+        "denominator": 357058821326663,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 118755,
+        "right_tuple_count": 42504,
+        "represented_word_count": 20030010,
+        "expected_normalized_word_count": 20030010,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "d2424dd0d13ddfd85920fbdde077672896d1c4de605cb7668f518e63dcd24204"
+      },
+      {
+        "horizon_h": 31,
+        "denominator": 1634126417401301,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 142506,
+        "right_tuple_count": 53130,
+        "represented_word_count": 30045015,
+        "expected_normalized_word_count": 30045015,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "5419e24881fd38af9f8331fe432e45599ccf75b0042269840d0835181b4c6ed6"
+      },
+      {
+        "horizon_h": 32,
+        "denominator": 7154179065889151,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 169911,
+        "right_tuple_count": 65780,
+        "represented_word_count": 44352165,
+        "expected_normalized_word_count": 44352165,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "db43e07d0f0a2b847be0738ed8c552f228f0f482e619a451670d0c037371ada1"
+      },
+      {
+        "horizon_h": 33,
+        "denominator": 30469736452408445,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 201376,
+        "right_tuple_count": 80730,
+        "represented_word_count": 64512240,
+        "expected_normalized_word_count": 64512240,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "da189ba9c1e6ce0f60173cc0ba693d437a9dbd04c9d2b3add8ff4dd07e0c22a9"
+      },
+      {
+        "horizon_h": 34,
+        "denominator": 127438006376189303,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 237336,
+        "right_tuple_count": 98280,
+        "represented_word_count": 92561040,
+        "expected_normalized_word_count": 92561040,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "e447ca7f171948ccf85ab9c04db924229b3b8aa4ebd3007ef2c0e456e318bd44"
+      },
+      {
+        "horizon_h": 35,
+        "denominator": 526429207204423781,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 278256,
+        "right_tuple_count": 118755,
+        "represented_word_count": 131128140,
+        "expected_normalized_word_count": 131128140,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "368699ea8510f4f60d6ab12d01c4bddcd51da2d870ecf492ae9f47b55584643f"
+      },
+      {
+        "horizon_h": 36,
+        "denominator": 2155748373916694831,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 324632,
+        "right_tuple_count": 142506,
+        "represented_word_count": 183579396,
+        "expected_normalized_word_count": 183579396,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "107e5791eb16331c304a3cc5c74039e212de6342edd91a6922e0d130f8a352d2"
+      },
+      {
+        "horizon_h": 37,
+        "denominator": 8773088130963778445,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 376992,
+        "right_tuple_count": 169911,
+        "represented_word_count": 254186856,
+        "expected_normalized_word_count": 254186856,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "7c69b419dbb031e89fd9f21b7f120c4fec83a462a24a3f9b726e0e4219ef4271"
+      },
+      {
+        "horizon_h": 38,
+        "denominator": 35542636429746111143,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 435897,
+        "right_tuple_count": 201376,
+        "represented_word_count": 348330136,
+        "expected_normalized_word_count": 348330136,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "e1fce91b4ca628679d2018a74977aaf8b77b7750d5826107e3fd8da03030ea5c"
+      },
+      {
+        "horizon_h": 39,
+        "denominator": 143521397436657436661,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 501942,
+        "right_tuple_count": 237336,
+        "represented_word_count": 472733756,
+        "expected_normalized_word_count": 472733756,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "05dee2a5befba13cfb480e3f3b76e43a9601967648ab7c9bb87be445031e9a62"
+      },
+      {
+        "horizon_h": 40,
+        "denominator": 578138144899648722911,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 575757,
+        "right_tuple_count": 278256,
+        "represented_word_count": 635745396,
+        "expected_normalized_word_count": 635745396,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "3fcf8e8b17a770cac02358bc83bfa84c8b10c0905752434f48c89be0b5177340"
+      },
+      {
+        "horizon_h": 41,
+        "denominator": 2324710245057651820445,
+        "split": "5+5 boundary terms",
+        "left_tuple_count": 658008,
+        "right_tuple_count": 324632,
+        "represented_word_count": 847660528,
+        "expected_normalized_word_count": 847660528,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "9b6c1c4afe1aeb47e823594cb1a4e99d16ead0d017469451e9ff3b3bbe0f206b"
+      }
+    ],
+    "analytic_bound": {
+      "formula": "1 <= 2^11 (5/6)^h",
+      "h_41": {
+        "numerator": 45474735088646411895751953125,
+        "denominator": 39162581656768752151871619072,
+        "exact": "45474735088646411895751953125/39162581656768752151871619072",
+        "decimal": 1.1611781747995842
+      },
+      "h_42": {
+        "numerator": 227373675443232059478759765625,
+        "denominator": 234975489940612512911229714432,
+        "exact": "227373675443232059478759765625/234975489940612512911229714432",
+        "decimal": 0.9676484789996534
+      },
+      "analytic_range_starts_at_h": 42
+    },
+    "aggregate": {
+      "fixed_r_decidability_theorem_proved": true,
+      "decidability_rows": 32,
+      "eleven_one_infinite_family_proved_empty": true,
+      "includes_imprimitive_words": true,
+      "contracting_range_starts_at_h": 27,
+      "analytic_range_starts_at_h": 42,
+      "finite_exception_word_count": 3151735808,
+      "finite_word_count_identity": "C(41,11)-C(26,11)=3151735808",
+      "left_tuple_count": 4266158,
+      "right_tuple_count": 1893528,
+      "divisibility_hits": 0
+    },
+    "no_go_scope": "Fixed-r decidability is not one finite certificate uniform in r. It leaves unbounded one-count, valuations at least three, and aperiodic divergence open.",
+    "failure_count": 0
+  },
+  "discarded_route": "the exactly-eleven-one/rest-two valuation stratum as a source of positive cycles, and the claim that each fixed stratum requires an infinite search",
+  "remaining_gap": "The finite decision algorithm depends on fixed r and does not cover all one-counts at once, valuations at least three, or divergent aperiodic trajectories.",
+  "candidate_theorem": "NoPositiveAcceleratedCollatzCycleHasAllValuationsInTheSetOneTwo",
+  "claim_boundary": "No Collatz proof. One more infinite stratum is excluded and every fixed one-count stratum is shown decidable, but no uniform all-r theorem is proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T194-INPUT",
+        "label": "ExactlyTenValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "CO-T195-CLOSED",
+        "label": "FixedOneCountRestTwoDecidabilityAndElevenStratumExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T195-REJECTED",
+        "label": "FixedOneCountRestTwoStrataRequireInfiniteSearch",
+        "status": "refuted_or_incomplete_surrogate"
+      },
+      {
+        "id": "CO-T195-OPEN",
+        "label": "NoPositiveAcceleratedCollatzCycleHasAllValuationsInTheSetOneTwo",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T194-INPUT",
+        "CO-T195-CLOSED"
+      ],
+      [
+        "CO-T195-CLOSED",
+        "CO-T195-OPEN"
+      ],
+      [
+        "CO-T195-REJECTED",
+        "CO-T195-OPEN"
+      ]
+    ]
+  }
+}
