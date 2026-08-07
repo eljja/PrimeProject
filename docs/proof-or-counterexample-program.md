@@ -37,6 +37,39 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-189 Summable Cores, Five-One Cycles, and Prime-Power Subtraction
+
+TICKET-189 continues from TICKET-188 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:** `SummableFiniteCoreDriftConstructsCompatiblePositiveForm`
+   proves that a summable adjacent operator-drift majorant on every fixed core
+   constructs one compatible Hermitian form, and a vanishing negative floor
+   makes that form positive on `c_00`. The harmonic scalar core refutes the
+   weaker drift-tends-to-zero route. The next obligation is
+   `PoleNeutralGuinandWeilFixedCoreDriftHasCertifiedSummableOperatorMajorantAndVanishingNegativeFloor`.
+2. **Collatz:** `ExactlyFiveValuationOnesOtherwiseTwoCycleExclusion` closes
+   every contracting word with exactly five valuation-one entries and all
+   remaining entries two. An all-word odd-quotient bound closes `h>=22`; exact
+   enumeration closes all 72,897 words at `h=13..21`. The next obligation is
+   `NoContractingValuationWordWithExactlySixOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+3. **Goldbach:** `ProperPrimePowerContaminationHasExplicitSublinearBudget`
+   proves `A(N)<=sqrt(N)+O(log(N)N^(1/3))` and hence `E_pp(N)=o(N)`. This does
+   not lower-bound the full convolution. The next obligation is
+   `ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget`.
+4. **Twin Prime:** `ShiftTwoVonMangoldtPrimePowerContaminationBridge` proves
+   the exact shift-two decomposition and an `o(X)` contamination bound. The
+   positive composite term `(25,27)=(5^2,3^3)` rejects positivity without
+   subtraction. The next obligation is
+   `ShiftTwoVonMangoldtCorrelationHasPositiveLinearLowerBoundOnInfinitelyManyDyadicBlocks`.
+
+Machine audit: four exact theorems, one newly closed infinite cycle stratum,
+one shared Goldbach/Twin prime-power bridge, four rejected or corrected routes,
+zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-189](summable-core-fiveone-sublinear-shift.md).
+한국어 보고서: [TICKET-189](summable-core-fiveone-sublinear-shift.ko.md).
+
 ## 2026-08-02 TICKET-188 Common Forms, Four-One Cycles, Prime Powers, and Dyadic Oracles
 
 TICKET-188 continues from TICKET-187 and keeps every parent conjecture at

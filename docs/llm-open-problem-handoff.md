@@ -62,48 +62,60 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-188
+## Latest Continuation After TICKET-189
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
 1. Riemann:
-   `PoleNeutralGuinandWeilMatricesConvergeToOneCommonFormWithCertifiedVanishingOperatorError`.
-   TICKET-188 proves that exact nested negative defect is nondecreasing and
-   that approximate promotion requires convergence to one fixed form. The
-   moving family `diag(1,...,1,-1/N)` refutes defect-only promotion.
+   `PoleNeutralGuinandWeilFixedCoreDriftHasCertifiedSummableOperatorMajorantAndVanishingNegativeFloor`.
+   TICKET-189 proves that summable adjacent drift on every fixed core constructs
+   one compatible Hermitian form and that a vanishing negative floor promotes
+   it to positivity. The harmonic scalar family refutes the weaker claim that
+   adjacent drift merely tending to zero implies convergence.
 2. Collatz:
-   `NoContractingValuationWordWithExactlyFiveOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
-   The exactly-four-one/rest-two stratum is excluded at every horizon. The
-   proof is analytic for `h>=16` and closes exactly 4,116 finite words at
-   `h=10..15`; do not replace the next all-horizon theorem with more enumeration.
+   `NoContractingValuationWordWithExactlySixOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The exactly-five-one/rest-two stratum is excluded at every horizon. The
+   proof is analytic for `h>=22` and closes exactly 72,897 finite words at
+   `h=13..21`; do not replace the next all-horizon theorem with more enumeration.
 3. Goldbach:
-   `ExplicitBinaryGoldbachVonMangoldtLowerBoundDominatesPrimePowerContaminationForEveryLargeEvenTarget`.
-   TICKET-188 proves `R_Lambda=P_Lambda+E_pp` and
-   `E_pp<=2A(N)(log N)^2`. The next result must supply an every-target lower
-   bound exceeding this contamination, not merely positivity of the total sum.
+   `ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget`.
+   TICKET-189 proves an explicit
+   `A(N)<=sqrt(N)+O(log(N)N^(1/3))` bound, hence `E_pp=o(N)`. The next result
+   must supply a positive linear every-target lower bound; an error upper bound
+   or finite declining ratios cannot replace it.
 4. Twin Prime:
-   `IndependentTypeIITwinProjectorLowerEndpointIsPositiveOnInfinitelyManyDyadicBlocks`.
-   A sound interval narrower than four is an exact dyadic-count oracle, so it
-   is stronger than needed. The retained target is a one-sided, independent
-   positive lower endpoint on infinitely many predeclared blocks.
+   `ShiftTwoVonMangoldtCorrelationHasPositiveLinearLowerBoundOnInfinitelyManyDyadicBlocks`.
+   The shift-two von Mangoldt correlation now has the same explicit `o(X)`
+   proper-prime-power subtraction as Goldbach. The term `(25,27)=(5^2,3^3)`
+   refutes positivity without subtraction; the retained target is a linear
+   lower bound on infinitely many unbounded dyadic blocks.
 
 Exact machine artifacts:
 
 ```text
-data/open-problem/ticket188-nested-fourone-primepower-dyadic.json
-data/open-problem/riemann/rh-ticket-188-common-form-defect.json
-data/open-problem/collatz/co-ticket-188-four-one-cycle-exclusion.json
-data/open-problem/goldbach/gb-ticket-188-prime-power-contamination.json
-data/open-problem/twin-prime/tp-ticket-188-dyadic-interval-oracle.json
+data/open-problem/ticket189-corefive-sublinear-shift.json
+data/open-problem/riemann/rh-ticket-189-summable-core-drift.json
+data/open-problem/collatz/co-ticket-189-five-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-189-sublinear-primepower-budget.json
+data/open-problem/twin-prime/tp-ticket-189-shift-two-contamination.json
 ```
 
-한국어 인계: TICKET-188도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
-정확히 네 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 콜라츠 주기족의
-배제다. 리만은 공통 형식 수렴 계약, 골드바흐는 폰 망골트 소수 거듭제곱
-오염 제거, Twin은 폭 4 미만 구간의 정확 개수 oracle 성질을 확정했다.
+한국어 인계: TICKET-189도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 다섯 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 콜라츠 주기족의
+배제다. 리만은 합 가능한 고정 코어 변동의 승격 계약을, 골드바흐와 Twin은
+공통으로 사용할 수 있는 명시적 준선형 소수 거듭제곱 제거 경계를 확정했다.
 
-English report: [TICKET-188](nested-fourone-primepower-dyadic.md).
-Korean report: [TICKET-188 한국어](nested-fourone-primepower-dyadic.ko.md).
+English report: [TICKET-189](summable-core-fiveone-sublinear-shift.md).
+Korean report: [TICKET-189 한국어](summable-core-fiveone-sublinear-shift.ko.md).
+
+## Preserved Continuation After TICKET-188
+
+TICKET-188 established the common-form defect promotion boundary, excluded the
+exactly-four-one/rest-two Collatz cycle stratum, separated binary von Mangoldt
+prime-power contamination, and proved the sub-four Twin interval oracle. Its
+artifacts and reports remain preserved:
+[English](nested-fourone-primepower-dyadic.md),
+[한국어](nested-fourone-primepower-dyadic.ko.md).
 
 ## Preserved Continuation After TICKET-187
 

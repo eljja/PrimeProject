@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260803-ticket188-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260808-ticket189-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-188</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-189</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-188 actually changed</h2>
-          <p>TICKET-188 did not solve a conjecture. It excludes every contracting Collatz cycle word with exactly four valuation-one entries and all other entries two, proves the common-form contract needed to promote vanishing Weil-matrix defects, separates von Mangoldt prime-power contamination, and identifies sub-four Twin intervals as exact dyadic-count oracles.</p>
-          <p class="proof-boundary">TICKET-188은 난제를 해결하지 않았습니다. 콜라츠에서는 정확히 네 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 수축 주기족을 배제했습니다. 리만에서는 결함 감소의 공통 형식 수렴 조건을, 골드바흐에서는 소수 거듭제곱 오염 제거식을, 쌍둥이 소수에서는 폭 4 미만 구간의 정확 개수 oracle 성질을 증명했습니다.</p>
+          <h2>What TICKET-189 actually changed</h2>
+          <p>TICKET-189 did not solve a conjecture. It excludes every contracting Collatz cycle word with exactly five valuation-one entries and all other entries two, proves a summable fixed-core promotion theorem for Hermitian forms, and gives Goldbach and Twin Prime one shared explicit sublinear proper-prime-power subtraction.</p>
+          <p class="proof-boundary">TICKET-189는 난제를 해결하지 않았습니다. 콜라츠에서는 정확히 다섯 번의 <code>v=1</code>과 나머지 <code>v=2</code>인 모든 수축 주기족을 배제했습니다. 리만에서는 합 가능한 고정 코어 변동의 승격 정리를, 골드바흐와 쌍둥이 소수에서는 공통으로 사용할 수 있는 명시적 준선형 소수 거듭제곱 제거 경계를 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>For exact nested sections, negative defect is nondecreasing; approximate promotion requires certified convergence to one common form.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>diag(1,...,1,-1/N) has defect 1/N→0 but stays indefinite because its negative direction moves.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Certified operator-error convergence of pole-neutral Guinand-Weil matrices to one common form.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Summable adjacent drift on every fixed core constructs compatible limits; a vanishing negative floor promotes the common form to positivity.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The harmonic scalar core has adjacent drift tending to zero but diverges, so drift→0 is not a Cauchy certificate.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>A certified summable core-drift majorant and vanishing negative floor for the actual pole-neutral Guinand-Weil family.</dd></div>
           </dl>
-          <p class="workbench-ko">결함이 0으로 간다는 수치만으로는 부족합니다. 실제 Weil 형식 하나에 대한 중첩 또는 인증된 연산자 수렴 계약이 필요합니다.</p>
+          <p class="workbench-ko">고정 코어의 인접 차이가 0으로 간다는 사실만으로는 부족합니다. 그 차이의 합 가능한 상계와 실제 Weil 형식의 음의 하한 인증이 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every contracting cycle word with exactly four valuation ones and all other valuations two fails affine divisibility.</dd></div>
-            <div><dt>Proof split / 증명 분할</dt><dd>An odd-quotient inequality closes all h≥16; exact integer enumeration closes all 4,116 words at h=10..15.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Exclude affine divisibility for the exactly-five-ones/rest-two stratum.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every contracting cycle word with exactly five valuation ones and all other valuations two fails affine divisibility.</dd></div>
+            <div><dt>Proof split / 증명 분할</dt><dd>An odd-quotient inequality closes all h≥22; exact integer enumeration closes all 72,897 words at h=13..21.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Exclude affine divisibility for the exactly-six-ones/rest-two stratum.</dd></div>
           </dl>
-          <p class="workbench-ko">네 번의 <code>v=1</code> 부분족까지 primitive 여부와 무관하게 모든 길이에서 닫혔습니다. 다음에는 다섯 번의 <code>v=1</code> 부분족을 공격합니다.</p>
+          <p class="workbench-ko">다섯 번의 <code>v=1</code> 부분족까지 원시·비원시 여부와 무관하게 모든 길이에서 닫혔습니다. 다음에는 여섯 번의 <code>v=1</code> 부분족을 공격합니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The binary von Mangoldt convolution splits exactly into prime-prime mass plus nonnegative proper-prime-power contamination.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>N=18 already contains 9+9, so the full von Mangoldt convolution cannot be identified with prime-prime mass.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>An every-target weighted lower bound exceeding the explicit prime-power contamination budget.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The proper-prime-power contamination has an explicit O(sqrt(N) log²N + N^(1/3) log³N)=o(N) upper bound.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A sublinear error upper bound does not provide a positive lower bound for the full binary von Mangoldt convolution.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>An every-target major-arc main term minus minor-arc error that exceeds the sublinear prime-power budget.</dd></div>
           </dl>
-          <p class="workbench-ko">폰 망골트 가중치는 소수뿐 아니라 소수 거듭제곱에도 양수입니다. 모든 짝수에서 전체 하계가 오염 상계를 이겨야 소수쌍 존재로 승격됩니다.</p>
+          <p class="workbench-ko">소수 거듭제곱 오염은 전체 목표 크기보다 작아짐을 증명했습니다. 이제 모든 큰 짝수에서 전체 폰 망골트 합의 양의 선형 하한을 증명해야 소수쌍 존재로 승격됩니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A sound interval of width below four recovers the exact dyadic twin count and has L&gt;0 exactly when that block is occupied.</dd></div>
-            <div><dt>Sharp boundary / 정확한 경계</dt><dd>Width four is sharp: [0,4] cannot distinguish zero twins from one. Uniform sub-four intervals are exact-count oracles.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>An independent Type II projector lower endpoint that is positive on infinitely many dyadic blocks.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The shift-two von Mangoldt correlation splits into genuine twin mass plus an explicit o(X) proper-prime-power contamination.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>(25,27)=(5²,3³) gives a positive correlation term with no prime endpoint, so positivity alone is insufficient.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>A positive linear shift-two correlation lower bound on infinitely many unbounded dyadic blocks.</dd></div>
           </dl>
-          <p class="workbench-ko">폭 4 미만의 양쪽 구간은 필요 이상으로 강한 정확 개수 oracle입니다. 필요한 것은 무한 부분열에서 독립적으로 양수가 되는 한쪽 하계입니다.</p>
+          <p class="workbench-ko">골드바흐와 같은 소수 거듭제곱 제거 경계를 간격 2 상관합에도 적용했습니다. 이제 무한히 많은 구간에서 오염 예산을 이기는 선형 하한이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>188 tickets reduced to four meaningful eras</h2>
+          <h2>189 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–188 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 두-1·세-1·네-1 콜라츠 주기층을 연속으로 닫았으며 세 트랙의 전역 승격 조건을 정확히 교정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–189 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 두-1·세-1·네-1·다섯-1 콜라츠 주기층을 연속으로 닫았으며 세 트랙의 전역 승격 조건을 정확히 교정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/nested-fourone-primepower-dyadic.ko.md">TICKET-188 한국어 보고서</a>
-          <a href="../docs/nested-fourone-primepower-dyadic.md">TICKET-188 English report</a>
+          <a href="../docs/summable-core-fiveone-sublinear-shift.ko.md">TICKET-189 한국어 보고서</a>
+          <a href="../docs/summable-core-fiveone-sublinear-shift.md">TICKET-189 English report</a>
+          <a href="../docs/nested-fourone-primepower-dyadic.ko.md">TICKET-188 이전 보고서</a>
           <a href="../docs/positive-ray-threeone-signature-interval.ko.md">TICKET-187 이전 보고서</a>
           <a href="../docs/codimension-twoone-layercake-quantization.ko.md">TICKET-186 이전 보고서</a>
           <a href="../docs/spectral-cycle-factor-granularity.ko.md">TICKET-185 이전 보고서</a>
@@ -128,7 +129,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260803-ticket188"></script>
+    <script src="../assets/i18n.js?v=20260808-ticket189"></script>
   </body>
 </html>
 

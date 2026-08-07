@@ -1,0 +1,416 @@
+{
+  "schema": "primeproject.ticket189-corefive-sublinear-shift.v1",
+  "generated_at": "2026-08-08T23:30:00+09:00",
+  "ticket_id": "GB-TICKET-189",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "ProperPrimePowerContaminationHasExplicitSublinearBudget",
+  "declared_proposition": "If A(N) is the number of distinct proper prime powers at most N and L=floor(log_2 N), then A(N)<=sum_(k=2)^L floor(N^(1/k))<=floor(sqrt(N))+max(L-2,0)floor(N^(1/3)). Consequently the proper-prime-power part E_pp(N) of the binary von Mangoldt convolution is at most twice this bound times (log N)^2, which is o(N). Therefore any certified lower bound R_Lambda(N)>=cN for all sufficiently large even N, with fixed c>0, eventually forces positive prime-prime mass and reduces strong Goldbach to a finite range plus that analytic lower bound.",
+  "mathematical_argument": "Every proper prime power p^k<=N is counted in the k-th root sum. The k=2 term is at most floor(sqrt N), while every term for k>=3 is at most floor(N^(1/3)), and there are L-2 such exponents. TICKET-188 bounds contamination by 2A(N)(log N)^2. Dividing the displayed estimate by N leaves O(log^2(N)/sqrt(N)+log^3(N)/N^(2/3)), which tends to zero. Subtracting this budget from a positive linear all-target lower bound eventually leaves positive prime-prime mass.",
+  "reproducible_computation": {
+    "theorem": "If A(N) is the number of distinct proper prime powers at most N and L=floor(log_2 N), then A(N)<=sum_(k=2)^L floor(N^(1/k))<=floor(sqrt(N))+max(L-2,0)floor(N^(1/3)). Consequently the proper-prime-power part E_pp(N) of the binary von Mangoldt convolution is at most twice this bound times (log N)^2, which is o(N). Therefore any certified lower bound R_Lambda(N)>=cN for all sufficiently large even N, with fixed c>0, eventually forces positive prime-prime mass and reduces strong Goldbach to a finite range plus that analytic lower bound.",
+    "proof": "Every proper prime power p^k<=N is counted in the k-th root sum. The k=2 term is at most floor(sqrt N), while every term for k>=3 is at most floor(N^(1/3)), and there are L-2 such exponents. TICKET-188 bounds contamination by 2A(N)(log N)^2. Dividing the displayed estimate by N leaves O(log^2(N)/sqrt(N)+log^3(N)/N^(2/3)), which tends to zero. Subtracting this budget from a positive linear all-target lower bound eventually leaves positive prime-prime mass.",
+    "prime_power_budget_rows": [
+      {
+        "target_N": 18,
+        "floor_log2_N": 4,
+        "actual_proper_prime_power_count_A_N": 4,
+        "exponent_sum_upper_bound": 8,
+        "simplified_upper_bound": 8,
+        "simplified_contamination_mass_bound": 133.66798238150022,
+        "bound_over_N": 7.425999021194457,
+        "checks": {
+          "actual_count_below_exponent_sum": true,
+          "exponent_sum_below_simplified_bound": true
+        }
+      },
+      {
+        "target_N": 100,
+        "floor_log2_N": 6,
+        "actual_proper_prime_power_count_A_N": 10,
+        "exponent_sum_upper_bound": 21,
+        "simplified_upper_bound": 26,
+        "simplified_contamination_mass_bound": 1102.794806979507,
+        "bound_over_N": 11.02794806979507,
+        "checks": {
+          "actual_count_below_exponent_sum": true,
+          "exponent_sum_below_simplified_bound": true
+        }
+      },
+      {
+        "target_N": 1000,
+        "floor_log2_N": 9,
+        "actual_proper_prime_power_count_A_N": 25,
+        "exponent_sum_upper_bound": 58,
+        "simplified_upper_bound": 101,
+        "simplified_contamination_mass_bound": 9638.850764849727,
+        "bound_over_N": 9.638850764849726,
+        "checks": {
+          "actual_count_below_exponent_sum": true,
+          "exponent_sum_below_simplified_bound": true
+        }
+      },
+      {
+        "target_N": 10000,
+        "floor_log2_N": 13,
+        "actual_proper_prime_power_count_A_N": 51,
+        "exponent_sum_upper_bound": 157,
+        "simplified_upper_bound": 331,
+        "simplified_contamination_mass_bound": 56157.704786187205,
+        "bound_over_N": 5.61577047861872,
+        "checks": {
+          "actual_count_below_exponent_sum": true,
+          "exponent_sum_below_simplified_bound": true
+        }
+      },
+      {
+        "target_N": 100000,
+        "floor_log2_N": 16,
+        "actual_proper_prime_power_count_A_N": 108,
+        "exponent_sum_upper_bound": 422,
+        "simplified_upper_bound": 960,
+        "simplified_contamination_mass_bound": 254491.10930296313,
+        "bound_over_N": 2.5449110930296315,
+        "checks": {
+          "actual_count_below_exponent_sum": true,
+          "exponent_sum_below_simplified_bound": true
+        }
+      },
+      {
+        "target_N": 1000000,
+        "floor_log2_N": 19,
+        "actual_proper_prime_power_count_A_N": 236,
+        "exponent_sum_upper_bound": 1195,
+        "simplified_upper_bound": 2700,
+        "simplified_contamination_mass_bound": 1030688.9926770005,
+        "bound_over_N": 1.0306889926770004,
+        "checks": {
+          "actual_count_below_exponent_sum": true,
+          "exponent_sum_below_simplified_bound": true
+        }
+      }
+    ],
+    "finite_decomposition_rows": [
+      {
+        "even_target_N": 18,
+        "ordered_von_mangoldt_support_count": 7,
+        "ordered_prime_pair_support_count": 4,
+        "ordered_prime_power_contamination_count": 3,
+        "weighted_total_convolution": 19.756285962813365,
+        "weighted_prime_pair_mass": 17.588430974164382,
+        "weighted_prime_power_contamination": 2.167854988648985,
+        "decomposition_rounding_residual": 1.7763568394002505e-15,
+        "proper_prime_power_count_A_N": 4,
+        "coarse_prime_power_count_upper_bound": 8,
+        "contamination_mass_upper_bound": 66.83399119075011,
+        "contamination_examples_left_right_exponents": [
+          [
+            2,
+            16,
+            1,
+            4
+          ],
+          [
+            9,
+            9,
+            2,
+            2
+          ],
+          [
+            16,
+            2,
+            4,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 100,
+        "ordered_von_mangoldt_support_count": 16,
+        "ordered_prime_pair_support_count": 12,
+        "ordered_prime_power_contamination_count": 4,
+        "weighted_total_convolution": 162.07824666735928,
+        "weighted_prime_pair_mass": 146.1815500437125,
+        "weighted_prime_power_contamination": 15.896696623646738,
+        "decomposition_rounding_residual": 5.1514348342607263e-14,
+        "proper_prime_power_count_A_N": 10,
+        "coarse_prime_power_count_upper_bound": 21,
+        "contamination_mass_upper_bound": 424.1518488382719,
+        "contamination_examples_left_right_exponents": [
+          [
+            19,
+            81,
+            1,
+            4
+          ],
+          [
+            27,
+            73,
+            3,
+            1
+          ],
+          [
+            73,
+            27,
+            1,
+            3
+          ],
+          [
+            81,
+            19,
+            4,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 1000,
+        "ordered_von_mangoldt_support_count": 64,
+        "ordered_prime_pair_support_count": 56,
+        "ordered_prime_power_contamination_count": 8,
+        "weighted_total_convolution": 1880.0702208146952,
+        "weighted_prime_pair_mass": 1823.0445906906646,
+        "weighted_prime_power_contamination": 57.02563012403055,
+        "decomposition_rounding_residual": 6.394884621840902e-14,
+        "proper_prime_power_count_A_N": 25,
+        "coarse_prime_power_count_upper_bound": 58,
+        "contamination_mass_upper_bound": 2385.8541497152787,
+        "contamination_examples_left_right_exponents": [
+          [
+            9,
+            991,
+            2,
+            1
+          ],
+          [
+            81,
+            919,
+            4,
+            1
+          ],
+          [
+            243,
+            757,
+            5,
+            1
+          ],
+          [
+            271,
+            729,
+            1,
+            6
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 10000,
+        "ordered_von_mangoldt_support_count": 260,
+        "ordered_prime_pair_support_count": 254,
+        "ordered_prime_power_contamination_count": 6,
+        "weighted_total_convolution": 16855.213722554072,
+        "weighted_prime_pair_mass": 16743.136805577,
+        "weighted_prime_power_contamination": 112.07691697707244,
+        "decomposition_rounding_residual": 4.831690603168681e-13,
+        "proper_prime_power_count_A_N": 51,
+        "coarse_prime_power_count_upper_bound": 157,
+        "contamination_mass_upper_bound": 8652.697716300747,
+        "contamination_examples_left_right_exponents": [
+          [
+            27,
+            9973,
+            3,
+            1
+          ],
+          [
+            1331,
+            8669,
+            3,
+            1
+          ],
+          [
+            4913,
+            5087,
+            3,
+            1
+          ],
+          [
+            5087,
+            4913,
+            1,
+            3
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 100000,
+        "ordered_von_mangoldt_support_count": 1636,
+        "ordered_prime_pair_support_count": 1620,
+        "ordered_prime_power_contamination_count": 16,
+        "weighted_total_convolution": 176573.64981384535,
+        "weighted_prime_pair_mass": 176154.32529638355,
+        "weighted_prime_power_contamination": 419.32451746187246,
+        "decomposition_rounding_residual": 8.105871529551223e-11,
+        "proper_prime_power_count_A_N": 108,
+        "coarse_prime_power_count_upper_bound": 422,
+        "contamination_mass_upper_bound": 28630.24979658335,
+        "contamination_examples_left_right_exponents": [
+          [
+            9,
+            99991,
+            2,
+            1
+          ],
+          [
+            1331,
+            98669,
+            3,
+            1
+          ],
+          [
+            2187,
+            97813,
+            7,
+            1
+          ],
+          [
+            4913,
+            95087,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      },
+      {
+        "even_target_N": 1000000,
+        "ordered_von_mangoldt_support_count": 10810,
+        "ordered_prime_pair_support_count": 10804,
+        "ordered_prime_power_contamination_count": 6,
+        "weighted_total_convolution": 1756567.5367322373,
+        "weighted_prime_pair_mass": 1756441.844265565,
+        "weighted_prime_power_contamination": 125.69246667230607,
+        "decomposition_rounding_residual": 2.8990143619012088e-11,
+        "proper_prime_power_count_A_N": 236,
+        "coarse_prime_power_count_upper_bound": 1195,
+        "contamination_mass_upper_bound": 90089.85269324893,
+        "contamination_examples_left_right_exponents": [
+          [
+            2187,
+            997813,
+            7,
+            1
+          ],
+          [
+            161051,
+            838949,
+            5,
+            1
+          ],
+          [
+            177147,
+            822853,
+            11,
+            1
+          ],
+          [
+            822853,
+            177147,
+            1,
+            11
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_count_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "proper_power_count_below_coarse_bound": true
+        }
+      }
+    ],
+    "aggregate": {
+      "target_count": 6,
+      "largest_target": 1000000,
+      "sublinear_contamination_budget_proved": true,
+      "positive_linear_every_target_lower_bound_proved": false
+    },
+    "no_go_scope": "Sublinear contamination does not itself lower-bound the full von Mangoldt convolution. Finite decline or small observed ratios cannot replace a rigorous positive linear lower bound for every sufficiently large even target. Strong Goldbach remains open.",
+    "failure_count": 0
+  },
+  "discarded_route": "claiming that a sublinear contamination upper bound alone proves positive prime-prime mass",
+  "remaining_gap": "No positive linear lower bound is proved for the binary von Mangoldt convolution on every sufficiently large even target.",
+  "candidate_theorem": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof. The prime-power correction is now explicitly o(N), but the required every-target positive linear lower bound remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T188-INPUT",
+        "label": "VonMangoldtPrimePowerContaminationBridge",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T189-CLOSED",
+        "label": "ProperPrimePowerContaminationHasExplicitSublinearBudget",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T189-REJECTED",
+        "label": "SublinearContaminationAloneImpliesStrongGoldbach",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T189-OPEN",
+        "label": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T188-INPUT",
+        "GB-T189-CLOSED"
+      ],
+      [
+        "GB-T189-CLOSED",
+        "GB-T189-OPEN"
+      ],
+      [
+        "GB-T189-REJECTED",
+        "GB-T189-OPEN"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,739 @@
+{
+  "schema": "primeproject.ticket189-corefive-sublinear-shift.v1",
+  "generated_at": "2026-08-08T23:30:00+09:00",
+  "ticket_id": "TP-TICKET-189",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "ShiftTwoVonMangoldtPrimePowerContaminationBridge",
+  "declared_proposition": "On every dyadic block [X,2X), the shift-two von Mangoldt correlation S_Lambda(X) decomposes exactly into twin-prime mass P_2(X) plus nonnegative proper-prime-power contamination E_2pp(X), with E_2pp(X)<=2A(2X+2)(log(2X+2))^2=o(X). Hence a sound lower bound for S_Lambda(X) above this budget proves a twin in that block. In particular, if S_Lambda(2^j)>=c2^j for one fixed c>0 on infinitely many unbounded j, then the Twin Prime conjecture follows. Positivity of S_Lambda alone is insufficient.",
+  "mathematical_argument": "Partition nonzero terms Lambda(n)Lambda(n+2) according to whether both exponents are one. A contaminated term has a proper prime power at n or n+2, giving at most 2A(2X+2) possible starts and weight at most log^2(2X+2). The proper-power count estimate from the Goldbach track makes this o(X). A fixed positive linear lower bound therefore eventually exceeds contamination. The term n=25 is an exact no-go witness: (25,27)=(5^2,3^3) contributes the positive weight log(5)log(3) although neither endpoint is prime.",
+  "reproducible_computation": {
+    "theorem": "On every dyadic block [X,2X), the shift-two von Mangoldt correlation S_Lambda(X) decomposes exactly into twin-prime mass P_2(X) plus nonnegative proper-prime-power contamination E_2pp(X), with E_2pp(X)<=2A(2X+2)(log(2X+2))^2=o(X). Hence a sound lower bound for S_Lambda(X) above this budget proves a twin in that block. In particular, if S_Lambda(2^j)>=c2^j for one fixed c>0 on infinitely many unbounded j, then the Twin Prime conjecture follows. Positivity of S_Lambda alone is insufficient.",
+    "proof": "Partition nonzero terms Lambda(n)Lambda(n+2) according to whether both exponents are one. A contaminated term has a proper prime power at n or n+2, giving at most 2A(2X+2) possible starts and weight at most log^2(2X+2). The proper-power count estimate from the Goldbach track makes this o(X). A fixed positive linear lower bound therefore eventually exceeds contamination. The term n=25 is an exact no-go witness: (25,27)=(5^2,3^3) contributes the positive weight log(5)log(3) although neither endpoint is prime.",
+    "finite_dyadic_decomposition_rows": [
+      {
+        "dyadic_exponent_j": 4,
+        "block": [
+          16,
+          32
+        ],
+        "shift_two_von_mangoldt_support_count": 5,
+        "twin_prime_support_count": 2,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 30.419358712610045,
+        "weighted_twin_prime_mass": 19.905474600423364,
+        "weighted_prime_power_contamination": 10.51388411218668,
+        "proper_prime_power_count_A_2X_plus_2": 7,
+        "contamination_mass_upper_bound": 174.09305969399637,
+        "contamination_examples_left_right_exponents": [
+          [
+            23,
+            25,
+            1,
+            2
+          ],
+          [
+            25,
+            27,
+            2,
+            3
+          ],
+          [
+            27,
+            29,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 5,
+        "block": [
+          32,
+          64
+        ],
+        "shift_two_von_mangoldt_support_count": 3,
+        "twin_prime_support_count": 2,
+        "proper_prime_power_contamination_support_count": 1,
+        "weighted_shift_two_correlation": 38.221771088793275,
+        "weighted_twin_prime_mass": 30.729729795264696,
+        "weighted_prime_power_contamination": 7.492041293528577,
+        "proper_prime_power_count_A_2X_plus_2": 9,
+        "contamination_mass_upper_bound": 315.9577234329212,
+        "contamination_examples_left_right_exponents": [
+          [
+            47,
+            49,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 6,
+        "block": [
+          64,
+          128
+        ],
+        "shift_two_von_mangoldt_support_count": 6,
+        "twin_prime_support_count": 3,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 79.05189367387074,
+        "weighted_twin_prime_mass": 61.60055362319484,
+        "weighted_prime_power_contamination": 17.451340050675896,
+        "proper_prime_power_count_A_2X_plus_2": 13,
+        "contamination_mass_upper_bound": 616.0151822856701,
+        "contamination_examples_left_right_exponents": [
+          [
+            79,
+            81,
+            1,
+            4
+          ],
+          [
+            81,
+            83,
+            4,
+            1
+          ],
+          [
+            125,
+            127,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 7,
+        "block": [
+          128,
+          256
+        ],
+        "shift_two_von_mangoldt_support_count": 9,
+        "twin_prime_support_count": 7,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 210.62504290038592,
+        "weighted_twin_prime_mass": 191.4719826477534,
+        "weighted_prime_power_contamination": 19.153060252632475,
+        "proper_prime_power_count_A_2X_plus_2": 16,
+        "contamination_mass_upper_bound": 986.7315248567315,
+        "contamination_examples_left_right_exponents": [
+          [
+            167,
+            169,
+            1,
+            2
+          ],
+          [
+            241,
+            243,
+            1,
+            5
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 8,
+        "block": [
+          256,
+          512
+        ],
+        "shift_two_von_mangoldt_support_count": 8,
+        "twin_prime_support_count": 7,
+        "proper_prime_power_contamination_support_count": 1,
+        "weighted_shift_two_correlation": 258.68209860141263,
+        "weighted_twin_prime_mass": 241.35901483374516,
+        "weighted_prime_power_contamination": 17.32308376766749,
+        "proper_prime_power_count_A_2X_plus_2": 20,
+        "contamination_mass_upper_bound": 1558.6140518315901,
+        "contamination_examples_left_right_exponents": [
+          [
+            359,
+            361,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 9,
+        "block": [
+          512,
+          1024
+        ],
+        "shift_two_von_mangoldt_support_count": 14,
+        "twin_prime_support_count": 12,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 550.1506096955326,
+        "weighted_twin_prime_mass": 520.2425890597062,
+        "weighted_prime_power_contamination": 29.908020635826325,
+        "proper_prime_power_count_A_2X_plus_2": 26,
+        "contamination_mass_upper_bound": 2499.7624523941085,
+        "contamination_examples_left_right_exponents": [
+          [
+            727,
+            729,
+            1,
+            6
+          ],
+          [
+            839,
+            841,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 10,
+        "block": [
+          1024,
+          2048
+        ],
+        "shift_two_von_mangoldt_support_count": 28,
+        "twin_prime_support_count": 26,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 1441.7469568800293,
+        "weighted_twin_prime_mass": 1387.3855975997217,
+        "weighted_prime_power_contamination": 54.36135928030767,
+        "proper_prime_power_count_A_2X_plus_2": 31,
+        "contamination_mass_upper_bound": 3605.281412656107,
+        "contamination_examples_left_right_exponents": [
+          [
+            1367,
+            1369,
+            1,
+            2
+          ],
+          [
+            1847,
+            1849,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 11,
+        "block": [
+          2048,
+          4096
+        ],
+        "shift_two_von_mangoldt_support_count": 48,
+        "twin_prime_support_count": 45,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 2972.656172857228,
+        "weighted_twin_prime_mass": 2894.071385852201,
+        "weighted_prime_power_contamination": 78.58478700502675,
+        "proper_prime_power_count_A_2X_plus_2": 40,
+        "contamination_mass_upper_bound": 5535.468406286459,
+        "contamination_examples_left_right_exponents": [
+          [
+            2207,
+            2209,
+            1,
+            2
+          ],
+          [
+            2399,
+            2401,
+            1,
+            4
+          ],
+          [
+            3719,
+            3721,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 12,
+        "block": [
+          4096,
+          8192
+        ],
+        "shift_two_von_mangoldt_support_count": 74,
+        "twin_prime_support_count": 70,
+        "proper_prime_power_contamination_support_count": 4,
+        "weighted_shift_two_correlation": 5380.412152725935,
+        "weighted_twin_prime_mass": 5268.114154826079,
+        "weighted_prime_power_contamination": 112.29799789985574,
+        "proper_prime_power_count_A_2X_plus_2": 50,
+        "contamination_mass_upper_bound": 8120.095873479411,
+        "contamination_examples_left_right_exponents": [
+          [
+            5039,
+            5041,
+            1,
+            2
+          ],
+          [
+            6561,
+            6563,
+            8,
+            1
+          ],
+          [
+            6857,
+            6859,
+            1,
+            3
+          ],
+          [
+            7919,
+            7921,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 13,
+        "block": [
+          8192,
+          16384
+        ],
+        "shift_two_von_mangoldt_support_count": 117,
+        "twin_prime_support_count": 113,
+        "proper_prime_power_contamination_support_count": 4,
+        "weighted_shift_two_correlation": 10099.841514010854,
+        "weighted_twin_prime_mass": 9943.280144249258,
+        "weighted_prime_power_contamination": 156.56136976159559,
+        "proper_prime_power_count_A_2X_plus_2": 61,
+        "contamination_mass_upper_bound": 11488.881489948855,
+        "contamination_examples_left_right_exponents": [
+          [
+            10607,
+            10609,
+            1,
+            2
+          ],
+          [
+            11447,
+            11449,
+            1,
+            2
+          ],
+          [
+            14639,
+            14641,
+            1,
+            4
+          ],
+          [
+            16127,
+            16129,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 14,
+        "block": [
+          16384,
+          32768
+        ],
+        "shift_two_von_mangoldt_support_count": 222,
+        "twin_prime_support_count": 215,
+        "proper_prime_power_contamination_support_count": 7,
+        "weighted_shift_two_correlation": 22103.264555436494,
+        "weighted_twin_prime_mass": 21847.34898267158,
+        "weighted_prime_power_contamination": 255.91557276490903,
+        "proper_prime_power_count_A_2X_plus_2": 78,
+        "contamination_mass_upper_bound": 16864.098776769417,
+        "contamination_examples_left_right_exponents": [
+          [
+            17159,
+            17161,
+            1,
+            2
+          ],
+          [
+            19319,
+            19321,
+            1,
+            2
+          ],
+          [
+            19681,
+            19683,
+            1,
+            9
+          ],
+          [
+            24389,
+            24391,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 15,
+        "block": [
+          32768,
+          65536
+        ],
+        "shift_two_von_mangoldt_support_count": 362,
+        "twin_prime_support_count": 355,
+        "proper_prime_power_contamination_support_count": 7,
+        "weighted_shift_two_correlation": 41516.84933102578,
+        "weighted_twin_prime_mass": 41175.32141775507,
+        "weighted_prime_power_contamination": 341.52791327071526,
+        "proper_prime_power_count_A_2X_plus_2": 93,
+        "contamination_mass_upper_bound": 22877.376612668297,
+        "contamination_examples_left_right_exponents": [
+          [
+            36479,
+            36481,
+            1,
+            2
+          ],
+          [
+            44519,
+            44521,
+            1,
+            2
+          ],
+          [
+            49727,
+            49729,
+            1,
+            2
+          ],
+          [
+            50651,
+            50653,
+            1,
+            3
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 16,
+        "block": [
+          65536,
+          131072
+        ],
+        "shift_two_von_mangoldt_support_count": 671,
+        "twin_prime_support_count": 666,
+        "proper_prime_power_contamination_support_count": 5,
+        "weighted_shift_two_correlation": 87982.41778641171,
+        "weighted_twin_prime_mass": 87653.29378784791,
+        "weighted_prime_power_contamination": 329.12399856379926,
+        "proper_prime_power_count_A_2X_plus_2": 119,
+        "contamination_mass_upper_bound": 33046.60478846309,
+        "contamination_examples_left_right_exponents": [
+          [
+            66047,
+            66049,
+            1,
+            2
+          ],
+          [
+            85847,
+            85849,
+            1,
+            2
+          ],
+          [
+            97967,
+            97969,
+            1,
+            2
+          ],
+          [
+            113567,
+            113569,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 17,
+        "block": [
+          131072,
+          262144
+        ],
+        "shift_two_von_mangoldt_support_count": 1159,
+        "twin_prime_support_count": 1153,
+        "proper_prime_power_contamination_support_count": 6,
+        "weighted_shift_two_correlation": 170925.14354747848,
+        "weighted_twin_prime_mass": 170522.16627598935,
+        "weighted_prime_power_contamination": 402.9772714891503,
+        "proper_prime_power_count_A_2X_plus_2": 150,
+        "contamination_mass_upper_bound": 46700.09006621651,
+        "contamination_examples_left_right_exponents": [
+          [
+            161051,
+            161053,
+            5,
+            1
+          ],
+          [
+            177239,
+            177241,
+            1,
+            2
+          ],
+          [
+            196247,
+            196249,
+            1,
+            2
+          ],
+          [
+            201599,
+            201601,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 18,
+        "block": [
+          262144,
+          524288
+        ],
+        "shift_two_von_mangoldt_support_count": 2082,
+        "twin_prime_support_count": 2071,
+        "proper_prime_power_contamination_support_count": 11,
+        "weighted_shift_two_correlation": 343017.38147934974,
+        "weighted_twin_prime_mass": 342219.9300581405,
+        "weighted_prime_power_contamination": 797.4514212092325,
+        "proper_prime_power_count_A_2X_plus_2": 189,
+        "contamination_mass_upper_bound": 65561.69535370552,
+        "contamination_examples_left_right_exponents": [
+          [
+            273527,
+            273529,
+            1,
+            2
+          ],
+          [
+            292679,
+            292681,
+            1,
+            2
+          ],
+          [
+            300761,
+            300763,
+            1,
+            3
+          ],
+          [
+            323759,
+            323761,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 19,
+        "block": [
+          524288,
+          1048576
+        ],
+        "shift_two_von_mangoldt_support_count": 3800,
+        "twin_prime_support_count": 3785,
+        "proper_prime_power_contamination_support_count": 15,
+        "weighted_shift_two_correlation": 696510.2058858308,
+        "weighted_twin_prime_mass": 695300.6983668064,
+        "weighted_prime_power_contamination": 1209.507519024261,
+        "proper_prime_power_count_A_2X_plus_2": 242,
+        "contamination_mass_upper_bound": 93015.72908988077,
+        "contamination_examples_left_right_exponents": [
+          [
+            528527,
+            528529,
+            1,
+            2
+          ],
+          [
+            537287,
+            537289,
+            1,
+            2
+          ],
+          [
+            552047,
+            552049,
+            1,
+            2
+          ],
+          [
+            563999,
+            564001,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      }
+    ],
+    "positive_correlation_no_go_witness": {
+      "n": 25,
+      "n_plus_2": 27,
+      "factorization": [
+        "5^2",
+        "3^3"
+      ],
+      "positive_von_mangoldt_weight": 1.7681482684484517,
+      "both_endpoints_prime": false
+    },
+    "aggregate": {
+      "dyadic_block_count": 16,
+      "largest_upper_endpoint": 1048576,
+      "prime_power_contamination_bridge_proved": true,
+      "positive_linear_infinitely_many_block_lower_bound_proved": false,
+      "conjecture_resolution_count": 0
+    },
+    "no_go_scope": "The finite rows directly inspect prime powers and primes; they do not supply independent Type I/II estimates. No positive linear lower bound is proved on infinitely many unbounded blocks, so the Twin Prime conjecture remains open.",
+    "failure_count": 0
+  },
+  "discarded_route": "using positivity of the shift-two von Mangoldt correlation as if every positive term were a twin-prime pair",
+  "remaining_gap": "No positive linear shift-two von Mangoldt lower bound is proved on infinitely many unbounded dyadic blocks.",
+  "candidate_theorem": "ShiftTwoVonMangoldtCorrelationHasPositiveLinearLowerBoundOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof. An exact sublinear contamination bridge and a concrete positivity counterexample are proved; the correlation lower bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T188-INPUT",
+        "label": "SubFourTwinIntervalExactCountOracleAndDyadicEquivalence",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "TP-T189-CLOSED",
+        "label": "ShiftTwoVonMangoldtPrimePowerContaminationBridge",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T189-REJECTED",
+        "label": "PositiveShiftTwoVonMangoldtCorrelationImpliesATwinWithoutSubtraction",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T189-OPEN",
+        "label": "ShiftTwoVonMangoldtCorrelationHasPositiveLinearLowerBoundOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T188-INPUT",
+        "TP-T189-CLOSED"
+      ],
+      [
+        "TP-T189-CLOSED",
+        "TP-T189-OPEN"
+      ],
+      [
+        "TP-T189-REJECTED",
+        "TP-T189-OPEN"
+      ]
+    ]
+  }
+}

@@ -185,6 +185,7 @@ TICKET168_SCHEMA = "primeproject.ticket168-fixedcore-leastrealizer-phase-paritym
 TICKET186_SCHEMA = "primeproject.ticket186-codimension-twoone-layercake-quantization.v1"
 TICKET187_SCHEMA = "primeproject.ticket187-positive-ray-threeone-signature-interval.v1"
 TICKET188_SCHEMA = "primeproject.ticket188-nested-fourone-primepower-dyadic.v1"
+TICKET189_SCHEMA = "primeproject.ticket189-corefive-sublinear-shift.v1"
 
 
 def fail(message: str) -> int:
@@ -13468,6 +13469,174 @@ def main() -> int:
         or "resolves none" not in str(ticket188.get("claim_boundary", "")).lower()
     ):
         return fail("ticket188 proof boundary changed")
+
+    path189 = Path("data/open-problem/ticket189-corefive-sublinear-shift.json")
+    if not path189.exists():
+        return fail("missing ticket189 core/five-one/sublinear/shift audit")
+    ticket189 = read_json(path189)
+    if (
+        ticket189.get("schema") != TICKET189_SCHEMA
+        or ticket189.get("status")
+        != "one_additional_infinite_cycle_stratum_closed_three_exact_promotion_bridges_all_open"
+    ):
+        return fail("ticket189 schema or status changed")
+    audit189 = ticket189.get("corefive_sublinear_shift_audit", {})
+    if audit189.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_cycle_stratum_closure_count": 1,
+        "cross_problem_primepower_bridge_count": 1,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket189 global machine audit changed")
+
+    by_id189 = {
+        str(row.get("problem_id")): row
+        for row in ticket189.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id189) != EXPECTED_PROBLEMS:
+        return fail("ticket189 attempts missing problems")
+    paths189 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-189-summable-core-drift.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-189-five-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-189-sublinear-primepower-budget.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-189-shift-two-contamination.json"
+        ),
+    }
+    expected_names189 = {
+        "riemann": "SummableFiniteCoreDriftConstructsCompatiblePositiveForm",
+        "collatz": "ExactlyFiveValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "ProperPrimePowerContaminationHasExplicitSublinearBudget",
+        "twin-prime": "ShiftTwoVonMangoldtPrimePowerContaminationBridge",
+    }
+    next189 = {
+        "riemann": "PoleNeutralGuinandWeilFixedCoreDriftHasCertifiedSummableOperatorMajorantAndVanishingNegativeFloor",
+        "collatz": "NoContractingValuationWordWithExactlySixOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+        "twin-prime": "ShiftTwoVonMangoldtCorrelationHasPositiveLinearLowerBoundOnInfinitelyManyDyadicBlocks",
+    }
+    sections189 = {
+        "riemann": audit189.get("riemann", {}),
+        "collatz": audit189.get("collatz", {}),
+        "goldbach": audit189.get("goldbach", {}),
+        "twin-prime": audit189.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id189.items():
+        artifact_path = paths189[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket189 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections189[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET189_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names189[problem_id]
+            or artifact.get("theorem_name") != expected_names189[problem_id]
+            or attempt.get("candidate_theorem") != next189[problem_id]
+            or artifact.get("candidate_theorem") != next189[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_insufficient",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next189[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count") != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket189 contract changed")
+
+    rh189 = sections189["riemann"]["reproducible_computation"]
+    core_rows189 = rh189.get("summable_positive_family", {}).get(
+        "fixed_core_rows", []
+    )
+    harmonic189 = rh189.get("vanishing_but_nonsummable_drift_counterfamily", {})
+    if (
+        [row.get("ambient_dimension_N") for row in core_rows189]
+        != [4, 8, 16, 32, 64]
+        or [row.get("operator_error_to_limit", {}).get("exact") for row in core_rows189]
+        != ["1/4", "1/8", "1/16", "1/32", "1/64"]
+        or any(not all(row.get("checks", {}).values()) for row in core_rows189)
+        or harmonic189.get("core_sequence_converges") is not False
+        or rh189.get("promotion_contract", {}).get(
+            "actual_pole_neutral_weil_family_verified"
+        )
+        is not False
+    ):
+        return fail("ticket189 RH summable-core boundary changed")
+
+    collatz189 = sections189["collatz"]["reproducible_computation"]
+    finite189 = collatz189.get("finite_exception_horizon_rows", [])
+    aggregate189 = collatz189.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite189] != list(range(13, 22))
+        or sum(int(row.get("word_count", 0)) for row in finite189) != 72897
+        or aggregate189.get("analytic_range_starts_at_h") != 22
+        or aggregate189.get("divisibility_hits") != 0
+        or collatz189.get("analytic_bound", {}).get("bound_at_h_22", {}).get("exact")
+        != "131155153587/68719476736"
+        or any(
+            row.get("divisibility_hit_count") != 0
+            or row.get("closed_form_failure_count") != 0
+            or row.get("rotation_identity_failure_count") != 0
+            for row in finite189
+        )
+    ):
+        return fail("ticket189 Collatz five-one cycle audit changed")
+
+    goldbach189 = sections189["goldbach"]["reproducible_computation"]
+    budget_rows189 = goldbach189.get("prime_power_budget_rows", [])
+    gold_rows189 = goldbach189.get("finite_decomposition_rows", [])
+    if (
+        [row.get("target_N") for row in budget_rows189]
+        != [18, 100, 1000, 10000, 100000, 1000000]
+        or any(not all(row.get("checks", {}).values()) for row in budget_rows189)
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows189)
+        or goldbach189.get("aggregate", {}).get(
+            "sublinear_contamination_budget_proved"
+        )
+        is not True
+        or goldbach189.get("aggregate", {}).get(
+            "positive_linear_every_target_lower_bound_proved"
+        )
+        is not False
+    ):
+        return fail("ticket189 Goldbach sublinear budget changed")
+
+    twin189 = sections189["twin-prime"]["reproducible_computation"]
+    twin_rows189 = twin189.get("finite_dyadic_decomposition_rows", [])
+    witness189 = twin189.get("positive_correlation_no_go_witness", {})
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows189]
+        != list(range(4, 20))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows189)
+        or witness189.get("n") != 25
+        or witness189.get("n_plus_2") != 27
+        or witness189.get("both_endpoints_prime") is not False
+        or twin189.get("aggregate", {}).get(
+            "positive_linear_infinitely_many_block_lower_bound_proved"
+        )
+        is not False
+    ):
+        return fail("ticket189 Twin shift-two contamination audit changed")
+    if (
+        "resolves none" not in str(audit189.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket189.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket189 proof boundary changed")
 
     print("open problem structure verified")
     return 0

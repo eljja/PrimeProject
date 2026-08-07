@@ -1,0 +1,591 @@
+{
+  "schema": "primeproject.ticket189-corefive-sublinear-shift.v1",
+  "generated_at": "2026-08-08T23:30:00+09:00",
+  "ticket_id": "RH-TICKET-189",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "SummableFiniteCoreDriftConstructsCompatiblePositiveForm",
+  "declared_proposition": "Let A_N be finite Hermitian matrices. For each fixed m, suppose the leading m by m cores satisfy ||A_(N+1)^[m]-A_N^[m]||<=d_(N,m) and sum from N=m to infinity of d_(N,m) is finite. Then every fixed core converges in operator norm to a Hermitian Q_m, with the tail bounded by the remaining drift sum, and the Q_m are compatible principal sections of one form Q on c_00. If also lambda_min(A_N)>=-eta_N with eta_N tending to zero, then Q is positive semidefinite. Merely requiring adjacent fixed-core drift to tend to zero is insufficient for convergence.",
+  "mathematical_argument": "The summable drift bound makes every fixed core Cauchy in the finite-dimensional operator norm, and summing the tail gives the quantitative error estimate. Leading-core restriction commutes with the limit, so Q_(m+1) restricts to Q_m. Interlacing gives lambda_min(A_N^[m])>=lambda_min(A_N)>=-eta_N; norm convergence and eta_N->0 therefore make Q_m positive semidefinite. Every vector in c_00 lies in one such core. For the no-go statement take the one-dimensional core A_N=H_N. Its adjacent drift 1/(N+1) tends to zero, but the harmonic sequence diverges.",
+  "reproducible_computation": {
+    "theorem": "Let A_N be finite Hermitian matrices. For each fixed m, suppose the leading m by m cores satisfy ||A_(N+1)^[m]-A_N^[m]||<=d_(N,m) and sum from N=m to infinity of d_(N,m) is finite. Then every fixed core converges in operator norm to a Hermitian Q_m, with the tail bounded by the remaining drift sum, and the Q_m are compatible principal sections of one form Q on c_00. If also lambda_min(A_N)>=-eta_N with eta_N tending to zero, then Q is positive semidefinite. Merely requiring adjacent fixed-core drift to tend to zero is insufficient for convergence.",
+    "proof": "The summable drift bound makes every fixed core Cauchy in the finite-dimensional operator norm, and summing the tail gives the quantitative error estimate. Leading-core restriction commutes with the limit, so Q_(m+1) restricts to Q_m. Interlacing gives lambda_min(A_N^[m])>=lambda_min(A_N)>=-eta_N; norm convergence and eta_N->0 therefore make Q_m positive semidefinite. Every vector in c_00 lies in one such core. For the no-go statement take the one-dimensional core A_N=H_N. Its adjacent drift 1/(N+1) tends to zero, but the harmonic sequence diverges.",
+    "summable_positive_family": {
+      "definition": "A_N=diag(1+1/N,1/2+1/N,...,1/N+1/N)",
+      "fixed_core_rows": [
+        {
+          "fixed_core_dimension_m": 4,
+          "ambient_dimension_N": 4,
+          "limit_core_diagonal": [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            }
+          ],
+          "finite_core_diagonal": [
+            {
+              "numerator": 5,
+              "denominator": 4,
+              "exact": "5/4",
+              "decimal": 1.25
+            },
+            {
+              "numerator": 3,
+              "denominator": 4,
+              "exact": "3/4",
+              "decimal": 0.75
+            },
+            {
+              "numerator": 7,
+              "denominator": 12,
+              "exact": "7/12",
+              "decimal": 0.5833333333333334
+            },
+            {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            }
+          ],
+          "operator_error_to_limit": {
+            "numerator": 1,
+            "denominator": 4,
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "adjacent_core_operator_drift": {
+            "numerator": 1,
+            "denominator": 20,
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          "exact_remaining_drift_sum": {
+            "numerator": 1,
+            "denominator": 4,
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "minimum_full_matrix_eigenvalue": {
+            "numerator": 1,
+            "denominator": 2,
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          "checks": {
+            "tail_sum_equals_core_error": true,
+            "finite_matrix_is_positive": true,
+            "core_error_matches_uniform_diagonal_shift": true
+          }
+        },
+        {
+          "fixed_core_dimension_m": 4,
+          "ambient_dimension_N": 8,
+          "limit_core_diagonal": [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            }
+          ],
+          "finite_core_diagonal": [
+            {
+              "numerator": 9,
+              "denominator": 8,
+              "exact": "9/8",
+              "decimal": 1.125
+            },
+            {
+              "numerator": 5,
+              "denominator": 8,
+              "exact": "5/8",
+              "decimal": 0.625
+            },
+            {
+              "numerator": 11,
+              "denominator": 24,
+              "exact": "11/24",
+              "decimal": 0.4583333333333333
+            },
+            {
+              "numerator": 3,
+              "denominator": 8,
+              "exact": "3/8",
+              "decimal": 0.375
+            }
+          ],
+          "operator_error_to_limit": {
+            "numerator": 1,
+            "denominator": 8,
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "adjacent_core_operator_drift": {
+            "numerator": 1,
+            "denominator": 72,
+            "exact": "1/72",
+            "decimal": 0.013888888888888888
+          },
+          "exact_remaining_drift_sum": {
+            "numerator": 1,
+            "denominator": 8,
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "minimum_full_matrix_eigenvalue": {
+            "numerator": 1,
+            "denominator": 4,
+            "exact": "1/4",
+            "decimal": 0.25
+          },
+          "checks": {
+            "tail_sum_equals_core_error": true,
+            "finite_matrix_is_positive": true,
+            "core_error_matches_uniform_diagonal_shift": true
+          }
+        },
+        {
+          "fixed_core_dimension_m": 4,
+          "ambient_dimension_N": 16,
+          "limit_core_diagonal": [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            }
+          ],
+          "finite_core_diagonal": [
+            {
+              "numerator": 17,
+              "denominator": 16,
+              "exact": "17/16",
+              "decimal": 1.0625
+            },
+            {
+              "numerator": 9,
+              "denominator": 16,
+              "exact": "9/16",
+              "decimal": 0.5625
+            },
+            {
+              "numerator": 19,
+              "denominator": 48,
+              "exact": "19/48",
+              "decimal": 0.3958333333333333
+            },
+            {
+              "numerator": 5,
+              "denominator": 16,
+              "exact": "5/16",
+              "decimal": 0.3125
+            }
+          ],
+          "operator_error_to_limit": {
+            "numerator": 1,
+            "denominator": 16,
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "adjacent_core_operator_drift": {
+            "numerator": 1,
+            "denominator": 272,
+            "exact": "1/272",
+            "decimal": 0.003676470588235294
+          },
+          "exact_remaining_drift_sum": {
+            "numerator": 1,
+            "denominator": 16,
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "minimum_full_matrix_eigenvalue": {
+            "numerator": 1,
+            "denominator": 8,
+            "exact": "1/8",
+            "decimal": 0.125
+          },
+          "checks": {
+            "tail_sum_equals_core_error": true,
+            "finite_matrix_is_positive": true,
+            "core_error_matches_uniform_diagonal_shift": true
+          }
+        },
+        {
+          "fixed_core_dimension_m": 4,
+          "ambient_dimension_N": 32,
+          "limit_core_diagonal": [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            }
+          ],
+          "finite_core_diagonal": [
+            {
+              "numerator": 33,
+              "denominator": 32,
+              "exact": "33/32",
+              "decimal": 1.03125
+            },
+            {
+              "numerator": 17,
+              "denominator": 32,
+              "exact": "17/32",
+              "decimal": 0.53125
+            },
+            {
+              "numerator": 35,
+              "denominator": 96,
+              "exact": "35/96",
+              "decimal": 0.3645833333333333
+            },
+            {
+              "numerator": 9,
+              "denominator": 32,
+              "exact": "9/32",
+              "decimal": 0.28125
+            }
+          ],
+          "operator_error_to_limit": {
+            "numerator": 1,
+            "denominator": 32,
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "adjacent_core_operator_drift": {
+            "numerator": 1,
+            "denominator": 1056,
+            "exact": "1/1056",
+            "decimal": 0.000946969696969697
+          },
+          "exact_remaining_drift_sum": {
+            "numerator": 1,
+            "denominator": 32,
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "minimum_full_matrix_eigenvalue": {
+            "numerator": 1,
+            "denominator": 16,
+            "exact": "1/16",
+            "decimal": 0.0625
+          },
+          "checks": {
+            "tail_sum_equals_core_error": true,
+            "finite_matrix_is_positive": true,
+            "core_error_matches_uniform_diagonal_shift": true
+          }
+        },
+        {
+          "fixed_core_dimension_m": 4,
+          "ambient_dimension_N": 64,
+          "limit_core_diagonal": [
+            {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "numerator": 1,
+              "denominator": 3,
+              "exact": "1/3",
+              "decimal": 0.3333333333333333
+            },
+            {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            }
+          ],
+          "finite_core_diagonal": [
+            {
+              "numerator": 65,
+              "denominator": 64,
+              "exact": "65/64",
+              "decimal": 1.015625
+            },
+            {
+              "numerator": 33,
+              "denominator": 64,
+              "exact": "33/64",
+              "decimal": 0.515625
+            },
+            {
+              "numerator": 67,
+              "denominator": 192,
+              "exact": "67/192",
+              "decimal": 0.3489583333333333
+            },
+            {
+              "numerator": 17,
+              "denominator": 64,
+              "exact": "17/64",
+              "decimal": 0.265625
+            }
+          ],
+          "operator_error_to_limit": {
+            "numerator": 1,
+            "denominator": 64,
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "adjacent_core_operator_drift": {
+            "numerator": 1,
+            "denominator": 4160,
+            "exact": "1/4160",
+            "decimal": 0.0002403846153846154
+          },
+          "exact_remaining_drift_sum": {
+            "numerator": 1,
+            "denominator": 64,
+            "exact": "1/64",
+            "decimal": 0.015625
+          },
+          "minimum_full_matrix_eigenvalue": {
+            "numerator": 1,
+            "denominator": 32,
+            "exact": "1/32",
+            "decimal": 0.03125
+          },
+          "checks": {
+            "tail_sum_equals_core_error": true,
+            "finite_matrix_is_positive": true,
+            "core_error_matches_uniform_diagonal_shift": true
+          }
+        }
+      ]
+    },
+    "vanishing_but_nonsummable_drift_counterfamily": {
+      "definition": "the scalar fixed core A_N=H_N",
+      "rows": [
+        {
+          "ambient_dimension_N": 4,
+          "scalar_core_value_H_N": {
+            "numerator": 25,
+            "denominator": 12,
+            "exact": "25/12",
+            "decimal": 2.0833333333333335
+          },
+          "adjacent_drift": {
+            "numerator": 1,
+            "denominator": 5,
+            "exact": "1/5",
+            "decimal": 0.2
+          }
+        },
+        {
+          "ambient_dimension_N": 8,
+          "scalar_core_value_H_N": {
+            "numerator": 761,
+            "denominator": 280,
+            "exact": "761/280",
+            "decimal": 2.717857142857143
+          },
+          "adjacent_drift": {
+            "numerator": 1,
+            "denominator": 9,
+            "exact": "1/9",
+            "decimal": 0.1111111111111111
+          }
+        },
+        {
+          "ambient_dimension_N": 16,
+          "scalar_core_value_H_N": {
+            "numerator": 2436559,
+            "denominator": 720720,
+            "exact": "2436559/720720",
+            "decimal": 3.3807289932289932
+          },
+          "adjacent_drift": {
+            "numerator": 1,
+            "denominator": 17,
+            "exact": "1/17",
+            "decimal": 0.058823529411764705
+          }
+        },
+        {
+          "ambient_dimension_N": 32,
+          "scalar_core_value_H_N": {
+            "numerator": 586061125622639,
+            "denominator": 144403552893600,
+            "exact": "586061125622639/144403552893600",
+            "decimal": 4.05849519543652
+          },
+          "adjacent_drift": {
+            "numerator": 1,
+            "denominator": 33,
+            "exact": "1/33",
+            "decimal": 0.030303030303030304
+          }
+        },
+        {
+          "ambient_dimension_N": 64,
+          "scalar_core_value_H_N": {
+            "numerator": 623171679694215690971693339,
+            "denominator": 131362987122535807501262400,
+            "exact": "623171679694215690971693339/131362987122535807501262400",
+            "decimal": 4.743890903705769
+          },
+          "adjacent_drift": {
+            "numerator": 1,
+            "denominator": 65,
+            "exact": "1/65",
+            "decimal": 0.015384615384615385
+          }
+        },
+        {
+          "ambient_dimension_N": 128,
+          "scalar_core_value_H_N": {
+            "numerator": 72552921080947538317446905633815133414572988188576608701,
+            "denominator": 13353756090997411579403749204440236542538872688049072000,
+            "exact": "72552921080947538317446905633815133414572988188576608701/13353756090997411579403749204440236542538872688049072000",
+            "decimal": 5.433147092589173
+          },
+          "adjacent_drift": {
+            "numerator": 1,
+            "denominator": 129,
+            "exact": "1/129",
+            "decimal": 0.007751937984496124
+          }
+        }
+      ],
+      "adjacent_drift_tends_to_zero": true,
+      "core_sequence_converges": false
+    },
+    "promotion_contract": {
+      "fixed_core_drift_has_summable_certified_majorant": true,
+      "compatible_limit_form_on_c00_constructed": true,
+      "vanishing_negative_floor_promotes_to_positivity": true,
+      "actual_pole_neutral_weil_family_verified": false
+    },
+    "no_go_scope": "This is an abstract promotion theorem, not a proof about the actual Guinand-Weil finite sections. PrimeProject has not established a summable fixed-core majorant or a vanishing negative floor for that arithmetic family and has not proved the Riemann hypothesis.",
+    "failure_count": 0
+  },
+  "discarded_route": "using adjacent fixed-core drift tending to zero as if it implied a Cauchy limit",
+  "remaining_gap": "No certified summable fixed-core drift majorant or vanishing negative floor is proved for the actual pole-neutral Guinand-Weil matrices.",
+  "candidate_theorem": "PoleNeutralGuinandWeilFixedCoreDriftHasCertifiedSummableOperatorMajorantAndVanishingNegativeFloor",
+  "claim_boundary": "No RH proof. A precise finite-core promotion theorem and a harmonic-drift no-go example are proved; the arithmetic hypotheses remain open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T188-INPUT",
+        "label": "CommonFormDefectPromotionAndMovingDirectionNoGo",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "RH-T189-CLOSED",
+        "label": "SummableFiniteCoreDriftConstructsCompatiblePositiveForm",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T189-REJECTED",
+        "label": "VanishingAdjacentCoreDriftImpliesCommonFormConvergence",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "RH-T189-OPEN",
+        "label": "PoleNeutralGuinandWeilFixedCoreDriftHasCertifiedSummableOperatorMajorantAndVanishingNegativeFloor",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T188-INPUT",
+        "RH-T189-CLOSED"
+      ],
+      [
+        "RH-T189-CLOSED",
+        "RH-T189-OPEN"
+      ],
+      [
+        "RH-T189-REJECTED",
+        "RH-T189-OPEN"
+      ]
+    ]
+  }
+}
