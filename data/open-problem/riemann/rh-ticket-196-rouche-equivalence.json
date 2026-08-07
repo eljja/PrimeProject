@@ -1,0 +1,562 @@
+{
+  "schema": "primeproject.ticket196-rouche-density-overlap.v1",
+  "generated_at": "2026-08-08T19:30:00+09:00",
+  "ticket_id": "RH-TICKET-196",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "RoucheExhaustionEquivalenceAndIntermediateTargetNoGo",
+  "declared_proposition": "Let F be a real entire function and S_n its Taylor sections. For the rational rectangles D_m^+={|Re z|<m,1/m<Im z<m} and their reflections D_m^-, all zeros of F are real if and only if, for every m>=2 and each sign, some section S_n has zero count zero in D_m^sign and satisfies sup_boundary|F-S_n|<inf_boundary|S_n|. Consequently the proposed exhausting Rouche certificate for Xi is equivalent to RH, not a strictly weaker intermediate lemma.",
+  "mathematical_argument": "If F has only real zeros, its modulus has a positive minimum on the compact closure of every off-real rectangle. Uniform Taylor convergence on compacta makes both the tail smaller than one third of that minimum and the section nonzero on the closure; Rouche then gives zero count zero. Conversely, a strict Rouche certificate with section count zero gives F count zero in every rectangle. Their union is C minus R, so F has no nonreal zero.",
+  "reproducible_computation": {
+    "theorem": "Let F be a real entire function and S_n its Taylor sections. For the rational rectangles D_m^+={|Re z|<m,1/m<Im z<m} and their reflections D_m^-, all zeros of F are real if and only if, for every m>=2 and each sign, some section S_n has zero count zero in D_m^sign and satisfies sup_boundary|F-S_n|<inf_boundary|S_n|. Consequently the proposed exhausting Rouche certificate for Xi is equivalent to RH, not a strictly weaker intermediate lemma.",
+    "proof": "If F has only real zeros, its modulus has a positive minimum on the compact closure of every off-real rectangle. Uniform Taylor convergence on compacta makes both the tail smaller than one third of that minimum and the section nonzero on the closure; Rouche then gives zero count zero. Conversely, a strict Rouche certificate with section count zero gives F count zero in every rectangle. Their union is C minus R, so F has no nonreal zero.",
+    "rational_rectangle_rows": [
+      {
+        "index_m": 2,
+        "upper_rectangle": {
+          "real_interval": [
+            -2,
+            2
+          ],
+          "imaginary_interval": [
+            "1/2",
+            2
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -2,
+            2
+          ],
+          "imaginary_interval": [
+            -2,
+            "-1/2"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/4",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 3,
+        "upper_rectangle": {
+          "real_interval": [
+            -3,
+            3
+          ],
+          "imaginary_interval": [
+            "1/3",
+            3
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -3,
+            3
+          ],
+          "imaginary_interval": [
+            -3,
+            "-1/3"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/9",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 4,
+        "upper_rectangle": {
+          "real_interval": [
+            -4,
+            4
+          ],
+          "imaginary_interval": [
+            "1/4",
+            4
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -4,
+            4
+          ],
+          "imaginary_interval": [
+            -4,
+            "-1/4"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/16",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 5,
+        "upper_rectangle": {
+          "real_interval": [
+            -5,
+            5
+          ],
+          "imaginary_interval": [
+            "1/5",
+            5
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -5,
+            5
+          ],
+          "imaginary_interval": [
+            -5,
+            "-1/5"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/25",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 6,
+        "upper_rectangle": {
+          "real_interval": [
+            -6,
+            6
+          ],
+          "imaginary_interval": [
+            "1/6",
+            6
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -6,
+            6
+          ],
+          "imaginary_interval": [
+            -6,
+            "-1/6"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/36",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 7,
+        "upper_rectangle": {
+          "real_interval": [
+            -7,
+            7
+          ],
+          "imaginary_interval": [
+            "1/7",
+            7
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -7,
+            7
+          ],
+          "imaginary_interval": [
+            -7,
+            "-1/7"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/49",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 8,
+        "upper_rectangle": {
+          "real_interval": [
+            -8,
+            8
+          ],
+          "imaginary_interval": [
+            "1/8",
+            8
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -8,
+            8
+          ],
+          "imaginary_interval": [
+            -8,
+            "-1/8"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/64",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 9,
+        "upper_rectangle": {
+          "real_interval": [
+            -9,
+            9
+          ],
+          "imaginary_interval": [
+            "1/9",
+            9
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -9,
+            9
+          ],
+          "imaginary_interval": [
+            -9,
+            "-1/9"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/81",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 10,
+        "upper_rectangle": {
+          "real_interval": [
+            -10,
+            10
+          ],
+          "imaginary_interval": [
+            "1/10",
+            10
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -10,
+            10
+          ],
+          "imaginary_interval": [
+            -10,
+            "-1/10"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/100",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 11,
+        "upper_rectangle": {
+          "real_interval": [
+            -11,
+            11
+          ],
+          "imaginary_interval": [
+            "1/11",
+            11
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -11,
+            11
+          ],
+          "imaginary_interval": [
+            -11,
+            "-1/11"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/121",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      },
+      {
+        "index_m": 12,
+        "upper_rectangle": {
+          "real_interval": [
+            -12,
+            12
+          ],
+          "imaginary_interval": [
+            "1/12",
+            12
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "lower_rectangle": {
+          "real_interval": [
+            -12,
+            12
+          ],
+          "imaginary_interval": [
+            -12,
+            "-1/12"
+          ],
+          "open_boundary_convention": "strict interior"
+        },
+        "real_zero_polynomial": {
+          "function": "F_real(z)=z^2-1",
+          "taylor_section": "S_2(z)=z^2-1",
+          "tail_supremum": 0,
+          "boundary_modulus_lower_bound": "1/144",
+          "upper_zero_count": 0,
+          "lower_zero_count": 0,
+          "rouche_certificate_exists": true
+        },
+        "nonreal_zero_polynomial": {
+          "function": "F_nonreal(z)=z^2+1",
+          "taylor_section": "S_2(z)=z^2+1",
+          "tail_supremum": 0,
+          "upper_zero_count": 1,
+          "lower_zero_count": 1,
+          "upper_witness": "i",
+          "lower_witness": "-i",
+          "zero_free_rouche_certificate_exists": false
+        },
+        "rectangles_cover_witness_region": true
+      }
+    ],
+    "contract": {
+      "rational_rectangles_exhaust_complex_plane_off_real_axis": true,
+      "certificate_family_implies_all_zeros_real": true,
+      "all_zeros_real_implies_certificate_family_exists": true,
+      "certificate_family_is_strictly_weaker_than_rh": false,
+      "actual_xi_first_rectangle_certified": false
+    },
+    "no_go_scope": "This is a target-equivalence correction. It proves neither a certificate for the actual Xi function nor a nonreal Xi zero.",
+    "failure_count": 0
+  },
+  "discarded_route": "calling a complete exhausting zero-free Rouche certificate a weaker intermediate lemma; the certificate family is equivalent to the all-real-zero target",
+  "remaining_gap": "No interval-certified Taylor remainder or zero count is established for the actual Xi function even on the first rational off-real rectangle.",
+  "candidate_theorem": "ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle",
+  "claim_boundary": "No RH proof or counterexample. The former next lemma is reclassified as equivalent to RH; only a general entire-function equivalence is proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T195-INPUT",
+        "label": "XiTaylorSectionsAdmitCertifiedRoucheTailBoundsOnAnExhaustingOffRealDomainFamily",
+        "status": "open_input_from_ticket195"
+      },
+      {
+        "id": "RH-T196-CLOSED",
+        "label": "RoucheExhaustionEquivalenceAndIntermediateTargetNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T196-REJECTED",
+        "label": "ExhaustingXiRoucheCertificateIsStrictlyWeakerThanRH",
+        "status": "refuted_or_target_equivalent_surrogate"
+      },
+      {
+        "id": "RH-T196-OPEN",
+        "label": "ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T195-INPUT",
+        "RH-T196-CLOSED"
+      ],
+      [
+        "RH-T196-CLOSED",
+        "RH-T196-OPEN"
+      ],
+      [
+        "RH-T196-REJECTED",
+        "RH-T196-OPEN"
+      ]
+    ]
+  }
+}

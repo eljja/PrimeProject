@@ -37,6 +37,40 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-196 Rouché Exhaustion, Density No-Go, and Collision Corrections
+
+TICKET-196 keeps all four parent conjectures at `open_not_proven` and proves
+four exact route corrections.
+
+1. **Riemann:** `RoucheExhaustionEquivalenceAndIntermediateTargetNoGo` proves
+   that zero-free Rouché certificates for Taylor sections on an exhausting
+   family of rational off-real rectangles are equivalent to the entire
+   function having only real zeros. Applied to Xi, the former next target was
+   RH-equivalent rather than a weaker intermediate lemma. The retained next
+   target is one certified rectangle for the actual Xi function.
+2. **Collatz:** `OneTwoValuationDensityWindowAndScalarGateNoGo` proves that the
+   contraction and product gates allow the infinite count-profile family
+   `(h,r)=(3k,k)`. These profiles are not cycles; they show that scalar density
+   alone cannot replace the missing order-sensitive affine divisibility
+   obstruction.
+3. **Goldbach:** `CollisionCorrectedGoldbachPrimePowerEnvelope` proves the
+   exact odd-support identity `E_o(N)=2(Q*Lambda_o)(N)-(Q*Q)(N)`. The witness
+   `18=9+9` demonstrates the strictly positive overlap correction. The
+   every-large-even lower bound is still open.
+4. **Twin Prime:** `CollisionCorrectedTwinPrimePowerEnvelope` proves the local
+   shift-two inclusion-exclusion identity and subtracts
+   `sum Q(n)Q(n+2)`. The witness `(25,27)=(5^2,3^3)` demonstrates a positive
+   collision correction. A parity-breaking lower bound on infinitely many
+   blocks is still open.
+
+Machine audit: four exact theorems, one RH target-equivalence no-go, one
+Collatz scalar-density no-go, two collision-corrected envelopes, 11 synthetic
+Rouché rows, 64 exact Collatz profiles, two positive overlap witnesses, zero
+conjecture resolutions, and zero failures.
+
+English report: [TICKET-196](rouche-density-overlap.md).
+한국어 보고서: [TICKET-196](rouche-density-overlap.ko.md).
+
 ## 2026-08-08 TICKET-195 Finite-Jet Boundaries, Eleven-One Decidability, and Prime-Square Layers
 
 TICKET-195 keeps all four parent conjectures at `open_not_proven` and proves

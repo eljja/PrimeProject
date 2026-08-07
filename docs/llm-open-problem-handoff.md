@@ -62,47 +62,59 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-195
+## Latest Continuation After TICKET-196
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
 1. Riemann:
-   `XiTaylorSectionsAdmitCertifiedRoucheTailBoundsOnAnExhaustingOffRealDomainFamily`.
-   TICKET-195 proves that finite real even Taylor data alone cannot certify the
-   all-real-zero property. The next result must prove strict tail margins for
-   the actual Xi sections, not for a synthetic polynomial family.
+   `ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle`.
+   TICKET-196 proves that certifying an exhausting off-real family is already
+   RH-equivalent. The next result must certify one explicitly specified
+   rational rectangle for the actual Xi function with rigorous Taylor
+   remainder and argument-principle or Rouché bounds.
 2. Collatz:
-   `NoPositiveAcceleratedCollatzCycleHasAllValuationsInTheSetOneTwo`.
-   The exactly-eleven-one/rest-two stratum is excluded at every horizon, and
-   every fixed one-count stratum is decidable. The next result must be uniform
-   in the one-count; running one more fixed stratum is not this theorem.
+   `UniformAffineDivisibilityObstructionForOneTwoWordsInTheAdmissibleDensityWindow`.
+   The scalar contraction and product gates leave every profile
+   `(h,r)=(3k,k)` alive. The next result must use the cyclic order and affine
+   numerator modulo `2^S-3^h`; another density-only inequality is insufficient.
 3. Goldbach:
-   `BinaryCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeForEveryLargeEvenTarget`.
-   The leading prime-square contamination and `O(N^(1/3) log N)` higher-layer
-   tail are separated. A finite table cannot replace the every-even quantifier.
+   `ExplicitGoldbachMajorArcMainTermDominatesMinorArcAbsoluteErrorAndCollisionCorrectedContaminationForEveryLargeEvenTarget`.
+   The exact collision subtraction `(Q*Q)(N)` is now part of the contamination
+   budget. The next result still needs a uniform positive lower bound for every
+   sufficiently large even target; finite replay cannot supply that quantifier.
 4. Twin Prime:
-   `ShiftTwoCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeOnInfinitelyManyDyadicBlocks`.
-   The local prime-square layer and cubic-scale higher-layer tail are separated.
-   The next result must establish infinitely many unbounded successful blocks.
+   `ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks`.
+   The local left/right proper-power charges now include exact overlap
+   subtraction. The next result must break the parity barrier on infinitely
+   many unbounded dyadic blocks, not only improve an upper error budget.
 
 Exact machine artifacts:
 
 ```text
-data/open-problem/ticket195-finitejet-elevenone-squarelayer.json
-data/open-problem/riemann/rh-ticket-195-finite-jet-rouche.json
-data/open-problem/collatz/co-ticket-195-eleven-one-decidability.json
-data/open-problem/goldbach/gb-ticket-195-prime-square-layer.json
-data/open-problem/twin-prime/tp-ticket-195-prime-square-local-layer.json
+data/open-problem/ticket196-rouche-density-overlap.json
+data/open-problem/riemann/rh-ticket-196-rouche-equivalence.json
+data/open-problem/collatz/co-ticket-196-density-window.json
+data/open-problem/goldbach/gb-ticket-196-overlap-correction.json
+data/open-problem/twin-prime/tp-ticket-196-overlap-correction.json
 ```
 
-한국어 인계: TICKET-195도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
-정확히 열한 번의 `v=1`과 나머지 `v=2`인 모든 콜라츠 주기족의 배제이며,
-각 고정 one-count 층의 결정 가능성도 증명했다. 리만은 유한 제트만의 승격을
-폐기했고, 골드바흐와 Twin은 주도 소수 제곱층과 세제곱 꼬리를 분리했다.
-남은 단계는 모두 실제 산술 객체에 대한 무한 정리다.
+한국어 인계: TICKET-196도 네 난제를 해결하지 않았다. 리만에서는 전체
+비실수 영역을 소진하는 Rouché 인증이 사실상 RH와 동치임을 밝혀 중간 목표로
+부르던 경로를 폐기했다. 콜라츠에서는 두 스칼라 문턱만으로는 `(3k,k)` 계수족이
+무한히 남음을 증명했다. 골드바흐와 쌍둥이 소수에서는 좌우 소수 거듭제곱
+오염의 교집합을 정확히 한 번 빼도록 예산을 보정했다. 남은 단계는 각각 실제
+Xi 한 사각형 인증, 순서 의존 아핀 나눗셈 장애, 모든 큰 짝수에 대한 양의
+하한, 무한히 많은 블록에 대한 패리티 돌파 하한이다.
 
-English report: [TICKET-195](finitejet-elevenone-squarelayer.md).
-Korean report: [TICKET-195 한국어](finitejet-elevenone-squarelayer.ko.md).
+English report: [TICKET-196](rouche-density-overlap.md).
+Korean report: [TICKET-196 한국어](rouche-density-overlap.ko.md).
+
+## Preserved Continuation After TICKET-195
+
+TICKET-195 remains available in
+[English](finitejet-elevenone-squarelayer.md) and
+[한국어](finitejet-elevenone-squarelayer.ko.md). Its next nodes were corrected
+or sharpened by TICKET-196; use the TICKET-196 nodes above for new work.
 
 ## Preserved Continuation After TICKET-194
 

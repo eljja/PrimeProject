@@ -194,6 +194,7 @@ TICKET193_SCHEMA = (
 )
 TICKET194_SCHEMA = "primeproject.ticket194-densecore-tenone-theta-layers.v1"
 TICKET195_SCHEMA = "primeproject.ticket195-finitejet-elevenone-squarelayer.v1"
+TICKET196_SCHEMA = "primeproject.ticket196-rouche-density-overlap.v1"
 
 
 def fail(message: str) -> int:
@@ -14682,6 +14683,191 @@ def main() -> int:
         or "resolves none" not in str(ticket195.get("claim_boundary", "")).lower()
     ):
         return fail("ticket195 proof boundary changed")
+
+    path196 = Path("data/open-problem/ticket196-rouche-density-overlap.json")
+    if not path196.exists():
+        return fail("missing ticket196 Rouche/density/overlap audit")
+    ticket196 = read_json(path196)
+    if (
+        ticket196.get("schema") != TICKET196_SCHEMA
+        or ticket196.get("status")
+        != "rouche_exhaustion_equivalence_and_scalar_density_no_go_proved_collision_corrected_goldbach_twin_envelopes_proved_all_open"
+    ):
+        return fail("ticket196 schema or status changed")
+    audit196 = ticket196.get("rouche_density_overlap_audit", {})
+    if audit196.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "rouche_exhaustion_equivalence_count": 1,
+        "scalar_density_no_go_count": 1,
+        "collision_corrected_envelope_count": 2,
+        "synthetic_rouche_exhaustion_row_count": 11,
+        "scalar_admissible_profile_count": 64,
+        "goldbach_overlap_witness_count": 1,
+        "twin_overlap_witness_count": 1,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket196 global machine audit changed")
+
+    by_id196 = {
+        str(row.get("problem_id")): row
+        for row in ticket196.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id196) != EXPECTED_PROBLEMS:
+        return fail("ticket196 attempts missing problems")
+    paths196 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-196-rouche-equivalence.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-196-density-window.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-196-overlap-correction.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-196-overlap-correction.json"
+        ),
+    }
+    expected_names196 = {
+        "riemann": "RoucheExhaustionEquivalenceAndIntermediateTargetNoGo",
+        "collatz": "OneTwoValuationDensityWindowAndScalarGateNoGo",
+        "goldbach": "CollisionCorrectedGoldbachPrimePowerEnvelope",
+        "twin-prime": "CollisionCorrectedTwinPrimePowerEnvelope",
+    }
+    next196 = {
+        "riemann": "ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle",
+        "collatz": "UniformAffineDivisibilityObstructionForOneTwoWordsInTheAdmissibleDensityWindow",
+        "goldbach": "ExplicitGoldbachMajorArcMainTermDominatesMinorArcAbsoluteErrorAndCollisionCorrectedContaminationForEveryLargeEvenTarget",
+        "twin-prime": "ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks",
+    }
+    sections196 = {
+        "riemann": audit196.get("riemann", {}),
+        "collatz": audit196.get("collatz", {}),
+        "goldbach": audit196.get("goldbach", {}),
+        "twin-prime": audit196.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id196.items():
+        artifact_path = paths196[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket196 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections196[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET196_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names196[problem_id]
+            or artifact.get("theorem_name") != expected_names196[problem_id]
+            or attempt.get("candidate_theorem") != next196[problem_id]
+            or artifact.get("candidate_theorem") != next196[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "open_input_from_ticket195",
+                "proved_exact",
+                "refuted_or_target_equivalent_surrogate",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next196[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count")
+            != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket196 contract changed")
+
+    rh196 = sections196["riemann"]["reproducible_computation"]
+    rh_rows196 = rh196.get("rational_rectangle_rows", [])
+    rh_contract196 = rh196.get("contract", {})
+    if (
+        [row.get("index_m") for row in rh_rows196] != list(range(2, 13))
+        or any(
+            row.get("real_zero_polynomial", {}).get(
+                "rouche_certificate_exists"
+            )
+            is not True
+            or row.get("nonreal_zero_polynomial", {}).get(
+                "zero_free_rouche_certificate_exists"
+            )
+            is not False
+            for row in rh_rows196
+        )
+        or rh_contract196.get("certificate_family_implies_all_zeros_real")
+        is not True
+        or rh_contract196.get("all_zeros_real_implies_certificate_family_exists")
+        is not True
+        or rh_contract196.get("certificate_family_is_strictly_weaker_than_rh")
+        is not False
+        or rh_contract196.get("actual_xi_first_rectangle_certified") is not False
+    ):
+        return fail("ticket196 RH target-equivalence boundary changed")
+
+    collatz196 = sections196["collatz"]["reproducible_computation"]
+    profiles196 = collatz196.get("scalar_profile_rows", [])
+    aggregate196 = collatz196.get("aggregate", {})
+    if (
+        [row.get("scale_k") for row in profiles196] != list(range(1, 65))
+        or any(
+            row.get("horizon_h") != 3 * row.get("scale_k", 0)
+            or row.get("one_count_r") != row.get("scale_k")
+            or row.get("contraction_gate_passes") is not True
+            or row.get("cycle_product_gate_passes") is not True
+            or row.get("affine_divisibility_verified") is not False
+            for row in profiles196
+        )
+        or aggregate196.get("infinite_profile_family_proved") is not True
+        or aggregate196.get("actual_cycle_found") is not False
+    ):
+        return fail("ticket196 Collatz scalar-density boundary changed")
+
+    goldbach196 = sections196["goldbach"]["reproducible_computation"]
+    gold_rows196 = goldbach196.get("finite_target_rows", [])
+    gold_witness196 = goldbach196.get("overlap_witness", {})
+    if (
+        len(gold_rows196) != 18
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows196)
+        or any(
+            row.get("collision_corrected_envelope", 0)
+            > row.get("old_union_envelope", 0) + 1e-9
+            for row in gold_rows196
+        )
+        or gold_witness196.get("target_N") != 18
+        or gold_witness196.get("ordered_pair") != [9, 9]
+        or gold_witness196.get("double_charge_is_positive") is not True
+        or goldbach196.get("aggregate", {}).get("every_large_even_target_proved")
+        is not False
+    ):
+        return fail("ticket196 Goldbach overlap correction changed")
+
+    twin196 = sections196["twin-prime"]["reproducible_computation"]
+    twin_rows196 = twin196.get("finite_dyadic_rows", [])
+    twin_witness196 = twin196.get("overlap_witness", {})
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows196]
+        != list(range(4, 21))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows196)
+        or any(
+            row.get("collision_corrected_envelope", 0)
+            > row.get("old_union_envelope", 0) + 1e-9
+            for row in twin_rows196
+        )
+        or twin_witness196.get("dyadic_block") != [16, 32]
+        or twin_witness196.get("shift_two_pair") != [25, 27]
+        or twin_witness196.get("double_charge_is_positive") is not True
+        or twin196.get("aggregate", {}).get(
+            "infinitely_many_corrected_envelope_successes_proved"
+        )
+        is not False
+    ):
+        return fail("ticket196 Twin overlap correction changed")
+    if (
+        "resolves none" not in str(audit196.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket196.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket196 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket196AttemptGlobal = null;
 let ticket195AttemptGlobal = null;
 let ticket194AttemptGlobal = null;
 let ticket193AttemptGlobal = null;
@@ -9991,6 +9992,72 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket196RoucheDensityOverlap(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.rouche_density_overlap_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = (computation.rational_rectangle_rows || []).filter((row) => [2, 4, 6, 8, 10, 12].includes(Number(row.index_m)));
+    detail = `
+      <div class="poc-equation">all zeros real ⇔ every off-real rational rectangle has a zero-free Taylor-section Rouché certificate</div>
+      ${table(["rectangle m", "real-zero example", "upper count", "nonreal example", "upper witness"], rows.map((row) => [row.index_m, row.real_zero_polynomial?.rouche_certificate_exists ? "certified" : "failed", row.real_zero_polynomial?.upper_zero_count, row.nonreal_zero_polynomial?.zero_free_rouche_certificate_exists ? "certified" : "blocked", row.nonreal_zero_polynomial?.upper_witness]))}
+      <div class="poc-head"><div><span>Exhaustion equivalence</span><strong>${computation.contract?.certificate_family_implies_all_zeros_real && computation.contract?.all_zeros_real_implies_certificate_family_exists ? "proved" : "missing"}</strong></div><div><span>Strictly weaker than RH</span><strong>${computation.contract?.certificate_family_is_strictly_weaker_than_rh ? "yes" : "no"}</strong></div><div><span>Actual Xi first rectangle</span><strong>${computation.contract?.actual_xi_first_rectangle_certified ? "certified" : "open"}</strong></div></div>
+      <p class="proof-note">소진형 Rouché 인증은 RH의 중간 단계가 아니라 전 영점 실수성과 동치입니다. 다음 작업을 실제 Xi의 첫 bounded off-real rectangle에 대한 interval 인증으로 축소했습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = (computation.scalar_profile_rows || []).filter((row) => [1, 2, 4, 8].includes(Number(row.scale_k)));
+    detail = `
+      <div class="poc-equation">log₂(6/5)≤r/h&lt;2−log₂3, &nbsp; (h,r)=(3k,k): 32<sup>k</sup>&gt;27<sup>k</sup> and (125/108)<sup>k</sup>&gt;1</div>
+      ${table(["k", "h", "r", "density", "contraction", "product gate", "words with first v=1"], rows.map((row) => [row.scale_k, row.horizon_h, row.one_count_r, row.one_density, row.contraction_gate_passes ? "pass" : "fail", row.cycle_product_gate_passes ? "pass" : "fail", formatter.format(row.first_position_one_word_count || 0)]))}
+      <div class="poc-head"><div><span>Checked profiles</span><strong>${aggregate.checked_profile_count || 0}</strong></div><div><span>Infinite profile family</span><strong>${aggregate.infinite_profile_family_proved ? "proved" : "missing"}</strong></div><div><span>Actual cycle</span><strong>${aggregate.actual_cycle_found ? "found" : "not found"}</strong></div></div>
+      <p class="proof-note"><code>r/h=1/3</code>인 무한 count-profile family가 두 스칼라 gate를 모두 통과합니다. 따라서 다음 증명은 밀도만이 아니라 word 순서와 affine divisibility를 사용해야 합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = (computation.finite_target_rows || []).filter((row) => [18, 34, 52, 1024, 65536, 1048576].includes(Number(row.target_N)));
+    detail = `
+      <div class="poc-equation">E<sub>odd</sub>(N)=2(Q*Λ<sub>odd</sub>)(N)−(Q*Q)(N)</div>
+      ${table(["even N", "old envelope", "corrected", "Q*Q saving", "actual contamination"], rows.map((row) => [formatter.format(row.target_N || 0), Number(row.old_union_envelope || 0).toFixed(2), Number(row.collision_corrected_envelope || 0).toFixed(2), Number(row.envelope_saving || 0).toFixed(2), Number(row.actual_full_contamination || 0).toFixed(2)]))}
+      <div class="poc-head"><div><span>Inclusion-exclusion</span><strong>${aggregate.exact_inclusion_exclusion_identity_proved ? "proved" : "missing"}</strong></div><div><span>Overlap witness</span><strong>18 = 9 + 9</strong></div><div><span>Every large even N</span><strong>${aggregate.every_large_even_target_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note"><code>9+9</code>는 좌우 proper-power 청구가 겹침을 보입니다. <code>Q*Q</code>을 한 번 빼 상계를 정확히 개선했지만, 모든 큰 짝수의 상관 하한은 여전히 열려 있습니다.</p>
+    `;
+  } else {
+    const rows = (computation.finite_dyadic_rows || []).filter((row) => [4, 8, 12, 16, 20].includes(Number(row.dyadic_exponent_j)));
+    detail = `
+      <div class="poc-equation">E<sub>X</sub>=ΣQ(n)Λ(n+2)+ΣΛ(n)Q(n+2)−ΣQ(n)Q(n+2)+E<sub>even</sub></div>
+      ${table(["dyadic j", "block", "old envelope", "corrected", "Q-Q saving", "correlation"], rows.map((row) => [row.dyadic_exponent_j, (row.block || []).map((value) => formatter.format(value)).join(" – "), Number(row.old_union_envelope || 0).toFixed(2), Number(row.collision_corrected_envelope || 0).toFixed(2), Number(row.envelope_saving || 0).toFixed(2), Number(row.weighted_shift_two_correlation || 0).toFixed(2)]))}
+      <div class="poc-head"><div><span>Inclusion-exclusion</span><strong>${aggregate.exact_inclusion_exclusion_identity_proved ? "proved" : "missing"}</strong></div><div><span>Overlap witness</span><strong>(25,27)</strong></div><div><span>Infinitely many blocks</span><strong>${aggregate.infinitely_many_corrected_envelope_successes_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note"><code>(25,27)=(5²,3³)</code>은 shift-two 좌우 오염 청구가 겹침을 보입니다. 국소 예산은 작아졌지만 parity-breaking 소수쌍 하한은 증명하지 못했습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket196-rouche-density-overlap" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 196 Rouché target equivalence, Collatz density no-go, and overlap-corrected budgets</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact route corrections; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET196 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/rouche-density-overlap.ko.md">한국어 보고서</a> · <a href="../docs/rouche-density-overlap.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket195FiniteJetElevenOneSquareLayer(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.finitejet_elevenone_squarelayer_audit || {};
@@ -15064,7 +15131,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket195FiniteJetElevenOneSquareLayer(ticket195AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket196RoucheDensityOverlap(ticket196AttemptGlobal) ||
+      renderTicket195FiniteJetElevenOneSquareLayer(ticket195AttemptGlobal) ||
       renderTicket194DenseCoreTenOneThetaLayers(ticket194AttemptGlobal, true) ||
       renderTicket193EverywhereNineOneParityEnvelope(ticket193AttemptGlobal, true) ||
       renderTicket192UniformEightOneWeightedEnvelope(ticket192AttemptGlobal) ||
@@ -15077,7 +15145,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-195 data is unavailable. The conjecture remains open. / TICKET-195 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-196 data is unavailable. The conjecture remains open. / TICKET-196 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -15399,6 +15467,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket196Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket196-rouche-density-overlap.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket196AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket196AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket196AttemptGlobal) {
+      ticket196AttemptGlobal.bounded_result = ticket196AttemptGlobal.bounded_result || {};
+      ticket196AttemptGlobal.bounded_result.rouche_density_overlap_audit = payload.rouche_density_overlap_audit || {};
+    }
+    return Boolean(ticket196AttemptGlobal);
+  } catch (error) {
+    ticket196AttemptGlobal = null;
     return false;
   }
 }
@@ -16672,6 +16760,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket196Loaded = await loadTicket196Attempt();
   const ticket195Loaded = await loadTicket195Attempt();
   const ticket194Loaded = await loadTicket194Attempt();
   const ticket193Loaded = await loadTicket193Attempt();
@@ -16700,8 +16789,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket196AttemptGlobal) await loadTicket196Attempt();
     if (!ticket195AttemptGlobal) await loadTicket195Attempt();
     if (!ticket194AttemptGlobal) await loadTicket194Attempt();
     if (!ticket193AttemptGlobal) await loadTicket193Attempt();

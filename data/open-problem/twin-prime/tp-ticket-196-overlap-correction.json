@@ -1,0 +1,1152 @@
+{
+  "schema": "primeproject.ticket196-rouche-density-overlap.v1",
+  "generated_at": "2026-08-08T19:30:00+09:00",
+  "ticket_id": "TP-TICKET-196",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "CollisionCorrectedTwinPrimePowerEnvelope",
+  "declared_proposition": "On [X,2X), write Lambda=P+Q on odd support. The exact shift-two contamination is E_X=sum Q(n)Lambda(n+2)+sum Lambda(n)Q(n+2)-sum Q(n)Q(n+2), plus the exact even contribution. Therefore the TICKET-195 local union envelope improves by subtracting the proper-power collision term. The pair (25,27) in [16,32) proves that the left and right contamination charges overlap.",
+  "mathematical_argument": "Expand each pointwise product after Lambda=P+Q. Bound each one-sided Q term by log(2X+2) times its interval Q mass, subtract the Q-Q overlap exactly, and retain the even contribution exactly.",
+  "reproducible_computation": {
+    "theorem": "On [X,2X), write Lambda=P+Q on odd support. The exact shift-two contamination is E_X=sum Q(n)Lambda(n+2)+sum Lambda(n)Q(n+2)-sum Q(n)Q(n+2), plus the exact even contribution. Therefore the TICKET-195 local union envelope improves by subtracting the proper-power collision term. The pair (25,27) in [16,32) proves that the left and right contamination charges overlap.",
+    "proof": "Expand each pointwise product after Lambda=P+Q. Bound each one-sided Q term by log(2X+2) times its interval Q mass, subtract the Q-Q overlap exactly, and retain the even contribution exactly.",
+    "finite_dyadic_rows": [
+      {
+        "dyadic_exponent_j": 4,
+        "block": [
+          16,
+          32
+        ],
+        "shift_two_von_mangoldt_support_count": 5,
+        "twin_prime_support_count": 2,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 30.419358712610045,
+        "weighted_twin_prime_mass": 19.905474600423364,
+        "weighted_prime_power_contamination": 10.51388411218668,
+        "proper_prime_power_count_A_2X_plus_2": 7,
+        "contamination_mass_upper_bound": 174.09305969399637,
+        "contamination_examples_left_right_exponents": [
+          [
+            23,
+            25,
+            1,
+            2
+          ],
+          [
+            25,
+            27,
+            2,
+            3
+          ],
+          [
+            27,
+            29,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 30.419358712610045,
+        "direct_prime_pair_mass": 19.905474600423364,
+        "direct_contamination": 10.51388411218668,
+        "Q_left_Lambda_right": 5.467500846852475,
+        "Lambda_left_Q_right": 6.814531533782659,
+        "Q_left_Q_right_collision": 1.7681482684484517,
+        "collision_support_count": 1,
+        "collision_terms": [
+          {
+            "shift_two_pair": [
+              25,
+              27
+            ],
+            "bases": [
+              5,
+              3
+            ],
+            "exponents": [
+              2,
+              3
+            ],
+            "weight": 1.7681482684484517
+          }
+        ],
+        "left_odd_proper_power_mass": 2.70805020110221,
+        "right_odd_proper_power_mass": 2.70805020110221,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 19.09912265569138,
+        "collision_corrected_envelope": 17.33097438724293,
+        "envelope_saving": 1.7681482684484517
+      },
+      {
+        "dyadic_exponent_j": 5,
+        "block": [
+          32,
+          64
+        ],
+        "shift_two_von_mangoldt_support_count": 3,
+        "twin_prime_support_count": 2,
+        "proper_prime_power_contamination_support_count": 1,
+        "weighted_shift_two_correlation": 38.221771088793275,
+        "weighted_twin_prime_mass": 30.729729795264696,
+        "weighted_prime_power_contamination": 7.492041293528577,
+        "proper_prime_power_count_A_2X_plus_2": 9,
+        "contamination_mass_upper_bound": 315.9577234329212,
+        "contamination_examples_left_right_exponents": [
+          [
+            47,
+            49,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 38.221771088793275,
+        "direct_prime_pair_mass": 30.729729795264696,
+        "direct_contamination": 7.492041293528577,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 7.492041293528577,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 1.9459101490553132,
+        "right_odd_proper_power_mass": 1.9459101490553132,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 16.30538336709388,
+        "collision_corrected_envelope": 16.30538336709388,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 6,
+        "block": [
+          64,
+          128
+        ],
+        "shift_two_von_mangoldt_support_count": 6,
+        "twin_prime_support_count": 3,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 79.05189367387074,
+        "weighted_twin_prime_mass": 61.60055362319484,
+        "weighted_prime_power_contamination": 17.451340050675896,
+        "proper_prime_power_count_A_2X_plus_2": 13,
+        "contamination_mass_upper_bound": 616.0151822856701,
+        "contamination_examples_left_right_exponents": [
+          [
+            79,
+            81,
+            1,
+            4
+          ],
+          [
+            81,
+            83,
+            4,
+            1
+          ],
+          [
+            125,
+            127,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 79.05189367387074,
+        "direct_prime_pair_mass": 61.60055362319484,
+        "direct_contamination": 17.451340050675896,
+        "Q_left_Lambda_right": 12.651010945261143,
+        "Lambda_left_Q_right": 4.800329105414752,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 5.105945473900581,
+        "right_odd_proper_power_mass": 5.105945473900581,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 49.70673099271767,
+        "collision_corrected_envelope": 49.70673099271767,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 7,
+        "block": [
+          128,
+          256
+        ],
+        "shift_two_von_mangoldt_support_count": 9,
+        "twin_prime_support_count": 7,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 210.62504290038592,
+        "weighted_twin_prime_mass": 191.4719826477534,
+        "weighted_prime_power_contamination": 19.153060252632475,
+        "proper_prime_power_count_A_2X_plus_2": 16,
+        "contamination_mass_upper_bound": 986.7315248567315,
+        "contamination_examples_left_right_exponents": [
+          [
+            167,
+            169,
+            1,
+            2
+          ],
+          [
+            241,
+            243,
+            1,
+            5
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 210.62504290038592,
+        "direct_prime_pair_mass": 191.4719826477534,
+        "direct_contamination": 19.153060252632475,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 19.153060252632475,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 3.6635616461296463,
+        "right_odd_proper_power_mass": 3.6635616461296463,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 40.68721951565367,
+        "collision_corrected_envelope": 40.68721951565367,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 8,
+        "block": [
+          256,
+          512
+        ],
+        "shift_two_von_mangoldt_support_count": 8,
+        "twin_prime_support_count": 7,
+        "proper_prime_power_contamination_support_count": 1,
+        "weighted_shift_two_correlation": 258.68209860141263,
+        "weighted_twin_prime_mass": 241.35901483374516,
+        "weighted_prime_power_contamination": 17.32308376766749,
+        "proper_prime_power_count_A_2X_plus_2": 20,
+        "contamination_mass_upper_bound": 1558.6140518315901,
+        "contamination_examples_left_right_exponents": [
+          [
+            359,
+            361,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 258.68209860141263,
+        "direct_prime_pair_mass": 241.35901483374516,
+        "direct_contamination": 17.32308376766749,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 17.32308376766749,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 7.72356247227797,
+        "right_odd_proper_power_mass": 7.72356247227797,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 96.42440271329993,
+        "collision_corrected_envelope": 96.42440271329993,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 9,
+        "block": [
+          512,
+          1024
+        ],
+        "shift_two_von_mangoldt_support_count": 14,
+        "twin_prime_support_count": 12,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 550.1506096955326,
+        "weighted_twin_prime_mass": 520.2425890597062,
+        "weighted_prime_power_contamination": 29.908020635826325,
+        "proper_prime_power_count_A_2X_plus_2": 26,
+        "contamination_mass_upper_bound": 2499.7624523941085,
+        "contamination_examples_left_right_exponents": [
+          [
+            727,
+            729,
+            1,
+            6
+          ],
+          [
+            839,
+            841,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 550.1506096955326,
+        "direct_prime_pair_mass": 520.2425890597062,
+        "direct_contamination": 29.908020635826325,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 29.908020635826325,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 12.64482745150298,
+        "right_odd_proper_power_mass": 12.64482745150298,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 175.3438756172852,
+        "collision_corrected_envelope": 175.3438756172852,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 10,
+        "block": [
+          1024,
+          2048
+        ],
+        "shift_two_von_mangoldt_support_count": 28,
+        "twin_prime_support_count": 26,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 1441.7469568800293,
+        "weighted_twin_prime_mass": 1387.3855975997217,
+        "weighted_prime_power_contamination": 54.36135928030767,
+        "proper_prime_power_count_A_2X_plus_2": 31,
+        "contamination_mass_upper_bound": 3605.281412656107,
+        "contamination_examples_left_right_exponents": [
+          [
+            1367,
+            1369,
+            1,
+            2
+          ],
+          [
+            1847,
+            1849,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 1441.7469568800293,
+        "direct_prime_pair_mass": 1387.3855975997217,
+        "direct_contamination": 54.36135928030767,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 54.36135928030767,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 13.483585367840465,
+        "right_odd_proper_power_mass": 13.483585367840465,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 205.640724271363,
+        "collision_corrected_envelope": 205.640724271363,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 11,
+        "block": [
+          2048,
+          4096
+        ],
+        "shift_two_von_mangoldt_support_count": 48,
+        "twin_prime_support_count": 45,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 2972.656172857228,
+        "weighted_twin_prime_mass": 2894.071385852201,
+        "weighted_prime_power_contamination": 78.58478700502675,
+        "proper_prime_power_count_A_2X_plus_2": 40,
+        "contamination_mass_upper_bound": 5535.468406286459,
+        "contamination_examples_left_right_exponents": [
+          [
+            2207,
+            2209,
+            1,
+            2
+          ],
+          [
+            2399,
+            2401,
+            1,
+            4
+          ],
+          [
+            3719,
+            3721,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 2972.656172857228,
+        "direct_prime_pair_mass": 2894.071385852201,
+        "direct_contamination": 78.58478700502675,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 78.58478700502675,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 23.22776053096027,
+        "right_odd_proper_power_mass": 23.22776053096027,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 386.4288391699265,
+        "collision_corrected_envelope": 386.4288391699265,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 12,
+        "block": [
+          4096,
+          8192
+        ],
+        "shift_two_von_mangoldt_support_count": 74,
+        "twin_prime_support_count": 70,
+        "proper_prime_power_contamination_support_count": 4,
+        "weighted_shift_two_correlation": 5380.412152725935,
+        "weighted_twin_prime_mass": 5268.114154826079,
+        "weighted_prime_power_contamination": 112.29799789985574,
+        "proper_prime_power_count_A_2X_plus_2": 50,
+        "contamination_mass_upper_bound": 8120.095873479411,
+        "contamination_examples_left_right_exponents": [
+          [
+            5039,
+            5041,
+            1,
+            2
+          ],
+          [
+            6561,
+            6563,
+            8,
+            1
+          ],
+          [
+            6857,
+            6859,
+            1,
+            3
+          ],
+          [
+            7919,
+            7921,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 5380.412152725935,
+        "direct_prime_pair_mass": 5268.114154826079,
+        "direct_contamination": 112.29799789985574,
+        "Q_left_Lambda_right": 9.65592652718861,
+        "Lambda_left_Q_right": 102.64207137266715,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 32.9110213794672,
+        "right_odd_proper_power_mass": 32.9110213794672,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 593.1327915149975,
+        "collision_corrected_envelope": 593.1327915149975,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 13,
+        "block": [
+          8192,
+          16384
+        ],
+        "shift_two_von_mangoldt_support_count": 117,
+        "twin_prime_support_count": 113,
+        "proper_prime_power_contamination_support_count": 4,
+        "weighted_shift_two_correlation": 10099.841514010854,
+        "weighted_twin_prime_mass": 9943.280144249258,
+        "weighted_prime_power_contamination": 156.56136976159559,
+        "proper_prime_power_count_A_2X_plus_2": 61,
+        "contamination_mass_upper_bound": 11488.881489948855,
+        "contamination_examples_left_right_exponents": [
+          [
+            10607,
+            10609,
+            1,
+            2
+          ],
+          [
+            11447,
+            11449,
+            1,
+            2
+          ],
+          [
+            14639,
+            14641,
+            1,
+            4
+          ],
+          [
+            16127,
+            16129,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 10099.841514010854,
+        "direct_prime_pair_mass": 9943.280144249258,
+        "direct_contamination": 156.56136976159559,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 156.56136976159559,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 39.90313950659788,
+        "right_odd_proper_power_mass": 39.90313950659788,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 774.4547034285416,
+        "collision_corrected_envelope": 774.4547034285416,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 14,
+        "block": [
+          16384,
+          32768
+        ],
+        "shift_two_von_mangoldt_support_count": 222,
+        "twin_prime_support_count": 215,
+        "proper_prime_power_contamination_support_count": 7,
+        "weighted_shift_two_correlation": 22103.264555436494,
+        "weighted_twin_prime_mass": 21847.34898267158,
+        "weighted_prime_power_contamination": 255.91557276490903,
+        "proper_prime_power_count_A_2X_plus_2": 78,
+        "contamination_mass_upper_bound": 16864.098776769417,
+        "contamination_examples_left_right_exponents": [
+          [
+            17159,
+            17161,
+            1,
+            2
+          ],
+          [
+            19319,
+            19321,
+            1,
+            2
+          ],
+          [
+            19681,
+            19683,
+            1,
+            9
+          ],
+          [
+            24389,
+            24391,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 22103.264555436494,
+        "direct_prime_pair_mass": 21847.34898267158,
+        "direct_contamination": 255.91557276490903,
+        "Q_left_Lambda_right": 34.01631974095231,
+        "Lambda_left_Q_right": 221.89925302395673,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 67.96879740475312,
+        "right_odd_proper_power_mass": 67.96879740475312,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 1413.379705333789,
+        "collision_corrected_envelope": 1413.379705333789,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 15,
+        "block": [
+          32768,
+          65536
+        ],
+        "shift_two_von_mangoldt_support_count": 362,
+        "twin_prime_support_count": 355,
+        "proper_prime_power_contamination_support_count": 7,
+        "weighted_shift_two_correlation": 41516.84933102578,
+        "weighted_twin_prime_mass": 41175.32141775507,
+        "weighted_prime_power_contamination": 341.52791327071526,
+        "proper_prime_power_count_A_2X_plus_2": 93,
+        "contamination_mass_upper_bound": 22877.376612668297,
+        "contamination_examples_left_right_exponents": [
+          [
+            36479,
+            36481,
+            1,
+            2
+          ],
+          [
+            44519,
+            44521,
+            1,
+            2
+          ],
+          [
+            49727,
+            49729,
+            1,
+            2
+          ],
+          [
+            50651,
+            50653,
+            1,
+            3
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 41516.84933102578,
+        "direct_prime_pair_mass": 41175.32141775507,
+        "direct_contamination": 341.52791327071526,
+        "Q_left_Lambda_right": 12.069526817686828,
+        "Lambda_left_Q_right": 329.4583864530284,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 69.35645617581781,
+        "right_odd_proper_power_mass": 69.35645617581781,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 1538.3796587782685,
+        "collision_corrected_envelope": 1538.3796587782685,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 16,
+        "block": [
+          65536,
+          131072
+        ],
+        "shift_two_von_mangoldt_support_count": 671,
+        "twin_prime_support_count": 666,
+        "proper_prime_power_contamination_support_count": 5,
+        "weighted_shift_two_correlation": 87982.41778641171,
+        "weighted_twin_prime_mass": 87653.29378784791,
+        "weighted_prime_power_contamination": 329.12399856379926,
+        "proper_prime_power_count_A_2X_plus_2": 119,
+        "contamination_mass_upper_bound": 33046.60478846309,
+        "contamination_examples_left_right_exponents": [
+          [
+            66047,
+            66049,
+            1,
+            2
+          ],
+          [
+            85847,
+            85849,
+            1,
+            2
+          ],
+          [
+            97967,
+            97969,
+            1,
+            2
+          ],
+          [
+            113567,
+            113569,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 87982.41778641171,
+        "direct_prime_pair_mass": 87653.29378784791,
+        "direct_contamination": 329.12399856379926,
+        "Q_left_Lambda_right": 0.0,
+        "Lambda_left_Q_right": 329.12399856379926,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 123.61210624604006,
+        "right_odd_proper_power_mass": 123.61210624604006,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 2913.170791848978,
+        "collision_corrected_envelope": 2913.170791848978,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 17,
+        "block": [
+          131072,
+          262144
+        ],
+        "shift_two_von_mangoldt_support_count": 1159,
+        "twin_prime_support_count": 1153,
+        "proper_prime_power_contamination_support_count": 6,
+        "weighted_shift_two_correlation": 170925.14354747848,
+        "weighted_twin_prime_mass": 170522.16627598935,
+        "weighted_prime_power_contamination": 402.9772714891503,
+        "proper_prime_power_count_A_2X_plus_2": 150,
+        "contamination_mass_upper_bound": 46700.09006621651,
+        "contamination_examples_left_right_exponents": [
+          [
+            161051,
+            161053,
+            5,
+            1
+          ],
+          [
+            177239,
+            177241,
+            1,
+            2
+          ],
+          [
+            196247,
+            196249,
+            1,
+            2
+          ],
+          [
+            201599,
+            201601,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 170925.14354747848,
+        "direct_prime_pair_mass": 170522.16627598935,
+        "direct_contamination": 402.9772714891503,
+        "Q_left_Lambda_right": 28.74953847444507,
+        "Lambda_left_Q_right": 374.2277330147053,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 167.5895469716232,
+        "right_odd_proper_power_mass": 167.5895469716232,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 4181.914548292961,
+        "collision_corrected_envelope": 4181.914548292961,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 18,
+        "block": [
+          262144,
+          524288
+        ],
+        "shift_two_von_mangoldt_support_count": 2082,
+        "twin_prime_support_count": 2071,
+        "proper_prime_power_contamination_support_count": 11,
+        "weighted_shift_two_correlation": 343017.38147934974,
+        "weighted_twin_prime_mass": 342219.9300581405,
+        "weighted_prime_power_contamination": 797.4514212092325,
+        "proper_prime_power_count_A_2X_plus_2": 189,
+        "contamination_mass_upper_bound": 65561.69535370552,
+        "contamination_examples_left_right_exponents": [
+          [
+            273527,
+            273529,
+            1,
+            2
+          ],
+          [
+            292679,
+            292681,
+            1,
+            2
+          ],
+          [
+            300761,
+            300763,
+            1,
+            3
+          ],
+          [
+            323759,
+            323761,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 343017.38147934974,
+        "direct_prime_pair_mass": 342219.9300581405,
+        "direct_contamination": 797.4514212092325,
+        "Q_left_Lambda_right": 54.51134302210808,
+        "Lambda_left_Q_right": 742.9400781871245,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 223.59241831539308,
+        "right_odd_proper_power_mass": 223.59241831539308,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 5889.334971167514,
+        "collision_corrected_envelope": 5889.334971167514,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 19,
+        "block": [
+          524288,
+          1048576
+        ],
+        "shift_two_von_mangoldt_support_count": 3800,
+        "twin_prime_support_count": 3785,
+        "proper_prime_power_contamination_support_count": 15,
+        "weighted_shift_two_correlation": 696510.2058858308,
+        "weighted_twin_prime_mass": 695300.6983668064,
+        "weighted_prime_power_contamination": 1209.507519024261,
+        "proper_prime_power_count_A_2X_plus_2": 242,
+        "contamination_mass_upper_bound": 93015.72908988077,
+        "contamination_examples_left_right_exponents": [
+          [
+            528527,
+            528529,
+            1,
+            2
+          ],
+          [
+            537287,
+            537289,
+            1,
+            2
+          ],
+          [
+            552047,
+            552049,
+            1,
+            2
+          ],
+          [
+            563999,
+            564001,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 696510.2058858308,
+        "direct_prime_pair_mass": 695300.6983668064,
+        "direct_contamination": 1209.507519024261,
+        "Q_left_Lambda_right": 58.57847240755679,
+        "Lambda_left_Q_right": 1150.9290466167042,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 325.7181410602519,
+        "right_odd_proper_power_mass": 325.7181410602519,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 9030.825687840525,
+        "collision_corrected_envelope": 9030.825687840525,
+        "envelope_saving": 0.0
+      },
+      {
+        "dyadic_exponent_j": 20,
+        "block": [
+          1048576,
+          2097152
+        ],
+        "shift_two_von_mangoldt_support_count": 6982,
+        "twin_prime_support_count": 6965,
+        "proper_prime_power_contamination_support_count": 17,
+        "weighted_shift_two_correlation": 1415067.2733820467,
+        "weighted_twin_prime_mass": 1413473.5285891728,
+        "weighted_prime_power_contamination": 1593.744792874651,
+        "proper_prime_power_count_A_2X_plus_2": 310,
+        "contamination_mass_upper_bound": 131365.4802789017,
+        "contamination_examples_left_right_exponents": [
+          [
+            1104599,
+            1104601,
+            1,
+            2
+          ],
+          [
+            1142759,
+            1142761,
+            1,
+            2
+          ],
+          [
+            1190279,
+            1190281,
+            1,
+            2
+          ],
+          [
+            1295027,
+            1295029,
+            1,
+            3
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "direct_total_matches_reference": true,
+          "direct_contamination_matches_reference": true,
+          "inclusion_exclusion_identity_exact": true,
+          "corrected_envelope_is_not_larger": true,
+          "actual_contamination_below_corrected_envelope": true,
+          "finite_total_exceeds_corrected_envelope": true
+        },
+        "direct_total_correlation": 1415067.2733820467,
+        "direct_prime_pair_mass": 1413473.5285891728,
+        "direct_contamination": 1593.744792874651,
+        "Q_left_Lambda_right": 67.04459331815872,
+        "Lambda_left_Q_right": 1526.7001995564924,
+        "Q_left_Q_right_collision": 0.0,
+        "collision_support_count": 0,
+        "collision_terms": [],
+        "left_odd_proper_power_mass": 440.3500770292969,
+        "right_odd_proper_power_mass": 440.3500770292969,
+        "even_contamination_exact": 0.0,
+        "old_union_envelope": 12819.552242693617,
+        "collision_corrected_envelope": 12819.552242693617,
+        "envelope_saving": 0.0
+      }
+    ],
+    "overlap_witness": {
+      "dyadic_block": [
+        16,
+        32
+      ],
+      "shift_two_pair": [
+        25,
+        27
+      ],
+      "bases": [
+        5,
+        3
+      ],
+      "exponents": [
+        2,
+        3
+      ],
+      "weight": 1.7681482684484517,
+      "double_charge_is_positive": true
+    },
+    "aggregate": {
+      "dyadic_block_count": 17,
+      "largest_upper_endpoint": 2097152,
+      "exact_inclusion_exclusion_identity_proved": true,
+      "finite_corrected_envelope_success_count": 17,
+      "infinitely_many_corrected_envelope_successes_proved": false
+    },
+    "no_go_scope": "The collision correction improves the local sufficient budget but does not overcome parity or prove infinitely many prime pairs.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating left- and right-shift proper-prime-power contamination charges as disjoint",
+  "remaining_gap": "No parity-breaking lower bound above the corrected local contamination envelope is proved on infinitely many unbounded blocks.",
+  "candidate_theorem": "ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof. The local budget is corrected by exact overlap subtraction, but the parity barrier and infinitude remain open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T195-INPUT",
+        "label": "ShiftTwoCorrelationExceedsPrimeSquareLayerPlusCubicTailEnvelopeOnInfinitelyManyDyadicBlocks",
+        "status": "open_input_from_ticket195"
+      },
+      {
+        "id": "TP-T196-CLOSED",
+        "label": "CollisionCorrectedTwinPrimePowerEnvelope",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T196-REJECTED",
+        "label": "LeftAndRightShiftContaminationChargesAreDisjoint",
+        "status": "refuted_or_target_equivalent_surrogate"
+      },
+      {
+        "id": "TP-T196-OPEN",
+        "label": "ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T195-INPUT",
+        "TP-T196-CLOSED"
+      ],
+      [
+        "TP-T196-CLOSED",
+        "TP-T196-OPEN"
+      ],
+      [
+        "TP-T196-REJECTED",
+        "TP-T196-OPEN"
+      ]
+    ]
+  }
+}

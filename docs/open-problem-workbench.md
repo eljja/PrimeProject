@@ -15,20 +15,27 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-195
+## Current research boundary: TICKET-196
 
 The current executable frontier is
-`data/open-problem/ticket195-finitejet-elevenone-squarelayer.json`. It records
-four exact intermediate theorems and keeps all four conjectures at
-`open_not_proven`. The eleven-one/rest-two accelerated Collatz cycle stratum is
-excluded, and every fixed one-count/rest-two stratum is proved decidable. RH
-now has an exact finite-even-jet ambiguity no-go and a valid conditional
-Rouché tail bridge, but no actual Xi tail certificate. Strong Goldbach and Twin
-Prime split prime-power contamination into a dominant prime-square layer and a
-cubic-scale higher-exponent tail, while the every-target and
-infinitely-many-block lower bounds remain open. See the
-[English report](finitejet-elevenone-squarelayer.md) and
-[한국어 보고서](finitejet-elevenone-squarelayer.ko.md).
+`data/open-problem/ticket196-rouche-density-overlap.json`. It records four
+exact route corrections and keeps all four conjectures at `open_not_proven`.
+For RH, a zero-free Rouché certificate on every off-real rectangle in an
+exhausting family is proved equivalent to the all-real-zero assertion; it is
+therefore not a weaker intermediate theorem. For Collatz, the contraction and
+product-density inequalities leave every count profile `(h,r)=(3k,k)` alive,
+so a uniform order-sensitive divisibility obstruction is still required.
+For strong Goldbach and Twin Prime, exact inclusion-exclusion subtracts the
+proper-prime-power collision term that earlier union envelopes counted twice.
+The actual Xi rectangle certificate, Collatz affine divisibility obstruction,
+every-large-even Goldbach lower bound, and infinitely-many-block parity-breaking
+Twin lower bound all remain open. See the
+[English report](rouche-density-overlap.md) and
+[한국어 보고서](rouche-density-overlap.ko.md).
+
+TICKET-195 is preserved as the immediately preceding boundary in
+[English](finitejet-elevenone-squarelayer.md) and
+[한국어](finitejet-elevenone-squarelayer.ko.md).
 
 ## Public Pages
 
