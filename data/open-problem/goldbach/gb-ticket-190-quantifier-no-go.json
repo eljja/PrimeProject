@@ -1,0 +1,204 @@
+{
+  "schema": "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "ticket_id": "GB-TICKET-190",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+  "declared_proposition": "Density-one positivity and an asymptotically complete average linear mass do not imply positivity at every even target. Define F(N)=0 when the even integer N is a power of two and F(N)=N otherwise. Then F vanishes at infinitely many even targets, the number of exceptions up to X is O(log X)=o(X), and the cumulative deficit from sum_(even N<=X) N is less than 2X=o(X^2). Thus even a relative average error tending to zero cannot replace the pointwise lower bound required by strong Goldbach.",
+  "mathematical_argument": "The exceptional targets are 2^k, so there are at most log_2 X of them. Their missing mass is the geometric sum 4+8+...+2^K, which is less than 2X. The baseline sum over even targets is quadratic in X, hence the relative deficit tends to zero, while every power of two remains an exact zero. This is a logical countermodel, not a model of the arithmetic von Mangoldt convolution.",
+  "reproducible_computation": {
+    "theorem": "Density-one positivity and an asymptotically complete average linear mass do not imply positivity at every even target. Define F(N)=0 when the even integer N is a power of two and F(N)=N otherwise. Then F vanishes at infinitely many even targets, the number of exceptions up to X is O(log X)=o(X), and the cumulative deficit from sum_(even N<=X) N is less than 2X=o(X^2). Thus even a relative average error tending to zero cannot replace the pointwise lower bound required by strong Goldbach.",
+    "proof": "The exceptional targets are 2^k, so there are at most log_2 X of them. Their missing mass is the geometric sum 4+8+...+2^K, which is less than 2X. The baseline sum over even targets is quadratic in X, hence the relative deficit tends to zero, while every power of two remains an exact zero. This is a logical countermodel, not a model of the arithmetic von Mangoldt convolution.",
+    "finite_countermodel_rows": [
+      {
+        "cutoff_X": 64,
+        "even_target_count": 31,
+        "sparse_hole_count": 5,
+        "largest_sparse_hole": 64,
+        "baseline_linear_mass_sum": "1054",
+        "model_mass_sum": "930",
+        "missing_mass": "124",
+        "hole_density": 0.16129032258064516,
+        "relative_average_deficit": 0.11764705882352941,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 256,
+        "even_target_count": 127,
+        "sparse_hole_count": 7,
+        "largest_sparse_hole": 256,
+        "baseline_linear_mass_sum": "16510",
+        "model_mass_sum": "16002",
+        "missing_mass": "508",
+        "hole_density": 0.05511811023622047,
+        "relative_average_deficit": 0.03076923076923077,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 1024,
+        "even_target_count": 511,
+        "sparse_hole_count": 9,
+        "largest_sparse_hole": 1024,
+        "baseline_linear_mass_sum": "262654",
+        "model_mass_sum": "260610",
+        "missing_mass": "2044",
+        "hole_density": 0.01761252446183953,
+        "relative_average_deficit": 0.007782101167315175,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 4096,
+        "even_target_count": 2047,
+        "sparse_hole_count": 11,
+        "largest_sparse_hole": 4096,
+        "baseline_linear_mass_sum": "4196350",
+        "model_mass_sum": "4188162",
+        "missing_mass": "8188",
+        "hole_density": 0.00537371763556424,
+        "relative_average_deficit": 0.001951219512195122,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 16384,
+        "even_target_count": 8191,
+        "sparse_hole_count": 13,
+        "largest_sparse_hole": 16384,
+        "baseline_linear_mass_sum": "67117054",
+        "model_mass_sum": "67084290",
+        "missing_mass": "32764",
+        "hole_density": 0.0015871078012452693,
+        "relative_average_deficit": 0.000488162069807176,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 65536,
+        "even_target_count": 32767,
+        "sparse_hole_count": 15,
+        "largest_sparse_hole": 65536,
+        "baseline_linear_mass_sum": "1073774590",
+        "model_mass_sum": "1073643522",
+        "missing_mass": "131068",
+        "hole_density": 0.0004577776421399579,
+        "relative_average_deficit": 0.00012206286237412267,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 262144,
+        "even_target_count": 131071,
+        "sparse_hole_count": 17,
+        "largest_sparse_hole": 262144,
+        "baseline_linear_mass_sum": "17180000254",
+        "model_mass_sum": "17179475970",
+        "missing_mass": "524284",
+        "hole_density": 0.0001297006965690351,
+        "relative_average_deficit": 3.051711247081801e-05,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      },
+      {
+        "cutoff_X": 1048576,
+        "even_target_count": 524287,
+        "sparse_hole_count": 19,
+        "largest_sparse_hole": 1048576,
+        "baseline_linear_mass_sum": "274878431230",
+        "model_mass_sum": "274876334082",
+        "missing_mass": "2097148",
+        "hole_density": 3.6239693145166674e-05,
+        "relative_average_deficit": 7.6293654275305656e-06,
+        "checks": {
+          "holes_are_even_powers_of_two": true,
+          "model_has_a_zero_at_every_hole": true,
+          "missing_mass_below_two_X": true,
+          "mass_decomposition_exact": true
+        }
+      }
+    ],
+    "aggregate": {
+      "countermodel_cutoff_count": 8,
+      "largest_cutoff": 1048576,
+      "infinite_zero_target_family": "N=2^k for k>=2",
+      "density_one_promotion_refuted": true,
+      "average_mass_promotion_refuted": true,
+      "pointwise_major_minor_lower_bound_proved": false
+    },
+    "no_go_scope": "The countermodel proves a quantifier obstruction only; it does not show that the actual Goldbach correlation has power-of-two holes. Strong Goldbach still requires a pointwise all-large-even lower bound plus finite verification.",
+    "failure_count": 0
+  },
+  "discarded_route": "promoting density-one positivity or an asymptotically complete average correlation estimate to every even target",
+  "remaining_gap": "No pointwise major-arc main-term minus minor-arc error lower bound is proved for every sufficiently large even target.",
+  "candidate_theorem": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof. A sparse-hole countermodel proves that density-one and near-perfect average estimates cannot close the universal target quantifier.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T189-INPUT",
+        "label": "ProperPrimePowerContaminationHasExplicitSublinearBudget",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "GB-T190-CLOSED",
+        "label": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T190-REJECTED",
+        "label": "DensityOneOrAverageCorrelationPromotesToEveryEvenTarget",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "GB-T190-OPEN",
+        "label": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T189-INPUT",
+        "GB-T190-CLOSED"
+      ],
+      [
+        "GB-T190-CLOSED",
+        "GB-T190-OPEN"
+      ],
+      [
+        "GB-T190-REJECTED",
+        "GB-T190-OPEN"
+      ]
+    ]
+  }
+}

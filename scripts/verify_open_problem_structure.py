@@ -186,6 +186,7 @@ TICKET186_SCHEMA = "primeproject.ticket186-codimension-twoone-layercake-quantiza
 TICKET187_SCHEMA = "primeproject.ticket187-positive-ray-threeone-signature-interval.v1"
 TICKET188_SCHEMA = "primeproject.ticket188-nested-fourone-primepower-dyadic.v1"
 TICKET189_SCHEMA = "primeproject.ticket189-corefive-sublinear-shift.v1"
+TICKET190_SCHEMA = "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1"
 
 
 def fail(message: str) -> int:
@@ -13637,6 +13638,164 @@ def main() -> int:
         or "resolves none" not in str(ticket189.get("claim_boundary", "")).lower()
     ):
         return fail("ticket189 proof boundary changed")
+
+    path190 = Path(
+        "data/open-problem/ticket190-cauchy-sixone-quantifier-transfer.json"
+    )
+    if not path190.exists():
+        return fail("missing ticket190 Cauchy/six-one/quantifier audit")
+    ticket190 = read_json(path190)
+    if (
+        ticket190.get("schema") != TICKET190_SCHEMA
+        or ticket190.get("status")
+        != "one_additional_infinite_cycle_stratum_closed_three_exact_quantifier_boundaries_all_open"
+    ):
+        return fail("ticket190 schema or status changed")
+    audit190 = ticket190.get("cauchy_sixone_quantifier_transfer_audit", {})
+    if audit190.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_cycle_stratum_closure_count": 1,
+        "quantifier_or_topology_boundary_count": 3,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket190 global machine audit changed")
+
+    by_id190 = {
+        str(row.get("problem_id")): row
+        for row in ticket190.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id190) != EXPECTED_PROBLEMS:
+        return fail("ticket190 attempts missing problems")
+    paths190 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-190-direct-cauchy-boundary.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-190-six-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-190-quantifier-no-go.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-190-cumulative-dyadic-transfer.json"
+        ),
+    }
+    expected_names190 = {
+        "riemann": "DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo",
+        "collatz": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+        "twin-prime": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+    }
+    next190 = {
+        "riemann": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor",
+        "collatz": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+        "twin-prime": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+    }
+    sections190 = {
+        "riemann": audit190.get("riemann", {}),
+        "collatz": audit190.get("collatz", {}),
+        "goldbach": audit190.get("goldbach", {}),
+        "twin-prime": audit190.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id190.items():
+        artifact_path = paths190[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket190 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections190[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET190_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names190[problem_id]
+            or artifact.get("theorem_name") != expected_names190[problem_id]
+            or attempt.get("candidate_theorem") != next190[problem_id]
+            or artifact.get("candidate_theorem") != next190[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_insufficient",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next190[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count") != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket190 contract changed")
+
+    rh190 = sections190["riemann"]["reproducible_computation"]
+    alternating190 = rh190.get("alternating_nonsummable_family", {})
+    bounded190 = rh190.get("bounded_extension_family", {})
+    unbounded190 = rh190.get("unbounded_extension_counterfamily", {})
+    if (
+        alternating190.get("direct_cauchy_modulus_proved") is not True
+        or alternating190.get("absolute_adjacent_drift_sum_converges") is not False
+        or bounded190.get("bounded_l2_extension_exists") is not True
+        or unbounded190.get("bounded_l2_extension_exists") is not False
+        or rh190.get("promotion_contract", {}).get(
+            "actual_pole_neutral_weil_cauchy_modulus_verified"
+        )
+        is not False
+    ):
+        return fail("ticket190 RH direct-Cauchy boundary changed")
+
+    collatz190 = sections190["collatz"]["reproducible_computation"]
+    finite190 = collatz190.get("finite_exception_horizon_rows", [])
+    aggregate190 = collatz190.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite190] != list(range(15, 23))
+        or sum(int(row.get("word_count", 0)) for row in finite190) != 238722
+        or aggregate190.get("analytic_range_starts_at_h") != 23
+        or aggregate190.get("divisibility_hits") != 0
+        or collatz190.get("analytic_bound", {}).get("bound_at_h_23", {}).get("exact")
+        != "11920928955078125/12339534735212544"
+        or any(row.get("divisibility_hit_count") != 0 for row in finite190)
+    ):
+        return fail("ticket190 Collatz six-one cycle audit changed")
+
+    goldbach190 = sections190["goldbach"]["reproducible_computation"]
+    gold_rows190 = goldbach190.get("finite_countermodel_rows", [])
+    if (
+        [row.get("cutoff_X") for row in gold_rows190]
+        != [64, 256, 1024, 4096, 16384, 65536, 262144, 1048576]
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows190)
+        or goldbach190.get("aggregate", {}).get("density_one_promotion_refuted")
+        is not True
+        or goldbach190.get("aggregate", {}).get(
+            "pointwise_major_minor_lower_bound_proved"
+        )
+        is not False
+    ):
+        return fail("ticket190 Goldbach quantifier no-go changed")
+
+    twin190 = sections190["twin-prime"]["reproducible_computation"]
+    twin_rows190 = twin190.get("finite_arithmetic_rows", [])
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows190]
+        != list(range(4, 20))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows190)
+        or twin190.get("aggregate", {}).get(
+            "linear_cumulative_to_block_transfer_proved"
+        )
+        is not True
+        or twin190.get("aggregate", {}).get("unbounded_mass_implies_linear_limsup")
+        is not False
+        or twin190.get("aggregate", {}).get("unbounded_exact_excess_proved")
+        is not False
+    ):
+        return fail("ticket190 Twin cumulative/dyadic boundary changed")
+    if (
+        "resolves none" not in str(audit190.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket190.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket190 proof boundary changed")
 
     print("open problem structure verified")
     return 0

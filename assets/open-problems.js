@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket190AttemptGlobal = null;
 let ticket189AttemptGlobal = null;
 let ticket188AttemptGlobal = null;
 let ticket187AttemptGlobal = null;
@@ -9985,6 +9986,75 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket190CauchySixOneQuantifierTransfer(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.cauchy_sixone_quantifier_transfer_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.alternating_nonsummable_family?.rows || [];
+    const unbounded = computation.unbounded_extension_counterfamily || {};
+    detail = `
+      <div class="poc-equation">direct Cauchy modulus ⇒ compatible form on c<sub>00</sub>; absolute drift summability is sufficient, not necessary</div>
+      ${table(["ambient N", "positive scalar core", "next drift", "Cauchy error bound"], rows.map((row) => [row.ambient_dimension_N, row.scalar_core_value?.exact, row.next_adjacent_drift_norm?.exact, row.certified_error_to_two_plus_log_two?.exact]))}
+      <div class="poc-head"><div><span>Direct Cauchy</span><strong>${computation.promotion_contract?.direct_cauchy_modulus_suffices ? "proved" : "missing"}</strong></div><div><span>Absolute summability necessary</span><strong>${computation.promotion_contract?.absolute_summable_drift_is_necessary ? "yes" : "no"}</strong></div><div><span>Actual Weil modulus</span><strong>${computation.promotion_contract?.actual_pole_neutral_weil_cauchy_modulus_verified ? "verified" : "open"}</strong></div></div>
+      <p class="proof-note">교대 조화 코어는 절대 drift 합이 발산해도 직접 Cauchy 계수로 수렴합니다. ${escapeHtml(unbounded.definition || "diag(1,...,m)")}은 호환되는 양의 형식이 유계 l₂ 연산자로 자동 승격되지 않음을 보입니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.finite_exception_horizon_rows || [];
+    const bound = computation.analytic_bound || {};
+    detail = `
+      <div class="poc-equation">1=Π(3+1/x<sub>i</sub>)/2<sup>vᵢ</sup>≤64(5/6)<sup>h</sup>&lt;1 for h≥23; h=15..22 exact</div>
+      ${table(["finite horizon h", "all six-one words", "divisibility hits", "transcript SHA-256"], rows.map((row) => [row.horizon_h, formatter.format(row.word_count || 0), row.divisibility_hit_count, String(row.remainder_transcript_sha256 || "").slice(0, 12)]))}
+      <div class="poc-head"><div><span>Analytic range</span><strong>all h ≥ ${bound.analytic_range_starts_at_h || 23}</strong></div><div><span>Finite words closed</span><strong>${formatter.format(aggregate.finite_exception_word_count || 0)}</strong></div><div><span>Divisibility hits</span><strong>${aggregate.divisibility_hits ?? "missing"}</strong></div></div>
+      <p class="proof-note">정확히 여섯 번의 v=1과 나머지 v=2인 모든 수축 주기를 배제했습니다. h≥23은 순환 곱 항등식으로, h=15..22의 238,722개 단어는 정확 정수 열거로 닫았습니다. 일곱-1 이상은 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_countermodel_rows || [];
+    detail = `
+      <div class="poc-equation">F(N)=0 on N=2<sup>k</sup>, F(N)=N otherwise ⇒ infinitely many holes but missing mass &lt;2X=o(X²)</div>
+      ${table(["cutoff X", "sparse holes", "hole density", "average deficit"], rows.map((row) => [formatter.format(row.cutoff_X || 0), row.sparse_hole_count, Number(row.hole_density || 0).toExponential(3), Number(row.relative_average_deficit || 0).toExponential(3)]))}
+      <div class="poc-head"><div><span>Countermodel cutoffs</span><strong>${aggregate.countermodel_cutoff_count || 0}</strong></div><div><span>Density-one promotion</span><strong>${aggregate.density_one_promotion_refuted ? "refuted" : "open"}</strong></div><div><span>Pointwise lower bound</span><strong>${aggregate.pointwise_major_minor_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">밀도 1의 양성과 상대 평균오차 0만으로는 “모든 짝수”를 증명할 수 없습니다. 이는 논리적 희소 구멍 반례이며 실제 소수 상관함수의 반례가 아닙니다. 점별 major-minus-minor 하한은 여전히 필요합니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_arithmetic_rows || [];
+    const sparse = computation.sparse_mass_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">limsup W<sub>J</sub>/2<sup>J</sup>&gt;0 ⇔ b<sub>j</sub>≥c2<sup>j</sup> infinitely often; unbounded W alone is weaker</div>
+      ${table(["dyadic j", "block", "exact twin excess", "cumulative / endpoint"], rows.map((row) => [row.dyadic_exponent_j, (row.block || []).map((value) => formatter.format(value)).join(" – "), Number(row.exact_excess_equals_weighted_twin_mass || 0).toFixed(2), Number(row.normalized_cumulative_exact_excess || 0).toExponential(3)]))}
+      <div class="poc-head"><div><span>Dyadic transfer</span><strong>${aggregate.linear_cumulative_to_block_transfer_proved ? "proved" : "missing"}</strong></div><div><span>Linear target necessary</span><strong>${aggregate.ticket189_linear_target_is_necessary ? "yes" : "no"}</strong></div><div><span>Unbounded exact excess</span><strong>${aggregate.unbounded_exact_excess_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">b<sub>j</sub>=1이면 누적 질량은 무한히 커지지만 선형 밀도는 0입니다. 따라서 TICKET-189의 선형 하한은 강한 충분조건일 뿐 필요조건이 아닙니다. 계산 표는 ${rows.length}개 실제 dyadic 블록을 재생하고, 희소 no-go 표는 ${sparse.length}개 스케일을 기록합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket190-cauchy-sixone-quantifier-transfer" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 190 Cauchy cores, six-one cycles, and quantifier transfer</h3>
+      <div class="poc-head"><div><span>Status</span><strong>one additional infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET190 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/cauchy-sixone-quantifier-transfer.ko.md">한국어 보고서</a> · <a href="../docs/cauchy-sixone-quantifier-transfer.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket189CoreFiveSublinearShift(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.corefive_sublinear_shift_audit || {};
@@ -10038,7 +10108,7 @@ function renderTicket189CoreFiveSublinearShift(attempt) {
   }
   return `
     <div id="ticket189-corefive-sublinear-shift" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 189 summable cores, five-one cycles, and prime-power subtraction</h3>
       <div class="poc-head"><div><span>Status</span><strong>one additional infinite stratum closed; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET189 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -14409,6 +14479,7 @@ function renderProofOrCounterexample(ticket, breakthroughTicket, reductionTicket
         <p>${escapeHtml(ticket.claim_boundary || "")}</p>
       </section>
     </div>
+    ${renderTicket189CoreFiveSublinearShift(ticket189AttemptGlobal)}
     ${renderTicket188NestedFourOnePrimePowerDyadic(ticket188AttemptGlobal)}
     ${renderTicket187PositiveRayThreeOneSignatureInterval(ticket187AttemptGlobal)}
     ${renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal)}
@@ -14646,14 +14717,15 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket189CoreFiveSublinearShift(ticket189AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket190CauchySixOneQuantifierTransfer(ticket190AttemptGlobal) ||
+      renderTicket189CoreFiveSublinearShift(ticket189AttemptGlobal) ||
       renderTicket188NestedFourOnePrimePowerDyadic(ticket188AttemptGlobal) ||
       renderTicket187PositiveRayThreeOneSignatureInterval(ticket187AttemptGlobal) ||
       renderTicket186CodimensionTwoOneLayerCakeQuantization(ticket186AttemptGlobal) ||
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-189 data is unavailable. The conjecture remains open. / TICKET-189 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-190 data is unavailable. The conjecture remains open. / TICKET-190 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -14975,6 +15047,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket190Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket190-cauchy-sixone-quantifier-transfer.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket190AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket190AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket190AttemptGlobal) {
+      ticket190AttemptGlobal.bounded_result = ticket190AttemptGlobal.bounded_result || {};
+      ticket190AttemptGlobal.bounded_result.cauchy_sixone_quantifier_transfer_audit = payload.cauchy_sixone_quantifier_transfer_audit || {};
+    }
+    return Boolean(ticket190AttemptGlobal);
+  } catch (error) {
+    ticket190AttemptGlobal = null;
     return false;
   }
 }
@@ -16128,6 +16220,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket190Loaded = await loadTicket190Attempt();
   const ticket189Loaded = await loadTicket189Attempt();
   const ticket188Loaded = await loadTicket188Attempt();
   const ticket187Loaded = await loadTicket187Attempt();
@@ -16150,8 +16243,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket190AttemptGlobal) await loadTicket190Attempt();
     if (!ticket189AttemptGlobal) await loadTicket189Attempt();
     if (!ticket188AttemptGlobal) await loadTicket188Attempt();
     if (!ticket187AttemptGlobal) await loadTicket187Attempt();

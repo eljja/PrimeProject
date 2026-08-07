@@ -31,14 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-190: Cauchy Cores, Six-One Cycles, and Quantifier Transfer](docs/cauchy-sixone-quantifier-transfer.md),
+with a separate [Korean report](docs/cauchy-sixone-quantifier-transfer.ko.md).
+It excludes every accelerated Collatz cycle word containing exactly six
+valuation-one entries and otherwise only valuation two. It also proves that a
+direct Cauchy modulus can replace absolute drift summability in the Riemann
+promotion route, that density-one or average positivity cannot close
+Goldbach's every-target quantifier, and that positive linear cumulative Twin
+mass transfers exactly to infinitely many linear dyadic blocks. These are exact
+partial results and no-go boundaries, not resolutions. Every conjecture remains
+`open_not_proven`; the machine resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-189: Summable Cores, Five-One Cycles, and Prime-Power Subtraction](docs/summable-core-fiveone-sublinear-shift.md),
 with a separate [Korean report](docs/summable-core-fiveone-sublinear-shift.ko.md).
-It excludes every accelerated Collatz cycle word containing exactly five
-valuation-one entries and otherwise only valuation two. It also proves a
-summable fixed-core promotion theorem for Hermitian forms and gives Goldbach and
-Twin Prime a shared explicit `o(N)` proper-prime-power subtraction. These are
-exact partial results and promotion boundaries, not resolutions. Every
-conjecture remains `open_not_proven`; the machine resolution count is zero.
 
 The preserved previous boundary is
 [TICKET-188: Common Forms, Four-One Cycles, Prime-Power Contamination, and Dyadic Oracles](docs/nested-fourone-primepower-dyadic.md),
@@ -186,7 +192,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-189 boundary, four exact partial results, four discarded or corrected routes, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-190 boundary, four exact partial results, four discarded or corrected routes, the unresolved arithmetic lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -199,21 +205,23 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 150-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 151-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-189. It closes the complete
-exactly-five-one/rest-two accelerated Collatz cycle stratum for all horizons:
-an analytic odd-quotient interval covers `h>=22`, and exact integer enumeration
-closes the 72,897 contracting words at `h=13..21`. The RH track proves that a
-summable fixed-core drift majorant constructs a compatible common form and that
-a vanishing negative floor promotes it to positivity. Goldbach and Twin Prime
-now share an explicit sublinear proper-prime-power subtraction; neither track
-has the positive linear lower bound needed for a solution. These are partial
-theorems and route corrections, not solutions. All four conjectures remain open
-and the machine resolution count is zero.
+The latest proof-search track is TICKET-190. It closes the complete
+exactly-six-one/rest-two accelerated Collatz cycle stratum for all horizons:
+the product bound `64(5/6)^h<1` covers `h>=23`, and exact integer enumeration
+closes the 238,722 contracting words at `h=15..22`. The RH track proves a direct
+Cauchy promotion theorem and refutes absolute drift summability as a necessary
+condition. Goldbach receives a sparse-hole countermodel blocking average-to-all
+promotion, while Twin Prime receives an exact cumulative-to-dyadic linear
+transfer and a no-go separating infinitude from linear density. These are
+partial theorems and route corrections, not solutions. All four conjectures
+remain open and the machine resolution count is zero.
 See
+[TICKET190 EN](docs/cauchy-sixone-quantifier-transfer.md),
+[TICKET190 KO](docs/cauchy-sixone-quantifier-transfer.ko.md),
 [TICKET189 EN](docs/summable-core-fiveone-sublinear-shift.md),
 [TICKET189 KO](docs/summable-core-fiveone-sublinear-shift.ko.md),
 [TICKET188 EN](docs/nested-fourone-primepower-dyadic.md),
@@ -281,12 +289,12 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-189입니다. 콜라츠 트랙은 정확히 다섯
+한국어 최신 요약: 최신 탐색은 TICKET-190입니다. 콜라츠 트랙은 정확히 여섯
 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 주기족을 전 길이에서 배제했습니다.
-리만 트랙은 합 가능한 고정 코어 변동과 사라지는 음의 하한이 공통 형식의
-양성으로 승격됨을 증명했습니다. 골드바흐와 쌍둥이 소수 트랙은 같은 명시적
-준선형 소수 거듭제곱 오염 제거 경계를 공유합니다. 실제 무한 산술 전제는
-남아 있고 네 문제의 해결 수는 0입니다.
+리만 트랙은 직접 Cauchy 계수의 승격 정리와 절대합 필요성 no-go를 증명했습니다.
+골드바흐는 평균에서 모든 짝수로의 승격이 불가능하다는 희소 구멍 반례를,
+쌍둥이 소수는 누적–dyadic 선형 질량 전이와 선형 밀도가 무한성보다 강하다는
+반례를 얻었습니다. 실제 무한 산술 전제는 남아 있고 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -306,18 +314,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-189입니다.
-[합 가능한 코어·다섯-1 주기·소수 거듭제곱 제거 한국어 보고서](docs/summable-core-fiveone-sublinear-shift.ko.md)와
-[영문 보고서](docs/summable-core-fiveone-sublinear-shift.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-190입니다.
+[Cauchy 코어·여섯-1 주기·양화사 전이 한국어 보고서](docs/cauchy-sixone-quantifier-transfer.ko.md)와
+[영문 보고서](docs/cauchy-sixone-quantifier-transfer.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-다섯-개 `v=1` 주기족 전체를 새로 닫았지만 실제 산술 전제는 남아 있습니다.
-각 proof DAG는 TICKET-188 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
+여섯-개 `v=1` 주기족 전체를 새로 닫았지만 실제 산술 전제는 남아 있습니다.
+각 proof DAG는 TICKET-189 입력, 이번에 닫힌 정리, 폐기된 승격 경로,
 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-189의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 189개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-190의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 190개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

@@ -62,7 +62,54 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-189
+## Latest Continuation After TICKET-190
+
+All four conjectures remain open. Continue from exactly these four nodes:
+
+1. Riemann:
+   `PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor`.
+   TICKET-190 proves that a direct Cauchy modulus is sufficient and that
+   absolute adjacent-drift summability is not necessary. It also separates a
+   compatible positive form on `c_00` from a bounded `l_2` operator. The next
+   result must estimate the actual arithmetic cores, not another model family.
+2. Collatz:
+   `NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The exactly-six-one/rest-two stratum is excluded at every horizon. The
+   product inequality `64(5/6)^h<1` closes `h>=23`, and exact arithmetic closes
+   238,722 words at `h=15..22`. Do not replace the next all-horizon theorem
+   with additional bounded enumeration.
+3. Goldbach:
+   `ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget`.
+   TICKET-190 proves with a sparse-hole countermodel that density-one
+   positivity and asymptotically complete average mass cannot imply positivity
+   at every even target. The next result must be pointwise and uniform.
+4. Twin Prime:
+   `CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope`.
+   Positive linear cumulative mass and positive linear mass on infinitely many
+   dyadic blocks are equivalent, but the model `b_j=1` proves that linear growth
+   is stronger than infinitude. The quantifier-matched target is unbounded exact
+   cumulative excess after prime-power subtraction.
+
+Exact machine artifacts:
+
+```text
+data/open-problem/ticket190-cauchy-sixone-quantifier-transfer.json
+data/open-problem/riemann/rh-ticket-190-direct-cauchy-boundary.json
+data/open-problem/collatz/co-ticket-190-six-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-190-quantifier-no-go.json
+data/open-problem/twin-prime/tp-ticket-190-cumulative-dyadic-transfer.json
+```
+
+한국어 인계: TICKET-190도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 여섯 번의 `v=1`과 나머지 `v=2`를 갖는 모든 수축 콜라츠 주기족의
+배제다. 리만은 직접 Cauchy 승격과 절대합 필요성 no-go를, 골드바흐는
+평균에서 전칭 명제로의 승격 no-go를, Twin은 누적–dyadic 선형 전이와
+무한성·선형 밀도의 차이를 확정했다.
+
+English report: [TICKET-190](cauchy-sixone-quantifier-transfer.md).
+Korean report: [TICKET-190 한국어](cauchy-sixone-quantifier-transfer.ko.md).
+
+## Preserved Continuation After TICKET-189
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

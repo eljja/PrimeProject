@@ -1,0 +1,411 @@
+{
+  "schema": "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "ticket_id": "TP-TICKET-190",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+  "declared_proposition": "For any nonnegative dyadic block masses b_j and cumulative masses W_J=sum_(j<J)b_j, limsup_J W_J/2^J>0 if and only if there is a constant c>0 such that b_j>=c2^j for infinitely many j. Applied after the exact TICKET-189 prime-power subtraction, this transfers a positive linear cumulative twin-mass limsup to infinitely many positive linear dyadic blocks. However, unbounded cumulative mass does not imply any positive linear bound: b_j=1 gives W_J=J while W_J/2^J and b_j/2^j both tend to zero. Therefore the TICKET-189 linear target is sufficient but strictly stronger than the Twin Prime conjecture.",
+  "mathematical_argument": "If b_j<c2^j eventually, then W_J is at most a fixed prefix plus c sum_(j<J)2^j, so limsup W_J/2^J<=c. Choosing c below a positive limsup proves the forward direction. Conversely, b_j>=c2^j along an infinite subsequence gives W_(j+1)/2^(j+1)>=c/2. The sparse sequence b_j=1 is unbounded in cumulative mass but has zero normalized limsup. In the arithmetic application, exact excess over proper-prime-power contamination equals nonnegative weighted twin-prime mass block by block.",
+  "reproducible_computation": {
+    "theorem": "For any nonnegative dyadic block masses b_j and cumulative masses W_J=sum_(j<J)b_j, limsup_J W_J/2^J>0 if and only if there is a constant c>0 such that b_j>=c2^j for infinitely many j. Applied after the exact TICKET-189 prime-power subtraction, this transfers a positive linear cumulative twin-mass limsup to infinitely many positive linear dyadic blocks. However, unbounded cumulative mass does not imply any positive linear bound: b_j=1 gives W_J=J while W_J/2^J and b_j/2^j both tend to zero. Therefore the TICKET-189 linear target is sufficient but strictly stronger than the Twin Prime conjecture.",
+    "proof": "If b_j<c2^j eventually, then W_J is at most a fixed prefix plus c sum_(j<J)2^j, so limsup W_J/2^J<=c. Choosing c below a positive limsup proves the forward direction. Conversely, b_j>=c2^j along an infinite subsequence gives W_(j+1)/2^(j+1)>=c/2. The sparse sequence b_j=1 is unbounded in cumulative mass but has zero normalized limsup. In the arithmetic application, exact excess over proper-prime-power contamination equals nonnegative weighted twin-prime mass block by block.",
+    "finite_arithmetic_rows": [
+      {
+        "dyadic_exponent_j": 4,
+        "block": [
+          16,
+          32
+        ],
+        "exact_excess_equals_weighted_twin_mass": 19.905474600423364,
+        "cumulative_exact_excess": 19.905474600423364,
+        "normalized_cumulative_exact_excess": 0.6220460812632301,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 5,
+        "block": [
+          32,
+          64
+        ],
+        "exact_excess_equals_weighted_twin_mass": 30.729729795264696,
+        "cumulative_exact_excess": 50.63520439568806,
+        "normalized_cumulative_exact_excess": 0.791175068682626,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 6,
+        "block": [
+          64,
+          128
+        ],
+        "exact_excess_equals_weighted_twin_mass": 61.60055362319484,
+        "cumulative_exact_excess": 112.2357580188829,
+        "normalized_cumulative_exact_excess": 0.8768418595225227,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 7,
+        "block": [
+          128,
+          256
+        ],
+        "exact_excess_equals_weighted_twin_mass": 191.4719826477534,
+        "cumulative_exact_excess": 303.7077406666363,
+        "normalized_cumulative_exact_excess": 1.186358361979048,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 8,
+        "block": [
+          256,
+          512
+        ],
+        "exact_excess_equals_weighted_twin_mass": 241.35901483374516,
+        "cumulative_exact_excess": 545.0667555003815,
+        "normalized_cumulative_exact_excess": 1.0645835068366827,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 9,
+        "block": [
+          512,
+          1024
+        ],
+        "exact_excess_equals_weighted_twin_mass": 520.2425890597062,
+        "cumulative_exact_excess": 1065.3093445600878,
+        "normalized_cumulative_exact_excess": 1.0403411567969607,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 10,
+        "block": [
+          1024,
+          2048
+        ],
+        "exact_excess_equals_weighted_twin_mass": 1387.3855975997217,
+        "cumulative_exact_excess": 2452.694942159809,
+        "normalized_cumulative_exact_excess": 1.1976049522264693,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 11,
+        "block": [
+          2048,
+          4096
+        ],
+        "exact_excess_equals_weighted_twin_mass": 2894.071385852201,
+        "cumulative_exact_excess": 5346.7663280120105,
+        "normalized_cumulative_exact_excess": 1.3053628730498072,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 12,
+        "block": [
+          4096,
+          8192
+        ],
+        "exact_excess_equals_weighted_twin_mass": 5268.114154826079,
+        "cumulative_exact_excess": 10614.880482838089,
+        "normalized_cumulative_exact_excess": 1.2957617776901964,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 13,
+        "block": [
+          8192,
+          16384
+        ],
+        "exact_excess_equals_weighted_twin_mass": 9943.280144249258,
+        "cumulative_exact_excess": 20558.160627087345,
+        "normalized_cumulative_exact_excess": 1.254770546086874,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 14,
+        "block": [
+          16384,
+          32768
+        ],
+        "exact_excess_equals_weighted_twin_mass": 21847.34898267158,
+        "cumulative_exact_excess": 42405.50960975893,
+        "normalized_cumulative_exact_excess": 1.2941134524462563,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 15,
+        "block": [
+          32768,
+          65536
+        ],
+        "exact_excess_equals_weighted_twin_mass": 41175.32141775507,
+        "cumulative_exact_excess": 83580.831027514,
+        "normalized_cumulative_exact_excess": 1.2753422703172912,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 16,
+        "block": [
+          65536,
+          131072
+        ],
+        "exact_excess_equals_weighted_twin_mass": 87653.29378784791,
+        "cumulative_exact_excess": 171234.12481536192,
+        "normalized_cumulative_exact_excess": 1.3064126954297022,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 17,
+        "block": [
+          131072,
+          262144
+        ],
+        "exact_excess_equals_weighted_twin_mass": 170522.16627598935,
+        "cumulative_exact_excess": 341756.2910913513,
+        "normalized_cumulative_exact_excess": 1.3036967891363194,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 18,
+        "block": [
+          262144,
+          524288
+        ],
+        "exact_excess_equals_weighted_twin_mass": 342219.9300581405,
+        "cumulative_exact_excess": 683976.2211494918,
+        "normalized_cumulative_exact_excess": 1.3045811102857434,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      },
+      {
+        "dyadic_exponent_j": 19,
+        "block": [
+          524288,
+          1048576
+        ],
+        "exact_excess_equals_weighted_twin_mass": 695300.6983668064,
+        "cumulative_exact_excess": 1379276.9195162982,
+        "normalized_cumulative_exact_excess": 1.315380973354624,
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true
+        }
+      }
+    ],
+    "sparse_mass_no_go_rows": [
+      {
+        "dyadic_exponent_j": 4,
+        "block_mass_b_j": 1,
+        "cumulative_mass_through_j": 4,
+        "normalized_block_mass": {
+          "numerator": 1,
+          "denominator": 16,
+          "exact": "1/16",
+          "decimal": 0.0625
+        },
+        "normalized_cumulative_mass": {
+          "numerator": 1,
+          "denominator": 8,
+          "exact": "1/8",
+          "decimal": 0.125
+        }
+      },
+      {
+        "dyadic_exponent_j": 8,
+        "block_mass_b_j": 1,
+        "cumulative_mass_through_j": 8,
+        "normalized_block_mass": {
+          "numerator": 1,
+          "denominator": 256,
+          "exact": "1/256",
+          "decimal": 0.00390625
+        },
+        "normalized_cumulative_mass": {
+          "numerator": 1,
+          "denominator": 64,
+          "exact": "1/64",
+          "decimal": 0.015625
+        }
+      },
+      {
+        "dyadic_exponent_j": 16,
+        "block_mass_b_j": 1,
+        "cumulative_mass_through_j": 16,
+        "normalized_block_mass": {
+          "numerator": 1,
+          "denominator": 65536,
+          "exact": "1/65536",
+          "decimal": 1.52587890625e-05
+        },
+        "normalized_cumulative_mass": {
+          "numerator": 1,
+          "denominator": 8192,
+          "exact": "1/8192",
+          "decimal": 0.0001220703125
+        }
+      },
+      {
+        "dyadic_exponent_j": 32,
+        "block_mass_b_j": 1,
+        "cumulative_mass_through_j": 32,
+        "normalized_block_mass": {
+          "numerator": 1,
+          "denominator": 4294967296,
+          "exact": "1/4294967296",
+          "decimal": 2.3283064365386963e-10
+        },
+        "normalized_cumulative_mass": {
+          "numerator": 1,
+          "denominator": 268435456,
+          "exact": "1/268435456",
+          "decimal": 3.725290298461914e-09
+        }
+      },
+      {
+        "dyadic_exponent_j": 64,
+        "block_mass_b_j": 1,
+        "cumulative_mass_through_j": 64,
+        "normalized_block_mass": {
+          "numerator": 1,
+          "denominator": 18446744073709551616,
+          "exact": "1/18446744073709551616",
+          "decimal": 5.421010862427522e-20
+        },
+        "normalized_cumulative_mass": {
+          "numerator": 1,
+          "denominator": 576460752303423488,
+          "exact": "1/576460752303423488",
+          "decimal": 1.734723475976807e-18
+        }
+      }
+    ],
+    "aggregate": {
+      "dyadic_block_count": 16,
+      "largest_upper_endpoint": 1048576,
+      "linear_cumulative_to_block_transfer_proved": true,
+      "unbounded_mass_implies_linear_limsup": false,
+      "ticket189_linear_target_is_necessary": false,
+      "unbounded_exact_excess_proved": false
+    },
+    "no_go_scope": "The transfer theorem does not prove that the actual cumulative shift-two excess is unbounded or has positive linear limsup. It only separates a conjecture-equivalent unboundedness target from the stronger Hardy-Littlewood-scale linear target.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a positive linear dyadic lower bound as necessary or equivalent to the Twin Prime conjecture",
+  "remaining_gap": "No unbounded lower envelope is proved for cumulative shift-two correlation after exact prime-power subtraction.",
+  "candidate_theorem": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+  "claim_boundary": "No Twin Prime proof. Linear cumulative and dyadic targets are related exactly, while a sparse-mass countermodel proves that linear growth is stronger than infinitude.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T189-INPUT",
+        "label": "ShiftTwoVonMangoldtPrimePowerContaminationBridge",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "TP-T190-CLOSED",
+        "label": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T190-REJECTED",
+        "label": "UnboundedCumulativeTwinMassImpliesPositiveLinearDyadicMass",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "TP-T190-OPEN",
+        "label": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T189-INPUT",
+        "TP-T190-CLOSED"
+      ],
+      [
+        "TP-T190-CLOSED",
+        "TP-T190-OPEN"
+      ],
+      [
+        "TP-T190-REJECTED",
+        "TP-T190-OPEN"
+      ]
+    ]
+  }
+}

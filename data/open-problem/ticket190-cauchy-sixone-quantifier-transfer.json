@@ -1,0 +1,4603 @@
+{
+  "schema": "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "status": "one_additional_infinite_cycle_stratum_closed_three_exact_quantifier_boundaries_all_open",
+  "claim_boundary": "TICKET-190 resolves none of the four conjectures. It excludes the complete accelerated Collatz cycle stratum with exactly six valuation-one entries and all other entries two. The other three tracks prove exact promotion or quantifier boundaries and retain their arithmetic premises as open.",
+  "cauchy_sixone_quantifier_transfer_audit": {
+    "theorem_name": "FourConjectureCauchySixOneQuantifierTransferAudit",
+    "status": "one_additional_infinite_cycle_stratum_closed_three_exact_quantifier_boundaries_all_open",
+    "proof_boundary": "TICKET-190 resolves none of the four conjectures. It excludes the complete accelerated Collatz cycle stratum with exactly six valuation-one entries and all other entries two. The other three tracks prove exact promotion or quantifier boundaries and retain their arithmetic premises as open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-190",
+      "theorem_name": "DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo",
+      "declared_proposition": "Compatible Hermitian fixed cores with a certified direct Cauchy modulus define one Hermitian form on c_00; a vanishing lower eigenvalue defect makes that form positive semidefinite. Absolute summability of adjacent operator drifts is sufficient but not necessary: the positive scalar cores 2+sum_(k<=N)(-1)^(k+1)/k have direct Cauchy modulus 1/(N+1), while the sum of adjacent drift norms is harmonic and diverges. A compatible positive form extends to a bounded positive operator on l_2 when its core norms are uniformly bounded; without that bound, diag(1,...,m) gives a compatible positive counterfamily with no bounded l_2 extension.",
+      "mathematical_argument": "The direct modulus makes every fixed finite-dimensional core Cauchy, and compatibility makes the limits agree on overlapping supports, defining a form on c_00. The alternating-series theorem bounds every finite tail after N by 1/(N+1), although the absolute adjacent drifts sum as the harmonic series. If all compatible core norms are at most M, the form is bounded by M||x||_2||y||_2 on c_00 and extends uniquely; Riesz representation yields a bounded positive self-adjoint operator. For Q_m=diag(1,...,m), any such extension would satisfy ||Qe_m||=m for every m, contradicting boundedness.",
+      "reproducible_computation": {
+        "theorem": "Compatible Hermitian fixed cores with a certified direct Cauchy modulus define one Hermitian form on c_00; a vanishing lower eigenvalue defect makes that form positive semidefinite. Absolute summability of adjacent operator drifts is sufficient but not necessary: the positive scalar cores 2+sum_(k<=N)(-1)^(k+1)/k have direct Cauchy modulus 1/(N+1), while the sum of adjacent drift norms is harmonic and diverges. A compatible positive form extends to a bounded positive operator on l_2 when its core norms are uniformly bounded; without that bound, diag(1,...,m) gives a compatible positive counterfamily with no bounded l_2 extension.",
+        "proof": "The direct modulus makes every fixed finite-dimensional core Cauchy, and compatibility makes the limits agree on overlapping supports, defining a form on c_00. The alternating-series theorem bounds every finite tail after N by 1/(N+1), although the absolute adjacent drifts sum as the harmonic series. If all compatible core norms are at most M, the form is bounded by M||x||_2||y||_2 on c_00 and extends uniquely; Riesz representation yields a bounded positive self-adjoint operator. For Q_m=diag(1,...,m), any such extension would satisfy ||Qe_m||=m for every m, contradicting boundedness.",
+        "alternating_nonsummable_family": {
+          "definition": "A_N=2+sum_(k=1)^N (-1)^(k+1)/k",
+          "rows": [
+            {
+              "ambient_dimension_N": 4,
+              "scalar_core_value": {
+                "numerator": 31,
+                "denominator": 12,
+                "exact": "31/12",
+                "decimal": 2.5833333333333335
+              },
+              "next_adjacent_drift_norm": {
+                "numerator": 1,
+                "denominator": 5,
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              "certified_error_to_two_plus_log_two": {
+                "numerator": 1,
+                "denominator": 5,
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              "positive": true
+            },
+            {
+              "ambient_dimension_N": 8,
+              "scalar_core_value": {
+                "numerator": 2213,
+                "denominator": 840,
+                "exact": "2213/840",
+                "decimal": 2.6345238095238095
+              },
+              "next_adjacent_drift_norm": {
+                "numerator": 1,
+                "denominator": 9,
+                "exact": "1/9",
+                "decimal": 0.1111111111111111
+              },
+              "certified_error_to_two_plus_log_two": {
+                "numerator": 1,
+                "denominator": 9,
+                "exact": "1/9",
+                "decimal": 0.1111111111111111
+              },
+              "positive": true
+            },
+            {
+              "ambient_dimension_N": 16,
+              "scalar_core_value": {
+                "numerator": 383837,
+                "denominator": 144144,
+                "exact": "383837/144144",
+                "decimal": 2.6628718503718503
+              },
+              "next_adjacent_drift_norm": {
+                "numerator": 1,
+                "denominator": 17,
+                "exact": "1/17",
+                "decimal": 0.058823529411764705
+              },
+              "certified_error_to_two_plus_log_two": {
+                "numerator": 1,
+                "denominator": 17,
+                "exact": "1/17",
+                "decimal": 0.058823529411764705
+              },
+              "positive": true
+            },
+            {
+              "ambient_dimension_N": 32,
+              "scalar_core_value": {
+                "numerator": 55239850488167,
+                "denominator": 20629078984800,
+                "exact": "55239850488167/20629078984800",
+                "decimal": 2.677766202207527
+              },
+              "next_adjacent_drift_norm": {
+                "numerator": 1,
+                "denominator": 33,
+                "exact": "1/33",
+                "decimal": 0.030303030303030304
+              },
+              "certified_error_to_two_plus_log_two": {
+                "numerator": 1,
+                "denominator": 33,
+                "exact": "1/33",
+                "decimal": 0.030303030303030304
+              },
+              "positive": true
+            },
+            {
+              "ambient_dimension_N": 64,
+              "scalar_core_value": {
+                "numerator": 3174854416598576433395979917,
+                "denominator": 1182266884102822267511361600,
+                "exact": "3174854416598576433395979917/1182266884102822267511361600",
+                "decimal": 2.685395708269249
+              },
+              "next_adjacent_drift_norm": {
+                "numerator": 1,
+                "denominator": 65,
+                "exact": "1/65",
+                "decimal": 0.015384615384615385
+              },
+              "certified_error_to_two_plus_log_two": {
+                "numerator": 1,
+                "denominator": 65,
+                "exact": "1/65",
+                "decimal": 0.015384615384615385
+              },
+              "positive": true
+            },
+            {
+              "ambient_dimension_N": 128,
+              "scalar_core_value": {
+                "numerator": 35911671212554233058310722224850476444263870602312670531,
+                "denominator": 13353756090997411579403749204440236542538872688049072000,
+                "exact": "35911671212554233058310722224850476444263870602312670531/13353756090997411579403749204440236542538872688049072000",
+                "decimal": 2.6892561888834035
+              },
+              "next_adjacent_drift_norm": {
+                "numerator": 1,
+                "denominator": 129,
+                "exact": "1/129",
+                "decimal": 0.007751937984496124
+              },
+              "certified_error_to_two_plus_log_two": {
+                "numerator": 1,
+                "denominator": 129,
+                "exact": "1/129",
+                "decimal": 0.007751937984496124
+              },
+              "positive": true
+            }
+          ],
+          "cauchy_pair_rows": [
+            {
+              "left_N": 4,
+              "right_M": 8,
+              "exact_core_difference": {
+                "numerator": 43,
+                "denominator": 840,
+                "exact": "43/840",
+                "decimal": 0.05119047619047619
+              },
+              "alternating_cauchy_modulus": {
+                "numerator": 1,
+                "denominator": 5,
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              "difference_below_modulus": true
+            },
+            {
+              "left_N": 8,
+              "right_M": 17,
+              "exact_core_difference": {
+                "numerator": 1068047,
+                "denominator": 12252240,
+                "exact": "1068047/12252240",
+                "decimal": 0.08717157025980556
+              },
+              "alternating_cauchy_modulus": {
+                "numerator": 1,
+                "denominator": 9,
+                "exact": "1/9",
+                "decimal": 0.1111111111111111
+              },
+              "difference_below_modulus": true
+            },
+            {
+              "left_N": 16,
+              "right_M": 33,
+              "exact_core_difference": {
+                "numerator": 6526662562319,
+                "denominator": 144403552893600,
+                "exact": "6526662562319/144403552893600",
+                "decimal": 0.045197382138706804
+              },
+              "alternating_cauchy_modulus": {
+                "numerator": 1,
+                "denominator": 17,
+                "exact": "1/17",
+                "decimal": 0.058823529411764705
+              },
+              "difference_below_modulus": true
+            },
+            {
+              "left_N": 32,
+              "right_M": 65,
+              "exact_core_difference": {
+                "numerator": 27208833652725295571733043,
+                "denominator": 1182266884102822267511361600,
+                "exact": "27208833652725295571733043/1182266884102822267511361600",
+                "decimal": 0.023014121446337434
+              },
+              "alternating_cauchy_modulus": {
+                "numerator": 1,
+                "denominator": 33,
+                "exact": "1/33",
+                "decimal": 0.030303030303030304
+              },
+              "difference_below_modulus": true
+            },
+            {
+              "left_N": 64,
+              "right_M": 129,
+              "exact_core_difference": {
+                "numerator": 155069405592941429648045533101636291302118471891278141,
+                "denominator": 13353756090997411579403749204440236542538872688049072000,
+                "exact": "155069405592941429648045533101636291302118471891278141/13353756090997411579403749204440236542538872688049072000",
+                "decimal": 0.011612418598650552
+              },
+              "alternating_cauchy_modulus": {
+                "numerator": 1,
+                "denominator": 65,
+                "exact": "1/65",
+                "decimal": 0.015384615384615385
+              },
+              "difference_below_modulus": true
+            }
+          ],
+          "direct_cauchy_modulus_proved": true,
+          "absolute_adjacent_drift_sum_converges": false
+        },
+        "bounded_extension_family": {
+          "definition": "Q_m=diag(1,1/2,...,1/m)",
+          "rows": [
+            {
+              "core_dimension_m": 4,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 2,
+                  "exact": "1/2",
+                  "decimal": 0.5
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 3,
+                  "exact": "1/3",
+                  "decimal": 0.3333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "exact": "1/4",
+                  "decimal": 0.25
+                }
+              ],
+              "operator_norm": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 4,
+                "exact": "1/4",
+                "decimal": 0.25
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 8,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 2,
+                  "exact": "1/2",
+                  "decimal": 0.5
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 3,
+                  "exact": "1/3",
+                  "decimal": 0.3333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "exact": "1/4",
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 5,
+                  "exact": "1/5",
+                  "decimal": 0.2
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 6,
+                  "exact": "1/6",
+                  "decimal": 0.16666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 7,
+                  "exact": "1/7",
+                  "decimal": 0.14285714285714285
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 8,
+                  "exact": "1/8",
+                  "decimal": 0.125
+                }
+              ],
+              "operator_norm": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 8,
+                "exact": "1/8",
+                "decimal": 0.125
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 16,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 2,
+                  "exact": "1/2",
+                  "decimal": 0.5
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 3,
+                  "exact": "1/3",
+                  "decimal": 0.3333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "exact": "1/4",
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 5,
+                  "exact": "1/5",
+                  "decimal": 0.2
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 6,
+                  "exact": "1/6",
+                  "decimal": 0.16666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 7,
+                  "exact": "1/7",
+                  "decimal": 0.14285714285714285
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 8,
+                  "exact": "1/8",
+                  "decimal": 0.125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 9,
+                  "exact": "1/9",
+                  "decimal": 0.1111111111111111
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 10,
+                  "exact": "1/10",
+                  "decimal": 0.1
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 11,
+                  "exact": "1/11",
+                  "decimal": 0.09090909090909091
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 12,
+                  "exact": "1/12",
+                  "decimal": 0.08333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 13,
+                  "exact": "1/13",
+                  "decimal": 0.07692307692307693
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 14,
+                  "exact": "1/14",
+                  "decimal": 0.07142857142857142
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 15,
+                  "exact": "1/15",
+                  "decimal": 0.06666666666666667
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 16,
+                  "exact": "1/16",
+                  "decimal": 0.0625
+                }
+              ],
+              "operator_norm": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 16,
+                "exact": "1/16",
+                "decimal": 0.0625
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 32,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 2,
+                  "exact": "1/2",
+                  "decimal": 0.5
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 3,
+                  "exact": "1/3",
+                  "decimal": 0.3333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "exact": "1/4",
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 5,
+                  "exact": "1/5",
+                  "decimal": 0.2
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 6,
+                  "exact": "1/6",
+                  "decimal": 0.16666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 7,
+                  "exact": "1/7",
+                  "decimal": 0.14285714285714285
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 8,
+                  "exact": "1/8",
+                  "decimal": 0.125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 9,
+                  "exact": "1/9",
+                  "decimal": 0.1111111111111111
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 10,
+                  "exact": "1/10",
+                  "decimal": 0.1
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 11,
+                  "exact": "1/11",
+                  "decimal": 0.09090909090909091
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 12,
+                  "exact": "1/12",
+                  "decimal": 0.08333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 13,
+                  "exact": "1/13",
+                  "decimal": 0.07692307692307693
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 14,
+                  "exact": "1/14",
+                  "decimal": 0.07142857142857142
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 15,
+                  "exact": "1/15",
+                  "decimal": 0.06666666666666667
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 16,
+                  "exact": "1/16",
+                  "decimal": 0.0625
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 17,
+                  "exact": "1/17",
+                  "decimal": 0.058823529411764705
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 18,
+                  "exact": "1/18",
+                  "decimal": 0.05555555555555555
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 19,
+                  "exact": "1/19",
+                  "decimal": 0.05263157894736842
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "exact": "1/20",
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 21,
+                  "exact": "1/21",
+                  "decimal": 0.047619047619047616
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 22,
+                  "exact": "1/22",
+                  "decimal": 0.045454545454545456
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 23,
+                  "exact": "1/23",
+                  "decimal": 0.043478260869565216
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 24,
+                  "exact": "1/24",
+                  "decimal": 0.041666666666666664
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 25,
+                  "exact": "1/25",
+                  "decimal": 0.04
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 26,
+                  "exact": "1/26",
+                  "decimal": 0.038461538461538464
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 27,
+                  "exact": "1/27",
+                  "decimal": 0.037037037037037035
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 28,
+                  "exact": "1/28",
+                  "decimal": 0.03571428571428571
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 29,
+                  "exact": "1/29",
+                  "decimal": 0.034482758620689655
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 30,
+                  "exact": "1/30",
+                  "decimal": 0.03333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 31,
+                  "exact": "1/31",
+                  "decimal": 0.03225806451612903
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 32,
+                  "exact": "1/32",
+                  "decimal": 0.03125
+                }
+              ],
+              "operator_norm": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 32,
+                "exact": "1/32",
+                "decimal": 0.03125
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 64,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 2,
+                  "exact": "1/2",
+                  "decimal": 0.5
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 3,
+                  "exact": "1/3",
+                  "decimal": 0.3333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "exact": "1/4",
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 5,
+                  "exact": "1/5",
+                  "decimal": 0.2
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 6,
+                  "exact": "1/6",
+                  "decimal": 0.16666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 7,
+                  "exact": "1/7",
+                  "decimal": 0.14285714285714285
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 8,
+                  "exact": "1/8",
+                  "decimal": 0.125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 9,
+                  "exact": "1/9",
+                  "decimal": 0.1111111111111111
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 10,
+                  "exact": "1/10",
+                  "decimal": 0.1
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 11,
+                  "exact": "1/11",
+                  "decimal": 0.09090909090909091
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 12,
+                  "exact": "1/12",
+                  "decimal": 0.08333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 13,
+                  "exact": "1/13",
+                  "decimal": 0.07692307692307693
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 14,
+                  "exact": "1/14",
+                  "decimal": 0.07142857142857142
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 15,
+                  "exact": "1/15",
+                  "decimal": 0.06666666666666667
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 16,
+                  "exact": "1/16",
+                  "decimal": 0.0625
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 17,
+                  "exact": "1/17",
+                  "decimal": 0.058823529411764705
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 18,
+                  "exact": "1/18",
+                  "decimal": 0.05555555555555555
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 19,
+                  "exact": "1/19",
+                  "decimal": 0.05263157894736842
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "exact": "1/20",
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 21,
+                  "exact": "1/21",
+                  "decimal": 0.047619047619047616
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 22,
+                  "exact": "1/22",
+                  "decimal": 0.045454545454545456
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 23,
+                  "exact": "1/23",
+                  "decimal": 0.043478260869565216
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 24,
+                  "exact": "1/24",
+                  "decimal": 0.041666666666666664
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 25,
+                  "exact": "1/25",
+                  "decimal": 0.04
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 26,
+                  "exact": "1/26",
+                  "decimal": 0.038461538461538464
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 27,
+                  "exact": "1/27",
+                  "decimal": 0.037037037037037035
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 28,
+                  "exact": "1/28",
+                  "decimal": 0.03571428571428571
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 29,
+                  "exact": "1/29",
+                  "decimal": 0.034482758620689655
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 30,
+                  "exact": "1/30",
+                  "decimal": 0.03333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 31,
+                  "exact": "1/31",
+                  "decimal": 0.03225806451612903
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 32,
+                  "exact": "1/32",
+                  "decimal": 0.03125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 33,
+                  "exact": "1/33",
+                  "decimal": 0.030303030303030304
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 34,
+                  "exact": "1/34",
+                  "decimal": 0.029411764705882353
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 35,
+                  "exact": "1/35",
+                  "decimal": 0.02857142857142857
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 36,
+                  "exact": "1/36",
+                  "decimal": 0.027777777777777776
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 37,
+                  "exact": "1/37",
+                  "decimal": 0.02702702702702703
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 38,
+                  "exact": "1/38",
+                  "decimal": 0.02631578947368421
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 39,
+                  "exact": "1/39",
+                  "decimal": 0.02564102564102564
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 40,
+                  "exact": "1/40",
+                  "decimal": 0.025
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 41,
+                  "exact": "1/41",
+                  "decimal": 0.024390243902439025
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 42,
+                  "exact": "1/42",
+                  "decimal": 0.023809523809523808
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 43,
+                  "exact": "1/43",
+                  "decimal": 0.023255813953488372
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 44,
+                  "exact": "1/44",
+                  "decimal": 0.022727272727272728
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 45,
+                  "exact": "1/45",
+                  "decimal": 0.022222222222222223
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 46,
+                  "exact": "1/46",
+                  "decimal": 0.021739130434782608
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 47,
+                  "exact": "1/47",
+                  "decimal": 0.02127659574468085
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 48,
+                  "exact": "1/48",
+                  "decimal": 0.020833333333333332
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 49,
+                  "exact": "1/49",
+                  "decimal": 0.02040816326530612
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 50,
+                  "exact": "1/50",
+                  "decimal": 0.02
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 51,
+                  "exact": "1/51",
+                  "decimal": 0.0196078431372549
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 52,
+                  "exact": "1/52",
+                  "decimal": 0.019230769230769232
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 53,
+                  "exact": "1/53",
+                  "decimal": 0.018867924528301886
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 54,
+                  "exact": "1/54",
+                  "decimal": 0.018518518518518517
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 55,
+                  "exact": "1/55",
+                  "decimal": 0.01818181818181818
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 56,
+                  "exact": "1/56",
+                  "decimal": 0.017857142857142856
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 57,
+                  "exact": "1/57",
+                  "decimal": 0.017543859649122806
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 58,
+                  "exact": "1/58",
+                  "decimal": 0.017241379310344827
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 59,
+                  "exact": "1/59",
+                  "decimal": 0.01694915254237288
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 60,
+                  "exact": "1/60",
+                  "decimal": 0.016666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 61,
+                  "exact": "1/61",
+                  "decimal": 0.01639344262295082
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 62,
+                  "exact": "1/62",
+                  "decimal": 0.016129032258064516
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 63,
+                  "exact": "1/63",
+                  "decimal": 0.015873015873015872
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 64,
+                  "exact": "1/64",
+                  "decimal": 0.015625
+                }
+              ],
+              "operator_norm": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 64,
+                "exact": "1/64",
+                "decimal": 0.015625
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 128,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 2,
+                  "exact": "1/2",
+                  "decimal": 0.5
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 3,
+                  "exact": "1/3",
+                  "decimal": 0.3333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 4,
+                  "exact": "1/4",
+                  "decimal": 0.25
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 5,
+                  "exact": "1/5",
+                  "decimal": 0.2
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 6,
+                  "exact": "1/6",
+                  "decimal": 0.16666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 7,
+                  "exact": "1/7",
+                  "decimal": 0.14285714285714285
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 8,
+                  "exact": "1/8",
+                  "decimal": 0.125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 9,
+                  "exact": "1/9",
+                  "decimal": 0.1111111111111111
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 10,
+                  "exact": "1/10",
+                  "decimal": 0.1
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 11,
+                  "exact": "1/11",
+                  "decimal": 0.09090909090909091
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 12,
+                  "exact": "1/12",
+                  "decimal": 0.08333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 13,
+                  "exact": "1/13",
+                  "decimal": 0.07692307692307693
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 14,
+                  "exact": "1/14",
+                  "decimal": 0.07142857142857142
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 15,
+                  "exact": "1/15",
+                  "decimal": 0.06666666666666667
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 16,
+                  "exact": "1/16",
+                  "decimal": 0.0625
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 17,
+                  "exact": "1/17",
+                  "decimal": 0.058823529411764705
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 18,
+                  "exact": "1/18",
+                  "decimal": 0.05555555555555555
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 19,
+                  "exact": "1/19",
+                  "decimal": 0.05263157894736842
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 20,
+                  "exact": "1/20",
+                  "decimal": 0.05
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 21,
+                  "exact": "1/21",
+                  "decimal": 0.047619047619047616
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 22,
+                  "exact": "1/22",
+                  "decimal": 0.045454545454545456
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 23,
+                  "exact": "1/23",
+                  "decimal": 0.043478260869565216
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 24,
+                  "exact": "1/24",
+                  "decimal": 0.041666666666666664
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 25,
+                  "exact": "1/25",
+                  "decimal": 0.04
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 26,
+                  "exact": "1/26",
+                  "decimal": 0.038461538461538464
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 27,
+                  "exact": "1/27",
+                  "decimal": 0.037037037037037035
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 28,
+                  "exact": "1/28",
+                  "decimal": 0.03571428571428571
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 29,
+                  "exact": "1/29",
+                  "decimal": 0.034482758620689655
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 30,
+                  "exact": "1/30",
+                  "decimal": 0.03333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 31,
+                  "exact": "1/31",
+                  "decimal": 0.03225806451612903
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 32,
+                  "exact": "1/32",
+                  "decimal": 0.03125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 33,
+                  "exact": "1/33",
+                  "decimal": 0.030303030303030304
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 34,
+                  "exact": "1/34",
+                  "decimal": 0.029411764705882353
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 35,
+                  "exact": "1/35",
+                  "decimal": 0.02857142857142857
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 36,
+                  "exact": "1/36",
+                  "decimal": 0.027777777777777776
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 37,
+                  "exact": "1/37",
+                  "decimal": 0.02702702702702703
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 38,
+                  "exact": "1/38",
+                  "decimal": 0.02631578947368421
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 39,
+                  "exact": "1/39",
+                  "decimal": 0.02564102564102564
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 40,
+                  "exact": "1/40",
+                  "decimal": 0.025
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 41,
+                  "exact": "1/41",
+                  "decimal": 0.024390243902439025
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 42,
+                  "exact": "1/42",
+                  "decimal": 0.023809523809523808
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 43,
+                  "exact": "1/43",
+                  "decimal": 0.023255813953488372
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 44,
+                  "exact": "1/44",
+                  "decimal": 0.022727272727272728
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 45,
+                  "exact": "1/45",
+                  "decimal": 0.022222222222222223
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 46,
+                  "exact": "1/46",
+                  "decimal": 0.021739130434782608
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 47,
+                  "exact": "1/47",
+                  "decimal": 0.02127659574468085
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 48,
+                  "exact": "1/48",
+                  "decimal": 0.020833333333333332
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 49,
+                  "exact": "1/49",
+                  "decimal": 0.02040816326530612
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 50,
+                  "exact": "1/50",
+                  "decimal": 0.02
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 51,
+                  "exact": "1/51",
+                  "decimal": 0.0196078431372549
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 52,
+                  "exact": "1/52",
+                  "decimal": 0.019230769230769232
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 53,
+                  "exact": "1/53",
+                  "decimal": 0.018867924528301886
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 54,
+                  "exact": "1/54",
+                  "decimal": 0.018518518518518517
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 55,
+                  "exact": "1/55",
+                  "decimal": 0.01818181818181818
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 56,
+                  "exact": "1/56",
+                  "decimal": 0.017857142857142856
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 57,
+                  "exact": "1/57",
+                  "decimal": 0.017543859649122806
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 58,
+                  "exact": "1/58",
+                  "decimal": 0.017241379310344827
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 59,
+                  "exact": "1/59",
+                  "decimal": 0.01694915254237288
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 60,
+                  "exact": "1/60",
+                  "decimal": 0.016666666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 61,
+                  "exact": "1/61",
+                  "decimal": 0.01639344262295082
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 62,
+                  "exact": "1/62",
+                  "decimal": 0.016129032258064516
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 63,
+                  "exact": "1/63",
+                  "decimal": 0.015873015873015872
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 64,
+                  "exact": "1/64",
+                  "decimal": 0.015625
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 65,
+                  "exact": "1/65",
+                  "decimal": 0.015384615384615385
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 66,
+                  "exact": "1/66",
+                  "decimal": 0.015151515151515152
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 67,
+                  "exact": "1/67",
+                  "decimal": 0.014925373134328358
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 68,
+                  "exact": "1/68",
+                  "decimal": 0.014705882352941176
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 69,
+                  "exact": "1/69",
+                  "decimal": 0.014492753623188406
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 70,
+                  "exact": "1/70",
+                  "decimal": 0.014285714285714285
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 71,
+                  "exact": "1/71",
+                  "decimal": 0.014084507042253521
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 72,
+                  "exact": "1/72",
+                  "decimal": 0.013888888888888888
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 73,
+                  "exact": "1/73",
+                  "decimal": 0.0136986301369863
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 74,
+                  "exact": "1/74",
+                  "decimal": 0.013513513513513514
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 75,
+                  "exact": "1/75",
+                  "decimal": 0.013333333333333334
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 76,
+                  "exact": "1/76",
+                  "decimal": 0.013157894736842105
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 77,
+                  "exact": "1/77",
+                  "decimal": 0.012987012987012988
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 78,
+                  "exact": "1/78",
+                  "decimal": 0.01282051282051282
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 79,
+                  "exact": "1/79",
+                  "decimal": 0.012658227848101266
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 80,
+                  "exact": "1/80",
+                  "decimal": 0.0125
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 81,
+                  "exact": "1/81",
+                  "decimal": 0.012345679012345678
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 82,
+                  "exact": "1/82",
+                  "decimal": 0.012195121951219513
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 83,
+                  "exact": "1/83",
+                  "decimal": 0.012048192771084338
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 84,
+                  "exact": "1/84",
+                  "decimal": 0.011904761904761904
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 85,
+                  "exact": "1/85",
+                  "decimal": 0.011764705882352941
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 86,
+                  "exact": "1/86",
+                  "decimal": 0.011627906976744186
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 87,
+                  "exact": "1/87",
+                  "decimal": 0.011494252873563218
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 88,
+                  "exact": "1/88",
+                  "decimal": 0.011363636363636364
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 89,
+                  "exact": "1/89",
+                  "decimal": 0.011235955056179775
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 90,
+                  "exact": "1/90",
+                  "decimal": 0.011111111111111112
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 91,
+                  "exact": "1/91",
+                  "decimal": 0.01098901098901099
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 92,
+                  "exact": "1/92",
+                  "decimal": 0.010869565217391304
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 93,
+                  "exact": "1/93",
+                  "decimal": 0.010752688172043012
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 94,
+                  "exact": "1/94",
+                  "decimal": 0.010638297872340425
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 95,
+                  "exact": "1/95",
+                  "decimal": 0.010526315789473684
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 96,
+                  "exact": "1/96",
+                  "decimal": 0.010416666666666666
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 97,
+                  "exact": "1/97",
+                  "decimal": 0.010309278350515464
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 98,
+                  "exact": "1/98",
+                  "decimal": 0.01020408163265306
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 99,
+                  "exact": "1/99",
+                  "decimal": 0.010101010101010102
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 100,
+                  "exact": "1/100",
+                  "decimal": 0.01
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 101,
+                  "exact": "1/101",
+                  "decimal": 0.009900990099009901
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 102,
+                  "exact": "1/102",
+                  "decimal": 0.00980392156862745
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 103,
+                  "exact": "1/103",
+                  "decimal": 0.009708737864077669
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 104,
+                  "exact": "1/104",
+                  "decimal": 0.009615384615384616
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 105,
+                  "exact": "1/105",
+                  "decimal": 0.009523809523809525
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 106,
+                  "exact": "1/106",
+                  "decimal": 0.009433962264150943
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 107,
+                  "exact": "1/107",
+                  "decimal": 0.009345794392523364
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 108,
+                  "exact": "1/108",
+                  "decimal": 0.009259259259259259
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 109,
+                  "exact": "1/109",
+                  "decimal": 0.009174311926605505
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 110,
+                  "exact": "1/110",
+                  "decimal": 0.00909090909090909
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 111,
+                  "exact": "1/111",
+                  "decimal": 0.009009009009009009
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 112,
+                  "exact": "1/112",
+                  "decimal": 0.008928571428571428
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 113,
+                  "exact": "1/113",
+                  "decimal": 0.008849557522123894
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 114,
+                  "exact": "1/114",
+                  "decimal": 0.008771929824561403
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 115,
+                  "exact": "1/115",
+                  "decimal": 0.008695652173913044
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 116,
+                  "exact": "1/116",
+                  "decimal": 0.008620689655172414
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 117,
+                  "exact": "1/117",
+                  "decimal": 0.008547008547008548
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 118,
+                  "exact": "1/118",
+                  "decimal": 0.00847457627118644
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 119,
+                  "exact": "1/119",
+                  "decimal": 0.008403361344537815
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 120,
+                  "exact": "1/120",
+                  "decimal": 0.008333333333333333
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 121,
+                  "exact": "1/121",
+                  "decimal": 0.008264462809917356
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 122,
+                  "exact": "1/122",
+                  "decimal": 0.00819672131147541
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 123,
+                  "exact": "1/123",
+                  "decimal": 0.008130081300813009
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 124,
+                  "exact": "1/124",
+                  "decimal": 0.008064516129032258
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 125,
+                  "exact": "1/125",
+                  "decimal": 0.008
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 126,
+                  "exact": "1/126",
+                  "decimal": 0.007936507936507936
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 127,
+                  "exact": "1/127",
+                  "decimal": 0.007874015748031496
+                },
+                {
+                  "numerator": 1,
+                  "denominator": 128,
+                  "exact": "1/128",
+                  "decimal": 0.0078125
+                }
+              ],
+              "operator_norm": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 128,
+                "exact": "1/128",
+                "decimal": 0.0078125
+              },
+              "positive_semidefinite": true
+            }
+          ],
+          "uniform_operator_bound": {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "bounded_l2_extension_exists": true
+        },
+        "unbounded_extension_counterfamily": {
+          "definition": "Q_m=diag(1,2,...,m)",
+          "rows": [
+            {
+              "core_dimension_m": 4,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 2,
+                  "denominator": 1,
+                  "exact": "2/1",
+                  "decimal": 2.0
+                },
+                {
+                  "numerator": 3,
+                  "denominator": 1,
+                  "exact": "3/1",
+                  "decimal": 3.0
+                },
+                {
+                  "numerator": 4,
+                  "denominator": 1,
+                  "exact": "4/1",
+                  "decimal": 4.0
+                }
+              ],
+              "operator_norm": {
+                "numerator": 4,
+                "denominator": 1,
+                "exact": "4/1",
+                "decimal": 4.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 8,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 2,
+                  "denominator": 1,
+                  "exact": "2/1",
+                  "decimal": 2.0
+                },
+                {
+                  "numerator": 3,
+                  "denominator": 1,
+                  "exact": "3/1",
+                  "decimal": 3.0
+                },
+                {
+                  "numerator": 4,
+                  "denominator": 1,
+                  "exact": "4/1",
+                  "decimal": 4.0
+                },
+                {
+                  "numerator": 5,
+                  "denominator": 1,
+                  "exact": "5/1",
+                  "decimal": 5.0
+                },
+                {
+                  "numerator": 6,
+                  "denominator": 1,
+                  "exact": "6/1",
+                  "decimal": 6.0
+                },
+                {
+                  "numerator": 7,
+                  "denominator": 1,
+                  "exact": "7/1",
+                  "decimal": 7.0
+                },
+                {
+                  "numerator": 8,
+                  "denominator": 1,
+                  "exact": "8/1",
+                  "decimal": 8.0
+                }
+              ],
+              "operator_norm": {
+                "numerator": 8,
+                "denominator": 1,
+                "exact": "8/1",
+                "decimal": 8.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 16,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 2,
+                  "denominator": 1,
+                  "exact": "2/1",
+                  "decimal": 2.0
+                },
+                {
+                  "numerator": 3,
+                  "denominator": 1,
+                  "exact": "3/1",
+                  "decimal": 3.0
+                },
+                {
+                  "numerator": 4,
+                  "denominator": 1,
+                  "exact": "4/1",
+                  "decimal": 4.0
+                },
+                {
+                  "numerator": 5,
+                  "denominator": 1,
+                  "exact": "5/1",
+                  "decimal": 5.0
+                },
+                {
+                  "numerator": 6,
+                  "denominator": 1,
+                  "exact": "6/1",
+                  "decimal": 6.0
+                },
+                {
+                  "numerator": 7,
+                  "denominator": 1,
+                  "exact": "7/1",
+                  "decimal": 7.0
+                },
+                {
+                  "numerator": 8,
+                  "denominator": 1,
+                  "exact": "8/1",
+                  "decimal": 8.0
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 1,
+                  "exact": "9/1",
+                  "decimal": 9.0
+                },
+                {
+                  "numerator": 10,
+                  "denominator": 1,
+                  "exact": "10/1",
+                  "decimal": 10.0
+                },
+                {
+                  "numerator": 11,
+                  "denominator": 1,
+                  "exact": "11/1",
+                  "decimal": 11.0
+                },
+                {
+                  "numerator": 12,
+                  "denominator": 1,
+                  "exact": "12/1",
+                  "decimal": 12.0
+                },
+                {
+                  "numerator": 13,
+                  "denominator": 1,
+                  "exact": "13/1",
+                  "decimal": 13.0
+                },
+                {
+                  "numerator": 14,
+                  "denominator": 1,
+                  "exact": "14/1",
+                  "decimal": 14.0
+                },
+                {
+                  "numerator": 15,
+                  "denominator": 1,
+                  "exact": "15/1",
+                  "decimal": 15.0
+                },
+                {
+                  "numerator": 16,
+                  "denominator": 1,
+                  "exact": "16/1",
+                  "decimal": 16.0
+                }
+              ],
+              "operator_norm": {
+                "numerator": 16,
+                "denominator": 1,
+                "exact": "16/1",
+                "decimal": 16.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 32,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 2,
+                  "denominator": 1,
+                  "exact": "2/1",
+                  "decimal": 2.0
+                },
+                {
+                  "numerator": 3,
+                  "denominator": 1,
+                  "exact": "3/1",
+                  "decimal": 3.0
+                },
+                {
+                  "numerator": 4,
+                  "denominator": 1,
+                  "exact": "4/1",
+                  "decimal": 4.0
+                },
+                {
+                  "numerator": 5,
+                  "denominator": 1,
+                  "exact": "5/1",
+                  "decimal": 5.0
+                },
+                {
+                  "numerator": 6,
+                  "denominator": 1,
+                  "exact": "6/1",
+                  "decimal": 6.0
+                },
+                {
+                  "numerator": 7,
+                  "denominator": 1,
+                  "exact": "7/1",
+                  "decimal": 7.0
+                },
+                {
+                  "numerator": 8,
+                  "denominator": 1,
+                  "exact": "8/1",
+                  "decimal": 8.0
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 1,
+                  "exact": "9/1",
+                  "decimal": 9.0
+                },
+                {
+                  "numerator": 10,
+                  "denominator": 1,
+                  "exact": "10/1",
+                  "decimal": 10.0
+                },
+                {
+                  "numerator": 11,
+                  "denominator": 1,
+                  "exact": "11/1",
+                  "decimal": 11.0
+                },
+                {
+                  "numerator": 12,
+                  "denominator": 1,
+                  "exact": "12/1",
+                  "decimal": 12.0
+                },
+                {
+                  "numerator": 13,
+                  "denominator": 1,
+                  "exact": "13/1",
+                  "decimal": 13.0
+                },
+                {
+                  "numerator": 14,
+                  "denominator": 1,
+                  "exact": "14/1",
+                  "decimal": 14.0
+                },
+                {
+                  "numerator": 15,
+                  "denominator": 1,
+                  "exact": "15/1",
+                  "decimal": 15.0
+                },
+                {
+                  "numerator": 16,
+                  "denominator": 1,
+                  "exact": "16/1",
+                  "decimal": 16.0
+                },
+                {
+                  "numerator": 17,
+                  "denominator": 1,
+                  "exact": "17/1",
+                  "decimal": 17.0
+                },
+                {
+                  "numerator": 18,
+                  "denominator": 1,
+                  "exact": "18/1",
+                  "decimal": 18.0
+                },
+                {
+                  "numerator": 19,
+                  "denominator": 1,
+                  "exact": "19/1",
+                  "decimal": 19.0
+                },
+                {
+                  "numerator": 20,
+                  "denominator": 1,
+                  "exact": "20/1",
+                  "decimal": 20.0
+                },
+                {
+                  "numerator": 21,
+                  "denominator": 1,
+                  "exact": "21/1",
+                  "decimal": 21.0
+                },
+                {
+                  "numerator": 22,
+                  "denominator": 1,
+                  "exact": "22/1",
+                  "decimal": 22.0
+                },
+                {
+                  "numerator": 23,
+                  "denominator": 1,
+                  "exact": "23/1",
+                  "decimal": 23.0
+                },
+                {
+                  "numerator": 24,
+                  "denominator": 1,
+                  "exact": "24/1",
+                  "decimal": 24.0
+                },
+                {
+                  "numerator": 25,
+                  "denominator": 1,
+                  "exact": "25/1",
+                  "decimal": 25.0
+                },
+                {
+                  "numerator": 26,
+                  "denominator": 1,
+                  "exact": "26/1",
+                  "decimal": 26.0
+                },
+                {
+                  "numerator": 27,
+                  "denominator": 1,
+                  "exact": "27/1",
+                  "decimal": 27.0
+                },
+                {
+                  "numerator": 28,
+                  "denominator": 1,
+                  "exact": "28/1",
+                  "decimal": 28.0
+                },
+                {
+                  "numerator": 29,
+                  "denominator": 1,
+                  "exact": "29/1",
+                  "decimal": 29.0
+                },
+                {
+                  "numerator": 30,
+                  "denominator": 1,
+                  "exact": "30/1",
+                  "decimal": 30.0
+                },
+                {
+                  "numerator": 31,
+                  "denominator": 1,
+                  "exact": "31/1",
+                  "decimal": 31.0
+                },
+                {
+                  "numerator": 32,
+                  "denominator": 1,
+                  "exact": "32/1",
+                  "decimal": 32.0
+                }
+              ],
+              "operator_norm": {
+                "numerator": 32,
+                "denominator": 1,
+                "exact": "32/1",
+                "decimal": 32.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 64,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 2,
+                  "denominator": 1,
+                  "exact": "2/1",
+                  "decimal": 2.0
+                },
+                {
+                  "numerator": 3,
+                  "denominator": 1,
+                  "exact": "3/1",
+                  "decimal": 3.0
+                },
+                {
+                  "numerator": 4,
+                  "denominator": 1,
+                  "exact": "4/1",
+                  "decimal": 4.0
+                },
+                {
+                  "numerator": 5,
+                  "denominator": 1,
+                  "exact": "5/1",
+                  "decimal": 5.0
+                },
+                {
+                  "numerator": 6,
+                  "denominator": 1,
+                  "exact": "6/1",
+                  "decimal": 6.0
+                },
+                {
+                  "numerator": 7,
+                  "denominator": 1,
+                  "exact": "7/1",
+                  "decimal": 7.0
+                },
+                {
+                  "numerator": 8,
+                  "denominator": 1,
+                  "exact": "8/1",
+                  "decimal": 8.0
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 1,
+                  "exact": "9/1",
+                  "decimal": 9.0
+                },
+                {
+                  "numerator": 10,
+                  "denominator": 1,
+                  "exact": "10/1",
+                  "decimal": 10.0
+                },
+                {
+                  "numerator": 11,
+                  "denominator": 1,
+                  "exact": "11/1",
+                  "decimal": 11.0
+                },
+                {
+                  "numerator": 12,
+                  "denominator": 1,
+                  "exact": "12/1",
+                  "decimal": 12.0
+                },
+                {
+                  "numerator": 13,
+                  "denominator": 1,
+                  "exact": "13/1",
+                  "decimal": 13.0
+                },
+                {
+                  "numerator": 14,
+                  "denominator": 1,
+                  "exact": "14/1",
+                  "decimal": 14.0
+                },
+                {
+                  "numerator": 15,
+                  "denominator": 1,
+                  "exact": "15/1",
+                  "decimal": 15.0
+                },
+                {
+                  "numerator": 16,
+                  "denominator": 1,
+                  "exact": "16/1",
+                  "decimal": 16.0
+                },
+                {
+                  "numerator": 17,
+                  "denominator": 1,
+                  "exact": "17/1",
+                  "decimal": 17.0
+                },
+                {
+                  "numerator": 18,
+                  "denominator": 1,
+                  "exact": "18/1",
+                  "decimal": 18.0
+                },
+                {
+                  "numerator": 19,
+                  "denominator": 1,
+                  "exact": "19/1",
+                  "decimal": 19.0
+                },
+                {
+                  "numerator": 20,
+                  "denominator": 1,
+                  "exact": "20/1",
+                  "decimal": 20.0
+                },
+                {
+                  "numerator": 21,
+                  "denominator": 1,
+                  "exact": "21/1",
+                  "decimal": 21.0
+                },
+                {
+                  "numerator": 22,
+                  "denominator": 1,
+                  "exact": "22/1",
+                  "decimal": 22.0
+                },
+                {
+                  "numerator": 23,
+                  "denominator": 1,
+                  "exact": "23/1",
+                  "decimal": 23.0
+                },
+                {
+                  "numerator": 24,
+                  "denominator": 1,
+                  "exact": "24/1",
+                  "decimal": 24.0
+                },
+                {
+                  "numerator": 25,
+                  "denominator": 1,
+                  "exact": "25/1",
+                  "decimal": 25.0
+                },
+                {
+                  "numerator": 26,
+                  "denominator": 1,
+                  "exact": "26/1",
+                  "decimal": 26.0
+                },
+                {
+                  "numerator": 27,
+                  "denominator": 1,
+                  "exact": "27/1",
+                  "decimal": 27.0
+                },
+                {
+                  "numerator": 28,
+                  "denominator": 1,
+                  "exact": "28/1",
+                  "decimal": 28.0
+                },
+                {
+                  "numerator": 29,
+                  "denominator": 1,
+                  "exact": "29/1",
+                  "decimal": 29.0
+                },
+                {
+                  "numerator": 30,
+                  "denominator": 1,
+                  "exact": "30/1",
+                  "decimal": 30.0
+                },
+                {
+                  "numerator": 31,
+                  "denominator": 1,
+                  "exact": "31/1",
+                  "decimal": 31.0
+                },
+                {
+                  "numerator": 32,
+                  "denominator": 1,
+                  "exact": "32/1",
+                  "decimal": 32.0
+                },
+                {
+                  "numerator": 33,
+                  "denominator": 1,
+                  "exact": "33/1",
+                  "decimal": 33.0
+                },
+                {
+                  "numerator": 34,
+                  "denominator": 1,
+                  "exact": "34/1",
+                  "decimal": 34.0
+                },
+                {
+                  "numerator": 35,
+                  "denominator": 1,
+                  "exact": "35/1",
+                  "decimal": 35.0
+                },
+                {
+                  "numerator": 36,
+                  "denominator": 1,
+                  "exact": "36/1",
+                  "decimal": 36.0
+                },
+                {
+                  "numerator": 37,
+                  "denominator": 1,
+                  "exact": "37/1",
+                  "decimal": 37.0
+                },
+                {
+                  "numerator": 38,
+                  "denominator": 1,
+                  "exact": "38/1",
+                  "decimal": 38.0
+                },
+                {
+                  "numerator": 39,
+                  "denominator": 1,
+                  "exact": "39/1",
+                  "decimal": 39.0
+                },
+                {
+                  "numerator": 40,
+                  "denominator": 1,
+                  "exact": "40/1",
+                  "decimal": 40.0
+                },
+                {
+                  "numerator": 41,
+                  "denominator": 1,
+                  "exact": "41/1",
+                  "decimal": 41.0
+                },
+                {
+                  "numerator": 42,
+                  "denominator": 1,
+                  "exact": "42/1",
+                  "decimal": 42.0
+                },
+                {
+                  "numerator": 43,
+                  "denominator": 1,
+                  "exact": "43/1",
+                  "decimal": 43.0
+                },
+                {
+                  "numerator": 44,
+                  "denominator": 1,
+                  "exact": "44/1",
+                  "decimal": 44.0
+                },
+                {
+                  "numerator": 45,
+                  "denominator": 1,
+                  "exact": "45/1",
+                  "decimal": 45.0
+                },
+                {
+                  "numerator": 46,
+                  "denominator": 1,
+                  "exact": "46/1",
+                  "decimal": 46.0
+                },
+                {
+                  "numerator": 47,
+                  "denominator": 1,
+                  "exact": "47/1",
+                  "decimal": 47.0
+                },
+                {
+                  "numerator": 48,
+                  "denominator": 1,
+                  "exact": "48/1",
+                  "decimal": 48.0
+                },
+                {
+                  "numerator": 49,
+                  "denominator": 1,
+                  "exact": "49/1",
+                  "decimal": 49.0
+                },
+                {
+                  "numerator": 50,
+                  "denominator": 1,
+                  "exact": "50/1",
+                  "decimal": 50.0
+                },
+                {
+                  "numerator": 51,
+                  "denominator": 1,
+                  "exact": "51/1",
+                  "decimal": 51.0
+                },
+                {
+                  "numerator": 52,
+                  "denominator": 1,
+                  "exact": "52/1",
+                  "decimal": 52.0
+                },
+                {
+                  "numerator": 53,
+                  "denominator": 1,
+                  "exact": "53/1",
+                  "decimal": 53.0
+                },
+                {
+                  "numerator": 54,
+                  "denominator": 1,
+                  "exact": "54/1",
+                  "decimal": 54.0
+                },
+                {
+                  "numerator": 55,
+                  "denominator": 1,
+                  "exact": "55/1",
+                  "decimal": 55.0
+                },
+                {
+                  "numerator": 56,
+                  "denominator": 1,
+                  "exact": "56/1",
+                  "decimal": 56.0
+                },
+                {
+                  "numerator": 57,
+                  "denominator": 1,
+                  "exact": "57/1",
+                  "decimal": 57.0
+                },
+                {
+                  "numerator": 58,
+                  "denominator": 1,
+                  "exact": "58/1",
+                  "decimal": 58.0
+                },
+                {
+                  "numerator": 59,
+                  "denominator": 1,
+                  "exact": "59/1",
+                  "decimal": 59.0
+                },
+                {
+                  "numerator": 60,
+                  "denominator": 1,
+                  "exact": "60/1",
+                  "decimal": 60.0
+                },
+                {
+                  "numerator": 61,
+                  "denominator": 1,
+                  "exact": "61/1",
+                  "decimal": 61.0
+                },
+                {
+                  "numerator": 62,
+                  "denominator": 1,
+                  "exact": "62/1",
+                  "decimal": 62.0
+                },
+                {
+                  "numerator": 63,
+                  "denominator": 1,
+                  "exact": "63/1",
+                  "decimal": 63.0
+                },
+                {
+                  "numerator": 64,
+                  "denominator": 1,
+                  "exact": "64/1",
+                  "decimal": 64.0
+                }
+              ],
+              "operator_norm": {
+                "numerator": 64,
+                "denominator": 1,
+                "exact": "64/1",
+                "decimal": 64.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "positive_semidefinite": true
+            },
+            {
+              "core_dimension_m": 128,
+              "diagonal": [
+                {
+                  "numerator": 1,
+                  "denominator": 1,
+                  "exact": "1/1",
+                  "decimal": 1.0
+                },
+                {
+                  "numerator": 2,
+                  "denominator": 1,
+                  "exact": "2/1",
+                  "decimal": 2.0
+                },
+                {
+                  "numerator": 3,
+                  "denominator": 1,
+                  "exact": "3/1",
+                  "decimal": 3.0
+                },
+                {
+                  "numerator": 4,
+                  "denominator": 1,
+                  "exact": "4/1",
+                  "decimal": 4.0
+                },
+                {
+                  "numerator": 5,
+                  "denominator": 1,
+                  "exact": "5/1",
+                  "decimal": 5.0
+                },
+                {
+                  "numerator": 6,
+                  "denominator": 1,
+                  "exact": "6/1",
+                  "decimal": 6.0
+                },
+                {
+                  "numerator": 7,
+                  "denominator": 1,
+                  "exact": "7/1",
+                  "decimal": 7.0
+                },
+                {
+                  "numerator": 8,
+                  "denominator": 1,
+                  "exact": "8/1",
+                  "decimal": 8.0
+                },
+                {
+                  "numerator": 9,
+                  "denominator": 1,
+                  "exact": "9/1",
+                  "decimal": 9.0
+                },
+                {
+                  "numerator": 10,
+                  "denominator": 1,
+                  "exact": "10/1",
+                  "decimal": 10.0
+                },
+                {
+                  "numerator": 11,
+                  "denominator": 1,
+                  "exact": "11/1",
+                  "decimal": 11.0
+                },
+                {
+                  "numerator": 12,
+                  "denominator": 1,
+                  "exact": "12/1",
+                  "decimal": 12.0
+                },
+                {
+                  "numerator": 13,
+                  "denominator": 1,
+                  "exact": "13/1",
+                  "decimal": 13.0
+                },
+                {
+                  "numerator": 14,
+                  "denominator": 1,
+                  "exact": "14/1",
+                  "decimal": 14.0
+                },
+                {
+                  "numerator": 15,
+                  "denominator": 1,
+                  "exact": "15/1",
+                  "decimal": 15.0
+                },
+                {
+                  "numerator": 16,
+                  "denominator": 1,
+                  "exact": "16/1",
+                  "decimal": 16.0
+                },
+                {
+                  "numerator": 17,
+                  "denominator": 1,
+                  "exact": "17/1",
+                  "decimal": 17.0
+                },
+                {
+                  "numerator": 18,
+                  "denominator": 1,
+                  "exact": "18/1",
+                  "decimal": 18.0
+                },
+                {
+                  "numerator": 19,
+                  "denominator": 1,
+                  "exact": "19/1",
+                  "decimal": 19.0
+                },
+                {
+                  "numerator": 20,
+                  "denominator": 1,
+                  "exact": "20/1",
+                  "decimal": 20.0
+                },
+                {
+                  "numerator": 21,
+                  "denominator": 1,
+                  "exact": "21/1",
+                  "decimal": 21.0
+                },
+                {
+                  "numerator": 22,
+                  "denominator": 1,
+                  "exact": "22/1",
+                  "decimal": 22.0
+                },
+                {
+                  "numerator": 23,
+                  "denominator": 1,
+                  "exact": "23/1",
+                  "decimal": 23.0
+                },
+                {
+                  "numerator": 24,
+                  "denominator": 1,
+                  "exact": "24/1",
+                  "decimal": 24.0
+                },
+                {
+                  "numerator": 25,
+                  "denominator": 1,
+                  "exact": "25/1",
+                  "decimal": 25.0
+                },
+                {
+                  "numerator": 26,
+                  "denominator": 1,
+                  "exact": "26/1",
+                  "decimal": 26.0
+                },
+                {
+                  "numerator": 27,
+                  "denominator": 1,
+                  "exact": "27/1",
+                  "decimal": 27.0
+                },
+                {
+                  "numerator": 28,
+                  "denominator": 1,
+                  "exact": "28/1",
+                  "decimal": 28.0
+                },
+                {
+                  "numerator": 29,
+                  "denominator": 1,
+                  "exact": "29/1",
+                  "decimal": 29.0
+                },
+                {
+                  "numerator": 30,
+                  "denominator": 1,
+                  "exact": "30/1",
+                  "decimal": 30.0
+                },
+                {
+                  "numerator": 31,
+                  "denominator": 1,
+                  "exact": "31/1",
+                  "decimal": 31.0
+                },
+                {
+                  "numerator": 32,
+                  "denominator": 1,
+                  "exact": "32/1",
+                  "decimal": 32.0
+                },
+                {
+                  "numerator": 33,
+                  "denominator": 1,
+                  "exact": "33/1",
+                  "decimal": 33.0
+                },
+                {
+                  "numerator": 34,
+                  "denominator": 1,
+                  "exact": "34/1",
+                  "decimal": 34.0
+                },
+                {
+                  "numerator": 35,
+                  "denominator": 1,
+                  "exact": "35/1",
+                  "decimal": 35.0
+                },
+                {
+                  "numerator": 36,
+                  "denominator": 1,
+                  "exact": "36/1",
+                  "decimal": 36.0
+                },
+                {
+                  "numerator": 37,
+                  "denominator": 1,
+                  "exact": "37/1",
+                  "decimal": 37.0
+                },
+                {
+                  "numerator": 38,
+                  "denominator": 1,
+                  "exact": "38/1",
+                  "decimal": 38.0
+                },
+                {
+                  "numerator": 39,
+                  "denominator": 1,
+                  "exact": "39/1",
+                  "decimal": 39.0
+                },
+                {
+                  "numerator": 40,
+                  "denominator": 1,
+                  "exact": "40/1",
+                  "decimal": 40.0
+                },
+                {
+                  "numerator": 41,
+                  "denominator": 1,
+                  "exact": "41/1",
+                  "decimal": 41.0
+                },
+                {
+                  "numerator": 42,
+                  "denominator": 1,
+                  "exact": "42/1",
+                  "decimal": 42.0
+                },
+                {
+                  "numerator": 43,
+                  "denominator": 1,
+                  "exact": "43/1",
+                  "decimal": 43.0
+                },
+                {
+                  "numerator": 44,
+                  "denominator": 1,
+                  "exact": "44/1",
+                  "decimal": 44.0
+                },
+                {
+                  "numerator": 45,
+                  "denominator": 1,
+                  "exact": "45/1",
+                  "decimal": 45.0
+                },
+                {
+                  "numerator": 46,
+                  "denominator": 1,
+                  "exact": "46/1",
+                  "decimal": 46.0
+                },
+                {
+                  "numerator": 47,
+                  "denominator": 1,
+                  "exact": "47/1",
+                  "decimal": 47.0
+                },
+                {
+                  "numerator": 48,
+                  "denominator": 1,
+                  "exact": "48/1",
+                  "decimal": 48.0
+                },
+                {
+                  "numerator": 49,
+                  "denominator": 1,
+                  "exact": "49/1",
+                  "decimal": 49.0
+                },
+                {
+                  "numerator": 50,
+                  "denominator": 1,
+                  "exact": "50/1",
+                  "decimal": 50.0
+                },
+                {
+                  "numerator": 51,
+                  "denominator": 1,
+                  "exact": "51/1",
+                  "decimal": 51.0
+                },
+                {
+                  "numerator": 52,
+                  "denominator": 1,
+                  "exact": "52/1",
+                  "decimal": 52.0
+                },
+                {
+                  "numerator": 53,
+                  "denominator": 1,
+                  "exact": "53/1",
+                  "decimal": 53.0
+                },
+                {
+                  "numerator": 54,
+                  "denominator": 1,
+                  "exact": "54/1",
+                  "decimal": 54.0
+                },
+                {
+                  "numerator": 55,
+                  "denominator": 1,
+                  "exact": "55/1",
+                  "decimal": 55.0
+                },
+                {
+                  "numerator": 56,
+                  "denominator": 1,
+                  "exact": "56/1",
+                  "decimal": 56.0
+                },
+                {
+                  "numerator": 57,
+                  "denominator": 1,
+                  "exact": "57/1",
+                  "decimal": 57.0
+                },
+                {
+                  "numerator": 58,
+                  "denominator": 1,
+                  "exact": "58/1",
+                  "decimal": 58.0
+                },
+                {
+                  "numerator": 59,
+                  "denominator": 1,
+                  "exact": "59/1",
+                  "decimal": 59.0
+                },
+                {
+                  "numerator": 60,
+                  "denominator": 1,
+                  "exact": "60/1",
+                  "decimal": 60.0
+                },
+                {
+                  "numerator": 61,
+                  "denominator": 1,
+                  "exact": "61/1",
+                  "decimal": 61.0
+                },
+                {
+                  "numerator": 62,
+                  "denominator": 1,
+                  "exact": "62/1",
+                  "decimal": 62.0
+                },
+                {
+                  "numerator": 63,
+                  "denominator": 1,
+                  "exact": "63/1",
+                  "decimal": 63.0
+                },
+                {
+                  "numerator": 64,
+                  "denominator": 1,
+                  "exact": "64/1",
+                  "decimal": 64.0
+                },
+                {
+                  "numerator": 65,
+                  "denominator": 1,
+                  "exact": "65/1",
+                  "decimal": 65.0
+                },
+                {
+                  "numerator": 66,
+                  "denominator": 1,
+                  "exact": "66/1",
+                  "decimal": 66.0
+                },
+                {
+                  "numerator": 67,
+                  "denominator": 1,
+                  "exact": "67/1",
+                  "decimal": 67.0
+                },
+                {
+                  "numerator": 68,
+                  "denominator": 1,
+                  "exact": "68/1",
+                  "decimal": 68.0
+                },
+                {
+                  "numerator": 69,
+                  "denominator": 1,
+                  "exact": "69/1",
+                  "decimal": 69.0
+                },
+                {
+                  "numerator": 70,
+                  "denominator": 1,
+                  "exact": "70/1",
+                  "decimal": 70.0
+                },
+                {
+                  "numerator": 71,
+                  "denominator": 1,
+                  "exact": "71/1",
+                  "decimal": 71.0
+                },
+                {
+                  "numerator": 72,
+                  "denominator": 1,
+                  "exact": "72/1",
+                  "decimal": 72.0
+                },
+                {
+                  "numerator": 73,
+                  "denominator": 1,
+                  "exact": "73/1",
+                  "decimal": 73.0
+                },
+                {
+                  "numerator": 74,
+                  "denominator": 1,
+                  "exact": "74/1",
+                  "decimal": 74.0
+                },
+                {
+                  "numerator": 75,
+                  "denominator": 1,
+                  "exact": "75/1",
+                  "decimal": 75.0
+                },
+                {
+                  "numerator": 76,
+                  "denominator": 1,
+                  "exact": "76/1",
+                  "decimal": 76.0
+                },
+                {
+                  "numerator": 77,
+                  "denominator": 1,
+                  "exact": "77/1",
+                  "decimal": 77.0
+                },
+                {
+                  "numerator": 78,
+                  "denominator": 1,
+                  "exact": "78/1",
+                  "decimal": 78.0
+                },
+                {
+                  "numerator": 79,
+                  "denominator": 1,
+                  "exact": "79/1",
+                  "decimal": 79.0
+                },
+                {
+                  "numerator": 80,
+                  "denominator": 1,
+                  "exact": "80/1",
+                  "decimal": 80.0
+                },
+                {
+                  "numerator": 81,
+                  "denominator": 1,
+                  "exact": "81/1",
+                  "decimal": 81.0
+                },
+                {
+                  "numerator": 82,
+                  "denominator": 1,
+                  "exact": "82/1",
+                  "decimal": 82.0
+                },
+                {
+                  "numerator": 83,
+                  "denominator": 1,
+                  "exact": "83/1",
+                  "decimal": 83.0
+                },
+                {
+                  "numerator": 84,
+                  "denominator": 1,
+                  "exact": "84/1",
+                  "decimal": 84.0
+                },
+                {
+                  "numerator": 85,
+                  "denominator": 1,
+                  "exact": "85/1",
+                  "decimal": 85.0
+                },
+                {
+                  "numerator": 86,
+                  "denominator": 1,
+                  "exact": "86/1",
+                  "decimal": 86.0
+                },
+                {
+                  "numerator": 87,
+                  "denominator": 1,
+                  "exact": "87/1",
+                  "decimal": 87.0
+                },
+                {
+                  "numerator": 88,
+                  "denominator": 1,
+                  "exact": "88/1",
+                  "decimal": 88.0
+                },
+                {
+                  "numerator": 89,
+                  "denominator": 1,
+                  "exact": "89/1",
+                  "decimal": 89.0
+                },
+                {
+                  "numerator": 90,
+                  "denominator": 1,
+                  "exact": "90/1",
+                  "decimal": 90.0
+                },
+                {
+                  "numerator": 91,
+                  "denominator": 1,
+                  "exact": "91/1",
+                  "decimal": 91.0
+                },
+                {
+                  "numerator": 92,
+                  "denominator": 1,
+                  "exact": "92/1",
+                  "decimal": 92.0
+                },
+                {
+                  "numerator": 93,
+                  "denominator": 1,
+                  "exact": "93/1",
+                  "decimal": 93.0
+                },
+                {
+                  "numerator": 94,
+                  "denominator": 1,
+                  "exact": "94/1",
+                  "decimal": 94.0
+                },
+                {
+                  "numerator": 95,
+                  "denominator": 1,
+                  "exact": "95/1",
+                  "decimal": 95.0
+                },
+                {
+                  "numerator": 96,
+                  "denominator": 1,
+                  "exact": "96/1",
+                  "decimal": 96.0
+                },
+                {
+                  "numerator": 97,
+                  "denominator": 1,
+                  "exact": "97/1",
+                  "decimal": 97.0
+                },
+                {
+                  "numerator": 98,
+                  "denominator": 1,
+                  "exact": "98/1",
+                  "decimal": 98.0
+                },
+                {
+                  "numerator": 99,
+                  "denominator": 1,
+                  "exact": "99/1",
+                  "decimal": 99.0
+                },
+                {
+                  "numerator": 100,
+                  "denominator": 1,
+                  "exact": "100/1",
+                  "decimal": 100.0
+                },
+                {
+                  "numerator": 101,
+                  "denominator": 1,
+                  "exact": "101/1",
+                  "decimal": 101.0
+                },
+                {
+                  "numerator": 102,
+                  "denominator": 1,
+                  "exact": "102/1",
+                  "decimal": 102.0
+                },
+                {
+                  "numerator": 103,
+                  "denominator": 1,
+                  "exact": "103/1",
+                  "decimal": 103.0
+                },
+                {
+                  "numerator": 104,
+                  "denominator": 1,
+                  "exact": "104/1",
+                  "decimal": 104.0
+                },
+                {
+                  "numerator": 105,
+                  "denominator": 1,
+                  "exact": "105/1",
+                  "decimal": 105.0
+                },
+                {
+                  "numerator": 106,
+                  "denominator": 1,
+                  "exact": "106/1",
+                  "decimal": 106.0
+                },
+                {
+                  "numerator": 107,
+                  "denominator": 1,
+                  "exact": "107/1",
+                  "decimal": 107.0
+                },
+                {
+                  "numerator": 108,
+                  "denominator": 1,
+                  "exact": "108/1",
+                  "decimal": 108.0
+                },
+                {
+                  "numerator": 109,
+                  "denominator": 1,
+                  "exact": "109/1",
+                  "decimal": 109.0
+                },
+                {
+                  "numerator": 110,
+                  "denominator": 1,
+                  "exact": "110/1",
+                  "decimal": 110.0
+                },
+                {
+                  "numerator": 111,
+                  "denominator": 1,
+                  "exact": "111/1",
+                  "decimal": 111.0
+                },
+                {
+                  "numerator": 112,
+                  "denominator": 1,
+                  "exact": "112/1",
+                  "decimal": 112.0
+                },
+                {
+                  "numerator": 113,
+                  "denominator": 1,
+                  "exact": "113/1",
+                  "decimal": 113.0
+                },
+                {
+                  "numerator": 114,
+                  "denominator": 1,
+                  "exact": "114/1",
+                  "decimal": 114.0
+                },
+                {
+                  "numerator": 115,
+                  "denominator": 1,
+                  "exact": "115/1",
+                  "decimal": 115.0
+                },
+                {
+                  "numerator": 116,
+                  "denominator": 1,
+                  "exact": "116/1",
+                  "decimal": 116.0
+                },
+                {
+                  "numerator": 117,
+                  "denominator": 1,
+                  "exact": "117/1",
+                  "decimal": 117.0
+                },
+                {
+                  "numerator": 118,
+                  "denominator": 1,
+                  "exact": "118/1",
+                  "decimal": 118.0
+                },
+                {
+                  "numerator": 119,
+                  "denominator": 1,
+                  "exact": "119/1",
+                  "decimal": 119.0
+                },
+                {
+                  "numerator": 120,
+                  "denominator": 1,
+                  "exact": "120/1",
+                  "decimal": 120.0
+                },
+                {
+                  "numerator": 121,
+                  "denominator": 1,
+                  "exact": "121/1",
+                  "decimal": 121.0
+                },
+                {
+                  "numerator": 122,
+                  "denominator": 1,
+                  "exact": "122/1",
+                  "decimal": 122.0
+                },
+                {
+                  "numerator": 123,
+                  "denominator": 1,
+                  "exact": "123/1",
+                  "decimal": 123.0
+                },
+                {
+                  "numerator": 124,
+                  "denominator": 1,
+                  "exact": "124/1",
+                  "decimal": 124.0
+                },
+                {
+                  "numerator": 125,
+                  "denominator": 1,
+                  "exact": "125/1",
+                  "decimal": 125.0
+                },
+                {
+                  "numerator": 126,
+                  "denominator": 1,
+                  "exact": "126/1",
+                  "decimal": 126.0
+                },
+                {
+                  "numerator": 127,
+                  "denominator": 1,
+                  "exact": "127/1",
+                  "decimal": 127.0
+                },
+                {
+                  "numerator": 128,
+                  "denominator": 1,
+                  "exact": "128/1",
+                  "decimal": 128.0
+                }
+              ],
+              "operator_norm": {
+                "numerator": 128,
+                "denominator": 1,
+                "exact": "128/1",
+                "decimal": 128.0
+              },
+              "minimum_eigenvalue": {
+                "numerator": 1,
+                "denominator": 1,
+                "exact": "1/1",
+                "decimal": 1.0
+              },
+              "positive_semidefinite": true
+            }
+          ],
+          "compatible_positive_form_on_c00": true,
+          "bounded_l2_extension_exists": false
+        },
+        "promotion_contract": {
+          "direct_cauchy_modulus_suffices": true,
+          "absolute_summable_drift_is_necessary": false,
+          "uniform_core_norm_suffices_for_bounded_l2_extension": true,
+          "actual_pole_neutral_weil_cauchy_modulus_verified": false
+        },
+        "no_go_scope": "This theorem corrects the topology of the promotion target only. It neither constructs a Cauchy modulus nor proves a vanishing negative floor for the actual pole-neutral Guinand-Weil family, so it does not prove the Riemann hypothesis.",
+        "failure_count": 0
+      },
+      "logical_limit": "No direct Cauchy modulus or vanishing negative floor is proved for the actual pole-neutral Guinand-Weil fixed cores.",
+      "route_decision": {
+        "discard": "treating absolute summability of adjacent fixed-core drift as a necessary condition for compatible core convergence",
+        "retain": "a cancellation-aware direct Cauchy modulus and vanishing negative floor on the actual arithmetic fixed cores",
+        "next_single_lemma": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T189-INPUT",
+            "label": "SummableFiniteCoreDriftConstructsCompatiblePositiveForm",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T190-CLOSED",
+            "label": "DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T190-REJECTED",
+            "label": "AbsoluteSummableAdjacentDriftIsNecessaryForCoreConvergence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T190-OPEN",
+            "label": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T189-INPUT",
+            "RH-T190-CLOSED"
+          ],
+          [
+            "RH-T190-CLOSED",
+            "RH-T190-OPEN"
+          ],
+          [
+            "RH-T190-REJECTED",
+            "RH-T190-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof. A direct-Cauchy promotion theorem, a nonsummable convergent family, and the bounded-operator extension boundary are proved."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-190",
+      "theorem_name": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly six entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "mathematical_argument": "For a positive odd accelerated cycle x_(i+1)=(3x_i+1)/2^v_i with six v_i=1 and all other v_i=2, contraction starts at h=15. The orbit cannot contain x_i=1 unless it is the trivial all-two fixed cycle, so every x_i>=3. Multiplying one period gives 1=product_i(3+1/x_i)/2^v_i <= (10/3)^h/2^(2h-6) =64(5/6)^h. At h=23 this exact upper bound is already below one and decreases thereafter, a contradiction. For 15<=h<=22, exhaustive exact enumeration of all sum C(h,6)=238722 valuation words finds no affine-divisibility hit.",
+      "reproducible_computation": {
+        "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly six entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+        "proof": "For a positive odd accelerated cycle x_(i+1)=(3x_i+1)/2^v_i with six v_i=1 and all other v_i=2, contraction starts at h=15. The orbit cannot contain x_i=1 unless it is the trivial all-two fixed cycle, so every x_i>=3. Multiplying one period gives 1=product_i(3+1/x_i)/2^v_i <= (10/3)^h/2^(2h-6) =64(5/6)^h. At h=23 this exact upper bound is already below one and decreases thereafter, a contradiction. For 15<=h<=22, exhaustive exact enumeration of all sum C(h,6)=238722 valuation words finds no affine-divisibility hit.",
+        "finite_exception_horizon_rows": [
+          {
+            "horizon_h": 15,
+            "contracting": true,
+            "word_count": 5005,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "aaa04a07440cfca7ab8f78d4a116cc8ec4f7d4c10ec3c77bc4524616876cf977"
+          },
+          {
+            "horizon_h": 16,
+            "contracting": true,
+            "word_count": 8008,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "259b602f14de3e8c7fd003ca193337425fcff214132257803e209ce9d73ddc74"
+          },
+          {
+            "horizon_h": 17,
+            "contracting": true,
+            "word_count": 12376,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "c3cfb51f5e061b00e4fc1142136d613480a82641e862d368ce17251959dff68b"
+          },
+          {
+            "horizon_h": 18,
+            "contracting": true,
+            "word_count": 18564,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "abc38f267340b0d6d17ca2c227dc51899f640ac417ad1babcca11bed88805a59"
+          },
+          {
+            "horizon_h": 19,
+            "contracting": true,
+            "word_count": 27132,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "ac38983775712c91ffe1119478bead795d4792e1e33d6e0966a0f75d894a885f"
+          },
+          {
+            "horizon_h": 20,
+            "contracting": true,
+            "word_count": 38760,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "2b619d88504621a20b3e928f1e147c7ecdfbfcde8f46be89fd1ff5c4041f8a10"
+          },
+          {
+            "horizon_h": 21,
+            "contracting": true,
+            "word_count": 54264,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "c9af9df77ee7dc979600c71cb62e57595b54dfa0ae8235278910164bd9f2fe04"
+          },
+          {
+            "horizon_h": 22,
+            "contracting": true,
+            "word_count": 74613,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "remainder_transcript_sha256": "fa4949a082c8619cbd5c57928dd38311b6b3c8e41cbcee728d1075905d302d7c"
+          }
+        ],
+        "analytic_product_rows": [
+          {
+            "horizon_h": 23,
+            "cycle_product_upper_bound": {
+              "numerator": 11920928955078125,
+              "denominator": 12339534735212544,
+              "exact": "11920928955078125/12339534735212544",
+              "decimal": 0.9660760483181047
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 24,
+            "cycle_product_upper_bound": {
+              "numerator": 59604644775390625,
+              "denominator": 74037208411275264,
+              "exact": "59604644775390625/74037208411275264",
+              "decimal": 0.8050633735984206
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 32,
+            "cycle_product_upper_bound": {
+              "numerator": 23283064365386962890625,
+              "denominator": 124354079842912513818624,
+              "exact": "23283064365386962890625/124354079842912513818624",
+              "decimal": 0.18723201035944112
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 48,
+            "cycle_product_upper_bound": {
+              "numerator": 3552713678800500929355621337890625,
+              "denominator": 350816526677414956876362673809260544,
+              "exact": "3552713678800500929355621337890625/350816526677414956876362673809260544",
+              "decimal": 0.010126984929838595
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 64,
+            "cycle_product_upper_bound": {
+              "numerator": 542101086242752217003726400434970855712890625,
+              "denominator": 989691979108957464158785733543935728279632216064,
+              "exact": "542101086242752217003726400434970855712890625/989691979108957464158785733543935728279632216064",
+              "decimal": 0.0005477472766130916
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 96,
+            "cycle_product_upper_bound": {
+              "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+              "denominator": 7876623064960345607840112210142479510719807466157345577052854532811259904,
+              "exact": "12621774483536188886587657044524579674771302961744368076324462890625/7876623064960345607840112210142479510719807466157345577052854532811259904",
+              "decimal": 1.6024347463934067e-06
+            },
+            "strictly_below_one": true
+          }
+        ],
+        "analytic_bound": {
+          "bound_at_h_23": {
+            "numerator": 11920928955078125,
+            "denominator": 12339534735212544,
+            "exact": "11920928955078125/12339534735212544",
+            "decimal": 0.9660760483181047
+          },
+          "required_upper_threshold": {
+            "numerator": 1,
+            "denominator": 1,
+            "exact": "1/1",
+            "decimal": 1.0
+          },
+          "analytic_range_starts_at_h": 23,
+          "bound_is_strictly_decreasing": true
+        },
+        "aggregate": {
+          "infinite_family_proved": true,
+          "includes_imprimitive_words": true,
+          "contracting_range_starts_at_h": 15,
+          "analytic_range_starts_at_h": 23,
+          "finite_exception_word_count": 238722,
+          "divisibility_hits": 0
+        },
+        "no_go_scope": "This closes only the exactly-six-one/rest-two periodic valuation stratum. Periods with seven or more ones, any valuation at least three, and divergent aperiodic natural-number orbits remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Seven-or-more-one words, valuations at least three, and aperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "extending finite six-one divisibility enumeration to unbounded horizons without a global cycle inequality",
+        "retain": "the exact cycle product identity, the h>=23 upper bound, and exhaustive exact closure of h=15..22",
+        "next_single_lemma": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T189-INPUT",
+            "label": "ExactlyFiveValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T190-CLOSED",
+            "label": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T190-REJECTED",
+            "label": "FiniteSixOneEnumerationProvesEveryHorizon",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T190-OPEN",
+            "label": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T189-INPUT",
+            "CO-T190-CLOSED"
+          ],
+          [
+            "CO-T190-CLOSED",
+            "CO-T190-OPEN"
+          ],
+          [
+            "CO-T190-REJECTED",
+            "CO-T190-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof. The complete exactly-six-one/rest-two periodic valuation stratum is excluded, including imprimitive periods."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-190",
+      "theorem_name": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+      "declared_proposition": "Density-one positivity and an asymptotically complete average linear mass do not imply positivity at every even target. Define F(N)=0 when the even integer N is a power of two and F(N)=N otherwise. Then F vanishes at infinitely many even targets, the number of exceptions up to X is O(log X)=o(X), and the cumulative deficit from sum_(even N<=X) N is less than 2X=o(X^2). Thus even a relative average error tending to zero cannot replace the pointwise lower bound required by strong Goldbach.",
+      "mathematical_argument": "The exceptional targets are 2^k, so there are at most log_2 X of them. Their missing mass is the geometric sum 4+8+...+2^K, which is less than 2X. The baseline sum over even targets is quadratic in X, hence the relative deficit tends to zero, while every power of two remains an exact zero. This is a logical countermodel, not a model of the arithmetic von Mangoldt convolution.",
+      "reproducible_computation": {
+        "theorem": "Density-one positivity and an asymptotically complete average linear mass do not imply positivity at every even target. Define F(N)=0 when the even integer N is a power of two and F(N)=N otherwise. Then F vanishes at infinitely many even targets, the number of exceptions up to X is O(log X)=o(X), and the cumulative deficit from sum_(even N<=X) N is less than 2X=o(X^2). Thus even a relative average error tending to zero cannot replace the pointwise lower bound required by strong Goldbach.",
+        "proof": "The exceptional targets are 2^k, so there are at most log_2 X of them. Their missing mass is the geometric sum 4+8+...+2^K, which is less than 2X. The baseline sum over even targets is quadratic in X, hence the relative deficit tends to zero, while every power of two remains an exact zero. This is a logical countermodel, not a model of the arithmetic von Mangoldt convolution.",
+        "finite_countermodel_rows": [
+          {
+            "cutoff_X": 64,
+            "even_target_count": 31,
+            "sparse_hole_count": 5,
+            "largest_sparse_hole": 64,
+            "baseline_linear_mass_sum": "1054",
+            "model_mass_sum": "930",
+            "missing_mass": "124",
+            "hole_density": 0.16129032258064516,
+            "relative_average_deficit": 0.11764705882352941,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 256,
+            "even_target_count": 127,
+            "sparse_hole_count": 7,
+            "largest_sparse_hole": 256,
+            "baseline_linear_mass_sum": "16510",
+            "model_mass_sum": "16002",
+            "missing_mass": "508",
+            "hole_density": 0.05511811023622047,
+            "relative_average_deficit": 0.03076923076923077,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 1024,
+            "even_target_count": 511,
+            "sparse_hole_count": 9,
+            "largest_sparse_hole": 1024,
+            "baseline_linear_mass_sum": "262654",
+            "model_mass_sum": "260610",
+            "missing_mass": "2044",
+            "hole_density": 0.01761252446183953,
+            "relative_average_deficit": 0.007782101167315175,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 4096,
+            "even_target_count": 2047,
+            "sparse_hole_count": 11,
+            "largest_sparse_hole": 4096,
+            "baseline_linear_mass_sum": "4196350",
+            "model_mass_sum": "4188162",
+            "missing_mass": "8188",
+            "hole_density": 0.00537371763556424,
+            "relative_average_deficit": 0.001951219512195122,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 16384,
+            "even_target_count": 8191,
+            "sparse_hole_count": 13,
+            "largest_sparse_hole": 16384,
+            "baseline_linear_mass_sum": "67117054",
+            "model_mass_sum": "67084290",
+            "missing_mass": "32764",
+            "hole_density": 0.0015871078012452693,
+            "relative_average_deficit": 0.000488162069807176,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 65536,
+            "even_target_count": 32767,
+            "sparse_hole_count": 15,
+            "largest_sparse_hole": 65536,
+            "baseline_linear_mass_sum": "1073774590",
+            "model_mass_sum": "1073643522",
+            "missing_mass": "131068",
+            "hole_density": 0.0004577776421399579,
+            "relative_average_deficit": 0.00012206286237412267,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 262144,
+            "even_target_count": 131071,
+            "sparse_hole_count": 17,
+            "largest_sparse_hole": 262144,
+            "baseline_linear_mass_sum": "17180000254",
+            "model_mass_sum": "17179475970",
+            "missing_mass": "524284",
+            "hole_density": 0.0001297006965690351,
+            "relative_average_deficit": 3.051711247081801e-05,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          },
+          {
+            "cutoff_X": 1048576,
+            "even_target_count": 524287,
+            "sparse_hole_count": 19,
+            "largest_sparse_hole": 1048576,
+            "baseline_linear_mass_sum": "274878431230",
+            "model_mass_sum": "274876334082",
+            "missing_mass": "2097148",
+            "hole_density": 3.6239693145166674e-05,
+            "relative_average_deficit": 7.6293654275305656e-06,
+            "checks": {
+              "holes_are_even_powers_of_two": true,
+              "model_has_a_zero_at_every_hole": true,
+              "missing_mass_below_two_X": true,
+              "mass_decomposition_exact": true
+            }
+          }
+        ],
+        "aggregate": {
+          "countermodel_cutoff_count": 8,
+          "largest_cutoff": 1048576,
+          "infinite_zero_target_family": "N=2^k for k>=2",
+          "density_one_promotion_refuted": true,
+          "average_mass_promotion_refuted": true,
+          "pointwise_major_minor_lower_bound_proved": false
+        },
+        "no_go_scope": "The countermodel proves a quantifier obstruction only; it does not show that the actual Goldbach correlation has power-of-two holes. Strong Goldbach still requires a pointwise all-large-even lower bound plus finite verification.",
+        "failure_count": 0
+      },
+      "logical_limit": "No pointwise major-arc main-term minus minor-arc error lower bound is proved for every sufficiently large even target.",
+      "route_decision": {
+        "discard": "promoting density-one positivity or an asymptotically complete average correlation estimate to every even target",
+        "retain": "an explicit pointwise all-large-even major-minus-minor lower bound above the TICKET-189 sublinear prime-power budget",
+        "next_single_lemma": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T189-INPUT",
+            "label": "ProperPrimePowerContaminationHasExplicitSublinearBudget",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T190-CLOSED",
+            "label": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T190-REJECTED",
+            "label": "DensityOneOrAverageCorrelationPromotesToEveryEvenTarget",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T190-OPEN",
+            "label": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T189-INPUT",
+            "GB-T190-CLOSED"
+          ],
+          [
+            "GB-T190-CLOSED",
+            "GB-T190-OPEN"
+          ],
+          [
+            "GB-T190-REJECTED",
+            "GB-T190-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof. A sparse-hole countermodel proves that density-one and near-perfect average estimates cannot close the universal target quantifier."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-190",
+      "theorem_name": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+      "declared_proposition": "For any nonnegative dyadic block masses b_j and cumulative masses W_J=sum_(j<J)b_j, limsup_J W_J/2^J>0 if and only if there is a constant c>0 such that b_j>=c2^j for infinitely many j. Applied after the exact TICKET-189 prime-power subtraction, this transfers a positive linear cumulative twin-mass limsup to infinitely many positive linear dyadic blocks. However, unbounded cumulative mass does not imply any positive linear bound: b_j=1 gives W_J=J while W_J/2^J and b_j/2^j both tend to zero. Therefore the TICKET-189 linear target is sufficient but strictly stronger than the Twin Prime conjecture.",
+      "mathematical_argument": "If b_j<c2^j eventually, then W_J is at most a fixed prefix plus c sum_(j<J)2^j, so limsup W_J/2^J<=c. Choosing c below a positive limsup proves the forward direction. Conversely, b_j>=c2^j along an infinite subsequence gives W_(j+1)/2^(j+1)>=c/2. The sparse sequence b_j=1 is unbounded in cumulative mass but has zero normalized limsup. In the arithmetic application, exact excess over proper-prime-power contamination equals nonnegative weighted twin-prime mass block by block.",
+      "reproducible_computation": {
+        "theorem": "For any nonnegative dyadic block masses b_j and cumulative masses W_J=sum_(j<J)b_j, limsup_J W_J/2^J>0 if and only if there is a constant c>0 such that b_j>=c2^j for infinitely many j. Applied after the exact TICKET-189 prime-power subtraction, this transfers a positive linear cumulative twin-mass limsup to infinitely many positive linear dyadic blocks. However, unbounded cumulative mass does not imply any positive linear bound: b_j=1 gives W_J=J while W_J/2^J and b_j/2^j both tend to zero. Therefore the TICKET-189 linear target is sufficient but strictly stronger than the Twin Prime conjecture.",
+        "proof": "If b_j<c2^j eventually, then W_J is at most a fixed prefix plus c sum_(j<J)2^j, so limsup W_J/2^J<=c. Choosing c below a positive limsup proves the forward direction. Conversely, b_j>=c2^j along an infinite subsequence gives W_(j+1)/2^(j+1)>=c/2. The sparse sequence b_j=1 is unbounded in cumulative mass but has zero normalized limsup. In the arithmetic application, exact excess over proper-prime-power contamination equals nonnegative weighted twin-prime mass block by block.",
+        "finite_arithmetic_rows": [
+          {
+            "dyadic_exponent_j": 4,
+            "block": [
+              16,
+              32
+            ],
+            "exact_excess_equals_weighted_twin_mass": 19.905474600423364,
+            "cumulative_exact_excess": 19.905474600423364,
+            "normalized_cumulative_exact_excess": 0.6220460812632301,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 5,
+            "block": [
+              32,
+              64
+            ],
+            "exact_excess_equals_weighted_twin_mass": 30.729729795264696,
+            "cumulative_exact_excess": 50.63520439568806,
+            "normalized_cumulative_exact_excess": 0.791175068682626,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 6,
+            "block": [
+              64,
+              128
+            ],
+            "exact_excess_equals_weighted_twin_mass": 61.60055362319484,
+            "cumulative_exact_excess": 112.2357580188829,
+            "normalized_cumulative_exact_excess": 0.8768418595225227,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 7,
+            "block": [
+              128,
+              256
+            ],
+            "exact_excess_equals_weighted_twin_mass": 191.4719826477534,
+            "cumulative_exact_excess": 303.7077406666363,
+            "normalized_cumulative_exact_excess": 1.186358361979048,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 8,
+            "block": [
+              256,
+              512
+            ],
+            "exact_excess_equals_weighted_twin_mass": 241.35901483374516,
+            "cumulative_exact_excess": 545.0667555003815,
+            "normalized_cumulative_exact_excess": 1.0645835068366827,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 9,
+            "block": [
+              512,
+              1024
+            ],
+            "exact_excess_equals_weighted_twin_mass": 520.2425890597062,
+            "cumulative_exact_excess": 1065.3093445600878,
+            "normalized_cumulative_exact_excess": 1.0403411567969607,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 10,
+            "block": [
+              1024,
+              2048
+            ],
+            "exact_excess_equals_weighted_twin_mass": 1387.3855975997217,
+            "cumulative_exact_excess": 2452.694942159809,
+            "normalized_cumulative_exact_excess": 1.1976049522264693,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 11,
+            "block": [
+              2048,
+              4096
+            ],
+            "exact_excess_equals_weighted_twin_mass": 2894.071385852201,
+            "cumulative_exact_excess": 5346.7663280120105,
+            "normalized_cumulative_exact_excess": 1.3053628730498072,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 12,
+            "block": [
+              4096,
+              8192
+            ],
+            "exact_excess_equals_weighted_twin_mass": 5268.114154826079,
+            "cumulative_exact_excess": 10614.880482838089,
+            "normalized_cumulative_exact_excess": 1.2957617776901964,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 13,
+            "block": [
+              8192,
+              16384
+            ],
+            "exact_excess_equals_weighted_twin_mass": 9943.280144249258,
+            "cumulative_exact_excess": 20558.160627087345,
+            "normalized_cumulative_exact_excess": 1.254770546086874,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 14,
+            "block": [
+              16384,
+              32768
+            ],
+            "exact_excess_equals_weighted_twin_mass": 21847.34898267158,
+            "cumulative_exact_excess": 42405.50960975893,
+            "normalized_cumulative_exact_excess": 1.2941134524462563,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 15,
+            "block": [
+              32768,
+              65536
+            ],
+            "exact_excess_equals_weighted_twin_mass": 41175.32141775507,
+            "cumulative_exact_excess": 83580.831027514,
+            "normalized_cumulative_exact_excess": 1.2753422703172912,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 16,
+            "block": [
+              65536,
+              131072
+            ],
+            "exact_excess_equals_weighted_twin_mass": 87653.29378784791,
+            "cumulative_exact_excess": 171234.12481536192,
+            "normalized_cumulative_exact_excess": 1.3064126954297022,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 17,
+            "block": [
+              131072,
+              262144
+            ],
+            "exact_excess_equals_weighted_twin_mass": 170522.16627598935,
+            "cumulative_exact_excess": 341756.2910913513,
+            "normalized_cumulative_exact_excess": 1.3036967891363194,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 18,
+            "block": [
+              262144,
+              524288
+            ],
+            "exact_excess_equals_weighted_twin_mass": 342219.9300581405,
+            "cumulative_exact_excess": 683976.2211494918,
+            "normalized_cumulative_exact_excess": 1.3045811102857434,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          },
+          {
+            "dyadic_exponent_j": 19,
+            "block": [
+              524288,
+              1048576
+            ],
+            "exact_excess_equals_weighted_twin_mass": 695300.6983668064,
+            "cumulative_exact_excess": 1379276.9195162982,
+            "normalized_cumulative_exact_excess": 1.315380973354624,
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true
+            }
+          }
+        ],
+        "sparse_mass_no_go_rows": [
+          {
+            "dyadic_exponent_j": 4,
+            "block_mass_b_j": 1,
+            "cumulative_mass_through_j": 4,
+            "normalized_block_mass": {
+              "numerator": 1,
+              "denominator": 16,
+              "exact": "1/16",
+              "decimal": 0.0625
+            },
+            "normalized_cumulative_mass": {
+              "numerator": 1,
+              "denominator": 8,
+              "exact": "1/8",
+              "decimal": 0.125
+            }
+          },
+          {
+            "dyadic_exponent_j": 8,
+            "block_mass_b_j": 1,
+            "cumulative_mass_through_j": 8,
+            "normalized_block_mass": {
+              "numerator": 1,
+              "denominator": 256,
+              "exact": "1/256",
+              "decimal": 0.00390625
+            },
+            "normalized_cumulative_mass": {
+              "numerator": 1,
+              "denominator": 64,
+              "exact": "1/64",
+              "decimal": 0.015625
+            }
+          },
+          {
+            "dyadic_exponent_j": 16,
+            "block_mass_b_j": 1,
+            "cumulative_mass_through_j": 16,
+            "normalized_block_mass": {
+              "numerator": 1,
+              "denominator": 65536,
+              "exact": "1/65536",
+              "decimal": 1.52587890625e-05
+            },
+            "normalized_cumulative_mass": {
+              "numerator": 1,
+              "denominator": 8192,
+              "exact": "1/8192",
+              "decimal": 0.0001220703125
+            }
+          },
+          {
+            "dyadic_exponent_j": 32,
+            "block_mass_b_j": 1,
+            "cumulative_mass_through_j": 32,
+            "normalized_block_mass": {
+              "numerator": 1,
+              "denominator": 4294967296,
+              "exact": "1/4294967296",
+              "decimal": 2.3283064365386963e-10
+            },
+            "normalized_cumulative_mass": {
+              "numerator": 1,
+              "denominator": 268435456,
+              "exact": "1/268435456",
+              "decimal": 3.725290298461914e-09
+            }
+          },
+          {
+            "dyadic_exponent_j": 64,
+            "block_mass_b_j": 1,
+            "cumulative_mass_through_j": 64,
+            "normalized_block_mass": {
+              "numerator": 1,
+              "denominator": 18446744073709551616,
+              "exact": "1/18446744073709551616",
+              "decimal": 5.421010862427522e-20
+            },
+            "normalized_cumulative_mass": {
+              "numerator": 1,
+              "denominator": 576460752303423488,
+              "exact": "1/576460752303423488",
+              "decimal": 1.734723475976807e-18
+            }
+          }
+        ],
+        "aggregate": {
+          "dyadic_block_count": 16,
+          "largest_upper_endpoint": 1048576,
+          "linear_cumulative_to_block_transfer_proved": true,
+          "unbounded_mass_implies_linear_limsup": false,
+          "ticket189_linear_target_is_necessary": false,
+          "unbounded_exact_excess_proved": false
+        },
+        "no_go_scope": "The transfer theorem does not prove that the actual cumulative shift-two excess is unbounded or has positive linear limsup. It only separates a conjecture-equivalent unboundedness target from the stronger Hardy-Littlewood-scale linear target.",
+        "failure_count": 0
+      },
+      "logical_limit": "No unbounded lower envelope is proved for cumulative shift-two correlation after exact prime-power subtraction.",
+      "route_decision": {
+        "discard": "treating a positive linear dyadic lower bound as necessary or equivalent to the Twin Prime conjecture",
+        "retain": "unbounded cumulative exact excess as the quantifier-matched target, with positive linear limsup retained only as a stronger sufficient route",
+        "next_single_lemma": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T189-INPUT",
+            "label": "ShiftTwoVonMangoldtPrimePowerContaminationBridge",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T190-CLOSED",
+            "label": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T190-REJECTED",
+            "label": "UnboundedCumulativeTwinMassImpliesPositiveLinearDyadicMass",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T190-OPEN",
+            "label": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T189-INPUT",
+            "TP-T190-CLOSED"
+          ],
+          [
+            "TP-T190-CLOSED",
+            "TP-T190-OPEN"
+          ],
+          [
+            "TP-T190-REJECTED",
+            "TP-T190-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof. Linear cumulative and dyadic targets are related exactly, while a sparse-mass countermodel proves that linear growth is stronger than infinitude."
+    },
+    "cross_problem_synthesis": "The shared lesson is that infinite promotion depends on the exact topology and quantifier: direct Cauchy control can exploit cancellation, Collatz cycles admit a multiplicative all-horizon obstruction, average information cannot prove a universal Goldbach statement, while positive cumulative mass can transfer to infinitely many Twin dyadic blocks.",
+    "literature_boundary": {
+      "riemann": "The result is a functional-analytic promotion and no-go theorem, not a new estimate for the Weil explicit formula.",
+      "collatz": "The product argument excludes one exact valuation stratum; it does not address arbitrary valuation vectors or nonperiodic divergence.",
+      "goldbach": "Exceptional-set and mean-value theorems remain logically weaker than the every-even-target claim; the countermodel isolates that quantifier gap without modelling primes.",
+      "twin_prime": "Hardy-Littlewood-scale linear correlation would suffice but is stronger than infinitude; the ticket does not supply the missing parity-sensitive lower bound."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_infinite_cycle_stratum_closure_count": 1,
+      "quantifier_or_topology_boundary_count": 3,
+      "rejected_or_corrected_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-190",
+      "status": "open_not_proven",
+      "declared_proposition": "Compatible Hermitian fixed cores with a certified direct Cauchy modulus define one Hermitian form on c_00; a vanishing lower eigenvalue defect makes that form positive semidefinite. Absolute summability of adjacent operator drifts is sufficient but not necessary: the positive scalar cores 2+sum_(k<=N)(-1)^(k+1)/k have direct Cauchy modulus 1/(N+1), while the sum of adjacent drift norms is harmonic and diverges. A compatible positive form extends to a bounded positive operator on l_2 when its core norms are uniformly bounded; without that bound, diag(1,...,m) gives a compatible positive counterfamily with no bounded l_2 extension.",
+      "new_result": "DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo",
+      "discarded_route": "treating absolute summability of adjacent fixed-core drift as a necessary condition for compatible core convergence",
+      "remaining_gap": "No direct Cauchy modulus or vanishing negative floor is proved for the actual pole-neutral Guinand-Weil fixed cores.",
+      "candidate_theorem": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor",
+      "claim_boundary": "No RH proof. A direct-Cauchy promotion theorem, a nonsummable convergent family, and the bounded-operator extension boundary are proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T189-INPUT",
+            "label": "SummableFiniteCoreDriftConstructsCompatiblePositiveForm",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T190-CLOSED",
+            "label": "DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T190-REJECTED",
+            "label": "AbsoluteSummableAdjacentDriftIsNecessaryForCoreConvergence",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "RH-T190-OPEN",
+            "label": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T189-INPUT",
+            "RH-T190-CLOSED"
+          ],
+          [
+            "RH-T190-CLOSED",
+            "RH-T190-OPEN"
+          ],
+          [
+            "RH-T190-REJECTED",
+            "RH-T190-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-190",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly six entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "new_result": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+      "discarded_route": "extending finite six-one divisibility enumeration to unbounded horizons without a global cycle inequality",
+      "remaining_gap": "Seven-or-more-one words, valuations at least three, and aperiodic divergence remain open.",
+      "candidate_theorem": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+      "claim_boundary": "No Collatz proof. The complete exactly-six-one/rest-two periodic valuation stratum is excluded, including imprimitive periods.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T189-INPUT",
+            "label": "ExactlyFiveValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T190-CLOSED",
+            "label": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T190-REJECTED",
+            "label": "FiniteSixOneEnumerationProvesEveryHorizon",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "CO-T190-OPEN",
+            "label": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T189-INPUT",
+            "CO-T190-CLOSED"
+          ],
+          [
+            "CO-T190-CLOSED",
+            "CO-T190-OPEN"
+          ],
+          [
+            "CO-T190-REJECTED",
+            "CO-T190-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-190",
+      "status": "open_not_proven",
+      "declared_proposition": "Density-one positivity and an asymptotically complete average linear mass do not imply positivity at every even target. Define F(N)=0 when the even integer N is a power of two and F(N)=N otherwise. Then F vanishes at infinitely many even targets, the number of exceptions up to X is O(log X)=o(X), and the cumulative deficit from sum_(even N<=X) N is less than 2X=o(X^2). Thus even a relative average error tending to zero cannot replace the pointwise lower bound required by strong Goldbach.",
+      "new_result": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+      "discarded_route": "promoting density-one positivity or an asymptotically complete average correlation estimate to every even target",
+      "remaining_gap": "No pointwise major-arc main-term minus minor-arc error lower bound is proved for every sufficiently large even target.",
+      "candidate_theorem": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+      "claim_boundary": "No Goldbach proof. A sparse-hole countermodel proves that density-one and near-perfect average estimates cannot close the universal target quantifier.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T189-INPUT",
+            "label": "ProperPrimePowerContaminationHasExplicitSublinearBudget",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T190-CLOSED",
+            "label": "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T190-REJECTED",
+            "label": "DensityOneOrAverageCorrelationPromotesToEveryEvenTarget",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "GB-T190-OPEN",
+            "label": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T189-INPUT",
+            "GB-T190-CLOSED"
+          ],
+          [
+            "GB-T190-CLOSED",
+            "GB-T190-OPEN"
+          ],
+          [
+            "GB-T190-REJECTED",
+            "GB-T190-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-190",
+      "status": "open_not_proven",
+      "declared_proposition": "For any nonnegative dyadic block masses b_j and cumulative masses W_J=sum_(j<J)b_j, limsup_J W_J/2^J>0 if and only if there is a constant c>0 such that b_j>=c2^j for infinitely many j. Applied after the exact TICKET-189 prime-power subtraction, this transfers a positive linear cumulative twin-mass limsup to infinitely many positive linear dyadic blocks. However, unbounded cumulative mass does not imply any positive linear bound: b_j=1 gives W_J=J while W_J/2^J and b_j/2^j both tend to zero. Therefore the TICKET-189 linear target is sufficient but strictly stronger than the Twin Prime conjecture.",
+      "new_result": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+      "discarded_route": "treating a positive linear dyadic lower bound as necessary or equivalent to the Twin Prime conjecture",
+      "remaining_gap": "No unbounded lower envelope is proved for cumulative shift-two correlation after exact prime-power subtraction.",
+      "candidate_theorem": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+      "claim_boundary": "No Twin Prime proof. Linear cumulative and dyadic targets are related exactly, while a sparse-mass countermodel proves that linear growth is stronger than infinitude.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T189-INPUT",
+            "label": "ShiftTwoVonMangoldtPrimePowerContaminationBridge",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T190-CLOSED",
+            "label": "CumulativeDyadicLinearTransferAndSparseMassNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T190-REJECTED",
+            "label": "UnboundedCumulativeTwinMassImpliesPositiveLinearDyadicMass",
+            "status": "refuted_or_insufficient"
+          },
+          {
+            "id": "TP-T190-OPEN",
+            "label": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T189-INPUT",
+            "TP-T190-CLOSED"
+          ],
+          [
+            "TP-T190-CLOSED",
+            "TP-T190-OPEN"
+          ],
+          [
+            "TP-T190-REJECTED",
+            "TP-T190-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope"
+    }
+  ]
+}

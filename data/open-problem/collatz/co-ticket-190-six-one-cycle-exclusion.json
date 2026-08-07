@@ -1,0 +1,210 @@
+{
+  "schema": "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "ticket_id": "CO-TICKET-190",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+  "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly six entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+  "mathematical_argument": "For a positive odd accelerated cycle x_(i+1)=(3x_i+1)/2^v_i with six v_i=1 and all other v_i=2, contraction starts at h=15. The orbit cannot contain x_i=1 unless it is the trivial all-two fixed cycle, so every x_i>=3. Multiplying one period gives 1=product_i(3+1/x_i)/2^v_i <= (10/3)^h/2^(2h-6) =64(5/6)^h. At h=23 this exact upper bound is already below one and decreases thereafter, a contradiction. For 15<=h<=22, exhaustive exact enumeration of all sum C(h,6)=238722 valuation words finds no affine-divisibility hit.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly six entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+    "proof": "For a positive odd accelerated cycle x_(i+1)=(3x_i+1)/2^v_i with six v_i=1 and all other v_i=2, contraction starts at h=15. The orbit cannot contain x_i=1 unless it is the trivial all-two fixed cycle, so every x_i>=3. Multiplying one period gives 1=product_i(3+1/x_i)/2^v_i <= (10/3)^h/2^(2h-6) =64(5/6)^h. At h=23 this exact upper bound is already below one and decreases thereafter, a contradiction. For 15<=h<=22, exhaustive exact enumeration of all sum C(h,6)=238722 valuation words finds no affine-divisibility hit.",
+    "finite_exception_horizon_rows": [
+      {
+        "horizon_h": 15,
+        "contracting": true,
+        "word_count": 5005,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "aaa04a07440cfca7ab8f78d4a116cc8ec4f7d4c10ec3c77bc4524616876cf977"
+      },
+      {
+        "horizon_h": 16,
+        "contracting": true,
+        "word_count": 8008,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "259b602f14de3e8c7fd003ca193337425fcff214132257803e209ce9d73ddc74"
+      },
+      {
+        "horizon_h": 17,
+        "contracting": true,
+        "word_count": 12376,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "c3cfb51f5e061b00e4fc1142136d613480a82641e862d368ce17251959dff68b"
+      },
+      {
+        "horizon_h": 18,
+        "contracting": true,
+        "word_count": 18564,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "abc38f267340b0d6d17ca2c227dc51899f640ac417ad1babcca11bed88805a59"
+      },
+      {
+        "horizon_h": 19,
+        "contracting": true,
+        "word_count": 27132,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "ac38983775712c91ffe1119478bead795d4792e1e33d6e0966a0f75d894a885f"
+      },
+      {
+        "horizon_h": 20,
+        "contracting": true,
+        "word_count": 38760,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "2b619d88504621a20b3e928f1e147c7ecdfbfcde8f46be89fd1ff5c4041f8a10"
+      },
+      {
+        "horizon_h": 21,
+        "contracting": true,
+        "word_count": 54264,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "c9af9df77ee7dc979600c71cb62e57595b54dfa0ae8235278910164bd9f2fe04"
+      },
+      {
+        "horizon_h": 22,
+        "contracting": true,
+        "word_count": 74613,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "remainder_transcript_sha256": "fa4949a082c8619cbd5c57928dd38311b6b3c8e41cbcee728d1075905d302d7c"
+      }
+    ],
+    "analytic_product_rows": [
+      {
+        "horizon_h": 23,
+        "cycle_product_upper_bound": {
+          "numerator": 11920928955078125,
+          "denominator": 12339534735212544,
+          "exact": "11920928955078125/12339534735212544",
+          "decimal": 0.9660760483181047
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 24,
+        "cycle_product_upper_bound": {
+          "numerator": 59604644775390625,
+          "denominator": 74037208411275264,
+          "exact": "59604644775390625/74037208411275264",
+          "decimal": 0.8050633735984206
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 32,
+        "cycle_product_upper_bound": {
+          "numerator": 23283064365386962890625,
+          "denominator": 124354079842912513818624,
+          "exact": "23283064365386962890625/124354079842912513818624",
+          "decimal": 0.18723201035944112
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 48,
+        "cycle_product_upper_bound": {
+          "numerator": 3552713678800500929355621337890625,
+          "denominator": 350816526677414956876362673809260544,
+          "exact": "3552713678800500929355621337890625/350816526677414956876362673809260544",
+          "decimal": 0.010126984929838595
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 64,
+        "cycle_product_upper_bound": {
+          "numerator": 542101086242752217003726400434970855712890625,
+          "denominator": 989691979108957464158785733543935728279632216064,
+          "exact": "542101086242752217003726400434970855712890625/989691979108957464158785733543935728279632216064",
+          "decimal": 0.0005477472766130916
+        },
+        "strictly_below_one": true
+      },
+      {
+        "horizon_h": 96,
+        "cycle_product_upper_bound": {
+          "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+          "denominator": 7876623064960345607840112210142479510719807466157345577052854532811259904,
+          "exact": "12621774483536188886587657044524579674771302961744368076324462890625/7876623064960345607840112210142479510719807466157345577052854532811259904",
+          "decimal": 1.6024347463934067e-06
+        },
+        "strictly_below_one": true
+      }
+    ],
+    "analytic_bound": {
+      "bound_at_h_23": {
+        "numerator": 11920928955078125,
+        "denominator": 12339534735212544,
+        "exact": "11920928955078125/12339534735212544",
+        "decimal": 0.9660760483181047
+      },
+      "required_upper_threshold": {
+        "numerator": 1,
+        "denominator": 1,
+        "exact": "1/1",
+        "decimal": 1.0
+      },
+      "analytic_range_starts_at_h": 23,
+      "bound_is_strictly_decreasing": true
+    },
+    "aggregate": {
+      "infinite_family_proved": true,
+      "includes_imprimitive_words": true,
+      "contracting_range_starts_at_h": 15,
+      "analytic_range_starts_at_h": 23,
+      "finite_exception_word_count": 238722,
+      "divisibility_hits": 0
+    },
+    "no_go_scope": "This closes only the exactly-six-one/rest-two periodic valuation stratum. Periods with seven or more ones, any valuation at least three, and divergent aperiodic natural-number orbits remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "extending finite six-one divisibility enumeration to unbounded horizons without a global cycle inequality",
+  "remaining_gap": "Seven-or-more-one words, valuations at least three, and aperiodic divergence remain open.",
+  "candidate_theorem": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+  "claim_boundary": "No Collatz proof. The complete exactly-six-one/rest-two periodic valuation stratum is excluded, including imprimitive periods.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T189-INPUT",
+        "label": "ExactlyFiveValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "CO-T190-CLOSED",
+        "label": "ExactlySixValuationOnesOtherwiseTwoCycleExclusion",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-T190-REJECTED",
+        "label": "FiniteSixOneEnumerationProvesEveryHorizon",
+        "status": "refuted_or_insufficient"
+      },
+      {
+        "id": "CO-T190-OPEN",
+        "label": "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T189-INPUT",
+        "CO-T190-CLOSED"
+      ],
+      [
+        "CO-T190-CLOSED",
+        "CO-T190-OPEN"
+      ],
+      [
+        "CO-T190-REJECTED",
+        "CO-T190-OPEN"
+      ]
+    ]
+  }
+}

@@ -37,6 +37,41 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-190 Cauchy Cores, Six-One Cycles, and Quantifier Transfer
+
+TICKET-190 continues from TICKET-189 and keeps every parent conjecture at
+`open_not_proven`.
+
+1. **Riemann:** `DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo` proves
+   that a direct fixed-core Cauchy modulus suffices for compatible form
+   convergence. An alternating harmonic core refutes absolute adjacent-drift
+   summability as a necessary condition, while `diag(1,...,m)` separates a
+   positive form on `c_00` from a bounded `l_2` operator. The next obligation is
+   `PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor`.
+2. **Collatz:** `ExactlySixValuationOnesOtherwiseTwoCycleExclusion` closes
+   every contracting word with exactly six valuation-one entries and all
+   remaining entries two. The cycle product bound `64(5/6)^h<1` closes
+   `h>=23`; exact enumeration closes all 238,722 words at `h=15..22`. The next
+   obligation is
+   `NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+3. **Goldbach:** `DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach`
+   constructs a sparse-hole countermodel with zeros at every power of two,
+   density-zero exceptions, and only `O(X)` missing mass from a quadratic
+   average. The next obligation remains the pointwise every-target theorem
+   `ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget`.
+4. **Twin Prime:** `CumulativeDyadicLinearTransferAndSparseMassNoGo` proves
+   the equivalence between positive linear cumulative limsup and positive
+   linear mass on infinitely many dyadic blocks. The model `b_j=1` proves that
+   this linear target is stronger than infinitude. The next obligation is
+   `CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope`.
+
+Machine audit: four exact theorems, one newly closed infinite cycle stratum,
+three topology or quantifier boundaries, four rejected or corrected routes,
+zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-190](cauchy-sixone-quantifier-transfer.md).
+한국어 보고서: [TICKET-190](cauchy-sixone-quantifier-transfer.ko.md).
+
 ## 2026-08-08 TICKET-189 Summable Cores, Five-One Cycles, and Prime-Power Subtraction
 
 TICKET-189 continues from TICKET-188 and keeps every parent conjecture at

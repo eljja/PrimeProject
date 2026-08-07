@@ -14,6 +14,7 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket190Load = openProblemSource.indexOf("const ticket190Loaded = await loadTicket190Attempt();");
   const ticket189Load = openProblemSource.indexOf("const ticket189Loaded = await loadTicket189Attempt();");
   const ticket188Load = openProblemSource.indexOf("const ticket188Loaded = await loadTicket188Attempt();");
   const ticket187Load = openProblemSource.indexOf("const ticket187Loaded = await loadTicket187Attempt();");
@@ -38,15 +39,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket189Load >= 0 && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET189 through TICKET125 priority render must precede historical ticket loading");
+  if (!(ticket190Load >= 0 && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET190 through TICKET125 priority render must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260808-ticket189")) {
+    if (!source.includes("open-problems.js?v=20260808-ticket190")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260808-ticket189-layout")) {
+    if (!source.includes("styles.css?v=20260808-ticket190-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -440,6 +441,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket190AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket190-cauchy-sixone-quantifier-transfer .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket189AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket189-corefive-sublinear-shift .ticket161-audit-table .proof-table-wrap",
@@ -624,7 +631,7 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-189") ||
+    !metrics.currentBriefText.includes("TICKET-190") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
     metrics.mobileHorizontalOverflow ||
@@ -642,7 +649,7 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-189 actually changed") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-190 actually changed") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -654,8 +661,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-189 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-189 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 189 summable cores")) failures.push(`${page.problemId}: current TICKET-189 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-190 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-190 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 190 Cauchy cores")) failures.push(`${page.problemId}: current TICKET-190 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1525,38 +1532,42 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket189 title", "Ticket 189 summable cores, five-one cycles, and prime-power subtraction");
-    requireCurrentText("ticket189 table", "TICKET189 audit");
-    requireCurrentText("ticket189 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket189 exact theorems", "Exact theorems4");
-    requireCurrentText("ticket189 resolutions", "Resolution count0");
-    requireCurrentText("ticket189 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket189AuditOverflow) checks.push(`${page.problemId}: ticket189 audit table overflow`);
+    requireCurrentText("ticket190 title", "Ticket 190 Cauchy cores, six-one cycles, and quantifier transfer");
+    requireCurrentText("ticket190 table", "TICKET190 audit");
+    requireCurrentText("ticket190 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket190 exact theorems", "Exact theorems4");
+    requireCurrentText("ticket190 resolutions", "Resolution count0");
+    requireCurrentText("ticket190 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket190AuditOverflow) checks.push(`${page.problemId}: ticket190 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket189 RH theorem", "SummableFiniteCoreDriftConstructsCompatiblePositiveForm");
-      requireCurrentText("ticket189 RH target", "PoleNeutralGuinandWeilFixedCoreDriftHasCertifiedSummableOperatorMajorantAndVanishingNegativeFloor");
-      requireCurrentText("ticket189 RH core", "Fixed corem = 4");
-      requireCurrentText("ticket189 RH compatible", "Compatible limitproved");
-      requireCurrentText("ticket189 RH actual boundary", "Actual Weil familyopen");
+      requireCurrentText("ticket190 RH theorem", "DirectCoreCauchyPromotionAndAbsoluteSummabilityNoGo");
+      requireCurrentText("ticket190 RH target", "PoleNeutralGuinandWeilFixedCoresHaveCertifiedCauchyModulusAndVanishingNegativeFloor");
+      requireCurrentText("ticket190 RH direct", "Direct Cauchyproved");
+      requireCurrentText("ticket190 RH necessity", "Absolute summability necessaryno");
+      requireCurrentText("ticket190 RH actual boundary", "Actual Weil modulusopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket189 Collatz theorem", "ExactlyFiveValuationOnesOtherwiseTwoCycleExclusion");
-      requireCurrentText("ticket189 Collatz scope", "Analytic rangeall h ≥ 22");
-      requireCurrentText("ticket189 Collatz exceptions", "Finite words closed72,897");
-      requireCurrentText("ticket189 Collatz hits", "Divisibility hits0");
-      requireCurrentText("ticket189 Collatz target", "NoContractingValuationWordWithExactlySixOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility");
+      requireCurrentText("ticket190 Collatz theorem", "ExactlySixValuationOnesOtherwiseTwoCycleExclusion");
+      requireCurrentText("ticket190 Collatz scope", "Analytic rangeall h ≥ 23");
+      requireCurrentText("ticket190 Collatz exceptions", "Finite words closed238,722");
+      requireCurrentText("ticket190 Collatz hits", "Divisibility hits0");
+      requireCurrentText("ticket190 Collatz target", "NoContractingValuationWordWithExactlySevenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket189 Goldbach theorem", "ProperPrimePowerContaminationHasExplicitSublinearBudget");
-      requireCurrentText("ticket189 Goldbach targets", "Targets audited6");
-      requireCurrentText("ticket189 Goldbach contamination", "Sublinear budgetproved");
-      requireCurrentText("ticket189 Goldbach lower bound", "Linear lower boundopen");
-      requireCurrentText("ticket189 Goldbach target", "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget");
+      requireCurrentText("ticket190 Goldbach theorem", "DensityOneAndAverageMassDoNotImplyEveryTargetGoldbach");
+      requireCurrentText("ticket190 Goldbach cutoffs", "Countermodel cutoffs8");
+      requireCurrentText("ticket190 Goldbach no-go", "Density-one promotionrefuted");
+      requireCurrentText("ticket190 Goldbach lower bound", "Pointwise lower boundopen");
+      requireCurrentText("ticket190 Goldbach target", "ExplicitMajorArcMainMinusMinorArcErrorExceedsSublinearPrimePowerBudgetForEveryLargeEvenTarget");
     } else {
-      requireCurrentText("ticket189 Twin theorem", "ShiftTwoVonMangoldtPrimePowerContaminationBridge");
-      requireCurrentText("ticket189 Twin blocks", "Dyadic blocks16");
-      requireCurrentText("ticket189 Twin contamination", "Contamination bridgeproved");
-      requireCurrentText("ticket189 Twin lower bound", "Linear lower boundopen");
-      requireCurrentText("ticket189 Twin target", "ShiftTwoVonMangoldtCorrelationHasPositiveLinearLowerBoundOnInfinitelyManyDyadicBlocks");
+      requireCurrentText("ticket190 Twin theorem", "CumulativeDyadicLinearTransferAndSparseMassNoGo");
+      requireCurrentText("ticket190 Twin transfer", "Dyadic transferproved");
+      requireCurrentText("ticket190 Twin necessity", "Linear target necessaryno");
+      requireCurrentText("ticket190 Twin lower bound", "Unbounded exact excessopen");
+      requireCurrentText("ticket190 Twin target", "CumulativeShiftTwoCorrelationMinusExactPrimePowerContaminationHasUnboundedCertifiedLowerEnvelope");
     }
+    requireText("ticket189 historical title", "Ticket 189 summable cores, five-one cycles, and prime-power subtraction");
+    requireText("ticket189 historical table", "TICKET189 audit");
+    requireText("ticket189 historical label", "PREVIOUS / 이전 연구 경계");
+    if (page.ticket189AuditOverflow) checks.push(`${page.problemId}: ticket189 audit table overflow`);
     requireText("ticket188 historical title", "Ticket 188 common forms, four-one cycles, prime-power contamination, and dyadic oracles");
     requireText("ticket188 historical table", "TICKET188 audit");
     requireText("ticket188 historical label", "PREVIOUS / 이전 연구 경계");

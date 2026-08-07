@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, a fourth adjacent Collatz stratum closed",
-      ko: "네 개의 미해결 문제, 연속해서 닫힌 네 콜라츠 부분족",
+      en: "Four open problems, a fifth adjacent Collatz stratum closed",
+      ko: "네 개의 미해결 문제, 연속해서 닫힌 다섯 콜라츠 부분족",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-189 closes the five-one Collatz cycle stratum and proves three exact promotion or subtraction theorems.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-189는 다섯-1 콜라츠 순환 부분족을 닫고 정확한 승격 또는 오염항 제거 정리 세 개를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-190 closes the six-one Collatz cycle stratum and proves three exact topology or quantifier boundaries.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-190은 여섯-1 콜라츠 순환 부분족을 닫고 정확한 위상 또는 양화사 경계 세 개를 증명합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

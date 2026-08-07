@@ -300,7 +300,7 @@ python -m prime_audit.cli replication-audit `
 
 `evidence-pack`은 공개 산출물의 재현성과 주장 한계를 묶는 최종 출판 단위다. 입력 JSON의 SHA-256, schema, byte size를 기록하고 publication gate를 통과했는지 표시한다.
 
-`claim-language-audit`는 Evidence Pack 직전에 README, docs, GitHub Pages HTML/JS 문구를 검사한다. 목적은 계산 결과가 아니라 공개 claim 문구가 현재 evidence boundary를 넘어서는 순간을 잡는 것이다. 현재 공개 문구 14개 파일은 real-world/Bitcoin attribution이 blocked boundary로 남는지, private material이 local/forbidden policy로만 언급되는지, proof/guarantee 표현이 고위험 주장에 붙지 않는지 모두 통과한다.
+`claim-language-audit`는 Evidence Pack 직전에 README, docs, GitHub Pages HTML/JS 문구를 검사한다. 목적은 계산 결과가 아니라 공개 claim 문구가 현재 evidence boundary를 넘어서는 순간을 잡는 것이다. 감사 대상 전체 공개 문서는 real-world/Bitcoin attribution이 blocked boundary로 남는지, private material이 local/forbidden policy로만 언급되는지, proof/guarantee 표현이 고위험 주장에 붙지 않는지 검사하며, 최신 통과 수치는 `data/claim_language_audit.json`에 기록한다.
 
 ```powershell
 python -m prime_audit.cli evidence-pack `
