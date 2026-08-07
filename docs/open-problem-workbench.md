@@ -15,18 +15,18 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-192
+## Current research boundary: TICKET-193
 
 The current executable frontier is
-`data/open-problem/ticket192-uniform-eightone-weighted-envelope.json`. It records
+`data/open-problem/ticket193-everywhere-nineone-parity-envelope.json`. It records
 four exact intermediate theorems and keeps all four conjectures at
-`open_not_proven`. The eight-one/rest-two accelerated Collatz cycle stratum is
-excluded. RH is reduced to actual Weil-probe convergence plus a uniform
-admissible-norm bound. Strong Goldbach and Twin Prime now share a weighted
-proper-prime-power contamination function, removing the earlier count-budget
-factor two while leaving the every-target and infinitely-many-block lower bounds
-open. See the [English report](uniform-eightone-weighted-envelope.md) and
-[한국어 보고서](uniform-eightone-weighted-envelope.ko.md).
+`open_not_proven`. The nine-one/rest-two accelerated Collatz cycle stratum is
+excluded. RH is reduced to everywhere convergence of the actual pole-neutral
+Weil finite sections on a complete admissible Hilbert completion. Strong
+Goldbach and Twin Prime use parity-separated odd proper-prime-power envelopes,
+while the every-target and infinitely-many-block lower bounds remain open. See
+the [English report](everywhere-nineone-parity-envelope.md) and
+[한국어 보고서](everywhere-nineone-parity-envelope.ko.md).
 
 ## Public Pages
 

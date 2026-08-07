@@ -62,45 +62,53 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-192
+## Latest Continuation After TICKET-193
 
 All four conjectures remain open. Continue from exactly these four nodes:
 
 1. Riemann:
-   `PoleNeutralWeilQuadraticValuesConvergeOnGaussianRationalCoreWithUniformAdmissibleNormBound`.
-   TICKET-192 proves the abstract bounded-extension criterion and refutes
-   pointwise-only dense-core promotion. The next result must concern the actual
-   Weil form, not another diagonal model.
+   `PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion`.
+   TICKET-193 proves that everywhere pointwise convergence supplies the
+   required uniform bound and gives an explicit dense-core no-go. The next
+   result must prove everywhere convergence for the actual Weil finite sections.
 2. Collatz:
-   `NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
-   The exactly-eight-one/rest-two stratum is excluded at every horizon. Preserve
-   rotation normalization and the finite-plus-product-cutoff proof split.
+   `NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility`.
+   The exactly-nine-one/rest-two stratum is excluded at every horizon. Preserve
+   rotation normalization, the boundary-term MITM decomposition, and the
+   finite-plus-product-cutoff proof split.
 3. Goldbach:
-   `BinaryVonMangoldtCorrelationExceedsWeightedPrimePowerEnvelopeForEveryLargeEvenTarget`.
-   The new sufficient target is `2log(N)W_pp(N)`, at most half the earlier
-   count-based budget. A finite table cannot replace the every-even quantifier.
+   `BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget`.
+   The sufficient target is `2log(N)W_odd(N)+C_2(N)`. A finite table cannot
+   replace the every-even quantifier.
 4. Twin Prime:
-   `ShiftTwoCorrelationExceedsLocalWeightedPrimePowerEnvelopeOnInfinitelyManyDyadicBlocks`.
-   The local two-sided envelope is rigorous and passes finite replay. The next
+   `ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks`.
+   The odd-only local envelope is rigorous and passes finite replay. The next
    result must establish infinitely many unbounded successful blocks.
 
 Exact machine artifacts:
 
 ```text
-data/open-problem/ticket192-uniform-eightone-weighted-envelope.json
-data/open-problem/riemann/rh-ticket-192-uniform-extension.json
-data/open-problem/collatz/co-ticket-192-eight-one-cycle-exclusion.json
-data/open-problem/goldbach/gb-ticket-192-weighted-envelope.json
-data/open-problem/twin-prime/tp-ticket-192-local-weighted-envelope.json
+data/open-problem/ticket193-everywhere-nineone-parity-envelope.json
+data/open-problem/riemann/rh-ticket-193-everywhere-extension.json
+data/open-problem/collatz/co-ticket-193-nine-one-cycle-exclusion.json
+data/open-problem/goldbach/gb-ticket-193-parity-envelope.json
+data/open-problem/twin-prime/tp-ticket-193-odd-local-envelope.json
 ```
 
-한국어 인계: TICKET-192도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
-정확히 여덟 번의 `v=1`과 나머지 `v=2`인 모든 콜라츠 주기족의 배제다.
-리만은 균일 유계 확장 조건을, 골드바흐와 Twin은 공통 가중
-proper-prime-power 오염 상계를 확정했다. 남은 단계는 모두 무한 균일성 정리다.
+한국어 인계: TICKET-193도 네 난제를 해결하지 않았다. 새로 닫힌 무한 결과는
+정확히 아홉 번의 `v=1`과 나머지 `v=2`인 모든 콜라츠 주기족의 배제다.
+리만은 완비공간 전체 수렴의 승격 정리를, 골드바흐와 Twin은 parity 분리
+오염 상계를 확정했다. 남은 단계는 모두 실제 산술 객체에 대한 무한 정리다.
 
-English report: [TICKET-192](uniform-eightone-weighted-envelope.md).
-Korean report: [TICKET-192 한국어](uniform-eightone-weighted-envelope.ko.md).
+English report: [TICKET-193](everywhere-nineone-parity-envelope.md).
+Korean report: [TICKET-193 한국어](everywhere-nineone-parity-envelope.ko.md).
+
+## Preserved Continuation After TICKET-192
+
+TICKET-192 remains available in
+[English](uniform-eightone-weighted-envelope.md) and
+[한국어](uniform-eightone-weighted-envelope.ko.md). Its next nodes were consumed
+or sharpened by TICKET-193; use the TICKET-193 nodes above for new work.
 
 ## Preserved Continuation After TICKET-191
 

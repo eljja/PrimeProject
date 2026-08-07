@@ -189,6 +189,9 @@ TICKET189_SCHEMA = "primeproject.ticket189-corefive-sublinear-shift.v1"
 TICKET190_SCHEMA = "primeproject.ticket190-cauchy-sixone-quantifier-transfer.v1"
 TICKET191_SCHEMA = "primeproject.ticket191-probe-sevenone-budget-granularity.v1"
 TICKET192_SCHEMA = "primeproject.ticket192-uniform-eightone-weighted-envelope.v1"
+TICKET193_SCHEMA = (
+    "primeproject.ticket193-everywhere-nineone-parity-envelope.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -14130,6 +14133,185 @@ def main() -> int:
         or "resolves none" not in str(ticket192.get("claim_boundary", "")).lower()
     ):
         return fail("ticket192 proof boundary changed")
+
+    path193 = Path(
+        "data/open-problem/ticket193-everywhere-nineone-parity-envelope.json"
+    )
+    if not path193.exists():
+        return fail("missing ticket193 everywhere/nine-one/parity-envelope audit")
+    ticket193 = read_json(path193)
+    if (
+        ticket193.get("schema") != TICKET193_SCHEMA
+        or ticket193.get("status")
+        != "one_additional_infinite_cycle_stratum_closed_everywhere_extension_and_two_parity_envelopes_proved_all_open"
+    ):
+        return fail("ticket193 schema or status changed")
+    audit193 = ticket193.get("everywhere_nineone_parity_envelope_audit", {})
+    if audit193.get("machine_audit") != {
+        "exact_theorem_count": 4,
+        "new_infinite_cycle_stratum_closure_count": 1,
+        "parity_sharpened_envelope_count": 2,
+        "represented_collatz_word_count": 52157326,
+        "rejected_or_corrected_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket193 global machine audit changed")
+
+    by_id193 = {
+        str(row.get("problem_id")): row
+        for row in ticket193.get("attempts", [])
+        if isinstance(row, dict)
+    }
+    if set(by_id193) != EXPECTED_PROBLEMS:
+        return fail("ticket193 attempts missing problems")
+    paths193 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-193-everywhere-extension.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-193-nine-one-cycle-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-193-parity-envelope.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-193-odd-local-envelope.json"
+        ),
+    }
+    expected_names193 = {
+        "riemann": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+        "collatz": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+        "goldbach": "ParitySeparatedPrimePowerContaminationEnvelope",
+        "twin-prime": "OddOnlyShiftTwoContaminationEnvelope",
+    }
+    next193 = {
+        "riemann": "PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion",
+        "collatz": "NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+        "goldbach": "BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget",
+        "twin-prime": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks",
+    }
+    sections193 = {
+        "riemann": audit193.get("riemann", {}),
+        "collatz": audit193.get("collatz", {}),
+        "goldbach": audit193.get("goldbach", {}),
+        "twin-prime": audit193.get("twin_prime", {}),
+    }
+    for problem_id, attempt in by_id193.items():
+        artifact_path = paths193[problem_id]
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket193 artifact missing")
+        artifact = read_json(artifact_path)
+        section = sections193[problem_id]
+        nodes = section.get("proof_dag", {}).get("nodes", [])
+        if (
+            artifact.get("schema") != TICKET193_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or section.get("theorem_name") != expected_names193[problem_id]
+            or artifact.get("theorem_name") != expected_names193[problem_id]
+            or attempt.get("candidate_theorem") != next193[problem_id]
+            or artifact.get("candidate_theorem") != next193[problem_id]
+            or [node.get("status") for node in nodes]
+            != [
+                "proved_exact_input_or_open_target",
+                "proved_exact",
+                "refuted_or_stronger_than_necessary",
+                "open_not_proven",
+            ]
+            or nodes[-1].get("label") != next193[problem_id]
+            or section.get("reproducible_computation", {}).get("failure_count") != 0
+            or not str(artifact.get("claim_boundary", "")).startswith("No ")
+        ):
+            return fail(f"{problem_id}: ticket193 contract changed")
+
+    rh193 = sections193["riemann"]["reproducible_computation"]
+    rh_spikes193 = rh193.get("dense_core_spike_rows", [])
+    rh_witness193 = rh193.get("all_space_failure_witness_rows", [])
+    if (
+        [row.get("operator_norm") for row in rh_spikes193]
+        != [2, 4, 8, 16, 32, 64]
+        or [row.get("quadratic_value_q_n_x") for row in rh_witness193]
+        != list(range(1, 13))
+        or rh193.get("extension_contract", {}).get(
+            "everywhere_pointwise_convergence_forces_uniform_bound"
+        )
+        is not True
+        or rh193.get("extension_contract", {}).get(
+            "dense_core_pointwise_convergence_is_sufficient"
+        )
+        is not False
+        or rh193.get("extension_contract", {}).get(
+            "actual_weil_everywhere_convergence_verified"
+        )
+        is not False
+    ):
+        return fail("ticket193 RH everywhere-extension boundary changed")
+
+    collatz193 = sections193["collatz"]["reproducible_computation"]
+    finite193 = collatz193.get("finite_exception_horizon_rows", [])
+    aggregate193 = collatz193.get("aggregate", {})
+    if (
+        [row.get("horizon_h") for row in finite193] != list(range(22, 35))
+        or sum(int(row.get("represented_word_count", 0)) for row in finite193)
+        != 52157326
+        or aggregate193.get("rotation_normalization_is_complete") is not True
+        or aggregate193.get("mitm_coverage_is_complete") is not True
+        or aggregate193.get("analytic_range_starts_at_h") != 35
+        or aggregate193.get("divisibility_hits") != 0
+        or collatz193.get("analytic_bound", {}).get("bound_at_h_35", {}).get(
+            "exact"
+        )
+        != "2910383045673370361328125/3357560155758637873102848"
+        or collatz193.get("boundary_formula_validation", {}).get(
+            "formula_mismatch_count"
+        )
+        != 0
+        or any(row.get("divisibility_hit_count") != 0 for row in finite193)
+    ):
+        return fail("ticket193 Collatz nine-one cycle audit changed")
+
+    goldbach193 = sections193["goldbach"]["reproducible_computation"]
+    gold_rows193 = goldbach193.get("parity_envelope_rows", [])
+    if (
+        [row.get("target_N") for row in gold_rows193]
+        != [2**j for j in range(10, 21)]
+        or any(not all(row.get("checks", {}).values()) for row in gold_rows193)
+        or goldbach193.get("aggregate", {}).get(
+            "parity_separated_envelope_theorem_proved"
+        )
+        is not True
+        or goldbach193.get("aggregate", {}).get("all_large_even_targets_proved")
+        is not False
+    ):
+        return fail("ticket193 Goldbach parity-envelope boundary changed")
+
+    twin193 = sections193["twin-prime"]["reproducible_computation"]
+    twin_rows193 = twin193.get("finite_dyadic_rows", [])
+    if (
+        [row.get("dyadic_exponent_j") for row in twin_rows193]
+        != list(range(4, 20))
+        or any(not all(row.get("checks", {}).values()) for row in twin_rows193)
+        or twin193.get("aggregate", {}).get(
+            "odd_only_local_envelope_theorem_proved"
+        )
+        is not True
+        or twin193.get("aggregate", {}).get(
+            "even_supported_pairs_excluded_for_all_X_ge_4"
+        )
+        is not True
+        or twin193.get("aggregate", {}).get(
+            "infinitely_many_envelope_successes_proved"
+        )
+        is not False
+    ):
+        return fail("ticket193 Twin odd-local envelope boundary changed")
+    if (
+        "resolves none" not in str(audit193.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket193.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket193 proof boundary changed")
 
     print("open problem structure verified")
     return 0

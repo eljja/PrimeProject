@@ -1,0 +1,1179 @@
+{
+  "schema": "primeproject.ticket193-everywhere-nineone-parity-envelope.v1",
+  "generated_at": "2026-08-08T05:00:00+09:00",
+  "ticket_id": "TP-TICKET-193",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "OddOnlyShiftTwoContaminationEnvelope",
+  "declared_proposition": "For every X>=4, a von Mangoldt-supported pair n,n+2 with X<=n<2X is necessarily odd. Hence shift-two proper-prime-power contamination is at most log(2X+2) times the odd proper-power masses in [X,2X) and [X+2,2X+2). Correlation above this odd-only local envelope forces a twin prime in the block.",
+  "mathematical_argument": "If an even supported n occurs then n=2^a. Requiring n+2 to be even and von Mangoldt-supported gives 2^b-2^a=2. Factoring 2^a(2^(b-a)-1)=2 shows a=1 and {n,n+2}={2,4}, impossible for X>=4. Thus every supported block pair is odd-odd, and charging contamination to the odd proper-power coordinate proves the local bound. Prime-base compression supplies an explicit global sqrt-scale majorant.",
+  "reproducible_computation": {
+    "theorem": "For every X>=4, a von Mangoldt-supported pair n,n+2 with X<=n<2X is necessarily odd. Hence shift-two proper-prime-power contamination is at most log(2X+2) times the odd proper-power masses in [X,2X) and [X+2,2X+2). Correlation above this odd-only local envelope forces a twin prime in the block.",
+    "proof": "If an even supported n occurs then n=2^a. Requiring n+2 to be even and von Mangoldt-supported gives 2^b-2^a=2. Factoring 2^a(2^(b-a)-1)=2 shows a=1 and {n,n+2}={2,4}, impossible for X>=4. Thus every supported block pair is odd-odd, and charging contamination to the odd proper-power coordinate proves the local bound. Prime-base compression supplies an explicit global sqrt-scale majorant.",
+    "finite_dyadic_rows": [
+      {
+        "dyadic_exponent_j": 4,
+        "block": [
+          16,
+          32
+        ],
+        "shift_two_von_mangoldt_support_count": 5,
+        "twin_prime_support_count": 2,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 30.419358712610045,
+        "weighted_twin_prime_mass": 19.905474600423364,
+        "weighted_prime_power_contamination": 10.51388411218668,
+        "proper_prime_power_count_A_2X_plus_2": 7,
+        "contamination_mass_upper_bound": 174.09305969399637,
+        "contamination_examples_left_right_exponents": [
+          [
+            23,
+            25,
+            1,
+            2
+          ],
+          [
+            25,
+            27,
+            2,
+            3
+          ],
+          [
+            27,
+            29,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 2.70805020110221,
+        "right_odd_weighted_proper_power_mass": 2.70805020110221,
+        "odd_local_contamination_envelope": 19.09912265569138,
+        "ticket192_local_weighted_envelope": 23.98769636624255,
+        "prime_base_compressed_global_envelope": 30.641751542593294,
+        "elementary_global_envelope": 145.0183223288749,
+        "base_compression": {
+          "limit_X": 34,
+          "sqrt_floor": 5,
+          "odd_prime_base_count": 2,
+          "theta_odd_sqrt_X": 2.70805020110221,
+          "actual_odd_weighted_proper_power_mass": 3.8066624897703196,
+          "reconstructed_odd_mass": 3.8066624897703196,
+          "prime_base_compressed_upper": 4.344670848130113,
+          "elementary_sqrt_log_upper": 20.562038582918277,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 5,
+        "block": [
+          32,
+          64
+        ],
+        "shift_two_von_mangoldt_support_count": 3,
+        "twin_prime_support_count": 2,
+        "proper_prime_power_contamination_support_count": 1,
+        "weighted_shift_two_correlation": 38.221771088793275,
+        "weighted_twin_prime_mass": 30.729729795264696,
+        "weighted_prime_power_contamination": 7.492041293528577,
+        "proper_prime_power_count_A_2X_plus_2": 9,
+        "contamination_mass_upper_bound": 315.9577234329212,
+        "contamination_examples_left_right_exponents": [
+          [
+            47,
+            49,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 1.9459101490553132,
+        "right_odd_weighted_proper_power_mass": 1.9459101490553132,
+        "odd_local_contamination_envelope": 16.30538336709388,
+        "ticket192_local_weighted_envelope": 22.113478111004323,
+        "prime_base_compressed_global_envelope": 66.32226704382622,
+        "elementary_global_envelope": 285.2058532678222,
+        "base_compression": {
+          "limit_X": 66,
+          "sqrt_floor": 8,
+          "odd_prime_base_count": 3,
+          "theta_odd_sqrt_X": 4.653960350157523,
+          "actual_odd_weighted_proper_power_mass": 5.752572638825633,
+          "reconstructed_odd_mass": 5.752572638825633,
+          "prime_base_compressed_upper": 7.9150038759217525,
+          "elementary_sqrt_log_upper": 34.03691602638785,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 6,
+        "block": [
+          64,
+          128
+        ],
+        "shift_two_von_mangoldt_support_count": 6,
+        "twin_prime_support_count": 3,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 79.05189367387074,
+        "weighted_twin_prime_mass": 61.60055362319484,
+        "weighted_prime_power_contamination": 17.451340050675896,
+        "proper_prime_power_count_A_2X_plus_2": 13,
+        "contamination_mass_upper_bound": 616.0151822856701,
+        "contamination_examples_left_right_exponents": [
+          [
+            79,
+            81,
+            1,
+            4
+          ],
+          [
+            81,
+            83,
+            4,
+            1
+          ],
+          [
+            125,
+            127,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 5.105945473900581,
+        "right_odd_weighted_proper_power_mass": 5.105945473900581,
+        "odd_local_contamination_envelope": 49.70673099271767,
+        "ticket192_local_weighted_envelope": 56.454566553941035,
+        "prime_base_compressed_global_envelope": 120.89283264222196,
+        "elementary_global_envelope": 540.2810556385284,
+        "base_compression": {
+          "limit_X": 130,
+          "sqrt_floor": 11,
+          "odd_prime_base_count": 4,
+          "theta_odd_sqrt_X": 7.051855622955894,
+          "actual_odd_weighted_proper_power_mass": 10.858518112726214,
+          "reconstructed_odd_mass": 10.858518112726214,
+          "prime_base_compressed_upper": 12.418282178866434,
+          "elementary_sqrt_log_upper": 55.49843161232892,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 7,
+        "block": [
+          128,
+          256
+        ],
+        "shift_two_von_mangoldt_support_count": 9,
+        "twin_prime_support_count": 7,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 210.62504290038592,
+        "weighted_twin_prime_mass": 191.4719826477534,
+        "weighted_prime_power_contamination": 19.153060252632475,
+        "proper_prime_power_count_A_2X_plus_2": 16,
+        "contamination_mass_upper_bound": 986.7315248567315,
+        "contamination_examples_left_right_exponents": [
+          [
+            167,
+            169,
+            1,
+            2
+          ],
+          [
+            241,
+            243,
+            1,
+            5
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 3.6635616461296463,
+        "right_odd_weighted_proper_power_mass": 3.6635616461296463,
+        "odd_local_contamination_envelope": 40.68721951565367,
+        "ticket192_local_weighted_envelope": 48.38525607575716,
+        "prime_base_compressed_global_envelope": 201.55014273306676,
+        "elementary_global_envelope": 990.5784459756869,
+        "base_compression": {
+          "limit_X": 258,
+          "sqrt_floor": 16,
+          "odd_prime_base_count": 5,
+          "theta_odd_sqrt_X": 9.616804980417431,
+          "actual_odd_weighted_proper_power_mass": 14.52207975885586,
+          "reconstructed_odd_mass": 14.52207975885586,
+          "prime_base_compressed_upper": 18.147992944190655,
+          "elementary_sqrt_log_upper": 89.19373811629042,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 8,
+        "block": [
+          256,
+          512
+        ],
+        "shift_two_von_mangoldt_support_count": 8,
+        "twin_prime_support_count": 7,
+        "proper_prime_power_contamination_support_count": 1,
+        "weighted_shift_two_correlation": 258.68209860141263,
+        "weighted_twin_prime_mass": 241.35901483374516,
+        "weighted_prime_power_contamination": 17.32308376766749,
+        "proper_prime_power_count_A_2X_plus_2": 20,
+        "contamination_mass_upper_bound": 1558.6140518315901,
+        "contamination_examples_left_right_exponents": [
+          [
+            359,
+            361,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 7.72356247227797,
+        "right_odd_weighted_proper_power_mass": 7.72356247227797,
+        "odd_local_contamination_envelope": 96.42440271329993,
+        "ticket192_local_weighted_envelope": 105.07796162705179,
+        "prime_base_compressed_global_envelope": 353.32363906137977,
+        "elementary_global_envelope": 1766.8112306917367,
+        "base_compression": {
+          "limit_X": 514,
+          "sqrt_floor": 22,
+          "odd_prime_base_count": 7,
+          "theta_odd_sqrt_X": 15.394457303640086,
+          "actual_odd_weighted_proper_power_mass": 22.24564223113383,
+          "reconstructed_odd_mass": 22.24564223113383,
+          "prime_base_compressed_upper": 28.30110555454607,
+          "elementary_sqrt_log_upper": 141.52098984262346,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 9,
+        "block": [
+          512,
+          1024
+        ],
+        "shift_two_von_mangoldt_support_count": 14,
+        "twin_prime_support_count": 12,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 550.1506096955326,
+        "weighted_twin_prime_mass": 520.2425890597062,
+        "weighted_prime_power_contamination": 29.908020635826325,
+        "proper_prime_power_count_A_2X_plus_2": 26,
+        "contamination_mass_upper_bound": 2499.7624523941085,
+        "contamination_examples_left_right_exponents": [
+          [
+            727,
+            729,
+            1,
+            6
+          ],
+          [
+            839,
+            841,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 12.64482745150298,
+        "right_odd_weighted_proper_power_mass": 12.64482745150298,
+        "odd_local_contamination_envelope": 175.3438756172852,
+        "ticket192_local_weighted_envelope": 184.9556408611145,
+        "prime_base_compressed_global_envelope": 610.1827672203125,
+        "elementary_global_envelope": 3079.6337671963374,
+        "base_compression": {
+          "limit_X": 1026,
+          "sqrt_floor": 32,
+          "odd_prime_base_count": 10,
+          "theta_odd_sqrt_X": 25.331234554040858,
+          "actual_odd_weighted_proper_power_mass": 34.89046968263681,
+          "reconstructed_odd_mass": 34.89046968263681,
+          "prime_base_compressed_upper": 44.00299570326629,
+          "elementary_sqrt_log_upper": 222.0861006004876,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 10,
+        "block": [
+          1024,
+          2048
+        ],
+        "shift_two_von_mangoldt_support_count": 28,
+        "twin_prime_support_count": 26,
+        "proper_prime_power_contamination_support_count": 2,
+        "weighted_shift_two_correlation": 1441.7469568800293,
+        "weighted_twin_prime_mass": 1387.3855975997217,
+        "weighted_prime_power_contamination": 54.36135928030767,
+        "proper_prime_power_count_A_2X_plus_2": 31,
+        "contamination_mass_upper_bound": 3605.281412656107,
+        "contamination_examples_left_right_exponents": [
+          [
+            1367,
+            1369,
+            1,
+            2
+          ],
+          [
+            1847,
+            1849,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 13.483585367840465,
+        "right_odd_weighted_proper_power_mass": 13.483585367840465,
+        "odd_local_contamination_envelope": 205.640724271363,
+        "ticket192_local_weighted_envelope": 216.21204372004385,
+        "prime_base_compressed_global_envelope": 956.490763014868,
+        "elementary_global_envelope": 5265.67931015632,
+        "base_compression": {
+          "limit_X": 2050,
+          "sqrt_floor": 45,
+          "odd_prime_base_count": 13,
+          "theta_odd_sqrt_X": 36.41692464908295,
+          "actual_odd_weighted_proper_power_mass": 48.374055050477274,
+          "reconstructed_odd_mass": 48.37405505047728,
+          "prime_base_compressed_upper": 62.71581128863894,
+          "elementary_sqrt_log_upper": 345.2635014282107,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 11,
+        "block": [
+          2048,
+          4096
+        ],
+        "shift_two_von_mangoldt_support_count": 48,
+        "twin_prime_support_count": 45,
+        "proper_prime_power_contamination_support_count": 3,
+        "weighted_shift_two_correlation": 2972.656172857228,
+        "weighted_twin_prime_mass": 2894.071385852201,
+        "weighted_prime_power_contamination": 78.58478700502675,
+        "proper_prime_power_count_A_2X_plus_2": 40,
+        "contamination_mass_upper_bound": 5535.468406286459,
+        "contamination_examples_left_right_exponents": [
+          [
+            2207,
+            2209,
+            1,
+            2
+          ],
+          [
+            2399,
+            2401,
+            1,
+            4
+          ],
+          [
+            3719,
+            3721,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 23.22776053096027,
+        "right_odd_weighted_proper_power_mass": 23.22776053096027,
+        "odd_local_contamination_envelope": 386.4288391699265,
+        "ticket192_local_weighted_envelope": 397.9603882403015,
+        "prime_base_compressed_global_envelope": 1480.3922051434877,
+        "elementary_global_envelope": 8858.911478517259,
+        "base_compression": {
+          "limit_X": 4098,
+          "sqrt_floor": 64,
+          "odd_prime_base_count": 17,
+          "theta_odd_sqrt_X": 52.425775472424164,
+          "actual_odd_weighted_proper_power_mass": 71.60181558143755,
+          "reconstructed_odd_mass": 71.60181558143755,
+          "prime_base_compressed_upper": 88.98454811715621,
+          "elementary_sqrt_log_upper": 532.4982339050749,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 12,
+        "block": [
+          4096,
+          8192
+        ],
+        "shift_two_von_mangoldt_support_count": 74,
+        "twin_prime_support_count": 70,
+        "proper_prime_power_contamination_support_count": 4,
+        "weighted_shift_two_correlation": 5380.412152725935,
+        "weighted_twin_prime_mass": 5268.114154826079,
+        "weighted_prime_power_contamination": 112.29799789985574,
+        "proper_prime_power_count_A_2X_plus_2": 50,
+        "contamination_mass_upper_bound": 8120.095873479411,
+        "contamination_examples_left_right_exponents": [
+          [
+            5039,
+            5041,
+            1,
+            2
+          ],
+          [
+            6561,
+            6563,
+            8,
+            1
+          ],
+          [
+            6857,
+            6859,
+            1,
+            3
+          ],
+          [
+            7919,
+            7921,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 32.9110213794672,
+        "right_odd_weighted_proper_power_mass": 32.9110213794672,
+        "odd_local_contamination_envelope": 593.1327915149975,
+        "ticket192_local_weighted_envelope": 605.6249082863344,
+        "prime_base_compressed_global_envelope": 2321.203681277506,
+        "elementary_global_envelope": 14700.737826557024,
+        "base_compression": {
+          "limit_X": 8194,
+          "sqrt_floor": 90,
+          "odd_prime_base_count": 23,
+          "theta_odd_sqrt_X": 78.46053224000059,
+          "actual_odd_weighted_proper_power_mass": 104.51283696090475,
+          "reconstructed_odd_mass": 104.51283696090475,
+          "prime_base_compressed_upper": 128.79608929645622,
+          "elementary_sqrt_log_upper": 815.6964238446205,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 13,
+        "block": [
+          8192,
+          16384
+        ],
+        "shift_two_von_mangoldt_support_count": 117,
+        "twin_prime_support_count": 113,
+        "proper_prime_power_contamination_support_count": 4,
+        "weighted_shift_two_correlation": 10099.841514010854,
+        "weighted_twin_prime_mass": 9943.280144249258,
+        "weighted_prime_power_contamination": 156.56136976159559,
+        "proper_prime_power_count_A_2X_plus_2": 61,
+        "contamination_mass_upper_bound": 11488.881489948855,
+        "contamination_examples_left_right_exponents": [
+          [
+            10607,
+            10609,
+            1,
+            2
+          ],
+          [
+            11447,
+            11449,
+            1,
+            2
+          ],
+          [
+            14639,
+            14641,
+            1,
+            4
+          ],
+          [
+            16127,
+            16129,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 39.90313950659788,
+        "right_odd_weighted_proper_power_mass": 39.90313950659788,
+        "odd_local_contamination_envelope": 774.4547034285416,
+        "ticket192_local_weighted_envelope": 787.9075570333093,
+        "prime_base_compressed_global_envelope": 3491.654822380471,
+        "elementary_global_envelope": 24109.288276411444,
+        "base_compression": {
+          "limit_X": 16386,
+          "sqrt_floor": 128,
+          "odd_prime_base_count": 30,
+          "theta_odd_sqrt_X": 111.22084434543686,
+          "actual_odd_weighted_proper_power_mass": 144.41597646750262,
+          "reconstructed_odd_mass": 144.41597646750265,
+          "prime_base_compressed_upper": 179.904633375616,
+          "elementary_sqrt_log_upper": 1242.211183222799,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 14,
+        "block": [
+          16384,
+          32768
+        ],
+        "shift_two_von_mangoldt_support_count": 222,
+        "twin_prime_support_count": 215,
+        "proper_prime_power_contamination_support_count": 7,
+        "weighted_shift_two_correlation": 22103.264555436494,
+        "weighted_twin_prime_mass": 21847.34898267158,
+        "weighted_prime_power_contamination": 255.91557276490903,
+        "proper_prime_power_count_A_2X_plus_2": 78,
+        "contamination_mass_upper_bound": 16864.098776769417,
+        "contamination_examples_left_right_exponents": [
+          [
+            17159,
+            17161,
+            1,
+            2
+          ],
+          [
+            19319,
+            19321,
+            1,
+            2
+          ],
+          [
+            19681,
+            19683,
+            1,
+            9
+          ],
+          [
+            24389,
+            24391,
+            3,
+            1
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 67.96879740475312,
+        "right_odd_weighted_proper_power_mass": 67.96879740475312,
+        "odd_local_contamination_envelope": 1413.379705333789,
+        "ticket192_local_weighted_envelope": 1427.7933803614458,
+        "prime_base_compressed_global_envelope": 5396.372362026262,
+        "elementary_global_envelope": 39138.73234587015,
+        "base_compression": {
+          "limit_X": 32770,
+          "sqrt_floor": 181,
+          "odd_prime_base_count": 41,
+          "theta_odd_sqrt_X": 166.77888692053338,
+          "actual_odd_weighted_proper_power_mass": 212.38477387225575,
+          "reconstructed_odd_mass": 212.38477387225578,
+          "prime_base_compressed_upper": 259.5091314888739,
+          "elementary_sqrt_log_upper": 1882.1641201272666,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 15,
+        "block": [
+          32768,
+          65536
+        ],
+        "shift_two_von_mangoldt_support_count": 362,
+        "twin_prime_support_count": 355,
+        "proper_prime_power_contamination_support_count": 7,
+        "weighted_shift_two_correlation": 41516.84933102578,
+        "weighted_twin_prime_mass": 41175.32141775507,
+        "weighted_prime_power_contamination": 341.52791327071526,
+        "proper_prime_power_count_A_2X_plus_2": 93,
+        "contamination_mass_upper_bound": 22877.376612668297,
+        "contamination_examples_left_right_exponents": [
+          [
+            36479,
+            36481,
+            1,
+            2
+          ],
+          [
+            44519,
+            44521,
+            1,
+            2
+          ],
+          [
+            49727,
+            49729,
+            1,
+            2
+          ],
+          [
+            50651,
+            50653,
+            1,
+            3
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 69.35645617581781,
+        "right_odd_weighted_proper_power_mass": 69.35645617581781,
+        "odd_local_contamination_envelope": 1538.3796587782685,
+        "ticket192_local_weighted_envelope": 1553.754197529352,
+        "prime_base_compressed_global_envelope": 7904.441820413035,
+        "elementary_global_envelope": 62975.24491305042,
+        "base_compression": {
+          "limit_X": 65538,
+          "sqrt_floor": 256,
+          "odd_prime_base_count": 53,
+          "theta_odd_sqrt_X": 231.42581289503886,
+          "actual_odd_weighted_proper_power_mass": 281.74123004807353,
+          "reconstructed_odd_mass": 281.7412300480736,
+          "prime_base_compressed_upper": 356.3646136267559,
+          "elementary_sqrt_log_upper": 2839.1819854418077,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 16,
+        "block": [
+          65536,
+          131072
+        ],
+        "shift_two_von_mangoldt_support_count": 671,
+        "twin_prime_support_count": 666,
+        "proper_prime_power_contamination_support_count": 5,
+        "weighted_shift_two_correlation": 87982.41778641171,
+        "weighted_twin_prime_mass": 87653.29378784791,
+        "weighted_prime_power_contamination": 329.12399856379926,
+        "proper_prime_power_count_A_2X_plus_2": 119,
+        "contamination_mass_upper_bound": 33046.60478846309,
+        "contamination_examples_left_right_exponents": [
+          [
+            66047,
+            66049,
+            1,
+            2
+          ],
+          [
+            85847,
+            85849,
+            1,
+            2
+          ],
+          [
+            97967,
+            97969,
+            1,
+            2
+          ],
+          [
+            113567,
+            113569,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 123.61210624604006,
+        "right_odd_weighted_proper_power_mass": 123.61210624604006,
+        "odd_local_contamination_envelope": 2913.170791848978,
+        "ticket192_local_weighted_envelope": 2929.5062154752086,
+        "prime_base_compressed_global_envelope": 11836.536824398136,
+        "elementary_global_envelope": 100539.83352533178,
+        "base_compression": {
+          "limit_X": 131074,
+          "sqrt_floor": 362,
+          "odd_prime_base_count": 71,
+          "theta_odd_sqrt_X": 334.37999897225893,
+          "actual_odd_weighted_proper_power_mass": 405.3533362941136,
+          "reconstructed_odd_mass": 405.35333629411366,
+          "prime_base_compressed_upper": 502.24973132935315,
+          "elementary_sqrt_log_upper": 4266.121512156357,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 17,
+        "block": [
+          131072,
+          262144
+        ],
+        "shift_two_von_mangoldt_support_count": 1159,
+        "twin_prime_support_count": 1153,
+        "proper_prime_power_contamination_support_count": 6,
+        "weighted_shift_two_correlation": 170925.14354747848,
+        "weighted_twin_prime_mass": 170522.16627598935,
+        "weighted_prime_power_contamination": 402.9772714891503,
+        "proper_prime_power_count_A_2X_plus_2": 150,
+        "contamination_mass_upper_bound": 46700.09006621651,
+        "contamination_examples_left_right_exponents": [
+          [
+            161051,
+            161053,
+            5,
+            1
+          ],
+          [
+            177239,
+            177241,
+            1,
+            2
+          ],
+          [
+            196247,
+            196249,
+            1,
+            2
+          ],
+          [
+            201599,
+            201601,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 167.5895469716232,
+        "right_odd_weighted_proper_power_mass": 167.5895469716232,
+        "odd_local_contamination_envelope": 4181.914548292961,
+        "ticket192_local_weighted_envelope": 4199.2108673705625,
+        "prime_base_compressed_global_envelope": 17752.903451666058,
+        "elementary_global_envelope": 159403.58216561528,
+        "base_compression": {
+          "limit_X": 262146,
+          "sqrt_floor": 512,
+          "odd_prime_base_count": 96,
+          "theta_odd_sqrt_X": 486.3143351607845,
+          "actual_odd_weighted_proper_power_mass": 572.9428832657368,
+          "reconstructed_odd_mass": 572.9428832657367,
+          "prime_base_compressed_upper": 711.4447252658821,
+          "elementary_sqrt_log_upper": 6388.072690699543,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 18,
+        "block": [
+          262144,
+          524288
+        ],
+        "shift_two_von_mangoldt_support_count": 2082,
+        "twin_prime_support_count": 2071,
+        "proper_prime_power_contamination_support_count": 11,
+        "weighted_shift_two_correlation": 343017.38147934974,
+        "weighted_twin_prime_mass": 342219.9300581405,
+        "weighted_prime_power_contamination": 797.4514212092325,
+        "proper_prime_power_count_A_2X_plus_2": 189,
+        "contamination_mass_upper_bound": 65561.69535370552,
+        "contamination_examples_left_right_exponents": [
+          [
+            273527,
+            273529,
+            1,
+            2
+          ],
+          [
+            292679,
+            292681,
+            1,
+            2
+          ],
+          [
+            300761,
+            300763,
+            1,
+            3
+          ],
+          [
+            323759,
+            323761,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 223.59241831539308,
+        "right_odd_weighted_proper_power_mass": 223.59241831539308,
+        "odd_local_contamination_envelope": 5889.334971167514,
+        "ticket192_local_weighted_envelope": 5907.592190984689,
+        "prime_base_compressed_global_envelope": 25999.688972423857,
+        "elementary_global_envelope": 251173.6972521535,
+        "base_compression": {
+          "limit_X": 524290,
+          "sqrt_floor": 724,
+          "odd_prime_base_count": 127,
+          "theta_odd_sqrt_X": 685.4695922003051,
+          "actual_odd_weighted_proper_power_mass": 796.5353015811299,
+          "reconstructed_odd_mass": 796.53530158113,
+          "prime_base_compressed_upper": 987.0950389564715,
+          "elementary_sqrt_log_upper": 9535.972170164066,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      },
+      {
+        "dyadic_exponent_j": 19,
+        "block": [
+          524288,
+          1048576
+        ],
+        "shift_two_von_mangoldt_support_count": 3800,
+        "twin_prime_support_count": 3785,
+        "proper_prime_power_contamination_support_count": 15,
+        "weighted_shift_two_correlation": 696510.2058858308,
+        "weighted_twin_prime_mass": 695300.6983668064,
+        "weighted_prime_power_contamination": 1209.507519024261,
+        "proper_prime_power_count_A_2X_plus_2": 242,
+        "contamination_mass_upper_bound": 93015.72908988077,
+        "contamination_examples_left_right_exponents": [
+          [
+            528527,
+            528529,
+            1,
+            2
+          ],
+          [
+            537287,
+            537289,
+            1,
+            2
+          ],
+          [
+            552047,
+            552049,
+            1,
+            2
+          ],
+          [
+            563999,
+            564001,
+            1,
+            2
+          ]
+        ],
+        "checks": {
+          "support_decomposition_exact": true,
+          "weighted_decomposition_replays": true,
+          "contamination_support_below_two_A": true,
+          "contamination_mass_below_explicit_bound": true,
+          "no_even_supported_shift_pair_for_X_ge_4": true,
+          "actual_contamination_below_odd_local_envelope": true,
+          "odd_local_below_ticket192_envelope": true,
+          "odd_local_below_compressed_global_envelope": true,
+          "compressed_below_elementary_envelope": true,
+          "finite_total_exceeds_odd_local_envelope": true
+        },
+        "even_supported_shift_two_pair_count": 0,
+        "left_odd_weighted_proper_power_mass": 325.7181410602519,
+        "right_odd_weighted_proper_power_mass": 325.7181410602519,
+        "odd_local_contamination_envelope": 9030.825687840525,
+        "ticket192_local_weighted_envelope": 9050.043811041396,
+        "prime_base_compressed_global_envelope": 38464.65721200936,
+        "elementary_global_envelope": 393587.59265978314,
+        "base_compression": {
+          "limit_X": 1048578,
+          "sqrt_floor": 1024,
+          "odd_prime_base_count": 171,
+          "theta_odd_sqrt_X": 983.2446193154886,
+          "actual_odd_weighted_proper_power_mass": 1122.2534426413818,
+          "reconstructed_odd_mass": 1122.253442641382,
+          "prime_base_compressed_upper": 1387.3190643558291,
+          "elementary_sqrt_log_upper": 14195.669749017095,
+          "checks": {
+            "base_reconstruction_matches": true,
+            "actual_mass_below_compressed_upper": true,
+            "compressed_upper_below_sqrt_log": true
+          }
+        }
+      }
+    ],
+    "aggregate": {
+      "dyadic_block_count": 16,
+      "largest_upper_endpoint": 1048576,
+      "odd_only_local_envelope_theorem_proved": true,
+      "even_supported_pairs_excluded_for_all_X_ge_4": true,
+      "prime_base_compression_proved": true,
+      "finite_block_envelope_success_count": 16,
+      "infinitely_many_envelope_successes_proved": false
+    },
+    "no_go_scope": "All displayed finite blocks pass the sharper odd-only envelope. No theorem proves this on infinitely many unbounded blocks, so the Twin Prime conjecture remains open.",
+    "failure_count": 0
+  },
+  "discarded_route": "including powers of two in shift-two contamination for blocks X>=4",
+  "remaining_gap": "No proof gives correlation above the odd-only local envelope on infinitely many unbounded dyadic blocks.",
+  "candidate_theorem": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof. Even support is removed exactly and the odd-only local envelope passes finite replay, but infinitude is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T192-INPUT",
+        "label": "LocalTwoSidedWeightedEnvelopeBridge",
+        "status": "proved_exact_input_or_open_target"
+      },
+      {
+        "id": "TP-T193-CLOSED",
+        "label": "OddOnlyShiftTwoContaminationEnvelope",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T193-REJECTED",
+        "label": "EvenVonMangoldtSupportCanContaminateShiftTwoBlocksAboveFour",
+        "status": "refuted_or_stronger_than_necessary"
+      },
+      {
+        "id": "TP-T193-OPEN",
+        "label": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T192-INPUT",
+        "TP-T193-CLOSED"
+      ],
+      [
+        "TP-T193-CLOSED",
+        "TP-T193-OPEN"
+      ],
+      [
+        "TP-T193-REJECTED",
+        "TP-T193-OPEN"
+      ]
+    ]
+  }
+}

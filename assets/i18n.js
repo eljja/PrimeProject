@@ -58,12 +58,12 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, an eighth adjacent Collatz stratum closed",
-      ko: "네 개의 미해결 문제, 연속해서 닫힌 여덟 콜라츠 부분족",
+      en: "Four open problems, a ninth adjacent Collatz stratum closed",
+      ko: "네 개의 미해결 문제, 연속해서 닫힌 아홉 콜라츠 부분족",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-192 closes the eight-one Collatz cycle stratum and sharpens three uniform proof targets.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-192는 여덟-1 콜라츠 순환 부분족을 닫고 세 문제의 균일 증명 목표를 더 날카롭게 정리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-193 closes the nine-one Collatz cycle stratum and sharpens three global proof targets.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-193은 아홉-1 콜라츠 순환 부분족을 닫고 세 문제의 전역 증명 목표를 더 날카롭게 정리합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

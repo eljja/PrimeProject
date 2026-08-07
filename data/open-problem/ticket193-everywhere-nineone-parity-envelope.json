@@ -1,0 +1,2633 @@
+{
+  "schema": "primeproject.ticket193-everywhere-nineone-parity-envelope.v1",
+  "generated_at": "2026-08-08T05:00:00+09:00",
+  "status": "one_additional_infinite_cycle_stratum_closed_everywhere_extension_and_two_parity_envelopes_proved_all_open",
+  "claim_boundary": "TICKET-193 resolves none of the four conjectures. It closes the complete exactly-nine-one/rest-two accelerated Collatz cycle stratum, proves that everywhere pointwise convergence supplies the uniform form bound missing from the RH route, and removes even prime-power overcharging from the Goldbach and Twin Prime contamination envelopes.",
+  "everywhere_nineone_parity_envelope_audit": {
+    "theorem_name": "FourConjectureEverywhereNineOneParityEnvelopeAudit",
+    "status": "one_additional_infinite_cycle_stratum_closed_everywhere_extension_and_two_parity_envelopes_proved_all_open",
+    "proof_boundary": "TICKET-193 resolves none of the four conjectures. It closes the complete exactly-nine-one/rest-two accelerated Collatz cycle stratum, proves that everywhere pointwise convergence supplies the uniform form bound missing from the RH route, and removes even prime-power overcharging from the Goldbach and Twin Prime contamination envelopes.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-193",
+      "theorem_name": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+      "declared_proposition": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated bounded Hermitian forms B_n. If q_n(x) converges for every x in H, then sup_n ||B_n|| is finite, B_n(x,y) converges for every x,y, and the limit is a bounded Hermitian form whose quadratic form is lim_n q_n. Positivity passes to the limit. Convergence merely on a dense core is insufficient: q_n(x)=n|x_n|^2 converges to zero on c_00 while ||B_n||=n.",
+      "mathematical_argument": "Complex polarization turns diagonal convergence into scalar convergence of B_n(x,y) for every x,y. For fixed x, the bounded linear functionals y -> B_n(x,y) are pointwise bounded, so the uniform boundedness principle gives sup_n ||B_n(x,.)||<infinity. Applying the principle again to the representing operators T_n gives sup_n ||T_n||<infinity. The pointwise form limit is then bounded and Hermitian. For the dense-core no-go, every fixed finite-support vector is annihilated eventually, but the norms diverge. The vector x_(2^j)=sqrt(j/2^j), zero elsewhere, belongs to l^2 because sum j/2^j=2 and has q_(2^j)(x)=j, so convergence indeed fails somewhere in the complete space.",
+      "reproducible_computation": {
+        "theorem": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated bounded Hermitian forms B_n. If q_n(x) converges for every x in H, then sup_n ||B_n|| is finite, B_n(x,y) converges for every x,y, and the limit is a bounded Hermitian form whose quadratic form is lim_n q_n. Positivity passes to the limit. Convergence merely on a dense core is insufficient: q_n(x)=n|x_n|^2 converges to zero on c_00 while ||B_n||=n.",
+        "proof": "Complex polarization turns diagonal convergence into scalar convergence of B_n(x,y) for every x,y. For fixed x, the bounded linear functionals y -> B_n(x,y) are pointwise bounded, so the uniform boundedness principle gives sup_n ||B_n(x,.)||<infinity. Applying the principle again to the representing operators T_n gives sup_n ||T_n||<infinity. The pointwise form limit is then bounded and Hermitian. For the dense-core no-go, every fixed finite-support vector is annihilated eventually, but the norms diverge. The vector x_(2^j)=sqrt(j/2^j), zero elsewhere, belongs to l^2 because sum j/2^j=2 and has q_(2^j)(x)=j, so convergence indeed fails somewhere in the complete space.",
+        "dense_core_spike_rows": [
+          {
+            "spike_index_n": 2,
+            "operator_norm": 2,
+            "quadratic_form": "q_2(x)=2|x_2|^2",
+            "positive_semidefinite": true,
+            "vanishes_on_every_vector_supported_below_n": true
+          },
+          {
+            "spike_index_n": 4,
+            "operator_norm": 4,
+            "quadratic_form": "q_4(x)=4|x_4|^2",
+            "positive_semidefinite": true,
+            "vanishes_on_every_vector_supported_below_n": true
+          },
+          {
+            "spike_index_n": 8,
+            "operator_norm": 8,
+            "quadratic_form": "q_8(x)=8|x_8|^2",
+            "positive_semidefinite": true,
+            "vanishes_on_every_vector_supported_below_n": true
+          },
+          {
+            "spike_index_n": 16,
+            "operator_norm": 16,
+            "quadratic_form": "q_16(x)=16|x_16|^2",
+            "positive_semidefinite": true,
+            "vanishes_on_every_vector_supported_below_n": true
+          },
+          {
+            "spike_index_n": 32,
+            "operator_norm": 32,
+            "quadratic_form": "q_32(x)=32|x_32|^2",
+            "positive_semidefinite": true,
+            "vanishes_on_every_vector_supported_below_n": true
+          },
+          {
+            "spike_index_n": 64,
+            "operator_norm": 64,
+            "quadratic_form": "q_64(x)=64|x_64|^2",
+            "positive_semidefinite": true,
+            "vanishes_on_every_vector_supported_below_n": true
+          }
+        ],
+        "all_space_failure_witness_rows": [
+          {
+            "level_j": 1,
+            "coordinate_n": 2,
+            "coordinate_square": {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "quadratic_value_q_n_x": 1,
+            "partial_norm_square": {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 2,
+            "coordinate_n": 4,
+            "coordinate_square": {
+              "numerator": 1,
+              "denominator": 2,
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "quadratic_value_q_n_x": 2,
+            "partial_norm_square": {
+              "numerator": 1,
+              "denominator": 1,
+              "exact": "1/1",
+              "decimal": 1.0
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 3,
+            "coordinate_n": 8,
+            "coordinate_square": {
+              "numerator": 3,
+              "denominator": 8,
+              "exact": "3/8",
+              "decimal": 0.375
+            },
+            "quadratic_value_q_n_x": 3,
+            "partial_norm_square": {
+              "numerator": 11,
+              "denominator": 8,
+              "exact": "11/8",
+              "decimal": 1.375
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 4,
+            "coordinate_n": 16,
+            "coordinate_square": {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "quadratic_value_q_n_x": 4,
+            "partial_norm_square": {
+              "numerator": 13,
+              "denominator": 8,
+              "exact": "13/8",
+              "decimal": 1.625
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 5,
+            "coordinate_n": 32,
+            "coordinate_square": {
+              "numerator": 5,
+              "denominator": 32,
+              "exact": "5/32",
+              "decimal": 0.15625
+            },
+            "quadratic_value_q_n_x": 5,
+            "partial_norm_square": {
+              "numerator": 57,
+              "denominator": 32,
+              "exact": "57/32",
+              "decimal": 1.78125
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 6,
+            "coordinate_n": 64,
+            "coordinate_square": {
+              "numerator": 3,
+              "denominator": 32,
+              "exact": "3/32",
+              "decimal": 0.09375
+            },
+            "quadratic_value_q_n_x": 6,
+            "partial_norm_square": {
+              "numerator": 15,
+              "denominator": 8,
+              "exact": "15/8",
+              "decimal": 1.875
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 7,
+            "coordinate_n": 128,
+            "coordinate_square": {
+              "numerator": 7,
+              "denominator": 128,
+              "exact": "7/128",
+              "decimal": 0.0546875
+            },
+            "quadratic_value_q_n_x": 7,
+            "partial_norm_square": {
+              "numerator": 247,
+              "denominator": 128,
+              "exact": "247/128",
+              "decimal": 1.9296875
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 8,
+            "coordinate_n": 256,
+            "coordinate_square": {
+              "numerator": 1,
+              "denominator": 32,
+              "exact": "1/32",
+              "decimal": 0.03125
+            },
+            "quadratic_value_q_n_x": 8,
+            "partial_norm_square": {
+              "numerator": 251,
+              "denominator": 128,
+              "exact": "251/128",
+              "decimal": 1.9609375
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 9,
+            "coordinate_n": 512,
+            "coordinate_square": {
+              "numerator": 9,
+              "denominator": 512,
+              "exact": "9/512",
+              "decimal": 0.017578125
+            },
+            "quadratic_value_q_n_x": 9,
+            "partial_norm_square": {
+              "numerator": 1013,
+              "denominator": 512,
+              "exact": "1013/512",
+              "decimal": 1.978515625
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 10,
+            "coordinate_n": 1024,
+            "coordinate_square": {
+              "numerator": 5,
+              "denominator": 512,
+              "exact": "5/512",
+              "decimal": 0.009765625
+            },
+            "quadratic_value_q_n_x": 10,
+            "partial_norm_square": {
+              "numerator": 509,
+              "denominator": 256,
+              "exact": "509/256",
+              "decimal": 1.98828125
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 11,
+            "coordinate_n": 2048,
+            "coordinate_square": {
+              "numerator": 11,
+              "denominator": 2048,
+              "exact": "11/2048",
+              "decimal": 0.00537109375
+            },
+            "quadratic_value_q_n_x": 11,
+            "partial_norm_square": {
+              "numerator": 4083,
+              "denominator": 2048,
+              "exact": "4083/2048",
+              "decimal": 1.99365234375
+            },
+            "partial_norm_square_below_two": true
+          },
+          {
+            "level_j": 12,
+            "coordinate_n": 4096,
+            "coordinate_square": {
+              "numerator": 3,
+              "denominator": 1024,
+              "exact": "3/1024",
+              "decimal": 0.0029296875
+            },
+            "quadratic_value_q_n_x": 12,
+            "partial_norm_square": {
+              "numerator": 4089,
+              "denominator": 2048,
+              "exact": "4089/2048",
+              "decimal": 1.99658203125
+            },
+            "partial_norm_square_below_two": true
+          }
+        ],
+        "extension_contract": {
+          "everywhere_pointwise_convergence_forces_uniform_bound": true,
+          "associated_forms_converge_pointwise": true,
+          "positivity_passes_to_limit": true,
+          "dense_core_pointwise_convergence_is_sufficient": false,
+          "actual_weil_everywhere_convergence_verified": false
+        },
+        "no_go_scope": "The theorem is an exact functional-analytic promotion rule. It does not prove everywhere convergence of the actual pole-neutral Weil finite sections and therefore does not prove RH.",
+        "failure_count": 0
+      },
+      "logical_limit": "Everywhere convergence of the actual pole-neutral Weil finite sections is not proved.",
+      "route_decision": {
+        "discard": "treating convergence on a merely dense countable core as enough for Banach-Steinhaus promotion",
+        "retain": "prove pointwise convergence on every vector of one complete admissible Hilbert completion",
+        "next_single_lemma": "PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T192-INPUT",
+            "label": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T193-CLOSED",
+            "label": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T193-REJECTED",
+            "label": "DenseCorePointwiseConvergenceInvokesUniformBoundedness",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "RH-T193-OPEN",
+            "label": "PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T192-INPUT",
+            "RH-T193-CLOSED"
+          ],
+          [
+            "RH-T193-CLOSED",
+            "RH-T193-OPEN"
+          ],
+          [
+            "RH-T193-REJECTED",
+            "RH-T193-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof. The everywhere-convergence promotion theorem is exact, but its actual Weil premise remains open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-193",
+      "theorem_name": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly nine entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "mathematical_argument": "For length h the affine denominator is D=2^(2h-9)-3^h, positive exactly from h=22. Rotate a word so one of its nine ones is first; divisibility is rotation invariant. The affine numerator separates into a constant plus eight boundary terms. A 4+4 meet-in-the-middle residue audit represents all sum_(h=22)^34 C(h-1,8)=52,157,326 normalized words and finds no D-divisibility hit. For a nontrivial positive odd cycle every state is at least three, so 1<=512(5/6)^h. The right side is strictly below one at h=35 and decreases thereafter.",
+      "reproducible_computation": {
+        "theorem": "No positive accelerated Collatz cycle has a valuation period with exactly nine entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+        "proof": "For length h the affine denominator is D=2^(2h-9)-3^h, positive exactly from h=22. Rotate a word so one of its nine ones is first; divisibility is rotation invariant. The affine numerator separates into a constant plus eight boundary terms. A 4+4 meet-in-the-middle residue audit represents all sum_(h=22)^34 C(h-1,8)=52,157,326 normalized words and finds no D-divisibility hit. For a nontrivial positive odd cycle every state is at least three, so 1<=512(5/6)^h. The right side is strictly below one at h=35 and decreases thereafter.",
+        "boundary_formula_validation": {
+          "horizons": [
+            9,
+            15
+          ],
+          "normalized_words_checked": 5005,
+          "formula_mismatch_count": 0,
+          "transcript_sha256": "a517d54534393134d3fee347012962360d54a8fb053d43cd75d0f36ccae30275"
+        },
+        "finite_exception_horizon_rows": [
+          {
+            "horizon_h": 22,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 5985,
+            "expected_left_tuple_count": 5985,
+            "right_tuple_count": 2380,
+            "expected_right_tuple_count": 2380,
+            "represented_word_count": 203490,
+            "expected_word_count": 203490,
+            "active_left_residue_count_at_final_boundary": 2380,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "29e43ae301bb868d0d2b5d9f6c6785b125a92d78d71a879e321e5bde02a4d6d4"
+          },
+          {
+            "horizon_h": 23,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 7315,
+            "expected_left_tuple_count": 7315,
+            "right_tuple_count": 3060,
+            "expected_right_tuple_count": 3060,
+            "represented_word_count": 319770,
+            "expected_word_count": 319770,
+            "active_left_residue_count_at_final_boundary": 3060,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "96882e42da49e5cf38d954d6b13c7e238497c78284aeb8b2c0ac7c14377a5861"
+          },
+          {
+            "horizon_h": 24,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 8855,
+            "expected_left_tuple_count": 8855,
+            "right_tuple_count": 3876,
+            "expected_right_tuple_count": 3876,
+            "represented_word_count": 490314,
+            "expected_word_count": 490314,
+            "active_left_residue_count_at_final_boundary": 3876,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "fdb575f183e483d373cd3075f9089415658f5f7f0f419feb939de05b56c7522c"
+          },
+          {
+            "horizon_h": 25,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 10626,
+            "expected_left_tuple_count": 10626,
+            "right_tuple_count": 4845,
+            "expected_right_tuple_count": 4845,
+            "represented_word_count": 735471,
+            "expected_word_count": 735471,
+            "active_left_residue_count_at_final_boundary": 4845,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "b697e7fe76be36de06ae25b2c7439b2ad1484a9e9e2072a7ce4881e9755b7eca"
+          },
+          {
+            "horizon_h": 26,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 12650,
+            "expected_left_tuple_count": 12650,
+            "right_tuple_count": 5985,
+            "expected_right_tuple_count": 5985,
+            "represented_word_count": 1081575,
+            "expected_word_count": 1081575,
+            "active_left_residue_count_at_final_boundary": 5985,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "3e4cc1e299cab5e84e29541922464d2d0a53c03c520b8d4e66a7e0675a04794a"
+          },
+          {
+            "horizon_h": 27,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 14950,
+            "expected_left_tuple_count": 14950,
+            "right_tuple_count": 7315,
+            "expected_right_tuple_count": 7315,
+            "represented_word_count": 1562275,
+            "expected_word_count": 1562275,
+            "active_left_residue_count_at_final_boundary": 7315,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "4e176d9eb9ac6ca6126c0ec8868e92ff7281ce795f7d2af9a9912a602db9a2ae"
+          },
+          {
+            "horizon_h": 28,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 17550,
+            "expected_left_tuple_count": 17550,
+            "right_tuple_count": 8855,
+            "expected_right_tuple_count": 8855,
+            "represented_word_count": 2220075,
+            "expected_word_count": 2220075,
+            "active_left_residue_count_at_final_boundary": 8855,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "90267b30410b46200101fd4c6ef06acc20fe6156a2acda26c91c6d810dd7f380"
+          },
+          {
+            "horizon_h": 29,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 20475,
+            "expected_left_tuple_count": 20475,
+            "right_tuple_count": 10626,
+            "expected_right_tuple_count": 10626,
+            "represented_word_count": 3108105,
+            "expected_word_count": 3108105,
+            "active_left_residue_count_at_final_boundary": 10626,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "5294a9671998ca728af8457c9e366256ce76e74853147f0292b941de841da060"
+          },
+          {
+            "horizon_h": 30,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 23751,
+            "expected_left_tuple_count": 23751,
+            "right_tuple_count": 12650,
+            "expected_right_tuple_count": 12650,
+            "represented_word_count": 4292145,
+            "expected_word_count": 4292145,
+            "active_left_residue_count_at_final_boundary": 12650,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "4b6cbb411bae2e1f8a74ecb513612d4492b3dab8bdb8d271b95d21c4209313a7"
+          },
+          {
+            "horizon_h": 31,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 27405,
+            "expected_left_tuple_count": 27405,
+            "right_tuple_count": 14950,
+            "expected_right_tuple_count": 14950,
+            "represented_word_count": 5852925,
+            "expected_word_count": 5852925,
+            "active_left_residue_count_at_final_boundary": 14950,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "99d1bf540da9a2413140d85011db56604043006dee71985b4eaf48e85d66aa28"
+          },
+          {
+            "horizon_h": 32,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 31465,
+            "expected_left_tuple_count": 31465,
+            "right_tuple_count": 17550,
+            "expected_right_tuple_count": 17550,
+            "represented_word_count": 7888725,
+            "expected_word_count": 7888725,
+            "active_left_residue_count_at_final_boundary": 17550,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "07488bd9cd6ac06941527f72fbfe2b5aac2192da066ad3c5cc804dbaab380114"
+          },
+          {
+            "horizon_h": 33,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 35960,
+            "expected_left_tuple_count": 35960,
+            "right_tuple_count": 20475,
+            "expected_right_tuple_count": 20475,
+            "represented_word_count": 10518300,
+            "expected_word_count": 10518300,
+            "active_left_residue_count_at_final_boundary": 20475,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "98b57c418a02ca1cb8fddba4656be35c7a0e29d8fba45f0e7066ac130b350314"
+          },
+          {
+            "horizon_h": 34,
+            "rotation_normalization": "v_0=1",
+            "contracting": true,
+            "left_tuple_count": 40920,
+            "expected_left_tuple_count": 40920,
+            "right_tuple_count": 23751,
+            "expected_right_tuple_count": 23751,
+            "represented_word_count": 13884156,
+            "expected_word_count": 13884156,
+            "active_left_residue_count_at_final_boundary": 23751,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "4aa9de2ccdba7f7a1f1021aeb546b4df8c1e02c059d919aefe50feee6119a41b"
+          }
+        ],
+        "analytic_product_rows": [
+          {
+            "horizon_h": 35,
+            "cycle_product_upper_bound": {
+              "numerator": 2910383045673370361328125,
+              "denominator": 3357560155758637873102848,
+              "exact": "2910383045673370361328125/3357560155758637873102848",
+              "decimal": 0.8668148627751904
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 36,
+            "cycle_product_upper_bound": {
+              "numerator": 14551915228366851806640625,
+              "denominator": 20145360934551827238617088,
+              "exact": "14551915228366851806640625/20145360934551827238617088",
+              "decimal": 0.7223457189793253
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 48,
+            "cycle_product_upper_bound": {
+              "numerator": 3552713678800500929355621337890625,
+              "denominator": 43852065834676869609545334226157568,
+              "exact": "3552713678800500929355621337890625/43852065834676869609545334226157568",
+              "decimal": 0.08101587943870876
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 64,
+            "cycle_product_upper_bound": {
+              "numerator": 542101086242752217003726400434970855712890625,
+              "denominator": 123711497388619683019848216692991966034954027008,
+              "exact": "542101086242752217003726400434970855712890625/123711497388619683019848216692991966034954027008",
+              "decimal": 0.004381978212904733
+            },
+            "strictly_below_one": true
+          },
+          {
+            "horizon_h": 96,
+            "cycle_product_upper_bound": {
+              "numerator": 12621774483536188886587657044524579674771302961744368076324462890625,
+              "denominator": 984577883120043200980014026267809938839975933269668197131606816601407488,
+              "exact": "12621774483536188886587657044524579674771302961744368076324462890625/984577883120043200980014026267809938839975933269668197131606816601407488",
+              "decimal": 1.2819477971147254e-05
+            },
+            "strictly_below_one": true
+          }
+        ],
+        "analytic_bound": {
+          "bound_at_h_35": {
+            "numerator": 2910383045673370361328125,
+            "denominator": 3357560155758637873102848,
+            "exact": "2910383045673370361328125/3357560155758637873102848",
+            "decimal": 0.8668148627751904
+          },
+          "bound_at_h_34": {
+            "numerator": 582076609134674072265625,
+            "denominator": 559593359293106312183808,
+            "exact": "582076609134674072265625/559593359293106312183808",
+            "decimal": 1.0401778353302285
+          },
+          "analytic_range_starts_at_h": 35,
+          "bound_is_strictly_decreasing": true
+        },
+        "aggregate": {
+          "infinite_family_proved": true,
+          "includes_imprimitive_words": true,
+          "rotation_normalization_is_complete": true,
+          "mitm_coverage_is_complete": true,
+          "contracting_range_starts_at_h": 22,
+          "analytic_range_starts_at_h": 35,
+          "finite_exception_word_count": 52157326,
+          "finite_word_count_identity": "C(34,9)-C(21,9)=52157326",
+          "right_tuple_count": 136318,
+          "divisibility_hits": 0
+        },
+        "no_go_scope": "This closes only the exactly-nine-one/rest-two periodic stratum. Ten-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Ten-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "pairwise enumeration of all 52,157,326 words after the affine numerator separates into eight boundary terms",
+        "retain": "exact 4+4 residue coverage for h=22..34 and the product contradiction for h>=35",
+        "next_single_lemma": "NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T192-INPUT",
+            "label": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T193-CLOSED",
+            "label": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T193-REJECTED",
+            "label": "AllNineOneWordsMustBeTestedPairwise",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "CO-T193-OPEN",
+            "label": "NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T192-INPUT",
+            "CO-T193-CLOSED"
+          ],
+          [
+            "CO-T193-CLOSED",
+            "CO-T193-OPEN"
+          ],
+          [
+            "CO-T193-REJECTED",
+            "CO-T193-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof. The complete exactly-nine-one/rest-two periodic valuation stratum is excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-193",
+      "theorem_name": "ParitySeparatedPrimePowerContaminationEnvelope",
+      "declared_proposition": "For every even N>=6, let W_odd(N) sum log p over odd proper prime powers p^k<=N. Let C_2(N) be the exact von Mangoldt mass of ordered power-of-two pairs summing to N. Then the proper-prime-power contamination satisfies E_pp(N)<=2 log(N) W_odd(N)+C_2(N), where C_2(N)<=2(log 2)^2. Moreover, with y=floor(sqrt N), W_odd(N)<=(pi(y)-1)log N-(theta(y)-log 2)<=sqrt(N)log N.",
+      "mathematical_argument": "A supported pair summing to even N has equal parity. An even von Mangoldt-supported integer is a power of two, so all even contamination is exactly C_2(N); binary uniqueness gives at most two ordered exponent pairs. Every remaining contaminated pair has an odd proper prime power in one coordinate and is charged there with partner weight at most log N. For each odd prime p<=sqrt N, its exponents k=2,...,K contribute (K-1)log p, at most log N-log p. Summing by prime base gives the compressed Chebyshev-function bound.",
+      "reproducible_computation": {
+        "theorem": "For every even N>=6, let W_odd(N) sum log p over odd proper prime powers p^k<=N. Let C_2(N) be the exact von Mangoldt mass of ordered power-of-two pairs summing to N. Then the proper-prime-power contamination satisfies E_pp(N)<=2 log(N) W_odd(N)+C_2(N), where C_2(N)<=2(log 2)^2. Moreover, with y=floor(sqrt N), W_odd(N)<=(pi(y)-1)log N-(theta(y)-log 2)<=sqrt(N)log N.",
+        "proof": "A supported pair summing to even N has equal parity. An even von Mangoldt-supported integer is a power of two, so all even contamination is exactly C_2(N); binary uniqueness gives at most two ordered exponent pairs. Every remaining contaminated pair has an odd proper prime power in one coordinate and is charged there with partner weight at most log N. For each odd prime p<=sqrt N, its exponents k=2,...,K contribute (K-1)log p, at most log N-log p. Summing by prime base gives the compressed Chebyshev-function bound.",
+        "parity_envelope_rows": [
+          {
+            "target_N": 1024,
+            "actual_contamination": 15.65174110605954,
+            "odd_weighted_proper_power_mass": 34.89046968263681,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  9,
+                  9
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 484.1650667925573,
+            "prime_base_compressed_envelope": 610.2210046255993,
+            "elementary_envelope": 3075.860195104325,
+            "ticket192_weighted_envelope": 570.1661562839154,
+            "weighted_total_convolution": 1393.796065987939,
+            "base_compression": {
+              "limit_X": 1024,
+              "sqrt_floor": 32,
+              "odd_prime_base_count": 10,
+              "theta_odd_sqrt_X": 25.331234554040858,
+              "actual_odd_weighted_proper_power_mass": 34.89046968263681,
+              "reconstructed_odd_mass": 34.89046968263681,
+              "prime_base_compressed_upper": 43.98348350195367,
+              "elementary_sqrt_log_upper": 221.8070977791825,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 2048,
+            "actual_contamination": 298.66778914186114,
+            "odd_weighted_proper_power_mass": 48.374055050477274,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  10,
+                  10
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 738.1479301646962,
+            "prime_base_compressed_envelope": 956.6552846067118,
+            "elementary_envelope": 5262.723681855301,
+            "ticket192_weighted_envelope": 843.3671402127823,
+            "weighted_total_convolution": 2413.9510446835966,
+            "base_compression": {
+              "limit_X": 2048,
+              "sqrt_floor": 45,
+              "odd_prime_base_count": 13,
+              "theta_odd_sqrt_X": 36.41692464908295,
+              "actual_odd_weighted_proper_power_mass": 48.374055050477274,
+              "reconstructed_odd_mass": 48.37405505047728,
+              "prime_base_compressed_upper": 62.703122170989225,
+              "elementary_sqrt_log_upper": 345.05086650092863,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 4096,
+            "actual_contamination": 40.762552381279555,
+            "odd_weighted_proper_power_mass": 71.60181558143755,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  11,
+                  11
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 1191.6147712518364,
+            "prime_base_compressed_envelope": 1480.647726180323,
+            "elementary_envelope": 8856.670858568123,
+            "ticket192_weighted_envelope": 1317.9739139123233,
+            "weighted_total_convolution": 5296.348647829686,
+            "base_compression": {
+              "limit_X": 4096,
+              "sqrt_floor": 64,
+              "odd_prime_base_count": 17,
+              "theta_odd_sqrt_X": 52.425775472424164,
+              "actual_odd_weighted_proper_power_mass": 71.60181558143755,
+              "reconstructed_odd_mass": 71.60181558143755,
+              "prime_base_compressed_upper": 88.97624936180466,
+              "elementary_sqrt_log_upper": 532.337034670038,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 8192,
+            "actual_contamination": 472.1601705553935,
+            "odd_weighted_proper_power_mass": 104.51283696090475,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  12,
+                  12
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 1883.9926880799997,
+            "prime_base_compressed_envelope": 2321.5200688218993,
+            "elementary_envelope": 14699.108164124387,
+            "ticket192_weighted_envelope": 2033.4135754085603,
+            "weighted_total_convolution": 9977.286055191847,
+            "base_compression": {
+              "limit_X": 8192,
+              "sqrt_floor": 90,
+              "odd_prime_base_count": 23,
+              "theta_odd_sqrt_X": 78.46053224000059,
+              "actual_odd_weighted_proper_power_mass": 104.51283696090475,
+              "reconstructed_odd_mass": 104.51283696090475,
+              "prime_base_compressed_upper": 128.79047474742305,
+              "elementary_sqrt_log_upper": 815.5747753658312,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 16384,
+            "actual_contamination": 224.7746237623914,
+            "odd_weighted_proper_power_mass": 144.41597646750262,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  13,
+                  13
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 2803.3232066692217,
+            "prime_base_compressed_envelope": 3492.0202857209556,
+            "elementary_envelope": 24108.17133238751,
+            "ticket192_weighted_envelope": 2977.727650721529,
+            "weighted_total_convolution": 22378.482555409926,
+            "base_compression": {
+              "limit_X": 16384,
+              "sqrt_floor": 128,
+              "odd_prime_base_count": 30,
+              "theta_odd_sqrt_X": 111.22084434543686,
+              "actual_odd_weighted_proper_power_mass": 144.41597646750262,
+              "reconstructed_odd_mass": 144.41597646750265,
+              "prime_base_compressed_upper": 179.90097148974016,
+              "elementary_sqrt_log_upper": 1242.119747563422,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 32768,
+            "actual_contamination": 1637.8871610449337,
+            "odd_weighted_proper_power_mass": 212.38477387225575,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  14,
+                  14
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 4416.897669116386,
+            "prime_base_compressed_envelope": 5396.769102427923,
+            "elementary_envelope": 39138.03940391807,
+            "ticket192_weighted_envelope": 4618.207481948113,
+            "weighted_total_convolution": 44095.58893079547,
+            "base_compression": {
+              "limit_X": 32768,
+              "sqrt_floor": 181,
+              "odd_prime_base_count": 41,
+              "theta_odd_sqrt_X": 166.77888692053338,
+              "actual_odd_weighted_proper_power_mass": 212.38477387225575,
+              "reconstructed_odd_mass": 212.38477387225578,
+              "prime_base_compressed_upper": 259.5066291238329,
+              "elementary_sqrt_log_upper": 1882.0956354596105,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 65536,
+            "actual_contamination": 110.82465818844793,
+            "odd_weighted_proper_power_mass": 281.74123004807353,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  15,
+                  15
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 6249.700909183937,
+            "prime_base_compressed_envelope": 7904.8646477545635,
+            "elementary_envelope": 62974.89834631433,
+            "ticket192_weighted_envelope": 6479.837902850757,
+            "weighted_total_convolution": 87237.3472688245,
+            "base_compression": {
+              "limit_X": 65536,
+              "sqrt_floor": 256,
+              "odd_prime_base_count": 53,
+              "theta_odd_sqrt_X": 231.42581289503886,
+              "actual_odd_weighted_proper_power_mass": 281.74123004807353,
+              "reconstructed_odd_mass": 281.7412300480736,
+              "prime_base_compressed_upper": 356.36299621979475,
+              "elementary_sqrt_log_upper": 2839.130851573536,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 131072,
+            "actual_contamination": 2450.121181041351,
+            "odd_weighted_proper_power_mass": 405.3533362941136,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  16,
+                  16
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 9553.444207230214,
+            "prime_base_compressed_envelope": 11836.976418398273,
+            "elementary_envelope": 100539.7670028303,
+            "ticket192_weighted_envelope": 9814.330193787797,
+            "weighted_total_convolution": 173848.5733746382,
+            "base_compression": {
+              "limit_X": 131072,
+              "sqrt_floor": 362,
+              "odd_prime_base_count": 71,
+              "theta_odd_sqrt_X": 334.37999897225893,
+              "actual_odd_weighted_proper_power_mass": 405.3533362941136,
+              "reconstructed_odd_mass": 405.35333629411366,
+              "prime_base_compressed_upper": 502.2486479635951,
+              "elementary_sqrt_log_upper": 4266.083440375118,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 262144,
+            "actual_contamination": 40.602635121380274,
+            "odd_weighted_proper_power_mass": 572.9428832657368,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  17,
+                  17
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 14297.295242685046,
+            "prime_base_compressed_envelope": 17753.35477266444,
+            "elementary_envelope": 159403.74005175303,
+            "ticket192_weighted_envelope": 14590.852034189069,
+            "weighted_total_convolution": 341281.5358202622,
+            "base_compression": {
+              "limit_X": 262144,
+              "sqrt_floor": 512,
+              "odd_prime_base_count": 96,
+              "theta_odd_sqrt_X": 486.3143351607845,
+              "actual_odd_weighted_proper_power_mass": 572.9428832657368,
+              "reconstructed_odd_mass": 572.9428832657367,
+              "prime_base_compressed_upper": 711.443992846801,
+              "elementary_sqrt_log_upper": 6388.044416040456,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 524288,
+            "actual_contamination": 6034.961357623845,
+            "odd_weighted_proper_power_mass": 796.5353015811299,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  18,
+                  18
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 20980.895996296105,
+            "prime_base_compressed_envelope": 26000.149133887233,
+            "elementary_envelope": 251174.03357693227,
+            "ticket192_weighted_envelope": 21309.045404802233,
+            "weighted_total_convolution": 698198.5291051933,
+            "base_compression": {
+              "limit_X": 524288,
+              "sqrt_floor": 724,
+              "odd_prime_base_count": 127,
+              "theta_odd_sqrt_X": 685.4695922003051,
+              "actual_odd_weighted_proper_power_mass": 796.5353015811299,
+              "reconstructed_odd_mass": 796.53530158113,
+              "prime_base_compressed_upper": 987.0945544908428,
+              "elementary_sqrt_log_upper": 9535.951219662027,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          },
+          {
+            "target_N": 1048576,
+            "actual_contamination": 170.34091545973897,
+            "odd_weighted_proper_power_mass": 1122.2534426413818,
+            "power_of_two_contamination": {
+              "ordered_exponent_pairs": [
+                [
+                  19,
+                  19
+                ]
+              ],
+              "ordered_pair_count": 1,
+              "exact_weight": 0.4804530139182014,
+              "at_most_two_ordered_pairs": true
+            },
+            "parity_separated_envelope": 31115.95283863656,
+            "prime_base_compressed_envelope": 38465.12332985315,
+            "elementary_envelope": 393588.0699078184,
+            "ticket192_weighted_envelope": 31480.61667620048,
+            "weighted_total_convolution": 1388031.9124054494,
+            "base_compression": {
+              "limit_X": 1048576,
+              "sqrt_floor": 1024,
+              "odd_prime_base_count": 171,
+              "theta_odd_sqrt_X": 983.2446193154886,
+              "actual_odd_weighted_proper_power_mass": 1122.2534426413818,
+              "reconstructed_odd_mass": 1122.253442641382,
+              "prime_base_compressed_upper": 1387.318738199524,
+              "elementary_sqrt_log_upper": 14195.65425786768,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            },
+            "checks": {
+              "actual_contamination_below_parity_envelope": true,
+              "parity_envelope_below_ticket192_envelope": true,
+              "parity_envelope_below_compressed_envelope": true,
+              "compressed_envelope_below_elementary_envelope": true,
+              "finite_total_exceeds_parity_envelope": true,
+              "power_two_pair_classification_exact": true
+            }
+          }
+        ],
+        "aggregate": {
+          "target_count": 11,
+          "largest_target": 1048576,
+          "parity_separated_envelope_theorem_proved": true,
+          "power_of_two_contamination_exactly_classified": true,
+          "prime_base_compression_proved": true,
+          "finite_sample_envelope_success_count": 11,
+          "all_large_even_targets_proved": false
+        },
+        "no_go_scope": "Parity strictly lowers the sufficient contamination threshold, but the displayed finite successes do not prove correlation above it for every sufficiently large even N.",
+        "failure_count": 0
+      },
+      "logical_limit": "No every-large-even lower bound above the parity-separated envelope is proved.",
+      "route_decision": {
+        "discard": "charging every power of two by log(N) after even-even von Mangoldt support can be classified exactly",
+        "retain": "binary correlation above 2 log(N) W_odd(N)+C_2(N) for every sufficiently large even N",
+        "next_single_lemma": "BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T192-INPUT",
+            "label": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T193-CLOSED",
+            "label": "ParitySeparatedPrimePowerContaminationEnvelope",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T193-REJECTED",
+            "label": "EvenPrimePowersRequireTheSameUnionBoundAsOddPrimePowers",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "GB-T193-OPEN",
+            "label": "BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T192-INPUT",
+            "GB-T193-CLOSED"
+          ],
+          [
+            "GB-T193-CLOSED",
+            "GB-T193-OPEN"
+          ],
+          [
+            "GB-T193-REJECTED",
+            "GB-T193-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof. Parity strictly sharpens the sufficient contamination envelope, but the universal correlation lower bound is open."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-193",
+      "theorem_name": "OddOnlyShiftTwoContaminationEnvelope",
+      "declared_proposition": "For every X>=4, a von Mangoldt-supported pair n,n+2 with X<=n<2X is necessarily odd. Hence shift-two proper-prime-power contamination is at most log(2X+2) times the odd proper-power masses in [X,2X) and [X+2,2X+2). Correlation above this odd-only local envelope forces a twin prime in the block.",
+      "mathematical_argument": "If an even supported n occurs then n=2^a. Requiring n+2 to be even and von Mangoldt-supported gives 2^b-2^a=2. Factoring 2^a(2^(b-a)-1)=2 shows a=1 and {n,n+2}={2,4}, impossible for X>=4. Thus every supported block pair is odd-odd, and charging contamination to the odd proper-power coordinate proves the local bound. Prime-base compression supplies an explicit global sqrt-scale majorant.",
+      "reproducible_computation": {
+        "theorem": "For every X>=4, a von Mangoldt-supported pair n,n+2 with X<=n<2X is necessarily odd. Hence shift-two proper-prime-power contamination is at most log(2X+2) times the odd proper-power masses in [X,2X) and [X+2,2X+2). Correlation above this odd-only local envelope forces a twin prime in the block.",
+        "proof": "If an even supported n occurs then n=2^a. Requiring n+2 to be even and von Mangoldt-supported gives 2^b-2^a=2. Factoring 2^a(2^(b-a)-1)=2 shows a=1 and {n,n+2}={2,4}, impossible for X>=4. Thus every supported block pair is odd-odd, and charging contamination to the odd proper-power coordinate proves the local bound. Prime-base compression supplies an explicit global sqrt-scale majorant.",
+        "finite_dyadic_rows": [
+          {
+            "dyadic_exponent_j": 4,
+            "block": [
+              16,
+              32
+            ],
+            "shift_two_von_mangoldt_support_count": 5,
+            "twin_prime_support_count": 2,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 30.419358712610045,
+            "weighted_twin_prime_mass": 19.905474600423364,
+            "weighted_prime_power_contamination": 10.51388411218668,
+            "proper_prime_power_count_A_2X_plus_2": 7,
+            "contamination_mass_upper_bound": 174.09305969399637,
+            "contamination_examples_left_right_exponents": [
+              [
+                23,
+                25,
+                1,
+                2
+              ],
+              [
+                25,
+                27,
+                2,
+                3
+              ],
+              [
+                27,
+                29,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 2.70805020110221,
+            "right_odd_weighted_proper_power_mass": 2.70805020110221,
+            "odd_local_contamination_envelope": 19.09912265569138,
+            "ticket192_local_weighted_envelope": 23.98769636624255,
+            "prime_base_compressed_global_envelope": 30.641751542593294,
+            "elementary_global_envelope": 145.0183223288749,
+            "base_compression": {
+              "limit_X": 34,
+              "sqrt_floor": 5,
+              "odd_prime_base_count": 2,
+              "theta_odd_sqrt_X": 2.70805020110221,
+              "actual_odd_weighted_proper_power_mass": 3.8066624897703196,
+              "reconstructed_odd_mass": 3.8066624897703196,
+              "prime_base_compressed_upper": 4.344670848130113,
+              "elementary_sqrt_log_upper": 20.562038582918277,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 5,
+            "block": [
+              32,
+              64
+            ],
+            "shift_two_von_mangoldt_support_count": 3,
+            "twin_prime_support_count": 2,
+            "proper_prime_power_contamination_support_count": 1,
+            "weighted_shift_two_correlation": 38.221771088793275,
+            "weighted_twin_prime_mass": 30.729729795264696,
+            "weighted_prime_power_contamination": 7.492041293528577,
+            "proper_prime_power_count_A_2X_plus_2": 9,
+            "contamination_mass_upper_bound": 315.9577234329212,
+            "contamination_examples_left_right_exponents": [
+              [
+                47,
+                49,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 1.9459101490553132,
+            "right_odd_weighted_proper_power_mass": 1.9459101490553132,
+            "odd_local_contamination_envelope": 16.30538336709388,
+            "ticket192_local_weighted_envelope": 22.113478111004323,
+            "prime_base_compressed_global_envelope": 66.32226704382622,
+            "elementary_global_envelope": 285.2058532678222,
+            "base_compression": {
+              "limit_X": 66,
+              "sqrt_floor": 8,
+              "odd_prime_base_count": 3,
+              "theta_odd_sqrt_X": 4.653960350157523,
+              "actual_odd_weighted_proper_power_mass": 5.752572638825633,
+              "reconstructed_odd_mass": 5.752572638825633,
+              "prime_base_compressed_upper": 7.9150038759217525,
+              "elementary_sqrt_log_upper": 34.03691602638785,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 6,
+            "block": [
+              64,
+              128
+            ],
+            "shift_two_von_mangoldt_support_count": 6,
+            "twin_prime_support_count": 3,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 79.05189367387074,
+            "weighted_twin_prime_mass": 61.60055362319484,
+            "weighted_prime_power_contamination": 17.451340050675896,
+            "proper_prime_power_count_A_2X_plus_2": 13,
+            "contamination_mass_upper_bound": 616.0151822856701,
+            "contamination_examples_left_right_exponents": [
+              [
+                79,
+                81,
+                1,
+                4
+              ],
+              [
+                81,
+                83,
+                4,
+                1
+              ],
+              [
+                125,
+                127,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 5.105945473900581,
+            "right_odd_weighted_proper_power_mass": 5.105945473900581,
+            "odd_local_contamination_envelope": 49.70673099271767,
+            "ticket192_local_weighted_envelope": 56.454566553941035,
+            "prime_base_compressed_global_envelope": 120.89283264222196,
+            "elementary_global_envelope": 540.2810556385284,
+            "base_compression": {
+              "limit_X": 130,
+              "sqrt_floor": 11,
+              "odd_prime_base_count": 4,
+              "theta_odd_sqrt_X": 7.051855622955894,
+              "actual_odd_weighted_proper_power_mass": 10.858518112726214,
+              "reconstructed_odd_mass": 10.858518112726214,
+              "prime_base_compressed_upper": 12.418282178866434,
+              "elementary_sqrt_log_upper": 55.49843161232892,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 7,
+            "block": [
+              128,
+              256
+            ],
+            "shift_two_von_mangoldt_support_count": 9,
+            "twin_prime_support_count": 7,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 210.62504290038592,
+            "weighted_twin_prime_mass": 191.4719826477534,
+            "weighted_prime_power_contamination": 19.153060252632475,
+            "proper_prime_power_count_A_2X_plus_2": 16,
+            "contamination_mass_upper_bound": 986.7315248567315,
+            "contamination_examples_left_right_exponents": [
+              [
+                167,
+                169,
+                1,
+                2
+              ],
+              [
+                241,
+                243,
+                1,
+                5
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 3.6635616461296463,
+            "right_odd_weighted_proper_power_mass": 3.6635616461296463,
+            "odd_local_contamination_envelope": 40.68721951565367,
+            "ticket192_local_weighted_envelope": 48.38525607575716,
+            "prime_base_compressed_global_envelope": 201.55014273306676,
+            "elementary_global_envelope": 990.5784459756869,
+            "base_compression": {
+              "limit_X": 258,
+              "sqrt_floor": 16,
+              "odd_prime_base_count": 5,
+              "theta_odd_sqrt_X": 9.616804980417431,
+              "actual_odd_weighted_proper_power_mass": 14.52207975885586,
+              "reconstructed_odd_mass": 14.52207975885586,
+              "prime_base_compressed_upper": 18.147992944190655,
+              "elementary_sqrt_log_upper": 89.19373811629042,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 8,
+            "block": [
+              256,
+              512
+            ],
+            "shift_two_von_mangoldt_support_count": 8,
+            "twin_prime_support_count": 7,
+            "proper_prime_power_contamination_support_count": 1,
+            "weighted_shift_two_correlation": 258.68209860141263,
+            "weighted_twin_prime_mass": 241.35901483374516,
+            "weighted_prime_power_contamination": 17.32308376766749,
+            "proper_prime_power_count_A_2X_plus_2": 20,
+            "contamination_mass_upper_bound": 1558.6140518315901,
+            "contamination_examples_left_right_exponents": [
+              [
+                359,
+                361,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 7.72356247227797,
+            "right_odd_weighted_proper_power_mass": 7.72356247227797,
+            "odd_local_contamination_envelope": 96.42440271329993,
+            "ticket192_local_weighted_envelope": 105.07796162705179,
+            "prime_base_compressed_global_envelope": 353.32363906137977,
+            "elementary_global_envelope": 1766.8112306917367,
+            "base_compression": {
+              "limit_X": 514,
+              "sqrt_floor": 22,
+              "odd_prime_base_count": 7,
+              "theta_odd_sqrt_X": 15.394457303640086,
+              "actual_odd_weighted_proper_power_mass": 22.24564223113383,
+              "reconstructed_odd_mass": 22.24564223113383,
+              "prime_base_compressed_upper": 28.30110555454607,
+              "elementary_sqrt_log_upper": 141.52098984262346,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 9,
+            "block": [
+              512,
+              1024
+            ],
+            "shift_two_von_mangoldt_support_count": 14,
+            "twin_prime_support_count": 12,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 550.1506096955326,
+            "weighted_twin_prime_mass": 520.2425890597062,
+            "weighted_prime_power_contamination": 29.908020635826325,
+            "proper_prime_power_count_A_2X_plus_2": 26,
+            "contamination_mass_upper_bound": 2499.7624523941085,
+            "contamination_examples_left_right_exponents": [
+              [
+                727,
+                729,
+                1,
+                6
+              ],
+              [
+                839,
+                841,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 12.64482745150298,
+            "right_odd_weighted_proper_power_mass": 12.64482745150298,
+            "odd_local_contamination_envelope": 175.3438756172852,
+            "ticket192_local_weighted_envelope": 184.9556408611145,
+            "prime_base_compressed_global_envelope": 610.1827672203125,
+            "elementary_global_envelope": 3079.6337671963374,
+            "base_compression": {
+              "limit_X": 1026,
+              "sqrt_floor": 32,
+              "odd_prime_base_count": 10,
+              "theta_odd_sqrt_X": 25.331234554040858,
+              "actual_odd_weighted_proper_power_mass": 34.89046968263681,
+              "reconstructed_odd_mass": 34.89046968263681,
+              "prime_base_compressed_upper": 44.00299570326629,
+              "elementary_sqrt_log_upper": 222.0861006004876,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 10,
+            "block": [
+              1024,
+              2048
+            ],
+            "shift_two_von_mangoldt_support_count": 28,
+            "twin_prime_support_count": 26,
+            "proper_prime_power_contamination_support_count": 2,
+            "weighted_shift_two_correlation": 1441.7469568800293,
+            "weighted_twin_prime_mass": 1387.3855975997217,
+            "weighted_prime_power_contamination": 54.36135928030767,
+            "proper_prime_power_count_A_2X_plus_2": 31,
+            "contamination_mass_upper_bound": 3605.281412656107,
+            "contamination_examples_left_right_exponents": [
+              [
+                1367,
+                1369,
+                1,
+                2
+              ],
+              [
+                1847,
+                1849,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 13.483585367840465,
+            "right_odd_weighted_proper_power_mass": 13.483585367840465,
+            "odd_local_contamination_envelope": 205.640724271363,
+            "ticket192_local_weighted_envelope": 216.21204372004385,
+            "prime_base_compressed_global_envelope": 956.490763014868,
+            "elementary_global_envelope": 5265.67931015632,
+            "base_compression": {
+              "limit_X": 2050,
+              "sqrt_floor": 45,
+              "odd_prime_base_count": 13,
+              "theta_odd_sqrt_X": 36.41692464908295,
+              "actual_odd_weighted_proper_power_mass": 48.374055050477274,
+              "reconstructed_odd_mass": 48.37405505047728,
+              "prime_base_compressed_upper": 62.71581128863894,
+              "elementary_sqrt_log_upper": 345.2635014282107,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 11,
+            "block": [
+              2048,
+              4096
+            ],
+            "shift_two_von_mangoldt_support_count": 48,
+            "twin_prime_support_count": 45,
+            "proper_prime_power_contamination_support_count": 3,
+            "weighted_shift_two_correlation": 2972.656172857228,
+            "weighted_twin_prime_mass": 2894.071385852201,
+            "weighted_prime_power_contamination": 78.58478700502675,
+            "proper_prime_power_count_A_2X_plus_2": 40,
+            "contamination_mass_upper_bound": 5535.468406286459,
+            "contamination_examples_left_right_exponents": [
+              [
+                2207,
+                2209,
+                1,
+                2
+              ],
+              [
+                2399,
+                2401,
+                1,
+                4
+              ],
+              [
+                3719,
+                3721,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 23.22776053096027,
+            "right_odd_weighted_proper_power_mass": 23.22776053096027,
+            "odd_local_contamination_envelope": 386.4288391699265,
+            "ticket192_local_weighted_envelope": 397.9603882403015,
+            "prime_base_compressed_global_envelope": 1480.3922051434877,
+            "elementary_global_envelope": 8858.911478517259,
+            "base_compression": {
+              "limit_X": 4098,
+              "sqrt_floor": 64,
+              "odd_prime_base_count": 17,
+              "theta_odd_sqrt_X": 52.425775472424164,
+              "actual_odd_weighted_proper_power_mass": 71.60181558143755,
+              "reconstructed_odd_mass": 71.60181558143755,
+              "prime_base_compressed_upper": 88.98454811715621,
+              "elementary_sqrt_log_upper": 532.4982339050749,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 12,
+            "block": [
+              4096,
+              8192
+            ],
+            "shift_two_von_mangoldt_support_count": 74,
+            "twin_prime_support_count": 70,
+            "proper_prime_power_contamination_support_count": 4,
+            "weighted_shift_two_correlation": 5380.412152725935,
+            "weighted_twin_prime_mass": 5268.114154826079,
+            "weighted_prime_power_contamination": 112.29799789985574,
+            "proper_prime_power_count_A_2X_plus_2": 50,
+            "contamination_mass_upper_bound": 8120.095873479411,
+            "contamination_examples_left_right_exponents": [
+              [
+                5039,
+                5041,
+                1,
+                2
+              ],
+              [
+                6561,
+                6563,
+                8,
+                1
+              ],
+              [
+                6857,
+                6859,
+                1,
+                3
+              ],
+              [
+                7919,
+                7921,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 32.9110213794672,
+            "right_odd_weighted_proper_power_mass": 32.9110213794672,
+            "odd_local_contamination_envelope": 593.1327915149975,
+            "ticket192_local_weighted_envelope": 605.6249082863344,
+            "prime_base_compressed_global_envelope": 2321.203681277506,
+            "elementary_global_envelope": 14700.737826557024,
+            "base_compression": {
+              "limit_X": 8194,
+              "sqrt_floor": 90,
+              "odd_prime_base_count": 23,
+              "theta_odd_sqrt_X": 78.46053224000059,
+              "actual_odd_weighted_proper_power_mass": 104.51283696090475,
+              "reconstructed_odd_mass": 104.51283696090475,
+              "prime_base_compressed_upper": 128.79608929645622,
+              "elementary_sqrt_log_upper": 815.6964238446205,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 13,
+            "block": [
+              8192,
+              16384
+            ],
+            "shift_two_von_mangoldt_support_count": 117,
+            "twin_prime_support_count": 113,
+            "proper_prime_power_contamination_support_count": 4,
+            "weighted_shift_two_correlation": 10099.841514010854,
+            "weighted_twin_prime_mass": 9943.280144249258,
+            "weighted_prime_power_contamination": 156.56136976159559,
+            "proper_prime_power_count_A_2X_plus_2": 61,
+            "contamination_mass_upper_bound": 11488.881489948855,
+            "contamination_examples_left_right_exponents": [
+              [
+                10607,
+                10609,
+                1,
+                2
+              ],
+              [
+                11447,
+                11449,
+                1,
+                2
+              ],
+              [
+                14639,
+                14641,
+                1,
+                4
+              ],
+              [
+                16127,
+                16129,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 39.90313950659788,
+            "right_odd_weighted_proper_power_mass": 39.90313950659788,
+            "odd_local_contamination_envelope": 774.4547034285416,
+            "ticket192_local_weighted_envelope": 787.9075570333093,
+            "prime_base_compressed_global_envelope": 3491.654822380471,
+            "elementary_global_envelope": 24109.288276411444,
+            "base_compression": {
+              "limit_X": 16386,
+              "sqrt_floor": 128,
+              "odd_prime_base_count": 30,
+              "theta_odd_sqrt_X": 111.22084434543686,
+              "actual_odd_weighted_proper_power_mass": 144.41597646750262,
+              "reconstructed_odd_mass": 144.41597646750265,
+              "prime_base_compressed_upper": 179.904633375616,
+              "elementary_sqrt_log_upper": 1242.211183222799,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 14,
+            "block": [
+              16384,
+              32768
+            ],
+            "shift_two_von_mangoldt_support_count": 222,
+            "twin_prime_support_count": 215,
+            "proper_prime_power_contamination_support_count": 7,
+            "weighted_shift_two_correlation": 22103.264555436494,
+            "weighted_twin_prime_mass": 21847.34898267158,
+            "weighted_prime_power_contamination": 255.91557276490903,
+            "proper_prime_power_count_A_2X_plus_2": 78,
+            "contamination_mass_upper_bound": 16864.098776769417,
+            "contamination_examples_left_right_exponents": [
+              [
+                17159,
+                17161,
+                1,
+                2
+              ],
+              [
+                19319,
+                19321,
+                1,
+                2
+              ],
+              [
+                19681,
+                19683,
+                1,
+                9
+              ],
+              [
+                24389,
+                24391,
+                3,
+                1
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 67.96879740475312,
+            "right_odd_weighted_proper_power_mass": 67.96879740475312,
+            "odd_local_contamination_envelope": 1413.379705333789,
+            "ticket192_local_weighted_envelope": 1427.7933803614458,
+            "prime_base_compressed_global_envelope": 5396.372362026262,
+            "elementary_global_envelope": 39138.73234587015,
+            "base_compression": {
+              "limit_X": 32770,
+              "sqrt_floor": 181,
+              "odd_prime_base_count": 41,
+              "theta_odd_sqrt_X": 166.77888692053338,
+              "actual_odd_weighted_proper_power_mass": 212.38477387225575,
+              "reconstructed_odd_mass": 212.38477387225578,
+              "prime_base_compressed_upper": 259.5091314888739,
+              "elementary_sqrt_log_upper": 1882.1641201272666,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 15,
+            "block": [
+              32768,
+              65536
+            ],
+            "shift_two_von_mangoldt_support_count": 362,
+            "twin_prime_support_count": 355,
+            "proper_prime_power_contamination_support_count": 7,
+            "weighted_shift_two_correlation": 41516.84933102578,
+            "weighted_twin_prime_mass": 41175.32141775507,
+            "weighted_prime_power_contamination": 341.52791327071526,
+            "proper_prime_power_count_A_2X_plus_2": 93,
+            "contamination_mass_upper_bound": 22877.376612668297,
+            "contamination_examples_left_right_exponents": [
+              [
+                36479,
+                36481,
+                1,
+                2
+              ],
+              [
+                44519,
+                44521,
+                1,
+                2
+              ],
+              [
+                49727,
+                49729,
+                1,
+                2
+              ],
+              [
+                50651,
+                50653,
+                1,
+                3
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 69.35645617581781,
+            "right_odd_weighted_proper_power_mass": 69.35645617581781,
+            "odd_local_contamination_envelope": 1538.3796587782685,
+            "ticket192_local_weighted_envelope": 1553.754197529352,
+            "prime_base_compressed_global_envelope": 7904.441820413035,
+            "elementary_global_envelope": 62975.24491305042,
+            "base_compression": {
+              "limit_X": 65538,
+              "sqrt_floor": 256,
+              "odd_prime_base_count": 53,
+              "theta_odd_sqrt_X": 231.42581289503886,
+              "actual_odd_weighted_proper_power_mass": 281.74123004807353,
+              "reconstructed_odd_mass": 281.7412300480736,
+              "prime_base_compressed_upper": 356.3646136267559,
+              "elementary_sqrt_log_upper": 2839.1819854418077,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 16,
+            "block": [
+              65536,
+              131072
+            ],
+            "shift_two_von_mangoldt_support_count": 671,
+            "twin_prime_support_count": 666,
+            "proper_prime_power_contamination_support_count": 5,
+            "weighted_shift_two_correlation": 87982.41778641171,
+            "weighted_twin_prime_mass": 87653.29378784791,
+            "weighted_prime_power_contamination": 329.12399856379926,
+            "proper_prime_power_count_A_2X_plus_2": 119,
+            "contamination_mass_upper_bound": 33046.60478846309,
+            "contamination_examples_left_right_exponents": [
+              [
+                66047,
+                66049,
+                1,
+                2
+              ],
+              [
+                85847,
+                85849,
+                1,
+                2
+              ],
+              [
+                97967,
+                97969,
+                1,
+                2
+              ],
+              [
+                113567,
+                113569,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 123.61210624604006,
+            "right_odd_weighted_proper_power_mass": 123.61210624604006,
+            "odd_local_contamination_envelope": 2913.170791848978,
+            "ticket192_local_weighted_envelope": 2929.5062154752086,
+            "prime_base_compressed_global_envelope": 11836.536824398136,
+            "elementary_global_envelope": 100539.83352533178,
+            "base_compression": {
+              "limit_X": 131074,
+              "sqrt_floor": 362,
+              "odd_prime_base_count": 71,
+              "theta_odd_sqrt_X": 334.37999897225893,
+              "actual_odd_weighted_proper_power_mass": 405.3533362941136,
+              "reconstructed_odd_mass": 405.35333629411366,
+              "prime_base_compressed_upper": 502.24973132935315,
+              "elementary_sqrt_log_upper": 4266.121512156357,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 17,
+            "block": [
+              131072,
+              262144
+            ],
+            "shift_two_von_mangoldt_support_count": 1159,
+            "twin_prime_support_count": 1153,
+            "proper_prime_power_contamination_support_count": 6,
+            "weighted_shift_two_correlation": 170925.14354747848,
+            "weighted_twin_prime_mass": 170522.16627598935,
+            "weighted_prime_power_contamination": 402.9772714891503,
+            "proper_prime_power_count_A_2X_plus_2": 150,
+            "contamination_mass_upper_bound": 46700.09006621651,
+            "contamination_examples_left_right_exponents": [
+              [
+                161051,
+                161053,
+                5,
+                1
+              ],
+              [
+                177239,
+                177241,
+                1,
+                2
+              ],
+              [
+                196247,
+                196249,
+                1,
+                2
+              ],
+              [
+                201599,
+                201601,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 167.5895469716232,
+            "right_odd_weighted_proper_power_mass": 167.5895469716232,
+            "odd_local_contamination_envelope": 4181.914548292961,
+            "ticket192_local_weighted_envelope": 4199.2108673705625,
+            "prime_base_compressed_global_envelope": 17752.903451666058,
+            "elementary_global_envelope": 159403.58216561528,
+            "base_compression": {
+              "limit_X": 262146,
+              "sqrt_floor": 512,
+              "odd_prime_base_count": 96,
+              "theta_odd_sqrt_X": 486.3143351607845,
+              "actual_odd_weighted_proper_power_mass": 572.9428832657368,
+              "reconstructed_odd_mass": 572.9428832657367,
+              "prime_base_compressed_upper": 711.4447252658821,
+              "elementary_sqrt_log_upper": 6388.072690699543,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 18,
+            "block": [
+              262144,
+              524288
+            ],
+            "shift_two_von_mangoldt_support_count": 2082,
+            "twin_prime_support_count": 2071,
+            "proper_prime_power_contamination_support_count": 11,
+            "weighted_shift_two_correlation": 343017.38147934974,
+            "weighted_twin_prime_mass": 342219.9300581405,
+            "weighted_prime_power_contamination": 797.4514212092325,
+            "proper_prime_power_count_A_2X_plus_2": 189,
+            "contamination_mass_upper_bound": 65561.69535370552,
+            "contamination_examples_left_right_exponents": [
+              [
+                273527,
+                273529,
+                1,
+                2
+              ],
+              [
+                292679,
+                292681,
+                1,
+                2
+              ],
+              [
+                300761,
+                300763,
+                1,
+                3
+              ],
+              [
+                323759,
+                323761,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 223.59241831539308,
+            "right_odd_weighted_proper_power_mass": 223.59241831539308,
+            "odd_local_contamination_envelope": 5889.334971167514,
+            "ticket192_local_weighted_envelope": 5907.592190984689,
+            "prime_base_compressed_global_envelope": 25999.688972423857,
+            "elementary_global_envelope": 251173.6972521535,
+            "base_compression": {
+              "limit_X": 524290,
+              "sqrt_floor": 724,
+              "odd_prime_base_count": 127,
+              "theta_odd_sqrt_X": 685.4695922003051,
+              "actual_odd_weighted_proper_power_mass": 796.5353015811299,
+              "reconstructed_odd_mass": 796.53530158113,
+              "prime_base_compressed_upper": 987.0950389564715,
+              "elementary_sqrt_log_upper": 9535.972170164066,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          },
+          {
+            "dyadic_exponent_j": 19,
+            "block": [
+              524288,
+              1048576
+            ],
+            "shift_two_von_mangoldt_support_count": 3800,
+            "twin_prime_support_count": 3785,
+            "proper_prime_power_contamination_support_count": 15,
+            "weighted_shift_two_correlation": 696510.2058858308,
+            "weighted_twin_prime_mass": 695300.6983668064,
+            "weighted_prime_power_contamination": 1209.507519024261,
+            "proper_prime_power_count_A_2X_plus_2": 242,
+            "contamination_mass_upper_bound": 93015.72908988077,
+            "contamination_examples_left_right_exponents": [
+              [
+                528527,
+                528529,
+                1,
+                2
+              ],
+              [
+                537287,
+                537289,
+                1,
+                2
+              ],
+              [
+                552047,
+                552049,
+                1,
+                2
+              ],
+              [
+                563999,
+                564001,
+                1,
+                2
+              ]
+            ],
+            "checks": {
+              "support_decomposition_exact": true,
+              "weighted_decomposition_replays": true,
+              "contamination_support_below_two_A": true,
+              "contamination_mass_below_explicit_bound": true,
+              "no_even_supported_shift_pair_for_X_ge_4": true,
+              "actual_contamination_below_odd_local_envelope": true,
+              "odd_local_below_ticket192_envelope": true,
+              "odd_local_below_compressed_global_envelope": true,
+              "compressed_below_elementary_envelope": true,
+              "finite_total_exceeds_odd_local_envelope": true
+            },
+            "even_supported_shift_two_pair_count": 0,
+            "left_odd_weighted_proper_power_mass": 325.7181410602519,
+            "right_odd_weighted_proper_power_mass": 325.7181410602519,
+            "odd_local_contamination_envelope": 9030.825687840525,
+            "ticket192_local_weighted_envelope": 9050.043811041396,
+            "prime_base_compressed_global_envelope": 38464.65721200936,
+            "elementary_global_envelope": 393587.59265978314,
+            "base_compression": {
+              "limit_X": 1048578,
+              "sqrt_floor": 1024,
+              "odd_prime_base_count": 171,
+              "theta_odd_sqrt_X": 983.2446193154886,
+              "actual_odd_weighted_proper_power_mass": 1122.2534426413818,
+              "reconstructed_odd_mass": 1122.253442641382,
+              "prime_base_compressed_upper": 1387.3190643558291,
+              "elementary_sqrt_log_upper": 14195.669749017095,
+              "checks": {
+                "base_reconstruction_matches": true,
+                "actual_mass_below_compressed_upper": true,
+                "compressed_upper_below_sqrt_log": true
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "dyadic_block_count": 16,
+          "largest_upper_endpoint": 1048576,
+          "odd_only_local_envelope_theorem_proved": true,
+          "even_supported_pairs_excluded_for_all_X_ge_4": true,
+          "prime_base_compression_proved": true,
+          "finite_block_envelope_success_count": 16,
+          "infinitely_many_envelope_successes_proved": false
+        },
+        "no_go_scope": "All displayed finite blocks pass the sharper odd-only envelope. No theorem proves this on infinitely many unbounded blocks, so the Twin Prime conjecture remains open.",
+        "failure_count": 0
+      },
+      "logical_limit": "No proof gives correlation above the odd-only local envelope on infinitely many unbounded dyadic blocks.",
+      "route_decision": {
+        "discard": "including powers of two in shift-two contamination for blocks X>=4",
+        "retain": "shift-two correlation above the two translated odd proper-power masses on infinitely many blocks",
+        "next_single_lemma": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T192-INPUT",
+            "label": "LocalTwoSidedWeightedEnvelopeBridge",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T193-CLOSED",
+            "label": "OddOnlyShiftTwoContaminationEnvelope",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T193-REJECTED",
+            "label": "EvenVonMangoldtSupportCanContaminateShiftTwoBlocksAboveFour",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "TP-T193-OPEN",
+            "label": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T192-INPUT",
+            "TP-T193-CLOSED"
+          ],
+          [
+            "TP-T193-CLOSED",
+            "TP-T193-OPEN"
+          ],
+          [
+            "TP-T193-REJECTED",
+            "TP-T193-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof. Even support is removed exactly and the odd-only local envelope passes finite replay, but infinitude is open."
+    },
+    "cross_problem_synthesis": "The RH and prime-correlation tracks both replace an unnecessarily coarse premise by the correct global structure: completeness for uniform boundedness and parity for contamination. The Collatz track uses an exact low-rank boundary decomposition to replace pairwise search without weakening coverage.",
+    "literature_boundary": {
+      "riemann": "The recent screw-function operator route still leaves the decisive limiting operator conjectural; no actual Weil everywhere-convergence theorem is imported here.",
+      "collatz": "Recent accelerated-map work does not prove global convergence; this ticket excludes one periodic valuation stratum only.",
+      "goldbach": "Exceptional-set results do not provide every-even-target binary correlation control above the new pointwise envelope.",
+      "twin_prime": "Bounded-gap theorems do not force exact gap two; parity sharpening of contamination does not supply infinitely many positive blocks."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_infinite_cycle_stratum_closure_count": 1,
+      "parity_sharpened_envelope_count": 2,
+      "represented_collatz_word_count": 52157326,
+      "rejected_or_corrected_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-193",
+      "status": "open_not_proven",
+      "declared_proposition": "Let q_n be continuous Hermitian quadratic forms on a complex Hilbert space H, with associated bounded Hermitian forms B_n. If q_n(x) converges for every x in H, then sup_n ||B_n|| is finite, B_n(x,y) converges for every x,y, and the limit is a bounded Hermitian form whose quadratic form is lim_n q_n. Positivity passes to the limit. Convergence merely on a dense core is insufficient: q_n(x)=n|x_n|^2 converges to zero on c_00 while ||B_n||=n.",
+      "new_result": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+      "discarded_route": "treating convergence on a merely dense countable core as enough for Banach-Steinhaus promotion",
+      "remaining_gap": "Everywhere convergence of the actual pole-neutral Weil finite sections is not proved.",
+      "candidate_theorem": "PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion",
+      "claim_boundary": "No RH proof. The everywhere-convergence promotion theorem is exact, but its actual Weil premise remains open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T192-INPUT",
+            "label": "UniformBoundedCoreExtensionAndPointwiseCauchyNoGo",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "RH-T193-CLOSED",
+            "label": "EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T193-REJECTED",
+            "label": "DenseCorePointwiseConvergenceInvokesUniformBoundedness",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "RH-T193-OPEN",
+            "label": "PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T192-INPUT",
+            "RH-T193-CLOSED"
+          ],
+          [
+            "RH-T193-CLOSED",
+            "RH-T193-OPEN"
+          ],
+          [
+            "RH-T193-REJECTED",
+            "RH-T193-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PoleNeutralWeilFiniteSectionsConvergeOnEveryVectorOfACompleteAdmissibleHilbertCompletion"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-193",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive accelerated Collatz cycle has a valuation period with exactly nine entries equal to one and every other entry equal to two, including primitive and imprimitive periods.",
+      "new_result": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+      "discarded_route": "pairwise enumeration of all 52,157,326 words after the affine numerator separates into eight boundary terms",
+      "remaining_gap": "Ten-or-more-one strata, valuations at least three, and aperiodic divergence remain open.",
+      "candidate_theorem": "NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+      "claim_boundary": "No Collatz proof. The complete exactly-nine-one/rest-two periodic valuation stratum is excluded.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T192-INPUT",
+            "label": "NoContractingValuationWordWithExactlyNineOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "CO-T193-CLOSED",
+            "label": "ExactlyNineValuationOnesOtherwiseTwoCycleExclusion",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T193-REJECTED",
+            "label": "AllNineOneWordsMustBeTestedPairwise",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "CO-T193-OPEN",
+            "label": "NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T192-INPUT",
+            "CO-T193-CLOSED"
+          ],
+          [
+            "CO-T193-CLOSED",
+            "CO-T193-OPEN"
+          ],
+          [
+            "CO-T193-REJECTED",
+            "CO-T193-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "NoContractingValuationWordWithExactlyTenOnesAndAllOtherValuesTwoSatisfiesAffineDivisibility"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-193",
+      "status": "open_not_proven",
+      "declared_proposition": "For every even N>=6, let W_odd(N) sum log p over odd proper prime powers p^k<=N. Let C_2(N) be the exact von Mangoldt mass of ordered power-of-two pairs summing to N. Then the proper-prime-power contamination satisfies E_pp(N)<=2 log(N) W_odd(N)+C_2(N), where C_2(N)<=2(log 2)^2. Moreover, with y=floor(sqrt N), W_odd(N)<=(pi(y)-1)log N-(theta(y)-log 2)<=sqrt(N)log N.",
+      "new_result": "ParitySeparatedPrimePowerContaminationEnvelope",
+      "discarded_route": "charging every power of two by log(N) after even-even von Mangoldt support can be classified exactly",
+      "remaining_gap": "No every-large-even lower bound above the parity-separated envelope is proved.",
+      "candidate_theorem": "BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget",
+      "claim_boundary": "No Goldbach proof. Parity strictly sharpens the sufficient contamination envelope, but the universal correlation lower bound is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T192-INPUT",
+            "label": "WeightedPrimePowerEnvelopeAndFactorTwoBudgetReduction",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "GB-T193-CLOSED",
+            "label": "ParitySeparatedPrimePowerContaminationEnvelope",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T193-REJECTED",
+            "label": "EvenPrimePowersRequireTheSameUnionBoundAsOddPrimePowers",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "GB-T193-OPEN",
+            "label": "BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T192-INPUT",
+            "GB-T193-CLOSED"
+          ],
+          [
+            "GB-T193-CLOSED",
+            "GB-T193-OPEN"
+          ],
+          [
+            "GB-T193-REJECTED",
+            "GB-T193-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "BinaryCorrelationExceedsParitySeparatedPrimePowerEnvelopeForEveryLargeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-193",
+      "status": "open_not_proven",
+      "declared_proposition": "For every X>=4, a von Mangoldt-supported pair n,n+2 with X<=n<2X is necessarily odd. Hence shift-two proper-prime-power contamination is at most log(2X+2) times the odd proper-power masses in [X,2X) and [X+2,2X+2). Correlation above this odd-only local envelope forces a twin prime in the block.",
+      "new_result": "OddOnlyShiftTwoContaminationEnvelope",
+      "discarded_route": "including powers of two in shift-two contamination for blocks X>=4",
+      "remaining_gap": "No proof gives correlation above the odd-only local envelope on infinitely many unbounded dyadic blocks.",
+      "candidate_theorem": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks",
+      "claim_boundary": "No Twin Prime proof. Even support is removed exactly and the odd-only local envelope passes finite replay, but infinitude is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T192-INPUT",
+            "label": "LocalTwoSidedWeightedEnvelopeBridge",
+            "status": "proved_exact_input_or_open_target"
+          },
+          {
+            "id": "TP-T193-CLOSED",
+            "label": "OddOnlyShiftTwoContaminationEnvelope",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T193-REJECTED",
+            "label": "EvenVonMangoldtSupportCanContaminateShiftTwoBlocksAboveFour",
+            "status": "refuted_or_stronger_than_necessary"
+          },
+          {
+            "id": "TP-T193-OPEN",
+            "label": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T192-INPUT",
+            "TP-T193-CLOSED"
+          ],
+          [
+            "TP-T193-CLOSED",
+            "TP-T193-OPEN"
+          ],
+          [
+            "TP-T193-REJECTED",
+            "TP-T193-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ShiftTwoCorrelationExceedsOddLocalWeightedEnvelopeOnInfinitelyManyDyadicBlocks"
+    }
+  ]
+}

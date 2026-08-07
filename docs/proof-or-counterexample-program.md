@@ -37,6 +37,33 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-193 Everywhere Extension, Nine-One Cycles, and Parity Envelopes
+
+TICKET-193 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results.
+
+1. **Riemann:** `EverywherePointwiseQuadraticConvergenceForcesUniformBoundedExtension`
+   proves that pointwise convergence on every vector of a complete Hilbert
+   space forces uniform operator boundedness and a bounded Hermitian limit.
+   The spike family `q_n(x)=n|x_n|^2` refutes dense-core-only promotion.
+2. **Collatz:** `ExactlyNineValuationOnesOtherwiseTwoCycleExclusion` closes the
+   complete nine-one/rest-two periodic stratum. Noncontraction closes `h<=21`,
+   a complete 4+4 MITM residue audit represents 52,157,326 normalized words at
+   `h=22..34`, and `512(5/6)^h<1` closes `h>=35`.
+3. **Goldbach:** `ParitySeparatedPrimePowerContaminationEnvelope` proves
+   `E_pp(N)<=2log(N)W_odd(N)+C_2(N)` for even `N>=6`, with
+   `C_2(N)<=2(log 2)^2` classified exactly.
+4. **Twin Prime:** `OddOnlyShiftTwoContaminationEnvelope` proves that every
+   von Mangoldt-supported shift-two pair in `[X,2X)`, `X>=4`, is odd and hence
+   only odd local proper-prime-power mass needs to be charged.
+
+Machine audit: four exact theorems, one newly closed infinite Collatz stratum,
+two parity-sharpened envelopes, 52,157,326 represented Collatz words, four
+rejected or corrected routes, zero conjecture resolutions, and zero failures.
+
+English report: [TICKET-193](everywhere-nineone-parity-envelope.md).
+한국어 보고서: [TICKET-193](everywhere-nineone-parity-envelope.ko.md).
+
 ## 2026-08-08 TICKET-192 Uniform Extension, Eight-One Cycles, and Weighted Envelopes
 
 TICKET-192 keeps all four parent conjectures at `open_not_proven` and proves

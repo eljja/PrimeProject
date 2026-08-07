@@ -30,7 +30,8 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | catalog of public cryptographic primes | provenance and parameter recognition | blocked secret-prime recovery |
 | `docs/generator-fingerprint-research.md` | generator fingerprint theory | feature extraction and defensive attribution scaffolding | definitive source attribution |
 | `docs/open-problem-workbench.md` | open-problem proof lab specification | bounded certificates, AI solver frontier, falsification and proof-obligation tracking | proof of the four open conjectures |
-| `docs/uniform-eightone-weighted-envelope.md` and `.ko.md` | current TICKET-192 four-conjecture report | uniform-extension criterion/no-go, complete eight-one cycle-stratum exclusion, weighted Goldbach and Twin contamination envelopes | proof or counterexample for any full conjecture |
+| `docs/everywhere-nineone-parity-envelope.md` and `.ko.md` | current TICKET-193 four-conjecture report | everywhere-convergence promotion/no-go, complete nine-one cycle-stratum exclusion, parity-separated Goldbach and Twin contamination envelopes | proof or counterexample for any full conjecture |
+| `docs/uniform-eightone-weighted-envelope.md` and `.ko.md` | preserved TICKET-192 four-conjecture report | uniform-extension criterion/no-go, complete eight-one cycle-stratum exclusion, weighted Goldbach and Twin contamination envelopes | proof or counterexample for any full conjecture |
 | `docs/probe-sevenone-budget-granularity.md` and `.ko.md` | preserved TICKET-191 four-conjecture report | rational-probe promotion/no-go, complete seven-one cycle-stratum exclusion, exact Goldbach budget reduction, exact Twin block equivalence | proof or counterexample for any full conjecture |
 | `docs/symbol-adaptive-discrete-centering.md` | current four-conjecture representation and no-go report | four exact bounded-symbol/adaptive-layer/discrete-target/centering results | proof or counterexample for any target conjecture |
 | `docs/relative-cone-harmonic-alias-schur.md` | latest four-conjecture structural reduction and no-go report | four reproducible relative-cone/harmonic-correction/parity-alias/weighted-Schur results | proof or counterexample for any target conjecture |
@@ -73,7 +74,8 @@ This review fixes the public-documentation claim boundary for PrimeProject. The 
 | `docs/crypto-prime-catalog.md` | 공개 암호 소수 카탈로그 | provenance와 parameter recognition | 비밀 소수 복원 |
 | `docs/generator-fingerprint-research.md` | 생성기 fingerprint 이론 | feature extraction 및 방어적 attribution scaffolding | 단정적 source attribution |
 | `docs/open-problem-workbench.md` | 미해결 문제 proof lab 규격 | bounded certificate, AI solver frontier, 반증/증명 의무 추적 | 네 개 난제의 증명 |
-| `docs/uniform-eightone-weighted-envelope.md` 및 `.ko.md` | 최신 TICKET-192 네 난제 보고서 | 균일 확장 기준/no-go, 여덟-1 주기층 완전 배제, 가중 골드바흐·Twin 오염 상계 | 네 추측 전체의 증명 또는 반례 |
+| `docs/everywhere-nineone-parity-envelope.md` 및 `.ko.md` | 최신 TICKET-193 네 난제 보고서 | 전체공간 수렴 승격/no-go, 아홉-1 주기층 완전 배제, parity 분리 골드바흐·Twin 오염 상계 | 네 추측 전체의 증명 또는 반례 |
+| `docs/uniform-eightone-weighted-envelope.md` 및 `.ko.md` | 보존된 TICKET-192 네 난제 보고서 | 균일 확장 기준/no-go, 여덟-1 주기층 완전 배제, 가중 골드바흐·Twin 오염 상계 | 네 추측 전체의 증명 또는 반례 |
 | `docs/probe-sevenone-budget-granularity.md` 및 `.ko.md` | 보존된 TICKET-191 네 난제 보고서 | 유리수 탐침 승격/no-go, 일곱-1 주기층 완전 배제, 정확한 골드바흐 예산 축소, 정확한 Twin 블록 동치 | 네 추측 전체의 증명 또는 반례 |
 | `docs/relative-cone-harmonic-alias-schur.md` | 최신 네 난제 구조 환원 및 no-go 보고서 | 재현 가능한 relative-cone/조화 보정/parity-alias/weighted-Schur 결과 4건 | 어떤 대상 추측의 증명 또는 반례 |
 | `docs/relative-equivalence-signed-block.md` | 보존된 네 난제 환원 및 no-go 보고서 | 재현 가능한 스펙트럼 해상도/동치/signed-minor/block-operator 결과 4건 | 어떤 대상 추측의 증명 또는 반례 |
