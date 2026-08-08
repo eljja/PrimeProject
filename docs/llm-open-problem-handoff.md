@@ -62,7 +62,42 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-196
+## Latest Continuation After TICKET-197
+
+TICKET-197 is the current boundary. It resolves none of the four conjectures.
+
+1. **Riemann:** the actual-Xi `D_2` rectangles are zero-free and admit
+   existential Taylor-Rouché sections, but their exact coordinate images avoid
+   the open critical strip. The next task must enter that strip and output an
+   explicit degree and interval margin.
+2. **Collatz:** every cyclic rotation of `1^k2^(2k)` is excluded for all
+   `k>=1` by the exact formulas `D=32^k-27^k` and
+   `B-D=2*9^k(3^k-2^k)`. Extend this to every fixed run count rather than
+   repeating count-profile tests.
+3. **Goldbach:** the even support of `Q*Q` has density zero because its size is
+   at most `A(X)^2=O(X/log^2 X)`. The next task is a pointwise correlation
+   margin on every large collision-free even target.
+4. **Twin Prime:** equal-exponent gap-two proper-prime-power collisions are
+   impossible, and the overlap correction has weighted mass
+   `O(X^(1/3)log X)`, lower order than the square layer. The next task must
+   dominate the square layer and mixed-exponent tail on infinitely many blocks.
+
+Primary artifact:
+
+```text
+data/open-problem/ticket197-first-rectangle-run-block-sparse-collision.json
+```
+
+English report: [TICKET-197](first-rectangle-run-block-sparse-collision.md).
+Korean report: [TICKET-197 한국어](first-rectangle-run-block-sparse-collision.ko.md).
+
+한국어 인계: TICKET-197은 첫 Xi 영역이 RH 정보를 주지 않는 이유를
+좌표로 확정했고, 두 스칼라 gate를 통과하던 콜라츠 무한 연속-run family를
+정확히 배제했으며, 골드바흐와 쌍둥이 소수의 중복 보정이 각각 밀도 0
+지지와 낮은 차수의 혼합층에만 작용함을 증명했다. 네 추측은 모두
+미해결이다.
+
+## Preserved Continuation After TICKET-196
 
 All four conjectures remain open. Continue from exactly these four nodes:
 

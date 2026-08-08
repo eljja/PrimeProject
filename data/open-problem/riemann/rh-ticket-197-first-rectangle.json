@@ -1,0 +1,112 @@
+{
+  "schema": "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "ticket_id": "RH-TICKET-197",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+  "declared_proposition": "Let Xi(z)=xi(1/2+i z), and let S_n be its Taylor sections at zero. On the closed first exhaustion rectangles D_2^+ and D_2^-, Xi has no zero. Consequently, for each sign there exists an index n for which S_n has zero count zero in D_2^sign and satisfies sup_boundary|Xi-S_n|<inf_boundary|S_n|. This is an existential actual-Xi Rouché theorem, not an explicit interval certificate.",
+  "mathematical_argument": "For z=x+i y, s=1/2+i z=(1/2-y)+i x. The upper closed rectangle maps to -3/2<=Re(s)<=0 and the lower one to 1<=Re(s)<=5/2. Every zero of the completed xi function is a nontrivial zeta zero and therefore has 0<Re(s)<1; xi(0)=xi(1)=1/2. Hence Xi is zero-free on both compact closures. If delta is its positive minimum modulus there, uniform Taylor convergence gives sup|Xi-S_n|<delta/3. Then inf|S_n|>=2delta/3, and Rouché gives the asserted zero count and strict boundary inequality.",
+  "reproducible_computation": {
+    "theorem": "Let Xi(z)=xi(1/2+i z), and let S_n be its Taylor sections at zero. On the closed first exhaustion rectangles D_2^+ and D_2^-, Xi has no zero. Consequently, for each sign there exists an index n for which S_n has zero count zero in D_2^sign and satisfies sup_boundary|Xi-S_n|<inf_boundary|S_n|. This is an existential actual-Xi Rouché theorem, not an explicit interval certificate.",
+    "proof": "For z=x+i y, s=1/2+i z=(1/2-y)+i x. The upper closed rectangle maps to -3/2<=Re(s)<=0 and the lower one to 1<=Re(s)<=5/2. Every zero of the completed xi function is a nontrivial zeta zero and therefore has 0<Re(s)<1; xi(0)=xi(1)=1/2. Hence Xi is zero-free on both compact closures. If delta is its positive minimum modulus there, uniform Taylor convergence gives sup|Xi-S_n|<delta/3. Then inf|S_n|>=2delta/3, and Rouché gives the asserted zero count and strict boundary inequality.",
+    "exact_coordinate_rows": [
+      {
+        "rectangle": "D_2^u",
+        "z_real_interval": [
+          -2,
+          2
+        ],
+        "z_imaginary_interval": [
+          "1/2",
+          "2"
+        ],
+        "s_map": "s=1/2+i z=(1/2-Im z)+i Re z",
+        "s_real_interval": [
+          "-3/2",
+          "0"
+        ],
+        "s_imaginary_interval": [
+          -2,
+          2
+        ],
+        "open_critical_strip_intersection": false,
+        "xi_zero_possible_on_closed_image": false
+      },
+      {
+        "rectangle": "D_2^l",
+        "z_real_interval": [
+          -2,
+          2
+        ],
+        "z_imaginary_interval": [
+          "-2",
+          "-1/2"
+        ],
+        "s_map": "s=1/2+i z=(1/2-Im z)+i Re z",
+        "s_real_interval": [
+          "1",
+          "5/2"
+        ],
+        "s_imaginary_interval": [
+          -2,
+          2
+        ],
+        "open_critical_strip_intersection": false,
+        "xi_zero_possible_on_closed_image": false
+      }
+    ],
+    "contract": {
+      "actual_xi_D2_zero_free": true,
+      "actual_xi_taylor_rouche_section_exists": true,
+      "explicit_taylor_degree_exhibited": false,
+      "rational_or_interval_rouche_margin_exhibited": false,
+      "D2_enters_open_critical_strip": false,
+      "full_rh_resolved": false
+    },
+    "no_go_scope": "D_2 avoids the open critical strip, so closing it is not evidence that controls an off-critical zero. The proof is existential and does not output a Taylor degree, coefficient enclosure, or margin.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating existential closure of D_2 as evidence controlling an off-critical Xi zero",
+  "remaining_gap": "The first D_2 certificate is existential, has no explicit Taylor degree or interval margin, and avoids the open critical strip entirely.",
+  "candidate_theorem": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+  "claim_boundary": "No RH proof or counterexample. The first actual-Xi rectangle is closed only existentially and lies outside the open critical strip.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T196-INPUT",
+        "label": "ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle",
+        "status": "open_input_from_ticket196"
+      },
+      {
+        "id": "RH-T197-CLOSED",
+        "label": "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T197-REJECTED",
+        "label": "FirstExhaustionRectangleProvidesNontrivialRHControl",
+        "status": "refuted_or_route_limited"
+      },
+      {
+        "id": "RH-T197-OPEN",
+        "label": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T196-INPUT",
+        "RH-T197-CLOSED"
+      ],
+      [
+        "RH-T197-CLOSED",
+        "RH-T197-OPEN"
+      ],
+      [
+        "RH-T197-REJECTED",
+        "RH-T197-OPEN"
+      ]
+    ]
+  }
+}

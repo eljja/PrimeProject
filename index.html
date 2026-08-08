@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260808-ticket196-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260808-ticket197-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-196 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-197 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-196 proves four exact route corrections and isolates the next genuinely intermediate lemmas.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-196은 소진형 Rouché 목표가 RH와 동치임을 증명하고, 콜라츠 밀도 gate만으로는 무한 프로필이 남음을 보이며, 골드바흐·쌍둥이 소수 오염의 중복 청구를 정확히 뺍니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-197 proves four exact partial theorems and narrows the next proof obligations.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-197은 실제 Xi의 첫 사각형이 왜 RH 정보를 주지 않는지 밝히고, 무한 콜라츠 연속-run family를 배제하며, 골드바흐·쌍둥이 소수 중복 보정의 점근적 한계를 증명합니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>196</strong><small>2026-08-08</small></div>
+              <div><span>Latest ticket</span><strong>197</strong><small>2026-08-08</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> entire function의 모든 영점이 실수라는 명제와 off-real rational rectangle의 소진형 Rouché 인증 family가 동치임을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 소진형 Xi 인증을 RH보다 약한 중간 보조정리로 취급하는 경로는 잘못됐습니다. 그 인증 family 자체가 RH와 동치입니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 Xi의 첫 bounded off-real rational rectangle에서 Taylor remainder와 영점 수를 interval 방식으로 인증.</p>
+                <p><strong>확립:</strong> 실제 Xi의 첫 두 닫힌 사각형에서 무영점성과 Taylor-Rouché 절단의 존재를 증명했습니다.</p>
+                <p><strong>폐기:</strong> 이 첫 사각형을 RH 진전으로 보는 경로는 폐기합니다. 좌표변환 후 열린 임계띠를 전혀 만나지 않습니다.</p>
+                <p><strong>다음 핵심:</strong> 열린 임계띠에 들어가는 첫 사각형에서 명시적 Taylor 차수와 interval Rouché margin을 인증.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 필요한 one-density 구간에 <code>1/3</code>이 들어가며 모든 <code>(h,r)=(3k,k)</code>가 수축·곱 gate를 통과함을 정확 정수 부등식으로 증명했습니다.</p>
-                <p><strong>폐기:</strong> 두 스칼라 밀도 부등식만으로 모든 <code>{1,2}</code> valuation cycle profile을 배제하는 경로는 불가능합니다.</p>
-                <p><strong>다음 핵심:</strong> 허용 밀도 구간의 ordered word에 대해 affine numerator divisibility를 균일하게 배제.</p>
+                <p><strong>확립:</strong> 두 스칼라 gate를 통과하는 모든 <code>1^k2^(2k)</code>와 그 순환 회전이 affine divisibility에서 탈락함을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 허용되는 <code>1/3</code> count-profile의 가장 뭉친 word가 실제 순환 후보라는 해석을 폐기합니다.</p>
+                <p><strong>다음 핵심:</strong> 허용 밀도 구간에서 고정 run 수를 가진 모든 ordered word로 divisibility obstruction을 확장.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 오염 항등식 <code>E=2(Q*Λ)-(Q*Q)</code>을 증명해 중복 청구를 뺀 더 작은 충분 상계를 만들었습니다.</p>
-                <p><strong>폐기:</strong> 좌우 proper-power 오염 청구가 서로 겹치지 않는다는 가정은 <code>18=9+9</code> 때문에 틀립니다.</p>
-                <p><strong>다음 핵심:</strong> 모든 큰 짝수에서 명시적 major-arc main term이 minor-arc 절대오차와 보정 오염을 지배함을 증명.</p>
+                <p><strong>확립:</strong> <code>(Q*Q)(N)&gt;0</code>인 짝수 target의 수가 <code>O(X/log²X)=o(X)</code>임을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 중복 subtraction만으로 모든 짝수에 균일한 여유가 생긴다는 경로를 폐기합니다. 보정은 밀도 0 target에서만 작동합니다.</p>
+                <p><strong>다음 핵심:</strong> 모든 큰 collision-free 짝수에서 명시적 prime-prime correlation margin을 증명.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> shift-two 오염에서 정확한 <code>ΣQ(n)Q(n+2)</code> 중복을 빼는 inclusion-exclusion 상계를 증명했습니다.</p>
-                <p><strong>폐기:</strong> 좌우 shift 청구가 겹치지 않는다는 가정은 <code>(25,27)=(5²,3³)</code> 때문에 틀립니다.</p>
-                <p><strong>다음 핵심:</strong> 무한히 많은 블록에서 parity-breaking shift-two 하한이 보정 오염을 지배함을 증명.</p>
+                <p><strong>확립:</strong> 차이가 2인 proper prime power 충돌은 같은 지수를 가질 수 없고, 중복 보정 질량이 <code>O(X^(1/3)log X)</code>임을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 충돌 subtraction이 주도적인 prime-square 오염층을 없앨 것이라는 경로를 폐기합니다.</p>
+                <p><strong>다음 핵심:</strong> 무한히 많은 블록에서 parity-breaking 하한이 제곱층과 혼합 지수 tail을 함께 지배함을 증명.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>196개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-196은 목표와 동치인 대체 명제를 중간 보조정리에서 제거하고, 스칼라 밀도 no-go와 두 소수 상관의 정확 중복 보정을 확립했습니다.</p>
+                <p>197개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-197은 첫 Xi 영역의 공허성을 확인하고, 무한 Collatz ordered family를 닫으며, 두 소수 상관의 중복 보정이 희소하거나 낮은 차수임을 확립했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/rouche-density-overlap.ko.md">최신 한국어 보고서</a>
-              <a href="docs/rouche-density-overlap.md">Latest English report</a>
+              <a href="docs/first-rectangle-run-block-sparse-collision.ko.md">최신 한국어 보고서</a>
+              <a href="docs/first-rectangle-run-block-sparse-collision.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-196</strong>
-              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 목표-동치 교정 1개, 스칼라 밀도 no-go 1개, 중복 보정 오염 상계 2개, 해결 0개입니다.</p>
+              <strong>TICKET-197</strong>
+              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 첫 Xi 영역 경계 1개, 무한 Collatz run family 배제 1개, 희소·낮은 차수 충돌 정리 2개, 해결 0개입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260808-ticket196"></script>
-    <script src="assets/app.js?v=20260808-ticket196"></script>
+    <script src="assets/i18n.js?v=20260808-ticket197"></script>
+    <script src="assets/app.js?v=20260808-ticket197"></script>
   </body>
 </html>
 

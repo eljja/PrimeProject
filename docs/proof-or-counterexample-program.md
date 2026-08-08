@@ -37,6 +37,33 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-08 TICKET-197 First Rectangle, Run Blocks, and Sparse Collisions
+
+TICKET-197 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial theorems.
+
+1. **Riemann:** `ActualXiFirstRectangleExistenceAndVacuityBoundary` proves
+   existential Taylor-Rouché closure of the actual-Xi `D_2` rectangles and
+   simultaneously proves that those rectangles avoid the open critical strip.
+   No explicit degree or interval margin is produced.
+2. **Collatz:** `ContiguousOneTwoRunAffineDivisibilityObstruction` excludes
+   `1^k2^(2k)` and every cyclic rotation for all `k>=1`, even though the family
+   passes both scalar gates. Arbitrary alternating runs remain open.
+3. **Goldbach:** `GoldbachPrimePowerCollisionSupportHasDensityZero` proves
+   that the target support of `Q*Q` has size `O(X/log^2 X)=o(X)`. The overlap
+   correction is exact but cannot supply a uniform every-even margin.
+4. **Twin Prime:** `TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving`
+   proves equal-exponent gap-two prime-power collisions impossible and bounds
+   the weighted overlap by `O(X^(1/3)log X)`. The leading square layer and
+   parity barrier remain.
+
+Machine audit: four exact theorems, 2 exact Xi coordinate rows, 64 exact
+Collatz scales, 17 Goldbach support scales, 21 Twin dyadic scales, zero
+conjecture resolutions, and zero failures.
+
+English report: [TICKET-197](first-rectangle-run-block-sparse-collision.md).
+한국어 보고서: [TICKET-197](first-rectangle-run-block-sparse-collision.ko.md).
+
 ## 2026-08-08 TICKET-196 Rouché Exhaustion, Density No-Go, and Collision Corrections
 
 TICKET-196 keeps all four parent conjectures at `open_not_proven` and proves

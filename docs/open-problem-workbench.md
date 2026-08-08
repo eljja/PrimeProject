@@ -15,27 +15,24 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-196
+## Current research boundary: TICKET-197
 
 The current executable frontier is
-`data/open-problem/ticket196-rouche-density-overlap.json`. It records four
-exact route corrections and keeps all four conjectures at `open_not_proven`.
-For RH, a zero-free Rouché certificate on every off-real rectangle in an
-exhausting family is proved equivalent to the all-real-zero assertion; it is
-therefore not a weaker intermediate theorem. For Collatz, the contraction and
-product-density inequalities leave every count profile `(h,r)=(3k,k)` alive,
-so a uniform order-sensitive divisibility obstruction is still required.
-For strong Goldbach and Twin Prime, exact inclusion-exclusion subtracts the
-proper-prime-power collision term that earlier union envelopes counted twice.
-The actual Xi rectangle certificate, Collatz affine divisibility obstruction,
-every-large-even Goldbach lower bound, and infinitely-many-block parity-breaking
-Twin lower bound all remain open. See the
-[English report](rouche-density-overlap.md) and
-[한국어 보고서](rouche-density-overlap.ko.md).
+`data/open-problem/ticket197-first-rectangle-run-block-sparse-collision.json`.
+It records four exact partial theorems and keeps all four conjectures at
+`open_not_proven`. For RH, the first actual-Xi rectangles are closed
+existentially but map outside the open critical strip, so an explicit
+critical-strip-entering certificate remains open. For Collatz, every rotation
+of `1^k2^(2k)` is excluded for all `k>=1` by exact affine divisibility. For
+strong Goldbach, the `Q*Q` collision support has density zero. For Twin Prime,
+equal-exponent gap-two prime-power collisions are impossible and the overlap
+mass is lower order than the leading square layer. See the
+[English report](first-rectangle-run-block-sparse-collision.md) and
+[한국어 보고서](first-rectangle-run-block-sparse-collision.ko.md).
 
-TICKET-195 is preserved as the immediately preceding boundary in
-[English](finitejet-elevenone-squarelayer.md) and
-[한국어](finitejet-elevenone-squarelayer.ko.md).
+TICKET-196 is preserved as the immediately preceding boundary in
+[English](rouche-density-overlap.md) and
+[한국어](rouche-density-overlap.ko.md).
 
 ## Public Pages
 

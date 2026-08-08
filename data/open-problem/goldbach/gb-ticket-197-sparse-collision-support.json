@@ -1,0 +1,599 @@
+{
+  "schema": "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "ticket_id": "GB-TICKET-197",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "GoldbachPrimePowerCollisionSupportHasDensityZero",
+  "declared_proposition": "Let Q be the odd proper-prime-power part of Lambda and let C(X)={even N<=X:(Q*Q)(N)>0}. Then |C(X)|=o(X). Indeed the number A(X) of odd proper prime powers is O(sqrt(X)/log(X)+X^(1/3)log(X))=O(sqrt(X)/log(X)), and every collision-supported target is a sum of two such powers, so |C(X)|<=A(X)^2=O(X/log(X)^2). Consequently the exact TICKET-196 overlap subtraction changes the old union envelope only on a density-zero set of even targets.",
+  "mathematical_argument": "For exponent two there are pi(sqrt X) choices. For exponents at least three, summing pi(X^(1/e)) over e<=log_3 X gives O(X^(1/3)log X). The standard Chebyshev prime-counting bound pi(y)=O(y/log y) gives A(X)=O(sqrt X/log X). The addition map from ordered proper-power pairs onto collision-supported targets gives |C(X)|<=A(X)^2. Dividing by the number of even targets proves density zero. Outside C(X), Q*Q(N)=0 exactly, so the corrected and uncorrected envelopes coincide.",
+  "reproducible_computation": {
+    "theorem": "Let Q be the odd proper-prime-power part of Lambda and let C(X)={even N<=X:(Q*Q)(N)>0}. Then |C(X)|=o(X). Indeed the number A(X) of odd proper prime powers is O(sqrt(X)/log(X)+X^(1/3)log(X))=O(sqrt(X)/log(X)), and every collision-supported target is a sum of two such powers, so |C(X)|<=A(X)^2=O(X/log(X)^2). Consequently the exact TICKET-196 overlap subtraction changes the old union envelope only on a density-zero set of even targets.",
+    "proof": "For exponent two there are pi(sqrt X) choices. For exponents at least three, summing pi(X^(1/e)) over e<=log_3 X gives O(X^(1/3)log X). The standard Chebyshev prime-counting bound pi(y)=O(y/log y) gives A(X)=O(sqrt X/log X). The addition map from ordered proper-power pairs onto collision-supported targets gives |C(X)|<=A(X)^2. Dividing by the number of even targets proves density zero. Outside C(X), Q*Q(N)=0 exactly, so the corrected and uncorrected envelopes coincide.",
+    "finite_support_rows": [
+      {
+        "cutoff_X": 256,
+        "odd_proper_prime_power_count_A": 9,
+        "unordered_collision_pair_count": 34,
+        "collision_supported_even_target_count": 32,
+        "collision_free_even_target_count": 96,
+        "even_target_count": 128,
+        "support_density": {
+          "numerator": 1,
+          "denominator": 4,
+          "exact": "1/4",
+          "decimal": 0.25
+        },
+        "support_bound_A_squared": 81,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 512,
+        "odd_proper_prime_power_count_A": 12,
+        "unordered_collision_pair_count": 68,
+        "collision_supported_even_target_count": 60,
+        "collision_free_even_target_count": 196,
+        "even_target_count": 256,
+        "support_density": {
+          "numerator": 15,
+          "denominator": 64,
+          "exact": "15/64",
+          "decimal": 0.234375
+        },
+        "support_bound_A_squared": 144,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 1024,
+        "odd_proper_prime_power_count_A": 17,
+        "unordered_collision_pair_count": 124,
+        "collision_supported_even_target_count": 108,
+        "collision_free_even_target_count": 404,
+        "even_target_count": 512,
+        "support_density": {
+          "numerator": 27,
+          "denominator": 128,
+          "exact": "27/128",
+          "decimal": 0.2109375
+        },
+        "support_bound_A_squared": 289,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 2048,
+        "odd_proper_prime_power_count_A": 21,
+        "unordered_collision_pair_count": 201,
+        "collision_supported_even_target_count": 177,
+        "collision_free_even_target_count": 847,
+        "even_target_count": 1024,
+        "support_density": {
+          "numerator": 177,
+          "denominator": 1024,
+          "exact": "177/1024",
+          "decimal": 0.1728515625
+        },
+        "support_bound_A_squared": 441,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 4096,
+        "odd_proper_prime_power_count_A": 29,
+        "unordered_collision_pair_count": 373,
+        "collision_supported_even_target_count": 324,
+        "collision_free_even_target_count": 1724,
+        "even_target_count": 2048,
+        "support_density": {
+          "numerator": 81,
+          "denominator": 512,
+          "exact": "81/512",
+          "decimal": 0.158203125
+        },
+        "support_bound_A_squared": 841,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 8192,
+        "odd_proper_prime_power_count_A": 38,
+        "unordered_collision_pair_count": 627,
+        "collision_supported_even_target_count": 540,
+        "collision_free_even_target_count": 3556,
+        "even_target_count": 4096,
+        "support_density": {
+          "numerator": 135,
+          "denominator": 1024,
+          "exact": "135/1024",
+          "decimal": 0.1318359375
+        },
+        "support_bound_A_squared": 1444,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 16384,
+        "odd_proper_prime_power_count_A": 48,
+        "unordered_collision_pair_count": 1006,
+        "collision_supported_even_target_count": 856,
+        "collision_free_even_target_count": 7336,
+        "even_target_count": 8192,
+        "support_density": {
+          "numerator": 107,
+          "denominator": 1024,
+          "exact": "107/1024",
+          "decimal": 0.1044921875
+        },
+        "support_bound_A_squared": 2304,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 32768,
+        "odd_proper_prime_power_count_A": 64,
+        "unordered_collision_pair_count": 1717,
+        "collision_supported_even_target_count": 1456,
+        "collision_free_even_target_count": 14928,
+        "even_target_count": 16384,
+        "support_density": {
+          "numerator": 91,
+          "denominator": 1024,
+          "exact": "91/1024",
+          "decimal": 0.0888671875
+        },
+        "support_bound_A_squared": 4096,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 65536,
+        "odd_proper_prime_power_count_A": 78,
+        "unordered_collision_pair_count": 2725,
+        "collision_supported_even_target_count": 2282,
+        "collision_free_even_target_count": 30486,
+        "even_target_count": 32768,
+        "support_density": {
+          "numerator": 1141,
+          "denominator": 16384,
+          "exact": "1141/16384",
+          "decimal": 0.06964111328125
+        },
+        "support_bound_A_squared": 6084,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 131072,
+        "odd_proper_prime_power_count_A": 103,
+        "unordered_collision_pair_count": 4575,
+        "collision_supported_even_target_count": 3804,
+        "collision_free_even_target_count": 61732,
+        "even_target_count": 65536,
+        "support_density": {
+          "numerator": 951,
+          "denominator": 16384,
+          "exact": "951/16384",
+          "decimal": 0.05804443359375
+        },
+        "support_bound_A_squared": 10609,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 262144,
+        "odd_proper_prime_power_count_A": 133,
+        "unordered_collision_pair_count": 7687,
+        "collision_supported_even_target_count": 6322,
+        "collision_free_even_target_count": 124750,
+        "even_target_count": 131072,
+        "support_density": {
+          "numerator": 3161,
+          "denominator": 65536,
+          "exact": "3161/65536",
+          "decimal": 0.0482330322265625
+        },
+        "support_bound_A_squared": 17689,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 524288,
+        "odd_proper_prime_power_count_A": 171,
+        "unordered_collision_pair_count": 12773,
+        "collision_supported_even_target_count": 10476,
+        "collision_free_even_target_count": 251668,
+        "even_target_count": 262144,
+        "support_density": {
+          "numerator": 2619,
+          "denominator": 65536,
+          "exact": "2619/65536",
+          "decimal": 0.0399627685546875
+        },
+        "support_bound_A_squared": 29241,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 1048576,
+        "odd_proper_prime_power_count_A": 223,
+        "unordered_collision_pair_count": 21326,
+        "collision_supported_even_target_count": 17411,
+        "collision_free_even_target_count": 506877,
+        "even_target_count": 524288,
+        "support_density": {
+          "numerator": 17411,
+          "denominator": 524288,
+          "exact": "17411/524288",
+          "decimal": 0.03320884704589844
+        },
+        "support_bound_A_squared": 49729,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 2097152,
+        "odd_proper_prime_power_count_A": 290,
+        "unordered_collision_pair_count": 36109,
+        "collision_supported_even_target_count": 29387,
+        "collision_free_even_target_count": 1019189,
+        "even_target_count": 1048576,
+        "support_density": {
+          "numerator": 29387,
+          "denominator": 1048576,
+          "exact": "29387/1048576",
+          "decimal": 0.02802562713623047
+        },
+        "support_bound_A_squared": 84100,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 4194304,
+        "odd_proper_prime_power_count_A": 379,
+        "unordered_collision_pair_count": 61792,
+        "collision_supported_even_target_count": 50055,
+        "collision_free_even_target_count": 2047097,
+        "even_target_count": 2097152,
+        "support_density": {
+          "numerator": 50055,
+          "denominator": 2097152,
+          "exact": "50055/2097152",
+          "decimal": 0.023868083953857422
+        },
+        "support_bound_A_squared": 143641,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 8388608,
+        "odd_proper_prime_power_count_A": 503,
+        "unordered_collision_pair_count": 107298,
+        "collision_supported_even_target_count": 86638,
+        "collision_free_even_target_count": 4107666,
+        "even_target_count": 4194304,
+        "support_density": {
+          "numerator": 43319,
+          "denominator": 2097152,
+          "exact": "43319/2097152",
+          "decimal": 0.020656108856201172
+        },
+        "support_bound_A_squared": 253009,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      },
+      {
+        "cutoff_X": 16777216,
+        "odd_proper_prime_power_count_A": 661,
+        "unordered_collision_pair_count": 184926,
+        "collision_supported_even_target_count": 149130,
+        "collision_free_even_target_count": 8239478,
+        "even_target_count": 8388608,
+        "support_density": {
+          "numerator": 74565,
+          "denominator": 4194304,
+          "exact": "74565/4194304",
+          "decimal": 0.017777681350708008
+        },
+        "support_bound_A_squared": 436921,
+        "support_below_A_squared": true,
+        "first_collision_targets": [
+          18,
+          34,
+          36,
+          50,
+          52,
+          54,
+          58,
+          74,
+          76,
+          90,
+          98,
+          106
+        ],
+        "target_18_supported": true
+      }
+    ],
+    "witness": {
+      "target_N": 18,
+      "decomposition": "9+9=3^2+3^2",
+      "collision_supported": true
+    },
+    "aggregate": {
+      "finite_cutoff_count": 17,
+      "largest_cutoff": 16777216,
+      "density_zero_theorem_proved": true,
+      "correction_identically_zero_on_density_one_complement": true,
+      "every_large_even_correlation_bound_proved": false
+    },
+    "no_go_scope": "Density zero does not make the exceptional targets finite and does not prove Goldbach on either stratum. It proves that overlap subtraction alone cannot be the uniform every-even mechanism, since it is exactly zero on a density-one target set.",
+    "failure_count": 0
+  },
+  "discarded_route": "expecting Q*Q overlap subtraction alone to produce a uniform every-even margin",
+  "remaining_gap": "The density-one collision-free targets still lack a pointwise binary-correlation lower bound, and the sparse collision-supported targets remain infinite a priori.",
+  "candidate_theorem": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+  "claim_boundary": "No Goldbach proof or counterexample. The overlap correction is exact but supported on a density-zero target set.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T196-INPUT",
+        "label": "ExplicitGoldbachMajorArcMainTermDominatesMinorArcAbsoluteErrorAndCollisionCorrectedContaminationForEveryLargeEvenTarget",
+        "status": "open_input_from_ticket196"
+      },
+      {
+        "id": "GB-T197-CLOSED",
+        "label": "GoldbachPrimePowerCollisionSupportHasDensityZero",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T197-REJECTED",
+        "label": "CollisionCorrectionAloneSuppliesUniformEveryEvenMargin",
+        "status": "refuted_or_route_limited"
+      },
+      {
+        "id": "GB-T197-OPEN",
+        "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T196-INPUT",
+        "GB-T197-CLOSED"
+      ],
+      [
+        "GB-T197-CLOSED",
+        "GB-T197-OPEN"
+      ],
+      [
+        "GB-T197-REJECTED",
+        "GB-T197-OPEN"
+      ]
+    ]
+  }
+}

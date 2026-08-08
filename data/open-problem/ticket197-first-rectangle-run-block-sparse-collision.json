@@ -1,0 +1,2927 @@
+{
+  "schema": "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "status": "first_xi_rectangle_existentially_closed_contiguous_collatz_runs_excluded_goldbach_collision_support_sparse_twin_collision_mixed_layer_all_open",
+  "claim_boundary": "TICKET-197 resolves none of the four conjectures. It closes the first actual-Xi rectangle only existentially, excludes an infinite ordered Collatz family, and proves that the TICKET-196 collision savings are sparse for Goldbach and lower-order for Twin Prime.",
+  "first_rectangle_run_block_sparse_collision_audit": {
+    "theorem_name": "FourConjectureFirstRectangleRunBlockSparseCollisionAudit",
+    "status": "first_xi_rectangle_existentially_closed_contiguous_collatz_runs_excluded_goldbach_collision_support_sparse_twin_collision_mixed_layer_all_open",
+    "proof_boundary": "TICKET-197 resolves none of the four conjectures. It closes the first actual-Xi rectangle only existentially, excludes an infinite ordered Collatz family, and proves that the TICKET-196 collision savings are sparse for Goldbach and lower-order for Twin Prime.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-197",
+      "theorem_name": "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+      "declared_proposition": "Let Xi(z)=xi(1/2+i z), and let S_n be its Taylor sections at zero. On the closed first exhaustion rectangles D_2^+ and D_2^-, Xi has no zero. Consequently, for each sign there exists an index n for which S_n has zero count zero in D_2^sign and satisfies sup_boundary|Xi-S_n|<inf_boundary|S_n|. This is an existential actual-Xi Rouché theorem, not an explicit interval certificate.",
+      "mathematical_argument": "For z=x+i y, s=1/2+i z=(1/2-y)+i x. The upper closed rectangle maps to -3/2<=Re(s)<=0 and the lower one to 1<=Re(s)<=5/2. Every zero of the completed xi function is a nontrivial zeta zero and therefore has 0<Re(s)<1; xi(0)=xi(1)=1/2. Hence Xi is zero-free on both compact closures. If delta is its positive minimum modulus there, uniform Taylor convergence gives sup|Xi-S_n|<delta/3. Then inf|S_n|>=2delta/3, and Rouché gives the asserted zero count and strict boundary inequality.",
+      "reproducible_computation": {
+        "theorem": "Let Xi(z)=xi(1/2+i z), and let S_n be its Taylor sections at zero. On the closed first exhaustion rectangles D_2^+ and D_2^-, Xi has no zero. Consequently, for each sign there exists an index n for which S_n has zero count zero in D_2^sign and satisfies sup_boundary|Xi-S_n|<inf_boundary|S_n|. This is an existential actual-Xi Rouché theorem, not an explicit interval certificate.",
+        "proof": "For z=x+i y, s=1/2+i z=(1/2-y)+i x. The upper closed rectangle maps to -3/2<=Re(s)<=0 and the lower one to 1<=Re(s)<=5/2. Every zero of the completed xi function is a nontrivial zeta zero and therefore has 0<Re(s)<1; xi(0)=xi(1)=1/2. Hence Xi is zero-free on both compact closures. If delta is its positive minimum modulus there, uniform Taylor convergence gives sup|Xi-S_n|<delta/3. Then inf|S_n|>=2delta/3, and Rouché gives the asserted zero count and strict boundary inequality.",
+        "exact_coordinate_rows": [
+          {
+            "rectangle": "D_2^u",
+            "z_real_interval": [
+              -2,
+              2
+            ],
+            "z_imaginary_interval": [
+              "1/2",
+              "2"
+            ],
+            "s_map": "s=1/2+i z=(1/2-Im z)+i Re z",
+            "s_real_interval": [
+              "-3/2",
+              "0"
+            ],
+            "s_imaginary_interval": [
+              -2,
+              2
+            ],
+            "open_critical_strip_intersection": false,
+            "xi_zero_possible_on_closed_image": false
+          },
+          {
+            "rectangle": "D_2^l",
+            "z_real_interval": [
+              -2,
+              2
+            ],
+            "z_imaginary_interval": [
+              "-2",
+              "-1/2"
+            ],
+            "s_map": "s=1/2+i z=(1/2-Im z)+i Re z",
+            "s_real_interval": [
+              "1",
+              "5/2"
+            ],
+            "s_imaginary_interval": [
+              -2,
+              2
+            ],
+            "open_critical_strip_intersection": false,
+            "xi_zero_possible_on_closed_image": false
+          }
+        ],
+        "contract": {
+          "actual_xi_D2_zero_free": true,
+          "actual_xi_taylor_rouche_section_exists": true,
+          "explicit_taylor_degree_exhibited": false,
+          "rational_or_interval_rouche_margin_exhibited": false,
+          "D2_enters_open_critical_strip": false,
+          "full_rh_resolved": false
+        },
+        "no_go_scope": "D_2 avoids the open critical strip, so closing it is not evidence that controls an off-critical zero. The proof is existential and does not output a Taylor degree, coefficient enclosure, or margin.",
+        "failure_count": 0
+      },
+      "logical_limit": "The first D_2 certificate is existential, has no explicit Taylor degree or interval margin, and avoids the open critical strip entirely.",
+      "route_decision": {
+        "discard": "treating existential closure of D_2 as evidence controlling an off-critical Xi zero",
+        "retain": "construct an explicit Taylor degree and rational or interval Rouché margin on the first rectangle that enters the open critical strip",
+        "next_single_lemma": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T196-INPUT",
+            "label": "ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "RH-T197-CLOSED",
+            "label": "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T197-REJECTED",
+            "label": "FirstExhaustionRectangleProvidesNontrivialRHControl",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "RH-T197-OPEN",
+            "label": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T196-INPUT",
+            "RH-T197-CLOSED"
+          ],
+          [
+            "RH-T197-CLOSED",
+            "RH-T197-OPEN"
+          ],
+          [
+            "RH-T197-REJECTED",
+            "RH-T197-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or counterexample. The first actual-Xi rectangle is closed only existentially and lies outside the open critical strip."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-197",
+      "theorem_name": "ContiguousOneTwoRunAffineDivisibilityObstruction",
+      "declared_proposition": "For every k>=1, the cyclic accelerated-Collatz valuation family w_k=1^k 2^(2k), including every cyclic rotation, passes both TICKET-196 scalar gates but cannot satisfy affine divisibility. Its denominator is D_k=32^k-27^k and its affine numerator is B_k=32^k+27^k-2*18^k. If D_k divided B_k, coprimality with 2*9^k would force D_k to divide 3^k-2^k, which is positive and strictly smaller than D_k, a contradiction.",
+      "mathematical_argument": "Summing the first k valuation-one terms and the following 2k valuation-two terms as geometric series gives the displayed B_k. Then B_k-D_k=2*9^k*(3^k-2^k). The odd number D_k is coprime to 3, hence to 2*9^k, while 0<3^k-2^k<D_k. Divisibility is therefore impossible. A one-step rotation obeys 2^(v_0)B_rot=3B+D, so divisibility is rotation invariant.",
+      "reproducible_computation": {
+        "theorem": "For every k>=1, the cyclic accelerated-Collatz valuation family w_k=1^k 2^(2k), including every cyclic rotation, passes both TICKET-196 scalar gates but cannot satisfy affine divisibility. Its denominator is D_k=32^k-27^k and its affine numerator is B_k=32^k+27^k-2*18^k. If D_k divided B_k, coprimality with 2*9^k would force D_k to divide 3^k-2^k, which is positive and strictly smaller than D_k, a contradiction.",
+        "proof": "Summing the first k valuation-one terms and the following 2k valuation-two terms as geometric series gives the displayed B_k. Then B_k-D_k=2*9^k*(3^k-2^k). The odd number D_k is coprime to 3, hence to 2*9^k, while 0<3^k-2^k<D_k. Divisibility is therefore impossible. A one-step rotation obeys 2^(v_0)B_rot=3B+D, so divisibility is rotation invariant.",
+        "exact_scale_rows": [
+          {
+            "scale_k": 1,
+            "cyclic_word": "1^1 2^2",
+            "horizon_h": 3,
+            "one_count_r": 1,
+            "one_density": "1/3",
+            "denominator_D": "5",
+            "affine_numerator_direct_B": "23",
+            "affine_numerator_closed_form": "23",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "18",
+            "B_minus_D_factorization": "2*9^1*(3^1-2^1)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^1",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 2,
+            "cyclic_word": "1^2 2^4",
+            "horizon_h": 6,
+            "one_count_r": 2,
+            "one_density": "1/3",
+            "denominator_D": "295",
+            "affine_numerator_direct_B": "1105",
+            "affine_numerator_closed_form": "1105",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "810",
+            "B_minus_D_factorization": "2*9^2*(3^2-2^2)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "5",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^2",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 3,
+            "cyclic_word": "1^3 2^6",
+            "horizon_h": 9,
+            "one_count_r": 3,
+            "one_density": "1/3",
+            "denominator_D": "13085",
+            "affine_numerator_direct_B": "40787",
+            "affine_numerator_closed_form": "40787",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "27702",
+            "B_minus_D_factorization": "2*9^3*(3^3-2^3)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "19",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^3",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 4,
+            "cyclic_word": "1^4 2^8",
+            "horizon_h": 12,
+            "one_count_r": 4,
+            "one_density": "1/3",
+            "denominator_D": "517135",
+            "affine_numerator_direct_B": "1370065",
+            "affine_numerator_closed_form": "1370065",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "852930",
+            "B_minus_D_factorization": "2*9^4*(3^4-2^4)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "65",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^4",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 5,
+            "cyclic_word": "1^5 2^10",
+            "horizon_h": 15,
+            "one_count_r": 5,
+            "one_density": "1/3",
+            "denominator_D": "19205525",
+            "affine_numerator_direct_B": "44124203",
+            "affine_numerator_closed_form": "44124203",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "24918678",
+            "B_minus_D_factorization": "2*9^5*(3^5-2^5)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "211",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^5",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 6,
+            "cyclic_word": "1^6 2^12",
+            "horizon_h": 18,
+            "one_count_r": 6,
+            "one_density": "1/3",
+            "denominator_D": "686321335",
+            "affine_numerator_direct_B": "1393137865",
+            "affine_numerator_closed_form": "1393137865",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "706816530",
+            "B_minus_D_factorization": "2*9^6*(3^6-2^6)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "665",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^6",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 7,
+            "cyclic_word": "1^7 2^14",
+            "horizon_h": 21,
+            "one_count_r": 7,
+            "one_density": "1/3",
+            "denominator_D": "23899385165",
+            "affine_numerator_direct_B": "43595651507",
+            "affine_numerator_closed_form": "43595651507",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "19696266342",
+            "B_minus_D_factorization": "2*9^7*(3^7-2^7)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "2059",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^7",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 8,
+            "cyclic_word": "1^8 2^16",
+            "horizon_h": 24,
+            "one_count_r": 8,
+            "one_density": "1/3",
+            "denominator_D": "817082091295",
+            "affine_numerator_direct_B": "1359901243105",
+            "affine_numerator_closed_form": "1359901243105",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "542819151810",
+            "B_minus_D_factorization": "2*9^8*(3^8-2^8)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "6305",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^8",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 9,
+            "cyclic_word": "1^9 2^18",
+            "horizon_h": 27,
+            "one_count_r": 9,
+            "one_density": "1/3",
+            "denominator_D": "27558774603845",
+            "affine_numerator_direct_B": "42413250993083",
+            "affine_numerator_closed_form": "42413250993083",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "14854476389238",
+            "B_minus_D_factorization": "2*9^9*(3^9-2^9)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "19171",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^9",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 10,
+            "cyclic_word": "1^10 2^20",
+            "horizon_h": 30,
+            "one_count_r": 10,
+            "one_density": "1/3",
+            "denominator_D": "920008774747975",
+            "affine_numerator_direct_B": "1324650104484025",
+            "affine_numerator_closed_form": "1324650104484025",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "404641329736050",
+            "B_minus_D_factorization": "2*9^10*(3^10-2^10)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "58025",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^10",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 11,
+            "cyclic_word": "1^11 2^22",
+            "horizon_h": 33,
+            "one_count_r": 11,
+            "one_density": "1/3",
+            "denominator_D": "30469736452408445",
+            "affine_numerator_direct_B": "41459320765361027",
+            "affine_numerator_closed_form": "41459320765361027",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "10989584312952582",
+            "B_minus_D_factorization": "2*9^11*(3^11-2^11)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "175099",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^11",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 12,
+            "cyclic_word": "1^12 2^24",
+            "horizon_h": 36,
+            "one_count_r": 12,
+            "one_density": "1/3",
+            "denominator_D": "1002826869309847855",
+            "affine_numerator_direct_B": "1300702477140993745",
+            "affine_numerator_closed_form": "1300702477140993745",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "297875607831145890",
+            "B_minus_D_factorization": "2*9^12*(3^12-2^12)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "527345",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^12",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 13,
+            "cyclic_word": "1^13 2^26",
+            "horizon_h": 39,
+            "one_count_r": 13,
+            "one_density": "1/3",
+            "denominator_D": "32840932994400126965",
+            "affine_numerator_direct_B": "40904397370706737163",
+            "affine_numerator_closed_form": "40904397370706737163",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "8063464376306610198",
+            "B_minus_D_factorization": "2*9^13*(3^13-2^13)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1586131",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^13",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 14,
+            "cyclic_word": "1^14 2^28",
+            "horizon_h": 42,
+            "one_count_r": 14,
+            "one_density": "1/3",
+            "denominator_D": "1071172631585898944215",
+            "affine_numerator_direct_B": "1289260983113759500585",
+            "affine_numerator_closed_form": "1289260983113759500585",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "218088351527860556370",
+            "B_minus_D_factorization": "2*9^14*(3^14-2^14)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "4766585",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^14",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 15,
+            "cyclic_word": "1^15 2^30",
+            "horizon_h": 45,
+            "one_count_r": 15,
+            "one_density": "1/3",
+            "denominator_D": "34824619156406328010925",
+            "affine_numerator_direct_B": "40719751288275040491347",
+            "affine_numerator_closed_form": "40719751288275040491347",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "5895132131868712480422",
+            "B_minus_D_factorization": "2*9^15*(3^15-2^15)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "14316139",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^15",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 16,
+            "cyclic_word": "1^16 2^32",
+            "horizon_h": 48,
+            "one_count_r": 16,
+            "one_density": "1/3",
+            "denominator_D": "1129159376537756664842815",
+            "affine_numerator_direct_B": "1288449383629308496065985",
+            "affine_numerator_closed_form": "1288449383629308496065985",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "159290007091551831223170",
+            "B_minus_D_factorization": "2*9^16*(3^16-2^16)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "42981185",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^16",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 17,
+            "cyclic_word": "1^17 2^34",
+            "horizon_h": 51,
+            "one_count_r": 17,
+            "one_density": "1/3",
+            "denominator_D": "36531932264592575824286885",
+            "affine_numerator_direct_B": "40834948367624213963844443",
+            "affine_numerator_closed_form": "40834948367624213963844443",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "4303016103031638139557558",
+            "B_minus_D_factorization": "2*9^17*(3^17-2^17)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "129009091",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^17",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 18,
+            "cyclic_word": "1^18 2^36",
+            "horizon_h": 54,
+            "one_count_r": 18,
+            "one_density": "1/3",
+            "denominator_D": "1179790302282340215208734055",
+            "affine_numerator_direct_B": "1296011083472269741514363545",
+            "affine_numerator_closed_form": "1296011083472269741514363545",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "116220781189929526305629490",
+            "B_minus_D_factorization": "2*9^18*(3^18-2^18)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "387158345",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^18",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 19,
+            "cyclic_word": "1^19 2^38",
+            "horizon_h": 57,
+            "one_count_r": 19,
+            "one_density": "1/3",
+            "denominator_D": "38044038358050087185131440605",
+            "affine_numerator_direct_B": "41182707685523539733059794467",
+            "affine_numerator_closed_form": "41182707685523539733059794467",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "3138669327473452547928353862",
+            "B_minus_D_factorization": "2*9^19*(3^19-2^19)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1161737179",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^19",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 20,
+            "cyclic_word": "1^20 2^40",
+            "horizon_h": 60,
+            "one_count_r": 20,
+            "one_density": "1/3",
+            "denominator_D": "1225259441953013197982408772175",
+            "affine_numerator_direct_B": "1310016262031012812854648763825",
+            "affine_numerator_closed_form": "1310016262031012812854648763825",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "84756820077999614872239991650",
+            "B_minus_D_factorization": "2*9^20*(3^20-2^20)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "3485735825",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^20",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 21,
+            "cyclic_word": "1^21 2^42",
+            "horizon_h": 63,
+            "one_count_r": 21,
+            "one_density": "1/3",
+            "denominator_D": "39420257933872503353008552875605",
+            "affine_numerator_direct_B": "41708921544230388083966172522923",
+            "affine_numerator_closed_form": "41708921544230388083966172522923",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "2288663610357884730957619647318",
+            "B_minus_D_factorization": "2*9^21*(3^21-2^21)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "10458256051",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^21",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 22,
+            "cyclic_word": "1^22 2^44",
+            "horizon_h": 66,
+            "one_count_r": 22,
+            "one_density": "1/3",
+            "denominator_D": "1267171060251074294770703440501495",
+            "affine_numerator_direct_B": "1328969108159271294835887688688905",
+            "affine_numerator_closed_form": "1328969108159271294835887688688905",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "61798047908197000065184248187410",
+            "B_minus_D_factorization": "2*9^22*(3^22-2^22)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "31376865305",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^22",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 23,
+            "cyclic_word": "1^23 2^46",
+            "horizon_h": 69,
+            "one_count_r": 23,
+            "one_density": "1/3",
+            "denominator_D": "40703989699947540494472113305065485",
+            "affine_numerator_direct_B": "42372611341182473518160001324902387",
+            "affine_numerator_closed_form": "42372611341182473518160001324902387",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "1668621641234933023687888019836902",
+            "B_minus_D_factorization": "2*9^23*(3^23-2^23)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "94134790219",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^23",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 24,
+            "cyclic_word": "1^24 2^48",
+            "horizon_h": 72,
+            "one_count_r": 24,
+            "one_density": "1/3",
+            "denominator_D": "1306699596239976698491966912405571935",
+            "affine_numerator_direct_B": "1351753718812164942526242328679151265",
+            "affine_numerator_closed_form": "1351753718812164942526242328679151265",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "45054122572188244034275416273579330",
+            "B_minus_D_factorization": "2*9^24*(3^24-2^24)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "282412759265",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^24",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 25,
+            "cyclic_word": "1^25 2^50",
+            "horizon_h": 75,
+            "one_count_r": 25,
+            "one_density": "1/3",
+            "denominator_D": "41927029077403950223802141936352165125",
+            "affine_numerator_direct_B": "43143514475512243755832222091022500603",
+            "affine_numerator_closed_form": "43143514475512243755832222091022500603",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "1216485398108293532030080154670335478",
+            "B_minus_D_factorization": "2*9^25*(3^25-2^25)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "847255055011",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^25",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 26,
+            "cyclic_word": "1^26 2^52",
+            "horizon_h": 78,
+            "one_count_r": 26,
+            "one_density": "1/3",
+            "denominator_D": "1344706264415493195707266961926363590535",
+            "affine_numerator_direct_B": "1377551803760282918047962716577569132665",
+            "affine_numerator_closed_form": "1377551803760282918047962716577569132665",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "32845539344789722340695754651205542130",
+            "B_minus_D_factorization": "2*9^26*(3^26-2^26)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "2541798719465",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^26",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 27,
+            "cyclic_word": "1^27 2^54",
+            "horizon_h": 81,
+            "one_count_r": 27,
+            "one_density": "1/3",
+            "denominator_D": "43112716477637085553363700120647181173565",
+            "affine_numerator_direct_B": "43999553844671992402128390124781647527107",
+            "affine_numerator_closed_form": "43999553844671992402128390124781647527107",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "886837367034906848764690004134466353542",
+            "B_minus_D_factorization": "2*9^27*(3^27-2^27)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "7625463267259",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^27",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 28,
+            "cyclic_word": "1^28 2^56",
+            "horizon_h": 84,
+            "one_count_r": 28,
+            "one_density": "1/3",
+            "denominator_D": "1381824059725601926557379652013805547018095",
+            "affine_numerator_direct_B": "1405768809120604929694212565439370639452305",
+            "affine_numerator_closed_form": "1405768809120604929694212565439370639452305",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "23944749395003003136832913425565092434210",
+            "B_minus_D_factorization": "2*9^28*(3^28-2^28)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "22876524019505",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^28",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 29,
+            "cyclic_word": "1^29 2^58",
+            "horizon_h": 87,
+            "one_count_r": 29,
+            "one_density": "1/3",
+            "denominator_D": "44278232487132071748779162564575362740107445",
+            "affine_numerator_direct_B": "44924743249528242161437004326716441251825483",
+            "affine_numerator_closed_form": "44924743249528242161437004326716441251825483",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "646510762396170412657841762141078511718038",
+            "B_minus_D_factorization": "2*9^29*(3^29-2^29)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "68629840493971",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^29",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 30,
+            "cyclic_word": "1^30 2^60",
+            "horizon_h": 90,
+            "one_count_r": 30,
+            "one_density": "1/3",
+            "denominator_D": "1418519729137872168632394571970018409042705175",
+            "affine_numerator_direct_B": "1435975565239728377677496655341542307146990825",
+            "affine_numerator_closed_form": "1435975565239728377677496655341542307146990825",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "17455836101856209045102083371523898104285650",
+            "B_minus_D_factorization": "2*9^30*(3^30-2^30)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "205890058352825",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^30",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 31,
+            "cyclic_word": "1^31 2^62",
+            "horizon_h": 93,
+            "one_count_r": 31,
+            "one_density": "1/3",
+            "denominator_D": "45436271150252347958366083290437972726066772845",
+            "affine_numerator_direct_B": "45907579544311338544843965945755983984064660627",
+            "affine_numerator_closed_form": "45907579544311338544843965945755983984064660627",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "471308394058990586477882655318011257997887782",
+            "B_minus_D_factorization": "2*9^31*(3^31-2^31)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "617671248800299",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^31",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 32,
+            "cyclic_word": "1^32 2^64",
+            "horizon_h": 96,
+            "one_count_r": 32,
+            "one_density": "1/3",
+            "denominator_D": "1455138951889766975845210003953744485425042326655",
+            "affine_numerator_direct_B": "1467864293276919434640795110924494377556264450945",
+            "affine_numerator_closed_form": "1467864293276919434640795110924494377556264450945",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "12725341387152458795585106970749892131222124290",
+            "B_minus_D_factorization": "2*9^32*(3^32-2^32)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1853015893884545",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^32",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 33,
+            "cyclic_word": "1^33 2^66",
+            "horizon_h": 99,
+            "one_count_r": 33,
+            "one_density": "1/3",
+            "denominator_D": "46596259887678222938839094270332516204755805534565",
+            "affine_numerator_direct_B": "46939844370587414159612173113531707879273827665563",
+            "affine_numerator_closed_form": "46939844370587414159612173113531707879273827665563",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "343584482909191220773078843199191674518022130998",
+            "B_minus_D_factorization": "2*9^33*(3^33-2^33)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "5559051976620931",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^33",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 34,
+            "cyclic_word": "1^34 2^68",
+            "horizon_h": 102,
+            "one_count_r": 34,
+            "one_density": "1/3",
+            "denominator_D": "1491939278940256486261245118533583220673355956309415",
+            "affine_numerator_direct_B": "1501216064757013996221379304489762398450892999799385",
+            "affine_numerator_closed_form": "1501216064757013996221379304489762398450892999799385",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "9276785816757509960134185956179177777537043489970",
+            "B_minus_D_factorization": "2*9^34*(3^34-2^34)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "16677164519797385",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^34",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 35,
+            "cyclic_word": "1^35 2^70",
+            "horizon_h": 105,
+            "one_count_r": 35,
+            "one_density": "1/3",
+            "denominator_D": "47765248914521148070256484543914116018818985440391325",
+            "affine_numerator_direct_B": "48015722217581369085166806594147371864992393641774947",
+            "affine_numerator_closed_form": "48015722217581369085166806594147371864992393641774947",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "250473303060221014910322050233255846173408201383622",
+            "B_minus_D_factorization": "2*9^35*(3^35-2^35)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "50031510739261339",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^35",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 36,
+            "cyclic_word": "1^36 2^72",
+            "horizon_h": 108,
+            "one_count_r": 36,
+            "one_density": "1/3",
+            "denominator_D": "1529114148952366132015416805677916942448540594731753615",
+            "affine_numerator_direct_B": "1535876929683131927845756083563710375126460960657891185",
+            "affine_numerator_closed_form": "1535876929683131927845756083563710375126460960657891185",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "6762780730765795830339277885793432677920365926137570",
+            "B_minus_D_factorization": "2*9^36*(3^36-2^36)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "150094566577522385",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^36",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 37,
+            "cyclic_word": "1^37 2^74",
+            "horizon_h": 111,
+            "one_count_r": 37,
+            "one_density": "1/3",
+            "denominator_D": "48948559726043329856207988889055303364204291668675358485",
+            "affine_numerator_direct_B": "49131154833640523255326839877502645493470431749479108843",
+            "affine_numerator_closed_form": "49131154833640523255326839877502645493470431749479108843",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "182595107597193399118850988447342129266140080803750358",
+            "B_minus_D_factorization": "2*9^37*(3^37-2^37)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "450283768452043891",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^37",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 38,
+            "cyclic_word": "1^38 2^76",
+            "horizon_h": 114,
+            "one_count_r": 38,
+            "one_density": "1/3",
+            "denominator_D": "1566810399141712123454951224348542660212514134603611027255",
+            "affine_numerator_direct_B": "1571740467548433649641754629776177447748021140399676934345",
+            "affine_numerator_closed_form": "1571740467548433649641754629776177447748021140399676934345",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "4930068406721526186803405427634787535507005796065907090",
+            "B_minus_D_factorization": "2*9^38*(3^38-2^38)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1350851442795085145",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^38",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 39,
+            "cyclic_word": "1^39 2^78",
+            "horizon_h": 117,
+            "one_count_r": 39,
+            "one_density": "1/3",
+            "denominator_D": "50150257946059578288078419836420234845865825939877540877005",
+            "affine_numerator_direct_B": "50283369802069810974512811500278392010140297121429884022067",
+            "affine_numerator_closed_form": "50283369802069810974512811500278392010140297121429884022067",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "133111856010232686434391663858157164274471181552343145062",
+            "B_minus_D_factorization": "2*9^39*(3^39-2^39)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "4052554603263162379",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^39",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 40,
+            "cyclic_word": "1^40 2^80",
+            "horizon_h": 120,
+            "one_count_r": 40,
+            "one_density": "1/3",
+            "denominator_D": "1605141033959075844331548912511652997482471518155254984194975",
+            "affine_numerator_direct_B": "1608735054233869653494310082347439563132566316508222394877025",
+            "affine_numerator_closed_form": "1608735054233869653494310082347439563132566316508222394877025",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "3594020274793809162761169835786565650094798352967410682050",
+            "B_minus_D_factorization": "2*9^40*(3^40-2^40)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "12157664359545301025",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^40",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 41,
+            "cyclic_word": "1^41 2^82",
+            "horizon_h": 123,
+            "one_count_r": 41,
+            "one_density": "1/3",
+            "denominator_D": "51373498138189999174661631099520443944637745959105848749771205",
+            "affine_numerator_direct_B": "51470536688534747501378769393495775017054618890754943461963323",
+            "affine_numerator_closed_form": "51470536688534747501378769393495775017054618890754943461963323",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "97038550344748326717138293975331072416872931649094712192118",
+            "B_minus_D_factorization": "2*9^41*(3^41-2^41)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "36472994178147530851",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^41",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 42,
+            "cyclic_word": "1^42 2^84",
+            "horizon_h": 126,
+            "one_count_r": 42,
+            "one_density": "1/3",
+            "denominator_D": "1644194536812568421802577974461638002908771619901104769892042695",
+            "affine_numerator_direct_B": "1646814577724532305251747269150335630261584829825771870349211705",
+            "affine_numerator_closed_form": "1646814577724532305251747269150335630261584829825771870349211705",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "2620040911963883449169294688697627352813209924667100457169010",
+            "B_minus_D_factorization": "2*9^42*(3^42-2^42)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "109418984733465848105",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^42",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 43,
+            "cyclic_word": "1^43 2^86",
+            "horizon_h": 129,
+            "one_count_r": 43,
+            "one_density": "1/3",
+            "denominator_D": "52620775280545377599444451223250978603450513065497728103828197885",
+            "affine_numerator_direct_B": "52691516386116204667872540273370360933132507267326287594275433987",
+            "affine_numerator_closed_form": "52691516386116204667872540273370360933132507267326287594275433987",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "70741105570827068428089050119382329681994201828559490447236102",
+            "B_minus_D_factorization": "2*9^43*(3^43-2^43)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "328256958598444055419",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^43",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 44,
+            "cyclic_word": "1^44 2^88",
+            "horizon_h": 132,
+            "one_count_r": 44,
+            "one_density": "1/3",
+            "denominator_D": "1684041661746118161929795252236952503090401591269811436939138786735",
+            "affine_numerator_direct_B": "1685951671613590932652762982273617661032624110328708403187080272465",
+            "affine_numerator_closed_form": "1685951671613590932652762982273617661032624110328708403187080272465",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "1910009867472770722967730036665157942222519058896966247941485730",
+            "B_minus_D_factorization": "2*9^44*(3^44-2^44)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "984770884591425188465",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^44",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 45,
+            "cyclic_word": "1^45 2^90",
+            "horizon_h": 135,
+            "one_count_r": 45,
+            "one_density": "1/3",
+            "denominator_D": "53894108200629765307937914025091352168952450596328837697701625444725",
+            "affine_numerator_direct_B": "53945678467358618035215410598383264464127014771890521266501635557003",
+            "affine_numerator_closed_form": "53945678467358618035215410598383264464127014771890521266501635557003",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "51570266728852727277496573291912295174564175561683568800010112278",
+            "B_minus_D_factorization": "2*9^45*(3^45-2^45)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "2954312671366461609811",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^45",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 46,
+            "cyclic_word": "1^46 2^92",
+            "horizon_h": 138,
+            "one_count_r": 46,
+            "one_density": "1/3",
+            "denominator_D": "1724740388088510061260993829547662815298087610326284342648979989499735",
+            "affine_numerator_direct_B": "1726132785295716667417118858547979601821022853963936177648480882487465",
+            "affine_numerator_closed_form": "1726132785295716667417118858547979601821022853963936177648480882487465",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "1392397207206606156125029000316786522935243637651834999500892987730",
+            "B_minus_D_factorization": "2*9^46*(3^46-2^46)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "8862938049283756918265",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^46",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 47,
+            "cyclic_word": "1^47 2^94",
+            "horizon_h": 141,
+            "one_count_r": 47,
+            "one_density": "1/3",
+            "denominator_D": "55195173411877976388340278225633177828612251694022660445475614996241965",
+            "affine_numerator_direct_B": "55232768136572051239909041196027563846689499468394014806016350266122707",
+            "affine_numerator_closed_form": "55232768136572051239909041196027563846689499468394014806016350266122707",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "37594724694074851568762970394386018077247774371354360540735269880742",
+            "B_minus_D_factorization": "2*9^47*(3^47-2^47)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "26588814218220014932459",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^47",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 48,
+            "cyclic_word": "1^48 2^96",
+            "horizon_h": 144,
+            "one_count_r": 48,
+            "one_density": "1/3",
+            "denominator_D": "1766339535992327913982577746583176819470575154625427294234342573850504895",
+            "affine_numerator_direct_B": "1767354593560858871711295316156770232033904776064239448648918227003101505",
+            "affine_numerator_closed_form": "1767354593560858871711295316156770232033904776064239448648918227003101505",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "1015057568530957728717569573593412563329621438812154414575653152596610",
+            "B_minus_D_factorization": "2*9^48*(3^48-2^48)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "79766442795397533152705",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^48",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 49,
+            "cyclic_word": "1^49 2^98",
+            "horizon_h": 147,
+            "one_count_r": 49,
+            "one_density": "1/3",
+            "denominator_D": "56525402795684775325446086661460366704842948659264631734935280500426731045",
+            "affine_numerator_direct_B": "56552809350067348045375958488660398665407239205666700464368387551131537883",
+            "affine_numerator_closed_form": "56552809350067348045375958488660398665407239205666700464368387551131537883",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "27406554382572719929871827200031960564290546402068729433107050704806838",
+            "B_minus_D_factorization": "2*9^49*(3^49-2^49)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "239299328667667576168771",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^49",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 50,
+            "cyclic_word": "1^50 2^100",
+            "horizon_h": 150,
+            "one_count_r": 50,
+            "one_density": "1/3",
+            "denominator_D": "1808881405848030426520371939978296863563157037300244090142709565718340902375",
+            "affine_numerator_direct_B": "1809621382816940153461059433389531903282771915869074475921715615567895257625",
+            "affine_numerator_closed_form": "1809621382816940153461059433389531903282771915869074475921715615567895257625",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "739976968909726940687493411235039719614878568830385779006049849554355250",
+            "B_minus_D_factorization": "2*9^50*(3^50-2^50)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "717897986565952681927625",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^50",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 51,
+            "cyclic_word": "1^51 2^102",
+            "horizon_h": 153,
+            "one_count_r": 51,
+            "one_density": "1/3",
+            "denominator_D": "57886054929562149283516525583217758117241957559109759499435782025013417617245",
+            "affine_numerator_direct_B": "57906034307733156653961545078704119371790381889155721456986564241600827480227",
+            "affine_numerator_closed_form": "57906034307733156653961545078704119371790381889155721456986564241600827480227",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "19979378171007370445019495486361254548424330045961957550782216587409862982",
+            "B_minus_D_factorization": "2*9^51*(3^51-2^51)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "2153693960823757952625499",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^51",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 52,
+            "cyclic_word": "1^52 2^104",
+            "horizon_h": 156,
+            "one_count_r": 52,
+            "one_density": "1/3",
+            "denominator_D": "1852403706191468519213873653268599238798707815760064916583410074695145099765455",
+            "affine_numerator_direct_B": "1852943149402273723590725408767625265949654079627681637184598334214695126948145",
+            "affine_numerator_closed_form": "1852943149402273723590725408767625265949654079627681637184598334214695126948145",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "539443210805204376851755499026027150946263867616720601188259519550027182690",
+            "B_minus_D_factorization": "2*9^52*(3^52-2^52)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "6461081884723073671561745",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^52",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 53,
+            "cyclic_word": "1^53 2^106",
+            "horizon_h": 159,
+            "one_count_r": 53,
+            "one_density": "1/3",
+            "denominator_D": "59278267206154945652660267438947212075826709798772997870908678737401968064862165",
+            "affine_numerator_direct_B": "59292832172850070267582316961597011727908757448413412786592470258520238094673963",
+            "affine_numerator_closed_form": "59292832172850070267582316961597011727908757448413412786592470258520238094673963",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "14564966695124614922049522649799652082047649640414915683791521118270029811798",
+            "B_minus_D_factorization": "2*9^53*(3^53-2^53)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "19383245658672820642055731",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^53",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 54,
+            "cyclic_word": "1^54 2^108",
+            "horizon_h": 162,
+            "one_count_r": 54,
+            "one_density": "1/3",
+            "denominator_D": "1896940963013712992906168942473815770151692325310910786455545740970110749629514615",
+            "affine_numerator_direct_B": "1897334217114542271250511217820530105300024585305067731449138865293931587760258185",
+            "affine_numerator_closed_form": "1897334217114542271250511217820530105300024585305067731449138865293931587760258185",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "393254100829278344342275346714335148332259994156944993593124323820838130743570",
+            "B_minus_D_factorization": "2*9^54*(3^54-2^54)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "58149736985025661180908185",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^54",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 55,
+            "cyclic_word": "1^55 2^110",
+            "horizon_h": 165,
+            "one_count_r": 55,
+            "one_density": "1/3",
+            "denominator_D": "60703093951691193537565496538704739205435569927203866240412100288121233820100451725",
+            "affine_numerator_direct_B": "60713711812414680500208782861299081656198646469215687116101468203429692301495378547",
+            "affine_numerator_closed_form": "60713711812414680500208782861299081656198646469215687116101468203429692301495378547",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "10617860723486962643286322594342450763076542011820875689367915308458481394926822",
+            "B_minus_D_factorization": "2*9^55*(3^55-2^55)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "174449210973091382052206539",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^55",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 56,
+            "cyclic_word": "1^56 2^112",
+            "horizon_h": 168,
+            "one_count_r": 56,
+            "one_density": "1/3",
+            "denominator_D": "1942525551105932392845434329486202787709636456636401188686722396800977107706026024415",
+            "affine_numerator_direct_B": "1942812233345486276889031868184445031111885422669772852825857694568480812037256356385",
+            "affine_numerator_closed_form": "1942812233345486276889031868184445031111885422669772852825857694568480812037256356385",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "286682239553884043597538698242243402248966033371664139135297767503704331230331970",
+            "B_minus_D_factorization": "2*9^56*(3^56-2^56)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "523347632955302943175583585",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^56",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 57,
+            "cyclic_word": "1^57 2^114",
+            "horizon_h": 171,
+            "one_count_r": 57,
+            "one_density": "1/3",
+            "denominator_D": "62161534340988819961424036430245069801372218524443529700800566762320903334088745150085",
+            "affine_numerator_direct_B": "62169274761457130079541288518885120323402566796527509641476622355018659207036175653243",
+            "affine_numerator_closed_form": "62169274761457130079541288518885120323402566796527509641476622355018659207036175653243",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "7740420468310118117252088640050522030348272083979940676055592697755872947430503158",
+            "B_minus_D_factorization": "2*9^57*(3^57-2^57)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1570042898937966423564678691",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^57",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 58,
+            "cyclic_word": "1^58 2^116",
+            "horizon_h": 174,
+            "one_count_r": 58,
+            "one_density": "1/3",
+            "denominator_D": "1989188449962814790305562888708379909699834994408317625321905288140889075653229478760455",
+            "affine_numerator_direct_B": "1989397441315465557975650828889836452897707669159878093880708035097281289630885910065145",
+            "affine_numerator_closed_form": "1989397441315465557975650828889836452897707669159878093880708035097281289630885910065145",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "208991352650767670087940181456543197872674751560468558802746956392213977656431304690",
+            "B_minus_D_factorization": "2*9^58*(3^58-2^58)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "4710128696958014458769891945",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^58",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 59,
+            "cyclic_word": "1^59 2^118",
+            "horizon_h": 177,
+            "one_count_r": 59,
+            "one_density": "1/3",
+            "denominator_D": "63654552877191732181357842958062674363904667864971530232500722317667194982887863437193405",
+            "affine_numerator_direct_B": "63660195643713418009106815751149154254102188968558937066478282912653735257629951621369667",
+            "affine_numerator_closed_form": "63660195643713418009106815751149154254102188968558937066478282912653735257629951621369667",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "5642766521685827748972793086479890197521103587406833977560594986540274742088184176262",
+            "B_minus_D_factorization": "2*9^59*(3^59-2^59)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "14130386091162273752461387579",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^59",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 60,
+            "cyclic_word": "1^60 2^120",
+            "horizon_h": 180,
+            "one_count_r": 60,
+            "one_density": "1/3",
+            "denominator_D": "2036959798986440219876106398681657545489717968864533855439416447788636342625993673145377775",
+            "affine_numerator_direct_B": "2037112153682527809037147435442361260554440298596708775248828539542224038996246615819230225",
+            "affine_numerator_closed_form": "2037112153682527809037147435442361260554440298596708775248828539542224038996246615819230225",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "152354696087589161041036760703715064722329732174919809412091753587696370252942673852450",
+            "B_minus_D_factorization": "2*9^60*(3^60-2^60)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "42391158274063282009687586225",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^60",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 61,
+            "cyclic_word": "1^61 2^122",
+            "horizon_h": 183,
+            "one_count_r": 61,
+            "one_density": "1/3",
+            "denominator_D": "65183094454306316367997101206451644533479727127672095350044946337065087749718512705842186805",
+            "affine_numerator_direct_B": "65187208031100718567957947083243282484756236709276487020155396016813075512855240268655883723",
+            "affine_numerator_closed_form": "65187208031100718567957947083243282484756236709276487020155396016813075512855240268655883723",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "4113576794402199960845876791637951276509581604391670110449679747987763136727562813696918",
+            "B_minus_D_factorization": "2*9^61*(3^61-2^61)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "127173474823342767533669605651",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^61",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 62,
+            "cyclic_word": "1^62 2^124",
+            "horizon_h": 186,
+            "one_count_r": 62,
+            "one_density": "1/3",
+            "denominator_D": "2085869306479788315738873042719694908172187575433696374552996022997458377204533716047082623895",
+            "affine_numerator_direct_B": "2085980373053237846404845163309616610458175454356056988680591981993874206109743526234206694505",
+            "affine_numerator_closed_form": "2085980373053237846404845163309616610458175454356056988680591981993874206109743526234206694505",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "111066573449530665972120589921702285987878922360614127595958996415828905209810187124070610",
+            "B_minus_D_factorization": "2*9^62*(3^62-2^62)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "381520424472334145610222510905",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^62",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 63,
+            "cyclic_word": "1^63 2^126",
+            "horizon_h": 189,
+            "one_count_r": 63,
+            "one_density": "1/3",
+            "denominator_D": "66748095473786853286644014078087778705232582712279395716187931721625808439310694268930225410285",
+            "affine_numerator_direct_B": "66751094271270002697431788408513519263781653607125889000256071332106998687160686131823351885587",
+            "affine_numerator_closed_form": "66751094271270002697431788408513519263781653607125889000256071332106998687160686131823351885587",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "2998797483149410787774330425740558549070894846493284068139610481190247849991862893126475302",
+            "B_minus_D_factorization": "2*9^63*(3^63-2^63)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "1144561273421614122849094920619",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^63",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          },
+          {
+            "scale_k": 64,
+            "cyclic_word": "1^64 2^128",
+            "horizon_h": 192,
+            "one_count_r": 64,
+            "one_density": "1/3",
+            "denominator_D": "2135946552154887239113610521697362542947952314849770679641299407706118660014613831202203912161535",
+            "affine_numerator_direct_B": "2136027519686932490695397915959818920771670395961595618958354054105514128319931497281452305233665",
+            "affine_numerator_closed_form": "2136027519686932490695397915959818920771670395961595618958354054105514128319931497281452305233665",
+            "closed_form_matches_direct": true,
+            "B_minus_D": "80967532045251581787394262456377823718081111824939317054646399395468305317666079248393072130",
+            "B_minus_D_factorization": "2*9^64*(3^64-2^64)",
+            "factorization_matches": true,
+            "gcd_D_with_2_times_9_power": 1,
+            "reduced_positive_residual": "3433683820274065740584139537665",
+            "reduced_residual_strictly_below_D": true,
+            "contraction_gate_passes": true,
+            "product_gate": {
+              "exact": "(125/108)^64",
+              "passes": true
+            },
+            "base_word_divisibility_hit": false,
+            "cyclic_rotation_divisibility_hit_count": 0
+          }
+        ],
+        "aggregate": {
+          "checked_scale_count": 64,
+          "infinite_contiguous_run_family_proved_empty": true,
+          "all_cyclic_rotations_included": true,
+          "scalar_gates_still_pass": true,
+          "actual_nontrivial_cycle_found": false,
+          "transcript_sha256": "9e13ddba6ce08139d8e8df7ecb2a07da60940207f5c7637f0629e0dc981bf651"
+        },
+        "no_go_scope": "The theorem uses one cyclic block of ones and one cyclic block of twos. Words with two or more alternating run pairs, arbitrary one-density in the admissible window, valuations at least three, and divergent aperiodic trajectories remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Only one-block cyclic words 1^k2^(2k) are excluded; arbitrary alternation and the rest of the admissible density window remain open.",
+      "route_decision": {
+        "discard": "using the scalar-admissible one-third profile as evidence that its most clustered ordered words can realize cycles",
+        "retain": "extend the affine factorization from one run pair to every fixed number of alternating run pairs",
+        "next_single_lemma": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T196-INPUT",
+            "label": "UniformAffineDivisibilityObstructionForOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "CO-T197-CLOSED",
+            "label": "ContiguousOneTwoRunAffineDivisibilityObstruction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T197-REJECTED",
+            "label": "ScalarAdmissibilityImpliesContiguousRunCycleRealizability",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "CO-T197-OPEN",
+            "label": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T196-INPUT",
+            "CO-T197-CLOSED"
+          ],
+          [
+            "CO-T197-CLOSED",
+            "CO-T197-OPEN"
+          ],
+          [
+            "CO-T197-REJECTED",
+            "CO-T197-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or nontrivial cycle. One infinite ordered subfamily surviving both scalar gates is now excluded exactly."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-197",
+      "theorem_name": "GoldbachPrimePowerCollisionSupportHasDensityZero",
+      "declared_proposition": "Let Q be the odd proper-prime-power part of Lambda and let C(X)={even N<=X:(Q*Q)(N)>0}. Then |C(X)|=o(X). Indeed the number A(X) of odd proper prime powers is O(sqrt(X)/log(X)+X^(1/3)log(X))=O(sqrt(X)/log(X)), and every collision-supported target is a sum of two such powers, so |C(X)|<=A(X)^2=O(X/log(X)^2). Consequently the exact TICKET-196 overlap subtraction changes the old union envelope only on a density-zero set of even targets.",
+      "mathematical_argument": "For exponent two there are pi(sqrt X) choices. For exponents at least three, summing pi(X^(1/e)) over e<=log_3 X gives O(X^(1/3)log X). The standard Chebyshev prime-counting bound pi(y)=O(y/log y) gives A(X)=O(sqrt X/log X). The addition map from ordered proper-power pairs onto collision-supported targets gives |C(X)|<=A(X)^2. Dividing by the number of even targets proves density zero. Outside C(X), Q*Q(N)=0 exactly, so the corrected and uncorrected envelopes coincide.",
+      "reproducible_computation": {
+        "theorem": "Let Q be the odd proper-prime-power part of Lambda and let C(X)={even N<=X:(Q*Q)(N)>0}. Then |C(X)|=o(X). Indeed the number A(X) of odd proper prime powers is O(sqrt(X)/log(X)+X^(1/3)log(X))=O(sqrt(X)/log(X)), and every collision-supported target is a sum of two such powers, so |C(X)|<=A(X)^2=O(X/log(X)^2). Consequently the exact TICKET-196 overlap subtraction changes the old union envelope only on a density-zero set of even targets.",
+        "proof": "For exponent two there are pi(sqrt X) choices. For exponents at least three, summing pi(X^(1/e)) over e<=log_3 X gives O(X^(1/3)log X). The standard Chebyshev prime-counting bound pi(y)=O(y/log y) gives A(X)=O(sqrt X/log X). The addition map from ordered proper-power pairs onto collision-supported targets gives |C(X)|<=A(X)^2. Dividing by the number of even targets proves density zero. Outside C(X), Q*Q(N)=0 exactly, so the corrected and uncorrected envelopes coincide.",
+        "finite_support_rows": [
+          {
+            "cutoff_X": 256,
+            "odd_proper_prime_power_count_A": 9,
+            "unordered_collision_pair_count": 34,
+            "collision_supported_even_target_count": 32,
+            "collision_free_even_target_count": 96,
+            "even_target_count": 128,
+            "support_density": {
+              "numerator": 1,
+              "denominator": 4,
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "support_bound_A_squared": 81,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 512,
+            "odd_proper_prime_power_count_A": 12,
+            "unordered_collision_pair_count": 68,
+            "collision_supported_even_target_count": 60,
+            "collision_free_even_target_count": 196,
+            "even_target_count": 256,
+            "support_density": {
+              "numerator": 15,
+              "denominator": 64,
+              "exact": "15/64",
+              "decimal": 0.234375
+            },
+            "support_bound_A_squared": 144,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 1024,
+            "odd_proper_prime_power_count_A": 17,
+            "unordered_collision_pair_count": 124,
+            "collision_supported_even_target_count": 108,
+            "collision_free_even_target_count": 404,
+            "even_target_count": 512,
+            "support_density": {
+              "numerator": 27,
+              "denominator": 128,
+              "exact": "27/128",
+              "decimal": 0.2109375
+            },
+            "support_bound_A_squared": 289,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 2048,
+            "odd_proper_prime_power_count_A": 21,
+            "unordered_collision_pair_count": 201,
+            "collision_supported_even_target_count": 177,
+            "collision_free_even_target_count": 847,
+            "even_target_count": 1024,
+            "support_density": {
+              "numerator": 177,
+              "denominator": 1024,
+              "exact": "177/1024",
+              "decimal": 0.1728515625
+            },
+            "support_bound_A_squared": 441,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 4096,
+            "odd_proper_prime_power_count_A": 29,
+            "unordered_collision_pair_count": 373,
+            "collision_supported_even_target_count": 324,
+            "collision_free_even_target_count": 1724,
+            "even_target_count": 2048,
+            "support_density": {
+              "numerator": 81,
+              "denominator": 512,
+              "exact": "81/512",
+              "decimal": 0.158203125
+            },
+            "support_bound_A_squared": 841,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 8192,
+            "odd_proper_prime_power_count_A": 38,
+            "unordered_collision_pair_count": 627,
+            "collision_supported_even_target_count": 540,
+            "collision_free_even_target_count": 3556,
+            "even_target_count": 4096,
+            "support_density": {
+              "numerator": 135,
+              "denominator": 1024,
+              "exact": "135/1024",
+              "decimal": 0.1318359375
+            },
+            "support_bound_A_squared": 1444,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 16384,
+            "odd_proper_prime_power_count_A": 48,
+            "unordered_collision_pair_count": 1006,
+            "collision_supported_even_target_count": 856,
+            "collision_free_even_target_count": 7336,
+            "even_target_count": 8192,
+            "support_density": {
+              "numerator": 107,
+              "denominator": 1024,
+              "exact": "107/1024",
+              "decimal": 0.1044921875
+            },
+            "support_bound_A_squared": 2304,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 32768,
+            "odd_proper_prime_power_count_A": 64,
+            "unordered_collision_pair_count": 1717,
+            "collision_supported_even_target_count": 1456,
+            "collision_free_even_target_count": 14928,
+            "even_target_count": 16384,
+            "support_density": {
+              "numerator": 91,
+              "denominator": 1024,
+              "exact": "91/1024",
+              "decimal": 0.0888671875
+            },
+            "support_bound_A_squared": 4096,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 65536,
+            "odd_proper_prime_power_count_A": 78,
+            "unordered_collision_pair_count": 2725,
+            "collision_supported_even_target_count": 2282,
+            "collision_free_even_target_count": 30486,
+            "even_target_count": 32768,
+            "support_density": {
+              "numerator": 1141,
+              "denominator": 16384,
+              "exact": "1141/16384",
+              "decimal": 0.06964111328125
+            },
+            "support_bound_A_squared": 6084,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 131072,
+            "odd_proper_prime_power_count_A": 103,
+            "unordered_collision_pair_count": 4575,
+            "collision_supported_even_target_count": 3804,
+            "collision_free_even_target_count": 61732,
+            "even_target_count": 65536,
+            "support_density": {
+              "numerator": 951,
+              "denominator": 16384,
+              "exact": "951/16384",
+              "decimal": 0.05804443359375
+            },
+            "support_bound_A_squared": 10609,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 262144,
+            "odd_proper_prime_power_count_A": 133,
+            "unordered_collision_pair_count": 7687,
+            "collision_supported_even_target_count": 6322,
+            "collision_free_even_target_count": 124750,
+            "even_target_count": 131072,
+            "support_density": {
+              "numerator": 3161,
+              "denominator": 65536,
+              "exact": "3161/65536",
+              "decimal": 0.0482330322265625
+            },
+            "support_bound_A_squared": 17689,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 524288,
+            "odd_proper_prime_power_count_A": 171,
+            "unordered_collision_pair_count": 12773,
+            "collision_supported_even_target_count": 10476,
+            "collision_free_even_target_count": 251668,
+            "even_target_count": 262144,
+            "support_density": {
+              "numerator": 2619,
+              "denominator": 65536,
+              "exact": "2619/65536",
+              "decimal": 0.0399627685546875
+            },
+            "support_bound_A_squared": 29241,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 1048576,
+            "odd_proper_prime_power_count_A": 223,
+            "unordered_collision_pair_count": 21326,
+            "collision_supported_even_target_count": 17411,
+            "collision_free_even_target_count": 506877,
+            "even_target_count": 524288,
+            "support_density": {
+              "numerator": 17411,
+              "denominator": 524288,
+              "exact": "17411/524288",
+              "decimal": 0.03320884704589844
+            },
+            "support_bound_A_squared": 49729,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 2097152,
+            "odd_proper_prime_power_count_A": 290,
+            "unordered_collision_pair_count": 36109,
+            "collision_supported_even_target_count": 29387,
+            "collision_free_even_target_count": 1019189,
+            "even_target_count": 1048576,
+            "support_density": {
+              "numerator": 29387,
+              "denominator": 1048576,
+              "exact": "29387/1048576",
+              "decimal": 0.02802562713623047
+            },
+            "support_bound_A_squared": 84100,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 4194304,
+            "odd_proper_prime_power_count_A": 379,
+            "unordered_collision_pair_count": 61792,
+            "collision_supported_even_target_count": 50055,
+            "collision_free_even_target_count": 2047097,
+            "even_target_count": 2097152,
+            "support_density": {
+              "numerator": 50055,
+              "denominator": 2097152,
+              "exact": "50055/2097152",
+              "decimal": 0.023868083953857422
+            },
+            "support_bound_A_squared": 143641,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 8388608,
+            "odd_proper_prime_power_count_A": 503,
+            "unordered_collision_pair_count": 107298,
+            "collision_supported_even_target_count": 86638,
+            "collision_free_even_target_count": 4107666,
+            "even_target_count": 4194304,
+            "support_density": {
+              "numerator": 43319,
+              "denominator": 2097152,
+              "exact": "43319/2097152",
+              "decimal": 0.020656108856201172
+            },
+            "support_bound_A_squared": 253009,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          },
+          {
+            "cutoff_X": 16777216,
+            "odd_proper_prime_power_count_A": 661,
+            "unordered_collision_pair_count": 184926,
+            "collision_supported_even_target_count": 149130,
+            "collision_free_even_target_count": 8239478,
+            "even_target_count": 8388608,
+            "support_density": {
+              "numerator": 74565,
+              "denominator": 4194304,
+              "exact": "74565/4194304",
+              "decimal": 0.017777681350708008
+            },
+            "support_bound_A_squared": 436921,
+            "support_below_A_squared": true,
+            "first_collision_targets": [
+              18,
+              34,
+              36,
+              50,
+              52,
+              54,
+              58,
+              74,
+              76,
+              90,
+              98,
+              106
+            ],
+            "target_18_supported": true
+          }
+        ],
+        "witness": {
+          "target_N": 18,
+          "decomposition": "9+9=3^2+3^2",
+          "collision_supported": true
+        },
+        "aggregate": {
+          "finite_cutoff_count": 17,
+          "largest_cutoff": 16777216,
+          "density_zero_theorem_proved": true,
+          "correction_identically_zero_on_density_one_complement": true,
+          "every_large_even_correlation_bound_proved": false
+        },
+        "no_go_scope": "Density zero does not make the exceptional targets finite and does not prove Goldbach on either stratum. It proves that overlap subtraction alone cannot be the uniform every-even mechanism, since it is exactly zero on a density-one target set.",
+        "failure_count": 0
+      },
+      "logical_limit": "The density-one collision-free targets still lack a pointwise binary-correlation lower bound, and the sparse collision-supported targets remain infinite a priori.",
+      "route_decision": {
+        "discard": "expecting Q*Q overlap subtraction alone to produce a uniform every-even margin",
+        "retain": "prove pointwise major-minus-minor dominance first on the density-one collision-free stratum, then handle the sparse collision stratum",
+        "next_single_lemma": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T196-INPUT",
+            "label": "ExplicitGoldbachMajorArcMainTermDominatesMinorArcAbsoluteErrorAndCollisionCorrectedContaminationForEveryLargeEvenTarget",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "GB-T197-CLOSED",
+            "label": "GoldbachPrimePowerCollisionSupportHasDensityZero",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T197-REJECTED",
+            "label": "CollisionCorrectionAloneSuppliesUniformEveryEvenMargin",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "GB-T197-OPEN",
+            "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T196-INPUT",
+            "GB-T197-CLOSED"
+          ],
+          [
+            "GB-T197-CLOSED",
+            "GB-T197-OPEN"
+          ],
+          [
+            "GB-T197-REJECTED",
+            "GB-T197-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The overlap correction is exact but supported on a density-zero target set."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-197",
+      "theorem_name": "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+      "declared_proposition": "If two odd proper prime powers differ by two, their exponents are unequal. In particular no prime-square layer collision p^2,p^2+2=q^2 exists, and every Q(n)Q(n+2) overlap touches an exponent-at-least-three layer. Hence the TICKET-196 collision subtraction is O(X^(1/3)log X) in weighted dyadic mass under the classical Chebyshev bound, and it cannot cancel the leading prime-square contamination layer of order O(sqrt X log X).",
+      "mathematical_argument": "If q^e-p^e=2 with q>p odd primes and e>=2, factorization gives (q-p)(q^(e-1)+q^(e-2)p+...+p^(e-1))=2. The first factor is at least two and the second is greater than one, a contradiction. Thus equal exponents are impossible, so at least one exponent is at least three. Charge every collision to such an endpoint; a fixed endpoint has at most two distance-two neighbours, so this charging has uniformly bounded multiplicity. The theta-layer bound for exponent at least three is O(X^(1/3)); the other logarithmic weight is at most log(2X+2).",
+      "reproducible_computation": {
+        "theorem": "If two odd proper prime powers differ by two, their exponents are unequal. In particular no prime-square layer collision p^2,p^2+2=q^2 exists, and every Q(n)Q(n+2) overlap touches an exponent-at-least-three layer. Hence the TICKET-196 collision subtraction is O(X^(1/3)log X) in weighted dyadic mass under the classical Chebyshev bound, and it cannot cancel the leading prime-square contamination layer of order O(sqrt X log X).",
+        "proof": "If q^e-p^e=2 with q>p odd primes and e>=2, factorization gives (q-p)(q^(e-1)+q^(e-2)p+...+p^(e-1))=2. The first factor is at least two and the second is greater than one, a contradiction. Thus equal exponents are impossible, so at least one exponent is at least three. Charge every collision to such an endpoint; a fixed endpoint has at most two distance-two neighbours, so this charging has uniformly bounded multiplicity. The theta-layer bound for exponent at least three is O(X^(1/3)); the other logarithmic weight is at most log(2X+2).",
+        "finite_dyadic_rows": [
+          {
+            "block": [
+              16,
+              32
+            ],
+            "collision_support_count": 1,
+            "collision_weighted_mass": 1.7681482684484517,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 1,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": [
+              {
+                "pair": [
+                  25,
+                  27
+                ],
+                "left": {
+                  "base": 5,
+                  "exponent": 2
+                },
+                "right": {
+                  "base": 3,
+                  "exponent": 3
+                },
+                "same_exponent": false,
+                "at_least_one_exponent_ge_3": true,
+                "weight": 1.7681482684484517
+              }
+            ]
+          },
+          {
+            "block": [
+              32,
+              64
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              64,
+              128
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              128,
+              256
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              256,
+              512
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              512,
+              1024
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              1024,
+              2048
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              2048,
+              4096
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              4096,
+              8192
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              8192,
+              16384
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              16384,
+              32768
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              32768,
+              65536
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              65536,
+              131072
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              131072,
+              262144
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              262144,
+              524288
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              524288,
+              1048576
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              1048576,
+              2097152
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              2097152,
+              4194304
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              4194304,
+              8388608
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              8388608,
+              16777216
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          },
+          {
+            "block": [
+              16777216,
+              33554432
+            ],
+            "collision_support_count": 0,
+            "collision_weighted_mass": 0.0,
+            "same_exponent_collision_count": 0,
+            "mixed_exponent_collision_count": 0,
+            "leading_square_square_collision_count": 0,
+            "all_collisions_touch_exponent_at_least_three": true,
+            "collisions": []
+          }
+        ],
+        "witness": {
+          "pair": [
+            25,
+            27
+          ],
+          "left": {
+            "base": 5,
+            "exponent": 2
+          },
+          "right": {
+            "base": 3,
+            "exponent": 3
+          },
+          "same_exponent": false,
+          "at_least_one_exponent_ge_3": true,
+          "weight": 1.7681482684484517
+        },
+        "aggregate": {
+          "dyadic_block_count": 21,
+          "largest_upper_endpoint": 33554432,
+          "finite_collision_count": 1,
+          "equal_exponent_collision_impossible_globally": true,
+          "square_square_collision_impossible_globally": true,
+          "collision_saving_is_lower_order_than_square_layer": true,
+          "parity_breaking_lower_bound_proved": false
+        },
+        "no_go_scope": "The theorem does not classify all mixed-exponent solutions of p^a+2=q^b and does not prove that only (25,27) occurs. More importantly, removing a lower-order overlap cannot create the missing parity-breaking lower bound for the full shift-two correlation.",
+        "failure_count": 0
+      },
+      "logical_limit": "The leading prime-square contamination remains untouched, and no parity-breaking lower bound is proved on infinitely many blocks.",
+      "route_decision": {
+        "discard": "expecting collision subtraction to cancel the leading square-layer contamination",
+        "retain": "seek parity-breaking shift-two mass above the unchanged square layer plus the mixed-exponent tail",
+        "next_single_lemma": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T196-INPUT",
+            "label": "ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "TP-T197-CLOSED",
+            "label": "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T197-REJECTED",
+            "label": "PrimePowerCollisionCorrectionCancelsLeadingSquareLayer",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "TP-T197-OPEN",
+            "label": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T196-INPUT",
+            "TP-T197-CLOSED"
+          ],
+          [
+            "TP-T197-CLOSED",
+            "TP-T197-OPEN"
+          ],
+          [
+            "TP-T197-REJECTED",
+            "TP-T197-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. Equal-exponent overlap is impossible, so the exact correction is a lower-order mixed-layer saving only."
+    },
+    "cross_problem_synthesis": "The shared advance is quantifier localization: one bounded Xi region can close without RH content, one infinite Collatz order family can close without controlling all words, and exact overlap corrections can be too sparse or too low-order to supply universal correlation lower bounds. The next work must enter the critical strip, increase run complexity, and confront pointwise parity-sensitive errors.",
+    "literature_boundary": {
+      "riemann": "The location of xi zeros in the open critical strip and compact-uniform Taylor convergence are classical; no explicit Xi coefficient enclosure or RH progress is claimed.",
+      "collatz": "The affine cycle equation and parity-vector restrictions are classical. The contiguous-run factorization is a project-local subfamily theorem and not a Collatz proof.",
+      "goldbach": "Prime-power counting and the density-zero support bound use standard Chebyshev estimates. They do not provide a binary Goldbach minor-arc theorem.",
+      "twin_prime": "The equal-exponent factorization is elementary. The lower-order overlap result does not bypass the sieve parity barrier or imply exact gap two."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "actual_xi_first_rectangle_existence_count": 1,
+      "collatz_infinite_ordered_family_exclusion_count": 1,
+      "goldbach_density_zero_collision_support_count": 1,
+      "twin_equal_exponent_collision_no_go_count": 1,
+      "riemann_exact_coordinate_row_count": 2,
+      "collatz_exact_scale_row_count": 64,
+      "goldbach_finite_support_row_count": 17,
+      "twin_finite_dyadic_row_count": 21,
+      "rejected_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-197",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Xi(z)=xi(1/2+i z), and let S_n be its Taylor sections at zero. On the closed first exhaustion rectangles D_2^+ and D_2^-, Xi has no zero. Consequently, for each sign there exists an index n for which S_n has zero count zero in D_2^sign and satisfies sup_boundary|Xi-S_n|<inf_boundary|S_n|. This is an existential actual-Xi Rouché theorem, not an explicit interval certificate.",
+      "new_result": "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+      "discarded_route": "treating existential closure of D_2 as evidence controlling an off-critical Xi zero",
+      "remaining_gap": "The first D_2 certificate is existential, has no explicit Taylor degree or interval margin, and avoids the open critical strip entirely.",
+      "candidate_theorem": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+      "claim_boundary": "No RH proof or counterexample. The first actual-Xi rectangle is closed only existentially and lies outside the open critical strip.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T196-INPUT",
+            "label": "ActualXiTaylorSectionHasCertifiedZeroCountOnFirstOffRealRationalRectangle",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "RH-T197-CLOSED",
+            "label": "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T197-REJECTED",
+            "label": "FirstExhaustionRectangleProvidesNontrivialRHControl",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "RH-T197-OPEN",
+            "label": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T196-INPUT",
+            "RH-T197-CLOSED"
+          ],
+          [
+            "RH-T197-CLOSED",
+            "RH-T197-OPEN"
+          ],
+          [
+            "RH-T197-REJECTED",
+            "RH-T197-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-197",
+      "status": "open_not_proven",
+      "declared_proposition": "For every k>=1, the cyclic accelerated-Collatz valuation family w_k=1^k 2^(2k), including every cyclic rotation, passes both TICKET-196 scalar gates but cannot satisfy affine divisibility. Its denominator is D_k=32^k-27^k and its affine numerator is B_k=32^k+27^k-2*18^k. If D_k divided B_k, coprimality with 2*9^k would force D_k to divide 3^k-2^k, which is positive and strictly smaller than D_k, a contradiction.",
+      "new_result": "ContiguousOneTwoRunAffineDivisibilityObstruction",
+      "discarded_route": "using the scalar-admissible one-third profile as evidence that its most clustered ordered words can realize cycles",
+      "remaining_gap": "Only one-block cyclic words 1^k2^(2k) are excluded; arbitrary alternation and the rest of the admissible density window remain open.",
+      "candidate_theorem": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+      "claim_boundary": "No Collatz proof or nontrivial cycle. One infinite ordered subfamily surviving both scalar gates is now excluded exactly.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T196-INPUT",
+            "label": "UniformAffineDivisibilityObstructionForOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "CO-T197-CLOSED",
+            "label": "ContiguousOneTwoRunAffineDivisibilityObstruction",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T197-REJECTED",
+            "label": "ScalarAdmissibilityImpliesContiguousRunCycleRealizability",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "CO-T197-OPEN",
+            "label": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T196-INPUT",
+            "CO-T197-CLOSED"
+          ],
+          [
+            "CO-T197-CLOSED",
+            "CO-T197-OPEN"
+          ],
+          [
+            "CO-T197-REJECTED",
+            "CO-T197-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-197",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Q be the odd proper-prime-power part of Lambda and let C(X)={even N<=X:(Q*Q)(N)>0}. Then |C(X)|=o(X). Indeed the number A(X) of odd proper prime powers is O(sqrt(X)/log(X)+X^(1/3)log(X))=O(sqrt(X)/log(X)), and every collision-supported target is a sum of two such powers, so |C(X)|<=A(X)^2=O(X/log(X)^2). Consequently the exact TICKET-196 overlap subtraction changes the old union envelope only on a density-zero set of even targets.",
+      "new_result": "GoldbachPrimePowerCollisionSupportHasDensityZero",
+      "discarded_route": "expecting Q*Q overlap subtraction alone to produce a uniform every-even margin",
+      "remaining_gap": "The density-one collision-free targets still lack a pointwise binary-correlation lower bound, and the sparse collision-supported targets remain infinite a priori.",
+      "candidate_theorem": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+      "claim_boundary": "No Goldbach proof or counterexample. The overlap correction is exact but supported on a density-zero target set.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T196-INPUT",
+            "label": "ExplicitGoldbachMajorArcMainTermDominatesMinorArcAbsoluteErrorAndCollisionCorrectedContaminationForEveryLargeEvenTarget",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "GB-T197-CLOSED",
+            "label": "GoldbachPrimePowerCollisionSupportHasDensityZero",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T197-REJECTED",
+            "label": "CollisionCorrectionAloneSuppliesUniformEveryEvenMargin",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "GB-T197-OPEN",
+            "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T196-INPUT",
+            "GB-T197-CLOSED"
+          ],
+          [
+            "GB-T197-CLOSED",
+            "GB-T197-OPEN"
+          ],
+          [
+            "GB-T197-REJECTED",
+            "GB-T197-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-197",
+      "status": "open_not_proven",
+      "declared_proposition": "If two odd proper prime powers differ by two, their exponents are unequal. In particular no prime-square layer collision p^2,p^2+2=q^2 exists, and every Q(n)Q(n+2) overlap touches an exponent-at-least-three layer. Hence the TICKET-196 collision subtraction is O(X^(1/3)log X) in weighted dyadic mass under the classical Chebyshev bound, and it cannot cancel the leading prime-square contamination layer of order O(sqrt X log X).",
+      "new_result": "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+      "discarded_route": "expecting collision subtraction to cancel the leading square-layer contamination",
+      "remaining_gap": "The leading prime-square contamination remains untouched, and no parity-breaking lower bound is proved on infinitely many blocks.",
+      "candidate_theorem": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+      "claim_boundary": "No Twin Prime proof or counterexample. Equal-exponent overlap is impossible, so the exact correction is a lower-order mixed-layer saving only.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T196-INPUT",
+            "label": "ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks",
+            "status": "open_input_from_ticket196"
+          },
+          {
+            "id": "TP-T197-CLOSED",
+            "label": "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T197-REJECTED",
+            "label": "PrimePowerCollisionCorrectionCancelsLeadingSquareLayer",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "TP-T197-OPEN",
+            "label": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T196-INPUT",
+            "TP-T197-CLOSED"
+          ],
+          [
+            "TP-T197-CLOSED",
+            "TP-T197-OPEN"
+          ],
+          [
+            "TP-T197-REJECTED",
+            "TP-T197-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks"
+    }
+  ]
+}

@@ -195,6 +195,7 @@ TICKET193_SCHEMA = (
 TICKET194_SCHEMA = "primeproject.ticket194-densecore-tenone-theta-layers.v1"
 TICKET195_SCHEMA = "primeproject.ticket195-finitejet-elevenone-squarelayer.v1"
 TICKET196_SCHEMA = "primeproject.ticket196-rouche-density-overlap.v1"
+TICKET197_SCHEMA = "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1"
 
 
 def fail(message: str) -> int:
@@ -14868,6 +14869,217 @@ def main() -> int:
         or "resolves none" not in str(ticket196.get("claim_boundary", "")).lower()
     ):
         return fail("ticket196 proof boundary changed")
+
+    path197 = Path(
+        "data/open-problem/ticket197-first-rectangle-run-block-sparse-collision.json"
+    )
+    if not path197.exists():
+        return fail("missing ticket197 first-rectangle/run-block/sparse-collision audit")
+    ticket197 = read_json(path197)
+    if (
+        ticket197.get("schema") != TICKET197_SCHEMA
+        or ticket197.get("status")
+        != "first_xi_rectangle_existentially_closed_contiguous_collatz_runs_excluded_goldbach_collision_support_sparse_twin_collision_mixed_layer_all_open"
+    ):
+        return fail("ticket197 schema or status changed")
+    audit197 = ticket197.get(
+        "first_rectangle_run_block_sparse_collision_audit", {}
+    )
+    machine197 = audit197.get("machine_audit", {})
+    expected_machine197 = {
+        "exact_theorem_count": 4,
+        "actual_xi_first_rectangle_existence_count": 1,
+        "collatz_infinite_ordered_family_exclusion_count": 1,
+        "goldbach_density_zero_collision_support_count": 1,
+        "twin_equal_exponent_collision_no_go_count": 1,
+        "riemann_exact_coordinate_row_count": 2,
+        "collatz_exact_scale_row_count": 64,
+        "goldbach_finite_support_row_count": 17,
+        "twin_finite_dyadic_row_count": 21,
+        "rejected_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine197 != expected_machine197:
+        return fail("ticket197 global machine audit changed")
+
+    attempts197 = {
+        row.get("problem_id"): row for row in ticket197.get("attempts", [])
+    }
+    if set(attempts197) != {"riemann", "collatz", "goldbach", "twin-prime"}:
+        return fail("ticket197 attempts missing problems")
+    artifact_contract197 = {
+        "riemann": (
+            Path("data/open-problem/riemann/rh-ticket-197-first-rectangle.json"),
+            "ActualXiFirstRectangleExistenceAndVacuityBoundary",
+            "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+        ),
+        "collatz": (
+            Path("data/open-problem/collatz/co-ticket-197-contiguous-runs.json"),
+            "ContiguousOneTwoRunAffineDivisibilityObstruction",
+            "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+        ),
+        "goldbach": (
+            Path("data/open-problem/goldbach/gb-ticket-197-sparse-collision-support.json"),
+            "GoldbachPrimePowerCollisionSupportHasDensityZero",
+            "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+        ),
+        "twin-prime": (
+            Path("data/open-problem/twin-prime/tp-ticket-197-mixed-exponent-collision.json"),
+            "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+            "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+        ),
+    }
+    section_keys197 = {
+        "riemann": "riemann",
+        "collatz": "collatz",
+        "goldbach": "goldbach",
+        "twin-prime": "twin_prime",
+    }
+    for problem_id, (artifact_path, theorem_name, next_theorem) in artifact_contract197.items():
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket197 artifact missing")
+        artifact = read_json(artifact_path)
+        attempt = attempts197[problem_id]
+        section = audit197.get(section_keys197[problem_id], {})
+        dag = section.get("proof_dag", {})
+        if (
+            artifact.get("schema") != TICKET197_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or artifact.get("theorem_name") != theorem_name
+            or attempt.get("new_result") != theorem_name
+            or artifact.get("candidate_theorem") != next_theorem
+            or attempt.get("candidate_theorem") != next_theorem
+            or section.get("theorem_name") != theorem_name
+            or [node.get("status") for node in dag.get("nodes", [])]
+            != [
+                "open_input_from_ticket196",
+                "proved_exact",
+                "refuted_or_route_limited",
+                "open_not_proven",
+            ]
+            or len(dag.get("edges", [])) != 3
+        ):
+            return fail(f"{problem_id}: ticket197 contract changed")
+
+    rh197 = audit197.get("riemann", {}).get("reproducible_computation", {})
+    rh_rows197 = rh197.get("exact_coordinate_rows", [])
+    rh_contract197 = rh197.get("contract", {})
+    if (
+        [row.get("s_real_interval") for row in rh_rows197]
+        != [["-3/2", "0"], ["1", "5/2"]]
+        or any(row.get("open_critical_strip_intersection") for row in rh_rows197)
+        or any(row.get("xi_zero_possible_on_closed_image") for row in rh_rows197)
+        or rh_contract197.get("actual_xi_D2_zero_free") is not True
+        or rh_contract197.get("actual_xi_taylor_rouche_section_exists") is not True
+        or rh_contract197.get("explicit_taylor_degree_exhibited") is not False
+        or rh_contract197.get("rational_or_interval_rouche_margin_exhibited")
+        is not False
+        or rh_contract197.get("D2_enters_open_critical_strip") is not False
+        or rh_contract197.get("full_rh_resolved") is not False
+    ):
+        return fail("ticket197 RH first-rectangle boundary changed")
+
+    collatz197 = audit197.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz_rows197 = collatz197.get("exact_scale_rows", [])
+    for row in collatz_rows197:
+        k = row.get("scale_k", 0)
+        denominator = 32**k - 27**k
+        numerator = 32**k + 27**k - 2 * 18**k
+        if (
+            int(row.get("denominator_D", 0)) != denominator
+            or int(row.get("affine_numerator_direct_B", 0)) != numerator
+            or row.get("closed_form_matches_direct") is not True
+            or row.get("factorization_matches") is not True
+            or row.get("gcd_D_with_2_times_9_power") != 1
+            or row.get("reduced_residual_strictly_below_D") is not True
+            or row.get("contraction_gate_passes") is not True
+            or row.get("product_gate", {}).get("passes") is not True
+            or row.get("base_word_divisibility_hit") is not False
+            or row.get("cyclic_rotation_divisibility_hit_count") != 0
+        ):
+            return fail("ticket197 Collatz run-block identity changed")
+    if (
+        [row.get("scale_k") for row in collatz_rows197] != list(range(1, 65))
+        or collatz197.get("aggregate", {}).get(
+            "infinite_contiguous_run_family_proved_empty"
+        )
+        is not True
+        or collatz197.get("aggregate", {}).get("all_cyclic_rotations_included")
+        is not True
+        or collatz197.get("aggregate", {}).get("actual_nontrivial_cycle_found")
+        is not False
+    ):
+        return fail("ticket197 Collatz family boundary changed")
+
+    goldbach197 = audit197.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    gold_rows197 = goldbach197.get("finite_support_rows", [])
+    if (
+        [row.get("cutoff_X") for row in gold_rows197]
+        != [2**exponent for exponent in range(8, 25)]
+        or any(
+            row.get("collision_supported_even_target_count", 0)
+            > row.get("support_bound_A_squared", 0)
+            or row.get("support_below_A_squared") is not True
+            for row in gold_rows197
+        )
+        or goldbach197.get("aggregate", {}).get("density_zero_theorem_proved")
+        is not True
+        or goldbach197.get("aggregate", {}).get(
+            "correction_identically_zero_on_density_one_complement"
+        )
+        is not True
+        or goldbach197.get("aggregate", {}).get(
+            "every_large_even_correlation_bound_proved"
+        )
+        is not False
+    ):
+        return fail("ticket197 Goldbach sparse-support boundary changed")
+
+    twin197 = audit197.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin_rows197 = twin197.get("finite_dyadic_rows", [])
+    twin_collisions197 = [
+        collision
+        for row in twin_rows197
+        for collision in row.get("collisions", [])
+    ]
+    if (
+        [row.get("block") for row in twin_rows197]
+        != [[2**exponent, 2 ** (exponent + 1)] for exponent in range(4, 25)]
+        or any(row.get("same_exponent_collision_count") != 0 for row in twin_rows197)
+        or any(
+            row.get("leading_square_square_collision_count") != 0
+            or row.get("all_collisions_touch_exponent_at_least_three") is not True
+            for row in twin_rows197
+        )
+        or not twin_collisions197
+        or twin_collisions197[0].get("pair") != [25, 27]
+        or twin197.get("aggregate", {}).get(
+            "equal_exponent_collision_impossible_globally"
+        )
+        is not True
+        or twin197.get("aggregate", {}).get(
+            "collision_saving_is_lower_order_than_square_layer"
+        )
+        is not True
+        or twin197.get("aggregate", {}).get("parity_breaking_lower_bound_proved")
+        is not False
+    ):
+        return fail("ticket197 Twin mixed-exponent boundary changed")
+
+    if (
+        "resolves none" not in str(audit197.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket197.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket197 proof boundary changed")
 
     print("open problem structure verified")
     return 0

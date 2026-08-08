@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260808-ticket196-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260808-ticket197-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-196</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-197</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-196 actually changed</h2>
-          <p>TICKET-196 did not solve a conjecture. It reclassifies an exhausting Xi Rouché certificate as equivalent to RH, proves that Collatz contraction and product-density gates leave infinitely many count profiles, and subtracts exact double-charged proper-prime-power overlap from the Goldbach and Twin Prime contamination budgets.</p>
-          <p class="proof-boundary">TICKET-196은 난제를 해결하지 않았습니다. 리만 트랙은 소진형 Rouché 인증이 RH보다 약한 중간 목표가 아니라 동치인 목표임을 증명했습니다. 콜라츠에서는 <code>(h,r)=(3k,k)</code>가 두 스칼라 gate를 모두 통과하므로 밀도 부등식만으로는 전 층을 닫을 수 없음을 확정했습니다. 골드바흐와 쌍둥이 소수에서는 각각 <code>9+9</code>, <code>(25,27)</code>이 만드는 중복 청구를 inclusion-exclusion으로 정확히 뺐습니다.</p>
+          <h2>What TICKET-197 actually changed</h2>
+          <p>TICKET-197 did not solve a conjecture. It closes the first actual-Xi rectangle existentially while proving that the rectangle misses the critical strip, excludes every cyclic rotation of the infinite Collatz family 1^k2^(2k), and proves that the Goldbach and Twin Prime overlap corrections are respectively sparse and lower order.</p>
+          <p class="proof-boundary">TICKET-197은 난제를 해결하지 않았습니다. 리만 트랙은 첫 실제 Xi 사각형을 존재적으로 닫았지만 그 영역이 열린 임계띠를 전혀 만나지 않음을 명시했습니다. 콜라츠에서는 <code>1^k2^(2k)</code>와 모든 순환 회전을 affine divisibility로 배제했습니다. 골드바흐의 <code>Q*Q</code> 보정은 밀도 0 target에만 지지되고, 쌍둥이 소수의 gap-two 충돌은 동일 지수를 가질 수 없어 낮은 차수의 혼합층 보정만 제공합니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>An exhausting zero-free Taylor-section Rouché family is equivalent to the all-real-zero statement.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The former exhaustion target is not a weaker intermediate lemma; for Xi it is equivalent to RH.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Certify the actual Xi Taylor section and zero count on the first bounded off-real rational rectangle.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The first actual-Xi rectangles are zero-free and admit existential Taylor Rouché sections.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Those rectangles map outside the open critical strip and provide no nontrivial RH control.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Give an explicit degree and interval margin on the first rectangle that enters the critical strip.</dd></div>
           </dl>
-          <p class="workbench-ko">무한 소진을 한 번에 요구하면 RH를 다시 말한 것이 됩니다. 실제 Xi에 대해 bounded rectangle 하나를 interval 방식으로 인증하는 단계로 축소했습니다.</p>
+          <p class="workbench-ko">첫 사각형은 실제 Xi에 대해 닫혔지만 RH의 가능한 비임계선 영점 영역을 건드리지 않습니다. 다음 사각형부터 명시적 interval 인증이 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The necessary one-density window contains 1/3, and every profile (h,r)=(3k,k) passes both scalar gates.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Contraction and product-density inequalities alone cannot exclude all {1,2} cycle profiles.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove a uniform affine-divisibility obstruction for ordered words inside the admissible density window.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every cyclic rotation of 1^k2^(2k) fails affine divisibility for every k>=1.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Scalar admissibility does not make the maximally clustered one-third words realizable cycles.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Extend the exact obstruction to every fixed run count in the admissible density window.</dd></div>
           </dl>
-          <p class="workbench-ko">무한 프로필 family는 실제 순환이 아닙니다. 그러나 밀도만으로는 부족하므로 다음 증명은 word 순서와 affine numerator divisibility를 사용해야 합니다.</p>
+          <p class="workbench-ko"><code>B-D=2·9^k(3^k-2^k)</code>의 정확한 인수분해로 무한 연속-run family를 닫았습니다. 임의의 교대 run은 아직 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The contamination identity is E=2(Q*Lambda)-(Q*Q), yielding an overlap-corrected envelope.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Left and right contamination charges are not disjoint: 18=9+9 is an exact overlap witness.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Make an explicit major-arc main term dominate minor-arc error and corrected contamination for every large even target.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Even targets with positive Q*Q overlap form a density-zero set.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Overlap subtraction alone cannot create a uniform every-even correlation margin.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove an explicit prime-prime correlation margin on every large collision-free even target.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>Q*Q</code> 중복을 정확히 빼 충분 예산을 줄였습니다. 하지만 모든 큰 짝수에서 major term이 minor error와 보정 오염을 이긴다는 하한은 여전히 미증명입니다.</p>
+          <p class="workbench-ko"><code>|C(X)|≤A(X)^2=O(X/log²X)</code>이므로 중복 보정은 밀도 0 target에서만 작동합니다. 점별 Goldbach 하한은 별도로 증명해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Shift-two contamination subtracts the exact local Q(n)Q(n+2) overlap.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Left- and right-shift charges overlap: (25,27)=(5²,3³) is an exact witness.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove a parity-breaking shift-two lower bound above corrected contamination on infinitely many blocks.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Equal-exponent gap-two prime-power collisions are impossible; overlap mass is O(X^(1/3) log X).</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The overlap correction cannot cancel the leading prime-square contamination layer.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Dominate the square layer and mixed-exponent tail on infinitely many blocks.</dd></div>
           </dl>
-          <p class="workbench-ko">중복 제거로 국소 오염 예산은 작아졌지만 이는 parity barrier를 넘지 못합니다. 무한히 많은 block에서 실제 소수쌍 하한을 만드는 것이 남았습니다.</p>
+          <p class="workbench-ko">동일 지수 충돌은 인수분해로 불가능하고 보정은 지수 3 이상 층에만 걸립니다. 주도 제곱층과 parity barrier는 그대로 남습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>196 tickets reduced to four meaningful eras</h2>
+          <h2>197 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–196 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 콜라츠 고정 층과 유한 제트 경계를 닫은 뒤, 목표와 동치인 대체 명제를 분리하고 두 소수 상관의 중복 오염을 정확히 보정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–197 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 목표와 동치인 대체 명제와 공허한 첫 Xi 영역을 분리하고, 콜라츠 무한 ordered family를 닫은 뒤 두 소수 상관의 중복 보정이 희소하거나 낮은 차수임을 증명했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/rouche-density-overlap.ko.md">TICKET-196 한국어 보고서</a>
-          <a href="../docs/rouche-density-overlap.md">TICKET-196 English report</a>
+          <a href="../docs/first-rectangle-run-block-sparse-collision.ko.md">TICKET-197 한국어 보고서</a>
+          <a href="../docs/first-rectangle-run-block-sparse-collision.md">TICKET-197 English report</a>
+          <a href="../docs/rouche-density-overlap.ko.md">TICKET-196 이전 보고서</a>
           <a href="../docs/finitejet-elevenone-squarelayer.ko.md">TICKET-195 이전 보고서</a>
           <a href="../docs/densecore-tenone-theta-layers.ko.md">TICKET-194 이전 보고서</a>
           <a href="../docs/everywhere-nineone-parity-envelope.ko.md">TICKET-193 이전 보고서</a>
@@ -135,7 +136,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260808-ticket196"></script>
+    <script src="../assets/i18n.js?v=20260808-ticket197"></script>
   </body>
 </html>
 

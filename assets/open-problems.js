@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket197AttemptGlobal = null;
 let ticket196AttemptGlobal = null;
 let ticket195AttemptGlobal = null;
 let ticket194AttemptGlobal = null;
@@ -9992,6 +9993,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket197FirstRectangleRunBlockSparseCollision(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.first_rectangle_run_block_sparse_collision_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.exact_coordinate_rows || [];
+    detail = `
+      <div class="poc-equation">z=x+iy ⇒ s=1/2+iz=(1/2−y)+ix; D<sub>2</sub><sup>±</sup> maps outside 0&lt;Re(s)&lt;1</div>
+      ${table(["rectangle", "Re(z)", "Im(z)", "Re(s)", "critical-strip intersection"], rows.map((row) => [row.rectangle, (row.z_real_interval || []).join(" to "), (row.z_imaginary_interval || []).join(" to "), (row.s_real_interval || []).join(" to "), row.open_critical_strip_intersection ? "yes" : "no"]))}
+      <div class="poc-head"><div><span>Actual Xi D2 zero-free</span><strong>${computation.contract?.actual_xi_D2_zero_free ? "proved" : "missing"}</strong></div><div><span>Rouché section exists</span><strong>${computation.contract?.actual_xi_taylor_rouche_section_exists ? "proved" : "missing"}</strong></div><div><span>Explicit degree / margin</span><strong>${computation.contract?.explicit_taylor_degree_exhibited ? "certified" : "open"}</strong></div></div>
+      <p class="proof-note">첫 실제 Xi 사각형은 닫혔지만 열린 임계띠를 만나지 않습니다. 따라서 이 존재 정리는 RH 영점 통제의 증거가 아니며, 다음 사각형은 임계띠에 실제로 들어가야 합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = (computation.exact_scale_rows || []).filter((row) => [1, 2, 4, 8].includes(Number(row.scale_k)));
+    detail = `
+      <div class="poc-equation">w<sub>k</sub>=1<sup>k</sup>2<sup>2k</sup>, D<sub>k</sub>=32<sup>k</sup>−27<sup>k</sup>, B<sub>k</sub>=32<sup>k</sup>+27<sup>k</sup>−2·18<sup>k</sup></div>
+      ${table(["k", "Dk", "Bk", "gcd", "scalar gates", "rotation hits"], rows.map((row) => [row.scale_k, row.denominator_D, row.affine_numerator_closed_form, row.gcd_D_with_2_times_9_power, row.contraction_gate_passes && row.product_gate?.passes ? "pass" : "fail", row.cyclic_rotation_divisibility_hit_count]))}
+      <div class="poc-head"><div><span>Exact scales</span><strong>${aggregate.checked_scale_count || 0}</strong></div><div><span>Infinite ordered family</span><strong>${aggregate.infinite_contiguous_run_family_proved_empty ? "excluded" : "open"}</strong></div><div><span>Actual cycle</span><strong>${aggregate.actual_nontrivial_cycle_found ? "found" : "not found"}</strong></div></div>
+      <p class="proof-note"><code>B−D=2·9^k(3^k−2^k)</code>와 서로소성으로 모든 k와 모든 순환 회전을 배제합니다. 임의의 교대 run word를 닫는 정리는 아닙니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = (computation.finite_support_rows || []).filter((row) => [256, 4096, 65536, 1048576, 16777216].includes(Number(row.cutoff_X)));
+    detail = `
+      <div class="poc-equation">|C(X)|≤A(X)²=O(X/log²X)=o(X), C(X)={even N≤X:(Q*Q)(N)&gt;0}</div>
+      ${table(["X", "proper powers A", "collision targets", "support density", "A² bound"], rows.map((row) => [formatter.format(row.cutoff_X || 0), formatter.format(row.odd_proper_prime_power_count_A || 0), formatter.format(row.collision_supported_even_target_count || 0), Number(row.support_density?.decimal || 0).toFixed(6), formatter.format(row.support_bound_A_squared || 0)]))}
+      <div class="poc-head"><div><span>Support scales</span><strong>${aggregate.finite_cutoff_count || 0}</strong></div><div><span>Density-zero theorem</span><strong>${aggregate.density_zero_theorem_proved ? "proved" : "missing"}</strong></div><div><span>Every-even lower bound</span><strong>${aggregate.every_large_even_correlation_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">정확한 <code>Q*Q</code> 보정은 밀도 0 target에서만 작동합니다. 밀도 1인 collision-free 층에도 점별 Goldbach 상관 하한은 아직 없습니다.</p>
+    `;
+  } else {
+    const allRows = computation.finite_dyadic_rows || [];
+    const rows = allRows.filter((row, index) => row.collision_support_count || index === 0 || index === allRows.length - 1);
+    detail = `
+      <div class="poc-equation">q<sup>e</sup>−p<sup>e</sup>=(q−p)(q<sup>e−1</sup>+···+p<sup>e−1</sup>)≠2; collision mass=O(X<sup>1/3</sup>log X)</div>
+      ${table(["dyadic block", "collisions", "same exponent", "mixed exponent", "weighted mass"], rows.map((row) => [(row.block || []).map((value) => formatter.format(value)).join(" – "), row.collision_support_count, row.same_exponent_collision_count, row.mixed_exponent_collision_count, Number(row.collision_weighted_mass || 0).toFixed(6)]))}
+      <div class="poc-head"><div><span>Equal-exponent collision</span><strong>${aggregate.equal_exponent_collision_impossible_globally ? "impossible" : "open"}</strong></div><div><span>Finite witness</span><strong>(25,27)</strong></div><div><span>Parity-breaking lower bound</span><strong>${aggregate.parity_breaking_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">모든 충돌은 지수 3 이상 층을 지나므로 보정 질량은 제곱층보다 낮은 차수입니다. 계산에서 (25,27)을 찾았지만 이것이 유일하다고 주장하지 않습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket197-first-rectangle-run-block-sparse-collision" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 197 first Xi rectangle, Collatz run blocks, and sparse prime-power collisions</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial theorems; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET197 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/first-rectangle-run-block-sparse-collision.ko.md">한국어 보고서</a> · <a href="../docs/first-rectangle-run-block-sparse-collision.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket196RoucheDensityOverlap(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.rouche_density_overlap_audit || {};
@@ -10042,7 +10110,7 @@ function renderTicket196RoucheDensityOverlap(attempt) {
   }
   return `
     <div id="ticket196-rouche-density-overlap" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 196 Rouché target equivalence, Collatz density no-go, and overlap-corrected budgets</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact route corrections; all conjectures open</strong></div><div><span>Exact theorems</span><strong>${audit.machine_audit?.exact_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET196 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -15131,7 +15199,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket196RoucheDensityOverlap(ticket196AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket197FirstRectangleRunBlockSparseCollision(ticket197AttemptGlobal) ||
+      renderTicket196RoucheDensityOverlap(ticket196AttemptGlobal) ||
       renderTicket195FiniteJetElevenOneSquareLayer(ticket195AttemptGlobal) ||
       renderTicket194DenseCoreTenOneThetaLayers(ticket194AttemptGlobal, true) ||
       renderTicket193EverywhereNineOneParityEnvelope(ticket193AttemptGlobal, true) ||
@@ -15145,7 +15214,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-196 data is unavailable. The conjecture remains open. / TICKET-196 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-197 data is unavailable. The conjecture remains open. / TICKET-197 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -15467,6 +15536,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket197Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket197-first-rectangle-run-block-sparse-collision.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket197AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket197AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket197AttemptGlobal) {
+      ticket197AttemptGlobal.bounded_result = ticket197AttemptGlobal.bounded_result || {};
+      ticket197AttemptGlobal.bounded_result.first_rectangle_run_block_sparse_collision_audit = payload.first_rectangle_run_block_sparse_collision_audit || {};
+    }
+    return Boolean(ticket197AttemptGlobal);
+  } catch (error) {
+    ticket197AttemptGlobal = null;
     return false;
   }
 }
@@ -16760,6 +16849,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket197Loaded = await loadTicket197Attempt();
   const ticket196Loaded = await loadTicket196Attempt();
   const ticket195Loaded = await loadTicket195Attempt();
   const ticket194Loaded = await loadTicket194Attempt();
@@ -16789,8 +16879,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket197AttemptGlobal) await loadTicket197Attempt();
     if (!ticket196AttemptGlobal) await loadTicket196Attempt();
     if (!ticket195AttemptGlobal) await loadTicket195Attempt();
     if (!ticket194AttemptGlobal) await loadTicket194Attempt();

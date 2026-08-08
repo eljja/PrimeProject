@@ -1,0 +1,377 @@
+{
+  "schema": "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1",
+  "generated_at": "2026-08-08T23:55:00+09:00",
+  "ticket_id": "TP-TICKET-197",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+  "declared_proposition": "If two odd proper prime powers differ by two, their exponents are unequal. In particular no prime-square layer collision p^2,p^2+2=q^2 exists, and every Q(n)Q(n+2) overlap touches an exponent-at-least-three layer. Hence the TICKET-196 collision subtraction is O(X^(1/3)log X) in weighted dyadic mass under the classical Chebyshev bound, and it cannot cancel the leading prime-square contamination layer of order O(sqrt X log X).",
+  "mathematical_argument": "If q^e-p^e=2 with q>p odd primes and e>=2, factorization gives (q-p)(q^(e-1)+q^(e-2)p+...+p^(e-1))=2. The first factor is at least two and the second is greater than one, a contradiction. Thus equal exponents are impossible, so at least one exponent is at least three. Charge every collision to such an endpoint; a fixed endpoint has at most two distance-two neighbours, so this charging has uniformly bounded multiplicity. The theta-layer bound for exponent at least three is O(X^(1/3)); the other logarithmic weight is at most log(2X+2).",
+  "reproducible_computation": {
+    "theorem": "If two odd proper prime powers differ by two, their exponents are unequal. In particular no prime-square layer collision p^2,p^2+2=q^2 exists, and every Q(n)Q(n+2) overlap touches an exponent-at-least-three layer. Hence the TICKET-196 collision subtraction is O(X^(1/3)log X) in weighted dyadic mass under the classical Chebyshev bound, and it cannot cancel the leading prime-square contamination layer of order O(sqrt X log X).",
+    "proof": "If q^e-p^e=2 with q>p odd primes and e>=2, factorization gives (q-p)(q^(e-1)+q^(e-2)p+...+p^(e-1))=2. The first factor is at least two and the second is greater than one, a contradiction. Thus equal exponents are impossible, so at least one exponent is at least three. Charge every collision to such an endpoint; a fixed endpoint has at most two distance-two neighbours, so this charging has uniformly bounded multiplicity. The theta-layer bound for exponent at least three is O(X^(1/3)); the other logarithmic weight is at most log(2X+2).",
+    "finite_dyadic_rows": [
+      {
+        "block": [
+          16,
+          32
+        ],
+        "collision_support_count": 1,
+        "collision_weighted_mass": 1.7681482684484517,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 1,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": [
+          {
+            "pair": [
+              25,
+              27
+            ],
+            "left": {
+              "base": 5,
+              "exponent": 2
+            },
+            "right": {
+              "base": 3,
+              "exponent": 3
+            },
+            "same_exponent": false,
+            "at_least_one_exponent_ge_3": true,
+            "weight": 1.7681482684484517
+          }
+        ]
+      },
+      {
+        "block": [
+          32,
+          64
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          64,
+          128
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          128,
+          256
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          256,
+          512
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          512,
+          1024
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          1024,
+          2048
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          2048,
+          4096
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          4096,
+          8192
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          8192,
+          16384
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          16384,
+          32768
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          32768,
+          65536
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          65536,
+          131072
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          131072,
+          262144
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          262144,
+          524288
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          524288,
+          1048576
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          1048576,
+          2097152
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          2097152,
+          4194304
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          4194304,
+          8388608
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          8388608,
+          16777216
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      },
+      {
+        "block": [
+          16777216,
+          33554432
+        ],
+        "collision_support_count": 0,
+        "collision_weighted_mass": 0.0,
+        "same_exponent_collision_count": 0,
+        "mixed_exponent_collision_count": 0,
+        "leading_square_square_collision_count": 0,
+        "all_collisions_touch_exponent_at_least_three": true,
+        "collisions": []
+      }
+    ],
+    "witness": {
+      "pair": [
+        25,
+        27
+      ],
+      "left": {
+        "base": 5,
+        "exponent": 2
+      },
+      "right": {
+        "base": 3,
+        "exponent": 3
+      },
+      "same_exponent": false,
+      "at_least_one_exponent_ge_3": true,
+      "weight": 1.7681482684484517
+    },
+    "aggregate": {
+      "dyadic_block_count": 21,
+      "largest_upper_endpoint": 33554432,
+      "finite_collision_count": 1,
+      "equal_exponent_collision_impossible_globally": true,
+      "square_square_collision_impossible_globally": true,
+      "collision_saving_is_lower_order_than_square_layer": true,
+      "parity_breaking_lower_bound_proved": false
+    },
+    "no_go_scope": "The theorem does not classify all mixed-exponent solutions of p^a+2=q^b and does not prove that only (25,27) occurs. More importantly, removing a lower-order overlap cannot create the missing parity-breaking lower bound for the full shift-two correlation.",
+    "failure_count": 0
+  },
+  "discarded_route": "expecting collision subtraction to cancel the leading square-layer contamination",
+  "remaining_gap": "The leading prime-square contamination remains untouched, and no parity-breaking lower bound is proved on infinitely many blocks.",
+  "candidate_theorem": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof or counterexample. Equal-exponent overlap is impossible, so the exact correction is a lower-order mixed-layer saving only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T196-INPUT",
+        "label": "ParityBreakingShiftTwoLowerBoundDominatesCollisionCorrectedContaminationOnInfinitelyManyDyadicBlocks",
+        "status": "open_input_from_ticket196"
+      },
+      {
+        "id": "TP-T197-CLOSED",
+        "label": "TwinPrimeEqualExponentCollisionNoGoAndLowerOrderSaving",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T197-REJECTED",
+        "label": "PrimePowerCollisionCorrectionCancelsLeadingSquareLayer",
+        "status": "refuted_or_route_limited"
+      },
+      {
+        "id": "TP-T197-OPEN",
+        "label": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T196-INPUT",
+        "TP-T197-CLOSED"
+      ],
+      [
+        "TP-T197-CLOSED",
+        "TP-T197-OPEN"
+      ],
+      [
+        "TP-T197-REJECTED",
+        "TP-T197-OPEN"
+      ]
+    ]
+  }
+}
