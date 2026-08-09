@@ -62,38 +62,53 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-200
+## Latest Continuation After TICKET-201
 
-TICKET-200 is the current boundary. It resolves none of the four conjectures.
-It closes four exact intermediate statements and sharpens the next targets:
+TICKET-201 is the current boundary. It resolves none of the four conjectures.
+It audits whether TICKET-200's open targets were genuine sublemmas:
 
-1. **Riemann:** the exact implication from node margins plus a certified
-   derivative budget to a full-boundary Rouché margin is proved. The remaining
-   input is an outward-rounded Xi Taylor remainder and derivative enclosure on
-   `D3`; the exact example in the ticket is synthetic.
-2. **Collatz:** every scale `k>=2` of the primitive family
-   `1^k 2^(2k) (1 2^2)^2`, including every cyclic rotation, fails affine
-   divisibility despite passing both scalar gates.
-3. **Goldbach:** Bordignon's explicit Chen theorem gives `C(N)>0` above
-   `exp(36)`, and `C=R+S` splits this exactly into prime-prime and
-   prime-composite-semiprime channels. A counterexample, if any, must be
-   semiprime-only; emptiness of that channel remains unproved.
-4. **Twin Prime:** Chen's infinitely many prime-plus-`P2` starts split exactly
-   into twin and prime-composite-semiprime channels. Infinitely many combined
-   positive blocks do not force infinitely many twin-positive blocks.
+1. **Riemann:** a real-even entire perturbation can insert off-real zeros while
+   approaching any fixed compact finite jet arbitrarily closely. A fixed `D3`
+   certificate therefore cannot imply global RH without Xi-specific global
+   arithmetic structure.
+2. **Collatz:** every `r,k>=2` in the primitive family
+   `1^k 2^(2k) (1 2^2)^(r-1)`, including every cyclic rotation, fails affine
+   divisibility. One master identity replaces fixed-`r` iteration.
+3. **Goldbach:** exact projectors give `R=(C-L)/2` and `S=(C+L)/2`. Eliminating
+   the semiprime-only Chen channel is Goldbach itself on Chen-positive inputs,
+   not a proper easier lemma. A quantitative Liouville defect is now the target.
+4. **Twin Prime:** `T=(C2-L2)/2` on every dyadic block. Twin positivity on
+   infinitely many Chen-positive blocks is exactly the conjecture in dyadic
+   language; the corrected target is a uniform relative Liouville defect on
+   infinitely many unbounded blocks.
 
 Canonical JSON:
 
 ```text
-data/open-problem/ticket200-derivative-mesh-three-run-chen-channels.json
+data/open-problem/ticket201-finite-information-allrun-liouville-parity.json
 ```
 
-English report: [TICKET-200](derivative-mesh-three-run-chen-channels.md).
-Korean report: [TICKET-200 한국어](derivative-mesh-three-run-chen-channels.ko.md).
+English report: [TICKET-201](finite-information-allrun-liouville-parity.md).
+Korean report: [TICKET-201 한국어](finite-information-allrun-liouville-parity.ko.md).
 
 The Chen theorems are external inputs and are not reproved. The channel splits
 are exact project reductions, not full conjecture proofs or novelty-priority
 claims.
+
+## Preserved Continuation After TICKET-200
+
+TICKET-200 remains the direct input to TICKET-201. It proves the exact
+derivative-controlled boundary-mesh implication for a synthetic RH model;
+excludes every scale and cyclic rotation of one explicit three-run-pair
+Collatz family; and imports Chen-type results to split Goldbach and Twin Prime
+support into prime and composite-semiprime channels. TICKET-201 does not erase
+those results. It shows why the fixed-compact RH certificate needs a cofinal
+arithmetic bridge, extends the Collatz family from one fixed run count to all
+run counts, and rewrites the two unsigned P2 channel obligations as exact
+Liouville-sign conditions.
+
+English report: [TICKET-200](derivative-mesh-three-run-chen-channels.md).
+Korean report: [TICKET-200 한국어](derivative-mesh-three-run-chen-channels.ko.md).
 
 ## Preserved Continuation After TICKET-199
 

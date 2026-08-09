@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket200-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket201-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-200</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-201</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-200 actually changed</h2>
-          <p>TICKET-200 did not solve a conjecture. It proves the derivative-controlled boundary-mesh implication needed after the RH sampling no-go, excludes every scale of the next explicit primitive Collatz family, and splits Chen's prime-plus-P2 results into exact prime and composite-semiprime channels for Goldbach and Twin Prime.</p>
-          <p class="proof-boundary">TICKET-200은 난제를 해결하지 않았습니다. 리만 트랙은 도함수 상계가 있는 경계 격자가 표본 사이의 Rouché 여유를 엄밀히 전달함을 증명했습니다. 콜라츠 트랙은 <code>1^k 2^(2k) (1 2^2)^2</code>와 모든 순환 회전을 모든 <code>k≥2</code>에서 배제했습니다. 골드바흐와 쌍둥이 소수 트랙은 Chen의 <code>소수+P2</code> 결과를 소수 채널과 합성 반소수 채널로 정확히 분리하여 남은 parity 간극을 표시했습니다.</p>
+          <h2>What TICKET-201 actually changed</h2>
+          <p>TICKET-201 did not solve a conjecture. It proves that fixed compact finite-jet data cannot force a global real-zero property in the ambient symmetric entire-function class, closes every repetition count of one explicit Collatz family, and rewrites the Goldbach and Twin P2 channels as exact Liouville-sign identities.</p>
+          <p class="proof-boundary">TICKET-201은 난제를 해결하지 않았습니다. 리만 트랙은 고정 콤팩트의 유한 jet만으로 전역 RH를 연결할 수 없음을 증명했습니다. 콜라츠 트랙은 <code>1^k 2^(2k)(1 2^2)^(r−1)</code>를 모든 <code>r,k≥2</code>와 순환 회전에서 배제했습니다. 골드바흐와 쌍둥이 소수 트랙은 이전 다음 목표가 원문제의 재표현임을 Liouville 항등식으로 증명하고, 정량적 패리티 결손을 새 목표로 지정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A node margin η and full-boundary derivative budget L propagate to a strict Rouché margin whenever η−Lh/2&gt;0.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Floating Xi margins without outward-rounded remainder and derivative enclosures are not proof certificates.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Instantiate the exact mesh implication with certified Xi Taylor remainder and derivative intervals on D3.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Real-even entire functions with off-real zeros can approximate any fixed compact finite jet arbitrarily closely.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>One fixed compact Xi jet certificate cannot imply the global Riemann Hypothesis by local data alone.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Build cofinal Xi rectangle Rouché margins from completed-zeta structure.</dd></div>
           </dl>
-          <p class="workbench-ko">격자 전달 논리는 닫혔지만 표의 정확 예제는 Xi가 아닙니다. Xi Taylor 나머지와 도함수의 바깥쪽 반올림 구간 포위가 결정적 미증명 전제입니다.</p>
+          <p class="workbench-ko">비실수 영점을 삽입하면서도 고정 콤팩트의 유한 미분 정보를 임의로 가깝게 유지할 수 있습니다. 이후 경로는 Xi의 전역 산술 구조와 높이 cofinal 인증을 사용해야 합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every scale k≥2 of w_k=1^k 2^(2k) (1 2^2)^2 and every cyclic rotation fails affine divisibility.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>This explicit infinite three-run-pair family cannot contain a nontrivial accelerated Collatz cycle.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Extend the all-scale affine obstruction to the explicit primitive four-run-pair family.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every r,k≥2 in w_(r,k)=1^k 2^(2k)(1 2^2)^(r−1), including every cyclic rotation, fails affine divisibility.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Increasing the same rigid family's repetition count one value at a time is no longer independent progress.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Extend the obstruction to a uniform bounded L1 neighborhood at one-third density.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>k≥7</code>의 <code>2D&lt;B&lt;3D</code>와 다섯 유한 기저 잔여로 다음 무한족을 닫았습니다. 임의의 세-run 단어와 모든 run 수는 아직 열려 있습니다.</p>
+          <p class="workbench-ko"><code>5B−23D=2·27^(r−1)E_k</code>와 <code>0&lt;|E_k|&lt;D</code>로 모든 반복수와 규모를 동시에 닫았습니다. 임의 지수 단어와 비주기 궤도는 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Chen positivity decomposes exactly as C(N)=R(N)+S(N), the prime-prime and prime-composite-semiprime channels.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>C(N)&gt;0 does not imply R(N)&gt;0; the semiprime channel can carry the logical premise.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Eliminate semiprime-only Chen targets for every even N above the explicit exp(36) threshold.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>R=(C−L)/2 and S=(C+L)/2 exactly project the P2 channel by Liouville parity.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Eliminating every semiprime-only Chen target is Goldbach itself on Chen-positive inputs, not a proper easier lemma.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove a uniform relative Liouville parity defect in prime-plus-P2 channels.</dd></div>
           </dl>
-          <p class="workbench-ko">Chen 정리를 재증명한 것이 아니라, 가능한 큰 골드바흐 반례가 반드시 합성 반소수 전용 채널에 있어야 함을 정확히 환원했습니다. 그 채널의 전역 공집합성은 미증명입니다.</p>
+          <p class="workbench-ko"><code>C−L=2R</code>이므로 남은 의무는 unsigned P2 양성이 아니라 Liouville 부호 상관을 균일하게 제어하는 것입니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Chen starts split exactly into twin starts and prime-composite-semiprime starts; Chen gives infinitely many positive combined blocks.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Infinitely many Chen primes do not imply infinitely many twin primes because the semiprime channel may carry the mass.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Force the twin channel to be positive on infinitely many Chen-positive dyadic blocks.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>T=(C2−L2)/2 exactly projects the twin channel inside each dyadic P2 block.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Twin positivity on infinitely many Chen-positive blocks is the Twin Prime conjecture in dyadic language.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove a uniform relative Liouville defect on infinitely many unbounded Chen blocks.</dd></div>
           </dl>
-          <p class="workbench-ko">Chen 소수의 무한성을 정확한 두 채널로 분해했습니다. 쌍둥이 채널이 아니라 합성 반소수 채널만 무한할 가능성을 배제하는 것이 그대로 parity 장벽입니다.</p>
+          <p class="workbench-ko"><code>C2−L2=2T</code>가 정확한 남은 의무를 보여줍니다. 유한한 양성 블록은 무한성을 증명하지 않습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>200 tickets reduced to four meaningful eras</h2>
+          <h2>201 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–200 · Structure, localization, and exact proof obligations</strong><p>정보를 보존하는 표현을 찾고, 경계 격자 전달 논리를 닫고, 콜라츠 구조화 무한족을 단계적으로 배제하며, Chen 결과 내부의 소수·합성 반소수 채널을 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–201 · Structure, localization, and exact proof obligations</strong><p>정보를 보존하는 표현을 찾고, 유한 정보의 한계를 증명하고, 콜라츠 구조화 무한족을 전 반복수에서 배제하며, P2 채널의 Liouville 부호 의무를 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/derivative-mesh-three-run-chen-channels.ko.md">TICKET-200 한국어 보고서</a>
-          <a href="../docs/derivative-mesh-three-run-chen-channels.md">TICKET-200 English report</a>
+          <a href="../docs/finite-information-allrun-liouville-parity.ko.md">TICKET-201 한국어 보고서</a>
+          <a href="../docs/finite-information-allrun-liouville-parity.md">TICKET-201 English report</a>
+          <a href="../docs/derivative-mesh-three-run-chen-channels.ko.md">TICKET-200 이전 보고서</a>
           <a href="../docs/symmetric-sampling-two-run-squarefree-filter.ko.md">TICKET-199 이전 보고서</a>
           <a href="../docs/verified-height-primitive-word-quantifier-strength.ko.md">TICKET-198 이전 보고서</a>
           <a href="../docs/first-rectangle-run-block-sparse-collision.ko.md">TICKET-197 이전 보고서</a>
@@ -139,7 +140,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260810-ticket200"></script>
+    <script src="../assets/i18n.js?v=20260810-ticket201"></script>
   </body>
 </html>
 

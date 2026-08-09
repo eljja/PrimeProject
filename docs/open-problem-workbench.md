@@ -15,28 +15,34 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-200
+## Current research boundary: TICKET-201
 
 The current machine-readable boundary is
-`data/open-problem/ticket200-derivative-mesh-three-run-chen-channels.json`.
+`data/open-problem/ticket201-finite-information-allrun-liouville-parity.json`.
 
-TICKET-200 records four exact partial theorems and zero conjecture resolutions:
+TICKET-201 records four exact partial theorems and zero conjecture resolutions:
 
-- a derivative-controlled boundary mesh propagates a strict Rouché margin, but
-  no Xi-specific interval enclosure has been supplied;
-- the explicit primitive Collatz family `1^k2^(2k)(12^2)^2` and every cyclic
-  rotation fail affine divisibility for every `k>=2`;
-- the explicit Chen Goldbach theorem splits into prime-prime and
-  prime-composite-semiprime channels, leaving the semiprime-only channel open;
-- Chen's prime-plus-`P2` infinitude splits into twin and
-  prime-composite-semiprime channels, leaving the parity-breaking twin channel
-  open.
+- fixed compact finite jets cannot force a global real-zero property in the
+  ambient real-even entire-function class;
+- the explicit primitive Collatz family `1^k2^(2k)(12^2)^(r-1)` and every
+  cyclic rotation fail affine divisibility for all `r,k>=2`;
+- exact Goldbach P2 projectors satisfy `R=(C-L)/2`, reclassifying the previous
+  semiprime-elimination target as conjecture-equivalent on Chen-positive inputs;
+- exact Twin P2 projectors satisfy `T=(C2-L2)/2`, reclassifying the previous
+  infinitely-many-block target as the Twin Prime conjecture in dyadic language.
 
-The Chen theorems are imported rather than reproved. The elementary channel
-identities are not claimed as new Chen-strength number-theory theorems.
+The Liouville projectors are elementary identities and are not claimed as new
+sieve theorems. Finite rows are regression evidence only.
 
-English report: [TICKET-200](derivative-mesh-three-run-chen-channels.md).
-한국어 보고서: [TICKET-200](derivative-mesh-three-run-chen-channels.ko.md).
+English report: [TICKET-201](finite-information-allrun-liouville-parity.md).
+한국어 보고서: [TICKET-201](finite-information-allrun-liouville-parity.ko.md).
+
+## Preserved research boundary: TICKET-200
+
+TICKET-200 remains available in
+[English](derivative-mesh-three-run-chen-channels.md) and
+[한국어](derivative-mesh-three-run-chen-channels.ko.md). TICKET-201 corrects its
+fixed-compact RH route and reclassifies its Goldbach/Twin next lemmas.
 
 ## Preserved research boundary: TICKET-199
 

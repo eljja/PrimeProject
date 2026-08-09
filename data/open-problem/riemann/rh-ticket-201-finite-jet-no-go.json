@@ -1,0 +1,243 @@
+{
+  "schema": "primeproject.ticket201-finite-information-allrun-liouville-parity.v1",
+  "generated_at": "2026-08-10T18:00:00+09:00",
+  "ticket_id": "RH-TICKET-201",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteCompactJetDataCannotForceGlobalRealZeroProperty",
+  "declared_proposition": "Let F be a real-even entire function, let R>0, M>=0, epsilon>0, and choose A>R with F(iA) nonzero. For all sufficiently large N, G_N(z)=F(z)-F(iA)z^(2N)/(iA)^(2N) is real-even and entire, has zeros at z=plus-or-minus iA, and satisfies max over |z|<=R and 0<=j<=M of |G_N^(j)(z)-F^(j)(z)|<epsilon. Consequently no fixed compact set of finite-order jet data can force all zeros to be real within the class of real-even entire functions: if F has only real zeros, the functions G_N provide arbitrarily close finite-jet data while having non-real zeros.",
+  "mathematical_argument": "The coefficient -F(iA)/(iA)^(2N) is real because F(iA) is real for a real-even entire F. Substitution gives G_N(iA)=0 and evenness gives G_N(-iA)=0. For |z|<=R, the j-th derivative of the perturbation is bounded by |F(iA)|(2N)_j R^(2N-j)/A^(2N). For every fixed j this tends to zero because R/A<1; taking the maximum over finitely many j proves the assertion. Adding a polynomial also preserves entire order at most one when F has order at most one, but it need not preserve Xi's arithmetic gamma-zeta structure.",
+  "reproducible_computation": {
+    "theorem": "Let F be a real-even entire function, let R>0, M>=0, epsilon>0, and choose A>R with F(iA) nonzero. For all sufficiently large N, G_N(z)=F(z)-F(iA)z^(2N)/(iA)^(2N) is real-even and entire, has zeros at z=plus-or-minus iA, and satisfies max over |z|<=R and 0<=j<=M of |G_N^(j)(z)-F^(j)(z)|<epsilon. Consequently no fixed compact set of finite-order jet data can force all zeros to be real within the class of real-even entire functions: if F has only real zeros, the functions G_N provide arbitrarily close finite-jet data while having non-real zeros.",
+    "proof": "The coefficient -F(iA)/(iA)^(2N) is real because F(iA) is real for a real-even entire F. Substitution gives G_N(iA)=0 and evenness gives G_N(-iA)=0. For |z|<=R, the j-th derivative of the perturbation is bounded by |F(iA)|(2N)_j R^(2N-j)/A^(2N). For every fixed j this tends to zero because R/A<1; taking the maximum over finitely many j proves the assertion. Adding a polynomial also preserves entire order at most one when F has order at most one, but it need not preserve Xi's arithmetic gamma-zeta structure.",
+    "exact_regression": {
+      "F": "z^2-1",
+      "F_has_only_real_zeros": true,
+      "F_real_zeros": [
+        -1,
+        1
+      ],
+      "compact_disk_radius_R": 5,
+      "off_real_axis_height_A": 10,
+      "jet_order_M": 2,
+      "epsilon": "1/100",
+      "rows": [
+        {
+          "N": 2,
+          "perturbation_degree": 4,
+          "coefficient_c_N": "101/10000",
+          "jet_bounds_j_0_to_2": [
+            "101/16",
+            "101/20",
+            "303/100"
+          ],
+          "maximum_jet_bound": "101/16",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 3,
+          "perturbation_degree": 6,
+          "coefficient_c_N": "-101/1000000",
+          "jet_bounds_j_0_to_2": [
+            "101/64",
+            "303/160",
+            "303/160"
+          ],
+          "maximum_jet_bound": "303/160",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 4,
+          "perturbation_degree": 8,
+          "coefficient_c_N": "101/100000000",
+          "jet_bounds_j_0_to_2": [
+            "101/256",
+            "101/160",
+            "707/800"
+          ],
+          "maximum_jet_bound": "707/800",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 5,
+          "perturbation_degree": 10,
+          "coefficient_c_N": "-101/10000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/1024",
+            "101/512",
+            "909/2560"
+          ],
+          "maximum_jet_bound": "909/2560",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 6,
+          "perturbation_degree": 12,
+          "coefficient_c_N": "101/1000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/4096",
+            "303/5120",
+            "3333/25600"
+          ],
+          "maximum_jet_bound": "3333/25600",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 7,
+          "perturbation_degree": 14,
+          "coefficient_c_N": "-101/100000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/16384",
+            "707/40960",
+            "9191/204800"
+          ],
+          "maximum_jet_bound": "9191/204800",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 8,
+          "perturbation_degree": 16,
+          "coefficient_c_N": "101/10000000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/65536",
+            "101/20480",
+            "303/20480"
+          ],
+          "maximum_jet_bound": "303/20480",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 9,
+          "perturbation_degree": 18,
+          "coefficient_c_N": "-101/1000000000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/262144",
+            "909/655360",
+            "15453/3276800"
+          ],
+          "maximum_jet_bound": "15453/3276800",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 10,
+          "perturbation_degree": 20,
+          "coefficient_c_N": "101/100000000000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/1048576",
+            "101/262144",
+            "1919/1310720"
+          ],
+          "maximum_jet_bound": "1919/1310720",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 11,
+          "perturbation_degree": 22,
+          "coefficient_c_N": "-101/10000000000000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/4194304",
+            "1111/10485760",
+            "23331/52428800"
+          ],
+          "maximum_jet_bound": "23331/52428800",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 12,
+          "perturbation_degree": 24,
+          "coefficient_c_N": "101/1000000000000000000000000",
+          "jet_bounds_j_0_to_2": [
+            "101/16777216",
+            "303/10485760",
+            "6969/52428800"
+          ],
+          "maximum_jet_bound": "6969/52428800",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "G_N_iA_is_zero_exactly": true
+        }
+      ],
+      "first_certifying_N": 9
+    },
+    "aggregate": {
+      "finite_compact_jet_no_go_proved": true,
+      "real_even_symmetry_preserved": true,
+      "entire_order_at_most_one_preserved_when_applicable": true,
+      "xi_euler_product_or_gamma_structure_preserved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This theorem refutes a proof strategy, not RH. It shows that a single compact Xi approximation, even with finitely many certified derivatives, cannot by itself imply the global real-zero property unless Xi-specific global arithmetic structure is also used.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating one fixed compact Xi jet certificate as a bridge to the global Riemann Hypothesis",
+  "remaining_gap": "The perturbation does not preserve Xi's Euler-product and gamma-factor structure, so it rules out only finite local-data proofs that omit such global arithmetic information.",
+  "candidate_theorem": "CofinalXiRectangleRoucheMarginFromCompletedZetaStructure",
+  "claim_boundary": "No RH proof or counterexample. TICKET-201 proves a strategy no-go in a symmetry-preserving entire-function class; it does not construct an off-line zero of Xi.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T200",
+        "label": "DerivativeControlledBoundaryMeshRoucheCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T201",
+        "label": "FiniteCompactJetDataCannotForceGlobalRealZeroProperty",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N201",
+        "label": "OneFixedD3XiJetCertificateImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN201",
+        "label": "CofinalXiRectangleRoucheMarginFromCompletedZetaStructure",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RH",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T200",
+        "RH-T201"
+      ],
+      [
+        "RH-T201",
+        "RH-N201"
+      ],
+      [
+        "RH-T201",
+        "RH-OPEN201"
+      ],
+      [
+        "RH-OPEN201",
+        "RH"
+      ]
+    ]
+  }
+}

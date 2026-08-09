@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-200 proves the derivative-mesh bridge, excludes the next explicit Collatz family, and separates Chen's prime and composite-semiprime channels.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-200은 도함수 경계 격자 전달 정리를 증명하고, 명시적 콜라츠 세-run 무한족을 배제하며, Chen 결과를 소수 채널과 합성 반소수 채널로 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-201 proves a finite-information no-go, closes every repetition count of one Collatz family, and exposes the exact Liouville parity obligations for Goldbach and Twin Prime.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-201은 유한 정보 no-go를 증명하고, 하나의 콜라츠 단어족을 모든 반복수에서 배제하며, 골드바흐와 쌍둥이 소수의 Liouville 패리티 의무를 정확히 분리합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

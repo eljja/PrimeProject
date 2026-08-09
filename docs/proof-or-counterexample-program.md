@@ -37,6 +37,29 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-10 TICKET-201 Finite Information, All-Run Collatz, and Liouville Parity
+
+TICKET-201 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial results:
+
+1. fixed compact finite-order jet data cannot force a global real-zero
+   property in the ambient real-even entire-function class;
+2. every `r,k>=2` and cyclic rotation in the Collatz family
+   `1^k2^(2k)(12^2)^(r-1)` fails affine divisibility by one exact identity;
+3. `R=(C-L)/2` exactly projects the Goldbach prime channel inside P2 support,
+   proving that the previous semiprime-elimination target was
+   conjecture-equivalent on Chen-positive inputs;
+4. `T=(C2-L2)/2` exactly projects the Twin channel in dyadic blocks, proving
+   that the previous infinitely-many-positive-block target was the Twin Prime
+   conjecture in dyadic language.
+
+The finite rows check implementation consistency only. No global Liouville
+defect, cofinal Xi certificate, arbitrary Collatz-word obstruction, or
+conjecture resolution is claimed. The machine resolution count remains zero.
+
+English report: [TICKET-201](finite-information-allrun-liouville-parity.md).
+한국어 보고서: [TICKET-201](finite-information-allrun-liouville-parity.ko.md).
+
 ## 2026-08-10 TICKET-200 Derivative Meshes, Three-Run Obstruction, and Chen Channels
 
 TICKET-200 keeps all four parent conjectures at `open_not_proven` and proves

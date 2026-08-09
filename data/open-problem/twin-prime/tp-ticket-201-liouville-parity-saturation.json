@@ -1,0 +1,260 @@
+{
+  "schema": "primeproject.ticket201-finite-information-allrun-liouville-parity.v1",
+  "generated_at": "2026-08-10T18:00:00+09:00",
+  "ticket_id": "TP-TICKET-201",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "TwinP2LiouvilleParitySaturationEquivalence",
+  "declared_proposition": "For a dyadic block [X,2X), let C2(X)=sum J(p+2) and L2(X)=sum J(p+2)lambda(p+2) over primes p in the block. If T(X) and S(X) are the twin and composite-semiprime channels, then T=(C2-L2)/2 and S=(C2+L2)/2 exactly. Thus a Chen-positive block contains a twin iff L2<C2, and infinitely many twin primes exist iff this strict inequality holds on infinitely many dyadic blocks. The TICKET-200 next lemma is therefore equivalent to the Twin Prime conjecture, not a proper intermediate lemma.",
+  "mathematical_argument": "The same P2 Liouville projectors give C2=T+S and L2=S-T, so C2-L2=2T. A finite dyadic block is twin-positive exactly when L2<C2. Infinitely many twin primes meet infinitely many dyadic blocks, and conversely one twin-positive start in infinitely many blocks gives infinitely many distinct twin primes.",
+  "reproducible_computation": {
+    "theorem": "For a dyadic block [X,2X), let C2(X)=sum J(p+2) and L2(X)=sum J(p+2)lambda(p+2) over primes p in the block. If T(X) and S(X) are the twin and composite-semiprime channels, then T=(C2-L2)/2 and S=(C2+L2)/2 exactly. Thus a Chen-positive block contains a twin iff L2<C2, and infinitely many twin primes exist iff this strict inequality holds on infinitely many dyadic blocks. The TICKET-200 next lemma is therefore equivalent to the Twin Prime conjecture, not a proper intermediate lemma.",
+    "proof": "The same P2 Liouville projectors give C2=T+S and L2=S-T, so C2-L2=2T. A finite dyadic block is twin-positive exactly when L2<C2. Infinitely many twin primes meet infinitely many dyadic blocks, and conversely one twin-positive start in infinitely many blocks gives infinitely many distinct twin primes.",
+    "exact_finite_rows": [
+      {
+        "block": [
+          1024,
+          2048
+        ],
+        "twin_channel_T": 26,
+        "composite_semiprime_channel_S": 47,
+        "P2_channel_C2": 73,
+        "liouville_signed_channel_L2": 21,
+        "C2_minus_L2": 52,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "21/73",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          2048,
+          4096
+        ],
+        "twin_channel_T": 45,
+        "composite_semiprime_channel_S": 90,
+        "P2_channel_C2": 135,
+        "liouville_signed_channel_L2": 45,
+        "C2_minus_L2": 90,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "1/3",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          4096,
+          8192
+        ],
+        "twin_channel_T": 70,
+        "composite_semiprime_channel_S": 157,
+        "P2_channel_C2": 227,
+        "liouville_signed_channel_L2": 87,
+        "C2_minus_L2": 140,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "87/227",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          8192,
+          16384
+        ],
+        "twin_channel_T": 113,
+        "composite_semiprime_channel_S": 290,
+        "P2_channel_C2": 403,
+        "liouville_signed_channel_L2": 177,
+        "C2_minus_L2": 226,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "177/403",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          16384,
+          32768
+        ],
+        "twin_channel_T": 215,
+        "composite_semiprime_channel_S": 498,
+        "P2_channel_C2": 713,
+        "liouville_signed_channel_L2": 283,
+        "C2_minus_L2": 430,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "283/713",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          32768,
+          65536
+        ],
+        "twin_channel_T": 355,
+        "composite_semiprime_channel_S": 969,
+        "P2_channel_C2": 1324,
+        "liouville_signed_channel_L2": 614,
+        "C2_minus_L2": 710,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "307/662",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          65536,
+          131072
+        ],
+        "twin_channel_T": 666,
+        "composite_semiprime_channel_S": 1629,
+        "P2_channel_C2": 2295,
+        "liouville_signed_channel_L2": 963,
+        "C2_minus_L2": 1332,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "107/255",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          131072,
+          262144
+        ],
+        "twin_channel_T": 1153,
+        "composite_semiprime_channel_S": 3060,
+        "P2_channel_C2": 4213,
+        "liouville_signed_channel_L2": 1907,
+        "C2_minus_L2": 2306,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "1907/4213",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          262144,
+          524288
+        ],
+        "twin_channel_T": 2071,
+        "composite_semiprime_channel_S": 5613,
+        "P2_channel_C2": 7684,
+        "liouville_signed_channel_L2": 3542,
+        "C2_minus_L2": 4142,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "1771/3842",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          524288,
+          1048576
+        ],
+        "twin_channel_T": 3785,
+        "composite_semiprime_channel_S": 10263,
+        "P2_channel_C2": 14048,
+        "liouville_signed_channel_L2": 6478,
+        "C2_minus_L2": 7570,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "3239/7024",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          1048576,
+          2097152
+        ],
+        "twin_channel_T": 6965,
+        "composite_semiprime_channel_S": 18925,
+        "P2_channel_C2": 25890,
+        "liouville_signed_channel_L2": 11960,
+        "C2_minus_L2": 13930,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "1196/2589",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          2097152,
+          4194304
+        ],
+        "twin_channel_T": 12495,
+        "composite_semiprime_channel_S": 35173,
+        "P2_channel_C2": 47668,
+        "liouville_signed_channel_L2": 22678,
+        "C2_minus_L2": 24990,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "667/1402",
+        "semiprime_only_saturation_L2_equals_C2": false
+      },
+      {
+        "block": [
+          4194304,
+          8388608
+        ],
+        "twin_channel_T": 22643,
+        "composite_semiprime_channel_S": 65808,
+        "P2_channel_C2": 88451,
+        "liouville_signed_channel_L2": 43165,
+        "C2_minus_L2": 45286,
+        "T_equals_C2_minus_L2_over_2": true,
+        "liouville_ratio_L2_over_C2": "43165/88451",
+        "semiprime_only_saturation_L2_equals_C2": false
+      }
+    ],
+    "aggregate": {
+      "finite_block_count": 13,
+      "largest_block_upper": 8388608,
+      "projector_identity_proved": true,
+      "ticket200_next_lemma_is_twin_prime_equivalent": true,
+      "finite_saturation_count": 0,
+      "infinitely_many_strict_liouville_defect_blocks_proved": false,
+      "twin_prime_resolved": false
+    },
+    "no_go_scope": "Chen-positive block counts are unsigned support information. They do not control the Liouville sign needed to distinguish one prime factor from two, and finite strict-defect blocks prove no infinitude.",
+    "failure_count": 0
+  },
+  "discarded_route": "calling twin positivity on infinitely many Chen-positive blocks a proper intermediate lemma",
+  "remaining_gap": "The block identity is exact but gives no signed cancellation on infinitely many unbounded blocks.",
+  "candidate_theorem": "UniformRelativeLiouvilleParityDefectOnInfinitelyManyChenDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof or counterexample. The exact identity shows that TICKET-200's open target was the conjecture in dyadic language; the new target exposes the required signed parity-breaking estimate.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T200",
+        "label": "ChenTwinPrimeSemiprimeChannelReduction",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T201",
+        "label": "TwinP2LiouvilleParitySaturationEquivalence",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N201",
+        "label": "InfinitelyManyTwinPositiveChenBlocksIsAProperSublemma",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN201",
+        "label": "UniformRelativeLiouvilleParityDefectOnInfinitelyManyChenDyadicBlocks",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TP",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T200",
+        "TP-T201"
+      ],
+      [
+        "TP-T201",
+        "TP-N201"
+      ],
+      [
+        "TP-T201",
+        "TP-OPEN201"
+      ],
+      [
+        "TP-OPEN201",
+        "TP"
+      ]
+    ]
+  }
+}

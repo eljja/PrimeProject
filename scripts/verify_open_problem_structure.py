@@ -199,6 +199,7 @@ TICKET197_SCHEMA = "primeproject.ticket197-first-rectangle-run-block-sparse-coll
 TICKET198_SCHEMA = "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1"
 TICKET199_SCHEMA = "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1"
 TICKET200_SCHEMA = "primeproject.ticket200-derivative-mesh-three-run-chen-channels.v1"
+TICKET201_SCHEMA = "primeproject.ticket201-finite-information-allrun-liouville-parity.v1"
 
 
 def fail(message: str) -> int:
@@ -15623,6 +15624,167 @@ def main() -> int:
         or "resolves none" not in str(ticket200.get("claim_boundary", "")).lower()
     ):
         return fail("ticket200 proof boundary changed")
+
+    path201 = Path(
+        "data/open-problem/ticket201-finite-information-allrun-liouville-parity.json"
+    )
+    if not path201.exists():
+        return fail("missing ticket201 finite-information/all-run/Liouville audit")
+    ticket201 = read_json(path201)
+    if (
+        ticket201.get("schema") != TICKET201_SCHEMA
+        or ticket201.get("status") != "open_not_proven"
+    ):
+        return fail("ticket201 schema or status changed")
+    audit201 = ticket201.get(
+        "finite_information_allrun_liouville_parity_audit", {}
+    )
+    machine201 = audit201.get("machine_audit", {})
+    if (
+        machine201.get("exact_partial_theorem_count") != 4
+        or machine201.get("riemann_exact_jet_regression_count") != 11
+        or machine201.get("collatz_symbolic_parameter_dimension") != 2
+        or machine201.get("collatz_exact_regression_word_count") != 225
+        or machine201.get("goldbach_exact_channel_row_count") != 16
+        or machine201.get("twin_exact_channel_row_count") != 13
+        or machine201.get(
+            "previous_next_lemmas_reclassified_as_equivalent_count"
+        )
+        != 2
+        or machine201.get("proof_dag_count") != 4
+        or machine201.get("conjecture_resolution_count") != 0
+        or machine201.get("total_failure_count") != 0
+    ):
+        return fail("ticket201 global machine audit changed")
+
+    attempts201 = {
+        row.get("problem_id"): row for row in ticket201.get("attempts", [])
+    }
+    if set(attempts201) != EXPECTED_PROBLEMS:
+        return fail("ticket201 attempts missing problems")
+    track_paths201 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-201-finite-jet-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-201-all-run-pair-obstruction.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-201-liouville-parity-saturation.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-201-liouville-parity-saturation.json"
+        ),
+    }
+    theorem_names201 = {
+        "riemann": "FiniteCompactJetDataCannotForceGlobalRealZeroProperty",
+        "collatz": "AllRunPairPrimitiveFamilyAffineDivisibilityObstruction",
+        "goldbach": "GoldbachP2LiouvilleParitySaturationEquivalence",
+        "twin-prime": "TwinP2LiouvilleParitySaturationEquivalence",
+    }
+    for problem_id, track_path in track_paths201.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket201 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts201[problem_id]
+        if (
+            track.get("schema") != TICKET201_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names201[problem_id]
+            or attempt.get("new_result") != theorem_names201[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+            != 1
+        ):
+            return fail(f"{problem_id}: ticket201 contract changed")
+
+    rh201 = audit201.get("riemann", {}).get("reproducible_computation", {})
+    if (
+        rh201.get("exact_regression", {}).get("first_certifying_N") != 9
+        or rh201.get("aggregate", {}).get("finite_compact_jet_no_go_proved")
+        is not True
+        or rh201.get("aggregate", {}).get(
+            "xi_euler_product_or_gamma_structure_preserved"
+        )
+        is not False
+        or rh201.get("aggregate", {}).get("riemann_hypothesis_resolved")
+        is not False
+    ):
+        return fail("ticket201 RH finite-information boundary changed")
+
+    collatz201 = audit201.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        collatz201.get("aggregate", {}).get(
+            "all_run_pair_counts_covered_symbolically"
+        )
+        is not True
+        or collatz201.get("aggregate", {}).get("all_scales_covered_symbolically")
+        is not True
+        or collatz201.get("aggregate", {}).get(
+            "cyclic_rotations_covered_symbolically"
+        )
+        is not True
+        or collatz201.get("aggregate", {}).get("arbitrary_valuation_words_covered")
+        is not False
+        or any(
+            row.get("master_identity_holds_exactly") is not True
+            or row.get("zero_less_than_F_k_less_than_D") is not True
+            or row.get("gcd_D_with_2_times_27n") != 1
+            or row.get("affine_divisibility_hit") is not False
+            or row.get("cyclic_rotation_divisibility_hit_count") != 0
+            for row in collatz201.get("exact_regression_rows", [])
+        )
+    ):
+        return fail("ticket201 Collatz all-run obstruction changed")
+
+    goldbach201 = audit201.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        goldbach201.get("aggregate", {}).get("projector_identity_proved")
+        is not True
+        or goldbach201.get("aggregate", {}).get(
+            "ticket200_next_lemma_is_goldbach_equivalent_given_chen_positivity"
+        )
+        is not True
+        or goldbach201.get("aggregate", {}).get(
+            "global_strict_liouville_defect_proved"
+        )
+        is not False
+        or goldbach201.get("aggregate", {}).get("goldbach_resolved") is not False
+    ):
+        return fail("ticket201 Goldbach Liouville boundary changed")
+
+    twin201 = audit201.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        twin201.get("aggregate", {}).get("projector_identity_proved") is not True
+        or twin201.get("aggregate", {}).get(
+            "ticket200_next_lemma_is_twin_prime_equivalent"
+        )
+        is not True
+        or twin201.get("aggregate", {}).get(
+            "infinitely_many_strict_liouville_defect_blocks_proved"
+        )
+        is not False
+        or twin201.get("aggregate", {}).get("twin_prime_resolved") is not False
+    ):
+        return fail("ticket201 Twin Liouville boundary changed")
+
+    if (
+        "resolves none" not in str(audit201.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket201.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket201 proof boundary changed")
 
     print("open problem structure verified")
     return 0
