@@ -3643,6 +3643,7 @@ async function main() {
     ["panel", metrics.evolutionPanel, "TICKET-149"],
     ["panel", metrics.evolutionPanel, "Open-Proof"],
     ["panel", metrics.evolutionPanel, "99%"],
+    ["panel", metrics.evolutionPanel, "fixed-compact finite-jet no-go"],
     ["panel", metrics.evolutionPanel, "Form-core topology"],
     ["panel", metrics.evolutionPanel, "TICKET-57"],
     ["panel", metrics.evolutionPanel, "TICKET-58"],
@@ -3793,6 +3794,8 @@ async function main() {
     !metrics.evolutionPanel.includes("0 conjecture resolutions") ||
     !metrics.evolutionPanel.includes("Open-Proof") ||
     !metrics.evolutionPanel.includes("99%") ||
+    !metrics.evolutionPanel.includes("fixed-compact finite-jet no-go") ||
+    metrics.evolutionPanel.includes("TICKET200 proves four exact partial theorems") ||
     !metrics.evolutionPanel.includes("Form-core topology") ||
     !metrics.evolutionPanel.includes("TICKET-57") ||
     !metrics.evolutionPanel.includes("TICKET-58") ||
