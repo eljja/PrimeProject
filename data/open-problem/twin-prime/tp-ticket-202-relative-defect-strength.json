@@ -1,0 +1,547 @@
+{
+  "schema": "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1",
+  "generated_at": "2026-08-10T21:30:00+09:00",
+  "ticket_id": "TP-TICKET-202",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "RelativeChenDefectQuantitativeTwinStrengthCalibration",
+  "declared_proposition": "For every dyadic block, delta_X=1-L2(X)/C2(X)=2T(X)/C2(X) exactly. Therefore, if C2(X)>=a X/(log_2 X)^2 and delta_X>=d>0 on infinitely many blocks, then T(X)>=ad X/(2(log_2 X)^2) on those blocks. A fixed relative defect plus Chen-order mass is a Hardy-Littlewood-order quantitative Twin lower bound, strictly stronger than mere Twin infinitude. Channel algebra alone cannot derive it: the exact abstract model T=1, C2=floor(X/log_2^2 X), L2=C2-2 is twin-positive on every block while delta_X tends to zero.",
+  "mathematical_argument": "The projector identity gives C2-L2=2T, so division by C2 proves delta_X=2T/C2. Multiplying a Chen-mass lower bound by d/2 gives the stated twin lower bound. In the abstract model, C2-L2=2 and T=1 exactly on every block, but delta_X=2/C2 tends to zero as C2 grows. Thus infinitude and a fixed relative defect are not equivalent consequences of the channel identities.",
+  "reproducible_computation": {
+    "theorem": "For every dyadic block, delta_X=1-L2(X)/C2(X)=2T(X)/C2(X) exactly. Therefore, if C2(X)>=a X/(log_2 X)^2 and delta_X>=d>0 on infinitely many blocks, then T(X)>=ad X/(2(log_2 X)^2) on those blocks. A fixed relative defect plus Chen-order mass is a Hardy-Littlewood-order quantitative Twin lower bound, strictly stronger than mere Twin infinitude. Channel algebra alone cannot derive it: the exact abstract model T=1, C2=floor(X/log_2^2 X), L2=C2-2 is twin-positive on every block while delta_X tends to zero.",
+    "proof": "The projector identity gives C2-L2=2T, so division by C2 proves delta_X=2T/C2. Multiplying a Chen-mass lower bound by d/2 gives the stated twin lower bound. In the abstract model, C2-L2=2 and T=1 exactly on every block, but delta_X=2/C2 tends to zero as C2 grows. Thus infinitude and a fixed relative defect are not equivalent consequences of the channel identities.",
+    "exact_finite_rows": [
+      {
+        "block_X_to_2X": [
+          1024,
+          2048
+        ],
+        "log2_X": 10,
+        "twin_channel_T": 26,
+        "composite_semiprime_channel_S": 47,
+        "P2_channel_C2": 73,
+        "liouville_signed_channel_L2": 21,
+        "relative_defect_delta_X": "52/73",
+        "normalized_C2_log2sq_over_X": "1825/256",
+        "normalized_T_log2sq_over_X": "325/128",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          2048,
+          4096
+        ],
+        "log2_X": 11,
+        "twin_channel_T": 45,
+        "composite_semiprime_channel_S": 90,
+        "P2_channel_C2": 135,
+        "liouville_signed_channel_L2": 45,
+        "relative_defect_delta_X": "2/3",
+        "normalized_C2_log2sq_over_X": "16335/2048",
+        "normalized_T_log2sq_over_X": "5445/2048",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          4096,
+          8192
+        ],
+        "log2_X": 12,
+        "twin_channel_T": 70,
+        "composite_semiprime_channel_S": 157,
+        "P2_channel_C2": 227,
+        "liouville_signed_channel_L2": 87,
+        "relative_defect_delta_X": "140/227",
+        "normalized_C2_log2sq_over_X": "2043/256",
+        "normalized_T_log2sq_over_X": "315/128",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          8192,
+          16384
+        ],
+        "log2_X": 13,
+        "twin_channel_T": 113,
+        "composite_semiprime_channel_S": 290,
+        "P2_channel_C2": 403,
+        "liouville_signed_channel_L2": 177,
+        "relative_defect_delta_X": "226/403",
+        "normalized_C2_log2sq_over_X": "68107/8192",
+        "normalized_T_log2sq_over_X": "19097/8192",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          16384,
+          32768
+        ],
+        "log2_X": 14,
+        "twin_channel_T": 215,
+        "composite_semiprime_channel_S": 498,
+        "P2_channel_C2": 713,
+        "liouville_signed_channel_L2": 283,
+        "relative_defect_delta_X": "430/713",
+        "normalized_C2_log2sq_over_X": "34937/4096",
+        "normalized_T_log2sq_over_X": "10535/4096",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          32768,
+          65536
+        ],
+        "log2_X": 15,
+        "twin_channel_T": 355,
+        "composite_semiprime_channel_S": 969,
+        "P2_channel_C2": 1324,
+        "liouville_signed_channel_L2": 614,
+        "relative_defect_delta_X": "355/662",
+        "normalized_C2_log2sq_over_X": "74475/8192",
+        "normalized_T_log2sq_over_X": "79875/32768",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          65536,
+          131072
+        ],
+        "log2_X": 16,
+        "twin_channel_T": 666,
+        "composite_semiprime_channel_S": 1629,
+        "P2_channel_C2": 2295,
+        "liouville_signed_channel_L2": 963,
+        "relative_defect_delta_X": "148/255",
+        "normalized_C2_log2sq_over_X": "2295/256",
+        "normalized_T_log2sq_over_X": "333/128",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          131072,
+          262144
+        ],
+        "log2_X": 17,
+        "twin_channel_T": 1153,
+        "composite_semiprime_channel_S": 3060,
+        "P2_channel_C2": 4213,
+        "liouville_signed_channel_L2": 1907,
+        "relative_defect_delta_X": "2306/4213",
+        "normalized_C2_log2sq_over_X": "1217557/131072",
+        "normalized_T_log2sq_over_X": "333217/131072",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          262144,
+          524288
+        ],
+        "log2_X": 18,
+        "twin_channel_T": 2071,
+        "composite_semiprime_channel_S": 5613,
+        "P2_channel_C2": 7684,
+        "liouville_signed_channel_L2": 3542,
+        "relative_defect_delta_X": "2071/3842",
+        "normalized_C2_log2sq_over_X": "155601/16384",
+        "normalized_T_log2sq_over_X": "167751/65536",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          524288,
+          1048576
+        ],
+        "log2_X": 19,
+        "twin_channel_T": 3785,
+        "composite_semiprime_channel_S": 10263,
+        "P2_channel_C2": 14048,
+        "liouville_signed_channel_L2": 6478,
+        "relative_defect_delta_X": "3785/7024",
+        "normalized_C2_log2sq_over_X": "158479/16384",
+        "normalized_T_log2sq_over_X": "1366385/524288",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          1048576,
+          2097152
+        ],
+        "log2_X": 20,
+        "twin_channel_T": 6965,
+        "composite_semiprime_channel_S": 18925,
+        "P2_channel_C2": 25890,
+        "liouville_signed_channel_L2": 11960,
+        "relative_defect_delta_X": "1393/2589",
+        "normalized_C2_log2sq_over_X": "323625/32768",
+        "normalized_T_log2sq_over_X": "174125/65536",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          2097152,
+          4194304
+        ],
+        "log2_X": 21,
+        "twin_channel_T": 12495,
+        "composite_semiprime_channel_S": 35173,
+        "P2_channel_C2": 47668,
+        "liouville_signed_channel_L2": 22678,
+        "relative_defect_delta_X": "735/1402",
+        "normalized_C2_log2sq_over_X": "5255397/524288",
+        "normalized_T_log2sq_over_X": "5510295/2097152",
+        "normalized_transfer_identity": true
+      },
+      {
+        "block_X_to_2X": [
+          4194304,
+          8388608
+        ],
+        "log2_X": 22,
+        "twin_channel_T": 22643,
+        "composite_semiprime_channel_S": 65808,
+        "P2_channel_C2": 88451,
+        "liouville_signed_channel_L2": 43165,
+        "relative_defect_delta_X": "45286/88451",
+        "normalized_C2_log2sq_over_X": "10702571/1048576",
+        "normalized_T_log2sq_over_X": "2739803/1048576",
+        "normalized_transfer_identity": true
+      }
+    ],
+    "exact_abstract_countermodel_rows": [
+      {
+        "block_X_to_2X": [
+          1024,
+          2048
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 10,
+        "abstract_L2": 8,
+        "relative_defect_delta_X": "1/5",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          2048,
+          4096
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 16,
+        "abstract_L2": 14,
+        "relative_defect_delta_X": "1/8",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          4096,
+          8192
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 28,
+        "abstract_L2": 26,
+        "relative_defect_delta_X": "1/14",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          8192,
+          16384
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 48,
+        "abstract_L2": 46,
+        "relative_defect_delta_X": "1/24",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          16384,
+          32768
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 83,
+        "abstract_L2": 81,
+        "relative_defect_delta_X": "2/83",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          32768,
+          65536
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 145,
+        "abstract_L2": 143,
+        "relative_defect_delta_X": "2/145",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          65536,
+          131072
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 256,
+        "abstract_L2": 254,
+        "relative_defect_delta_X": "1/128",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          131072,
+          262144
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 453,
+        "abstract_L2": 451,
+        "relative_defect_delta_X": "2/453",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          262144,
+          524288
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 809,
+        "abstract_L2": 807,
+        "relative_defect_delta_X": "2/809",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          524288,
+          1048576
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 1452,
+        "abstract_L2": 1450,
+        "relative_defect_delta_X": "1/726",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          1048576,
+          2097152
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 2621,
+        "abstract_L2": 2619,
+        "relative_defect_delta_X": "2/2621",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          2097152,
+          4194304
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 4755,
+        "abstract_L2": 4753,
+        "relative_defect_delta_X": "2/4755",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          4194304,
+          8388608
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 8665,
+        "abstract_L2": 8663,
+        "relative_defect_delta_X": "2/8665",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          8388608,
+          16777216
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 15857,
+        "abstract_L2": 15855,
+        "relative_defect_delta_X": "2/15857",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          16777216,
+          33554432
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 29127,
+        "abstract_L2": 29125,
+        "relative_defect_delta_X": "2/29127",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          33554432,
+          67108864
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 53687,
+        "abstract_L2": 53685,
+        "relative_defect_delta_X": "2/53687",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          67108864,
+          134217728
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 99273,
+        "abstract_L2": 99271,
+        "relative_defect_delta_X": "2/99273",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          134217728,
+          268435456
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 184112,
+        "abstract_L2": 184110,
+        "relative_defect_delta_X": "1/92056",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          268435456,
+          536870912
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 342392,
+        "abstract_L2": 342390,
+        "relative_defect_delta_X": "1/171196",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          536870912,
+          1073741824
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 638372,
+        "abstract_L2": 638370,
+        "relative_defect_delta_X": "1/319186",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      },
+      {
+        "block_X_to_2X": [
+          1073741824,
+          2147483648
+        ],
+        "abstract_twin_count_T": 1,
+        "abstract_P2_channel_C2": 1193046,
+        "abstract_L2": 1193044,
+        "relative_defect_delta_X": "1/596523",
+        "twin_positive": true,
+        "C2_minus_L2_equals_2T": true,
+        "fixed_relative_defect_survives": false
+      }
+    ],
+    "aggregate": {
+      "finite_block_count": 13,
+      "abstract_countermodel_block_count": 21,
+      "normalized_transfer_identity_proved": true,
+      "fixed_relative_defect_is_stronger_than_infinitude": true,
+      "fixed_relative_defect_refuted_for_actual_twin_channels": false,
+      "twin_prime_resolved": false
+    },
+    "no_go_scope": "This is a theorem-strength calibration, not evidence that the actual Twin relative defect tends to zero. It discards treating a fixed defect as a modest intermediate lemma; a parity-sensitive switching estimate capable of an absolute positive prime-channel contribution is still missing.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a fixed relative Chen defect as a modest infinitude-level sublemma",
+  "remaining_gap": "The transfer identity proves no actual lower bound and the countermodel is logical channel data, not prime arithmetic.",
+  "candidate_theorem": "PrimeSemiprimeSeparatedChenSwitchingWeightWithPositivePrimeCoefficient",
+  "claim_boundary": "No Twin Prime proof or counterexample. The theorem calibrates the previous target and gives an abstract non-implication model.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T201",
+        "label": "TwinP2LiouvilleParitySaturationEquivalence",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T202",
+        "label": "RelativeChenDefectQuantitativeTwinStrengthCalibration",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N202",
+        "label": "FixedRelativeChenDefectIsOnlyAnInfinitudeLevelLemma",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN202",
+        "label": "PrimeSemiprimeSeparatedChenSwitchingWeightWithPositivePrimeCoefficient",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TP",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T201",
+        "TP-T202"
+      ],
+      [
+        "TP-T202",
+        "TP-N202"
+      ],
+      [
+        "TP-T202",
+        "TP-OPEN202"
+      ],
+      [
+        "TP-OPEN202",
+        "TP"
+      ]
+    ]
+  }
+}

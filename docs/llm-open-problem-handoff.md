@@ -62,38 +62,43 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-201
+## Latest Continuation After TICKET-202
 
-TICKET-201 is the current boundary. It resolves none of the four conjectures.
-It audits whether TICKET-200's open targets were genuine sublemmas:
+TICKET-202 is the current boundary. It resolves none of the four conjectures.
+It audits the strength and scalability of TICKET-201's open targets:
 
-1. **Riemann:** a real-even entire perturbation can insert off-real zeros while
-   approaching any fixed compact finite jet arbitrarily closely. A fixed `D3`
-   certificate therefore cannot imply global RH without Xi-specific global
-   arithmetic structure.
-2. **Collatz:** every `r,k>=2` in the primitive family
-   `1^k 2^(2k) (1 2^2)^(r-1)`, including every cyclic rotation, fails affine
-   divisibility. One master identity replaces fixed-`r` iteration.
-3. **Goldbach:** exact projectors give `R=(C-L)/2` and `S=(C+L)/2`. Eliminating
-   the semiprime-only Chen channel is Goldbach itself on Chen-positive inputs,
-   not a proper easier lemma. A quantitative Liouville defect is now the target.
-4. **Twin Prime:** `T=(C2-L2)/2` on every dyadic block. Twin positivity on
-   infinitely many Chen-positive blocks is exactly the conjecture in dyadic
-   language; the corrected target is a uniform relative Liouville defect on
-   infinitely many unbounded blocks.
+1. **Riemann:** the finite-information no-go persists after imposing finitely
+   many exact Hermite constraints. A valid route must use completed-zeta
+   arithmetic on a cofinal contour family and transfer exact zero counts.
+2. **Collatz:** every `r,k>=2`, `t>=0`, and cyclic rotation in
+   `1^k 2^(2k+t) (1 2^2)^(r-1)` fails affine divisibility. The surviving target
+   is a signed two-site valuation transfer rather than a one-sided long-run ray.
+3. **Goldbach:** the aggregate P2 relative Liouville defect tends to zero at
+   `O(1/log log X)`. A fixed pointwise defect is asymptotically mis-scaled; the
+   next target is a pointwise log-log-scaled defect.
+4. **Twin Prime:** a fixed relative defect plus Chen-order mass implies
+   `T(X) >> X/(log X)^2`, substantially more than infinitude. The next target is
+   a prime/semiprime-separated switching weight with positive prime coefficient.
 
 Canonical JSON:
 
 ```text
-data/open-problem/ticket201-finite-information-allrun-liouville-parity.json
+data/open-problem/ticket202-exact-hermite-deformation-parity-scale.json
 ```
 
-English report: [TICKET-201](finite-information-allrun-liouville-parity.md).
-Korean report: [TICKET-201 한국어](finite-information-allrun-liouville-parity.ko.md).
+English report: [TICKET-202](exact-hermite-deformation-parity-scale.md).
+Korean report: [TICKET-202 한국어](exact-hermite-deformation-parity-scale.ko.md).
 
-The Chen theorems are external inputs and are not reproved. The channel splits
-are exact project reductions, not full conjecture proofs or novelty-priority
-claims.
+The PNT, Landau semiprime asymptotic, and Chen-order context are external
+inputs and are not reproved. The finite channel rows are implementation
+regressions, not full conjecture proofs or novelty-priority claims.
+
+## Preserved Continuation After TICKET-201
+
+TICKET-201 remains the direct input to TICKET-202. It established the first
+finite-jet RH no-go, closed all run counts of one Collatz family, and exposed
+the exact Goldbach/Twin Liouville projectors. TICKET-202 does not erase those
+results; it strengthens or recalibrates their next open premises.
 
 ## Preserved Continuation After TICKET-200
 

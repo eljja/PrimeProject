@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket202AttemptGlobal = null;
 let ticket201AttemptGlobal = null;
 let ticket200AttemptGlobal = null;
 let ticket199AttemptGlobal = null;
@@ -9997,6 +9998,75 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket202ExactHermiteDeformationParityScale(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.exact_hermite_deformation_parity_scale_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = (computation.exact_regression?.rows || []).filter((row) => [2, 3, 4, 8, 12].includes(Number(row.N)));
+    detail = `
+      <div class="poc-equation">P(z)=(z²−1)³(z²−4)³, G<sub>N</sub>=F−F(iA)z<sup>2N</sup>P(z)/(iA)<sup>2N</sup>P(iA); exact Hermite data survive while G<sub>N</sub>(±iA)=0</div>
+      ${table(["N", "degree", "coefficient cN", "max jet bound", "Hermite exact", "off-axis zero"], rows.map((row) => [row.N, row.perturbation_degree, row.coefficient_c_N, row.maximum_jet_bound, row.all_hermite_constraints_preserved_exactly ? "yes" : "failed", row.G_N_iA_is_zero_exactly ? "exact" : "failed"]))}
+      <div class="poc-head"><div><span>First certifying N</span><strong>${computation.exact_regression?.first_certifying_N ?? "missing"}</strong></div><div><span>Exact Hermite no-go</span><strong>${aggregate.exact_finite_hermite_no_go_proved ? "proved" : "open"}</strong></div><div><span>Completed-zeta structure</span><strong>${aggregate.xi_completed_zeta_structure_preserved ? "preserved" : "not preserved"}</strong></div></div>
+      <p class="proof-note">유한한 정확 함수값·도함수와 콤팩트 jet 제어를 모두 결합해도 일반 실수-짝 entire 함수에서는 전역 실수영점을 강제하지 못합니다. Xi 자체의 반례가 아니라 유한정보 전략의 한계를 확정합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = (computation.exact_regression_rows || []).filter((row) => [[2, 2, 0], [4, 7, 3], [6, 6, 6], [10, 10, 8]].some(([r, k, t]) => r === Number(row.run_pair_count_r) && k === Number(row.scale_k) && t === Number(row.long_run_extension_t)));
+    detail = `
+      <div class="poc-equation">w=1<sup>k</sup>2<sup>2k+t</sup>(1&nbsp;2²)<sup>r−1</sup>; 5B−23D=2·27<sup>r−1</sup>E<sub>k,t</sub>, 0&lt;−E<sub>k,t</sub>&lt;D</div>
+      ${table(["r", "k", "t", "h", "exact identity", "gcd", "rotation hits"], rows.map((row) => [row.run_pair_count_r, row.scale_k, row.long_run_extension_t, row.horizon_h, row.master_identity_holds_exactly ? "yes" : "failed", row.gcd_D_with_2_times_27n, row.cyclic_rotation_divisibility_hit_count]))}
+      <div class="poc-head"><div><span>Symbolic parameters</span><strong>${audit.machine_audit?.collatz_symbolic_parameter_dimension ?? 0}</strong></div><div><span>Regression words</span><strong>${aggregate.regression_word_count || 0}</strong></div><div><span>Long-run ray</span><strong>${aggregate.all_nonnegative_long_run_extensions_covered_symbolically ? "excluded" : "open"}</strong></div></div>
+      <p class="proof-note"><code>t≥0</code>인 무한한 한쪽 변형 방향을 새 항등식으로 닫았습니다. 부호가 있는 두 위치 변형과 임의 valuation 단어는 포함하지 않습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = (computation.exact_finite_rows || []).filter((row, index, all) => index === 0 || index === all.length - 1 || [16384, 262144].includes(Number(row.target_block_X_to_2X?.[0])));
+    detail = `
+      <div class="poc-equation">C<sub>X</sub>−L<sub>X</sub>=2R<sub>X</sub>, R<sub>X</sub>/S<sub>X</sub>=O(1/log log X); therefore (C<sub>X</sub>−L<sub>X</sub>)/C<sub>X</sub>→0</div>
+      ${table(["dyadic target block", "prime-prime R", "semiprime S", "P2 total C", "relative defect"], rows.map((row) => [(row.target_block_X_to_2X || []).map((value) => formatter.format(value)).join(" – "), formatter.format(row.prime_prime_aggregate_R || 0), formatter.format(row.prime_composite_semiprime_aggregate_S || 0), formatter.format(row.P2_aggregate_C || 0), row.relative_defect_one_minus_L_over_C]))}
+      <div class="poc-head"><div><span>Exact aggregate rows</span><strong>${aggregate.finite_block_count || 0}</strong></div><div><span>Fixed relative defect</span><strong>${aggregate.fixed_positive_relative_defect_refuted_asymptotically ? "refuted" : "open"}</strong></div><div><span>Pointwise positivity</span><strong>${aggregate.pointwise_loglog_scaled_defect_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">Landau의 두 소인수 계수 점근식과 소수정리를 사용하면 전체 P2 채널의 고정 상대 결손은 합산 수준에서 0으로 희석됩니다. 이는 점별 골드바흐 표현을 만들지 않으며, 다음 목표의 척도를 <code>1/log log X</code> 수준으로 고칩니다.</p>
+    `;
+  } else {
+    const actualRows = computation.exact_finite_rows || [];
+    const modelRows = computation.exact_abstract_countermodel_rows || [];
+    const actual = actualRows[actualRows.length - 1] || {};
+    const model = modelRows[modelRows.length - 1] || {};
+    detail = `
+      <div class="poc-equation">δ<sub>X</sub>=1−L₂/C₂=2T/C₂; C₂≥aX/log₂²X and δ≥d imply T≥adX/(2log₂²X)</div>
+      ${table(["channel", "block", "twins T", "P2 total C2", "relative defect", "meaning"], [["actual finite", (actual.block_X_to_2X || []).map((value) => formatter.format(value)).join(" – "), formatter.format(actual.twin_channel_T || 0), formatter.format(actual.P2_channel_C2 || 0), actual.relative_defect_delta_X || "missing", "finite evidence"], ["abstract model", (model.block_X_to_2X || []).map((value) => formatter.format(value)).join(" – "), model.abstract_twin_count_T ?? "missing", formatter.format(model.abstract_P2_channel_C2 || 0), model.relative_defect_delta_X || "missing", "logical non-implication"]])}
+      <div class="poc-head"><div><span>Exact actual blocks</span><strong>${aggregate.finite_block_count || 0}</strong></div><div><span>Abstract model blocks</span><strong>${aggregate.abstract_countermodel_block_count || 0}</strong></div><div><span>Fixed defect strength</span><strong>${aggregate.fixed_relative_defect_is_stronger_than_infinitude ? "quantitative" : "open"}</strong></div></div>
+      <p class="proof-note">고정 상대 결손은 쌍둥이 소수의 무한성보다 훨씬 강한 Hardy-Littlewood 차수 하한입니다. <code>T=1</code>인 추상 채널 반모델은 그 비함을 보일 뿐 실제 소수의 반례가 아닙니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket202-exact-hermite-deformation-parity-scale" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 202 exact Hermite data, long-run deformations, and parity scale</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial theorems; all conjectures open</strong></div><div><span>Exact partial theorems</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET202 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기·재조정</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/exact-hermite-deformation-parity-scale.ko.md">한국어 보고서</a> · <a href="../docs/exact-hermite-deformation-parity-scale.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket201FiniteInformationAllRunLiouvilleParity(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.finite_information_allrun_liouville_parity_audit || {};
@@ -15475,7 +15545,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket201FiniteInformationAllRunLiouvilleParity(ticket201AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket202ExactHermiteDeformationParityScale(ticket202AttemptGlobal) ||
+      renderTicket201FiniteInformationAllRunLiouvilleParity(ticket201AttemptGlobal) ||
       renderTicket200DerivativeMeshThreeRunChenChannels(ticket200AttemptGlobal) ||
       renderTicket199SymmetricSamplingTwoRunSquarefreeFilter(ticket199AttemptGlobal) ||
       renderTicket198VerifiedHeightPrimitiveWordQuantifierStrength(ticket198AttemptGlobal) ||
@@ -15816,6 +15887,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket202Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket202-exact-hermite-deformation-parity-scale.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket202AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket202AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket202AttemptGlobal) {
+      ticket202AttemptGlobal.bounded_result = ticket202AttemptGlobal.bounded_result || {};
+      ticket202AttemptGlobal.bounded_result.exact_hermite_deformation_parity_scale_audit = payload.exact_hermite_deformation_parity_scale_audit || {};
+    }
+    return Boolean(ticket202AttemptGlobal);
+  } catch (_error) {
+    ticket202AttemptGlobal = null;
     return false;
   }
 }
@@ -17209,9 +17300,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket201Loaded = await loadTicket201Attempt();
+  const ticket202Loaded = await loadTicket202Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket201-current";
+  document.documentElement.dataset.openProblemCache = "ticket202-current";
+  const ticket201Loaded = await loadTicket201Attempt();
   const ticket200Loaded = await loadTicket200Attempt();
   const ticket199Loaded = await loadTicket199Attempt();
   const ticket198Loaded = await loadTicket198Attempt();
@@ -17245,8 +17337,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket202AttemptGlobal) await loadTicket202Attempt();
     if (!ticket201AttemptGlobal) await loadTicket201Attempt();
     if (!ticket200AttemptGlobal) await loadTicket200Attempt();
     if (!ticket199AttemptGlobal) await loadTicket199Attempt();
@@ -17326,7 +17419,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket201-current";
+  document.documentElement.dataset.openProblemCache = "ticket202-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

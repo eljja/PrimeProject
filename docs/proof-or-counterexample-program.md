@@ -37,6 +37,32 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-10 TICKET-202 Exact Hermite Data, Long-Run Deformations, and Parity Scale
+
+TICKET-202 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial results:
+
+1. finitely many exact symmetric Hermite constraints, even with compact
+   finite-jet control, cannot force a global real-zero property in the ambient
+   real-even entire-function class;
+2. every `r,k>=2`, `t>=0`, and cyclic rotation in the primitive Collatz family
+   `1^k2^(2k+t)(12^2)^(r-1)` fails affine divisibility;
+3. the dyadic aggregate Goldbach P2 relative Liouville defect is
+   `O(1/log log X)` and tends to zero, so a fixed positive pointwise defect on
+   every large input is impossible;
+4. a fixed Twin relative defect plus Chen-order channel mass implies a
+   Hardy-Littlewood-order quantitative pair lower bound and is stronger than
+   mere infinitude at the channel-algebra level.
+
+The RH perturbation changes the function and is not an Xi counterexample. The
+Collatz theorem covers one one-sided deformation family, not arbitrary words.
+The Goldbach result is aggregate rather than pointwise. The Twin countermodel
+is abstract channel data rather than prime arithmetic. The machine resolution
+count remains zero.
+
+English report: [TICKET-202](exact-hermite-deformation-parity-scale.md).
+한국어 보고서: [TICKET-202](exact-hermite-deformation-parity-scale.ko.md).
+
 ## 2026-08-10 TICKET-201 Finite Information, All-Run Collatz, and Liouville Parity
 
 TICKET-201 keeps all four parent conjectures at `open_not_proven` and proves

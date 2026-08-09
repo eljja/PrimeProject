@@ -1,0 +1,745 @@
+{
+  "schema": "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1",
+  "generated_at": "2026-08-10T21:30:00+09:00",
+  "ticket_id": "RH-TICKET-202",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "ExactFiniteHermiteAndCompactJetGlobalZeroNoGo",
+  "declared_proposition": "Let F be a real-even entire function, let R>0, and prescribe finitely many derivative values at a finite symmetric set of real nodes. Choose A>R away from those nodes with F(iA) nonzero. There exist real-even entire functions G_N with zeros at plus-or-minus iA that preserve every prescribed Hermite value exactly and whose derivatives through any fixed finite order converge uniformly to those of F on |z|<=R. Hence even exact finite Hermite data plus a compact finite-jet enclosure cannot force a global real-zero property in the ambient real-even entire-function class.",
+  "mathematical_argument": "For positive interpolation nodes a_l with derivative orders m_l, put P(z)=product_l(z^2-a_l^2)^(m_l+1), multiply by a sufficiently large even power z^(2N) to handle the node zero, and set H_N(z)=z^(2N)P(z). Then H_N and the required derivatives vanish at every interpolation node. Because H_N(iA) is real and nonzero, G_N=F-F(iA)H_N/H_N(iA) is real-even, preserves all Hermite data, and vanishes at plus-or-minus iA. On |z|<=R, every fixed derivative of H_N/H_N(iA) is a fixed polynomial in N times (R/A)^(2N), so it converges uniformly to zero. Adding a polynomial preserves order at most one when applicable, but not Xi's completed-zeta structure.",
+  "reproducible_computation": {
+    "theorem": "Let F be a real-even entire function, let R>0, and prescribe finitely many derivative values at a finite symmetric set of real nodes. Choose A>R away from those nodes with F(iA) nonzero. There exist real-even entire functions G_N with zeros at plus-or-minus iA that preserve every prescribed Hermite value exactly and whose derivatives through any fixed finite order converge uniformly to those of F on |z|<=R. Hence even exact finite Hermite data plus a compact finite-jet enclosure cannot force a global real-zero property in the ambient real-even entire-function class.",
+    "proof": "For positive interpolation nodes a_l with derivative orders m_l, put P(z)=product_l(z^2-a_l^2)^(m_l+1), multiply by a sufficiently large even power z^(2N) to handle the node zero, and set H_N(z)=z^(2N)P(z). Then H_N and the required derivatives vanish at every interpolation node. Because H_N(iA) is real and nonzero, G_N=F-F(iA)H_N/H_N(iA) is real-even, preserves all Hermite data, and vanishes at plus-or-minus iA. On |z|<=R, every fixed derivative of H_N/H_N(iA) is a fixed polynomial in N times (R/A)^(2N), so it converges uniformly to zero. Adding a polynomial preserves order at most one when applicable, but not Xi's completed-zeta structure.",
+    "exact_regression": {
+      "F": "z^2-1",
+      "F_has_only_real_zeros": true,
+      "hermite_nodes": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "preserved_derivative_orders": [
+        0,
+        1,
+        2
+      ],
+      "compact_disk_radius_R": 5,
+      "off_real_axis_height_A": 10,
+      "epsilon": "1/100",
+      "rows": [
+        {
+          "N": 2,
+          "perturbation_degree": 16,
+          "coefficient_c_N": "1/114747376640000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/10445824",
+            "4737353/678978560",
+            "866314767/44133606400"
+          ],
+          "maximum_jet_bound": "866314767/44133606400",
+          "all_jet_bounds_below_epsilon": false,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 3,
+          "perturbation_degree": 18,
+          "coefficient_c_N": "-1/11474737664000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/41783296",
+            "5371467/2715914240",
+            "224180121/35306885120"
+          ],
+          "maximum_jet_bound": "224180121/35306885120",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 4,
+          "perturbation_degree": 20,
+          "coefficient_c_N": "1/1147473766400000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/167133184",
+            "6005581/10863656960",
+            "1408460371/706137702400"
+          ],
+          "maximum_jet_bound": "1408460371/706137702400",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 5,
+          "perturbation_degree": 22,
+          "coefficient_c_N": "-1/114747376640000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/668532736",
+            "1327939/8690925568",
+            "345798813/564910161920"
+          ],
+          "maximum_jet_bound": "345798813/564910161920",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 6,
+          "perturbation_degree": 24,
+          "coefficient_c_N": "1/11474737664000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/2674130944",
+            "7273809/173818511360",
+            "2082501687/11298203238400"
+          ],
+          "maximum_jet_bound": "2082501687/11298203238400",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 7,
+          "perturbation_degree": 26,
+          "coefficient_c_N": "-1/1147473766400000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/10696523776",
+            "7907923/695274045440",
+            "2468983237/45192812953600"
+          ],
+          "maximum_jet_bound": "2468983237/45192812953600",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 8,
+          "perturbation_degree": 28,
+          "coefficient_c_N": "1/114747376640000000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/42786095104",
+            "8542037/2781096181760",
+            "577687743/36154250362880"
+          ],
+          "maximum_jet_bound": "577687743/36154250362880",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 9,
+          "perturbation_degree": 30,
+          "coefficient_c_N": "-1/11474737664000000000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/171144380416",
+            "9176151/11124384727040",
+            "3340868121/723085007257600"
+          ],
+          "maximum_jet_bound": "3340868121/723085007257600",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 10,
+          "perturbation_degree": 32,
+          "coefficient_c_N": "1/1147473766400000000000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/684577521664",
+            "1962053/8899507781632",
+            "765254291/578468005806080"
+          ],
+          "maximum_jet_bound": "765254291/578468005806080",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 11,
+          "perturbation_degree": 34,
+          "coefficient_c_N": "-1/114747376640000000000000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/2738310086656",
+            "10444379/177990155632640",
+            "4344648717/11569360116121600"
+          ],
+          "maximum_jet_bound": "4344648717/11569360116121600",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        },
+        {
+          "N": 12,
+          "perturbation_degree": 36,
+          "coefficient_c_N": "1/11474737664000000000000000000000000",
+          "base_polynomial_coefficients_low_to_high": [
+            64,
+            0,
+            -240,
+            0,
+            348,
+            0,
+            -245,
+            0,
+            87,
+            0,
+            -15,
+            0,
+            1
+          ],
+          "hermite_node_derivatives_j_0_to_2": {
+            "-2": [
+              "0",
+              "0",
+              "0"
+            ],
+            "-1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "0": [
+              "0",
+              "0",
+              "0"
+            ],
+            "1": [
+              "0",
+              "0",
+              "0"
+            ],
+            "2": [
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "all_hermite_constraints_preserved_exactly": true,
+          "jet_bounds_j_0_to_2": [
+            "24389/10953240346624",
+            "11078493/711960622530560",
+            "4895999907/46277440464486400"
+          ],
+          "maximum_jet_bound": "4895999907/46277440464486400",
+          "all_jet_bounds_below_epsilon": true,
+          "epsilon": "1/100",
+          "coefficient_times_H_iA": "101",
+          "minus_F_iA": "101",
+          "G_N_iA_is_zero_exactly": true
+        }
+      ],
+      "first_certifying_N": 3
+    },
+    "aggregate": {
+      "exact_finite_hermite_no_go_proved": true,
+      "compact_jet_convergence_proved": true,
+      "real_even_symmetry_preserved": true,
+      "xi_completed_zeta_structure_preserved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This closes the exact-node loophole left by TICKET-201 but does not construct an off-line zero of Xi. Any surviving RH certificate must use unbounded/cofinal information or Xi-specific global arithmetic structure rather than finitely many exact samples and derivatives.",
+    "failure_count": 0
+  },
+  "discarded_route": "augmenting one fixed compact Xi certificate by finitely many exact Hermite constraints",
+  "remaining_gap": "Exact finite samples and derivatives remain local data; the perturbation does not preserve Xi's completed-zeta arithmetic.",
+  "candidate_theorem": "CompletedZetaCofinalContourMarginWithExactZeroCountTransfer",
+  "claim_boundary": "No RH proof or counterexample. The theorem strengthens the finite-information strategy no-go and changes the function.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T201",
+        "label": "FiniteCompactJetDataCannotForceGlobalRealZeroProperty",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T202",
+        "label": "ExactFiniteHermiteAndCompactJetGlobalZeroNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N202",
+        "label": "FiniteExactHermiteAugmentationClosesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN202",
+        "label": "CompletedZetaCofinalContourMarginWithExactZeroCountTransfer",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RH",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T201",
+        "RH-T202"
+      ],
+      [
+        "RH-T202",
+        "RH-N202"
+      ],
+      [
+        "RH-T202",
+        "RH-OPEN202"
+      ],
+      [
+        "RH-OPEN202",
+        "RH"
+      ]
+    ]
+  }
+}

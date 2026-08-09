@@ -15,27 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-201
+## Current research boundary: TICKET-202
 
 The current machine-readable boundary is
-`data/open-problem/ticket201-finite-information-allrun-liouville-parity.json`.
+`data/open-problem/ticket202-exact-hermite-deformation-parity-scale.json`.
 
-TICKET-201 records four exact partial theorems and zero conjecture resolutions:
+TICKET-202 records four exact partial theorems and zero conjecture resolutions:
 
-- fixed compact finite jets cannot force a global real-zero property in the
-  ambient real-even entire-function class;
-- the explicit primitive Collatz family `1^k2^(2k)(12^2)^(r-1)` and every
-  cyclic rotation fail affine divisibility for all `r,k>=2`;
-- exact Goldbach P2 projectors satisfy `R=(C-L)/2`, reclassifying the previous
-  semiprime-elimination target as conjecture-equivalent on Chen-positive inputs;
-- exact Twin P2 projectors satisfy `T=(C2-L2)/2`, reclassifying the previous
-  infinitely-many-block target as the Twin Prime conjecture in dyadic language.
+- finite exact symmetric Hermite data plus compact finite-jet control cannot
+  force a global real-zero property in the ambient real-even entire class;
+- every `r,k>=2`, `t>=0`, and cyclic rotation in
+  `1^k2^(2k+t)(12^2)^(r-1)` fails affine divisibility;
+- the aggregate Goldbach P2 relative Liouville defect is
+  `O(1/log log X)` and tends to zero, refuting the fixed-defect normalization;
+- a fixed Twin relative defect plus Chen-order channel mass implies a
+  Hardy-Littlewood-order quantitative lower bound, not merely infinitude.
 
 The Liouville projectors are elementary identities and are not claimed as new
 sieve theorems. Finite rows are regression evidence only.
 
-English report: [TICKET-201](finite-information-allrun-liouville-parity.md).
-한국어 보고서: [TICKET-201](finite-information-allrun-liouville-parity.ko.md).
+English report: [TICKET-202](exact-hermite-deformation-parity-scale.md).
+한국어 보고서: [TICKET-202](exact-hermite-deformation-parity-scale.ko.md).
+
+## Preserved research boundary: TICKET-201
+
+TICKET-201 remains available in
+[English](finite-information-allrun-liouville-parity.md) and
+[한국어](finite-information-allrun-liouville-parity.ko.md). TICKET-202 strengthens
+its RH local-information no-go, extends its Collatz family along an unbounded
+long-run deformation, and recalibrates its two relative-defect targets.
 
 ## Preserved research boundary: TICKET-200
 

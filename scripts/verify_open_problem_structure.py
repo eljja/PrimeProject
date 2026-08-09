@@ -200,6 +200,7 @@ TICKET198_SCHEMA = "primeproject.ticket198-verified-height-primitive-word-quanti
 TICKET199_SCHEMA = "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1"
 TICKET200_SCHEMA = "primeproject.ticket200-derivative-mesh-three-run-chen-channels.v1"
 TICKET201_SCHEMA = "primeproject.ticket201-finite-information-allrun-liouville-parity.v1"
+TICKET202_SCHEMA = "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1"
 
 
 def fail(message: str) -> int:
@@ -15785,6 +15786,193 @@ def main() -> int:
         or "resolves none" not in str(ticket201.get("claim_boundary", "")).lower()
     ):
         return fail("ticket201 proof boundary changed")
+
+    path202 = Path(
+        "data/open-problem/ticket202-exact-hermite-deformation-parity-scale.json"
+    )
+    if not path202.exists():
+        return fail("missing ticket202 exact-Hermite/deformation/parity-scale audit")
+    ticket202 = read_json(path202)
+    if (
+        ticket202.get("schema") != TICKET202_SCHEMA
+        or ticket202.get("status") != "open_not_proven"
+    ):
+        return fail("ticket202 schema or status changed")
+    audit202 = ticket202.get(
+        "exact_hermite_deformation_parity_scale_audit", {}
+    )
+    machine202 = audit202.get("machine_audit", {})
+    expected_machine202 = {
+        "exact_partial_theorem_count": 4,
+        "riemann_exact_hermite_regression_count": 11,
+        "collatz_symbolic_parameter_dimension": 3,
+        "collatz_exact_regression_word_count": 729,
+        "goldbach_exact_dyadic_aggregate_row_count": 11,
+        "twin_exact_channel_row_count": 13,
+        "twin_abstract_countermodel_row_count": 21,
+        "rejected_or_recalibrated_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine202 != expected_machine202:
+        return fail("ticket202 global machine audit changed")
+
+    attempts202 = {
+        row.get("problem_id"): row for row in ticket202.get("attempts", [])
+    }
+    if set(attempts202) != EXPECTED_PROBLEMS:
+        return fail("ticket202 attempts missing problems")
+    track_paths202 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-202-exact-hermite-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-202-long-run-deformation.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-202-relative-defect-dilution.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-202-relative-defect-strength.json"
+        ),
+    }
+    theorem_names202 = {
+        "riemann": "ExactFiniteHermiteAndCompactJetGlobalZeroNoGo",
+        "collatz": "AllLongRunExtensionsPrimitiveFamilyAffineObstruction",
+        "goldbach": "DyadicP2RelativeLiouvilleDefectDilutionNoGo",
+        "twin-prime": "RelativeChenDefectQuantitativeTwinStrengthCalibration",
+    }
+    for problem_id, track_path in track_paths202.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket202 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts202[problem_id]
+        if (
+            track.get("schema") != TICKET202_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names202[problem_id]
+            or attempt.get("new_result") != theorem_names202[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+            != 1
+        ):
+            return fail(f"{problem_id}: ticket202 contract changed")
+
+    rh202 = audit202.get("riemann", {}).get("reproducible_computation", {})
+    rh202_rows = rh202.get("exact_regression", {}).get("rows", [])
+    rh202_first = next((row for row in rh202_rows if row.get("N") == 3), {})
+    if (
+        rh202.get("exact_regression", {}).get("first_certifying_N") != 3
+        or rh202_first.get("coefficient_c_N")
+        != "-1/11474737664000000"
+        or rh202_first.get("maximum_jet_bound")
+        != "224180121/35306885120"
+        or rh202_first.get("all_hermite_constraints_preserved_exactly")
+        is not True
+        or rh202_first.get("G_N_iA_is_zero_exactly") is not True
+        or rh202.get("aggregate", {}).get("exact_finite_hermite_no_go_proved")
+        is not True
+        or rh202.get("aggregate", {}).get(
+            "xi_completed_zeta_structure_preserved"
+        )
+        is not False
+        or rh202.get("aggregate", {}).get("riemann_hypothesis_resolved")
+        is not False
+    ):
+        return fail("ticket202 RH exact-Hermite boundary changed")
+
+    collatz202 = audit202.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        collatz202.get("aggregate", {}).get("regression_word_count") != 729
+        or collatz202.get("aggregate", {}).get(
+            "all_nonnegative_long_run_extensions_covered_symbolically"
+        )
+        is not True
+        or collatz202.get("aggregate", {}).get(
+            "arbitrary_signed_or_multisite_L1_perturbations_covered"
+        )
+        is not False
+        or any(
+            row.get("master_identity_holds_exactly") is not True
+            or row.get("zero_less_than_F_k_t_less_than_D") is not True
+            or row.get("gcd_D_with_2_times_27n") != 1
+            or row.get("primitive_word") is not True
+            or row.get("affine_divisibility_hit") is not False
+            or row.get("cyclic_rotation_divisibility_hit_count") != 0
+            for row in collatz202.get("exact_regression_rows", [])
+        )
+        or collatz202.get("aggregate", {}).get("collatz_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket202 Collatz long-run deformation boundary changed")
+
+    goldbach202 = audit202.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach202_rows = goldbach202.get("exact_finite_rows", [])
+    if (
+        len(goldbach202_rows) != 11
+        or goldbach202_rows[0].get(
+            "relative_defect_one_minus_L_over_C"
+        )
+        != "25598/36655"
+        or goldbach202_rows[-1].get(
+            "relative_defect_one_minus_L_over_C"
+        )
+        != "18844127294/35051527549"
+        or any(row.get("C_minus_L_equals_2R") is not True for row in goldbach202_rows)
+        or goldbach202.get("aggregate", {}).get(
+            "fixed_positive_relative_defect_refuted_asymptotically"
+        )
+        is not True
+        or goldbach202.get("aggregate", {}).get(
+            "pointwise_loglog_scaled_defect_proved"
+        )
+        is not False
+        or goldbach202.get("aggregate", {}).get("goldbach_resolved") is not False
+    ):
+        return fail("ticket202 Goldbach defect-dilution boundary changed")
+
+    twin202 = audit202.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin202_rows = twin202.get("exact_finite_rows", [])
+    twin202_model = twin202.get("exact_abstract_countermodel_rows", [])
+    if (
+        len(twin202_rows) != 13
+        or len(twin202_model) != 21
+        or twin202_rows[-1].get("relative_defect_delta_X") != "45286/88451"
+        or twin202_model[-1].get("relative_defect_delta_X") != "1/596523"
+        or any(row.get("normalized_transfer_identity") is not True for row in twin202_rows)
+        or any(row.get("twin_positive") is not True for row in twin202_model)
+        or twin202.get("aggregate", {}).get(
+            "fixed_relative_defect_is_stronger_than_infinitude"
+        )
+        is not True
+        or twin202.get("aggregate", {}).get(
+            "fixed_relative_defect_refuted_for_actual_twin_channels"
+        )
+        is not False
+        or twin202.get("aggregate", {}).get("twin_prime_resolved") is not False
+    ):
+        return fail("ticket202 Twin relative-defect boundary changed")
+
+    if (
+        "resolves none" not in str(audit202.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket202.get("claim_boundary", "")).lower()
+        or machine202.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket202 proof boundary changed")
 
     print("open problem structure verified")
     return 0

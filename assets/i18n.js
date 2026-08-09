@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-201 proves a finite-information no-go, closes every repetition count of one Collatz family, and exposes the exact Liouville parity obligations for Goldbach and Twin Prime.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-201은 유한 정보 no-go를 증명하고, 하나의 콜라츠 단어족을 모든 반복수에서 배제하며, 골드바흐와 쌍둥이 소수의 Liouville 패리티 의무를 정확히 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-202 strengthens the exact finite-information no-go, closes a three-parameter Collatz deformation, and recalibrates the Goldbach and Twin Prime parity targets.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-202는 유한 정보 no-go를 정확 Hermite 조건까지 강화하고, 3매개변수 콜라츠 변형족을 배제하며, 골드바흐와 쌍둥이 소수 패리티 목표의 점근 척도를 다시 정합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

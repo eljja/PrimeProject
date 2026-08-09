@@ -1,0 +1,235 @@
+{
+  "schema": "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1",
+  "generated_at": "2026-08-10T21:30:00+09:00",
+  "ticket_id": "GB-TICKET-202",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicP2RelativeLiouvilleDefectDilutionNoGo",
+  "declared_proposition": "Let R_X, S_X, C_X, and L_X be the sums of the TICKET-201 Goldbach prime, composite-semiprime, P2, and Liouville-signed channels over even N in (X,2X]. The prime number theorem and Landau's theorem for integers with exactly two prime factors imply R_X/S_X=O(1/log log X), and therefore (C_X-L_X)/C_X=2R_X/(R_X+S_X) tends to zero. Consequently no fixed delta>0 can satisfy L(N)<=(1-delta)C(N) for every sufficiently large Chen-positive even N.",
+  "mathematical_argument": "The upper bound R_X<=pi(2X)^2 is O(X^2/log^2 X). For a lower bound on S_X, restrict the first prime p and odd composite semiprime m to (X/2,X]; then p+m lies in (X,2X]. PNT gives about X/(2 log X) such primes, while Landau's theorem gives about X log log X/(2 log X) such odd semiprimes; even semiprimes are lower order. Hence S_X is Omega(X^2 log log X/log^2 X). The exact identity C_X-L_X=2R_X proves the limit. A pointwise fixed delta would survive summation on every sufficiently large dyadic block, contradicting that limit.",
+  "reproducible_computation": {
+    "theorem": "Let R_X, S_X, C_X, and L_X be the sums of the TICKET-201 Goldbach prime, composite-semiprime, P2, and Liouville-signed channels over even N in (X,2X]. The prime number theorem and Landau's theorem for integers with exactly two prime factors imply R_X/S_X=O(1/log log X), and therefore (C_X-L_X)/C_X=2R_X/(R_X+S_X) tends to zero. Consequently no fixed delta>0 can satisfy L(N)<=(1-delta)C(N) for every sufficiently large Chen-positive even N.",
+    "proof": "The upper bound R_X<=pi(2X)^2 is O(X^2/log^2 X). For a lower bound on S_X, restrict the first prime p and odd composite semiprime m to (X/2,X]; then p+m lies in (X,2X]. PNT gives about X/(2 log X) such primes, while Landau's theorem gives about X log log X/(2 log X) such odd semiprimes; even semiprimes are lower order. Hence S_X is Omega(X^2 log log X/log^2 X). The exact identity C_X-L_X=2R_X proves the limit. A pointwise fixed delta would survive summation on every sufficiently large dyadic block, contradicting that limit.",
+    "classical_inputs": [
+      "prime number theorem",
+      "Landau asymptotic for Omega(n)=2: Q_2(x)~x log log x/log x"
+    ],
+    "exact_finite_rows": [
+      {
+        "target_block_X_to_2X": [
+          1024,
+          2048
+        ],
+        "prime_prime_aggregate_R": 38397,
+        "prime_composite_semiprime_aggregate_S": 71568,
+        "P2_aggregate_C": 109965,
+        "liouville_aggregate_L": 33171,
+        "relative_defect_one_minus_L_over_C": "25598/36655",
+        "semiprime_to_prime_ratio_S_over_R": "23856/12799",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          2048,
+          4096
+        ],
+        "prime_prime_aggregate_R": 126005,
+        "prime_composite_semiprime_aggregate_S": 249812,
+        "P2_aggregate_C": 375817,
+        "liouville_aggregate_L": 123807,
+        "relative_defect_one_minus_L_over_C": "252010/375817",
+        "semiprime_to_prime_ratio_S_over_R": "249812/126005",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          4096,
+          8192
+        ],
+        "prime_prime_aggregate_R": 420823,
+        "prime_composite_semiprime_aggregate_S": 878533,
+        "P2_aggregate_C": 1299356,
+        "liouville_aggregate_L": 457710,
+        "relative_defect_one_minus_L_over_C": "420823/649678",
+        "semiprime_to_prime_ratio_S_over_R": "878533/420823",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          8192,
+          16384
+        ],
+        "prime_prime_aggregate_R": 1424618,
+        "prime_composite_semiprime_aggregate_S": 3114730,
+        "P2_aggregate_C": 4539348,
+        "liouville_aggregate_L": 1690112,
+        "relative_defect_one_minus_L_over_C": "712309/1134837",
+        "semiprime_to_prime_ratio_S_over_R": "1557365/712309",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          16384,
+          32768
+        ],
+        "prime_prime_aggregate_R": 4871310,
+        "prime_composite_semiprime_aggregate_S": 11116451,
+        "P2_aggregate_C": 15987761,
+        "liouville_aggregate_L": 6245141,
+        "relative_defect_one_minus_L_over_C": "9742620/15987761",
+        "semiprime_to_prime_ratio_S_over_R": "11116451/4871310",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          32768,
+          65536
+        ],
+        "prime_prime_aggregate_R": 16868798,
+        "prime_composite_semiprime_aggregate_S": 39897247,
+        "P2_aggregate_C": 56766045,
+        "liouville_aggregate_L": 23028449,
+        "relative_defect_one_minus_L_over_C": "33737596/56766045",
+        "semiprime_to_prime_ratio_S_over_R": "39897247/16868798",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          65536,
+          131072
+        ],
+        "prime_prime_aggregate_R": 58854628,
+        "prime_composite_semiprime_aggregate_S": 144049743,
+        "P2_aggregate_C": 202904371,
+        "liouville_aggregate_L": 85195115,
+        "relative_defect_one_minus_L_over_C": "117709256/202904371",
+        "semiprime_to_prime_ratio_S_over_R": "144049743/58854628",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          131072,
+          262144
+        ],
+        "prime_prime_aggregate_R": 207229691,
+        "prime_composite_semiprime_aggregate_S": 522561595,
+        "P2_aggregate_C": 729791286,
+        "liouville_aggregate_L": 315331904,
+        "relative_defect_one_minus_L_over_C": "207229691/364895643",
+        "semiprime_to_prime_ratio_S_over_R": "522561595/207229691",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          262144,
+          524288
+        ],
+        "prime_prime_aggregate_R": 734817865,
+        "prime_composite_semiprime_aggregate_S": 1904913295,
+        "P2_aggregate_C": 2639731160,
+        "liouville_aggregate_L": 1170095430,
+        "relative_defect_one_minus_L_over_C": "146963573/263973116",
+        "semiprime_to_prime_ratio_S_over_R": "380982659/146963573",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          524288,
+          1048576
+        ],
+        "prime_prime_aggregate_R": 2623497036,
+        "prime_composite_semiprime_aggregate_S": 6973530599,
+        "P2_aggregate_C": 9597027635,
+        "liouville_aggregate_L": 4350033563,
+        "relative_defect_one_minus_L_over_C": "5246994072/9597027635",
+        "semiprime_to_prime_ratio_S_over_R": "6973530599/2623497036",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      },
+      {
+        "target_block_X_to_2X": [
+          1048576,
+          2097152
+        ],
+        "prime_prime_aggregate_R": 9422063647,
+        "prime_composite_semiprime_aggregate_S": 25629463902,
+        "P2_aggregate_C": 35051527549,
+        "liouville_aggregate_L": 16207400255,
+        "relative_defect_one_minus_L_over_C": "18844127294/35051527549",
+        "semiprime_to_prime_ratio_S_over_R": "25629463902/9422063647",
+        "C_minus_L_equals_2R": true,
+        "C_plus_L_equals_2S": true
+      }
+    ],
+    "aggregate": {
+      "finite_block_count": 11,
+      "largest_target_upper": 2097152,
+      "finite_defect_strictly_decreasing": true,
+      "fixed_positive_relative_defect_refuted_asymptotically": true,
+      "pointwise_loglog_scaled_defect_proved": false,
+      "goldbach_resolved": false
+    },
+    "no_go_scope": "This refutes TICKET-201's fixed-relative-defect target, not Goldbach. A vanishing defect can still be positive at every N. The corrected pointwise scale is of order 1/log log N, and no uniform pointwise lower bound at that scale is proved here.",
+    "failure_count": 0
+  },
+  "discarded_route": "a fixed positive relative Liouville defect in every large full P2 channel",
+  "remaining_gap": "The asymptotic aggregate no-go supplies no pointwise positive defect and cannot eliminate a sparse Goldbach exceptional set.",
+  "candidate_theorem": "PointwiseLogLogScaledLiouvilleDefectOnEveryLargeEvenInteger",
+  "claim_boundary": "No Goldbach proof or counterexample. Classical asymptotics refute one normalization while leaving pointwise positivity open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T201",
+        "label": "GoldbachP2LiouvilleParitySaturationEquivalence",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T202",
+        "label": "DyadicP2RelativeLiouvilleDefectDilutionNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N202",
+        "label": "UniformFixedRelativeP2LiouvilleDefect",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN202",
+        "label": "PointwiseLogLogScaledLiouvilleDefectOnEveryLargeEvenInteger",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "GB",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T201",
+        "GB-T202"
+      ],
+      [
+        "GB-T202",
+        "GB-N202"
+      ],
+      [
+        "GB-T202",
+        "GB-OPEN202"
+      ],
+      [
+        "GB-OPEN202",
+        "GB"
+      ]
+    ]
+  }
+}
