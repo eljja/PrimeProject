@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1",
+  "generated_at": "2026-08-10T03:00:00+09:00",
+  "ticket_id": "RH-TICKET-199",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteBoundarySamplingNoGoForRealEvenRoucheCertification",
+  "declared_proposition": "Let S be any finite subset of the boundary of D_3^+ and close S under conjugation and sign. Choose an interior a with Im(a^2) != 0 outside that finite orbit. There is a real even polynomial G such that G(s)=1 for every sampled s but G(a)=0. Therefore finitely many boundary values, without interval or derivative control between samples, cannot certify a zero-free D_3 rectangle or a strict Rouche margin, even inside the class of real even entire functions.",
+  "mathematical_argument": "Let Q(z)=product_(rho in R)(z^2-rho), where R contains the squared sample points and their conjugates. Then Q is real and even and vanishes at every sample. Put w=-1/Q(a). Since 1 and a^2 span C over R when Im(a^2) is nonzero, unique real u,v satisfy u+v a^2=w. The polynomial G(z)=1+Q(z)(u+v z^2) matches the zero-free function F=1 at every sample and obeys G(a)=0.",
+  "reproducible_computation": {
+    "theorem": "Let S be any finite subset of the boundary of D_3^+ and close S under conjugation and sign. Choose an interior a with Im(a^2) != 0 outside that finite orbit. There is a real even polynomial G such that G(s)=1 for every sampled s but G(a)=0. Therefore finitely many boundary values, without interval or derivative control between samples, cannot certify a zero-free D_3 rectangle or a strict Rouche margin, even inside the class of real even entire functions.",
+    "proof": "Let Q(z)=product_(rho in R)(z^2-rho), where R contains the squared sample points and their conjugates. Then Q is real and even and vanishes at every sample. Put w=-1/Q(a). Since 1 and a^2 span C over R when Im(a^2) is nonzero, unique real u,v satisfy u+v a^2=w. The polynomial G(z)=1+Q(z)(u+v z^2) matches the zero-free function F=1 at every sample and obeys G(a)=0.",
+    "exact_rational_rows": [
+      {
+        "segments_per_edge": 2,
+        "sample_count_on_D3_plus_boundary": 8,
+        "symmetric_t_root_count": 8,
+        "interior_witness_a": {
+          "real": "1",
+          "imag": "1"
+        },
+        "a_squared": {
+          "real": "0",
+          "imag": "2"
+        },
+        "Q_at_a": {
+          "real": "197017600000/6561",
+          "imag": "3743334400000/59049"
+        },
+        "u": "-531441/87081779200000",
+        "v": "1121931/174163558400000",
+        "all_boundary_samples_match_F_equals_one": true,
+        "constructed_G_at_a": {
+          "real": "0",
+          "imag": "0"
+        },
+        "constructed_off_real_zero_exact": true,
+        "Q_at_a_nonzero": true,
+        "largest_Q_at_a_rational_bit_length": 42
+      },
+      {
+        "segments_per_edge": 4,
+        "sample_count_on_D3_plus_boundary": 16,
+        "symmetric_t_root_count": 16,
+        "interior_witness_a": {
+          "real": "1",
+          "imag": "1"
+        },
+        "a_squared": {
+          "real": "0",
+          "imag": "2"
+        },
+        "Q_at_a": {
+          "real": "558632342576988160000000/387420489",
+          "imag": "-86449005480181760000000/129140163"
+        },
+        "u": "-9502673386841829/16655414376099664737894400000000",
+        "v": "-2205824657159691/16655414376099664737894400000000",
+        "all_boundary_samples_match_F_equals_one": true,
+        "constructed_G_at_a": {
+          "real": "0",
+          "imag": "0"
+        },
+        "constructed_off_real_zero_exact": true,
+        "Q_at_a_nonzero": true,
+        "largest_Q_at_a_rational_bit_length": 79
+      },
+      {
+        "segments_per_edge": 8,
+        "sample_count_on_D3_plus_boundary": 32,
+        "symmetric_t_root_count": 32,
+        "interior_witness_a": {
+          "real": "1",
+          "imag": "1"
+        },
+        "a_squared": {
+          "real": "0",
+          "imag": "2"
+        },
+        "Q_at_a": {
+          "real": "-255162234209114999644668532198192812108128662109375/307393813088254199808",
+          "imag": "1846312965168903118512602284295194679006285400390625/1383272158897143899136"
+        },
+        "u": "5532336647231507111790033953253855610969479168/16465903604456430838716039846466811259287041508899770920226328490142822265625",
+        "v": "128989099565770189801360336589624904495280539648/477511204529236494322765155547537526519324203758093356686563526214141845703125",
+        "all_boundary_samples_match_F_equals_one": true,
+        "constructed_G_at_a": {
+          "real": "0",
+          "imag": "0"
+        },
+        "constructed_off_real_zero_exact": true,
+        "Q_at_a_nonzero": true,
+        "largest_Q_at_a_rational_bit_length": 171
+      },
+      {
+        "segments_per_edge": 16,
+        "sample_count_on_D3_plus_boundary": 64,
+        "symmetric_t_root_count": 64,
+        "interior_witness_a": {
+          "real": "1",
+          "imag": "1"
+        },
+        "a_squared": {
+          "real": "0",
+          "imag": "2"
+        },
+        "Q_at_a": {
+          "real": "42653587687670981534420644954481365119246374963976999738362504971483456778109067921839645596266851185778281565124745480716228485107421875/47100009185848290853803386506129713177660670632314278719849859075347918618624",
+          "imag": "126372050117361008965435786422465564073545046892262208045205928303283700250236852056727104669215308298113076159054168500006198883056640625/70650013778772436280705079759194569766491005948471418079774788613021877927936"
+        },
+        "u": "-26452618629306905876850790011089667599040156180449390198998134810213750722009509655875611898396129458173880103897388652085345517568/117412351341619697042289383454790307250434127774861645350957702111833920815895986685348620203693170426655788377451674027013900430875778276158035058149900456079577901473385281860828399658203125",
+        "v": "26124192816137298839018569693467026944872293199212485023128743971752370944364731237612962410667148531704186254634568353232021618688/117412351341619697042289383454790307250434127774861645350957702111833920815895986685348620203693170426655788377451674027013900430875778276158035058149900456079577901473385281860828399658203125",
+        "all_boundary_samples_match_F_equals_one": true,
+        "constructed_G_at_a": {
+          "real": "0",
+          "imag": "0"
+        },
+        "constructed_off_real_zero_exact": true,
+        "Q_at_a_nonzero": true,
+        "largest_Q_at_a_rational_bit_length": 456
+      }
+    ],
+    "aggregate": {
+      "finite_sample_families_checked": 4,
+      "largest_boundary_sample_count": 64,
+      "all_countermodels_exact": true,
+      "actual_Xi_zero_exhibited": false,
+      "interval_Rouche_certificate_refuted": false
+    },
+    "no_go_scope": "The construction changes the function and is not a counterexample to RH or a statement about Xi. It rejects only point-sampling rules that lack a certified between-sample modulus or derivative bound.",
+    "failure_count": 0
+  },
+  "discarded_route": "using finitely many boundary point evaluations, however dense, as a standalone zero-free or Rouche certificate",
+  "remaining_gap": "No statement about Xi is proved; a certified interval or derivative-controlled boundary enclosure is still missing.",
+  "candidate_theorem": "IntervalBoundaryMeshWithDerivativeBoundCertifiesStrictRoucheMarginOnD3",
+  "claim_boundary": "No RH proof or counterexample. The exact countermodel concerns finite sample information, not the Riemann Xi function.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T198",
+        "label": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T199",
+        "label": "FiniteBoundarySamplingNoGoForRealEvenRoucheCertification",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N199",
+        "label": "FinitePointSamplesAloneCertifyD3RoucheMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN199",
+        "label": "IntervalBoundaryMeshWithDerivativeBoundCertifiesStrictRoucheMarginOnD3",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RH",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T198",
+        "RH-T199"
+      ],
+      [
+        "RH-T199",
+        "RH-N199"
+      ],
+      [
+        "RH-T199",
+        "RH-OPEN199"
+      ],
+      [
+        "RH-OPEN199",
+        "RH"
+      ]
+    ]
+  }
+}

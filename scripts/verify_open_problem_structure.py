@@ -197,6 +197,7 @@ TICKET195_SCHEMA = "primeproject.ticket195-finitejet-elevenone-squarelayer.v1"
 TICKET196_SCHEMA = "primeproject.ticket196-rouche-density-overlap.v1"
 TICKET197_SCHEMA = "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1"
 TICKET198_SCHEMA = "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1"
+TICKET199_SCHEMA = "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1"
 
 
 def fail(message: str) -> int:
@@ -15288,6 +15289,160 @@ def main() -> int:
         or "resolves none" not in str(ticket198.get("claim_boundary", "")).lower()
     ):
         return fail("ticket198 proof boundary changed")
+
+    path199 = Path(
+        "data/open-problem/ticket199-symmetric-sampling-two-run-squarefree-filter.json"
+    )
+    if not path199.exists():
+        return fail("missing ticket199 symmetric-sampling/two-run/squarefree-filter audit")
+    ticket199 = read_json(path199)
+    if (
+        ticket199.get("schema") != TICKET199_SCHEMA
+        or ticket199.get("status") != "open_not_proven"
+    ):
+        return fail("ticket199 schema or status changed")
+    audit199 = ticket199.get(
+        "symmetric_sampling_two_run_squarefree_filter_audit", {}
+    )
+    machine199 = audit199.get("machine_audit", {})
+    if (
+        machine199.get("exact_theorem_count") != 4
+        or machine199.get("riemann_exact_sampling_countermodel_family_count") != 4
+        or machine199.get("collatz_all_scale_family_obstruction_count") != 1
+        or machine199.get("collatz_finite_regression_scale_count") != 127
+        or machine199.get("goldbach_exact_prime_projector_count") != 1
+        or machine199.get("goldbach_collision_row_count") != 11
+        or machine199.get("twin_exact_prime_projector_count") != 1
+        or machine199.get("twin_finite_dyadic_row_count") != 13
+        or machine199.get("proof_dag_count") != 4
+        or machine199.get("conjecture_resolution_count") != 0
+        or machine199.get("total_failure_count") != 0
+    ):
+        return fail("ticket199 global machine audit changed")
+
+    attempts199 = {
+        row.get("problem_id"): row for row in ticket199.get("attempts", [])
+    }
+    if set(attempts199) != EXPECTED_PROBLEMS:
+        return fail("ticket199 attempts missing problems")
+    track_paths199 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-199-finite-boundary-sampling-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-199-two-run-pair-obstruction.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-199-squarefree-lambda-filter.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-199-squarefree-lambda-detector.json"
+        ),
+    }
+    theorem_names199 = {
+        "riemann": "FiniteBoundarySamplingNoGoForRealEvenRoucheCertification",
+        "collatz": "TwoRunPairPrimitiveFamilyAffineDivisibilityObstruction",
+        "goldbach": "MobiusSquarefreeLambdaExactGoldbachPrimeProjector",
+        "twin-prime": "MobiusSquarefreeLambdaExactTwinPrimeDetector",
+    }
+    for problem_id, track_path in track_paths199.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket199 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts199[problem_id]
+        if (
+            track.get("schema") != TICKET199_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names199[problem_id]
+            or attempt.get("new_result") != theorem_names199[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or not any(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+        ):
+            return fail(f"{problem_id}: ticket199 contract changed")
+
+    rh199 = audit199.get("riemann", {}).get("reproducible_computation", {})
+    if (
+        any(
+            row.get("constructed_off_real_zero_exact") is not True
+            or row.get("all_boundary_samples_match_F_equals_one") is not True
+            or row.get("Q_at_a_nonzero") is not True
+            for row in rh199.get("exact_rational_rows", [])
+        )
+        or rh199.get("aggregate", {}).get("actual_Xi_zero_exhibited") is not False
+        or rh199.get("aggregate", {}).get("interval_Rouche_certificate_refuted")
+        is not False
+    ):
+        return fail("ticket199 RH finite-sampling no-go boundary changed")
+
+    collatz199 = audit199.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        collatz199.get("base_case_residues")
+        != {"2": "7066", "3": "151754", "4": "1746214"}
+        or collatz199.get("aggregate", {}).get("all_scales_k_ge_2_excluded")
+        is not True
+        or collatz199.get("aggregate", {}).get("all_fixed_run_counts_resolved")
+        is not False
+        or collatz199.get("aggregate", {}).get(
+            "all_cyclic_rotations_excluded_by_invariance"
+        )
+        is not True
+        or any(
+            row.get("affine_divisibility_hit") is not False
+            or row.get("direct_numerator_matches_closed_form") is not True
+            or row.get("cyclic_rotation_divisibility_hit_count") != 0
+            or row.get("rotation_recurrence_holds_exactly") is not True
+            or row.get("rotation_cycle_closes") is not True
+            for row in collatz199.get("closed_form_rows", [])
+        )
+    ):
+        return fail("ticket199 Collatz two-run-pair obstruction changed")
+
+    goldbach199 = audit199.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        goldbach199.get("projector_audit", {}).get("support_mismatch_count") != 0
+        or goldbach199.get("projector_audit", {}).get(
+            "proper_prime_power_leakage_count"
+        )
+        != 0
+        or goldbach199.get("aggregate", {}).get(
+            "prime_power_collision_removed_algebraically"
+        )
+        is not True
+        or goldbach199.get("aggregate", {}).get(
+            "eventual_positive_lower_bound_proved"
+        )
+        is not False
+    ):
+        return fail("ticket199 Goldbach squarefree-Lambda filter changed")
+
+    twin199 = audit199.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        twin199.get("projector_audit", {}).get("support_mismatch_count") != 0
+        or twin199.get("aggregate", {}).get("all_finite_supports_match") is not True
+        or twin199.get("aggregate", {}).get("prime_power_free_detector_constructed")
+        is not True
+        or twin199.get("aggregate", {}).get("infinitely_many_positive_blocks_proved")
+        is not False
+    ):
+        return fail("ticket199 Twin squarefree-Lambda detector changed")
+
+    if (
+        "resolves none" not in str(audit199.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket199.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket199 proof boundary changed")
 
     print("open problem structure verified")
     return 0

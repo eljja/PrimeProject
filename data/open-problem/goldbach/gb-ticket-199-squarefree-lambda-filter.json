@@ -1,0 +1,151 @@
+{
+  "schema": "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1",
+  "generated_at": "2026-08-10T03:00:00+09:00",
+  "ticket_id": "GB-TICKET-199",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "MobiusSquarefreeLambdaExactGoldbachPrimeProjector",
+  "declared_proposition": "For every n>=1, P(n)=mu(n)^2 Lambda(n) equals log(p) when n=p is prime and equals zero otherwise. Hence G(N)=sum_(a+b=N)P(a)P(b) is positive exactly when N is a sum of two primes. Proper-prime-power collision support disappears identically from this detector, including N=2p^2.",
+  "mathematical_argument": "Lambda is supported on prime powers p^k. The squarefree factor mu^2 is one at p and zero at p^k for k>=2; away from prime powers Lambda is zero. Multiplying proves the projector identity term by term, and convolution positivity is then equivalent to a prime pair.",
+  "reproducible_computation": {
+    "theorem": "For every n>=1, P(n)=mu(n)^2 Lambda(n) equals log(p) when n=p is prime and equals zero otherwise. Hence G(N)=sum_(a+b=N)P(a)P(b) is positive exactly when N is a sum of two primes. Proper-prime-power collision support disappears identically from this detector, including N=2p^2.",
+    "proof": "Lambda is supported on prime powers p^k. The squarefree factor mu^2 is one at p and zero at p^k for k>=2; away from prime powers Lambda is zero. Multiplying proves the projector identity term by term, and convolution positivity is then equivalent to a prime pair.",
+    "projector_audit": {
+      "checked_limit": 1048576,
+      "filtered_support_count": 82025,
+      "prime_count": 82025,
+      "support_mismatch_count": 0,
+      "proper_prime_power_leakage_count": 0,
+      "exact_prime_projector_on_checked_range": true
+    },
+    "collision_supported_rows": [
+      {
+        "cutoff_X": 1024,
+        "collision_supported_target_count": 108,
+        "squarefree_Lambda_detector_positive_count": 108,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 2048,
+        "collision_supported_target_count": 177,
+        "squarefree_Lambda_detector_positive_count": 177,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 4096,
+        "collision_supported_target_count": 324,
+        "squarefree_Lambda_detector_positive_count": 324,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 8192,
+        "collision_supported_target_count": 540,
+        "squarefree_Lambda_detector_positive_count": 540,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 16384,
+        "collision_supported_target_count": 856,
+        "squarefree_Lambda_detector_positive_count": 856,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 32768,
+        "collision_supported_target_count": 1456,
+        "squarefree_Lambda_detector_positive_count": 1456,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 65536,
+        "collision_supported_target_count": 2282,
+        "squarefree_Lambda_detector_positive_count": 2282,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 131072,
+        "collision_supported_target_count": 3804,
+        "squarefree_Lambda_detector_positive_count": 3804,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 262144,
+        "collision_supported_target_count": 6322,
+        "squarefree_Lambda_detector_positive_count": 6322,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 524288,
+        "collision_supported_target_count": 10476,
+        "squarefree_Lambda_detector_positive_count": 10476,
+        "finite_goldbach_failure_count": 0
+      },
+      {
+        "cutoff_X": 1048576,
+        "collision_supported_target_count": 17411,
+        "squarefree_Lambda_detector_positive_count": 17411,
+        "finite_goldbach_failure_count": 0
+      }
+    ],
+    "aggregate": {
+      "finite_limit": 1048576,
+      "proper_prime_power_count": 223,
+      "collision_supported_target_count": 17411,
+      "finite_collision_target_failure_count": 0,
+      "prime_power_collision_removed_algebraically": true,
+      "eventual_positive_lower_bound_proved": false
+    },
+    "no_go_scope": "The exact filter removes a bookkeeping artifact, not the binary correlation difficulty. Estimating the mu^2 Lambda convolution pointwise is essentially the remaining Goldbach problem; the finite scan supplies no all-N theorem.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating proper-prime-power collision support as an intrinsic exceptional stratum after an exact prime-supported detector is chosen",
+  "remaining_gap": "The exact prime projector removes prime-power contamination but supplies no pointwise positive lower bound for the binary convolution.",
+  "candidate_theorem": "UniformPositiveLowerBoundForMobiusSquarefreeGoldbachCorrelationAtEverySufficientlyLargeEvenTarget",
+  "claim_boundary": "No Goldbach proof or counterexample. The result is an exact reformulation that removes a project-local contamination split, not a new correlation lower bound.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T198",
+        "label": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T199",
+        "label": "MobiusSquarefreeLambdaExactGoldbachPrimeProjector",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N199",
+        "label": "PrimePowerCollisionSupportIsIntrinsicToAnExactGoldbachDetector",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN199",
+        "label": "UniformPositiveLowerBoundForMobiusSquarefreeGoldbachCorrelationAtEverySufficientlyLargeEvenTarget",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "GB",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T198",
+        "GB-T199"
+      ],
+      [
+        "GB-T199",
+        "GB-N199"
+      ],
+      [
+        "GB-T199",
+        "GB-OPEN199"
+      ],
+      [
+        "GB-OPEN199",
+        "GB"
+      ]
+    ]
+  }
+}

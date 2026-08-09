@@ -37,6 +37,28 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-10 TICKET-199 Symmetric Sampling, Two-Run Obstruction, and Squarefree-Lambda Filters
+
+TICKET-199 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results:
+
+1. finite boundary point samples admit exact real-even polynomial
+   countermodels, so an RH Rouché certificate must control every boundary
+   interval or a derivative envelope;
+2. the primitive Collatz family `1^k2^(2k)12^2` is excluded at every scale
+   `k>=2` and every cyclic rotation by an exact affine-divisibility obstruction;
+3. `P=mu^2 Lambda` is an exact prime projector and turns Goldbach into exact
+   positivity of `P*P`, without proving the required pointwise lower bound;
+4. the localized shift-two `P` correlation exactly detects twin pairs, without
+   proving infinitely many positive blocks.
+
+The finite computations are regression checks for exact arguments. They do not
+promote finite positivity to a universal or infinitely-often theorem. The
+projector identity is elementary and no literature-priority claim is made.
+
+English report: [TICKET-199](symmetric-sampling-two-run-squarefree-filter.md).
+한국어 보고서: [TICKET-199](symmetric-sampling-two-run-squarefree-filter.ko.md).
+
 ## 2026-08-09 TICKET-198 Verified Height, Primitive Words, and Quantifier Strength
 
 TICKET-198 keeps all four parent conjectures at `open_not_proven` and proves

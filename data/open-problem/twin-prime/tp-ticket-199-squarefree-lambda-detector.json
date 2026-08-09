@@ -1,0 +1,214 @@
+{
+  "schema": "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1",
+  "generated_at": "2026-08-10T03:00:00+09:00",
+  "ticket_id": "TP-TICKET-199",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "MobiusSquarefreeLambdaExactTwinPrimeDetector",
+  "declared_proposition": "With P(n)=mu(n)^2 Lambda(n), the localized shift-two detector T(X)=sum_(X<=n<2X)P(n)P(n+2) is nonnegative, contains no proper prime-power contribution, and is positive if and only if [X,2X) contains a twin-prime start. Thus TICKET-198's requested exact prime-power-free detector exists.",
+  "mathematical_argument": "The same pointwise projector identity P(p)=log p and P(n)=0 for nonprimes turns every summand into log(p)log(p+2) for a genuine twin pair and zero otherwise. Nonnegativity makes block positivity equivalent to at least one pair.",
+  "reproducible_computation": {
+    "theorem": "With P(n)=mu(n)^2 Lambda(n), the localized shift-two detector T(X)=sum_(X<=n<2X)P(n)P(n+2) is nonnegative, contains no proper prime-power contribution, and is positive if and only if [X,2X) contains a twin-prime start. Thus TICKET-198's requested exact prime-power-free detector exists.",
+    "proof": "The same pointwise projector identity P(p)=log p and P(n)=0 for nonprimes turns every summand into log(p)log(p+2) for a genuine twin pair and zero otherwise. Nonnegativity makes block positivity equivalent to at least one pair.",
+    "projector_audit": {
+      "checked_limit": 8388608,
+      "filtered_support_count": 564163,
+      "prime_count": 564163,
+      "support_mismatch_count": 0,
+      "proper_prime_power_leakage_count": 0,
+      "exact_prime_projector_on_checked_range": true
+    },
+    "finite_dyadic_rows": [
+      {
+        "block": [
+          1024,
+          2048
+        ],
+        "prime_pair_count": 26,
+        "squarefree_Lambda_detector_count": 26,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          2048,
+          4096
+        ],
+        "prime_pair_count": 45,
+        "squarefree_Lambda_detector_count": 45,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          4096,
+          8192
+        ],
+        "prime_pair_count": 70,
+        "squarefree_Lambda_detector_count": 70,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          8192,
+          16384
+        ],
+        "prime_pair_count": 113,
+        "squarefree_Lambda_detector_count": 113,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          16384,
+          32768
+        ],
+        "prime_pair_count": 215,
+        "squarefree_Lambda_detector_count": 215,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          32768,
+          65536
+        ],
+        "prime_pair_count": 355,
+        "squarefree_Lambda_detector_count": 355,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          65536,
+          131072
+        ],
+        "prime_pair_count": 666,
+        "squarefree_Lambda_detector_count": 666,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          131072,
+          262144
+        ],
+        "prime_pair_count": 1153,
+        "squarefree_Lambda_detector_count": 1153,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          262144,
+          524288
+        ],
+        "prime_pair_count": 2071,
+        "squarefree_Lambda_detector_count": 2071,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          524288,
+          1048576
+        ],
+        "prime_pair_count": 3785,
+        "squarefree_Lambda_detector_count": 3785,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          1048576,
+          2097152
+        ],
+        "prime_pair_count": 6965,
+        "squarefree_Lambda_detector_count": 6965,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          2097152,
+          4194304
+        ],
+        "prime_pair_count": 12495,
+        "squarefree_Lambda_detector_count": 12495,
+        "exact_support_match": true,
+        "detector_positive": true
+      },
+      {
+        "block": [
+          4194304,
+          8388608
+        ],
+        "prime_pair_count": 22643,
+        "squarefree_Lambda_detector_count": 22643,
+        "exact_support_match": true,
+        "detector_positive": true
+      }
+    ],
+    "aggregate": {
+      "finite_block_count": 13,
+      "largest_block_upper": 8388608,
+      "all_finite_supports_match": true,
+      "prime_power_free_detector_constructed": true,
+      "infinitely_many_positive_blocks_proved": false
+    },
+    "no_go_scope": "Constructing an exact detector does not prove its positivity on an unbounded block sequence. The parity-breaking lower bound for this fixed shift remains precisely the Twin Prime obstruction.",
+    "failure_count": 0
+  },
+  "discarded_route": "continuing to subtract proper-prime-power contamination inside the final localized detector",
+  "remaining_gap": "The requested detector is constructed exactly, but no theorem makes it positive on infinitely many blocks.",
+  "candidate_theorem": "ParityBreakingPositiveLowerBoundForMobiusSquarefreeLambdaShiftTwoCorrelationOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof or counterexample. TICKET-199 constructs the exact detector half of the TICKET-198 target and leaves infinitude as an explicit positivity theorem.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T198",
+        "label": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T199",
+        "label": "MobiusSquarefreeLambdaExactTwinPrimeDetector",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N199",
+        "label": "ASeparatePrimePowerContaminationEnvelopeIsNeededInsideTheFinalDetector",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN199",
+        "label": "ParityBreakingPositiveLowerBoundForMobiusSquarefreeLambdaShiftTwoCorrelationOnInfinitelyManyDyadicBlocks",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TP",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T198",
+        "TP-T199"
+      ],
+      [
+        "TP-T199",
+        "TP-N199"
+      ],
+      [
+        "TP-T199",
+        "TP-OPEN199"
+      ],
+      [
+        "TP-OPEN199",
+        "TP"
+      ]
+    ]
+  }
+}

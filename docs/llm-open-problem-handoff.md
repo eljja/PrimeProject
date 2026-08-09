@@ -62,9 +62,40 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-198
+## Latest Continuation After TICKET-199
 
-TICKET-198 is the current boundary. It resolves none of the four conjectures.
+TICKET-199 is the current boundary. It resolves none of the four conjectures.
+It closes four exact intermediate statements and sharpens the next targets:
+
+1. **Riemann:** any finite symmetric boundary sample set admits a real even
+   polynomial matching the zero-free constant function at every sample while
+   having an interior zero. Point samples without between-sample interval or
+   derivative control therefore cannot certify a Rouché rectangle.
+2. **Collatz:** every scale `k>=2` of the primitive family
+   `1^k 2^(2k) 1 2^2`, including every cyclic rotation, fails affine
+   divisibility despite passing both scalar gates.
+3. **Goldbach:** `P(n)=mu(n)^2 Lambda(n)` is an exact prime projector and
+   `(P*P)(N)>0` is equivalent to a two-prime representation. This removes
+   prime-power collision bookkeeping but not the required pointwise lower bound.
+4. **Twin Prime:** the localized shift-two `P` correlation is positive exactly
+   when a block contains a twin pair. Its positivity on infinitely many blocks
+   remains the unresolved parity-breaking obligation.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket199-symmetric-sampling-two-run-squarefree-filter.json
+```
+
+English report: [TICKET-199](symmetric-sampling-two-run-squarefree-filter.md).
+Korean report: [TICKET-199 한국어](symmetric-sampling-two-run-squarefree-filter.ko.md).
+
+The `mu^2 Lambda` identity is elementary; this project claims a cleaner exact
+internal detector and target correction, not academic priority for the identity.
+
+## Preserved Continuation After TICKET-198
+
+TICKET-198 is the preserved previous boundary. It resolves none of the four conjectures.
 It closes four exact intermediate statements and corrects the next targets:
 
 1. **Riemann:** the Platt--Trudgian rigorous RH verification through

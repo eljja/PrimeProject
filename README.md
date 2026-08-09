@@ -31,28 +31,26 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-198: Verified Height, Primitive Words, and Quantifier Strength](docs/verified-height-primitive-word-quantifier-strength.md),
-with a separate [Korean report](docs/verified-height-primitive-word-quantifier-strength.ko.md).
-It transfers the peer-reviewed RH verification through `3*10^12` into the
-project's Xi rectangle language without claiming a new zero computation;
-proves that every fixed Collatz run count still contains an explicit infinite
-primitive one-third-density family passing both scalar gates; proves that a
-collision-free Goldbach theorem would leave an `O(X/log^2 X)` exceptional set;
-and proves that the previous Twin global-mass target forces square-root-scale
-pair counts. These are exact partial theorems and target corrections, not
+[TICKET-199: Symmetric Sampling, Two-Run Obstruction, and the Squarefree-Lambda Filter](docs/symmetric-sampling-two-run-squarefree-filter.md),
+with a separate [Korean report](docs/symmetric-sampling-two-run-squarefree-filter.ko.md).
+It proves that finitely many boundary point values, without certified
+between-sample control, cannot establish a zero-free Rouché rectangle even for
+real even polynomials; excludes every scale `k>=2` and cyclic rotation of the
+explicit primitive Collatz family `1^k 2^(2k) 1 2^2`; and replaces
+prime-power-contaminated Goldbach and Twin correlations with the exact prime
+projector `P=mu^2 Lambda`. The projector identity is elementary and is not
+claimed as a new academic theorem. Its role here is to expose the remaining
+binary-correlation and fixed-shift parity obligations without a bookkeeping
+artifact. These are exact partial theorems and route corrections, not
 resolutions. Every conjecture remains `open_not_proven`; the machine resolution
 count is zero.
 
 The preserved previous boundary is
-[TICKET-197: First Xi Rectangle, Collatz Run Blocks, and Sparse Prime-Power Collisions](docs/first-rectangle-run-block-sparse-collision.md),
-with a separate [Korean report](docs/first-rectangle-run-block-sparse-collision.ko.md).
-It proves that the first actual-Xi rectangles close existentially but avoid the
-open critical strip; excludes every cyclic rotation of `1^k2^(2k)` for all
-`k>=1`; proves the Goldbach `Q*Q` collision support has density zero; and proves
-that equal-exponent Twin gap-two collisions are impossible, making the exact
-overlap correction lower order than the square layer. These are exact partial
-theorems and route corrections, not resolutions. Every conjecture remains
-`open_not_proven`; the machine resolution count is zero.
+[TICKET-198: Verified Height, Primitive Words, and Quantifier Strength](docs/verified-height-primitive-word-quantifier-strength.md),
+with a separate [Korean report](docs/verified-height-primitive-word-quantifier-strength.ko.md).
+It transfers the peer-reviewed finite-height RH result, proves fixed-run
+primitive scalar-admissible Collatz families remain infinite, and corrects the
+quantifier strength of the previous Goldbach and Twin targets.
 
 The preserved previous boundary is
 [TICKET-196: Rouché Exhaustion, Collatz Density, and Overlap-Corrected Prime-Power Budgets](docs/rouche-density-overlap.md),
@@ -232,7 +230,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-198 boundary, four exact partial theorems, four discarded or limited routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-199 boundary, four exact partial theorems, four discarded or limited routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -245,21 +243,21 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 158-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 160-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-198. The RH track transfers the
-Platt--Trudgian rigorous height `3*10^12` into a finite Xi Rouché prefix but
-does not provide a new zero verification, an explicit Taylor degree, or tail
-control. The Collatz track reuses the TICKET-183 primitive-root theorem as an
-input and proves that each fixed run count still leaves an explicit infinite
-primitive scalar-admissible family. Goldbach proves that collision-free control
-alone leaves an `O(X/log^2 X)` exceptional set. Twin Prime proves that the
-previous global mass target is quantitatively stronger than mere infinitude.
-These are partial theorems and route corrections, not solutions. All four
-conjectures remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-199. The RH track proves an exact
+finite-point-sampling no-go and retains interval or derivative-controlled
+Rouché certification. The Collatz track closes one explicit primitive
+two-run-pair family at every scale and every cyclic rotation. Goldbach and Twin
+Prime use `P=mu^2 Lambda` to eliminate proper-prime-power support exactly, then
+leave the pointwise Goldbach lower bound and infinitely-often shift-two lower
+bound open. These are partial theorems and route corrections, not solutions.
+All four conjectures remain open and the machine resolution count is zero.
 See
+[TICKET199 EN](docs/symmetric-sampling-two-run-squarefree-filter.md),
+[TICKET199 KO](docs/symmetric-sampling-two-run-squarefree-filter.ko.md),
 [TICKET198 EN](docs/verified-height-primitive-word-quantifier-strength.md),
 [TICKET198 KO](docs/verified-height-primitive-word-quantifier-strength.ko.md),
 [TICKET197 EN](docs/first-rectangle-run-block-sparse-collision.md),
@@ -345,13 +343,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-198입니다. 리만 트랙은 외부의 엄밀한
-`3*10^12` 높이 검증을 Xi 사각형 언어로 옮겼지만 새 영점 계산이나 무한
-꼬리 통제를 주장하지 않습니다. 콜라츠 트랙은 TICKET-183의 원시 root
-정리를 입력으로 사용해, 고정 run 수마다 두 scalar gate를 통과하는 원시
-단어가 무한히 남음을 증명했습니다. 골드바흐의 collision-free 통제만으로는
-`O(X/log^2 X)` 예외가 남고, 쌍둥이 소수의 기존 전역 질량 목표는 단순
-무한성보다 훨씬 강합니다. 네 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-199입니다. 리만 트랙은 표본점 사이를
+통제하지 않는 유한 경계 점 값만으로는 내부 영점을 배제할 수 없음을 정확히
+증명했습니다. 콜라츠 트랙은 명시적 두-run-pair 원시 무한족 하나와 모든
+순환 회전을 전 규모에서 배제했습니다. 골드바흐와 쌍둥이 소수 트랙은
+`P=mu^2 Lambda`로 proper prime power를 정확히 제거했지만, 각각 모든 큰
+짝수의 점별 양성 및 무한히 많은 블록의 양성은 열려 있습니다. 이 projector
+항등식 자체를 새로운 학계 정리라고 주장하지 않습니다. 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -371,19 +369,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-198입니다.
-[검증 높이·원시 단어·양화 강도 한국어 보고서](docs/verified-height-primitive-word-quantifier-strength.ko.md)와
-[영문 보고서](docs/verified-height-primitive-word-quantifier-strength.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-199입니다.
+[대칭 표본·두-run 배제·squarefree-Lambda 한국어 보고서](docs/symmetric-sampling-two-run-squarefree-filter.ko.md)와
+[영문 보고서](docs/symmetric-sampling-two-run-squarefree-filter.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-외부 RH 유한 높이의 정확한 이전 범위, 고정 run 수에도 남는 무한 원시
-Collatz 단어족, Goldbach 희소 충돌층과 Twin 전역 질량 목표의 양화 간극을
-확정했지만 실제 무한 전제는 남아 있습니다. 각 proof DAG는 TICKET-197 입력, 이번에 닫힌 정리,
+유한 RH 경계 표본의 한계, 명시적 Collatz 무한족 하나의 전면 배제,
+Goldbach와 Twin의 정확한 소수 지지 검출기를 확정했지만 실제 무한 전제는
+남아 있습니다. 각 proof DAG는 TICKET-198 입력, 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-198의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 198개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-199의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 199개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 
