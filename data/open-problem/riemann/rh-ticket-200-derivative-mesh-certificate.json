@@ -1,0 +1,124 @@
+{
+  "schema": "primeproject.ticket200-derivative-mesh-three-run-chen-channels.v1",
+  "generated_at": "2026-08-10T12:00:00+09:00",
+  "ticket_id": "RH-TICKET-200",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "DerivativeControlledBoundaryMeshRoucheCertificate",
+  "declared_proposition": "Let the polygonal boundary of D_3^+ be partitioned into segments of length at most h, with both endpoints sampled. If analytic P and R satisfy |P(s)|-|R(s)|>=eta at every sampled endpoint and sup_boundary(|P'|+|R'|)<=L, then eta-Lh/2>0 implies |R|<|P| on the full boundary. Therefore P and P+R have the same number of zeros in D_3^+, counted with multiplicity.",
+  "mathematical_argument": "Every point z of a boundary segment is within h/2 of one sampled endpoint s. Integration along that segment gives |P(z)-P(s)|+|R(z)-R(s)|<=L|z-s|. The reverse triangle inequality then gives |P(z)|-|R(z)|>=eta-Lh/2>0. Rouche's theorem supplies the zero-count conclusion.",
+  "reproducible_computation": {
+    "theorem": "Let the polygonal boundary of D_3^+ be partitioned into segments of length at most h, with both endpoints sampled. If analytic P and R satisfy |P(s)|-|R(s)|>=eta at every sampled endpoint and sup_boundary(|P'|+|R'|)<=L, then eta-Lh/2>0 implies |R|<|P| on the full boundary. Therefore P and P+R have the same number of zeros in D_3^+, counted with multiplicity.",
+    "proof": "Every point z of a boundary segment is within h/2 of one sampled endpoint s. Integration along that segment gives |P(z)-P(s)|+|R(z)-R(s)|<=L|z-s|. The reverse triangle inequality then gives |P(z)|-|R(z)|>=eta-Lh/2>0. Rouche's theorem supplies the zero-count conclusion.",
+    "exact_synthetic_rows": [
+      {
+        "segments_per_edge": 2,
+        "boundary_node_count": 8,
+        "minimum_certified_node_margin_eta": "43/4",
+        "maximum_segment_length_h": "3",
+        "nearest_node_radius_h_over_2": "3/2",
+        "certified_derivative_budget_L": "12",
+        "propagated_strict_clearance_eta_minus_Lh_over_2": "-29/4",
+        "strict_rouche_margin_certified": false
+      },
+      {
+        "segments_per_edge": 4,
+        "boundary_node_count": 16,
+        "minimum_certified_node_margin_eta": "43/4",
+        "maximum_segment_length_h": "3/2",
+        "nearest_node_radius_h_over_2": "3/4",
+        "certified_derivative_budget_L": "12",
+        "propagated_strict_clearance_eta_minus_Lh_over_2": "7/4",
+        "strict_rouche_margin_certified": true
+      },
+      {
+        "segments_per_edge": 8,
+        "boundary_node_count": 32,
+        "minimum_certified_node_margin_eta": "43/4",
+        "maximum_segment_length_h": "3/4",
+        "nearest_node_radius_h_over_2": "3/8",
+        "certified_derivative_budget_L": "12",
+        "propagated_strict_clearance_eta_minus_Lh_over_2": "25/4",
+        "strict_rouche_margin_certified": true
+      },
+      {
+        "segments_per_edge": 16,
+        "boundary_node_count": 64,
+        "minimum_certified_node_margin_eta": "43/4",
+        "maximum_segment_length_h": "3/8",
+        "nearest_node_radius_h_over_2": "3/16",
+        "certified_derivative_budget_L": "12",
+        "propagated_strict_clearance_eta_minus_Lh_over_2": "17/2",
+        "strict_rouche_margin_certified": true
+      }
+    ],
+    "synthetic_instance": {
+      "domain": "D_3^+={x+iy:-3<=x<=3, 1/3<=y<=3}",
+      "P": "20+z^2",
+      "R": "1/4",
+      "global_derivative_budget": "12",
+      "first_certifying_segments_per_edge": 4,
+      "instance_is_Xi": false
+    },
+    "aggregate": {
+      "mesh_family_count": 4,
+      "certifying_mesh_count": 3,
+      "abstract_derivative_mesh_bridge_proved": true,
+      "actual_Xi_interval_certificate_constructed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "TICKET-199 already proves that point values alone are insufficient. TICKET-200 closes the missing propagation implication, but the displayed exact certificate is synthetic. Floating Xi samples or non-outward-rounded derivative estimates are not rigorous inputs.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating high-precision Xi point samples or non-rigorous numerical derivatives as a Rouché certificate",
+  "remaining_gap": "The mesh propagation theorem is exact, but no outward-rounded Xi Taylor remainder and derivative enclosure on D3 has been supplied.",
+  "candidate_theorem": "OutwardRoundedXiTaylorRemainderAndDerivativeBoundsInstantiateD3MeshCertificate",
+  "claim_boundary": "No RH proof or counterexample. The exact theorem closes only the finite-mesh propagation logic; its Xi-specific interval hypotheses remain unproved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T199",
+        "label": "FiniteBoundarySamplingNoGoForRealEvenRoucheCertification",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T200",
+        "label": "DerivativeControlledBoundaryMeshRoucheCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N200",
+        "label": "FloatingPointXiMarginsWithoutOutwardRoundedDerivativeAndTailBoundsAreProofCertificates",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN200",
+        "label": "OutwardRoundedXiTaylorRemainderAndDerivativeBoundsInstantiateD3MeshCertificate",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RH",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T199",
+        "RH-T200"
+      ],
+      [
+        "RH-T200",
+        "RH-N200"
+      ],
+      [
+        "RH-T200",
+        "RH-OPEN200"
+      ],
+      [
+        "RH-OPEN200",
+        "RH"
+      ]
+    ]
+  }
+}

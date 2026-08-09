@@ -1,0 +1,243 @@
+{
+  "schema": "primeproject.ticket200-derivative-mesh-three-run-chen-channels.v1",
+  "generated_at": "2026-08-10T12:00:00+09:00",
+  "ticket_id": "GB-TICKET-200",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "ChenGoldbachPrimeSemiprimeChannelReduction",
+  "declared_proposition": "Let I_P be the prime indicator and I_2 the indicator of composite integers with exactly two prime factors counted with multiplicity. For even N define R(N)=sum I_P(a)I_P(N-a), S(N)=sum I_P(a)I_2(N-a), and C(N)=R(N)+S(N). This is a disjoint exact channel decomposition. Bordignon's explicit Chen theorem gives C(N)>0 for every even N>exp(36). Consequently every Goldbach counterexample above exp(36), if one exists, must satisfy R(N)=0<S(N): it is a semiprime-only Chen target.",
+  "mathematical_argument": "A number that is a product of at most two primes is either prime or a composite semiprime, and the two supports are disjoint. Splitting Chen's representation count by this dichotomy proves C=R+S. The imported explicit theorem supplies C(N)>0; if R(N)=0, then necessarily S(N)>0. No estimate here proves R(N)>0.",
+  "reproducible_computation": {
+    "theorem": "Let I_P be the prime indicator and I_2 the indicator of composite integers with exactly two prime factors counted with multiplicity. For even N define R(N)=sum I_P(a)I_P(N-a), S(N)=sum I_P(a)I_2(N-a), and C(N)=R(N)+S(N). This is a disjoint exact channel decomposition. Bordignon's explicit Chen theorem gives C(N)>0 for every even N>exp(36). Consequently every Goldbach counterexample above exp(36), if one exists, must satisfy R(N)=0<S(N): it is a semiprime-only Chen target.",
+    "proof": "A number that is a product of at most two primes is either prime or a composite semiprime, and the two supports are disjoint. Splitting Chen's representation count by this dichotomy proves C=R+S. The imported explicit theorem supplies C(N)>0; if R(N)=0, then necessarily S(N)>0. No estimate here proves R(N)>0.",
+    "imported_theorem": {
+      "author": "Matteo Bordignon",
+      "title": "An explicit version of Chen's theorem",
+      "published": 2022,
+      "doi": "10.1017/S0004972721001301",
+      "url": "https://doi.org/10.1017/S0004972721001301",
+      "statement_used": "Every even N>exp(36) is a prime plus a product of at most two primes.",
+      "proved_inside_primeproject": false
+    },
+    "finite_channel_rows": [
+      {
+        "cutoff_X": 1024,
+        "even_targets": 511,
+        "goldbach_positive": 511,
+        "composite_semiprime_channel_positive": 509,
+        "chen_positive": 511,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 2048,
+        "even_targets": 1023,
+        "goldbach_positive": 1023,
+        "composite_semiprime_channel_positive": 1021,
+        "chen_positive": 1023,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 4096,
+        "even_targets": 2047,
+        "goldbach_positive": 2047,
+        "composite_semiprime_channel_positive": 2045,
+        "chen_positive": 2047,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 8192,
+        "even_targets": 4095,
+        "goldbach_positive": 4095,
+        "composite_semiprime_channel_positive": 4093,
+        "chen_positive": 4095,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 16384,
+        "even_targets": 8191,
+        "goldbach_positive": 8191,
+        "composite_semiprime_channel_positive": 8189,
+        "chen_positive": 8191,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 32768,
+        "even_targets": 16383,
+        "goldbach_positive": 16383,
+        "composite_semiprime_channel_positive": 16381,
+        "chen_positive": 16383,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 65536,
+        "even_targets": 32767,
+        "goldbach_positive": 32767,
+        "composite_semiprime_channel_positive": 32765,
+        "chen_positive": 32767,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 131072,
+        "even_targets": 65535,
+        "goldbach_positive": 65535,
+        "composite_semiprime_channel_positive": 65533,
+        "chen_positive": 65535,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 262144,
+        "even_targets": 131071,
+        "goldbach_positive": 131071,
+        "composite_semiprime_channel_positive": 131069,
+        "chen_positive": 131071,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 524288,
+        "even_targets": 262143,
+        "goldbach_positive": 262143,
+        "composite_semiprime_channel_positive": 262141,
+        "chen_positive": 262143,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      },
+      {
+        "cutoff_X": 1048576,
+        "even_targets": 524287,
+        "goldbach_positive": 524287,
+        "composite_semiprime_channel_positive": 524285,
+        "chen_positive": 524287,
+        "semiprime_only": 0,
+        "chen_failure": 0
+      }
+    ],
+    "selected_witnesses": {
+      "4": {
+        "prime_prime": [
+          2,
+          2
+        ],
+        "prime_composite_semiprime": null
+      },
+      "28": {
+        "prime_prime": [
+          5,
+          23
+        ],
+        "prime_composite_semiprime": [
+          2,
+          26
+        ]
+      },
+      "100": {
+        "prime_prime": [
+          3,
+          97
+        ],
+        "prime_composite_semiprime": [
+          5,
+          95
+        ]
+      },
+      "1024": {
+        "prime_prime": [
+          3,
+          1021
+        ],
+        "prime_composite_semiprime": [
+          13,
+          1011
+        ]
+      },
+      "1048576": {
+        "prime_prime": [
+          3,
+          1048573
+        ],
+        "prime_composite_semiprime": [
+          2,
+          1048574
+        ]
+      }
+    },
+    "logical_countermodel": {
+      "R": 0,
+      "S": 1,
+      "C": 1,
+      "meaning": "C>0 and C=R+S do not logically imply R>0.",
+      "is_an_arithmetic_goldbach_counterexample": false
+    },
+    "aggregate": {
+      "finite_limit": 1048576,
+      "finite_even_target_count": 524287,
+      "finite_goldbach_failure_count": 0,
+      "finite_semiprime_only_target_count": 0,
+      "chen_channel_decomposition_exact": true,
+      "explicit_chen_threshold": "exp(36)",
+      "semiprime_only_channel_eliminated_above_threshold": false,
+      "goldbach_resolved": false
+    },
+    "no_go_scope": "Chen positivity alone cannot imply Goldbach positivity because the composite-semiprime channel can carry all of C in the exact decomposition. The finite zero count for semiprime-only targets is a regression result, not a proof that this channel is globally empty.",
+    "failure_count": 0
+  },
+  "discarded_route": "claiming that Chen positivity or finite zero exceptions automatically imply prime-prime positivity",
+  "remaining_gap": "Chen guarantees prime-plus-P2 representations above exp(36), but no theorem eliminates semiprime-only targets pointwise.",
+  "candidate_theorem": "SemiprimeOnlyChenGoldbachChannelIsEmptyForEveryEvenNAboveExp36",
+  "claim_boundary": "No Goldbach proof or counterexample. The result imports Chen's theorem and exactly identifies the remaining semiprime-only channel; it does not eliminate that channel.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T199",
+        "label": "MobiusSquarefreeLambdaExactGoldbachPrimeProjector",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T200",
+        "label": "ChenGoldbachPrimeSemiprimeChannelReduction",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N200",
+        "label": "ChenPrimePlusP2PositivityImpliesGoldbachPrimePlusPrimePositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN200",
+        "label": "SemiprimeOnlyChenGoldbachChannelIsEmptyForEveryEvenNAboveExp36",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "GB",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T199",
+        "GB-T200"
+      ],
+      [
+        "GB-T200",
+        "GB-N200"
+      ],
+      [
+        "GB-T200",
+        "GB-OPEN200"
+      ],
+      [
+        "GB-OPEN200",
+        "GB"
+      ]
+    ]
+  }
+}

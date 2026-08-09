@@ -31,19 +31,21 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-200: Derivative Meshes, a Three-Run Obstruction, and Chen Channels](docs/derivative-mesh-three-run-chen-channels.md),
+with a separate [Korean report](docs/derivative-mesh-three-run-chen-channels.ko.md).
+It proves the derivative-controlled boundary-mesh implication required after
+the RH point-sampling no-go; excludes every scale `k>=2` and cyclic rotation of
+the explicit primitive Collatz family `1^k 2^(2k) (1 2^2)^2`; and imports
+Chen's theorems only to split prime-plus-`P2` positivity into exact prime and
+composite-semiprime channels for Goldbach and Twin Prime. The Chen results are
+not reproved, and the elementary channel decomposition is not claimed as a new
+Chen-strength theorem. These are exact partial theorems and route corrections,
+not resolutions. Every conjecture remains `open_not_proven`; the machine
+resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-199: Symmetric Sampling, Two-Run Obstruction, and the Squarefree-Lambda Filter](docs/symmetric-sampling-two-run-squarefree-filter.md),
 with a separate [Korean report](docs/symmetric-sampling-two-run-squarefree-filter.ko.md).
-It proves that finitely many boundary point values, without certified
-between-sample control, cannot establish a zero-free Rouché rectangle even for
-real even polynomials; excludes every scale `k>=2` and cyclic rotation of the
-explicit primitive Collatz family `1^k 2^(2k) 1 2^2`; and replaces
-prime-power-contaminated Goldbach and Twin correlations with the exact prime
-projector `P=mu^2 Lambda`. The projector identity is elementary and is not
-claimed as a new academic theorem. Its role here is to expose the remaining
-binary-correlation and fixed-shift parity obligations without a bookkeeping
-artifact. These are exact partial theorems and route corrections, not
-resolutions. Every conjecture remains `open_not_proven`; the machine resolution
-count is zero.
 
 The preserved previous boundary is
 [TICKET-198: Verified Height, Primitive Words, and Quantifier Strength](docs/verified-height-primitive-word-quantifier-strength.md),
@@ -230,7 +232,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-199 boundary, four exact partial theorems, four discarded or limited routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-200 boundary, four exact partial theorems, four discarded or limited routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -247,15 +249,17 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-199. The RH track proves an exact
-finite-point-sampling no-go and retains interval or derivative-controlled
-Rouché certification. The Collatz track closes one explicit primitive
-two-run-pair family at every scale and every cyclic rotation. Goldbach and Twin
-Prime use `P=mu^2 Lambda` to eliminate proper-prime-power support exactly, then
-leave the pointwise Goldbach lower bound and infinitely-often shift-two lower
-bound open. These are partial theorems and route corrections, not solutions.
-All four conjectures remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-200. The RH track proves the exact
+derivative-mesh propagation implication but still lacks Xi-specific interval
+bounds. The Collatz track closes one explicit primitive three-run-pair family
+at every scale and every cyclic rotation. Goldbach and Twin Prime split Chen's
+prime-plus-`P2` support into prime and composite-semiprime channels, leaving a
+pointwise semiprime-only exclusion and an infinitely-often twin-channel theorem
+open. These are partial theorems and route corrections, not solutions. All four
+conjectures remain open and the machine resolution count is zero.
 See
+[TICKET200 EN](docs/derivative-mesh-three-run-chen-channels.md),
+[TICKET200 KO](docs/derivative-mesh-three-run-chen-channels.ko.md),
 [TICKET199 EN](docs/symmetric-sampling-two-run-squarefree-filter.md),
 [TICKET199 KO](docs/symmetric-sampling-two-run-squarefree-filter.ko.md),
 [TICKET198 EN](docs/verified-height-primitive-word-quantifier-strength.md),
@@ -343,13 +347,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-199입니다. 리만 트랙은 표본점 사이를
-통제하지 않는 유한 경계 점 값만으로는 내부 영점을 배제할 수 없음을 정확히
-증명했습니다. 콜라츠 트랙은 명시적 두-run-pair 원시 무한족 하나와 모든
-순환 회전을 전 규모에서 배제했습니다. 골드바흐와 쌍둥이 소수 트랙은
-`P=mu^2 Lambda`로 proper prime power를 정확히 제거했지만, 각각 모든 큰
-짝수의 점별 양성 및 무한히 많은 블록의 양성은 열려 있습니다. 이 projector
-항등식 자체를 새로운 학계 정리라고 주장하지 않습니다. 네 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-200입니다. 리만 트랙은 도함수 상계가
+있는 경계 격자의 정확한 Rouché 전달 정리를 증명했지만 Xi 전용 구간 포위는
+남아 있습니다. 콜라츠 트랙은 명시적 세-run-pair 원시 무한족 하나와 모든
+순환 회전을 전 규모에서 배제했습니다. 골드바흐와 쌍둥이 소수 트랙은 Chen의
+`소수+P2` 결과를 소수 채널과 합성 반소수 채널로 정확히 분해했지만, 남은
+채널을 제거하는 parity-breaking 정리는 열려 있습니다. 네 문제의 해결 수는
+0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -369,19 +373,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-199입니다.
-[대칭 표본·두-run 배제·squarefree-Lambda 한국어 보고서](docs/symmetric-sampling-two-run-squarefree-filter.ko.md)와
-[영문 보고서](docs/symmetric-sampling-two-run-squarefree-filter.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-200입니다.
+[도함수 mesh·세-run 배제·Chen 채널 한국어 보고서](docs/derivative-mesh-three-run-chen-channels.ko.md)와
+[영문 보고서](docs/derivative-mesh-three-run-chen-channels.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-유한 RH 경계 표본의 한계, 명시적 Collatz 무한족 하나의 전면 배제,
-Goldbach와 Twin의 정확한 소수 지지 검출기를 확정했지만 실제 무한 전제는
-남아 있습니다. 각 proof DAG는 TICKET-198 입력, 이번에 닫힌 정리,
+RH 경계 격자 전달 정리, 명시적 Collatz 세-run 무한족의 전면 배제,
+Goldbach와 Twin의 Chen 소수·합성반소수 채널 환원을 확정했지만 실제 무한
+전제는 남아 있습니다. 각 proof DAG는 TICKET-199 입력, 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-199의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 199개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-200의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 200개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

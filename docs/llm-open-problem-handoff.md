@@ -62,9 +62,42 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-199
+## Latest Continuation After TICKET-200
 
-TICKET-199 is the current boundary. It resolves none of the four conjectures.
+TICKET-200 is the current boundary. It resolves none of the four conjectures.
+It closes four exact intermediate statements and sharpens the next targets:
+
+1. **Riemann:** the exact implication from node margins plus a certified
+   derivative budget to a full-boundary Rouché margin is proved. The remaining
+   input is an outward-rounded Xi Taylor remainder and derivative enclosure on
+   `D3`; the exact example in the ticket is synthetic.
+2. **Collatz:** every scale `k>=2` of the primitive family
+   `1^k 2^(2k) (1 2^2)^2`, including every cyclic rotation, fails affine
+   divisibility despite passing both scalar gates.
+3. **Goldbach:** Bordignon's explicit Chen theorem gives `C(N)>0` above
+   `exp(36)`, and `C=R+S` splits this exactly into prime-prime and
+   prime-composite-semiprime channels. A counterexample, if any, must be
+   semiprime-only; emptiness of that channel remains unproved.
+4. **Twin Prime:** Chen's infinitely many prime-plus-`P2` starts split exactly
+   into twin and prime-composite-semiprime channels. Infinitely many combined
+   positive blocks do not force infinitely many twin-positive blocks.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket200-derivative-mesh-three-run-chen-channels.json
+```
+
+English report: [TICKET-200](derivative-mesh-three-run-chen-channels.md).
+Korean report: [TICKET-200 한국어](derivative-mesh-three-run-chen-channels.ko.md).
+
+The Chen theorems are external inputs and are not reproved. The channel splits
+are exact project reductions, not full conjecture proofs or novelty-priority
+claims.
+
+## Preserved Continuation After TICKET-199
+
+TICKET-199 is the preserved previous boundary. It resolves none of the four conjectures.
 It closes four exact intermediate statements and sharpens the next targets:
 
 1. **Riemann:** any finite symmetric boundary sample set admits a real even

@@ -37,6 +37,29 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-10 TICKET-200 Derivative Meshes, Three-Run Obstruction, and Chen Channels
+
+TICKET-200 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate results:
+
+1. a sampled boundary margin propagates over the complete `D3+` boundary when
+   paired with a certified derivative budget satisfying `eta-Lh/2>0`; the
+   exact regression instance is synthetic and no Xi enclosure is claimed;
+2. the primitive Collatz family `1^k2^(2k)(12^2)^2` is excluded at every
+   scale `k>=2` and every cyclic rotation by exact affine formulas;
+3. Bordignon's explicit Chen theorem decomposes exactly into Goldbach's
+   prime-prime and prime-composite-semiprime channels, so a possible large
+   Goldbach counterexample must be semiprime-only;
+4. Chen's infinitely many prime-plus-`P2` starts decompose into twin and
+   composite-semiprime channels, exposing the exact fixed-shift parity gap.
+
+The two Chen theorems are imported and are not reproved. Finite channel counts
+are regression checks, not universal or infinitely-often proofs. The machine
+resolution count remains zero.
+
+English report: [TICKET-200](derivative-mesh-three-run-chen-channels.md).
+한국어 보고서: [TICKET-200](derivative-mesh-three-run-chen-channels.ko.md).
+
 ## 2026-08-10 TICKET-199 Symmetric Sampling, Two-Run Obstruction, and Squarefree-Lambda Filters
 
 TICKET-199 keeps all four parent conjectures at `open_not_proven` and proves

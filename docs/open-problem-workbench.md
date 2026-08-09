@@ -15,28 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-199
+## Current research boundary: TICKET-200
 
 The current machine-readable boundary is
-`data/open-problem/ticket199-symmetric-sampling-two-run-squarefree-filter.json`.
+`data/open-problem/ticket200-derivative-mesh-three-run-chen-channels.json`.
 
-TICKET-199 records four exact partial theorems and zero conjecture resolutions:
+TICKET-200 records four exact partial theorems and zero conjecture resolutions:
 
-- finite boundary point samples cannot certify a zero-free Riemann/Xi rectangle
-  without a between-sample enclosure;
-- the explicit primitive Collatz family `1^k2^(2k)12^2` and every cyclic
+- a derivative-controlled boundary mesh propagates a strict Rouché margin, but
+  no Xi-specific interval enclosure has been supplied;
+- the explicit primitive Collatz family `1^k2^(2k)(12^2)^2` and every cyclic
   rotation fail affine divisibility for every `k>=2`;
-- `mu^2 Lambda` gives an exact Goldbach prime projector, leaving only the
-  pointwise binary-correlation lower bound;
-- the same projector gives an exact Twin Prime block detector, leaving its
-  positivity on infinitely many blocks.
+- the explicit Chen Goldbach theorem splits into prime-prime and
+  prime-composite-semiprime channels, leaving the semiprime-only channel open;
+- Chen's prime-plus-`P2` infinitude splits into twin and
+  prime-composite-semiprime channels, leaving the parity-breaking twin channel
+  open.
 
-The squarefree-Lambda identity is elementary and is not claimed as a new
-academic theorem. Its project-level contribution is to remove a prime-power
-bookkeeping artifact and state the remaining parity barrier without ambiguity.
+The Chen theorems are imported rather than reproved. The elementary channel
+identities are not claimed as new Chen-strength number-theory theorems.
 
-English report: [TICKET-199](symmetric-sampling-two-run-squarefree-filter.md).
-한국어 보고서: [TICKET-199](symmetric-sampling-two-run-squarefree-filter.ko.md).
+English report: [TICKET-200](derivative-mesh-three-run-chen-channels.md).
+한국어 보고서: [TICKET-200](derivative-mesh-three-run-chen-channels.ko.md).
+
+## Preserved research boundary: TICKET-199
+
+The preserved machine-readable boundary is
+`data/open-problem/ticket199-symmetric-sampling-two-run-squarefree-filter.json`.
+It proves the finite-point-sampling no-go, closes the explicit two-run-pair
+Collatz family, and constructs the exact squarefree-Lambda Goldbach and Twin
+detectors.
 
 ## Preserved research boundary: TICKET-198
 

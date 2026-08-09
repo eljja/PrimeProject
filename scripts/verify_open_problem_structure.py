@@ -198,6 +198,7 @@ TICKET196_SCHEMA = "primeproject.ticket196-rouche-density-overlap.v1"
 TICKET197_SCHEMA = "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1"
 TICKET198_SCHEMA = "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1"
 TICKET199_SCHEMA = "primeproject.ticket199-symmetric-sampling-two-run-squarefree-filter.v1"
+TICKET200_SCHEMA = "primeproject.ticket200-derivative-mesh-three-run-chen-channels.v1"
 
 
 def fail(message: str) -> int:
@@ -15443,6 +15444,185 @@ def main() -> int:
         or "resolves none" not in str(ticket199.get("claim_boundary", "")).lower()
     ):
         return fail("ticket199 proof boundary changed")
+
+    path200 = Path(
+        "data/open-problem/ticket200-derivative-mesh-three-run-chen-channels.json"
+    )
+    if not path200.exists():
+        return fail("missing ticket200 derivative-mesh/three-run/Chen-channel audit")
+    ticket200 = read_json(path200)
+    if (
+        ticket200.get("schema") != TICKET200_SCHEMA
+        or ticket200.get("status") != "open_not_proven"
+    ):
+        return fail("ticket200 schema or status changed")
+    audit200 = ticket200.get("derivative_mesh_three_run_chen_channel_audit", {})
+    machine200 = audit200.get("machine_audit", {})
+    if (
+        machine200.get("exact_partial_theorem_count") != 4
+        or machine200.get("riemann_mesh_family_count") != 4
+        or machine200.get("collatz_all_scale_family_obstruction_count") != 1
+        or machine200.get("collatz_finite_regression_scale_count") != 127
+        or machine200.get("goldbach_channel_decomposition_count") != 1
+        or machine200.get("goldbach_finite_channel_row_count") != 11
+        or machine200.get("twin_channel_decomposition_count") != 1
+        or machine200.get("twin_finite_dyadic_row_count") != 13
+        or machine200.get("proof_dag_count") != 4
+        or machine200.get("conjecture_resolution_count") != 0
+        or machine200.get("total_failure_count") != 0
+    ):
+        return fail("ticket200 global machine audit changed")
+
+    attempts200 = {
+        row.get("problem_id"): row for row in ticket200.get("attempts", [])
+    }
+    if set(attempts200) != EXPECTED_PROBLEMS:
+        return fail("ticket200 attempts missing problems")
+    track_paths200 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-200-derivative-mesh-certificate.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-200-three-run-pair-obstruction.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-200-chen-channel-reduction.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-200-chen-channel-reduction.json"
+        ),
+    }
+    theorem_names200 = {
+        "riemann": "DerivativeControlledBoundaryMeshRoucheCertificate",
+        "collatz": "ThreeRunPairPrimitiveFamilyAffineDivisibilityObstructionForAllScales",
+        "goldbach": "ChenGoldbachPrimeSemiprimeChannelReduction",
+        "twin-prime": "ChenTwinPrimeSemiprimeChannelReduction",
+    }
+    for problem_id, track_path in track_paths200.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket200 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts200[problem_id]
+        if (
+            track.get("schema") != TICKET200_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names200[problem_id]
+            or attempt.get("new_result") != theorem_names200[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+            != 1
+        ):
+            return fail(f"{problem_id}: ticket200 contract changed")
+
+    rh200 = audit200.get("riemann", {}).get("reproducible_computation", {})
+    rh200_rows = rh200.get("exact_synthetic_rows", [])
+    if (
+        [row.get("strict_rouche_margin_certified") for row in rh200_rows]
+        != [False, True, True, True]
+        or rh200_rows[1].get(
+            "propagated_strict_clearance_eta_minus_Lh_over_2"
+        )
+        != "7/4"
+        or rh200.get("aggregate", {}).get(
+            "abstract_derivative_mesh_bridge_proved"
+        )
+        is not True
+        or rh200.get("aggregate", {}).get(
+            "actual_Xi_interval_certificate_constructed"
+        )
+        is not False
+    ):
+        return fail("ticket200 RH derivative-mesh boundary changed")
+
+    collatz200 = audit200.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        collatz200.get("tail_block_ordered_numerator") != 1357
+        or collatz200.get("base_case_residues")
+        != {
+            "2": "126573",
+            "3": "16583324",
+            "4": "362731012",
+            "5": "6001752716",
+            "6": "21418884868",
+        }
+        or collatz200.get("aggregate", {}).get("all_scales_k_ge_2_excluded")
+        is not True
+        or collatz200.get("aggregate", {}).get("explicit_run_pair_count_closed")
+        != 3
+        or collatz200.get("aggregate", {}).get("all_fixed_run_counts_resolved")
+        is not False
+        or any(
+            row.get("affine_divisibility_hit") is not False
+            or row.get("primitive_word") is not True
+            or row.get("direct_numerator_matches_closed_form") is not True
+            or row.get("cyclic_rotation_divisibility_hit_count") != 0
+            for row in collatz200.get("closed_form_rows", [])
+        )
+    ):
+        return fail("ticket200 Collatz three-run-pair obstruction changed")
+
+    goldbach200 = audit200.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        goldbach200.get("imported_theorem", {}).get("doi")
+        != "10.1017/S0004972721001301"
+        or goldbach200.get("aggregate", {}).get("finite_goldbach_failure_count")
+        != 0
+        or goldbach200.get("aggregate", {}).get(
+            "finite_semiprime_only_target_count"
+        )
+        != 0
+        or goldbach200.get("aggregate", {}).get(
+            "semiprime_only_channel_eliminated_above_threshold"
+        )
+        is not False
+        or goldbach200.get("aggregate", {}).get("goldbach_resolved") is not False
+        or goldbach200.get("logical_countermodel", {}).get(
+            "is_an_arithmetic_goldbach_counterexample"
+        )
+        is not False
+    ):
+        return fail("ticket200 Goldbach Chen-channel boundary changed")
+
+    twin200 = audit200.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        twin200.get("imported_theorem", {}).get("doi")
+        != "10.1360/YA1973-16-2-157"
+        or twin200.get("aggregate", {}).get(
+            "all_finite_channel_decompositions_exact"
+        )
+        is not True
+        or twin200.get("aggregate", {}).get(
+            "imported_infinitely_many_chen_positive_blocks"
+        )
+        is not True
+        or twin200.get("aggregate", {}).get(
+            "infinitely_many_twin_positive_blocks_proved"
+        )
+        is not False
+        or twin200.get("logical_countermodel", {}).get(
+            "is_a_twin_prime_counterexample"
+        )
+        is not False
+    ):
+        return fail("ticket200 Twin Chen-channel boundary changed")
+
+    if (
+        "resolves none" not in str(audit200.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket200.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket200 proof boundary changed")
 
     print("open problem structure verified")
     return 0
