@@ -1,0 +1,1814 @@
+{
+  "schema": "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1",
+  "generated_at": "2026-08-09T00:30:00+09:00",
+  "status": "verified_height_transferred_to_rouche_prefix_collatz_fixed_run_families_goldbach_stratum_gap_exposed_twin_mass_target_strengthened_all_open",
+  "claim_boundary": "TICKET-198 resolves none of the four conjectures. It transfers an existing rigorous finite-height RH theorem into the Rouche DAG, proves fixed-run primitive Collatz search remains infinite, proves the collision-free Goldbach target insufficient by itself, and shows that Twin global mass domination demands square-root-scale counts.",
+  "verified_height_primitive_word_quantifier_strength_audit": {
+    "theorem_name": "FourConjectureVerifiedHeightPrimitiveWordQuantifierStrengthAudit",
+    "status": "verified_height_transferred_to_rouche_prefix_collatz_fixed_run_families_goldbach_stratum_gap_exposed_twin_mass_target_strengthened_all_open",
+    "proof_boundary": "TICKET-198 resolves none of the four conjectures. It transfers an existing rigorous finite-height RH theorem into the Rouche DAG, proves fixed-run primitive Collatz search remains infinite, proves the collision-free Goldbach target insufficient by itself, and shows that Twin global mass domination demands square-root-scale counts.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-198",
+      "theorem_name": "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+      "declared_proposition": "Let Xi(z)=xi(1/2+i z), let D_m^+={|Re z|<=m, 1/m<=Im z<=m}, and let D_m^- be its conjugate. Assume the rigorous finite-height theorem that every nontrivial zeta zero beta+i gamma with 0<|gamma|<=H lies on beta=1/2. Then, for every integer 2<=m<=H, Xi is zero-free on both closed D_m rectangles. Hence, for each such rectangle, some Taylor section of Xi at zero satisfies the strict Rouche inequality and has zero count zero. With the Platt-Trudgian value H=3*10^12, this transfers a finite prefix of 2,999,999,999,999 rectangle levels, but supplies no effective Taylor degree or margin.",
+      "mathematical_argument": "Writing z=x+i y gives s=1/2-y+i x. A zero in either D_m would have |Im s|=|x|<=m<=H and Re(s) different from 1/2 by at least 1/m. The imported finite-height theorem excludes every such nonreal-ordinate zero; the real interval 0<Re(s)<1 is zero-free because eta(s)>0 there and zeta(s)=eta(s)/(1-2^(1-s)) is nonzero. All xi zeros are nontrivial zeta zeros, so the compact rectangles are zero-free. Their positive minimum modulus and compact-uniform Taylor convergence give the existential Rouche sections exactly as in TICKET-197.",
+      "reproducible_computation": {
+        "theorem": "Let Xi(z)=xi(1/2+i z), let D_m^+={|Re z|<=m, 1/m<=Im z<=m}, and let D_m^- be its conjugate. Assume the rigorous finite-height theorem that every nontrivial zeta zero beta+i gamma with 0<|gamma|<=H lies on beta=1/2. Then, for every integer 2<=m<=H, Xi is zero-free on both closed D_m rectangles. Hence, for each such rectangle, some Taylor section of Xi at zero satisfies the strict Rouche inequality and has zero count zero. With the Platt-Trudgian value H=3*10^12, this transfers a finite prefix of 2,999,999,999,999 rectangle levels, but supplies no effective Taylor degree or margin.",
+        "proof": "Writing z=x+i y gives s=1/2-y+i x. A zero in either D_m would have |Im s|=|x|<=m<=H and Re(s) different from 1/2 by at least 1/m. The imported finite-height theorem excludes every such nonreal-ordinate zero; the real interval 0<Re(s)<1 is zero-free because eta(s)>0 there and zeta(s)=eta(s)/(1-2^(1-s)) is nonzero. All xi zeros are nontrivial zeta zeros, so the compact rectangles are zero-free. Their positive minimum modulus and compact-uniform Taylor convergence give the existential Rouche sections exactly as in TICKET-197.",
+        "imported_theorem": {
+          "authors": [
+            "Dave Platt",
+            "Tim Trudgian"
+          ],
+          "title": "The Riemann hypothesis is true up to 3*10^12",
+          "verified_height_H": 3000000000000,
+          "method": "rigorous interval arithmetic",
+          "doi": "10.1112/blms.12460",
+          "url": "https://arxiv.org/abs/2004.09765",
+          "project_claim": "imported_peer_reviewed_computer_assisted_theorem"
+        },
+        "sample_rectangle_rows": [
+          {
+            "m": 2,
+            "upper_s_real_interval": [
+              "-3/2",
+              "0"
+            ],
+            "lower_s_real_interval": [
+              "1",
+              "5/2"
+            ],
+            "s_imaginary_interval": [
+              -2,
+              2
+            ],
+            "minimum_distance_from_critical_line": "1/2",
+            "enters_open_critical_strip": false,
+            "covered_by_imported_verified_height": true,
+            "zero_free_off_critical_line_from_imported_theorem": true
+          },
+          {
+            "m": 3,
+            "upper_s_real_interval": [
+              "-5/2",
+              "1/6"
+            ],
+            "lower_s_real_interval": [
+              "5/6",
+              "7/2"
+            ],
+            "s_imaginary_interval": [
+              -3,
+              3
+            ],
+            "minimum_distance_from_critical_line": "1/3",
+            "enters_open_critical_strip": true,
+            "covered_by_imported_verified_height": true,
+            "zero_free_off_critical_line_from_imported_theorem": true
+          },
+          {
+            "m": 10,
+            "upper_s_real_interval": [
+              "-19/2",
+              "2/5"
+            ],
+            "lower_s_real_interval": [
+              "3/5",
+              "21/2"
+            ],
+            "s_imaginary_interval": [
+              -10,
+              10
+            ],
+            "minimum_distance_from_critical_line": "1/10",
+            "enters_open_critical_strip": true,
+            "covered_by_imported_verified_height": true,
+            "zero_free_off_critical_line_from_imported_theorem": true
+          },
+          {
+            "m": 1000,
+            "upper_s_real_interval": [
+              "-1999/2",
+              "499/1000"
+            ],
+            "lower_s_real_interval": [
+              "501/1000",
+              "2001/2"
+            ],
+            "s_imaginary_interval": [
+              -1000,
+              1000
+            ],
+            "minimum_distance_from_critical_line": "1/1000",
+            "enters_open_critical_strip": true,
+            "covered_by_imported_verified_height": true,
+            "zero_free_off_critical_line_from_imported_theorem": true
+          },
+          {
+            "m": 1000000,
+            "upper_s_real_interval": [
+              "-1999999/2",
+              "499999/1000000"
+            ],
+            "lower_s_real_interval": [
+              "500001/1000000",
+              "2000001/2"
+            ],
+            "s_imaginary_interval": [
+              -1000000,
+              1000000
+            ],
+            "minimum_distance_from_critical_line": "1/1000000",
+            "enters_open_critical_strip": true,
+            "covered_by_imported_verified_height": true,
+            "zero_free_off_critical_line_from_imported_theorem": true
+          },
+          {
+            "m": 3000000000000,
+            "upper_s_real_interval": [
+              "-5999999999999/2",
+              "1499999999999/3000000000000"
+            ],
+            "lower_s_real_interval": [
+              "1500000000001/3000000000000",
+              "6000000000001/2"
+            ],
+            "s_imaginary_interval": [
+              -3000000000000,
+              3000000000000
+            ],
+            "minimum_distance_from_critical_line": "1/3000000000000",
+            "enters_open_critical_strip": true,
+            "covered_by_imported_verified_height": true,
+            "zero_free_off_critical_line_from_imported_theorem": true
+          }
+        ],
+        "contract": {
+          "integer_rectangle_levels_transferred": 2999999999999,
+          "D3_enters_open_critical_strip": true,
+          "all_integer_m_through_verified_height_zero_free": true,
+          "existential_taylor_rouche_sections_through_height": true,
+          "explicit_taylor_degree_exhibited": false,
+          "explicit_interval_margin_exhibited": false,
+          "any_rectangle_above_verified_height_closed": false,
+          "full_rh_resolved": false
+        },
+        "no_go_scope": "This is a transfer of an existing rigorous finite-height theorem, not a new verification of zeta zeros. A finite prefix, however large, leaves every ordinate above H uncontrolled. Compactness proves existence of Taylor degrees but gives no machine-checkable degree or numerical margin.",
+        "failure_count": 0
+      },
+      "logical_limit": "The result imports a finite-height verification, provides no explicit Taylor degree or margin, and controls no ordinate above 3*10^12.",
+      "route_decision": {
+        "discard": "treating a standalone D3 existence certificate as the decisive RH bridge when a vastly larger finite-height prefix is already rigorously known",
+        "retain": "turn the imported zero-free fact into a standalone interval-checkable Taylor degree and Rouche margin rather than another existential compactness statement",
+        "next_single_lemma": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T197-INPUT",
+            "label": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "RH-T198-CLOSED",
+            "label": "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T198-REJECTED",
+            "label": "SingleD3ExistenceCertificateIsTheDecisiveRHBridge",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "RH-T198-OPEN",
+            "label": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T197-INPUT",
+            "RH-T198-CLOSED"
+          ],
+          [
+            "RH-T198-CLOSED",
+            "RH-T198-OPEN"
+          ],
+          [
+            "RH-T198-REJECTED",
+            "RH-T198-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or counterexample. A peer-reviewed finite-height theorem is transferred to the project Rouche language; the infinite tail remains open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-198",
+      "theorem_name": "FixedRunCountLeavesInfinitePrimitiveAdmissibleFamilies",
+      "declared_proposition": "For every fixed one-run count r>=2 and every k>=2, the binary valuation word w_(r,k)=1^k 2^(2k) (1 2^2)^(r-1) is primitive, has exactly r cyclic one-runs and r cyclic two-runs, has one-density 1/3, and passes both exact scalar cycle gates. Thus primitive-root normalization plus any fixed run count still leaves an infinite family of scalar-admissible Collatz cycle candidates.",
+      "mathematical_argument": "Put q=k+r-1. The word has q ones, 2q twos, horizon 3q, and valuation sum 5q. Hence 2^(5q)=32^q>27^q=3^(3q), while 2^q(5/6)^(3q)=(125/108)^q>1. Its cyclic run lengths are (k,2k,1,2,...,1,2), so there are exactly 2r runs. For k>=2 the unique one-run of length k and unique two-run of length 2k would have to repeat in any nontrivial word power; therefore the word is primitive. Letting k grow proves infinitude for each fixed r.",
+      "reproducible_computation": {
+        "theorem": "For every fixed one-run count r>=2 and every k>=2, the binary valuation word w_(r,k)=1^k 2^(2k) (1 2^2)^(r-1) is primitive, has exactly r cyclic one-runs and r cyclic two-runs, has one-density 1/3, and passes both exact scalar cycle gates. Thus primitive-root normalization plus any fixed run count still leaves an infinite family of scalar-admissible Collatz cycle candidates.",
+        "proof": "Put q=k+r-1. The word has q ones, 2q twos, horizon 3q, and valuation sum 5q. Hence 2^(5q)=32^q>27^q=3^(3q), while 2^q(5/6)^(3q)=(125/108)^q>1. Its cyclic run lengths are (k,2k,1,2,...,1,2), so there are exactly 2r runs. For k>=2 the unique one-run of length k and unique two-run of length 2k would have to repeat in any nontrivial word power; therefore the word is primitive. Letting k grow proves infinitude for each fixed r.",
+        "prior_exact_input": {
+          "ticket": "TICKET-183",
+          "theorem": "PrimitiveWordReductionAndMonotoneValuationExclusion",
+          "role": "reused_input_not_new_ticket198_result"
+        },
+        "family_definition": "w_(r,k)=1^k 2^(2k) (1 2^2)^(r-1), r>=2, k>=2",
+        "finite_run_count_summaries": [
+          {
+            "one_run_count": 2,
+            "cyclic_run_count": 4,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          },
+          {
+            "one_run_count": 3,
+            "cyclic_run_count": 6,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          },
+          {
+            "one_run_count": 4,
+            "cyclic_run_count": 8,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          },
+          {
+            "one_run_count": 5,
+            "cyclic_run_count": 10,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          },
+          {
+            "one_run_count": 6,
+            "cyclic_run_count": 12,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          },
+          {
+            "one_run_count": 7,
+            "cyclic_run_count": 14,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          },
+          {
+            "one_run_count": 8,
+            "cyclic_run_count": 16,
+            "checked_scale_range": [
+              2,
+              64
+            ],
+            "checked_word_count": 63,
+            "all_checked_words_primitive": true,
+            "all_checked_words_pass_both_scalar_gates": true,
+            "finite_affine_divisibility_hit_count": 0
+          }
+        ],
+        "representative_rows": [
+          {
+            "one_run_count": 2,
+            "cyclic_run_count": 4,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2
+            ],
+            "horizon_h": 9,
+            "one_count": 3,
+            "two_count": 6,
+            "one_density": "1/3",
+            "valuation_sum": 15,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 2,
+            "cyclic_run_count": 4,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2
+            ],
+            "horizon_h": 12,
+            "one_count": 4,
+            "two_count": 8,
+            "one_density": "1/3",
+            "valuation_sum": 20,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 2,
+            "cyclic_run_count": 4,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2
+            ],
+            "horizon_h": 27,
+            "one_count": 9,
+            "two_count": 18,
+            "one_density": "1/3",
+            "valuation_sum": 45,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 2,
+            "cyclic_run_count": 4,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2
+            ],
+            "horizon_h": 195,
+            "one_count": 65,
+            "two_count": 130,
+            "one_density": "1/3",
+            "valuation_sum": 325,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 3,
+            "cyclic_run_count": 6,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 12,
+            "one_count": 4,
+            "two_count": 8,
+            "one_density": "1/3",
+            "valuation_sum": 20,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 3,
+            "cyclic_run_count": 6,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 15,
+            "one_count": 5,
+            "two_count": 10,
+            "one_density": "1/3",
+            "valuation_sum": 25,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 3,
+            "cyclic_run_count": 6,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 30,
+            "one_count": 10,
+            "two_count": 20,
+            "one_density": "1/3",
+            "valuation_sum": 50,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 3,
+            "cyclic_run_count": 6,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 198,
+            "one_count": 66,
+            "two_count": 132,
+            "one_density": "1/3",
+            "valuation_sum": 330,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 4,
+            "cyclic_run_count": 8,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 15,
+            "one_count": 5,
+            "two_count": 10,
+            "one_density": "1/3",
+            "valuation_sum": 25,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 4,
+            "cyclic_run_count": 8,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 18,
+            "one_count": 6,
+            "two_count": 12,
+            "one_density": "1/3",
+            "valuation_sum": 30,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 4,
+            "cyclic_run_count": 8,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 33,
+            "one_count": 11,
+            "two_count": 22,
+            "one_density": "1/3",
+            "valuation_sum": 55,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 4,
+            "cyclic_run_count": 8,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 201,
+            "one_count": 67,
+            "two_count": 134,
+            "one_density": "1/3",
+            "valuation_sum": 335,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 5,
+            "cyclic_run_count": 10,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 18,
+            "one_count": 6,
+            "two_count": 12,
+            "one_density": "1/3",
+            "valuation_sum": 30,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 5,
+            "cyclic_run_count": 10,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 21,
+            "one_count": 7,
+            "two_count": 14,
+            "one_density": "1/3",
+            "valuation_sum": 35,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 5,
+            "cyclic_run_count": 10,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 36,
+            "one_count": 12,
+            "two_count": 24,
+            "one_density": "1/3",
+            "valuation_sum": 60,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 5,
+            "cyclic_run_count": 10,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 204,
+            "one_count": 68,
+            "two_count": 136,
+            "one_density": "1/3",
+            "valuation_sum": 340,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 6,
+            "cyclic_run_count": 12,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 21,
+            "one_count": 7,
+            "two_count": 14,
+            "one_density": "1/3",
+            "valuation_sum": 35,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 6,
+            "cyclic_run_count": 12,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 24,
+            "one_count": 8,
+            "two_count": 16,
+            "one_density": "1/3",
+            "valuation_sum": 40,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 6,
+            "cyclic_run_count": 12,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 39,
+            "one_count": 13,
+            "two_count": 26,
+            "one_density": "1/3",
+            "valuation_sum": 65,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 6,
+            "cyclic_run_count": 12,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 207,
+            "one_count": 69,
+            "two_count": 138,
+            "one_density": "1/3",
+            "valuation_sum": 345,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 7,
+            "cyclic_run_count": 14,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 24,
+            "one_count": 8,
+            "two_count": 16,
+            "one_density": "1/3",
+            "valuation_sum": 40,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 7,
+            "cyclic_run_count": 14,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 27,
+            "one_count": 9,
+            "two_count": 18,
+            "one_density": "1/3",
+            "valuation_sum": 45,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 7,
+            "cyclic_run_count": 14,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 42,
+            "one_count": 14,
+            "two_count": 28,
+            "one_density": "1/3",
+            "valuation_sum": 70,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 7,
+            "cyclic_run_count": 14,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 210,
+            "one_count": 70,
+            "two_count": 140,
+            "one_density": "1/3",
+            "valuation_sum": 350,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 8,
+            "cyclic_run_count": 16,
+            "scale_k": 2,
+            "run_lengths": [
+              2,
+              4,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 27,
+            "one_count": 9,
+            "two_count": 18,
+            "one_density": "1/3",
+            "valuation_sum": 45,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 8,
+            "cyclic_run_count": 16,
+            "scale_k": 3,
+            "run_lengths": [
+              3,
+              6,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 30,
+            "one_count": 10,
+            "two_count": 20,
+            "one_density": "1/3",
+            "valuation_sum": 50,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 8,
+            "cyclic_run_count": 16,
+            "scale_k": 8,
+            "run_lengths": [
+              8,
+              16,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 45,
+            "one_count": 15,
+            "two_count": 30,
+            "one_density": "1/3",
+            "valuation_sum": 75,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          },
+          {
+            "one_run_count": 8,
+            "cyclic_run_count": 16,
+            "scale_k": 64,
+            "run_lengths": [
+              64,
+              128,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "horizon_h": 213,
+            "one_count": 71,
+            "two_count": 142,
+            "one_density": "1/3",
+            "valuation_sum": 355,
+            "primitive": true,
+            "contraction_gate_passes": true,
+            "product_gate_passes": true,
+            "affine_divisibility_hit": false
+          }
+        ],
+        "aggregate": {
+          "checked_fixed_run_word_count": 441,
+          "checked_one_run_count_range": [
+            2,
+            8
+          ],
+          "checked_scale_range": [
+            2,
+            64
+          ],
+          "infinite_primitive_family_for_every_fixed_run_count_r_ge_2": true,
+          "fixed_run_count_plus_scalar_gates_is_finite_search": false,
+          "finite_affine_divisibility_hit_count": 0,
+          "nontrivial_collatz_cycle_found": false,
+          "transcript_sha256": "cfa3dfb33f08116473a0aed8774c8a6f31ea1d6abf01528b959871d16f5bc86c"
+        },
+        "no_go_scope": "The theorem proves that a fixed run count does not make the primitive scalar-admissible search finite. It neither proves nor refutes affine divisibility for the infinite families, and it does not control valuations above two or divergent aperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "Fixed run count and primitive normalization still leave infinite scalar-admissible families; their affine divisibility and aperiodic trajectories remain open.",
+      "route_decision": {
+        "discard": "treating primitive normalization plus a fixed run count as a finite Collatz search space",
+        "retain": "derive an all-length affine divisibility obstruction separately for each fixed run count inside the admissible density window",
+        "next_single_lemma": "UniformAffineDivisibilityObstructionForPrimitiveFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T197-INPUT",
+            "label": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "CO-T198-CLOSED",
+            "label": "FixedRunCountLeavesInfinitePrimitiveAdmissibleFamilies",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T198-REJECTED",
+            "label": "PrimitiveFixedRunCountMakesTheScalarAdmissibleSearchFinite",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "CO-T198-OPEN",
+            "label": "UniformAffineDivisibilityObstructionForPrimitiveFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T197-INPUT",
+            "CO-T198-CLOSED"
+          ],
+          [
+            "CO-T198-CLOSED",
+            "CO-T198-OPEN"
+          ],
+          [
+            "CO-T198-REJECTED",
+            "CO-T198-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or nontrivial cycle. TICKET-183 primitive reduction is reused as an input; the new result proves that every fixed run count still contains an infinite primitive scalar-admissible family."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-198",
+      "theorem_name": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+      "declared_proposition": "Let C be the even targets supported by Q*Q and let E be the strong-Goldbach exceptional set. If every sufficiently large even N outside C has a prime-prime representation, then E is eventually contained in C. TICKET-197 therefore yields only |E intersect [1,X]|=O(X/log(X)^2), not E=empty. This inference cannot be strengthened from those premises alone: C contains the infinite diagonal S={2p^2:p odd prime}, and the abstract indicator that vanishes exactly on S while being positive off C satisfies the collision-free premise but has infinitely many failures.",
+      "mathematical_argument": "The assumed margin gives E\\C finite, hence E is contained in C up to finitely many targets. Apply the TICKET-197 bound for C. For every odd prime p, 2p^2=p^2+p^2 is in the Q*Q support, so S is an explicit infinite subset of C. Defining a surrogate nonnegative representation indicator to be zero on S and one elsewhere supplies a countermodel to the set-theoretic inference. It is not a counterexample to Goldbach and makes no assertion about the actual representation count on S.",
+      "reproducible_computation": {
+        "theorem": "Let C be the even targets supported by Q*Q and let E be the strong-Goldbach exceptional set. If every sufficiently large even N outside C has a prime-prime representation, then E is eventually contained in C. TICKET-197 therefore yields only |E intersect [1,X]|=O(X/log(X)^2), not E=empty. This inference cannot be strengthened from those premises alone: C contains the infinite diagonal S={2p^2:p odd prime}, and the abstract indicator that vanishes exactly on S while being positive off C satisfies the collision-free premise but has infinitely many failures.",
+        "proof": "The assumed margin gives E\\C finite, hence E is contained in C up to finitely many targets. Apply the TICKET-197 bound for C. For every odd prime p, 2p^2=p^2+p^2 is in the Q*Q support, so S is an explicit infinite subset of C. Defining a surrogate nonnegative representation indicator to be zero on S and one elsewhere supplies a countermodel to the set-theoretic inference. It is not a counterexample to Goldbach and makes no assertion about the actual representation count on S.",
+        "finite_limit": 1048576,
+        "finite_stratum_rows": [
+          {
+            "cutoff_X": 256,
+            "collision_supported_target_count": 32,
+            "collision_free_target_count": 95,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 4,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 512,
+            "collision_supported_target_count": 60,
+            "collision_free_target_count": 195,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 5,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 1024,
+            "collision_supported_target_count": 108,
+            "collision_free_target_count": 403,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 7,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 2048,
+            "collision_supported_target_count": 177,
+            "collision_free_target_count": 846,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 10,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 4096,
+            "collision_supported_target_count": 324,
+            "collision_free_target_count": 1723,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 13,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 8192,
+            "collision_supported_target_count": 540,
+            "collision_free_target_count": 3555,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 17,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 16384,
+            "collision_supported_target_count": 856,
+            "collision_free_target_count": 7335,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 23,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 32768,
+            "collision_supported_target_count": 1456,
+            "collision_free_target_count": 14927,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 30,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 65536,
+            "collision_supported_target_count": 2282,
+            "collision_free_target_count": 30485,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 41,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 131072,
+            "collision_supported_target_count": 3804,
+            "collision_free_target_count": 61731,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 53,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 262144,
+            "collision_supported_target_count": 6322,
+            "collision_free_target_count": 124749,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 71,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 524288,
+            "collision_supported_target_count": 10476,
+            "collision_free_target_count": 251667,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 96,
+            "diagonal_missing_from_collision_count": 0
+          },
+          {
+            "cutoff_X": 1048576,
+            "collision_supported_target_count": 17411,
+            "collision_free_target_count": 506876,
+            "actual_goldbach_failure_count": 0,
+            "actual_collision_free_failure_count": 0,
+            "actual_collision_supported_failure_count": 0,
+            "diagonal_2p2_target_count": 127,
+            "diagonal_missing_from_collision_count": 0
+          }
+        ],
+        "surrogate_countermodel": {
+          "failure_set": "S={2p^2:p odd prime}",
+          "failure_set_is_infinite": true,
+          "failure_set_subset_of_collision_support": true,
+          "positive_on_every_collision_free_target": true,
+          "is_actual_goldbach_representation_function": false
+        },
+        "aggregate": {
+          "finite_row_count": 13,
+          "largest_cutoff": 1048576,
+          "finite_actual_goldbach_failure_count": 0,
+          "collision_free_margin_sufficient_for_full_goldbach": false,
+          "collision_free_margin_implies_log_squared_exception_bound": true,
+          "infinite_collision_diagonal_exhibited": true
+        },
+        "no_go_scope": "The countermodel refutes only an inference from collision-free control to all-even control. It does not exhibit an actual Goldbach exception. The finite scan through 2^20 is regression evidence and cannot close the infinite collision-supported stratum.",
+        "failure_count": 0
+      },
+      "logical_limit": "The actual collision-supported stratum, including the infinite diagonal 2p^2, still lacks a pointwise representation theorem.",
+      "route_decision": {
+        "discard": "treating a density-one collision-free correlation margin as sufficient for strong Goldbach",
+        "retain": "use the collision-free result only as one side of an exact two-stratum proof and attack the sparse collision support separately",
+        "next_single_lemma": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T197-INPUT",
+            "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "GB-T198-CLOSED",
+            "label": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T198-REJECTED",
+            "label": "CollisionFreeMarginAloneProvesStrongGoldbach",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "GB-T198-OPEN",
+            "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T197-INPUT",
+            "GB-T198-CLOSED"
+          ],
+          [
+            "GB-T198-CLOSED",
+            "GB-T198-OPEN"
+          ],
+          [
+            "GB-T198-REJECTED",
+            "GB-T198-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The previous next lemma is proved logically insufficient by itself and now forms only half of a two-stratum target."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-198",
+      "theorem_name": "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+      "declared_proposition": "For X>=2, let T(X) count twin-prime starts p in [X,2X) and M(X)=sum log(p)log(p+2) over those pairs. Then M(X)<=T(X)log(2X+2)^2. Consequently any lower bound M(X)>=K sqrt(X)log(X) forces T(X)>=K sqrt(X)log(X)/log(2X+2)^2, a quantity tending to infinity. The TICKET-197 contamination-dominance target is thus a square-root-scale quantitative twin-count target, not merely a positivity or infinitude target. Infinitude alone supplies no such block-mass estimate.",
+      "mathematical_argument": "Every pair in [X,2X) has log(p)log(p+2)<=log(2X+2)^2; summing gives the upper bound and rearrangement gives the forced count. To audit the inference from bare infinitude, place one abstract positive atom in each block X_j=2^(2^j). Its possible logarithmic weight divided by sqrt(X_j)log(X_j) tends to zero. This synthetic counting model is not a model of the primes; it proves only that cardinality infinitude by itself does not contain the required quantitative block estimate.",
+      "reproducible_computation": {
+        "theorem": "For X>=2, let T(X) count twin-prime starts p in [X,2X) and M(X)=sum log(p)log(p+2) over those pairs. Then M(X)<=T(X)log(2X+2)^2. Consequently any lower bound M(X)>=K sqrt(X)log(X) forces T(X)>=K sqrt(X)log(X)/log(2X+2)^2, a quantity tending to infinity. The TICKET-197 contamination-dominance target is thus a square-root-scale quantitative twin-count target, not merely a positivity or infinitude target. Infinitude alone supplies no such block-mass estimate.",
+        "proof": "Every pair in [X,2X) has log(p)log(p+2)<=log(2X+2)^2; summing gives the upper bound and rearrangement gives the forced count. To audit the inference from bare infinitude, place one abstract positive atom in each block X_j=2^(2^j). Its possible logarithmic weight divided by sqrt(X_j)log(X_j) tends to zero. This synthetic counting model is not a model of the primes; it proves only that cardinality infinitude by itself does not contain the required quantitative block estimate.",
+        "finite_dyadic_rows": [
+          {
+            "block": [
+              1024,
+              2048
+            ],
+            "actual_twin_pair_count": 26,
+            "actual_weighted_twin_mass": 1387.3855975997217,
+            "per_pair_weight_cap": 58.14970020413076,
+            "unit_contamination_scale_sqrtXlogX": 221.8070977791825,
+            "count_forced_by_unit_mass_dominance": 4,
+            "actual_count_over_forced_count": 6.5,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              2048,
+              4096
+            ],
+            "actual_twin_pair_count": 45,
+            "actual_weighted_twin_mass": 2894.071385852201,
+            "per_pair_weight_cap": 69.19335507858074,
+            "unit_contamination_scale_sqrtXlogX": 345.05086650092863,
+            "count_forced_by_unit_mass_dominance": 5,
+            "actual_count_over_forced_count": 9.0,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              4096,
+              8192
+            ],
+            "actual_twin_pair_count": 70,
+            "actual_weighted_twin_mass": 5268.114154826079,
+            "per_pair_weight_cap": 81.20095873479411,
+            "unit_contamination_scale_sqrtXlogX": 532.337034670038,
+            "count_forced_by_unit_mass_dominance": 7,
+            "actual_count_over_forced_count": 10.0,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              8192,
+              16384
+            ],
+            "actual_twin_pair_count": 113,
+            "actual_weighted_twin_mass": 9943.280144249258,
+            "per_pair_weight_cap": 94.17115975367913,
+            "unit_contamination_scale_sqrtXlogX": 815.5747753658312,
+            "count_forced_by_unit_mass_dominance": 9,
+            "actual_count_over_forced_count": 12.555555555555555,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              16384,
+              32768
+            ],
+            "actual_twin_pair_count": 215,
+            "actual_weighted_twin_mass": 21847.34898267158,
+            "per_pair_weight_cap": 108.10319728698343,
+            "unit_contamination_scale_sqrtXlogX": 1242.119747563422,
+            "count_forced_by_unit_mass_dominance": 12,
+            "actual_count_over_forced_count": 17.916666666666668,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              32768,
+              65536
+            ],
+            "actual_twin_pair_count": 355,
+            "actual_weighted_twin_mass": 41175.32141775507,
+            "per_pair_weight_cap": 122.9966484552059,
+            "unit_contamination_scale_sqrtXlogX": 1882.0956354596105,
+            "count_forced_by_unit_mass_dominance": 16,
+            "actual_count_over_forced_count": 22.1875,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              65536,
+              131072
+            ],
+            "actual_twin_pair_count": 666,
+            "actual_weighted_twin_mass": 87653.29378784791,
+            "per_pair_weight_cap": 138.8512806237945,
+            "unit_contamination_scale_sqrtXlogX": 2839.130851573536,
+            "count_forced_by_unit_mass_dominance": 21,
+            "actual_count_over_forced_count": 31.714285714285715,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              131072,
+              262144
+            ],
+            "actual_twin_pair_count": 1153,
+            "actual_weighted_twin_mass": 170522.16627598935,
+            "per_pair_weight_cap": 155.66696688738836,
+            "unit_contamination_scale_sqrtXlogX": 4266.083440375118,
+            "count_forced_by_unit_mass_dominance": 28,
+            "actual_count_over_forced_count": 41.17857142857143,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              262144,
+              524288
+            ],
+            "actual_twin_pair_count": 2071,
+            "actual_weighted_twin_mass": 342219.9300581405,
+            "per_pair_weight_cap": 173.44363850186647,
+            "unit_contamination_scale_sqrtXlogX": 6388.044416040456,
+            "count_forced_by_unit_mass_dominance": 37,
+            "actual_count_over_forced_count": 55.972972972972975,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              524288,
+              1048576
+            ],
+            "actual_twin_pair_count": 3785,
+            "actual_weighted_twin_mass": 695300.6983668064,
+            "per_pair_weight_cap": 192.18125845016687,
+            "unit_contamination_scale_sqrtXlogX": 9535.951219662027,
+            "count_forced_by_unit_mass_dominance": 50,
+            "actual_count_over_forced_count": 75.7,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              1048576,
+              2097152
+            ],
+            "actual_twin_pair_count": 6965,
+            "actual_weighted_twin_mass": 1413473.5285891728,
+            "per_pair_weight_cap": 211.87980690145437,
+            "unit_contamination_scale_sqrtXlogX": 14195.65425786768,
+            "count_forced_by_unit_mass_dominance": 67,
+            "actual_count_over_forced_count": 103.95522388059702,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              2097152,
+              4194304
+            ],
+            "actual_twin_pair_count": 12495,
+            "actual_weighted_twin_mass": 2789335.113125708,
+            "per_pair_weight_cap": 232.53927327921286,
+            "unit_contamination_scale_sqrtXlogX": 21079.47111714764,
+            "count_forced_by_unit_mass_dominance": 91,
+            "actual_count_over_forced_count": 137.30769230769232,
+            "weighted_mass_below_count_times_cap": true
+          },
+          {
+            "block": [
+              4194304,
+              8388608
+            ],
+            "actual_twin_pair_count": 22643,
+            "actual_weighted_twin_mass": 5534101.862112031,
+            "per_pair_weight_cap": 254.15965196464936,
+            "unit_contamination_scale_sqrtXlogX": 31230.439367308896,
+            "count_forced_by_unit_mass_dominance": 123,
+            "actual_count_over_forced_count": 184.08943089430895,
+            "weighted_mass_below_count_times_cap": true
+          }
+        ],
+        "sparse_inference_countermodel_rows": [
+          {
+            "index_j": 3,
+            "synthetic_block": "X_j=2^(2^3)",
+            "pair_count": 1,
+            "log_upper_bound_ratio_to_sqrtXlogX": -0.6133729985131899,
+            "upper_bound_ratio_to_sqrtXlogX": 0.5415212348124574
+          },
+          {
+            "index_j": 4,
+            "synthetic_block": "X_j=2^(2^4)",
+            "pair_count": 1,
+            "log_upper_bound_ratio_to_sqrtXlogX": -2.9035355715086775,
+            "upper_bound_ratio_to_sqrtXlogX": 0.05482902502476136
+          },
+          {
+            "index_j": 5,
+            "synthetic_block": "X_j=2^(2^5)",
+            "pair_count": 1,
+            "log_upper_bound_ratio_to_sqrtXlogX": -7.869882663108193,
+            "upper_bound_ratio_to_sqrtXlogX": 0.0003820791915546879
+          },
+          {
+            "index_j": 6,
+            "synthetic_block": "X_j=2^(2^6)",
+            "pair_count": 1,
+            "log_upper_bound_ratio_to_sqrtXlogX": -18.326796297806734,
+            "upper_bound_ratio_to_sqrtXlogX": 1.0984328104383623e-08
+          },
+          {
+            "index_j": 7,
+            "synthetic_block": "X_j=2^(2^7)",
+            "pair_count": 1,
+            "log_upper_bound_ratio_to_sqrtXlogX": -39.84489383942662,
+            "upper_bound_ratio_to_sqrtXlogX": 4.961151318499401e-18
+          },
+          {
+            "index_j": 8,
+            "synthetic_block": "X_j=2^(2^8)",
+            "pair_count": 1,
+            "log_upper_bound_ratio_to_sqrtXlogX": -83.52861030689098,
+            "upper_bound_ratio_to_sqrtXlogX": 5.2964571453142115e-37
+          }
+        ],
+        "aggregate": {
+          "finite_block_count": 13,
+          "largest_block_upper": 8388608,
+          "mass_dominance_forces_unbounded_pair_count": true,
+          "bare_positivity_forces_only_one_pair": true,
+          "synthetic_sparse_ratio_tends_to_zero": true,
+          "parity_breaking_lower_bound_proved": false
+        },
+        "no_go_scope": "The inequality does not prove that actual twin primes are sparse and is not a formal independence theorem. It proves that the current global mass route demands far more quantitative output than the one-positive-atom conclusion needed for infinitude.",
+        "failure_count": 0
+      },
+      "logical_limit": "No lower bound for the actual prime-supported shift-two correlation is proved on an unbounded block sequence.",
+      "route_decision": {
+        "discard": "using global domination of the full prime-power contamination budget as the minimal formulation of twin-prime infinitude",
+        "retain": "build a localized nonnegative detector whose positivity witnesses at least one genuine gap-two prime pair without requiring square-root-scale block mass",
+        "next_single_lemma": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T197-INPUT",
+            "label": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "TP-T198-CLOSED",
+            "label": "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T198-REJECTED",
+            "label": "GlobalContaminationDominanceIsAMinimalTwinInfinitudeTarget",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "TP-T198-OPEN",
+            "label": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T197-INPUT",
+            "TP-T198-CLOSED"
+          ],
+          [
+            "TP-T198-CLOSED",
+            "TP-T198-OPEN"
+          ],
+          [
+            "TP-T198-REJECTED",
+            "TP-T198-OPEN"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. The previous global mass target is certified as quantitatively overstrong relative to mere positivity."
+    },
+    "cross_problem_synthesis": "The shared result is a quantifier-strength correction. Huge finite height is still finite, fixed-run primitive normalization still leaves infinite scalar-admissible words, density-one control leaves an infinite sparse stratum, and global weighted domination asks for much more than one positive atom. The next ticket should produce effective local certificates on the exact remaining strata.",
+    "literature_boundary": {
+      "riemann": "The finite-height input is explicitly attributed to Platt and Trudgian; PrimeProject proves only the transfer to its Rouche rectangles.",
+      "collatz": "TICKET-183's primitive-root theorem is cited as an input, not re-claimed. TICKET-198 adds an all-r fixed-run infinite-family no-go and does not settle affine divisibility or divergent orbits.",
+      "goldbach": "The theorem is a set-theoretic inference audit using the TICKET-197 support bound, not a new exceptional-set estimate for actual primes.",
+      "twin_prime": "The mass-count inequality is elementary and exposes target strength; it does not improve known sieve lower bounds or bypass parity."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "riemann_verified_height_transfer_count": 1,
+      "collatz_fixed_run_infinite_family_count": 1,
+      "goldbach_inference_no_go_count": 1,
+      "twin_quantitative_strength_no_go_count": 1,
+      "riemann_sample_rectangle_row_count": 6,
+      "collatz_checked_fixed_run_word_count": 441,
+      "goldbach_finite_stratum_row_count": 13,
+      "twin_finite_dyadic_row_count": 13,
+      "rejected_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-198",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Xi(z)=xi(1/2+i z), let D_m^+={|Re z|<=m, 1/m<=Im z<=m}, and let D_m^- be its conjugate. Assume the rigorous finite-height theorem that every nontrivial zeta zero beta+i gamma with 0<|gamma|<=H lies on beta=1/2. Then, for every integer 2<=m<=H, Xi is zero-free on both closed D_m rectangles. Hence, for each such rectangle, some Taylor section of Xi at zero satisfies the strict Rouche inequality and has zero count zero. With the Platt-Trudgian value H=3*10^12, this transfers a finite prefix of 2,999,999,999,999 rectangle levels, but supplies no effective Taylor degree or margin.",
+      "new_result": "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+      "discarded_route": "treating a standalone D3 existence certificate as the decisive RH bridge when a vastly larger finite-height prefix is already rigorously known",
+      "remaining_gap": "The result imports a finite-height verification, provides no explicit Taylor degree or margin, and controls no ordinate above 3*10^12.",
+      "candidate_theorem": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+      "claim_boundary": "No RH proof or counterexample. A peer-reviewed finite-height theorem is transferred to the project Rouche language; the infinite tail remains open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T197-INPUT",
+            "label": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "RH-T198-CLOSED",
+            "label": "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-T198-REJECTED",
+            "label": "SingleD3ExistenceCertificateIsTheDecisiveRHBridge",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "RH-T198-OPEN",
+            "label": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T197-INPUT",
+            "RH-T198-CLOSED"
+          ],
+          [
+            "RH-T198-CLOSED",
+            "RH-T198-OPEN"
+          ],
+          [
+            "RH-T198-REJECTED",
+            "RH-T198-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-198",
+      "status": "open_not_proven",
+      "declared_proposition": "For every fixed one-run count r>=2 and every k>=2, the binary valuation word w_(r,k)=1^k 2^(2k) (1 2^2)^(r-1) is primitive, has exactly r cyclic one-runs and r cyclic two-runs, has one-density 1/3, and passes both exact scalar cycle gates. Thus primitive-root normalization plus any fixed run count still leaves an infinite family of scalar-admissible Collatz cycle candidates.",
+      "new_result": "FixedRunCountLeavesInfinitePrimitiveAdmissibleFamilies",
+      "discarded_route": "treating primitive normalization plus a fixed run count as a finite Collatz search space",
+      "remaining_gap": "Fixed run count and primitive normalization still leave infinite scalar-admissible families; their affine divisibility and aperiodic trajectories remain open.",
+      "candidate_theorem": "UniformAffineDivisibilityObstructionForPrimitiveFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+      "claim_boundary": "No Collatz proof or nontrivial cycle. TICKET-183 primitive reduction is reused as an input; the new result proves that every fixed run count still contains an infinite primitive scalar-admissible family.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T197-INPUT",
+            "label": "UniformAffineDivisibilityObstructionForFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "CO-T198-CLOSED",
+            "label": "FixedRunCountLeavesInfinitePrimitiveAdmissibleFamilies",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-T198-REJECTED",
+            "label": "PrimitiveFixedRunCountMakesTheScalarAdmissibleSearchFinite",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "CO-T198-OPEN",
+            "label": "UniformAffineDivisibilityObstructionForPrimitiveFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T197-INPUT",
+            "CO-T198-CLOSED"
+          ],
+          [
+            "CO-T198-CLOSED",
+            "CO-T198-OPEN"
+          ],
+          [
+            "CO-T198-REJECTED",
+            "CO-T198-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "UniformAffineDivisibilityObstructionForPrimitiveFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-198",
+      "status": "open_not_proven",
+      "declared_proposition": "Let C be the even targets supported by Q*Q and let E be the strong-Goldbach exceptional set. If every sufficiently large even N outside C has a prime-prime representation, then E is eventually contained in C. TICKET-197 therefore yields only |E intersect [1,X]|=O(X/log(X)^2), not E=empty. This inference cannot be strengthened from those premises alone: C contains the infinite diagonal S={2p^2:p odd prime}, and the abstract indicator that vanishes exactly on S while being positive off C satisfies the collision-free premise but has infinitely many failures.",
+      "new_result": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+      "discarded_route": "treating a density-one collision-free correlation margin as sufficient for strong Goldbach",
+      "remaining_gap": "The actual collision-supported stratum, including the infinite diagonal 2p^2, still lacks a pointwise representation theorem.",
+      "candidate_theorem": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget",
+      "claim_boundary": "No Goldbach proof or counterexample. The previous next lemma is proved logically insufficient by itself and now forms only half of a two-stratum target.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T197-INPUT",
+            "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "GB-T198-CLOSED",
+            "label": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-T198-REJECTED",
+            "label": "CollisionFreeMarginAloneProvesStrongGoldbach",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "GB-T198-OPEN",
+            "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T197-INPUT",
+            "GB-T198-CLOSED"
+          ],
+          [
+            "GB-T198-CLOSED",
+            "GB-T198-OPEN"
+          ],
+          [
+            "GB-T198-REJECTED",
+            "GB-T198-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-198",
+      "status": "open_not_proven",
+      "declared_proposition": "For X>=2, let T(X) count twin-prime starts p in [X,2X) and M(X)=sum log(p)log(p+2) over those pairs. Then M(X)<=T(X)log(2X+2)^2. Consequently any lower bound M(X)>=K sqrt(X)log(X) forces T(X)>=K sqrt(X)log(X)/log(2X+2)^2, a quantity tending to infinity. The TICKET-197 contamination-dominance target is thus a square-root-scale quantitative twin-count target, not merely a positivity or infinitude target. Infinitude alone supplies no such block-mass estimate.",
+      "new_result": "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+      "discarded_route": "using global domination of the full prime-power contamination budget as the minimal formulation of twin-prime infinitude",
+      "remaining_gap": "No lower bound for the actual prime-supported shift-two correlation is proved on an unbounded block sequence.",
+      "candidate_theorem": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+      "claim_boundary": "No Twin Prime proof or counterexample. The previous global mass target is certified as quantitatively overstrong relative to mere positivity.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T197-INPUT",
+            "label": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+            "status": "open_input_from_ticket197"
+          },
+          {
+            "id": "TP-T198-CLOSED",
+            "label": "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-T198-REJECTED",
+            "label": "GlobalContaminationDominanceIsAMinimalTwinInfinitudeTarget",
+            "status": "refuted_or_route_limited"
+          },
+          {
+            "id": "TP-T198-OPEN",
+            "label": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T197-INPUT",
+            "TP-T198-CLOSED"
+          ],
+          [
+            "TP-T198-CLOSED",
+            "TP-T198-OPEN"
+          ],
+          [
+            "TP-T198-REJECTED",
+            "TP-T198-OPEN"
+          ]
+        ]
+      },
+      "next_experiment": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks"
+    }
+  ]
+}

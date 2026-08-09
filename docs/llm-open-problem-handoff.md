@@ -62,9 +62,38 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-197
+## Latest Continuation After TICKET-198
 
-TICKET-197 is the current boundary. It resolves none of the four conjectures.
+TICKET-198 is the current boundary. It resolves none of the four conjectures.
+It closes four exact intermediate statements and corrects the next targets:
+
+1. **Riemann:** the Platt--Trudgian rigorous RH verification through
+   `3*10^12` transfers to every integer Xi rectangle level `2<=m<=H`, but this
+   is an imported finite theorem with no explicit Taylor degree or infinite
+   tail control.
+2. **Collatz:** TICKET-183 primitive-root reduction is reused, not re-claimed.
+   For every fixed run count `r>=2`, the explicit family
+   `1^k 2^(2k) (1 2^2)^(r-1)` is primitive and scalar-admissible for all
+   `k>=2`, so fixed run count does not make the search finite.
+3. **Goldbach:** collision-free control would leave an `O(X/log^2 X)`
+   exceptional set; the infinite diagonal `{2p^2}` blocks the set-theoretic
+   promotion, without furnishing an actual Goldbach counterexample.
+4. **Twin Prime:** global block mass at the full contamination scale forces a
+   square-root-scale pair count, so it is much stronger than the positivity
+   needed for infinitude.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket198-verified-height-primitive-word-quantifier-strength.json
+```
+
+English report: [TICKET-198](verified-height-primitive-word-quantifier-strength.md).
+Korean report: [TICKET-198 한국어](verified-height-primitive-word-quantifier-strength.ko.md).
+
+## Preserved Continuation After TICKET-197
+
+TICKET-197 is the preserved previous boundary. It resolves none of the four conjectures.
 
 1. **Riemann:** the actual-Xi `D_2` rectangles are zero-free and admit
    existential Taylor-Rouché sections, but their exact coordinate images avoid

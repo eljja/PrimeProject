@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-197 proves four exact partial theorems and narrows the next proof obligations.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-197은 첫 Xi 영역의 한계, 무한 콜라츠 연속-run family 배제, 두 소수 거듭제곱 충돌 보정의 점근적 한계를 증명하고 다음 보조정리를 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-198 proves four exact partial theorems, corrects overstrong targets, and isolates the next proof obligations.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-198은 유한 높이 RH 결과의 정확한 범위, 고정 run 수에도 남는 무한 원시 콜라츠 단어족, 골드바흐와 쌍둥이 소수 목표의 양화 강도를 증명하고 다음 보조정리를 분리합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

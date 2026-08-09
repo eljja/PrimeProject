@@ -37,6 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
+## 2026-08-09 TICKET-198 Verified Height, Primitive Words, and Quantifier Strength
+
+TICKET-198 keeps all four parent conjectures at `open_not_proven` and proves
+four exact statements:
+
+1. the peer-reviewed finite-height RH theorem through `3*10^12` transfers to
+   `2,999,999,999,999` integer Xi rectangle levels, existentially but without
+   an explicit Taylor degree or control above that height;
+2. using TICKET-183 primitive reduction as an input, every fixed Collatz run
+   count `r>=2` still contains the infinite primitive family
+   `1^k2^(2k)(12^2)^(r-1)` passing both scalar gates;
+3. collision-free Goldbach positivity alone yields only an
+   `O(X/log^2 X)` exceptional-set bound, and a surrogate supported on
+   `{2p^2}` refutes only the promotion rule, not Goldbach;
+4. a Twin block-mass lower bound at scale `sqrt(X)log(X)` forces an unbounded
+   square-root-scale pair count, exposing the previous target as overstrong.
+
+The revised next lemmas are a standalone interval Taylor/Rouché certificate on
+`D3`, a uniform all-length affine obstruction for primitive fixed-run words, a
+pointwise margin on the Goldbach collision-supported stratum, and a localized
+prime-power-free Twin detector positive on infinitely many blocks.
+
+English report: [TICKET-198](verified-height-primitive-word-quantifier-strength.md).
+한국어 보고서: [TICKET-198](verified-height-primitive-word-quantifier-strength.ko.md).
+
 ## 2026-08-08 TICKET-197 First Rectangle, Run Blocks, and Sparse Collisions
 
 TICKET-197 keeps all four parent conjectures at `open_not_proven` and proves

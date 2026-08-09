@@ -1,0 +1,281 @@
+{
+  "schema": "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1",
+  "generated_at": "2026-08-09T00:30:00+09:00",
+  "ticket_id": "TP-TICKET-198",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+  "declared_proposition": "For X>=2, let T(X) count twin-prime starts p in [X,2X) and M(X)=sum log(p)log(p+2) over those pairs. Then M(X)<=T(X)log(2X+2)^2. Consequently any lower bound M(X)>=K sqrt(X)log(X) forces T(X)>=K sqrt(X)log(X)/log(2X+2)^2, a quantity tending to infinity. The TICKET-197 contamination-dominance target is thus a square-root-scale quantitative twin-count target, not merely a positivity or infinitude target. Infinitude alone supplies no such block-mass estimate.",
+  "mathematical_argument": "Every pair in [X,2X) has log(p)log(p+2)<=log(2X+2)^2; summing gives the upper bound and rearrangement gives the forced count. To audit the inference from bare infinitude, place one abstract positive atom in each block X_j=2^(2^j). Its possible logarithmic weight divided by sqrt(X_j)log(X_j) tends to zero. This synthetic counting model is not a model of the primes; it proves only that cardinality infinitude by itself does not contain the required quantitative block estimate.",
+  "reproducible_computation": {
+    "theorem": "For X>=2, let T(X) count twin-prime starts p in [X,2X) and M(X)=sum log(p)log(p+2) over those pairs. Then M(X)<=T(X)log(2X+2)^2. Consequently any lower bound M(X)>=K sqrt(X)log(X) forces T(X)>=K sqrt(X)log(X)/log(2X+2)^2, a quantity tending to infinity. The TICKET-197 contamination-dominance target is thus a square-root-scale quantitative twin-count target, not merely a positivity or infinitude target. Infinitude alone supplies no such block-mass estimate.",
+    "proof": "Every pair in [X,2X) has log(p)log(p+2)<=log(2X+2)^2; summing gives the upper bound and rearrangement gives the forced count. To audit the inference from bare infinitude, place one abstract positive atom in each block X_j=2^(2^j). Its possible logarithmic weight divided by sqrt(X_j)log(X_j) tends to zero. This synthetic counting model is not a model of the primes; it proves only that cardinality infinitude by itself does not contain the required quantitative block estimate.",
+    "finite_dyadic_rows": [
+      {
+        "block": [
+          1024,
+          2048
+        ],
+        "actual_twin_pair_count": 26,
+        "actual_weighted_twin_mass": 1387.3855975997217,
+        "per_pair_weight_cap": 58.14970020413076,
+        "unit_contamination_scale_sqrtXlogX": 221.8070977791825,
+        "count_forced_by_unit_mass_dominance": 4,
+        "actual_count_over_forced_count": 6.5,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          2048,
+          4096
+        ],
+        "actual_twin_pair_count": 45,
+        "actual_weighted_twin_mass": 2894.071385852201,
+        "per_pair_weight_cap": 69.19335507858074,
+        "unit_contamination_scale_sqrtXlogX": 345.05086650092863,
+        "count_forced_by_unit_mass_dominance": 5,
+        "actual_count_over_forced_count": 9.0,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          4096,
+          8192
+        ],
+        "actual_twin_pair_count": 70,
+        "actual_weighted_twin_mass": 5268.114154826079,
+        "per_pair_weight_cap": 81.20095873479411,
+        "unit_contamination_scale_sqrtXlogX": 532.337034670038,
+        "count_forced_by_unit_mass_dominance": 7,
+        "actual_count_over_forced_count": 10.0,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          8192,
+          16384
+        ],
+        "actual_twin_pair_count": 113,
+        "actual_weighted_twin_mass": 9943.280144249258,
+        "per_pair_weight_cap": 94.17115975367913,
+        "unit_contamination_scale_sqrtXlogX": 815.5747753658312,
+        "count_forced_by_unit_mass_dominance": 9,
+        "actual_count_over_forced_count": 12.555555555555555,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          16384,
+          32768
+        ],
+        "actual_twin_pair_count": 215,
+        "actual_weighted_twin_mass": 21847.34898267158,
+        "per_pair_weight_cap": 108.10319728698343,
+        "unit_contamination_scale_sqrtXlogX": 1242.119747563422,
+        "count_forced_by_unit_mass_dominance": 12,
+        "actual_count_over_forced_count": 17.916666666666668,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          32768,
+          65536
+        ],
+        "actual_twin_pair_count": 355,
+        "actual_weighted_twin_mass": 41175.32141775507,
+        "per_pair_weight_cap": 122.9966484552059,
+        "unit_contamination_scale_sqrtXlogX": 1882.0956354596105,
+        "count_forced_by_unit_mass_dominance": 16,
+        "actual_count_over_forced_count": 22.1875,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          65536,
+          131072
+        ],
+        "actual_twin_pair_count": 666,
+        "actual_weighted_twin_mass": 87653.29378784791,
+        "per_pair_weight_cap": 138.8512806237945,
+        "unit_contamination_scale_sqrtXlogX": 2839.130851573536,
+        "count_forced_by_unit_mass_dominance": 21,
+        "actual_count_over_forced_count": 31.714285714285715,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          131072,
+          262144
+        ],
+        "actual_twin_pair_count": 1153,
+        "actual_weighted_twin_mass": 170522.16627598935,
+        "per_pair_weight_cap": 155.66696688738836,
+        "unit_contamination_scale_sqrtXlogX": 4266.083440375118,
+        "count_forced_by_unit_mass_dominance": 28,
+        "actual_count_over_forced_count": 41.17857142857143,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          262144,
+          524288
+        ],
+        "actual_twin_pair_count": 2071,
+        "actual_weighted_twin_mass": 342219.9300581405,
+        "per_pair_weight_cap": 173.44363850186647,
+        "unit_contamination_scale_sqrtXlogX": 6388.044416040456,
+        "count_forced_by_unit_mass_dominance": 37,
+        "actual_count_over_forced_count": 55.972972972972975,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          524288,
+          1048576
+        ],
+        "actual_twin_pair_count": 3785,
+        "actual_weighted_twin_mass": 695300.6983668064,
+        "per_pair_weight_cap": 192.18125845016687,
+        "unit_contamination_scale_sqrtXlogX": 9535.951219662027,
+        "count_forced_by_unit_mass_dominance": 50,
+        "actual_count_over_forced_count": 75.7,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          1048576,
+          2097152
+        ],
+        "actual_twin_pair_count": 6965,
+        "actual_weighted_twin_mass": 1413473.5285891728,
+        "per_pair_weight_cap": 211.87980690145437,
+        "unit_contamination_scale_sqrtXlogX": 14195.65425786768,
+        "count_forced_by_unit_mass_dominance": 67,
+        "actual_count_over_forced_count": 103.95522388059702,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          2097152,
+          4194304
+        ],
+        "actual_twin_pair_count": 12495,
+        "actual_weighted_twin_mass": 2789335.113125708,
+        "per_pair_weight_cap": 232.53927327921286,
+        "unit_contamination_scale_sqrtXlogX": 21079.47111714764,
+        "count_forced_by_unit_mass_dominance": 91,
+        "actual_count_over_forced_count": 137.30769230769232,
+        "weighted_mass_below_count_times_cap": true
+      },
+      {
+        "block": [
+          4194304,
+          8388608
+        ],
+        "actual_twin_pair_count": 22643,
+        "actual_weighted_twin_mass": 5534101.862112031,
+        "per_pair_weight_cap": 254.15965196464936,
+        "unit_contamination_scale_sqrtXlogX": 31230.439367308896,
+        "count_forced_by_unit_mass_dominance": 123,
+        "actual_count_over_forced_count": 184.08943089430895,
+        "weighted_mass_below_count_times_cap": true
+      }
+    ],
+    "sparse_inference_countermodel_rows": [
+      {
+        "index_j": 3,
+        "synthetic_block": "X_j=2^(2^3)",
+        "pair_count": 1,
+        "log_upper_bound_ratio_to_sqrtXlogX": -0.6133729985131899,
+        "upper_bound_ratio_to_sqrtXlogX": 0.5415212348124574
+      },
+      {
+        "index_j": 4,
+        "synthetic_block": "X_j=2^(2^4)",
+        "pair_count": 1,
+        "log_upper_bound_ratio_to_sqrtXlogX": -2.9035355715086775,
+        "upper_bound_ratio_to_sqrtXlogX": 0.05482902502476136
+      },
+      {
+        "index_j": 5,
+        "synthetic_block": "X_j=2^(2^5)",
+        "pair_count": 1,
+        "log_upper_bound_ratio_to_sqrtXlogX": -7.869882663108193,
+        "upper_bound_ratio_to_sqrtXlogX": 0.0003820791915546879
+      },
+      {
+        "index_j": 6,
+        "synthetic_block": "X_j=2^(2^6)",
+        "pair_count": 1,
+        "log_upper_bound_ratio_to_sqrtXlogX": -18.326796297806734,
+        "upper_bound_ratio_to_sqrtXlogX": 1.0984328104383623e-08
+      },
+      {
+        "index_j": 7,
+        "synthetic_block": "X_j=2^(2^7)",
+        "pair_count": 1,
+        "log_upper_bound_ratio_to_sqrtXlogX": -39.84489383942662,
+        "upper_bound_ratio_to_sqrtXlogX": 4.961151318499401e-18
+      },
+      {
+        "index_j": 8,
+        "synthetic_block": "X_j=2^(2^8)",
+        "pair_count": 1,
+        "log_upper_bound_ratio_to_sqrtXlogX": -83.52861030689098,
+        "upper_bound_ratio_to_sqrtXlogX": 5.2964571453142115e-37
+      }
+    ],
+    "aggregate": {
+      "finite_block_count": 13,
+      "largest_block_upper": 8388608,
+      "mass_dominance_forces_unbounded_pair_count": true,
+      "bare_positivity_forces_only_one_pair": true,
+      "synthetic_sparse_ratio_tends_to_zero": true,
+      "parity_breaking_lower_bound_proved": false
+    },
+    "no_go_scope": "The inequality does not prove that actual twin primes are sparse and is not a formal independence theorem. It proves that the current global mass route demands far more quantitative output than the one-positive-atom conclusion needed for infinitude.",
+    "failure_count": 0
+  },
+  "discarded_route": "using global domination of the full prime-power contamination budget as the minimal formulation of twin-prime infinitude",
+  "remaining_gap": "No lower bound for the actual prime-supported shift-two correlation is proved on an unbounded block sequence.",
+  "candidate_theorem": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+  "claim_boundary": "No Twin Prime proof or counterexample. The previous global mass target is certified as quantitatively overstrong relative to mere positivity.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T197-INPUT",
+        "label": "ParityBreakingShiftTwoLowerBoundDominatesPrimeSquareLayerAndMixedExponentTailOnInfinitelyManyDyadicBlocks",
+        "status": "open_input_from_ticket197"
+      },
+      {
+        "id": "TP-T198-CLOSED",
+        "label": "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-T198-REJECTED",
+        "label": "GlobalContaminationDominanceIsAMinimalTwinInfinitudeTarget",
+        "status": "refuted_or_route_limited"
+      },
+      {
+        "id": "TP-T198-OPEN",
+        "label": "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T197-INPUT",
+        "TP-T198-CLOSED"
+      ],
+      [
+        "TP-T198-CLOSED",
+        "TP-T198-OPEN"
+      ],
+      [
+        "TP-T198-REJECTED",
+        "TP-T198-OPEN"
+      ]
+    ]
+  }
+}

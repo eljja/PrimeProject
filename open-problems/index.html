@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260808-ticket197-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260809-ticket198-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-197</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-198</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-197 actually changed</h2>
-          <p>TICKET-197 did not solve a conjecture. It closes the first actual-Xi rectangle existentially while proving that the rectangle misses the critical strip, excludes every cyclic rotation of the infinite Collatz family 1^k2^(2k), and proves that the Goldbach and Twin Prime overlap corrections are respectively sparse and lower order.</p>
-          <p class="proof-boundary">TICKET-197은 난제를 해결하지 않았습니다. 리만 트랙은 첫 실제 Xi 사각형을 존재적으로 닫았지만 그 영역이 열린 임계띠를 전혀 만나지 않음을 명시했습니다. 콜라츠에서는 <code>1^k2^(2k)</code>와 모든 순환 회전을 affine divisibility로 배제했습니다. 골드바흐의 <code>Q*Q</code> 보정은 밀도 0 target에만 지지되고, 쌍둥이 소수의 gap-two 충돌은 동일 지수를 가질 수 없어 낮은 차수의 혼합층 보정만 제공합니다.</p>
+          <h2>What TICKET-198 actually changed</h2>
+          <p>TICKET-198 did not solve a conjecture. It transfers the rigorous finite-height RH theorem through 3×10^12 into the Xi rectangle language, proves that fixed-run primitive Collatz search still contains explicit infinite admissible families, and proves that the previous Goldbach and Twin Prime targets were respectively insufficient and quantitatively overstrong.</p>
+          <p class="proof-boundary">TICKET-198은 난제를 해결하지 않았습니다. 리만 트랙은 Platt–Trudgian의 외부 엄밀 정리를 정수 <code>2≤m≤3×10^12</code>의 Xi 사각형으로 이전했지만 새 영점 검증이나 무한 꼬리 통제를 제공하지 않습니다. 콜라츠 트랙은 TICKET-183의 원시 환원을 입력으로 삼아 고정 run 수에도 scalar-admissible 원시 단어가 무한히 남음을 증명했습니다. 골드바흐 트랙은 collision-free 층만으로는 희소한 충돌 지지층을 닫을 수 없음을, 쌍둥이 소수 트랙은 전 오염 질량 지배가 단순 무한성보다 훨씬 강한 목표임을 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The first actual-Xi rectangles are zero-free and admit existential Taylor Rouché sections.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Those rectangles map outside the open critical strip and provide no nontrivial RH control.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Give an explicit degree and interval margin on the first rectangle that enters the critical strip.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The verified RH height H=3×10^12 transfers to every integer Xi rectangle level 2≤m≤H.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A standalone existential D3 certificate is not the decisive bridge; it is already contained in a much larger known finite prefix.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Certify an explicit Taylor degree and Rouché margin on D3 without importing finite-height RH.</dd></div>
           </dl>
-          <p class="workbench-ko">첫 사각형은 실제 Xi에 대해 닫혔지만 RH의 가능한 비임계선 영점 영역을 건드리지 않습니다. 다음 사각형부터 명시적 interval 인증이 필요합니다.</p>
+          <p class="workbench-ko">외부의 엄밀한 유한 높이 정리를 프로젝트 언어로 정확히 옮겼습니다. 유한 prefix의 크기와 무관하게 높이 <code>H</code> 위의 무한 꼬리는 열려 있습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every cyclic rotation of 1^k2^(2k) fails affine divisibility for every k>=1.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Scalar admissibility does not make the maximally clustered one-third words realizable cycles.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Extend the exact obstruction to every fixed run count in the admissible density window.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every fixed run count r≥2 contains an explicit infinite primitive one-third-density family passing both scalar gates.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Primitive normalization plus a fixed run count does not make the remaining search finite.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Obstruct every primitive fixed-run 1/2 word in the admissible density window.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>B-D=2·9^k(3^k-2^k)</code>의 정확한 인수분해로 무한 연속-run family를 닫았습니다. 임의의 교대 run은 아직 열려 있습니다.</p>
+          <p class="workbench-ko"><code>w_(r,k)=1^k2^(2k)(12²)^(r-1)</code>가 각 고정 <code>r</code>에서 무한 원시 단어족을 줍니다. 이들의 affine divisibility와 비주기 궤도는 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Even targets with positive Q*Q overlap form a density-zero set.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Overlap subtraction alone cannot create a uniform every-even correlation margin.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove an explicit prime-prime correlation margin on every large collision-free even target.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Collision-free control implies only an O(X/log²X) exceptional-set bound; it does not imply an empty exceptional set.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The infinite diagonal S={2p²} supplies a countermodel to the inference, not a Goldbach counterexample.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Prove an explicit prime-prime margin on every large collision-supported even target.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>|C(X)|≤A(X)^2=O(X/log²X)</code>이므로 중복 보정은 밀도 0 target에서만 작동합니다. 점별 Goldbach 하한은 별도로 증명해야 합니다.</p>
+          <p class="workbench-ko">밀도 1 층의 통제만으로 희소한 예외층을 제거할 수 없습니다. 실제 표현 함수에 대한 충돌 지지층의 점별 하한이 별도로 필요합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Equal-exponent gap-two prime-power collisions are impossible; overlap mass is O(X^(1/3) log X).</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The overlap correction cannot cancel the leading prime-square contamination layer.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Dominate the square layer and mixed-exponent tail on infinitely many blocks.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A K√X log X twin mass lower bound forces a square-root-scale lower bound for the number of pairs.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Global contamination dominance is not a minimal formulation of twin-prime infinitude.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Build a prime-power-free localized detector with positive mass on infinitely many dyadic blocks.</dd></div>
           </dl>
-          <p class="workbench-ko">동일 지수 충돌은 인수분해로 불가능하고 보정은 지수 3 이상 층에만 걸립니다. 주도 제곱층과 parity barrier는 그대로 남습니다.</p>
+          <p class="workbench-ko">기존 목표는 양성 하나가 아니라 블록당 증가하는 쌍 개수를 강제했습니다. 이제 실제 gap-2 소수쌍을 직접 증언하는 더 약하고 정확한 국소 검출기가 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>197 tickets reduced to four meaningful eras</h2>
+          <h2>198 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–197 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 목표와 동치인 대체 명제와 공허한 첫 Xi 영역을 분리하고, 콜라츠 무한 ordered family를 닫은 뒤 두 소수 상관의 중복 보정이 희소하거나 낮은 차수임을 증명했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–198 · Structure, localization, transfer, and exact barriers</strong><p>문제에 필요한 정보를 보존하는 표현을 찾고, 외부 유한 정리의 이전 범위와 내부 증명 간극을 분리하며, 콜라츠 고정-run 원시 탐색의 무한성을 보이고 두 소수 상관 목표의 정확한 양화 강도를 확정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/first-rectangle-run-block-sparse-collision.ko.md">TICKET-197 한국어 보고서</a>
-          <a href="../docs/first-rectangle-run-block-sparse-collision.md">TICKET-197 English report</a>
+          <a href="../docs/verified-height-primitive-word-quantifier-strength.ko.md">TICKET-198 한국어 보고서</a>
+          <a href="../docs/verified-height-primitive-word-quantifier-strength.md">TICKET-198 English report</a>
+          <a href="../docs/first-rectangle-run-block-sparse-collision.ko.md">TICKET-197 이전 보고서</a>
           <a href="../docs/rouche-density-overlap.ko.md">TICKET-196 이전 보고서</a>
           <a href="../docs/finitejet-elevenone-squarelayer.ko.md">TICKET-195 이전 보고서</a>
           <a href="../docs/densecore-tenone-theta-layers.ko.md">TICKET-194 이전 보고서</a>
@@ -136,7 +137,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260808-ticket197"></script>
+    <script src="../assets/i18n.js?v=20260809-ticket198"></script>
   </body>
 </html>
 

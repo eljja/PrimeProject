@@ -1,0 +1,196 @@
+{
+  "schema": "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1",
+  "generated_at": "2026-08-09T00:30:00+09:00",
+  "ticket_id": "RH-TICKET-198",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+  "declared_proposition": "Let Xi(z)=xi(1/2+i z), let D_m^+={|Re z|<=m, 1/m<=Im z<=m}, and let D_m^- be its conjugate. Assume the rigorous finite-height theorem that every nontrivial zeta zero beta+i gamma with 0<|gamma|<=H lies on beta=1/2. Then, for every integer 2<=m<=H, Xi is zero-free on both closed D_m rectangles. Hence, for each such rectangle, some Taylor section of Xi at zero satisfies the strict Rouche inequality and has zero count zero. With the Platt-Trudgian value H=3*10^12, this transfers a finite prefix of 2,999,999,999,999 rectangle levels, but supplies no effective Taylor degree or margin.",
+  "mathematical_argument": "Writing z=x+i y gives s=1/2-y+i x. A zero in either D_m would have |Im s|=|x|<=m<=H and Re(s) different from 1/2 by at least 1/m. The imported finite-height theorem excludes every such nonreal-ordinate zero; the real interval 0<Re(s)<1 is zero-free because eta(s)>0 there and zeta(s)=eta(s)/(1-2^(1-s)) is nonzero. All xi zeros are nontrivial zeta zeros, so the compact rectangles are zero-free. Their positive minimum modulus and compact-uniform Taylor convergence give the existential Rouche sections exactly as in TICKET-197.",
+  "reproducible_computation": {
+    "theorem": "Let Xi(z)=xi(1/2+i z), let D_m^+={|Re z|<=m, 1/m<=Im z<=m}, and let D_m^- be its conjugate. Assume the rigorous finite-height theorem that every nontrivial zeta zero beta+i gamma with 0<|gamma|<=H lies on beta=1/2. Then, for every integer 2<=m<=H, Xi is zero-free on both closed D_m rectangles. Hence, for each such rectangle, some Taylor section of Xi at zero satisfies the strict Rouche inequality and has zero count zero. With the Platt-Trudgian value H=3*10^12, this transfers a finite prefix of 2,999,999,999,999 rectangle levels, but supplies no effective Taylor degree or margin.",
+    "proof": "Writing z=x+i y gives s=1/2-y+i x. A zero in either D_m would have |Im s|=|x|<=m<=H and Re(s) different from 1/2 by at least 1/m. The imported finite-height theorem excludes every such nonreal-ordinate zero; the real interval 0<Re(s)<1 is zero-free because eta(s)>0 there and zeta(s)=eta(s)/(1-2^(1-s)) is nonzero. All xi zeros are nontrivial zeta zeros, so the compact rectangles are zero-free. Their positive minimum modulus and compact-uniform Taylor convergence give the existential Rouche sections exactly as in TICKET-197.",
+    "imported_theorem": {
+      "authors": [
+        "Dave Platt",
+        "Tim Trudgian"
+      ],
+      "title": "The Riemann hypothesis is true up to 3*10^12",
+      "verified_height_H": 3000000000000,
+      "method": "rigorous interval arithmetic",
+      "doi": "10.1112/blms.12460",
+      "url": "https://arxiv.org/abs/2004.09765",
+      "project_claim": "imported_peer_reviewed_computer_assisted_theorem"
+    },
+    "sample_rectangle_rows": [
+      {
+        "m": 2,
+        "upper_s_real_interval": [
+          "-3/2",
+          "0"
+        ],
+        "lower_s_real_interval": [
+          "1",
+          "5/2"
+        ],
+        "s_imaginary_interval": [
+          -2,
+          2
+        ],
+        "minimum_distance_from_critical_line": "1/2",
+        "enters_open_critical_strip": false,
+        "covered_by_imported_verified_height": true,
+        "zero_free_off_critical_line_from_imported_theorem": true
+      },
+      {
+        "m": 3,
+        "upper_s_real_interval": [
+          "-5/2",
+          "1/6"
+        ],
+        "lower_s_real_interval": [
+          "5/6",
+          "7/2"
+        ],
+        "s_imaginary_interval": [
+          -3,
+          3
+        ],
+        "minimum_distance_from_critical_line": "1/3",
+        "enters_open_critical_strip": true,
+        "covered_by_imported_verified_height": true,
+        "zero_free_off_critical_line_from_imported_theorem": true
+      },
+      {
+        "m": 10,
+        "upper_s_real_interval": [
+          "-19/2",
+          "2/5"
+        ],
+        "lower_s_real_interval": [
+          "3/5",
+          "21/2"
+        ],
+        "s_imaginary_interval": [
+          -10,
+          10
+        ],
+        "minimum_distance_from_critical_line": "1/10",
+        "enters_open_critical_strip": true,
+        "covered_by_imported_verified_height": true,
+        "zero_free_off_critical_line_from_imported_theorem": true
+      },
+      {
+        "m": 1000,
+        "upper_s_real_interval": [
+          "-1999/2",
+          "499/1000"
+        ],
+        "lower_s_real_interval": [
+          "501/1000",
+          "2001/2"
+        ],
+        "s_imaginary_interval": [
+          -1000,
+          1000
+        ],
+        "minimum_distance_from_critical_line": "1/1000",
+        "enters_open_critical_strip": true,
+        "covered_by_imported_verified_height": true,
+        "zero_free_off_critical_line_from_imported_theorem": true
+      },
+      {
+        "m": 1000000,
+        "upper_s_real_interval": [
+          "-1999999/2",
+          "499999/1000000"
+        ],
+        "lower_s_real_interval": [
+          "500001/1000000",
+          "2000001/2"
+        ],
+        "s_imaginary_interval": [
+          -1000000,
+          1000000
+        ],
+        "minimum_distance_from_critical_line": "1/1000000",
+        "enters_open_critical_strip": true,
+        "covered_by_imported_verified_height": true,
+        "zero_free_off_critical_line_from_imported_theorem": true
+      },
+      {
+        "m": 3000000000000,
+        "upper_s_real_interval": [
+          "-5999999999999/2",
+          "1499999999999/3000000000000"
+        ],
+        "lower_s_real_interval": [
+          "1500000000001/3000000000000",
+          "6000000000001/2"
+        ],
+        "s_imaginary_interval": [
+          -3000000000000,
+          3000000000000
+        ],
+        "minimum_distance_from_critical_line": "1/3000000000000",
+        "enters_open_critical_strip": true,
+        "covered_by_imported_verified_height": true,
+        "zero_free_off_critical_line_from_imported_theorem": true
+      }
+    ],
+    "contract": {
+      "integer_rectangle_levels_transferred": 2999999999999,
+      "D3_enters_open_critical_strip": true,
+      "all_integer_m_through_verified_height_zero_free": true,
+      "existential_taylor_rouche_sections_through_height": true,
+      "explicit_taylor_degree_exhibited": false,
+      "explicit_interval_margin_exhibited": false,
+      "any_rectangle_above_verified_height_closed": false,
+      "full_rh_resolved": false
+    },
+    "no_go_scope": "This is a transfer of an existing rigorous finite-height theorem, not a new verification of zeta zeros. A finite prefix, however large, leaves every ordinate above H uncontrolled. Compactness proves existence of Taylor degrees but gives no machine-checkable degree or numerical margin.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a standalone D3 existence certificate as the decisive RH bridge when a vastly larger finite-height prefix is already rigorously known",
+  "remaining_gap": "The result imports a finite-height verification, provides no explicit Taylor degree or margin, and controls no ordinate above 3*10^12.",
+  "candidate_theorem": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+  "claim_boundary": "No RH proof or counterexample. A peer-reviewed finite-height theorem is transferred to the project Rouche language; the infinite tail remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T197-INPUT",
+        "label": "ExplicitXiTaylorDegreeAndRoucheMarginOnFirstCriticalStripEnteringRectangleD3",
+        "status": "open_input_from_ticket197"
+      },
+      {
+        "id": "RH-T198-CLOSED",
+        "label": "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-T198-REJECTED",
+        "label": "SingleD3ExistenceCertificateIsTheDecisiveRHBridge",
+        "status": "refuted_or_route_limited"
+      },
+      {
+        "id": "RH-T198-OPEN",
+        "label": "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T197-INPUT",
+        "RH-T198-CLOSED"
+      ],
+      [
+        "RH-T198-CLOSED",
+        "RH-T198-OPEN"
+      ],
+      [
+        "RH-T198-REJECTED",
+        "RH-T198-OPEN"
+      ]
+    ]
+  }
+}

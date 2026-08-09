@@ -15,9 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-197
+## Current research boundary: TICKET-198
 
 The current executable frontier is
+`data/open-problem/ticket198-verified-height-primitive-word-quantifier-strength.json`.
+
+TICKET-198 records four exact partial theorems and zero conjecture resolutions.
+It transfers the rigorous RH height `3*10^12` into the Xi rectangle language;
+proves an explicit infinite primitive Collatz family for every fixed run count
+`r>=2` while citing TICKET-183 primitive reduction as an input; proves that
+collision-free Goldbach control leaves an `O(X/log^2 X)` exceptional set; and
+proves that the previous Twin global-mass target forces square-root-scale pair
+counts. The four parent conjectures remain `open_not_proven`.
+
+The preserved previous frontier is
 `data/open-problem/ticket197-first-rectangle-run-block-sparse-collision.json`.
 It records four exact partial theorems and keeps all four conjectures at
 `open_not_proven`. For RH, the first actual-Xi rectangles are closed

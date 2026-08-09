@@ -196,6 +196,7 @@ TICKET194_SCHEMA = "primeproject.ticket194-densecore-tenone-theta-layers.v1"
 TICKET195_SCHEMA = "primeproject.ticket195-finitejet-elevenone-squarelayer.v1"
 TICKET196_SCHEMA = "primeproject.ticket196-rouche-density-overlap.v1"
 TICKET197_SCHEMA = "primeproject.ticket197-first-rectangle-run-block-sparse-collision.v1"
+TICKET198_SCHEMA = "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1"
 
 
 def fail(message: str) -> int:
@@ -15080,6 +15081,213 @@ def main() -> int:
         or "resolves none" not in str(ticket197.get("claim_boundary", "")).lower()
     ):
         return fail("ticket197 proof boundary changed")
+
+    path198 = Path(
+        "data/open-problem/ticket198-verified-height-primitive-word-quantifier-strength.json"
+    )
+    if not path198.exists():
+        return fail("missing ticket198 verified-height/primitive-word/quantifier-strength audit")
+    ticket198 = read_json(path198)
+    if (
+        ticket198.get("schema") != TICKET198_SCHEMA
+        or ticket198.get("status")
+        != "verified_height_transferred_to_rouche_prefix_collatz_fixed_run_families_goldbach_stratum_gap_exposed_twin_mass_target_strengthened_all_open"
+    ):
+        return fail("ticket198 schema or status changed")
+    audit198 = ticket198.get(
+        "verified_height_primitive_word_quantifier_strength_audit", {}
+    )
+    machine198 = audit198.get("machine_audit", {})
+    expected_machine198 = {
+        "exact_theorem_count": 4,
+        "riemann_verified_height_transfer_count": 1,
+        "collatz_fixed_run_infinite_family_count": 1,
+        "goldbach_inference_no_go_count": 1,
+        "twin_quantitative_strength_no_go_count": 1,
+        "riemann_sample_rectangle_row_count": 6,
+        "collatz_checked_fixed_run_word_count": 441,
+        "goldbach_finite_stratum_row_count": 13,
+        "twin_finite_dyadic_row_count": 13,
+        "rejected_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine198 != expected_machine198:
+        return fail("ticket198 global machine audit changed")
+
+    attempts198 = {
+        row.get("problem_id"): row for row in ticket198.get("attempts", [])
+    }
+    if set(attempts198) != {"riemann", "collatz", "goldbach", "twin-prime"}:
+        return fail("ticket198 attempts missing problems")
+    artifact_contract198 = {
+        "riemann": (
+            Path("data/open-problem/riemann/rh-ticket-198-verified-height-rouche-prefix.json"),
+            "FiniteHeightRHTransfersToFiniteXiRouchePrefix",
+            "StandaloneIntervalXiTaylorDegreeAndRoucheMarginOnD3WithoutImportingFiniteHeightRH",
+        ),
+        "collatz": (
+            Path("data/open-problem/collatz/co-ticket-198-fixed-run-primitive-family.json"),
+            "FixedRunCountLeavesInfinitePrimitiveAdmissibleFamilies",
+            "UniformAffineDivisibilityObstructionForPrimitiveFixedRunCountOneTwoWordsInTheAdmissibleDensityWindow",
+        ),
+        "goldbach": (
+            Path("data/open-problem/goldbach/gb-ticket-198-collision-stratum-gap.json"),
+            "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+            "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget",
+        ),
+        "twin-prime": (
+            Path("data/open-problem/twin-prime/tp-ticket-198-block-mass-strength.json"),
+            "TwinBlockMassDominanceForcesSquareRootScalePairCount",
+            "PrimePowerFreeLocalizedTwinDetectorHasPositiveMassOnInfinitelyManyDyadicBlocks",
+        ),
+    }
+    section_keys198 = {
+        "riemann": "riemann",
+        "collatz": "collatz",
+        "goldbach": "goldbach",
+        "twin-prime": "twin_prime",
+    }
+    for problem_id, (artifact_path, theorem_name, next_theorem) in artifact_contract198.items():
+        if not artifact_path.exists():
+            return fail(f"{problem_id}: ticket198 artifact missing")
+        artifact = read_json(artifact_path)
+        attempt = attempts198[problem_id]
+        section = audit198.get(section_keys198[problem_id], {})
+        dag = section.get("proof_dag", {})
+        if (
+            artifact.get("schema") != TICKET198_SCHEMA
+            or artifact.get("status") != "open_not_proven"
+            or attempt.get("status") != "open_not_proven"
+            or artifact.get("theorem_name") != theorem_name
+            or attempt.get("new_result") != theorem_name
+            or artifact.get("candidate_theorem") != next_theorem
+            or attempt.get("candidate_theorem") != next_theorem
+            or section.get("theorem_name") != theorem_name
+            or [node.get("status") for node in dag.get("nodes", [])]
+            != [
+                "open_input_from_ticket197",
+                "proved_exact",
+                "refuted_or_route_limited",
+                "open_not_proven",
+            ]
+            or len(dag.get("edges", [])) != 3
+        ):
+            return fail(f"{problem_id}: ticket198 contract changed")
+
+    rh198 = audit198.get("riemann", {}).get("reproducible_computation", {})
+    rh_rows198 = rh198.get("sample_rectangle_rows", [])
+    rh_contract198 = rh198.get("contract", {})
+    if (
+        [row.get("m") for row in rh_rows198]
+        != [2, 3, 10, 1000, 1000000, 3000000000000]
+        or rh_rows198[1].get("upper_s_real_interval") != ["-5/2", "1/6"]
+        or rh_rows198[1].get("lower_s_real_interval") != ["5/6", "7/2"]
+        or rh_contract198.get("integer_rectangle_levels_transferred")
+        != 2999999999999
+        or rh_contract198.get("D3_enters_open_critical_strip") is not True
+        or rh_contract198.get(
+            "all_integer_m_through_verified_height_zero_free"
+        )
+        is not True
+        or rh_contract198.get("explicit_taylor_degree_exhibited") is not False
+        or rh_contract198.get("explicit_interval_margin_exhibited") is not False
+        or rh_contract198.get("full_rh_resolved") is not False
+    ):
+        return fail("ticket198 RH verified-height transfer boundary changed")
+
+    collatz198 = audit198.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz_summaries198 = collatz198.get("finite_run_count_summaries", [])
+    collatz_examples198 = collatz198.get("representative_rows", [])
+    if (
+        [row.get("one_run_count") for row in collatz_summaries198]
+        != list(range(2, 9))
+        or sum(row.get("checked_word_count", 0) for row in collatz_summaries198)
+        != 441
+        or any(
+            row.get("primitive") is not True
+            or row.get("cyclic_run_count") != 2 * row.get("one_run_count", 0)
+            or row.get("contraction_gate_passes") is not True
+            or row.get("product_gate_passes") is not True
+            for row in collatz_examples198
+        )
+        or collatz198.get("prior_exact_input", {}).get("ticket") != "TICKET-183"
+        or collatz198.get("prior_exact_input", {}).get("role")
+        != "reused_input_not_new_ticket198_result"
+        or collatz198.get("aggregate", {}).get(
+            "infinite_primitive_family_for_every_fixed_run_count_r_ge_2"
+        )
+        is not True
+        or collatz198.get("aggregate", {}).get(
+            "fixed_run_count_plus_scalar_gates_is_finite_search"
+        )
+        is not False
+        or collatz198.get("aggregate", {}).get("nontrivial_collatz_cycle_found")
+        is not False
+    ):
+        return fail("ticket198 Collatz fixed-run primitive-family boundary changed")
+
+    goldbach198 = audit198.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    gold_rows198 = goldbach198.get("finite_stratum_rows", [])
+    if (
+        [row.get("cutoff_X") for row in gold_rows198]
+        != [2**exponent for exponent in range(8, 21)]
+        or any(row.get("diagonal_missing_from_collision_count") != 0 for row in gold_rows198)
+        or gold_rows198[-1].get("collision_supported_target_count") != 17411
+        or gold_rows198[-1].get("diagonal_2p2_target_count") != 127
+        or goldbach198.get("aggregate", {}).get(
+            "finite_actual_goldbach_failure_count"
+        )
+        != 0
+        or goldbach198.get("aggregate", {}).get(
+            "collision_free_margin_sufficient_for_full_goldbach"
+        )
+        is not False
+        or goldbach198.get("aggregate", {}).get(
+            "collision_free_margin_implies_log_squared_exception_bound"
+        )
+        is not True
+        or goldbach198.get("surrogate_countermodel", {}).get(
+            "is_actual_goldbach_representation_function"
+        )
+        is not False
+    ):
+        return fail("ticket198 Goldbach collision-stratum boundary changed")
+
+    twin198 = audit198.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin_rows198 = twin198.get("finite_dyadic_rows", [])
+    twin_sparse198 = twin198.get("sparse_inference_countermodel_rows", [])
+    twin_ratios198 = [
+        row.get("upper_bound_ratio_to_sqrtXlogX", 0) for row in twin_sparse198
+    ]
+    if (
+        [row.get("block") for row in twin_rows198]
+        != [[2**exponent, 2 ** (exponent + 1)] for exponent in range(10, 23)]
+        or any(row.get("weighted_mass_below_count_times_cap") is not True for row in twin_rows198)
+        or any(left <= right for left, right in zip(twin_ratios198, twin_ratios198[1:]))
+        or twin198.get("aggregate", {}).get(
+            "mass_dominance_forces_unbounded_pair_count"
+        )
+        is not True
+        or twin198.get("aggregate", {}).get("bare_positivity_forces_only_one_pair")
+        is not True
+        or twin198.get("aggregate", {}).get("parity_breaking_lower_bound_proved")
+        is not False
+    ):
+        return fail("ticket198 Twin mass-strength boundary changed")
+
+    if (
+        "resolves none" not in str(audit198.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket198.get("claim_boundary", "")).lower()
+    ):
+        return fail("ticket198 proof boundary changed")
 
     print("open problem structure verified")
     return 0

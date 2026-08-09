@@ -1,0 +1,206 @@
+{
+  "schema": "primeproject.ticket198-verified-height-primitive-word-quantifier-strength.v1",
+  "generated_at": "2026-08-09T00:30:00+09:00",
+  "ticket_id": "GB-TICKET-198",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+  "declared_proposition": "Let C be the even targets supported by Q*Q and let E be the strong-Goldbach exceptional set. If every sufficiently large even N outside C has a prime-prime representation, then E is eventually contained in C. TICKET-197 therefore yields only |E intersect [1,X]|=O(X/log(X)^2), not E=empty. This inference cannot be strengthened from those premises alone: C contains the infinite diagonal S={2p^2:p odd prime}, and the abstract indicator that vanishes exactly on S while being positive off C satisfies the collision-free premise but has infinitely many failures.",
+  "mathematical_argument": "The assumed margin gives E\\C finite, hence E is contained in C up to finitely many targets. Apply the TICKET-197 bound for C. For every odd prime p, 2p^2=p^2+p^2 is in the Q*Q support, so S is an explicit infinite subset of C. Defining a surrogate nonnegative representation indicator to be zero on S and one elsewhere supplies a countermodel to the set-theoretic inference. It is not a counterexample to Goldbach and makes no assertion about the actual representation count on S.",
+  "reproducible_computation": {
+    "theorem": "Let C be the even targets supported by Q*Q and let E be the strong-Goldbach exceptional set. If every sufficiently large even N outside C has a prime-prime representation, then E is eventually contained in C. TICKET-197 therefore yields only |E intersect [1,X]|=O(X/log(X)^2), not E=empty. This inference cannot be strengthened from those premises alone: C contains the infinite diagonal S={2p^2:p odd prime}, and the abstract indicator that vanishes exactly on S while being positive off C satisfies the collision-free premise but has infinitely many failures.",
+    "proof": "The assumed margin gives E\\C finite, hence E is contained in C up to finitely many targets. Apply the TICKET-197 bound for C. For every odd prime p, 2p^2=p^2+p^2 is in the Q*Q support, so S is an explicit infinite subset of C. Defining a surrogate nonnegative representation indicator to be zero on S and one elsewhere supplies a countermodel to the set-theoretic inference. It is not a counterexample to Goldbach and makes no assertion about the actual representation count on S.",
+    "finite_limit": 1048576,
+    "finite_stratum_rows": [
+      {
+        "cutoff_X": 256,
+        "collision_supported_target_count": 32,
+        "collision_free_target_count": 95,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 4,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 512,
+        "collision_supported_target_count": 60,
+        "collision_free_target_count": 195,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 5,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 1024,
+        "collision_supported_target_count": 108,
+        "collision_free_target_count": 403,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 7,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 2048,
+        "collision_supported_target_count": 177,
+        "collision_free_target_count": 846,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 10,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 4096,
+        "collision_supported_target_count": 324,
+        "collision_free_target_count": 1723,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 13,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 8192,
+        "collision_supported_target_count": 540,
+        "collision_free_target_count": 3555,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 17,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 16384,
+        "collision_supported_target_count": 856,
+        "collision_free_target_count": 7335,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 23,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 32768,
+        "collision_supported_target_count": 1456,
+        "collision_free_target_count": 14927,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 30,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 65536,
+        "collision_supported_target_count": 2282,
+        "collision_free_target_count": 30485,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 41,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 131072,
+        "collision_supported_target_count": 3804,
+        "collision_free_target_count": 61731,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 53,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 262144,
+        "collision_supported_target_count": 6322,
+        "collision_free_target_count": 124749,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 71,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 524288,
+        "collision_supported_target_count": 10476,
+        "collision_free_target_count": 251667,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 96,
+        "diagonal_missing_from_collision_count": 0
+      },
+      {
+        "cutoff_X": 1048576,
+        "collision_supported_target_count": 17411,
+        "collision_free_target_count": 506876,
+        "actual_goldbach_failure_count": 0,
+        "actual_collision_free_failure_count": 0,
+        "actual_collision_supported_failure_count": 0,
+        "diagonal_2p2_target_count": 127,
+        "diagonal_missing_from_collision_count": 0
+      }
+    ],
+    "surrogate_countermodel": {
+      "failure_set": "S={2p^2:p odd prime}",
+      "failure_set_is_infinite": true,
+      "failure_set_subset_of_collision_support": true,
+      "positive_on_every_collision_free_target": true,
+      "is_actual_goldbach_representation_function": false
+    },
+    "aggregate": {
+      "finite_row_count": 13,
+      "largest_cutoff": 1048576,
+      "finite_actual_goldbach_failure_count": 0,
+      "collision_free_margin_sufficient_for_full_goldbach": false,
+      "collision_free_margin_implies_log_squared_exception_bound": true,
+      "infinite_collision_diagonal_exhibited": true
+    },
+    "no_go_scope": "The countermodel refutes only an inference from collision-free control to all-even control. It does not exhibit an actual Goldbach exception. The finite scan through 2^20 is regression evidence and cannot close the infinite collision-supported stratum.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a density-one collision-free correlation margin as sufficient for strong Goldbach",
+  "remaining_gap": "The actual collision-supported stratum, including the infinite diagonal 2p^2, still lacks a pointwise representation theorem.",
+  "candidate_theorem": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget",
+  "claim_boundary": "No Goldbach proof or counterexample. The previous next lemma is proved logically insufficient by itself and now forms only half of a two-stratum target.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T197-INPUT",
+        "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionFreeEvenTarget",
+        "status": "open_input_from_ticket197"
+      },
+      {
+        "id": "GB-T198-CLOSED",
+        "label": "CollisionFreeGoldbachMarginLeavesLogSquaredExceptionalSet",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-T198-REJECTED",
+        "label": "CollisionFreeMarginAloneProvesStrongGoldbach",
+        "status": "refuted_or_route_limited"
+      },
+      {
+        "id": "GB-T198-OPEN",
+        "label": "ExplicitGoldbachCorrelationMarginOnEveryLargeCollisionSupportedEvenTarget",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T197-INPUT",
+        "GB-T198-CLOSED"
+      ],
+      [
+        "GB-T198-CLOSED",
+        "GB-T198-OPEN"
+      ],
+      [
+        "GB-T198-REJECTED",
+        "GB-T198-OPEN"
+      ]
+    ]
+  }
+}
