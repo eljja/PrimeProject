@@ -37,7 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-202 Exact Hermite Data, Long-Run Deformations, and Parity Scale
+## 2026-08-10 TICKET-203 Rouché Transfer, Signed Valuation Transfer, and Pointwise Target Correction
+
+TICKET-203 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. a strict Rouché margin, comparison zero count, and independently included
+   zero list of the same multiplicity imply exact zero exhaustion;
+2. a signed two-site Collatz valuation transfer changes the affine numerator
+   by an exact prefix-segment formula, while `(3,1)->(2,2)` refutes universal
+   nondivisibility preservation;
+3. pointwise Goldbach defect positivity is exactly equivalent to a
+   prime-prime representation on a Chen-positive channel, while a fixed
+   `c/log log N` lower bound is quantitatively stronger;
+4. fixed primorial single-coordinate data cannot separate every prime from
+   every rough semiprime, while scale-growing bilinear switching remains open.
+
+The RH theorem supplies no actual Xi margin. The Collatz counterexample reaches
+the known trivial fixed cycle. The Goldbach countermodel is abstract integer
+channel data. The Twin theorem has a deliberately fixed-local scope. The
+machine resolution count remains zero.
+
+English report: [TICKET-203](rouche-transfer-pointwise-primorial.md).
+한국어 보고서: [TICKET-203](rouche-transfer-pointwise-primorial.ko.md).
+
+## Preserved: 2026-08-10 TICKET-202 Exact Hermite Data, Long-Run Deformations, and Parity Scale
 
 TICKET-202 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial results:

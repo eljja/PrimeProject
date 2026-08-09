@@ -1,0 +1,1106 @@
+{
+  "schema": "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-203 resolves none of the four conjectures. It completes an exact conditional Rouche zero-exhaustion transfer, derives the signed Collatz two-site transfer law and refutes its universal nondivisibility version, proves the proposed pointwise Goldbach log-log defect is stronger than positivity, and proves a fixed-primorial single-coordinate prime/semiprime separation no-go.",
+  "transfer_contract_and_target_correction_audit": {
+    "theorem_name": "FourConjectureTransferContractAndTargetCorrectionAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-203 resolves none of the four conjectures. It completes an exact conditional Rouche zero-exhaustion transfer, derives the signed Collatz two-site transfer law and refutes its universal nondivisibility version, proves the proposed pointwise Goldbach log-log defect is stronger than positivity, and proves a fixed-primorial single-coordinate prime/semiprime separation no-go.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-203",
+      "theorem_name": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+      "declared_proposition": "Let X and P be analytic on and inside a simple closed contour Gamma. Suppose |X-P|<|P| on Gamma, P has exactly m interior zeros counted with multiplicity, and an independently certified list already supplies m interior zeros of X counted with multiplicity. Rouche's theorem gives N_Gamma(X)=m, so the list exhausts every zero of X inside Gamma. Applied to Xi(z)=xi(1/2+iz) on a cofinal family of rectangles covering |Im z|<1/2, with every listed zero real, this is a sufficient zero-count transfer contract for the Riemann Hypothesis.",
+      "mathematical_argument": "Rouche's theorem gives N_Gamma(X)=N_Gamma(P)=m. The certified zeros of X are a submultiset of all interior zeros and already have total multiplicity m; therefore no additional interior zero exists. For cofinal completed-zeta rectangles every nontrivial zeta zero is eventually interior. If each exhaustive list lies on the real z-axis, every nontrivial zeta zero lies on Re s=1/2. The independent-inclusion premise is essential: equal total counts alone cannot locate the zeros.",
+      "reproducible_computation": {
+        "theorem": "Let X and P be analytic on and inside a simple closed contour Gamma. Suppose |X-P|<|P| on Gamma, P has exactly m interior zeros counted with multiplicity, and an independently certified list already supplies m interior zeros of X counted with multiplicity. Rouche's theorem gives N_Gamma(X)=m, so the list exhausts every zero of X inside Gamma. Applied to Xi(z)=xi(1/2+iz) on a cofinal family of rectangles covering |Im z|<1/2, with every listed zero real, this is a sufficient zero-count transfer contract for the Riemann Hypothesis.",
+        "proof": "Rouche's theorem gives N_Gamma(X)=N_Gamma(P)=m. The certified zeros of X are a submultiset of all interior zeros and already have total multiplicity m; therefore no additional interior zero exists. For cofinal completed-zeta rectangles every nontrivial zeta zero is eventually interior. If each exhaustive list lies on the real z-axis, every nontrivial zeta zero lies on Re s=1/2. The independent-inclusion premise is essential: equal total counts alone cannot locate the zeros.",
+        "exact_synthetic_regression": {
+          "comparison_P": "(z^2-1)(z^2-4)",
+          "analytic_X": "P(z)(1+z^2/100)",
+          "rectangle": {
+            "real_interval": [
+              -3,
+              3
+            ],
+            "imaginary_interval": [
+              -1,
+              1
+            ]
+          },
+          "listed_X_zeros_inside": [
+            -2,
+            -1,
+            1,
+            2
+          ],
+          "comparison_zero_count_inside": 4,
+          "independently_certified_X_zero_count_inside": 4,
+          "extra_X_zeros_outside": [
+            "-10i",
+            "+10i"
+          ],
+          "maximum_abs_z_squared_on_boundary": 10,
+          "relative_boundary_error_bound": "1/10",
+          "strict_rouche_margin": "9/10",
+          "rouche_hypothesis_holds": true,
+          "certified_list_is_exhaustive": true
+        },
+        "aggregate": {
+          "exact_zero_count_transfer_contract_proved": true,
+          "independent_zero_inclusion_required": true,
+          "cofinal_contract_is_sufficient_for_rh": true,
+          "actual_xi_boundary_margin_constructed": false,
+          "actual_cofinal_xi_certificate_constructed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "This proves the missing logical transfer step, not its completed-zeta analytic premise. The synthetic polynomial is a regression fixture and is not Xi. No off-critical-line Xi zero is produced.",
+        "failure_count": 0
+      },
+      "logical_limit": "The zero-count transfer is complete, but no strict boundary margin for the actual completed zeta function is constructed.",
+      "route_decision": {
+        "discard": "using equal contour zero counts without independently certifying that the listed Xi zeros are included",
+        "retain": "combine certified critical-line zero inclusion with Xi-specific cofinal Rouche margins",
+        "next_single_lemma": "CompletedZetaCofinalRelativeMarginCertificateFamily"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T202",
+            "label": "CompletedZetaCofinalContourMarginWithExactZeroCountTransfer",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T203",
+            "label": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N203",
+            "label": "EqualZeroCountsAloneLocateAllXiZeros",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN203",
+            "label": "CompletedZetaCofinalRelativeMarginCertificateFamily",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RH",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T202",
+            "RH-T203"
+          ],
+          [
+            "RH-T203",
+            "RH-N203"
+          ],
+          [
+            "RH-T203",
+            "RH-OPEN203"
+          ],
+          [
+            "RH-OPEN203",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or counterexample. An exact conditional transfer lemma is proved; its Xi-specific cofinal margin premise is open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-203",
+      "theorem_name": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+      "declared_proposition": "For a positive valuation word a of length h, write B(a)=sum_m 3^(h-1-m)2^P_m, where P_m is the prefix sum before site m. If i<j and one valuation unit is moved from i to j, then the denominator D=2^sum(a)-3^h is unchanged and B(a-e_i+e_j)=B(a)-Q_(i,j)/2, with Q_(i,j)=sum_(i<m<=j)3^(h-1-m)2^P_m. Moving one unit from j to i instead gives B(a+e_i-e_j)=B(a)+Q_(i,j). These exact signed identities do not yield a universal divisibility obstruction: the minimal transfer (3,1)->(2,2) changes B=11 to B'=7 at D=7 and reaches the known all-two fixed cycle.",
+      "mathematical_argument": "For the forward transfer, precisely the prefix exponents P_(i+1),...,P_j decrease by one; all earlier and later prefixes are unchanged. Subtracting the two defining sums for B gives -Q/2. For the reverse transfer those same powers of two double, giving +Q. The valuation sum is fixed, hence D is fixed. Direct substitution into (3,1) gives D=7, B=11, and B(2,2)=7. Therefore any theorem claiming signed-transfer preservation of affine nondivisibility without excluding the all-two component is false.",
+      "reproducible_computation": {
+        "theorem": "For a positive valuation word a of length h, write B(a)=sum_m 3^(h-1-m)2^P_m, where P_m is the prefix sum before site m. If i<j and one valuation unit is moved from i to j, then the denominator D=2^sum(a)-3^h is unchanged and B(a-e_i+e_j)=B(a)-Q_(i,j)/2, with Q_(i,j)=sum_(i<m<=j)3^(h-1-m)2^P_m. Moving one unit from j to i instead gives B(a+e_i-e_j)=B(a)+Q_(i,j). These exact signed identities do not yield a universal divisibility obstruction: the minimal transfer (3,1)->(2,2) changes B=11 to B'=7 at D=7 and reaches the known all-two fixed cycle.",
+        "proof": "For the forward transfer, precisely the prefix exponents P_(i+1),...,P_j decrease by one; all earlier and later prefixes are unchanged. Subtracting the two defining sums for B gives -Q/2. For the reverse transfer those same powers of two double, giving +Q. The valuation sum is fixed, hence D is fixed. Direct substitution into (3,1) gives D=7, B=11, and B(2,2)=7. Therefore any theorem claiming signed-transfer preservation of affine nondivisibility without excluding the all-two component is false.",
+        "exact_forward_examples": [
+          {
+            "source_word": [
+              3,
+              1
+            ],
+            "target_word": [
+              2,
+              2
+            ],
+            "left_donor_i": 0,
+            "right_receiver_j": 1,
+            "valuation_sum_preserved": true,
+            "denominator_D": 7,
+            "source_numerator_B": 11,
+            "target_numerator_B_prime": 7,
+            "intervening_prefix_segment_Q": 8,
+            "segment_is_even": true,
+            "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+            "source_affine_divisibility": false,
+            "target_affine_divisibility": true
+          },
+          {
+            "source_word": [
+              2,
+              3,
+              1,
+              4
+            ],
+            "target_word": [
+              2,
+              2,
+              1,
+              5
+            ],
+            "left_donor_i": 1,
+            "right_receiver_j": 3,
+            "valuation_sum_preserved": true,
+            "denominator_D": 943,
+            "source_numerator_B": 223,
+            "target_numerator_B_prime": 143,
+            "intervening_prefix_segment_Q": 160,
+            "segment_is_even": true,
+            "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+            "source_affine_divisibility": false,
+            "target_affine_divisibility": false
+          },
+          {
+            "source_word": [
+              4,
+              1,
+              2,
+              3,
+              2
+            ],
+            "target_word": [
+              3,
+              1,
+              2,
+              3,
+              3
+            ],
+            "left_donor_i": 0,
+            "right_receiver_j": 4,
+            "valuation_sum_preserved": true,
+            "denominator_D": 3853,
+            "source_numerator_B": 2209,
+            "target_numerator_B_prime": 1145,
+            "intervening_prefix_segment_Q": 2128,
+            "segment_is_even": true,
+            "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+            "source_affine_divisibility": false,
+            "target_affine_divisibility": false
+          }
+        ],
+        "exact_backward_examples": [
+          {
+            "source_word": [
+              1,
+              3
+            ],
+            "target_word": [
+              2,
+              2
+            ],
+            "left_receiver_i": 0,
+            "right_donor_j": 1,
+            "intervening_prefix_segment_Q": 2,
+            "backward_identity_B_prime_equals_B_plus_Q": true
+          },
+          {
+            "source_word": [
+              2,
+              1,
+              4,
+              2
+            ],
+            "target_word": [
+              3,
+              1,
+              3,
+              2
+            ],
+            "left_receiver_i": 0,
+            "right_donor_j": 2,
+            "intervening_prefix_segment_Q": 60,
+            "backward_identity_B_prime_equals_B_plus_Q": true
+          }
+        ],
+        "minimal_universal_obstruction_counterexample": {
+          "source_word": [
+            3,
+            1
+          ],
+          "target_word": [
+            2,
+            2
+          ],
+          "left_donor_i": 0,
+          "right_receiver_j": 1,
+          "valuation_sum_preserved": true,
+          "denominator_D": 7,
+          "source_numerator_B": 11,
+          "target_numerator_B_prime": 7,
+          "intervening_prefix_segment_Q": 8,
+          "segment_is_even": true,
+          "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+          "source_affine_divisibility": false,
+          "target_affine_divisibility": true
+        },
+        "exhaustive_regression": [
+          {
+            "horizon": 2,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "contracting_word_count": 13,
+            "forward_transfer_count": 11,
+            "identity_failure_count": 0,
+            "target_divisibility_hit_count": 1,
+            "all_two_target_hit_count": 1,
+            "hit_count_equals_choose_horizon_two": true,
+            "every_hit_is_known_all_two_fixed_cycle": true
+          },
+          {
+            "horizon": 3,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "contracting_word_count": 60,
+            "forward_transfer_count": 141,
+            "identity_failure_count": 0,
+            "target_divisibility_hit_count": 3,
+            "all_two_target_hit_count": 3,
+            "hit_count_equals_choose_horizon_two": true,
+            "every_hit_is_known_all_two_fixed_cycle": true
+          },
+          {
+            "horizon": 4,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "contracting_word_count": 241,
+            "forward_transfer_count": 1122,
+            "identity_failure_count": 0,
+            "target_divisibility_hit_count": 6,
+            "all_two_target_hit_count": 6,
+            "hit_count_equals_choose_horizon_two": true,
+            "every_hit_is_known_all_two_fixed_cycle": true
+          },
+          {
+            "horizon": 5,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "contracting_word_count": 1003,
+            "forward_transfer_count": 7620,
+            "identity_failure_count": 0,
+            "target_divisibility_hit_count": 10,
+            "all_two_target_hit_count": 10,
+            "hit_count_equals_choose_horizon_two": true,
+            "every_hit_is_known_all_two_fixed_cycle": true
+          },
+          {
+            "horizon": 6,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "contracting_word_count": 4012,
+            "forward_transfer_count": 45660,
+            "identity_failure_count": 0,
+            "target_divisibility_hit_count": 15,
+            "all_two_target_hit_count": 15,
+            "hit_count_equals_choose_horizon_two": true,
+            "every_hit_is_known_all_two_fixed_cycle": true
+          },
+          {
+            "horizon": 7,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "contracting_word_count": 16061,
+            "forward_transfer_count": 255549,
+            "identity_failure_count": 0,
+            "target_divisibility_hit_count": 21,
+            "all_two_target_hit_count": 21,
+            "hit_count_equals_choose_horizon_two": true,
+            "every_hit_is_known_all_two_fixed_cycle": true
+          }
+        ],
+        "aggregate": {
+          "signed_two_site_transfer_identity_proved": true,
+          "universal_nondivisibility_preservation_refuted": true,
+          "exhaustive_horizons": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "exhaustive_forward_transfer_count": 310103,
+          "all_finite_hits_are_all_two_in_tested_box": true,
+          "arbitrary_words_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The all-two counterexample refutes only an unconditional transfer-invariance route. The finite enumeration is not a proof that all other transfer components avoid divisibility at unbounded length.",
+        "failure_count": 0
+      },
+      "logical_limit": "The transfer identity is exact, but unbounded nontrivial transfer components and nonperiodic trajectories remain open.",
+      "route_decision": {
+        "discard": "unconditional preservation of affine nondivisibility under every signed two-site valuation transfer",
+        "retain": "exclude the all-two component and seek a scale-dependent residue barrier on nontrivial transfer components",
+        "next_single_lemma": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T202",
+            "label": "SignedTwoSiteValuationTransferAffineObstruction",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T203",
+            "label": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N203",
+            "label": "UniversalSignedTransferPreservesAffineNondivisibility",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN203",
+            "label": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CO",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T202",
+            "CO-T203"
+          ],
+          [
+            "CO-T203",
+            "CO-N203"
+          ],
+          [
+            "CO-T203",
+            "CO-OPEN203"
+          ],
+          [
+            "CO-OPEN203",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or nontrivial cycle. The exact transfer law and a minimal no-go counterexample are established."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-203",
+      "theorem_name": "PointwiseLogLogDefectStrictStrengthCalibration",
+      "declared_proposition": "At every Chen-positive even N, with C(N)=R(N)+S(N) and L(N)=S(N)-R(N), the exact identity delta(N)=1-L(N)/C(N)=2R(N)/C(N) implies R(N)>0 if and only if delta(N)>0. Thus any lower bound delta(N)>=c/log log N for every sufficiently large even N already implies strong Goldbach and is quantitatively stronger than positivity. Channel algebra and Goldbach positivity alone cannot imply it: the integer model N=2^m, C=N/m, R=1, S=C-1 for powers of two m has R>0 while delta log log N tends to zero.",
+      "mathematical_argument": "The projector identity C-L=2R gives the equivalence because C is positive. In the abstract model delta=2/C=2m/2^m. For m>=2, log log(2^m)=log(m log 2)<=m, so delta log log N<=2m^2/2^m, which tends to zero. Hence no fixed c>0 follows from one representation per target, even when the ambient channel has the natural N/log N scale.",
+      "reproducible_computation": {
+        "theorem": "At every Chen-positive even N, with C(N)=R(N)+S(N) and L(N)=S(N)-R(N), the exact identity delta(N)=1-L(N)/C(N)=2R(N)/C(N) implies R(N)>0 if and only if delta(N)>0. Thus any lower bound delta(N)>=c/log log N for every sufficiently large even N already implies strong Goldbach and is quantitatively stronger than positivity. Channel algebra and Goldbach positivity alone cannot imply it: the integer model N=2^m, C=N/m, R=1, S=C-1 for powers of two m has R>0 while delta log log N tends to zero.",
+        "proof": "The projector identity C-L=2R gives the equivalence because C is positive. In the abstract model delta=2/C=2m/2^m. For m>=2, log log(2^m)=log(m log 2)<=m, so delta log log N<=2m^2/2^m, which tends to zero. Hence no fixed c>0 follows from one representation per target, even when the ambient channel has the natural N/log N scale.",
+        "exact_actual_channel_rows": [
+          {
+            "even_target_N": 100,
+            "ordered_prime_prime_R": 12,
+            "ordered_prime_semiprime_S": 9,
+            "Chen_channel_C": 21,
+            "Liouville_channel_L": -3,
+            "relative_defect_delta": "8/7",
+            "C_minus_L_equals_2R": true,
+            "goldbach_positive": true,
+            "defect_positive": true,
+            "positivity_equivalence": true
+          },
+          {
+            "even_target_N": 1000,
+            "ordered_prime_prime_R": 56,
+            "ordered_prime_semiprime_S": 66,
+            "Chen_channel_C": 122,
+            "Liouville_channel_L": 10,
+            "relative_defect_delta": "56/61",
+            "C_minus_L_equals_2R": true,
+            "goldbach_positive": true,
+            "defect_positive": true,
+            "positivity_equivalence": true
+          },
+          {
+            "even_target_N": 10000,
+            "ordered_prime_prime_R": 254,
+            "ordered_prime_semiprime_S": 508,
+            "Chen_channel_C": 762,
+            "Liouville_channel_L": 254,
+            "relative_defect_delta": "2/3",
+            "C_minus_L_equals_2R": true,
+            "goldbach_positive": true,
+            "defect_positive": true,
+            "positivity_equivalence": true
+          },
+          {
+            "even_target_N": 100000,
+            "ordered_prime_prime_R": 1620,
+            "ordered_prime_semiprime_S": 3409,
+            "Chen_channel_C": 5029,
+            "Liouville_channel_L": 1789,
+            "relative_defect_delta": "3240/5029",
+            "C_minus_L_equals_2R": true,
+            "goldbach_positive": true,
+            "defect_positive": true,
+            "positivity_equivalence": true
+          }
+        ],
+        "exact_abstract_countermodel_rows": [
+          {
+            "abstract_even_target_N": "256",
+            "exponent_m_with_N_equals_2powm": 8,
+            "abstract_R": 1,
+            "abstract_S": "31",
+            "abstract_C_equals_N_over_m": "32",
+            "abstract_L": "30",
+            "relative_defect_delta": "1/16",
+            "goldbach_positive": true,
+            "C_minus_L_equals_2R": true,
+            "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/2"
+          },
+          {
+            "abstract_even_target_N": "65536",
+            "exponent_m_with_N_equals_2powm": 16,
+            "abstract_R": 1,
+            "abstract_S": "4095",
+            "abstract_C_equals_N_over_m": "4096",
+            "abstract_L": "4094",
+            "relative_defect_delta": "1/2048",
+            "goldbach_positive": true,
+            "C_minus_L_equals_2R": true,
+            "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/128"
+          },
+          {
+            "abstract_even_target_N": "4294967296",
+            "exponent_m_with_N_equals_2powm": 32,
+            "abstract_R": 1,
+            "abstract_S": "134217727",
+            "abstract_C_equals_N_over_m": "134217728",
+            "abstract_L": "134217726",
+            "relative_defect_delta": "1/67108864",
+            "goldbach_positive": true,
+            "C_minus_L_equals_2R": true,
+            "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/2097152"
+          },
+          {
+            "abstract_even_target_N": "18446744073709551616",
+            "exponent_m_with_N_equals_2powm": 64,
+            "abstract_R": 1,
+            "abstract_S": "288230376151711743",
+            "abstract_C_equals_N_over_m": "288230376151711744",
+            "abstract_L": "288230376151711742",
+            "relative_defect_delta": "1/144115188075855872",
+            "goldbach_positive": true,
+            "C_minus_L_equals_2R": true,
+            "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/2251799813685248"
+          },
+          {
+            "abstract_even_target_N": "340282366920938463463374607431768211456",
+            "exponent_m_with_N_equals_2powm": 128,
+            "abstract_R": 1,
+            "abstract_S": "2658455991569831745807614120560689151",
+            "abstract_C_equals_N_over_m": "2658455991569831745807614120560689152",
+            "abstract_L": "2658455991569831745807614120560689150",
+            "relative_defect_delta": "1/1329227995784915872903807060280344576",
+            "goldbach_positive": true,
+            "C_minus_L_equals_2R": true,
+            "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/10384593717069655257060992658440192"
+          }
+        ],
+        "aggregate": {
+          "pointwise_defect_positivity_equivalent_to_goldbach_on_chen_channel": true,
+          "loglog_scaled_lower_bound_is_stronger_than_goldbach": true,
+          "goldbach_positivity_implies_loglog_scaled_bound_refuted_at_channel_level": true,
+          "abstract_scaled_upper_bounds_strictly_decrease": true,
+          "actual_goldbach_counterexample_found": false,
+          "goldbach_resolved": false
+        },
+        "no_go_scope": "The countermodel is exact nonnegative integer channel data, not the actual primes. It refutes an implication from projector algebra plus positivity, not the proposed estimate in prime arithmetic and not Goldbach itself.",
+        "failure_count": 0
+      },
+      "logical_limit": "The channel-level countermodel is not prime arithmetic and does not eliminate the actual Goldbach exceptional set.",
+      "route_decision": {
+        "discard": "treating a pointwise c/loglog(N) defect as an easier consequence of Goldbach positivity",
+        "retain": "work directly on a pointwise major-arc/minor-arc dominance statement with an explicit exceptional-set elimination step",
+        "next_single_lemma": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T202",
+            "label": "PointwiseLogLogScaledLiouvilleDefectOnEveryLargeEvenInteger",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T203",
+            "label": "PointwiseLogLogDefectStrictStrengthCalibration",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N203",
+            "label": "GoldbachPositivityAloneForcesUniformLogLogScaledDefect",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN203",
+            "label": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "GB",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T202",
+            "GB-T203"
+          ],
+          [
+            "GB-T203",
+            "GB-N203"
+          ],
+          [
+            "GB-T203",
+            "GB-OPEN203"
+          ],
+          [
+            "GB-OPEN203",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The previous next lemma is proved to be quantitatively stronger than positivity."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-203",
+      "theorem_name": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+      "declared_proposition": "Fix z and W=product_(p<=z)p. No deterministic single-coordinate weight depending only on n mod W (and therefore no weight depending only on divisibility by primes at most z) can separate all primes from all semiprimes whose factors exceed z. For every reduced residue a mod W, Dirichlet's theorem supplies primes p congruent a, q congruent 1, and r congruent a mod W, all above z; then p and qr have the same full residue but opposite Liouville parity.",
+      "mathematical_argument": "Choose distinct sufficiently large primes in the required reduced residue classes using Dirichlet's theorem on primes in arithmetic progressions. Since qr is congruent a mod W and neither factor is at most z, p and qr have identical fixed-primorial observations. Any function of that observation assigns equal weights, so it cannot be positive on every prime and nonpositive on every such semiprime, or conversely.",
+      "reproducible_computation": {
+        "theorem": "Fix z and W=product_(p<=z)p. No deterministic single-coordinate weight depending only on n mod W (and therefore no weight depending only on divisibility by primes at most z) can separate all primes from all semiprimes whose factors exceed z. For every reduced residue a mod W, Dirichlet's theorem supplies primes p congruent a, q congruent 1, and r congruent a mod W, all above z; then p and qr have the same full residue but opposite Liouville parity.",
+        "proof": "Choose distinct sufficiently large primes in the required reduced residue classes using Dirichlet's theorem on primes in arithmetic progressions. Since qr is congruent a mod W and neither factor is at most z, p and qr have identical fixed-primorial observations. Any function of that observation assigns equal weights, so it cannot be positive on every prime and nonpositive on every such semiprime, or conversely.",
+        "exact_finite_collision_rows": [
+          {
+            "sieve_limit_z": 2,
+            "small_primes": [
+              2
+            ],
+            "primorial_W": 2,
+            "prime_p_congruent_1_mod_W": 3,
+            "second_prime_q_congruent_1_mod_W": 5,
+            "semiprime_pq_congruent_1_mod_W": 15,
+            "prime_residue_mod_W": 1,
+            "semiprime_residue_mod_W": 1,
+            "prime_small_divisibility_signature": [
+              0
+            ],
+            "semiprime_small_divisibility_signature": [
+              0
+            ],
+            "full_residue_collision": true,
+            "small_divisibility_signature_collision": true,
+            "semiprime_factors_exceed_z": true
+          },
+          {
+            "sieve_limit_z": 3,
+            "small_primes": [
+              2,
+              3
+            ],
+            "primorial_W": 6,
+            "prime_p_congruent_1_mod_W": 7,
+            "second_prime_q_congruent_1_mod_W": 13,
+            "semiprime_pq_congruent_1_mod_W": 91,
+            "prime_residue_mod_W": 1,
+            "semiprime_residue_mod_W": 1,
+            "prime_small_divisibility_signature": [
+              0,
+              0
+            ],
+            "semiprime_small_divisibility_signature": [
+              0,
+              0
+            ],
+            "full_residue_collision": true,
+            "small_divisibility_signature_collision": true,
+            "semiprime_factors_exceed_z": true
+          },
+          {
+            "sieve_limit_z": 5,
+            "small_primes": [
+              2,
+              3,
+              5
+            ],
+            "primorial_W": 30,
+            "prime_p_congruent_1_mod_W": 31,
+            "second_prime_q_congruent_1_mod_W": 61,
+            "semiprime_pq_congruent_1_mod_W": 1891,
+            "prime_residue_mod_W": 1,
+            "semiprime_residue_mod_W": 1,
+            "prime_small_divisibility_signature": [
+              0,
+              0,
+              0
+            ],
+            "semiprime_small_divisibility_signature": [
+              0,
+              0,
+              0
+            ],
+            "full_residue_collision": true,
+            "small_divisibility_signature_collision": true,
+            "semiprime_factors_exceed_z": true
+          },
+          {
+            "sieve_limit_z": 7,
+            "small_primes": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "primorial_W": 210,
+            "prime_p_congruent_1_mod_W": 211,
+            "second_prime_q_congruent_1_mod_W": 421,
+            "semiprime_pq_congruent_1_mod_W": 88831,
+            "prime_residue_mod_W": 1,
+            "semiprime_residue_mod_W": 1,
+            "prime_small_divisibility_signature": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "semiprime_small_divisibility_signature": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "full_residue_collision": true,
+            "small_divisibility_signature_collision": true,
+            "semiprime_factors_exceed_z": true
+          },
+          {
+            "sieve_limit_z": 11,
+            "small_primes": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "primorial_W": 2310,
+            "prime_p_congruent_1_mod_W": 2311,
+            "second_prime_q_congruent_1_mod_W": 4621,
+            "semiprime_pq_congruent_1_mod_W": 10679131,
+            "prime_residue_mod_W": 1,
+            "semiprime_residue_mod_W": 1,
+            "prime_small_divisibility_signature": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "semiprime_small_divisibility_signature": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "full_residue_collision": true,
+            "small_divisibility_signature_collision": true,
+            "semiprime_factors_exceed_z": true
+          }
+        ],
+        "aggregate": {
+          "fixed_primorial_single_coordinate_separation_refuted": true,
+          "full_residue_information_included": true,
+          "scale_growing_or_bilinear_switching_weights_refuted": false,
+          "actual_twin_pair_counterexample_found": false,
+          "twin_prime_resolved": false
+        },
+        "no_go_scope": "This no-go is restricted to a fixed single-coordinate local signature. It does not apply to scale-growing sieve levels, bilinear switching, correlations with the first prime coordinate, or distributional estimates. It finds no counterexample to Twin Prime.",
+        "failure_count": 0
+      },
+      "logical_limit": "Only fixed local single-coordinate weights are ruled out; scale-growing bilinear switching remains viable and open.",
+      "route_decision": {
+        "discard": "separating every prime from every rough semiprime with one fixed primorial residue signature",
+        "retain": "use a scale-growing bilinear switching weight and prove a signed prime-semiprime correlation estimate",
+        "next_single_lemma": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T202",
+            "label": "PrimeSemiprimeSeparatedChenSwitchingWeightWithPositivePrimeCoefficient",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T203",
+            "label": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N203",
+            "label": "FixedPrimorialLocalDataSeparatesPrimeFromRoughSemiprime",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN203",
+            "label": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TP",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T202",
+            "TP-T203"
+          ],
+          [
+            "TP-T203",
+            "TP-N203"
+          ],
+          [
+            "TP-T203",
+            "TP-OPEN203"
+          ],
+          [
+            "TP-OPEN203",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. A precise fixed-local parity barrier is proved without ruling out modern switching."
+    },
+    "cross_problem_synthesis": "The four tracks now distinguish a logically complete transfer contract from its hard analytic premise, an exact local identity from a false global invariant, a conjecture-equivalent positivity gate from a stronger quantitative target, and fixed local sieve information from scale-growing bilinear information.",
+    "literature_boundary": {
+      "riemann": "Rouche's theorem and certified zeta zero counting are established tools. PrimeProject claims only the explicit transfer contract and synthetic exact regression, not a new zeta margin.",
+      "collatz": "The affine composition formula is standard context. The signed prefix-segment identity and route counterexample are project-local derivations, not a Collatz resolution.",
+      "goldbach": "Current exceptional-set and major-arc work motivates the corrected pointwise target but does not supply uniform all-even minor-arc dominance here.",
+      "twin_prime": "The result is a restricted form of the classical parity barrier. Weighted switching sieves remain outside the no-go and are the retained route."
+    },
+    "sources": [
+      {
+        "title": "The Riemann hypothesis is true up to 3*10^12",
+        "authors": "Dave Platt and Tim Trudgian",
+        "url": "https://arxiv.org/abs/2004.09765"
+      },
+      {
+        "title": "The 3x+1 problem and its generalizations",
+        "authors": "Jeffrey C. Lagarias",
+        "url": "https://doi.org/10.2307/2322189"
+      },
+      {
+        "title": "The exceptional set of the Goldbach problem",
+        "authors": "Lasse Grimmelt and Gautami Bhowmik",
+        "url": "https://arxiv.org/abs/2607.27282"
+      },
+      {
+        "title": "Weighted sieves with switching",
+        "authors": "Kaisa Matomaki and Sebastian Zuniga Alterman",
+        "url": "https://arxiv.org/abs/2405.19063"
+      }
+    ],
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "riemann_synthetic_contour_count": 1,
+      "collatz_exact_forward_transfer_count": 310103,
+      "goldbach_actual_target_count": 4,
+      "goldbach_abstract_countermodel_count": 5,
+      "twin_primorial_collision_count": 5,
+      "rejected_or_recalibrated_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-203",
+      "status": "open_not_proven",
+      "declared_proposition": "Let X and P be analytic on and inside a simple closed contour Gamma. Suppose |X-P|<|P| on Gamma, P has exactly m interior zeros counted with multiplicity, and an independently certified list already supplies m interior zeros of X counted with multiplicity. Rouche's theorem gives N_Gamma(X)=m, so the list exhausts every zero of X inside Gamma. Applied to Xi(z)=xi(1/2+iz) on a cofinal family of rectangles covering |Im z|<1/2, with every listed zero real, this is a sufficient zero-count transfer contract for the Riemann Hypothesis.",
+      "new_result": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+      "discarded_route": "using equal contour zero counts without independently certifying that the listed Xi zeros are included",
+      "remaining_gap": "The zero-count transfer is complete, but no strict boundary margin for the actual completed zeta function is constructed.",
+      "candidate_theorem": "CompletedZetaCofinalRelativeMarginCertificateFamily",
+      "claim_boundary": "No RH proof or counterexample. An exact conditional transfer lemma is proved; its Xi-specific cofinal margin premise is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T202",
+            "label": "CompletedZetaCofinalContourMarginWithExactZeroCountTransfer",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T203",
+            "label": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N203",
+            "label": "EqualZeroCountsAloneLocateAllXiZeros",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN203",
+            "label": "CompletedZetaCofinalRelativeMarginCertificateFamily",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RH",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T202",
+            "RH-T203"
+          ],
+          [
+            "RH-T203",
+            "RH-N203"
+          ],
+          [
+            "RH-T203",
+            "RH-OPEN203"
+          ],
+          [
+            "RH-OPEN203",
+            "RH"
+          ]
+        ]
+      },
+      "next_experiment": "CompletedZetaCofinalRelativeMarginCertificateFamily"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-203",
+      "status": "open_not_proven",
+      "declared_proposition": "For a positive valuation word a of length h, write B(a)=sum_m 3^(h-1-m)2^P_m, where P_m is the prefix sum before site m. If i<j and one valuation unit is moved from i to j, then the denominator D=2^sum(a)-3^h is unchanged and B(a-e_i+e_j)=B(a)-Q_(i,j)/2, with Q_(i,j)=sum_(i<m<=j)3^(h-1-m)2^P_m. Moving one unit from j to i instead gives B(a+e_i-e_j)=B(a)+Q_(i,j). These exact signed identities do not yield a universal divisibility obstruction: the minimal transfer (3,1)->(2,2) changes B=11 to B'=7 at D=7 and reaches the known all-two fixed cycle.",
+      "new_result": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+      "discarded_route": "unconditional preservation of affine nondivisibility under every signed two-site valuation transfer",
+      "remaining_gap": "The transfer identity is exact, but unbounded nontrivial transfer components and nonperiodic trajectories remain open.",
+      "candidate_theorem": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit",
+      "claim_boundary": "No Collatz proof or nontrivial cycle. The exact transfer law and a minimal no-go counterexample are established.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T202",
+            "label": "SignedTwoSiteValuationTransferAffineObstruction",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T203",
+            "label": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N203",
+            "label": "UniversalSignedTransferPreservesAffineNondivisibility",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN203",
+            "label": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CO",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T202",
+            "CO-T203"
+          ],
+          [
+            "CO-T203",
+            "CO-N203"
+          ],
+          [
+            "CO-T203",
+            "CO-OPEN203"
+          ],
+          [
+            "CO-OPEN203",
+            "CO"
+          ]
+        ]
+      },
+      "next_experiment": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-203",
+      "status": "open_not_proven",
+      "declared_proposition": "At every Chen-positive even N, with C(N)=R(N)+S(N) and L(N)=S(N)-R(N), the exact identity delta(N)=1-L(N)/C(N)=2R(N)/C(N) implies R(N)>0 if and only if delta(N)>0. Thus any lower bound delta(N)>=c/log log N for every sufficiently large even N already implies strong Goldbach and is quantitatively stronger than positivity. Channel algebra and Goldbach positivity alone cannot imply it: the integer model N=2^m, C=N/m, R=1, S=C-1 for powers of two m has R>0 while delta log log N tends to zero.",
+      "new_result": "PointwiseLogLogDefectStrictStrengthCalibration",
+      "discarded_route": "treating a pointwise c/loglog(N) defect as an easier consequence of Goldbach positivity",
+      "remaining_gap": "The channel-level countermodel is not prime arithmetic and does not eliminate the actual Goldbach exceptional set.",
+      "candidate_theorem": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc",
+      "claim_boundary": "No Goldbach proof or counterexample. The previous next lemma is proved to be quantitatively stronger than positivity.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T202",
+            "label": "PointwiseLogLogScaledLiouvilleDefectOnEveryLargeEvenInteger",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T203",
+            "label": "PointwiseLogLogDefectStrictStrengthCalibration",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N203",
+            "label": "GoldbachPositivityAloneForcesUniformLogLogScaledDefect",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN203",
+            "label": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "GB",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T202",
+            "GB-T203"
+          ],
+          [
+            "GB-T203",
+            "GB-N203"
+          ],
+          [
+            "GB-T203",
+            "GB-OPEN203"
+          ],
+          [
+            "GB-OPEN203",
+            "GB"
+          ]
+        ]
+      },
+      "next_experiment": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-203",
+      "status": "open_not_proven",
+      "declared_proposition": "Fix z and W=product_(p<=z)p. No deterministic single-coordinate weight depending only on n mod W (and therefore no weight depending only on divisibility by primes at most z) can separate all primes from all semiprimes whose factors exceed z. For every reduced residue a mod W, Dirichlet's theorem supplies primes p congruent a, q congruent 1, and r congruent a mod W, all above z; then p and qr have the same full residue but opposite Liouville parity.",
+      "new_result": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+      "discarded_route": "separating every prime from every rough semiprime with one fixed primorial residue signature",
+      "remaining_gap": "Only fixed local single-coordinate weights are ruled out; scale-growing bilinear switching remains viable and open.",
+      "candidate_theorem": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation",
+      "claim_boundary": "No Twin Prime proof or counterexample. A precise fixed-local parity barrier is proved without ruling out modern switching.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T202",
+            "label": "PrimeSemiprimeSeparatedChenSwitchingWeightWithPositivePrimeCoefficient",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T203",
+            "label": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N203",
+            "label": "FixedPrimorialLocalDataSeparatesPrimeFromRoughSemiprime",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN203",
+            "label": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TP",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T202",
+            "TP-T203"
+          ],
+          [
+            "TP-T203",
+            "TP-N203"
+          ],
+          [
+            "TP-T203",
+            "TP-OPEN203"
+          ],
+          [
+            "TP-OPEN203",
+            "TP"
+          ]
+        ]
+      },
+      "next_experiment": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation"
+    }
+  ]
+}

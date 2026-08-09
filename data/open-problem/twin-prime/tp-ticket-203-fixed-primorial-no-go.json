@@ -1,0 +1,211 @@
+{
+  "schema": "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "TP-TICKET-203",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+  "declared_proposition": "Fix z and W=product_(p<=z)p. No deterministic single-coordinate weight depending only on n mod W (and therefore no weight depending only on divisibility by primes at most z) can separate all primes from all semiprimes whose factors exceed z. For every reduced residue a mod W, Dirichlet's theorem supplies primes p congruent a, q congruent 1, and r congruent a mod W, all above z; then p and qr have the same full residue but opposite Liouville parity.",
+  "mathematical_argument": "Choose distinct sufficiently large primes in the required reduced residue classes using Dirichlet's theorem on primes in arithmetic progressions. Since qr is congruent a mod W and neither factor is at most z, p and qr have identical fixed-primorial observations. Any function of that observation assigns equal weights, so it cannot be positive on every prime and nonpositive on every such semiprime, or conversely.",
+  "reproducible_computation": {
+    "theorem": "Fix z and W=product_(p<=z)p. No deterministic single-coordinate weight depending only on n mod W (and therefore no weight depending only on divisibility by primes at most z) can separate all primes from all semiprimes whose factors exceed z. For every reduced residue a mod W, Dirichlet's theorem supplies primes p congruent a, q congruent 1, and r congruent a mod W, all above z; then p and qr have the same full residue but opposite Liouville parity.",
+    "proof": "Choose distinct sufficiently large primes in the required reduced residue classes using Dirichlet's theorem on primes in arithmetic progressions. Since qr is congruent a mod W and neither factor is at most z, p and qr have identical fixed-primorial observations. Any function of that observation assigns equal weights, so it cannot be positive on every prime and nonpositive on every such semiprime, or conversely.",
+    "exact_finite_collision_rows": [
+      {
+        "sieve_limit_z": 2,
+        "small_primes": [
+          2
+        ],
+        "primorial_W": 2,
+        "prime_p_congruent_1_mod_W": 3,
+        "second_prime_q_congruent_1_mod_W": 5,
+        "semiprime_pq_congruent_1_mod_W": 15,
+        "prime_residue_mod_W": 1,
+        "semiprime_residue_mod_W": 1,
+        "prime_small_divisibility_signature": [
+          0
+        ],
+        "semiprime_small_divisibility_signature": [
+          0
+        ],
+        "full_residue_collision": true,
+        "small_divisibility_signature_collision": true,
+        "semiprime_factors_exceed_z": true
+      },
+      {
+        "sieve_limit_z": 3,
+        "small_primes": [
+          2,
+          3
+        ],
+        "primorial_W": 6,
+        "prime_p_congruent_1_mod_W": 7,
+        "second_prime_q_congruent_1_mod_W": 13,
+        "semiprime_pq_congruent_1_mod_W": 91,
+        "prime_residue_mod_W": 1,
+        "semiprime_residue_mod_W": 1,
+        "prime_small_divisibility_signature": [
+          0,
+          0
+        ],
+        "semiprime_small_divisibility_signature": [
+          0,
+          0
+        ],
+        "full_residue_collision": true,
+        "small_divisibility_signature_collision": true,
+        "semiprime_factors_exceed_z": true
+      },
+      {
+        "sieve_limit_z": 5,
+        "small_primes": [
+          2,
+          3,
+          5
+        ],
+        "primorial_W": 30,
+        "prime_p_congruent_1_mod_W": 31,
+        "second_prime_q_congruent_1_mod_W": 61,
+        "semiprime_pq_congruent_1_mod_W": 1891,
+        "prime_residue_mod_W": 1,
+        "semiprime_residue_mod_W": 1,
+        "prime_small_divisibility_signature": [
+          0,
+          0,
+          0
+        ],
+        "semiprime_small_divisibility_signature": [
+          0,
+          0,
+          0
+        ],
+        "full_residue_collision": true,
+        "small_divisibility_signature_collision": true,
+        "semiprime_factors_exceed_z": true
+      },
+      {
+        "sieve_limit_z": 7,
+        "small_primes": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "primorial_W": 210,
+        "prime_p_congruent_1_mod_W": 211,
+        "second_prime_q_congruent_1_mod_W": 421,
+        "semiprime_pq_congruent_1_mod_W": 88831,
+        "prime_residue_mod_W": 1,
+        "semiprime_residue_mod_W": 1,
+        "prime_small_divisibility_signature": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "semiprime_small_divisibility_signature": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "full_residue_collision": true,
+        "small_divisibility_signature_collision": true,
+        "semiprime_factors_exceed_z": true
+      },
+      {
+        "sieve_limit_z": 11,
+        "small_primes": [
+          2,
+          3,
+          5,
+          7,
+          11
+        ],
+        "primorial_W": 2310,
+        "prime_p_congruent_1_mod_W": 2311,
+        "second_prime_q_congruent_1_mod_W": 4621,
+        "semiprime_pq_congruent_1_mod_W": 10679131,
+        "prime_residue_mod_W": 1,
+        "semiprime_residue_mod_W": 1,
+        "prime_small_divisibility_signature": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "semiprime_small_divisibility_signature": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "full_residue_collision": true,
+        "small_divisibility_signature_collision": true,
+        "semiprime_factors_exceed_z": true
+      }
+    ],
+    "aggregate": {
+      "fixed_primorial_single_coordinate_separation_refuted": true,
+      "full_residue_information_included": true,
+      "scale_growing_or_bilinear_switching_weights_refuted": false,
+      "actual_twin_pair_counterexample_found": false,
+      "twin_prime_resolved": false
+    },
+    "no_go_scope": "This no-go is restricted to a fixed single-coordinate local signature. It does not apply to scale-growing sieve levels, bilinear switching, correlations with the first prime coordinate, or distributional estimates. It finds no counterexample to Twin Prime.",
+    "failure_count": 0
+  },
+  "discarded_route": "separating every prime from every rough semiprime with one fixed primorial residue signature",
+  "remaining_gap": "Only fixed local single-coordinate weights are ruled out; scale-growing bilinear switching remains viable and open.",
+  "candidate_theorem": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation",
+  "claim_boundary": "No Twin Prime proof or counterexample. A precise fixed-local parity barrier is proved without ruling out modern switching.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T202",
+        "label": "PrimeSemiprimeSeparatedChenSwitchingWeightWithPositivePrimeCoefficient",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T203",
+        "label": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N203",
+        "label": "FixedPrimorialLocalDataSeparatesPrimeFromRoughSemiprime",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN203",
+        "label": "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TP",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T202",
+        "TP-T203"
+      ],
+      [
+        "TP-T203",
+        "TP-N203"
+      ],
+      [
+        "TP-T203",
+        "TP-OPEN203"
+      ],
+      [
+        "TP-OPEN203",
+        "TP"
+      ]
+    ]
+  }
+}

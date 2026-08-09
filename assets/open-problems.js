@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket203AttemptGlobal = null;
 let ticket202AttemptGlobal = null;
 let ticket201AttemptGlobal = null;
 let ticket200AttemptGlobal = null;
@@ -9998,6 +9999,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket203RoucheTransferPointwisePrimorial(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.transfer_contract_and_target_correction_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const row = computation.exact_synthetic_regression || {};
+    detail = `
+      <div class="poc-equation">|X−P|/|P|≤1/10 on Γ; Rouché count + ${row.independently_certified_X_zero_count_inside ?? 0} independently included zeros ⇒ exact exhaustion</div>
+      <div class="poc-head"><div><span>Boundary margin</span><strong>${row.strict_rouche_margin || "missing"}</strong></div><div><span>Listed zeros</span><strong>${row.independently_certified_X_zero_count_inside ?? 0}</strong></div><div><span>Actual Xi margin</span><strong>${aggregate.actual_xi_boundary_margin_constructed ? "constructed" : "open"}</strong></div></div>
+      <p class="proof-note">Rouché의 전체 영점수와 별도로 인증한 Xi 영점 포함을 결합해야 영점 위치가 전달됩니다. 전달 논리는 닫혔지만 실제 완성 제타함수의 cofinal 경계 margin은 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.exhaustive_regression || [];
+    const counterexample = computation.minimal_universal_obstruction_counterexample || {};
+    detail = `
+      <div class="poc-equation">B(a−eᵢ+eⱼ)=B(a)−Qᵢⱼ/2; B(a+eᵢ−eⱼ)=B(a)+Qᵢⱼ; D is fixed</div>
+      ${table(["h", "contracting words", "forward transfers", "divisibility hits", "hit target"], rows.map((row) => [row.horizon, formatter.format(row.contracting_word_count || 0), formatter.format(row.forward_transfer_count || 0), row.target_divisibility_hit_count, row.every_hit_is_known_all_two_fixed_cycle ? "all-two only" : "mixed"]))}
+      <div class="poc-head"><div><span>Exact transfers</span><strong>${formatter.format(aggregate.exhaustive_forward_transfer_count || 0)}</strong></div><div><span>Minimal no-go</span><strong>${(counterexample.source_word || []).join(",")} → ${(counterexample.target_word || []).join(",")}</strong></div><div><span>Universal invariance</span><strong>${aggregate.universal_nondivisibility_preservation_refuted ? "refuted" : "open"}</strong></div></div>
+      <p class="proof-note"><code>(3,1)→(2,2)</code>는 <code>B=11</code>을 <code>B'=D=7</code>로 바꾸므로 보편 비가분성 불변성을 반박합니다. 도착점은 알려진 자명 고정주기이며 새 Collatz 주기가 아닙니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const actual = computation.exact_actual_channel_rows || [];
+    const model = computation.exact_abstract_countermodel_rows || [];
+    detail = `
+      <div class="poc-equation">δ(N)=1−L/C=2R/C; on C&gt;0, R&gt;0 ⇔ δ&gt;0, while δ≥c/log log N is quantitatively stronger</div>
+      ${table(["N", "prime-prime R", "prime-semiprime S", "C", "δ"], actual.map((row) => [formatter.format(row.even_target_N || 0), formatter.format(row.ordered_prime_prime_R || 0), formatter.format(row.ordered_prime_semiprime_S || 0), formatter.format(row.Chen_channel_C || 0), row.relative_defect_delta]))}
+      <div class="poc-head"><div><span>Actual exact targets</span><strong>${actual.length}</strong></div><div><span>Abstract models</span><strong>${model.length}</strong></div><div><span>log-log target</span><strong>${aggregate.loglog_scaled_lower_bound_is_stronger_than_goldbach ? "stronger than positivity" : "open"}</strong></div></div>
+      <p class="proof-note">점별 양의 결손 자체는 Goldbach 양성과 동치입니다. 고정된 <code>c/log log N</code> 하한은 더 강하므로 “쉬운 중간 보조정리”로 취급하지 않고, explicit major/minor arc 지배 문제로 경로를 교정합니다.</p>
+    `;
+  } else {
+    const rows = computation.exact_finite_collision_rows || [];
+    detail = `
+      <div class="poc-equation">W=∏<sub>p≤z</sub>p fixed; p≡qr (mod W) with p prime and q,r&gt;z prime ⇒ fixed local signature cannot separate parity</div>
+      ${table(["z", "W", "prime", "second prime", "rough semiprime", "residue"], rows.map((row) => [row.sieve_limit_z, formatter.format(row.primorial_W || 0), formatter.format(row.prime_p_congruent_1_mod_W || 0), formatter.format(row.second_prime_q_congruent_1_mod_W || 0), formatter.format(row.semiprime_pq_congruent_1_mod_W || 0), row.prime_residue_mod_W]))}
+      <div class="poc-head"><div><span>Exact collisions</span><strong>${rows.length}</strong></div><div><span>Fixed-local separation</span><strong>${aggregate.fixed_primorial_single_coordinate_separation_refuted ? "refuted" : "open"}</strong></div><div><span>Bilinear switching</span><strong>${aggregate.scale_growing_or_bilinear_switching_weights_refuted ? "refuted" : "retained"}</strong></div></div>
+      <p class="proof-note">이 no-go는 고정된 단일 좌표 primorial 정보에만 적용됩니다. scale-growing bilinear switching과 두 좌표 상관은 반박하지 않았으며, 바로 그 비국소 경로를 유지합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket203-rouche-transfer-pointwise-primorial" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 203 Rouché transfer, signed valuation transfer, and pointwise target correction</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go theorems; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET203 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/rouche-transfer-pointwise-primorial.ko.md">한국어 보고서</a> · <a href="../docs/rouche-transfer-pointwise-primorial.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket202ExactHermiteDeformationParityScale(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.exact_hermite_deformation_parity_scale_audit || {};
@@ -15545,7 +15613,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket202ExactHermiteDeformationParityScale(ticket202AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket203RoucheTransferPointwisePrimorial(ticket203AttemptGlobal) ||
+      renderTicket202ExactHermiteDeformationParityScale(ticket202AttemptGlobal) ||
       renderTicket201FiniteInformationAllRunLiouvilleParity(ticket201AttemptGlobal) ||
       renderTicket200DerivativeMeshThreeRunChenChannels(ticket200AttemptGlobal) ||
       renderTicket199SymmetricSamplingTwoRunSquarefreeFilter(ticket199AttemptGlobal) ||
@@ -15887,6 +15956,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket203Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket203-rouche-transfer-pointwise-primorial.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket203AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket203AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket203AttemptGlobal) {
+      ticket203AttemptGlobal.bounded_result = ticket203AttemptGlobal.bounded_result || {};
+      ticket203AttemptGlobal.bounded_result.transfer_contract_and_target_correction_audit = payload.transfer_contract_and_target_correction_audit || {};
+    }
+    return Boolean(ticket203AttemptGlobal);
+  } catch (_error) {
+    ticket203AttemptGlobal = null;
     return false;
   }
 }
@@ -17300,9 +17389,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket202Loaded = await loadTicket202Attempt();
+  const ticket203Loaded = await loadTicket203Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket202-current";
+  document.documentElement.dataset.openProblemCache = "ticket203-current";
+  const ticket202Loaded = await loadTicket202Attempt();
   const ticket201Loaded = await loadTicket201Attempt();
   const ticket200Loaded = await loadTicket200Attempt();
   const ticket199Loaded = await loadTicket199Attempt();
@@ -17337,8 +17427,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket203AttemptGlobal) await loadTicket203Attempt();
     if (!ticket202AttemptGlobal) await loadTicket202Attempt();
     if (!ticket201AttemptGlobal) await loadTicket201Attempt();
     if (!ticket200AttemptGlobal) await loadTicket200Attempt();
@@ -17419,7 +17510,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket202-current";
+  document.documentElement.dataset.openProblemCache = "ticket203-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

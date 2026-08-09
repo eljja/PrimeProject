@@ -1,0 +1,312 @@
+{
+  "schema": "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "CO-TICKET-203",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+  "declared_proposition": "For a positive valuation word a of length h, write B(a)=sum_m 3^(h-1-m)2^P_m, where P_m is the prefix sum before site m. If i<j and one valuation unit is moved from i to j, then the denominator D=2^sum(a)-3^h is unchanged and B(a-e_i+e_j)=B(a)-Q_(i,j)/2, with Q_(i,j)=sum_(i<m<=j)3^(h-1-m)2^P_m. Moving one unit from j to i instead gives B(a+e_i-e_j)=B(a)+Q_(i,j). These exact signed identities do not yield a universal divisibility obstruction: the minimal transfer (3,1)->(2,2) changes B=11 to B'=7 at D=7 and reaches the known all-two fixed cycle.",
+  "mathematical_argument": "For the forward transfer, precisely the prefix exponents P_(i+1),...,P_j decrease by one; all earlier and later prefixes are unchanged. Subtracting the two defining sums for B gives -Q/2. For the reverse transfer those same powers of two double, giving +Q. The valuation sum is fixed, hence D is fixed. Direct substitution into (3,1) gives D=7, B=11, and B(2,2)=7. Therefore any theorem claiming signed-transfer preservation of affine nondivisibility without excluding the all-two component is false.",
+  "reproducible_computation": {
+    "theorem": "For a positive valuation word a of length h, write B(a)=sum_m 3^(h-1-m)2^P_m, where P_m is the prefix sum before site m. If i<j and one valuation unit is moved from i to j, then the denominator D=2^sum(a)-3^h is unchanged and B(a-e_i+e_j)=B(a)-Q_(i,j)/2, with Q_(i,j)=sum_(i<m<=j)3^(h-1-m)2^P_m. Moving one unit from j to i instead gives B(a+e_i-e_j)=B(a)+Q_(i,j). These exact signed identities do not yield a universal divisibility obstruction: the minimal transfer (3,1)->(2,2) changes B=11 to B'=7 at D=7 and reaches the known all-two fixed cycle.",
+    "proof": "For the forward transfer, precisely the prefix exponents P_(i+1),...,P_j decrease by one; all earlier and later prefixes are unchanged. Subtracting the two defining sums for B gives -Q/2. For the reverse transfer those same powers of two double, giving +Q. The valuation sum is fixed, hence D is fixed. Direct substitution into (3,1) gives D=7, B=11, and B(2,2)=7. Therefore any theorem claiming signed-transfer preservation of affine nondivisibility without excluding the all-two component is false.",
+    "exact_forward_examples": [
+      {
+        "source_word": [
+          3,
+          1
+        ],
+        "target_word": [
+          2,
+          2
+        ],
+        "left_donor_i": 0,
+        "right_receiver_j": 1,
+        "valuation_sum_preserved": true,
+        "denominator_D": 7,
+        "source_numerator_B": 11,
+        "target_numerator_B_prime": 7,
+        "intervening_prefix_segment_Q": 8,
+        "segment_is_even": true,
+        "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+        "source_affine_divisibility": false,
+        "target_affine_divisibility": true
+      },
+      {
+        "source_word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "target_word": [
+          2,
+          2,
+          1,
+          5
+        ],
+        "left_donor_i": 1,
+        "right_receiver_j": 3,
+        "valuation_sum_preserved": true,
+        "denominator_D": 943,
+        "source_numerator_B": 223,
+        "target_numerator_B_prime": 143,
+        "intervening_prefix_segment_Q": 160,
+        "segment_is_even": true,
+        "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+        "source_affine_divisibility": false,
+        "target_affine_divisibility": false
+      },
+      {
+        "source_word": [
+          4,
+          1,
+          2,
+          3,
+          2
+        ],
+        "target_word": [
+          3,
+          1,
+          2,
+          3,
+          3
+        ],
+        "left_donor_i": 0,
+        "right_receiver_j": 4,
+        "valuation_sum_preserved": true,
+        "denominator_D": 3853,
+        "source_numerator_B": 2209,
+        "target_numerator_B_prime": 1145,
+        "intervening_prefix_segment_Q": 2128,
+        "segment_is_even": true,
+        "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+        "source_affine_divisibility": false,
+        "target_affine_divisibility": false
+      }
+    ],
+    "exact_backward_examples": [
+      {
+        "source_word": [
+          1,
+          3
+        ],
+        "target_word": [
+          2,
+          2
+        ],
+        "left_receiver_i": 0,
+        "right_donor_j": 1,
+        "intervening_prefix_segment_Q": 2,
+        "backward_identity_B_prime_equals_B_plus_Q": true
+      },
+      {
+        "source_word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "target_word": [
+          3,
+          1,
+          3,
+          2
+        ],
+        "left_receiver_i": 0,
+        "right_donor_j": 2,
+        "intervening_prefix_segment_Q": 60,
+        "backward_identity_B_prime_equals_B_plus_Q": true
+      }
+    ],
+    "minimal_universal_obstruction_counterexample": {
+      "source_word": [
+        3,
+        1
+      ],
+      "target_word": [
+        2,
+        2
+      ],
+      "left_donor_i": 0,
+      "right_receiver_j": 1,
+      "valuation_sum_preserved": true,
+      "denominator_D": 7,
+      "source_numerator_B": 11,
+      "target_numerator_B_prime": 7,
+      "intervening_prefix_segment_Q": 8,
+      "segment_is_even": true,
+      "forward_identity_B_prime_equals_B_minus_Q_over_2": true,
+      "source_affine_divisibility": false,
+      "target_affine_divisibility": true
+    },
+    "exhaustive_regression": [
+      {
+        "horizon": 2,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "contracting_word_count": 13,
+        "forward_transfer_count": 11,
+        "identity_failure_count": 0,
+        "target_divisibility_hit_count": 1,
+        "all_two_target_hit_count": 1,
+        "hit_count_equals_choose_horizon_two": true,
+        "every_hit_is_known_all_two_fixed_cycle": true
+      },
+      {
+        "horizon": 3,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "contracting_word_count": 60,
+        "forward_transfer_count": 141,
+        "identity_failure_count": 0,
+        "target_divisibility_hit_count": 3,
+        "all_two_target_hit_count": 3,
+        "hit_count_equals_choose_horizon_two": true,
+        "every_hit_is_known_all_two_fixed_cycle": true
+      },
+      {
+        "horizon": 4,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "contracting_word_count": 241,
+        "forward_transfer_count": 1122,
+        "identity_failure_count": 0,
+        "target_divisibility_hit_count": 6,
+        "all_two_target_hit_count": 6,
+        "hit_count_equals_choose_horizon_two": true,
+        "every_hit_is_known_all_two_fixed_cycle": true
+      },
+      {
+        "horizon": 5,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "contracting_word_count": 1003,
+        "forward_transfer_count": 7620,
+        "identity_failure_count": 0,
+        "target_divisibility_hit_count": 10,
+        "all_two_target_hit_count": 10,
+        "hit_count_equals_choose_horizon_two": true,
+        "every_hit_is_known_all_two_fixed_cycle": true
+      },
+      {
+        "horizon": 6,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "contracting_word_count": 4012,
+        "forward_transfer_count": 45660,
+        "identity_failure_count": 0,
+        "target_divisibility_hit_count": 15,
+        "all_two_target_hit_count": 15,
+        "hit_count_equals_choose_horizon_two": true,
+        "every_hit_is_known_all_two_fixed_cycle": true
+      },
+      {
+        "horizon": 7,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "contracting_word_count": 16061,
+        "forward_transfer_count": 255549,
+        "identity_failure_count": 0,
+        "target_divisibility_hit_count": 21,
+        "all_two_target_hit_count": 21,
+        "hit_count_equals_choose_horizon_two": true,
+        "every_hit_is_known_all_two_fixed_cycle": true
+      }
+    ],
+    "aggregate": {
+      "signed_two_site_transfer_identity_proved": true,
+      "universal_nondivisibility_preservation_refuted": true,
+      "exhaustive_horizons": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "exhaustive_forward_transfer_count": 310103,
+      "all_finite_hits_are_all_two_in_tested_box": true,
+      "arbitrary_words_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The all-two counterexample refutes only an unconditional transfer-invariance route. The finite enumeration is not a proof that all other transfer components avoid divisibility at unbounded length.",
+    "failure_count": 0
+  },
+  "discarded_route": "unconditional preservation of affine nondivisibility under every signed two-site valuation transfer",
+  "remaining_gap": "The transfer identity is exact, but unbounded nontrivial transfer components and nonperiodic trajectories remain open.",
+  "candidate_theorem": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit",
+  "claim_boundary": "No Collatz proof or nontrivial cycle. The exact transfer law and a minimal no-go counterexample are established.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T202",
+        "label": "SignedTwoSiteValuationTransferAffineObstruction",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T203",
+        "label": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N203",
+        "label": "UniversalSignedTransferPreservesAffineNondivisibility",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN203",
+        "label": "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CO",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T202",
+        "CO-T203"
+      ],
+      [
+        "CO-T203",
+        "CO-N203"
+      ],
+      [
+        "CO-T203",
+        "CO-OPEN203"
+      ],
+      [
+        "CO-OPEN203",
+        "CO"
+      ]
+    ]
+  }
+}

@@ -201,6 +201,7 @@ TICKET199_SCHEMA = "primeproject.ticket199-symmetric-sampling-two-run-squarefree
 TICKET200_SCHEMA = "primeproject.ticket200-derivative-mesh-three-run-chen-channels.v1"
 TICKET201_SCHEMA = "primeproject.ticket201-finite-information-allrun-liouville-parity.v1"
 TICKET202_SCHEMA = "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1"
+TICKET203_SCHEMA = "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1"
 
 
 def fail(message: str) -> int:
@@ -15973,6 +15974,173 @@ def main() -> int:
         or machine202.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket202 proof boundary changed")
+
+    path203 = Path(
+        "data/open-problem/ticket203-rouche-transfer-pointwise-primorial.json"
+    )
+    if not path203.exists():
+        return fail("missing ticket203 transfer/pointwise/primorial audit")
+    ticket203 = read_json(path203)
+    if (
+        ticket203.get("schema") != TICKET203_SCHEMA
+        or ticket203.get("status") != "open_not_proven"
+    ):
+        return fail("ticket203 schema or status changed")
+    audit203 = ticket203.get(
+        "transfer_contract_and_target_correction_audit", {}
+    )
+    machine203 = audit203.get("machine_audit", {})
+    expected_machine203 = {
+        "exact_partial_theorem_count": 4,
+        "riemann_synthetic_contour_count": 1,
+        "collatz_exact_forward_transfer_count": 310103,
+        "goldbach_actual_target_count": 4,
+        "goldbach_abstract_countermodel_count": 5,
+        "twin_primorial_collision_count": 5,
+        "rejected_or_recalibrated_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine203 != expected_machine203:
+        return fail("ticket203 global machine audit changed")
+
+    attempts203 = {
+        row.get("problem_id"): row for row in ticket203.get("attempts", [])
+    }
+    if set(attempts203) != EXPECTED_PROBLEMS:
+        return fail("ticket203 attempts missing problems")
+    track_paths203 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-203-rouche-transfer.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-203-signed-transfer.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-203-pointwise-strength.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-203-fixed-primorial-no-go.json"
+        ),
+    }
+    theorem_names203 = {
+        "riemann": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+        "collatz": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+        "goldbach": "PointwiseLogLogDefectStrictStrengthCalibration",
+        "twin-prime": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+    }
+    for problem_id, track_path in track_paths203.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket203 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts203[problem_id]
+        if (
+            track.get("schema") != TICKET203_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names203[problem_id]
+            or attempt.get("new_result") != theorem_names203[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+            != 1
+        ):
+            return fail(f"{problem_id}: ticket203 contract changed")
+
+    rh203 = audit203.get("riemann", {}).get("reproducible_computation", {})
+    rh203_row = rh203.get("exact_synthetic_regression", {})
+    if (
+        rh203_row.get("relative_boundary_error_bound") != "1/10"
+        or rh203_row.get("strict_rouche_margin") != "9/10"
+        or rh203_row.get("certified_list_is_exhaustive") is not True
+        or rh203.get("aggregate", {}).get(
+            "actual_xi_boundary_margin_constructed"
+        )
+        is not False
+        or rh203.get("aggregate", {}).get("riemann_hypothesis_resolved")
+        is not False
+    ):
+        return fail("ticket203 RH transfer boundary changed")
+
+    collatz203 = audit203.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz203_counterexample = collatz203.get(
+        "minimal_universal_obstruction_counterexample", {}
+    )
+    if (
+        collatz203.get("aggregate", {}).get(
+            "exhaustive_forward_transfer_count"
+        )
+        != 310103
+        or collatz203_counterexample.get("source_word") != [3, 1]
+        or collatz203_counterexample.get("target_word") != [2, 2]
+        or collatz203_counterexample.get("source_affine_divisibility")
+        is not False
+        or collatz203_counterexample.get("target_affine_divisibility")
+        is not True
+        or collatz203.get("aggregate", {}).get(
+            "universal_nondivisibility_preservation_refuted"
+        )
+        is not True
+        or collatz203.get("aggregate", {}).get("collatz_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket203 Collatz transfer boundary changed")
+
+    goldbach203 = audit203.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        any(
+            row.get("positivity_equivalence") is not True
+            for row in goldbach203.get("exact_actual_channel_rows", [])
+        )
+        or goldbach203.get("aggregate", {}).get(
+            "loglog_scaled_lower_bound_is_stronger_than_goldbach"
+        )
+        is not True
+        or goldbach203.get("aggregate", {}).get(
+            "actual_goldbach_counterexample_found"
+        )
+        is not False
+        or goldbach203.get("aggregate", {}).get("goldbach_resolved") is not False
+    ):
+        return fail("ticket203 Goldbach strength boundary changed")
+
+    twin203 = audit203.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    if (
+        any(
+            row.get("full_residue_collision") is not True
+            or row.get("small_divisibility_signature_collision") is not True
+            for row in twin203.get("exact_finite_collision_rows", [])
+        )
+        or twin203.get("aggregate", {}).get(
+            "fixed_primorial_single_coordinate_separation_refuted"
+        )
+        is not True
+        or twin203.get("aggregate", {}).get(
+            "scale_growing_or_bilinear_switching_weights_refuted"
+        )
+        is not False
+        or twin203.get("aggregate", {}).get("twin_prime_resolved") is not False
+    ):
+        return fail("ticket203 Twin primorial boundary changed")
+
+    if (
+        "resolves none" not in str(audit203.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket203.get("claim_boundary", "")).lower()
+        or machine203.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket203 proof boundary changed")
 
     print("open problem structure verified")
     return 0

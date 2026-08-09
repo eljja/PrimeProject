@@ -15,27 +15,34 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-202
+## Current research boundary: TICKET-203
 
 The current machine-readable boundary is
-`data/open-problem/ticket202-exact-hermite-deformation-parity-scale.json`.
+`data/open-problem/ticket203-rouche-transfer-pointwise-primorial.json`.
 
-TICKET-202 records four exact partial theorems and zero conjecture resolutions:
+TICKET-203 records four exact partial or no-go theorems and zero conjecture
+resolutions:
 
-- finite exact symmetric Hermite data plus compact finite-jet control cannot
-  force a global real-zero property in the ambient real-even entire class;
-- every `r,k>=2`, `t>=0`, and cyclic rotation in
-  `1^k2^(2k+t)(12^2)^(r-1)` fails affine divisibility;
-- the aggregate Goldbach P2 relative Liouville defect is
-  `O(1/log log X)` and tends to zero, refuting the fixed-defect normalization;
-- a fixed Twin relative defect plus Chen-order channel mass implies a
-  Hardy-Littlewood-order quantitative lower bound, not merely infinitude.
+- an exact conditional Rouché count-and-inclusion transfer for zero exhaustion;
+- an exact signed Collatz two-site transfer identity and a minimal no-go against
+  universal affine nondivisibility preservation;
+- a proof that the proposed pointwise Goldbach log-log defect is stronger than
+  positivity and cannot follow from channel algebra alone;
+- a fixed-primorial single-coordinate prime/rough-semiprime separation no-go.
 
-The Liouville projectors are elementary identities and are not claimed as new
-sieve theorems. Finite rows are regression evidence only.
+The Rouché and sieve-parity principles are established mathematics and are not
+claimed as new foundational theorems. Finite rows are regression evidence only.
 
-English report: [TICKET-202](exact-hermite-deformation-parity-scale.md).
-한국어 보고서: [TICKET-202](exact-hermite-deformation-parity-scale.ko.md).
+English report: [TICKET-203](rouche-transfer-pointwise-primorial.md).
+한국어 보고서: [TICKET-203](rouche-transfer-pointwise-primorial.ko.md).
+
+## Preserved research boundary: TICKET-202
+
+TICKET-202 remains available in
+[English](exact-hermite-deformation-parity-scale.md) and
+[한국어](exact-hermite-deformation-parity-scale.ko.md). TICKET-203 completes its
+conditional RH transfer logic, tests and corrects its Collatz signed-transfer
+target, and recalibrates its Goldbach/Twin parity targets.
 
 ## Preserved research boundary: TICKET-201
 

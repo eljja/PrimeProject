@@ -62,36 +62,44 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-202
+## Latest Continuation After TICKET-203
 
-TICKET-202 is the current boundary. It resolves none of the four conjectures.
-It audits the strength and scalability of TICKET-201's open targets:
+TICKET-203 is the current boundary. It resolves none of the four conjectures.
+It audits the exact logical content of TICKET-202's open targets:
 
-1. **Riemann:** the finite-information no-go persists after imposing finitely
-   many exact Hermite constraints. A valid route must use completed-zeta
-   arithmetic on a cofinal contour family and transfer exact zero counts.
-2. **Collatz:** every `r,k>=2`, `t>=0`, and cyclic rotation in
-   `1^k 2^(2k+t) (1 2^2)^(r-1)` fails affine divisibility. The surviving target
-   is a signed two-site valuation transfer rather than a one-sided long-run ray.
-3. **Goldbach:** the aggregate P2 relative Liouville defect tends to zero at
-   `O(1/log log X)`. A fixed pointwise defect is asymptotically mis-scaled; the
-   next target is a pointwise log-log-scaled defect.
-4. **Twin Prime:** a fixed relative defect plus Chen-order mass implies
-   `T(X) >> X/(log X)^2`, substantially more than infinitude. The next target is
-   a prime/semiprime-separated switching weight with positive prime coefficient.
+1. **Riemann:** a strict Rouché margin plus independently included real zeros
+   of matching multiplicity gives exact exhaustion. The actual cofinal Xi
+   relative-margin family remains open.
+2. **Collatz:** the signed two-site transfer identity is exact, but universal
+   nondivisibility invariance is false because `(3,1)->(2,2)` reaches the known
+   fixed cycle. A nontrivial-component residue barrier remains open.
+3. **Goldbach:** positive pointwise defect is exactly Goldbach positivity on a
+   Chen-positive channel. A fixed `c/log log N` lower bound is stronger, not an
+   easier consequence. Uniform major/minor arc dominance is the corrected target.
+4. **Twin Prime:** fixed primorial single-coordinate data cannot separate all
+   primes from rough semiprimes. Scale-growing bilinear switching is not ruled
+   out and is the retained route.
 
 Canonical JSON:
 
 ```text
-data/open-problem/ticket202-exact-hermite-deformation-parity-scale.json
+data/open-problem/ticket203-rouche-transfer-pointwise-primorial.json
 ```
 
-English report: [TICKET-202](exact-hermite-deformation-parity-scale.md).
-Korean report: [TICKET-202 한국어](exact-hermite-deformation-parity-scale.ko.md).
+English report: [TICKET-203](rouche-transfer-pointwise-primorial.md).
+Korean report: [TICKET-203 한국어](rouche-transfer-pointwise-primorial.ko.md).
 
-The PNT, Landau semiprime asymptotic, and Chen-order context are external
-inputs and are not reproved. The finite channel rows are implementation
-regressions, not full conjecture proofs or novelty-priority claims.
+Rouché's theorem, Dirichlet's theorem, and sieve parity context are external
+inputs and are not reproved. The finite rows are implementation regressions,
+not full conjecture proofs or novelty-priority claims.
+
+## Preserved Continuation After TICKET-202
+
+TICKET-202 remains the direct input to TICKET-203. It strengthened the finite
+Hermite no-go, closed a three-parameter Collatz deformation family, proved
+Goldbach aggregate relative-defect dilution, and calibrated the strength of a
+fixed Twin relative defect. TICKET-203 does not erase those results; it audits
+the exact next-lemma contracts they generated.
 
 ## Preserved Continuation After TICKET-201
 

@@ -1,0 +1,106 @@
+{
+  "schema": "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "RH-TICKET-203",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+  "declared_proposition": "Let X and P be analytic on and inside a simple closed contour Gamma. Suppose |X-P|<|P| on Gamma, P has exactly m interior zeros counted with multiplicity, and an independently certified list already supplies m interior zeros of X counted with multiplicity. Rouche's theorem gives N_Gamma(X)=m, so the list exhausts every zero of X inside Gamma. Applied to Xi(z)=xi(1/2+iz) on a cofinal family of rectangles covering |Im z|<1/2, with every listed zero real, this is a sufficient zero-count transfer contract for the Riemann Hypothesis.",
+  "mathematical_argument": "Rouche's theorem gives N_Gamma(X)=N_Gamma(P)=m. The certified zeros of X are a submultiset of all interior zeros and already have total multiplicity m; therefore no additional interior zero exists. For cofinal completed-zeta rectangles every nontrivial zeta zero is eventually interior. If each exhaustive list lies on the real z-axis, every nontrivial zeta zero lies on Re s=1/2. The independent-inclusion premise is essential: equal total counts alone cannot locate the zeros.",
+  "reproducible_computation": {
+    "theorem": "Let X and P be analytic on and inside a simple closed contour Gamma. Suppose |X-P|<|P| on Gamma, P has exactly m interior zeros counted with multiplicity, and an independently certified list already supplies m interior zeros of X counted with multiplicity. Rouche's theorem gives N_Gamma(X)=m, so the list exhausts every zero of X inside Gamma. Applied to Xi(z)=xi(1/2+iz) on a cofinal family of rectangles covering |Im z|<1/2, with every listed zero real, this is a sufficient zero-count transfer contract for the Riemann Hypothesis.",
+    "proof": "Rouche's theorem gives N_Gamma(X)=N_Gamma(P)=m. The certified zeros of X are a submultiset of all interior zeros and already have total multiplicity m; therefore no additional interior zero exists. For cofinal completed-zeta rectangles every nontrivial zeta zero is eventually interior. If each exhaustive list lies on the real z-axis, every nontrivial zeta zero lies on Re s=1/2. The independent-inclusion premise is essential: equal total counts alone cannot locate the zeros.",
+    "exact_synthetic_regression": {
+      "comparison_P": "(z^2-1)(z^2-4)",
+      "analytic_X": "P(z)(1+z^2/100)",
+      "rectangle": {
+        "real_interval": [
+          -3,
+          3
+        ],
+        "imaginary_interval": [
+          -1,
+          1
+        ]
+      },
+      "listed_X_zeros_inside": [
+        -2,
+        -1,
+        1,
+        2
+      ],
+      "comparison_zero_count_inside": 4,
+      "independently_certified_X_zero_count_inside": 4,
+      "extra_X_zeros_outside": [
+        "-10i",
+        "+10i"
+      ],
+      "maximum_abs_z_squared_on_boundary": 10,
+      "relative_boundary_error_bound": "1/10",
+      "strict_rouche_margin": "9/10",
+      "rouche_hypothesis_holds": true,
+      "certified_list_is_exhaustive": true
+    },
+    "aggregate": {
+      "exact_zero_count_transfer_contract_proved": true,
+      "independent_zero_inclusion_required": true,
+      "cofinal_contract_is_sufficient_for_rh": true,
+      "actual_xi_boundary_margin_constructed": false,
+      "actual_cofinal_xi_certificate_constructed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This proves the missing logical transfer step, not its completed-zeta analytic premise. The synthetic polynomial is a regression fixture and is not Xi. No off-critical-line Xi zero is produced.",
+    "failure_count": 0
+  },
+  "discarded_route": "using equal contour zero counts without independently certifying that the listed Xi zeros are included",
+  "remaining_gap": "The zero-count transfer is complete, but no strict boundary margin for the actual completed zeta function is constructed.",
+  "candidate_theorem": "CompletedZetaCofinalRelativeMarginCertificateFamily",
+  "claim_boundary": "No RH proof or counterexample. An exact conditional transfer lemma is proved; its Xi-specific cofinal margin premise is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T202",
+        "label": "CompletedZetaCofinalContourMarginWithExactZeroCountTransfer",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T203",
+        "label": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N203",
+        "label": "EqualZeroCountsAloneLocateAllXiZeros",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN203",
+        "label": "CompletedZetaCofinalRelativeMarginCertificateFamily",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RH",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T202",
+        "RH-T203"
+      ],
+      [
+        "RH-T203",
+        "RH-N203"
+      ],
+      [
+        "RH-T203",
+        "RH-OPEN203"
+      ],
+      [
+        "RH-OPEN203",
+        "RH"
+      ]
+    ]
+  }
+}

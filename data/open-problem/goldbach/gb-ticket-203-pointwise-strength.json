@@ -1,0 +1,187 @@
+{
+  "schema": "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "GB-TICKET-203",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "PointwiseLogLogDefectStrictStrengthCalibration",
+  "declared_proposition": "At every Chen-positive even N, with C(N)=R(N)+S(N) and L(N)=S(N)-R(N), the exact identity delta(N)=1-L(N)/C(N)=2R(N)/C(N) implies R(N)>0 if and only if delta(N)>0. Thus any lower bound delta(N)>=c/log log N for every sufficiently large even N already implies strong Goldbach and is quantitatively stronger than positivity. Channel algebra and Goldbach positivity alone cannot imply it: the integer model N=2^m, C=N/m, R=1, S=C-1 for powers of two m has R>0 while delta log log N tends to zero.",
+  "mathematical_argument": "The projector identity C-L=2R gives the equivalence because C is positive. In the abstract model delta=2/C=2m/2^m. For m>=2, log log(2^m)=log(m log 2)<=m, so delta log log N<=2m^2/2^m, which tends to zero. Hence no fixed c>0 follows from one representation per target, even when the ambient channel has the natural N/log N scale.",
+  "reproducible_computation": {
+    "theorem": "At every Chen-positive even N, with C(N)=R(N)+S(N) and L(N)=S(N)-R(N), the exact identity delta(N)=1-L(N)/C(N)=2R(N)/C(N) implies R(N)>0 if and only if delta(N)>0. Thus any lower bound delta(N)>=c/log log N for every sufficiently large even N already implies strong Goldbach and is quantitatively stronger than positivity. Channel algebra and Goldbach positivity alone cannot imply it: the integer model N=2^m, C=N/m, R=1, S=C-1 for powers of two m has R>0 while delta log log N tends to zero.",
+    "proof": "The projector identity C-L=2R gives the equivalence because C is positive. In the abstract model delta=2/C=2m/2^m. For m>=2, log log(2^m)=log(m log 2)<=m, so delta log log N<=2m^2/2^m, which tends to zero. Hence no fixed c>0 follows from one representation per target, even when the ambient channel has the natural N/log N scale.",
+    "exact_actual_channel_rows": [
+      {
+        "even_target_N": 100,
+        "ordered_prime_prime_R": 12,
+        "ordered_prime_semiprime_S": 9,
+        "Chen_channel_C": 21,
+        "Liouville_channel_L": -3,
+        "relative_defect_delta": "8/7",
+        "C_minus_L_equals_2R": true,
+        "goldbach_positive": true,
+        "defect_positive": true,
+        "positivity_equivalence": true
+      },
+      {
+        "even_target_N": 1000,
+        "ordered_prime_prime_R": 56,
+        "ordered_prime_semiprime_S": 66,
+        "Chen_channel_C": 122,
+        "Liouville_channel_L": 10,
+        "relative_defect_delta": "56/61",
+        "C_minus_L_equals_2R": true,
+        "goldbach_positive": true,
+        "defect_positive": true,
+        "positivity_equivalence": true
+      },
+      {
+        "even_target_N": 10000,
+        "ordered_prime_prime_R": 254,
+        "ordered_prime_semiprime_S": 508,
+        "Chen_channel_C": 762,
+        "Liouville_channel_L": 254,
+        "relative_defect_delta": "2/3",
+        "C_minus_L_equals_2R": true,
+        "goldbach_positive": true,
+        "defect_positive": true,
+        "positivity_equivalence": true
+      },
+      {
+        "even_target_N": 100000,
+        "ordered_prime_prime_R": 1620,
+        "ordered_prime_semiprime_S": 3409,
+        "Chen_channel_C": 5029,
+        "Liouville_channel_L": 1789,
+        "relative_defect_delta": "3240/5029",
+        "C_minus_L_equals_2R": true,
+        "goldbach_positive": true,
+        "defect_positive": true,
+        "positivity_equivalence": true
+      }
+    ],
+    "exact_abstract_countermodel_rows": [
+      {
+        "abstract_even_target_N": "256",
+        "exponent_m_with_N_equals_2powm": 8,
+        "abstract_R": 1,
+        "abstract_S": "31",
+        "abstract_C_equals_N_over_m": "32",
+        "abstract_L": "30",
+        "relative_defect_delta": "1/16",
+        "goldbach_positive": true,
+        "C_minus_L_equals_2R": true,
+        "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/2"
+      },
+      {
+        "abstract_even_target_N": "65536",
+        "exponent_m_with_N_equals_2powm": 16,
+        "abstract_R": 1,
+        "abstract_S": "4095",
+        "abstract_C_equals_N_over_m": "4096",
+        "abstract_L": "4094",
+        "relative_defect_delta": "1/2048",
+        "goldbach_positive": true,
+        "C_minus_L_equals_2R": true,
+        "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/128"
+      },
+      {
+        "abstract_even_target_N": "4294967296",
+        "exponent_m_with_N_equals_2powm": 32,
+        "abstract_R": 1,
+        "abstract_S": "134217727",
+        "abstract_C_equals_N_over_m": "134217728",
+        "abstract_L": "134217726",
+        "relative_defect_delta": "1/67108864",
+        "goldbach_positive": true,
+        "C_minus_L_equals_2R": true,
+        "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/2097152"
+      },
+      {
+        "abstract_even_target_N": "18446744073709551616",
+        "exponent_m_with_N_equals_2powm": 64,
+        "abstract_R": 1,
+        "abstract_S": "288230376151711743",
+        "abstract_C_equals_N_over_m": "288230376151711744",
+        "abstract_L": "288230376151711742",
+        "relative_defect_delta": "1/144115188075855872",
+        "goldbach_positive": true,
+        "C_minus_L_equals_2R": true,
+        "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/2251799813685248"
+      },
+      {
+        "abstract_even_target_N": "340282366920938463463374607431768211456",
+        "exponent_m_with_N_equals_2powm": 128,
+        "abstract_R": 1,
+        "abstract_S": "2658455991569831745807614120560689151",
+        "abstract_C_equals_N_over_m": "2658455991569831745807614120560689152",
+        "abstract_L": "2658455991569831745807614120560689150",
+        "relative_defect_delta": "1/1329227995784915872903807060280344576",
+        "goldbach_positive": true,
+        "C_minus_L_equals_2R": true,
+        "loglog_N_times_delta_upper_bound_2m2_over_2m": "1/10384593717069655257060992658440192"
+      }
+    ],
+    "aggregate": {
+      "pointwise_defect_positivity_equivalent_to_goldbach_on_chen_channel": true,
+      "loglog_scaled_lower_bound_is_stronger_than_goldbach": true,
+      "goldbach_positivity_implies_loglog_scaled_bound_refuted_at_channel_level": true,
+      "abstract_scaled_upper_bounds_strictly_decrease": true,
+      "actual_goldbach_counterexample_found": false,
+      "goldbach_resolved": false
+    },
+    "no_go_scope": "The countermodel is exact nonnegative integer channel data, not the actual primes. It refutes an implication from projector algebra plus positivity, not the proposed estimate in prime arithmetic and not Goldbach itself.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a pointwise c/loglog(N) defect as an easier consequence of Goldbach positivity",
+  "remaining_gap": "The channel-level countermodel is not prime arithmetic and does not eliminate the actual Goldbach exceptional set.",
+  "candidate_theorem": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc",
+  "claim_boundary": "No Goldbach proof or counterexample. The previous next lemma is proved to be quantitatively stronger than positivity.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T202",
+        "label": "PointwiseLogLogScaledLiouvilleDefectOnEveryLargeEvenInteger",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T203",
+        "label": "PointwiseLogLogDefectStrictStrengthCalibration",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N203",
+        "label": "GoldbachPositivityAloneForcesUniformLogLogScaledDefect",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN203",
+        "label": "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "GB",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T202",
+        "GB-T203"
+      ],
+      [
+        "GB-T203",
+        "GB-N203"
+      ],
+      [
+        "GB-T203",
+        "GB-OPEN203"
+      ],
+      [
+        "GB-OPEN203",
+        "GB"
+      ]
+    ]
+  }
+}

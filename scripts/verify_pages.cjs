@@ -14,8 +14,9 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket203Load = openProblemSource.indexOf("const ticket203Loaded = await loadTicket203Attempt();");
+  const ticket203EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket203Load);
   const ticket202Load = openProblemSource.indexOf("const ticket202Loaded = await loadTicket202Attempt();");
-  const ticket202EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket202Load);
   const ticket201Load = openProblemSource.indexOf("const ticket201Loaded = await loadTicket201Attempt();");
   const ticket200Load = openProblemSource.indexOf("const ticket200Loaded = await loadTicket200Attempt();");
   const ticket199Load = openProblemSource.indexOf("const ticket199Loaded = await loadTicket199Attempt();");
@@ -52,15 +53,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket202Load >= 0 && ticket202Load < ticket202EarlyRender && ticket202EarlyRender < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET202 must render before archive loading, and TICKET201 through TICKET125 must precede historical ticket loading");
+  if (!(ticket203Load >= 0 && ticket203Load < ticket203EarlyRender && ticket203EarlyRender < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET203 must render before archive loading, and TICKET202 through TICKET125 must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260810-ticket202")) {
+    if (!source.includes("open-problems.js?v=20260810-ticket203")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260810-ticket202-layout")) {
+    if (!source.includes("styles.css?v=20260810-ticket203-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -454,9 +455,9 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket202AuditOverflow: (() => {
+          ticket203AuditOverflow: (() => {
             const wrapper = document.querySelector(
-              "#ticket202-exact-hermite-deformation-parity-scale .ticket161-audit-table .proof-table-wrap",
+              "#ticket203-rouche-transfer-pointwise-primorial .ticket161-audit-table .proof-table-wrap",
             );
             return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
           })(),
@@ -686,7 +687,7 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-202") ||
+    !metrics.currentBriefText.includes("TICKET-203") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
     metrics.mobileHorizontalOverflow ||
@@ -704,7 +705,7 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-202 actually changed") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-203 actually changed") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -716,8 +717,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-202 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-202 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 202 exact Hermite")) failures.push(`${page.problemId}: current TICKET-202 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-203 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-203 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 203 Rouché transfer")) failures.push(`${page.problemId}: current TICKET-203 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1587,37 +1588,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket202 title", "Ticket 202 exact Hermite data, long-run deformations, and parity scale");
-    requireCurrentText("ticket202 table", "TICKET202 audit");
-    requireCurrentText("ticket202 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket202 exact theorems", "Exact partial theorems4");
-    requireCurrentText("ticket202 resolutions", "Resolution count0");
-    requireCurrentText("ticket202 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket202AuditOverflow) checks.push(`${page.problemId}: ticket202 audit table overflow`);
+    requireCurrentText("ticket203 title", "Ticket 203 Rouché transfer, signed valuation transfer, and pointwise target correction");
+    requireCurrentText("ticket203 table", "TICKET203 audit");
+    requireCurrentText("ticket203 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket203 exact results", "Exact results4");
+    requireCurrentText("ticket203 resolutions", "Resolution count0");
+    requireCurrentText("ticket203 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket203AuditOverflow) checks.push(`${page.problemId}: ticket203 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket202 RH theorem", "ExactFiniteHermiteAndCompactJetGlobalZeroNoGo");
-      requireCurrentText("ticket202 RH target", "CompletedZetaCofinalContourMarginWithExactZeroCountTransfer");
-      requireCurrentText("ticket202 RH threshold", "First certifying N3");
-      requireCurrentText("ticket202 RH no-go", "Exact Hermite no-goproved");
-      requireCurrentText("ticket202 RH Xi boundary", "Completed-zeta structurenot preserved");
+      requireCurrentText("ticket203 RH theorem", "CertifiedIncludedZerosPlusRoucheCountExactExhaustion");
+      requireCurrentText("ticket203 RH target", "CompletedZetaCofinalRelativeMarginCertificateFamily");
+      requireCurrentText("ticket203 RH margin", "Boundary margin9/10");
+      requireCurrentText("ticket203 RH listed", "Listed zeros4");
+      requireCurrentText("ticket203 RH Xi boundary", "Actual Xi marginopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket202 Collatz theorem", "AllLongRunExtensionsPrimitiveFamilyAffineObstruction");
-      requireCurrentText("ticket202 Collatz target", "SignedTwoSiteValuationTransferAffineObstruction");
-      requireCurrentText("ticket202 Collatz dimensions", "Symbolic parameters3");
-      requireCurrentText("ticket202 Collatz regressions", "Regression words729");
-      requireCurrentText("ticket202 Collatz all parameters", "Long-run rayexcluded");
+      requireCurrentText("ticket203 Collatz theorem", "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo");
+      requireCurrentText("ticket203 Collatz target", "ScaleDependentTransferResidueBarrierOutsideAllTwoOrbit");
+      requireCurrentText("ticket203 Collatz transfers", "Exact transfers310,103");
+      requireCurrentText("ticket203 Collatz no-go", "Minimal no-go3,1 → 2,2");
+      requireCurrentText("ticket203 Collatz invariance", "Universal invariancerefuted");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket202 Goldbach theorem", "DyadicP2RelativeLiouvilleDefectDilutionNoGo");
-      requireCurrentText("ticket202 Goldbach target", "PointwiseLogLogScaledLiouvilleDefectOnEveryLargeEvenInteger");
-      requireCurrentText("ticket202 Goldbach rows", "Exact aggregate rows11");
-      requireCurrentText("ticket202 Goldbach no-go", "Fixed relative defectrefuted");
-      requireCurrentText("ticket202 Goldbach boundary", "Pointwise positivityopen");
+      requireCurrentText("ticket203 Goldbach theorem", "PointwiseLogLogDefectStrictStrengthCalibration");
+      requireCurrentText("ticket203 Goldbach target", "UniformPointwiseGoldbachMinorArcDominanceOverExplicitMajorArc");
+      requireCurrentText("ticket203 Goldbach rows", "Actual exact targets4");
+      requireCurrentText("ticket203 Goldbach models", "Abstract models5");
+      requireCurrentText("ticket203 Goldbach strength", "log-log targetstronger than positivity");
     } else {
-      requireCurrentText("ticket202 Twin theorem", "RelativeChenDefectQuantitativeTwinStrengthCalibration");
-      requireCurrentText("ticket202 Twin target", "PrimeSemiprimeSeparatedChenSwitchingWeightWithPositivePrimeCoefficient");
-      requireCurrentText("ticket202 Twin blocks", "Exact actual blocks13");
-      requireCurrentText("ticket202 Twin model", "Abstract model blocks21");
-      requireCurrentText("ticket202 Twin strength", "Fixed defect strengthquantitative");
+      requireCurrentText("ticket203 Twin theorem", "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo");
+      requireCurrentText("ticket203 Twin target", "ScaleGrowingBilinearSwitchingWeightWithSignedPrimeSemiprimeCorrelation");
+      requireCurrentText("ticket203 Twin rows", "Exact collisions5");
+      requireCurrentText("ticket203 Twin no-go", "Fixed-local separationrefuted");
+      requireCurrentText("ticket203 Twin retained", "Bilinear switchingretained");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3650,7 +3651,7 @@ async function main() {
     ["panel", metrics.evolutionPanel, "TICKET-149"],
     ["panel", metrics.evolutionPanel, "Open-Proof"],
     ["panel", metrics.evolutionPanel, "99%"],
-    ["panel", metrics.evolutionPanel, "exact finite-Hermite no-go"],
+    ["panel", metrics.evolutionPanel, "conditional Rouche zero-exhaustion transfer"],
     ["panel", metrics.evolutionPanel, "Form-core topology"],
     ["panel", metrics.evolutionPanel, "TICKET-57"],
     ["panel", metrics.evolutionPanel, "TICKET-58"],
@@ -3781,6 +3782,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-203") ||
     !metrics.evolutionPanel.includes("TICKET-202") ||
     !metrics.evolutionPanel.includes("TICKET-201") ||
     !metrics.evolutionPanel.includes("TICKET-200") ||
@@ -3802,7 +3804,7 @@ async function main() {
     !metrics.evolutionPanel.includes("0 conjecture resolutions") ||
     !metrics.evolutionPanel.includes("Open-Proof") ||
     !metrics.evolutionPanel.includes("99%") ||
-    !metrics.evolutionPanel.includes("exact finite-Hermite no-go") ||
+    !metrics.evolutionPanel.includes("conditional Rouche zero-exhaustion transfer") ||
     metrics.evolutionPanel.includes("TICKET200 proves four exact partial theorems") ||
     !metrics.evolutionPanel.includes("Form-core topology") ||
     !metrics.evolutionPanel.includes("TICKET-57") ||
