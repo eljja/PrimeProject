@@ -16942,6 +16942,8 @@ async function main() {
   let ticket117Attempt = null;
   let ticket118Attempt = null;
   const ticket198Loaded = await loadTicket198Attempt();
+  render(payload, problem);
+  document.documentElement.dataset.openProblemCache = "ticket198-current";
   const ticket197Loaded = await loadTicket197Attempt();
   const ticket196Loaded = await loadTicket196Attempt();
   const ticket195Loaded = await loadTicket195Attempt();
