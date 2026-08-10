@@ -37,7 +37,30 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-209 Normalized Boundaries, Four-One Cycles, Covering Congruences, and Factorial Twin Deserts
+## 2026-08-10 TICKET-210 Cofinal Lines, Five-One Cycles, Prime-Gap Transfer, and Scaled Twin Deserts
+
+TICKET-210 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. existential cofinal central zeta nonvanishing holds, but an exact symmetric
+   off-critical countermodel shows that it does not imply RH;
+2. no nontrivial positive accelerated Collatz cycle has exactly five
+   valuation-one entries and arbitrary remaining valuations at least two;
+3. consecutive prime gaps transfer exactly to least Goldbach witness lower
+   bounds, but the current published gap theorem is weaker than TICKET-209's
+   covering-congruence floor;
+4. factorial twin deserts have length at least
+   `(1/4) log X/log log X`, ruling out every-window positivity at that scale.
+
+Effective Riemann winding, a multiplicity-uniform Collatz obstruction,
+Goldbach exceptional-tail control below one, and a dyadic Twin phase lower
+bound permitting local deserts are not proved. The machine resolution count
+remains zero.
+
+English report: [TICKET-210](cofinal-fiveone-primegap-scaledtwin.md).
+한국어 보고서: [TICKET-210](cofinal-fiveone-primegap-scaledtwin.ko.md).
+
+## Preserved: 2026-08-10 TICKET-209 Normalized Boundaries, Four-One Cycles, Covering Congruences, and Factorial Twin Deserts
 
 TICKET-209 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

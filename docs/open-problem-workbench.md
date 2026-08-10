@@ -15,27 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-209
+## Current research boundary: TICKET-210
 
 The current machine-readable boundary is
-`data/open-problem/ticket209-normalized-fourone-covering-factorial.json`.
+`data/open-problem/ticket210-cofinal-fiveone-primegap-scaledtwin.json`.
 
-TICKET-209 records four exact partial or no-go results and zero conjecture
+TICKET-210 records four exact partial or no-go results and zero conjecture
 resolutions:
 
-- a no-go for a height-independent absolute completed-xi cofinal margin and a
-  gamma-normalized outer-edge reduction;
-- exclusion of every accelerated Collatz cycle with exactly four valuation-
-  one entries, using an analytic length bound and 2,292 exact word checks;
-- an unbounded sequence whose least Goldbach witness exceeds
-  `c log N log log N` for an absolute `c>0`;
-- arbitrarily long factorial twin-free intervals with exact cyclotomic
-  remainder `R_I=-H`.
+- existential cofinal central zeta nonvanishing and an exact symmetric
+  off-critical countermodel showing that this property does not imply RH;
+- exclusion of every accelerated Collatz cycle with exactly five valuation-
+  one entries and arbitrary remaining valuations at least two, using an
+  analytic length cap and 29,758 exact word checks;
+- an exact prime-gap-to-least-Goldbach-witness transfer and a proof that the
+  current published gap bound is asymptotically below the TICKET-209 floor;
+- factorial twin-free intervals of length at least
+  `(1/4) log X/log log X`.
 
-Gamma-normalized central top-edge nonvanishing on cofinal heights, Collatz
-necklaces with exactly five valuation-one entries, a Goldbach tail exceptional
-bound beyond the covering-congruence floor, and an independent bilinear Omega
-phase lower bound on infinitely many dyadic intervals remain open.
+Effective central-edge clearance plus winding, a valuation-multiplicity-uniform
+Collatz obstruction, a Goldbach tail exceptional bound beyond the covering
+floor, and a dyadic Twin phase lower bound that permits local deserts remain
+open.
+
+English report: [TICKET-210](cofinal-fiveone-primegap-scaledtwin.md).
+한국어 보고서: [TICKET-210](cofinal-fiveone-primegap-scaledtwin.ko.md).
+
+## Preserved research boundary: TICKET-209
+
+The direct machine-readable input is
+`data/open-problem/ticket209-normalized-fourone-covering-factorial.json`.
 
 English report: [TICKET-209](normalized-fourone-covering-factorial.md).
 한국어 보고서: [TICKET-209](normalized-fourone-covering-factorial.ko.md).

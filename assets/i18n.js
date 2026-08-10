@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-209 corrects the Riemann boundary target by gamma normalization, excludes the complete four-one Collatz cycle stratum, makes the Goldbach least-witness obstruction superlogarithmic, and proves exact cyclotomic cancellation on arbitrarily long factorial twin deserts.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-209는 감마 정규화로 리만 경계 목표를 교정하고, valuation 1이 정확히 네 개인 콜라츠 주기 전체를 배제하며, 골드바흐 최소 증인 하한을 c log N log log N까지 높이고, 임의 길이 factorial 쌍둥이 부재 구간의 정확한 순환 위상 상쇄를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-210 separates existential Riemann zero avoidance from effective winding, excludes the complete five-one Collatz cycle stratum, proves and calibrates a prime-gap-to-Goldbach-witness transfer, and quantifies factorial twin deserts at the log X/log log X local scale.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-210은 리만 수평선 비소멸의 존재와 실제 감김수 인증을 분리하고, valuation 1이 정확히 다섯 개인 콜라츠 주기 전체를 배제하며, 소수 간격에서 골드바흐 최소 증인으로의 전달과 그 한계를 증명하고, factorial 쌍둥이 부재 구간을 log X/log log X 국소 크기로 정량화합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

@@ -1,0 +1,737 @@
+{
+  "schema": "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1",
+  "generated_at": "2026-08-10T23:30:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-210 resolves none of the four conjectures. It proves existential cofinal zeta nonvanishing but refutes its sufficiency, excludes the full five-one Collatz cycle stratum, proves an exact prime-gap-to-Goldbach-witness transfer while diagnosing its current asymptotic ceiling, and calibrates factorial Twin deserts at the log X/log log X local scale.",
+  "cofinal_fiveone_primegap_scaledtwin_audit": {
+    "theorem_name": "FourConjectureCofinalFiveOnePrimeGapScaledTwinAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-210 resolves none of the four conjectures. It proves existential cofinal zeta nonvanishing but refutes its sufficiency, excludes the full five-one Collatz cycle stratum, proves an exact prime-gap-to-Goldbach-witness transfer while diagnosing its current asymptotic ceiling, and calibrates factorial Twin deserts at the log X/log log X local scale.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-210",
+      "theorem_name": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+      "declared_proposition": "For every sufficiently large integer n there is T_n in (n,n+1) such that zeta(s) is nonzero on -1/4<=Re(s)<=5/4 at Im(s)=T_n; the minimum modulus on that compact segment is therefore positive. This existential cofinal nonvanishing does not imply RH. The real entire polynomial P(s)=z^4+(15/8)z^2+289/256, z=s-1/2, satisfies P(1-s)=P(s), has the four off-critical zeros 1/2+/-1/4+/-i, and for every T>1 obeys min_sigma |P(sigma+iT)| >= (T^2-1)^2.",
+      "mathematical_argument": "Completed xi is a nonzero entire function, hence its zeros are isolated and every compact rectangle contains only finitely many. Remove from (n,n+1) the finitely many ordinates of zeros in the central strip and choose any remaining T_n. At positive height all elementary and gamma factors relating xi and zeta are nonzero, so zeta has no zero on the segment; compactness gives a positive, height-dependent minimum. For the countermodel, the zeros in the centered variable z are +/-1/4+/-i. Evenness gives P(1-s)=P(s) and real coefficients give conjugation symmetry. On Im(s)=T>1, each of the two roots at imaginary part +1 is at distance at least T-1 and each of the two roots at -1 is at distance at least T+1. Multiplying the four distances gives (T-1)^2(T+1)^2=(T^2-1)^2 despite the off-critical zeros.",
+      "reproducible_computation": {
+        "theorem": "For every sufficiently large integer n there is T_n in (n,n+1) such that zeta(s) is nonzero on -1/4<=Re(s)<=5/4 at Im(s)=T_n; the minimum modulus on that compact segment is therefore positive. This existential cofinal nonvanishing does not imply RH. The real entire polynomial P(s)=z^4+(15/8)z^2+289/256, z=s-1/2, satisfies P(1-s)=P(s), has the four off-critical zeros 1/2+/-1/4+/-i, and for every T>1 obeys min_sigma |P(sigma+iT)| >= (T^2-1)^2.",
+        "proof": "Completed xi is a nonzero entire function, hence its zeros are isolated and every compact rectangle contains only finitely many. Remove from (n,n+1) the finitely many ordinates of zeros in the central strip and choose any remaining T_n. At positive height all elementary and gamma factors relating xi and zeta are nonzero, so zeta has no zero on the segment; compactness gives a positive, height-dependent minimum. For the countermodel, the zeros in the centered variable z are +/-1/4+/-i. Evenness gives P(1-s)=P(s) and real coefficients give conjugation symmetry. On Im(s)=T>1, each of the two roots at imaginary part +1 is at distance at least T-1 and each of the two roots at -1 is at distance at least T+1. Multiplying the four distances gives (T-1)^2(T+1)^2=(T^2-1)^2 despite the off-critical zeros.",
+        "existential_zeta_statement": {
+          "height_band": "T_n in (n,n+1)",
+          "central_segment": "-1/4<=Re(s)<=5/4",
+          "positive_minimum_exists": true,
+          "effective_height_or_margin_constructed": false
+        },
+        "symmetric_countermodel": {
+          "polynomial": "P(s)=z^4+(15/8)z^2+289/256, z=s-1/2",
+          "zeros": [
+            "1/4+i",
+            "3/4+i",
+            "1/4-i",
+            "3/4-i"
+          ],
+          "functional_symmetry": "P(1-s)=P(s)",
+          "conjugation_symmetry": "P(conj(s))=conj(P(s))",
+          "cofinal_horizontal_lower_bound": "|P(sigma+iT)|>=(T^2-1)^2 for T>1",
+          "off_critical_zero_count": 4
+        },
+        "countermodel_rows": [
+          {
+            "height_T": 2,
+            "exact_product_distance_lower_bound": "9",
+            "sampled_minimum_modulus": "9.628906250000",
+            "sampled_minimum_respects_exact_lower_bound": true
+          },
+          {
+            "height_T": 4,
+            "exact_product_distance_lower_bound": "225",
+            "sampled_minimum_modulus": "227.128906250000",
+            "sampled_minimum_respects_exact_lower_bound": true
+          },
+          {
+            "height_T": 8,
+            "exact_product_distance_lower_bound": "3969",
+            "sampled_minimum_modulus": "3977.128906250000",
+            "sampled_minimum_respects_exact_lower_bound": true
+          },
+          {
+            "height_T": 16,
+            "exact_product_distance_lower_bound": "65025",
+            "sampled_minimum_modulus": "65057.128906250000",
+            "sampled_minimum_respects_exact_lower_bound": true
+          },
+          {
+            "height_T": 32,
+            "exact_product_distance_lower_bound": "1046529",
+            "sampled_minimum_modulus": "1046657.128906250000",
+            "sampled_minimum_respects_exact_lower_bound": true
+          },
+          {
+            "height_T": 64,
+            "exact_product_distance_lower_bound": "16769025",
+            "sampled_minimum_modulus": "16769537.128906250000",
+            "sampled_minimum_respects_exact_lower_bound": true
+          }
+        ],
+        "aggregate": {
+          "existential_cofinal_central_nonvanishing_proved": true,
+          "effective_zeta_clearance_proved": false,
+          "cofinal_nonvanishing_implies_rh_refuted": true,
+          "boundary_winding_control_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The countermodel refutes only the inference from functional symmetry plus cofinal horizontal clearance to RH. It does not share zeta's Euler product and does not locate an off-line zeta zero. The existence proof supplies neither computable heights nor argument-principle winding increments.",
+        "failure_count": 0
+      },
+      "logical_limit": "No effective zeta clearance or certified winding increment is obtained.",
+      "route_decision": {
+        "discard": "inferring RH from functional symmetry plus existential cofinal horizontal nonvanishing",
+        "retain": "effective central-edge interval clearance coupled to argument-principle winding",
+        "next_single_lemma": "EffectiveCofinalCentralEdgeClearanceAndWindingIncrementCertificate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T209",
+            "label": "CompletedXiAbsoluteCofinalClearanceNoGoAndGammaNormalizedOuterEdgeReduction",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T210",
+            "label": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N210",
+            "label": "ExistentialCofinalHorizontalNonvanishingImpliesRH",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN210",
+            "label": "EffectiveCofinalCentralEdgeClearanceAndWindingIncrementCertificate",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T209",
+            "RH-T210"
+          ],
+          [
+            "RH-T210",
+            "RH-N210"
+          ],
+          [
+            "RH-T210",
+            "RH-OPEN210"
+          ],
+          [
+            "RH-OPEN210",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zeta zero. Existential cofinal central nonvanishing is proved but shown insufficient by an exact symmetric countermodel."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-210",
+      "theorem_name": "FiveOneArbitraryRemainderAcceleratedCycleExclusion",
+      "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly five valuation entries equal to one and every remaining valuation at least two. More generally, exactly k ones force (6/5)^h<=2^k and therefore h<=floor(k log(2)/log(6/5)). For k=5 this gives h<=19; exact affine enumeration of all 29,758 minimum-rotated words of lengths 6 through 19 finds no positive odd integer fixed point. Hence a hypothetical nontrivial positive cycle contains at least six ones.",
+      "mathematical_argument": "Rotate a cycle to its minimum odd value m>=3. Its first valuation is one, since valuation at least two would send m below itself; its last valuation is at least two, since valuation one would send the predecessor above itself to m. Multiplication around a length-h cycle with valuation sum A gives 2^A=product_i(3+1/x_i)<=(10/3)^h. If exactly k entries are one and all others are at least two, A>=2h-k, so (6/5)^h<=2^k. For k=5, h<=19 and the same product inequality bounds A at every remaining h. The fixed first and last positions, the other four one-positions, and all weak compositions of A-(2h-5) enumerate every possible minimum rotation exactly. Rational affine composition rejects every one of the 29,758 words.",
+      "reproducible_computation": {
+        "theorem": "No nontrivial positive accelerated Collatz cycle has exactly five valuation entries equal to one and every remaining valuation at least two. More generally, exactly k ones force (6/5)^h<=2^k and therefore h<=floor(k log(2)/log(6/5)). For k=5 this gives h<=19; exact affine enumeration of all 29,758 minimum-rotated words of lengths 6 through 19 finds no positive odd integer fixed point. Hence a hypothetical nontrivial positive cycle contains at least six ones.",
+        "proof": "Rotate a cycle to its minimum odd value m>=3. Its first valuation is one, since valuation at least two would send m below itself; its last valuation is at least two, since valuation one would send the predecessor above itself to m. Multiplication around a length-h cycle with valuation sum A gives 2^A=product_i(3+1/x_i)<=(10/3)^h. If exactly k entries are one and all others are at least two, A>=2h-k, so (6/5)^h<=2^k. For k=5, h<=19 and the same product inequality bounds A at every remaining h. The fixed first and last positions, the other four one-positions, and all weak compositions of A-(2h-5) enumerate every possible minimum rotation exactly. Rational affine composition rejects every one of the 29,758 words.",
+        "general_k_one_length_cap": "h<=floor(k*log(2)/log(6/5)) for a cycle with exactly k ones",
+        "k": 5,
+        "exact_length_cap_h": 19,
+        "exact_enumeration_rows": [
+          {
+            "length_h": 6,
+            "minimum_total_valuation_2h_minus_5": 7,
+            "maximum_total_valuation_from_minimum_bound": 10,
+            "enumerated_word_count": 4,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "132f974202e10caf6fcf3cd0c061e4c89cfe13fcb44384320b6e10a17d3b1972"
+          },
+          {
+            "length_h": 7,
+            "minimum_total_valuation_2h_minus_5": 9,
+            "maximum_total_valuation_from_minimum_bound": 12,
+            "enumerated_word_count": 50,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "d1deac9a05a6bc835a6feb9197104e0563ce02f6a48d9c622d08cac3e750bfa3"
+          },
+          {
+            "length_h": 8,
+            "minimum_total_valuation_2h_minus_5": 11,
+            "maximum_total_valuation_from_minimum_bound": 13,
+            "enumerated_word_count": 150,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "5fb284d1d8158edfe948bd6b0af65fc873db2c43c76c57d7460a46e84074dd8b"
+          },
+          {
+            "length_h": 9,
+            "minimum_total_valuation_2h_minus_5": 13,
+            "maximum_total_valuation_from_minimum_bound": 15,
+            "enumerated_word_count": 525,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "9c1bc15c58b32d7b362e109b1347fd70977a2ba3a8474441b67dbf94dc40ee81"
+          },
+          {
+            "length_h": 10,
+            "minimum_total_valuation_2h_minus_5": 15,
+            "maximum_total_valuation_from_minimum_bound": 17,
+            "enumerated_word_count": 1470,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "224006c3f95477e280365a65557e6f1335bf611c98a7fbf64d439f61851b9623"
+          },
+          {
+            "length_h": 11,
+            "minimum_total_valuation_2h_minus_5": 17,
+            "maximum_total_valuation_from_minimum_bound": 19,
+            "enumerated_word_count": 3528,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "53dc6558e5df7381b2fa072901091b36dbfdf352c6f9656a8cfd46e3e0e5c822"
+          },
+          {
+            "length_h": 12,
+            "minimum_total_valuation_2h_minus_5": 19,
+            "maximum_total_valuation_from_minimum_bound": 20,
+            "enumerated_word_count": 1680,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "23e001a1a641e8c22ab7d5532334fa385681bf25f3f7033d70ef8958408e3dea"
+          },
+          {
+            "length_h": 13,
+            "minimum_total_valuation_2h_minus_5": 21,
+            "maximum_total_valuation_from_minimum_bound": 22,
+            "enumerated_word_count": 2970,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "9e674455c38f24c754efad9b765651832fa5388fa20a8d2afd3b73871a9c95f9"
+          },
+          {
+            "length_h": 14,
+            "minimum_total_valuation_2h_minus_5": 23,
+            "maximum_total_valuation_from_minimum_bound": 24,
+            "enumerated_word_count": 4950,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "0cf4cbe541a96f6d58870944e431fe3b804ae77857c09bfd4f1d83229e4e1b71"
+          },
+          {
+            "length_h": 15,
+            "minimum_total_valuation_2h_minus_5": 25,
+            "maximum_total_valuation_from_minimum_bound": 26,
+            "enumerated_word_count": 7865,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "f20eb56ea705bcc24c48f581e2485088d858fd6d446a62452cec77a2c56bf372"
+          },
+          {
+            "length_h": 16,
+            "minimum_total_valuation_2h_minus_5": 27,
+            "maximum_total_valuation_from_minimum_bound": 27,
+            "enumerated_word_count": 1001,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "0b31141abf11aa383cf8bac4169b6014abe2edeaeac0a77f9440b13d7cc76fe6"
+          },
+          {
+            "length_h": 17,
+            "minimum_total_valuation_2h_minus_5": 29,
+            "maximum_total_valuation_from_minimum_bound": 29,
+            "enumerated_word_count": 1365,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "d2fca9ae70b387da498c392545c8d89c58a7da0e885de0b76f6ab5815278413d"
+          },
+          {
+            "length_h": 18,
+            "minimum_total_valuation_2h_minus_5": 31,
+            "maximum_total_valuation_from_minimum_bound": 31,
+            "enumerated_word_count": 1820,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "ca151debf0e684f74dae677e3d7a4a826fe0dde3849d34db33c7c3a1efa69f42"
+          },
+          {
+            "length_h": 19,
+            "minimum_total_valuation_2h_minus_5": 33,
+            "maximum_total_valuation_from_minimum_bound": 33,
+            "enumerated_word_count": 2380,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_sha256": "530ebcf81d89480d64b9e688095b07fe2d0a164ccf38f91f528deb4fa2d8e82d"
+          }
+        ],
+        "total_exact_words_enumerated": 29758,
+        "positive_odd_integer_fixed_point_count": 0,
+        "length_at_least_twenty_exclusion": {
+          "threshold_h": 20,
+          "left_2_pow_35_times_3_pow_20": "119804999763983597568",
+          "right_10_pow_20": "100000000000000000000",
+          "left_exceeds_right": true,
+          "growth_factor_per_extra_length": "6/5"
+        },
+        "aggregate": {
+          "exactly_five_valuation_one_cycle_stratum_excluded": true,
+          "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 6,
+          "six_or_more_one_necklaces_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "This closes the full five-one periodic stratum, with arbitrary remaining valuations >=2. It does not exclude cycles containing six or more ones and says nothing about nonperiodic divergence.",
+        "failure_count": 0
+      },
+      "logical_limit": "Cycles with at least six ones and every nonperiodic divergent orbit remain open.",
+      "route_decision": {
+        "discard": "every accelerated cycle word with exactly five valuation-one entries",
+        "retain": "a multiplicity-uniform obstruction plus an independent all-orbit descent theorem",
+        "next_single_lemma": "ValuationOneMultiplicityUniformCycleObstruction"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T209",
+            "label": "FourOneAcceleratedCycleFiniteEnumerationExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T210",
+            "label": "FiveOneArbitraryRemainderAcceleratedCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N210",
+            "label": "ExactlyFiveValuationOnesCanSupportAPositiveCycle",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN210",
+            "label": "ValuationOneMultiplicityUniformCycleObstruction",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T209",
+            "CO-T210"
+          ],
+          [
+            "CO-T210",
+            "CO-N210"
+          ],
+          [
+            "CO-T210",
+            "CO-OPEN210"
+          ],
+          [
+            "CO-OPEN210",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof. The complete exactly-five-one periodic stratum, with arbitrary remaining valuations at least two, is excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-210",
+      "theorem_name": "PrimeGapToLeastGoldbachWitnessTransferAndDominanceNoGo",
+      "declared_proposition": "If q<r are consecutive odd primes with gap g=r-q and N=r-1, then N is even and its least Goldbach witness satisfies W(N)>g-2. Combining this transfer with the Ford-Green-Konyagin-Maynard-Tao large-gap theorem gives an independent unbounded sequence with W(N) >> log N log_2 N log_4 N / log_3 N. This does not improve TICKET-209's stronger c log N log_2 N floor, because log_4 N/log_3 N tends to zero; it proves that importing the current large-prime-gap lower bound alone cannot advance that floor.",
+      "mathematical_argument": "For every prime p<=g-2, q+1<=N-p<=r-3. This lies strictly between the consecutive primes q and r and is therefore composite, proving W(N)>g-2. At endpoints of record prime gaps, the published theorem G(X)>>log X log_2 X log_4 X/log_3 X applies with X=r. Since N=r-1, the iterated logarithms are asymptotically unchanged. Finally log_4 N/log_3 N tends to zero, so this transferred published bound is asymptotically below the TICKET-209 covering-congruence floor.",
+      "reproducible_computation": {
+        "theorem": "If q<r are consecutive odd primes with gap g=r-q and N=r-1, then N is even and its least Goldbach witness satisfies W(N)>g-2. Combining this transfer with the Ford-Green-Konyagin-Maynard-Tao large-gap theorem gives an independent unbounded sequence with W(N) >> log N log_2 N log_4 N / log_3 N. This does not improve TICKET-209's stronger c log N log_2 N floor, because log_4 N/log_3 N tends to zero; it proves that importing the current large-prime-gap lower bound alone cannot advance that floor.",
+        "proof": "For every prime p<=g-2, q+1<=N-p<=r-3. This lies strictly between the consecutive primes q and r and is therefore composite, proving W(N)>g-2. At endpoints of record prime gaps, the published theorem G(X)>>log X log_2 X log_4 X/log_3 X applies with X=r. Since N=r-1, the iterated logarithms are asymptotically unchanged. Finally log_4 N/log_3 N tends to zero, so this transferred published bound is asymptotically below the TICKET-209 covering-congruence floor.",
+        "exact_transfer": "consecutive primes q<r, g=r-q, N=r-1 imply W(N)>g-2",
+        "imported_large_gap_theorem": {
+          "statement": "G(X)>>log X log_2 X log_4 X/log_3 X",
+          "authors": "Ford, Green, Konyagin, Maynard, Tao",
+          "journal_doi": "https://doi.org/10.1090/jams/876",
+          "primary_preprint": "https://arxiv.org/abs/1412.5029",
+          "project_claims_original_proof_of_imported_theorem": false
+        },
+        "finite_record_gap_rows": [
+          {
+            "left_prime": 9551,
+            "right_prime": 9587,
+            "record_gap_g": 36,
+            "even_target_N": 9586,
+            "transferred_strict_lower_bound_W_gt": 34,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 47,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 15683,
+            "right_prime": 15727,
+            "record_gap_g": 44,
+            "even_target_N": 15726,
+            "transferred_strict_lower_bound_W_gt": 42,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 43,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 19609,
+            "right_prime": 19661,
+            "record_gap_g": 52,
+            "even_target_N": 19660,
+            "transferred_strict_lower_bound_W_gt": 50,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 83,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 31397,
+            "right_prime": 31469,
+            "record_gap_g": 72,
+            "even_target_N": 31468,
+            "transferred_strict_lower_bound_W_gt": 70,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 71,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 155921,
+            "right_prime": 156007,
+            "record_gap_g": 86,
+            "even_target_N": 156006,
+            "transferred_strict_lower_bound_W_gt": 84,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 113,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 360653,
+            "right_prime": 360749,
+            "record_gap_g": 96,
+            "even_target_N": 360748,
+            "transferred_strict_lower_bound_W_gt": 94,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 137,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 370261,
+            "right_prime": 370373,
+            "record_gap_g": 112,
+            "even_target_N": 370372,
+            "transferred_strict_lower_bound_W_gt": 110,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 131,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 492113,
+            "right_prime": 492227,
+            "record_gap_g": 114,
+            "even_target_N": 492226,
+            "transferred_strict_lower_bound_W_gt": 112,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 113,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 1349533,
+            "right_prime": 1349651,
+            "record_gap_g": 118,
+            "even_target_N": 1349650,
+            "transferred_strict_lower_bound_W_gt": 116,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 179,
+            "interior_all_composite": true
+          },
+          {
+            "left_prime": 1357201,
+            "right_prime": 1357333,
+            "record_gap_g": 132,
+            "even_target_N": 1357332,
+            "transferred_strict_lower_bound_W_gt": 130,
+            "violating_witness_count_at_or_below_bound": 0,
+            "actual_least_witness_in_finite_fixture": 131,
+            "interior_all_composite": true
+          }
+        ],
+        "aggregate": {
+          "prime_gap_to_least_witness_transfer_proved": true,
+          "independent_iterated_log_witness_sequence_obtained": true,
+          "improves_ticket209_covering_floor": false,
+          "current_prime_gap_route_alone_advances_covering_floor": false,
+          "goldbach_counterexample_found": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The dominance comparison concerns only the currently published large-gap lower bound passed through this exact transfer. It is not a theorem that every future prime-gap method is weaker. Each constructed N may have, and in the finite rows does have, a larger Goldbach witness.",
+        "failure_count": 0
+      },
+      "logical_limit": "No exceptional-count upper bound or Goldbach counterexample is produced.",
+      "route_decision": {
+        "discard": "using the current published large-prime-gap lower bound alone to improve the TICKET-209 witness floor",
+        "retain": "parity-breaking exceptional-tail control beyond the covering-congruence floor",
+        "next_single_lemma": "GoldbachTailExceptionalCountBelowOneBeyondCoveringCongruenceFloor"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T209",
+            "label": "CoveringCongruenceSuperLogarithmicLeastWitnessLowerBound",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T210",
+            "label": "PrimeGapToLeastGoldbachWitnessTransferAndDominanceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N210",
+            "label": "CurrentLargePrimeGapLowerBoundImprovesCoveringWitnessFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN210",
+            "label": "GoldbachTailExceptionalCountBelowOneBeyondCoveringCongruenceFloor",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T209",
+            "GB-T210"
+          ],
+          [
+            "GB-T210",
+            "GB-N210"
+          ],
+          [
+            "GB-T210",
+            "GB-OPEN210"
+          ],
+          [
+            "GB-OPEN210",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The prime-gap transfer is exact, but its current published asymptotic input is weaker than the TICKET-209 floor."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-210",
+      "theorem_name": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+      "declared_proposition": "For every integer K>=8, put X=K! and H=K-3. The H consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H >= (1/4) log X/log log X. Consequently there are infinitely many twin-free local windows at least a fixed multiple of the log X/log log X scale. Any proof requiring a twin pair in every window at or below this scale is false.",
+      "mathematical_argument": "For 2<=j<=K-2, j divides X+j and j+2 divides X+j+2, and both divisors are proper. Thus all H=K-3 lower candidates are twin-free. Also log X<=K log K. The last K/2 factors in K! are at least K/2, so log X>=(K/2)log(K/2), which for K>=8 implies log log X>=(1/2)log K. Hence log X/log log X<=2K, while H=K-3>=K/2, giving H>=(1/4)log X/log log X.",
+      "reproducible_computation": {
+        "theorem": "For every integer K>=8, put X=K! and H=K-3. The H consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H >= (1/4) log X/log log X. Consequently there are infinitely many twin-free local windows at least a fixed multiple of the log X/log log X scale. Any proof requiring a twin pair in every window at or below this scale is false.",
+        "proof": "For 2<=j<=K-2, j divides X+j and j+2 divides X+j+2, and both divisors are proper. Thus all H=K-3 lower candidates are twin-free. Also log X<=K log K. The last K/2 factors in K! are at least K/2, so log X>=(K/2)log(K/2), which for K>=8 implies log log X>=(1/2)log K. Hence log X/log log X<=2K, while H=K-3>=K/2, giving H>=(1/4)log X/log log X.",
+        "scale_inequality": "K-3 >= (1/4)*log(K!)/log(log(K!)) for K>=8",
+        "factorial_scale_rows": [
+          {
+            "factorial_parameter_K": 8,
+            "factorial_base_decimal_digits": 5,
+            "twin_free_candidate_length_H": 5,
+            "log_X_over_loglog_X_decimal": "4.491024500464",
+            "H_over_log_X_over_loglog_X_decimal": "1.113331712950",
+            "H_at_least_one_quarter_scale": true,
+            "all_composite_pair_certificates_hold": true,
+            "certificate_count": 5,
+            "certificate_sha256": "4be1ee00fa870abdc015a6dd00b286dcb37beb1cdc862e55404c4df3cb7721e7"
+          },
+          {
+            "factorial_parameter_K": 16,
+            "factorial_base_decimal_digits": 14,
+            "twin_free_candidate_length_H": 13,
+            "log_X_over_loglog_X_decimal": "8.959615377177",
+            "H_over_log_X_over_loglog_X_decimal": "1.450955141793",
+            "H_at_least_one_quarter_scale": true,
+            "all_composite_pair_certificates_hold": true,
+            "certificate_count": 13,
+            "certificate_sha256": "c4364123d1e91ae138e447e87cb959a72cedf49705f739195e57d14a805cfb7b"
+          },
+          {
+            "factorial_parameter_K": 32,
+            "factorial_base_decimal_digits": 36,
+            "twin_free_candidate_length_H": 29,
+            "log_X_over_loglog_X_decimal": "18.530366344861",
+            "H_over_log_X_over_loglog_X_decimal": "1.564998741001",
+            "H_at_least_one_quarter_scale": true,
+            "all_composite_pair_certificates_hold": true,
+            "certificate_count": 29,
+            "certificate_sha256": "a3258068886cdba15e240aec946452c09634fc57c53ab25d750000b3b5f600aa"
+          },
+          {
+            "factorial_parameter_K": 64,
+            "factorial_base_decimal_digits": 90,
+            "twin_free_candidate_length_H": 61,
+            "log_X_over_loglog_X_decimal": "38.537705852666",
+            "H_over_log_X_over_loglog_X_decimal": "1.582865369132",
+            "H_at_least_one_quarter_scale": true,
+            "all_composite_pair_certificates_hold": true,
+            "certificate_count": 61,
+            "certificate_sha256": "9672fb3f8ed65626e9e65bdc7d2aad88debc6185037bbf16a666816a7ba661d4"
+          },
+          {
+            "factorial_parameter_K": 128,
+            "factorial_base_decimal_digits": 216,
+            "twin_free_candidate_length_H": 125,
+            "log_X_over_loglog_X_decimal": "79.970040774509",
+            "H_over_log_X_over_loglog_X_decimal": "1.563085360335",
+            "H_at_least_one_quarter_scale": true,
+            "all_composite_pair_certificates_hold": true,
+            "certificate_count": 125,
+            "certificate_sha256": "c3f85a3be112e0fae2563d718638c38d76af8ca8685cadb681b4338dde1cb231"
+          },
+          {
+            "factorial_parameter_K": 256,
+            "factorial_base_decimal_digits": 507,
+            "twin_free_candidate_length_H": 253,
+            "log_X_over_loglog_X_decimal": "165.277424636099",
+            "H_over_log_X_over_loglog_X_decimal": "1.530759573227",
+            "H_at_least_one_quarter_scale": true,
+            "all_composite_pair_certificates_hold": true,
+            "certificate_count": 253,
+            "certificate_sha256": "78be8a2dad9add61ea79a3bd5f602f753e71dd1ed1de075f87ade366dd7f6053"
+          }
+        ],
+        "aggregate": {
+          "log_over_loglog_scale_twin_deserts_proved": true,
+          "subscale_every_window_positivity_refuted": true,
+          "dyadic_average_phase_lower_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "These windows remain negligible compared with X and do not contradict a positive dyadic average or twin-prime infinitude. The result calibrates the forbidden local-window scale only.",
+        "failure_count": 0
+      },
+      "logical_limit": "No averaged or selected dyadic phase lower bound is proved.",
+      "route_decision": {
+        "discard": "forcing a twin pair in every local window of length at most a fixed log X/log log X scale",
+        "retain": "dyadic average positivity that explicitly permits calibrated local deserts",
+        "next_single_lemma": "DyadicBilinearOmegaPhaseLowerBoundPermittingLogOverLogLogDeserts"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T209",
+            "label": "ArbitrarilyLongTwinFreeIntervalsAndLocalCyclotomicMarginNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T210",
+            "label": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N210",
+            "label": "TwinPositivityInEveryLogOverLogLogLocalWindow",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN210",
+            "label": "DyadicBilinearOmegaPhaseLowerBoundPermittingLogOverLogLogDeserts",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T209",
+            "TP-T210"
+          ],
+          [
+            "TP-T210",
+            "TP-N210"
+          ],
+          [
+            "TP-T210",
+            "TP-OPEN210"
+          ],
+          [
+            "TP-OPEN210",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. Factorial deserts are now calibrated at a fixed log X/log log X local scale."
+    },
+    "cross_problem_synthesis": "Each result separates existence from quantitative control: a zero-avoiding line lacks winding data, a finite cycle stratum lacks multiplicity-uniform descent, a lower-witness obstruction lacks tail exclusion, and long local deserts remain compatible with positive dyadic averages.",
+    "literature_boundary": {
+      "riemann": "Isolated zeros of a nonzero entire function are classical; the symmetric polynomial is an exact no-go model, not a zeta model.",
+      "collatz": "The finite exact stratum exclusion is project-local and requires independent specialist review before any novelty claim.",
+      "goldbach": "The large-gap input is explicitly imported from Ford-Green-Konyagin-Maynard-Tao; only the elementary transfer and route comparison are proved here.",
+      "twin_prime": "Factorial composite intervals are classical; the scale calibration is an elementary project deduction, not a bounded-gap improvement."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-210",
+      "status": "open_not_proven",
+      "declared_proposition": "For every sufficiently large integer n there is T_n in (n,n+1) such that zeta(s) is nonzero on -1/4<=Re(s)<=5/4 at Im(s)=T_n; the minimum modulus on that compact segment is therefore positive. This existential cofinal nonvanishing does not imply RH. The real entire polynomial P(s)=z^4+(15/8)z^2+289/256, z=s-1/2, satisfies P(1-s)=P(s), has the four off-critical zeros 1/2+/-1/4+/-i, and for every T>1 obeys min_sigma |P(sigma+iT)| >= (T^2-1)^2.",
+      "new_result": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+      "discarded_route": "inferring RH from functional symmetry plus existential cofinal horizontal nonvanishing",
+      "remaining_gap": "No effective zeta clearance or certified winding increment is obtained.",
+      "candidate_theorem": "EffectiveCofinalCentralEdgeClearanceAndWindingIncrementCertificate",
+      "bounded_result": {
+        "audit_ref": "#/cofinal_fiveone_primegap_scaledtwin_audit"
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-210",
+      "status": "open_not_proven",
+      "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly five valuation entries equal to one and every remaining valuation at least two. More generally, exactly k ones force (6/5)^h<=2^k and therefore h<=floor(k log(2)/log(6/5)). For k=5 this gives h<=19; exact affine enumeration of all 29,758 minimum-rotated words of lengths 6 through 19 finds no positive odd integer fixed point. Hence a hypothetical nontrivial positive cycle contains at least six ones.",
+      "new_result": "FiveOneArbitraryRemainderAcceleratedCycleExclusion",
+      "discarded_route": "every accelerated cycle word with exactly five valuation-one entries",
+      "remaining_gap": "Cycles with at least six ones and every nonperiodic divergent orbit remain open.",
+      "candidate_theorem": "ValuationOneMultiplicityUniformCycleObstruction",
+      "bounded_result": {
+        "audit_ref": "#/cofinal_fiveone_primegap_scaledtwin_audit"
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-210",
+      "status": "open_not_proven",
+      "declared_proposition": "If q<r are consecutive odd primes with gap g=r-q and N=r-1, then N is even and its least Goldbach witness satisfies W(N)>g-2. Combining this transfer with the Ford-Green-Konyagin-Maynard-Tao large-gap theorem gives an independent unbounded sequence with W(N) >> log N log_2 N log_4 N / log_3 N. This does not improve TICKET-209's stronger c log N log_2 N floor, because log_4 N/log_3 N tends to zero; it proves that importing the current large-prime-gap lower bound alone cannot advance that floor.",
+      "new_result": "PrimeGapToLeastGoldbachWitnessTransferAndDominanceNoGo",
+      "discarded_route": "using the current published large-prime-gap lower bound alone to improve the TICKET-209 witness floor",
+      "remaining_gap": "No exceptional-count upper bound or Goldbach counterexample is produced.",
+      "candidate_theorem": "GoldbachTailExceptionalCountBelowOneBeyondCoveringCongruenceFloor",
+      "bounded_result": {
+        "audit_ref": "#/cofinal_fiveone_primegap_scaledtwin_audit"
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-210",
+      "status": "open_not_proven",
+      "declared_proposition": "For every integer K>=8, put X=K! and H=K-3. The H consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H >= (1/4) log X/log log X. Consequently there are infinitely many twin-free local windows at least a fixed multiple of the log X/log log X scale. Any proof requiring a twin pair in every window at or below this scale is false.",
+      "new_result": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+      "discarded_route": "forcing a twin pair in every local window of length at most a fixed log X/log log X scale",
+      "remaining_gap": "No averaged or selected dyadic phase lower bound is proved.",
+      "candidate_theorem": "DyadicBilinearOmegaPhaseLowerBoundPermittingLogOverLogLogDeserts",
+      "bounded_result": {
+        "audit_ref": "#/cofinal_fiveone_primegap_scaledtwin_audit"
+      }
+    }
+  ]
+}

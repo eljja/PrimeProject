@@ -1,0 +1,142 @@
+{
+  "schema": "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1",
+  "generated_at": "2026-08-10T23:30:00+09:00",
+  "ticket_id": "TP-TICKET-210",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+  "declared_proposition": "For every integer K>=8, put X=K! and H=K-3. The H consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H >= (1/4) log X/log log X. Consequently there are infinitely many twin-free local windows at least a fixed multiple of the log X/log log X scale. Any proof requiring a twin pair in every window at or below this scale is false.",
+  "mathematical_argument": "For 2<=j<=K-2, j divides X+j and j+2 divides X+j+2, and both divisors are proper. Thus all H=K-3 lower candidates are twin-free. Also log X<=K log K. The last K/2 factors in K! are at least K/2, so log X>=(K/2)log(K/2), which for K>=8 implies log log X>=(1/2)log K. Hence log X/log log X<=2K, while H=K-3>=K/2, giving H>=(1/4)log X/log log X.",
+  "reproducible_computation": {
+    "theorem": "For every integer K>=8, put X=K! and H=K-3. The H consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H >= (1/4) log X/log log X. Consequently there are infinitely many twin-free local windows at least a fixed multiple of the log X/log log X scale. Any proof requiring a twin pair in every window at or below this scale is false.",
+    "proof": "For 2<=j<=K-2, j divides X+j and j+2 divides X+j+2, and both divisors are proper. Thus all H=K-3 lower candidates are twin-free. Also log X<=K log K. The last K/2 factors in K! are at least K/2, so log X>=(K/2)log(K/2), which for K>=8 implies log log X>=(1/2)log K. Hence log X/log log X<=2K, while H=K-3>=K/2, giving H>=(1/4)log X/log log X.",
+    "scale_inequality": "K-3 >= (1/4)*log(K!)/log(log(K!)) for K>=8",
+    "factorial_scale_rows": [
+      {
+        "factorial_parameter_K": 8,
+        "factorial_base_decimal_digits": 5,
+        "twin_free_candidate_length_H": 5,
+        "log_X_over_loglog_X_decimal": "4.491024500464",
+        "H_over_log_X_over_loglog_X_decimal": "1.113331712950",
+        "H_at_least_one_quarter_scale": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_count": 5,
+        "certificate_sha256": "4be1ee00fa870abdc015a6dd00b286dcb37beb1cdc862e55404c4df3cb7721e7"
+      },
+      {
+        "factorial_parameter_K": 16,
+        "factorial_base_decimal_digits": 14,
+        "twin_free_candidate_length_H": 13,
+        "log_X_over_loglog_X_decimal": "8.959615377177",
+        "H_over_log_X_over_loglog_X_decimal": "1.450955141793",
+        "H_at_least_one_quarter_scale": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_count": 13,
+        "certificate_sha256": "c4364123d1e91ae138e447e87cb959a72cedf49705f739195e57d14a805cfb7b"
+      },
+      {
+        "factorial_parameter_K": 32,
+        "factorial_base_decimal_digits": 36,
+        "twin_free_candidate_length_H": 29,
+        "log_X_over_loglog_X_decimal": "18.530366344861",
+        "H_over_log_X_over_loglog_X_decimal": "1.564998741001",
+        "H_at_least_one_quarter_scale": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_count": 29,
+        "certificate_sha256": "a3258068886cdba15e240aec946452c09634fc57c53ab25d750000b3b5f600aa"
+      },
+      {
+        "factorial_parameter_K": 64,
+        "factorial_base_decimal_digits": 90,
+        "twin_free_candidate_length_H": 61,
+        "log_X_over_loglog_X_decimal": "38.537705852666",
+        "H_over_log_X_over_loglog_X_decimal": "1.582865369132",
+        "H_at_least_one_quarter_scale": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_count": 61,
+        "certificate_sha256": "9672fb3f8ed65626e9e65bdc7d2aad88debc6185037bbf16a666816a7ba661d4"
+      },
+      {
+        "factorial_parameter_K": 128,
+        "factorial_base_decimal_digits": 216,
+        "twin_free_candidate_length_H": 125,
+        "log_X_over_loglog_X_decimal": "79.970040774509",
+        "H_over_log_X_over_loglog_X_decimal": "1.563085360335",
+        "H_at_least_one_quarter_scale": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_count": 125,
+        "certificate_sha256": "c3f85a3be112e0fae2563d718638c38d76af8ca8685cadb681b4338dde1cb231"
+      },
+      {
+        "factorial_parameter_K": 256,
+        "factorial_base_decimal_digits": 507,
+        "twin_free_candidate_length_H": 253,
+        "log_X_over_loglog_X_decimal": "165.277424636099",
+        "H_over_log_X_over_loglog_X_decimal": "1.530759573227",
+        "H_at_least_one_quarter_scale": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_count": 253,
+        "certificate_sha256": "78be8a2dad9add61ea79a3bd5f602f753e71dd1ed1de075f87ade366dd7f6053"
+      }
+    ],
+    "aggregate": {
+      "log_over_loglog_scale_twin_deserts_proved": true,
+      "subscale_every_window_positivity_refuted": true,
+      "dyadic_average_phase_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "These windows remain negligible compared with X and do not contradict a positive dyadic average or twin-prime infinitude. The result calibrates the forbidden local-window scale only.",
+    "failure_count": 0
+  },
+  "discarded_route": "forcing a twin pair in every local window of length at most a fixed log X/log log X scale",
+  "remaining_gap": "No averaged or selected dyadic phase lower bound is proved.",
+  "candidate_theorem": "DyadicBilinearOmegaPhaseLowerBoundPermittingLogOverLogLogDeserts",
+  "claim_boundary": "No Twin Prime proof or counterexample. Factorial deserts are now calibrated at a fixed log X/log log X local scale.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T209",
+        "label": "ArbitrarilyLongTwinFreeIntervalsAndLocalCyclotomicMarginNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T210",
+        "label": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N210",
+        "label": "TwinPositivityInEveryLogOverLogLogLocalWindow",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN210",
+        "label": "DyadicBilinearOmegaPhaseLowerBoundPermittingLogOverLogLogDeserts",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T209",
+        "TP-T210"
+      ],
+      [
+        "TP-T210",
+        "TP-N210"
+      ],
+      [
+        "TP-T210",
+        "TP-OPEN210"
+      ],
+      [
+        "TP-OPEN210",
+        "TP"
+      ]
+    ]
+  }
+}

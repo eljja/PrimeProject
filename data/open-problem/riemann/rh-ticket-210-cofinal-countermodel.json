@@ -1,0 +1,131 @@
+{
+  "schema": "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1",
+  "generated_at": "2026-08-10T23:30:00+09:00",
+  "ticket_id": "RH-TICKET-210",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+  "declared_proposition": "For every sufficiently large integer n there is T_n in (n,n+1) such that zeta(s) is nonzero on -1/4<=Re(s)<=5/4 at Im(s)=T_n; the minimum modulus on that compact segment is therefore positive. This existential cofinal nonvanishing does not imply RH. The real entire polynomial P(s)=z^4+(15/8)z^2+289/256, z=s-1/2, satisfies P(1-s)=P(s), has the four off-critical zeros 1/2+/-1/4+/-i, and for every T>1 obeys min_sigma |P(sigma+iT)| >= (T^2-1)^2.",
+  "mathematical_argument": "Completed xi is a nonzero entire function, hence its zeros are isolated and every compact rectangle contains only finitely many. Remove from (n,n+1) the finitely many ordinates of zeros in the central strip and choose any remaining T_n. At positive height all elementary and gamma factors relating xi and zeta are nonzero, so zeta has no zero on the segment; compactness gives a positive, height-dependent minimum. For the countermodel, the zeros in the centered variable z are +/-1/4+/-i. Evenness gives P(1-s)=P(s) and real coefficients give conjugation symmetry. On Im(s)=T>1, each of the two roots at imaginary part +1 is at distance at least T-1 and each of the two roots at -1 is at distance at least T+1. Multiplying the four distances gives (T-1)^2(T+1)^2=(T^2-1)^2 despite the off-critical zeros.",
+  "reproducible_computation": {
+    "theorem": "For every sufficiently large integer n there is T_n in (n,n+1) such that zeta(s) is nonzero on -1/4<=Re(s)<=5/4 at Im(s)=T_n; the minimum modulus on that compact segment is therefore positive. This existential cofinal nonvanishing does not imply RH. The real entire polynomial P(s)=z^4+(15/8)z^2+289/256, z=s-1/2, satisfies P(1-s)=P(s), has the four off-critical zeros 1/2+/-1/4+/-i, and for every T>1 obeys min_sigma |P(sigma+iT)| >= (T^2-1)^2.",
+    "proof": "Completed xi is a nonzero entire function, hence its zeros are isolated and every compact rectangle contains only finitely many. Remove from (n,n+1) the finitely many ordinates of zeros in the central strip and choose any remaining T_n. At positive height all elementary and gamma factors relating xi and zeta are nonzero, so zeta has no zero on the segment; compactness gives a positive, height-dependent minimum. For the countermodel, the zeros in the centered variable z are +/-1/4+/-i. Evenness gives P(1-s)=P(s) and real coefficients give conjugation symmetry. On Im(s)=T>1, each of the two roots at imaginary part +1 is at distance at least T-1 and each of the two roots at -1 is at distance at least T+1. Multiplying the four distances gives (T-1)^2(T+1)^2=(T^2-1)^2 despite the off-critical zeros.",
+    "existential_zeta_statement": {
+      "height_band": "T_n in (n,n+1)",
+      "central_segment": "-1/4<=Re(s)<=5/4",
+      "positive_minimum_exists": true,
+      "effective_height_or_margin_constructed": false
+    },
+    "symmetric_countermodel": {
+      "polynomial": "P(s)=z^4+(15/8)z^2+289/256, z=s-1/2",
+      "zeros": [
+        "1/4+i",
+        "3/4+i",
+        "1/4-i",
+        "3/4-i"
+      ],
+      "functional_symmetry": "P(1-s)=P(s)",
+      "conjugation_symmetry": "P(conj(s))=conj(P(s))",
+      "cofinal_horizontal_lower_bound": "|P(sigma+iT)|>=(T^2-1)^2 for T>1",
+      "off_critical_zero_count": 4
+    },
+    "countermodel_rows": [
+      {
+        "height_T": 2,
+        "exact_product_distance_lower_bound": "9",
+        "sampled_minimum_modulus": "9.628906250000",
+        "sampled_minimum_respects_exact_lower_bound": true
+      },
+      {
+        "height_T": 4,
+        "exact_product_distance_lower_bound": "225",
+        "sampled_minimum_modulus": "227.128906250000",
+        "sampled_minimum_respects_exact_lower_bound": true
+      },
+      {
+        "height_T": 8,
+        "exact_product_distance_lower_bound": "3969",
+        "sampled_minimum_modulus": "3977.128906250000",
+        "sampled_minimum_respects_exact_lower_bound": true
+      },
+      {
+        "height_T": 16,
+        "exact_product_distance_lower_bound": "65025",
+        "sampled_minimum_modulus": "65057.128906250000",
+        "sampled_minimum_respects_exact_lower_bound": true
+      },
+      {
+        "height_T": 32,
+        "exact_product_distance_lower_bound": "1046529",
+        "sampled_minimum_modulus": "1046657.128906250000",
+        "sampled_minimum_respects_exact_lower_bound": true
+      },
+      {
+        "height_T": 64,
+        "exact_product_distance_lower_bound": "16769025",
+        "sampled_minimum_modulus": "16769537.128906250000",
+        "sampled_minimum_respects_exact_lower_bound": true
+      }
+    ],
+    "aggregate": {
+      "existential_cofinal_central_nonvanishing_proved": true,
+      "effective_zeta_clearance_proved": false,
+      "cofinal_nonvanishing_implies_rh_refuted": true,
+      "boundary_winding_control_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The countermodel refutes only the inference from functional symmetry plus cofinal horizontal clearance to RH. It does not share zeta's Euler product and does not locate an off-line zeta zero. The existence proof supplies neither computable heights nor argument-principle winding increments.",
+    "failure_count": 0
+  },
+  "discarded_route": "inferring RH from functional symmetry plus existential cofinal horizontal nonvanishing",
+  "remaining_gap": "No effective zeta clearance or certified winding increment is obtained.",
+  "candidate_theorem": "EffectiveCofinalCentralEdgeClearanceAndWindingIncrementCertificate",
+  "claim_boundary": "No RH proof and no off-critical zeta zero. Existential cofinal central nonvanishing is proved but shown insufficient by an exact symmetric countermodel.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T209",
+        "label": "CompletedXiAbsoluteCofinalClearanceNoGoAndGammaNormalizedOuterEdgeReduction",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T210",
+        "label": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N210",
+        "label": "ExistentialCofinalHorizontalNonvanishingImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN210",
+        "label": "EffectiveCofinalCentralEdgeClearanceAndWindingIncrementCertificate",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T209",
+        "RH-T210"
+      ],
+      [
+        "RH-T210",
+        "RH-N210"
+      ],
+      [
+        "RH-T210",
+        "RH-OPEN210"
+      ],
+      [
+        "RH-OPEN210",
+        "RH"
+      ]
+    ]
+  }
+}

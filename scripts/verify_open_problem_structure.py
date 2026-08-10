@@ -208,6 +208,7 @@ TICKET206_SCHEMA = "primeproject.ticket206-adaptive-singleone-crt-projector.v1"
 TICKET207_SCHEMA = "primeproject.ticket207-dihedral-twoone-logwitness-abel.v1"
 TICKET208_SCHEMA = "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1"
 TICKET209_SCHEMA = "primeproject.ticket209-normalized-fourone-covering-factorial.v1"
+TICKET210_SCHEMA = "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1"
 
 
 def fail(message: str) -> int:
@@ -17146,6 +17147,175 @@ def main() -> int:
         or machine209.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket209 proof boundary changed")
+
+    path210 = Path(
+        "data/open-problem/ticket210-cofinal-fiveone-primegap-scaledtwin.json"
+    )
+    if not path210.exists():
+        return fail("missing ticket210 cofinal/five-one/prime-gap/scaled-twin audit")
+    ticket210 = read_json(path210)
+    if (
+        ticket210.get("schema") != TICKET210_SCHEMA
+        or ticket210.get("status") != "open_not_proven"
+    ):
+        return fail("ticket210 schema or status changed")
+    audit210 = ticket210.get("cofinal_fiveone_primegap_scaledtwin_audit", {})
+    machine210 = audit210.get("machine_audit", {})
+    expected_machine210 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine210 != expected_machine210:
+        return fail("ticket210 global machine audit changed")
+
+    attempts210 = {
+        row.get("problem_id"): row for row in ticket210.get("attempts", [])
+    }
+    if set(attempts210) != EXPECTED_PROBLEMS:
+        return fail("ticket210 attempts missing problems")
+    track_paths210 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-210-cofinal-countermodel.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-210-five-one-general.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-210-prime-gap-transfer.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-210-scaled-factorial-desert.json"
+        ),
+    }
+    theorem_names210 = {
+        "riemann": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+        "collatz": "FiveOneArbitraryRemainderAcceleratedCycleExclusion",
+        "goldbach": "PrimeGapToLeastGoldbachWitnessTransferAndDominanceNoGo",
+        "twin-prime": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+    }
+    for problem_id, track_path in track_paths210.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket210 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts210[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET210_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names210[problem_id]
+            or attempt.get("new_result") != theorem_names210[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/cofinal_fiveone_primegap_scaledtwin_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket210 contract changed")
+
+    rh210 = audit210.get("riemann", {}).get("reproducible_computation", {})
+    rh210_aggregate = rh210.get("aggregate", {})
+    if (
+        len(rh210.get("countermodel_rows", [])) != 6
+        or not all(
+            row.get("sampled_minimum_respects_exact_lower_bound")
+            for row in rh210.get("countermodel_rows", [])
+        )
+        or rh210.get("symmetric_countermodel", {}).get("off_critical_zero_count")
+        != 4
+        or rh210_aggregate.get(
+            "existential_cofinal_central_nonvanishing_proved"
+        )
+        is not True
+        or rh210_aggregate.get("effective_zeta_clearance_proved") is not False
+        or rh210_aggregate.get("cofinal_nonvanishing_implies_rh_refuted")
+        is not True
+        or rh210_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket210 RH cofinal-countermodel boundary changed")
+
+    collatz210 = audit210.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz210_aggregate = collatz210.get("aggregate", {})
+    if (
+        len(collatz210.get("exact_enumeration_rows", [])) != 14
+        or collatz210.get("total_exact_words_enumerated") != 29758
+        or collatz210.get("positive_odd_integer_fixed_point_count") != 0
+        or collatz210.get("exact_length_cap_h") != 19
+        or collatz210_aggregate.get(
+            "exactly_five_valuation_one_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz210_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 6
+        or collatz210_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket210 Collatz five-one boundary changed")
+
+    goldbach210 = audit210.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach210_aggregate = goldbach210.get("aggregate", {})
+    if (
+        len(goldbach210.get("finite_record_gap_rows", [])) != 10
+        or not all(
+            row.get("interior_all_composite")
+            and row.get("violating_witness_count_at_or_below_bound") == 0
+            and row.get("actual_least_witness_in_finite_fixture")
+            > row.get("transferred_strict_lower_bound_W_gt")
+            for row in goldbach210.get("finite_record_gap_rows", [])
+        )
+        or goldbach210_aggregate.get(
+            "prime_gap_to_least_witness_transfer_proved"
+        )
+        is not True
+        or goldbach210_aggregate.get("improves_ticket209_covering_floor")
+        is not False
+        or goldbach210_aggregate.get("goldbach_counterexample_found") is not False
+        or goldbach210_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket210 Goldbach prime-gap-transfer boundary changed")
+
+    twin210 = audit210.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin210_aggregate = twin210.get("aggregate", {})
+    if (
+        [row.get("factorial_parameter_K") for row in twin210.get("factorial_scale_rows", [])]
+        != [8, 16, 32, 64, 128, 256]
+        or not all(
+            row.get("H_at_least_one_quarter_scale")
+            and row.get("all_composite_pair_certificates_hold")
+            and len(row.get("certificate_sha256", "")) == 64
+            for row in twin210.get("factorial_scale_rows", [])
+        )
+        or twin210_aggregate.get("log_over_loglog_scale_twin_deserts_proved")
+        is not True
+        or twin210_aggregate.get("subscale_every_window_positivity_refuted")
+        is not True
+        or twin210_aggregate.get("dyadic_average_phase_lower_bound_proved")
+        is not False
+        or twin210_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket210 Twin scaled-factorial boundary changed")
+
+    if (
+        "resolves none" not in str(audit210.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket210.get("claim_boundary", "")).lower()
+        or machine210.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket210 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -31,16 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-210: Cofinal Lines, Five-One Cycles, Prime-Gap Transfer, and Scaled Twin Deserts](docs/cofinal-fiveone-primegap-scaledtwin.md),
+with a separate [Korean report](docs/cofinal-fiveone-primegap-scaledtwin.ko.md).
+It proves existential cofinal central zero avoidance but refutes its sufficiency
+for RH with a symmetric off-critical countermodel; excludes every accelerated
+Collatz cycle with exactly five valuation-one entries and arbitrary remaining
+valuations at least two; proves an exact prime-gap-to-Goldbach-witness transfer
+while showing the current published gap bound does not improve TICKET-209; and
+quantifies factorial twin-free intervals at a fixed `log X/log log X` local
+scale. These are exact partial or no-go results, not resolutions. Every
+conjecture remains `open_not_proven`; the machine resolution count is zero.
+
+The preserved direct input is
 [TICKET-209: Normalized Boundaries, Four-One Cycles, Covering Congruences, and Factorial Twin Deserts](docs/normalized-fourone-covering-factorial.md),
 with a separate [Korean report](docs/normalized-fourone-covering-factorial.ko.md).
-It proves that a height-independent absolute completed-xi margin is impossible
-and replaces it with a gamma-normalized central-edge target; excludes every
-accelerated Collatz cycle with exactly four valuation-one entries; constructs
-an unbounded sequence with least Goldbach witness above
-`c log N log log N` for an absolute `c>0`; and proves exact cyclotomic
-cancellation on arbitrarily long factorial twin-free intervals. These are
-exact partial or no-go results, not resolutions. Every conjecture remains
-`open_not_proven`; the machine resolution count is zero.
 
 The preserved direct input is
 [TICKET-208: Vertical Clearance, Three-One Cycles, Unit-Log Witnesses, and Cyclotomic Correlations](docs/vertical-threeone-unitlog-cyclotomic.md),
@@ -271,7 +275,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-209 boundary, four exact partial or no-go results, four discarded or recalibrated routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-210 boundary, four exact partial or no-go results, four discarded or recalibrated routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -288,16 +292,18 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-209. The RH track refutes a
-height-independent absolute completed-xi margin and isolates a gamma-normalized
-central-edge task. The Collatz track excludes every cycle with exactly four
-valuation-one entries after an analytic length bound and exact enumeration of
-2,292 remaining words. The Goldbach track raises the least-witness obstruction
-to `c log N log log N` along an unbounded sequence. The Twin track constructs
-arbitrarily long factorial twin-free intervals with exact cyclotomic remainder
-`R_I=-H`. These are partial or no-go results, not solutions. All four
-conjectures remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-210. The RH track proves existential
+cofinal central zero avoidance and gives an exact symmetric countermodel to
+the claim that this property implies RH. The Collatz track excludes every
+cycle with exactly five valuation-one entries after an analytic length cap and
+exact enumeration of 29,758 words. The Goldbach track proves an exact transfer
+from record prime gaps to least witnesses and shows the current gap input is
+weaker than the TICKET-209 floor. The Twin track calibrates factorial deserts at
+`(1/4) log X/log log X`. These are partial or no-go results, not solutions. All
+four conjectures remain open and the machine resolution count is zero.
 See
+[TICKET210 EN](docs/cofinal-fiveone-primegap-scaledtwin.md),
+[TICKET210 KO](docs/cofinal-fiveone-primegap-scaledtwin.ko.md),
 [TICKET209 EN](docs/normalized-fourone-covering-factorial.md),
 [TICKET209 KO](docs/normalized-fourone-covering-factorial.ko.md),
 [TICKET208 EN](docs/vertical-threeone-unitlog-cyclotomic.md),
@@ -405,12 +411,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-209입니다. 리만 트랙은 완성 제타
-절댓값의 높이 독립 cofinal 여유가 불가능함을 증명하고 감마 정규화된 중앙
-경계로 목표를 교정했습니다. 콜라츠 트랙은 valuation `1`이 정확히 네 번인
-모든 주기 영역을 제거했습니다. 골드바흐 트랙은 최소 증인이
-`c log N log log N`보다 큰 무한 수열을 만들었습니다. 쌍둥이 소수 트랙은
-임의 길이 factorial 부재 구간에서 순환 나머지 `R_I=-H`를 증명했습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-210입니다. 리만 트랙은 영점을 피하는
+무한 중앙 높이선의 존재를 증명하고, 그 사실만으로 RH를 추론하는 경로를
+대칭 비임계 반례모형으로 폐기했습니다. 콜라츠 트랙은 valuation `1`이 정확히
+다섯 번인 모든 주기 영역을 제거했습니다. 골드바흐 트랙은 소수 간격에서
+최소 증인으로의 전달을 증명하고 현행 장간격 입력의 한계를 확정했습니다.
+쌍둥이 소수 트랙은 factorial 부재 구간을 `log X/log log X` 크기로
+정량화했습니다.
 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -431,20 +438,20 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-209입니다.
-[정규화 경계·네-1 cycle·덮개 합동식·factorial Twin 한국어 보고서](docs/normalized-fourone-covering-factorial.ko.md)와
-[영문 보고서](docs/normalized-fourone-covering-factorial.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-210입니다.
+[무한 높이선·다섯-1 cycle·소수 간격 전달·크기 보정 Twin 한국어 보고서](docs/cofinal-fiveone-primegap-scaledtwin.ko.md)와
+[영문 보고서](docs/cofinal-fiveone-primegap-scaledtwin.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-RH 절대 cofinal 여유 no-go와 감마 정규화, Collatz 네-1 영역 배제,
-Goldbach 초로그 증인 하한, Twin factorial 완전 상쇄 no-go를 확정했지만
-실제 전역·무한 전제는 남아 있습니다. 각 proof DAG는 TICKET-208 입력,
+RH 존재형 비소멸의 한계, Collatz 다섯-1 영역 배제, Goldbach 소수 간격
+전달의 현행 한계, Twin factorial 부재 구간의 국소 크기를 확정했지만
+실제 전역·무한 전제는 남아 있습니다. 각 proof DAG는 TICKET-209 입력,
 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-209의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 209개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-210의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 210개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

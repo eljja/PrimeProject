@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket210AttemptGlobal = null;
 let ticket209AttemptGlobal = null;
 let ticket208AttemptGlobal = null;
 let ticket207AttemptGlobal = null;
@@ -10005,6 +10006,72 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket210CofinalFiveOnePrimeGapScaledTwin(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.cofinal_fiveone_primegap_scaledtwin_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.countermodel_rows || [];
+    detail = `
+      <div class="poc-equation">P(s)=z⁴+(15/8)z²+289/256, z=s−1/2; off-line zeros but |P(σ+iT)|≥(T²−1)²</div>
+      ${table(["height T", "exact lower bound", "sample minimum", "check"], rows.map((row) => [row.height_T, row.exact_product_distance_lower_bound, row.sampled_minimum_modulus, row.sampled_minimum_respects_exact_lower_bound]))}
+      <div class="poc-head"><div><span>Cofinal zero-avoiding lines</span><strong>${aggregate.existential_cofinal_central_nonvanishing_proved ? "existential" : "open"}</strong></div><div><span>Symmetric off-line model zeros</span><strong>${computation.symmetric_countermodel?.off_critical_zero_count ?? 0}</strong></div><div><span>Effective winding</span><strong>${aggregate.boundary_winding_control_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">고립 영점으로 실제 제타의 중앙 수평선을 피하는 높이는 각 단위 띠마다 존재합니다. 그러나 함수방정식형 대칭을 가진 비임계 영점 다항식도 더 강한 수평 하한을 가지므로, 존재만으로 RH를 추론할 수 없습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.exact_enumeration_rows || [];
+    detail = `
+      <div class="poc-equation">exactly k values v₂=1 ⇒ (6/5)<sup>h</sup>≤2<sup>k</sup>; k=5 ⇒ h≤19 ⇒ 29,758 exact words</div>
+      ${table(["length h", "A min", "A max", "words", "integer cycles"], rows.map((row) => [row.length_h, row.minimum_total_valuation_2h_minus_5, row.maximum_total_valuation_from_minimum_bound, row.enumerated_word_count, row.positive_odd_integer_fixed_point_count]))}
+      <div class="poc-head"><div><span>Five-one stratum</span><strong>${aggregate.exactly_five_valuation_one_cycle_stratum_excluded ? "excluded" : "open"}</strong></div><div><span>Exact words</span><strong>${formatter.format(computation.total_exact_words_enumerated || 0)}</strong></div><div><span>Required count of v=1</span><strong>≥${aggregate.minimum_required_valuation_one_multiplicity_in_nontrivial_cycle ?? "missing"}</strong></div></div>
+      <p class="proof-note">나머지 valuation을 2로 고정하지 않고 임의의 2 이상으로 허용했습니다. h≥20은 곱 부등식으로, h=6..19는 정확 유리수 affine 합성으로 전부 배제했습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.finite_record_gap_rows || [];
+    detail = `
+      <div class="poc-equation">q&lt;r consecutive, g=r−q, N=r−1 ⇒ W(N)&gt;g−2; current gap input is below the TICKET-209 floor</div>
+      ${table(["q", "r", "gap g", "N", "W lower", "actual W"], rows.map((row) => [row.left_prime, row.right_prime, row.record_gap_g, row.even_target_N, row.transferred_strict_lower_bound_W_gt, row.actual_least_witness_in_finite_fixture]))}
+      <div class="poc-head"><div><span>Prime-gap transfer</span><strong>${aggregate.prime_gap_to_least_witness_transfer_proved ? "proved" : "open"}</strong></div><div><span>Improves TICKET-209 floor</span><strong>${aggregate.improves_ticket209_covering_floor ? "yes" : "no"}</strong></div><div><span>Counterexamples found</span><strong>${aggregate.goldbach_counterexample_found ? "yes" : "0"}</strong></div></div>
+      <p class="proof-note">연속 소수 사이의 합성수 구간은 최소 골드바흐 증인 하한으로 정확히 전달됩니다. 다만 현행 장간격 정리의 반복로그 인자는 TICKET-209 바닥보다 작아, 이 경로만으로는 현재 결과를 개선하지 못합니다.</p>
+    `;
+  } else {
+    const rows = computation.factorial_scale_rows || [];
+    detail = `
+      <div class="poc-equation">X=K!, H=K−3 ⇒ twin-free and H≥(1/4) log X/log log X</div>
+      ${table(["K", "X digits", "H", "log X/loglog X", "H / scale", "certified"], rows.map((row) => [row.factorial_parameter_K, row.factorial_base_decimal_digits, row.twin_free_candidate_length_H, row.log_X_over_loglog_X_decimal, row.H_over_log_X_over_loglog_X_decimal, row.all_composite_pair_certificates_hold]))}
+      <div class="poc-head"><div><span>Scaled twin deserts</span><strong>${aggregate.log_over_loglog_scale_twin_deserts_proved ? "proved" : "open"}</strong></div><div><span>Every-window positivity</span><strong>${aggregate.subscale_every_window_positivity_refuted ? "refuted" : "open"}</strong></div><div><span>Dyadic average bound</span><strong>${aggregate.dyadic_average_phase_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">factorial 구간을 단순히 “임의로 길다”에서 끝내지 않고 위치 X에 대한 log X/log log X 크기로 정량화했습니다. 이는 국소 모든-구간 전략만 폐기하며 dyadic 평균 양성은 여전히 가능합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket210-cofinal-fiveone-primegap-scaledtwin" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 210 cofinal lines, five-one cycles, prime-gap transfer, and scaled twin deserts</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET210 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/cofinal-fiveone-primegap-scaledtwin.ko.md">한국어 보고서</a> · <a href="../docs/cofinal-fiveone-primegap-scaledtwin.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket209NormalizedFourOneCoveringFactorial(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.normalized_fourone_covering_factorial_audit || {};
@@ -10055,7 +10122,7 @@ function renderTicket209NormalizedFourOneCoveringFactorial(attempt) {
   }
   return `
     <div id="ticket209-normalized-fourone-covering-factorial" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 209 normalized boundaries, four-one cycles, covering congruences, and factorial twin deserts</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET209 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16021,7 +16088,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket209NormalizedFourOneCoveringFactorial(ticket209AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket210CofinalFiveOnePrimeGapScaledTwin(ticket210AttemptGlobal) ||
+      renderTicket209NormalizedFourOneCoveringFactorial(ticket209AttemptGlobal) ||
       renderTicket208VerticalThreeOneUnitLogCyclotomic(ticket208AttemptGlobal) ||
       renderTicket207DihedralTwoOneLogWitnessAbel(ticket207AttemptGlobal) ||
       renderTicket206AdaptiveSingleOneCrtProjector(ticket206AttemptGlobal) ||
@@ -16370,6 +16438,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket210Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket210-cofinal-fiveone-primegap-scaledtwin.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket210AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket210AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket210AttemptGlobal) {
+      ticket210AttemptGlobal.bounded_result = ticket210AttemptGlobal.bounded_result || {};
+      ticket210AttemptGlobal.bounded_result.cofinal_fiveone_primegap_scaledtwin_audit = payload.cofinal_fiveone_primegap_scaledtwin_audit || {};
+    }
+    return Boolean(ticket210AttemptGlobal);
+  } catch (_error) {
+    ticket210AttemptGlobal = null;
     return false;
   }
 }
@@ -17923,9 +18011,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket209Loaded = await loadTicket209Attempt();
+  const ticket210Loaded = await loadTicket210Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket209-current";
+  document.documentElement.dataset.openProblemCache = "ticket210-current";
+  const ticket209Loaded = await loadTicket209Attempt();
   const ticket208Loaded = await loadTicket208Attempt();
   const ticket207Loaded = await loadTicket207Attempt();
   const ticket206Loaded = await loadTicket206Attempt();
@@ -17967,8 +18056,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket210AttemptGlobal) await loadTicket210Attempt();
     if (!ticket209AttemptGlobal) await loadTicket209Attempt();
     if (!ticket208AttemptGlobal) await loadTicket208Attempt();
     if (!ticket207AttemptGlobal) await loadTicket207Attempt();
@@ -18056,7 +18146,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket208-current";
+  document.documentElement.dataset.openProblemCache = "ticket210-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {
