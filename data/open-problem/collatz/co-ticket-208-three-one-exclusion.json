@@ -1,0 +1,150 @@
+{
+  "schema": "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1",
+  "generated_at": "2026-08-10T18:40:00+09:00",
+  "ticket_id": "CO-TICKET-208",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ThreeOneAcceleratedCycleFiniteEnumerationExclusion",
+  "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly three valuation entries equal to one and every remaining valuation at least two. Together with TICKETS 206 and 207, every hypothetical nontrivial positive cycle must contain at least four valuation-one entries.",
+  "mathematical_argument": "Rotate a hypothetical cycle to its minimum odd value m>=3. Its first valuation is one, because a valuation at least two maps m below itself; its last valuation is at least two, because (3x+1)/2>x for x>=m. If A is the total valuation and h the length, multiplying the cycle ratios gives 2^A=product_i(3+1/x_i)<= (10/3)^h. Exactly three ones and all other valuations at least two give A>=2h-3. At h=12, 2^(2h-3)3^h>10^h, and the ratio grows by 6/5 per additional step, so all h>=12 are impossible. For 4<=h<=11 the same product inequality bounds A, leaving exactly 185 valuation words after fixing the minimum rotation. Exact affine composition gives the unique possible fixed point for each word; none is a positive odd integer.",
+  "reproducible_computation": {
+    "theorem": "No nontrivial positive accelerated Collatz cycle has exactly three valuation entries equal to one and every remaining valuation at least two. Together with TICKETS 206 and 207, every hypothetical nontrivial positive cycle must contain at least four valuation-one entries.",
+    "proof": "Rotate a hypothetical cycle to its minimum odd value m>=3. Its first valuation is one, because a valuation at least two maps m below itself; its last valuation is at least two, because (3x+1)/2>x for x>=m. If A is the total valuation and h the length, multiplying the cycle ratios gives 2^A=product_i(3+1/x_i)<= (10/3)^h. Exactly three ones and all other valuations at least two give A>=2h-3. At h=12, 2^(2h-3)3^h>10^h, and the ratio grows by 6/5 per additional step, so all h>=12 are impossible. For 4<=h<=11 the same product inequality bounds A, leaving exactly 185 valuation words after fixing the minimum rotation. Exact affine composition gives the unique possible fixed point for each word; none is a positive odd integer.",
+    "cycle_product_identity": "2^A=product_i(3+1/x_i)",
+    "minimum_orbit_bound": "x_i>=m>=3 implies 2^A*3^h<=10^h",
+    "exact_enumeration_rows": [
+      {
+        "length_h": 4,
+        "minimum_total_valuation_2h_minus_3": 5,
+        "maximum_total_valuation_from_minimum_bound": 6,
+        "enumerated_word_count": 2,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "4cde9aa92c8233b4997579ae543a1c4d1027fbf8e23556b0a2095753c6d7f014"
+      },
+      {
+        "length_h": 5,
+        "minimum_total_valuation_2h_minus_3": 7,
+        "maximum_total_valuation_from_minimum_bound": 8,
+        "enumerated_word_count": 9,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "d4574b3178548c2706f93cd04acc78124dd1ede65ead2f721517726e4e46a506"
+      },
+      {
+        "length_h": 6,
+        "minimum_total_valuation_2h_minus_3": 9,
+        "maximum_total_valuation_from_minimum_bound": 10,
+        "enumerated_word_count": 24,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "01f630bf87f62812de0d85e2d3c9ed46b00547b493c392b8e2e8b33831d967ca"
+      },
+      {
+        "length_h": 7,
+        "minimum_total_valuation_2h_minus_3": 11,
+        "maximum_total_valuation_from_minimum_bound": 12,
+        "enumerated_word_count": 50,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "3378c81748b4e123f9e9f12d12be5fd4ce7021c598a00ef957c3a7c2d794562d"
+      },
+      {
+        "length_h": 8,
+        "minimum_total_valuation_2h_minus_3": 13,
+        "maximum_total_valuation_from_minimum_bound": 13,
+        "enumerated_word_count": 15,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "a53dd951c1ffe8a45cd0cb7608041e2111c3550a656df7b36e1a79dafe7a6311"
+      },
+      {
+        "length_h": 9,
+        "minimum_total_valuation_2h_minus_3": 15,
+        "maximum_total_valuation_from_minimum_bound": 15,
+        "enumerated_word_count": 21,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "a9405d5c52a0fa4a851005c87352aca9d9da82d6ec66cf3de64f6dcc55102643"
+      },
+      {
+        "length_h": 10,
+        "minimum_total_valuation_2h_minus_3": 17,
+        "maximum_total_valuation_from_minimum_bound": 17,
+        "enumerated_word_count": 28,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "550a3fc0012ac0ddc5bad6f2f2c9d221b0d39ca63b1e58d79c130d898da1250a"
+      },
+      {
+        "length_h": 11,
+        "minimum_total_valuation_2h_minus_3": 19,
+        "maximum_total_valuation_from_minimum_bound": 19,
+        "enumerated_word_count": 36,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "decaf66ebf7be6fd9a8b59e7f410f52337bc4e69da805e326a27759d8e480ba0"
+      }
+    ],
+    "total_exact_words_enumerated": 185,
+    "positive_odd_integer_fixed_point_candidates": [],
+    "length_at_least_twelve_exclusion": {
+      "left_2_pow_21_times_3_pow_12": "1114512556032",
+      "right_10_pow_12": "1000000000000",
+      "left_exceeds_right": true,
+      "growth_factor_per_extra_length": "6/5"
+    },
+    "aggregate": {
+      "exactly_three_valuation_one_cycle_stratum_excluded": true,
+      "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 4,
+      "four_or_more_one_necklaces_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This is a complete finite proof for one periodic valuation stratum. It does not exclude cycles with four or more valuation-one entries and does not prove descent of nonperiodic orbits.",
+    "failure_count": 0
+  },
+  "discarded_route": "searching any exactly-three-valuation-one word for a positive accelerated cycle",
+  "remaining_gap": "Cycles with at least four valuation-one entries and all nonperiodic divergent orbits remain open.",
+  "candidate_theorem": "UniformExclusionForPrimitiveValuationNecklacesWithExactlyFourOnes",
+  "claim_boundary": "No Collatz proof or divergent orbit counterexample. The complete exactly-three-valuation-one periodic stratum is excluded by an exact finite proof.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T207",
+        "label": "TwoOneArbitraryGeTwoValuationCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T208",
+        "label": "ThreeOneAcceleratedCycleFiniteEnumerationExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N208",
+        "label": "ExactlyThreeValuationOnesCanSupportAPositiveCycle",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN208",
+        "label": "UniformExclusionForPrimitiveValuationNecklacesWithExactlyFourOnes",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T207",
+        "CO-T208"
+      ],
+      [
+        "CO-T208",
+        "CO-N208"
+      ],
+      [
+        "CO-T208",
+        "CO-OPEN208"
+      ],
+      [
+        "CO-OPEN208",
+        "CO"
+      ]
+    ]
+  }
+}

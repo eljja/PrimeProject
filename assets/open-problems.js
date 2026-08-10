@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket208AttemptGlobal = null;
 let ticket207AttemptGlobal = null;
 let ticket206AttemptGlobal = null;
 let ticket205AttemptGlobal = null;
@@ -10003,6 +10004,72 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket208VerticalThreeOneUnitLogCyclotomic(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.vertical_threeone_unitlog_cyclotomic_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.vertical_clearance_rows || [];
+    detail = `
+      <div class="poc-equation">|ξ(2+it)| ≥ B(T)=(π/15)√((πT/2)/sinh(πT/2)) &gt; 0 for |t|≤T</div>
+      ${table(["height T", "uniform lower bound", "positive", "monotone"], rows.map((row) => [row.height_T, row.uniform_vertical_clearance_lower_decimal, row.positive, row.not_larger_than_previous_height]))}
+      <div class="poc-head"><div><span>Vertical sides</span><strong>${aggregate.explicit_sigma_two_vertical_clearance_proved ? "cleared" : "open"}</strong></div><div><span>Horizontal cofinal edge</span><strong>${aggregate.horizontal_cofinal_clearance_proved ? "cleared" : "open"}</strong></div><div><span>Vertical-only RH route</span><strong>${aggregate.vertical_clearance_alone_implies_rh_refuted ? "refuted" : "open"}</strong></div></div>
+      <p class="proof-note">Euler 곱의 ζ(4)/ζ(2) 하한과 정확한 감마 절댓값 항등식으로 Re(s)=2,-1 두 수직변을 닫았습니다. 남은 핵심은 무한히 커지는 수평변의 완성 제타 양의 하한입니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.exact_enumeration_rows || [];
+    detail = `
+      <div class="poc-equation">2<sup>A</sup>=∏(3+1/x<sub>i</sub>)≤(10/3)<sup>h</sup>, exactly three v₂=1 ⇒ h≤11 ⇒ 185 exact words</div>
+      ${table(["length h", "A min", "A max", "words", "integer cycles"], rows.map((row) => [row.length_h, row.minimum_total_valuation_2h_minus_3, row.maximum_total_valuation_from_minimum_bound, row.enumerated_word_count, row.positive_odd_integer_fixed_point_count]))}
+      <div class="poc-head"><div><span>Three-one stratum</span><strong>${aggregate.exactly_three_valuation_one_cycle_stratum_excluded ? "excluded" : "open"}</strong></div><div><span>Exact words</span><strong>${computation.total_exact_words_enumerated ?? 0}</strong></div><div><span>Required count of v=1</span><strong>≥${aggregate.minimum_required_valuation_one_multiplicity_in_nontrivial_cycle ?? "missing"}</strong></div></div>
+      <p class="proof-note">주기 곱 항등식이 h≥12를 전부 배제하고, h=4..11의 valuation 총합도 유한화합니다. 남은 185개 단어의 유일 유리 고정점 중 양의 홀수 정수는 없습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.crt_unit_log_fixture_rows || [];
+    detail = `
+      <div class="poc-equation">∀c&lt;1, infinitely many even N satisfy W(N)&gt;c log N; limsup W(N)/log N ≥ 1</div>
+      ${table(["B", "blocked primes", "largest q", "N bits", "B/log N"], rows.map((row) => [row.witness_bound_B, row.odd_witness_count, row.largest_forcing_prime, row.N_bit_length, row.observed_B_over_natural_log_N_decimal]))}
+      <div class="poc-head"><div><span>Unit-log limsup</span><strong>${aggregate.unit_constant_limsup_lower_bound_proved ? "proved" : "open"}</strong></div><div><span>Fixed c&lt;1 window</span><strong>${aggregate.every_fixed_c_below_one_witness_window_refuted ? "refuted" : "open"}</strong></div><div><span>Counterexamples found</span><strong>${aggregate.goldbach_counterexample_found ? "yes" : "0"}</strong></div></div>
+      <p class="proof-note">소수정리와 CRT의 자원량을 맞춰 TICKET-207의 1/3 상수를 모든 c&lt;1로 강화했습니다. 더 큰 소수 증인이 남으므로 골드바흐 반례는 아닙니다.</p>
+    `;
+  } else {
+    const rows = computation.interval_reconstruction_rows || [];
+    detail = `
+      <div class="poc-equation">M²T<sub>I</sub>=H+R<sub>I</sub>; twin-free interval ⇒ R<sub>I</sub>=−H</div>
+      ${table(["interval", "M", "twins", "zero mode", "nonzero aggregate", "exact"], rows.map((row) => [row.interval, row.cyclotomic_modulus_M, row.exact_twin_count_T, row.zero_mode_raw_contribution, row.all_nonzero_modes_raw_aggregate, row.reconstruction_exact]))}
+      <div class="poc-head"><div><span>Growing projector</span><strong>${aggregate.growing_cyclotomic_prime_projector_proved ? "exact" : "open"}</strong></div><div><span>Zero-mode positivity</span><strong>${aggregate.positive_zero_mode_alone_suffices_refuted ? "insufficient" : "open"}</strong></div><div><span>Cofinal remainder bound</span><strong>${aggregate.cofinal_nonzero_mode_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">Omega의 성장형 순환 푸리에 필터는 유한 쌍둥이 개수를 정확히 복원합니다. 그러나 쌍둥이가 없는 구간에서는 비영 모드가 양의 zero mode를 정확히 상쇄하며, 고정 차원 필터는 합성수를 소수로 alias합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket208-vertical-threeone-unitlog-cyclotomic" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 208 vertical clearance, three-one cycles, unit-log witnesses, and cyclotomic correlations</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET208 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/vertical-threeone-unitlog-cyclotomic.ko.md">한국어 보고서</a> · <a href="../docs/vertical-threeone-unitlog-cyclotomic.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket207DihedralTwoOneLogWitnessAbel(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.dihedral_twoone_logwitness_abel_audit || {};
@@ -10054,7 +10121,7 @@ function renderTicket207DihedralTwoOneLogWitnessAbel(attempt) {
   }
   return `
     <div id="ticket207-dihedral-twoone-logwitness-abel" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 207 dihedral boundaries, two-one cycles, logarithmic witnesses, and Abel leakage</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET207 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -15887,7 +15954,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket207DihedralTwoOneLogWitnessAbel(ticket207AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket208VerticalThreeOneUnitLogCyclotomic(ticket208AttemptGlobal) ||
+      renderTicket207DihedralTwoOneLogWitnessAbel(ticket207AttemptGlobal) ||
       renderTicket206AdaptiveSingleOneCrtProjector(ticket206AttemptGlobal) ||
       renderTicket205WindingExtremalFiniteOmega(ticket205AttemptGlobal) ||
       renderTicket204MeshNecklaceExceptionalKernel(ticket204AttemptGlobal) ||
@@ -16234,6 +16302,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket208Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket208AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket208AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket208AttemptGlobal) {
+      ticket208AttemptGlobal.bounded_result = ticket208AttemptGlobal.bounded_result || {};
+      ticket208AttemptGlobal.bounded_result.vertical_threeone_unitlog_cyclotomic_audit = payload.vertical_threeone_unitlog_cyclotomic_audit || {};
+    }
+    return Boolean(ticket208AttemptGlobal);
+  } catch (_error) {
+    ticket208AttemptGlobal = null;
     return false;
   }
 }
@@ -17747,9 +17835,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket207Loaded = await loadTicket207Attempt();
+  const ticket208Loaded = await loadTicket208Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket207-current";
+  document.documentElement.dataset.openProblemCache = "ticket208-current";
+  const ticket207Loaded = await loadTicket207Attempt();
   const ticket206Loaded = await loadTicket206Attempt();
   const ticket205Loaded = await loadTicket205Attempt();
   const ticket204Loaded = await loadTicket204Attempt();
@@ -17789,8 +17878,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket208AttemptGlobal) await loadTicket208Attempt();
     if (!ticket207AttemptGlobal) await loadTicket207Attempt();
     if (!ticket206AttemptGlobal) await loadTicket206Attempt();
     if (!ticket205AttemptGlobal) await loadTicket205Attempt();
@@ -17876,7 +17966,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket207-current";
+  document.documentElement.dataset.openProblemCache = "ticket208-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

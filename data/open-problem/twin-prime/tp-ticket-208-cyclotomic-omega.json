@@ -1,0 +1,553 @@
+{
+  "schema": "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1",
+  "generated_at": "2026-08-10T18:40:00+09:00",
+  "ticket_id": "TP-TICKET-208",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "GrowingCyclotomicOmegaProjectorAndZeroModeCancellationNoGo",
+  "declared_proposition": "Let I be an interval of H integers and let L=floor(log_2(max(I)+2)), M=L+1, and omega=exp(2 pi i/M). Since Omega(n)<=L, the root-of-unity filter delta_{Omega(n),1}=M^(-1)sum_{j=0}^{M-1}omega^{j(Omega(n)-1)} is exact on I and I+2. Consequently the twin count T_I is an exact M-by-M signed cyclotomic correlation. Its zero mode contributes H/M^2, while all nonzero modes contribute T_I-H/M^2. In a twin-free interval they cancel the positive zero mode exactly. Any fixed M aliases the composite multiplicity 1+M with primes, so the spectral dimension must grow with the interval.",
+  "mathematical_argument": "Finite cyclic character orthogonality gives M^(-1)sum_j omega^{j(m-1)} equal to one exactly when m=1 mod M. The bound 0<=Omega(n)<=L<M turns this congruence into equality. Multiplying the two filters and summing over n in I gives the double correlation formula. The (0,0) term is H, so after removing it the raw nonzero-mode aggregate is M^2 T_I-H. For fixed M, m=1+M passes the same filter, and n=2^(1+M) is an explicit composite with that multiplicity. Hence neither a positive zero mode nor a fixed-dimensional phase model proves twin positivity.",
+  "reproducible_computation": {
+    "theorem": "Let I be an interval of H integers and let L=floor(log_2(max(I)+2)), M=L+1, and omega=exp(2 pi i/M). Since Omega(n)<=L, the root-of-unity filter delta_{Omega(n),1}=M^(-1)sum_{j=0}^{M-1}omega^{j(Omega(n)-1)} is exact on I and I+2. Consequently the twin count T_I is an exact M-by-M signed cyclotomic correlation. Its zero mode contributes H/M^2, while all nonzero modes contribute T_I-H/M^2. In a twin-free interval they cancel the positive zero mode exactly. Any fixed M aliases the composite multiplicity 1+M with primes, so the spectral dimension must grow with the interval.",
+    "proof": "Finite cyclic character orthogonality gives M^(-1)sum_j omega^{j(m-1)} equal to one exactly when m=1 mod M. The bound 0<=Omega(n)<=L<M turns this congruence into equality. Multiplying the two filters and summing over n in I gives the double correlation formula. The (0,0) term is H, so after removing it the raw nonzero-mode aggregate is M^2 T_I-H. For fixed M, m=1+M passes the same filter, and n=2^(1+M) is an explicit composite with that multiplicity. Hence neither a positive zero mode nor a fixed-dimensional phase model proves twin positivity.",
+    "exact_projector_identity": "1_{Omega(n)=1}=M^(-1) sum_{j=0}^{M-1} exp(2*pi*i*j*(Omega(n)-1)/M), provided M>Omega(n)",
+    "exact_correlation_identity": "M^2*T_I=H+R_I, where R_I is the aggregate of all nonzero frequency pairs",
+    "interval_reconstruction_rows": [
+      {
+        "interval": "(24,28]",
+        "length_H": 4,
+        "omega_upper_bound_L": 4,
+        "cyclotomic_modulus_M": 5,
+        "exact_twin_count_T": 0,
+        "zero_mode_raw_contribution": 4,
+        "all_nonzero_modes_raw_aggregate": -4,
+        "normalized_zero_mode": "4/25",
+        "normalized_nonzero_modes": "-4/25",
+        "spectral_reconstruction": "0",
+        "reconstruction_exact": true,
+        "nonzero_modes_exactly_cancel_zero_mode_when_twin_free": true,
+        "nonzero_histogram_cells": [
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 3,
+            "count": 2
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 1,
+            "count": 1
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 3,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "interval": "(32,64]",
+        "length_H": 32,
+        "omega_upper_bound_L": 6,
+        "cyclotomic_modulus_M": 7,
+        "exact_twin_count_T": 2,
+        "zero_mode_raw_contribution": 32,
+        "all_nonzero_modes_raw_aggregate": 66,
+        "normalized_zero_mode": "32/49",
+        "normalized_nonzero_modes": "66/49",
+        "spectral_reconstruction": "2",
+        "reconstruction_exact": true,
+        "nonzero_modes_exactly_cancel_zero_mode_when_twin_free": true,
+        "nonzero_histogram_cells": [
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 1,
+            "count": 2
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 2,
+            "count": 3
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 3,
+            "count": 2
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 1,
+            "count": 4
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 2,
+            "count": 3
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 4,
+            "count": 3
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 5,
+            "count": 1
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 6,
+            "count": 1
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 1,
+            "count": 1
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 2,
+            "count": 2
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 3,
+            "count": 2
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 4,
+            "count": 1
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 2,
+            "count": 3
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 3,
+            "count": 1
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 4,
+            "count": 1
+          },
+          {
+            "omega_n": 5,
+            "omega_n_plus_2": 3,
+            "count": 1
+          },
+          {
+            "omega_n": 6,
+            "omega_n_plus_2": 3,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "interval": "(64,128]",
+        "length_H": 64,
+        "omega_upper_bound_L": 7,
+        "cyclotomic_modulus_M": 8,
+        "exact_twin_count_T": 3,
+        "zero_mode_raw_contribution": 64,
+        "all_nonzero_modes_raw_aggregate": 128,
+        "normalized_zero_mode": "1",
+        "normalized_nonzero_modes": "2",
+        "spectral_reconstruction": "3",
+        "reconstruction_exact": true,
+        "nonzero_modes_exactly_cancel_zero_mode_when_twin_free": true,
+        "nonzero_histogram_cells": [
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 1,
+            "count": 3
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 2,
+            "count": 6
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 3,
+            "count": 3
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 4,
+            "count": 1
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 1,
+            "count": 6
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 2,
+            "count": 5
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 3,
+            "count": 4
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 4,
+            "count": 2
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 5,
+            "count": 2
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 6,
+            "count": 1
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 1,
+            "count": 3
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 2,
+            "count": 4
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 3,
+            "count": 4
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 4,
+            "count": 3
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 5,
+            "count": 3
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 1,
+            "count": 1
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 2,
+            "count": 2
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 3,
+            "count": 2
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 4,
+            "count": 1
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 7,
+            "count": 1
+          },
+          {
+            "omega_n": 5,
+            "omega_n_plus_2": 2,
+            "count": 3
+          },
+          {
+            "omega_n": 5,
+            "omega_n_plus_2": 3,
+            "count": 2
+          },
+          {
+            "omega_n": 6,
+            "omega_n_plus_2": 3,
+            "count": 1
+          },
+          {
+            "omega_n": 7,
+            "omega_n_plus_2": 3,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "interval": "(128,256]",
+        "length_H": 128,
+        "omega_upper_bound_L": 8,
+        "cyclotomic_modulus_M": 9,
+        "exact_twin_count_T": 7,
+        "zero_mode_raw_contribution": 128,
+        "all_nonzero_modes_raw_aggregate": 439,
+        "normalized_zero_mode": "128/81",
+        "normalized_nonzero_modes": "439/81",
+        "spectral_reconstruction": "7",
+        "reconstruction_exact": true,
+        "nonzero_modes_exactly_cancel_zero_mode_when_twin_free": true,
+        "nonzero_histogram_cells": [
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 1,
+            "count": 7
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 2,
+            "count": 9
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 3,
+            "count": 5
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 4,
+            "count": 1
+          },
+          {
+            "omega_n": 1,
+            "omega_n_plus_2": 5,
+            "count": 1
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 1,
+            "count": 8
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 2,
+            "count": 13
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 3,
+            "count": 5
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 4,
+            "count": 7
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 5,
+            "count": 3
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 6,
+            "count": 3
+          },
+          {
+            "omega_n": 2,
+            "omega_n_plus_2": 8,
+            "count": 1
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 1,
+            "count": 6
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 2,
+            "count": 6
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 3,
+            "count": 7
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 4,
+            "count": 7
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 5,
+            "count": 1
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 6,
+            "count": 2
+          },
+          {
+            "omega_n": 3,
+            "omega_n_plus_2": 7,
+            "count": 1
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 1,
+            "count": 3
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 2,
+            "count": 4
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 3,
+            "count": 7
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 4,
+            "count": 4
+          },
+          {
+            "omega_n": 4,
+            "omega_n_plus_2": 5,
+            "count": 2
+          },
+          {
+            "omega_n": 5,
+            "omega_n_plus_2": 2,
+            "count": 3
+          },
+          {
+            "omega_n": 5,
+            "omega_n_plus_2": 3,
+            "count": 4
+          },
+          {
+            "omega_n": 5,
+            "omega_n_plus_2": 4,
+            "count": 1
+          },
+          {
+            "omega_n": 6,
+            "omega_n_plus_2": 2,
+            "count": 3
+          },
+          {
+            "omega_n": 6,
+            "omega_n_plus_2": 3,
+            "count": 1
+          },
+          {
+            "omega_n": 6,
+            "omega_n_plus_2": 5,
+            "count": 1
+          },
+          {
+            "omega_n": 7,
+            "omega_n_plus_2": 2,
+            "count": 1
+          },
+          {
+            "omega_n": 8,
+            "omega_n_plus_2": 3,
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "fixed_dimension_alias_rows": [
+      {
+        "fixed_modulus_M": 2,
+        "composite_multiplicity_1_plus_M": 3,
+        "explicit_composite": "8",
+        "root_filter_accepts_as_omega_congruent_to_one": true,
+        "is_prime": false
+      },
+      {
+        "fixed_modulus_M": 3,
+        "composite_multiplicity_1_plus_M": 4,
+        "explicit_composite": "16",
+        "root_filter_accepts_as_omega_congruent_to_one": true,
+        "is_prime": false
+      },
+      {
+        "fixed_modulus_M": 5,
+        "composite_multiplicity_1_plus_M": 6,
+        "explicit_composite": "64",
+        "root_filter_accepts_as_omega_congruent_to_one": true,
+        "is_prime": false
+      },
+      {
+        "fixed_modulus_M": 7,
+        "composite_multiplicity_1_plus_M": 8,
+        "explicit_composite": "256",
+        "root_filter_accepts_as_omega_congruent_to_one": true,
+        "is_prime": false
+      }
+    ],
+    "aggregate": {
+      "growing_cyclotomic_prime_projector_proved": true,
+      "finite_twin_correlation_reconstruction_proved": true,
+      "positive_zero_mode_alone_suffices_refuted": true,
+      "fixed_dimension_exactness_refuted": true,
+      "cofinal_nonzero_mode_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The identity exactly re-encodes finite factorization data. It gives no independent lower bound on the growing family of nonzero Omega-phase correlations and therefore proves no cofinal twin positivity.",
+    "failure_count": 0
+  },
+  "discarded_route": "using the positive cyclotomic zero mode or any fixed phase dimension as a twin-prime lower bound",
+  "remaining_gap": "No uniform lower bound keeps the aggregate growing nonzero Omega-phase remainder strictly above minus the interval length.",
+  "candidate_theorem": "CofinalDyadicOmegaPhaseRemainderStrictlyAboveMinusIntervalLength",
+  "claim_boundary": "No Twin Prime proof or counterexample. A growing signed finite reconstruction and its exact zero-mode cancellation obstruction are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T207",
+        "label": "AbelOmegaProjectorClosedFormFiniteReconstructionAndPositivityCircularityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T208",
+        "label": "GrowingCyclotomicOmegaProjectorAndZeroModeCancellationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N208",
+        "label": "PositiveOrFixedDimensionalOmegaZeroModeForcesTwinPrimes",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN208",
+        "label": "CofinalDyadicOmegaPhaseRemainderStrictlyAboveMinusIntervalLength",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T207",
+        "TP-T208"
+      ],
+      [
+        "TP-T208",
+        "TP-N208"
+      ],
+      [
+        "TP-T208",
+        "TP-OPEN208"
+      ],
+      [
+        "TP-OPEN208",
+        "TP"
+      ]
+    ]
+  }
+}

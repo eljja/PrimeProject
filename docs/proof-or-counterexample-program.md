@@ -37,7 +37,30 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-207 Dihedral Boundaries, Two-One Cycles, Logarithmic Witnesses, and Abel Leakage
+## 2026-08-10 TICKET-208 Vertical Clearance, Three-One Cycles, Unit-Log Witnesses, and Cyclotomic Correlations
+
+TICKET-208 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. both completed-xi vertical sides have an explicit positive lower bound at
+   every finite height, while vertical nonvanishing alone cannot locate all
+   interior zeros;
+2. no nontrivial positive accelerated Collatz cycle has exactly three
+   valuation-one entries;
+3. for every fixed `c < 1`, an unbounded sequence has least Goldbach witness
+   above `c log N`, without producing a Goldbach counterexample;
+4. a growing cyclotomic Omega projector exactly reconstructs finite interval
+   twin counts, while twin-free intervals exhibit exact zero-mode cancellation.
+
+The completed-xi cofinal top-edge clearance, four-one Collatz necklaces,
+Goldbach tail exceptional estimate below one beyond the unit-log floor, and
+strict cofinal Twin nonzero-mode remainder bound are not proved. The machine
+resolution count remains zero.
+
+English report: [TICKET-208](vertical-threeone-unitlog-cyclotomic.md).
+한국어 보고서: [TICKET-208](vertical-threeone-unitlog-cyclotomic.ko.md).
+
+## Preserved: 2026-08-10 TICKET-207 Dihedral Boundaries, Two-One Cycles, Logarithmic Witnesses, and Abel Leakage
 
 TICKET-207 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

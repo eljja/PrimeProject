@@ -62,22 +62,38 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-207
+## Latest Continuation After TICKET-208
 
-TICKET-207 is the current boundary. It resolves none of the four conjectures
-and narrows the exact premises left by TICKET-206:
+TICKET-208 is the current boundary. It resolves none of the four conjectures
+and narrows the exact premises left by TICKET-207:
 
-1. **Riemann:** completed-xi rectangle certification reduces to a dihedral
-   fundamental boundary, but the same symmetries alone do not force critical-
-   line zeros. Rigorous cofinal interval lower bounds remain open.
-2. **Collatz:** every positive cycle with exactly two valuation-one entries and
-   all other valuations at least two is excluded. At least three ones and
-   nonperiodic divergence remain open.
-3. **Goldbach:** an unbounded CRT sequence forces the least witness above
-   `(1/3) log N`. This is a witness lower bound, not an exception.
-4. **Twin Prime:** the Abel-Omega projector exactly reconstructs finite dyadic
-   twin counts after flooring, but its positivity is not independent. A signed
-   main term with controlled tail remains open.
+1. **Riemann:** both vertical sides of every finite completed-xi rectangle have
+   an explicit positive clearance. The cofinal horizontal top-edge bound
+   remains open.
+2. **Collatz:** every positive cycle with exactly three valuation-one entries
+   is excluded. Exactly four ones and nonperiodic divergence remain open.
+3. **Goldbach:** for every fixed `c < 1`, an unbounded sequence forces the least
+   witness above `c log N`. This is a witness lower bound, not an exception.
+4. **Twin Prime:** a growing cyclotomic Omega projector exactly reconstructs
+   finite interval twin counts, but nonzero modes can cancel its zero mode
+   exactly. A cofinal strict remainder bound remains open.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json
+```
+
+English report: [TICKET-208](vertical-threeone-unitlog-cyclotomic.md).
+Korean report: [TICKET-208 한국어](vertical-threeone-unitlog-cyclotomic.ko.md).
+
+All four results distinguish a proved infinite subfamily theorem from the
+unproved parent conjecture. No novelty-priority claim is made without expert
+review.
+
+## Preserved Continuation After TICKET-207
+
+TICKET-207 is preserved as the direct input to TICKET-208.
 
 Canonical JSON:
 
@@ -87,23 +103,6 @@ data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json
 
 English report: [TICKET-207](dihedral-twoone-logwitness-abel.md).
 Korean report: [TICKET-207 한국어](dihedral-twoone-logwitness-abel.ko.md).
-
-All four results distinguish a proved infinite subfamily theorem from the
-unproved parent conjecture. No novelty-priority claim is made without expert
-review.
-
-## Preserved Continuation After TICKET-206
-
-TICKET-206 is preserved as the direct input to TICKET-207.
-
-Canonical JSON:
-
-```text
-data/open-problem/ticket206-adaptive-singleone-crt-projector.json
-```
-
-English report: [TICKET-206](adaptive-singleone-crt-projector.md).
-Korean report: [TICKET-206 한국어](adaptive-singleone-crt-projector.ko.md).
 
 ## Preserved Continuation After TICKET-205
 

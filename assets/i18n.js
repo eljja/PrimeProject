@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-207 reduces completed-xi boundary certification, excludes the complete two-one Collatz cycle stratum, forces logarithmic Goldbach witnesses, and proves the Abel-projector positivity no-go.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-207은 완성 제타 경계 인증을 대칭 기본영역으로 축소하고, valuation 1이 정확히 두 개인 콜라츠 cycle 전체를 배제하며, 골드바흐 최소 증인의 로그 하한과 Abel projector 양성의 순환성 no-go를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-208 clears both completed-xi vertical sides, excludes the complete three-one Collatz cycle stratum, raises the Goldbach witness obstruction to every constant below one, and proves an exact growing cyclotomic twin correlation with a cancellation no-go.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-208은 완성 제타 직사각형의 두 수직변을 명시적 하한으로 닫고, valuation 1이 정확히 세 개인 콜라츠 주기 전체를 배제하며, 골드바흐 최소 증인의 하한을 모든 c<1까지 강화하고, 성장형 순환 푸리에 쌍둥이 상관의 정확 복원과 상쇄 한계를 증명합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

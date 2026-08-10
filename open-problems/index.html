@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket207-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket208-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-207</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-208</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-207 actually changed</h2>
-          <p>TICKET-207 did not solve a conjecture. It reduces completed-xi rectangle certification to a dihedral fundamental boundary and refutes symmetry-only reasoning, excludes every accelerated Collatz cycle with exactly two valuation-one entries, forces logarithmic least Goldbach witnesses along an unbounded CRT sequence, and derives an exact Abel-Omega finite reconstruction while proving that its positivity is not independent.</p>
-          <p class="proof-boundary">TICKET-207은 난제를 해결하지 않았습니다. 리만 트랙은 완성 제타 직사각형 인증을 위쪽 변과 오른쪽 위 절반으로 축소하고 대칭만으로는 부족함을 반례 함수로 보입니다. 콜라츠 트랙은 valuation 1이 정확히 두 번인 모든 양의 비자명 주기를 배제합니다. 골드바흐 트랙은 최소 소수 증인이 로그 규모를 넘는 무한 CRT 수열을 만듭니다. 쌍둥이 소수 트랙은 Abel-Omega 유한 복원을 정확히 증명하지만 그 양성이 독립적 하한이 아님을 확정합니다.</p>
+          <h2>What TICKET-208 actually changed</h2>
+          <p>TICKET-208 did not solve a conjecture. It proves explicit positive clearance on both completed-xi vertical sides of every finite symmetric rectangle, excludes every accelerated Collatz cycle with exactly three valuation-one entries, forces least Goldbach witnesses above c log N for every fixed c&lt;1 along unbounded sequences, and derives an exact growing cyclotomic twin correlation while proving that its positive zero mode can be cancelled exactly.</p>
+          <p class="proof-boundary">TICKET-208은 난제를 해결하지 않았습니다. 리만 트랙은 모든 유한 높이에서 완성 제타 직사각형의 두 수직변을 명시적 양의 하한으로 닫았습니다. 콜라츠 트랙은 valuation 1이 정확히 세 번인 모든 양의 비자명 주기를 배제했습니다. 골드바흐 트랙은 모든 고정 c&lt;1에 대해 최소 소수 증인이 c log N을 넘는 무한 수열을 구성했습니다. 쌍둥이 소수 트랙은 성장형 순환 푸리에 필터의 정확 복원과 zero mode의 완전 상쇄 가능성을 함께 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Completed-xi boundary values and extrema reduce to the top edge plus the upper-right half-edge.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Reflection and conjugation symmetry alone do not force critical-line zeros.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Rigorous completed-xi interval bounds on cofinal reduced boundaries.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Both vertical sides have an explicit positive completed-xi clearance at every finite height.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Vertical nonvanishing alone does not determine the location of interior zeros.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Certified completed-xi top-edge clearance on cofinal admissible heights.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>F_c(s)=(s-1/2)^2-c^2</code>는 같은 대칭과 임계선 밖 영점을 함께 가져 symmetry-only 경로를 반증합니다. 실제 Xi의 cofinal 엄밀 하한은 아직 없습니다.</p>
+          <p class="workbench-ko"><code>|xi(2+it)|≥(pi/15)sqrt((pi T/2)/sinh(pi T/2))</code>가 <code>|t|≤T</code>에서 성립하고 함수방정식이 왼쪽 변을 닫습니다. 수평변의 cofinal 엄밀 하한은 아직 없습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>No positive nontrivial cycle has exactly two valuation-one entries and arbitrary remaining valuations at least 2.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The complete exactly-two-one periodic search region is empty.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform exclusion for primitive mixed necklaces with at least three valuation-one entries.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>No positive nontrivial accelerated cycle has exactly three valuation-one entries.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The complete exactly-three-one periodic stratum is empty.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform exclusion for primitive valuation necklaces with exactly four ones.</dd></div>
           </dl>
-          <p class="workbench-ko">극값 envelope가 긴 길이를 닫고 남은 16개 최소값 후보와 짧은 주기식을 완전 검사했습니다. valuation 1이 셋 이상인 necklace와 비주기 발산은 열려 있습니다.</p>
+          <p class="workbench-ko">주기 곱 부등식이 길이 h≥12를 닫고 h=4..11에서 가능한 185개 valuation 단어를 정확히 검사했습니다. valuation 1이 넷 이상인 주기와 비주기 발산은 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>An unbounded CRT sequence satisfies W(N)&gt;(1/3) log N for the least prime witness.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>No universal sublogarithmic prime-witness window covers all even targets.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Goldbach tail exceptional count below one beyond the logarithmic witness floor.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>For every fixed c&lt;1, unbounded even targets satisfy W(N)&gt;c log N.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No universal logarithmic witness window with constant below one covers all large even targets.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Goldbach tail exceptional count below one beyond the asymptotically unit-log floor.</dd></div>
           </dl>
-          <p class="workbench-ko">CRT는 로그 하한 아래 증인만 막으므로 반례가 아닙니다. 실제 증명에는 그보다 큰 소수 증인 영역의 예외 개수를 1 아래로 내리는 해석적 상계가 필요합니다.</p>
+          <p class="workbench-ko">CRT는 B 이하의 소수 증인만 막으므로 골드바흐 반례가 아닙니다. 실제 증명에는 점근적으로 log N인 바닥 너머 소수 증인 영역의 예외 개수를 1 아래로 내리는 해석적 상계가 필요합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The Abel-Omega closed form exactly reconstructs finite dyadic twin counts after flooring.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Nonnegative Abel smoothing alone provides no independent twin-prime positivity.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>A signed arithmetic majorant with an independent main term and controlled Abel tail.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A growing cyclotomic Omega projector exactly reconstructs every finite interval twin count.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The positive zero mode can be cancelled exactly by the nonzero modes on a twin-free interval.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>A cofinal dyadic nonzero-mode remainder strictly above minus the interval length.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>floor(S_X)=T_X</code>는 정확하지만 Omega를 이미 계산한 재표현입니다. 실제 진전에는 쌍둥이 개수와 독립적인 부호 있는 주항과 tail 상계가 필요합니다.</p>
+          <p class="workbench-ko"><code>M²T_I=H+R_I</code>는 정확하지만 쌍둥이가 없는 구간에서는 <code>R_I=-H</code>입니다. 실제 진전에는 이 완전 상쇄를 cofinal 구간에서 배제하는 산술적 하한이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>207 tickets reduced to four meaningful eras</h2>
+          <h2>208 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–207 · Structure, certified promotion, and parity limits</strong><p>대칭 경계 축소, Collatz 단일-1·두-1 계층 배제, Goldbach 최소 증인의 로그 하한, Omega/Abel projector의 순환성 한계를 정확한 정리로 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–208 · Structure, certified promotion, and parity limits</strong><p>대칭 경계 축소와 수직변 인증, Collatz 단일-1·두-1·세-1 계층 배제, Goldbach 최소 증인의 점근적 단위 로그 하한, Omega/Abel/순환 projector의 정확 복원과 상쇄 한계를 정리로 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/dihedral-twoone-logwitness-abel.ko.md">TICKET-207 한국어 보고서</a>
-          <a href="../docs/dihedral-twoone-logwitness-abel.md">TICKET-207 English report</a>
+          <a href="../docs/vertical-threeone-unitlog-cyclotomic.ko.md">TICKET-208 한국어 보고서</a>
+          <a href="../docs/vertical-threeone-unitlog-cyclotomic.md">TICKET-208 English report</a>
+          <a href="../docs/dihedral-twoone-logwitness-abel.ko.md">TICKET-207 이전 보고서</a>
           <a href="../docs/adaptive-singleone-crt-projector.ko.md">TICKET-206 이전 보고서</a>
           <a href="../docs/winding-extremal-finite-omega.ko.md">TICKET-205 이전 보고서</a>
           <a href="../docs/mesh-necklace-exceptional-kernel.ko.md">TICKET-204 이전 보고서</a>
@@ -146,7 +147,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260810-ticket207"></script>
+    <script src="../assets/i18n.js?v=20260810-ticket208"></script>
   </body>
 </html>
 

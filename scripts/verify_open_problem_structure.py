@@ -206,6 +206,7 @@ TICKET204_SCHEMA = "primeproject.ticket204-mesh-necklace-exceptional-kernel.v1"
 TICKET205_SCHEMA = "primeproject.ticket205-winding-extremal-finite-omega.v1"
 TICKET206_SCHEMA = "primeproject.ticket206-adaptive-singleone-crt-projector.v1"
 TICKET207_SCHEMA = "primeproject.ticket207-dihedral-twoone-logwitness-abel.v1"
+TICKET208_SCHEMA = "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1"
 
 
 def fail(message: str) -> int:
@@ -16796,6 +16797,172 @@ def main() -> int:
         or machine207.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket207 proof boundary changed")
+
+    path208 = Path(
+        "data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json"
+    )
+    if not path208.exists():
+        return fail("missing ticket208 vertical/three-one/unit-log/cyclotomic audit")
+    ticket208 = read_json(path208)
+    if (
+        ticket208.get("schema") != TICKET208_SCHEMA
+        or ticket208.get("status") != "open_not_proven"
+    ):
+        return fail("ticket208 schema or status changed")
+    audit208 = ticket208.get("vertical_threeone_unitlog_cyclotomic_audit", {})
+    machine208 = audit208.get("machine_audit", {})
+    expected_machine208 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine208 != expected_machine208:
+        return fail("ticket208 global machine audit changed")
+
+    attempts208 = {
+        row.get("problem_id"): row for row in ticket208.get("attempts", [])
+    }
+    if set(attempts208) != EXPECTED_PROBLEMS:
+        return fail("ticket208 attempts missing problems")
+    track_paths208 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-208-sigma-two-clearance.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-208-three-one-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-208-unit-log-witness.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-208-cyclotomic-omega.json"
+        ),
+    }
+    theorem_names208 = {
+        "riemann": "SigmaTwoCompletedXiVerticalClearanceAndHorizontalEdgeReduction",
+        "collatz": "ThreeOneAcceleratedCycleFiniteEnumerationExclusion",
+        "goldbach": "AsymptoticallyUnitLogLeastWitnessCRTLowerBound",
+        "twin-prime": "GrowingCyclotomicOmegaProjectorAndZeroModeCancellationNoGo",
+    }
+    for problem_id, track_path in track_paths208.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket208 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts208[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET208_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names208[problem_id]
+            or attempt.get("new_result") != theorem_names208[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket208 contract changed")
+
+    rh208 = audit208.get("riemann", {}).get("reproducible_computation", {})
+    rh208_aggregate = rh208.get("aggregate", {})
+    if (
+        len(rh208.get("vertical_clearance_rows", [])) != 6
+        or not all(row.get("positive") for row in rh208.get("vertical_clearance_rows", []))
+        or rh208_aggregate.get("explicit_sigma_two_vertical_clearance_proved")
+        is not True
+        or rh208_aggregate.get("horizontal_cofinal_clearance_proved") is not False
+        or rh208_aggregate.get("vertical_clearance_alone_implies_rh_refuted")
+        is not True
+        or rh208_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket208 RH vertical-clearance boundary changed")
+
+    collatz208 = audit208.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz208_aggregate = collatz208.get("aggregate", {})
+    if (
+        len(collatz208.get("exact_enumeration_rows", [])) != 8
+        or collatz208.get("total_exact_words_enumerated") != 185
+        or collatz208.get("positive_odd_integer_fixed_point_candidates") != []
+        or collatz208_aggregate.get(
+            "exactly_three_valuation_one_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz208_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 4
+        or collatz208_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket208 Collatz three-one boundary changed")
+
+    goldbach208 = audit208.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach208_rows = goldbach208.get("crt_unit_log_fixture_rows", [])
+    goldbach208_aggregate = goldbach208.get("aggregate", {})
+    if (
+        [row.get("witness_bound_B") for row in goldbach208_rows]
+        != [29, 59, 127, 251, 509]
+        or not all(
+            row.get("all_prime_witnesses_at_most_B_excluded")
+            for row in goldbach208_rows
+        )
+        or goldbach208_aggregate.get("unit_constant_limsup_lower_bound_proved")
+        is not True
+        or goldbach208_aggregate.get(
+            "every_fixed_c_below_one_witness_window_refuted"
+        )
+        is not True
+        or goldbach208_aggregate.get("goldbach_counterexample_found") is not False
+        or goldbach208_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket208 Goldbach unit-log boundary changed")
+
+    twin208 = audit208.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin208_aggregate = twin208.get("aggregate", {})
+    twin_free208 = [
+        row
+        for row in twin208.get("interval_reconstruction_rows", [])
+        if row.get("exact_twin_count_T") == 0
+    ]
+    if (
+        len(twin208.get("interval_reconstruction_rows", [])) != 4
+        or len(twin208.get("fixed_dimension_alias_rows", [])) != 4
+        or not all(
+            row.get("reconstruction_exact")
+            for row in twin208.get("interval_reconstruction_rows", [])
+        )
+        or not twin_free208
+        or not all(
+            row.get("all_nonzero_modes_raw_aggregate") == -row.get("length_H")
+            for row in twin_free208
+        )
+        or twin208_aggregate.get("growing_cyclotomic_prime_projector_proved")
+        is not True
+        or twin208_aggregate.get("positive_zero_mode_alone_suffices_refuted")
+        is not True
+        or twin208_aggregate.get("cofinal_nonzero_mode_lower_bound_proved")
+        is not False
+        or twin208_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket208 Twin cyclotomic boundary changed")
+
+    if (
+        "resolves none" not in str(audit208.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket208.get("claim_boundary", "")).lower()
+        or machine208.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket208 proof boundary changed")
 
     print("open problem structure verified")
     return 0

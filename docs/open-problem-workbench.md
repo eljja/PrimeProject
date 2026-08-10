@@ -15,27 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-207
+## Current research boundary: TICKET-208
 
 The current machine-readable boundary is
-`data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json`.
+`data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json`.
 
-TICKET-207 records four exact partial or no-go results and zero conjecture
+TICKET-208 records four exact partial or no-go results and zero conjecture
 resolutions:
 
-- exact dihedral reduction of completed-xi boundary certification and a
-  counterexample to symmetry-only critical-line reasoning;
-- exclusion of every accelerated Collatz cycle with exactly two valuation-one
-  entries and arbitrary remaining valuations at least two;
-- an unbounded CRT sequence whose least Goldbach witness exceeds
-  `(1/3) log N`;
-- a closed Abel-Omega projector, exact finite twin-count reconstruction, and a
-  no-go against treating its nonnegative leakage as independent positivity.
+- explicit positive completed-xi clearance on both vertical sides of every
+  finite symmetric rectangle, plus a vertical-only no-go;
+- exclusion of every accelerated Collatz cycle with exactly three valuation-
+  one entries, using an analytic length bound and 185 exact word checks;
+- for every fixed `c < 1`, an unbounded sequence whose least Goldbach witness
+  exceeds `c log N`;
+- an exact growing cyclotomic twin correlation and a no-go showing that the
+  positive zero mode can be cancelled exactly on twin-free intervals.
 
-Rigorous completed-xi cofinal interval bounds, Collatz necklaces with at least
-three valuation-one entries, a Goldbach tail exceptional bound below one beyond
-the logarithmic floor, and a signed Twin majorant with an independent main term
+Certified completed-xi top-edge clearance on cofinal admissible heights,
+Collatz necklaces with exactly four valuation-one entries, a Goldbach tail
+exceptional bound below one beyond the asymptotically unit-log floor, and a
+cofinal Twin nonzero-mode remainder bound strictly above minus interval length
 remain open.
+
+English report: [TICKET-208](vertical-threeone-unitlog-cyclotomic.md).
+한국어 보고서: [TICKET-208](vertical-threeone-unitlog-cyclotomic.ko.md).
+
+## Preserved research boundary: TICKET-207
+
+The direct machine-readable input is
+`data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json`.
 
 English report: [TICKET-207](dihedral-twoone-logwitness-abel.md).
 한국어 보고서: [TICKET-207](dihedral-twoone-logwitness-abel.ko.md).

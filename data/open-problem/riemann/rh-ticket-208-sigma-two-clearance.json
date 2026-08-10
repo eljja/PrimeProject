@@ -1,0 +1,124 @@
+{
+  "schema": "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1",
+  "generated_at": "2026-08-10T18:40:00+09:00",
+  "ticket_id": "RH-TICKET-208",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "SigmaTwoCompletedXiVerticalClearanceAndHorizontalEdgeReduction",
+  "declared_proposition": "For every T>=0 and every real t with |t|<=T, the completed Riemann xi-function satisfies |xi(2+it)| >= B(T)>0, where B(0)=pi/15 and, for T>0, B(T)=(pi/15)sqrt((pi T/2)/sinh(pi T/2)). By the functional equation the same bound holds on Re(s)=-1. Thus the vertical sides of the symmetric rectangle [-1,2] x [-T,T] have an explicit zero-free clearance; only the horizontal sides retain an unknown clearance.",
+  "mathematical_argument": "For sigma>1, the Euler product and |1-p^(-s)|<=1+p^(-sigma) give |zeta(s)|>=product_p(1+p^(-sigma))^(-1)=zeta(2sigma)/zeta(sigma). At sigma=2 this is pi^2/15. The identity |Gamma(1+iy)|^2=pi y/sinh(pi y), together with the fact that y/sinh(pi y) decreases for y>=0, gives a uniform lower bound on the gamma factor for |t|<=T. Since |(2+it)(1+it)|>=2, substitution in xi(s)=(1/2)s(s-1)pi^(-s/2)Gamma(s/2)zeta(s) yields B(T). Reflection xi(s)=xi(1-s) transfers the bound to Re(s)=-1. The symmetric entire polynomial F(s)=(s-1/2)^2-1/9 is nonzero on both vertical sides but has the interior off-critical zeros 1/6 and 5/6, so vertical clearance alone cannot imply RH.",
+  "reproducible_computation": {
+    "theorem": "For every T>=0 and every real t with |t|<=T, the completed Riemann xi-function satisfies |xi(2+it)| >= B(T)>0, where B(0)=pi/15 and, for T>0, B(T)=(pi/15)sqrt((pi T/2)/sinh(pi T/2)). By the functional equation the same bound holds on Re(s)=-1. Thus the vertical sides of the symmetric rectangle [-1,2] x [-T,T] have an explicit zero-free clearance; only the horizontal sides retain an unknown clearance.",
+    "proof": "For sigma>1, the Euler product and |1-p^(-s)|<=1+p^(-sigma) give |zeta(s)|>=product_p(1+p^(-sigma))^(-1)=zeta(2sigma)/zeta(sigma). At sigma=2 this is pi^2/15. The identity |Gamma(1+iy)|^2=pi y/sinh(pi y), together with the fact that y/sinh(pi y) decreases for y>=0, gives a uniform lower bound on the gamma factor for |t|<=T. Since |(2+it)(1+it)|>=2, substitution in xi(s)=(1/2)s(s-1)pi^(-s/2)Gamma(s/2)zeta(s) yields B(T). Reflection xi(s)=xi(1-s) transfers the bound to Re(s)=-1. The symmetric entire polynomial F(s)=(s-1/2)^2-1/9 is nonzero on both vertical sides but has the interior off-critical zeros 1/6 and 5/6, so vertical clearance alone cannot imply RH.",
+    "euler_product_lower_bound": "|zeta(2+it)|>=zeta(4)/zeta(2)=pi^2/15",
+    "gamma_modulus_identity": "|Gamma(1+iy)|^2=pi*y/sinh(pi*y)",
+    "uniform_clearance_formula": "B(T)=(pi/15)*sqrt((pi*T/2)/sinh(pi*T/2)), with B(0)=pi/15",
+    "vertical_clearance_rows": [
+      {
+        "height_T": 0,
+        "uniform_vertical_clearance_lower_decimal": "2.09439510239319532e-01",
+        "positive": true,
+        "not_larger_than_previous_height": true
+      },
+      {
+        "height_T": 2,
+        "uniform_vertical_clearance_lower_decimal": "1.09236118533830501e-01",
+        "positive": true,
+        "not_larger_than_previous_height": true
+      },
+      {
+        "height_T": 4,
+        "uniform_vertical_clearance_lower_decimal": "3.20839587333842449e-02",
+        "positive": true,
+        "not_larger_than_previous_height": true
+      },
+      {
+        "height_T": 8,
+        "uniform_vertical_clearance_lower_decimal": "1.96076630803693544e-03",
+        "positive": true,
+        "not_larger_than_previous_height": true
+      },
+      {
+        "height_T": 16,
+        "uniform_vertical_clearance_lower_decimal": "5.17831095376416376e-06",
+        "positive": true,
+        "not_larger_than_previous_height": true
+      },
+      {
+        "height_T": 32,
+        "uniform_vertical_clearance_lower_decimal": "2.55386366007973678e-11",
+        "positive": true,
+        "not_larger_than_previous_height": true
+      }
+    ],
+    "vertical_only_countermodel": {
+      "function": "F(s)=(s-1/2)^2-1/9",
+      "interior_off_critical_zeros": [
+        "1/6",
+        "5/6"
+      ],
+      "nonzero_on_sigma_2_and_minus_1": true,
+      "is_not_a_zeta_counterexample": true
+    },
+    "aggregate": {
+      "explicit_sigma_two_vertical_clearance_proved": true,
+      "left_vertical_clearance_transferred_by_symmetry": true,
+      "horizontal_cofinal_clearance_proved": false,
+      "vertical_clearance_alone_implies_rh_refuted": true,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The bound certifies only the two vertical sides of rectangles with fixed real parts -1 and 2. It neither bounds xi away from zero on cofinal horizontal sides nor locates every interior zero.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating the two vertical sides as unresolved zero-free boundaries, or using their clearance alone to infer RH",
+  "remaining_gap": "No explicit positive completed-xi clearance is proved on a cofinal sequence of horizontal edges.",
+  "candidate_theorem": "CertifiedCompletedXiTopEdgeClearanceOnCofinalAdmissibleHeights",
+  "claim_boundary": "No RH proof or off-critical zeta zero. The vertical rectangle sides now have an explicit analytic clearance; the horizontal cofinal bound remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T207",
+        "label": "CompletedXiDihedralBoundaryReductionAndSymmetryOnlyNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T208",
+        "label": "SigmaTwoCompletedXiVerticalClearanceAndHorizontalEdgeReduction",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N208",
+        "label": "VerticalEdgeClearanceAloneDeterminesInteriorZeroLocation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN208",
+        "label": "CertifiedCompletedXiTopEdgeClearanceOnCofinalAdmissibleHeights",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T207",
+        "RH-T208"
+      ],
+      [
+        "RH-T208",
+        "RH-N208"
+      ],
+      [
+        "RH-T208",
+        "RH-OPEN208"
+      ],
+      [
+        "RH-OPEN208",
+        "RH"
+      ]
+    ]
+  }
+}
