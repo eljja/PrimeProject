@@ -1,0 +1,802 @@
+{
+  "schema": "primeproject.ticket211-winding-density-fullrange-unitscale.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-211 resolves none of the four conjectures. It proves four exact theorem or no-go boundaries: total winding does not locate Riemann zeros, aggregate Collatz density does not enforce integrality, small-witness exceptions cannot close Goldbach, and factorial Twin deserts reach every fixed subunit local scale.",
+  "winding_density_fullrange_unitscale_audit": {
+    "theorem_name": "FourConjectureWindingDensityFullRangeUnitScaleAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-211 resolves none of the four conjectures. It proves four exact theorem or no-go boundaries: total winding does not locate Riemann zeros, aggregate Collatz density does not enforce integrality, small-witness exceptions cannot close Goldbach, and factorial Twin deserts reach every fixed subunit local scale.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-211",
+      "theorem_name": "EffectiveCofinalClearanceAndTotalWindingLocalizationNoGo",
+      "declared_proposition": "Effective cofinal horizontal clearance and exact total winding do not locate zeros on the critical line. In centered coordinates z=s-1/2, the entire function F(s)=cosh(2*pi*z)-cosh(pi/2) is real symmetric and satisfies F(1-s)=F(s). Its zeros are exactly s=1/2+/-1/4+i*n. On every line Im(s)=n+1/2, |F(s)|>=1+cosh(pi/2). Nevertheless every rectangle 0<=Re(s)<=1, n-1/2<=Im(s)<=n+1/2 has total winding two and contains two off-critical zeros but no critical-line zero.",
+      "mathematical_argument": "The identity cosh(w)=cosh(a) holds exactly when w=+/-a+2*pi*i*n, which gives the displayed zero set. Evenness and real coefficients give functional and conjugation symmetry. At height n+1/2, cosh(2*pi*(x+i(n+1/2)))=-cosh(2*pi*x), so the modulus equals cosh(2*pi*x)+cosh(pi/2) and is at least 1+cosh(pi/2). The two zeros with ordinate n lie strictly inside each band rectangle. There are no boundary zeros, hence the argument principle gives winding two. On z=i*t, F=cos(2*pi*t)-cosh(pi/2)<0, so the critical line contains no zeros. Thus total boundary winding is not a zero-location theorem.",
+      "reproducible_computation": {
+        "theorem": "Effective cofinal horizontal clearance and exact total winding do not locate zeros on the critical line. In centered coordinates z=s-1/2, the entire function F(s)=cosh(2*pi*z)-cosh(pi/2) is real symmetric and satisfies F(1-s)=F(s). Its zeros are exactly s=1/2+/-1/4+i*n. On every line Im(s)=n+1/2, |F(s)|>=1+cosh(pi/2). Nevertheless every rectangle 0<=Re(s)<=1, n-1/2<=Im(s)<=n+1/2 has total winding two and contains two off-critical zeros but no critical-line zero.",
+        "proof": "The identity cosh(w)=cosh(a) holds exactly when w=+/-a+2*pi*i*n, which gives the displayed zero set. Evenness and real coefficients give functional and conjugation symmetry. At height n+1/2, cosh(2*pi*(x+i(n+1/2)))=-cosh(2*pi*x), so the modulus equals cosh(2*pi*x)+cosh(pi/2) and is at least 1+cosh(pi/2). The two zeros with ordinate n lie strictly inside each band rectangle. There are no boundary zeros, hence the argument principle gives winding two. On z=i*t, F=cos(2*pi*t)-cosh(pi/2)<0, so the critical line contains no zeros. Thus total boundary winding is not a zero-location theorem.",
+        "countermodel": {
+          "function": "F(s)=cosh(2*pi*(s-1/2))-cosh(pi/2)",
+          "zeros": "s=1/2+/-1/4+i*n for every integer n",
+          "functional_symmetry": "F(1-s)=F(s)",
+          "conjugation_symmetry": "F(conj(s))=conj(F(s))",
+          "critical_line_sign": "F(1/2+it)<0",
+          "uniform_horizontal_clearance": "1+cosh(pi/2)"
+        },
+        "band_rows": [
+          {
+            "band_center_n": 0,
+            "horizontal_height_n_plus_one_half": "1/2",
+            "exact_uniform_lower_bound": "1+cosh(pi/2)",
+            "lower_bound_decimal": "3.509178478658",
+            "sampled_minimum_modulus": "3.509178478658",
+            "sample_respects_exact_bound": true,
+            "total_zeros_in_closed_band_rectangle": 2,
+            "critical_line_zeros_in_band": 0,
+            "argument_principle_winding_increment": 2
+          },
+          {
+            "band_center_n": 1,
+            "horizontal_height_n_plus_one_half": "3/2",
+            "exact_uniform_lower_bound": "1+cosh(pi/2)",
+            "lower_bound_decimal": "3.509178478658",
+            "sampled_minimum_modulus": "3.509178478658",
+            "sample_respects_exact_bound": true,
+            "total_zeros_in_closed_band_rectangle": 2,
+            "critical_line_zeros_in_band": 0,
+            "argument_principle_winding_increment": 2
+          },
+          {
+            "band_center_n": 2,
+            "horizontal_height_n_plus_one_half": "5/2",
+            "exact_uniform_lower_bound": "1+cosh(pi/2)",
+            "lower_bound_decimal": "3.509178478658",
+            "sampled_minimum_modulus": "3.509178478658",
+            "sample_respects_exact_bound": true,
+            "total_zeros_in_closed_band_rectangle": 2,
+            "critical_line_zeros_in_band": 0,
+            "argument_principle_winding_increment": 2
+          },
+          {
+            "band_center_n": 3,
+            "horizontal_height_n_plus_one_half": "7/2",
+            "exact_uniform_lower_bound": "1+cosh(pi/2)",
+            "lower_bound_decimal": "3.509178478658",
+            "sampled_minimum_modulus": "3.509178478658",
+            "sample_respects_exact_bound": true,
+            "total_zeros_in_closed_band_rectangle": 2,
+            "critical_line_zeros_in_band": 0,
+            "argument_principle_winding_increment": 2
+          },
+          {
+            "band_center_n": 4,
+            "horizontal_height_n_plus_one_half": "9/2",
+            "exact_uniform_lower_bound": "1+cosh(pi/2)",
+            "lower_bound_decimal": "3.509178478658",
+            "sampled_minimum_modulus": "3.509178478658",
+            "sample_respects_exact_bound": true,
+            "total_zeros_in_closed_band_rectangle": 2,
+            "critical_line_zeros_in_band": 0,
+            "argument_principle_winding_increment": 2
+          },
+          {
+            "band_center_n": 5,
+            "horizontal_height_n_plus_one_half": "11/2",
+            "exact_uniform_lower_bound": "1+cosh(pi/2)",
+            "lower_bound_decimal": "3.509178478658",
+            "sampled_minimum_modulus": "3.509178478658",
+            "sample_respects_exact_bound": true,
+            "total_zeros_in_closed_band_rectangle": 2,
+            "critical_line_zeros_in_band": 0,
+            "argument_principle_winding_increment": 2
+          }
+        ],
+        "aggregate": {
+          "effective_cofinal_horizontal_clearance_proved_for_model": true,
+          "exact_total_winding_increment_proved_for_model": true,
+          "total_winding_localizes_zeros_to_critical_line_refuted": true,
+          "effective_zeta_boundary_certificate_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The countermodel refutes only a logical inference based on symmetry, effective cofinal horizontal clearance, and total rectangle winding. It has no Euler product and is not zeta. A valid RH bridge must compare total rectangle zero counts with critical-line zero counts, not merely certify total winding.",
+        "failure_count": 0
+      },
+      "logical_limit": "No effective zeta certificate equating total rectangle zeros with critical-line zeros is obtained.",
+      "route_decision": {
+        "discard": "inferring critical-line location from symmetry, cofinal boundary clearance, and total winding alone",
+        "retain": "an effective equality between total rectangle zero counts and critical-line zero counts",
+        "next_single_lemma": "EffectiveCriticalLineRectangleZeroCountEqualityCertificate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T210",
+            "label": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T211",
+            "label": "EffectiveCofinalClearanceAndTotalWindingLocalizationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N211",
+            "label": "EffectiveTotalWindingAloneImpliesCriticalLineLocalization",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN211",
+            "label": "EffectiveCriticalLineRectangleZeroCountEqualityCertificate",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T210",
+            "RH-T211"
+          ],
+          [
+            "RH-T211",
+            "RH-N211"
+          ],
+          [
+            "RH-T211",
+            "RH-OPEN211"
+          ],
+          [
+            "RH-OPEN211",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-critical zeta zero. An exact entire countermodel proves that even effective clearance plus total winding does not locate zeros on the critical line."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-211",
+      "theorem_name": "ValuationOneDensityFloorAndAggregateOnlyNoGo",
+      "declared_proposition": "If a nontrivial positive accelerated Collatz cycle has length h and exactly k valuation entries equal to one, then k/h>=log_2(6/5). This multiplicity-uniform density condition is not sufficient for an integer cycle: every repeated formal word (1,2,2)^m has density 1/3, slope (27/32)^m, the positive rational fixed point 23/5, and the exact cycle product identity, but never a positive integer fixed point.",
+      "mathematical_argument": "Rotate a hypothetical integer cycle to its minimum m>=3. With valuation sum A, multiplication around the cycle gives 2^A=product(3+1/x_i)<=(10/3)^h. Since A>=2h-k, this implies (6/5)^h<=2^k and the density floor. For the no-go family, one formal block maps 23/5 to 37/5 to 29/5 and back to 23/5. Its slope is 27/32 and (3+5/23)(3+5/37)(3+5/29)=32=2^5. Repetition preserves all aggregate equalities and the density bound, but the fixed point has denominator five. Therefore aggregate multiplicity, contraction, and product data cannot replace a uniform 2-adic integrality argument.",
+      "reproducible_computation": {
+        "theorem": "If a nontrivial positive accelerated Collatz cycle has length h and exactly k valuation entries equal to one, then k/h>=log_2(6/5). This multiplicity-uniform density condition is not sufficient for an integer cycle: every repeated formal word (1,2,2)^m has density 1/3, slope (27/32)^m, the positive rational fixed point 23/5, and the exact cycle product identity, but never a positive integer fixed point.",
+        "proof": "Rotate a hypothetical integer cycle to its minimum m>=3. With valuation sum A, multiplication around the cycle gives 2^A=product(3+1/x_i)<=(10/3)^h. Since A>=2h-k, this implies (6/5)^h<=2^k and the density floor. For the no-go family, one formal block maps 23/5 to 37/5 to 29/5 and back to 23/5. Its slope is 27/32 and (3+5/23)(3+5/37)(3+5/29)=32=2^5. Repetition preserves all aggregate equalities and the density bound, but the fixed point has denominator five. Therefore aggregate multiplicity, contraction, and product data cannot replace a uniform 2-adic integrality argument.",
+        "necessary_density_bound": {
+          "exact": "k/h>=log_2(6/5)",
+          "decimal": "0.263034405834"
+        },
+        "rational_counterfamily": {
+          "formal_word": "(1,2,2)^m",
+          "one_block_orbit": [
+            "23/5",
+            "37/5",
+            "29/5"
+          ],
+          "one_block_product": "32",
+          "integrality_obstruction": "denominator 5"
+        },
+        "counterfamily_rows": [
+          {
+            "block_repetitions_m": 1,
+            "length_h": 3,
+            "valuation_one_count_k": 1,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "27/32",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^5",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 2,
+            "length_h": 6,
+            "valuation_one_count_k": 2,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "729/1024",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^10",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 3,
+            "length_h": 9,
+            "valuation_one_count_k": 3,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "19683/32768",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^15",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 4,
+            "length_h": 12,
+            "valuation_one_count_k": 4,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "531441/1048576",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^20",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 5,
+            "length_h": 15,
+            "valuation_one_count_k": 5,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "14348907/33554432",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^25",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 6,
+            "length_h": 18,
+            "valuation_one_count_k": 6,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "387420489/1073741824",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^30",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 7,
+            "length_h": 21,
+            "valuation_one_count_k": 7,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "10460353203/34359738368",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^35",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 8,
+            "length_h": 24,
+            "valuation_one_count_k": 8,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "282429536481/1099511627776",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^40",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 9,
+            "length_h": 27,
+            "valuation_one_count_k": 9,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "7625597484987/35184372088832",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^45",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 10,
+            "length_h": 30,
+            "valuation_one_count_k": 10,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "205891132094649/1125899906842624",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^50",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 11,
+            "length_h": 33,
+            "valuation_one_count_k": 11,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "5559060566555523/36028797018963968",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^55",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          },
+          {
+            "block_repetitions_m": 12,
+            "length_h": 36,
+            "valuation_one_count_k": 12,
+            "one_density_k_over_h": "1/3",
+            "required_density_floor_decimal": "0.263034405834",
+            "formal_affine_slope": "150094635296999121/1152921504606846976",
+            "positive_rational_fixed_point": "23/5",
+            "exact_product_identity": "2^60",
+            "positive_integer_fixed_point": false,
+            "aggregate_checks_hold": true
+          }
+        ],
+        "aggregate": {
+          "valuation_one_density_floor_proved": true,
+          "aggregate_density_product_sufficiency_refuted": true,
+          "uniform_two_adic_integrality_obstruction_proved": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The rational orbit is a countermodel to an aggregate-data proof strategy, not a counterexample to Collatz on positive integers. The density inequality is necessary only; integer and 2-adic compatibility remain the decisive missing inputs.",
+        "failure_count": 0
+      },
+      "logical_limit": "The density floor does not exclude high-one integer words or nonperiodic divergence.",
+      "route_decision": {
+        "discard": "using valuation-one density, affine contraction, and the cycle product identity without integer or 2-adic coupling",
+        "retain": "a uniform 2-adic integrality obstruction for all words above the necessary one-density floor",
+        "next_single_lemma": "Uniform2AdicIntegralityObstructionForHighOneDensityWords"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T210",
+            "label": "FiveOneArbitraryRemainderAcceleratedCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T211",
+            "label": "ValuationOneDensityFloorAndAggregateOnlyNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N211",
+            "label": "AggregateDensityProductDataExcludeAllPositiveCycles",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN211",
+            "label": "Uniform2AdicIntegralityObstructionForHighOneDensityWords",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T210",
+            "CO-T211"
+          ],
+          [
+            "CO-T211",
+            "CO-N211"
+          ],
+          [
+            "CO-T211",
+            "CO-OPEN211"
+          ],
+          [
+            "CO-OPEN211",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or integer counterexample. A multiplicity-uniform necessary density floor is proved, and an exact rational family refutes aggregate-only sufficiency."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-211",
+      "theorem_name": "SmallWitnessExceptionalCountCannotCertifyGoldbachBeyondCoveringFloor",
+      "declared_proposition": "A small-witness exceptional count cannot be the integer count driven below one to prove strong Goldbach. Let E_b(X) count even N in [X,2X] having no Goldbach representation with a prime summand at most b(N). If an unbounded sequence satisfies W(N)>b(N), then E_b(X)>=1 on infinitely many dyadic blocks. TICKET-209 supplies such a sequence for b(N)=c log N log log N. Therefore an eventual bound E_b(X)<1 is impossible at that cutoff even if strong Goldbach is true.",
+      "mathematical_argument": "For each target N_j with W(N_j)>b(N_j), choose the dyadic X_j with X_j<=N_j<2X_j. Then N_j is counted by E_b(X_j), so the integer-valued count is at least one on unbounded blocks. TICKET-209 proves exactly the required unbounded least-witness floor. This predicate includes both genuine Goldbach exceptions and represented numbers whose least witness is merely large; it cannot distinguish them. By contrast, the full-range count E_full(X) of even N with no representation at all is integer-valued, and an eventual strict bound E_full(X)<1 plus a verified finite prefix would prove strong Goldbach. No such bound is obtained here.",
+      "reproducible_computation": {
+        "theorem": "A small-witness exceptional count cannot be the integer count driven below one to prove strong Goldbach. Let E_b(X) count even N in [X,2X] having no Goldbach representation with a prime summand at most b(N). If an unbounded sequence satisfies W(N)>b(N), then E_b(X)>=1 on infinitely many dyadic blocks. TICKET-209 supplies such a sequence for b(N)=c log N log log N. Therefore an eventual bound E_b(X)<1 is impossible at that cutoff even if strong Goldbach is true.",
+        "proof": "For each target N_j with W(N_j)>b(N_j), choose the dyadic X_j with X_j<=N_j<2X_j. Then N_j is counted by E_b(X_j), so the integer-valued count is at least one on unbounded blocks. TICKET-209 proves exactly the required unbounded least-witness floor. This predicate includes both genuine Goldbach exceptions and represented numbers whose least witness is merely large; it cannot distinguish them. By contrast, the full-range count E_full(X) of even N with no representation at all is integer-valued, and an eventual strict bound E_full(X)<1 plus a verified finite prefix would prove strong Goldbach. No such bound is obtained here.",
+        "predicate_correction": {
+          "invalid_tail_target": "no witness with p<=b(N)",
+          "valid_tail_target": "no prime witness over the full range 2<=p<=N/2",
+          "integer_below_one_bridge": "E_full(X)<1 eventually plus a verified finite prefix implies zero full Goldbach exceptions"
+        },
+        "finite_dyadic_rows": [
+          {
+            "dyadic_lower_X": 32,
+            "dyadic_upper_2X": 64,
+            "even_targets_tested": 17,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 8,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 7,
+            "transcript_sha256": "4cd057ff3028e8b47d84ddcaeeddf8f5ebd49d1f34df10511030bf91a8e7d28c"
+          },
+          {
+            "dyadic_lower_X": 128,
+            "dyadic_upper_2X": 256,
+            "even_targets_tested": 65,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 27,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 23,
+            "transcript_sha256": "89b02c9d0479dd75c5caaf70f924c9b7910bdc9c0b1387aebca77bb0a07eed3f"
+          },
+          {
+            "dyadic_lower_X": 512,
+            "dyadic_upper_2X": 1024,
+            "even_targets_tested": 257,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 118,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 73,
+            "transcript_sha256": "01d5560701448a4b7f4879b2439675ee7f7c19fb5b1fafed21bc007b0f870130"
+          },
+          {
+            "dyadic_lower_X": 2048,
+            "dyadic_upper_2X": 4096,
+            "even_targets_tested": 1025,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 396,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 103,
+            "transcript_sha256": "3fc775be835e8892cb5975f6899e83682025bcbd281c96748d16069e35645296"
+          },
+          {
+            "dyadic_lower_X": 8192,
+            "dyadic_upper_2X": 16384,
+            "even_targets_tested": 4097,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 1837,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 173,
+            "transcript_sha256": "8f166252012e34b30e6c66292373f047a22cc71178f2908eee026dc9472ebba6"
+          },
+          {
+            "dyadic_lower_X": 32768,
+            "dyadic_upper_2X": 65536,
+            "even_targets_tested": 16385,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 8085,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 293,
+            "transcript_sha256": "925391b035587b226ec5243e13318931e2d2e03854ac7b118c9852e6b4f1567b"
+          },
+          {
+            "dyadic_lower_X": 131072,
+            "dyadic_upper_2X": 262144,
+            "even_targets_tested": 65537,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 30214,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 383,
+            "transcript_sha256": "b12cd02fc618fe34fed3b07e4b63a13fd2fcfd95520735381b0a5f46b15142e4"
+          },
+          {
+            "dyadic_lower_X": 524288,
+            "dyadic_upper_2X": 1048576,
+            "even_targets_tested": 262145,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 111602,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 439,
+            "transcript_sha256": "91badb250a99a4516a43cf39edbd7177f58b48e9d90c44dc53c6a09ad4c34982"
+          },
+          {
+            "dyadic_lower_X": 1000000,
+            "dyadic_upper_2X": 2000000,
+            "even_targets_tested": 500001,
+            "small_witness_cutoff": "floor(log N)",
+            "small_witness_exception_count": 222608,
+            "full_goldbach_exception_count": 0,
+            "maximum_least_witness": 601,
+            "transcript_sha256": "0eb60242bad6fa97ca56aa69a6d64654ed270dd7e2d329da1237f972a285c7dc"
+          }
+        ],
+        "aggregate": {
+          "small_witness_below_one_route_refuted": true,
+          "small_and_full_exception_predicates_separated": true,
+          "finite_full_exception_count": 0,
+          "full_range_tail_exception_bound_proved": false,
+          "goldbach_counterexample_found": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The logical no-go is unconditional once the TICKET-209 witness floor is accepted. The finite sieve through two million only illustrates the predicate difference and proves nothing beyond its explicit range. No parity-breaking full-range estimate is supplied.",
+        "failure_count": 0
+      },
+      "logical_limit": "No strict-below-one estimate for the full-range no-representation count is proved.",
+      "route_decision": {
+        "discard": "counting absence of witnesses below a cutoff as though it counted complete Goldbach failures",
+        "retain": "an integer-valued full-range no-representation count with an eventual strict upper bound below one",
+        "next_single_lemma": "FullRangeBinaryGoldbachExceptionalCountStrictlyBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T210",
+            "label": "PrimeGapToLeastGoldbachWitnessTransferAndDominanceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T211",
+            "label": "SmallWitnessExceptionalCountCannotCertifyGoldbachBeyondCoveringFloor",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N211",
+            "label": "SmallWitnessExceptionalCountBelowOneClosesGoldbach",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN211",
+            "label": "FullRangeBinaryGoldbachExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T210",
+            "GB-T211"
+          ],
+          [
+            "GB-T211",
+            "GB-N211"
+          ],
+          [
+            "GB-T211",
+            "GB-OPEN211"
+          ],
+          [
+            "GB-OPEN211",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The previously proposed exceptional-count target is corrected from small-witness failure to full-range nonrepresentation."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-211",
+      "theorem_name": "AsymptoticallyUnitScaleFactorialTwinDesertNoGo",
+      "declared_proposition": "For X=K! and H=K-3, the consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H/(log X/log log X) tends to one. Consequently, for every fixed c<1 there are infinitely many twin-free windows with H>=c log X/log log X.",
+      "mathematical_argument": "For every 2<=j<=K-2, j properly divides K!+j and j+2 properly divides K!+j+2, so no lower candidate starts a twin pair. Stirling's formula gives log(K!)=K log K-K+O(log K), while log log(K!)=log K+log log K+o(1). Therefore (K-3)log log(K!)/log(K!) tends to one. The definition of a limit then yields the assertion for every fixed c<1.",
+      "reproducible_computation": {
+        "theorem": "For X=K! and H=K-3, the consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H/(log X/log log X) tends to one. Consequently, for every fixed c<1 there are infinitely many twin-free windows with H>=c log X/log log X.",
+        "proof": "For every 2<=j<=K-2, j properly divides K!+j and j+2 properly divides K!+j+2, so no lower candidate starts a twin pair. Stirling's formula gives log(K!)=K log K-K+O(log K), while log log(K!)=log K+log log K+o(1). Therefore (K-3)log log(K!)/log(K!) tends to one. The definition of a limit then yields the assertion for every fixed c<1.",
+        "asymptotic_identity": "(K-3)*log(log(K!))/log(K!) -> 1",
+        "factorial_unit_scale_rows": [
+          {
+            "factorial_parameter_K": 8,
+            "factorial_base_decimal_digits": 5,
+            "twin_free_candidate_length_H": 5,
+            "log_X_over_loglog_X_decimal": "4.491024500464",
+            "H_over_log_X_over_loglog_X_decimal": "1.113331712950",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 16,
+            "factorial_base_decimal_digits": 14,
+            "twin_free_candidate_length_H": 13,
+            "log_X_over_loglog_X_decimal": "8.959615377177",
+            "H_over_log_X_over_loglog_X_decimal": "1.450955141793",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 32,
+            "factorial_base_decimal_digits": 36,
+            "twin_free_candidate_length_H": 29,
+            "log_X_over_loglog_X_decimal": "18.530366344861",
+            "H_over_log_X_over_loglog_X_decimal": "1.564998741001",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 64,
+            "factorial_base_decimal_digits": 90,
+            "twin_free_candidate_length_H": 61,
+            "log_X_over_loglog_X_decimal": "38.537705852666",
+            "H_over_log_X_over_loglog_X_decimal": "1.582865369132",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 128,
+            "factorial_base_decimal_digits": 216,
+            "twin_free_candidate_length_H": 125,
+            "log_X_over_loglog_X_decimal": "79.970040774509",
+            "H_over_log_X_over_loglog_X_decimal": "1.563085360335",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 256,
+            "factorial_base_decimal_digits": 507,
+            "twin_free_candidate_length_H": 253,
+            "log_X_over_loglog_X_decimal": "165.277424636099",
+            "H_over_log_X_over_loglog_X_decimal": "1.530759573227",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 512,
+            "factorial_base_decimal_digits": 1167,
+            "twin_free_candidate_length_H": 509,
+            "log_X_over_loglog_X_decimal": "340.187183450164",
+            "H_over_log_X_over_loglog_X_decimal": "1.496235086924",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 1024,
+            "factorial_base_decimal_digits": 2640,
+            "twin_free_candidate_length_H": 1021,
+            "log_X_over_loglog_X_decimal": "697.645419872781",
+            "H_over_log_X_over_loglog_X_decimal": "1.463494163247",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 2048,
+            "factorial_base_decimal_digits": 5895,
+            "twin_free_candidate_length_H": 2045,
+            "log_X_over_loglog_X_decimal": "1426.260250364023",
+            "H_over_log_X_over_loglog_X_decimal": "1.433819668941",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          },
+          {
+            "factorial_parameter_K": 4096,
+            "factorial_base_decimal_digits": 13020,
+            "twin_free_candidate_length_H": 4093,
+            "log_X_over_loglog_X_decimal": "2908.221587299694",
+            "H_over_log_X_over_loglog_X_decimal": "1.407389319258",
+            "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+            "all_composite_pair_certificates_hold": true
+          }
+        ],
+        "aggregate": {
+          "asymptotically_unit_scale_twin_deserts_proved": true,
+          "every_fixed_c_below_one_local_positivity_refuted": true,
+          "desert_relative_density_tends_to_zero": true,
+          "sparse_dyadic_twin_positivity_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The factorial construction is elementary and does not improve bounded-gap theorems. Its windows satisfy H/X->0, so they are compatible with infinitely many twin primes and with positive dyadic averages. It refutes only overly uniform local positivity.",
+        "failure_count": 0
+      },
+      "logical_limit": "The unit-scale local no-go supplies no positive dyadic or sparse averaged lower bound.",
+      "route_decision": {
+        "discard": "forcing a twin pair in every c log X/log log X window for any fixed c below one",
+        "retain": "sparse dyadic positivity that permits asymptotically unit-scale factorial deserts",
+        "next_single_lemma": "SparseDyadicBilinearOmegaStrictPositivity"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T210",
+            "label": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T211",
+            "label": "AsymptoticallyUnitScaleFactorialTwinDesertNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N211",
+            "label": "TwinPositivityInEveryFixedSubunitLogOverLogLogWindow",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN211",
+            "label": "SparseDyadicBilinearOmegaStrictPositivity",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T210",
+            "TP-T211"
+          ],
+          [
+            "TP-T211",
+            "TP-N211"
+          ],
+          [
+            "TP-T211",
+            "TP-OPEN211"
+          ],
+          [
+            "TP-OPEN211",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. The elementary factorial no-go is sharpened from coefficient 1/4 to every fixed coefficient below one."
+    },
+    "cross_problem_synthesis": "All four routes fail at a localization step. Total complex-analytic mass does not locate zeros, aggregate valuation statistics do not locate integer orbits, truncated witnesses do not locate complete Goldbach failures, and local deserts do not determine sparse dyadic positivity. The next lemmas now state those missing bridges directly.",
+    "literature_boundary": {
+      "riemann": "The countermodel is elementary and does not model zeta's Euler product; no novelty priority is claimed.",
+      "collatz": "The density inequality and rational no-go require specialist review before any novelty claim; the rational orbit is not an integer Collatz orbit.",
+      "goldbach": "The covering-witness input is inherited from TICKET-209; TICKET-211 is a logical predicate correction, not a parity-barrier breakthrough.",
+      "twin_prime": "Factorial composite intervals and Stirling asymptotics are classical; the coefficient calibration is an elementary deduction, not a new bounded-gap theorem."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-211",
+      "status": "open_not_proven",
+      "declared_proposition": "Effective cofinal horizontal clearance and exact total winding do not locate zeros on the critical line. In centered coordinates z=s-1/2, the entire function F(s)=cosh(2*pi*z)-cosh(pi/2) is real symmetric and satisfies F(1-s)=F(s). Its zeros are exactly s=1/2+/-1/4+i*n. On every line Im(s)=n+1/2, |F(s)|>=1+cosh(pi/2). Nevertheless every rectangle 0<=Re(s)<=1, n-1/2<=Im(s)<=n+1/2 has total winding two and contains two off-critical zeros but no critical-line zero.",
+      "new_result": "EffectiveCofinalClearanceAndTotalWindingLocalizationNoGo",
+      "discarded_route": "inferring critical-line location from symmetry, cofinal boundary clearance, and total winding alone",
+      "remaining_gap": "No effective zeta certificate equating total rectangle zeros with critical-line zeros is obtained.",
+      "candidate_theorem": "EffectiveCriticalLineRectangleZeroCountEqualityCertificate",
+      "bounded_result": {
+        "audit_ref": "#/winding_density_fullrange_unitscale_audit"
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-211",
+      "status": "open_not_proven",
+      "declared_proposition": "If a nontrivial positive accelerated Collatz cycle has length h and exactly k valuation entries equal to one, then k/h>=log_2(6/5). This multiplicity-uniform density condition is not sufficient for an integer cycle: every repeated formal word (1,2,2)^m has density 1/3, slope (27/32)^m, the positive rational fixed point 23/5, and the exact cycle product identity, but never a positive integer fixed point.",
+      "new_result": "ValuationOneDensityFloorAndAggregateOnlyNoGo",
+      "discarded_route": "using valuation-one density, affine contraction, and the cycle product identity without integer or 2-adic coupling",
+      "remaining_gap": "The density floor does not exclude high-one integer words or nonperiodic divergence.",
+      "candidate_theorem": "Uniform2AdicIntegralityObstructionForHighOneDensityWords",
+      "bounded_result": {
+        "audit_ref": "#/winding_density_fullrange_unitscale_audit"
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-211",
+      "status": "open_not_proven",
+      "declared_proposition": "A small-witness exceptional count cannot be the integer count driven below one to prove strong Goldbach. Let E_b(X) count even N in [X,2X] having no Goldbach representation with a prime summand at most b(N). If an unbounded sequence satisfies W(N)>b(N), then E_b(X)>=1 on infinitely many dyadic blocks. TICKET-209 supplies such a sequence for b(N)=c log N log log N. Therefore an eventual bound E_b(X)<1 is impossible at that cutoff even if strong Goldbach is true.",
+      "new_result": "SmallWitnessExceptionalCountCannotCertifyGoldbachBeyondCoveringFloor",
+      "discarded_route": "counting absence of witnesses below a cutoff as though it counted complete Goldbach failures",
+      "remaining_gap": "No strict-below-one estimate for the full-range no-representation count is proved.",
+      "candidate_theorem": "FullRangeBinaryGoldbachExceptionalCountStrictlyBelowOne",
+      "bounded_result": {
+        "audit_ref": "#/winding_density_fullrange_unitscale_audit"
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-211",
+      "status": "open_not_proven",
+      "declared_proposition": "For X=K! and H=K-3, the consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H/(log X/log log X) tends to one. Consequently, for every fixed c<1 there are infinitely many twin-free windows with H>=c log X/log log X.",
+      "new_result": "AsymptoticallyUnitScaleFactorialTwinDesertNoGo",
+      "discarded_route": "forcing a twin pair in every c log X/log log X window for any fixed c below one",
+      "remaining_gap": "The unit-scale local no-go supplies no positive dyadic or sparse averaged lower bound.",
+      "candidate_theorem": "SparseDyadicBilinearOmegaStrictPositivity",
+      "bounded_result": {
+        "audit_ref": "#/winding_density_fullrange_unitscale_audit"
+      }
+    }
+  ]
+}

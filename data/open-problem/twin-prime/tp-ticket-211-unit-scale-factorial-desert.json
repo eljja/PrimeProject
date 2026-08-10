@@ -1,0 +1,167 @@
+{
+  "schema": "primeproject.ticket211-winding-density-fullrange-unitscale.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "TP-TICKET-211",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "AsymptoticallyUnitScaleFactorialTwinDesertNoGo",
+  "declared_proposition": "For X=K! and H=K-3, the consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H/(log X/log log X) tends to one. Consequently, for every fixed c<1 there are infinitely many twin-free windows with H>=c log X/log log X.",
+  "mathematical_argument": "For every 2<=j<=K-2, j properly divides K!+j and j+2 properly divides K!+j+2, so no lower candidate starts a twin pair. Stirling's formula gives log(K!)=K log K-K+O(log K), while log log(K!)=log K+log log K+o(1). Therefore (K-3)log log(K!)/log(K!) tends to one. The definition of a limit then yields the assertion for every fixed c<1.",
+  "reproducible_computation": {
+    "theorem": "For X=K! and H=K-3, the consecutive lower candidates X+j, 2<=j<=K-2, contain no twin-prime pair, and H/(log X/log log X) tends to one. Consequently, for every fixed c<1 there are infinitely many twin-free windows with H>=c log X/log log X.",
+    "proof": "For every 2<=j<=K-2, j properly divides K!+j and j+2 properly divides K!+j+2, so no lower candidate starts a twin pair. Stirling's formula gives log(K!)=K log K-K+O(log K), while log log(K!)=log K+log log K+o(1). Therefore (K-3)log log(K!)/log(K!) tends to one. The definition of a limit then yields the assertion for every fixed c<1.",
+    "asymptotic_identity": "(K-3)*log(log(K!))/log(K!) -> 1",
+    "factorial_unit_scale_rows": [
+      {
+        "factorial_parameter_K": 8,
+        "factorial_base_decimal_digits": 5,
+        "twin_free_candidate_length_H": 5,
+        "log_X_over_loglog_X_decimal": "4.491024500464",
+        "H_over_log_X_over_loglog_X_decimal": "1.113331712950",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 16,
+        "factorial_base_decimal_digits": 14,
+        "twin_free_candidate_length_H": 13,
+        "log_X_over_loglog_X_decimal": "8.959615377177",
+        "H_over_log_X_over_loglog_X_decimal": "1.450955141793",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 32,
+        "factorial_base_decimal_digits": 36,
+        "twin_free_candidate_length_H": 29,
+        "log_X_over_loglog_X_decimal": "18.530366344861",
+        "H_over_log_X_over_loglog_X_decimal": "1.564998741001",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 64,
+        "factorial_base_decimal_digits": 90,
+        "twin_free_candidate_length_H": 61,
+        "log_X_over_loglog_X_decimal": "38.537705852666",
+        "H_over_log_X_over_loglog_X_decimal": "1.582865369132",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 128,
+        "factorial_base_decimal_digits": 216,
+        "twin_free_candidate_length_H": 125,
+        "log_X_over_loglog_X_decimal": "79.970040774509",
+        "H_over_log_X_over_loglog_X_decimal": "1.563085360335",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 256,
+        "factorial_base_decimal_digits": 507,
+        "twin_free_candidate_length_H": 253,
+        "log_X_over_loglog_X_decimal": "165.277424636099",
+        "H_over_log_X_over_loglog_X_decimal": "1.530759573227",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 512,
+        "factorial_base_decimal_digits": 1167,
+        "twin_free_candidate_length_H": 509,
+        "log_X_over_loglog_X_decimal": "340.187183450164",
+        "H_over_log_X_over_loglog_X_decimal": "1.496235086924",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 1024,
+        "factorial_base_decimal_digits": 2640,
+        "twin_free_candidate_length_H": 1021,
+        "log_X_over_loglog_X_decimal": "697.645419872781",
+        "H_over_log_X_over_loglog_X_decimal": "1.463494163247",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 2048,
+        "factorial_base_decimal_digits": 5895,
+        "twin_free_candidate_length_H": 2045,
+        "log_X_over_loglog_X_decimal": "1426.260250364023",
+        "H_over_log_X_over_loglog_X_decimal": "1.433819668941",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      },
+      {
+        "factorial_parameter_K": 4096,
+        "factorial_base_decimal_digits": 13020,
+        "twin_free_candidate_length_H": 4093,
+        "log_X_over_loglog_X_decimal": "2908.221587299694",
+        "H_over_log_X_over_loglog_X_decimal": "1.407389319258",
+        "symbolic_divisibility_certificate": "for every 2<=j<=K-2: j|(K!+j) and (j+2)|(K!+j+2)",
+        "all_composite_pair_certificates_hold": true
+      }
+    ],
+    "aggregate": {
+      "asymptotically_unit_scale_twin_deserts_proved": true,
+      "every_fixed_c_below_one_local_positivity_refuted": true,
+      "desert_relative_density_tends_to_zero": true,
+      "sparse_dyadic_twin_positivity_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The factorial construction is elementary and does not improve bounded-gap theorems. Its windows satisfy H/X->0, so they are compatible with infinitely many twin primes and with positive dyadic averages. It refutes only overly uniform local positivity.",
+    "failure_count": 0
+  },
+  "discarded_route": "forcing a twin pair in every c log X/log log X window for any fixed c below one",
+  "remaining_gap": "The unit-scale local no-go supplies no positive dyadic or sparse averaged lower bound.",
+  "candidate_theorem": "SparseDyadicBilinearOmegaStrictPositivity",
+  "claim_boundary": "No Twin Prime proof or counterexample. The elementary factorial no-go is sharpened from coefficient 1/4 to every fixed coefficient below one.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T210",
+        "label": "LogOverLogLogScaleFactorialTwinDesertNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T211",
+        "label": "AsymptoticallyUnitScaleFactorialTwinDesertNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N211",
+        "label": "TwinPositivityInEveryFixedSubunitLogOverLogLogWindow",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN211",
+        "label": "SparseDyadicBilinearOmegaStrictPositivity",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T210",
+        "TP-T211"
+      ],
+      [
+        "TP-T211",
+        "TP-N211"
+      ],
+      [
+        "TP-T211",
+        "TP-OPEN211"
+      ],
+      [
+        "TP-OPEN211",
+        "TP"
+      ]
+    ]
+  }
+}

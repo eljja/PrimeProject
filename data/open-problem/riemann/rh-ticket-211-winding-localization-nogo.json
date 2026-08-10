@@ -1,0 +1,150 @@
+{
+  "schema": "primeproject.ticket211-winding-density-fullrange-unitscale.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "RH-TICKET-211",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "EffectiveCofinalClearanceAndTotalWindingLocalizationNoGo",
+  "declared_proposition": "Effective cofinal horizontal clearance and exact total winding do not locate zeros on the critical line. In centered coordinates z=s-1/2, the entire function F(s)=cosh(2*pi*z)-cosh(pi/2) is real symmetric and satisfies F(1-s)=F(s). Its zeros are exactly s=1/2+/-1/4+i*n. On every line Im(s)=n+1/2, |F(s)|>=1+cosh(pi/2). Nevertheless every rectangle 0<=Re(s)<=1, n-1/2<=Im(s)<=n+1/2 has total winding two and contains two off-critical zeros but no critical-line zero.",
+  "mathematical_argument": "The identity cosh(w)=cosh(a) holds exactly when w=+/-a+2*pi*i*n, which gives the displayed zero set. Evenness and real coefficients give functional and conjugation symmetry. At height n+1/2, cosh(2*pi*(x+i(n+1/2)))=-cosh(2*pi*x), so the modulus equals cosh(2*pi*x)+cosh(pi/2) and is at least 1+cosh(pi/2). The two zeros with ordinate n lie strictly inside each band rectangle. There are no boundary zeros, hence the argument principle gives winding two. On z=i*t, F=cos(2*pi*t)-cosh(pi/2)<0, so the critical line contains no zeros. Thus total boundary winding is not a zero-location theorem.",
+  "reproducible_computation": {
+    "theorem": "Effective cofinal horizontal clearance and exact total winding do not locate zeros on the critical line. In centered coordinates z=s-1/2, the entire function F(s)=cosh(2*pi*z)-cosh(pi/2) is real symmetric and satisfies F(1-s)=F(s). Its zeros are exactly s=1/2+/-1/4+i*n. On every line Im(s)=n+1/2, |F(s)|>=1+cosh(pi/2). Nevertheless every rectangle 0<=Re(s)<=1, n-1/2<=Im(s)<=n+1/2 has total winding two and contains two off-critical zeros but no critical-line zero.",
+    "proof": "The identity cosh(w)=cosh(a) holds exactly when w=+/-a+2*pi*i*n, which gives the displayed zero set. Evenness and real coefficients give functional and conjugation symmetry. At height n+1/2, cosh(2*pi*(x+i(n+1/2)))=-cosh(2*pi*x), so the modulus equals cosh(2*pi*x)+cosh(pi/2) and is at least 1+cosh(pi/2). The two zeros with ordinate n lie strictly inside each band rectangle. There are no boundary zeros, hence the argument principle gives winding two. On z=i*t, F=cos(2*pi*t)-cosh(pi/2)<0, so the critical line contains no zeros. Thus total boundary winding is not a zero-location theorem.",
+    "countermodel": {
+      "function": "F(s)=cosh(2*pi*(s-1/2))-cosh(pi/2)",
+      "zeros": "s=1/2+/-1/4+i*n for every integer n",
+      "functional_symmetry": "F(1-s)=F(s)",
+      "conjugation_symmetry": "F(conj(s))=conj(F(s))",
+      "critical_line_sign": "F(1/2+it)<0",
+      "uniform_horizontal_clearance": "1+cosh(pi/2)"
+    },
+    "band_rows": [
+      {
+        "band_center_n": 0,
+        "horizontal_height_n_plus_one_half": "1/2",
+        "exact_uniform_lower_bound": "1+cosh(pi/2)",
+        "lower_bound_decimal": "3.509178478658",
+        "sampled_minimum_modulus": "3.509178478658",
+        "sample_respects_exact_bound": true,
+        "total_zeros_in_closed_band_rectangle": 2,
+        "critical_line_zeros_in_band": 0,
+        "argument_principle_winding_increment": 2
+      },
+      {
+        "band_center_n": 1,
+        "horizontal_height_n_plus_one_half": "3/2",
+        "exact_uniform_lower_bound": "1+cosh(pi/2)",
+        "lower_bound_decimal": "3.509178478658",
+        "sampled_minimum_modulus": "3.509178478658",
+        "sample_respects_exact_bound": true,
+        "total_zeros_in_closed_band_rectangle": 2,
+        "critical_line_zeros_in_band": 0,
+        "argument_principle_winding_increment": 2
+      },
+      {
+        "band_center_n": 2,
+        "horizontal_height_n_plus_one_half": "5/2",
+        "exact_uniform_lower_bound": "1+cosh(pi/2)",
+        "lower_bound_decimal": "3.509178478658",
+        "sampled_minimum_modulus": "3.509178478658",
+        "sample_respects_exact_bound": true,
+        "total_zeros_in_closed_band_rectangle": 2,
+        "critical_line_zeros_in_band": 0,
+        "argument_principle_winding_increment": 2
+      },
+      {
+        "band_center_n": 3,
+        "horizontal_height_n_plus_one_half": "7/2",
+        "exact_uniform_lower_bound": "1+cosh(pi/2)",
+        "lower_bound_decimal": "3.509178478658",
+        "sampled_minimum_modulus": "3.509178478658",
+        "sample_respects_exact_bound": true,
+        "total_zeros_in_closed_band_rectangle": 2,
+        "critical_line_zeros_in_band": 0,
+        "argument_principle_winding_increment": 2
+      },
+      {
+        "band_center_n": 4,
+        "horizontal_height_n_plus_one_half": "9/2",
+        "exact_uniform_lower_bound": "1+cosh(pi/2)",
+        "lower_bound_decimal": "3.509178478658",
+        "sampled_minimum_modulus": "3.509178478658",
+        "sample_respects_exact_bound": true,
+        "total_zeros_in_closed_band_rectangle": 2,
+        "critical_line_zeros_in_band": 0,
+        "argument_principle_winding_increment": 2
+      },
+      {
+        "band_center_n": 5,
+        "horizontal_height_n_plus_one_half": "11/2",
+        "exact_uniform_lower_bound": "1+cosh(pi/2)",
+        "lower_bound_decimal": "3.509178478658",
+        "sampled_minimum_modulus": "3.509178478658",
+        "sample_respects_exact_bound": true,
+        "total_zeros_in_closed_band_rectangle": 2,
+        "critical_line_zeros_in_band": 0,
+        "argument_principle_winding_increment": 2
+      }
+    ],
+    "aggregate": {
+      "effective_cofinal_horizontal_clearance_proved_for_model": true,
+      "exact_total_winding_increment_proved_for_model": true,
+      "total_winding_localizes_zeros_to_critical_line_refuted": true,
+      "effective_zeta_boundary_certificate_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The countermodel refutes only a logical inference based on symmetry, effective cofinal horizontal clearance, and total rectangle winding. It has no Euler product and is not zeta. A valid RH bridge must compare total rectangle zero counts with critical-line zero counts, not merely certify total winding.",
+    "failure_count": 0
+  },
+  "discarded_route": "inferring critical-line location from symmetry, cofinal boundary clearance, and total winding alone",
+  "remaining_gap": "No effective zeta certificate equating total rectangle zeros with critical-line zeros is obtained.",
+  "candidate_theorem": "EffectiveCriticalLineRectangleZeroCountEqualityCertificate",
+  "claim_boundary": "No RH proof and no off-critical zeta zero. An exact entire countermodel proves that even effective clearance plus total winding does not locate zeros on the critical line.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T210",
+        "label": "CofinalCentralNonvanishingExistenceAndSymmetricOffCriticalNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T211",
+        "label": "EffectiveCofinalClearanceAndTotalWindingLocalizationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N211",
+        "label": "EffectiveTotalWindingAloneImpliesCriticalLineLocalization",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN211",
+        "label": "EffectiveCriticalLineRectangleZeroCountEqualityCertificate",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T210",
+        "RH-T211"
+      ],
+      [
+        "RH-T211",
+        "RH-N211"
+      ],
+      [
+        "RH-T211",
+        "RH-OPEN211"
+      ],
+      [
+        "RH-OPEN211",
+        "RH"
+      ]
+    ]
+  }
+}

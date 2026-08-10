@@ -37,7 +37,30 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-210 Cofinal Lines, Five-One Cycles, Prime-Gap Transfer, and Scaled Twin Deserts
+## 2026-08-10 TICKET-211 Winding Localization, Collatz Integrality, Full-Range Goldbach Exceptions, and Unit-Scale Twin Deserts
+
+TICKET-211 keeps all four parent conjectures at `open_not_proven` and proves
+four exact intermediate or no-go results:
+
+1. functional symmetry, effective cofinal horizontal clearance, and exact
+   total winding do not imply critical-line zero localization;
+2. every positive accelerated Collatz cycle must satisfy
+   `k/h>=log_2(6/5)`, while an exact rational family shows that aggregate
+   density, contraction, and product identities do not enforce integrality;
+3. a small-witness Goldbach exception count cannot be the integer count driven
+   below one, so the target is corrected to full-range nonrepresentation;
+4. factorial twin deserts reach every fixed coefficient `c<1` of
+   `log X/log log X`.
+
+Critical-line rectangle zero-count equality, a uniform 2-adic Collatz
+integrality obstruction, a full-range Goldbach exceptional count below one,
+and sparse dyadic Twin positivity are not proved. The machine resolution count
+remains zero.
+
+English report: [TICKET-211](winding-density-fullrange-unitscale.md).
+한국어 보고서: [TICKET-211](winding-density-fullrange-unitscale.ko.md).
+
+## Preserved: 2026-08-10 TICKET-210 Cofinal Lines, Five-One Cycles, Prime-Gap Transfer, and Scaled Twin Deserts
 
 TICKET-210 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

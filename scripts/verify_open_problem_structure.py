@@ -209,6 +209,7 @@ TICKET207_SCHEMA = "primeproject.ticket207-dihedral-twoone-logwitness-abel.v1"
 TICKET208_SCHEMA = "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1"
 TICKET209_SCHEMA = "primeproject.ticket209-normalized-fourone-covering-factorial.v1"
 TICKET210_SCHEMA = "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1"
+TICKET211_SCHEMA = "primeproject.ticket211-winding-density-fullrange-unitscale.v1"
 
 
 def fail(message: str) -> int:
@@ -17316,6 +17317,172 @@ def main() -> int:
         or machine210.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket210 proof boundary changed")
+
+    path211 = Path(
+        "data/open-problem/ticket211-winding-density-fullrange-unitscale.json"
+    )
+    if not path211.exists():
+        return fail("missing ticket211 winding/density/full-range/unit-scale audit")
+    ticket211 = read_json(path211)
+    if (
+        ticket211.get("schema") != TICKET211_SCHEMA
+        or ticket211.get("status") != "open_not_proven"
+    ):
+        return fail("ticket211 schema or status changed")
+    audit211 = ticket211.get("winding_density_fullrange_unitscale_audit", {})
+    machine211 = audit211.get("machine_audit", {})
+    expected_machine211 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine211 != expected_machine211:
+        return fail("ticket211 global machine audit changed")
+
+    attempts211 = {
+        row.get("problem_id"): row for row in ticket211.get("attempts", [])
+    }
+    if set(attempts211) != EXPECTED_PROBLEMS:
+        return fail("ticket211 attempts missing problems")
+    track_paths211 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-211-winding-localization-nogo.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-211-density-integrality-nogo.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-211-fullrange-exception-correction.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-211-unit-scale-factorial-desert.json"
+        ),
+    }
+    theorem_names211 = {
+        "riemann": "EffectiveCofinalClearanceAndTotalWindingLocalizationNoGo",
+        "collatz": "ValuationOneDensityFloorAndAggregateOnlyNoGo",
+        "goldbach": "SmallWitnessExceptionalCountCannotCertifyGoldbachBeyondCoveringFloor",
+        "twin-prime": "AsymptoticallyUnitScaleFactorialTwinDesertNoGo",
+    }
+    for problem_id, track_path in track_paths211.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket211 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts211[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET211_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names211[problem_id]
+            or attempt.get("new_result") != theorem_names211[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/winding_density_fullrange_unitscale_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket211 contract changed")
+
+    rh211 = audit211.get("riemann", {}).get("reproducible_computation", {})
+    rh211_aggregate = rh211.get("aggregate", {})
+    if (
+        len(rh211.get("band_rows", [])) != 6
+        or not all(
+            row.get("sample_respects_exact_bound")
+            and row.get("total_zeros_in_closed_band_rectangle") == 2
+            and row.get("critical_line_zeros_in_band") == 0
+            and row.get("argument_principle_winding_increment") == 2
+            for row in rh211.get("band_rows", [])
+        )
+        or rh211_aggregate.get("total_winding_localizes_zeros_to_critical_line_refuted")
+        is not True
+        or rh211_aggregate.get("effective_zeta_boundary_certificate_proved")
+        is not False
+        or rh211_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket211 RH winding-localization boundary changed")
+
+    collatz211 = audit211.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz211_aggregate = collatz211.get("aggregate", {})
+    if (
+        len(collatz211.get("counterfamily_rows", [])) != 12
+        or collatz211.get("rational_counterfamily", {}).get("one_block_product")
+        != "32"
+        or not all(
+            row.get("one_density_k_over_h") == "1/3"
+            and row.get("positive_rational_fixed_point") == "23/5"
+            and row.get("positive_integer_fixed_point") is False
+            and row.get("aggregate_checks_hold")
+            for row in collatz211.get("counterfamily_rows", [])
+        )
+        or collatz211_aggregate.get("valuation_one_density_floor_proved")
+        is not True
+        or collatz211_aggregate.get("aggregate_density_product_sufficiency_refuted")
+        is not True
+        or collatz211_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket211 Collatz density-integrality boundary changed")
+
+    goldbach211 = audit211.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach211_aggregate = goldbach211.get("aggregate", {})
+    if (
+        len(goldbach211.get("finite_dyadic_rows", [])) != 9
+        or not all(
+            row.get("small_witness_exception_count", 0) > 0
+            and row.get("full_goldbach_exception_count") == 0
+            and len(row.get("transcript_sha256", "")) == 64
+            for row in goldbach211.get("finite_dyadic_rows", [])
+        )
+        or goldbach211_aggregate.get("small_witness_below_one_route_refuted")
+        is not True
+        or goldbach211_aggregate.get("full_range_tail_exception_bound_proved")
+        is not False
+        or goldbach211_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket211 Goldbach full-range correction changed")
+
+    twin211 = audit211.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin211_aggregate = twin211.get("aggregate", {})
+    if (
+        [
+            row.get("factorial_parameter_K")
+            for row in twin211.get("factorial_unit_scale_rows", [])
+        ]
+        != [8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
+        or not all(
+            row.get("all_composite_pair_certificates_hold")
+            for row in twin211.get("factorial_unit_scale_rows", [])
+        )
+        or twin211_aggregate.get("asymptotically_unit_scale_twin_deserts_proved")
+        is not True
+        or twin211_aggregate.get("every_fixed_c_below_one_local_positivity_refuted")
+        is not True
+        or twin211_aggregate.get("sparse_dyadic_twin_positivity_proved")
+        is not False
+        or twin211_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket211 Twin unit-scale boundary changed")
+
+    if (
+        "resolves none" not in str(audit211.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket211.get("claim_boundary", "")).lower()
+        or machine211.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket211 proof boundary changed")
 
     print("open problem structure verified")
     return 0

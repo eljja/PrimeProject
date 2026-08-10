@@ -1,0 +1,172 @@
+{
+  "schema": "primeproject.ticket211-winding-density-fullrange-unitscale.v1",
+  "generated_at": "2026-08-10T23:55:00+09:00",
+  "ticket_id": "GB-TICKET-211",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "SmallWitnessExceptionalCountCannotCertifyGoldbachBeyondCoveringFloor",
+  "declared_proposition": "A small-witness exceptional count cannot be the integer count driven below one to prove strong Goldbach. Let E_b(X) count even N in [X,2X] having no Goldbach representation with a prime summand at most b(N). If an unbounded sequence satisfies W(N)>b(N), then E_b(X)>=1 on infinitely many dyadic blocks. TICKET-209 supplies such a sequence for b(N)=c log N log log N. Therefore an eventual bound E_b(X)<1 is impossible at that cutoff even if strong Goldbach is true.",
+  "mathematical_argument": "For each target N_j with W(N_j)>b(N_j), choose the dyadic X_j with X_j<=N_j<2X_j. Then N_j is counted by E_b(X_j), so the integer-valued count is at least one on unbounded blocks. TICKET-209 proves exactly the required unbounded least-witness floor. This predicate includes both genuine Goldbach exceptions and represented numbers whose least witness is merely large; it cannot distinguish them. By contrast, the full-range count E_full(X) of even N with no representation at all is integer-valued, and an eventual strict bound E_full(X)<1 plus a verified finite prefix would prove strong Goldbach. No such bound is obtained here.",
+  "reproducible_computation": {
+    "theorem": "A small-witness exceptional count cannot be the integer count driven below one to prove strong Goldbach. Let E_b(X) count even N in [X,2X] having no Goldbach representation with a prime summand at most b(N). If an unbounded sequence satisfies W(N)>b(N), then E_b(X)>=1 on infinitely many dyadic blocks. TICKET-209 supplies such a sequence for b(N)=c log N log log N. Therefore an eventual bound E_b(X)<1 is impossible at that cutoff even if strong Goldbach is true.",
+    "proof": "For each target N_j with W(N_j)>b(N_j), choose the dyadic X_j with X_j<=N_j<2X_j. Then N_j is counted by E_b(X_j), so the integer-valued count is at least one on unbounded blocks. TICKET-209 proves exactly the required unbounded least-witness floor. This predicate includes both genuine Goldbach exceptions and represented numbers whose least witness is merely large; it cannot distinguish them. By contrast, the full-range count E_full(X) of even N with no representation at all is integer-valued, and an eventual strict bound E_full(X)<1 plus a verified finite prefix would prove strong Goldbach. No such bound is obtained here.",
+    "predicate_correction": {
+      "invalid_tail_target": "no witness with p<=b(N)",
+      "valid_tail_target": "no prime witness over the full range 2<=p<=N/2",
+      "integer_below_one_bridge": "E_full(X)<1 eventually plus a verified finite prefix implies zero full Goldbach exceptions"
+    },
+    "finite_dyadic_rows": [
+      {
+        "dyadic_lower_X": 32,
+        "dyadic_upper_2X": 64,
+        "even_targets_tested": 17,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 8,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 7,
+        "transcript_sha256": "4cd057ff3028e8b47d84ddcaeeddf8f5ebd49d1f34df10511030bf91a8e7d28c"
+      },
+      {
+        "dyadic_lower_X": 128,
+        "dyadic_upper_2X": 256,
+        "even_targets_tested": 65,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 27,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 23,
+        "transcript_sha256": "89b02c9d0479dd75c5caaf70f924c9b7910bdc9c0b1387aebca77bb0a07eed3f"
+      },
+      {
+        "dyadic_lower_X": 512,
+        "dyadic_upper_2X": 1024,
+        "even_targets_tested": 257,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 118,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 73,
+        "transcript_sha256": "01d5560701448a4b7f4879b2439675ee7f7c19fb5b1fafed21bc007b0f870130"
+      },
+      {
+        "dyadic_lower_X": 2048,
+        "dyadic_upper_2X": 4096,
+        "even_targets_tested": 1025,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 396,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 103,
+        "transcript_sha256": "3fc775be835e8892cb5975f6899e83682025bcbd281c96748d16069e35645296"
+      },
+      {
+        "dyadic_lower_X": 8192,
+        "dyadic_upper_2X": 16384,
+        "even_targets_tested": 4097,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 1837,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 173,
+        "transcript_sha256": "8f166252012e34b30e6c66292373f047a22cc71178f2908eee026dc9472ebba6"
+      },
+      {
+        "dyadic_lower_X": 32768,
+        "dyadic_upper_2X": 65536,
+        "even_targets_tested": 16385,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 8085,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 293,
+        "transcript_sha256": "925391b035587b226ec5243e13318931e2d2e03854ac7b118c9852e6b4f1567b"
+      },
+      {
+        "dyadic_lower_X": 131072,
+        "dyadic_upper_2X": 262144,
+        "even_targets_tested": 65537,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 30214,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 383,
+        "transcript_sha256": "b12cd02fc618fe34fed3b07e4b63a13fd2fcfd95520735381b0a5f46b15142e4"
+      },
+      {
+        "dyadic_lower_X": 524288,
+        "dyadic_upper_2X": 1048576,
+        "even_targets_tested": 262145,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 111602,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 439,
+        "transcript_sha256": "91badb250a99a4516a43cf39edbd7177f58b48e9d90c44dc53c6a09ad4c34982"
+      },
+      {
+        "dyadic_lower_X": 1000000,
+        "dyadic_upper_2X": 2000000,
+        "even_targets_tested": 500001,
+        "small_witness_cutoff": "floor(log N)",
+        "small_witness_exception_count": 222608,
+        "full_goldbach_exception_count": 0,
+        "maximum_least_witness": 601,
+        "transcript_sha256": "0eb60242bad6fa97ca56aa69a6d64654ed270dd7e2d329da1237f972a285c7dc"
+      }
+    ],
+    "aggregate": {
+      "small_witness_below_one_route_refuted": true,
+      "small_and_full_exception_predicates_separated": true,
+      "finite_full_exception_count": 0,
+      "full_range_tail_exception_bound_proved": false,
+      "goldbach_counterexample_found": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The logical no-go is unconditional once the TICKET-209 witness floor is accepted. The finite sieve through two million only illustrates the predicate difference and proves nothing beyond its explicit range. No parity-breaking full-range estimate is supplied.",
+    "failure_count": 0
+  },
+  "discarded_route": "counting absence of witnesses below a cutoff as though it counted complete Goldbach failures",
+  "remaining_gap": "No strict-below-one estimate for the full-range no-representation count is proved.",
+  "candidate_theorem": "FullRangeBinaryGoldbachExceptionalCountStrictlyBelowOne",
+  "claim_boundary": "No Goldbach proof or counterexample. The previously proposed exceptional-count target is corrected from small-witness failure to full-range nonrepresentation.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T210",
+        "label": "PrimeGapToLeastGoldbachWitnessTransferAndDominanceNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T211",
+        "label": "SmallWitnessExceptionalCountCannotCertifyGoldbachBeyondCoveringFloor",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N211",
+        "label": "SmallWitnessExceptionalCountBelowOneClosesGoldbach",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN211",
+        "label": "FullRangeBinaryGoldbachExceptionalCountStrictlyBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T210",
+        "GB-T211"
+      ],
+      [
+        "GB-T211",
+        "GB-N211"
+      ],
+      [
+        "GB-T211",
+        "GB-OPEN211"
+      ],
+      [
+        "GB-OPEN211",
+        "GB"
+      ]
+    ]
+  }
+}

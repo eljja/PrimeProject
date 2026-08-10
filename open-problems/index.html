@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket210-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket211-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-210</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-211</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-210 actually changed</h2>
-          <p>TICKET-210 did not solve a conjecture. It proves that cofinal Riemann zero-avoiding lines exist but are insufficient without effective winding, excludes every accelerated Collatz cycle with exactly five valuation-one entries and arbitrary remaining valuations at least two, proves an exact prime-gap-to-Goldbach-witness transfer while showing the current gap input does not improve TICKET-209, and calibrates factorial twin-free intervals at a fixed log X/log log X local scale.</p>
-          <p class="proof-boundary">TICKET-210은 난제를 해결하지 않았습니다. 리만 트랙은 영점을 피하는 무한 높이선의 존재를 증명하면서 그 사실만으로 RH가 따라오지 않는 대칭 반례모형을 제시했습니다. 콜라츠 트랙은 valuation 1이 정확히 다섯 번이고 나머지가 임의의 2 이상인 모든 양의 비자명 주기를 배제했습니다. 골드바흐 트랙은 소수 간격을 최소 증인 하한으로 정확히 전달했지만 현행 장간격 정리만으로는 TICKET-209 바닥을 개선하지 못함을 확정했습니다. 쌍둥이 소수 트랙은 factorial 부재 구간을 log X/log log X 국소 크기로 정량화했습니다.</p>
+          <h2>What TICKET-211 actually changed</h2>
+          <p>TICKET-211 did not solve a conjecture. It proves that effective horizontal clearance plus exact total winding still does not locate Riemann zeros, derives a multiplicity-uniform Collatz valuation-one density floor and refutes aggregate-only sufficiency, corrects the Goldbach tail target from small-witness failure to full-range nonrepresentation, and sharpens factorial twin-free intervals to every fixed coefficient below one of log X/log log X.</p>
+          <p class="proof-boundary">TICKET-211은 난제를 해결하지 않았습니다. 리만 트랙은 계산 가능한 수평 하한과 정확한 전체 감김수만으로 임계선 영점 위치를 결정할 수 없음을 증명했습니다. 콜라츠 트랙은 valuation 1 밀도의 필요 하한을 얻고 정수성 없는 집계 경로를 폐기했습니다. 골드바흐 트랙은 작은 증인 실패와 전체 무표현을 분리하여 예외 개수 목표를 수정했습니다. 쌍둥이 소수 트랙은 factorial 부재 구간을 모든 고정 계수 1 미만의 log X/log log X 크기로 강화했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every sufficiently high unit strip contains a central horizontal line on which zeta is nonzero.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Functional symmetry plus cofinal horizontal clearance does not imply RH; an exact off-critical polynomial countermodel has both.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Effective central-edge clearance and winding-increment certificate.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>An exact symmetric entire model has effective cofinal clearance and total winding two in every band.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Total winding still does not locate zeros: each band has two off-critical and zero critical-line zeros.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Effective equality between total rectangle zeros and critical-line zeros.</dd></div>
           </dl>
-          <p class="workbench-ko">영점의 고립성으로 중앙 수평선의 존재는 닫았지만 높이 선택은 비효과적입니다. 대칭 반례모형은 존재적 비소멸만으로 감김수나 RH를 얻을 수 없음을 보여 줍니다.</p>
+          <p class="workbench-ko">계산 가능한 수평 하한과 전체 감김수까지 있어도 영점 위치는 결정되지 않습니다. 실제 제타의 전체 영점 수와 임계선 영점 수를 잇는 등식이 남았습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>No positive nontrivial accelerated cycle has exactly five valuation-one entries and arbitrary remaining valuations at least two.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The complete exactly-five-one periodic stratum is empty.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>A cycle obstruction uniform in valuation-one multiplicity.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every positive accelerated cycle must satisfy k/h≥log₂(6/5).</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The exact rational family (1,2,2)^m satisfies density, contraction, and product constraints but is not integral.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>A uniform 2-adic integrality obstruction above the density floor.</dd></div>
           </dl>
-          <p class="workbench-ko">주기 곱 부등식이 <code>h≥20</code>을 닫고 <code>h=6..19</code>의 <code>29,758</code>개 valuation 단어를 정확히 검사했습니다. valuation 1이 여섯 이상인 주기와 비주기 발산은 열려 있습니다.</p>
+          <p class="workbench-ko">valuation 1의 필요 밀도는 전체 multiplicity에 균일합니다. 그러나 유리수 반례모형이 집계 정보와 정수성 사이의 간극을 정확히 드러냅니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A consecutive-prime gap g transfers exactly to a least Goldbach witness bound W(r-1)&gt;g-2.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The current unconditional large-gap input is asymptotically weaker than the TICKET-209 covering floor.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Goldbach tail exceptional count below one beyond the covering-congruence floor.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Small-witness exceptions and full Goldbach nonrepresentations are distinct integer predicates.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>TICKET-209 forces the small-witness exception count to be at least one on infinitely many dyadic blocks.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Full-range binary Goldbach exceptional count strictly below one.</dd></div>
           </dl>
-          <p class="workbench-ko">연속 소수 사이의 합성수 구간은 최소 골드바흐 증인 하한으로 정확히 전달됩니다. 다만 알려진 장간격 정리의 반복로그 인자는 기존 덮개 결과보다 작아 새 전역 진전을 주지 않습니다.</p>
+          <p class="workbench-ko">작은 증인이 없는 수에는 큰 증인으로 표현되는 수도 포함됩니다. 무한 증명에는 전체 소수 범위에서 표현이 전혀 없는 수의 개수를 1 미만으로 만들어야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Factorial twin deserts have length at least one quarter of log X/log log X at base point X.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Every-window positivity fails even at the log X/log log X local scale.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>A dyadic bilinear Omega-phase lower bound that permits these local deserts.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Factorial twin deserts satisfy H/(log X/log log X)→1.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Every-window positivity fails for every fixed coefficient c&lt;1 at this scale.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Sparse dyadic bilinear Omega strict positivity.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>X=K!</code>에서 길이 <code>K-3</code>인 factorial 부재 구간은 <code>(1/4) log X/log log X</code> 이상입니다. 이는 국소 모든-구간 전략만 닫고 dyadic 평균 양성은 열어 둡니다.</p>
+          <p class="workbench-ko"><code>X=K!</code>에서 길이 <code>K-3</code>인 부재 구간과 <code>log X/log log X</code>의 비율은 1로 갑니다. 국소 모든-구간 전략만 닫고 희소 dyadic 양성은 열어 둡니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>210 tickets reduced to four meaningful eras</h2>
+          <h2>211 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–210 · Structure, certified promotion, and parity limits</strong><p>리만 경계의 존재와 유효성을 분리하고, Collatz 단일-1부터 다섯-1 계층을 배제했으며, Goldbach 최소 증인 하한의 두 독립 전달 경로와 Twin 국소 부재 구간의 정량적 한계를 정리로 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–211 · Structure, certified promotion, and localization limits</strong><p>리만 전체 감김수와 임계선 위치, Collatz 집계 밀도와 정수성, Goldbach 작은 증인과 전체 무표현, Twin 국소 부재와 희소 dyadic 양성을 각각 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/cofinal-fiveone-primegap-scaledtwin.ko.md">TICKET-210 한국어 보고서</a>
-          <a href="../docs/cofinal-fiveone-primegap-scaledtwin.md">TICKET-210 English report</a>
+          <a href="../docs/winding-density-fullrange-unitscale.ko.md">TICKET-211 한국어 보고서</a>
+          <a href="../docs/winding-density-fullrange-unitscale.md">TICKET-211 English report</a>
+          <a href="../docs/cofinal-fiveone-primegap-scaledtwin.ko.md">TICKET-210 이전 보고서</a>
           <a href="../docs/normalized-fourone-covering-factorial.ko.md">TICKET-209 이전 보고서</a>
           <a href="../docs/vertical-threeone-unitlog-cyclotomic.ko.md">TICKET-208 이전 보고서</a>
           <a href="../docs/dihedral-twoone-logwitness-abel.ko.md">TICKET-207 이전 보고서</a>
@@ -149,7 +150,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260810-ticket210"></script>
+    <script src="../assets/i18n.js?v=20260810-ticket211"></script>
   </body>
 </html>
 
