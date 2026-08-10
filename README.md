@@ -31,16 +31,21 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-206: Adaptive Certificates, Single-One Cycles, CRT Witnesses, and Omega Projectors](docs/adaptive-singleone-crt-projector.md),
+with a separate [Korean report](docs/adaptive-singleone-crt-projector.ko.md).
+It proves finite termination of the derivative-certified winding grammar on
+every fixed zero-free compact boundary while quantifying inverse-clearance
+complexity; excludes every accelerated Collatz cycle with exactly one
+valuation `1`; proves that no fixed bounded set of prime summands can witness
+all large Goldbach targets; and constructs an exact Omega-binomial prime
+projector while proving every finite truncation has infinitely many positive
+composite-composite shift-two false positives. These are exact partial or
+no-go results, not resolutions. Every conjecture remains `open_not_proven`;
+the machine resolution count is zero.
+
+The preserved previous boundary is
 [TICKET-205: Winding Certificates, Cycle Extrema, Finite Witnesses, and Omega Weights](docs/winding-extremal-finite-omega.md),
 with a separate [Korean report](docs/winding-extremal-finite-omega.ko.md).
-It proves a derivative-certified polygonal winding theorem and finite-value
-no-go, removes the all-valuations-at-least-two Collatz cycle stratum for every
-length, verifies every even Goldbach target through 10,000,000 with a
-reproducible least-witness stream, and realizes the Twin prime/semiprime signs
-as an arithmetic Omega weight while proving an infinite composite-product
-false-positive family. These are exact partial, finite, or no-go results, not
-resolutions. Every conjecture remains `open_not_proven`; the machine resolution
-count is zero.
 
 The preserved previous boundary is
 [TICKET-204: Continuous Certificates, Primitive Necklaces, and Parity Kernels](docs/mesh-necklace-exceptional-kernel.md),
@@ -255,7 +260,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-205 boundary, four exact partial, finite, or no-go results, four discarded or recalibrated routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-206 boundary, four exact partial or no-go results, four discarded or recalibrated routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -272,17 +277,19 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-205. The RH track proves a direct
-polygonal-winding certificate under segmentwise derivative bounds and refutes
-finite-value-only winding inference. The Collatz track removes every
-all-valuations-at-least-two periodic candidate except the trivial all-2 cycle.
-The Goldbach track supplies exact witnesses for all 4,999,999 even targets
-through ten million, with a stable witness-stream digest. The Twin track turns
-the formal rank-two signs into an n-only Omega weight and proves raw positive
-products have an infinite composite-composite false-positive family. These are
-partial, finite, or no-go results, not solutions. All four conjectures remain
-open and the machine resolution count is zero.
+The latest proof-search track is TICKET-206. The RH track proves finite
+adaptive-mesh termination under positive boundary clearance and an exact
+inverse-clearance fixed-budget no-go. The Collatz track excludes every cycle
+with exactly one valuation `1` and arbitrary remaining valuations at least
+two. The Goldbach track constructs infinite CRT progressions that force every
+available prime witness above any prescribed bound. The Twin track gives an
+exact Omega-binomial prime projector and proves every finite truncation retains
+infinitely many positive composite-composite shift-two false positives. These
+are partial or no-go results, not solutions. All four conjectures remain open
+and the machine resolution count is zero.
 See
+[TICKET206 EN](docs/adaptive-singleone-crt-projector.md),
+[TICKET206 KO](docs/adaptive-singleone-crt-projector.ko.md),
 [TICKET205 EN](docs/winding-extremal-finite-omega.md),
 [TICKET205 KO](docs/winding-extremal-finite-omega.ko.md),
 [TICKET204 EN](docs/mesh-necklace-exceptional-kernel.md),
@@ -382,12 +389,12 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-205입니다. 리만 트랙은 구간별 미분
-상계로 표본 다각형의 winding과 실제 영점수를 연결하고 유한 값 전용 추론을
-반박했습니다. 콜라츠 트랙은 all-v≥2 주기 영역을 자명 cycle만 남기고 전
-길이에서 제거했습니다. 골드바흐 트랙은 천만 이하 4,999,999개 짝수의 정확한
-증인과 재현 해시를 만들었습니다. 쌍둥이 소수 트랙은 Omega 가중치로
-소수·반소수 부호를 구현했지만 raw 양수 곱의 무한 합성수 거짓 양성도
+한국어 최신 요약: 최신 탐색은 TICKET-206입니다. 리만 트랙은 경계 clearance가
+양수이면 적응형 winding mesh가 유한 종료함을 증명하고 고정 분할 예산의
+역-clearance 한계를 확정했습니다. 콜라츠 트랙은 valuation `1`이 정확히 한
+번인 모든 주기 영역을 제거했습니다. 골드바흐 트랙은 어떤 고정 소수 증인
+집합도 충분하지 않다는 무한 CRT 계열을 만들었습니다. 쌍둥이 소수 트랙은
+정확한 Omega 이항 projector와 모든 유한 절단의 무한 합성수 거짓 양성을
 증명했습니다. 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -408,19 +415,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-205입니다.
-[winding 인증·cycle 극값·유한 증인·Omega 가중치 한국어 보고서](docs/winding-extremal-finite-omega.ko.md)와
-[영문 보고서](docs/winding-extremal-finite-omega.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-206입니다.
+[적응형 인증·단일-1 cycle·CRT 증인·Omega projector 한국어 보고서](docs/adaptive-singleone-crt-projector.ko.md)와
+[영문 보고서](docs/adaptive-singleone-crt-projector.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-RH의 직접 winding 인증, Collatz all-v≥2 영역 배제, 천만 Goldbach 증인,
-Twin Omega 부호 실현을 확정했지만 실제 전역·무한 전제는 남아 있습니다.
-각 proof DAG는 TICKET-204 입력, 이번에 닫힌 정리,
+RH 적응형 winding 종료, Collatz 단일-1 영역 배제, Goldbach 고정 증인 집합
+no-go, Twin Omega 이항 projector를 확정했지만 실제 전역·무한 전제는 남아
+있습니다. 각 proof DAG는 TICKET-205 입력, 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-205의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 205개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-206의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 206개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

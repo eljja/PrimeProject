@@ -37,7 +37,29 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-205 Winding Certificates, Cycle Extrema, Finite Witnesses, and Omega Weights
+## 2026-08-10 TICKET-206 Adaptive Certificates, Single-One Cycles, CRT Witnesses, and Omega Projectors
+
+TICKET-206 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. positive boundary clearance implies finite termination of the derivative-
+   certified winding mesh, while fixed budgets fail at inverse-clearance scale;
+2. no nontrivial positive accelerated Collatz cycle has exactly one valuation
+   one and arbitrary remaining valuations at least two;
+3. every fixed bound on Goldbach prime witnesses is defeated by an infinite CRT
+   progression, without producing a Goldbach counterexample;
+4. Omega-binomial inversion is an exact prime projector, but every finite
+   truncation has infinitely many positive composite-composite shift-two false
+   positives.
+
+The completed-zeta interval bounds, remaining mixed Collatz necklaces,
+growing-cutoff Goldbach tail estimate, and uniform Twin projector-tail
+cancellation are not proved. The machine resolution count remains zero.
+
+English report: [TICKET-206](adaptive-singleone-crt-projector.md).
+한국어 보고서: [TICKET-206](adaptive-singleone-crt-projector.ko.md).
+
+## Preserved: 2026-08-10 TICKET-205 Winding Certificates, Cycle Extrema, Finite Witnesses, and Omega Weights
 
 TICKET-205 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial, finite, or no-go results:

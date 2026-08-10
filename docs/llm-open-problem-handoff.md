@@ -62,9 +62,40 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-205
+## Latest Continuation After TICKET-206
 
-TICKET-205 is the current boundary. It resolves none of the four conjectures
+TICKET-206 is the current boundary. It resolves none of the four conjectures
+and narrows the exact premises left by TICKET-205:
+
+1. **Riemann:** every fixed zero-free compact boundary has a finite derivative-
+   certified winding mesh, but a fixed segment budget cannot survive clearance
+   tending to zero. Effective completed-zeta bounds remain open.
+2. **Collatz:** every positive cycle with exactly one valuation one and all
+   other valuations at least two is excluded. At least two valuation-one
+   entries and nonperiodic divergence remain open.
+3. **Goldbach:** for each `B`, an infinite CRT progression forces any witness
+   above `B`. This proves that witness cutoffs must grow, not that an exception
+   exists.
+4. **Twin Prime:** Omega-binomial inversion is an exact prime projector, but
+   every finite truncation has infinite positive composite-composite shift-two
+   false positives. Uniform infinite-tail cancellation remains open.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket206-adaptive-singleone-crt-projector.json
+```
+
+English report: [TICKET-206](adaptive-singleone-crt-projector.md).
+Korean report: [TICKET-206 한국어](adaptive-singleone-crt-projector.ko.md).
+
+All four results distinguish a proved infinite subfamily theorem from the
+unproved parent conjecture. No novelty-priority claim is made without expert
+review.
+
+## Preserved Continuation After TICKET-205
+
+TICKET-205 was the immediately preceding boundary. It resolves none of the four conjectures
 and advances the exact premises left by TICKET-204:
 
 1. **Riemann:** segmentwise derivative disks identify the analytic winding

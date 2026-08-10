@@ -1,0 +1,144 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T10:39:10+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-206",
+  "status": "open_not_proven",
+  "declared_proposition": "Let gamma:[0,L]->C be a unit-speed C1 closed contour and let g=f o gamma, where f is analytic near the contour. If g is nonzero on the contour, delta=min|g| is positive and K=max|g'| is finite. Repeated uniform bisection therefore terminates with a partition of mesh h<delta/K (with the constant case handled separately), and every arc satisfies K h<|g(t_j)|. The TICKET-205 disk homotopies then certify the exact winding number. This completeness is conditional on rigorous bounds delta and K. No fixed segment budget works uniformly as the contour clearance tends to zero.",
+  "new_result": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+  "discarded_route": "using a fixed contour-segment budget independently of boundary clearance",
+  "remaining_gap": "No effective rigorous clearance oracle is constructed for a cofinal family of completed-zeta rectangles.",
+  "candidate_theorem": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination",
+  "claim_boundary": "No RH proof or counterexample. A certificate-completeness theorem and an inverse-clearance fixed-budget no-go are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T205",
+        "label": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T206",
+        "label": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N206",
+        "label": "FixedBudgetContourCertificationIndependentOfClearance",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN206",
+        "label": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T205",
+        "RH-T206"
+      ],
+      [
+        "RH-T206",
+        "RH-N206"
+      ],
+      [
+        "RH-T206",
+        "RH-OPEN206"
+      ],
+      [
+        "RH-OPEN206",
+        "RH"
+      ]
+    ]
+  },
+  "next_experiment": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination",
+  "mathematical_argument": "Compactness and continuity give delta>0 and K<infinity. If K=0 the image is constant and nonzero. Otherwise choose a dyadic mesh below delta/K. The fundamental theorem of calculus gives |g(t)-g(t_j)|<=K h<delta<=|g(t_j)| on every arc, so TICKET-205 applies. For the sharpness family f_epsilon(z)=z-(1-epsilon) on the unit circle, delta=epsilon, K=1, and the global criterion requires 2*pi/N<epsilon. If N<=6/epsilon it fails because pi>3; N=8/epsilon succeeds because pi<22/7. The enclosed zero 1-epsilon gives winding one.",
+  "reproducible_computation": {
+    "theorem": "Let gamma:[0,L]->C be a unit-speed C1 closed contour and let g=f o gamma, where f is analytic near the contour. If g is nonzero on the contour, delta=min|g| is positive and K=max|g'| is finite. Repeated uniform bisection therefore terminates with a partition of mesh h<delta/K (with the constant case handled separately), and every arc satisfies K h<|g(t_j)|. The TICKET-205 disk homotopies then certify the exact winding number. This completeness is conditional on rigorous bounds delta and K. No fixed segment budget works uniformly as the contour clearance tends to zero.",
+    "proof": "Compactness and continuity give delta>0 and K<infinity. If K=0 the image is constant and nonzero. Otherwise choose a dyadic mesh below delta/K. The fundamental theorem of calculus gives |g(t)-g(t_j)|<=K h<delta<=|g(t_j)| on every arc, so TICKET-205 applies. For the sharpness family f_epsilon(z)=z-(1-epsilon) on the unit circle, delta=epsilon, K=1, and the global criterion requires 2*pi/N<epsilon. If N<=6/epsilon it fails because pi>3; N=8/epsilon succeeds because pi<22/7. The enclosed zero 1-epsilon gives winding one.",
+    "termination_certificate": {
+      "boundary_clearance": "delta=min_t |f(gamma(t))|>0",
+      "global_derivative_bound": "K=max_t |(f o gamma)'(t)|<infinity",
+      "sufficient_mesh_condition": "h<delta/K when K>0",
+      "uniform_bisection_terminates": true,
+      "accepted_partition_certifies_zero_free_boundary": true
+    },
+    "clearance_complexity_rows": [
+      {
+        "epsilon": "1/8",
+        "function": "f(z)=z-(1-1/8)",
+        "boundary_clearance": "1/8",
+        "arclength_derivative_bound": "1",
+        "uniform_global_criterion_fails_for_every_N_at_most": 48,
+        "uniform_global_criterion_certified_at_N": 64,
+        "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+        "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+        "actual_winding": 1
+      },
+      {
+        "epsilon": "1/16",
+        "function": "f(z)=z-(1-1/16)",
+        "boundary_clearance": "1/16",
+        "arclength_derivative_bound": "1",
+        "uniform_global_criterion_fails_for_every_N_at_most": 96,
+        "uniform_global_criterion_certified_at_N": 128,
+        "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+        "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+        "actual_winding": 1
+      },
+      {
+        "epsilon": "1/32",
+        "function": "f(z)=z-(1-1/32)",
+        "boundary_clearance": "1/32",
+        "arclength_derivative_bound": "1",
+        "uniform_global_criterion_fails_for_every_N_at_most": 192,
+        "uniform_global_criterion_certified_at_N": 256,
+        "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+        "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+        "actual_winding": 1
+      },
+      {
+        "epsilon": "1/64",
+        "function": "f(z)=z-(1-1/64)",
+        "boundary_clearance": "1/64",
+        "arclength_derivative_bound": "1",
+        "uniform_global_criterion_fails_for_every_N_at_most": 384,
+        "uniform_global_criterion_certified_at_N": 512,
+        "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+        "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+        "actual_winding": 1
+      },
+      {
+        "epsilon": "1/128",
+        "function": "f(z)=z-(1-1/128)",
+        "boundary_clearance": "1/128",
+        "arclength_derivative_bound": "1",
+        "uniform_global_criterion_fails_for_every_N_at_most": 768,
+        "uniform_global_criterion_certified_at_N": 1024,
+        "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+        "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+        "actual_winding": 1
+      }
+    ],
+    "aggregate": {
+      "zero_free_boundary_implies_finite_mesh_certificate": true,
+      "fixed_uniform_segment_budget_refuted": true,
+      "complexity_lower_bound_order_inverse_clearance": true,
+      "completed_zeta_rigorous_bound_oracle_constructed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem proves completeness of a certificate grammar once exact positive clearance and derivative bounds are available. It neither constructs those bounds for cofinal completed-zeta rectangles nor excludes zeros off the critical line.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "using a fixed contour-segment budget independently of boundary clearance",
+    "retain": "adaptive interval bounds with termination tied explicitly to positive clearance",
+    "next_single_lemma": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination"
+  }
+}

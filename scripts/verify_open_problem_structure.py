@@ -204,6 +204,7 @@ TICKET202_SCHEMA = "primeproject.ticket202-exact-hermite-deformation-parity-scal
 TICKET203_SCHEMA = "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1"
 TICKET204_SCHEMA = "primeproject.ticket204-mesh-necklace-exceptional-kernel.v1"
 TICKET205_SCHEMA = "primeproject.ticket205-winding-extremal-finite-omega.v1"
+TICKET206_SCHEMA = "primeproject.ticket206-adaptive-singleone-crt-projector.v1"
 
 
 def fail(message: str) -> int:
@@ -16478,6 +16479,166 @@ def main() -> int:
         or machine205.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket205 proof boundary changed")
+
+    path206 = Path(
+        "data/open-problem/ticket206-adaptive-singleone-crt-projector.json"
+    )
+    if not path206.exists():
+        return fail("missing ticket206 adaptive/single-one/CRT/projector audit")
+    ticket206 = read_json(path206)
+    if (
+        ticket206.get("schema") != TICKET206_SCHEMA
+        or ticket206.get("status") != "open_not_proven"
+    ):
+        return fail("ticket206 schema or status changed")
+    audit206 = ticket206.get("adaptive_singleone_crt_projector_audit", {})
+    machine206 = audit206.get("machine_audit", {})
+    expected_machine206 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine206 != expected_machine206:
+        return fail("ticket206 global machine audit changed")
+
+    attempts206 = {
+        row.get("problem_id"): row for row in ticket206.get("attempts", [])
+    }
+    if set(attempts206) != EXPECTED_PROBLEMS:
+        return fail("ticket206 attempts missing problems")
+    track_paths206 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-206-adaptive-clearance.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-206-single-one-general.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-206-unbounded-witness-crt.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-206-binomial-omega-projector.json"
+        ),
+    }
+    theorem_names206 = {
+        "riemann": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+        "collatz": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+        "goldbach": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+        "twin-prime": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+    }
+    for problem_id, track_path in track_paths206.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket206 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts206[problem_id]
+        nodes = attempt.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != "primeproject.open-problem-attempt.v1"
+            or track.get("status") != "open_not_proven"
+            or track.get("new_result") != theorem_names206[problem_id]
+            or attempt.get("new_result") != theorem_names206[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket206 contract changed")
+
+    rh206 = audit206.get("riemann", {}).get("reproducible_computation", {})
+    rh206_rows = rh206.get("clearance_complexity_rows", [])
+    if (
+        not rh206.get("termination_certificate", {}).get(
+            "uniform_bisection_terminates"
+        )
+        or len(rh206_rows) != 5
+        or rh206_rows[1].get("epsilon") != "1/16"
+        or rh206_rows[1].get(
+            "uniform_global_criterion_fails_for_every_N_at_most"
+        )
+        != 96
+        or rh206_rows[1].get("uniform_global_criterion_certified_at_N") != 128
+        or rh206.get("aggregate", {}).get("riemann_hypothesis_resolved")
+        is not False
+    ):
+        return fail("ticket206 RH adaptive-clearance boundary changed")
+
+    collatz206 = audit206.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz206_regression = collatz206.get("finite_integrality_regression", {})
+    collatz206_aggregate = collatz206.get("aggregate", {})
+    if (
+        collatz206_regression.get("total_words_checked") != 167481
+        or collatz206_regression.get("positive_integral_cycle_words") != 0
+        or collatz206_aggregate.get(
+            "single_one_arbitrary_ge_two_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz206_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 2
+        or collatz206_aggregate.get("two_or_more_one_mixed_necklaces_excluded")
+        is not False
+        or collatz206_aggregate.get("nonperiodic_divergence_excluded") is not False
+        or collatz206_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket206 Collatz single-one boundary changed")
+
+    goldbach206 = audit206.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach206_rows = goldbach206.get("crt_fixture_rows", [])
+    if (
+        [row.get("witness_bound_B") for row in goldbach206_rows]
+        != [5, 11, 19, 29, 43]
+        or not all(
+            row.get("all_prime_witnesses_at_most_B_excluded")
+            for row in goldbach206_rows
+        )
+        or goldbach206.get("aggregate", {}).get(
+            "fixed_bounded_prime_witness_basis_refuted"
+        )
+        is not True
+        or goldbach206.get("aggregate", {}).get("goldbach_counterexample_found")
+        is not False
+        or goldbach206.get("aggregate", {}).get("goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket206 Goldbach CRT-witness boundary changed")
+
+    twin206 = audit206.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin206_aggregate = twin206.get("aggregate", {})
+    if (
+        len(twin206.get("binomial_identity_rows", [])) != 8
+        or len(twin206.get("crt_false_positive_rows", [])) != 6
+        or twin206_aggregate.get("pointwise_finite_exact_prime_projector_proved")
+        is not True
+        or twin206_aggregate.get(
+            "every_fixed_truncation_has_infinite_positive_false_positives"
+        )
+        is not True
+        or twin206_aggregate.get("uniform_infinite_tail_cancellation_proved")
+        is not False
+        or twin206_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket206 Twin binomial-projector boundary changed")
+
+    if (
+        "resolves none" not in str(audit206.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket206.get("claim_boundary", "")).lower()
+        or machine206.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket206 proof boundary changed")
 
     print("open problem structure verified")
     return 0

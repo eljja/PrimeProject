@@ -1,0 +1,201 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T10:39:10+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-206",
+  "status": "open_not_proven",
+  "declared_proposition": "No nontrivial positive accelerated Collatz cycle has a valuation period containing exactly one entry equal to one and every other entry at least two. Thus any hypothetical nontrivial positive cycle must contain at least two valuation-one entries and at least one entry at least two.",
+  "new_result": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+  "discarded_route": "searching any exactly-one-valuation-one period for a positive cycle",
+  "remaining_gap": "Primitive mixed necklaces with at least two valuation-one entries and nonperiodic divergence remain open.",
+  "candidate_theorem": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes",
+  "claim_boundary": "No Collatz proof or counterexample. The complete exactly-one-valuation-one periodic stratum is excluded.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T205",
+        "label": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T206",
+        "label": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N206",
+        "label": "ExactlyOneValuationOneCanSupportANontrivialPositiveCycle",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN206",
+        "label": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T205",
+        "CO-T206"
+      ],
+      [
+        "CO-T206",
+        "CO-N206"
+      ],
+      [
+        "CO-T206",
+        "CO-OPEN206"
+      ],
+      [
+        "CO-OPEN206",
+        "CO"
+      ]
+    ]
+  },
+  "next_experiment": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes",
+  "mathematical_argument": "Rotate a hypothetical period to its minimum odd value m. TICKET-205 forces the outgoing valuation there to be one, so it is the unique such entry. The next value is y=(3m+1)/2. Every remaining step has valuation at least two and is bounded by F(x)=(3x+1)/4. With q=(3/4)^(h-1), return to m implies m<=(1-q/2)/(1-3q/2). For h>=4, q<=27/64<1/2, so the right side is strictly below 3, contradicting the odd nontrivial minimum m>=3. For h=3 the bound gives m<=23/5, hence m=3; but 3 maps to 5 and then 1, not back to 3. For h=2, writing the other valuation as b>=2 gives (2^(b+1)-9)m=5, which has no positive integral solution. For h=1, the valuation-one fixed-point equation gives m=-1.",
+  "reproducible_computation": {
+    "theorem": "No nontrivial positive accelerated Collatz cycle has a valuation period containing exactly one entry equal to one and every other entry at least two. Thus any hypothetical nontrivial positive cycle must contain at least two valuation-one entries and at least one entry at least two.",
+    "proof": "Rotate a hypothetical period to its minimum odd value m. TICKET-205 forces the outgoing valuation there to be one, so it is the unique such entry. The next value is y=(3m+1)/2. Every remaining step has valuation at least two and is bounded by F(x)=(3x+1)/4. With q=(3/4)^(h-1), return to m implies m<=(1-q/2)/(1-3q/2). For h>=4, q<=27/64<1/2, so the right side is strictly below 3, contradicting the odd nontrivial minimum m>=3. For h=3 the bound gives m<=23/5, hence m=3; but 3 maps to 5 and then 1, not back to 3. For h=2, writing the other valuation as b>=2 gives (2^(b+1)-9)m=5, which has no positive integral solution. For h=1, the valuation-one fixed-point equation gives m=-1.",
+    "length_cases": {
+      "h_ge_4": {
+        "q_upper": "27/64",
+        "minimum_upper_strict": "3",
+        "contradiction": "nontrivial positive odd minimum is at least 3"
+      },
+      "h_eq_3": {
+        "minimum_upper": "23/5",
+        "only_odd_candidate": 3,
+        "trajectory_prefix": [
+          3,
+          5,
+          1
+        ]
+      },
+      "h_eq_2": "(2^(b+1)-9)m=5 has no positive integer solution for b>=2",
+      "h_eq_1": "2m=3m+1 gives m=-1"
+    },
+    "finite_integrality_regression": {
+      "rows": [
+        {
+          "length": 1,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 1,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 2,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 8,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 3,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 48,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 4,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 256,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 5,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 1280,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 6,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 6144,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 7,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 28672,
+          "positive_integral_cycle_word_count": 0
+        },
+        {
+          "length": 8,
+          "valuation_alphabet": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "exactly_one_valuation_one_word_count": 131072,
+          "positive_integral_cycle_word_count": 0
+        }
+      ],
+      "maximum_length": 8,
+      "total_words_checked": 167481,
+      "positive_integral_cycle_words": 0
+    },
+    "aggregate": {
+      "single_one_arbitrary_ge_two_cycle_stratum_excluded": true,
+      "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 2,
+      "two_or_more_one_mixed_necklaces_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This strictly extends the TICKET-185 rest-all-two family to arbitrary remaining valuations at least two. It does not exclude periods with two or more valuation-one entries or any divergent nonperiodic orbit.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "searching any exactly-one-valuation-one period for a positive cycle",
+    "retain": "primitive mixed necklaces with at least two valuation-one entries",
+    "next_single_lemma": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes"
+  }
+}

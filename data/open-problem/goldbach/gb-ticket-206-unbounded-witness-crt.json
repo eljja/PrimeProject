@@ -1,0 +1,383 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T10:39:10+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-206",
+  "status": "open_not_proven",
+  "declared_proposition": "For every bound B there is an infinite arithmetic progression of even integers N for which N-p is composite for every prime p<=B. Therefore no fixed finite set of prime summands can witness strong Goldbach on all sufficiently large even integers. If strong Goldbach is true, its least prime witness is necessarily unbounded.",
+  "new_result": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+  "discarded_route": "proving strong Goldbach with one fixed bounded set of small prime summands",
+  "remaining_gap": "The CRT families exclude only bounded summands and do not bound the full Goldbach exceptional set.",
+  "candidate_theorem": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne",
+  "claim_boundary": "No Goldbach proof or counterexample. An exact infinite CRT obstruction to every fixed witness basis is proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T205",
+        "label": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T206",
+        "label": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N206",
+        "label": "FixedBoundedPrimeWitnessBasisCoversAllLargeEvenTargets",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN206",
+        "label": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T205",
+        "GB-T206"
+      ],
+      [
+        "GB-T206",
+        "GB-N206"
+      ],
+      [
+        "GB-T206",
+        "GB-OPEN206"
+      ],
+      [
+        "GB-OPEN206",
+        "GB"
+      ]
+    ]
+  },
+  "next_experiment": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne",
+  "mathematical_argument": "For each odd prime p<=B choose a distinct odd prime q_p>B. The Chinese remainder theorem gives one class satisfying N=0 mod 2 and N=p mod q_p for every p. Choose a sufficiently large representative. Then N-p is a proper multiple of q_p and is composite. Also N-2 is even and greater than two. Adding multiples of 2 product(q_p) preserves every condition, so the family is infinite. This excludes bounded witness bases but does not produce a Goldbach counterexample because witnesses above B remain.",
+  "reproducible_computation": {
+    "theorem": "For every bound B there is an infinite arithmetic progression of even integers N for which N-p is composite for every prime p<=B. Therefore no fixed finite set of prime summands can witness strong Goldbach on all sufficiently large even integers. If strong Goldbach is true, its least prime witness is necessarily unbounded.",
+    "proof": "For each odd prime p<=B choose a distinct odd prime q_p>B. The Chinese remainder theorem gives one class satisfying N=0 mod 2 and N=p mod q_p for every p. Choose a sufficiently large representative. Then N-p is a proper multiple of q_p and is composite. Also N-2 is even and greater than two. Adding multiples of 2 product(q_p) preserves every condition, so the family is infinite. This excludes bounded witness bases but does not produce a Goldbach counterexample because witnesses above B remain.",
+    "crt_fixture_rows": [
+      {
+        "witness_bound_B": 5,
+        "excluded_prime_witness_count": 3,
+        "even_residue_representative_N0": "38",
+        "arithmetic_progression_modulus_M": "154",
+        "all_N_equals_N0_plus_tM_are_even": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor_of_complement": 7,
+            "complement": "35",
+            "complement_quotient": "5",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor_of_complement": 11,
+            "complement": "33",
+            "complement_quotient": "3",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 11,
+        "excluded_prime_witness_count": 5,
+        "even_residue_representative_N0": "163426",
+        "arithmetic_progression_modulus_M": "193154",
+        "all_N_equals_N0_plus_tM_are_even": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor_of_complement": 13,
+            "complement": "163423",
+            "complement_quotient": "12571",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor_of_complement": 17,
+            "complement": "163421",
+            "complement_quotient": "9613",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor_of_complement": 19,
+            "complement": "163419",
+            "complement_quotient": "8601",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor_of_complement": 23,
+            "complement": "163415",
+            "complement_quotient": "7105",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 19,
+        "excluded_prime_witness_count": 8,
+        "even_residue_representative_N0": "8164687410",
+        "arithmetic_progression_modulus_M": "126785450378",
+        "all_N_equals_N0_plus_tM_are_even": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor_of_complement": 23,
+            "complement": "8164687407",
+            "complement_quotient": "354986409",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor_of_complement": 29,
+            "complement": "8164687405",
+            "complement_quotient": "281540945",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor_of_complement": 31,
+            "complement": "8164687403",
+            "complement_quotient": "263377013",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor_of_complement": 37,
+            "complement": "8164687399",
+            "complement_quotient": "220667227",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor_of_complement": 41,
+            "complement": "8164687397",
+            "complement_quotient": "199138717",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor_of_complement": 43,
+            "complement": "8164687393",
+            "complement_quotient": "189876451",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor_of_complement": 47,
+            "complement": "8164687391",
+            "complement_quotient": "173716753",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 29,
+        "excluded_prime_witness_count": 10,
+        "even_residue_representative_N0": "1319725821451352",
+        "arithmetic_progression_modulus_M": "2429271766593566",
+        "all_N_equals_N0_plus_tM_are_even": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor_of_complement": 31,
+            "complement": "1319725821451349",
+            "complement_quotient": "42571800691979",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor_of_complement": 37,
+            "complement": "1319725821451347",
+            "complement_quotient": "35668265444631",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor_of_complement": 41,
+            "complement": "1319725821451345",
+            "complement_quotient": "32188434669545",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor_of_complement": 43,
+            "complement": "1319725821451341",
+            "complement_quotient": "30691298173287",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor_of_complement": 47,
+            "complement": "1319725821451339",
+            "complement_quotient": "28079272796837",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor_of_complement": 53,
+            "complement": "1319725821451335",
+            "complement_quotient": "24900487197195",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor_of_complement": 59,
+            "complement": "1319725821451333",
+            "complement_quotient": "22368234261887",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 23,
+            "forcing_divisor_of_complement": 61,
+            "complement": "1319725821451329",
+            "complement_quotient": "21634849531989",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 29,
+            "forcing_divisor_of_complement": 67,
+            "complement": "1319725821451323",
+            "complement_quotient": "19697400320169",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 43,
+        "excluded_prime_witness_count": 14,
+        "even_residue_representative_N0": "680004718497360230952220",
+        "arithmetic_progression_modulus_M": "3666630143418436420180414",
+        "all_N_equals_N0_plus_tM_are_even": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor_of_complement": 47,
+            "complement": "680004718497360230952217",
+            "complement_quotient": "14468185499943834701111",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor_of_complement": 53,
+            "complement": "680004718497360230952215",
+            "complement_quotient": "12830277707497362848155",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor_of_complement": 59,
+            "complement": "680004718497360230952213",
+            "complement_quotient": "11525503703345088660207",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor_of_complement": 61,
+            "complement": "680004718497360230952209",
+            "complement_quotient": "11147618336022298868069",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor_of_complement": 67,
+            "complement": "680004718497360230952207",
+            "complement_quotient": "10149324156677018372421",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor_of_complement": 71,
+            "complement": "680004718497360230952203",
+            "complement_quotient": "9577531246441693393693",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor_of_complement": 73,
+            "complement": "680004718497360230952201",
+            "complement_quotient": "9315133130100825081537",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 23,
+            "forcing_divisor_of_complement": 79,
+            "complement": "680004718497360230952197",
+            "complement_quotient": "8607654664523547227243",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 29,
+            "forcing_divisor_of_complement": 83,
+            "complement": "680004718497360230952191",
+            "complement_quotient": "8192827933703135312677",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 31,
+            "forcing_divisor_of_complement": 89,
+            "complement": "680004718497360230952189",
+            "complement_quotient": "7640502455026519448901",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 37,
+            "forcing_divisor_of_complement": 97,
+            "complement": "680004718497360230952183",
+            "complement_quotient": "7010357922653198257239",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 41,
+            "forcing_divisor_of_complement": 101,
+            "complement": "680004718497360230952179",
+            "complement_quotient": "6732719985122378524279",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 43,
+            "forcing_divisor_of_complement": 103,
+            "complement": "680004718497360230952177",
+            "complement_quotient": "6601987558226798358759",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      }
+    ],
+    "aggregate": {
+      "fixed_bounded_prime_witness_basis_refuted": true,
+      "least_witness_unbounded_conditional_on_goldbach": true,
+      "infinite_forced_large_witness_progressions_constructed": true,
+      "goldbach_counterexample_found": false,
+      "tail_exception_bound_below_one_constructed": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The CRT progression suppresses only primes through B. It neither suppresses all larger primes nor proves that any constructed N lacks a Goldbach representation. Its exact conclusion is the necessity of a witness cutoff that grows with the target.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "proving strong Goldbach with one fixed bounded set of small prime summands",
+    "retain": "tail exceptional-set control with a witness cutoff growing with the target",
+    "next_single_lemma": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne"
+  }
+}

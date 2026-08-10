@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket206AttemptGlobal = null;
 let ticket205AttemptGlobal = null;
 let ticket204AttemptGlobal = null;
 let ticket203AttemptGlobal = null;
@@ -10001,6 +10002,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket206AdaptiveSingleOneCrtProjector(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.adaptive_singleone_crt_projector_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.clearance_complexity_rows || [];
+    const reference = rows.find((row) => row.epsilon === "1/16") || {};
+    detail = `
+      <div class="poc-equation">δ=min|f∘γ|&gt;0, K=max|(f∘γ)'|, h&lt;δ/K ⇒ finite winding certificate</div>
+      ${table(["clearance ε", "criterion fails through N", "certified N", "winding"], rows.map((row) => [row.epsilon, row.uniform_global_criterion_fails_for_every_N_at_most, row.uniform_global_criterion_certified_at_N, row.actual_winding]))}
+      <div class="poc-head"><div><span>ε=1/16 failure bound</span><strong>${reference.uniform_global_criterion_fails_for_every_N_at_most ?? "missing"}</strong></div><div><span>ε=1/16 certified N</span><strong>${reference.uniform_global_criterion_certified_at_N ?? "missing"}</strong></div><div><span>Completed-zeta oracle</span><strong>${aggregate.completed_zeta_rigorous_bound_oracle_constructed ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">영점 없는 고정 compact 경계에서는 적응 분할이 유한 종료합니다. 그러나 clearance가 0에 가까워지면 고정 분할 예산은 실패하며, 완성 제타함수의 cofinal 엄밀 상계는 아직 없습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const regression = computation.finite_integrality_regression || {};
+    detail = `
+      <div class="poc-equation">one a<sub>i</sub>=1, all others ≥2 ⇒ m≤(1−q/2)/(1−3q/2)&lt;3 for h≥4 ⇒ contradiction</div>
+      ${table(["h", "exactly-one-1 words", "integral cycle hits"], (regression.rows || []).map((row) => [row.length, formatter.format(row.exactly_one_valuation_one_word_count || 0), row.positive_integral_cycle_word_count]))}
+      <div class="poc-head"><div><span>Regression words</span><strong>${formatter.format(regression.total_words_checked || 0)}</strong></div><div><span>Required count of v=1</span><strong>≥${aggregate.minimum_required_valuation_one_multiplicity_in_nontrivial_cycle ?? "missing"}</strong></div><div><span>Integral hits</span><strong>${regression.positive_integral_cycle_words ?? "missing"}</strong></div></div>
+      <p class="proof-note">유한 열거가 아니라 전 길이 부등식으로 단일-1 주기 계층 전체를 배제합니다. valuation 1이 둘 이상인 mixed necklace와 비주기 발산은 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.crt_fixture_rows || [];
+    detail = `
+      <div class="poc-equation">∀B, CRT gives infinitely many even N with N−p composite for every prime p≤B</div>
+      ${table(["bound B", "excluded primes", "N₀ digits", "modulus digits", "all p≤B blocked"], rows.map((row) => [row.witness_bound_B, row.excluded_prime_witness_count, String(row.even_residue_representative_N0 || "").length, String(row.arithmetic_progression_modulus_M || "").length, row.all_prime_witnesses_at_most_B_excluded]))}
+      <div class="poc-head"><div><span>Exact CRT fixtures</span><strong>${rows.length}</strong></div><div><span>Least-witness bound</span><strong>unbounded if Goldbach holds</strong></div><div><span>Counterexamples found</span><strong>${aggregate.goldbach_counterexample_found ? "yes" : "0"}</strong></div></div>
+      <p class="proof-note">고정된 작은 소수 집합은 모든 큰 짝수를 표현할 수 없습니다. 이 결과는 더 큰 소수 증인을 막지 않으므로 골드바흐 반례가 아니며, 증가하는 witness cutoff가 필요함을 증명합니다.</p>
+    `;
+  } else {
+    const rows = computation.crt_false_positive_rows || [];
+    detail = `
+      <div class="poc-equation">P<sub>R</sub>(m)=Σ<sub>j≤R</sub>(−1)<sup>j−1</sup>j C(m,j); m&gt;R ⇒ P<sub>R</sub>(m)=(−1)<sup>R−1</sup>m C(m−2,R−1)</div>
+      ${table(["R", "forced Ω lower bound", "projector sign", "positive composite pair"], rows.map((row) => [row.truncation_R, row.Omega_n_lower_bound, row.truncated_projector_sign_on_both_endpoints, row.truncated_shift_two_product_positive]))}
+      <div class="poc-head"><div><span>Exact infinite projector</span><strong>${aggregate.pointwise_finite_exact_prime_projector_proved ? "proved" : "open"}</strong></div><div><span>Finite truncations refuted</span><strong>${rows.length}</strong></div><div><span>Uniform tail cancellation</span><strong>${aggregate.uniform_infinite_tail_cancellation_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">무한 이항합은 소수 지시함수를 정확히 다시 쓰지만, 모든 고정 절단은 무한한 합성수-합성수 양의 shift-2 거짓 양성을 남깁니다. 필요한 것은 무한 tail의 균일 상쇄입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket206-adaptive-singleone-crt-projector" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 206 adaptive certificates, single-one cycles, CRT witnesses, and Omega projectors</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET206 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/adaptive-singleone-crt-projector.ko.md">한국어 보고서</a> · <a href="../docs/adaptive-singleone-crt-projector.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket205WindingExtremalFiniteOmega(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.winding_extremal_finite_omega_audit || {};
@@ -10054,7 +10122,7 @@ function renderTicket205WindingExtremalFiniteOmega(attempt) {
   }
   return `
     <div id="ticket205-winding-extremal-finite-omega" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 205 winding certificates, cycle extrema, finite witnesses, and Omega weights</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial, finite, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET205 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -15751,7 +15819,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket205WindingExtremalFiniteOmega(ticket205AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket206AdaptiveSingleOneCrtProjector(ticket206AttemptGlobal) ||
+      renderTicket205WindingExtremalFiniteOmega(ticket205AttemptGlobal) ||
       renderTicket204MeshNecklaceExceptionalKernel(ticket204AttemptGlobal) ||
       renderTicket203RoucheTransferPointwisePrimorial(ticket203AttemptGlobal) ||
       renderTicket202ExactHermiteDeformationParityScale(ticket202AttemptGlobal) ||
@@ -15774,7 +15843,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-205 data is unavailable. The conjecture remains open. / TICKET-205 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-206 data is unavailable. The conjecture remains open. / TICKET-206 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -16096,6 +16165,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket206Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket206-adaptive-singleone-crt-projector.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket206AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket206AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket206AttemptGlobal) {
+      ticket206AttemptGlobal.bounded_result = ticket206AttemptGlobal.bounded_result || {};
+      ticket206AttemptGlobal.bounded_result.adaptive_singleone_crt_projector_audit = payload.adaptive_singleone_crt_projector_audit || {};
+    }
+    return Boolean(ticket206AttemptGlobal);
+  } catch (_error) {
+    ticket206AttemptGlobal = null;
     return false;
   }
 }
@@ -17569,9 +17658,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket205Loaded = await loadTicket205Attempt();
+  const ticket206Loaded = await loadTicket206Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket205-current";
+  document.documentElement.dataset.openProblemCache = "ticket206-current";
+  const ticket205Loaded = await loadTicket205Attempt();
   const ticket204Loaded = await loadTicket204Attempt();
   const ticket203Loaded = await loadTicket203Attempt();
   const ticket202Loaded = await loadTicket202Attempt();
@@ -17609,8 +17699,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket206AttemptGlobal) await loadTicket206Attempt();
     if (!ticket205AttemptGlobal) await loadTicket205Attempt();
     if (!ticket204AttemptGlobal) await loadTicket204Attempt();
     if (!ticket203AttemptGlobal) await loadTicket203Attempt();
@@ -17694,7 +17785,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket205-current";
+  document.documentElement.dataset.openProblemCache = "ticket206-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

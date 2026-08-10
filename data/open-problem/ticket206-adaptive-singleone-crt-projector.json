@@ -1,0 +1,1755 @@
+{
+  "schema": "primeproject.ticket206-adaptive-singleone-crt-projector.v1",
+  "generated_at": "2026-08-10T10:39:10+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-206 resolves none of the four conjectures. It proves adaptive winding-certificate termination under positive clearance while quantifying fixed-budget failure, excludes every Collatz cycle stratum with exactly one valuation one, proves by CRT that Goldbach witnesses cannot remain uniformly bounded, and constructs an exact Omega-binomial prime projector while refuting every finite truncation by infinite shift-two false positives.",
+  "adaptive_singleone_crt_projector_audit": {
+    "theorem_name": "FourConjectureAdaptiveSingleOneCRTProjectorAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-206 resolves none of the four conjectures. It proves adaptive winding-certificate termination under positive clearance while quantifying fixed-budget failure, excludes every Collatz cycle stratum with exactly one valuation one, proves by CRT that Goldbach witnesses cannot remain uniformly bounded, and constructs an exact Omega-binomial prime projector while refuting every finite truncation by infinite shift-two false positives.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-206",
+      "theorem_name": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+      "declared_proposition": "Let gamma:[0,L]->C be a unit-speed C1 closed contour and let g=f o gamma, where f is analytic near the contour. If g is nonzero on the contour, delta=min|g| is positive and K=max|g'| is finite. Repeated uniform bisection therefore terminates with a partition of mesh h<delta/K (with the constant case handled separately), and every arc satisfies K h<|g(t_j)|. The TICKET-205 disk homotopies then certify the exact winding number. This completeness is conditional on rigorous bounds delta and K. No fixed segment budget works uniformly as the contour clearance tends to zero.",
+      "mathematical_argument": "Compactness and continuity give delta>0 and K<infinity. If K=0 the image is constant and nonzero. Otherwise choose a dyadic mesh below delta/K. The fundamental theorem of calculus gives |g(t)-g(t_j)|<=K h<delta<=|g(t_j)| on every arc, so TICKET-205 applies. For the sharpness family f_epsilon(z)=z-(1-epsilon) on the unit circle, delta=epsilon, K=1, and the global criterion requires 2*pi/N<epsilon. If N<=6/epsilon it fails because pi>3; N=8/epsilon succeeds because pi<22/7. The enclosed zero 1-epsilon gives winding one.",
+      "reproducible_computation": {
+        "theorem": "Let gamma:[0,L]->C be a unit-speed C1 closed contour and let g=f o gamma, where f is analytic near the contour. If g is nonzero on the contour, delta=min|g| is positive and K=max|g'| is finite. Repeated uniform bisection therefore terminates with a partition of mesh h<delta/K (with the constant case handled separately), and every arc satisfies K h<|g(t_j)|. The TICKET-205 disk homotopies then certify the exact winding number. This completeness is conditional on rigorous bounds delta and K. No fixed segment budget works uniformly as the contour clearance tends to zero.",
+        "proof": "Compactness and continuity give delta>0 and K<infinity. If K=0 the image is constant and nonzero. Otherwise choose a dyadic mesh below delta/K. The fundamental theorem of calculus gives |g(t)-g(t_j)|<=K h<delta<=|g(t_j)| on every arc, so TICKET-205 applies. For the sharpness family f_epsilon(z)=z-(1-epsilon) on the unit circle, delta=epsilon, K=1, and the global criterion requires 2*pi/N<epsilon. If N<=6/epsilon it fails because pi>3; N=8/epsilon succeeds because pi<22/7. The enclosed zero 1-epsilon gives winding one.",
+        "termination_certificate": {
+          "boundary_clearance": "delta=min_t |f(gamma(t))|>0",
+          "global_derivative_bound": "K=max_t |(f o gamma)'(t)|<infinity",
+          "sufficient_mesh_condition": "h<delta/K when K>0",
+          "uniform_bisection_terminates": true,
+          "accepted_partition_certifies_zero_free_boundary": true
+        },
+        "clearance_complexity_rows": [
+          {
+            "epsilon": "1/8",
+            "function": "f(z)=z-(1-1/8)",
+            "boundary_clearance": "1/8",
+            "arclength_derivative_bound": "1",
+            "uniform_global_criterion_fails_for_every_N_at_most": 48,
+            "uniform_global_criterion_certified_at_N": 64,
+            "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+            "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+            "actual_winding": 1
+          },
+          {
+            "epsilon": "1/16",
+            "function": "f(z)=z-(1-1/16)",
+            "boundary_clearance": "1/16",
+            "arclength_derivative_bound": "1",
+            "uniform_global_criterion_fails_for_every_N_at_most": 96,
+            "uniform_global_criterion_certified_at_N": 128,
+            "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+            "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+            "actual_winding": 1
+          },
+          {
+            "epsilon": "1/32",
+            "function": "f(z)=z-(1-1/32)",
+            "boundary_clearance": "1/32",
+            "arclength_derivative_bound": "1",
+            "uniform_global_criterion_fails_for_every_N_at_most": 192,
+            "uniform_global_criterion_certified_at_N": 256,
+            "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+            "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+            "actual_winding": 1
+          },
+          {
+            "epsilon": "1/64",
+            "function": "f(z)=z-(1-1/64)",
+            "boundary_clearance": "1/64",
+            "arclength_derivative_bound": "1",
+            "uniform_global_criterion_fails_for_every_N_at_most": 384,
+            "uniform_global_criterion_certified_at_N": 512,
+            "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+            "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+            "actual_winding": 1
+          },
+          {
+            "epsilon": "1/128",
+            "function": "f(z)=z-(1-1/128)",
+            "boundary_clearance": "1/128",
+            "arclength_derivative_bound": "1",
+            "uniform_global_criterion_fails_for_every_N_at_most": 768,
+            "uniform_global_criterion_certified_at_N": 1024,
+            "failure_proof": "N<=6/epsilon gives h=2*pi/N>epsilon using pi>3",
+            "success_proof": "N=8/epsilon gives h=2*pi/N<epsilon using pi<22/7",
+            "actual_winding": 1
+          }
+        ],
+        "aggregate": {
+          "zero_free_boundary_implies_finite_mesh_certificate": true,
+          "fixed_uniform_segment_budget_refuted": true,
+          "complexity_lower_bound_order_inverse_clearance": true,
+          "completed_zeta_rigorous_bound_oracle_constructed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem proves completeness of a certificate grammar once exact positive clearance and derivative bounds are available. It neither constructs those bounds for cofinal completed-zeta rectangles nor excludes zeros off the critical line.",
+        "failure_count": 0
+      },
+      "logical_limit": "No effective rigorous clearance oracle is constructed for a cofinal family of completed-zeta rectangles.",
+      "route_decision": {
+        "discard": "using a fixed contour-segment budget independently of boundary clearance",
+        "retain": "adaptive interval bounds with termination tied explicitly to positive clearance",
+        "next_single_lemma": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T205",
+            "label": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T206",
+            "label": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N206",
+            "label": "FixedBudgetContourCertificationIndependentOfClearance",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN206",
+            "label": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T205",
+            "RH-T206"
+          ],
+          [
+            "RH-T206",
+            "RH-N206"
+          ],
+          [
+            "RH-T206",
+            "RH-OPEN206"
+          ],
+          [
+            "RH-OPEN206",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or counterexample. A certificate-completeness theorem and an inverse-clearance fixed-budget no-go are proved."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-206",
+      "theorem_name": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+      "declared_proposition": "No nontrivial positive accelerated Collatz cycle has a valuation period containing exactly one entry equal to one and every other entry at least two. Thus any hypothetical nontrivial positive cycle must contain at least two valuation-one entries and at least one entry at least two.",
+      "mathematical_argument": "Rotate a hypothetical period to its minimum odd value m. TICKET-205 forces the outgoing valuation there to be one, so it is the unique such entry. The next value is y=(3m+1)/2. Every remaining step has valuation at least two and is bounded by F(x)=(3x+1)/4. With q=(3/4)^(h-1), return to m implies m<=(1-q/2)/(1-3q/2). For h>=4, q<=27/64<1/2, so the right side is strictly below 3, contradicting the odd nontrivial minimum m>=3. For h=3 the bound gives m<=23/5, hence m=3; but 3 maps to 5 and then 1, not back to 3. For h=2, writing the other valuation as b>=2 gives (2^(b+1)-9)m=5, which has no positive integral solution. For h=1, the valuation-one fixed-point equation gives m=-1.",
+      "reproducible_computation": {
+        "theorem": "No nontrivial positive accelerated Collatz cycle has a valuation period containing exactly one entry equal to one and every other entry at least two. Thus any hypothetical nontrivial positive cycle must contain at least two valuation-one entries and at least one entry at least two.",
+        "proof": "Rotate a hypothetical period to its minimum odd value m. TICKET-205 forces the outgoing valuation there to be one, so it is the unique such entry. The next value is y=(3m+1)/2. Every remaining step has valuation at least two and is bounded by F(x)=(3x+1)/4. With q=(3/4)^(h-1), return to m implies m<=(1-q/2)/(1-3q/2). For h>=4, q<=27/64<1/2, so the right side is strictly below 3, contradicting the odd nontrivial minimum m>=3. For h=3 the bound gives m<=23/5, hence m=3; but 3 maps to 5 and then 1, not back to 3. For h=2, writing the other valuation as b>=2 gives (2^(b+1)-9)m=5, which has no positive integral solution. For h=1, the valuation-one fixed-point equation gives m=-1.",
+        "length_cases": {
+          "h_ge_4": {
+            "q_upper": "27/64",
+            "minimum_upper_strict": "3",
+            "contradiction": "nontrivial positive odd minimum is at least 3"
+          },
+          "h_eq_3": {
+            "minimum_upper": "23/5",
+            "only_odd_candidate": 3,
+            "trajectory_prefix": [
+              3,
+              5,
+              1
+            ]
+          },
+          "h_eq_2": "(2^(b+1)-9)m=5 has no positive integer solution for b>=2",
+          "h_eq_1": "2m=3m+1 gives m=-1"
+        },
+        "finite_integrality_regression": {
+          "rows": [
+            {
+              "length": 1,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 1,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 2,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 8,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 3,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 48,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 4,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 256,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 5,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 1280,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 6,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 6144,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 7,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 28672,
+              "positive_integral_cycle_word_count": 0
+            },
+            {
+              "length": 8,
+              "valuation_alphabet": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "exactly_one_valuation_one_word_count": 131072,
+              "positive_integral_cycle_word_count": 0
+            }
+          ],
+          "maximum_length": 8,
+          "total_words_checked": 167481,
+          "positive_integral_cycle_words": 0
+        },
+        "aggregate": {
+          "single_one_arbitrary_ge_two_cycle_stratum_excluded": true,
+          "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 2,
+          "two_or_more_one_mixed_necklaces_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "This strictly extends the TICKET-185 rest-all-two family to arbitrary remaining valuations at least two. It does not exclude periods with two or more valuation-one entries or any divergent nonperiodic orbit.",
+        "failure_count": 0
+      },
+      "logical_limit": "Primitive mixed necklaces with at least two valuation-one entries and nonperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "searching any exactly-one-valuation-one period for a positive cycle",
+        "retain": "primitive mixed necklaces with at least two valuation-one entries",
+        "next_single_lemma": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T205",
+            "label": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T206",
+            "label": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N206",
+            "label": "ExactlyOneValuationOneCanSupportANontrivialPositiveCycle",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN206",
+            "label": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T205",
+            "CO-T206"
+          ],
+          [
+            "CO-T206",
+            "CO-N206"
+          ],
+          [
+            "CO-T206",
+            "CO-OPEN206"
+          ],
+          [
+            "CO-OPEN206",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or counterexample. The complete exactly-one-valuation-one periodic stratum is excluded."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-206",
+      "theorem_name": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+      "declared_proposition": "For every bound B there is an infinite arithmetic progression of even integers N for which N-p is composite for every prime p<=B. Therefore no fixed finite set of prime summands can witness strong Goldbach on all sufficiently large even integers. If strong Goldbach is true, its least prime witness is necessarily unbounded.",
+      "mathematical_argument": "For each odd prime p<=B choose a distinct odd prime q_p>B. The Chinese remainder theorem gives one class satisfying N=0 mod 2 and N=p mod q_p for every p. Choose a sufficiently large representative. Then N-p is a proper multiple of q_p and is composite. Also N-2 is even and greater than two. Adding multiples of 2 product(q_p) preserves every condition, so the family is infinite. This excludes bounded witness bases but does not produce a Goldbach counterexample because witnesses above B remain.",
+      "reproducible_computation": {
+        "theorem": "For every bound B there is an infinite arithmetic progression of even integers N for which N-p is composite for every prime p<=B. Therefore no fixed finite set of prime summands can witness strong Goldbach on all sufficiently large even integers. If strong Goldbach is true, its least prime witness is necessarily unbounded.",
+        "proof": "For each odd prime p<=B choose a distinct odd prime q_p>B. The Chinese remainder theorem gives one class satisfying N=0 mod 2 and N=p mod q_p for every p. Choose a sufficiently large representative. Then N-p is a proper multiple of q_p and is composite. Also N-2 is even and greater than two. Adding multiples of 2 product(q_p) preserves every condition, so the family is infinite. This excludes bounded witness bases but does not produce a Goldbach counterexample because witnesses above B remain.",
+        "crt_fixture_rows": [
+          {
+            "witness_bound_B": 5,
+            "excluded_prime_witness_count": 3,
+            "even_residue_representative_N0": "38",
+            "arithmetic_progression_modulus_M": "154",
+            "all_N_equals_N0_plus_tM_are_even": true,
+            "p_equals_2_complement_is_composite": true,
+            "forcing_rows": [
+              {
+                "excluded_witness_prime": 3,
+                "forcing_divisor_of_complement": 7,
+                "complement": "35",
+                "complement_quotient": "5",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 5,
+                "forcing_divisor_of_complement": 11,
+                "complement": "33",
+                "complement_quotient": "3",
+                "proper_composite_complement": true
+              }
+            ],
+            "all_prime_witnesses_at_most_B_excluded": true
+          },
+          {
+            "witness_bound_B": 11,
+            "excluded_prime_witness_count": 5,
+            "even_residue_representative_N0": "163426",
+            "arithmetic_progression_modulus_M": "193154",
+            "all_N_equals_N0_plus_tM_are_even": true,
+            "p_equals_2_complement_is_composite": true,
+            "forcing_rows": [
+              {
+                "excluded_witness_prime": 3,
+                "forcing_divisor_of_complement": 13,
+                "complement": "163423",
+                "complement_quotient": "12571",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 5,
+                "forcing_divisor_of_complement": 17,
+                "complement": "163421",
+                "complement_quotient": "9613",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 7,
+                "forcing_divisor_of_complement": 19,
+                "complement": "163419",
+                "complement_quotient": "8601",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 11,
+                "forcing_divisor_of_complement": 23,
+                "complement": "163415",
+                "complement_quotient": "7105",
+                "proper_composite_complement": true
+              }
+            ],
+            "all_prime_witnesses_at_most_B_excluded": true
+          },
+          {
+            "witness_bound_B": 19,
+            "excluded_prime_witness_count": 8,
+            "even_residue_representative_N0": "8164687410",
+            "arithmetic_progression_modulus_M": "126785450378",
+            "all_N_equals_N0_plus_tM_are_even": true,
+            "p_equals_2_complement_is_composite": true,
+            "forcing_rows": [
+              {
+                "excluded_witness_prime": 3,
+                "forcing_divisor_of_complement": 23,
+                "complement": "8164687407",
+                "complement_quotient": "354986409",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 5,
+                "forcing_divisor_of_complement": 29,
+                "complement": "8164687405",
+                "complement_quotient": "281540945",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 7,
+                "forcing_divisor_of_complement": 31,
+                "complement": "8164687403",
+                "complement_quotient": "263377013",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 11,
+                "forcing_divisor_of_complement": 37,
+                "complement": "8164687399",
+                "complement_quotient": "220667227",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 13,
+                "forcing_divisor_of_complement": 41,
+                "complement": "8164687397",
+                "complement_quotient": "199138717",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 17,
+                "forcing_divisor_of_complement": 43,
+                "complement": "8164687393",
+                "complement_quotient": "189876451",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 19,
+                "forcing_divisor_of_complement": 47,
+                "complement": "8164687391",
+                "complement_quotient": "173716753",
+                "proper_composite_complement": true
+              }
+            ],
+            "all_prime_witnesses_at_most_B_excluded": true
+          },
+          {
+            "witness_bound_B": 29,
+            "excluded_prime_witness_count": 10,
+            "even_residue_representative_N0": "1319725821451352",
+            "arithmetic_progression_modulus_M": "2429271766593566",
+            "all_N_equals_N0_plus_tM_are_even": true,
+            "p_equals_2_complement_is_composite": true,
+            "forcing_rows": [
+              {
+                "excluded_witness_prime": 3,
+                "forcing_divisor_of_complement": 31,
+                "complement": "1319725821451349",
+                "complement_quotient": "42571800691979",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 5,
+                "forcing_divisor_of_complement": 37,
+                "complement": "1319725821451347",
+                "complement_quotient": "35668265444631",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 7,
+                "forcing_divisor_of_complement": 41,
+                "complement": "1319725821451345",
+                "complement_quotient": "32188434669545",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 11,
+                "forcing_divisor_of_complement": 43,
+                "complement": "1319725821451341",
+                "complement_quotient": "30691298173287",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 13,
+                "forcing_divisor_of_complement": 47,
+                "complement": "1319725821451339",
+                "complement_quotient": "28079272796837",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 17,
+                "forcing_divisor_of_complement": 53,
+                "complement": "1319725821451335",
+                "complement_quotient": "24900487197195",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 19,
+                "forcing_divisor_of_complement": 59,
+                "complement": "1319725821451333",
+                "complement_quotient": "22368234261887",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 23,
+                "forcing_divisor_of_complement": 61,
+                "complement": "1319725821451329",
+                "complement_quotient": "21634849531989",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 29,
+                "forcing_divisor_of_complement": 67,
+                "complement": "1319725821451323",
+                "complement_quotient": "19697400320169",
+                "proper_composite_complement": true
+              }
+            ],
+            "all_prime_witnesses_at_most_B_excluded": true
+          },
+          {
+            "witness_bound_B": 43,
+            "excluded_prime_witness_count": 14,
+            "even_residue_representative_N0": "680004718497360230952220",
+            "arithmetic_progression_modulus_M": "3666630143418436420180414",
+            "all_N_equals_N0_plus_tM_are_even": true,
+            "p_equals_2_complement_is_composite": true,
+            "forcing_rows": [
+              {
+                "excluded_witness_prime": 3,
+                "forcing_divisor_of_complement": 47,
+                "complement": "680004718497360230952217",
+                "complement_quotient": "14468185499943834701111",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 5,
+                "forcing_divisor_of_complement": 53,
+                "complement": "680004718497360230952215",
+                "complement_quotient": "12830277707497362848155",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 7,
+                "forcing_divisor_of_complement": 59,
+                "complement": "680004718497360230952213",
+                "complement_quotient": "11525503703345088660207",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 11,
+                "forcing_divisor_of_complement": 61,
+                "complement": "680004718497360230952209",
+                "complement_quotient": "11147618336022298868069",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 13,
+                "forcing_divisor_of_complement": 67,
+                "complement": "680004718497360230952207",
+                "complement_quotient": "10149324156677018372421",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 17,
+                "forcing_divisor_of_complement": 71,
+                "complement": "680004718497360230952203",
+                "complement_quotient": "9577531246441693393693",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 19,
+                "forcing_divisor_of_complement": 73,
+                "complement": "680004718497360230952201",
+                "complement_quotient": "9315133130100825081537",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 23,
+                "forcing_divisor_of_complement": 79,
+                "complement": "680004718497360230952197",
+                "complement_quotient": "8607654664523547227243",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 29,
+                "forcing_divisor_of_complement": 83,
+                "complement": "680004718497360230952191",
+                "complement_quotient": "8192827933703135312677",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 31,
+                "forcing_divisor_of_complement": 89,
+                "complement": "680004718497360230952189",
+                "complement_quotient": "7640502455026519448901",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 37,
+                "forcing_divisor_of_complement": 97,
+                "complement": "680004718497360230952183",
+                "complement_quotient": "7010357922653198257239",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 41,
+                "forcing_divisor_of_complement": 101,
+                "complement": "680004718497360230952179",
+                "complement_quotient": "6732719985122378524279",
+                "proper_composite_complement": true
+              },
+              {
+                "excluded_witness_prime": 43,
+                "forcing_divisor_of_complement": 103,
+                "complement": "680004718497360230952177",
+                "complement_quotient": "6601987558226798358759",
+                "proper_composite_complement": true
+              }
+            ],
+            "all_prime_witnesses_at_most_B_excluded": true
+          }
+        ],
+        "aggregate": {
+          "fixed_bounded_prime_witness_basis_refuted": true,
+          "least_witness_unbounded_conditional_on_goldbach": true,
+          "infinite_forced_large_witness_progressions_constructed": true,
+          "goldbach_counterexample_found": false,
+          "tail_exception_bound_below_one_constructed": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The CRT progression suppresses only primes through B. It neither suppresses all larger primes nor proves that any constructed N lacks a Goldbach representation. Its exact conclusion is the necessity of a witness cutoff that grows with the target.",
+        "failure_count": 0
+      },
+      "logical_limit": "The CRT families exclude only bounded summands and do not bound the full Goldbach exceptional set.",
+      "route_decision": {
+        "discard": "proving strong Goldbach with one fixed bounded set of small prime summands",
+        "retain": "tail exceptional-set control with a witness cutoff growing with the target",
+        "next_single_lemma": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T205",
+            "label": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T206",
+            "label": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N206",
+            "label": "FixedBoundedPrimeWitnessBasisCoversAllLargeEvenTargets",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN206",
+            "label": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T205",
+            "GB-T206"
+          ],
+          [
+            "GB-T206",
+            "GB-N206"
+          ],
+          [
+            "GB-T206",
+            "GB-OPEN206"
+          ],
+          [
+            "GB-OPEN206",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. An exact infinite CRT obstruction to every fixed witness basis is proved."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-206",
+      "theorem_name": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+      "declared_proposition": "For m>=0, sum_{j>=1} (-1)^(j-1) j binom(m,j) equals one for m=1 and zero otherwise; the sum is pointwise finite. Hence substituting m=Omega(n) gives an exact prime indicator. Its truncation at j<=R is exact only for Omega(n)<=R. For m>R it equals (-1)^(R-1) m binom(m-2,R-1), so every fixed truncation is nonzero on all sufficiently factor-rich composites. Moreover each fixed R has an infinite CRT progression where both n and n+2 have at least R+1 distinct prime factors and the truncated correlation is positive.",
+      "mathematical_argument": "Use j binom(m,j)=m binom(m-1,j-1). The complete alternating binomial sum is the derivative identity for (1-x)^m at x=1, giving the Kronecker delta at m=1. The finite partial-sum identity sum_{k=0}^{R-1}(-1)^k binom(m-1,k)=(-1)^(R-1)binom(m-2,R-1) gives the displayed truncation formula. For the no-go, choose disjoint sets of R+1 odd primes with products A and B. CRT solves n=0 mod A and n=-2 mod B. Large representatives make both endpoints composite; both truncated projectors have sign (-1)^(R-1), so their product is positive.",
+      "reproducible_computation": {
+        "theorem": "For m>=0, sum_{j>=1} (-1)^(j-1) j binom(m,j) equals one for m=1 and zero otherwise; the sum is pointwise finite. Hence substituting m=Omega(n) gives an exact prime indicator. Its truncation at j<=R is exact only for Omega(n)<=R. For m>R it equals (-1)^(R-1) m binom(m-2,R-1), so every fixed truncation is nonzero on all sufficiently factor-rich composites. Moreover each fixed R has an infinite CRT progression where both n and n+2 have at least R+1 distinct prime factors and the truncated correlation is positive.",
+        "proof": "Use j binom(m,j)=m binom(m-1,j-1). The complete alternating binomial sum is the derivative identity for (1-x)^m at x=1, giving the Kronecker delta at m=1. The finite partial-sum identity sum_{k=0}^{R-1}(-1)^k binom(m-1,k)=(-1)^(R-1)binom(m-2,R-1) gives the displayed truncation formula. For the no-go, choose disjoint sets of R+1 odd primes with products A and B. CRT solves n=0 mod A and n=-2 mod B. Large representatives make both endpoints composite; both truncated projectors have sign (-1)^(R-1), so their product is positive.",
+        "binomial_identity_rows": [
+          {
+            "truncation_R": 1,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 2,
+                "closed_form": 2
+              },
+              {
+                "Omega": 3,
+                "P_R": 3,
+                "closed_form": 3
+              },
+              {
+                "Omega": 4,
+                "P_R": 4,
+                "closed_form": 4
+              },
+              {
+                "Omega": 5,
+                "P_R": 5,
+                "closed_form": 5
+              },
+              {
+                "Omega": 6,
+                "P_R": 6,
+                "closed_form": 6
+              },
+              {
+                "Omega": 7,
+                "P_R": 7,
+                "closed_form": 7
+              },
+              {
+                "Omega": 8,
+                "P_R": 8,
+                "closed_form": 8
+              },
+              {
+                "Omega": 9,
+                "P_R": 9,
+                "closed_form": 9
+              },
+              {
+                "Omega": 10,
+                "P_R": 10,
+                "closed_form": 10
+              },
+              {
+                "Omega": 11,
+                "P_R": 11,
+                "closed_form": 11
+              },
+              {
+                "Omega": 12,
+                "P_R": 12,
+                "closed_form": 12
+              }
+            ]
+          },
+          {
+            "truncation_R": 2,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": -3,
+                "closed_form": -3
+              },
+              {
+                "Omega": 4,
+                "P_R": -8,
+                "closed_form": -8
+              },
+              {
+                "Omega": 5,
+                "P_R": -15,
+                "closed_form": -15
+              },
+              {
+                "Omega": 6,
+                "P_R": -24,
+                "closed_form": -24
+              },
+              {
+                "Omega": 7,
+                "P_R": -35,
+                "closed_form": -35
+              },
+              {
+                "Omega": 8,
+                "P_R": -48,
+                "closed_form": -48
+              },
+              {
+                "Omega": 9,
+                "P_R": -63,
+                "closed_form": -63
+              },
+              {
+                "Omega": 10,
+                "P_R": -80,
+                "closed_form": -80
+              },
+              {
+                "Omega": 11,
+                "P_R": -99,
+                "closed_form": -99
+              },
+              {
+                "Omega": 12,
+                "P_R": -120,
+                "closed_form": -120
+              }
+            ]
+          },
+          {
+            "truncation_R": 3,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 4,
+                "P_R": 4,
+                "closed_form": 4
+              },
+              {
+                "Omega": 5,
+                "P_R": 15,
+                "closed_form": 15
+              },
+              {
+                "Omega": 6,
+                "P_R": 36,
+                "closed_form": 36
+              },
+              {
+                "Omega": 7,
+                "P_R": 70,
+                "closed_form": 70
+              },
+              {
+                "Omega": 8,
+                "P_R": 120,
+                "closed_form": 120
+              },
+              {
+                "Omega": 9,
+                "P_R": 189,
+                "closed_form": 189
+              },
+              {
+                "Omega": 10,
+                "P_R": 280,
+                "closed_form": 280
+              },
+              {
+                "Omega": 11,
+                "P_R": 396,
+                "closed_form": 396
+              },
+              {
+                "Omega": 12,
+                "P_R": 540,
+                "closed_form": 540
+              }
+            ]
+          },
+          {
+            "truncation_R": 4,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 4,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 5,
+                "P_R": -5,
+                "closed_form": -5
+              },
+              {
+                "Omega": 6,
+                "P_R": -24,
+                "closed_form": -24
+              },
+              {
+                "Omega": 7,
+                "P_R": -70,
+                "closed_form": -70
+              },
+              {
+                "Omega": 8,
+                "P_R": -160,
+                "closed_form": -160
+              },
+              {
+                "Omega": 9,
+                "P_R": -315,
+                "closed_form": -315
+              },
+              {
+                "Omega": 10,
+                "P_R": -560,
+                "closed_form": -560
+              },
+              {
+                "Omega": 11,
+                "P_R": -924,
+                "closed_form": -924
+              },
+              {
+                "Omega": 12,
+                "P_R": -1440,
+                "closed_form": -1440
+              }
+            ]
+          },
+          {
+            "truncation_R": 5,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 4,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 5,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 6,
+                "P_R": 6,
+                "closed_form": 6
+              },
+              {
+                "Omega": 7,
+                "P_R": 35,
+                "closed_form": 35
+              },
+              {
+                "Omega": 8,
+                "P_R": 120,
+                "closed_form": 120
+              },
+              {
+                "Omega": 9,
+                "P_R": 315,
+                "closed_form": 315
+              },
+              {
+                "Omega": 10,
+                "P_R": 700,
+                "closed_form": 700
+              },
+              {
+                "Omega": 11,
+                "P_R": 1386,
+                "closed_form": 1386
+              },
+              {
+                "Omega": 12,
+                "P_R": 2520,
+                "closed_form": 2520
+              }
+            ]
+          },
+          {
+            "truncation_R": 6,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 4,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 5,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 6,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 7,
+                "P_R": -7,
+                "closed_form": -7
+              },
+              {
+                "Omega": 8,
+                "P_R": -48,
+                "closed_form": -48
+              },
+              {
+                "Omega": 9,
+                "P_R": -189,
+                "closed_form": -189
+              },
+              {
+                "Omega": 10,
+                "P_R": -560,
+                "closed_form": -560
+              },
+              {
+                "Omega": 11,
+                "P_R": -1386,
+                "closed_form": -1386
+              },
+              {
+                "Omega": 12,
+                "P_R": -3024,
+                "closed_form": -3024
+              }
+            ]
+          },
+          {
+            "truncation_R": 7,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 4,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 5,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 6,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 7,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 8,
+                "P_R": 8,
+                "closed_form": 8
+              },
+              {
+                "Omega": 9,
+                "P_R": 63,
+                "closed_form": 63
+              },
+              {
+                "Omega": 10,
+                "P_R": 280,
+                "closed_form": 280
+              },
+              {
+                "Omega": 11,
+                "P_R": 924,
+                "closed_form": 924
+              },
+              {
+                "Omega": 12,
+                "P_R": 2520,
+                "closed_form": 2520
+              }
+            ]
+          },
+          {
+            "truncation_R": 8,
+            "values": [
+              {
+                "Omega": 0,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 1,
+                "P_R": 1,
+                "closed_form": 1
+              },
+              {
+                "Omega": 2,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 3,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 4,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 5,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 6,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 7,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 8,
+                "P_R": 0,
+                "closed_form": 0
+              },
+              {
+                "Omega": 9,
+                "P_R": -9,
+                "closed_form": -9
+              },
+              {
+                "Omega": 10,
+                "P_R": -80,
+                "closed_form": -80
+              },
+              {
+                "Omega": 11,
+                "P_R": -396,
+                "closed_form": -396
+              },
+              {
+                "Omega": 12,
+                "P_R": -1440,
+                "closed_form": -1440
+              }
+            ]
+          }
+        ],
+        "crt_false_positive_rows": [
+          {
+            "truncation_R": 1,
+            "left_forced_distinct_prime_factors": [
+              3,
+              5
+            ],
+            "right_forced_distinct_prime_factors": [
+              7,
+              11
+            ],
+            "n0": "1230",
+            "progression_modulus": "1155",
+            "n0_divisible_by_left_product": true,
+            "n0_plus_2_divisible_by_right_product": true,
+            "Omega_n_lower_bound": 2,
+            "Omega_n_plus_2_lower_bound": 2,
+            "truncated_projector_sign_on_both_endpoints": 1,
+            "truncated_shift_two_product_positive": true,
+            "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+          },
+          {
+            "truncation_R": 2,
+            "left_forced_distinct_prime_factors": [
+              3,
+              5,
+              7
+            ],
+            "right_forced_distinct_prime_factors": [
+              11,
+              13,
+              17
+            ],
+            "n0": "223650",
+            "progression_modulus": "255255",
+            "n0_divisible_by_left_product": true,
+            "n0_plus_2_divisible_by_right_product": true,
+            "Omega_n_lower_bound": 3,
+            "Omega_n_plus_2_lower_bound": 3,
+            "truncated_projector_sign_on_both_endpoints": -1,
+            "truncated_shift_two_product_positive": true,
+            "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+          },
+          {
+            "truncation_R": 3,
+            "left_forced_distinct_prime_factors": [
+              3,
+              5,
+              7,
+              11
+            ],
+            "right_forced_distinct_prime_factors": [
+              13,
+              17,
+              19,
+              23
+            ],
+            "n0": "14100240",
+            "progression_modulus": "111546435",
+            "n0_divisible_by_left_product": true,
+            "n0_plus_2_divisible_by_right_product": true,
+            "Omega_n_lower_bound": 4,
+            "Omega_n_plus_2_lower_bound": 4,
+            "truncated_projector_sign_on_both_endpoints": 1,
+            "truncated_shift_two_product_positive": true,
+            "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+          },
+          {
+            "truncation_R": 4,
+            "left_forced_distinct_prime_factors": [
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "right_forced_distinct_prime_factors": [
+              17,
+              19,
+              23,
+              29,
+              31
+            ],
+            "n0": "60154789695",
+            "progression_modulus": "100280245065",
+            "n0_divisible_by_left_product": true,
+            "n0_plus_2_divisible_by_right_product": true,
+            "Omega_n_lower_bound": 5,
+            "Omega_n_plus_2_lower_bound": 5,
+            "truncated_projector_sign_on_both_endpoints": -1,
+            "truncated_shift_two_product_positive": true,
+            "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+          },
+          {
+            "truncation_R": 5,
+            "left_forced_distinct_prime_factors": [
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "right_forced_distinct_prime_factors": [
+              19,
+              23,
+              29,
+              31,
+              37,
+              41
+            ],
+            "n0": "118927638219390",
+            "progression_modulus": "152125131763605",
+            "n0_divisible_by_left_product": true,
+            "n0_plus_2_divisible_by_right_product": true,
+            "Omega_n_lower_bound": 6,
+            "Omega_n_plus_2_lower_bound": 6,
+            "truncated_projector_sign_on_both_endpoints": 1,
+            "truncated_shift_two_product_positive": true,
+            "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+          },
+          {
+            "truncation_R": 6,
+            "left_forced_distinct_prime_factors": [
+              3,
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "right_forced_distinct_prime_factors": [
+              23,
+              29,
+              31,
+              37,
+              41,
+              43,
+              47
+            ],
+            "n0": "250356762803467320",
+            "progression_modulus": "307444891294245705",
+            "n0_divisible_by_left_product": true,
+            "n0_plus_2_divisible_by_right_product": true,
+            "Omega_n_lower_bound": 7,
+            "Omega_n_plus_2_lower_bound": 7,
+            "truncated_projector_sign_on_both_endpoints": -1,
+            "truncated_shift_two_product_positive": true,
+            "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+          }
+        ],
+        "aggregate": {
+          "pointwise_finite_exact_prime_projector_proved": true,
+          "every_fixed_truncation_formula_proved": true,
+          "every_fixed_truncation_has_infinite_positive_false_positives": true,
+          "finite_degree_Omega_prime_projector_refuted": true,
+          "uniform_infinite_tail_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The infinite identity is an exact re-expression of primality, not a new lower bound for twin primes. Rearranging or truncating its shift-two correlation requires a uniform tail estimate that is not proved here.",
+        "failure_count": 0
+      },
+      "logical_limit": "The exact infinite projector is tautological until its shift-two tail is controlled uniformly.",
+      "route_decision": {
+        "discard": "using any fixed finite Omega-binomial truncation as an exact twin indicator",
+        "retain": "the exact infinite projector only with a proved uniform correlation-tail bound",
+        "next_single_lemma": "UniformTailCancellationForBinomialOmegaProjectorCorrelation"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T205",
+            "label": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T206",
+            "label": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N206",
+            "label": "FiniteOmegaBinomialTruncationIsAnExactTwinPrimeIndicator",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN206",
+            "label": "UniformTailCancellationForBinomialOmegaProjectorCorrelation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T205",
+            "TP-T206"
+          ],
+          [
+            "TP-T206",
+            "TP-N206"
+          ],
+          [
+            "TP-T206",
+            "TP-OPEN206"
+          ],
+          [
+            "TP-OPEN206",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. An exact Omega-binomial projector and an infinite no-go for every finite truncation are proved."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-206",
+      "status": "open_not_proven",
+      "declared_proposition": "Let gamma:[0,L]->C be a unit-speed C1 closed contour and let g=f o gamma, where f is analytic near the contour. If g is nonzero on the contour, delta=min|g| is positive and K=max|g'| is finite. Repeated uniform bisection therefore terminates with a partition of mesh h<delta/K (with the constant case handled separately), and every arc satisfies K h<|g(t_j)|. The TICKET-205 disk homotopies then certify the exact winding number. This completeness is conditional on rigorous bounds delta and K. No fixed segment budget works uniformly as the contour clearance tends to zero.",
+      "new_result": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+      "discarded_route": "using a fixed contour-segment budget independently of boundary clearance",
+      "remaining_gap": "No effective rigorous clearance oracle is constructed for a cofinal family of completed-zeta rectangles.",
+      "candidate_theorem": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination",
+      "claim_boundary": "No RH proof or counterexample. A certificate-completeness theorem and an inverse-clearance fixed-budget no-go are proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T205",
+            "label": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T206",
+            "label": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N206",
+            "label": "FixedBudgetContourCertificationIndependentOfClearance",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN206",
+            "label": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T205",
+            "RH-T206"
+          ],
+          [
+            "RH-T206",
+            "RH-N206"
+          ],
+          [
+            "RH-T206",
+            "RH-OPEN206"
+          ],
+          [
+            "RH-OPEN206",
+            "RH"
+          ]
+        ]
+      },
+      "next_experiment": "EffectiveCompletedZetaRectangleBoundsAndCofinalAdaptiveTermination"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-206",
+      "status": "open_not_proven",
+      "declared_proposition": "No nontrivial positive accelerated Collatz cycle has a valuation period containing exactly one entry equal to one and every other entry at least two. Thus any hypothetical nontrivial positive cycle must contain at least two valuation-one entries and at least one entry at least two.",
+      "new_result": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+      "discarded_route": "searching any exactly-one-valuation-one period for a positive cycle",
+      "remaining_gap": "Primitive mixed necklaces with at least two valuation-one entries and nonperiodic divergence remain open.",
+      "candidate_theorem": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes",
+      "claim_boundary": "No Collatz proof or counterexample. The complete exactly-one-valuation-one periodic stratum is excluded.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T205",
+            "label": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T206",
+            "label": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N206",
+            "label": "ExactlyOneValuationOneCanSupportANontrivialPositiveCycle",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN206",
+            "label": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T205",
+            "CO-T206"
+          ],
+          [
+            "CO-T206",
+            "CO-N206"
+          ],
+          [
+            "CO-T206",
+            "CO-OPEN206"
+          ],
+          [
+            "CO-OPEN206",
+            "CO"
+          ]
+        ]
+      },
+      "next_experiment": "UniformNondivisibilityForPrimitiveMixedNecklacesWithAtLeastTwoOnes"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-206",
+      "status": "open_not_proven",
+      "declared_proposition": "For every bound B there is an infinite arithmetic progression of even integers N for which N-p is composite for every prime p<=B. Therefore no fixed finite set of prime summands can witness strong Goldbach on all sufficiently large even integers. If strong Goldbach is true, its least prime witness is necessarily unbounded.",
+      "new_result": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+      "discarded_route": "proving strong Goldbach with one fixed bounded set of small prime summands",
+      "remaining_gap": "The CRT families exclude only bounded summands and do not bound the full Goldbach exceptional set.",
+      "candidate_theorem": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne",
+      "claim_boundary": "No Goldbach proof or counterexample. An exact infinite CRT obstruction to every fixed witness basis is proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T205",
+            "label": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T206",
+            "label": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N206",
+            "label": "FixedBoundedPrimeWitnessBasisCoversAllLargeEvenTargets",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN206",
+            "label": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T205",
+            "GB-T206"
+          ],
+          [
+            "GB-T206",
+            "GB-N206"
+          ],
+          [
+            "GB-T206",
+            "GB-OPEN206"
+          ],
+          [
+            "GB-OPEN206",
+            "GB"
+          ]
+        ]
+      },
+      "next_experiment": "GrowingWitnessCutoffGoldbachTailExceptionalCountStrictlyBelowOne"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-206",
+      "status": "open_not_proven",
+      "declared_proposition": "For m>=0, sum_{j>=1} (-1)^(j-1) j binom(m,j) equals one for m=1 and zero otherwise; the sum is pointwise finite. Hence substituting m=Omega(n) gives an exact prime indicator. Its truncation at j<=R is exact only for Omega(n)<=R. For m>R it equals (-1)^(R-1) m binom(m-2,R-1), so every fixed truncation is nonzero on all sufficiently factor-rich composites. Moreover each fixed R has an infinite CRT progression where both n and n+2 have at least R+1 distinct prime factors and the truncated correlation is positive.",
+      "new_result": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+      "discarded_route": "using any fixed finite Omega-binomial truncation as an exact twin indicator",
+      "remaining_gap": "The exact infinite projector is tautological until its shift-two tail is controlled uniformly.",
+      "candidate_theorem": "UniformTailCancellationForBinomialOmegaProjectorCorrelation",
+      "claim_boundary": "No Twin Prime proof or counterexample. An exact Omega-binomial projector and an infinite no-go for every finite truncation are proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T205",
+            "label": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T206",
+            "label": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N206",
+            "label": "FiniteOmegaBinomialTruncationIsAnExactTwinPrimeIndicator",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN206",
+            "label": "UniformTailCancellationForBinomialOmegaProjectorCorrelation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T205",
+            "TP-T206"
+          ],
+          [
+            "TP-T206",
+            "TP-N206"
+          ],
+          [
+            "TP-T206",
+            "TP-OPEN206"
+          ],
+          [
+            "TP-OPEN206",
+            "TP"
+          ]
+        ]
+      },
+      "next_experiment": "UniformTailCancellationForBinomialOmegaProjectorCorrelation"
+    }
+  ]
+}

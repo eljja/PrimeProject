@@ -1,0 +1,795 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T10:39:10+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-206",
+  "status": "open_not_proven",
+  "declared_proposition": "For m>=0, sum_{j>=1} (-1)^(j-1) j binom(m,j) equals one for m=1 and zero otherwise; the sum is pointwise finite. Hence substituting m=Omega(n) gives an exact prime indicator. Its truncation at j<=R is exact only for Omega(n)<=R. For m>R it equals (-1)^(R-1) m binom(m-2,R-1), so every fixed truncation is nonzero on all sufficiently factor-rich composites. Moreover each fixed R has an infinite CRT progression where both n and n+2 have at least R+1 distinct prime factors and the truncated correlation is positive.",
+  "new_result": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+  "discarded_route": "using any fixed finite Omega-binomial truncation as an exact twin indicator",
+  "remaining_gap": "The exact infinite projector is tautological until its shift-two tail is controlled uniformly.",
+  "candidate_theorem": "UniformTailCancellationForBinomialOmegaProjectorCorrelation",
+  "claim_boundary": "No Twin Prime proof or counterexample. An exact Omega-binomial projector and an infinite no-go for every finite truncation are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T205",
+        "label": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T206",
+        "label": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N206",
+        "label": "FiniteOmegaBinomialTruncationIsAnExactTwinPrimeIndicator",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN206",
+        "label": "UniformTailCancellationForBinomialOmegaProjectorCorrelation",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T205",
+        "TP-T206"
+      ],
+      [
+        "TP-T206",
+        "TP-N206"
+      ],
+      [
+        "TP-T206",
+        "TP-OPEN206"
+      ],
+      [
+        "TP-OPEN206",
+        "TP"
+      ]
+    ]
+  },
+  "next_experiment": "UniformTailCancellationForBinomialOmegaProjectorCorrelation",
+  "mathematical_argument": "Use j binom(m,j)=m binom(m-1,j-1). The complete alternating binomial sum is the derivative identity for (1-x)^m at x=1, giving the Kronecker delta at m=1. The finite partial-sum identity sum_{k=0}^{R-1}(-1)^k binom(m-1,k)=(-1)^(R-1)binom(m-2,R-1) gives the displayed truncation formula. For the no-go, choose disjoint sets of R+1 odd primes with products A and B. CRT solves n=0 mod A and n=-2 mod B. Large representatives make both endpoints composite; both truncated projectors have sign (-1)^(R-1), so their product is positive.",
+  "reproducible_computation": {
+    "theorem": "For m>=0, sum_{j>=1} (-1)^(j-1) j binom(m,j) equals one for m=1 and zero otherwise; the sum is pointwise finite. Hence substituting m=Omega(n) gives an exact prime indicator. Its truncation at j<=R is exact only for Omega(n)<=R. For m>R it equals (-1)^(R-1) m binom(m-2,R-1), so every fixed truncation is nonzero on all sufficiently factor-rich composites. Moreover each fixed R has an infinite CRT progression where both n and n+2 have at least R+1 distinct prime factors and the truncated correlation is positive.",
+    "proof": "Use j binom(m,j)=m binom(m-1,j-1). The complete alternating binomial sum is the derivative identity for (1-x)^m at x=1, giving the Kronecker delta at m=1. The finite partial-sum identity sum_{k=0}^{R-1}(-1)^k binom(m-1,k)=(-1)^(R-1)binom(m-2,R-1) gives the displayed truncation formula. For the no-go, choose disjoint sets of R+1 odd primes with products A and B. CRT solves n=0 mod A and n=-2 mod B. Large representatives make both endpoints composite; both truncated projectors have sign (-1)^(R-1), so their product is positive.",
+    "binomial_identity_rows": [
+      {
+        "truncation_R": 1,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 2,
+            "closed_form": 2
+          },
+          {
+            "Omega": 3,
+            "P_R": 3,
+            "closed_form": 3
+          },
+          {
+            "Omega": 4,
+            "P_R": 4,
+            "closed_form": 4
+          },
+          {
+            "Omega": 5,
+            "P_R": 5,
+            "closed_form": 5
+          },
+          {
+            "Omega": 6,
+            "P_R": 6,
+            "closed_form": 6
+          },
+          {
+            "Omega": 7,
+            "P_R": 7,
+            "closed_form": 7
+          },
+          {
+            "Omega": 8,
+            "P_R": 8,
+            "closed_form": 8
+          },
+          {
+            "Omega": 9,
+            "P_R": 9,
+            "closed_form": 9
+          },
+          {
+            "Omega": 10,
+            "P_R": 10,
+            "closed_form": 10
+          },
+          {
+            "Omega": 11,
+            "P_R": 11,
+            "closed_form": 11
+          },
+          {
+            "Omega": 12,
+            "P_R": 12,
+            "closed_form": 12
+          }
+        ]
+      },
+      {
+        "truncation_R": 2,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": -3,
+            "closed_form": -3
+          },
+          {
+            "Omega": 4,
+            "P_R": -8,
+            "closed_form": -8
+          },
+          {
+            "Omega": 5,
+            "P_R": -15,
+            "closed_form": -15
+          },
+          {
+            "Omega": 6,
+            "P_R": -24,
+            "closed_form": -24
+          },
+          {
+            "Omega": 7,
+            "P_R": -35,
+            "closed_form": -35
+          },
+          {
+            "Omega": 8,
+            "P_R": -48,
+            "closed_form": -48
+          },
+          {
+            "Omega": 9,
+            "P_R": -63,
+            "closed_form": -63
+          },
+          {
+            "Omega": 10,
+            "P_R": -80,
+            "closed_form": -80
+          },
+          {
+            "Omega": 11,
+            "P_R": -99,
+            "closed_form": -99
+          },
+          {
+            "Omega": 12,
+            "P_R": -120,
+            "closed_form": -120
+          }
+        ]
+      },
+      {
+        "truncation_R": 3,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 4,
+            "P_R": 4,
+            "closed_form": 4
+          },
+          {
+            "Omega": 5,
+            "P_R": 15,
+            "closed_form": 15
+          },
+          {
+            "Omega": 6,
+            "P_R": 36,
+            "closed_form": 36
+          },
+          {
+            "Omega": 7,
+            "P_R": 70,
+            "closed_form": 70
+          },
+          {
+            "Omega": 8,
+            "P_R": 120,
+            "closed_form": 120
+          },
+          {
+            "Omega": 9,
+            "P_R": 189,
+            "closed_form": 189
+          },
+          {
+            "Omega": 10,
+            "P_R": 280,
+            "closed_form": 280
+          },
+          {
+            "Omega": 11,
+            "P_R": 396,
+            "closed_form": 396
+          },
+          {
+            "Omega": 12,
+            "P_R": 540,
+            "closed_form": 540
+          }
+        ]
+      },
+      {
+        "truncation_R": 4,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 4,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 5,
+            "P_R": -5,
+            "closed_form": -5
+          },
+          {
+            "Omega": 6,
+            "P_R": -24,
+            "closed_form": -24
+          },
+          {
+            "Omega": 7,
+            "P_R": -70,
+            "closed_form": -70
+          },
+          {
+            "Omega": 8,
+            "P_R": -160,
+            "closed_form": -160
+          },
+          {
+            "Omega": 9,
+            "P_R": -315,
+            "closed_form": -315
+          },
+          {
+            "Omega": 10,
+            "P_R": -560,
+            "closed_form": -560
+          },
+          {
+            "Omega": 11,
+            "P_R": -924,
+            "closed_form": -924
+          },
+          {
+            "Omega": 12,
+            "P_R": -1440,
+            "closed_form": -1440
+          }
+        ]
+      },
+      {
+        "truncation_R": 5,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 4,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 5,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 6,
+            "P_R": 6,
+            "closed_form": 6
+          },
+          {
+            "Omega": 7,
+            "P_R": 35,
+            "closed_form": 35
+          },
+          {
+            "Omega": 8,
+            "P_R": 120,
+            "closed_form": 120
+          },
+          {
+            "Omega": 9,
+            "P_R": 315,
+            "closed_form": 315
+          },
+          {
+            "Omega": 10,
+            "P_R": 700,
+            "closed_form": 700
+          },
+          {
+            "Omega": 11,
+            "P_R": 1386,
+            "closed_form": 1386
+          },
+          {
+            "Omega": 12,
+            "P_R": 2520,
+            "closed_form": 2520
+          }
+        ]
+      },
+      {
+        "truncation_R": 6,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 4,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 5,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 6,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 7,
+            "P_R": -7,
+            "closed_form": -7
+          },
+          {
+            "Omega": 8,
+            "P_R": -48,
+            "closed_form": -48
+          },
+          {
+            "Omega": 9,
+            "P_R": -189,
+            "closed_form": -189
+          },
+          {
+            "Omega": 10,
+            "P_R": -560,
+            "closed_form": -560
+          },
+          {
+            "Omega": 11,
+            "P_R": -1386,
+            "closed_form": -1386
+          },
+          {
+            "Omega": 12,
+            "P_R": -3024,
+            "closed_form": -3024
+          }
+        ]
+      },
+      {
+        "truncation_R": 7,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 4,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 5,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 6,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 7,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 8,
+            "P_R": 8,
+            "closed_form": 8
+          },
+          {
+            "Omega": 9,
+            "P_R": 63,
+            "closed_form": 63
+          },
+          {
+            "Omega": 10,
+            "P_R": 280,
+            "closed_form": 280
+          },
+          {
+            "Omega": 11,
+            "P_R": 924,
+            "closed_form": 924
+          },
+          {
+            "Omega": 12,
+            "P_R": 2520,
+            "closed_form": 2520
+          }
+        ]
+      },
+      {
+        "truncation_R": 8,
+        "values": [
+          {
+            "Omega": 0,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 1,
+            "P_R": 1,
+            "closed_form": 1
+          },
+          {
+            "Omega": 2,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 3,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 4,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 5,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 6,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 7,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 8,
+            "P_R": 0,
+            "closed_form": 0
+          },
+          {
+            "Omega": 9,
+            "P_R": -9,
+            "closed_form": -9
+          },
+          {
+            "Omega": 10,
+            "P_R": -80,
+            "closed_form": -80
+          },
+          {
+            "Omega": 11,
+            "P_R": -396,
+            "closed_form": -396
+          },
+          {
+            "Omega": 12,
+            "P_R": -1440,
+            "closed_form": -1440
+          }
+        ]
+      }
+    ],
+    "crt_false_positive_rows": [
+      {
+        "truncation_R": 1,
+        "left_forced_distinct_prime_factors": [
+          3,
+          5
+        ],
+        "right_forced_distinct_prime_factors": [
+          7,
+          11
+        ],
+        "n0": "1230",
+        "progression_modulus": "1155",
+        "n0_divisible_by_left_product": true,
+        "n0_plus_2_divisible_by_right_product": true,
+        "Omega_n_lower_bound": 2,
+        "Omega_n_plus_2_lower_bound": 2,
+        "truncated_projector_sign_on_both_endpoints": 1,
+        "truncated_shift_two_product_positive": true,
+        "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+      },
+      {
+        "truncation_R": 2,
+        "left_forced_distinct_prime_factors": [
+          3,
+          5,
+          7
+        ],
+        "right_forced_distinct_prime_factors": [
+          11,
+          13,
+          17
+        ],
+        "n0": "223650",
+        "progression_modulus": "255255",
+        "n0_divisible_by_left_product": true,
+        "n0_plus_2_divisible_by_right_product": true,
+        "Omega_n_lower_bound": 3,
+        "Omega_n_plus_2_lower_bound": 3,
+        "truncated_projector_sign_on_both_endpoints": -1,
+        "truncated_shift_two_product_positive": true,
+        "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+      },
+      {
+        "truncation_R": 3,
+        "left_forced_distinct_prime_factors": [
+          3,
+          5,
+          7,
+          11
+        ],
+        "right_forced_distinct_prime_factors": [
+          13,
+          17,
+          19,
+          23
+        ],
+        "n0": "14100240",
+        "progression_modulus": "111546435",
+        "n0_divisible_by_left_product": true,
+        "n0_plus_2_divisible_by_right_product": true,
+        "Omega_n_lower_bound": 4,
+        "Omega_n_plus_2_lower_bound": 4,
+        "truncated_projector_sign_on_both_endpoints": 1,
+        "truncated_shift_two_product_positive": true,
+        "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+      },
+      {
+        "truncation_R": 4,
+        "left_forced_distinct_prime_factors": [
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "right_forced_distinct_prime_factors": [
+          17,
+          19,
+          23,
+          29,
+          31
+        ],
+        "n0": "60154789695",
+        "progression_modulus": "100280245065",
+        "n0_divisible_by_left_product": true,
+        "n0_plus_2_divisible_by_right_product": true,
+        "Omega_n_lower_bound": 5,
+        "Omega_n_plus_2_lower_bound": 5,
+        "truncated_projector_sign_on_both_endpoints": -1,
+        "truncated_shift_two_product_positive": true,
+        "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+      },
+      {
+        "truncation_R": 5,
+        "left_forced_distinct_prime_factors": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17
+        ],
+        "right_forced_distinct_prime_factors": [
+          19,
+          23,
+          29,
+          31,
+          37,
+          41
+        ],
+        "n0": "118927638219390",
+        "progression_modulus": "152125131763605",
+        "n0_divisible_by_left_product": true,
+        "n0_plus_2_divisible_by_right_product": true,
+        "Omega_n_lower_bound": 6,
+        "Omega_n_plus_2_lower_bound": 6,
+        "truncated_projector_sign_on_both_endpoints": 1,
+        "truncated_shift_two_product_positive": true,
+        "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+      },
+      {
+        "truncation_R": 6,
+        "left_forced_distinct_prime_factors": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19
+        ],
+        "right_forced_distinct_prime_factors": [
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47
+        ],
+        "n0": "250356762803467320",
+        "progression_modulus": "307444891294245705",
+        "n0_divisible_by_left_product": true,
+        "n0_plus_2_divisible_by_right_product": true,
+        "Omega_n_lower_bound": 7,
+        "Omega_n_plus_2_lower_bound": 7,
+        "truncated_projector_sign_on_both_endpoints": -1,
+        "truncated_shift_two_product_positive": true,
+        "infinite_progression": "n=n0+t*progression_modulus for every t>=0"
+      }
+    ],
+    "aggregate": {
+      "pointwise_finite_exact_prime_projector_proved": true,
+      "every_fixed_truncation_formula_proved": true,
+      "every_fixed_truncation_has_infinite_positive_false_positives": true,
+      "finite_degree_Omega_prime_projector_refuted": true,
+      "uniform_infinite_tail_cancellation_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The infinite identity is an exact re-expression of primality, not a new lower bound for twin primes. Rearranging or truncating its shift-two correlation requires a uniform tail estimate that is not proved here.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "using any fixed finite Omega-binomial truncation as an exact twin indicator",
+    "retain": "the exact infinite projector only with a proved uniform correlation-tail bound",
+    "next_single_lemma": "UniformTailCancellationForBinomialOmegaProjectorCorrelation"
+  }
+}
