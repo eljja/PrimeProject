@@ -1,0 +1,256 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T16:20:00+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-207",
+  "status": "open_not_proven",
+  "declared_proposition": "For 0<r<1 and m>=1, the normalized Abel Omega projector Q_r(m)=r^(-1) sum_{j=1}^m (-1)^(j-1) j binom(m,j) r^j equals m(1-r)^(m-1). Thus Q_r(1)=1 but Q_r(m)>0 for every composite multiplicity m>=2, so no fixed r is an exact prime indicator. For each integer X>=1, however, r_X=1-1/(16X) gives an exact finite identity: if S_X=sum_{X<n<=2X} Q_rX(Omega(n))Q_rX(Omega(n+2)) and T_X is the number of twin-prime lower endpoints in that interval, then T_X<=S_X<=T_X+1/8, hence floor(S_X)=T_X.",
+  "new_result": "AbelOmegaProjectorClosedFormFiniteReconstructionAndPositivityCircularityNoGo",
+  "discarded_route": "using nonnegative fixed-scale Abel smoothing alone as a parity-breaking twin-prime lower bound",
+  "remaining_gap": "No independent signed arithmetic main term or uniform positive lower bound for the Abel correlation is proved.",
+  "candidate_theorem": "SignedArithmeticMajorantForAbelProjectorTailWithIndependentMainTerm",
+  "claim_boundary": "No Twin Prime proof or counterexample. Abel smoothing is solved exactly as a finite reconstruction and shown not to provide independent positivity.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T206",
+        "label": "BinomialOmegaPrimeProjectorAndEveryFiniteTruncationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T207",
+        "label": "AbelOmegaProjectorClosedFormFiniteReconstructionAndPositivityCircularityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N207",
+        "label": "NonnegativeAbelRegularizationAloneBreaksParity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN207",
+        "label": "SignedArithmeticMajorantForAbelProjectorTailWithIndependentMainTerm",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T206",
+        "TP-T207"
+      ],
+      [
+        "TP-T207",
+        "TP-N207"
+      ],
+      [
+        "TP-T207",
+        "TP-OPEN207"
+      ],
+      [
+        "TP-OPEN207",
+        "TP"
+      ]
+    ]
+  },
+  "next_experiment": "SignedArithmeticMajorantForAbelProjectorTailWithIndependentMainTerm",
+  "mathematical_argument": "Differentiate (1-r)^m and multiply by -1 to obtain the closed form. For r_X, every composite m>=2 has Q_rX(m)=m/(16X)^(m-1)<=1/(8X), while primes have weight one. Each twin term contributes exactly one. Every other one of the X terms contains a composite endpoint and is nonnegative and at most 1/(8X), so the total leakage is at most 1/8. Taking the floor recovers T_X exactly. This is a finite re-encoding of factorization: proving a positive lower bound for S_X independently of T_X remains the original shift-two arithmetic problem.",
+  "reproducible_computation": {
+    "theorem": "For 0<r<1 and m>=1, the normalized Abel Omega projector Q_r(m)=r^(-1) sum_{j=1}^m (-1)^(j-1) j binom(m,j) r^j equals m(1-r)^(m-1). Thus Q_r(1)=1 but Q_r(m)>0 for every composite multiplicity m>=2, so no fixed r is an exact prime indicator. For each integer X>=1, however, r_X=1-1/(16X) gives an exact finite identity: if S_X=sum_{X<n<=2X} Q_rX(Omega(n))Q_rX(Omega(n+2)) and T_X is the number of twin-prime lower endpoints in that interval, then T_X<=S_X<=T_X+1/8, hence floor(S_X)=T_X.",
+    "proof": "Differentiate (1-r)^m and multiply by -1 to obtain the closed form. For r_X, every composite m>=2 has Q_rX(m)=m/(16X)^(m-1)<=1/(8X), while primes have weight one. Each twin term contributes exactly one. Every other one of the X terms contains a composite endpoint and is nonnegative and at most 1/(8X), so the total leakage is at most 1/8. Taking the floor recovers T_X exactly. This is a finite re-encoding of factorization: proving a positive lower bound for S_X independently of T_X remains the original shift-two arithmetic problem.",
+    "abel_identity_rows": [
+      {
+        "r": "3/4",
+        "values": [
+          {
+            "Omega": 1,
+            "direct_normalized_Abel_sum": "1",
+            "closed_form": "1"
+          },
+          {
+            "Omega": 2,
+            "direct_normalized_Abel_sum": "1/2",
+            "closed_form": "1/2"
+          },
+          {
+            "Omega": 3,
+            "direct_normalized_Abel_sum": "3/16",
+            "closed_form": "3/16"
+          },
+          {
+            "Omega": 4,
+            "direct_normalized_Abel_sum": "1/16",
+            "closed_form": "1/16"
+          },
+          {
+            "Omega": 5,
+            "direct_normalized_Abel_sum": "5/256",
+            "closed_form": "5/256"
+          },
+          {
+            "Omega": 6,
+            "direct_normalized_Abel_sum": "3/512",
+            "closed_form": "3/512"
+          },
+          {
+            "Omega": 7,
+            "direct_normalized_Abel_sum": "7/4096",
+            "closed_form": "7/4096"
+          }
+        ]
+      },
+      {
+        "r": "7/8",
+        "values": [
+          {
+            "Omega": 1,
+            "direct_normalized_Abel_sum": "1",
+            "closed_form": "1"
+          },
+          {
+            "Omega": 2,
+            "direct_normalized_Abel_sum": "1/4",
+            "closed_form": "1/4"
+          },
+          {
+            "Omega": 3,
+            "direct_normalized_Abel_sum": "3/64",
+            "closed_form": "3/64"
+          },
+          {
+            "Omega": 4,
+            "direct_normalized_Abel_sum": "1/128",
+            "closed_form": "1/128"
+          },
+          {
+            "Omega": 5,
+            "direct_normalized_Abel_sum": "5/4096",
+            "closed_form": "5/4096"
+          },
+          {
+            "Omega": 6,
+            "direct_normalized_Abel_sum": "3/16384",
+            "closed_form": "3/16384"
+          },
+          {
+            "Omega": 7,
+            "direct_normalized_Abel_sum": "7/262144",
+            "closed_form": "7/262144"
+          }
+        ]
+      },
+      {
+        "r": "15/16",
+        "values": [
+          {
+            "Omega": 1,
+            "direct_normalized_Abel_sum": "1",
+            "closed_form": "1"
+          },
+          {
+            "Omega": 2,
+            "direct_normalized_Abel_sum": "1/8",
+            "closed_form": "1/8"
+          },
+          {
+            "Omega": 3,
+            "direct_normalized_Abel_sum": "3/256",
+            "closed_form": "3/256"
+          },
+          {
+            "Omega": 4,
+            "direct_normalized_Abel_sum": "1/1024",
+            "closed_form": "1/1024"
+          },
+          {
+            "Omega": 5,
+            "direct_normalized_Abel_sum": "5/65536",
+            "closed_form": "5/65536"
+          },
+          {
+            "Omega": 6,
+            "direct_normalized_Abel_sum": "3/524288",
+            "closed_form": "3/524288"
+          },
+          {
+            "Omega": 7,
+            "direct_normalized_Abel_sum": "7/16777216",
+            "closed_form": "7/16777216"
+          }
+        ]
+      }
+    ],
+    "finite_reconstruction_rows": [
+      {
+        "dyadic_X": 32,
+        "scale_r_X": "511/512",
+        "exact_twin_count_T_X": 2,
+        "abel_sum_S_X": "9349842679078595337/4611686018427387904",
+        "positive_composite_leakage": "126470642223819529/4611686018427387904",
+        "leakage_upper_bound": "1/8",
+        "largest_observed_composite_weight": "1/256",
+        "proved_composite_weight_upper_bound": "1/256",
+        "floor_S_X": 2,
+        "exact_reconstruction": true,
+        "leakage_below_one_eighth": true
+      },
+      {
+        "dyadic_X": 64,
+        "scale_r_X": "1023/1024",
+        "exact_twin_count_T_X": 3,
+        "abel_sum_S_X": "935719816162191423765484807/309485009821345068724781056",
+        "positive_composite_leakage": "7264786698156217591141639/309485009821345068724781056",
+        "leakage_upper_bound": "1/8",
+        "largest_observed_composite_weight": "1/512",
+        "proved_composite_weight_upper_bound": "1/512",
+        "floor_S_X": 3,
+        "exact_reconstruction": true,
+        "leakage_below_one_eighth": true
+      },
+      {
+        "dyadic_X": 128,
+        "scale_r_X": "2047/2048",
+        "exact_twin_count_T_X": 7,
+        "abel_sum_S_X": "2223656221012859302176603804699/316912650057057350374175801344",
+        "positive_composite_leakage": "5267670613457849557373195291/316912650057057350374175801344",
+        "leakage_upper_bound": "1/8",
+        "largest_observed_composite_weight": "1/1024",
+        "proved_composite_weight_upper_bound": "1/1024",
+        "floor_S_X": 7,
+        "exact_reconstruction": true,
+        "leakage_below_one_eighth": true
+      },
+      {
+        "dyadic_X": 256,
+        "scale_r_X": "4095/4096",
+        "exact_twin_count_T_X": 7,
+        "abel_sum_S_X": "9554502357558656323382766858279680248841/1361129467683753853853498429727072845824",
+        "positive_composite_leakage": "26596083772379346408277850190170328073/1361129467683753853853498429727072845824",
+        "leakage_upper_bound": "1/8",
+        "largest_observed_composite_weight": "1/2048",
+        "proved_composite_weight_upper_bound": "1/2048",
+        "floor_S_X": 7,
+        "exact_reconstruction": true,
+        "leakage_below_one_eighth": true
+      }
+    ],
+    "aggregate": {
+      "normalized_abel_closed_form_proved": true,
+      "fixed_scale_exact_prime_indicator_refuted": true,
+      "scale_dependent_finite_twin_count_reconstruction_proved": true,
+      "independent_positive_main_term_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The floor identity uses exact Omega values and only repackages the finite twin count. Positivity of S_X on all large intervals is not proved and cannot be inferred from nonnegative Abel leakage.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "using nonnegative fixed-scale Abel smoothing alone as a parity-breaking twin-prime lower bound",
+    "retain": "a signed arithmetic majorant with an independently proved main term and controlled Abel tail",
+    "next_single_lemma": "SignedArithmeticMajorantForAbelProjectorTailWithIndependentMainTerm"
+  }
+}

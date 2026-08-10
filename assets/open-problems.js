@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket207AttemptGlobal = null;
 let ticket206AttemptGlobal = null;
 let ticket205AttemptGlobal = null;
 let ticket204AttemptGlobal = null;
@@ -10002,6 +10003,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket207DihedralTwoOneLogWitnessAbel(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.dihedral_twoone_logwitness_abel_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.boundary_reconstruction_rows || [];
+    detail = `
+      <div class="poc-equation">ξ(s)=ξ(1−s), ξ(s̄)=ξ(s)̄ ⇒ full boundary = top edge + upper-right half-edge</div>
+      ${table(["half-width", "height", "full samples", "fundamental samples", "clearance agrees"], rows.map((row) => [row.rectangle_half_width, row.rectangle_height, row.exact_boundary_samples, row.fundamental_domain_samples, row.sampled_clearance_squared_full === row.sampled_clearance_squared_fundamental]))}
+      <div class="poc-head"><div><span>Boundary reduction</span><strong>${aggregate.top_plus_upper_right_boundary_reduction_proved ? "proved" : "open"}</strong></div><div><span>Symmetry-only RH route</span><strong>${aggregate.symmetry_only_implication_of_rh_refuted ? "refuted" : "open"}</strong></div><div><span>Surrogate off-line zeros</span><strong>${(computation.off_critical_line_zeros || []).join(", ")}</strong></div></div>
+      <p class="proof-note">위·오른쪽 위 경계만 계산해도 전체 직사각형 인증값을 복원할 수 있습니다. F<sub>c</sub>(s)=(s−1/2)²−c² 반례 함수는 같은 대칭만으로 임계선 영점을 강제할 수 없음을 보일 뿐, 제타함수의 반례가 아닙니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.long_case_bounds || [];
+    const replayCount = Object.values(computation.finite_replay_cases || {}).reduce((sum, values) => sum + values.length, 0);
+    detail = `
+      <div class="poc-equation">m≤F<sup>s</sup>GF<sup>r</sup>G(m)=1+q<sub>s</sub>−3q/4+(9q/4)m; exactly two v₂=1 ⇒ no cycle</div>
+      ${table(["length", "q bound", "minimum bound", "conclusion"], rows.map((row) => [row.length_range, row.q_upper_bound, row.minimum_upper_bound, row.conclusion]))}
+      <div class="poc-head"><div><span>Two-one stratum</span><strong>${aggregate.exactly_two_valuation_one_cycle_stratum_excluded ? "excluded" : "open"}</strong></div><div><span>Finite candidates replayed</span><strong>${replayCount}</strong></div><div><span>Required count of v=1</span><strong>≥${aggregate.minimum_required_valuation_one_multiplicity_in_nontrivial_cycle ?? "missing"}</strong></div></div>
+      <p class="proof-note">극값 부등식으로 h≥8을 한 번에 닫고 h=5,6,7의 남은 유한 후보를 전부 재생했으며 h≤4는 정확한 주기식으로 배제했습니다. valuation-1이 세 개 이상인 주기와 비주기 발산은 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.crt_logarithmic_fixture_rows || [];
+    detail = `
+      <div class="poc-equation">W(N)=least Goldbach prime witness; along a CRT sequence W(N)&gt;(1/3) log N</div>
+      ${table(["B", "blocked odd primes", "N bit length", "3B", "all p≤B blocked"], rows.map((row) => [row.witness_bound_B, row.odd_witness_count, row.N_bit_length, row.three_B, row.all_prime_witnesses_at_most_B_excluded]))}
+      <div class="poc-head"><div><span>Log witness lower bound</span><strong>${aggregate.logarithmic_least_witness_lower_bound_proved ? "proved" : "open"}</strong></div><div><span>Sublog basis</span><strong>${aggregate.universal_sublogarithmic_witness_basis_refuted ? "refuted" : "open"}</strong></div><div><span>Counterexamples found</span><strong>${aggregate.goldbach_counterexample_found ? "yes" : "0"}</strong></div></div>
+      <p class="proof-note">최소 증인이 로그 규모보다 작을 수 없는 무한 수열을 CRT로 만들었습니다. 더 큰 소수 증인은 남아 있으므로 반례가 아니며, 다음 목표는 로그 하한 위 꼬리 예외 개수를 1 미만으로 누르는 것입니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_reconstruction_rows || [];
+    detail = `
+      <div class="poc-equation">Q<sub>r</sub>(m)=m(1−r)<sup>m−1</sup>; r<sub>X</sub>=1−1/(16X) ⇒ floor(S<sub>X</sub>)=T<sub>X</sub></div>
+      ${table(["X", "scale rX", "twin count", "composite leakage", "floor reconstructs"], rows.map((row) => [row.dyadic_X, row.scale_r_X, row.exact_twin_count_T_X, row.positive_composite_leakage, row.exact_reconstruction]))}
+      <div class="poc-head"><div><span>Abel closed form</span><strong>${aggregate.normalized_abel_closed_form_proved ? "proved" : "open"}</strong></div><div><span>Finite reconstruction</span><strong>${aggregate.scale_dependent_finite_twin_count_reconstruction_proved ? "exact" : "open"}</strong></div><div><span>Independent main term</span><strong>${aggregate.independent_positive_main_term_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">Abel 합의 바닥값은 유한 구간의 쌍둥이 개수를 정확히 복원하지만 Omega를 이미 계산한 재표현입니다. 음이 아닌 합성수 누출만으로는 쌍둥이 소수의 독립적 양의 하한을 만들 수 없습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket207-dihedral-twoone-logwitness-abel" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 207 dihedral boundaries, two-one cycles, logarithmic witnesses, and Abel leakage</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET207 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/dihedral-twoone-logwitness-abel.ko.md">한국어 보고서</a> · <a href="../docs/dihedral-twoone-logwitness-abel.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket206AdaptiveSingleOneCrtProjector(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.adaptive_singleone_crt_projector_audit || {};
@@ -10053,7 +10121,7 @@ function renderTicket206AdaptiveSingleOneCrtProjector(attempt) {
   }
   return `
     <div id="ticket206-adaptive-singleone-crt-projector" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 206 adaptive certificates, single-one cycles, CRT witnesses, and Omega projectors</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET206 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -15819,7 +15887,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket206AdaptiveSingleOneCrtProjector(ticket206AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket207DihedralTwoOneLogWitnessAbel(ticket207AttemptGlobal) ||
+      renderTicket206AdaptiveSingleOneCrtProjector(ticket206AttemptGlobal) ||
       renderTicket205WindingExtremalFiniteOmega(ticket205AttemptGlobal) ||
       renderTicket204MeshNecklaceExceptionalKernel(ticket204AttemptGlobal) ||
       renderTicket203RoucheTransferPointwisePrimorial(ticket203AttemptGlobal) ||
@@ -15843,7 +15912,7 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
       renderTicket185SpectralCycleFactorGranularity(ticket185AttemptGlobal) ||
       renderTicket184InformationSufficiencyRouteCorrection(ticket184AttemptGlobal) ||
       renderTicket183AbelPrimitiveSpectralHaar(ticket183AttemptGlobal) ||
-      `<p class="proof-note">TICKET-206 data is unavailable. The conjecture remains open. / TICKET-206 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
+      `<p class="proof-note">TICKET-207 data is unavailable. The conjecture remains open. / TICKET-207 데이터를 불러오지 못했습니다. 추측은 여전히 미해결입니다.</p>`;
   }
 
   document.querySelector("#problemNav").innerHTML = [
@@ -16165,6 +16234,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket207Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket207AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket207AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket207AttemptGlobal) {
+      ticket207AttemptGlobal.bounded_result = ticket207AttemptGlobal.bounded_result || {};
+      ticket207AttemptGlobal.bounded_result.dihedral_twoone_logwitness_abel_audit = payload.dihedral_twoone_logwitness_abel_audit || {};
+    }
+    return Boolean(ticket207AttemptGlobal);
+  } catch (_error) {
+    ticket207AttemptGlobal = null;
     return false;
   }
 }
@@ -17658,9 +17747,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket206Loaded = await loadTicket206Attempt();
+  const ticket207Loaded = await loadTicket207Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket206-current";
+  document.documentElement.dataset.openProblemCache = "ticket207-current";
+  const ticket206Loaded = await loadTicket206Attempt();
   const ticket205Loaded = await loadTicket205Attempt();
   const ticket204Loaded = await loadTicket204Attempt();
   const ticket203Loaded = await loadTicket203Attempt();
@@ -17699,8 +17789,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket207AttemptGlobal) await loadTicket207Attempt();
     if (!ticket206AttemptGlobal) await loadTicket206Attempt();
     if (!ticket205AttemptGlobal) await loadTicket205Attempt();
     if (!ticket204AttemptGlobal) await loadTicket204Attempt();
@@ -17785,7 +17876,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket206-current";
+  document.documentElement.dataset.openProblemCache = "ticket207-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

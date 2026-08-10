@@ -62,23 +62,39 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-206
+## Latest Continuation After TICKET-207
 
-TICKET-206 is the current boundary. It resolves none of the four conjectures
-and narrows the exact premises left by TICKET-205:
+TICKET-207 is the current boundary. It resolves none of the four conjectures
+and narrows the exact premises left by TICKET-206:
 
-1. **Riemann:** every fixed zero-free compact boundary has a finite derivative-
-   certified winding mesh, but a fixed segment budget cannot survive clearance
-   tending to zero. Effective completed-zeta bounds remain open.
-2. **Collatz:** every positive cycle with exactly one valuation one and all
-   other valuations at least two is excluded. At least two valuation-one
-   entries and nonperiodic divergence remain open.
-3. **Goldbach:** for each `B`, an infinite CRT progression forces any witness
-   above `B`. This proves that witness cutoffs must grow, not that an exception
-   exists.
-4. **Twin Prime:** Omega-binomial inversion is an exact prime projector, but
-   every finite truncation has infinite positive composite-composite shift-two
-   false positives. Uniform infinite-tail cancellation remains open.
+1. **Riemann:** completed-xi rectangle certification reduces to a dihedral
+   fundamental boundary, but the same symmetries alone do not force critical-
+   line zeros. Rigorous cofinal interval lower bounds remain open.
+2. **Collatz:** every positive cycle with exactly two valuation-one entries and
+   all other valuations at least two is excluded. At least three ones and
+   nonperiodic divergence remain open.
+3. **Goldbach:** an unbounded CRT sequence forces the least witness above
+   `(1/3) log N`. This is a witness lower bound, not an exception.
+4. **Twin Prime:** the Abel-Omega projector exactly reconstructs finite dyadic
+   twin counts after flooring, but its positivity is not independent. A signed
+   main term with controlled tail remains open.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json
+```
+
+English report: [TICKET-207](dihedral-twoone-logwitness-abel.md).
+Korean report: [TICKET-207 한국어](dihedral-twoone-logwitness-abel.ko.md).
+
+All four results distinguish a proved infinite subfamily theorem from the
+unproved parent conjecture. No novelty-priority claim is made without expert
+review.
+
+## Preserved Continuation After TICKET-206
+
+TICKET-206 is preserved as the direct input to TICKET-207.
 
 Canonical JSON:
 
@@ -88,10 +104,6 @@ data/open-problem/ticket206-adaptive-singleone-crt-projector.json
 
 English report: [TICKET-206](adaptive-singleone-crt-projector.md).
 Korean report: [TICKET-206 한국어](adaptive-singleone-crt-projector.ko.md).
-
-All four results distinguish a proved infinite subfamily theorem from the
-unproved parent conjecture. No novelty-priority claim is made without expert
-review.
 
 ## Preserved Continuation After TICKET-205
 

@@ -1,0 +1,451 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T16:20:00+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-207",
+  "status": "open_not_proven",
+  "declared_proposition": "Let W(N) be the least prime p for which N-p is prime, with W(N)=infinity if no such p exists. There is an unbounded sequence of even N such that W(N)>(1/3) log N. Consequently no o(log N) witness cutoff can be a universal basis for strong Goldbach.",
+  "new_result": "LogarithmicLeastWitnessLowerBoundAlongCRTSequence",
+  "discarded_route": "using any sublogarithmic prime-witness window as a universal Goldbach basis",
+  "remaining_gap": "The construction gives no Goldbach exception and no exceptional-count upper bound for witnesses above the logarithmic floor.",
+  "candidate_theorem": "GoldbachTailExceptionalCountBelowOneBeyondLogarithmicWitnessFloor",
+  "claim_boundary": "No Goldbach proof or counterexample. An unbounded CRT sequence forces the least witness above one third of log N.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T206",
+        "label": "UnboundedLeastWitnessCRTNoGoForFixedPrimeBases",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T207",
+        "label": "LogarithmicLeastWitnessLowerBoundAlongCRTSequence",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N207",
+        "label": "SublogarithmicPrimeWitnessWindowUniversallyCoversGoldbach",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN207",
+        "label": "GoldbachTailExceptionalCountBelowOneBeyondLogarithmicWitnessFloor",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T206",
+        "GB-T207"
+      ],
+      [
+        "GB-T207",
+        "GB-N207"
+      ],
+      [
+        "GB-T207",
+        "GB-OPEN207"
+      ],
+      [
+        "GB-OPEN207",
+        "GB"
+      ]
+    ]
+  },
+  "next_experiment": "GoldbachTailExceptionalCountBelowOneBeyondLogarithmicWitnessFloor",
+  "mathematical_argument": "For each sufficiently large B, the prime number theorem gives at least pi(B)-1 primes in (B,3B). Assign a distinct q_p in that interval to each odd prime p<=B. CRT gives N=0 mod 2 and N=p mod q_p. With M=2 product(q_p), choose the representative M<N<2M. For large B, N-p is a proper multiple of q_p for every odd p<=B, while N-2 is an even composite, so W(N)>B. Also PNT yields log M<=log 2+(pi(B)-1)log(3B)<=2B eventually. Hence log N<log(2M)<3B and W(N)>B>(1/3)log N. Since M tends to infinity, the constructed sequence is unbounded. The exact fixtures replace the real logarithm by bit_length(N)<=3B, which implies log N<3B.",
+  "reproducible_computation": {
+    "theorem": "Let W(N) be the least prime p for which N-p is prime, with W(N)=infinity if no such p exists. There is an unbounded sequence of even N such that W(N)>(1/3) log N. Consequently no o(log N) witness cutoff can be a universal basis for strong Goldbach.",
+    "proof": "For each sufficiently large B, the prime number theorem gives at least pi(B)-1 primes in (B,3B). Assign a distinct q_p in that interval to each odd prime p<=B. CRT gives N=0 mod 2 and N=p mod q_p. With M=2 product(q_p), choose the representative M<N<2M. For large B, N-p is a proper multiple of q_p for every odd p<=B, while N-2 is an even composite, so W(N)>B. Also PNT yields log M<=log 2+(pi(B)-1)log(3B)<=2B eventually. Hence log N<log(2M)<3B and W(N)>B>(1/3)log N. Since M tends to infinity, the constructed sequence is unbounded. The exact fixtures replace the real logarithm by bit_length(N)<=3B, which implies log N<3B.",
+    "crt_logarithmic_fixture_rows": [
+      {
+        "witness_bound_B": 11,
+        "odd_witness_count": 4,
+        "forcing_prime_count_in_B_to_3B_used": 4,
+        "canonical_even_target_N": "356580",
+        "modulus_M": "193154",
+        "N_in_M_to_2M": true,
+        "N_bit_length": 19,
+        "three_B": 33,
+        "exact_logarithmic_scale_certificate": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor": 13,
+            "complement": "356577",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor": 17,
+            "complement": "356575",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor": 19,
+            "complement": "356573",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor": 23,
+            "complement": "356569",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 19,
+        "odd_witness_count": 7,
+        "forcing_prime_count_in_B_to_3B_used": 7,
+        "canonical_even_target_N": "134950137788",
+        "modulus_M": "126785450378",
+        "N_in_M_to_2M": true,
+        "N_bit_length": 37,
+        "three_B": 57,
+        "exact_logarithmic_scale_certificate": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor": 23,
+            "complement": "134950137785",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor": 29,
+            "complement": "134950137783",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor": 31,
+            "complement": "134950137781",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor": 37,
+            "complement": "134950137777",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor": 41,
+            "complement": "134950137775",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor": 43,
+            "complement": "134950137771",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor": 47,
+            "complement": "134950137769",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 29,
+        "odd_witness_count": 9,
+        "forcing_prime_count_in_B_to_3B_used": 9,
+        "canonical_even_target_N": "3748997588044918",
+        "modulus_M": "2429271766593566",
+        "N_in_M_to_2M": true,
+        "N_bit_length": 52,
+        "three_B": 87,
+        "exact_logarithmic_scale_certificate": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor": 31,
+            "complement": "3748997588044915",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor": 37,
+            "complement": "3748997588044913",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor": 41,
+            "complement": "3748997588044911",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor": 43,
+            "complement": "3748997588044907",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor": 47,
+            "complement": "3748997588044905",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor": 53,
+            "complement": "3748997588044901",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor": 59,
+            "complement": "3748997588044899",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 23,
+            "forcing_divisor": 61,
+            "complement": "3748997588044895",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 29,
+            "forcing_divisor": 67,
+            "complement": "3748997588044889",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 43,
+        "odd_witness_count": 13,
+        "forcing_prime_count_in_B_to_3B_used": 13,
+        "canonical_even_target_N": "4346634861915796651132634",
+        "modulus_M": "3666630143418436420180414",
+        "N_in_M_to_2M": true,
+        "N_bit_length": 82,
+        "three_B": 129,
+        "exact_logarithmic_scale_certificate": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor": 47,
+            "complement": "4346634861915796651132631",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor": 53,
+            "complement": "4346634861915796651132629",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor": 59,
+            "complement": "4346634861915796651132627",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor": 61,
+            "complement": "4346634861915796651132623",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor": 67,
+            "complement": "4346634861915796651132621",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor": 71,
+            "complement": "4346634861915796651132617",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor": 73,
+            "complement": "4346634861915796651132615",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 23,
+            "forcing_divisor": 79,
+            "complement": "4346634861915796651132611",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 29,
+            "forcing_divisor": 83,
+            "complement": "4346634861915796651132605",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 31,
+            "forcing_divisor": 89,
+            "complement": "4346634861915796651132603",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 37,
+            "forcing_divisor": 97,
+            "complement": "4346634861915796651132597",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 41,
+            "forcing_divisor": 101,
+            "complement": "4346634861915796651132593",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 43,
+            "forcing_divisor": 103,
+            "complement": "4346634861915796651132591",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 59,
+        "odd_witness_count": 16,
+        "forcing_prime_count_in_B_to_3B_used": 16,
+        "canonical_even_target_N": "149498041946603474857039610538996",
+        "modulus_M": "74942067142617636680479536920666",
+        "N_in_M_to_2M": true,
+        "N_bit_length": 107,
+        "three_B": 177,
+        "exact_logarithmic_scale_certificate": true,
+        "p_equals_2_complement_is_composite": true,
+        "forcing_rows": [
+          {
+            "excluded_witness_prime": 3,
+            "forcing_divisor": 61,
+            "complement": "149498041946603474857039610538993",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 5,
+            "forcing_divisor": 67,
+            "complement": "149498041946603474857039610538991",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 7,
+            "forcing_divisor": 71,
+            "complement": "149498041946603474857039610538989",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 11,
+            "forcing_divisor": 73,
+            "complement": "149498041946603474857039610538985",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 13,
+            "forcing_divisor": 79,
+            "complement": "149498041946603474857039610538983",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 17,
+            "forcing_divisor": 83,
+            "complement": "149498041946603474857039610538979",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 19,
+            "forcing_divisor": 89,
+            "complement": "149498041946603474857039610538977",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 23,
+            "forcing_divisor": 97,
+            "complement": "149498041946603474857039610538973",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 29,
+            "forcing_divisor": 101,
+            "complement": "149498041946603474857039610538967",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 31,
+            "forcing_divisor": 103,
+            "complement": "149498041946603474857039610538965",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 37,
+            "forcing_divisor": 107,
+            "complement": "149498041946603474857039610538959",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 41,
+            "forcing_divisor": 109,
+            "complement": "149498041946603474857039610538955",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 43,
+            "forcing_divisor": 113,
+            "complement": "149498041946603474857039610538953",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 47,
+            "forcing_divisor": 127,
+            "complement": "149498041946603474857039610538949",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 53,
+            "forcing_divisor": 131,
+            "complement": "149498041946603474857039610538943",
+            "proper_composite_complement": true
+          },
+          {
+            "excluded_witness_prime": 59,
+            "forcing_divisor": 137,
+            "complement": "149498041946603474857039610538937",
+            "proper_composite_complement": true
+          }
+        ],
+        "all_prime_witnesses_at_most_B_excluded": true
+      }
+    ],
+    "aggregate": {
+      "logarithmic_least_witness_lower_bound_proved": true,
+      "universal_sublogarithmic_witness_basis_refuted": true,
+      "goldbach_counterexample_found": false,
+      "tail_exception_bound_below_one_constructed": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The construction blocks only p<=B and leaves all larger summands available. It proves a lower bound on the least witness, not a Goldbach exception or an upper bound for the exceptional set.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "using any sublogarithmic prime-witness window as a universal Goldbach basis",
+    "retain": "tail exceptional-set control beyond a logarithmic witness floor",
+    "next_single_lemma": "GoldbachTailExceptionalCountBelowOneBeyondLogarithmicWitnessFloor"
+  }
+}

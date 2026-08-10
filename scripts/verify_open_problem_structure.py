@@ -205,6 +205,7 @@ TICKET203_SCHEMA = "primeproject.ticket203-rouche-transfer-pointwise-primorial.v
 TICKET204_SCHEMA = "primeproject.ticket204-mesh-necklace-exceptional-kernel.v1"
 TICKET205_SCHEMA = "primeproject.ticket205-winding-extremal-finite-omega.v1"
 TICKET206_SCHEMA = "primeproject.ticket206-adaptive-singleone-crt-projector.v1"
+TICKET207_SCHEMA = "primeproject.ticket207-dihedral-twoone-logwitness-abel.v1"
 
 
 def fail(message: str) -> int:
@@ -16639,6 +16640,162 @@ def main() -> int:
         or machine206.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket206 proof boundary changed")
+
+    path207 = Path(
+        "data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json"
+    )
+    if not path207.exists():
+        return fail("missing ticket207 dihedral/two-one/log-witness/Abel audit")
+    ticket207 = read_json(path207)
+    if (
+        ticket207.get("schema") != TICKET207_SCHEMA
+        or ticket207.get("status") != "open_not_proven"
+    ):
+        return fail("ticket207 schema or status changed")
+    audit207 = ticket207.get("dihedral_twoone_logwitness_abel_audit", {})
+    machine207 = audit207.get("machine_audit", {})
+    expected_machine207 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine207 != expected_machine207:
+        return fail("ticket207 global machine audit changed")
+
+    attempts207 = {
+        row.get("problem_id"): row for row in ticket207.get("attempts", [])
+    }
+    if set(attempts207) != EXPECTED_PROBLEMS:
+        return fail("ticket207 attempts missing problems")
+    track_paths207 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-207-dihedral-boundary.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-207-two-one-general.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-207-log-witness.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-207-abel-projector.json"
+        ),
+    }
+    theorem_names207 = {
+        "riemann": "CompletedXiDihedralBoundaryReductionAndSymmetryOnlyNoGo",
+        "collatz": "TwoOneArbitraryGeTwoValuationCycleExclusion",
+        "goldbach": "LogarithmicLeastWitnessLowerBoundAlongCRTSequence",
+        "twin-prime": "AbelOmegaProjectorClosedFormFiniteReconstructionAndPositivityCircularityNoGo",
+    }
+    for problem_id, track_path in track_paths207.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket207 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts207[problem_id]
+        nodes = attempt.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != "primeproject.open-problem-attempt.v1"
+            or track.get("status") != "open_not_proven"
+            or track.get("new_result") != theorem_names207[problem_id]
+            or attempt.get("new_result") != theorem_names207[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket207 contract changed")
+
+    rh207 = audit207.get("riemann", {}).get("reproducible_computation", {})
+    rh207_aggregate = rh207.get("aggregate", {})
+    if (
+        rh207.get("off_critical_line_zeros") != ["1/6", "5/6"]
+        or len(rh207.get("boundary_reconstruction_rows", [])) != 3
+        or rh207_aggregate.get("top_plus_upper_right_boundary_reduction_proved")
+        is not True
+        or rh207_aggregate.get("symmetry_only_implication_of_rh_refuted")
+        is not True
+        or rh207_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket207 RH dihedral-boundary contract changed")
+
+    collatz207 = audit207.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz207_aggregate = collatz207.get("aggregate", {})
+    replay207 = collatz207.get("finite_replay_cases", {})
+    if (
+        len(collatz207.get("long_case_bounds", [])) != 4
+        or sum(len(rows) for rows in replay207.values()) != 16
+        or len(collatz207.get("short_symbolic_cases", [])) != 4
+        or collatz207_aggregate.get(
+            "exactly_two_valuation_one_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz207_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 3
+        or collatz207_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket207 Collatz two-one boundary changed")
+
+    goldbach207 = audit207.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach207_rows = goldbach207.get("crt_logarithmic_fixture_rows", [])
+    goldbach207_aggregate = goldbach207.get("aggregate", {})
+    if (
+        [row.get("witness_bound_B") for row in goldbach207_rows]
+        != [11, 19, 29, 43, 59]
+        or not all(
+            row.get("exact_logarithmic_scale_certificate")
+            and row.get("all_prime_witnesses_at_most_B_excluded")
+            for row in goldbach207_rows
+        )
+        or goldbach207_aggregate.get(
+            "logarithmic_least_witness_lower_bound_proved"
+        )
+        is not True
+        or goldbach207_aggregate.get("goldbach_counterexample_found") is not False
+        or goldbach207_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket207 Goldbach logarithmic-witness boundary changed")
+
+    twin207 = audit207.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin207_aggregate = twin207.get("aggregate", {})
+    if (
+        len(twin207.get("abel_identity_rows", [])) != 3
+        or len(twin207.get("finite_reconstruction_rows", [])) != 4
+        or not all(
+            row.get("exact_reconstruction")
+            for row in twin207.get("finite_reconstruction_rows", [])
+        )
+        or twin207_aggregate.get("normalized_abel_closed_form_proved") is not True
+        or twin207_aggregate.get(
+            "scale_dependent_finite_twin_count_reconstruction_proved"
+        )
+        is not True
+        or twin207_aggregate.get("independent_positive_main_term_proved")
+        is not False
+        or twin207_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket207 Twin Abel-projector boundary changed")
+
+    if (
+        "resolves none" not in str(audit207.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket207.get("claim_boundary", "")).lower()
+        or machine207.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket207 proof boundary changed")
 
     print("open problem structure verified")
     return 0

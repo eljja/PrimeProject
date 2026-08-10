@@ -1,0 +1,126 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T16:20:00+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-207",
+  "status": "open_not_proven",
+  "declared_proposition": "Let xi be the completed Riemann xi-function and let R be a rectangle symmetric about the real axis and Re(s)=1/2. The identities xi(s)=xi(1-s) and xi(conjugate(s))=conjugate(xi(s)) imply that all boundary values, the boundary minimum of |xi|, and the boundary maximum of |xi'| are determined by the full top edge together with the upper half of the right edge. Consequently a rigorous TICKET-206 winding certificate needs interval evaluation only on that fundamental boundary domain. These symmetries alone cannot imply RH.",
+  "new_result": "CompletedXiDihedralBoundaryReductionAndSymmetryOnlyNoGo",
+  "discarded_route": "using completed-xi reflection and conjugation symmetries alone to force critical-line zeros",
+  "remaining_gap": "No rigorous positive xi-clearance is constructed on a cofinal family of reduced rectangle boundaries.",
+  "candidate_theorem": "RigorousCompletedXiTopAndRightBoundaryIntervalBoundsOnCofinalRectangles",
+  "claim_boundary": "No RH proof or counterexample. The certified boundary workload is reduced exactly, and a symmetry-only proof template is refuted.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T206",
+        "label": "ZeroFreeBoundaryAdaptiveMeshTerminationAndClearanceComplexityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T207",
+        "label": "CompletedXiDihedralBoundaryReductionAndSymmetryOnlyNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N207",
+        "label": "CompletedXiSymmetryAloneForcesCriticalLineZeros",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN207",
+        "label": "RigorousCompletedXiTopAndRightBoundaryIntervalBoundsOnCofinalRectangles",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T206",
+        "RH-T207"
+      ],
+      [
+        "RH-T207",
+        "RH-N207"
+      ],
+      [
+        "RH-T207",
+        "RH-OPEN207"
+      ],
+      [
+        "RH-OPEN207",
+        "RH"
+      ]
+    ]
+  },
+  "next_experiment": "RigorousCompletedXiTopAndRightBoundaryIntervalBoundsOnCofinalRectangles",
+  "mathematical_argument": "Conjugation maps the top edge to the bottom and the upper right edge to the lower right edge. Reflection s->1-s maps the left edge to the right edge. Differentiating xi(s)=xi(1-s) gives xi'(s)=-xi'(1-s), so derivative magnitudes obey the same reduction. These maps partition the full boundary into images of the stated fundamental domain, proving equality of the extrema. For the no-go, F_c(s)=(s-1/2)^2-c^2 with 0<c<1/2 is entire, real on the real axis, and satisfies both symmetries, but its zeros 1/2-c and 1/2+c lie off the critical line. Symmetry therefore reduces certified work but does not supply the missing nonvanishing bound for xi.",
+  "reproducible_computation": {
+    "theorem": "Let xi be the completed Riemann xi-function and let R be a rectangle symmetric about the real axis and Re(s)=1/2. The identities xi(s)=xi(1-s) and xi(conjugate(s))=conjugate(xi(s)) imply that all boundary values, the boundary minimum of |xi|, and the boundary maximum of |xi'| are determined by the full top edge together with the upper half of the right edge. Consequently a rigorous TICKET-206 winding certificate needs interval evaluation only on that fundamental boundary domain. These symmetries alone cannot imply RH.",
+    "proof": "Conjugation maps the top edge to the bottom and the upper right edge to the lower right edge. Reflection s->1-s maps the left edge to the right edge. Differentiating xi(s)=xi(1-s) gives xi'(s)=-xi'(1-s), so derivative magnitudes obey the same reduction. These maps partition the full boundary into images of the stated fundamental domain, proving equality of the extrema. For the no-go, F_c(s)=(s-1/2)^2-c^2 with 0<c<1/2 is entire, real on the real axis, and satisfies both symmetries, but its zeros 1/2-c and 1/2+c lie off the critical line. Symmetry therefore reduces certified work but does not supply the missing nonvanishing bound for xi.",
+    "exact_surrogate": "F_c(s)=(s-1/2)^2-c^2 with c=1/3",
+    "off_critical_line_zeros": [
+      "1/6",
+      "5/6"
+    ],
+    "boundary_reconstruction_rows": [
+      {
+        "rectangle_half_width": "2/5",
+        "rectangle_height": "1",
+        "exact_boundary_samples": 45,
+        "fundamental_domain_samples": 18,
+        "bottom_reconstructed_by_conjugation": true,
+        "right_lower_reconstructed_by_conjugation": true,
+        "left_reconstructed_by_reflection": true,
+        "sampled_clearance_squared_full": "121/50625",
+        "sampled_clearance_squared_fundamental": "121/50625",
+        "sampled_derivative_squared_full": "116/25",
+        "sampled_derivative_squared_fundamental": "116/25"
+      },
+      {
+        "rectangle_half_width": "1/2",
+        "rectangle_height": "2",
+        "exact_boundary_samples": 45,
+        "fundamental_domain_samples": 18,
+        "bottom_reconstructed_by_conjugation": true,
+        "right_lower_reconstructed_by_conjugation": true,
+        "left_reconstructed_by_reflection": true,
+        "sampled_clearance_squared_full": "25/1296",
+        "sampled_clearance_squared_fundamental": "25/1296",
+        "sampled_derivative_squared_full": "17",
+        "sampled_derivative_squared_fundamental": "17"
+      },
+      {
+        "rectangle_half_width": "3/4",
+        "rectangle_height": "3",
+        "exact_boundary_samples": 45,
+        "fundamental_domain_samples": 18,
+        "bottom_reconstructed_by_conjugation": true,
+        "right_lower_reconstructed_by_conjugation": true,
+        "left_reconstructed_by_reflection": true,
+        "sampled_clearance_squared_full": "4225/20736",
+        "sampled_clearance_squared_fundamental": "4225/20736",
+        "sampled_derivative_squared_full": "153/4",
+        "sampled_derivative_squared_fundamental": "153/4"
+      }
+    ],
+    "aggregate": {
+      "top_plus_upper_right_boundary_reduction_proved": true,
+      "clearance_and_derivative_extrema_reduction_proved": true,
+      "symmetry_only_implication_of_rh_refuted": true,
+      "completed_xi_cofinal_interval_bounds_constructed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The polynomial F_c refutes only a symmetry-only proof template. It is not a zeta counterexample. No rigorous positive xi-clearance is proved on a cofinal family of rectangles.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "using completed-xi reflection and conjugation symmetries alone to force critical-line zeros",
+    "retain": "rigorous interval evaluation on the top edge and upper-right half-edge only",
+    "next_single_lemma": "RigorousCompletedXiTopAndRightBoundaryIntervalBoundsOnCofinalRectangles"
+  }
+}

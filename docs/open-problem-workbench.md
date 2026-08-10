@@ -15,26 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-206
+## Current research boundary: TICKET-207
 
 The current machine-readable boundary is
-`data/open-problem/ticket206-adaptive-singleone-crt-projector.json`.
+`data/open-problem/ticket207-dihedral-twoone-logwitness-abel.json`.
 
-TICKET-206 records four exact partial or no-go results and zero conjecture
+TICKET-207 records four exact partial or no-go results and zero conjecture
 resolutions:
 
-- finite adaptive winding-mesh termination under rigorous positive clearance,
-  plus an inverse-clearance fixed-budget no-go;
-- exclusion of every accelerated Collatz cycle with exactly one valuation one
-  and arbitrary remaining valuations at least two;
-- infinite CRT progressions showing that no fixed bounded prime-witness basis
-  can cover all large Goldbach targets;
-- an exact Omega-binomial prime projector and an infinite composite-composite
-  false-positive family for every finite truncation.
+- exact dihedral reduction of completed-xi boundary certification and a
+  counterexample to symmetry-only critical-line reasoning;
+- exclusion of every accelerated Collatz cycle with exactly two valuation-one
+  entries and arbitrary remaining valuations at least two;
+- an unbounded CRT sequence whose least Goldbach witness exceeds
+  `(1/3) log N`;
+- a closed Abel-Omega projector, exact finite twin-count reconstruction, and a
+  no-go against treating its nonnegative leakage as independent positivity.
 
-The completed-zeta bound oracle, Collatz necklaces with at least two valuation-
-one entries, a growing-cutoff Goldbach exceptional bound below one, and uniform
-Twin projector-tail cancellation remain open.
+Rigorous completed-xi cofinal interval bounds, Collatz necklaces with at least
+three valuation-one entries, a Goldbach tail exceptional bound below one beyond
+the logarithmic floor, and a signed Twin majorant with an independent main term
+remain open.
+
+English report: [TICKET-207](dihedral-twoone-logwitness-abel.md).
+한국어 보고서: [TICKET-207](dihedral-twoone-logwitness-abel.ko.md).
+
+## Preserved research boundary: TICKET-206
+
+The preserved machine-readable boundary is
+`data/open-problem/ticket206-adaptive-singleone-crt-projector.json`.
 
 English report: [TICKET-206](adaptive-singleone-crt-projector.md).
 한국어 보고서: [TICKET-206](adaptive-singleone-crt-projector.ko.md).

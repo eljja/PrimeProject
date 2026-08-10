@@ -1,0 +1,492 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T16:20:00+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-207",
+  "status": "open_not_proven",
+  "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly two valuation entries equal to one and every remaining entry at least two. Combined with TICKET-206, every hypothetical nontrivial positive cycle must contain at least three valuation-one entries.",
+  "new_result": "TwoOneArbitraryGeTwoValuationCycleExclusion",
+  "discarded_route": "searching any exactly-two-valuation-one period for a positive cycle",
+  "remaining_gap": "Cycles with at least three valuation-one entries and all nonperiodic divergent orbits remain open.",
+  "candidate_theorem": "UniformExclusionForPrimitiveMixedNecklacesWithAtLeastThreeOnes",
+  "claim_boundary": "No Collatz proof or counterexample. The complete exactly-two-valuation-one periodic stratum is excluded.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T206",
+        "label": "SingleOneArbitraryGeTwoValuationCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T207",
+        "label": "TwoOneArbitraryGeTwoValuationCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N207",
+        "label": "ExactlyTwoValuationOnesCanSupportANontrivialPositiveCycle",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN207",
+        "label": "UniformExclusionForPrimitiveMixedNecklacesWithAtLeastThreeOnes",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T206",
+        "CO-T207"
+      ],
+      [
+        "CO-T207",
+        "CO-N207"
+      ],
+      [
+        "CO-T207",
+        "CO-OPEN207"
+      ],
+      [
+        "CO-OPEN207",
+        "CO"
+      ]
+    ]
+  },
+  "next_experiment": "UniformExclusionForPrimitiveMixedNecklacesWithAtLeastThreeOnes",
+  "mathematical_argument": "Rotate a hypothetical h-cycle to its minimum odd value m. Its first valuation is one; a valuation at least two would map below m. Put r contraction steps between the two valuation-one steps and s after the second, so r+s=h-2. The second one cannot be the last transition, because G(x)=(3x+1)/2>x for every predecessor x>=m; hence s>=1. Every valuation-at-least-two step is bounded above by F(x)=(3x+1)/4. With q=(3/4)^(h-2) and q_s=(3/4)^s, monotonicity gives m<=F^s G F^r G(m)=1+q_s-3q/4+(9q/4)m. For h>=5, q_s<=3/4 and the resulting bound is at most (7/4-3q/4)/(1-9q/4), increasing in q. For h>=8 it is 26485/9823<3. For h=7,6,5 it leaves respectively m=3, m in {3,5}, and odd m<=27; exact deterministic replay excludes all these finite candidates. For h=4 the second one is in position two or three. The two exact cycle formulas and m>=3 inequalities leave only b=c=2, whose denominator is negative. For h=3 the sole candidate is m=19/5, and h=2 has negative denominator. Thus no case remains.",
+  "reproducible_computation": {
+    "theorem": "No nontrivial positive accelerated Collatz cycle has exactly two valuation entries equal to one and every remaining entry at least two. Combined with TICKET-206, every hypothetical nontrivial positive cycle must contain at least three valuation-one entries.",
+    "proof": "Rotate a hypothetical h-cycle to its minimum odd value m. Its first valuation is one; a valuation at least two would map below m. Put r contraction steps between the two valuation-one steps and s after the second, so r+s=h-2. The second one cannot be the last transition, because G(x)=(3x+1)/2>x for every predecessor x>=m; hence s>=1. Every valuation-at-least-two step is bounded above by F(x)=(3x+1)/4. With q=(3/4)^(h-2) and q_s=(3/4)^s, monotonicity gives m<=F^s G F^r G(m)=1+q_s-3q/4+(9q/4)m. For h>=5, q_s<=3/4 and the resulting bound is at most (7/4-3q/4)/(1-9q/4), increasing in q. For h>=8 it is 26485/9823<3. For h=7,6,5 it leaves respectively m=3, m in {3,5}, and odd m<=27; exact deterministic replay excludes all these finite candidates. For h=4 the second one is in position two or three. The two exact cycle formulas and m>=3 inequalities leave only b=c=2, whose denominator is negative. For h=3 the sole candidate is m=19/5, and h=2 has negative denominator. Thus no case remains.",
+    "envelope_identity": "F^s G F^r G(m)=1+q_s-3q/4+(9q/4)m, q=(3/4)^(h-2), q_s=(3/4)^s",
+    "long_case_bounds": [
+      {
+        "length_range": "h>=8",
+        "q_upper_bound": "729/4096",
+        "minimum_upper_bound": "26485/9823",
+        "conclusion": "m<3 contradicts nontrivial odd minimum m>=3"
+      },
+      {
+        "length_range": "h=7",
+        "q_upper_bound": "243/1024",
+        "minimum_upper_bound": "6439/1909",
+        "conclusion": "m<4 leaves m=3"
+      },
+      {
+        "length_range": "h=6",
+        "q_upper_bound": "81/256",
+        "minimum_upper_bound": "1549/295",
+        "conclusion": "m<6 leaves m in {3,5}"
+      },
+      {
+        "length_range": "h=5",
+        "q_upper_bound": "27/64",
+        "minimum_upper_bound": "367/13",
+        "conclusion": "m<29 leaves odd m in [3,27]"
+      }
+    ],
+    "finite_replay_cases": {
+      "h_eq_7": [
+        {
+          "start": 3,
+          "length": 7,
+          "orbit": [
+            3,
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            1,
+            4,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        }
+      ],
+      "h_eq_6": [
+        {
+          "start": 3,
+          "length": 6,
+          "orbit": [
+            3,
+            5,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            1,
+            4,
+            2,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 5,
+          "length": 6,
+          "orbit": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            4,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        }
+      ],
+      "h_eq_5": [
+        {
+          "start": 3,
+          "length": 5,
+          "orbit": [
+            3,
+            5,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            1,
+            4,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 5,
+          "length": 5,
+          "orbit": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            4,
+            2,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 7,
+          "length": 5,
+          "orbit": [
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ],
+          "valuations": [
+            1,
+            1,
+            2,
+            3,
+            4
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": true
+        },
+        {
+          "start": 9,
+          "length": 5,
+          "orbit": [
+            9,
+            7,
+            11,
+            17,
+            13,
+            5
+          ],
+          "valuations": [
+            2,
+            1,
+            1,
+            2,
+            3
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": true
+        },
+        {
+          "start": 11,
+          "length": 5,
+          "orbit": [
+            11,
+            17,
+            13,
+            5,
+            1,
+            1
+          ],
+          "valuations": [
+            1,
+            2,
+            3,
+            4,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 13,
+          "length": 5,
+          "orbit": [
+            13,
+            5,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            3,
+            4,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 15,
+          "length": 5,
+          "orbit": [
+            15,
+            23,
+            35,
+            53,
+            5,
+            1
+          ],
+          "valuations": [
+            1,
+            1,
+            1,
+            5,
+            4
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 17,
+          "length": 5,
+          "orbit": [
+            17,
+            13,
+            5,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            2,
+            3,
+            4,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 19,
+          "length": 5,
+          "orbit": [
+            19,
+            29,
+            11,
+            17,
+            13,
+            5
+          ],
+          "valuations": [
+            1,
+            3,
+            1,
+            2,
+            3
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": true
+        },
+        {
+          "start": 21,
+          "length": 5,
+          "orbit": [
+            21,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "valuations": [
+            6,
+            2,
+            2,
+            2,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        },
+        {
+          "start": 23,
+          "length": 5,
+          "orbit": [
+            23,
+            35,
+            53,
+            5,
+            1,
+            1
+          ],
+          "valuations": [
+            1,
+            1,
+            5,
+            4,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": true
+        },
+        {
+          "start": 25,
+          "length": 5,
+          "orbit": [
+            25,
+            19,
+            29,
+            11,
+            17,
+            13
+          ],
+          "valuations": [
+            2,
+            1,
+            3,
+            1,
+            2
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": true
+        },
+        {
+          "start": 27,
+          "length": 5,
+          "orbit": [
+            27,
+            41,
+            31,
+            47,
+            71,
+            107
+          ],
+          "valuations": [
+            1,
+            2,
+            1,
+            1,
+            1
+          ],
+          "returns_to_start": false,
+          "exactly_two_valuation_ones": false
+        }
+      ]
+    },
+    "short_symbolic_cases": [
+      {
+        "length": 4,
+        "word_shape": "(1,1,b,c), b,c>=2",
+        "cycle_minimum_formula": "m=(57+2^(b+2))/(2^(b+c+2)-81)",
+        "m_ge_3_constraint": "(3*2^c-1)*2^(b+2)<=300",
+        "remaining_pair": "(b,c)=(2,2)",
+        "remaining_pair_denominator": -17,
+        "excluded": true
+      },
+      {
+        "length": 4,
+        "word_shape": "(1,b,1,c), b,c>=2",
+        "cycle_minimum_formula": "m=(45+10*2^b)/(2^(b+c+2)-81)",
+        "m_ge_3_constraint": "(12*2^c-10)*2^b<=288",
+        "remaining_pair": "(b,c)=(2,2)",
+        "remaining_pair_denominator": -17,
+        "excluded": true
+      },
+      {
+        "length": 3,
+        "word_shape": "(1,1,b), b>=2",
+        "cycle_minimum_formula": "m=19/(2^(b+2)-27)",
+        "only_positive_m_ge_3_candidate": "b=3 gives m=19/5",
+        "excluded": true
+      },
+      {
+        "length": 2,
+        "word_shape": "(1,1)",
+        "cycle_denominator": -5,
+        "excluded": true
+      }
+    ],
+    "aggregate": {
+      "exactly_two_valuation_one_cycle_stratum_excluded": true,
+      "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 3,
+      "three_or_more_one_mixed_necklaces_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem excludes a complete periodic valuation stratum. It does not treat cycles with at least three valuation-one entries or prove that every nonperiodic orbit descends.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "searching any exactly-two-valuation-one period for a positive cycle",
+    "retain": "primitive mixed necklaces with at least three valuation-one entries plus a separate global descent argument",
+    "next_single_lemma": "UniformExclusionForPrimitiveMixedNecklacesWithAtLeastThreeOnes"
+  }
+}

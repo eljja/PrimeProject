@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-206 proves adaptive winding-certificate termination, excludes the complete single-one Collatz cycle stratum, forces unbounded Goldbach witnesses, and refutes every finite Omega-projector truncation.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-206은 적응형 winding 인증의 유한 종료, valuation 1이 하나뿐인 콜라츠 cycle 전체 배제, 골드바흐 증인의 비유계성, 모든 유한 Omega projector 절단의 no-go를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-207 reduces completed-xi boundary certification, excludes the complete two-one Collatz cycle stratum, forces logarithmic Goldbach witnesses, and proves the Abel-projector positivity no-go.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-207은 완성 제타 경계 인증을 대칭 기본영역으로 축소하고, valuation 1이 정확히 두 개인 콜라츠 cycle 전체를 배제하며, 골드바흐 최소 증인의 로그 하한과 Abel projector 양성의 순환성 no-go를 증명합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

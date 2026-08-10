@@ -37,7 +37,29 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-206 Adaptive Certificates, Single-One Cycles, CRT Witnesses, and Omega Projectors
+## 2026-08-10 TICKET-207 Dihedral Boundaries, Two-One Cycles, Logarithmic Witnesses, and Abel Leakage
+
+TICKET-207 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. completed-xi rectangle certification reduces to the top edge and upper
+   right half-edge, while the same symmetries alone do not force critical-line
+   zeros;
+2. no nontrivial positive accelerated Collatz cycle has exactly two valuation-
+   one entries and arbitrary remaining valuations at least two;
+3. an unbounded CRT sequence has least Goldbach witnesses above
+   `(1/3) log N`, without producing a Goldbach counterexample;
+4. the Abel-Omega projector has a closed form and exactly reconstructs finite
+   twin counts after flooring, but supplies no independent positivity.
+
+The completed-xi cofinal interval bounds, remaining Collatz necklaces,
+Goldbach tail exceptional estimate below one, and signed Twin main term are not
+proved. The machine resolution count remains zero.
+
+English report: [TICKET-207](dihedral-twoone-logwitness-abel.md).
+한국어 보고서: [TICKET-207](dihedral-twoone-logwitness-abel.ko.md).
+
+## Preserved: 2026-08-10 TICKET-206 Adaptive Certificates, Single-One Cycles, CRT Witnesses, and Omega Projectors
 
 TICKET-206 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:
