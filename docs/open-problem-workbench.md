@@ -15,9 +15,34 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-203
+## Current research boundary: TICKET-204
 
 The current machine-readable boundary is
+`data/open-problem/ticket204-mesh-necklace-exceptional-kernel.json`.
+
+TICKET-204 records four exact partial or no-go theorems and zero conjecture
+resolutions:
+
+- a derivative-certified finite-mesh-to-continuous Rouché theorem and an exact
+  no-go against unregularized finite contour sampling;
+- exact cyclic-rotation and word-power identities reducing periodic Collatz
+  candidates to primitive valuation necklaces;
+- the strict subunit integer threshold needed to promote a Goldbach
+  exceptional-set estimate to an all-target theorem, together with density-zero
+  and one-exception no-go models;
+- a PSD/square-form parity no-go and an indefinite rank-two formal
+  factor-channel escape for Twin Prime sieve design.
+
+The finite Xi surrogate, Collatz enumeration, Goldbach sieve through 10,000,
+and rank-two matrix are exact regression artifacts. None supplies the missing
+cofinal, unbounded, all-target, or arithmetic-distribution theorem.
+
+English report: [TICKET-204](mesh-necklace-exceptional-kernel.md).
+한국어 보고서: [TICKET-204](mesh-necklace-exceptional-kernel.ko.md).
+
+## Preserved research boundary: TICKET-203
+
+The preserved machine-readable boundary is
 `data/open-problem/ticket203-rouche-transfer-pointwise-primorial.json`.
 
 TICKET-203 records four exact partial or no-go theorems and zero conjecture
@@ -42,7 +67,8 @@ TICKET-202 remains available in
 [English](exact-hermite-deformation-parity-scale.md) and
 [한국어](exact-hermite-deformation-parity-scale.ko.md). TICKET-203 completes its
 conditional RH transfer logic, tests and corrects its Collatz signed-transfer
-target, and recalibrates its Goldbach/Twin parity targets.
+target, and recalibrates its Goldbach/Twin parity targets; TICKET-204 then
+audits the continuous, primitive, integer-threshold, and kernel-sign premises.
 
 ## Preserved research boundary: TICKET-201
 

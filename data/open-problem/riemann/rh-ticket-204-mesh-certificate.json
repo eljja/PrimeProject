@@ -1,0 +1,107 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:30+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-204",
+  "status": "open_not_proven",
+  "declared_proposition": "Let Gamma be parameterized by arclength and let r=(X-P)/P, with P nonzero on Gamma. If a finite sample set has covering radius delta, |r|<=q at every sample, and |dr/ds|<=M everywhere on Gamma, then sup_Gamma |r|<=q+M delta. Hence q+M delta<1 certifies the strict Rouche inequality. No finite sample set alone can certify this: on the unit circle, P=1 and X=z^m agree at all m-th roots of unity, while |X-P|=2 at every intervening half-step.",
+  "new_result": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+  "discarded_route": "finite contour sampling without a certified regularity bound",
+  "remaining_gap": "The mesh transfer is exact, but no Xi-specific cofinal relative derivative bound or comparison function is constructed.",
+  "candidate_theorem": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound",
+  "claim_boundary": "No RH proof or counterexample. The finite-mesh transfer and a sampling-only no-go are exact; the Xi-specific derivative premise is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T203",
+        "label": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T204",
+        "label": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N204",
+        "label": "FiniteContourSamplesAloneCertifyRoucheMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN204",
+        "label": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T203",
+        "RH-T204"
+      ],
+      [
+        "RH-T204",
+        "RH-N204"
+      ],
+      [
+        "RH-T204",
+        "RH-OPEN204"
+      ],
+      [
+        "RH-OPEN204",
+        "RH"
+      ]
+    ]
+  },
+  "next_experiment": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound",
+  "mathematical_argument": "Choose a nearest sample s_j for any boundary point s. The fundamental theorem of calculus and the derivative bound give |r(s)|<=|r(s_j)|+integral |r'|<=q+M delta. Rouche follows when this quantity is below one. For the no-go family r(z)=z^m-1: r vanishes at every sampled m-th root, but at z=exp(pi i/m) one has z^m=-1 and |r|=2. Thus regularity information is logically indispensable.",
+  "reproducible_computation": {
+    "theorem": "Let Gamma be parameterized by arclength and let r=(X-P)/P, with P nonzero on Gamma. If a finite sample set has covering radius delta, |r|<=q at every sample, and |dr/ds|<=M everywhere on Gamma, then sup_Gamma |r|<=q+M delta. Hence q+M delta<1 certifies the strict Rouche inequality. No finite sample set alone can certify this: on the unit circle, P=1 and X=z^m agree at all m-th roots of unity, while |X-P|=2 at every intervening half-step.",
+    "proof": "Choose a nearest sample s_j for any boundary point s. The fundamental theorem of calculus and the derivative bound give |r(s)|<=|r(s_j)|+integral |r'|<=q+M delta. Rouche follows when this quantity is below one. For the no-go family r(z)=z^m-1: r vanishes at every sampled m-th root, but at z=exp(pi i/m) one has z^m=-1 and |r|=2. Thus regularity information is logically indispensable.",
+    "exact_certified_regression": {
+      "contour": "unit circle",
+      "comparison_P": "1",
+      "analytic_X": "1+z^2/10",
+      "relative_error_r": "z^2/10",
+      "sample_count": 16,
+      "sample_ratio_bound_q": "1/10",
+      "arclength_derivative_bound_M": "1/5",
+      "covering_radius_delta_upper_using_pi_le_22_over_7": "11/56",
+      "certified_contour_supremum_upper": "39/280",
+      "strict_rouche_margin_lower": "241/280",
+      "rouche_hypothesis_certified": true
+    },
+    "finite_sampling_no_go": {
+      "contour": "unit circle",
+      "sample_count": 8,
+      "sample_nodes": "8th roots of unity",
+      "comparison_P": "1",
+      "analytic_X": "z^8",
+      "relative_error_r": "z^8-1",
+      "maximum_sample_ratio": 0,
+      "missed_midpoint": "exp(pi i/8)",
+      "missed_midpoint_ratio": 2,
+      "comparison_zero_count_inside": 0,
+      "analytic_zero_count_inside": 8,
+      "sample_only_certificate_refuted": true
+    },
+    "aggregate": {
+      "derivative_certified_mesh_theorem_proved": true,
+      "finite_sampling_without_regularizer_refuted": true,
+      "actual_xi_relative_derivative_bound_constructed": false,
+      "actual_cofinal_xi_certificate_constructed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem closes the finite-mesh-to-continuous-boundary transfer, not the Xi-specific derivative estimate. The polynomial examples are exact regression fixtures and are not the completed zeta function.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "finite contour sampling without a certified regularity bound",
+    "retain": "adaptive contour sampling plus a certified relative derivative bound",
+    "next_single_lemma": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound"
+  }
+}

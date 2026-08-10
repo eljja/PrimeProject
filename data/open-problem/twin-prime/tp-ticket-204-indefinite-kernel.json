@@ -1,0 +1,168 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:30+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-204",
+  "status": "open_not_proven",
+  "declared_proposition": "No positive-semidefinite symmetric bilinear kernel can be strictly negative on every prime-semiprime factor channel: a square semiprime p^2 would require K(p,p)<0, contradicting positive semidefiniteness. Indefiniteness removes this algebraic obstruction. On formal factor pairs, K(a,b)=s(a)+s(b), with s(1)=1 and s(p)=-1/2 for primes p, has rank at most two, gives K(1,p)=1/2>0, and gives K(p,q)=-1<0.",
+  "new_result": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+  "discarded_route": "PSD or square-form bilinear weights as strict prime-versus-P2 sign separators",
+  "remaining_gap": "The indefinite kernel separates formal exposed-factor channels only; no factorization-free switching weight or uniform remainder is proved.",
+  "candidate_theorem": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder",
+  "claim_boundary": "No Twin Prime proof or counterexample. A PSD parity no-go and a purely algebraic indefinite factor-channel escape are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T203",
+        "label": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T204",
+        "label": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N204",
+        "label": "PositiveSemidefiniteKernelStrictlySeparatesPrimeFromEveryP2",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN204",
+        "label": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T203",
+        "TP-T204"
+      ],
+      [
+        "TP-T204",
+        "TP-N204"
+      ],
+      [
+        "TP-T204",
+        "TP-OPEN204"
+      ],
+      [
+        "TP-OPEN204",
+        "TP"
+      ]
+    ]
+  },
+  "next_experiment": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder",
+  "mathematical_argument": "A PSD kernel is a Gram kernel, so every diagonal value K(p,p) is a squared norm and is nonnegative. This rules out strict negative weight on p^2. For the explicit escape, K=s 1^T+1 s^T, hence rank(K)<=2. Direct substitution gives the two channel signs. The 2x2 principal minor on {1,p} is 2(-1)-(1/2)^2=-9/4, certifying that the escape kernel is indefinite rather than a hidden nonnegative sieve square.",
+  "reproducible_computation": {
+    "theorem": "No positive-semidefinite symmetric bilinear kernel can be strictly negative on every prime-semiprime factor channel: a square semiprime p^2 would require K(p,p)<0, contradicting positive semidefiniteness. Indefiniteness removes this algebraic obstruction. On formal factor pairs, K(a,b)=s(a)+s(b), with s(1)=1 and s(p)=-1/2 for primes p, has rank at most two, gives K(1,p)=1/2>0, and gives K(p,q)=-1<0.",
+    "proof": "A PSD kernel is a Gram kernel, so every diagonal value K(p,p) is a squared norm and is nonnegative. This rules out strict negative weight on p^2. For the explicit escape, K=s 1^T+1 s^T, hence rank(K)<=2. Direct substitution gives the two channel signs. The 2x2 principal minor on {1,p} is 2(-1)-(1/2)^2=-9/4, certifying that the escape kernel is indefinite rather than a hidden nonnegative sieve square.",
+    "psd_square_semiprime_no_go": {
+      "required_negative_diagonal": "K(p,p)<0 for every prime p",
+      "psd_diagonal_constraint": "K(p,p)>=0",
+      "strict_psd_parity_separator_exists": false
+    },
+    "exact_indefinite_rank_two_escape": {
+      "factor_labels": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        11
+      ],
+      "score_s": {
+        "1": "1",
+        "2": "-1/2",
+        "3": "-1/2",
+        "5": "-1/2",
+        "7": "-1/2",
+        "11": "-1/2"
+      },
+      "kernel_formula": "K(a,b)=s(a)+s(b)",
+      "matrix": [
+        [
+          "2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-1",
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-1",
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-1",
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-1",
+          "-1",
+          "-1",
+          "-1"
+        ],
+        [
+          "1/2",
+          "-1",
+          "-1",
+          "-1",
+          "-1",
+          "-1"
+        ]
+      ],
+      "exact_rank": 2,
+      "prime_channel_values_K_1_p": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ],
+      "semiprime_channel_distinct_values_K_p_q": [
+        "-1"
+      ],
+      "principal_minor_on_1_and_first_prime": "-9/4",
+      "kernel_is_indefinite": true,
+      "formal_factor_channel_separation_holds": true
+    },
+    "aggregate": {
+      "psd_or_square_weight_signed_separation_refuted": true,
+      "formal_indefinite_rank_two_separator_constructed": true,
+      "factorization_free_arithmetic_realization_constructed": false,
+      "uniform_distribution_remainder_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The rank-two kernel separates formal factor channels only because the factor pair is exposed. It is not a computable weight of n alone, does not supply a switching decomposition with controlled remainder, and proves no twin prime lower bound.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "PSD or square-form bilinear weights as strict prime-versus-P2 sign separators",
+    "retain": "indefinite factor-visible switching with independently controlled arithmetic remainder",
+    "next_single_lemma": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder"
+  }
+}

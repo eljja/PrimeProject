@@ -62,9 +62,39 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-203
+## Latest Continuation After TICKET-204
 
-TICKET-203 is the current boundary. It resolves none of the four conjectures.
+TICKET-204 is the current boundary. It resolves none of the four conjectures.
+It audits the exact promotion premises left by TICKET-203:
+
+1. **Riemann:** a derivative bound promotes a sampled relative-error mesh to a
+   continuous Rouché certificate. A completed-zeta cofinal relative-derivative
+   bound remains open.
+2. **Collatz:** cyclic rotations and word powers preserve the affine cycle
+   quotient, reducing periodic candidates to primitive necklaces. Uniform
+   nondivisibility for unbounded non-all-two primitive necklaces remains open.
+3. **Goldbach:** an integer tail exceptional count strictly below one would
+   close the conjecture after finite verification. No such explicit all-tail
+   bound is established.
+4. **Twin Prime:** PSD factor kernels cannot sign-separate every semiprime
+   channel; an indefinite rank-two formal escape exists, but it is not yet an
+   arithmetic weight with a uniform remainder.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket204-mesh-necklace-exceptional-kernel.json
+```
+
+English report: [TICKET-204](mesh-necklace-exceptional-kernel.md).
+Korean report: [TICKET-204 한국어](mesh-necklace-exceptional-kernel.ko.md).
+
+All finite fixtures are implementation regressions. They do not promote an
+open conjecture, and no novelty-priority claim is made without expert review.
+
+## Preserved Continuation After TICKET-203
+
+TICKET-203 is the direct input to TICKET-204. It resolves none of the four conjectures.
 It audits the exact logical content of TICKET-202's open targets:
 
 1. **Riemann:** a strict Rouché margin plus independently included real zeros

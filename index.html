@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260810-ticket203-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260810-ticket204-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-203 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-204 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-203 closes one conditional zero-count transfer, derives an exact Collatz transfer law, and corrects over-strong Goldbach and fixed-local Twin targets.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-203은 조건부 영점수 전달을 정확히 닫고, Collatz 두 위치 이동식을 유도하며, Goldbach의 과도한 정량 목표와 Twin의 고정 local 분리 목표를 교정했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-204 certifies continuous Rouché meshes, reduces periodic Collatz words to primitive necklaces, fixes the Goldbach exceptional-set threshold, and isolates the PSD Twin parity barrier.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-204는 연속 Rouché 망 인증, 주기적 콜라츠 단어의 원시 목걸이 환원, 골드바흐 예외 개수의 엄격한 1 미만 문턱, 쌍둥이 소수의 양의 준정부호 장벽을 각각 정확히 분리했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>203</strong><small>2026-08-10</small></div>
+              <div><span>Latest ticket</span><strong>204</strong><small>2026-08-10</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> Rouché 경계 부등식과 독립적으로 포함 인증된 같은 수의 영점을 결합하면 영역 내부 영점 목록이 완전함을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 전체 영점수만 같으면 알려진 임계선 영점이 전부라는 추론은 성립하지 않습니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 완성 제타함수의 cofinal relative-margin 인증족.</p>
+                <p><strong>확립:</strong> 표본 상대오차 <code>q</code>, 경계 미분 상계 <code>M</code>, 망 반지름 <code>δ</code>에서 <code>sup|r|≤q+Mδ</code>인 연속 Rouché 인증 정리를 증명했습니다.</p>
+                <p><strong>폐기:</strong> 정칙성 상계 없는 유한 경계 표본은 모든 표본값이 0이어도 중간에서 비율 2와 여덟 영점을 놓칠 수 있습니다.</p>
+                <p><strong>다음 핵심:</strong> 실제 완성 제타함수의 cofinal adaptive relative-derivative bound.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> valuation 질량 1을 두 위치 사이에서 옮길 때 affine 분자가 변하는 정확 prefix-segment 항등식을 증명했습니다.</p>
-                <p><strong>폐기:</strong> <code>(3,1)→(2,2)</code>가 알려진 자명 주기로 들어가므로 보편적인 비가분성 transfer 불변성은 거짓입니다.</p>
-                <p><strong>다음 핵심:</strong> all-two 성분 밖의 scale-dependent transfer residue barrier.</p>
+                <p><strong>확립:</strong> 순환 회전과 단어 거듭제곱이 Collatz affine 주기값과 정수성을 보존하므로 모든 주기 후보를 원시 순환 valuation 목걸이로 정확히 환원했습니다.</p>
+                <p><strong>폐기:</strong> 같은 단어의 회전과 반복을 서로 독립된 주기 배제 증거로 세는 방식은 중복입니다.</p>
+                <p><strong>다음 핵심:</strong> all-two가 아닌 모든 원시 valuation 목걸이에 대한 균일 비가분성.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> Chen-positive target에서 <code>δ=2R/C</code>이며 <code>δ&gt;0</code>은 Goldbach 표현의 존재와 정확히 동치입니다.</p>
-                <p><strong>폐기:</strong> 고정 <code>c/log log N</code> 하한은 단순 양성보다 강하므로 쉬운 중간 보조정리로 사용할 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> explicit major arc를 모든 큰 짝수에서 지배하는 점별 minor-arc bound.</p>
+                <p><strong>확립:</strong> 예외 개수는 정수이므로 유한 구간 검증 뒤 모든 꼬리 예외 개수를 엄격히 <code>1</code> 미만으로 묶으면 강한 골드바흐가 닫힘을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 예외집합의 밀도 0이나 예외 개수 <code>≤1</code>만으로는 단 하나 또는 무한히 희박한 예외를 배제하지 못합니다.</p>
+                <p><strong>다음 핵심:</strong> 이진 골드바흐 꼬리 예외 개수의 명시적 엄격한 subunit 상계.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 고정 primorial의 full residue까지 알아도 소수와 모든 인수가 큰 반소수가 같은 local signature를 가질 수 있음을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 하나의 고정 single-coordinate local weight로 모든 소수와 rough 반소수를 분리할 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> scale-growing bilinear switching weight의 signed prime-semiprime correlation.</p>
+                <p><strong>확립:</strong> 양의 준정부호 커널은 대각 성분이 음수가 될 수 없어 모든 소수제곱 채널을 음으로 분리할 수 없고, 부정부호 rank-2 형식은 노출된 인수 채널에서만 이를 피함을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 제곱형 또는 양의 준정부호 가중치만으로 모든 반소수 인수 채널을 부호 분리하는 경로는 불가능합니다.</p>
+                <p><strong>다음 핵심:</strong> 부정부호 rank-2 switching 커널의 산술적 실현과 균일 remainder 제어.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>203개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-203은 조건부 전달 정리, local 항등식, 과도한 목표, 고정 sieve 정보의 한계를 서로 구분했습니다.</p>
+                <p>204개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-204는 표본에서 연속 경계로의 승격 조건, 주기 단어의 중복 제거, 전칭 명제를 닫는 정수 문턱, sieve 커널의 부호 구조를 서로 구분했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/rouche-transfer-pointwise-primorial.ko.md">최신 한국어 보고서</a>
-              <a href="docs/rouche-transfer-pointwise-primorial.md">Latest English report</a>
+              <a href="docs/mesh-necklace-exceptional-kernel.ko.md">최신 한국어 보고서</a>
+              <a href="docs/mesh-necklace-exceptional-kernel.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-203</strong>
-              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 Rouché 전달 계약, Collatz signed transfer와 최소 no-go, Goldbach 목표 강도 교정, Twin 고정 primorial parity no-go이며 해결은 0개입니다.</p>
+              <strong>TICKET-204</strong>
+              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 미분 인증 Rouché 망, Collatz 원시 목걸이 환원, Goldbach 엄격한 예외 개수 문턱, Twin 양의 준정부호 parity no-go이며 해결은 0개입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260810-ticket203"></script>
-    <script src="assets/app.js?v=20260810-ticket203"></script>
+    <script src="assets/i18n.js?v=20260810-ticket204"></script>
+    <script src="assets/app.js?v=20260810-ticket204"></script>
   </body>
 </html>
 

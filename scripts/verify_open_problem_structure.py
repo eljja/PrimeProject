@@ -202,6 +202,7 @@ TICKET200_SCHEMA = "primeproject.ticket200-derivative-mesh-three-run-chen-channe
 TICKET201_SCHEMA = "primeproject.ticket201-finite-information-allrun-liouville-parity.v1"
 TICKET202_SCHEMA = "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1"
 TICKET203_SCHEMA = "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1"
+TICKET204_SCHEMA = "primeproject.ticket204-mesh-necklace-exceptional-kernel.v1"
 
 
 def fail(message: str) -> int:
@@ -16141,6 +16142,180 @@ def main() -> int:
         or machine203.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket203 proof boundary changed")
+
+    path204 = Path(
+        "data/open-problem/ticket204-mesh-necklace-exceptional-kernel.json"
+    )
+    if not path204.exists():
+        return fail("missing ticket204 mesh/necklace/exceptional/kernel audit")
+    ticket204 = read_json(path204)
+    if (
+        ticket204.get("schema") != TICKET204_SCHEMA
+        or ticket204.get("status") != "open_not_proven"
+    ):
+        return fail("ticket204 schema or status changed")
+    audit204 = ticket204.get("continuous_and_infinite_promotion_audit", {})
+    machine204 = audit204.get("machine_audit", {})
+    expected_machine204 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine204 != expected_machine204:
+        return fail("ticket204 global machine audit changed")
+
+    attempts204 = {
+        row.get("problem_id"): row for row in ticket204.get("attempts", [])
+    }
+    if set(attempts204) != EXPECTED_PROBLEMS:
+        return fail("ticket204 attempts missing problems")
+    track_paths204 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-204-mesh-certificate.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-204-primitive-necklace.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-204-subunit-exceptional.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-204-indefinite-kernel.json"
+        ),
+    }
+    theorem_names204 = {
+        "riemann": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+        "collatz": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+        "goldbach": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+        "twin-prime": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+    }
+    for problem_id, track_path in track_paths204.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket204 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts204[problem_id]
+        if (
+            track.get("schema") != "primeproject.open-problem-attempt.v1"
+            or track.get("status") != "open_not_proven"
+            or track.get("new_result") != theorem_names204[problem_id]
+            or attempt.get("new_result") != theorem_names204[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+            != 1
+        ):
+            return fail(f"{problem_id}: ticket204 contract changed")
+
+    rh204 = audit204.get("riemann", {}).get("reproducible_computation", {})
+    rh204_cert = rh204.get("exact_certified_regression", {})
+    rh204_no_go = rh204.get("finite_sampling_no_go", {})
+    if (
+        rh204_cert.get("certified_contour_supremum_upper") != "39/280"
+        or rh204_cert.get("strict_rouche_margin_lower") != "241/280"
+        or rh204_cert.get("rouche_hypothesis_certified") is not True
+        or rh204_no_go.get("maximum_sample_ratio") != 0
+        or rh204_no_go.get("missed_midpoint_ratio") != 2
+        or rh204_no_go.get("analytic_zero_count_inside") != 8
+        or rh204_no_go.get("sample_only_certificate_refuted") is not True
+        or rh204.get("aggregate", {}).get(
+            "actual_cofinal_xi_certificate_constructed"
+        )
+        is not False
+        or rh204.get("aggregate", {}).get("riemann_hypothesis_resolved")
+        is not False
+    ):
+        return fail("ticket204 RH mesh boundary changed")
+
+    collatz204 = audit204.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz204_aggregate = collatz204.get("aggregate", {})
+    if (
+        collatz204_aggregate.get("total_positive_denominator_words") != 86439
+        or collatz204_aggregate.get("total_rotation_identity_failures") != 0
+        or collatz204_aggregate.get("total_primitive_factorization_failures")
+        != 0
+        or collatz204_aggregate.get("cross_length_cyclic_necklace_count")
+        != 11445
+        or collatz204_aggregate.get(
+            "cross_length_unique_primitive_necklace_count"
+        )
+        != 11336
+        or collatz204_aggregate.get("repeated_necklaces_removed") != 109
+        or collatz204_aggregate.get(
+            "raw_rotation_or_repetition_counts_are_independent_evidence"
+        )
+        is not False
+        or collatz204_aggregate.get("nontrivial_cycles_excluded_for_all_lengths")
+        is not False
+        or collatz204_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket204 Collatz primitive-necklace boundary changed")
+
+    goldbach204 = audit204.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach204_aggregate = goldbach204.get("aggregate", {})
+    if (
+        goldbach204_aggregate.get("finite_verification_limit") != 10000
+        or goldbach204_aggregate.get("finite_exception_count") != 0
+        or goldbach204_aggregate.get("integer_subunit_tail_closure_proved")
+        is not True
+        or goldbach204_aggregate.get(
+            "density_zero_to_all_targets_inference_refuted"
+        )
+        is not True
+        or goldbach204_aggregate.get(
+            "bounded_exception_count_to_zero_inference_refuted"
+        )
+        is not True
+        or goldbach204_aggregate.get(
+            "actual_tail_exception_bound_below_one_constructed"
+        )
+        is not False
+        or goldbach204_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket204 Goldbach exceptional-set boundary changed")
+
+    twin204 = audit204.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin204_escape = twin204.get("exact_indefinite_rank_two_escape", {})
+    twin204_aggregate = twin204.get("aggregate", {})
+    if (
+        twin204_escape.get("exact_rank") != 2
+        or twin204_escape.get("prime_channel_values_K_1_p")
+        != ["1/2"] * 5
+        or twin204_escape.get("semiprime_channel_distinct_values_K_p_q")
+        != ["-1"]
+        or twin204_escape.get("principal_minor_on_1_and_first_prime") != "-9/4"
+        or twin204_escape.get("kernel_is_indefinite") is not True
+        or twin204_aggregate.get(
+            "psd_or_square_weight_signed_separation_refuted"
+        )
+        is not True
+        or twin204_aggregate.get(
+            "factorization_free_arithmetic_realization_constructed"
+        )
+        is not False
+        or twin204_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket204 Twin kernel boundary changed")
+
+    if (
+        "resolves none" not in str(audit204.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket204.get("claim_boundary", "")).lower()
+        or machine204.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket204 proof boundary changed")
 
     print("open problem structure verified")
     return 0

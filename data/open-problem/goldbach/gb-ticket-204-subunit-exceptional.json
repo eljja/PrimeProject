@@ -1,0 +1,190 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:30+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-204",
+  "status": "open_not_proven",
+  "declared_proposition": "Let E(X) be the number of even Goldbach exceptions up to X. After an exact verification through X0, any rigorous tail bound 0<=E(X)-E(X0)<1 for every X>=X0 forces E(X)=E(X0) and therefore closes strong Goldbach. The strict subunit threshold is essential: bounds E(X)=O(1), E(X)=o(X), or even density zero do not exclude one or infinitely many sparse counterexamples.",
+  "new_result": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+  "discarded_route": "promoting density-zero or bounded exceptional sets directly to zero exceptions",
+  "remaining_gap": "The integer promotion threshold is exact, but no analytic Goldbach tail bound strictly below one is obtained.",
+  "candidate_theorem": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+  "claim_boundary": "No Goldbach proof or counterexample. The exact integer threshold for exceptional-set promotion and two logical no-go models are established.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T203",
+        "label": "PointwiseLogLogDefectStrictStrengthCalibration",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T204",
+        "label": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N204",
+        "label": "DensityZeroExceptionalSetImpliesNoGoldbachExceptions",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN204",
+        "label": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T203",
+        "GB-T204"
+      ],
+      [
+        "GB-T204",
+        "GB-N204"
+      ],
+      [
+        "GB-T204",
+        "GB-OPEN204"
+      ],
+      [
+        "GB-OPEN204",
+        "GB"
+      ]
+    ]
+  },
+  "next_experiment": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+  "mathematical_argument": "The tail exceptional count is a nonnegative integer. If it is strictly below one, it is zero. Conversely, a model with exactly one exceptional even integer has E(X)<=1 and E(X)/X tending to zero but is not an all-target theorem. A model exceptional at powers of two has infinitely many failures while its exceptional density also tends to zero.",
+  "reproducible_computation": {
+    "theorem": "Let E(X) be the number of even Goldbach exceptions up to X. After an exact verification through X0, any rigorous tail bound 0<=E(X)-E(X0)<1 for every X>=X0 forces E(X)=E(X0) and therefore closes strong Goldbach. The strict subunit threshold is essential: bounds E(X)=O(1), E(X)=o(X), or even density zero do not exclude one or infinitely many sparse counterexamples.",
+    "proof": "The tail exceptional count is a nonnegative integer. If it is strictly below one, it is zero. Conversely, a model with exactly one exceptional even integer has E(X)<=1 and E(X)/X tending to zero but is not an all-target theorem. A model exceptional at powers of two has infinitely many failures while its exceptional density also tends to zero.",
+    "exact_finite_prime_arithmetic_rows": [
+      {
+        "limit": 100,
+        "even_target_count": 49,
+        "exception_count": 0,
+        "minimum_ordered_representation_count": 1,
+        "maximum_ordered_representation_count": 18
+      },
+      {
+        "limit": 1000,
+        "even_target_count": 499,
+        "exception_count": 0,
+        "minimum_ordered_representation_count": 1,
+        "maximum_ordered_representation_count": 104
+      },
+      {
+        "limit": 10000,
+        "even_target_count": 4999,
+        "exception_count": 0,
+        "minimum_ordered_representation_count": 1,
+        "maximum_ordered_representation_count": 658
+      }
+    ],
+    "one_exception_no_go_rows": [
+      {
+        "limit": 16,
+        "model_exception": 10,
+        "even_target_count": 7,
+        "exception_count": 1,
+        "exception_density": "1/7",
+        "subunit_threshold_met": false
+      },
+      {
+        "limit": 64,
+        "model_exception": 10,
+        "even_target_count": 31,
+        "exception_count": 1,
+        "exception_density": "1/31",
+        "subunit_threshold_met": false
+      },
+      {
+        "limit": 256,
+        "model_exception": 10,
+        "even_target_count": 127,
+        "exception_count": 1,
+        "exception_density": "1/127",
+        "subunit_threshold_met": false
+      },
+      {
+        "limit": 1024,
+        "model_exception": 10,
+        "even_target_count": 511,
+        "exception_count": 1,
+        "exception_density": "1/511",
+        "subunit_threshold_met": false
+      },
+      {
+        "limit": 4096,
+        "model_exception": 10,
+        "even_target_count": 2047,
+        "exception_count": 1,
+        "exception_density": "1/2047",
+        "subunit_threshold_met": false
+      }
+    ],
+    "sparse_infinite_exception_no_go_rows": [
+      {
+        "limit": 64,
+        "exception_count": 4,
+        "largest_exception": 64,
+        "exception_density": "4/31",
+        "density_below_one_tenth": false,
+        "still_has_counterexamples": true
+      },
+      {
+        "limit": 256,
+        "exception_count": 6,
+        "largest_exception": 256,
+        "exception_density": "6/127",
+        "density_below_one_tenth": true,
+        "still_has_counterexamples": true
+      },
+      {
+        "limit": 1024,
+        "exception_count": 8,
+        "largest_exception": 1024,
+        "exception_density": "8/511",
+        "density_below_one_tenth": true,
+        "still_has_counterexamples": true
+      },
+      {
+        "limit": 4096,
+        "exception_count": 10,
+        "largest_exception": 4096,
+        "exception_density": "10/2047",
+        "density_below_one_tenth": true,
+        "still_has_counterexamples": true
+      },
+      {
+        "limit": 65536,
+        "exception_count": 14,
+        "largest_exception": 65536,
+        "exception_density": "2/4681",
+        "density_below_one_tenth": true,
+        "still_has_counterexamples": true
+      }
+    ],
+    "aggregate": {
+      "finite_verification_limit": 10000,
+      "finite_exception_count": 0,
+      "integer_subunit_tail_closure_proved": true,
+      "density_zero_to_all_targets_inference_refuted": true,
+      "bounded_exception_count_to_zero_inference_refuted": true,
+      "actual_tail_exception_bound_below_one_constructed": false,
+      "actual_goldbach_counterexample_found": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The countermodels concern logical promotion from exceptional-set bounds and are not prime arithmetic. The finite verification through 10,000 is reproducible evidence only and cannot control the tail.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "promoting density-zero or bounded exceptional sets directly to zero exceptions",
+    "retain": "finite verification plus a rigorous tail exceptional count below one",
+    "next_single_lemma": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne"
+  }
+}

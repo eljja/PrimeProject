@@ -1,0 +1,1222 @@
+{
+  "schema": "primeproject.ticket204-mesh-necklace-exceptional-kernel.v1",
+  "generated_at": "2026-08-10T23:59:30+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-204 resolves none of the four conjectures. It proves a derivative-certified Rouche mesh theorem and finite-sampling no-go, reduces periodic Collatz words to primitive necklaces, identifies the strict subunit exceptional-set threshold for Goldbach, and separates the PSD sieve parity barrier from an indefinite rank-two formal factor-channel escape.",
+  "continuous_and_infinite_promotion_audit": {
+    "theorem_name": "FourConjectureContinuousAndInfinitePromotionAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-204 resolves none of the four conjectures. It proves a derivative-certified Rouche mesh theorem and finite-sampling no-go, reduces periodic Collatz words to primitive necklaces, identifies the strict subunit exceptional-set threshold for Goldbach, and separates the PSD sieve parity barrier from an indefinite rank-two formal factor-channel escape.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-204",
+      "theorem_name": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+      "declared_proposition": "Let Gamma be parameterized by arclength and let r=(X-P)/P, with P nonzero on Gamma. If a finite sample set has covering radius delta, |r|<=q at every sample, and |dr/ds|<=M everywhere on Gamma, then sup_Gamma |r|<=q+M delta. Hence q+M delta<1 certifies the strict Rouche inequality. No finite sample set alone can certify this: on the unit circle, P=1 and X=z^m agree at all m-th roots of unity, while |X-P|=2 at every intervening half-step.",
+      "mathematical_argument": "Choose a nearest sample s_j for any boundary point s. The fundamental theorem of calculus and the derivative bound give |r(s)|<=|r(s_j)|+integral |r'|<=q+M delta. Rouche follows when this quantity is below one. For the no-go family r(z)=z^m-1: r vanishes at every sampled m-th root, but at z=exp(pi i/m) one has z^m=-1 and |r|=2. Thus regularity information is logically indispensable.",
+      "reproducible_computation": {
+        "theorem": "Let Gamma be parameterized by arclength and let r=(X-P)/P, with P nonzero on Gamma. If a finite sample set has covering radius delta, |r|<=q at every sample, and |dr/ds|<=M everywhere on Gamma, then sup_Gamma |r|<=q+M delta. Hence q+M delta<1 certifies the strict Rouche inequality. No finite sample set alone can certify this: on the unit circle, P=1 and X=z^m agree at all m-th roots of unity, while |X-P|=2 at every intervening half-step.",
+        "proof": "Choose a nearest sample s_j for any boundary point s. The fundamental theorem of calculus and the derivative bound give |r(s)|<=|r(s_j)|+integral |r'|<=q+M delta. Rouche follows when this quantity is below one. For the no-go family r(z)=z^m-1: r vanishes at every sampled m-th root, but at z=exp(pi i/m) one has z^m=-1 and |r|=2. Thus regularity information is logically indispensable.",
+        "exact_certified_regression": {
+          "contour": "unit circle",
+          "comparison_P": "1",
+          "analytic_X": "1+z^2/10",
+          "relative_error_r": "z^2/10",
+          "sample_count": 16,
+          "sample_ratio_bound_q": "1/10",
+          "arclength_derivative_bound_M": "1/5",
+          "covering_radius_delta_upper_using_pi_le_22_over_7": "11/56",
+          "certified_contour_supremum_upper": "39/280",
+          "strict_rouche_margin_lower": "241/280",
+          "rouche_hypothesis_certified": true
+        },
+        "finite_sampling_no_go": {
+          "contour": "unit circle",
+          "sample_count": 8,
+          "sample_nodes": "8th roots of unity",
+          "comparison_P": "1",
+          "analytic_X": "z^8",
+          "relative_error_r": "z^8-1",
+          "maximum_sample_ratio": 0,
+          "missed_midpoint": "exp(pi i/8)",
+          "missed_midpoint_ratio": 2,
+          "comparison_zero_count_inside": 0,
+          "analytic_zero_count_inside": 8,
+          "sample_only_certificate_refuted": true
+        },
+        "aggregate": {
+          "derivative_certified_mesh_theorem_proved": true,
+          "finite_sampling_without_regularizer_refuted": true,
+          "actual_xi_relative_derivative_bound_constructed": false,
+          "actual_cofinal_xi_certificate_constructed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem closes the finite-mesh-to-continuous-boundary transfer, not the Xi-specific derivative estimate. The polynomial examples are exact regression fixtures and are not the completed zeta function.",
+        "failure_count": 0
+      },
+      "logical_limit": "The mesh transfer is exact, but no Xi-specific cofinal relative derivative bound or comparison function is constructed.",
+      "route_decision": {
+        "discard": "finite contour sampling without a certified regularity bound",
+        "retain": "adaptive contour sampling plus a certified relative derivative bound",
+        "next_single_lemma": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T203",
+            "label": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T204",
+            "label": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N204",
+            "label": "FiniteContourSamplesAloneCertifyRoucheMargin",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN204",
+            "label": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T203",
+            "RH-T204"
+          ],
+          [
+            "RH-T204",
+            "RH-N204"
+          ],
+          [
+            "RH-T204",
+            "RH-OPEN204"
+          ],
+          [
+            "RH-OPEN204",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or counterexample. The finite-mesh transfer and a sampling-only no-go are exact; the Xi-specific derivative premise is open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-204",
+      "theorem_name": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+      "declared_proposition": "For a positive valuation word a=(a0,...,a_(h-1)), let B(a) be its affine numerator and D=2^sum(a)-3^h. If rho(a) is the left cyclic rotation, then 2^a0 B(rho(a))=3B(a)+D; consequently D divides B(a) if and only if D divides B(rho(a)). If a=u^k, then B(a)=B(u)G and D(a)=D(u)G for the same positive geometric factor G. Every periodic integrality test therefore reduces exactly to a primitive cyclic valuation necklace.",
+      "mathematical_argument": "One accelerated step sends x=B(a)/D to (3x+1)/2^a0, which is the cycle value associated with rho(a); clearing D gives the rotation identity. Since D is coprime to 2 and 3, divisibility is equivalent under rotation. Iterating the affine map for u, F_u(x)=(3^r x+B(u))/2^s, k times gives the common geometric factor G=sum_j 3^(r(k-1-j))2^(sj) in both numerator and denominator.",
+      "reproducible_computation": {
+        "theorem": "For a positive valuation word a=(a0,...,a_(h-1)), let B(a) be its affine numerator and D=2^sum(a)-3^h. If rho(a) is the left cyclic rotation, then 2^a0 B(rho(a))=3B(a)+D; consequently D divides B(a) if and only if D divides B(rho(a)). If a=u^k, then B(a)=B(u)G and D(a)=D(u)G for the same positive geometric factor G. Every periodic integrality test therefore reduces exactly to a primitive cyclic valuation necklace.",
+        "proof": "One accelerated step sends x=B(a)/D to (3x+1)/2^a0, which is the cycle value associated with rho(a); clearing D gives the rotation identity. Since D is coprime to 2 and 3, divisibility is equivalent under rotation. Iterating the affine map for u, F_u(x)=(3^r x+B(u))/2^s, k times gives the common geometric factor G=sum_j 3^(r(k-1-j))2^(sj) in both numerator and denominator.",
+        "exact_rotation_examples": [
+          {
+            "word": [
+              3,
+              1
+            ],
+            "rotated_word": [
+              1,
+              3
+            ],
+            "denominator_D": 7,
+            "numerator_B": 11,
+            "rotated_numerator_B": 5,
+            "identity_2a0_Brot_equals_3B_plus_D": true,
+            "divisibility_invariant": true
+          },
+          {
+            "word": [
+              4,
+              1,
+              2
+            ],
+            "rotated_word": [
+              1,
+              2,
+              4
+            ],
+            "denominator_D": 101,
+            "numerator_B": 89,
+            "rotated_numerator_B": 23,
+            "identity_2a0_Brot_equals_3B_plus_D": true,
+            "divisibility_invariant": true
+          },
+          {
+            "word": [
+              2,
+              3,
+              1,
+              4
+            ],
+            "rotated_word": [
+              3,
+              1,
+              4,
+              2
+            ],
+            "denominator_D": 943,
+            "numerator_B": 223,
+            "rotated_numerator_B": 403,
+            "identity_2a0_Brot_equals_3B_plus_D": true,
+            "divisibility_invariant": true
+          }
+        ],
+        "exact_repetition_examples": [
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 2,
+            "repeated_length": 2,
+            "geometric_factor_G": 7,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 7,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 7,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 3,
+            "repeated_length": 3,
+            "geometric_factor_G": 37,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 37,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 37,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 4,
+            "repeated_length": 4,
+            "geometric_factor_G": 175,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 175,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 175,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 5,
+            "repeated_length": 5,
+            "geometric_factor_G": 781,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 781,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 781,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 6,
+            "repeated_length": 6,
+            "geometric_factor_G": 3367,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 3367,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 3367,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 7,
+            "repeated_length": 7,
+            "geometric_factor_G": 14197,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 14197,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 14197,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              2
+            ],
+            "repetition_count": 8,
+            "repeated_length": 8,
+            "geometric_factor_G": 58975,
+            "root_numerator_B": 1,
+            "repeated_numerator_B": 58975,
+            "root_denominator_D": 1,
+            "repeated_denominator_D": 58975,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              3,
+              1
+            ],
+            "repetition_count": 2,
+            "repeated_length": 4,
+            "geometric_factor_G": 25,
+            "root_numerator_B": 11,
+            "repeated_numerator_B": 275,
+            "root_denominator_D": 7,
+            "repeated_denominator_D": 175,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              3,
+              1
+            ],
+            "repetition_count": 3,
+            "repeated_length": 6,
+            "geometric_factor_G": 481,
+            "root_numerator_B": 11,
+            "repeated_numerator_B": 5291,
+            "root_denominator_D": 7,
+            "repeated_denominator_D": 3367,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              3,
+              1
+            ],
+            "repetition_count": 4,
+            "repeated_length": 8,
+            "geometric_factor_G": 8425,
+            "root_numerator_B": 11,
+            "repeated_numerator_B": 92675,
+            "root_denominator_D": 7,
+            "repeated_denominator_D": 58975,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              3,
+              1
+            ],
+            "repetition_count": 5,
+            "repeated_length": 10,
+            "geometric_factor_G": 141361,
+            "root_numerator_B": 11,
+            "repeated_numerator_B": 1554971,
+            "root_denominator_D": 7,
+            "repeated_denominator_D": 989527,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              4,
+              1
+            ],
+            "repetition_count": 2,
+            "repeated_length": 4,
+            "geometric_factor_G": 41,
+            "root_numerator_B": 19,
+            "repeated_numerator_B": 779,
+            "root_denominator_D": 23,
+            "repeated_denominator_D": 943,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              4,
+              1
+            ],
+            "repetition_count": 3,
+            "repeated_length": 6,
+            "geometric_factor_G": 1393,
+            "root_numerator_B": 19,
+            "repeated_numerator_B": 26467,
+            "root_denominator_D": 23,
+            "repeated_denominator_D": 32039,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              4,
+              1
+            ],
+            "repetition_count": 4,
+            "repeated_length": 8,
+            "geometric_factor_G": 45305,
+            "root_numerator_B": 19,
+            "repeated_numerator_B": 860795,
+            "root_denominator_D": 23,
+            "repeated_denominator_D": 1042015,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          },
+          {
+            "primitive_root": [
+              4,
+              1
+            ],
+            "repetition_count": 5,
+            "repeated_length": 10,
+            "geometric_factor_G": 1456321,
+            "root_numerator_B": 19,
+            "repeated_numerator_B": 27670099,
+            "root_denominator_D": 23,
+            "repeated_denominator_D": 33495383,
+            "numerator_factorization_holds": true,
+            "denominator_factorization_holds": true,
+            "rational_cycle_value_preserved": true,
+            "divisibility_equivalent": true
+          }
+        ],
+        "finite_primitive_necklace_audit": [
+          {
+            "length": 2,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 13,
+            "cyclic_necklace_count": 8,
+            "primitive_necklace_count": 8,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          },
+          {
+            "length": 3,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 60,
+            "cyclic_necklace_count": 22,
+            "primitive_necklace_count": 22,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          },
+          {
+            "length": 4,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 241,
+            "cyclic_necklace_count": 65,
+            "primitive_necklace_count": 65,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          },
+          {
+            "length": 5,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 1003,
+            "cyclic_necklace_count": 203,
+            "primitive_necklace_count": 203,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          },
+          {
+            "length": 6,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 4012,
+            "cyclic_necklace_count": 684,
+            "primitive_necklace_count": 684,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          },
+          {
+            "length": 7,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 16061,
+            "cyclic_necklace_count": 2297,
+            "primitive_necklace_count": 2297,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          },
+          {
+            "length": 8,
+            "valuation_alphabet": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "positive_denominator_word_count": 65049,
+            "cyclic_necklace_count": 8166,
+            "primitive_necklace_count": 8166,
+            "divisible_raw_word_count": 1,
+            "divisible_necklace_count": 1,
+            "divisible_primitive_necklace_count": 1,
+            "non_all_two_divisible_raw_word_count": 0,
+            "rotation_identity_failure_count": 0,
+            "rotation_divisibility_failure_count": 0,
+            "primitive_factorization_failure_count": 0
+          }
+        ],
+        "aggregate": {
+          "maximum_tested_length": 8,
+          "total_positive_denominator_words": 86439,
+          "total_rotation_identity_failures": 0,
+          "total_primitive_factorization_failures": 0,
+          "non_all_two_divisible_word_count_in_tested_box": 0,
+          "cross_length_cyclic_necklace_count": 11445,
+          "cross_length_unique_primitive_necklace_count": 11336,
+          "repeated_necklaces_removed": 109,
+          "raw_rotation_or_repetition_counts_are_independent_evidence": false,
+          "nontrivial_cycles_excluded_for_all_lengths": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The reduction proves that rotations and powers of a word are not independent cycle candidates. It does not prove nondivisibility for the unbounded family of non-all-two primitive necklaces and says nothing about divergent nonperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "Periodic candidates reduce to primitive necklaces, but the unbounded non-all-two primitive family and nonperiodic trajectories remain open.",
+      "route_decision": {
+        "discard": "counting cyclic rotations and repeated words as independent cycle evidence",
+        "retain": "one canonical primitive necklace per periodic valuation class",
+        "next_single_lemma": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T203",
+            "label": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T204",
+            "label": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N204",
+            "label": "RotationsAndWordPowersProvideIndependentCycleEvidence",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN204",
+            "label": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T203",
+            "CO-T204"
+          ],
+          [
+            "CO-T204",
+            "CO-N204"
+          ],
+          [
+            "CO-T204",
+            "CO-OPEN204"
+          ],
+          [
+            "CO-OPEN204",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit exclusion, or nontrivial cycle. An exact symmetry and power reduction for periodic words is proved."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-204",
+      "theorem_name": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+      "declared_proposition": "Let E(X) be the number of even Goldbach exceptions up to X. After an exact verification through X0, any rigorous tail bound 0<=E(X)-E(X0)<1 for every X>=X0 forces E(X)=E(X0) and therefore closes strong Goldbach. The strict subunit threshold is essential: bounds E(X)=O(1), E(X)=o(X), or even density zero do not exclude one or infinitely many sparse counterexamples.",
+      "mathematical_argument": "The tail exceptional count is a nonnegative integer. If it is strictly below one, it is zero. Conversely, a model with exactly one exceptional even integer has E(X)<=1 and E(X)/X tending to zero but is not an all-target theorem. A model exceptional at powers of two has infinitely many failures while its exceptional density also tends to zero.",
+      "reproducible_computation": {
+        "theorem": "Let E(X) be the number of even Goldbach exceptions up to X. After an exact verification through X0, any rigorous tail bound 0<=E(X)-E(X0)<1 for every X>=X0 forces E(X)=E(X0) and therefore closes strong Goldbach. The strict subunit threshold is essential: bounds E(X)=O(1), E(X)=o(X), or even density zero do not exclude one or infinitely many sparse counterexamples.",
+        "proof": "The tail exceptional count is a nonnegative integer. If it is strictly below one, it is zero. Conversely, a model with exactly one exceptional even integer has E(X)<=1 and E(X)/X tending to zero but is not an all-target theorem. A model exceptional at powers of two has infinitely many failures while its exceptional density also tends to zero.",
+        "exact_finite_prime_arithmetic_rows": [
+          {
+            "limit": 100,
+            "even_target_count": 49,
+            "exception_count": 0,
+            "minimum_ordered_representation_count": 1,
+            "maximum_ordered_representation_count": 18
+          },
+          {
+            "limit": 1000,
+            "even_target_count": 499,
+            "exception_count": 0,
+            "minimum_ordered_representation_count": 1,
+            "maximum_ordered_representation_count": 104
+          },
+          {
+            "limit": 10000,
+            "even_target_count": 4999,
+            "exception_count": 0,
+            "minimum_ordered_representation_count": 1,
+            "maximum_ordered_representation_count": 658
+          }
+        ],
+        "one_exception_no_go_rows": [
+          {
+            "limit": 16,
+            "model_exception": 10,
+            "even_target_count": 7,
+            "exception_count": 1,
+            "exception_density": "1/7",
+            "subunit_threshold_met": false
+          },
+          {
+            "limit": 64,
+            "model_exception": 10,
+            "even_target_count": 31,
+            "exception_count": 1,
+            "exception_density": "1/31",
+            "subunit_threshold_met": false
+          },
+          {
+            "limit": 256,
+            "model_exception": 10,
+            "even_target_count": 127,
+            "exception_count": 1,
+            "exception_density": "1/127",
+            "subunit_threshold_met": false
+          },
+          {
+            "limit": 1024,
+            "model_exception": 10,
+            "even_target_count": 511,
+            "exception_count": 1,
+            "exception_density": "1/511",
+            "subunit_threshold_met": false
+          },
+          {
+            "limit": 4096,
+            "model_exception": 10,
+            "even_target_count": 2047,
+            "exception_count": 1,
+            "exception_density": "1/2047",
+            "subunit_threshold_met": false
+          }
+        ],
+        "sparse_infinite_exception_no_go_rows": [
+          {
+            "limit": 64,
+            "exception_count": 4,
+            "largest_exception": 64,
+            "exception_density": "4/31",
+            "density_below_one_tenth": false,
+            "still_has_counterexamples": true
+          },
+          {
+            "limit": 256,
+            "exception_count": 6,
+            "largest_exception": 256,
+            "exception_density": "6/127",
+            "density_below_one_tenth": true,
+            "still_has_counterexamples": true
+          },
+          {
+            "limit": 1024,
+            "exception_count": 8,
+            "largest_exception": 1024,
+            "exception_density": "8/511",
+            "density_below_one_tenth": true,
+            "still_has_counterexamples": true
+          },
+          {
+            "limit": 4096,
+            "exception_count": 10,
+            "largest_exception": 4096,
+            "exception_density": "10/2047",
+            "density_below_one_tenth": true,
+            "still_has_counterexamples": true
+          },
+          {
+            "limit": 65536,
+            "exception_count": 14,
+            "largest_exception": 65536,
+            "exception_density": "2/4681",
+            "density_below_one_tenth": true,
+            "still_has_counterexamples": true
+          }
+        ],
+        "aggregate": {
+          "finite_verification_limit": 10000,
+          "finite_exception_count": 0,
+          "integer_subunit_tail_closure_proved": true,
+          "density_zero_to_all_targets_inference_refuted": true,
+          "bounded_exception_count_to_zero_inference_refuted": true,
+          "actual_tail_exception_bound_below_one_constructed": false,
+          "actual_goldbach_counterexample_found": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The countermodels concern logical promotion from exceptional-set bounds and are not prime arithmetic. The finite verification through 10,000 is reproducible evidence only and cannot control the tail.",
+        "failure_count": 0
+      },
+      "logical_limit": "The integer promotion threshold is exact, but no analytic Goldbach tail bound strictly below one is obtained.",
+      "route_decision": {
+        "discard": "promoting density-zero or bounded exceptional sets directly to zero exceptions",
+        "retain": "finite verification plus a rigorous tail exceptional count below one",
+        "next_single_lemma": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T203",
+            "label": "PointwiseLogLogDefectStrictStrengthCalibration",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T204",
+            "label": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N204",
+            "label": "DensityZeroExceptionalSetImpliesNoGoldbachExceptions",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN204",
+            "label": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T203",
+            "GB-T204"
+          ],
+          [
+            "GB-T204",
+            "GB-N204"
+          ],
+          [
+            "GB-T204",
+            "GB-OPEN204"
+          ],
+          [
+            "GB-OPEN204",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The exact integer threshold for exceptional-set promotion and two logical no-go models are established."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-204",
+      "theorem_name": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+      "declared_proposition": "No positive-semidefinite symmetric bilinear kernel can be strictly negative on every prime-semiprime factor channel: a square semiprime p^2 would require K(p,p)<0, contradicting positive semidefiniteness. Indefiniteness removes this algebraic obstruction. On formal factor pairs, K(a,b)=s(a)+s(b), with s(1)=1 and s(p)=-1/2 for primes p, has rank at most two, gives K(1,p)=1/2>0, and gives K(p,q)=-1<0.",
+      "mathematical_argument": "A PSD kernel is a Gram kernel, so every diagonal value K(p,p) is a squared norm and is nonnegative. This rules out strict negative weight on p^2. For the explicit escape, K=s 1^T+1 s^T, hence rank(K)<=2. Direct substitution gives the two channel signs. The 2x2 principal minor on {1,p} is 2(-1)-(1/2)^2=-9/4, certifying that the escape kernel is indefinite rather than a hidden nonnegative sieve square.",
+      "reproducible_computation": {
+        "theorem": "No positive-semidefinite symmetric bilinear kernel can be strictly negative on every prime-semiprime factor channel: a square semiprime p^2 would require K(p,p)<0, contradicting positive semidefiniteness. Indefiniteness removes this algebraic obstruction. On formal factor pairs, K(a,b)=s(a)+s(b), with s(1)=1 and s(p)=-1/2 for primes p, has rank at most two, gives K(1,p)=1/2>0, and gives K(p,q)=-1<0.",
+        "proof": "A PSD kernel is a Gram kernel, so every diagonal value K(p,p) is a squared norm and is nonnegative. This rules out strict negative weight on p^2. For the explicit escape, K=s 1^T+1 s^T, hence rank(K)<=2. Direct substitution gives the two channel signs. The 2x2 principal minor on {1,p} is 2(-1)-(1/2)^2=-9/4, certifying that the escape kernel is indefinite rather than a hidden nonnegative sieve square.",
+        "psd_square_semiprime_no_go": {
+          "required_negative_diagonal": "K(p,p)<0 for every prime p",
+          "psd_diagonal_constraint": "K(p,p)>=0",
+          "strict_psd_parity_separator_exists": false
+        },
+        "exact_indefinite_rank_two_escape": {
+          "factor_labels": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            11
+          ],
+          "score_s": {
+            "1": "1",
+            "2": "-1/2",
+            "3": "-1/2",
+            "5": "-1/2",
+            "7": "-1/2",
+            "11": "-1/2"
+          },
+          "kernel_formula": "K(a,b)=s(a)+s(b)",
+          "matrix": [
+            [
+              "2",
+              "1/2",
+              "1/2",
+              "1/2",
+              "1/2",
+              "1/2"
+            ],
+            [
+              "1/2",
+              "-1",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "1/2",
+              "-1",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "1/2",
+              "-1",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "1/2",
+              "-1",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "1/2",
+              "-1",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ]
+          ],
+          "exact_rank": 2,
+          "prime_channel_values_K_1_p": [
+            "1/2",
+            "1/2",
+            "1/2",
+            "1/2",
+            "1/2"
+          ],
+          "semiprime_channel_distinct_values_K_p_q": [
+            "-1"
+          ],
+          "principal_minor_on_1_and_first_prime": "-9/4",
+          "kernel_is_indefinite": true,
+          "formal_factor_channel_separation_holds": true
+        },
+        "aggregate": {
+          "psd_or_square_weight_signed_separation_refuted": true,
+          "formal_indefinite_rank_two_separator_constructed": true,
+          "factorization_free_arithmetic_realization_constructed": false,
+          "uniform_distribution_remainder_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The rank-two kernel separates formal factor channels only because the factor pair is exposed. It is not a computable weight of n alone, does not supply a switching decomposition with controlled remainder, and proves no twin prime lower bound.",
+        "failure_count": 0
+      },
+      "logical_limit": "The indefinite kernel separates formal exposed-factor channels only; no factorization-free switching weight or uniform remainder is proved.",
+      "route_decision": {
+        "discard": "PSD or square-form bilinear weights as strict prime-versus-P2 sign separators",
+        "retain": "indefinite factor-visible switching with independently controlled arithmetic remainder",
+        "next_single_lemma": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T203",
+            "label": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T204",
+            "label": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N204",
+            "label": "PositiveSemidefiniteKernelStrictlySeparatesPrimeFromEveryP2",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN204",
+            "label": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T203",
+            "TP-T204"
+          ],
+          [
+            "TP-T204",
+            "TP-N204"
+          ],
+          [
+            "TP-T204",
+            "TP-OPEN204"
+          ],
+          [
+            "TP-OPEN204",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. A PSD parity no-go and a purely algebraic indefinite factor-channel escape are proved."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-204",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Gamma be parameterized by arclength and let r=(X-P)/P, with P nonzero on Gamma. If a finite sample set has covering radius delta, |r|<=q at every sample, and |dr/ds|<=M everywhere on Gamma, then sup_Gamma |r|<=q+M delta. Hence q+M delta<1 certifies the strict Rouche inequality. No finite sample set alone can certify this: on the unit circle, P=1 and X=z^m agree at all m-th roots of unity, while |X-P|=2 at every intervening half-step.",
+      "new_result": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+      "discarded_route": "finite contour sampling without a certified regularity bound",
+      "remaining_gap": "The mesh transfer is exact, but no Xi-specific cofinal relative derivative bound or comparison function is constructed.",
+      "candidate_theorem": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound",
+      "claim_boundary": "No RH proof or counterexample. The finite-mesh transfer and a sampling-only no-go are exact; the Xi-specific derivative premise is open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T203",
+            "label": "CertifiedIncludedZerosPlusRoucheCountExactExhaustion",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T204",
+            "label": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N204",
+            "label": "FiniteContourSamplesAloneCertifyRoucheMargin",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN204",
+            "label": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T203",
+            "RH-T204"
+          ],
+          [
+            "RH-T204",
+            "RH-N204"
+          ],
+          [
+            "RH-T204",
+            "RH-OPEN204"
+          ],
+          [
+            "RH-OPEN204",
+            "RH"
+          ]
+        ]
+      },
+      "next_experiment": "CompletedZetaCofinalAdaptiveRelativeDerivativeBound"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-204",
+      "status": "open_not_proven",
+      "declared_proposition": "For a positive valuation word a=(a0,...,a_(h-1)), let B(a) be its affine numerator and D=2^sum(a)-3^h. If rho(a) is the left cyclic rotation, then 2^a0 B(rho(a))=3B(a)+D; consequently D divides B(a) if and only if D divides B(rho(a)). If a=u^k, then B(a)=B(u)G and D(a)=D(u)G for the same positive geometric factor G. Every periodic integrality test therefore reduces exactly to a primitive cyclic valuation necklace.",
+      "new_result": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+      "discarded_route": "counting cyclic rotations and repeated words as independent cycle evidence",
+      "remaining_gap": "Periodic candidates reduce to primitive necklaces, but the unbounded non-all-two primitive family and nonperiodic trajectories remain open.",
+      "candidate_theorem": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces",
+      "claim_boundary": "No Collatz proof, divergent orbit exclusion, or nontrivial cycle. An exact symmetry and power reduction for periodic words is proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T203",
+            "label": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T204",
+            "label": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N204",
+            "label": "RotationsAndWordPowersProvideIndependentCycleEvidence",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN204",
+            "label": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T203",
+            "CO-T204"
+          ],
+          [
+            "CO-T204",
+            "CO-N204"
+          ],
+          [
+            "CO-T204",
+            "CO-OPEN204"
+          ],
+          [
+            "CO-OPEN204",
+            "CO"
+          ]
+        ]
+      },
+      "next_experiment": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-204",
+      "status": "open_not_proven",
+      "declared_proposition": "Let E(X) be the number of even Goldbach exceptions up to X. After an exact verification through X0, any rigorous tail bound 0<=E(X)-E(X0)<1 for every X>=X0 forces E(X)=E(X0) and therefore closes strong Goldbach. The strict subunit threshold is essential: bounds E(X)=O(1), E(X)=o(X), or even density zero do not exclude one or infinitely many sparse counterexamples.",
+      "new_result": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+      "discarded_route": "promoting density-zero or bounded exceptional sets directly to zero exceptions",
+      "remaining_gap": "The integer promotion threshold is exact, but no analytic Goldbach tail bound strictly below one is obtained.",
+      "candidate_theorem": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+      "claim_boundary": "No Goldbach proof or counterexample. The exact integer threshold for exceptional-set promotion and two logical no-go models are established.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T203",
+            "label": "PointwiseLogLogDefectStrictStrengthCalibration",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T204",
+            "label": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N204",
+            "label": "DensityZeroExceptionalSetImpliesNoGoldbachExceptions",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN204",
+            "label": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T203",
+            "GB-T204"
+          ],
+          [
+            "GB-T204",
+            "GB-N204"
+          ],
+          [
+            "GB-T204",
+            "GB-OPEN204"
+          ],
+          [
+            "GB-OPEN204",
+            "GB"
+          ]
+        ]
+      },
+      "next_experiment": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-204",
+      "status": "open_not_proven",
+      "declared_proposition": "No positive-semidefinite symmetric bilinear kernel can be strictly negative on every prime-semiprime factor channel: a square semiprime p^2 would require K(p,p)<0, contradicting positive semidefiniteness. Indefiniteness removes this algebraic obstruction. On formal factor pairs, K(a,b)=s(a)+s(b), with s(1)=1 and s(p)=-1/2 for primes p, has rank at most two, gives K(1,p)=1/2>0, and gives K(p,q)=-1<0.",
+      "new_result": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+      "discarded_route": "PSD or square-form bilinear weights as strict prime-versus-P2 sign separators",
+      "remaining_gap": "The indefinite kernel separates formal exposed-factor channels only; no factorization-free switching weight or uniform remainder is proved.",
+      "candidate_theorem": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder",
+      "claim_boundary": "No Twin Prime proof or counterexample. A PSD parity no-go and a purely algebraic indefinite factor-channel escape are proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T203",
+            "label": "FixedPrimorialSingleCoordinatePrimeSemiprimeSeparationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T204",
+            "label": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N204",
+            "label": "PositiveSemidefiniteKernelStrictlySeparatesPrimeFromEveryP2",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN204",
+            "label": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T203",
+            "TP-T204"
+          ],
+          [
+            "TP-T204",
+            "TP-N204"
+          ],
+          [
+            "TP-T204",
+            "TP-OPEN204"
+          ],
+          [
+            "TP-OPEN204",
+            "TP"
+          ]
+        ]
+      },
+      "next_experiment": "ArithmeticRealizationOfIndefiniteRankTwoSwitchingKernelWithUniformRemainder"
+    }
+  ]
+}

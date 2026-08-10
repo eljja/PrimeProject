@@ -1,0 +1,525 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:30+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-204",
+  "status": "open_not_proven",
+  "declared_proposition": "For a positive valuation word a=(a0,...,a_(h-1)), let B(a) be its affine numerator and D=2^sum(a)-3^h. If rho(a) is the left cyclic rotation, then 2^a0 B(rho(a))=3B(a)+D; consequently D divides B(a) if and only if D divides B(rho(a)). If a=u^k, then B(a)=B(u)G and D(a)=D(u)G for the same positive geometric factor G. Every periodic integrality test therefore reduces exactly to a primitive cyclic valuation necklace.",
+  "new_result": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+  "discarded_route": "counting cyclic rotations and repeated words as independent cycle evidence",
+  "remaining_gap": "Periodic candidates reduce to primitive necklaces, but the unbounded non-all-two primitive family and nonperiodic trajectories remain open.",
+  "candidate_theorem": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces",
+  "claim_boundary": "No Collatz proof, divergent orbit exclusion, or nontrivial cycle. An exact symmetry and power reduction for periodic words is proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T203",
+        "label": "ExactSignedTwoSiteTransferIdentityAndUniversalObstructionNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T204",
+        "label": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N204",
+        "label": "RotationsAndWordPowersProvideIndependentCycleEvidence",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN204",
+        "label": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T203",
+        "CO-T204"
+      ],
+      [
+        "CO-T204",
+        "CO-N204"
+      ],
+      [
+        "CO-T204",
+        "CO-OPEN204"
+      ],
+      [
+        "CO-OPEN204",
+        "CO"
+      ]
+    ]
+  },
+  "next_experiment": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces",
+  "mathematical_argument": "One accelerated step sends x=B(a)/D to (3x+1)/2^a0, which is the cycle value associated with rho(a); clearing D gives the rotation identity. Since D is coprime to 2 and 3, divisibility is equivalent under rotation. Iterating the affine map for u, F_u(x)=(3^r x+B(u))/2^s, k times gives the common geometric factor G=sum_j 3^(r(k-1-j))2^(sj) in both numerator and denominator.",
+  "reproducible_computation": {
+    "theorem": "For a positive valuation word a=(a0,...,a_(h-1)), let B(a) be its affine numerator and D=2^sum(a)-3^h. If rho(a) is the left cyclic rotation, then 2^a0 B(rho(a))=3B(a)+D; consequently D divides B(a) if and only if D divides B(rho(a)). If a=u^k, then B(a)=B(u)G and D(a)=D(u)G for the same positive geometric factor G. Every periodic integrality test therefore reduces exactly to a primitive cyclic valuation necklace.",
+    "proof": "One accelerated step sends x=B(a)/D to (3x+1)/2^a0, which is the cycle value associated with rho(a); clearing D gives the rotation identity. Since D is coprime to 2 and 3, divisibility is equivalent under rotation. Iterating the affine map for u, F_u(x)=(3^r x+B(u))/2^s, k times gives the common geometric factor G=sum_j 3^(r(k-1-j))2^(sj) in both numerator and denominator.",
+    "exact_rotation_examples": [
+      {
+        "word": [
+          3,
+          1
+        ],
+        "rotated_word": [
+          1,
+          3
+        ],
+        "denominator_D": 7,
+        "numerator_B": 11,
+        "rotated_numerator_B": 5,
+        "identity_2a0_Brot_equals_3B_plus_D": true,
+        "divisibility_invariant": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2
+        ],
+        "rotated_word": [
+          1,
+          2,
+          4
+        ],
+        "denominator_D": 101,
+        "numerator_B": 89,
+        "rotated_numerator_B": 23,
+        "identity_2a0_Brot_equals_3B_plus_D": true,
+        "divisibility_invariant": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "rotated_word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "denominator_D": 943,
+        "numerator_B": 223,
+        "rotated_numerator_B": 403,
+        "identity_2a0_Brot_equals_3B_plus_D": true,
+        "divisibility_invariant": true
+      }
+    ],
+    "exact_repetition_examples": [
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 2,
+        "repeated_length": 2,
+        "geometric_factor_G": 7,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 7,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 7,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 3,
+        "repeated_length": 3,
+        "geometric_factor_G": 37,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 37,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 37,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 4,
+        "repeated_length": 4,
+        "geometric_factor_G": 175,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 175,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 175,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 5,
+        "repeated_length": 5,
+        "geometric_factor_G": 781,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 781,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 781,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 6,
+        "repeated_length": 6,
+        "geometric_factor_G": 3367,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 3367,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 3367,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 7,
+        "repeated_length": 7,
+        "geometric_factor_G": 14197,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 14197,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 14197,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          2
+        ],
+        "repetition_count": 8,
+        "repeated_length": 8,
+        "geometric_factor_G": 58975,
+        "root_numerator_B": 1,
+        "repeated_numerator_B": 58975,
+        "root_denominator_D": 1,
+        "repeated_denominator_D": 58975,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          3,
+          1
+        ],
+        "repetition_count": 2,
+        "repeated_length": 4,
+        "geometric_factor_G": 25,
+        "root_numerator_B": 11,
+        "repeated_numerator_B": 275,
+        "root_denominator_D": 7,
+        "repeated_denominator_D": 175,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          3,
+          1
+        ],
+        "repetition_count": 3,
+        "repeated_length": 6,
+        "geometric_factor_G": 481,
+        "root_numerator_B": 11,
+        "repeated_numerator_B": 5291,
+        "root_denominator_D": 7,
+        "repeated_denominator_D": 3367,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          3,
+          1
+        ],
+        "repetition_count": 4,
+        "repeated_length": 8,
+        "geometric_factor_G": 8425,
+        "root_numerator_B": 11,
+        "repeated_numerator_B": 92675,
+        "root_denominator_D": 7,
+        "repeated_denominator_D": 58975,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          3,
+          1
+        ],
+        "repetition_count": 5,
+        "repeated_length": 10,
+        "geometric_factor_G": 141361,
+        "root_numerator_B": 11,
+        "repeated_numerator_B": 1554971,
+        "root_denominator_D": 7,
+        "repeated_denominator_D": 989527,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          4,
+          1
+        ],
+        "repetition_count": 2,
+        "repeated_length": 4,
+        "geometric_factor_G": 41,
+        "root_numerator_B": 19,
+        "repeated_numerator_B": 779,
+        "root_denominator_D": 23,
+        "repeated_denominator_D": 943,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          4,
+          1
+        ],
+        "repetition_count": 3,
+        "repeated_length": 6,
+        "geometric_factor_G": 1393,
+        "root_numerator_B": 19,
+        "repeated_numerator_B": 26467,
+        "root_denominator_D": 23,
+        "repeated_denominator_D": 32039,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          4,
+          1
+        ],
+        "repetition_count": 4,
+        "repeated_length": 8,
+        "geometric_factor_G": 45305,
+        "root_numerator_B": 19,
+        "repeated_numerator_B": 860795,
+        "root_denominator_D": 23,
+        "repeated_denominator_D": 1042015,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      },
+      {
+        "primitive_root": [
+          4,
+          1
+        ],
+        "repetition_count": 5,
+        "repeated_length": 10,
+        "geometric_factor_G": 1456321,
+        "root_numerator_B": 19,
+        "repeated_numerator_B": 27670099,
+        "root_denominator_D": 23,
+        "repeated_denominator_D": 33495383,
+        "numerator_factorization_holds": true,
+        "denominator_factorization_holds": true,
+        "rational_cycle_value_preserved": true,
+        "divisibility_equivalent": true
+      }
+    ],
+    "finite_primitive_necklace_audit": [
+      {
+        "length": 2,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 13,
+        "cyclic_necklace_count": 8,
+        "primitive_necklace_count": 8,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      },
+      {
+        "length": 3,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 60,
+        "cyclic_necklace_count": 22,
+        "primitive_necklace_count": 22,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      },
+      {
+        "length": 4,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 241,
+        "cyclic_necklace_count": 65,
+        "primitive_necklace_count": 65,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      },
+      {
+        "length": 5,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 1003,
+        "cyclic_necklace_count": 203,
+        "primitive_necklace_count": 203,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      },
+      {
+        "length": 6,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 4012,
+        "cyclic_necklace_count": 684,
+        "primitive_necklace_count": 684,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      },
+      {
+        "length": 7,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 16061,
+        "cyclic_necklace_count": 2297,
+        "primitive_necklace_count": 2297,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      },
+      {
+        "length": 8,
+        "valuation_alphabet": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_denominator_word_count": 65049,
+        "cyclic_necklace_count": 8166,
+        "primitive_necklace_count": 8166,
+        "divisible_raw_word_count": 1,
+        "divisible_necklace_count": 1,
+        "divisible_primitive_necklace_count": 1,
+        "non_all_two_divisible_raw_word_count": 0,
+        "rotation_identity_failure_count": 0,
+        "rotation_divisibility_failure_count": 0,
+        "primitive_factorization_failure_count": 0
+      }
+    ],
+    "aggregate": {
+      "maximum_tested_length": 8,
+      "total_positive_denominator_words": 86439,
+      "total_rotation_identity_failures": 0,
+      "total_primitive_factorization_failures": 0,
+      "non_all_two_divisible_word_count_in_tested_box": 0,
+      "cross_length_cyclic_necklace_count": 11445,
+      "cross_length_unique_primitive_necklace_count": 11336,
+      "repeated_necklaces_removed": 109,
+      "raw_rotation_or_repetition_counts_are_independent_evidence": false,
+      "nontrivial_cycles_excluded_for_all_lengths": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The reduction proves that rotations and powers of a word are not independent cycle candidates. It does not prove nondivisibility for the unbounded family of non-all-two primitive necklaces and says nothing about divergent nonperiodic trajectories.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "counting cyclic rotations and repeated words as independent cycle evidence",
+    "retain": "one canonical primitive necklace per periodic valuation class",
+    "next_single_lemma": "UniformNondivisibilityForAllNonAllTwoPrimitiveValuationNecklaces"
+  }
+}

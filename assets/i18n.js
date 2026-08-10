@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-203 closes one conditional zero-count transfer, derives an exact Collatz transfer law, and corrects over-strong Goldbach and fixed-local Twin targets.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-203은 조건부 영점수 전달을 정확히 닫고, 콜라츠 두 위치 이동식을 유도하며, 골드바흐의 과도한 정량 목표와 쌍둥이 소수의 고정 local 분리 목표를 교정합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-204 certifies continuous Rouché meshes, reduces periodic Collatz words to primitive necklaces, fixes the Goldbach exceptional-set threshold, and isolates the PSD Twin parity barrier.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-204는 연속 Rouché 망을 인증하고, 주기적 콜라츠 단어를 원시 목걸이로 환원하며, 골드바흐 예외집합의 엄격한 문턱과 쌍둥이 소수의 양의 준정부호 장벽을 분리합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

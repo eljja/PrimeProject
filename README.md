@@ -31,17 +31,21 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-203: Rouché Transfer, Signed Valuation Transfer, and Pointwise Target Correction](docs/rouche-transfer-pointwise-primorial.md),
-with a separate [Korean report](docs/rouche-transfer-pointwise-primorial.ko.md).
-It proves an exact conditional Rouché zero-exhaustion contract, derives the
-signed Collatz two-site transfer formula and its minimal universal-invariance
-counterexample, proves that the proposed pointwise Goldbach `c/log log N`
-defect is stronger than positivity, and proves that fixed primorial
-single-coordinate data cannot separate all primes from rough semiprimes. These
-are exact partial or no-go theorems, not resolutions. Every conjecture remains
-`open_not_proven`; the machine resolution count is zero.
+[TICKET-204: Continuous Certificates, Primitive Necklaces, and Parity Kernels](docs/mesh-necklace-exceptional-kernel.md),
+with a separate [Korean report](docs/mesh-necklace-exceptional-kernel.ko.md).
+It proves a derivative-certified finite-mesh-to-continuous Rouché theorem and
+a sampling-only no-go, reduces periodic Collatz candidates to primitive cyclic
+necklaces, identifies the strict subunit exceptional-count threshold that would
+close Goldbach after finite verification, and separates the PSD Twin parity
+barrier from a formal indefinite rank-two escape. These are exact partial or
+no-go theorems, not resolutions. Every conjecture remains `open_not_proven`;
+the machine resolution count is zero.
 
 The preserved previous boundary is
+[TICKET-203: Rouché Transfer, Signed Valuation Transfer, and Pointwise Target Correction](docs/rouche-transfer-pointwise-primorial.md),
+with a separate [Korean report](docs/rouche-transfer-pointwise-primorial.ko.md).
+
+The earlier preserved boundary is
 [TICKET-202: Exact Hermite Data, Long-Run Deformations, and Parity Scale](docs/exact-hermite-deformation-parity-scale.md),
 with a separate [Korean report](docs/exact-hermite-deformation-parity-scale.ko.md).
 It strengthens the RH finite-information no-go to finitely many exact Hermite
@@ -246,7 +250,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-203 boundary, four exact partial or no-go theorems, four discarded or recalibrated routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-204 boundary, four exact partial or no-go theorems, four discarded or recalibrated routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -263,17 +267,18 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-203. The RH track proves the exact
-zero-exhaustion implication obtained from a Rouché margin plus independently
-included zeros, while leaving the actual cofinal Xi margin open. The Collatz
-track derives the signed two-site transfer identity and refutes unconditional
-nondivisibility invariance with the known all-two fixed cycle. The Goldbach
-track proves that the proposed log-log-scaled pointwise defect is stronger than
-positivity. The Twin track proves a fixed-primorial single-coordinate parity
-no-go while retaining scale-growing bilinear switching. These are partial or
-no-go theorems, not solutions. All four conjectures remain open and the machine
-resolution count is zero.
+The latest proof-search track is TICKET-204. The RH track proves the exact
+mesh-to-continuous Rouché implication and refutes sample-only certification,
+while leaving the actual cofinal Xi derivative bound open. The Collatz track
+reduces rotations and word powers to primitive cyclic necklaces. The Goldbach
+track proves that a strict subunit tail exceptional count, not density zero,
+would close the universal statement. The Twin track proves a PSD parity no-go
+and retains an indefinite rank-two arithmetic-realization route. These are
+partial or no-go theorems, not solutions. All four conjectures remain open and
+the machine resolution count is zero.
 See
+[TICKET204 EN](docs/mesh-necklace-exceptional-kernel.md),
+[TICKET204 KO](docs/mesh-necklace-exceptional-kernel.ko.md),
 [TICKET203 EN](docs/rouche-transfer-pointwise-primorial.md),
 [TICKET203 KO](docs/rouche-transfer-pointwise-primorial.ko.md),
 [TICKET202 EN](docs/exact-hermite-deformation-parity-scale.md),
@@ -369,13 +374,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-203입니다. 리만 트랙은 Rouché 경계
-부등식과 독립적인 포함 영점 인증을 결합하는 정확 전달 정리를 증명했지만,
-실제 Xi의 cofinal margin은 만들지 못했습니다. 콜라츠 트랙은 두 위치 valuation
-이동식을 유도하고 알려진 all-two 고정주기로 보편 불변성을 반박했습니다.
-골드바흐 트랙은 점별 `c/log log N` 결손이 단순 양성보다 강함을 증명했고,
-쌍둥이 소수 트랙은 고정 primorial 단일 좌표 정보의 parity 한계를 증명했습니다.
-네 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-204입니다. 리만 트랙은 유한 표본과
+미분 상계로 연속 Rouché 경계를 인증하는 정리와 표본 전용 no-go를 증명했지만,
+실제 Xi의 cofinal 미분 상계는 만들지 못했습니다. 콜라츠 트랙은 순환 회전과
+반복을 원시 valuation 목걸이로 환원했습니다. 골드바흐 트랙은 유한 검증 뒤
+예외 개수의 엄격한 `1` 미만 꼬리 상계가 전칭 명제를 닫는 정확한 문턱임을
+증명했습니다. 쌍둥이 소수 트랙은 양의 준정부호 커널의 parity 장벽과
+부정부호 rank-2 형식 탈출을 분리했습니다. 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -395,19 +400,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-203입니다.
-[Rouché 전달·valuation 이동·점별 목표 교정 한국어 보고서](docs/rouche-transfer-pointwise-primorial.ko.md)와
-[영문 보고서](docs/rouche-transfer-pointwise-primorial.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-204입니다.
+[연속 인증·원시 목걸이·예외집합·parity 커널 한국어 보고서](docs/mesh-necklace-exceptional-kernel.ko.md)와
+[영문 보고서](docs/mesh-necklace-exceptional-kernel.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-RH의 조건부 영점수 전달, Collatz signed transfer 항등식과 최소 no-go,
-Goldbach의 과도한 scaled 목표 교정, Twin의 고정 local parity barrier를
-확정했지만 실제 전역·무한 전제는 남아 있습니다. 각 proof DAG는 TICKET-202 입력, 이번에 닫힌 정리,
+RH의 연속 Rouché 망 승격, Collatz 원시 목걸이 환원, Goldbach의 엄격한
+subunit 예외 개수 문턱, Twin의 PSD parity barrier를 확정했지만 실제
+전역·무한 전제는 남아 있습니다. 각 proof DAG는 TICKET-203 입력, 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-203의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 203개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-204의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 204개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

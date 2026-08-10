@@ -37,7 +37,30 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-203 Rouché Transfer, Signed Valuation Transfer, and Pointwise Target Correction
+## 2026-08-10 TICKET-204 Continuous Certificates, Primitive Necklaces, and Parity Kernels
+
+TICKET-204 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. sampled relative contour error, a covering radius, and an arclength
+   derivative bound imply a continuous Rouché bound, while finite samples
+   without regularity do not;
+2. Collatz affine cycle integrality is invariant under cyclic rotation and word
+   powers, so periodic candidates reduce to primitive necklaces;
+3. after finite verification, a Goldbach tail exceptional-count bound strictly
+   below one closes the universal quantifier, whereas density zero and a bound
+   at most one do not;
+4. a PSD kernel cannot be negative on every semiprime factor channel, while a
+   formal indefinite rank-two kernel separates exposed factor channels.
+
+The RH fixtures are not Xi, the Collatz enumeration is finite, the Goldbach
+countermodels are not prime arithmetic, and the Twin escape is not yet an
+arithmetic sieve weight. The machine resolution count remains zero.
+
+English report: [TICKET-204](mesh-necklace-exceptional-kernel.md).
+한국어 보고서: [TICKET-204](mesh-necklace-exceptional-kernel.ko.md).
+
+## Preserved: 2026-08-10 TICKET-203 Rouché Transfer, Signed Valuation Transfer, and Pointwise Target Correction
 
 TICKET-203 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:
