@@ -1,0 +1,1137 @@
+{
+  "schema": "primeproject.ticket205-winding-extremal-finite-omega.v1",
+  "generated_at": "2026-08-10T23:59:45+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-205 resolves none of the four conjectures. It replaces RH comparison-only counting by a direct derivative-certified winding certificate, removes the all-ge-two Collatz cycle stratum, verifies Goldbach through ten million with a reproducible witness stream, and realizes the Twin factor-channel signs as an n-only Omega weight while proving that raw positive products still suffer parity false positives.",
+  "winding_extremal_finite_omega_audit": {
+    "theorem_name": "FourConjectureWindingExtremalFiniteOmegaAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-205 resolves none of the four conjectures. It replaces RH comparison-only counting by a direct derivative-certified winding certificate, removes the all-ge-two Collatz cycle stratum, verifies Goldbach through ten million with a reproducible witness stream, and realizes the Twin factor-channel signs as an n-only Omega weight while proving that raw positive products still suffer parity false positives.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-205",
+      "theorem_name": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+      "declared_proposition": "Let Gamma be a positively oriented rectifiable Jordan contour, let f be analytic on and inside Gamma, and partition Gamma into arcs Gamma_j starting at z_j. If |f(z_j)|>=m_j>0 and the arclength derivative of f is bounded by M_j on Gamma_j of length h_j, with M_j h_j<m_j, then f(Gamma_j) and the chord [f(z_j),f(z_(j+1))] are homotopic in C\\{0}. Hence the winding number of f(Gamma) equals that of the sampled polygon and, by the argument principle, equals the number of zeros of f inside Gamma counted with multiplicity. Finite values without the derivative bounds do not determine winding.",
+      "mathematical_argument": "For z on Gamma_j, integration along arclength gives |f(z)-f(z_j)|<=M_j h_j<m_j<=|f(z_j)|. Thus the true image arc lies in an open disk centered at f(z_j) that excludes zero. Its endpoint and the straight chord also lie in this convex disk, so the arc can be replaced by the chord through a zero-avoiding homotopy. Applying this on every segment preserves winding. For the no-go, 1 and z^8 agree at all eighth roots of unity but have winding numbers 0 and 8.",
+      "reproducible_computation": {
+        "theorem": "Let Gamma be a positively oriented rectifiable Jordan contour, let f be analytic on and inside Gamma, and partition Gamma into arcs Gamma_j starting at z_j. If |f(z_j)|>=m_j>0 and the arclength derivative of f is bounded by M_j on Gamma_j of length h_j, with M_j h_j<m_j, then f(Gamma_j) and the chord [f(z_j),f(z_(j+1))] are homotopic in C\\{0}. Hence the winding number of f(Gamma) equals that of the sampled polygon and, by the argument principle, equals the number of zeros of f inside Gamma counted with multiplicity. Finite values without the derivative bounds do not determine winding.",
+        "proof": "For z on Gamma_j, integration along arclength gives |f(z)-f(z_j)|<=M_j h_j<m_j<=|f(z_j)|. Thus the true image arc lies in an open disk centered at f(z_j) that excludes zero. Its endpoint and the straight chord also lie in this convex disk, so the arc can be replaced by the chord through a zero-avoiding homotopy. Applying this on every segment preserves winding. For the no-go, 1 and z^8 agree at all eighth roots of unity but have winding numbers 0 and 8.",
+        "exact_argument_principle_fixture": {
+          "contour": "positively oriented unit circle",
+          "analytic_function_f": "z^3",
+          "sample_count": 24,
+          "sample_modulus_lower_m": "1",
+          "arclength_derivative_bound_M": "3",
+          "segment_length_h_upper_using_pi_le_22_over_7": "11/42",
+          "image_excursion_Mh_upper": "11/14",
+          "zero_avoidance_margin_lower": "3/14",
+          "sample_phase_increment_turns": "1/8",
+          "sampled_polygon_total_phase_turns": "3",
+          "certified_polygon_winding": 3,
+          "certified_interior_zero_count": 3,
+          "actual_zero_count_of_fixture": 3,
+          "all_segment_disks_exclude_zero": true
+        },
+        "finite_sample_winding_no_go": {
+          "sample_nodes": "8th roots of unity",
+          "sample_count": 8,
+          "function_f0": "1",
+          "function_f1": "z^8",
+          "all_sample_values_equal": true,
+          "winding_f0": 0,
+          "winding_f1": 8,
+          "finite_values_alone_determine_winding": false
+        },
+        "aggregate": {
+          "derivative_certified_polygonal_winding_theorem_proved": true,
+          "direct_argument_principle_zero_count_fixture_certified": true,
+          "finite_sample_only_winding_inference_refuted": true,
+          "completed_zeta_cofinal_contour_certificate_constructed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem certifies a zero count only after a zero-avoiding derivative bound is supplied on every contour arc. The z^3 and z^8 examples are exact regressions, not the completed zeta function.",
+        "failure_count": 0
+      },
+      "logical_limit": "The direct winding transfer is exact, but no zero-free cofinal contours with certified completed-zeta derivative bounds are constructed.",
+      "route_decision": {
+        "discard": "inferring completed-zeta winding from finitely many contour values alone",
+        "retain": "polygonal winding plus segmentwise zero-avoidance certificates",
+        "next_single_lemma": "CompletedZetaCofinalZeroFreeContourWindingCertificate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T204",
+            "label": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T205",
+            "label": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N205",
+            "label": "FiniteContourValuesAloneDetermineWinding",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN205",
+            "label": "CompletedZetaCofinalZeroFreeContourWindingCertificate",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T204",
+            "RH-T205"
+          ],
+          [
+            "RH-T205",
+            "RH-N205"
+          ],
+          [
+            "RH-T205",
+            "RH-OPEN205"
+          ],
+          [
+            "RH-OPEN205",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or counterexample. A direct argument-principle mesh certificate and an exact finite-sample winding no-go are proved."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-205",
+      "theorem_name": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+      "declared_proposition": "In any nontrivial positive accelerated Collatz cycle, every occurrence of a minimum cycle value has outgoing valuation exactly one, while every occurrence of a maximum value has outgoing valuation at least two. Consequently every nontrivial periodic valuation necklace contains both a 1 and an entry at least 2. In particular, a positive integral cycle word whose valuations are all at least 2 is necessarily a power of the trivial word (2), representing the fixed cycle 1.",
+      "mathematical_argument": "Let m be a minimum and write 3m+1=2^a m', with m'>=m. If a>=2, then 3m+1>=4m, so m<=1. Positivity and oddness give m=1; the equation then forces a=2 and m'=1, and determinism makes the whole cycle trivial. Thus a=1 in a nontrivial cycle. At a maximum M, a=1 would give M'=(3M+1)/2>M, impossible, so a>=2. For a word with D>0 and D dividing its affine numerator B, x=B/D is a positive odd integral cycle value; the extremal argument then proves the word is all 2.",
+      "reproducible_computation": {
+        "theorem": "In any nontrivial positive accelerated Collatz cycle, every occurrence of a minimum cycle value has outgoing valuation exactly one, while every occurrence of a maximum value has outgoing valuation at least two. Consequently every nontrivial periodic valuation necklace contains both a 1 and an entry at least 2. In particular, a positive integral cycle word whose valuations are all at least 2 is necessarily a power of the trivial word (2), representing the fixed cycle 1.",
+        "proof": "Let m be a minimum and write 3m+1=2^a m', with m'>=m. If a>=2, then 3m+1>=4m, so m<=1. Positivity and oddness give m=1; the equation then forces a=2 and m'=1, and determinism makes the whole cycle trivial. Thus a=1 in a nontrivial cycle. At a maximum M, a=1 would give M'=(3M+1)/2>M, impossible, so a>=2. For a word with D>0 and D dividing its affine numerator B, x=B/D is a positive odd integral cycle value; the extremal argument then proves the word is all 2.",
+        "exact_extremal_inequalities": {
+          "minimum_step": "3m+1=2^a m' with m'>=m",
+          "minimum_if_a_ge_2": "4m<=3m+1, hence m<=1",
+          "nontrivial_minimum_outgoing_valuation": 1,
+          "maximum_if_a_eq_1": "M'=(3M+1)/2>M",
+          "nontrivial_maximum_outgoing_valuation_lower": 2
+        },
+        "finite_integrality_regression": {
+          "rows": [
+            {
+              "length": 1,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 4,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 2,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 16,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 3,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 64,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 4,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 256,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 5,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 1024,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 6,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 4096,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 7,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 16384,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            },
+            {
+              "length": 8,
+              "valuation_alphabet": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "word_count": 65536,
+              "divisible_word_count": 1,
+              "all_two_word_is_the_only_divisible_word": true,
+              "non_all_two_divisible_word_count": 0
+            }
+          ],
+          "maximum_length": 8,
+          "total_words_checked": 87380,
+          "total_divisible_words": 8,
+          "non_all_two_divisible_words": 0
+        },
+        "aggregate": {
+          "all_ge_two_nontrivial_cycle_family_excluded_for_all_lengths": true,
+          "only_surviving_all_ge_two_primitive_necklace": [
+            2
+          ],
+          "mixed_valuation_necklaces_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem retires the entire all-valuations-at-least-two periodic search region. It does not exclude primitive necklaces containing both 1 and larger valuations and says nothing about nonperiodic orbits.",
+        "failure_count": 0
+      },
+      "logical_limit": "The all-ge-two necklace region is eliminated universally, but mixed primitive necklaces and every nonperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "searching all-valuations-at-least-two words for nontrivial positive cycles",
+        "retain": "primitive mixed necklaces containing valuation one and a larger valuation",
+        "next_single_lemma": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T204",
+            "label": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T205",
+            "label": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N205",
+            "label": "AllValuationsAtLeastTwoContainANontrivialPositiveCycle",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN205",
+            "label": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T204",
+            "CO-T205"
+          ],
+          [
+            "CO-T205",
+            "CO-N205"
+          ],
+          [
+            "CO-T205",
+            "CO-OPEN205"
+          ],
+          [
+            "CO-OPEN205",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent-orbit exclusion, or nontrivial cycle. One infinite periodic candidate stratum is rigorously removed."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-205",
+      "theorem_name": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+      "declared_proposition": "Every even integer N with 4<=N<=10000000 has a prime-pair representation. The generator records the least prime witness p<=N/2 for every target and hashes the complete ordered witness stream, so the finite theorem is independently reproducible. No finite prefix, regardless of its size, implies strong Goldbach: a Boolean model that agrees on every N<=B and fails first at B+2 is indistinguishable on that prefix.",
+      "mathematical_argument": "The sieve marks primes up to the bound. For each even N the scan stops only after finding a marked p<=N/2 with N-p also marked; checking these two table entries is an explicit finite witness. The committed digest identifies the ordered list of all such least witnesses but is not used as a stand-alone proof. The prefix no-go follows by defining two models that coincide through B and differ only at the next even target.",
+      "reproducible_computation": {
+        "theorem": "Every even integer N with 4<=N<=10000000 has a prime-pair representation. The generator records the least prime witness p<=N/2 for every target and hashes the complete ordered witness stream, so the finite theorem is independently reproducible. No finite prefix, regardless of its size, implies strong Goldbach: a Boolean model that agrees on every N<=B and fails first at B+2 is indistinguishable on that prefix.",
+        "proof": "The sieve marks primes up to the bound. For each even N the scan stops only after finding a marked p<=N/2 with N-p also marked; checking these two table entries is an explicit finite witness. The committed digest identifies the ordered list of all such least witnesses but is not used as a stand-alone proof. The prefix no-go follows by defining two models that coincide through B and differ only at the next even target.",
+        "exact_finite_witness_certificate": {
+          "limit": 10000000,
+          "even_targets_checked": 4999999,
+          "exception_count": 0,
+          "all_checked_targets_have_prime_pair_witness": true,
+          "maximum_least_prime_witness": 751,
+          "maximum_witness_target": 3807404,
+          "last_target_witness": {
+            "target": 10000000,
+            "least_prime_witness": 29,
+            "complementary_prime": 9999971
+          },
+          "witness_stream_format": "ASCII lines N:p using the least p<=N/2",
+          "witness_stream_sha256": "ed31375c2d840a190345e901dfaf52e322424d40d7b4afa33ec7977cf0b791dd",
+          "witness_stream_record_count": 4999999,
+          "record_least_witness_rows": [
+            {
+              "target": 4,
+              "new_record_least_prime_witness": 2,
+              "complementary_prime": 2
+            },
+            {
+              "target": 6,
+              "new_record_least_prime_witness": 3,
+              "complementary_prime": 3
+            },
+            {
+              "target": 12,
+              "new_record_least_prime_witness": 5,
+              "complementary_prime": 7
+            },
+            {
+              "target": 30,
+              "new_record_least_prime_witness": 7,
+              "complementary_prime": 23
+            },
+            {
+              "target": 98,
+              "new_record_least_prime_witness": 19,
+              "complementary_prime": 79
+            },
+            {
+              "target": 220,
+              "new_record_least_prime_witness": 23,
+              "complementary_prime": 197
+            },
+            {
+              "target": 308,
+              "new_record_least_prime_witness": 31,
+              "complementary_prime": 277
+            },
+            {
+              "target": 556,
+              "new_record_least_prime_witness": 47,
+              "complementary_prime": 509
+            },
+            {
+              "target": 992,
+              "new_record_least_prime_witness": 73,
+              "complementary_prime": 919
+            },
+            {
+              "target": 2642,
+              "new_record_least_prime_witness": 103,
+              "complementary_prime": 2539
+            },
+            {
+              "target": 5372,
+              "new_record_least_prime_witness": 139,
+              "complementary_prime": 5233
+            },
+            {
+              "target": 7426,
+              "new_record_least_prime_witness": 173,
+              "complementary_prime": 7253
+            },
+            {
+              "target": 43532,
+              "new_record_least_prime_witness": 211,
+              "complementary_prime": 43321
+            },
+            {
+              "target": 54244,
+              "new_record_least_prime_witness": 233,
+              "complementary_prime": 54011
+            },
+            {
+              "target": 63274,
+              "new_record_least_prime_witness": 293,
+              "complementary_prime": 62981
+            },
+            {
+              "target": 113672,
+              "new_record_least_prime_witness": 313,
+              "complementary_prime": 113359
+            },
+            {
+              "target": 128168,
+              "new_record_least_prime_witness": 331,
+              "complementary_prime": 127837
+            },
+            {
+              "target": 194428,
+              "new_record_least_prime_witness": 359,
+              "complementary_prime": 194069
+            },
+            {
+              "target": 194470,
+              "new_record_least_prime_witness": 383,
+              "complementary_prime": 194087
+            },
+            {
+              "target": 413572,
+              "new_record_least_prime_witness": 389,
+              "complementary_prime": 413183
+            },
+            {
+              "target": 503222,
+              "new_record_least_prime_witness": 523,
+              "complementary_prime": 502699
+            },
+            {
+              "target": 1077422,
+              "new_record_least_prime_witness": 601,
+              "complementary_prime": 1076821
+            },
+            {
+              "target": 3526958,
+              "new_record_least_prime_witness": 727,
+              "complementary_prime": 3526231
+            },
+            {
+              "target": 3807404,
+              "new_record_least_prime_witness": 751,
+              "complementary_prime": 3806653
+            }
+          ],
+          "checkpoint_rows": [
+            {
+              "limit": 100,
+              "even_targets_checked": 49,
+              "exception_count": 0,
+              "maximum_least_prime_witness": 19,
+              "maximum_witness_target": 98
+            },
+            {
+              "limit": 1000,
+              "even_targets_checked": 499,
+              "exception_count": 0,
+              "maximum_least_prime_witness": 73,
+              "maximum_witness_target": 992
+            },
+            {
+              "limit": 10000,
+              "even_targets_checked": 4999,
+              "exception_count": 0,
+              "maximum_least_prime_witness": 173,
+              "maximum_witness_target": 7426
+            },
+            {
+              "limit": 100000,
+              "even_targets_checked": 49999,
+              "exception_count": 0,
+              "maximum_least_prime_witness": 293,
+              "maximum_witness_target": 63274
+            },
+            {
+              "limit": 1000000,
+              "even_targets_checked": 499999,
+              "exception_count": 0,
+              "maximum_least_prime_witness": 523,
+              "maximum_witness_target": 503222
+            },
+            {
+              "limit": 10000000,
+              "even_targets_checked": 4999999,
+              "exception_count": 0,
+              "maximum_least_prime_witness": 751,
+              "maximum_witness_target": 3807404
+            }
+          ]
+        },
+        "finite_prefix_promotion_no_go": {
+          "verified_prefix_bound_B": 10000000,
+          "first_unobserved_even_target": 10000002,
+          "model_A_goldbach_holds_at_first_unobserved_target": true,
+          "model_B_goldbach_holds_at_first_unobserved_target": false,
+          "models_agree_on_entire_verified_prefix": true,
+          "finite_prefix_alone_determines_infinite_tail": false
+        },
+        "aggregate": {
+          "finite_goldbach_theorem_limit": 10000000,
+          "finite_exception_count": 0,
+          "reproducible_witness_stream_constructed": true,
+          "finite_prefix_to_universal_inference_refuted": true,
+          "actual_tail_exception_bound_below_one_constructed": false,
+          "actual_goldbach_counterexample_found": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The exhaustive certificate is a finite theorem, not evidence of a uniform major/minor-arc inequality. The first unchecked even integer and every later target remain outside the computation.",
+        "failure_count": 0
+      },
+      "logical_limit": "The verified prefix now reaches ten million with a reproducible witness digest, but no analytic control starts at the next target.",
+      "route_decision": {
+        "discard": "promoting any finite Goldbach verification directly to the infinite conjecture",
+        "retain": "exact prefix certificate plus a rigorous tail exceptional count below one",
+        "next_single_lemma": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T204",
+            "label": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T205",
+            "label": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N205",
+            "label": "ArbitrarilyLargeFiniteGoldbachPrefixImpliesStrongGoldbach",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN205",
+            "label": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T204",
+            "GB-T205"
+          ],
+          [
+            "GB-T205",
+            "GB-N205"
+          ],
+          [
+            "GB-T205",
+            "GB-OPEN205"
+          ],
+          [
+            "GB-OPEN205",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. Every even target through 10,000,000 receives an exact witness; the infinite tail remains open."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-205",
+      "theorem_name": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+      "declared_proposition": "Let Q(d) be one when d is a prime power p^k with k>=1 and zero otherwise. Then Omega(n)=sum_(d|n) Q(d). Therefore the n-only arithmetic weight W(n)=2-(3/2)Omega(n) exactly realizes the TICKET-204 formal signs: W(p)=1/2 on primes and W(pq)=-1 on semiprimes, including squares. This signed realization does not solve the parity problem: W(n)W(n+2)>0 also on infinitely many forced composite-composite pairs.",
+      "mathematical_argument": "If n=product p^e, its prime-power divisors for a fixed p are exactly p,p^2,...,p^e, so the divisor sum contributes e and totals Omega(n). Substitution gives the prime and P2 signs. For n=3+15k with k>=2, n is a proper multiple of 3 and n+2 is a proper multiple of 5. Both have Omega at least two, hence both W values are negative and their shift-two product is positive although neither endpoint is prime.",
+      "reproducible_computation": {
+        "theorem": "Let Q(d) be one when d is a prime power p^k with k>=1 and zero otherwise. Then Omega(n)=sum_(d|n) Q(d). Therefore the n-only arithmetic weight W(n)=2-(3/2)Omega(n) exactly realizes the TICKET-204 formal signs: W(p)=1/2 on primes and W(pq)=-1 on semiprimes, including squares. This signed realization does not solve the parity problem: W(n)W(n+2)>0 also on infinitely many forced composite-composite pairs.",
+        "proof": "If n=product p^e, its prime-power divisors for a fixed p are exactly p,p^2,...,p^e, so the divisor sum contributes e and totals Omega(n). Substitution gives the prime and P2 signs. For n=3+15k with k>=2, n is a proper multiple of 3 and n+2 is a proper multiple of 5. Both have Omega at least two, hence both W values are negative and their shift-two product is positive although neither endpoint is prime.",
+        "prime_power_divisor_identity_rows": [
+          {
+            "n": 1,
+            "Omega_n": 0,
+            "prime_power_divisor_sum": 0,
+            "weight_W_n": "2"
+          },
+          {
+            "n": 2,
+            "Omega_n": 1,
+            "prime_power_divisor_sum": 1,
+            "weight_W_n": "1/2"
+          },
+          {
+            "n": 4,
+            "Omega_n": 2,
+            "prime_power_divisor_sum": 2,
+            "weight_W_n": "-1"
+          },
+          {
+            "n": 6,
+            "Omega_n": 2,
+            "prime_power_divisor_sum": 2,
+            "weight_W_n": "-1"
+          },
+          {
+            "n": 8,
+            "Omega_n": 3,
+            "prime_power_divisor_sum": 3,
+            "weight_W_n": "-5/2"
+          },
+          {
+            "n": 12,
+            "Omega_n": 3,
+            "prime_power_divisor_sum": 3,
+            "weight_W_n": "-5/2"
+          },
+          {
+            "n": 30,
+            "Omega_n": 3,
+            "prime_power_divisor_sum": 3,
+            "weight_W_n": "-5/2"
+          },
+          {
+            "n": 210,
+            "Omega_n": 4,
+            "prime_power_divisor_sum": 4,
+            "weight_W_n": "-4"
+          },
+          {
+            "n": 512,
+            "Omega_n": 9,
+            "prime_power_divisor_sum": 9,
+            "weight_W_n": "-23/2"
+          }
+        ],
+        "channel_signs": {
+          "prime_weight_values": [
+            "1/2"
+          ],
+          "semiprime_weight_values": [
+            "-1"
+          ],
+          "prime_channel_positive": true,
+          "semiprime_channel_negative": true
+        },
+        "composite_composite_product_no_go_rows": [
+          {
+            "k": 2,
+            "n": 33,
+            "n_plus_2": 35,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-1",
+            "W_n_plus_2": "-1",
+            "product_is_positive": true
+          },
+          {
+            "k": 3,
+            "n": 48,
+            "n_plus_2": 50,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-11/2",
+            "W_n_plus_2": "-5/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 4,
+            "n": 63,
+            "n_plus_2": 65,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-5/2",
+            "W_n_plus_2": "-1",
+            "product_is_positive": true
+          },
+          {
+            "k": 5,
+            "n": 78,
+            "n_plus_2": 80,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-5/2",
+            "W_n_plus_2": "-11/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 6,
+            "n": 93,
+            "n_plus_2": 95,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-1",
+            "W_n_plus_2": "-1",
+            "product_is_positive": true
+          },
+          {
+            "k": 7,
+            "n": 108,
+            "n_plus_2": 110,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-11/2",
+            "W_n_plus_2": "-5/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 8,
+            "n": 123,
+            "n_plus_2": 125,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-1",
+            "W_n_plus_2": "-5/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 9,
+            "n": 138,
+            "n_plus_2": 140,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-5/2",
+            "W_n_plus_2": "-4",
+            "product_is_positive": true
+          },
+          {
+            "k": 10,
+            "n": 153,
+            "n_plus_2": 155,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-5/2",
+            "W_n_plus_2": "-1",
+            "product_is_positive": true
+          },
+          {
+            "k": 11,
+            "n": 168,
+            "n_plus_2": 170,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-11/2",
+            "W_n_plus_2": "-5/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 12,
+            "n": 183,
+            "n_plus_2": 185,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-1",
+            "W_n_plus_2": "-1",
+            "product_is_positive": true
+          },
+          {
+            "k": 13,
+            "n": 198,
+            "n_plus_2": 200,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-4",
+            "W_n_plus_2": "-11/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 14,
+            "n": 213,
+            "n_plus_2": 215,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-1",
+            "W_n_plus_2": "-1",
+            "product_is_positive": true
+          },
+          {
+            "k": 15,
+            "n": 228,
+            "n_plus_2": 230,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-4",
+            "W_n_plus_2": "-5/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 16,
+            "n": 243,
+            "n_plus_2": 245,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-11/2",
+            "W_n_plus_2": "-5/2",
+            "product_is_positive": true
+          },
+          {
+            "k": 17,
+            "n": 258,
+            "n_plus_2": 260,
+            "n_divisible_by_3": true,
+            "n_plus_2_divisible_by_5": true,
+            "both_composite": true,
+            "W_n": "-5/2",
+            "W_n_plus_2": "-4",
+            "product_is_positive": true
+          }
+        ],
+        "aggregate": {
+          "prime_power_divisor_identity_verified_through": 512,
+          "identity_failure_count": 0,
+          "factor_pair_free_n_only_signed_realization_constructed": true,
+          "positive_product_is_twin_indicator_refuted": true,
+          "composite_composite_false_positive_family_is_infinite": true,
+          "uniform_composite_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The weight is an exact arithmetic realization of the desired channel signs, but it is unbounded below with Omega and its positive product contains an infinite composite-composite CRT family. No positive twin-prime lower bound or controlled switching remainder follows.",
+        "failure_count": 0
+      },
+      "logical_limit": "The formal TICKET-204 signs are realized by an n-only arithmetic weight, but composite-composite products create infinite false positives.",
+      "route_decision": {
+        "discard": "using positivity of the raw Omega switching product as a twin-prime indicator",
+        "retain": "signed Omega switching after explicit composite-composite cancellation",
+        "next_single_lemma": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T204",
+            "label": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T205",
+            "label": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N205",
+            "label": "PositiveOmegaSwitchingProductIsATwinPrimeIndicator",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN205",
+            "label": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T204",
+            "TP-T205"
+          ],
+          [
+            "TP-T205",
+            "TP-N205"
+          ],
+          [
+            "TP-T205",
+            "TP-OPEN205"
+          ],
+          [
+            "TP-OPEN205",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. An exact n-only signed realization and an infinite product false-positive family are proved."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-205",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Gamma be a positively oriented rectifiable Jordan contour, let f be analytic on and inside Gamma, and partition Gamma into arcs Gamma_j starting at z_j. If |f(z_j)|>=m_j>0 and the arclength derivative of f is bounded by M_j on Gamma_j of length h_j, with M_j h_j<m_j, then f(Gamma_j) and the chord [f(z_j),f(z_(j+1))] are homotopic in C\\{0}. Hence the winding number of f(Gamma) equals that of the sampled polygon and, by the argument principle, equals the number of zeros of f inside Gamma counted with multiplicity. Finite values without the derivative bounds do not determine winding.",
+      "new_result": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+      "discarded_route": "inferring completed-zeta winding from finitely many contour values alone",
+      "remaining_gap": "The direct winding transfer is exact, but no zero-free cofinal contours with certified completed-zeta derivative bounds are constructed.",
+      "candidate_theorem": "CompletedZetaCofinalZeroFreeContourWindingCertificate",
+      "claim_boundary": "No RH proof or counterexample. A direct argument-principle mesh certificate and an exact finite-sample winding no-go are proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T204",
+            "label": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T205",
+            "label": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N205",
+            "label": "FiniteContourValuesAloneDetermineWinding",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN205",
+            "label": "CompletedZetaCofinalZeroFreeContourWindingCertificate",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T204",
+            "RH-T205"
+          ],
+          [
+            "RH-T205",
+            "RH-N205"
+          ],
+          [
+            "RH-T205",
+            "RH-OPEN205"
+          ],
+          [
+            "RH-OPEN205",
+            "RH"
+          ]
+        ]
+      },
+      "next_experiment": "CompletedZetaCofinalZeroFreeContourWindingCertificate"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-205",
+      "status": "open_not_proven",
+      "declared_proposition": "In any nontrivial positive accelerated Collatz cycle, every occurrence of a minimum cycle value has outgoing valuation exactly one, while every occurrence of a maximum value has outgoing valuation at least two. Consequently every nontrivial periodic valuation necklace contains both a 1 and an entry at least 2. In particular, a positive integral cycle word whose valuations are all at least 2 is necessarily a power of the trivial word (2), representing the fixed cycle 1.",
+      "new_result": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+      "discarded_route": "searching all-valuations-at-least-two words for nontrivial positive cycles",
+      "remaining_gap": "The all-ge-two necklace region is eliminated universally, but mixed primitive necklaces and every nonperiodic divergence remain open.",
+      "candidate_theorem": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces",
+      "claim_boundary": "No Collatz proof, divergent-orbit exclusion, or nontrivial cycle. One infinite periodic candidate stratum is rigorously removed.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T204",
+            "label": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T205",
+            "label": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N205",
+            "label": "AllValuationsAtLeastTwoContainANontrivialPositiveCycle",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN205",
+            "label": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T204",
+            "CO-T205"
+          ],
+          [
+            "CO-T205",
+            "CO-N205"
+          ],
+          [
+            "CO-T205",
+            "CO-OPEN205"
+          ],
+          [
+            "CO-OPEN205",
+            "CO"
+          ]
+        ]
+      },
+      "next_experiment": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-205",
+      "status": "open_not_proven",
+      "declared_proposition": "Every even integer N with 4<=N<=10000000 has a prime-pair representation. The generator records the least prime witness p<=N/2 for every target and hashes the complete ordered witness stream, so the finite theorem is independently reproducible. No finite prefix, regardless of its size, implies strong Goldbach: a Boolean model that agrees on every N<=B and fails first at B+2 is indistinguishable on that prefix.",
+      "new_result": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+      "discarded_route": "promoting any finite Goldbach verification directly to the infinite conjecture",
+      "remaining_gap": "The verified prefix now reaches ten million with a reproducible witness digest, but no analytic control starts at the next target.",
+      "candidate_theorem": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+      "claim_boundary": "No Goldbach proof or counterexample. Every even target through 10,000,000 receives an exact witness; the infinite tail remains open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T204",
+            "label": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T205",
+            "label": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N205",
+            "label": "ArbitrarilyLargeFiniteGoldbachPrefixImpliesStrongGoldbach",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN205",
+            "label": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T204",
+            "GB-T205"
+          ],
+          [
+            "GB-T205",
+            "GB-N205"
+          ],
+          [
+            "GB-T205",
+            "GB-OPEN205"
+          ],
+          [
+            "GB-OPEN205",
+            "GB"
+          ]
+        ]
+      },
+      "next_experiment": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-205",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Q(d) be one when d is a prime power p^k with k>=1 and zero otherwise. Then Omega(n)=sum_(d|n) Q(d). Therefore the n-only arithmetic weight W(n)=2-(3/2)Omega(n) exactly realizes the TICKET-204 formal signs: W(p)=1/2 on primes and W(pq)=-1 on semiprimes, including squares. This signed realization does not solve the parity problem: W(n)W(n+2)>0 also on infinitely many forced composite-composite pairs.",
+      "new_result": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+      "discarded_route": "using positivity of the raw Omega switching product as a twin-prime indicator",
+      "remaining_gap": "The formal TICKET-204 signs are realized by an n-only arithmetic weight, but composite-composite products create infinite false positives.",
+      "candidate_theorem": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation",
+      "claim_boundary": "No Twin Prime proof or counterexample. An exact n-only signed realization and an infinite product false-positive family are proved.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T204",
+            "label": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T205",
+            "label": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N205",
+            "label": "PositiveOmegaSwitchingProductIsATwinPrimeIndicator",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN205",
+            "label": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T204",
+            "TP-T205"
+          ],
+          [
+            "TP-T205",
+            "TP-N205"
+          ],
+          [
+            "TP-T205",
+            "TP-OPEN205"
+          ],
+          [
+            "TP-OPEN205",
+            "TP"
+          ]
+        ]
+      },
+      "next_experiment": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation"
+    }
+  ]
+}

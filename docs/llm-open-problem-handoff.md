@@ -62,9 +62,40 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-204
+## Latest Continuation After TICKET-205
 
-TICKET-204 is the current boundary. It resolves none of the four conjectures.
+TICKET-205 is the current boundary. It resolves none of the four conjectures
+and advances the exact premises left by TICKET-204:
+
+1. **Riemann:** segmentwise derivative disks identify the analytic winding
+   with a sampled polygon winding. A completed-zeta cofinal zero-free contour
+   certificate remains open.
+2. **Collatz:** a cycle-extremum argument removes every periodic word with all
+   valuations at least two except the trivial all-2 word. Uniform
+   nondivisibility for primitive mixed necklaces and nonperiodic divergence
+   remain open.
+3. **Goldbach:** every even target through ten million has an exact least-prime
+   witness and a reproducible witness-stream digest. No infinite tail bound is
+   established.
+4. **Twin Prime:** an n-only Omega weight realizes the formal prime/semiprime
+   signs, but its raw product has an infinite composite-composite false-positive
+   family. Uniform cancellation of that mass remains open.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket205-winding-extremal-finite-omega.json
+```
+
+English report: [TICKET-205](winding-extremal-finite-omega.md).
+Korean report: [TICKET-205 한국어](winding-extremal-finite-omega.ko.md).
+
+All four results keep an explicit finite/infinite or conditional/unconditional
+boundary. No novelty-priority claim is made without expert review.
+
+## Preserved Continuation After TICKET-204
+
+TICKET-204 is the direct input to TICKET-205. It resolves none of the four conjectures.
 It audits the exact promotion premises left by TICKET-203:
 
 1. **Riemann:** a derivative bound promotes a sampled relative-error mesh to a

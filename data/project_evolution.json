@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.project-evolution.v1",
-  "updated_at": "2026-08-10T23:59:30+09:00",
+  "updated_at": "2026-08-10T23:59:45+09:00",
   "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
   "metrics": {
     "live_compute_limit": 10000000,
@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 182,
-    "claim_language_scanned_lines": 64850,
+        "claim_language_scanned_files": 184,
+        "claim_language_scanned_lines": 65444,
     "claim_language_triggered_mentions": 126,
     "claim_language_guarded_mentions": 126,
     "claim_language_failures": 0,
@@ -1266,6 +1266,13 @@
           "state": "bounded",
           "measure": "RH 16-sample exact derivative certificate plus 8-sample no-go / Collatz 86439 exact words and 11336 primitive roots / Goldbach 4999 finite targets plus 2 logical no-go models / Twin exact rank-2 kernel and -9/4 principal minor / 4 exact partial or no-go theorems / 0 conjecture resolutions",
           "proof": "TICKET-204 proves the derivative-certified finite-mesh-to-continuous Rouche bound and a sample-only no-go, reduces periodic Collatz words under rotations and powers to primitive necklaces, identifies the strict subunit integer threshold required to empty the Goldbach exceptional set, and separates the PSD Twin parity obstruction from a formal indefinite rank-two factor-channel escape"
+        },
+        {
+          "marker": "166",
+          "title": "Certified winding, cycle extrema, ten-million Goldbach witnesses, and Omega switching",
+          "state": "bounded",
+          "measure": "RH 24-sample exact winding certificate plus 8-sample no-go / Collatz 87380 words over valuations 2 through 5 with 8 all-two hits and 0 mixed hits / Goldbach 4999999 exact targets through 10000000 and deterministic witness digest / Twin exact Omega weight plus infinite false-positive family / 4 exact partial or no-go theorems / 0 conjecture resolutions",
+          "proof": "TICKET-205 proves that derivative-controlled image arcs preserve polygonal winding and that samples alone do not determine winding; separates minimum and maximum valuations in every hypothetical nontrivial accelerated Collatz cycle and excludes all-at-least-two words; certifies every even Goldbach target through ten million while proving finite-prefix insufficiency; and realizes prime-versus-two-factor signs with a prime-power-divisor Omega weight while exposing infinitely many composite-composite false positives"
         }
       ],
       "evidence_flow": [
@@ -1387,17 +1394,17 @@
           "layer": "Open-Proof",
           "score": 99,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket204-mesh-necklace-exceptional-kernel.json", "docs/mesh-necklace-exceptional-kernel.md", "docs/mesh-necklace-exceptional-kernel.ko.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET204 proves four exact partial or no-go results: a derivative-certified continuous Rouche mesh and sampling no-go, a Collatz primitive-necklace reduction, a strict subunit Goldbach exceptional-count threshold, and a PSD Twin parity no-go with a formal indefinite rank-two escape. It records four proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
-          "proof": "The workbench now requires an actual completed-zeta cofinal relative-derivative bound, uniform nondivisibility for all non-all-two primitive Collatz necklaces, an explicit binary-Goldbach tail exceptional count below one, and an arithmetic indefinite rank-two Twin switching kernel with uniform remainder."
+          "artifacts": ["data/open-problem/ticket205-winding-extremal-finite-omega.json", "docs/winding-extremal-finite-omega.md", "docs/winding-extremal-finite-omega.ko.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET205 proves four exact partial or no-go results: a derivative-certified polygonal-winding theorem and sample-only no-go, Collatz extremal-valuation separation and all-at-least-two exclusion, exact Goldbach witnesses through ten million and finite-prefix no-go, and an exact Omega switching weight with an infinite false-positive family. It records four proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
+          "proof": "The workbench now requires a completed-zeta cofinal zero-free-contour winding certificate, uniform nondivisibility for primitive mixed Collatz valuation necklaces, an explicit binary-Goldbach tail exceptional count below one, and uniform composite-composite cancellation for the Omega-switching Twin correlation."
         }
       ]
     },
     "latest_changes": [
       {
         "label": "Evidence-first Pages",
-        "impact": "The public entry points now lead with TICKET-204: the derivative-certified RH mesh promotion, Collatz primitive-necklace reduction, Goldbach strict subunit exceptional threshold, Twin PSD parity no-go and indefinite formal escape, proof DAGs, and explicit unresolved infinite premises, while preserving TICKET-203 and earlier work in the semantic archive.",
-        "metric": "4 current cards / 204 tickets"
+        "impact": "The public entry points now lead with TICKET-205: certified RH polygonal winding, Collatz extremal-valuation separation, exact Goldbach witnesses through ten million, the Omega-switching Twin weight and its infinite false-positive family, proof DAGs, and explicit unresolved infinite premises, while preserving TICKET-204 and earlier work in the semantic archive.",
+        "metric": "4 current cards / 205 tickets"
       },
       {
         "label": "Scale evidence",

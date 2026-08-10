@@ -203,6 +203,7 @@ TICKET201_SCHEMA = "primeproject.ticket201-finite-information-allrun-liouville-p
 TICKET202_SCHEMA = "primeproject.ticket202-exact-hermite-deformation-parity-scale.v1"
 TICKET203_SCHEMA = "primeproject.ticket203-rouche-transfer-pointwise-primorial.v1"
 TICKET204_SCHEMA = "primeproject.ticket204-mesh-necklace-exceptional-kernel.v1"
+TICKET205_SCHEMA = "primeproject.ticket205-winding-extremal-finite-omega.v1"
 
 
 def fail(message: str) -> int:
@@ -16316,6 +16317,167 @@ def main() -> int:
         or machine204.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket204 proof boundary changed")
+
+    path205 = Path(
+        "data/open-problem/ticket205-winding-extremal-finite-omega.json"
+    )
+    if not path205.exists():
+        return fail("missing ticket205 winding/extremal/finite/omega audit")
+    ticket205 = read_json(path205)
+    if (
+        ticket205.get("schema") != TICKET205_SCHEMA
+        or ticket205.get("status") != "open_not_proven"
+    ):
+        return fail("ticket205 schema or status changed")
+    audit205 = ticket205.get("winding_extremal_finite_omega_audit", {})
+    machine205 = audit205.get("machine_audit", {})
+    expected_machine205 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine205 != expected_machine205:
+        return fail("ticket205 global machine audit changed")
+
+    attempts205 = {
+        row.get("problem_id"): row for row in ticket205.get("attempts", [])
+    }
+    if set(attempts205) != EXPECTED_PROBLEMS:
+        return fail("ticket205 attempts missing problems")
+    track_paths205 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-205-winding-certificate.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-205-extremal-valuation.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-205-ten-million-witness.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-205-omega-weight.json"
+        ),
+    }
+    theorem_names205 = {
+        "riemann": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+        "collatz": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+        "goldbach": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+        "twin-prime": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+    }
+    for problem_id, track_path in track_paths205.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket205 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts205[problem_id]
+        if (
+            track.get("schema") != "primeproject.open-problem-attempt.v1"
+            or track.get("status") != "open_not_proven"
+            or track.get("new_result") != theorem_names205[problem_id]
+            or attempt.get("new_result") != theorem_names205[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(
+                node.get("status") == "highest_risk_open"
+                for node in attempt.get("proof_dag", {}).get("nodes", [])
+            )
+            != 1
+        ):
+            return fail(f"{problem_id}: ticket205 contract changed")
+
+    rh205 = audit205.get("riemann", {}).get("reproducible_computation", {})
+    rh205_fixture = rh205.get("exact_argument_principle_fixture", {})
+    rh205_no_go = rh205.get("finite_sample_winding_no_go", {})
+    if (
+        rh205_fixture.get("image_excursion_Mh_upper") != "11/14"
+        or rh205_fixture.get("zero_avoidance_margin_lower") != "3/14"
+        or rh205_fixture.get("certified_polygon_winding") != 3
+        or rh205_fixture.get("certified_interior_zero_count") != 3
+        or rh205_no_go.get("winding_f0") != 0
+        or rh205_no_go.get("winding_f1") != 8
+        or rh205_no_go.get("finite_values_alone_determine_winding") is not False
+        or rh205.get("aggregate", {}).get(
+            "completed_zeta_cofinal_contour_certificate_constructed"
+        )
+        is not False
+        or rh205.get("aggregate", {}).get("riemann_hypothesis_resolved")
+        is not False
+    ):
+        return fail("ticket205 RH winding boundary changed")
+
+    collatz205 = audit205.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz205_regression = collatz205.get("finite_integrality_regression", {})
+    collatz205_aggregate = collatz205.get("aggregate", {})
+    if (
+        collatz205_regression.get("total_words_checked") != 87380
+        or collatz205_regression.get("total_divisible_words") != 8
+        or collatz205_regression.get("non_all_two_divisible_words") != 0
+        or collatz205_aggregate.get(
+            "all_ge_two_nontrivial_cycle_family_excluded_for_all_lengths"
+        )
+        is not True
+        or collatz205_aggregate.get("mixed_valuation_necklaces_excluded")
+        is not False
+        or collatz205_aggregate.get("nonperiodic_divergence_excluded") is not False
+        or collatz205_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket205 Collatz extremal boundary changed")
+
+    goldbach205 = audit205.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach205_cert = goldbach205.get("exact_finite_witness_certificate", {})
+    goldbach205_aggregate = goldbach205.get("aggregate", {})
+    if (
+        goldbach205_cert.get("limit") != 10000000
+        or goldbach205_cert.get("even_targets_checked") != 4999999
+        or goldbach205_cert.get("exception_count") != 0
+        or goldbach205_cert.get("maximum_least_prime_witness") != 751
+        or goldbach205_cert.get("maximum_witness_target") != 3807404
+        or goldbach205_cert.get("witness_stream_sha256")
+        != "ed31375c2d840a190345e901dfaf52e322424d40d7b4afa33ec7977cf0b791dd"
+        or goldbach205_aggregate.get(
+            "actual_tail_exception_bound_below_one_constructed"
+        )
+        is not False
+        or goldbach205_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket205 Goldbach finite-witness boundary changed")
+
+    twin205 = audit205.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin205_signs = twin205.get("channel_signs", {})
+    twin205_aggregate = twin205.get("aggregate", {})
+    if (
+        twin205_signs.get("prime_weight_values") != ["1/2"]
+        or twin205_signs.get("semiprime_weight_values") != ["-1"]
+        or twin205_aggregate.get(
+            "factor_pair_free_n_only_signed_realization_constructed"
+        )
+        is not True
+        or twin205_aggregate.get("positive_product_is_twin_indicator_refuted")
+        is not True
+        or twin205_aggregate.get("composite_composite_false_positive_family_is_infinite")
+        is not True
+        or twin205_aggregate.get("uniform_composite_cancellation_proved")
+        is not False
+        or twin205_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket205 Twin Omega-weight boundary changed")
+
+    if (
+        "resolves none" not in str(audit205.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket205.get("claim_boundary", "")).lower()
+        or machine205.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket205 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -15,7 +15,31 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-204
+## Current research boundary: TICKET-205
+
+The current machine-readable boundary is
+`data/open-problem/ticket205-winding-extremal-finite-omega.json`.
+
+TICKET-205 records four exact partial, finite, or no-go results and zero
+conjecture resolutions:
+
+- a direct derivative-certified polygonal-winding theorem and an exact no-go
+  against finite-value-only winding inference;
+- a universal Collatz cycle-extremum theorem that removes every all-valuations-
+  at-least-two periodic word except the trivial all-2 cycle;
+- exact least-prime Goldbach witnesses for all 4,999,999 even targets through
+  10,000,000, identified by a reproducible witness-stream digest;
+- an n-only Omega switching weight that realizes the formal prime/semiprime
+  signs, together with an infinite composite-product false-positive family.
+
+The RH fixture is not Xi, the Collatz theorem leaves mixed necklaces and
+nonperiodic trajectories open, the Goldbach theorem is finite, and the Twin
+weight has no proved composite-cancellation remainder.
+
+English report: [TICKET-205](winding-extremal-finite-omega.md).
+한국어 보고서: [TICKET-205](winding-extremal-finite-omega.ko.md).
+
+## Preserved research boundary: TICKET-204
 
 The current machine-readable boundary is
 `data/open-problem/ticket204-mesh-necklace-exceptional-kernel.json`.
@@ -68,7 +92,10 @@ TICKET-202 remains available in
 [한국어](exact-hermite-deformation-parity-scale.ko.md). TICKET-203 completes its
 conditional RH transfer logic, tests and corrects its Collatz signed-transfer
 target, and recalibrates its Goldbach/Twin parity targets; TICKET-204 then
-audits the continuous, primitive, integer-threshold, and kernel-sign premises.
+audits the continuous, primitive, integer-threshold, and kernel-sign premises,
+and TICKET-205 advances those premises to direct winding, one universal cycle
+stratum exclusion, a ten-million finite certificate, and an arithmetic Omega
+sign realization.
 
 ## Preserved research boundary: TICKET-201
 

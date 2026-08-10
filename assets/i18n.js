@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-204 certifies continuous Rouché meshes, reduces periodic Collatz words to primitive necklaces, fixes the Goldbach exceptional-set threshold, and isolates the PSD Twin parity barrier.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-204는 연속 Rouché 망을 인증하고, 주기적 콜라츠 단어를 원시 목걸이로 환원하며, 골드바흐 예외집합의 엄격한 문턱과 쌍둥이 소수의 양의 준정부호 장벽을 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-205 adds a certified winding theorem, removes one infinite Collatz cycle stratum, verifies Goldbach through ten million, and realizes a signed Omega weight with an exact parity no-go.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-205는 winding 인증 정리, 하나의 무한 콜라츠 cycle 영역 배제, 천만 이하 골드바흐 검증, 부호 Omega 가중치와 정확한 parity no-go를 추가합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

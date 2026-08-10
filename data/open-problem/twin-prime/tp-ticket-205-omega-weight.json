@@ -1,0 +1,326 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:45+09:00",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-205",
+  "status": "open_not_proven",
+  "declared_proposition": "Let Q(d) be one when d is a prime power p^k with k>=1 and zero otherwise. Then Omega(n)=sum_(d|n) Q(d). Therefore the n-only arithmetic weight W(n)=2-(3/2)Omega(n) exactly realizes the TICKET-204 formal signs: W(p)=1/2 on primes and W(pq)=-1 on semiprimes, including squares. This signed realization does not solve the parity problem: W(n)W(n+2)>0 also on infinitely many forced composite-composite pairs.",
+  "new_result": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+  "discarded_route": "using positivity of the raw Omega switching product as a twin-prime indicator",
+  "remaining_gap": "The formal TICKET-204 signs are realized by an n-only arithmetic weight, but composite-composite products create infinite false positives.",
+  "candidate_theorem": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation",
+  "claim_boundary": "No Twin Prime proof or counterexample. An exact n-only signed realization and an infinite product false-positive family are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T204",
+        "label": "PsdParitySeparationNoGoAndIndefiniteRankTwoFactorEscape",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T205",
+        "label": "PrimePowerDivisorOmegaWeightAndProductParityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N205",
+        "label": "PositiveOmegaSwitchingProductIsATwinPrimeIndicator",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN205",
+        "label": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T204",
+        "TP-T205"
+      ],
+      [
+        "TP-T205",
+        "TP-N205"
+      ],
+      [
+        "TP-T205",
+        "TP-OPEN205"
+      ],
+      [
+        "TP-OPEN205",
+        "TP"
+      ]
+    ]
+  },
+  "next_experiment": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation",
+  "mathematical_argument": "If n=product p^e, its prime-power divisors for a fixed p are exactly p,p^2,...,p^e, so the divisor sum contributes e and totals Omega(n). Substitution gives the prime and P2 signs. For n=3+15k with k>=2, n is a proper multiple of 3 and n+2 is a proper multiple of 5. Both have Omega at least two, hence both W values are negative and their shift-two product is positive although neither endpoint is prime.",
+  "reproducible_computation": {
+    "theorem": "Let Q(d) be one when d is a prime power p^k with k>=1 and zero otherwise. Then Omega(n)=sum_(d|n) Q(d). Therefore the n-only arithmetic weight W(n)=2-(3/2)Omega(n) exactly realizes the TICKET-204 formal signs: W(p)=1/2 on primes and W(pq)=-1 on semiprimes, including squares. This signed realization does not solve the parity problem: W(n)W(n+2)>0 also on infinitely many forced composite-composite pairs.",
+    "proof": "If n=product p^e, its prime-power divisors for a fixed p are exactly p,p^2,...,p^e, so the divisor sum contributes e and totals Omega(n). Substitution gives the prime and P2 signs. For n=3+15k with k>=2, n is a proper multiple of 3 and n+2 is a proper multiple of 5. Both have Omega at least two, hence both W values are negative and their shift-two product is positive although neither endpoint is prime.",
+    "prime_power_divisor_identity_rows": [
+      {
+        "n": 1,
+        "Omega_n": 0,
+        "prime_power_divisor_sum": 0,
+        "weight_W_n": "2"
+      },
+      {
+        "n": 2,
+        "Omega_n": 1,
+        "prime_power_divisor_sum": 1,
+        "weight_W_n": "1/2"
+      },
+      {
+        "n": 4,
+        "Omega_n": 2,
+        "prime_power_divisor_sum": 2,
+        "weight_W_n": "-1"
+      },
+      {
+        "n": 6,
+        "Omega_n": 2,
+        "prime_power_divisor_sum": 2,
+        "weight_W_n": "-1"
+      },
+      {
+        "n": 8,
+        "Omega_n": 3,
+        "prime_power_divisor_sum": 3,
+        "weight_W_n": "-5/2"
+      },
+      {
+        "n": 12,
+        "Omega_n": 3,
+        "prime_power_divisor_sum": 3,
+        "weight_W_n": "-5/2"
+      },
+      {
+        "n": 30,
+        "Omega_n": 3,
+        "prime_power_divisor_sum": 3,
+        "weight_W_n": "-5/2"
+      },
+      {
+        "n": 210,
+        "Omega_n": 4,
+        "prime_power_divisor_sum": 4,
+        "weight_W_n": "-4"
+      },
+      {
+        "n": 512,
+        "Omega_n": 9,
+        "prime_power_divisor_sum": 9,
+        "weight_W_n": "-23/2"
+      }
+    ],
+    "channel_signs": {
+      "prime_weight_values": [
+        "1/2"
+      ],
+      "semiprime_weight_values": [
+        "-1"
+      ],
+      "prime_channel_positive": true,
+      "semiprime_channel_negative": true
+    },
+    "composite_composite_product_no_go_rows": [
+      {
+        "k": 2,
+        "n": 33,
+        "n_plus_2": 35,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-1",
+        "W_n_plus_2": "-1",
+        "product_is_positive": true
+      },
+      {
+        "k": 3,
+        "n": 48,
+        "n_plus_2": 50,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-11/2",
+        "W_n_plus_2": "-5/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 4,
+        "n": 63,
+        "n_plus_2": 65,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-5/2",
+        "W_n_plus_2": "-1",
+        "product_is_positive": true
+      },
+      {
+        "k": 5,
+        "n": 78,
+        "n_plus_2": 80,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-5/2",
+        "W_n_plus_2": "-11/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 6,
+        "n": 93,
+        "n_plus_2": 95,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-1",
+        "W_n_plus_2": "-1",
+        "product_is_positive": true
+      },
+      {
+        "k": 7,
+        "n": 108,
+        "n_plus_2": 110,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-11/2",
+        "W_n_plus_2": "-5/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 8,
+        "n": 123,
+        "n_plus_2": 125,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-1",
+        "W_n_plus_2": "-5/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 9,
+        "n": 138,
+        "n_plus_2": 140,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-5/2",
+        "W_n_plus_2": "-4",
+        "product_is_positive": true
+      },
+      {
+        "k": 10,
+        "n": 153,
+        "n_plus_2": 155,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-5/2",
+        "W_n_plus_2": "-1",
+        "product_is_positive": true
+      },
+      {
+        "k": 11,
+        "n": 168,
+        "n_plus_2": 170,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-11/2",
+        "W_n_plus_2": "-5/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 12,
+        "n": 183,
+        "n_plus_2": 185,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-1",
+        "W_n_plus_2": "-1",
+        "product_is_positive": true
+      },
+      {
+        "k": 13,
+        "n": 198,
+        "n_plus_2": 200,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-4",
+        "W_n_plus_2": "-11/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 14,
+        "n": 213,
+        "n_plus_2": 215,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-1",
+        "W_n_plus_2": "-1",
+        "product_is_positive": true
+      },
+      {
+        "k": 15,
+        "n": 228,
+        "n_plus_2": 230,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-4",
+        "W_n_plus_2": "-5/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 16,
+        "n": 243,
+        "n_plus_2": 245,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-11/2",
+        "W_n_plus_2": "-5/2",
+        "product_is_positive": true
+      },
+      {
+        "k": 17,
+        "n": 258,
+        "n_plus_2": 260,
+        "n_divisible_by_3": true,
+        "n_plus_2_divisible_by_5": true,
+        "both_composite": true,
+        "W_n": "-5/2",
+        "W_n_plus_2": "-4",
+        "product_is_positive": true
+      }
+    ],
+    "aggregate": {
+      "prime_power_divisor_identity_verified_through": 512,
+      "identity_failure_count": 0,
+      "factor_pair_free_n_only_signed_realization_constructed": true,
+      "positive_product_is_twin_indicator_refuted": true,
+      "composite_composite_false_positive_family_is_infinite": true,
+      "uniform_composite_cancellation_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The weight is an exact arithmetic realization of the desired channel signs, but it is unbounded below with Omega and its positive product contains an infinite composite-composite CRT family. No positive twin-prime lower bound or controlled switching remainder follows.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "using positivity of the raw Omega switching product as a twin-prime indicator",
+    "retain": "signed Omega switching after explicit composite-composite cancellation",
+    "next_single_lemma": "UniformCompositeCompositeCancellationForOmegaSwitchingCorrelation"
+  }
+}

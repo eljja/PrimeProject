@@ -1,0 +1,272 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:45+09:00",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-205",
+  "status": "open_not_proven",
+  "declared_proposition": "Every even integer N with 4<=N<=10000000 has a prime-pair representation. The generator records the least prime witness p<=N/2 for every target and hashes the complete ordered witness stream, so the finite theorem is independently reproducible. No finite prefix, regardless of its size, implies strong Goldbach: a Boolean model that agrees on every N<=B and fails first at B+2 is indistinguishable on that prefix.",
+  "new_result": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+  "discarded_route": "promoting any finite Goldbach verification directly to the infinite conjecture",
+  "remaining_gap": "The verified prefix now reaches ten million with a reproducible witness digest, but no analytic control starts at the next target.",
+  "candidate_theorem": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+  "claim_boundary": "No Goldbach proof or counterexample. Every even target through 10,000,000 receives an exact witness; the infinite tail remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T204",
+        "label": "ExceptionalSetSubunitClosureAndDensityZeroNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T205",
+        "label": "TenMillionExactWitnessCertificateAndFinitePrefixNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N205",
+        "label": "ArbitrarilyLargeFiniteGoldbachPrefixImpliesStrongGoldbach",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN205",
+        "label": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T204",
+        "GB-T205"
+      ],
+      [
+        "GB-T205",
+        "GB-N205"
+      ],
+      [
+        "GB-T205",
+        "GB-OPEN205"
+      ],
+      [
+        "GB-OPEN205",
+        "GB"
+      ]
+    ]
+  },
+  "next_experiment": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne",
+  "mathematical_argument": "The sieve marks primes up to the bound. For each even N the scan stops only after finding a marked p<=N/2 with N-p also marked; checking these two table entries is an explicit finite witness. The committed digest identifies the ordered list of all such least witnesses but is not used as a stand-alone proof. The prefix no-go follows by defining two models that coincide through B and differ only at the next even target.",
+  "reproducible_computation": {
+    "theorem": "Every even integer N with 4<=N<=10000000 has a prime-pair representation. The generator records the least prime witness p<=N/2 for every target and hashes the complete ordered witness stream, so the finite theorem is independently reproducible. No finite prefix, regardless of its size, implies strong Goldbach: a Boolean model that agrees on every N<=B and fails first at B+2 is indistinguishable on that prefix.",
+    "proof": "The sieve marks primes up to the bound. For each even N the scan stops only after finding a marked p<=N/2 with N-p also marked; checking these two table entries is an explicit finite witness. The committed digest identifies the ordered list of all such least witnesses but is not used as a stand-alone proof. The prefix no-go follows by defining two models that coincide through B and differ only at the next even target.",
+    "exact_finite_witness_certificate": {
+      "limit": 10000000,
+      "even_targets_checked": 4999999,
+      "exception_count": 0,
+      "all_checked_targets_have_prime_pair_witness": true,
+      "maximum_least_prime_witness": 751,
+      "maximum_witness_target": 3807404,
+      "last_target_witness": {
+        "target": 10000000,
+        "least_prime_witness": 29,
+        "complementary_prime": 9999971
+      },
+      "witness_stream_format": "ASCII lines N:p using the least p<=N/2",
+      "witness_stream_sha256": "ed31375c2d840a190345e901dfaf52e322424d40d7b4afa33ec7977cf0b791dd",
+      "witness_stream_record_count": 4999999,
+      "record_least_witness_rows": [
+        {
+          "target": 4,
+          "new_record_least_prime_witness": 2,
+          "complementary_prime": 2
+        },
+        {
+          "target": 6,
+          "new_record_least_prime_witness": 3,
+          "complementary_prime": 3
+        },
+        {
+          "target": 12,
+          "new_record_least_prime_witness": 5,
+          "complementary_prime": 7
+        },
+        {
+          "target": 30,
+          "new_record_least_prime_witness": 7,
+          "complementary_prime": 23
+        },
+        {
+          "target": 98,
+          "new_record_least_prime_witness": 19,
+          "complementary_prime": 79
+        },
+        {
+          "target": 220,
+          "new_record_least_prime_witness": 23,
+          "complementary_prime": 197
+        },
+        {
+          "target": 308,
+          "new_record_least_prime_witness": 31,
+          "complementary_prime": 277
+        },
+        {
+          "target": 556,
+          "new_record_least_prime_witness": 47,
+          "complementary_prime": 509
+        },
+        {
+          "target": 992,
+          "new_record_least_prime_witness": 73,
+          "complementary_prime": 919
+        },
+        {
+          "target": 2642,
+          "new_record_least_prime_witness": 103,
+          "complementary_prime": 2539
+        },
+        {
+          "target": 5372,
+          "new_record_least_prime_witness": 139,
+          "complementary_prime": 5233
+        },
+        {
+          "target": 7426,
+          "new_record_least_prime_witness": 173,
+          "complementary_prime": 7253
+        },
+        {
+          "target": 43532,
+          "new_record_least_prime_witness": 211,
+          "complementary_prime": 43321
+        },
+        {
+          "target": 54244,
+          "new_record_least_prime_witness": 233,
+          "complementary_prime": 54011
+        },
+        {
+          "target": 63274,
+          "new_record_least_prime_witness": 293,
+          "complementary_prime": 62981
+        },
+        {
+          "target": 113672,
+          "new_record_least_prime_witness": 313,
+          "complementary_prime": 113359
+        },
+        {
+          "target": 128168,
+          "new_record_least_prime_witness": 331,
+          "complementary_prime": 127837
+        },
+        {
+          "target": 194428,
+          "new_record_least_prime_witness": 359,
+          "complementary_prime": 194069
+        },
+        {
+          "target": 194470,
+          "new_record_least_prime_witness": 383,
+          "complementary_prime": 194087
+        },
+        {
+          "target": 413572,
+          "new_record_least_prime_witness": 389,
+          "complementary_prime": 413183
+        },
+        {
+          "target": 503222,
+          "new_record_least_prime_witness": 523,
+          "complementary_prime": 502699
+        },
+        {
+          "target": 1077422,
+          "new_record_least_prime_witness": 601,
+          "complementary_prime": 1076821
+        },
+        {
+          "target": 3526958,
+          "new_record_least_prime_witness": 727,
+          "complementary_prime": 3526231
+        },
+        {
+          "target": 3807404,
+          "new_record_least_prime_witness": 751,
+          "complementary_prime": 3806653
+        }
+      ],
+      "checkpoint_rows": [
+        {
+          "limit": 100,
+          "even_targets_checked": 49,
+          "exception_count": 0,
+          "maximum_least_prime_witness": 19,
+          "maximum_witness_target": 98
+        },
+        {
+          "limit": 1000,
+          "even_targets_checked": 499,
+          "exception_count": 0,
+          "maximum_least_prime_witness": 73,
+          "maximum_witness_target": 992
+        },
+        {
+          "limit": 10000,
+          "even_targets_checked": 4999,
+          "exception_count": 0,
+          "maximum_least_prime_witness": 173,
+          "maximum_witness_target": 7426
+        },
+        {
+          "limit": 100000,
+          "even_targets_checked": 49999,
+          "exception_count": 0,
+          "maximum_least_prime_witness": 293,
+          "maximum_witness_target": 63274
+        },
+        {
+          "limit": 1000000,
+          "even_targets_checked": 499999,
+          "exception_count": 0,
+          "maximum_least_prime_witness": 523,
+          "maximum_witness_target": 503222
+        },
+        {
+          "limit": 10000000,
+          "even_targets_checked": 4999999,
+          "exception_count": 0,
+          "maximum_least_prime_witness": 751,
+          "maximum_witness_target": 3807404
+        }
+      ]
+    },
+    "finite_prefix_promotion_no_go": {
+      "verified_prefix_bound_B": 10000000,
+      "first_unobserved_even_target": 10000002,
+      "model_A_goldbach_holds_at_first_unobserved_target": true,
+      "model_B_goldbach_holds_at_first_unobserved_target": false,
+      "models_agree_on_entire_verified_prefix": true,
+      "finite_prefix_alone_determines_infinite_tail": false
+    },
+    "aggregate": {
+      "finite_goldbach_theorem_limit": 10000000,
+      "finite_exception_count": 0,
+      "reproducible_witness_stream_constructed": true,
+      "finite_prefix_to_universal_inference_refuted": true,
+      "actual_tail_exception_bound_below_one_constructed": false,
+      "actual_goldbach_counterexample_found": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The exhaustive certificate is a finite theorem, not evidence of a uniform major/minor-arc inequality. The first unchecked even integer and every later target remain outside the computation.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "promoting any finite Goldbach verification directly to the infinite conjecture",
+    "retain": "exact prefix certificate plus a rigorous tail exceptional count below one",
+    "next_single_lemma": "ExplicitBinaryGoldbachTailExceptionalCountStrictlyBelowOne"
+  }
+}

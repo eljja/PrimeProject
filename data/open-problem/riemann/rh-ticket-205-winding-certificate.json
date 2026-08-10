@@ -1,0 +1,106 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:45+09:00",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-205",
+  "status": "open_not_proven",
+  "declared_proposition": "Let Gamma be a positively oriented rectifiable Jordan contour, let f be analytic on and inside Gamma, and partition Gamma into arcs Gamma_j starting at z_j. If |f(z_j)|>=m_j>0 and the arclength derivative of f is bounded by M_j on Gamma_j of length h_j, with M_j h_j<m_j, then f(Gamma_j) and the chord [f(z_j),f(z_(j+1))] are homotopic in C\\{0}. Hence the winding number of f(Gamma) equals that of the sampled polygon and, by the argument principle, equals the number of zeros of f inside Gamma counted with multiplicity. Finite values without the derivative bounds do not determine winding.",
+  "new_result": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+  "discarded_route": "inferring completed-zeta winding from finitely many contour values alone",
+  "remaining_gap": "The direct winding transfer is exact, but no zero-free cofinal contours with certified completed-zeta derivative bounds are constructed.",
+  "candidate_theorem": "CompletedZetaCofinalZeroFreeContourWindingCertificate",
+  "claim_boundary": "No RH proof or counterexample. A direct argument-principle mesh certificate and an exact finite-sample winding no-go are proved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T204",
+        "label": "DerivativeCertifiedRoucheMeshAndFiniteSamplingNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T205",
+        "label": "DerivativeCertifiedPolygonalWindingAndFiniteSampleNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N205",
+        "label": "FiniteContourValuesAloneDetermineWinding",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN205",
+        "label": "CompletedZetaCofinalZeroFreeContourWindingCertificate",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T204",
+        "RH-T205"
+      ],
+      [
+        "RH-T205",
+        "RH-N205"
+      ],
+      [
+        "RH-T205",
+        "RH-OPEN205"
+      ],
+      [
+        "RH-OPEN205",
+        "RH"
+      ]
+    ]
+  },
+  "next_experiment": "CompletedZetaCofinalZeroFreeContourWindingCertificate",
+  "mathematical_argument": "For z on Gamma_j, integration along arclength gives |f(z)-f(z_j)|<=M_j h_j<m_j<=|f(z_j)|. Thus the true image arc lies in an open disk centered at f(z_j) that excludes zero. Its endpoint and the straight chord also lie in this convex disk, so the arc can be replaced by the chord through a zero-avoiding homotopy. Applying this on every segment preserves winding. For the no-go, 1 and z^8 agree at all eighth roots of unity but have winding numbers 0 and 8.",
+  "reproducible_computation": {
+    "theorem": "Let Gamma be a positively oriented rectifiable Jordan contour, let f be analytic on and inside Gamma, and partition Gamma into arcs Gamma_j starting at z_j. If |f(z_j)|>=m_j>0 and the arclength derivative of f is bounded by M_j on Gamma_j of length h_j, with M_j h_j<m_j, then f(Gamma_j) and the chord [f(z_j),f(z_(j+1))] are homotopic in C\\{0}. Hence the winding number of f(Gamma) equals that of the sampled polygon and, by the argument principle, equals the number of zeros of f inside Gamma counted with multiplicity. Finite values without the derivative bounds do not determine winding.",
+    "proof": "For z on Gamma_j, integration along arclength gives |f(z)-f(z_j)|<=M_j h_j<m_j<=|f(z_j)|. Thus the true image arc lies in an open disk centered at f(z_j) that excludes zero. Its endpoint and the straight chord also lie in this convex disk, so the arc can be replaced by the chord through a zero-avoiding homotopy. Applying this on every segment preserves winding. For the no-go, 1 and z^8 agree at all eighth roots of unity but have winding numbers 0 and 8.",
+    "exact_argument_principle_fixture": {
+      "contour": "positively oriented unit circle",
+      "analytic_function_f": "z^3",
+      "sample_count": 24,
+      "sample_modulus_lower_m": "1",
+      "arclength_derivative_bound_M": "3",
+      "segment_length_h_upper_using_pi_le_22_over_7": "11/42",
+      "image_excursion_Mh_upper": "11/14",
+      "zero_avoidance_margin_lower": "3/14",
+      "sample_phase_increment_turns": "1/8",
+      "sampled_polygon_total_phase_turns": "3",
+      "certified_polygon_winding": 3,
+      "certified_interior_zero_count": 3,
+      "actual_zero_count_of_fixture": 3,
+      "all_segment_disks_exclude_zero": true
+    },
+    "finite_sample_winding_no_go": {
+      "sample_nodes": "8th roots of unity",
+      "sample_count": 8,
+      "function_f0": "1",
+      "function_f1": "z^8",
+      "all_sample_values_equal": true,
+      "winding_f0": 0,
+      "winding_f1": 8,
+      "finite_values_alone_determine_winding": false
+    },
+    "aggregate": {
+      "derivative_certified_polygonal_winding_theorem_proved": true,
+      "direct_argument_principle_zero_count_fixture_certified": true,
+      "finite_sample_only_winding_inference_refuted": true,
+      "completed_zeta_cofinal_contour_certificate_constructed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem certifies a zero count only after a zero-avoiding derivative bound is supplied on every contour arc. The z^3 and z^8 examples are exact regressions, not the completed zeta function.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "inferring completed-zeta winding from finitely many contour values alone",
+    "retain": "polygonal winding plus segmentwise zero-avoidance certificates",
+    "next_single_lemma": "CompletedZetaCofinalZeroFreeContourWindingCertificate"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "schema": "primeproject.open-problem-attempt.v1",
+  "generated_at": "2026-08-10T23:59:45+09:00",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-205",
+  "status": "open_not_proven",
+  "declared_proposition": "In any nontrivial positive accelerated Collatz cycle, every occurrence of a minimum cycle value has outgoing valuation exactly one, while every occurrence of a maximum value has outgoing valuation at least two. Consequently every nontrivial periodic valuation necklace contains both a 1 and an entry at least 2. In particular, a positive integral cycle word whose valuations are all at least 2 is necessarily a power of the trivial word (2), representing the fixed cycle 1.",
+  "new_result": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+  "discarded_route": "searching all-valuations-at-least-two words for nontrivial positive cycles",
+  "remaining_gap": "The all-ge-two necklace region is eliminated universally, but mixed primitive necklaces and every nonperiodic divergence remain open.",
+  "candidate_theorem": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces",
+  "claim_boundary": "No Collatz proof, divergent-orbit exclusion, or nontrivial cycle. One infinite periodic candidate stratum is rigorously removed.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T204",
+        "label": "RotationAndPowerReductionToPrimitiveValuationNecklaces",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T205",
+        "label": "CycleExtremumValuationSeparationAndAllGeTwoExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N205",
+        "label": "AllValuationsAtLeastTwoContainANontrivialPositiveCycle",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN205",
+        "label": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T204",
+        "CO-T205"
+      ],
+      [
+        "CO-T205",
+        "CO-N205"
+      ],
+      [
+        "CO-T205",
+        "CO-OPEN205"
+      ],
+      [
+        "CO-OPEN205",
+        "CO"
+      ]
+    ]
+  },
+  "next_experiment": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces",
+  "mathematical_argument": "Let m be a minimum and write 3m+1=2^a m', with m'>=m. If a>=2, then 3m+1>=4m, so m<=1. Positivity and oddness give m=1; the equation then forces a=2 and m'=1, and determinism makes the whole cycle trivial. Thus a=1 in a nontrivial cycle. At a maximum M, a=1 would give M'=(3M+1)/2>M, impossible, so a>=2. For a word with D>0 and D dividing its affine numerator B, x=B/D is a positive odd integral cycle value; the extremal argument then proves the word is all 2.",
+  "reproducible_computation": {
+    "theorem": "In any nontrivial positive accelerated Collatz cycle, every occurrence of a minimum cycle value has outgoing valuation exactly one, while every occurrence of a maximum value has outgoing valuation at least two. Consequently every nontrivial periodic valuation necklace contains both a 1 and an entry at least 2. In particular, a positive integral cycle word whose valuations are all at least 2 is necessarily a power of the trivial word (2), representing the fixed cycle 1.",
+    "proof": "Let m be a minimum and write 3m+1=2^a m', with m'>=m. If a>=2, then 3m+1>=4m, so m<=1. Positivity and oddness give m=1; the equation then forces a=2 and m'=1, and determinism makes the whole cycle trivial. Thus a=1 in a nontrivial cycle. At a maximum M, a=1 would give M'=(3M+1)/2>M, impossible, so a>=2. For a word with D>0 and D dividing its affine numerator B, x=B/D is a positive odd integral cycle value; the extremal argument then proves the word is all 2.",
+    "exact_extremal_inequalities": {
+      "minimum_step": "3m+1=2^a m' with m'>=m",
+      "minimum_if_a_ge_2": "4m<=3m+1, hence m<=1",
+      "nontrivial_minimum_outgoing_valuation": 1,
+      "maximum_if_a_eq_1": "M'=(3M+1)/2>M",
+      "nontrivial_maximum_outgoing_valuation_lower": 2
+    },
+    "finite_integrality_regression": {
+      "rows": [
+        {
+          "length": 1,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 4,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 2,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 16,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 3,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 64,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 4,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 256,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 5,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 1024,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 6,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 4096,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 7,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 16384,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        },
+        {
+          "length": 8,
+          "valuation_alphabet": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "word_count": 65536,
+          "divisible_word_count": 1,
+          "all_two_word_is_the_only_divisible_word": true,
+          "non_all_two_divisible_word_count": 0
+        }
+      ],
+      "maximum_length": 8,
+      "total_words_checked": 87380,
+      "total_divisible_words": 8,
+      "non_all_two_divisible_words": 0
+    },
+    "aggregate": {
+      "all_ge_two_nontrivial_cycle_family_excluded_for_all_lengths": true,
+      "only_surviving_all_ge_two_primitive_necklace": [
+        2
+      ],
+      "mixed_valuation_necklaces_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem retires the entire all-valuations-at-least-two periodic search region. It does not exclude primitive necklaces containing both 1 and larger valuations and says nothing about nonperiodic orbits.",
+    "failure_count": 0
+  },
+  "route_decision": {
+    "discard": "searching all-valuations-at-least-two words for nontrivial positive cycles",
+    "retain": "primitive mixed necklaces containing valuation one and a larger valuation",
+    "next_single_lemma": "UniformNondivisibilityForPrimitiveMixedValuationNecklaces"
+  }
+}

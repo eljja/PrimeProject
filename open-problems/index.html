@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket204-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket205-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-204</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-205</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-204 actually changed</h2>
-          <p>TICKET-204 did not solve a conjecture. It proves the regularity condition that promotes finite Rouché samples to a continuous contour certificate, reduces periodic Collatz candidates to primitive cyclic necklaces, identifies the strict subunit exceptional-count threshold that would close Goldbach, and separates the PSD Twin parity obstruction from a formal indefinite rank-two escape.</p>
-          <p class="proof-boundary">TICKET-204는 난제를 해결하지 않았습니다. 리만 트랙은 유한 표본을 연속 Rouché 경계로 승격하는 미분 조건과 표본 전용 no-go를 증명했습니다. 콜라츠 트랙은 순환 회전과 반복의 중복을 제거해 원시 valuation 목걸이만 남겼습니다. 골드바흐 트랙은 밀도 0이 아니라 꼬리 예외 개수의 엄격한 <code>1</code> 미만 상계가 필요함을 확정했고, 쌍둥이 소수 트랙은 양의 준정부호 커널의 parity 장벽과 부정부호 rank-2 형식의 제한적 탈출을 분리했습니다.</p>
+          <h2>What TICKET-205 actually changed</h2>
+          <p>TICKET-205 did not solve a conjecture. It turns derivative-bounded contour samples into a direct argument-principle winding certificate, removes the entire all-valuations-at-least-two Collatz cycle stratum, certifies every even Goldbach target through ten million with a reproducible witness stream, and realizes the Twin factor-channel signs as an arithmetic Omega weight while exposing its infinite composite-product false positives.</p>
+          <p class="proof-boundary">TICKET-205는 난제를 해결하지 않았습니다. 리만 트랙은 구간별 도함수 상계로 표본 다각형의 winding이 실제 영점수와 같음을 인증합니다. 콜라츠 트랙은 모든 valuation이 2 이상인 주기 후보를 자명 cycle만 남기고 전 길이에서 배제합니다. 골드바흐 트랙은 천만 이하 4,999,999개 짝수에 모두 소수쌍 증인을 부여했습니다. 쌍둥이 소수 트랙은 <code>Omega(n)</code> 가중치로 소수·반소수 부호를 구현했지만 raw 곱의 무한한 합성수 거짓 양성도 함께 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Sample bound q, arclength derivative bound M, and covering radius delta imply the continuous bound sup|r|&lt;=q+M delta.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Finite contour samples without a regularity bound can miss ratio 2 and a different zero count between sample nodes.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Completed-zeta cofinal adaptive relative-derivative bound.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Segmentwise bounds M<sub>j</sub>h<sub>j</sub>&lt;|f(z<sub>j</sub>)| preserve winding when analytic image arcs are replaced by sampled polygon chords.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The functions 1 and z<sup>8</sup> agree at eight contour samples but have winding numbers 0 and 8.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Completed-zeta cofinal zero-free contour winding certificate.</dd></div>
           </dl>
-          <p class="workbench-ko">망에서 연속 경계로 가는 논리적 간극은 닫혔습니다. 남은 핵심은 실제 Xi 비교함수와 높이가 무한히 커지는 경계에서의 상대 미분 상계입니다.</p>
+          <p class="workbench-ko"><code>z^3</code> 회귀에서는 이동량 <code>11/14</code>, margin <code>3/14</code>로 winding 3을 정확히 인증합니다. 실제 Xi의 cofinal contour와 미분 상계는 아직 없습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Cyclic rotation and word powers preserve the affine cycle quotient and integrality, reducing periodic candidates to primitive necklaces.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Rotations and repeated powers of the same valuation word are not independent cycle-exclusion evidence.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform nondivisibility for every non-all-two primitive valuation necklace.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A nontrivial cycle has outgoing valuation 1 at a minimum and at least 2 at a maximum; all-≥2 words yield only the fixed cycle 1.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The entire all-valuations-at-least-two periodic search region is rigorously empty except for all-2 repetitions.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform nondivisibility for primitive mixed valuation necklaces.</dd></div>
           </dl>
-          <p class="workbench-ko">86,439개 유한 단어에서 회전·반복 항등식 실패는 0개였고, 11,445개 순환 목걸이는 11,336개 원시 뿌리로 줄었습니다. 이는 무한 길이 비가분성 증명이 아닙니다.</p>
+          <p class="workbench-ko">극값 논증이 전 길이를 다루며, 87,380개 word 회귀에서도 non-all-two 가분 적중은 0개입니다. mixed 원시 necklace와 비주기 발산은 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>After a verified finite prefix, an integer tail exceptional count strictly below one for every larger cutoff forces zero exceptions.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Density zero, or even an exceptional-count bound at most one, does not imply an empty exceptional set.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every one of 4,999,999 even targets through 10,000,000 has a checked least-prime witness and a reproducible witness-stream digest.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Two models can agree on any finite verified prefix and differ at the first unobserved even target.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd>Explicit binary-Goldbach tail exceptional count strictly below one.</dd></div>
           </dl>
-          <p class="workbench-ko">10,000 이하의 유한 검증은 구현 회귀일 뿐입니다. 실제 증명에는 모든 꼬리 구간에서 예외 개수를 정수 문턱 아래로 내리는 명시적 해석적 상계가 필요합니다.</p>
+          <p class="workbench-ko">가장 큰 최소 증인은 <code>N=3,807,404</code>의 <code>p=751</code>입니다. 유한 정리는 강화됐지만 실제 증명에는 tail 예외 개수를 1 아래로 내리는 해석적 상계가 필요합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A PSD kernel cannot be negative on every semiprime factor channel; a formal indefinite rank-two kernel separates exposed prime and semiprime channels.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>PSD or square-form weights cannot provide strict signed separation on prime-square channels.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Arithmetic realization of the indefinite rank-two switching kernel with a uniform remainder.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The n-only weight W(n)=2-(3/2)Omega(n) equals 1/2 on primes and -1 on every semiprime.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>For n=3+15k, both n and n+2 are composite while W(n)W(n+2) remains positive.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform composite-composite cancellation for the Omega switching correlation.</dd></div>
           </dl>
-          <p class="workbench-ko">rank-2 탈출은 인수가 노출된 형식 커널일 뿐 <code>n</code>만으로 계산되는 sieve 가중치가 아닙니다. 산술적 실현과 주항보다 작은 균일 오차가 남았습니다.</p>
+          <p class="workbench-ko">형식 부호를 <code>n</code>의 함수로 옮기는 데 성공했지만 raw 곱은 twin indicator가 아닙니다. 합성수 질량을 상쇄하고 양의 prime-prime 주항을 보존해야 합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>204 tickets reduced to four meaningful eras</h2>
+          <h2>205 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–204 · Structure, continuous promotion, and parity calibration</strong><p>유한 정보의 한계와 연속 승격 조건을 분리하고, 주기 중복을 제거하며, 전칭 명제의 정수 문턱과 sieve 커널의 부호 장벽을 명시했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–205 · Structure, certified promotion, and parity realization</strong><p>연속 승격을 직접 winding 인증으로 강화하고, Collatz 주기 영역 하나를 전 길이에서 제거했으며, Goldbach 유한 증인을 천만까지 재현하고 Twin 형식 부호를 산술 가중치로 실현했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/mesh-necklace-exceptional-kernel.ko.md">TICKET-204 한국어 보고서</a>
-          <a href="../docs/mesh-necklace-exceptional-kernel.md">TICKET-204 English report</a>
+          <a href="../docs/winding-extremal-finite-omega.ko.md">TICKET-205 한국어 보고서</a>
+          <a href="../docs/winding-extremal-finite-omega.md">TICKET-205 English report</a>
+          <a href="../docs/mesh-necklace-exceptional-kernel.ko.md">TICKET-204 이전 보고서</a>
           <a href="../docs/rouche-transfer-pointwise-primorial.ko.md">TICKET-203 이전 보고서</a>
           <a href="../docs/exact-hermite-deformation-parity-scale.ko.md">TICKET-202 이전 보고서</a>
           <a href="../docs/finite-information-allrun-liouville-parity.ko.md">TICKET-201 이전 보고서</a>
@@ -143,7 +144,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260810-ticket204"></script>
+    <script src="../assets/i18n.js?v=20260810-ticket205"></script>
   </body>
 </html>
 

@@ -37,7 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-204 Continuous Certificates, Primitive Necklaces, and Parity Kernels
+## 2026-08-10 TICKET-205 Winding Certificates, Cycle Extrema, Finite Witnesses, and Omega Weights
+
+TICKET-205 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial, finite, or no-go results:
+
+1. segmentwise derivative bounds make the sampled polygon winding equal the
+   analytic contour winding, while finite contour values alone do not;
+2. a nontrivial positive Collatz cycle has valuation 1 at a minimum and at
+   least 2 at a maximum, eliminating the complete all-valuations-at-least-two
+   periodic stratum except the fixed cycle 1;
+3. every even target through 10,000,000 has an exact least-prime Goldbach
+   witness, with a stable SHA-256 for the complete witness stream;
+4. `W(n)=2-(3/2)Omega(n)` realizes the desired prime/semiprime signs, but an
+   infinite CRT family proves that positive raw shift-two products do not
+   isolate twin primes.
+
+The RH regression is not Xi, the Collatz theorem does not address mixed words
+or divergent trajectories, the Goldbach result is finite, and the Twin weight
+has no uniform composite-cancellation theorem. The machine resolution count
+remains zero.
+
+English report: [TICKET-205](winding-extremal-finite-omega.md).
+한국어 보고서: [TICKET-205](winding-extremal-finite-omega.ko.md).
+
+## Preserved: 2026-08-10 TICKET-204 Continuous Certificates, Primitive Necklaces, and Parity Kernels
 
 TICKET-204 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:
