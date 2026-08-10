@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260810-ticket208-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260810-ticket209-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-208 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-209 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-208 clears both completed-xi vertical sides, excludes the complete three-one Collatz cycle stratum, raises the Goldbach witness obstruction to every constant below one, and proves an exact growing cyclotomic twin correlation with a cancellation no-go.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-208은 완성 제타 직사각형의 두 수직변을 명시적 하한으로 닫고, valuation 1이 정확히 세 개인 콜라츠 주기를 전부 배제하며, 골드바흐 최소 증인 하한을 모든 상수 <code>c&lt;1</code>까지 강화하고, 성장형 순환 푸리에 쌍둥이 상관의 정확한 복원과 상쇄 한계를 증명했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-209 corrects the Riemann boundary target by gamma normalization, excludes the complete four-one Collatz cycle stratum, makes the Goldbach least-witness obstruction superlogarithmic, and proves exact cyclotomic cancellation on arbitrarily long factorial twin deserts.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-209는 감마 정규화로 리만 경계 목표를 교정하고, valuation 1이 정확히 네 개인 콜라츠 주기를 전부 배제하며, 골드바흐 최소 증인 하한을 <code>c log N log log N</code>까지 높이고, 임의 길이 factorial 쌍둥이 부재 구간에서 순환 위상의 정확한 완전 상쇄를 증명했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>208</strong><small>2026-08-10</small></div>
+              <div><span>Latest ticket</span><strong>209</strong><small>2026-08-10</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 유한 <code>T</code>에 대해 <code>|xi(2+it)|≥B(T)&gt;0</code>인 명시적 균일 하한을 증명하고 함수방정식으로 <code>Re(s)=-1</code>까지 옮겼습니다.</p>
-                <p><strong>폐기:</strong> 두 수직변의 비영성만으로 내부 영점의 위치를 결정하는 경로는 같은 경계 성질을 가진 다항식 반례로 폐기했습니다.</p>
-                <p><strong>다음 핵심:</strong> 무한히 커지는 허용 높이에서 완성 제타 수평변의 엄밀한 양의 하한.</p>
+                <p><strong>확립:</strong> <code>|xi(2+iT)|→0</code>인 명시적 상계 때문에 cofinal 전체 경계의 높이 독립 절댓값 여유는 불가능합니다. 감마 정규화한 바깥 변은 <code>zeta(s)</code>로 환원됩니다.</p>
+                <p><strong>폐기:</strong> 완성 제타 <code>xi</code> 자체에 고정 <code>epsilon&gt;0</code> 경계 여유를 요구하는 경로를 폐기했습니다.</p>
+                <p><strong>다음 핵심:</strong> 감마 정규화된 중앙 수평변의 cofinal 비영성 인증.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> valuation <code>1</code>이 정확히 세 번이고 나머지가 <code>≥2</code>인 양의 비자명 가속 콜라츠 주기는 존재하지 않습니다.</p>
-                <p><strong>폐기:</strong> 곱 부등식으로 길이 <code>h≥12</code>를 닫고, 남은 <code>185</code>개 valuation 단어의 정수 고정점을 정확히 검사했습니다.</p>
-                <p><strong>다음 핵심:</strong> valuation 1이 정확히 네 개인 원시 necklace의 균일 배제.</p>
+                <p><strong>확립:</strong> valuation <code>1</code>이 정확히 네 번이고 나머지가 <code>≥2</code>인 양의 비자명 가속 콜라츠 주기는 존재하지 않습니다.</p>
+                <p><strong>폐기:</strong> 곱 부등식으로 길이 <code>h≥16</code>을 닫고, <code>h=5..15</code>의 가능한 <code>2,292</code>개 valuation 단어를 정확히 검사했습니다.</p>
+                <p><strong>다음 핵심:</strong> valuation 1이 정확히 다섯 개인 원시 necklace의 균일 배제.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 고정 <code>c&lt;1</code>에 대해 무한히 많은 짝수 <code>N</code>이 최소 소수 증인 <code>W(N)&gt;c log N</code>을 만족합니다.</p>
-                <p><strong>폐기:</strong> 상수 1보다 작은 보편적 로그 증인 창으로 모든 큰 짝수를 덮는 경로를 폐기했습니다.</p>
-                <p><strong>다음 핵심:</strong> 점근적 단위 로그 바닥 너머 tail 예외 개수의 엄격한 1 미만 상계.</p>
+                <p><strong>확립:</strong> 어떤 절대상수 <code>c&gt;0</code>와 무한히 큰 짝수 <code>N</code>에 대해 최소 소수 증인 <code>W(N)&gt;c log N log log N</code>입니다.</p>
+                <p><strong>폐기:</strong> 모든 큰 짝수에 상수배 <code>log N</code> 이하의 소수 증인이 있다는 보편 창 경로를 폐기했습니다.</p>
+                <p><strong>다음 핵심:</strong> 덮개 합동식 바닥 너머 Goldbach 꼬리 예외 개수의 엄격한 1 미만 상계.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 성장하는 순환 푸리에 <code>Omega</code> 필터가 유한 구간의 쌍둥이 소수 개수를 정확히 복원하며 <code>M²T<sub>I</sub>=H+R<sub>I</sub></code>를 만족합니다.</p>
-                <p><strong>폐기:</strong> 쌍둥이가 없는 구간에서는 비영 모드가 양의 zero mode를 정확히 상쇄하므로 zero-mode 양성만으로는 충분하지 않습니다.</p>
-                <p><strong>다음 핵심:</strong> cofinal dyadic 구간에서 <code>R<sub>I</sub>&gt;-H</code>를 강제하는 산술적 하한.</p>
+                <p><strong>확립:</strong> factorial 구성으로 임의 길이의 쌍둥이 소수 부재 구간이 존재하며, 그 구간에서 <code>M²T<sub>I</sub>=H+R<sub>I</sub></code>의 나머지는 정확히 <code>R<sub>I</sub>=-H</code>입니다.</p>
+                <p><strong>폐기:</strong> 모든 구간에서 순환 projector의 양의 여유를 요구하는 경로는 임의 길이 완전 상쇄 구간으로 폐기했습니다.</p>
+                <p><strong>다음 핵심:</strong> 무한히 많은 dyadic 구간에서 독립적인 쌍선형 <code>Omega</code> 위상 하한.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>208개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-208은 완성 제타 수직변, 세 개의 valuation-1 Collatz 영역, 단위 상수까지의 Goldbach 로그 장벽, 성장형 순환 필터의 정확 복원과 상쇄 한계를 구분했습니다.</p>
+                <p>209개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-209는 감마 정규화가 필요한 리만 중앙 경계, 다섯 개 이상 valuation-1인 Collatz 영역, 덮개 합동식 바닥 너머 Goldbach 꼬리, 선택된 dyadic Twin 위상 하한을 결정적 미해결 보조정리로 분리했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-208</strong>
-              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 완성 제타 두 수직변 하한, Collatz 세-1 주기 배제, 모든 <code>c&lt;1</code>의 Goldbach 로그 증인 하한, Twin 순환 필터 상쇄 no-go이며 해결은 0개입니다.</p>
+              <strong>TICKET-209</strong>
+              <p>네 난제 모두 <b>open_not_proven</b>입니다. 최신 결과는 리만 절대 경계 여유 no-go와 감마 정규화, Collatz 네-1 주기 배제, Goldbach 초로그 최소 증인 하한, Twin 임의 길이 factorial 완전 상쇄이며 해결은 0개입니다.</p>
               <a href="open-problems/index.html">4-problem status / 네 문제 현황</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260810-ticket208"></script>
-    <script src="assets/app.js?v=20260810-ticket208"></script>
+    <script src="assets/i18n.js?v=20260810-ticket209"></script>
+    <script src="assets/app.js?v=20260810-ticket209"></script>
   </body>
 </html>
 

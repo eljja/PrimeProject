@@ -207,6 +207,7 @@ TICKET205_SCHEMA = "primeproject.ticket205-winding-extremal-finite-omega.v1"
 TICKET206_SCHEMA = "primeproject.ticket206-adaptive-singleone-crt-projector.v1"
 TICKET207_SCHEMA = "primeproject.ticket207-dihedral-twoone-logwitness-abel.v1"
 TICKET208_SCHEMA = "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.v1"
+TICKET209_SCHEMA = "primeproject.ticket209-normalized-fourone-covering-factorial.v1"
 
 
 def fail(message: str) -> int:
@@ -16963,6 +16964,188 @@ def main() -> int:
         or machine208.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket208 proof boundary changed")
+
+    path209 = Path(
+        "data/open-problem/ticket209-normalized-fourone-covering-factorial.json"
+    )
+    if not path209.exists():
+        return fail("missing ticket209 normalized/four-one/covering/factorial audit")
+    ticket209 = read_json(path209)
+    if (
+        ticket209.get("schema") != TICKET209_SCHEMA
+        or ticket209.get("status") != "open_not_proven"
+    ):
+        return fail("ticket209 schema or status changed")
+    audit209 = ticket209.get("normalized_fourone_covering_factorial_audit", {})
+    machine209 = audit209.get("machine_audit", {})
+    expected_machine209 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine209 != expected_machine209:
+        return fail("ticket209 global machine audit changed")
+
+    attempts209 = {
+        row.get("problem_id"): row for row in ticket209.get("attempts", [])
+    }
+    if set(attempts209) != EXPECTED_PROBLEMS:
+        return fail("ticket209 attempts missing problems")
+    track_paths209 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-209-gamma-normalized-boundary.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-209-four-one-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-209-covering-witness.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-209-factorial-twin-free.json"
+        ),
+    }
+    theorem_names209 = {
+        "riemann": "CompletedXiAbsoluteCofinalClearanceNoGoAndGammaNormalizedOuterEdgeReduction",
+        "collatz": "FourOneAcceleratedCycleFiniteEnumerationExclusion",
+        "goldbach": "CoveringCongruenceSuperLogarithmicLeastWitnessLowerBound",
+        "twin-prime": "ArbitrarilyLongTwinFreeIntervalsAndLocalCyclotomicMarginNoGo",
+    }
+    for problem_id, track_path in track_paths209.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket209 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts209[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET209_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names209[problem_id]
+            or attempt.get("new_result") != theorem_names209[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/normalized_fourone_covering_factorial_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket209 contract changed")
+
+    rh209 = audit209.get("riemann", {}).get("reproducible_computation", {})
+    rh209_aggregate = rh209.get("aggregate", {})
+    rh209_rows = rh209.get("endpoint_decay_rows", [])
+    if (
+        len(rh209_rows) != 6
+        or not all(row.get("positive") for row in rh209_rows)
+        or not all(row.get("strictly_below_previous_row") for row in rh209_rows)
+        or rh209_aggregate.get(
+            "height_independent_absolute_xi_clearance_refuted"
+        )
+        is not True
+        or rh209_aggregate.get("gamma_normalized_sigma_two_clearance_proved")
+        is not True
+        or rh209_aggregate.get("central_cofinal_nonvanishing_proved") is not False
+        or rh209_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket209 RH normalized-boundary contract changed")
+
+    collatz209 = audit209.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz209_aggregate = collatz209.get("aggregate", {})
+    if (
+        len(collatz209.get("exact_enumeration_rows", [])) != 11
+        or collatz209.get("total_exact_words_enumerated") != 2292
+        or collatz209.get("positive_odd_integer_fixed_point_candidates") != []
+        or collatz209_aggregate.get(
+            "exactly_four_valuation_one_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz209_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 5
+        or collatz209_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket209 Collatz four-one boundary changed")
+
+    goldbach209 = audit209.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach209_rows = goldbach209.get(
+        "deterministic_covering_fixture_rows", []
+    )
+    goldbach209_aggregate = goldbach209.get("aggregate", {})
+    if (
+        [row.get("witness_bound_B") for row in goldbach209_rows]
+        != [127, 509, 2039, 8191, 32767]
+        or not all(
+            row.get("greedy_survivor_bound_holds")
+            and row.get("all_prime_witnesses_at_most_B_excluded")
+            and row.get("excluded_witness_certificate_count")
+            == row.get("odd_witness_count")
+            and len(row.get("excluded_witness_certificate_sha256", "")) == 64
+            and len(row.get("survivor_forcing_rows", []))
+            == row.get("survivor_count")
+            and all(
+                item.get("proper_composite_complement")
+                for item in row.get("survivor_forcing_rows", [])
+            )
+            and "forcing_rows" not in row
+            for row in goldbach209_rows
+        )
+        or goldbach209_aggregate.get(
+            "superlogarithmic_least_witness_sequence_proved"
+        )
+        is not True
+        or goldbach209_aggregate.get(
+            "least_witness_over_log_limsup_is_infinite"
+        )
+        is not True
+        or goldbach209_aggregate.get("goldbach_counterexample_found") is not False
+        or goldbach209_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket209 Goldbach covering-witness boundary changed")
+
+    twin209 = audit209.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin209_rows = twin209.get("factorial_twin_free_rows", [])
+    twin209_aggregate = twin209.get("aggregate", {})
+    if (
+        [row.get("requested_length_H") for row in twin209_rows]
+        != [1, 2, 4, 8, 16, 32]
+        or not all(
+            row.get("all_composite_pair_certificates_hold")
+            and row.get("exact_identity_M2T_equals_H_plus_R")
+            and row.get("exact_twin_count_T_I") == 0
+            and row.get("all_nonzero_modes_raw_aggregate_R_I")
+            == -row.get("requested_length_H")
+            for row in twin209_rows
+        )
+        or twin209_aggregate.get("arbitrarily_long_twin_free_intervals_proved")
+        is not True
+        or twin209_aggregate.get("positive_margin_on_every_interval_refuted")
+        is not True
+        or twin209_aggregate.get("cofinal_dyadic_positive_remainder_proved")
+        is not False
+        or twin209_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket209 Twin factorial-interval boundary changed")
+
+    if (
+        "resolves none" not in str(audit209.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket209.get("claim_boundary", "")).lower()
+        or machine209.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket209 proof boundary changed")
 
     print("open problem structure verified")
     return 0

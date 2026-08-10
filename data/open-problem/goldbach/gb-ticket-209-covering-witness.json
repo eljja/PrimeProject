@@ -1,0 +1,2921 @@
+{
+  "schema": "primeproject.ticket209-normalized-fourone-covering-factorial.v1",
+  "generated_at": "2026-08-10T22:00:00+09:00",
+  "ticket_id": "GB-TICKET-209",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "CoveringCongruenceSuperLogarithmicLeastWitnessLowerBound",
+  "declared_proposition": "Let W(N) be the least prime p such that N-p is prime, with infinity when no representation exists. There is an absolute c>0 and an unbounded sequence of even N for which W(N)>c log N log log N. Consequently limsup W(N)/log N=infinity.",
+  "mathematical_argument": "For a large B put z=floor(B/(log B)^2). Starting with odd primes p<=B, for every odd prime q<=z choose a residue r_q containing the largest number of still-uncovered p. At most a factor (1-1/q) survives each step. Mertens' theorem and the prime number theorem give S<=pi(B) product_{3<=q<=z}(1-1/q)=O(B/(log B log z)) survivors. There are enough distinct primes Q_p in (B,2B) to assign one to each survivor. CRT imposes N=0 mod 2, N=r_q mod q, and N=p mod Q_p. Choosing M<N<=2M makes N-p a proper composite for every prime p<=B, so W(N)>B. The modulus satisfies log M<=theta(z)+S log(2B)=O(B/log B), hence B>=c log N log log N for some absolute c and all sufficiently large constructed targets. The displayed greedy rows are deterministic finite certificates of the same covering mechanism.",
+  "reproducible_computation": {
+    "theorem": "Let W(N) be the least prime p such that N-p is prime, with infinity when no representation exists. There is an absolute c>0 and an unbounded sequence of even N for which W(N)>c log N log log N. Consequently limsup W(N)/log N=infinity.",
+    "proof": "For a large B put z=floor(B/(log B)^2). Starting with odd primes p<=B, for every odd prime q<=z choose a residue r_q containing the largest number of still-uncovered p. At most a factor (1-1/q) survives each step. Mertens' theorem and the prime number theorem give S<=pi(B) product_{3<=q<=z}(1-1/q)=O(B/(log B log z)) survivors. There are enough distinct primes Q_p in (B,2B) to assign one to each survivor. CRT imposes N=0 mod 2, N=r_q mod q, and N=p mod Q_p. Choosing M<N<=2M makes N-p a proper composite for every prime p<=B, so W(N)>B. The modulus satisfies log M<=theta(z)+S log(2B)=O(B/log B), hence B>=c log N log log N for some absolute c and all sufficiently large constructed targets. The displayed greedy rows are deterministic finite certificates of the same covering mechanism.",
+    "covering_resource_bound": "S<=pi(B)*product_{3<=q<=z}(1-1/q)=O(B/(log B log z))",
+    "crt_resource_bound": "log M=theta(z)+O(S log B)=O(B/log B)",
+    "deterministic_covering_fixture_rows": [
+      {
+        "witness_bound_B": 127,
+        "cover_limit_z": 5,
+        "odd_witness_count": 30,
+        "cover_modulus_count": 2,
+        "survivor_count": 10,
+        "greedy_survivor_upper_bound_exact": "16",
+        "greedy_survivor_bound_holds": true,
+        "cover_rows": [
+          {
+            "modulus_q": 3,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 15,
+            "remaining_prime_count": 15
+          },
+          {
+            "modulus_q": 5,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 10
+          }
+        ],
+        "survivor_forcing_rows": [
+          {
+            "survivor_prime": 3,
+            "forcing_prime": 131,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13,
+            "forcing_prime": 137,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19,
+            "forcing_prime": 139,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 31,
+            "forcing_prime": 149,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 43,
+            "forcing_prime": 151,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 61,
+            "forcing_prime": 157,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 73,
+            "forcing_prime": 163,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 79,
+            "forcing_prime": 167,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 103,
+            "forcing_prime": 173,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 109,
+            "forcing_prime": 179,
+            "proper_composite_complement": true
+          }
+        ],
+        "excluded_witness_certificate_count": 30,
+        "excluded_witness_certificate_sha256": "a238d2d4ba39d2d8104072ea22539a817782d69cc49e10bce3eb91e28378f84c",
+        "largest_forcing_prime": 179,
+        "canonical_even_target_N": "350673395797869426410582",
+        "modulus_M": "222840433973588333313990",
+        "N_between_M_and_2M": true,
+        "N_bit_length": 79,
+        "observed_B_over_natural_log_N_decimal": "2.342562193859",
+        "observed_B_over_logN_loglogN_decimal": "0.586675766973",
+        "p_equals_2_complement_is_composite": true,
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 509,
+        "cover_limit_z": 13,
+        "odd_witness_count": 96,
+        "cover_modulus_count": 5,
+        "survivor_count": 19,
+        "greedy_survivor_upper_bound_exact": "36864/1001",
+        "greedy_survivor_bound_holds": true,
+        "cover_rows": [
+          {
+            "modulus_q": 3,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 50,
+            "remaining_prime_count": 46
+          },
+          {
+            "modulus_q": 5,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 13,
+            "remaining_prime_count": 33
+          },
+          {
+            "modulus_q": 7,
+            "selected_residue_r": 3,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 26
+          },
+          {
+            "modulus_q": 11,
+            "selected_residue_r": 10,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 22
+          },
+          {
+            "modulus_q": 13,
+            "selected_residue_r": 8,
+            "newly_covered_prime_count": 3,
+            "remaining_prime_count": 19
+          }
+        ],
+        "survivor_forcing_rows": [
+          {
+            "survivor_prime": 13,
+            "forcing_prime": 521,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19,
+            "forcing_prime": 523,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 61,
+            "forcing_prime": 541,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 79,
+            "forcing_prime": 547,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 103,
+            "forcing_prime": 557,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 139,
+            "forcing_prime": 563,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 163,
+            "forcing_prime": 569,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 181,
+            "forcing_prime": 571,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 193,
+            "forcing_prime": 577,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 211,
+            "forcing_prime": 587,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 223,
+            "forcing_prime": 593,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 271,
+            "forcing_prime": 599,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 313,
+            "forcing_prime": 601,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 331,
+            "forcing_prime": 607,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 349,
+            "forcing_prime": 613,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 379,
+            "forcing_prime": 617,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 421,
+            "forcing_prime": 619,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 433,
+            "forcing_prime": 631,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 499,
+            "forcing_prime": 641,
+            "proper_composite_complement": true
+          }
+        ],
+        "excluded_witness_certificate_count": 96,
+        "excluded_witness_certificate_sha256": "53c1172c1926523a9d651a5531d7aeef45d9c0070eb73bc0054f7042574c4514",
+        "largest_forcing_prime": 641,
+        "canonical_even_target_N": "1706670465276741909168870623278226577579209797486443590282",
+        "modulus_M": "1025353386290976940669084430966429227644706136065669261530",
+        "N_between_M_and_2M": true,
+        "N_bit_length": 191,
+        "observed_B_over_natural_log_N_decimal": "3.862442570342",
+        "observed_B_over_logN_loglogN_decimal": "0.791297944273",
+        "p_equals_2_complement_is_composite": true,
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 2039,
+        "cover_limit_z": 35,
+        "odd_witness_count": 308,
+        "cover_modulus_count": 10,
+        "survivor_count": 46,
+        "greedy_survivor_upper_bound_exact": "8174960640/86822723",
+        "greedy_survivor_bound_holds": true,
+        "cover_rows": [
+          {
+            "modulus_q": 3,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 156,
+            "remaining_prime_count": 152
+          },
+          {
+            "modulus_q": 5,
+            "selected_residue_r": 3,
+            "newly_covered_prime_count": 40,
+            "remaining_prime_count": 112
+          },
+          {
+            "modulus_q": 7,
+            "selected_residue_r": 5,
+            "newly_covered_prime_count": 21,
+            "remaining_prime_count": 91
+          },
+          {
+            "modulus_q": 11,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 11,
+            "remaining_prime_count": 80
+          },
+          {
+            "modulus_q": 13,
+            "selected_residue_r": 5,
+            "newly_covered_prime_count": 9,
+            "remaining_prime_count": 71
+          },
+          {
+            "modulus_q": 17,
+            "selected_residue_r": 3,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 65
+          },
+          {
+            "modulus_q": 19,
+            "selected_residue_r": 15,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 59
+          },
+          {
+            "modulus_q": 23,
+            "selected_residue_r": 21,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 54
+          },
+          {
+            "modulus_q": 29,
+            "selected_residue_r": 7,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 50
+          },
+          {
+            "modulus_q": 31,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 46
+          }
+        ],
+        "survivor_forcing_rows": [
+          {
+            "survivor_prime": 97,
+            "forcing_prime": 2053,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 127,
+            "forcing_prime": 2063,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 151,
+            "forcing_prime": 2069,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 199,
+            "forcing_prime": 2081,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 307,
+            "forcing_prime": 2083,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 331,
+            "forcing_prime": 2087,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 337,
+            "forcing_prime": 2089,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 349,
+            "forcing_prime": 2099,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 367,
+            "forcing_prime": 2111,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 379,
+            "forcing_prime": 2113,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 457,
+            "forcing_prime": 2129,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 487,
+            "forcing_prime": 2131,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 571,
+            "forcing_prime": 2137,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 601,
+            "forcing_prime": 2141,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 631,
+            "forcing_prime": 2143,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 709,
+            "forcing_prime": 2153,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 727,
+            "forcing_prime": 2161,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 769,
+            "forcing_prime": 2179,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 787,
+            "forcing_prime": 2203,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 829,
+            "forcing_prime": 2207,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 907,
+            "forcing_prime": 2213,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 919,
+            "forcing_prime": 2221,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 991,
+            "forcing_prime": 2237,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 997,
+            "forcing_prime": 2239,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1009,
+            "forcing_prime": 2243,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1021,
+            "forcing_prime": 2251,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1039,
+            "forcing_prime": 2267,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1129,
+            "forcing_prime": 2269,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1249,
+            "forcing_prime": 2273,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1291,
+            "forcing_prime": 2281,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1297,
+            "forcing_prime": 2287,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1327,
+            "forcing_prime": 2293,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1381,
+            "forcing_prime": 2297,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1429,
+            "forcing_prime": 2309,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1471,
+            "forcing_prime": 2311,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1549,
+            "forcing_prime": 2333,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1579,
+            "forcing_prime": 2339,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1609,
+            "forcing_prime": 2341,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1621,
+            "forcing_prime": 2347,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1627,
+            "forcing_prime": 2351,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1759,
+            "forcing_prime": 2357,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1777,
+            "forcing_prime": 2371,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1789,
+            "forcing_prime": 2377,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1879,
+            "forcing_prime": 2381,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1987,
+            "forcing_prime": 2383,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2011,
+            "forcing_prime": 2389,
+            "proper_composite_complement": true
+          }
+        ],
+        "excluded_witness_certificate_count": 308,
+        "excluded_witness_certificate_sha256": "47c3ee81f34d12467a76382bd0ceac4533c0110886754dc0a6d2d721f6183c33",
+        "largest_forcing_prime": 2389,
+        "canonical_even_target_N": "3560932077737809597110880410385534352915368142192460778433939512619492877954592387890467697924892655816355486105490246921108276849639995811687353046760487201690163148",
+        "modulus_M": "1843930019596237969508432840398919657637135699723070521471606328053654920597138907022886512936527890667070727451611456628873515091068891418040910329336451776807213110",
+        "N_between_M_and_2M": true,
+        "N_bit_length": 550,
+        "observed_B_over_natural_log_N_decimal": "5.348946448247",
+        "observed_B_over_logN_loglogN_decimal": "0.899993742396",
+        "p_equals_2_complement_is_composite": true,
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 8191,
+        "cover_limit_z": 100,
+        "odd_witness_count": 1027,
+        "cover_modulus_count": 24,
+        "survivor_count": 101,
+        "greedy_survivor_upper_bound_exact": "8782421916306270050058240000/35537413436632596832187513",
+        "greedy_survivor_bound_holds": true,
+        "cover_rows": [
+          {
+            "modulus_q": 3,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 521,
+            "remaining_prime_count": 506
+          },
+          {
+            "modulus_q": 5,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 131,
+            "remaining_prime_count": 375
+          },
+          {
+            "modulus_q": 7,
+            "selected_residue_r": 3,
+            "newly_covered_prime_count": 67,
+            "remaining_prime_count": 308
+          },
+          {
+            "modulus_q": 11,
+            "selected_residue_r": 10,
+            "newly_covered_prime_count": 35,
+            "remaining_prime_count": 273
+          },
+          {
+            "modulus_q": 13,
+            "selected_residue_r": 8,
+            "newly_covered_prime_count": 27,
+            "remaining_prime_count": 246
+          },
+          {
+            "modulus_q": 17,
+            "selected_residue_r": 1,
+            "newly_covered_prime_count": 18,
+            "remaining_prime_count": 228
+          },
+          {
+            "modulus_q": 19,
+            "selected_residue_r": 10,
+            "newly_covered_prime_count": 16,
+            "remaining_prime_count": 212
+          },
+          {
+            "modulus_q": 23,
+            "selected_residue_r": 6,
+            "newly_covered_prime_count": 14,
+            "remaining_prime_count": 198
+          },
+          {
+            "modulus_q": 29,
+            "selected_residue_r": 27,
+            "newly_covered_prime_count": 12,
+            "remaining_prime_count": 186
+          },
+          {
+            "modulus_q": 31,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 9,
+            "remaining_prime_count": 177
+          },
+          {
+            "modulus_q": 37,
+            "selected_residue_r": 9,
+            "newly_covered_prime_count": 8,
+            "remaining_prime_count": 169
+          },
+          {
+            "modulus_q": 41,
+            "selected_residue_r": 38,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 162
+          },
+          {
+            "modulus_q": 43,
+            "selected_residue_r": 34,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 155
+          },
+          {
+            "modulus_q": 47,
+            "selected_residue_r": 13,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 148
+          },
+          {
+            "modulus_q": 53,
+            "selected_residue_r": 31,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 142
+          },
+          {
+            "modulus_q": 59,
+            "selected_residue_r": 18,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 135
+          },
+          {
+            "modulus_q": 61,
+            "selected_residue_r": 10,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 130
+          },
+          {
+            "modulus_q": 67,
+            "selected_residue_r": 48,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 125
+          },
+          {
+            "modulus_q": 71,
+            "selected_residue_r": 34,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 120
+          },
+          {
+            "modulus_q": 73,
+            "selected_residue_r": 3,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 116
+          },
+          {
+            "modulus_q": 79,
+            "selected_residue_r": 14,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 112
+          },
+          {
+            "modulus_q": 83,
+            "selected_residue_r": 19,
+            "newly_covered_prime_count": 3,
+            "remaining_prime_count": 109
+          },
+          {
+            "modulus_q": 89,
+            "selected_residue_r": 56,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 105
+          },
+          {
+            "modulus_q": 97,
+            "selected_residue_r": 37,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 101
+          }
+        ],
+        "survivor_forcing_rows": [
+          {
+            "survivor_prime": 61,
+            "forcing_prime": 8209,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 139,
+            "forcing_prime": 8219,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 211,
+            "forcing_prime": 8221,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 223,
+            "forcing_prime": 8231,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 271,
+            "forcing_prime": 8233,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 331,
+            "forcing_prime": 8237,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 499,
+            "forcing_prime": 8243,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 631,
+            "forcing_prime": 8263,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 643,
+            "forcing_prime": 8269,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 691,
+            "forcing_prime": 8273,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 709,
+            "forcing_prime": 8287,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 739,
+            "forcing_prime": 8291,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 991,
+            "forcing_prime": 8293,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1051,
+            "forcing_prime": 8297,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1069,
+            "forcing_prime": 8311,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1153,
+            "forcing_prime": 8317,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1279,
+            "forcing_prime": 8329,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1381,
+            "forcing_prime": 8353,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1471,
+            "forcing_prime": 8363,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1483,
+            "forcing_prime": 8369,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1579,
+            "forcing_prime": 8377,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1699,
+            "forcing_prime": 8387,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1741,
+            "forcing_prime": 8389,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1861,
+            "forcing_prime": 8419,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1873,
+            "forcing_prime": 8423,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1993,
+            "forcing_prime": 8429,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2029,
+            "forcing_prime": 8431,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2113,
+            "forcing_prime": 8443,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2161,
+            "forcing_prime": 8447,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2239,
+            "forcing_prime": 8461,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2251,
+            "forcing_prime": 8467,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2311,
+            "forcing_prime": 8501,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2371,
+            "forcing_prime": 8513,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2473,
+            "forcing_prime": 8521,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2503,
+            "forcing_prime": 8527,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2659,
+            "forcing_prime": 8537,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2671,
+            "forcing_prime": 8539,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2713,
+            "forcing_prime": 8543,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2731,
+            "forcing_prime": 8563,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2851,
+            "forcing_prime": 8573,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2953,
+            "forcing_prime": 8581,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3049,
+            "forcing_prime": 8597,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3109,
+            "forcing_prime": 8599,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3169,
+            "forcing_prime": 8609,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3301,
+            "forcing_prime": 8623,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3313,
+            "forcing_prime": 8627,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3463,
+            "forcing_prime": 8629,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3511,
+            "forcing_prime": 8641,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3613,
+            "forcing_prime": 8647,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3631,
+            "forcing_prime": 8663,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3793,
+            "forcing_prime": 8669,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3823,
+            "forcing_prime": 8677,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3889,
+            "forcing_prime": 8681,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3919,
+            "forcing_prime": 8689,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4093,
+            "forcing_prime": 8693,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4099,
+            "forcing_prime": 8699,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4159,
+            "forcing_prime": 8707,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4339,
+            "forcing_prime": 8713,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4423,
+            "forcing_prime": 8719,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4603,
+            "forcing_prime": 8731,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4639,
+            "forcing_prime": 8737,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4723,
+            "forcing_prime": 8741,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4759,
+            "forcing_prime": 8747,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4789,
+            "forcing_prime": 8753,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5011,
+            "forcing_prime": 8761,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5023,
+            "forcing_prime": 8779,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5209,
+            "forcing_prime": 8783,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5233,
+            "forcing_prime": 8803,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5413,
+            "forcing_prime": 8807,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5419,
+            "forcing_prime": 8819,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5431,
+            "forcing_prime": 8821,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5443,
+            "forcing_prime": 8831,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5563,
+            "forcing_prime": 8837,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5569,
+            "forcing_prime": 8839,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5749,
+            "forcing_prime": 8849,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5791,
+            "forcing_prime": 8861,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5821,
+            "forcing_prime": 8863,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6043,
+            "forcing_prime": 8867,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6091,
+            "forcing_prime": 8887,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6133,
+            "forcing_prime": 8893,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6199,
+            "forcing_prime": 8923,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6271,
+            "forcing_prime": 8929,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6301,
+            "forcing_prime": 8933,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6343,
+            "forcing_prime": 8941,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6361,
+            "forcing_prime": 8951,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6421,
+            "forcing_prime": 8963,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6619,
+            "forcing_prime": 8969,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6661,
+            "forcing_prime": 8971,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6673,
+            "forcing_prime": 8999,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6691,
+            "forcing_prime": 9001,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6763,
+            "forcing_prime": 9007,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6823,
+            "forcing_prime": 9011,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6829,
+            "forcing_prime": 9013,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7069,
+            "forcing_prime": 9029,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7309,
+            "forcing_prime": 9041,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7321,
+            "forcing_prime": 9043,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7333,
+            "forcing_prime": 9049,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7669,
+            "forcing_prime": 9059,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7681,
+            "forcing_prime": 9067,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7723,
+            "forcing_prime": 9091,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7789,
+            "forcing_prime": 9103,
+            "proper_composite_complement": true
+          }
+        ],
+        "excluded_witness_certificate_count": 1027,
+        "excluded_witness_certificate_sha256": "105134fc62771aa50b27693bcbe1d17bd9b8e7589beb3ea0bf28f5776f703779",
+        "largest_forcing_prime": 9103,
+        "canonical_even_target_N": "166479894252528393455110066227289595400169215911590092534631404591787661732931573929212163709179184959608286319035549808919562802925304744716915065214360871488533543900145328096199642037660476544107693295216223811616669957478999955490251124221389079568976110382036503682131030290121937154130710738967078699812260086915493398830228912779163155747113273620074054072837235834260040010807860006430834270368000562237151494423947112673104232",
+        "modulus_M": "96010895107906966418587591085931750299599463787058488350575018876959344358210760375686852693601582217029093724794516274053294936875255782435619288644054257410368356045704630486007713601844699019215391338478642017301342146226211671440538354815146987654501670098217944475700563350512643416370996634648523566335644614881774306795704495207307754650607196550910636243818735586539678385005089181277861516421124788928076040677780662154446410",
+        "N_between_M_and_2M": true,
+        "N_bit_length": 1443,
+        "observed_B_over_natural_log_N_decimal": "8.192379312234",
+        "observed_B_over_logN_loglogN_decimal": "1.185997285506",
+        "p_equals_2_complement_is_composite": true,
+        "all_prime_witnesses_at_most_B_excluded": true
+      },
+      {
+        "witness_bound_B": 32767,
+        "cover_limit_z": 303,
+        "odd_witness_count": 3511,
+        "cover_modulus_count": 61,
+        "survivor_count": 246,
+        "greedy_survivor_upper_bound_exact": "2487642156350954445918280038218685013702811864406189264958983233841634738176000000000000000000/3635022807819482107470058630348166232778949981464488927359135568281940543246783300267723637",
+        "greedy_survivor_bound_holds": true,
+        "cover_rows": [
+          {
+            "modulus_q": 3,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 1765,
+            "remaining_prime_count": 1746
+          },
+          {
+            "modulus_q": 5,
+            "selected_residue_r": 3,
+            "newly_covered_prime_count": 448,
+            "remaining_prime_count": 1298
+          },
+          {
+            "modulus_q": 7,
+            "selected_residue_r": 5,
+            "newly_covered_prime_count": 229,
+            "remaining_prime_count": 1069
+          },
+          {
+            "modulus_q": 11,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 112,
+            "remaining_prime_count": 957
+          },
+          {
+            "modulus_q": 13,
+            "selected_residue_r": 7,
+            "newly_covered_prime_count": 84,
+            "remaining_prime_count": 873
+          },
+          {
+            "modulus_q": 17,
+            "selected_residue_r": 11,
+            "newly_covered_prime_count": 63,
+            "remaining_prime_count": 810
+          },
+          {
+            "modulus_q": 19,
+            "selected_residue_r": 5,
+            "newly_covered_prime_count": 52,
+            "remaining_prime_count": 758
+          },
+          {
+            "modulus_q": 23,
+            "selected_residue_r": 8,
+            "newly_covered_prime_count": 42,
+            "remaining_prime_count": 716
+          },
+          {
+            "modulus_q": 29,
+            "selected_residue_r": 14,
+            "newly_covered_prime_count": 31,
+            "remaining_prime_count": 685
+          },
+          {
+            "modulus_q": 31,
+            "selected_residue_r": 17,
+            "newly_covered_prime_count": 28,
+            "remaining_prime_count": 657
+          },
+          {
+            "modulus_q": 37,
+            "selected_residue_r": 1,
+            "newly_covered_prime_count": 23,
+            "remaining_prime_count": 634
+          },
+          {
+            "modulus_q": 41,
+            "selected_residue_r": 37,
+            "newly_covered_prime_count": 21,
+            "remaining_prime_count": 613
+          },
+          {
+            "modulus_q": 43,
+            "selected_residue_r": 27,
+            "newly_covered_prime_count": 21,
+            "remaining_prime_count": 592
+          },
+          {
+            "modulus_q": 47,
+            "selected_residue_r": 26,
+            "newly_covered_prime_count": 18,
+            "remaining_prime_count": 574
+          },
+          {
+            "modulus_q": 53,
+            "selected_residue_r": 40,
+            "newly_covered_prime_count": 16,
+            "remaining_prime_count": 558
+          },
+          {
+            "modulus_q": 59,
+            "selected_residue_r": 28,
+            "newly_covered_prime_count": 16,
+            "remaining_prime_count": 542
+          },
+          {
+            "modulus_q": 61,
+            "selected_residue_r": 17,
+            "newly_covered_prime_count": 15,
+            "remaining_prime_count": 527
+          },
+          {
+            "modulus_q": 67,
+            "selected_residue_r": 47,
+            "newly_covered_prime_count": 13,
+            "remaining_prime_count": 514
+          },
+          {
+            "modulus_q": 71,
+            "selected_residue_r": 69,
+            "newly_covered_prime_count": 13,
+            "remaining_prime_count": 501
+          },
+          {
+            "modulus_q": 73,
+            "selected_residue_r": 58,
+            "newly_covered_prime_count": 11,
+            "remaining_prime_count": 490
+          },
+          {
+            "modulus_q": 79,
+            "selected_residue_r": 21,
+            "newly_covered_prime_count": 11,
+            "remaining_prime_count": 479
+          },
+          {
+            "modulus_q": 83,
+            "selected_residue_r": 67,
+            "newly_covered_prime_count": 10,
+            "remaining_prime_count": 469
+          },
+          {
+            "modulus_q": 89,
+            "selected_residue_r": 14,
+            "newly_covered_prime_count": 9,
+            "remaining_prime_count": 460
+          },
+          {
+            "modulus_q": 97,
+            "selected_residue_r": 31,
+            "newly_covered_prime_count": 9,
+            "remaining_prime_count": 451
+          },
+          {
+            "modulus_q": 101,
+            "selected_residue_r": 6,
+            "newly_covered_prime_count": 8,
+            "remaining_prime_count": 443
+          },
+          {
+            "modulus_q": 103,
+            "selected_residue_r": 24,
+            "newly_covered_prime_count": 9,
+            "remaining_prime_count": 434
+          },
+          {
+            "modulus_q": 107,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 8,
+            "remaining_prime_count": 426
+          },
+          {
+            "modulus_q": 109,
+            "selected_residue_r": 103,
+            "newly_covered_prime_count": 9,
+            "remaining_prime_count": 417
+          },
+          {
+            "modulus_q": 113,
+            "selected_residue_r": 18,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 410
+          },
+          {
+            "modulus_q": 127,
+            "selected_residue_r": 39,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 403
+          },
+          {
+            "modulus_q": 131,
+            "selected_residue_r": 43,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 396
+          },
+          {
+            "modulus_q": 137,
+            "selected_residue_r": 45,
+            "newly_covered_prime_count": 8,
+            "remaining_prime_count": 388
+          },
+          {
+            "modulus_q": 139,
+            "selected_residue_r": 1,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 382
+          },
+          {
+            "modulus_q": 149,
+            "selected_residue_r": 143,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 375
+          },
+          {
+            "modulus_q": 151,
+            "selected_residue_r": 57,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 369
+          },
+          {
+            "modulus_q": 157,
+            "selected_residue_r": 91,
+            "newly_covered_prime_count": 7,
+            "remaining_prime_count": 362
+          },
+          {
+            "modulus_q": 163,
+            "selected_residue_r": 160,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 356
+          },
+          {
+            "modulus_q": 167,
+            "selected_residue_r": 56,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 350
+          },
+          {
+            "modulus_q": 173,
+            "selected_residue_r": 27,
+            "newly_covered_prime_count": 6,
+            "remaining_prime_count": 344
+          },
+          {
+            "modulus_q": 179,
+            "selected_residue_r": 9,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 339
+          },
+          {
+            "modulus_q": 181,
+            "selected_residue_r": 2,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 335
+          },
+          {
+            "modulus_q": 191,
+            "selected_residue_r": 5,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 330
+          },
+          {
+            "modulus_q": 193,
+            "selected_residue_r": 55,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 325
+          },
+          {
+            "modulus_q": 197,
+            "selected_residue_r": 13,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 320
+          },
+          {
+            "modulus_q": 199,
+            "selected_residue_r": 60,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 315
+          },
+          {
+            "modulus_q": 211,
+            "selected_residue_r": 8,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 310
+          },
+          {
+            "modulus_q": 223,
+            "selected_residue_r": 207,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 305
+          },
+          {
+            "modulus_q": 227,
+            "selected_residue_r": 184,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 300
+          },
+          {
+            "modulus_q": 229,
+            "selected_residue_r": 73,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 296
+          },
+          {
+            "modulus_q": 233,
+            "selected_residue_r": 1,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 292
+          },
+          {
+            "modulus_q": 239,
+            "selected_residue_r": 202,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 287
+          },
+          {
+            "modulus_q": 241,
+            "selected_residue_r": 191,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 283
+          },
+          {
+            "modulus_q": 251,
+            "selected_residue_r": 55,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 279
+          },
+          {
+            "modulus_q": 257,
+            "selected_residue_r": 22,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 275
+          },
+          {
+            "modulus_q": 263,
+            "selected_residue_r": 45,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 271
+          },
+          {
+            "modulus_q": 269,
+            "selected_residue_r": 135,
+            "newly_covered_prime_count": 5,
+            "remaining_prime_count": 266
+          },
+          {
+            "modulus_q": 271,
+            "selected_residue_r": 95,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 262
+          },
+          {
+            "modulus_q": 277,
+            "selected_residue_r": 82,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 258
+          },
+          {
+            "modulus_q": 281,
+            "selected_residue_r": 17,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 254
+          },
+          {
+            "modulus_q": 283,
+            "selected_residue_r": 44,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 250
+          },
+          {
+            "modulus_q": 293,
+            "selected_residue_r": 38,
+            "newly_covered_prime_count": 4,
+            "remaining_prime_count": 246
+          }
+        ],
+        "survivor_forcing_rows": [
+          {
+            "survivor_prime": 97,
+            "forcing_prime": 32771,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 151,
+            "forcing_prime": 32779,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 349,
+            "forcing_prime": 32783,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 379,
+            "forcing_prime": 32789,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 421,
+            "forcing_prime": 32797,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 577,
+            "forcing_prime": 32801,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 601,
+            "forcing_prime": 32803,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 619,
+            "forcing_prime": 32831,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 877,
+            "forcing_prime": 32833,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 967,
+            "forcing_prime": 32839,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 991,
+            "forcing_prime": 32843,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1039,
+            "forcing_prime": 32869,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1051,
+            "forcing_prime": 32887,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1129,
+            "forcing_prime": 32909,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1249,
+            "forcing_prime": 32911,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1291,
+            "forcing_prime": 32917,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1327,
+            "forcing_prime": 32933,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1429,
+            "forcing_prime": 32939,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1579,
+            "forcing_prime": 32941,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1831,
+            "forcing_prime": 32957,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 1987,
+            "forcing_prime": 32969,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2011,
+            "forcing_prime": 32971,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2137,
+            "forcing_prime": 32983,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2179,
+            "forcing_prime": 32987,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2281,
+            "forcing_prime": 32993,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2671,
+            "forcing_prime": 32999,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2689,
+            "forcing_prime": 33013,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 2857,
+            "forcing_prime": 33023,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3019,
+            "forcing_prime": 33029,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3259,
+            "forcing_prime": 33037,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3271,
+            "forcing_prime": 33049,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3301,
+            "forcing_prime": 33053,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3469,
+            "forcing_prime": 33071,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3499,
+            "forcing_prime": 33073,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3571,
+            "forcing_prime": 33083,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3637,
+            "forcing_prime": 33091,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3769,
+            "forcing_prime": 33107,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 3931,
+            "forcing_prime": 33113,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4111,
+            "forcing_prime": 33119,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4339,
+            "forcing_prime": 33149,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4507,
+            "forcing_prime": 33151,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4519,
+            "forcing_prime": 33161,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4591,
+            "forcing_prime": 33179,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4621,
+            "forcing_prime": 33181,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4789,
+            "forcing_prime": 33191,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 4987,
+            "forcing_prime": 33199,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5167,
+            "forcing_prime": 33203,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5197,
+            "forcing_prime": 33211,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5347,
+            "forcing_prime": 33223,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5527,
+            "forcing_prime": 33247,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5581,
+            "forcing_prime": 33287,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 5641,
+            "forcing_prime": 33289,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6037,
+            "forcing_prime": 33301,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6121,
+            "forcing_prime": 33311,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6271,
+            "forcing_prime": 33317,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6367,
+            "forcing_prime": 33329,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6397,
+            "forcing_prime": 33331,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6421,
+            "forcing_prime": 33343,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6469,
+            "forcing_prime": 33347,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6619,
+            "forcing_prime": 33349,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6691,
+            "forcing_prime": 33353,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 6967,
+            "forcing_prime": 33359,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7057,
+            "forcing_prime": 33377,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7309,
+            "forcing_prime": 33391,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7477,
+            "forcing_prime": 33403,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7489,
+            "forcing_prime": 33409,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7591,
+            "forcing_prime": 33413,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7741,
+            "forcing_prime": 33427,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 7927,
+            "forcing_prime": 33457,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8011,
+            "forcing_prime": 33461,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8017,
+            "forcing_prime": 33469,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8059,
+            "forcing_prime": 33479,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8101,
+            "forcing_prime": 33487,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8269,
+            "forcing_prime": 33493,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8521,
+            "forcing_prime": 33503,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8581,
+            "forcing_prime": 33521,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8641,
+            "forcing_prime": 33529,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8737,
+            "forcing_prime": 33533,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8887,
+            "forcing_prime": 33547,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 8941,
+            "forcing_prime": 33563,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9067,
+            "forcing_prime": 33569,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9109,
+            "forcing_prime": 33577,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9151,
+            "forcing_prime": 33581,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9199,
+            "forcing_prime": 33587,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9337,
+            "forcing_prime": 33589,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9697,
+            "forcing_prime": 33599,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9859,
+            "forcing_prime": 33601,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9901,
+            "forcing_prime": 33613,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 9907,
+            "forcing_prime": 33617,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 10159,
+            "forcing_prime": 33619,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 10321,
+            "forcing_prime": 33623,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 10501,
+            "forcing_prime": 33629,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 10711,
+            "forcing_prime": 33637,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 10909,
+            "forcing_prime": 33641,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11059,
+            "forcing_prime": 33647,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11131,
+            "forcing_prime": 33679,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11311,
+            "forcing_prime": 33703,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11491,
+            "forcing_prime": 33713,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11689,
+            "forcing_prime": 33721,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11719,
+            "forcing_prime": 33739,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 11731,
+            "forcing_prime": 33749,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12007,
+            "forcing_prime": 33751,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12277,
+            "forcing_prime": 33757,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12301,
+            "forcing_prime": 33767,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12379,
+            "forcing_prime": 33769,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12757,
+            "forcing_prime": 33773,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12781,
+            "forcing_prime": 33791,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12889,
+            "forcing_prime": 33797,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12907,
+            "forcing_prime": 33809,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 12967,
+            "forcing_prime": 33811,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13009,
+            "forcing_prime": 33827,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13159,
+            "forcing_prime": 33829,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13171,
+            "forcing_prime": 33851,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13177,
+            "forcing_prime": 33857,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13219,
+            "forcing_prime": 33863,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13297,
+            "forcing_prime": 33871,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13309,
+            "forcing_prime": 33889,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13399,
+            "forcing_prime": 33893,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13537,
+            "forcing_prime": 33911,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13597,
+            "forcing_prime": 33923,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13729,
+            "forcing_prime": 33931,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 13759,
+            "forcing_prime": 33937,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 14347,
+            "forcing_prime": 33941,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 14419,
+            "forcing_prime": 33961,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 14851,
+            "forcing_prime": 33967,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 14947,
+            "forcing_prime": 33997,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15241,
+            "forcing_prime": 34019,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15361,
+            "forcing_prime": 34031,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15439,
+            "forcing_prime": 34033,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15619,
+            "forcing_prime": 34039,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15649,
+            "forcing_prime": 34057,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15739,
+            "forcing_prime": 34061,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 15907,
+            "forcing_prime": 34123,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16057,
+            "forcing_prime": 34127,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16069,
+            "forcing_prime": 34129,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16087,
+            "forcing_prime": 34141,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16141,
+            "forcing_prime": 34147,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16339,
+            "forcing_prime": 34157,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16369,
+            "forcing_prime": 34159,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16411,
+            "forcing_prime": 34171,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 16879,
+            "forcing_prime": 34183,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17077,
+            "forcing_prime": 34211,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17137,
+            "forcing_prime": 34213,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17299,
+            "forcing_prime": 34217,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17389,
+            "forcing_prime": 34231,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17509,
+            "forcing_prime": 34253,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17737,
+            "forcing_prime": 34259,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17851,
+            "forcing_prime": 34261,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17881,
+            "forcing_prime": 34267,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 17977,
+            "forcing_prime": 34273,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18061,
+            "forcing_prime": 34283,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18199,
+            "forcing_prime": 34297,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18217,
+            "forcing_prime": 34301,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18301,
+            "forcing_prime": 34303,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18367,
+            "forcing_prime": 34313,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18379,
+            "forcing_prime": 34319,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18451,
+            "forcing_prime": 34327,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18481,
+            "forcing_prime": 34337,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18637,
+            "forcing_prime": 34351,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 18859,
+            "forcing_prime": 34361,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19141,
+            "forcing_prime": 34367,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19207,
+            "forcing_prime": 34369,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19267,
+            "forcing_prime": 34381,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19387,
+            "forcing_prime": 34403,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19441,
+            "forcing_prime": 34421,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19447,
+            "forcing_prime": 34429,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19501,
+            "forcing_prime": 34439,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19777,
+            "forcing_prime": 34457,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 19891,
+            "forcing_prime": 34469,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 20089,
+            "forcing_prime": 34471,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 20101,
+            "forcing_prime": 34483,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 20161,
+            "forcing_prime": 34487,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 20611,
+            "forcing_prime": 34499,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 20707,
+            "forcing_prime": 34501,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 20959,
+            "forcing_prime": 34511,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21157,
+            "forcing_prime": 34513,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21211,
+            "forcing_prime": 34519,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21277,
+            "forcing_prime": 34537,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21391,
+            "forcing_prime": 34543,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21517,
+            "forcing_prime": 34549,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21577,
+            "forcing_prime": 34583,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 21961,
+            "forcing_prime": 34589,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 22039,
+            "forcing_prime": 34591,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 22441,
+            "forcing_prime": 34603,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 22567,
+            "forcing_prime": 34607,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 22639,
+            "forcing_prime": 34613,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 22807,
+            "forcing_prime": 34631,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23041,
+            "forcing_prime": 34649,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23167,
+            "forcing_prime": 34651,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23227,
+            "forcing_prime": 34667,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23557,
+            "forcing_prime": 34673,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23671,
+            "forcing_prime": 34679,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23827,
+            "forcing_prime": 34687,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23857,
+            "forcing_prime": 34693,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 23911,
+            "forcing_prime": 34703,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24007,
+            "forcing_prime": 34721,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24061,
+            "forcing_prime": 34729,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24091,
+            "forcing_prime": 34739,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24481,
+            "forcing_prime": 34747,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24517,
+            "forcing_prime": 34757,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24571,
+            "forcing_prime": 34759,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24691,
+            "forcing_prime": 34763,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24859,
+            "forcing_prime": 34781,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 24907,
+            "forcing_prime": 34807,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 25111,
+            "forcing_prime": 34819,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 25411,
+            "forcing_prime": 34841,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 25537,
+            "forcing_prime": 34843,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 25717,
+            "forcing_prime": 34847,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 25939,
+            "forcing_prime": 34849,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26041,
+            "forcing_prime": 34871,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26107,
+            "forcing_prime": 34877,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26161,
+            "forcing_prime": 34883,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26209,
+            "forcing_prime": 34897,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26539,
+            "forcing_prime": 34913,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26737,
+            "forcing_prime": 34919,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 26821,
+            "forcing_prime": 34939,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 27091,
+            "forcing_prime": 34949,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 27241,
+            "forcing_prime": 34961,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 27259,
+            "forcing_prime": 34963,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 27367,
+            "forcing_prime": 34981,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 27481,
+            "forcing_prime": 35023,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 27691,
+            "forcing_prime": 35027,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28051,
+            "forcing_prime": 35051,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28069,
+            "forcing_prime": 35053,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28099,
+            "forcing_prime": 35059,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28219,
+            "forcing_prime": 35069,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28297,
+            "forcing_prime": 35081,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28447,
+            "forcing_prime": 35083,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28729,
+            "forcing_prime": 35089,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28759,
+            "forcing_prime": 35099,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 28807,
+            "forcing_prime": 35107,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29017,
+            "forcing_prime": 35111,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29077,
+            "forcing_prime": 35117,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29221,
+            "forcing_prime": 35129,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29269,
+            "forcing_prime": 35141,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29389,
+            "forcing_prime": 35149,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29851,
+            "forcing_prime": 35153,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 29917,
+            "forcing_prime": 35159,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 30097,
+            "forcing_prime": 35171,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 30631,
+            "forcing_prime": 35201,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 30871,
+            "forcing_prime": 35221,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 30949,
+            "forcing_prime": 35227,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 31069,
+            "forcing_prime": 35251,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 31237,
+            "forcing_prime": 35257,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 31387,
+            "forcing_prime": 35267,
+            "proper_composite_complement": true
+          },
+          {
+            "survivor_prime": 31741,
+            "forcing_prime": 35279,
+            "proper_composite_complement": true
+          }
+        ],
+        "excluded_witness_certificate_count": 3511,
+        "excluded_witness_certificate_sha256": "a4a7f8739cbcae5dca811d22b5ae8d94f4dcf99c191ebd4650d394121db9666a",
+        "largest_forcing_prime": 35279,
+        "canonical_even_target_N": "156475568539528761386339294628793994981756446288147599262263172668443456624534201356424539499579062638392424400479724940235040782991755679917332713609278711768798931659662240884518619372115077316163042723994041749314539676065782521960343339687190089544207845469795564338876783899164342221008875193356883163737243355153057907879590699965593786594138475546297476968389200403104421608382109580244803824233869574183083449603333290629450486715679808512879399736814041031866062442727616957193677548619742854555623009994835461874364446548868115870765017123122950249041910706040071455681738474002644858694792847213372205217019513348084983157598988586307120119172484140191755995123643890895190116600701329913732814633829786259181941108667469970485005085994841273895136126627197595637434847279792009466090770026098023942910474529599196283001975656779570865198436432760226313977312455349537868170000251338329569442837049838795811040898889282937733096697714591016130677050803304980913890093727989528711953802029310779455843424424029694000395863651062008804218261159895375230922284806237829703246287208612447271014585887826069075594956076384134851036340503617538529912135030372677411033485071920418761441543754044092490560966173734720057429831241518",
+        "modulus_M": "100797589729345453187638799051913374476153729048895529800420399802588236743626074526695473937177250898734563406564025258300393364769552974312657733589336379530139853756951663792364700033601663911282404858100558064956044540354982276727170438179816851840703437143348681645730774481762972227040724389377857520746582816515743120827875660307646970011686899696041698528053671342384013521091578850910906927789841832520054904928352350180926866859395255552972585644908752553826667445722624490291884285620441007434684417321647931382287807297328715714422675803455981409691884152602057870075310791907944579504339820941316844338651287316140140833586936133534332207029842857143960508316733566746770939339227701914864411269178725098094374653756939916355469998414549396410919194385415190889012043192181609602381687328159908753896196540974287737905780230961345165338716064599776380699862036280485757349267006676864221662253667481652299471773607327208441796675956994049630542356175454273356099410274597227512235993282874382007657642822935407842555996565449533622687449603517305467318256071061758350205954765368677783605483275203834090848561240303263051650826131826254189424397995703103080749068533253050036433725744294710531407348970790161522997385700590",
+        "N_between_M_and_2M": true,
+        "N_bit_length": 4104,
+        "observed_B_over_natural_log_N_decimal": "11.520880237445",
+        "observed_B_over_logN_loglogN_decimal": "1.448617738389",
+        "p_equals_2_complement_is_composite": true,
+        "all_prime_witnesses_at_most_B_excluded": true
+      }
+    ],
+    "aggregate": {
+      "superlogarithmic_least_witness_sequence_proved": true,
+      "least_witness_over_log_limsup_is_infinite": true,
+      "constant_logarithmic_ceiling_refuted": true,
+      "goldbach_counterexample_found": false,
+      "tail_exception_bound_constructed": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The CRT construction blocks only p<=B. It leaves all larger prime summands available and therefore supplies neither a Goldbach counterexample nor an upper bound for the exceptional set. No academic priority claim is made without an expert literature audit.",
+    "failure_count": 0
+  },
+  "discarded_route": "any universal constant multiple of log N as an upper bound for the least Goldbach witness",
+  "remaining_gap": "No exceptional-count upper bound is proved beyond the new covering-congruence witness floor.",
+  "candidate_theorem": "GoldbachTailExceptionalCountBelowOneBeyondCoveringCongruenceFloor",
+  "claim_boundary": "No Goldbach proof or counterexample. A deterministic covering-plus-CRT construction makes the normalized least witness W(N)/log N unbounded.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T208",
+        "label": "AsymptoticallyUnitLogLeastWitnessCRTLowerBound",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T209",
+        "label": "CoveringCongruenceSuperLogarithmicLeastWitnessLowerBound",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N209",
+        "label": "ConstantLogarithmicLeastWitnessCeiling",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN209",
+        "label": "GoldbachTailExceptionalCountBelowOneBeyondCoveringCongruenceFloor",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T208",
+        "GB-T209"
+      ],
+      [
+        "GB-T209",
+        "GB-N209"
+      ],
+      [
+        "GB-T209",
+        "GB-OPEN209"
+      ],
+      [
+        "GB-OPEN209",
+        "GB"
+      ]
+    ]
+  }
+}

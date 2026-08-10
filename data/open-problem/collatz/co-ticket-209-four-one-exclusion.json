@@ -1,0 +1,175 @@
+{
+  "schema": "primeproject.ticket209-normalized-fourone-covering-factorial.v1",
+  "generated_at": "2026-08-10T22:00:00+09:00",
+  "ticket_id": "CO-TICKET-209",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "FourOneAcceleratedCycleFiniteEnumerationExclusion",
+  "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly four valuation entries equal to one and every remaining valuation at least two. Together with TICKETS 206-208, every hypothetical nontrivial positive cycle must contain at least five valuation-one entries.",
+  "mathematical_argument": "Rotate a hypothetical cycle to its minimum odd value m>=3. The first valuation is one and the last is at least two. With length h and total valuation A, multiplication around the cycle gives 2^A=product_i(3+1/x_i)<=(10/3)^h. Exactly four ones imply A>=2h-4. At h=16, 2^(2h-4)3^h>10^h, and the ratio grows by 6/5 per additional step, so every h>=16 is impossible. For 5<=h<=15 the same inequality bounds A. Fixing the minimum rotation leaves exactly 2,292 valuation words. Exact affine composition gives their unique rational fixed points; none is a positive odd integer.",
+  "reproducible_computation": {
+    "theorem": "No nontrivial positive accelerated Collatz cycle has exactly four valuation entries equal to one and every remaining valuation at least two. Together with TICKETS 206-208, every hypothetical nontrivial positive cycle must contain at least five valuation-one entries.",
+    "proof": "Rotate a hypothetical cycle to its minimum odd value m>=3. The first valuation is one and the last is at least two. With length h and total valuation A, multiplication around the cycle gives 2^A=product_i(3+1/x_i)<=(10/3)^h. Exactly four ones imply A>=2h-4. At h=16, 2^(2h-4)3^h>10^h, and the ratio grows by 6/5 per additional step, so every h>=16 is impossible. For 5<=h<=15 the same inequality bounds A. Fixing the minimum rotation leaves exactly 2,292 valuation words. Exact affine composition gives their unique rational fixed points; none is a positive odd integer.",
+    "cycle_product_identity": "2^A=product_i(3+1/x_i)",
+    "minimum_orbit_bound": "x_i>=m>=3 implies 2^A*3^h<=10^h",
+    "exact_enumeration_rows": [
+      {
+        "length_h": 5,
+        "minimum_total_valuation_2h_minus_4": 6,
+        "maximum_total_valuation_from_minimum_bound": 8,
+        "enumerated_word_count": 3,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "db7a85e5cd4f67fd5d00e632959e86c4df0c860656ac60917553511f7931437d"
+      },
+      {
+        "length_h": 6,
+        "minimum_total_valuation_2h_minus_4": 8,
+        "maximum_total_valuation_from_minimum_bound": 10,
+        "enumerated_word_count": 24,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "a2af0b2ce6b0f7eab11aa041615fb2673c80148571c92e2897121f83bad635d9"
+      },
+      {
+        "length_h": 7,
+        "minimum_total_valuation_2h_minus_4": 10,
+        "maximum_total_valuation_from_minimum_bound": 12,
+        "enumerated_word_count": 100,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "acbe71d83b79de6fc5c22a66953bc906aec237f6a323321ecd637a27bd5f8103"
+      },
+      {
+        "length_h": 8,
+        "minimum_total_valuation_2h_minus_4": 12,
+        "maximum_total_valuation_from_minimum_bound": 13,
+        "enumerated_word_count": 100,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "2b3b277b3032092cca586eabfde5f8e55b82dae3d85106571897306dd41347eb"
+      },
+      {
+        "length_h": 9,
+        "minimum_total_valuation_2h_minus_4": 14,
+        "maximum_total_valuation_from_minimum_bound": 15,
+        "enumerated_word_count": 210,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "fb27ba0d2178650e426b2ec035dd1dd40a0d8b832d94b776d5f6f868d9ea4077"
+      },
+      {
+        "length_h": 10,
+        "minimum_total_valuation_2h_minus_4": 16,
+        "maximum_total_valuation_from_minimum_bound": 17,
+        "enumerated_word_count": 392,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "9578002a9ad22023edebfd6d0587745c7443e20b182c80d82c1be26891569381"
+      },
+      {
+        "length_h": 11,
+        "minimum_total_valuation_2h_minus_4": 18,
+        "maximum_total_valuation_from_minimum_bound": 19,
+        "enumerated_word_count": 672,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "b7bb1480166b196795688c4a51047b1d3cd8a373687c68ecb131216049a6740d"
+      },
+      {
+        "length_h": 12,
+        "minimum_total_valuation_2h_minus_4": 20,
+        "maximum_total_valuation_from_minimum_bound": 20,
+        "enumerated_word_count": 120,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "e85a389824ec26cfe2f8ca2d0a1a23fc568d0290352c66dc9d58482900693c03"
+      },
+      {
+        "length_h": 13,
+        "minimum_total_valuation_2h_minus_4": 22,
+        "maximum_total_valuation_from_minimum_bound": 22,
+        "enumerated_word_count": 165,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "d8f0816573db748d94b46108f1224f1c74c86196fae116a2cfca46950d800c8d"
+      },
+      {
+        "length_h": 14,
+        "minimum_total_valuation_2h_minus_4": 24,
+        "maximum_total_valuation_from_minimum_bound": 24,
+        "enumerated_word_count": 220,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "604aa1b3287a0a0da826e3769a12d4c695f36e0716a24364f4dc52be7b8ae034"
+      },
+      {
+        "length_h": 15,
+        "minimum_total_valuation_2h_minus_4": 26,
+        "maximum_total_valuation_from_minimum_bound": 26,
+        "enumerated_word_count": 286,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_sha256": "2732a4600af215094b4f6032429c8c0f0a1241bd658a32afad132b37abfaa2bb"
+      }
+    ],
+    "total_exact_words_enumerated": 2292,
+    "positive_odd_integer_fixed_point_candidates": [],
+    "length_at_least_sixteen_exclusion": {
+      "threshold_h": 16,
+      "left_2_pow_28_times_3_pow_16": "11555266180939776",
+      "right_10_pow_16": "10000000000000000",
+      "left_exceeds_right": true,
+      "growth_factor_per_extra_length": "6/5"
+    },
+    "aggregate": {
+      "exactly_four_valuation_one_cycle_stratum_excluded": true,
+      "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 5,
+      "five_or_more_one_necklaces_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This closes one complete periodic valuation stratum. It neither excludes cycles with at least five valuation-one entries nor proves descent of every nonperiodic positive orbit.",
+    "failure_count": 0
+  },
+  "discarded_route": "searching any exactly-four-valuation-one word for a positive accelerated cycle",
+  "remaining_gap": "Cycles with at least five valuation-one entries and all nonperiodic divergent orbits remain open.",
+  "candidate_theorem": "UniformExclusionForPrimitiveValuationNecklacesWithExactlyFiveOnes",
+  "claim_boundary": "No Collatz proof or divergent-orbit counterexample. The complete exactly-four-valuation-one periodic stratum is excluded by an exact finite proof.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T208",
+        "label": "ThreeOneAcceleratedCycleFiniteEnumerationExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T209",
+        "label": "FourOneAcceleratedCycleFiniteEnumerationExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N209",
+        "label": "ExactlyFourValuationOnesCanSupportAPositiveCycle",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN209",
+        "label": "UniformExclusionForPrimitiveValuationNecklacesWithExactlyFiveOnes",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T208",
+        "CO-T209"
+      ],
+      [
+        "CO-T209",
+        "CO-N209"
+      ],
+      [
+        "CO-T209",
+        "CO-OPEN209"
+      ],
+      [
+        "CO-OPEN209",
+        "CO"
+      ]
+    ]
+  }
+}

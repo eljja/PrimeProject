@@ -37,7 +37,30 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-208 Vertical Clearance, Three-One Cycles, Unit-Log Witnesses, and Cyclotomic Correlations
+## 2026-08-10 TICKET-209 Normalized Boundaries, Four-One Cycles, Covering Congruences, and Factorial Twin Deserts
+
+TICKET-209 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. a height-independent positive absolute completed-xi margin on cofinal full
+   boundaries is impossible; gamma normalization leaves a central-edge task;
+2. no nontrivial positive accelerated Collatz cycle has exactly four
+   valuation-one entries;
+3. an unbounded even sequence has least Goldbach witness above
+   `c log N log log N` for an absolute `c>0`, without producing a Goldbach
+   counterexample;
+4. arbitrarily long factorial twin-free intervals have exact cyclotomic
+   remainder `R_I=-H`, refuting every-interval positive phase margins.
+
+Gamma-normalized central-edge nonvanishing, five-one Collatz necklaces,
+Goldbach tail exceptional control beyond the covering floor, and an independent
+dyadic Twin phase lower bound are not proved. The machine resolution count
+remains zero.
+
+English report: [TICKET-209](normalized-fourone-covering-factorial.md).
+한국어 보고서: [TICKET-209](normalized-fourone-covering-factorial.ko.md).
+
+## Preserved: 2026-08-10 TICKET-208 Vertical Clearance, Three-One Cycles, Unit-Log Witnesses, and Cyclotomic Correlations
 
 TICKET-208 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

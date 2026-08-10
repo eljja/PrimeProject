@@ -15,28 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-208
+## Current research boundary: TICKET-209
 
 The current machine-readable boundary is
-`data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json`.
+`data/open-problem/ticket209-normalized-fourone-covering-factorial.json`.
 
-TICKET-208 records four exact partial or no-go results and zero conjecture
+TICKET-209 records four exact partial or no-go results and zero conjecture
 resolutions:
 
-- explicit positive completed-xi clearance on both vertical sides of every
-  finite symmetric rectangle, plus a vertical-only no-go;
-- exclusion of every accelerated Collatz cycle with exactly three valuation-
-  one entries, using an analytic length bound and 185 exact word checks;
-- for every fixed `c < 1`, an unbounded sequence whose least Goldbach witness
-  exceeds `c log N`;
-- an exact growing cyclotomic twin correlation and a no-go showing that the
-  positive zero mode can be cancelled exactly on twin-free intervals.
+- a no-go for a height-independent absolute completed-xi cofinal margin and a
+  gamma-normalized outer-edge reduction;
+- exclusion of every accelerated Collatz cycle with exactly four valuation-
+  one entries, using an analytic length bound and 2,292 exact word checks;
+- an unbounded sequence whose least Goldbach witness exceeds
+  `c log N log log N` for an absolute `c>0`;
+- arbitrarily long factorial twin-free intervals with exact cyclotomic
+  remainder `R_I=-H`.
 
-Certified completed-xi top-edge clearance on cofinal admissible heights,
-Collatz necklaces with exactly four valuation-one entries, a Goldbach tail
-exceptional bound below one beyond the asymptotically unit-log floor, and a
-cofinal Twin nonzero-mode remainder bound strictly above minus interval length
-remain open.
+Gamma-normalized central top-edge nonvanishing on cofinal heights, Collatz
+necklaces with exactly five valuation-one entries, a Goldbach tail exceptional
+bound beyond the covering-congruence floor, and an independent bilinear Omega
+phase lower bound on infinitely many dyadic intervals remain open.
+
+English report: [TICKET-209](normalized-fourone-covering-factorial.md).
+한국어 보고서: [TICKET-209](normalized-fourone-covering-factorial.ko.md).
+
+## Preserved research boundary: TICKET-208
+
+The direct machine-readable input is
+`data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json`.
 
 English report: [TICKET-208](vertical-threeone-unitlog-cyclotomic.md).
 한국어 보고서: [TICKET-208](vertical-threeone-unitlog-cyclotomic.ko.md).

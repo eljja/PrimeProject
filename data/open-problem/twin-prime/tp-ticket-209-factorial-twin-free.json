@@ -1,0 +1,684 @@
+{
+  "schema": "primeproject.ticket209-normalized-fourone-covering-factorial.v1",
+  "generated_at": "2026-08-10T22:00:00+09:00",
+  "ticket_id": "TP-TICKET-209",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "ArbitrarilyLongTwinFreeIntervalsAndLocalCyclotomicMarginNoGo",
+  "declared_proposition": "For every H>=1 there is an interval of H consecutive lower candidates containing no twin-prime pair. In the exact TICKET-208 cyclotomic identity M^2 T_I=H+R_I, these intervals satisfy T_I=0 and R_I=-H. Therefore no all-interval estimate R_I>=-H+epsilon(H) with epsilon(H)>0 can prove twin positivity.",
+  "mathematical_argument": "Set K=H+3 and N=K!. For every j=2,...,K-2, N+j is divisible by j and N+j+2 is divisible by j+2; both are larger than their displayed divisors and hence composite. These H consecutive values of j give an H-long interval with no twin lower endpoint. The growing cyclotomic projector from TICKET-208 is exact on every finite interval, so its identity immediately yields R_I=M^2*0-H=-H on this family.",
+  "reproducible_computation": {
+    "theorem": "For every H>=1 there is an interval of H consecutive lower candidates containing no twin-prime pair. In the exact TICKET-208 cyclotomic identity M^2 T_I=H+R_I, these intervals satisfy T_I=0 and R_I=-H. Therefore no all-interval estimate R_I>=-H+epsilon(H) with epsilon(H)>0 can prove twin positivity.",
+    "proof": "Set K=H+3 and N=K!. For every j=2,...,K-2, N+j is divisible by j and N+j+2 is divisible by j+2; both are larger than their displayed divisors and hence composite. These H consecutive values of j give an H-long interval with no twin lower endpoint. The growing cyclotomic projector from TICKET-208 is exact on every finite interval, so its identity immediately yields R_I=M^2*0-H=-H on this family.",
+    "factorial_construction": "K=H+3, N=K!, j=2,...,K-2: j|(N+j) and (j+2)|(N+j+2)",
+    "cyclotomic_identity": "M^2*T_I=H+R_I",
+    "factorial_twin_free_rows": [
+      {
+        "requested_length_H": 1,
+        "factorial_parameter_K": 4,
+        "factorial_base_N": "24",
+        "factorial_base_decimal_digits": 2,
+        "lower_endpoint": "26",
+        "upper_endpoint": "26",
+        "candidate_count": 1,
+        "cyclotomic_modulus_M": 5,
+        "exact_twin_count_T_I": 0,
+        "zero_mode_raw_contribution_H": 1,
+        "all_nonzero_modes_raw_aggregate_R_I": -1,
+        "exact_identity_M2T_equals_H_plus_R": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_rows": [
+          {
+            "offset_j": 2,
+            "lower_divisor": 2,
+            "upper_divisor": 4,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          }
+        ]
+      },
+      {
+        "requested_length_H": 2,
+        "factorial_parameter_K": 5,
+        "factorial_base_N": "120",
+        "factorial_base_decimal_digits": 3,
+        "lower_endpoint": "122",
+        "upper_endpoint": "123",
+        "candidate_count": 2,
+        "cyclotomic_modulus_M": 7,
+        "exact_twin_count_T_I": 0,
+        "zero_mode_raw_contribution_H": 2,
+        "all_nonzero_modes_raw_aggregate_R_I": -2,
+        "exact_identity_M2T_equals_H_plus_R": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_rows": [
+          {
+            "offset_j": 2,
+            "lower_divisor": 2,
+            "upper_divisor": 4,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 3,
+            "lower_divisor": 3,
+            "upper_divisor": 5,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          }
+        ]
+      },
+      {
+        "requested_length_H": 4,
+        "factorial_parameter_K": 7,
+        "factorial_base_N": "5040",
+        "factorial_base_decimal_digits": 4,
+        "lower_endpoint": "5042",
+        "upper_endpoint": "5045",
+        "candidate_count": 4,
+        "cyclotomic_modulus_M": 13,
+        "exact_twin_count_T_I": 0,
+        "zero_mode_raw_contribution_H": 4,
+        "all_nonzero_modes_raw_aggregate_R_I": -4,
+        "exact_identity_M2T_equals_H_plus_R": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_rows": [
+          {
+            "offset_j": 2,
+            "lower_divisor": 2,
+            "upper_divisor": 4,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 3,
+            "lower_divisor": 3,
+            "upper_divisor": 5,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 4,
+            "lower_divisor": 4,
+            "upper_divisor": 6,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 5,
+            "lower_divisor": 5,
+            "upper_divisor": 7,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          }
+        ]
+      },
+      {
+        "requested_length_H": 8,
+        "factorial_parameter_K": 11,
+        "factorial_base_N": "39916800",
+        "factorial_base_decimal_digits": 8,
+        "lower_endpoint": "39916802",
+        "upper_endpoint": "39916809",
+        "candidate_count": 8,
+        "cyclotomic_modulus_M": 26,
+        "exact_twin_count_T_I": 0,
+        "zero_mode_raw_contribution_H": 8,
+        "all_nonzero_modes_raw_aggregate_R_I": -8,
+        "exact_identity_M2T_equals_H_plus_R": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_rows": [
+          {
+            "offset_j": 2,
+            "lower_divisor": 2,
+            "upper_divisor": 4,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 3,
+            "lower_divisor": 3,
+            "upper_divisor": 5,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 4,
+            "lower_divisor": 4,
+            "upper_divisor": 6,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 5,
+            "lower_divisor": 5,
+            "upper_divisor": 7,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 6,
+            "lower_divisor": 6,
+            "upper_divisor": 8,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 7,
+            "lower_divisor": 7,
+            "upper_divisor": 9,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 8,
+            "lower_divisor": 8,
+            "upper_divisor": 10,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 9,
+            "lower_divisor": 9,
+            "upper_divisor": 11,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          }
+        ]
+      },
+      {
+        "requested_length_H": 16,
+        "factorial_parameter_K": 19,
+        "factorial_base_N": "121645100408832000",
+        "factorial_base_decimal_digits": 18,
+        "lower_endpoint": "121645100408832002",
+        "upper_endpoint": "121645100408832017",
+        "candidate_count": 16,
+        "cyclotomic_modulus_M": 57,
+        "exact_twin_count_T_I": 0,
+        "zero_mode_raw_contribution_H": 16,
+        "all_nonzero_modes_raw_aggregate_R_I": -16,
+        "exact_identity_M2T_equals_H_plus_R": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_rows": [
+          {
+            "offset_j": 2,
+            "lower_divisor": 2,
+            "upper_divisor": 4,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 3,
+            "lower_divisor": 3,
+            "upper_divisor": 5,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 4,
+            "lower_divisor": 4,
+            "upper_divisor": 6,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 5,
+            "lower_divisor": 5,
+            "upper_divisor": 7,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 6,
+            "lower_divisor": 6,
+            "upper_divisor": 8,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 7,
+            "lower_divisor": 7,
+            "upper_divisor": 9,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 8,
+            "lower_divisor": 8,
+            "upper_divisor": 10,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 9,
+            "lower_divisor": 9,
+            "upper_divisor": 11,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 10,
+            "lower_divisor": 10,
+            "upper_divisor": 12,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 11,
+            "lower_divisor": 11,
+            "upper_divisor": 13,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 12,
+            "lower_divisor": 12,
+            "upper_divisor": 14,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 13,
+            "lower_divisor": 13,
+            "upper_divisor": 15,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 14,
+            "lower_divisor": 14,
+            "upper_divisor": 16,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 15,
+            "lower_divisor": 15,
+            "upper_divisor": 17,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 16,
+            "lower_divisor": 16,
+            "upper_divisor": 18,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 17,
+            "lower_divisor": 17,
+            "upper_divisor": 19,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          }
+        ]
+      },
+      {
+        "requested_length_H": 32,
+        "factorial_parameter_K": 35,
+        "factorial_base_N": "10333147966386144929666651337523200000000",
+        "factorial_base_decimal_digits": 41,
+        "lower_endpoint": "10333147966386144929666651337523200000002",
+        "upper_endpoint": "10333147966386144929666651337523200000033",
+        "candidate_count": 32,
+        "cyclotomic_modulus_M": 133,
+        "exact_twin_count_T_I": 0,
+        "zero_mode_raw_contribution_H": 32,
+        "all_nonzero_modes_raw_aggregate_R_I": -32,
+        "exact_identity_M2T_equals_H_plus_R": true,
+        "all_composite_pair_certificates_hold": true,
+        "certificate_rows": [
+          {
+            "offset_j": 2,
+            "lower_divisor": 2,
+            "upper_divisor": 4,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 3,
+            "lower_divisor": 3,
+            "upper_divisor": 5,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 4,
+            "lower_divisor": 4,
+            "upper_divisor": 6,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 5,
+            "lower_divisor": 5,
+            "upper_divisor": 7,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 6,
+            "lower_divisor": 6,
+            "upper_divisor": 8,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 7,
+            "lower_divisor": 7,
+            "upper_divisor": 9,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 8,
+            "lower_divisor": 8,
+            "upper_divisor": 10,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 9,
+            "lower_divisor": 9,
+            "upper_divisor": 11,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 10,
+            "lower_divisor": 10,
+            "upper_divisor": 12,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 11,
+            "lower_divisor": 11,
+            "upper_divisor": 13,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 12,
+            "lower_divisor": 12,
+            "upper_divisor": 14,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 13,
+            "lower_divisor": 13,
+            "upper_divisor": 15,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 14,
+            "lower_divisor": 14,
+            "upper_divisor": 16,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 15,
+            "lower_divisor": 15,
+            "upper_divisor": 17,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 16,
+            "lower_divisor": 16,
+            "upper_divisor": 18,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 17,
+            "lower_divisor": 17,
+            "upper_divisor": 19,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 18,
+            "lower_divisor": 18,
+            "upper_divisor": 20,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 19,
+            "lower_divisor": 19,
+            "upper_divisor": 21,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 20,
+            "lower_divisor": 20,
+            "upper_divisor": 22,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 21,
+            "lower_divisor": 21,
+            "upper_divisor": 23,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 22,
+            "lower_divisor": 22,
+            "upper_divisor": 24,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 23,
+            "lower_divisor": 23,
+            "upper_divisor": 25,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 24,
+            "lower_divisor": 24,
+            "upper_divisor": 26,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 25,
+            "lower_divisor": 25,
+            "upper_divisor": 27,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 26,
+            "lower_divisor": 26,
+            "upper_divisor": 28,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 27,
+            "lower_divisor": 27,
+            "upper_divisor": 29,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 28,
+            "lower_divisor": 28,
+            "upper_divisor": 30,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 29,
+            "lower_divisor": 29,
+            "upper_divisor": 31,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 30,
+            "lower_divisor": 30,
+            "upper_divisor": 32,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 31,
+            "lower_divisor": 31,
+            "upper_divisor": 33,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 32,
+            "lower_divisor": 32,
+            "upper_divisor": 34,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          },
+          {
+            "offset_j": 33,
+            "lower_divisor": 33,
+            "upper_divisor": 35,
+            "lower_divisible": true,
+            "upper_divisible": true,
+            "both_proper_composites": true
+          }
+        ]
+      }
+    ],
+    "aggregate": {
+      "arbitrarily_long_twin_free_intervals_proved": true,
+      "exact_negative_interval_length_remainder_family_proved": true,
+      "positive_margin_on_every_interval_refuted": true,
+      "cofinal_dyadic_positive_remainder_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The factorial windows are short relative to their location and are not the selected expanding dyadic intervals needed for infinitude. The construction refutes a universal local margin, not the Twin Prime conjecture and not every averaged or cofinal dyadic estimate.",
+    "failure_count": 0
+  },
+  "discarded_route": "a positive cyclotomic remainder margin on every interval",
+  "remaining_gap": "No independent averaged or selected cofinal dyadic lower bound is proved for the nonzero Omega-phase remainder.",
+  "candidate_theorem": "IndependentBilinearOmegaPhaseLowerBoundOnInfinitelyManyDyadicIntervals",
+  "claim_boundary": "No Twin Prime proof or counterexample. Factorial intervals prove exact full cancellation on arbitrarily long local windows and rule out every-interval positivity.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T208",
+        "label": "GrowingCyclotomicOmegaProjectorAndZeroModeCancellationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T209",
+        "label": "ArbitrarilyLongTwinFreeIntervalsAndLocalCyclotomicMarginNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N209",
+        "label": "PositiveCyclotomicRemainderMarginOnEveryInterval",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN209",
+        "label": "IndependentBilinearOmegaPhaseLowerBoundOnInfinitelyManyDyadicIntervals",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T208",
+        "TP-T209"
+      ],
+      [
+        "TP-T209",
+        "TP-N209"
+      ],
+      [
+        "TP-T209",
+        "TP-OPEN209"
+      ],
+      [
+        "TP-OPEN209",
+        "TP"
+      ]
+    ]
+  }
+}

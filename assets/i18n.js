@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-208 clears both completed-xi vertical sides, excludes the complete three-one Collatz cycle stratum, raises the Goldbach witness obstruction to every constant below one, and proves an exact growing cyclotomic twin correlation with a cancellation no-go.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-208은 완성 제타 직사각형의 두 수직변을 명시적 하한으로 닫고, valuation 1이 정확히 세 개인 콜라츠 주기 전체를 배제하며, 골드바흐 최소 증인의 하한을 모든 c<1까지 강화하고, 성장형 순환 푸리에 쌍둥이 상관의 정확 복원과 상쇄 한계를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-209 corrects the Riemann boundary target by gamma normalization, excludes the complete four-one Collatz cycle stratum, makes the Goldbach least-witness obstruction superlogarithmic, and proves exact cyclotomic cancellation on arbitrarily long factorial twin deserts.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-209는 감마 정규화로 리만 경계 목표를 교정하고, valuation 1이 정확히 네 개인 콜라츠 주기 전체를 배제하며, 골드바흐 최소 증인 하한을 c log N log log N까지 높이고, 임의 길이 factorial 쌍둥이 부재 구간의 정확한 순환 위상 상쇄를 증명합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

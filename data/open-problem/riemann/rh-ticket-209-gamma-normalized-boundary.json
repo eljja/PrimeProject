@@ -1,0 +1,129 @@
+{
+  "schema": "primeproject.ticket209-normalized-fourone-covering-factorial.v1",
+  "generated_at": "2026-08-10T22:00:00+09:00",
+  "ticket_id": "RH-TICKET-209",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "CompletedXiAbsoluteCofinalClearanceNoGoAndGammaNormalizedOuterEdgeReduction",
+  "declared_proposition": "There is no height-independent epsilon>0 for which the completed Riemann xi-function has |xi(s)|>=epsilon on the full boundaries of a cofinal sequence of rectangles [-1,2] x [-T,T]: already |xi(2+iT)| tends to zero. After removing the nonvanishing polynomial and gamma factors, the normalized quotient equals zeta(s) and obeys |zeta(2+it)|>=zeta(4)/zeta(2)=pi^2/15. Thus absolute completed-xi clearance is the wrong cofinal invariant; arithmetic nonvanishing on the central horizontal segment remains the unresolved boundary task.",
+  "mathematical_argument": "At s=2+iT, |zeta(s)|<=zeta(2), |s(s-1)|=sqrt((T^2+4)(T^2+1)), and |Gamma(1+iT/2)|^2=pi(T/2)/sinh(pi T/2). Substitution into the definition of xi bounds |xi(2+iT)| by a polynomial times exp(-pi T/4), hence by a quantity tending to zero. Every full top edge contains this endpoint, so a common positive absolute clearance is impossible. Conversely, 2*pi^(s/2)*xi(s)/(s(s-1)Gamma(s/2))=zeta(s), and the absolutely convergent Euler product gives |zeta(2+it)|>=pi^2/15. For any fixed delta>0, the top-edge pieces Re(s)>=1+delta and Re(s)<=-delta are zero-free by the Euler product and xi(s)=xi(1-s); this leaves the central horizontal segment, not the decaying archimedean envelope.",
+  "reproducible_computation": {
+    "theorem": "There is no height-independent epsilon>0 for which the completed Riemann xi-function has |xi(s)|>=epsilon on the full boundaries of a cofinal sequence of rectangles [-1,2] x [-T,T]: already |xi(2+iT)| tends to zero. After removing the nonvanishing polynomial and gamma factors, the normalized quotient equals zeta(s) and obeys |zeta(2+it)|>=zeta(4)/zeta(2)=pi^2/15. Thus absolute completed-xi clearance is the wrong cofinal invariant; arithmetic nonvanishing on the central horizontal segment remains the unresolved boundary task.",
+    "proof": "At s=2+iT, |zeta(s)|<=zeta(2), |s(s-1)|=sqrt((T^2+4)(T^2+1)), and |Gamma(1+iT/2)|^2=pi(T/2)/sinh(pi T/2). Substitution into the definition of xi bounds |xi(2+iT)| by a polynomial times exp(-pi T/4), hence by a quantity tending to zero. Every full top edge contains this endpoint, so a common positive absolute clearance is impossible. Conversely, 2*pi^(s/2)*xi(s)/(s(s-1)Gamma(s/2))=zeta(s), and the absolutely convergent Euler product gives |zeta(2+it)|>=pi^2/15. For any fixed delta>0, the top-edge pieces Re(s)>=1+delta and Re(s)<=-delta are zero-free by the Euler product and xi(s)=xi(1-s); this leaves the central horizontal segment, not the decaying archimedean envelope.",
+    "completed_xi_endpoint_upper_formula": "U(T)=zeta(2)/(2*pi)*sqrt((T^2+4)(T^2+1))*sqrt((pi*T/2)/sinh(pi*T/2))",
+    "gamma_normalized_identity": "2*pi^(s/2)*xi(s)/(s(s-1)*Gamma(s/2))=zeta(s)",
+    "normalized_sigma_two_lower_bound": "|zeta(2+it)|>=zeta(4)/zeta(2)=pi^2/15",
+    "normalized_sigma_two_lower_decimal": "6.57973626739290496e-01",
+    "endpoint_decay_rows": [
+      {
+        "height_T": 4,
+        "completed_xi_endpoint_upper_envelope": "7.39498709770966101e-01",
+        "log10_upper_envelope": "-0.131062579395",
+        "positive": true,
+        "strictly_below_previous_row": true
+      },
+      {
+        "height_T": 8,
+        "completed_xi_endpoint_upper_envelope": "1.62947230506914009e-01",
+        "log10_upper_envelope": "-0.787953016517",
+        "positive": true,
+        "strictly_below_previous_row": true
+      },
+      {
+        "height_T": 16,
+        "completed_xi_endpoint_upper_envelope": "1.67321355648599878e-03",
+        "log10_upper_envelope": "-2.776448625395",
+        "positive": true,
+        "strictly_below_previous_row": true
+      },
+      {
+        "height_T": 32,
+        "completed_xi_endpoint_upper_envelope": "3.27692281018156767e-08",
+        "log10_upper_envelope": "-7.484533788556",
+        "positive": true,
+        "strictly_below_previous_row": true
+      },
+      {
+        "height_T": 64,
+        "completed_xi_endpoint_upper_envelope": "2.25028123613202037e-18",
+        "log10_upper_envelope": "-17.647763201148",
+        "positive": true,
+        "strictly_below_previous_row": true
+      },
+      {
+        "height_T": 128,
+        "completed_xi_endpoint_upper_envelope": "1.88187782749350707e-39",
+        "log10_upper_envelope": "-38.725408574622",
+        "positive": true,
+        "strictly_below_previous_row": true
+      }
+    ],
+    "outer_horizontal_reduction": {
+      "fixed_delta": "1/4",
+      "right_zero_free_segment": "5/4<=Re(s)<=2",
+      "left_zero_free_segment": "-1<=Re(s)<=-1/4",
+      "unresolved_central_segment": "-1/4<=Re(s)<=5/4",
+      "uses_only_euler_product_and_functional_equation": true
+    },
+    "aggregate": {
+      "height_independent_absolute_xi_clearance_refuted": true,
+      "gamma_normalized_sigma_two_clearance_proved": true,
+      "outer_horizontal_segments_reduced": true,
+      "central_cofinal_nonvanishing_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem refutes only a height-independent absolute xi margin. It does not refute height-dependent interval certificates and does not prove that any cofinal central horizontal edge is zero-free.",
+    "failure_count": 0
+  },
+  "discarded_route": "a height-independent positive absolute completed-xi margin on cofinal full rectangle boundaries",
+  "remaining_gap": "No cofinal nonvanishing certificate or normalized lower bound is proved on the central horizontal segment.",
+  "candidate_theorem": "CofinalGammaNormalizedCentralTopEdgeNonvanishingCertificate",
+  "claim_boundary": "No RH proof or off-critical zeta zero. A uniform absolute xi-margin route is refuted and the remaining cofinal task is gamma-normalized central-edge nonvanishing.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T208",
+        "label": "SigmaTwoCompletedXiVerticalClearanceAndHorizontalEdgeReduction",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T209",
+        "label": "CompletedXiAbsoluteCofinalClearanceNoGoAndGammaNormalizedOuterEdgeReduction",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N209",
+        "label": "HeightIndependentAbsoluteCompletedXiBoundaryMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN209",
+        "label": "CofinalGammaNormalizedCentralTopEdgeNonvanishingCertificate",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T208",
+        "RH-T209"
+      ],
+      [
+        "RH-T209",
+        "RH-N209"
+      ],
+      [
+        "RH-T209",
+        "RH-OPEN209"
+      ],
+      [
+        "RH-OPEN209",
+        "RH"
+      ]
+    ]
+  }
+}

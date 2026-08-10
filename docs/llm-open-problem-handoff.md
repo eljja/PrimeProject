@@ -62,21 +62,39 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-208
+## Latest Continuation After TICKET-209
 
-TICKET-208 is the current boundary. It resolves none of the four conjectures
-and narrows the exact premises left by TICKET-207:
+TICKET-209 is the current boundary. It resolves none of the four conjectures
+and narrows the exact premises left by TICKET-208:
 
-1. **Riemann:** both vertical sides of every finite completed-xi rectangle have
-   an explicit positive clearance. The cofinal horizontal top-edge bound
+1. **Riemann:** a height-independent absolute completed-xi margin on cofinal
+   full boundaries is impossible. Gamma-normalized central-edge nonvanishing
    remains open.
-2. **Collatz:** every positive cycle with exactly three valuation-one entries
-   is excluded. Exactly four ones and nonperiodic divergence remain open.
-3. **Goldbach:** for every fixed `c < 1`, an unbounded sequence forces the least
-   witness above `c log N`. This is a witness lower bound, not an exception.
-4. **Twin Prime:** a growing cyclotomic Omega projector exactly reconstructs
-   finite interval twin counts, but nonzero modes can cancel its zero mode
-   exactly. A cofinal strict remainder bound remains open.
+2. **Collatz:** every positive cycle with exactly four valuation-one entries is
+   excluded. Exactly five ones and nonperiodic divergence remain open.
+3. **Goldbach:** an unbounded sequence forces the least witness above
+   `c log N log log N` for an absolute `c>0`. This is a witness lower bound,
+   not an exception or counterexample.
+4. **Twin Prime:** arbitrarily long factorial twin-free intervals force exact
+   cyclotomic cancellation `R_I=-H`. A selected or averaged dyadic phase lower
+   bound remains open.
+
+Canonical JSON:
+
+```text
+data/open-problem/ticket209-normalized-fourone-covering-factorial.json
+```
+
+English report: [TICKET-209](normalized-fourone-covering-factorial.md).
+Korean report: [TICKET-209 한국어](normalized-fourone-covering-factorial.ko.md).
+
+All four results distinguish a proved infinite subfamily theorem from the
+unproved parent conjecture. No novelty-priority claim is made without expert
+review.
+
+## Preserved Continuation After TICKET-208
+
+TICKET-208 is preserved as the direct input to TICKET-209.
 
 Canonical JSON:
 
@@ -86,10 +104,6 @@ data/open-problem/ticket208-vertical-threeone-unitlog-cyclotomic.json
 
 English report: [TICKET-208](vertical-threeone-unitlog-cyclotomic.md).
 Korean report: [TICKET-208 한국어](vertical-threeone-unitlog-cyclotomic.ko.md).
-
-All four results distinguish a proved infinite subfamily theorem from the
-unproved parent conjecture. No novelty-priority claim is made without expert
-review.
 
 ## Preserved Continuation After TICKET-207
 

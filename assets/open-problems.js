@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket209AttemptGlobal = null;
 let ticket208AttemptGlobal = null;
 let ticket207AttemptGlobal = null;
 let ticket206AttemptGlobal = null;
@@ -10004,6 +10005,72 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket209NormalizedFourOneCoveringFactorial(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.normalized_fourone_covering_factorial_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.endpoint_decay_rows || [];
+    detail = `
+      <div class="poc-equation">|ξ(2+iT)|≤U(T)→0, while 2π<sup>s/2</sup>ξ(s)/(s(s−1)Γ(s/2))=ζ(s)</div>
+      ${table(["height T", "xi endpoint upper", "log10 upper", "decreasing"], rows.map((row) => [row.height_T, row.completed_xi_endpoint_upper_envelope, row.log10_upper_envelope, row.strictly_below_previous_row]))}
+      <div class="poc-head"><div><span>Uniform absolute xi margin</span><strong>${aggregate.height_independent_absolute_xi_clearance_refuted ? "refuted" : "open"}</strong></div><div><span>Normalized sigma=2 edge</span><strong>${aggregate.gamma_normalized_sigma_two_clearance_proved ? "cleared" : "open"}</strong></div><div><span>Central cofinal edge</span><strong>${aggregate.central_cofinal_nonvanishing_proved ? "cleared" : "open"}</strong></div></div>
+      <p class="proof-note">감마 인자의 지수 감쇠 때문에 완성 제타 절댓값의 높이 독립 양의 여유는 불가능합니다. 감마 정규화 뒤 외곽은 오일러 곱으로 닫히지만 중앙 수평변의 무한 비소멸은 여전히 미증명입니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.exact_enumeration_rows || [];
+    detail = `
+      <div class="poc-equation">2<sup>A</sup>=∏(3+1/x<sub>i</sub>)≤(10/3)<sup>h</sup>, exactly four v₂=1 ⇒ h≤15 ⇒ 2,292 exact words</div>
+      ${table(["length h", "A min", "A max", "words", "integer cycles"], rows.map((row) => [row.length_h, row.minimum_total_valuation_2h_minus_4, row.maximum_total_valuation_from_minimum_bound, row.enumerated_word_count, row.positive_odd_integer_fixed_point_count]))}
+      <div class="poc-head"><div><span>Four-one stratum</span><strong>${aggregate.exactly_four_valuation_one_cycle_stratum_excluded ? "excluded" : "open"}</strong></div><div><span>Exact words</span><strong>${computation.total_exact_words_enumerated ?? 0}</strong></div><div><span>Required count of v=1</span><strong>≥${aggregate.minimum_required_valuation_one_multiplicity_in_nontrivial_cycle ?? "missing"}</strong></div></div>
+      <p class="proof-note">h≥16은 주기 곱 부등식으로 전부 배제됩니다. h=5..15의 2,292개 valuation 단어를 정확 유리수 합성으로 재생한 결과 양의 홀수 정수 고정점은 없습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.deterministic_covering_fixture_rows || [];
+    detail = `
+      <div class="poc-equation">W(N)&gt;c log N log log N on an unbounded even sequence; limsup W(N)/log N=∞</div>
+      ${table(["B", "cover z", "cover moduli", "survivors", "N bits", "B/log N"], rows.map((row) => [row.witness_bound_B, row.cover_limit_z, row.cover_modulus_count, row.survivor_count, row.N_bit_length, row.observed_B_over_natural_log_N_decimal]))}
+      <div class="poc-head"><div><span>Superlog witness sequence</span><strong>${aggregate.superlogarithmic_least_witness_sequence_proved ? "proved" : "open"}</strong></div><div><span>Constant-log ceiling</span><strong>${aggregate.constant_logarithmic_ceiling_refuted ? "refuted" : "open"}</strong></div><div><span>Counterexamples found</span><strong>${aggregate.goldbach_counterexample_found ? "yes" : "0"}</strong></div></div>
+      <p class="proof-note">작은 모듈러스의 탐욕 잔여류가 후보를 동시에 덮고, 남은 후보에만 큰 소수를 배정해 CRT 비용을 O(B/log B)로 낮춥니다. 더 큰 소수 증인은 남으므로 골드바흐 반례는 아닙니다.</p>
+    `;
+  } else {
+    const rows = computation.factorial_twin_free_rows || [];
+    detail = `
+      <div class="poc-equation">K=H+3, N=K! ⇒ H twin-free candidates; M²T<sub>I</sub>=H+R<sub>I</sub> ⇒ R<sub>I</sub>=−H</div>
+      ${table(["H", "K", "N digits", "M", "twins", "R", "certified"], rows.map((row) => [row.requested_length_H, row.factorial_parameter_K, row.factorial_base_decimal_digits, row.cyclotomic_modulus_M, row.exact_twin_count_T_I, row.all_nonzero_modes_raw_aggregate_R_I, row.all_composite_pair_certificates_hold]))}
+      <div class="poc-head"><div><span>Arbitrary twin-free length</span><strong>${aggregate.arbitrarily_long_twin_free_intervals_proved ? "proved" : "open"}</strong></div><div><span>Every-interval margin</span><strong>${aggregate.positive_margin_on_every_interval_refuted ? "refuted" : "open"}</strong></div><div><span>Dyadic phase bound</span><strong>${aggregate.cofinal_dyadic_positive_remainder_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">factorial 구간에서는 두 수가 각각 j와 j+2로 나누어져 임의 길이의 쌍둥이 부재 구간을 만듭니다. 이는 모든 구간 양성은 반박하지만 선택된 dyadic 구간의 무한 하한은 반박하지 않습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket209-normalized-fourone-covering-factorial" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 209 normalized boundaries, four-one cycles, covering congruences, and factorial twin deserts</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET209 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/normalized-fourone-covering-factorial.ko.md">한국어 보고서</a> · <a href="../docs/normalized-fourone-covering-factorial.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket208VerticalThreeOneUnitLogCyclotomic(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.vertical_threeone_unitlog_cyclotomic_audit || {};
@@ -10054,7 +10121,7 @@ function renderTicket208VerticalThreeOneUnitLogCyclotomic(attempt) {
   }
   return `
     <div id="ticket208-vertical-threeone-unitlog-cyclotomic" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 208 vertical clearance, three-one cycles, unit-log witnesses, and cyclotomic correlations</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET208 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -15954,7 +16021,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket208VerticalThreeOneUnitLogCyclotomic(ticket208AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket209NormalizedFourOneCoveringFactorial(ticket209AttemptGlobal) ||
+      renderTicket208VerticalThreeOneUnitLogCyclotomic(ticket208AttemptGlobal) ||
       renderTicket207DihedralTwoOneLogWitnessAbel(ticket207AttemptGlobal) ||
       renderTicket206AdaptiveSingleOneCrtProjector(ticket206AttemptGlobal) ||
       renderTicket205WindingExtremalFiniteOmega(ticket205AttemptGlobal) ||
@@ -16302,6 +16370,26 @@ async function loadTicket143Attempt() {
     return Boolean(ticket143AttemptGlobal);
   } catch (error) {
     ticket143AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket209Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket209-normalized-fourone-covering-factorial.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket209AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket209AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket209AttemptGlobal) {
+      ticket209AttemptGlobal.bounded_result = ticket209AttemptGlobal.bounded_result || {};
+      ticket209AttemptGlobal.bounded_result.normalized_fourone_covering_factorial_audit = payload.normalized_fourone_covering_factorial_audit || {};
+    }
+    return Boolean(ticket209AttemptGlobal);
+  } catch (_error) {
+    ticket209AttemptGlobal = null;
     return false;
   }
 }
@@ -17835,9 +17923,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket208Loaded = await loadTicket208Attempt();
+  const ticket209Loaded = await loadTicket209Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket208-current";
+  document.documentElement.dataset.openProblemCache = "ticket209-current";
+  const ticket208Loaded = await loadTicket208Attempt();
   const ticket207Loaded = await loadTicket207Attempt();
   const ticket206Loaded = await loadTicket206Attempt();
   const ticket205Loaded = await loadTicket205Attempt();
@@ -17878,8 +17967,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket209AttemptGlobal) await loadTicket209Attempt();
     if (!ticket208AttemptGlobal) await loadTicket208Attempt();
     if (!ticket207AttemptGlobal) await loadTicket207Attempt();
     if (!ticket206AttemptGlobal) await loadTicket206Attempt();
