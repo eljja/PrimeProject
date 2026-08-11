@@ -212,6 +212,7 @@ TICKET210_SCHEMA = "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v
 TICKET211_SCHEMA = "primeproject.ticket211-winding-density-fullrange-unitscale.v1"
 TICKET212_SCHEMA = "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1"
 TICKET213_SCHEMA = "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1"
+TICKET214_SCHEMA = "primeproject.ticket214-cofinal-sevenone-exponential-cardinal.v1"
 
 
 def fail(message: str) -> int:
@@ -17855,6 +17856,188 @@ def main() -> int:
         or machine213.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket213 proof boundary changed")
+
+    path214 = Path(
+        "data/open-problem/ticket214-cofinal-sevenone-exponential-cardinal.json"
+    )
+    if not path214.exists():
+        return fail("missing ticket214 cofinal/seven-one/exponential/cardinal audit")
+    ticket214 = read_json(path214)
+    if (
+        ticket214.get("schema") != TICKET214_SCHEMA
+        or ticket214.get("status") != "open_not_proven"
+    ):
+        return fail("ticket214 schema or status changed")
+    audit214 = ticket214.get("cofinal_sevenone_exponential_cardinal_audit", {})
+    machine214 = audit214.get("machine_audit", {})
+    if machine214 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket214 global machine audit changed")
+
+    attempts214 = {
+        row.get("problem_id"): row for row in ticket214.get("attempts", [])
+    }
+    if set(attempts214) != EXPECTED_PROBLEMS:
+        return fail("ticket214 attempts missing problems")
+    track_paths214 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-214-cofinal-defect-density-nogo.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-214-seven-one-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-214-exponential-selector.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-214-cardinal-sine-selector.json"
+        ),
+    }
+    theorem_names214 = {
+        "riemann": "CofinalExactDefectEquivalenceAndDensityOneNoGo",
+        "collatz": "CompleteSevenValuationOneExclusionAndFiniteStratumNoGo",
+        "goldbach": "DyadicExponentialSelectorEquivalenceAndOccupancyNoGo",
+        "twin-prime": "CardinalSineExactGapTwoSelectorAndPositivityCircularity",
+    }
+    for problem_id, track_path in track_paths214.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket214 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts214[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET214_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names214[problem_id]
+            or attempt.get("new_result") != theorem_names214[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/cofinal_sevenone_exponential_cardinal_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket214 contract changed")
+
+    rh214 = audit214.get("riemann", {}).get("reproducible_computation", {})
+    rh214_rows = rh214.get("density_one_countermodel_rows", [])
+    rh214_aggregate = rh214.get("aggregate", {})
+    if (
+        len(rh214_rows) != 4
+        or any(
+            row.get("defect_N_minus_M") != 2
+            or row.get("rectangle_RH") is not False
+            or row.get("density_tends_to_one_model") is not True
+            for row in rh214_rows
+        )
+        or rh214_aggregate.get("cofinal_exact_equality_equivalent_to_rh") is not True
+        or rh214_aggregate.get("critical_line_density_one_sufficient_for_rh")
+        is not False
+        or rh214_aggregate.get("relative_defect_little_o_sufficient_for_rh")
+        is not False
+        or rh214_aggregate.get("actual_zeta_cofinal_equality_proved") is not False
+        or rh214_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket214 RH cofinal-equivalence boundary changed")
+
+    collatz214 = audit214.get("collatz", {}).get("reproducible_computation", {})
+    collatz214_rows = collatz214.get("exact_enumeration_rows", [])
+    collatz214_complexity = collatz214.get("fixed_stratum_complexity_rows", [])
+    collatz214_aggregate = collatz214.get("aggregate", {})
+    if (
+        collatz214.get("exact_length_cap_h") != 26
+        or collatz214.get("total_exact_words_enumerated") != 4349349
+        or collatz214.get("ordinary_divisibility_candidate_count") != 0
+        or collatz214.get("positive_odd_integer_fixed_point_count") != 0
+        or [row.get("length_h") for row in collatz214_rows] != list(range(8, 27))
+        or not all(
+            len(row.get("valuation_word_and_divisor_sha256", "")) == 64
+            for row in collatz214_rows
+        )
+        or [row.get("candidate_word_count") for row in collatz214_complexity[-4:]]
+        != [4349349, 49565886, 623355008, 8498724659]
+        or collatz214_aggregate.get(
+            "exactly_seven_valuation_one_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz214_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 8
+        or collatz214_aggregate.get("finite_fixed_stratum_list_sufficient_for_collatz")
+        is not False
+        or collatz214_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket214 Collatz seven-one boundary changed")
+
+    goldbach214 = audit214.get("goldbach", {}).get("reproducible_computation", {})
+    goldbach214_rows = goldbach214.get("dyadic_goldbach_rows", [])
+    goldbach214_synthetic = goldbach214.get("synthetic_selector_rows", [])
+    goldbach214_aggregate = goldbach214.get("aggregate", {})
+    if (
+        [row.get("dyadic_start_X") for row in goldbach214_rows]
+        != [128, 512, 2048, 8192, 32768]
+        or [row.get("maximum_zeros_consistent_with_only_B_S_U") for row in goldbach214_rows]
+        != [33, 143, 638, 2719, 10992]
+        or any(row.get("observed_exception_count") != 0 for row in goldbach214_rows)
+        or len(goldbach214_synthetic) != 3
+        or not all(
+            row.get("selector_subunit_iff_all_positive_verified")
+            for row in goldbach214_synthetic
+        )
+        or goldbach214_aggregate.get("scale_growing_exponential_selector_constructed")
+        is not True
+        or goldbach214_aggregate.get("finite_block_subunit_equivalence_proved")
+        is not True
+        or goldbach214_aggregate.get("aggregate_statistics_sufficient_on_audited_blocks")
+        is not False
+        or goldbach214_aggregate.get("uniform_arithmetic_subunit_bound_proved")
+        is not False
+        or goldbach214_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket214 Goldbach exponential-selector boundary changed")
+
+    twin214 = audit214.get("twin_prime", {}).get("reproducible_computation", {})
+    lagrange214 = twin214.get("finite_lagrange_rows", [])
+    prime_gaps214 = twin214.get("prime_gap_audit_rows", [])
+    twin214_aggregate = twin214.get("aggregate", {})
+    if (
+        len(lagrange214) != 11
+        or not all(row.get("finite_gap_exact_selector_verified") for row in lagrange214)
+        or [row.get("consecutive_gap_two_count") for row in prime_gaps214]
+        != [8, 35, 205, 1224]
+        or any(
+            row.get("exceptional_gap_one_omitted") is not True
+            or row.get("cardinal_sine_symbolic_functional")
+            != row.get("consecutive_gap_two_count")
+            or row.get("functional_equals_gap_two_count") is not True
+            for row in prime_gaps214
+        )
+        or twin214_aggregate.get("cardinal_sine_exact_gap_two_selector_constructed")
+        is not True
+        or twin214_aggregate.get("fixed_degree_polynomial_all_gap_selector_refuted")
+        is not True
+        or twin214_aggregate.get("unbounded_gap_two_count_proved") is not False
+        or twin214_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket214 Twin cardinal-sine boundary changed")
+
+    if (
+        "resolves none" not in str(audit214.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket214.get("claim_boundary", "")).lower()
+        or machine214.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket214 proof boundary changed")
 
     print("open problem structure verified")
     return 0

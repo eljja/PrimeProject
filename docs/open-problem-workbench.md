@@ -15,9 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-213
+## Current research boundary: TICKET-214
 
 The current machine-readable boundary is
+`data/open-problem/ticket214-cofinal-sevenone-exponential-cardinal.json`.
+
+TICKET-214 records four exact intermediate or no-go results and zero
+conjecture resolutions:
+
+- an exact RH equivalence using multiplicity equality on one unbounded height
+  sequence, plus a symmetric countermodel refuting density-one promotion;
+- complete exact exclusion of all `4,349,349` Collatz cycle candidates with
+  exactly seven valuation-one entries, together with an exponential lower
+  bound on direct fixed-stratum enumeration;
+- a scale-growing exponential Goldbach selector whose subunit condition is
+  exactly zero-free coverage, plus a sharp aggregate occupancy no-go;
+- an exact cardinal-sine gap-two selector on all even integer gaps, plus a
+  proof that selector construction does not supply the required unbounded
+  prime-pair lower bound.
+
+Exact actual-zeta equality on an unbounded height sequence, a uniform Collatz
+odd-divisor witness for every stratum with at least eight ones, a uniform
+arithmetic subunit bound for the Goldbach selector, and an unbounded arithmetic
+minorant for the cardinal-sine prime-gap functional remain open.
+
+English report: [TICKET-214](cofinal-sevenone-exponential-cardinal.md).
+한국어 보고서: [TICKET-214](cofinal-sevenone-exponential-cardinal.ko.md).
+
+## Preserved research boundary: TICKET-213
+
+The direct machine-readable input is
 `data/open-problem/ticket213-multiplicity-sixone-polynomial-selector.json`.
 
 TICKET-213 records four exact intermediate or no-go results and zero

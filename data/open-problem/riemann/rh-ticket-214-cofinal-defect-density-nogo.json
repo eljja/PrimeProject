@@ -1,0 +1,155 @@
+{
+  "schema": "primeproject.ticket214-cofinal-sevenone-exponential-cardinal.v1",
+  "generated_at": "2026-08-13T00:15:00+09:00",
+  "ticket_id": "RH-TICKET-214",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "CofinalExactDefectEquivalenceAndDensityOneNoGo",
+  "declared_proposition": "Let D(T)=N(T)-M(T) be the multiplicity-aware critical-line defect from TICKET-213 at boundary-free heights. Symmetry makes D a nonnegative, even, nondecreasing step function. The Riemann Hypothesis is therefore equivalent to the existence of an unbounded sequence of boundary-free heights T_j with D(T_j)=0. In contrast, the asymptotic condition M(T)/N(T)->1, or equivalently D(T)=o(N(T)), does not imply RH: a symmetric zero multiset with one persistent off-line pair and an unbounded number of critical-line zeros has D(T)=2 but D(T)/N(T)->0.",
+  "mathematical_argument": "Every off-line pair that enters an expanding rectangle contributes a positive even amount to D and never leaves, so D is nondecreasing. If D vanishes at unbounded heights, any hypothetical off-line zero would enter before one of those heights and force D>=2 there, a contradiction. The converse is immediate. For insufficiency of density one, place one symmetry pair off the line and let the line multiplicity tend to infinity. Then the defect remains exactly two while its relative share tends to zero. This is a logical zero-model, not a claim that such a zeta zero exists.",
+  "reproducible_computation": {
+    "theorem": "Let D(T)=N(T)-M(T) be the multiplicity-aware critical-line defect from TICKET-213 at boundary-free heights. Symmetry makes D a nonnegative, even, nondecreasing step function. The Riemann Hypothesis is therefore equivalent to the existence of an unbounded sequence of boundary-free heights T_j with D(T_j)=0. In contrast, the asymptotic condition M(T)/N(T)->1, or equivalently D(T)=o(N(T)), does not imply RH: a symmetric zero multiset with one persistent off-line pair and an unbounded number of critical-line zeros has D(T)=2 but D(T)/N(T)->0.",
+    "proof": "Every off-line pair that enters an expanding rectangle contributes a positive even amount to D and never leaves, so D is nondecreasing. If D vanishes at unbounded heights, any hypothetical off-line zero would enter before one of those heights and force D>=2 there, a contradiction. The converse is immediate. For insufficiency of density one, place one symmetry pair off the line and let the line multiplicity tend to infinity. Then the defect remains exactly two while its relative share tends to zero. This is a logical zero-model, not a claim that such a zeta zero exists.",
+    "cofinal_equivalence": "RH iff D(T_j)=0 for one unbounded sequence of boundary-free heights",
+    "density_one_countermodel_rows": [
+      {
+        "critical_line_multiplicity_M": 100,
+        "total_multiplicity_N": 102,
+        "off_line_pair_multiplicity": 1,
+        "defect_N_minus_M": 2,
+        "critical_line_density_M_over_N": "50/51",
+        "relative_defect": "1/51",
+        "rectangle_RH": false,
+        "density_tends_to_one_model": true
+      },
+      {
+        "critical_line_multiplicity_M": 10000,
+        "total_multiplicity_N": 10002,
+        "off_line_pair_multiplicity": 1,
+        "defect_N_minus_M": 2,
+        "critical_line_density_M_over_N": "5000/5001",
+        "relative_defect": "1/5001",
+        "rectangle_RH": false,
+        "density_tends_to_one_model": true
+      },
+      {
+        "critical_line_multiplicity_M": 1000000,
+        "total_multiplicity_N": 1000002,
+        "off_line_pair_multiplicity": 1,
+        "defect_N_minus_M": 2,
+        "critical_line_density_M_over_N": "500000/500001",
+        "relative_defect": "1/500001",
+        "rectangle_RH": false,
+        "density_tends_to_one_model": true
+      },
+      {
+        "critical_line_multiplicity_M": 100000000,
+        "total_multiplicity_N": 100000002,
+        "off_line_pair_multiplicity": 1,
+        "defect_N_minus_M": 2,
+        "critical_line_density_M_over_N": "50000000/50000001",
+        "relative_defect": "1/50000001",
+        "rectangle_RH": false,
+        "density_tends_to_one_model": true
+      }
+    ],
+    "monotone_defect_rows": [
+      {
+        "height_index": 1,
+        "defect": 0,
+        "exact_multiplicity_equality": true,
+        "off_line_zero_already_seen": false
+      },
+      {
+        "height_index": 2,
+        "defect": 0,
+        "exact_multiplicity_equality": true,
+        "off_line_zero_already_seen": false
+      },
+      {
+        "height_index": 3,
+        "defect": 2,
+        "exact_multiplicity_equality": false,
+        "off_line_zero_already_seen": true
+      },
+      {
+        "height_index": 4,
+        "defect": 2,
+        "exact_multiplicity_equality": false,
+        "off_line_zero_already_seen": true
+      },
+      {
+        "height_index": 5,
+        "defect": 4,
+        "exact_multiplicity_equality": false,
+        "off_line_zero_already_seen": true
+      },
+      {
+        "height_index": 6,
+        "defect": 4,
+        "exact_multiplicity_equality": false,
+        "off_line_zero_already_seen": true
+      }
+    ],
+    "aggregate": {
+      "cofinal_exact_equality_equivalent_to_rh": true,
+      "critical_line_density_one_sufficient_for_rh": false,
+      "relative_defect_little_o_sufficient_for_rh": false,
+      "actual_zeta_cofinal_equality_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The countermodel rejects density-only promotion. It is not an off-critical zeta zero, and the cofinal equality remains unproved for the actual zeta function.",
+    "failure_count": 0
+  },
+  "discarded_route": "critical-line density one or relative defect o(N) as a sufficient RH criterion",
+  "remaining_gap": "No unbounded sequence of exact multiplicity equalities is proved for actual zeta zeros.",
+  "candidate_theorem": "CertifiedCofinalMultiplicityEqualityForActualZeta",
+  "claim_boundary": "No RH proof and no off-critical zeta zero. Density-one promotion is refuted by a symmetric logical model; exact cofinal equality is an equivalent target.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T213",
+        "label": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T214",
+        "label": "CofinalExactDefectEquivalenceAndDensityOneNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N214",
+        "label": "CriticalLineDensityOneImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN214",
+        "label": "CertifiedCofinalMultiplicityEqualityForActualZeta",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T213",
+        "RH-T214"
+      ],
+      [
+        "RH-T214",
+        "RH-N214"
+      ],
+      [
+        "RH-T214",
+        "RH-OPEN214"
+      ],
+      [
+        "RH-OPEN214",
+        "RH"
+      ]
+    ]
+  }
+}

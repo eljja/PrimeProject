@@ -37,7 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-12 TICKET-213 Multiplicity, Six-One Cycles, Polynomial Majorants, and Gap Selectors
+## 2026-08-12 TICKET-214 Cofinal Defects, Seven-One Cycles, Exponential Witnesses, and Cardinal Gap Selection
+
+TICKET-214 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. exact multiplicity equality on one unbounded sequence of boundary-free
+   heights is RH-equivalent, while critical-line density one and relative
+   defect `o(N)` are insufficient;
+2. the product bound reduces exactly-seven-one accelerated Collatz cycles to
+   lengths `8..26`, and exact enumeration excludes all `4,349,349` candidates;
+3. the scale-growing exponential sum `sum 2^(-k_B A_i)` is below one exactly
+   when a finite Goldbach block has no exception, while the sharp occupancy
+   bound shows total witness mass and a cap do not prevent concentration;
+4. cardinal-sine interpolation selects gap two exactly on every even integer
+   gap, while unboundedness of that exact functional remains equivalent to
+   twin-prime infinitude.
+
+No actual-zeta cofinal equality, uniform Collatz all-stratum divisor witness,
+uniform Goldbach selector bound, or unbounded Twin arithmetic minorant is
+proved. The machine resolution count remains zero.
+
+English report: [TICKET-214](cofinal-sevenone-exponential-cardinal.md).
+한국어 보고서: [TICKET-214](cofinal-sevenone-exponential-cardinal.ko.md).
+
+## Preserved: 2026-08-12 TICKET-213 Multiplicity, Six-One Cycles, Polynomial Majorants, and Gap Selectors
 
 TICKET-213 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

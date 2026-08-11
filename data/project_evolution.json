@@ -1,6 +1,6 @@
 {
   "schema": "primeproject.project-evolution.v1",
-    "updated_at": "2026-08-12T23:59:45+09:00",
+  "updated_at": "2026-08-13T00:15:00+09:00",
   "headline": "From prime regularity exploration to generator-fingerprint research tooling.",
   "metrics": {
     "live_compute_limit": 10000000,
@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-        "claim_language_scanned_files": 200,
-        "claim_language_scanned_lines": 70116,
+    "claim_language_scanned_files": 202,
+    "claim_language_scanned_lines": 70741,
     "claim_language_triggered_mentions": 126,
     "claim_language_guarded_mentions": 126,
     "claim_language_failures": 0,
@@ -1329,6 +1329,13 @@
           "state": "bounded",
           "measure": "RH 5 exact multiplicity configurations with RH-versus-simplicity separation / Collatz 376,788 exact six-one words at lengths 7..22 / Goldbach 12 exact rational interpolation rows plus an all-fixed-polynomial no-go / Twin 4 rational weight families on nonnegative-cone extreme rays / 4 exact partial or no-go theorems / 0 conjecture resolutions",
           "proof": "TICKET-213 proves that total critical-line multiplicity gives the exact finite-rectangle RH certificate while sign changes additionally require simplicity; excludes the complete exactly-six-one accelerated Collatz periodic stratum; extends the fixed-Bonferroni obstruction to every fixed polynomial of Goldbach witness multiplicity; and proves that an exact nonnegative gap-two selector must have positive support only at gap two"
+        },
+        {
+          "marker": "175",
+          "title": "Cofinal RH equality, seven-one Collatz exclusion, exponential Goldbach selection, and cardinal-sine gap projection",
+          "state": "bounded",
+          "measure": "RH 4 density-one countermodel scales plus a cofinal exact-equality equivalence / Collatz 4,349,349 exact seven-one words at lengths 8..26 plus exponential fixed-stratum growth / Goldbach 5 exact dyadic selector audits plus a sharp occupancy no-go / Twin 11 finite polynomial selectors and 4 exact cardinal-sine prime-gap audits / 4 exact partial or no-go theorems / 0 conjecture resolutions",
+          "proof": "TICKET-214 proves that exact multiplicity equality on one unbounded sequence of boundary-free heights is equivalent to RH while density one is insufficient; excludes the complete exactly-seven-one accelerated Collatz periodic stratum and proves direct fixed-stratum enumeration grows exponentially; constructs an exact dyadic exponential Goldbach selector and proves that aggregate occupancy statistics alone cannot certify it; and constructs a cardinal-sine selector that projects exactly onto gap two while proving selector construction alone is equivalent to, not a proof of, Twin Prime infinitude"
         }
       ],
       "evidence_flow": [
@@ -1450,17 +1457,17 @@
           "layer": "Open-Proof",
           "score": 99,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket213-multiplicity-sixone-polynomial-selector.json", "docs/multiplicity-sixone-polynomial-selector.md", "docs/multiplicity-sixone-polynomial-selector.ko.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET-213 proves four exact partial or no-go results: a multiplicity-aware RH target correction, complete six-one Collatz cycle exclusion, a fixed-polynomial Goldbach majorant no-go, and exact characterization of nonnegative gap-two selectors. It records four proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
-          "proof": "The workbench now requires an all-height multiplicity-aware critical-line count, a uniform Collatz odd-divisor witness beyond six ones, a scale-growing Goldbach witness resummation below one, and a signed gap-two arithmetic selector with a uniform remainder."
+          "artifacts": ["data/open-problem/ticket214-cofinal-sevenone-exponential-cardinal.json", "docs/cofinal-sevenone-exponential-cardinal.md", "docs/cofinal-sevenone-exponential-cardinal.ko.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET-214 proves four exact partial or no-go results: a cofinal exact-equality RH equivalence with a density-one no-go, complete seven-one Collatz cycle exclusion with an exponential enumeration no-go, an exact dyadic exponential Goldbach selector with a sharp occupancy no-go, and exact cardinal-sine gap-two selection with a positivity-circularity boundary. It records four proof DAGs with zero machine failures and keeps all four conjecture-resolution counters at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
+          "proof": "The workbench now requires certified cofinal multiplicity equality for actual zeta, a uniform primitive odd-divisor witness for Collatz strata with at least eight ones, a uniform arithmetic subunit bound for the Goldbach exponential selector, and an unbounded arithmetic minorant for the cardinal-sine prime-gap functional."
         }
       ]
     },
     "latest_changes": [
       {
         "label": "Evidence-first Pages",
-        "impact": "The public entry points now lead with TICKET-213: the multiplicity-aware Riemann target correction, complete six-one Collatz exclusion, fixed-polynomial Goldbach no-go, and exact characterization of nonnegative gap-two selectors, while preserving TICKET-212 and earlier work in the semantic archive.",
-        "metric": "4 current cards / 213 tickets"
+        "impact": "The public entry points now lead with TICKET-214: the cofinal Riemann equality criterion, complete seven-one Collatz exclusion, exact exponential Goldbach selector, and exact cardinal-sine gap-two selector, while preserving TICKET-213 and earlier work in the semantic archive.",
+        "metric": "4 current cards / 214 tickets"
       },
       {
         "label": "Scale evidence",

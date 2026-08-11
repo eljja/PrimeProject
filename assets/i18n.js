@@ -62,12 +62,12 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-213 corrects the Riemann multiplicity target, excludes the complete six-one Collatz cycle stratum, refutes every fixed polynomial Goldbach witness majorant, and characterizes exact nonnegative gap-two selectors.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-213은 리만 영점의 중복도 계수 목표를 교정하고, 콜라츠의 여섯-1 주기 층 전체를 배제하며, 모든 고정 다항식 골드바흐 예외 상계와 다른 간격이 섞인 비음수 gap-two 선택자를 불가능성 정리로 확정합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-214 separates exact selection from infinite arithmetic control: cofinal RH equality, seven-one Collatz exclusion, an exponential Goldbach selector, and cardinal-sine gap-two selection.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-214는 비유계 높이에서의 정확한 RH 등식, 콜라츠 일곱-1 층 배제, 골드바흐 지수형 선택자, cardinal-sine gap-two 선택을 통해 정확한 대상 선택과 아직 미증명인 무한 산술 통제를 분리합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-213 establishes the multiplicity-aware finite-rectangle Riemann equivalence, excludes the complete six-one Collatz cycle stratum, rules out every fixed-polynomial Goldbach witness majorant, and characterizes nonnegative gap-two selectors. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-213은 중복도를 반영한 유한 직사각형 리만 동치 정리를 확립하고, 콜라츠의 여섯-1 주기 층 전체를 배제했으며, 모든 고정 다항식 골드바흐 증인 상계를 기각하고 비음수 gap-two 선택자의 필요충분조건을 규명했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-214 establishes the exact cofinal RH criterion, excludes the seven-one Collatz stratum, constructs an exact exponential Goldbach selector, and constructs a cardinal-sine gap-two selector. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-214는 정확한 비유계 RH 기준을 확립하고, 콜라츠 일곱-1 층을 배제했으며, 골드바흐 지수형 선택자와 cardinal-sine gap-two 선택자를 구성했습니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

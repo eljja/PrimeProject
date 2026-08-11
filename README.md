@@ -31,15 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-213: Multiplicity, Six-One Cycles, Polynomial Majorants, and Gap Selectors](docs/multiplicity-sixone-polynomial-selector.md),
-with a separate [Korean report](docs/multiplicity-sixone-polynomial-selector.ko.md).
-It corrects the finite-rectangle RH target from odd-multiplicity sign changes
-to total critical-line multiplicity; exhaustively excludes all `376,788`
-accelerated Collatz cycle candidates with exactly six valuation-one entries;
-extends the fixed-Bonferroni Goldbach obstruction to every fixed polynomial of
-the witness count; and characterizes every exact nonnegative gap-two selector.
+[TICKET-214: Cofinal Defects, Seven-One Cycles, Exponential Witnesses, and Cardinal Gap Selection](docs/cofinal-sevenone-exponential-cardinal.md),
+with a separate [Korean report](docs/cofinal-sevenone-exponential-cardinal.ko.md).
+It proves the exact cofinal multiplicity-defect criterion and rejects density
+one as an RH certificate; exhaustively excludes all `4,349,349` accelerated
+Collatz cycle candidates with exactly seven valuation-one entries; constructs
+an exact scale-growing exponential Goldbach selector and proves a sharp
+aggregate-occupancy no-go; and constructs an exact cardinal-sine gap-two
+selector while isolating the still-missing unbounded arithmetic lower bound.
 These are exact partial or no-go results, not resolutions. Every conjecture
 remains `open_not_proven`; the machine resolution count is zero.
+
+The preserved direct input is
+[TICKET-213: Multiplicity, Six-One Cycles, Polynomial Majorants, and Gap Selectors](docs/multiplicity-sixone-polynomial-selector.md),
+with a separate [Korean report](docs/multiplicity-sixone-polynomial-selector.ko.md).
 
 The preserved direct input is
 [TICKET-212: Even Defect, 2-Adic Ghosts, Full-Witness Products, and Gap Channels](docs/even-defect-ghost-bonferroni-gapchannel.md),
@@ -286,7 +291,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-213 boundary, four exact partial or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-214 boundary, four exact partial or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -299,20 +304,23 @@ GitHub Pages is the canonical public runtime and loads the current public `data/
 
 The live browser experiment can compute directly up to 10M with a logarithmic search-limit slider. Larger local runs can also be bundled as static Research Snapshots on GitHub Pages, so visitors can inspect precomputed SVG charts without recalculating them in the browser. The Bias Ranking Lab orders next-prime candidates with a toy density/residue/gap score for generator-bias analysis; it is not a cryptographic prime prediction engine.
 
-The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 174-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
+The Research Atlas and Project Evolution panels read `data/project_evolution.json` and present a condensed research narrative: the supported contribution map, evidence ladder, open-problem proof map, academic blockers, six decisive metrics, a 175-step visual change trail, a Hardening Map, one Evidence Spine, and a claim-boundary view that separates supported controlled-synthetic results from blocked real-world and Bitcoin attribution claims.
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-213. The RH track proves that the
-multiplicity-aware defect `N-M<2` is exactly equivalent to finite-rectangle
-critical-line saturation, while a sign-change defect also demands simplicity.
-The Collatz track exhaustively excludes the complete exactly-six-one periodic
-stratum. The Goldbach track refutes every fixed polynomial witness-count
-majorant, not only fixed Bonferroni truncations. The Twin track proves that an
-exact nonnegative gap-two selector must have positive support only at gap two.
+The latest proof-search track is TICKET-214. The RH track proves that exact
+multiplicity equality on one unbounded height sequence is RH-equivalent and
+that critical-line density one is insufficient. The Collatz track exhaustively
+excludes the complete exactly-seven-one periodic stratum and quantifies the
+exponential fixed-stratum search growth. The Goldbach track constructs a
+scale-growing exponential selector and proves a sharp witness-occupancy no-go.
+The Twin track applies cardinal-sine interpolation to select gap two exactly,
+then proves that unboundedness of the selected channel remains the conjecture.
 These are partial or no-go results, not solutions. All four conjectures remain
 open and the machine resolution count is zero.
 See
+[TICKET214 EN](docs/cofinal-sevenone-exponential-cardinal.md),
+[TICKET214 KO](docs/cofinal-sevenone-exponential-cardinal.ko.md),
 [TICKET213 EN](docs/multiplicity-sixone-polynomial-selector.md),
 [TICKET213 KO](docs/multiplicity-sixone-polynomial-selector.ko.md),
 [TICKET212 EN](docs/even-defect-ghost-bonferroni-gapchannel.md),
@@ -428,13 +436,14 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-213입니다. 리만 트랙은 임계선 영점
-중복도 합 `M`을 사용한 `N-M<2`가 유한 직사각형 RH와 정확히 동치임을
-증명하고, 부호변화 수만 쓰면 단순성까지 요구하는 과도한 목표임을
-교정했습니다. 콜라츠 트랙은 valuation-one 항이 정확히 6개인 후보
-`376,788`개를 전수 배제했습니다. 골드바흐 트랙은 모든 고정 다항식
-증인-개수 예외 상계를 폐기했습니다. 쌍둥이 소수 트랙은 다른 간격의 양의
-가중치가 섞인 모든 비음수 gap-two 선택자를 폐기했습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-214입니다. 리만 트랙은 어떤 비유계
+높이 수열에서 중복도 결함이 정확히 0인 것이 RH와 동치임을 증명하고,
+임계선 밀도 1만으로는 부족함을 논리적 반례 모형으로 확정했습니다. 콜라츠
+트랙은 valuation-one 항이 정확히 7개인 후보 `4,349,349`개를 전수
+배제했습니다. 골드바흐 트랙은 규모 증가형 지수 선택자의 정확 동치와 총
+증인 질량·용량만 사용하는 경로의 한계를 증명했습니다. 쌍둥이 소수 트랙은
+cardinal-sine으로 gap 2를 정확히 선택했지만 그 값의 비유계성은 여전히
+미증명임을 분리했습니다.
 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -455,21 +464,20 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-213입니다.
-[중복도·여섯-1 주기·다항식 상계·간격 선택자 한국어 보고서](docs/multiplicity-sixone-polynomial-selector.ko.md)와
-[영문 보고서](docs/multiplicity-sixone-polynomial-selector.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-214입니다.
+[비유계 결함·일곱-1 주기·지수 증인·cardinal 간격 선택 한국어 보고서](docs/cofinal-sevenone-exponential-cardinal.ko.md)와
+[영문 보고서](docs/cofinal-sevenone-exponential-cardinal.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-RH 부호변화 목표의 과강성 교정, Collatz 여섯-1 주기 층 완전 배제,
-Goldbach 고정 다항식 상계 불가능성, Twin 비음수 간격 선택자의 필요충분조건을
-확정했지만
+RH density-one 경로 폐기, Collatz 일곱-1 주기 층 완전 배제, Goldbach
+지수 선택자 동치와 점유 no-go, Twin cardinal-sine 정확 선택을 확정했지만
 실제 전역·무한 전제는 남아 있습니다. 각 proof DAG는 TICKET-210 입력,
-TICKET-211·212 직접 입력, 이번에 닫힌 정리,
+TICKET-211·212·213 직접 입력, 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-213의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 213개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-214의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 214개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

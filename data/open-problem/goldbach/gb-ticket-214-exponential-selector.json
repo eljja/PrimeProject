@@ -1,0 +1,188 @@
+{
+  "schema": "primeproject.ticket214-cofinal-sevenone-exponential-cardinal.v1",
+  "generated_at": "2026-08-13T00:15:00+09:00",
+  "ticket_id": "GB-TICKET-214",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicExponentialSelectorEquivalenceAndOccupancyNoGo",
+  "declared_proposition": "For a finite block of B even targets with Goldbach counts A_i, let k be the least integer with 2^k>B and set E=sum_i 2^(-k A_i). Then E<1 if and only if every A_i is positive: a zero contributes one, while an all-positive block has E<=B/2^k<1. This supplies the scale-growing nonpolynomial selector requested by TICKET-213, but proving its subunit bound on all blocks is exactly equivalent to Goldbach on those blocks. Moreover, if only B, total S, and a cap 0<=A_i<=U with U>0 are known, the sharp maximum possible number of zeros is B-ceil(S/U); aggregate witness mass alone forces zero-free coverage only when S>(B-1)U.",
+  "mathematical_argument": "The exponential selector proof is the two-case estimate above. For the occupancy bound, q=ceil(S/U) positive boxes are necessary to hold total mass S, so at most B-q boxes are zero. This is sharp by filling q-1 boxes to U and placing the remainder in one box. Hence total mass and a capacity bound do not prevent concentration unless S exceeds (B-1)U. The finite dyadic audit computes every A_i exactly; it is evidence for the identities, not an infinite Goldbach proof.",
+  "reproducible_computation": {
+    "theorem": "For a finite block of B even targets with Goldbach counts A_i, let k be the least integer with 2^k>B and set E=sum_i 2^(-k A_i). Then E<1 if and only if every A_i is positive: a zero contributes one, while an all-positive block has E<=B/2^k<1. This supplies the scale-growing nonpolynomial selector requested by TICKET-213, but proving its subunit bound on all blocks is exactly equivalent to Goldbach on those blocks. Moreover, if only B, total S, and a cap 0<=A_i<=U with U>0 are known, the sharp maximum possible number of zeros is B-ceil(S/U); aggregate witness mass alone forces zero-free coverage only when S>(B-1)U.",
+    "proof": "The exponential selector proof is the two-case estimate above. For the occupancy bound, q=ceil(S/U) positive boxes are necessary to hold total mass S, so at most B-q boxes are zero. This is sharp by filling q-1 boxes to U and placing the remainder in one box. Hence total mass and a capacity bound do not prevent concentration unless S exceeds (B-1)U. The finite dyadic audit computes every A_i exactly; it is evidence for the identities, not an infinite Goldbach proof.",
+    "selector": "E_B=sum_i 2^(-k_B A_i), where 2^k_B>B",
+    "selector_equivalence": "E_B<1 iff min_i A_i>=1",
+    "occupancy_bound": "Z<=B-ceil(S/U), sharp",
+    "dyadic_goldbach_rows": [
+      {
+        "dyadic_start_X": 128,
+        "even_targets_B": 64,
+        "minimum_representation_count": 3,
+        "maximum_representation_capacity_U": 19,
+        "total_representation_count_S": 575,
+        "smallest_k_with_2_pow_k_greater_than_B": 7,
+        "positive_block_selector_upper_bound_B_over_2_pow_k": "1/2",
+        "observed_exception_count": 0,
+        "maximum_zeros_consistent_with_only_B_S_U": 33,
+        "aggregate_statistics_alone_certify_zero_free": false
+      },
+      {
+        "dyadic_start_X": 512,
+        "even_targets_B": 256,
+        "minimum_representation_count": 10,
+        "maximum_representation_capacity_U": 52,
+        "total_representation_count_S": 5831,
+        "smallest_k_with_2_pow_k_greater_than_B": 9,
+        "positive_block_selector_upper_bound_B_over_2_pow_k": "1/2",
+        "observed_exception_count": 0,
+        "maximum_zeros_consistent_with_only_B_S_U": 143,
+        "aggregate_statistics_alone_certify_zero_free": false
+      },
+      {
+        "dyadic_start_X": 2048,
+        "even_targets_B": 1024,
+        "minimum_representation_count": 25,
+        "maximum_representation_capacity_U": 163,
+        "total_representation_count_S": 62788,
+        "smallest_k_with_2_pow_k_greater_than_B": 11,
+        "positive_block_selector_upper_bound_B_over_2_pow_k": "1/2",
+        "observed_exception_count": 0,
+        "maximum_zeros_consistent_with_only_B_S_U": 638,
+        "aggregate_statistics_alone_certify_zero_free": false
+      },
+      {
+        "dyadic_start_X": 8192,
+        "even_targets_B": 4096,
+        "minimum_representation_count": 75,
+        "maximum_representation_capacity_U": 517,
+        "total_representation_count_S": 711593,
+        "smallest_k_with_2_pow_k_greater_than_B": 13,
+        "positive_block_selector_upper_bound_B_over_2_pow_k": "1/2",
+        "observed_exception_count": 0,
+        "maximum_zeros_consistent_with_only_B_S_U": 2719,
+        "aggregate_statistics_alone_certify_zero_free": false
+      },
+      {
+        "dyadic_start_X": 32768,
+        "even_targets_B": 16384,
+        "minimum_representation_count": 223,
+        "maximum_representation_capacity_U": 1564,
+        "total_representation_count_S": 8431984,
+        "smallest_k_with_2_pow_k_greater_than_B": 15,
+        "positive_block_selector_upper_bound_B_over_2_pow_k": "1/2",
+        "observed_exception_count": 0,
+        "maximum_zeros_consistent_with_only_B_S_U": 10992,
+        "aggregate_statistics_alone_certify_zero_free": false
+      }
+    ],
+    "synthetic_selector_rows": [
+      {
+        "counts": [
+          0,
+          3,
+          4,
+          5
+        ],
+        "B": 4,
+        "k": 3,
+        "has_zero": true,
+        "exact_selector_sum": "32841/32768",
+        "zero_term_forces_selector_sum_at_least_one": true,
+        "all_positive_selector_upper_bound": "1/2",
+        "selector_subunit_iff_all_positive_verified": true
+      },
+      {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "B": 4,
+        "k": 3,
+        "has_zero": false,
+        "exact_selector_sum": "1/2",
+        "zero_term_forces_selector_sum_at_least_one": false,
+        "all_positive_selector_upper_bound": "1/2",
+        "selector_subunit_iff_all_positive_verified": true
+      },
+      {
+        "counts": [
+          2,
+          7,
+          1,
+          3,
+          4
+        ],
+        "B": 5,
+        "k": 3,
+        "has_zero": false,
+        "exact_selector_sum": "299521/2097152",
+        "zero_term_forces_selector_sum_at_least_one": false,
+        "all_positive_selector_upper_bound": "5/8",
+        "selector_subunit_iff_all_positive_verified": true
+      }
+    ],
+    "aggregate": {
+      "scale_growing_exponential_selector_constructed": true,
+      "finite_block_subunit_equivalence_proved": true,
+      "aggregate_mass_capacity_zero_free_certificate_characterized": true,
+      "aggregate_statistics_sufficient_on_audited_blocks": false,
+      "uniform_arithmetic_subunit_bound_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The selector is an exact reformulation, not an independent upper bound. The occupancy theorem rejects only arguments using total mass and a per-target cap without additional anti-concentration.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating the selector construction or aggregate witness mass plus a cap as an independent zero-free proof",
+  "remaining_gap": "No unconditional uniform arithmetic estimate proves the exponential selector sum below one on every dyadic block.",
+  "candidate_theorem": "UniformArithmeticSubunitBoundForDyadicExponentialWitnessSelector",
+  "claim_boundary": "No Goldbach proof or counterexample. A scale-growing exact selector is constructed, while its subunit estimate is shown to be the unresolved arithmetic content.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T213",
+        "label": "FixedDegreePolynomialWitnessMajorantNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T214",
+        "label": "DyadicExponentialSelectorEquivalenceAndOccupancyNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N214",
+        "label": "AggregateWitnessMassOrSelectorConstructionAloneProvesCoverage",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN214",
+        "label": "UniformArithmeticSubunitBoundForDyadicExponentialWitnessSelector",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T213",
+        "GB-T214"
+      ],
+      [
+        "GB-T214",
+        "GB-N214"
+      ],
+      [
+        "GB-T214",
+        "GB-OPEN214"
+      ],
+      [
+        "GB-OPEN214",
+        "GB"
+      ]
+    ]
+  }
+}

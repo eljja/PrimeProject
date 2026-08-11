@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260812-ticket213-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260812-ticket214-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-213 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-214 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-213 corrects the Riemann multiplicity target, excludes the complete six-one Collatz cycle stratum, refutes every fixed polynomial Goldbach witness majorant, and characterizes exact nonnegative gap-two selectors.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-213은 리만 영점의 중복도 계수 목표를 교정하고, 콜라츠의 여섯-1 주기 층 전체를 배제하며, 모든 고정 다항식 골드바흐 예외 상계와 다른 간격이 섞인 비음수 gap-two 선택자를 불가능성 정리로 확정했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-214 separates exact selection from infinite arithmetic control: cofinal RH equality, seven-one Collatz exclusion, an exponential Goldbach selector, and cardinal-sine gap-two selection.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-214는 비유계 높이에서의 정확한 RH 등식, 콜라츠 일곱-1 층 배제, 골드바흐 지수형 선택자, cardinal-sine gap-two 선택을 통해 정확한 대상 선택과 아직 미증명인 무한 산술 통제를 분리했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>213</strong><small>2026-08-12</small></div>
+              <div><span>Latest ticket</span><strong>214</strong><small>2026-08-12</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 전체 영점 중복도 <code>N</code>과 임계선 영점 중복도 합 <code>M</code>에 대해 <code>N-M&lt;2</code>가 유한 직사각형 RH와 정확히 동치입니다.</p>
-                <p><strong>폐기:</strong> Hardy 부호변화 수는 임계선 중근을 놓치므로, 단순성 정리 없이 RH와 동치인 목표로 사용할 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 완성 제타에 대해 모든 높이에서 중복도 결함 <code>N-M</code>을 엄격히 2 미만으로 만드는 균일 추정.</p>
+                <p><strong>확립:</strong> 어떤 비유계 높이 수열에서 중복도 결함 <code>N-M=0</code>인 것은 RH와 동치입니다.</p>
+                <p><strong>폐기:</strong> 임계선 영점 밀도 <code>M/N→1</code> 또는 상대 결함 <code>o(N)</code>만으로 RH를 결론내리는 경로.</p>
+                <p><strong>다음 핵심:</strong> 실제 제타 영점에 대해 비유계 높이 수열에서 정확한 중복도 등식을 인증하기.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> valuation-one 항이 정확히 6개인 후보 <code>376,788</code>개를 정확 산술로 완전 배제했습니다. 비자명 양의 주기에는 최소 7개의 one 항이 필요합니다.</p>
-                <p><strong>폐기:</strong> 정확히 여섯 개의 valuation-one 항을 갖는 모든 양의 가속 콜라츠 주기 단어.</p>
-                <p><strong>다음 핵심:</strong> one 항이 7개 이상인 모든 원시 단어에서 보통 홀수 나눗셈을 균일하게 막는 증인.</p>
+                <p><strong>확립:</strong> valuation-one 항이 정확히 7개인 후보 <code>4,349,349</code>개를 정확 산술로 완전 배제했습니다. 비자명 양의 주기에는 최소 8개의 one 항이 필요합니다.</p>
+                <p><strong>폐기:</strong> 모든 일곱-1 주기 단어와 유한 개의 고정 <code>k</code> 층 열거를 전체 증명으로 승격하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>k≥8</code>인 모든 원시 단어의 보통 홀수 나눗셈을 균일하게 막는 증인.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 표현 개수 <code>A(N)</code>의 어떤 고정 실수 다항식도 모든 표현 가능 목표에서 <code>[0,1)</code> 예외 상계를 유지할 수 없습니다.</p>
-                <p><strong>폐기:</strong> 고정 Bonferroni 차수를 포함해, 증인 개수만의 모든 고정차수 다항식 점별 예외 상계.</p>
-                <p><strong>다음 핵심:</strong> 규모에 따라 복잡도가 증가하거나 비다항식인 전체 증인 재합산으로 dyadic 예외 합을 1 미만으로 만들기.</p>
+                <p><strong>확립:</strong> 지수형 블록 합 <code>Σ2<sup>−kAᵢ</sup>&lt;1</code>은 모든 목표가 표현된 것과 정확히 동치입니다.</p>
+                <p><strong>폐기:</strong> 선택자 구성 자체 또는 총 증인 질량과 목표별 용량만으로 예외 0개를 증명하는 경로.</p>
+                <p><strong>다음 핵심:</strong> 낮은 표현 수의 집중을 통제해 지수형 선택자 합을 모든 dyadic 블록에서 1 미만으로 만들기.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 비음수 간격 가중합이 gap 2를 정확히 선택할 필요충분조건은 양의 가중치가 오직 gap 2에만 있는 것입니다.</p>
-                <p><strong>폐기:</strong> 다른 간격의 양의 가중치가 아무리 작게라도 섞인 모든 비음수 bounded-gap 통계.</p>
-                <p><strong>다음 핵심:</strong> 산술 나머지를 균일하게 통제하는 부호 있는 gap-two 선택 함수.</p>
+                <p><strong>확립:</strong> <code>sinc(h/2−1)</code>은 모든 짝수 소수 간격에서 gap 2를 나머지 없이 정확히 선택합니다.</p>
+                <p><strong>폐기:</strong> 정확 선택자 구성만으로 쌍둥이 소수 무한성을 결론내리거나 고정차수 다항식으로 모든 간격을 선택하는 경로.</p>
+                <p><strong>다음 핵심:</strong> cardinal-sine이 선택한 소수쌍 상관값을 비유계로 만드는 산술 minorant.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>213개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-213은 중복도 기반 RH 계수, 일곱-1 이상 콜라츠 나눗셈, 규모 증가형 골드바흐 재합산, 부호 있는 gap-two 산술 선택자라는 네 결정적 미해결 보조정리를 남겼습니다.</p>
+                <p>214개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-214는 정확한 선택자를 구성하는 문제와 그 선택값을 무한히 통제하는 산술 문제를 분리하고, 실제 제타 등식·<code>k≥8</code> 콜라츠 나눗셈·골드바흐 지수 합·쌍둥이 상관 하한을 다음 핵심으로 남겼습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/multiplicity-sixone-polynomial-selector.ko.md">최신 한국어 보고서</a>
-              <a href="docs/multiplicity-sixone-polynomial-selector.md">Latest English report</a>
+              <a href="docs/cofinal-sevenone-exponential-cardinal.ko.md">최신 한국어 보고서</a>
+              <a href="docs/cofinal-sevenone-exponential-cardinal.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-213</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-213 establishes the multiplicity-aware finite-rectangle Riemann equivalence, excludes the complete six-one Collatz cycle stratum, rules out every fixed-polynomial Goldbach witness majorant, and characterizes nonnegative gap-two selectors. Resolution count: 0.</p>
+              <strong>TICKET-214</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-214 establishes the exact cofinal RH criterion, excludes the seven-one Collatz stratum, constructs an exact exponential Goldbach selector, and constructs a cardinal-sine gap-two selector. Resolution count: 0.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260812-ticket213-rail"></script>
-    <script src="assets/app.js?v=20260812-ticket213"></script>
+    <script src="assets/i18n.js?v=20260812-ticket214"></script>
+    <script src="assets/app.js?v=20260812-ticket214"></script>
   </body>
 </html>
 

@@ -1,0 +1,443 @@
+{
+  "schema": "primeproject.ticket214-cofinal-sevenone-exponential-cardinal.v1",
+  "generated_at": "2026-08-13T00:15:00+09:00",
+  "ticket_id": "TP-TICKET-214",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "CardinalSineExactGapTwoSelectorAndPositivityCircularity",
+  "declared_proposition": "Define S(h)=sinc(h/2-1), with sinc(0)=1 and sinc(x)=sin(pi x)/(pi x). For every positive even integer gap h, S(h)=1 when h=2 and S(h)=0 otherwise. Hence on every finite range of consecutive odd-prime gaps (with the exceptional gap (2,3) omitted), the cardinal-sine functional sum_h S(h)t_h equals the exact consecutive twin-prime count t_2, with zero remainder. Therefore unboundedness of the cumulative functional is equivalent to the Twin Prime Conjecture, not a proof of it. A degree-(M-1) Lagrange polynomial gives the same selector through gap 2M, but its tail equals (-1)^(M-1) C(h/2-2,M-1); no fixed polynomial can vanish at every non-two even gap while taking value one at gap two.",
+  "mathematical_argument": "After omitting the unique odd gap from 2 to 3, every consecutive prime gap is even. At h=2r the cardinal-sine argument is the integer r-1, so the sine vanishes for every r>=2 and the removable value at r=1 is one. Summing against gap counts is therefore exactly coordinate projection onto t_2. For the finite polynomial, its roots are r=2,...,M and direct multiplication gives the binomial tail formula. A fixed nonzero polynomial cannot have the infinitely many roots 2,3,..., so polynomial exact selection at all even gaps is impossible. The analytic selector solves representation of the channel, not the arithmetic lower bound for that channel.",
+  "reproducible_computation": {
+    "theorem": "Define S(h)=sinc(h/2-1), with sinc(0)=1 and sinc(x)=sin(pi x)/(pi x). For every positive even integer gap h, S(h)=1 when h=2 and S(h)=0 otherwise. Hence on every finite range of consecutive odd-prime gaps (with the exceptional gap (2,3) omitted), the cardinal-sine functional sum_h S(h)t_h equals the exact consecutive twin-prime count t_2, with zero remainder. Therefore unboundedness of the cumulative functional is equivalent to the Twin Prime Conjecture, not a proof of it. A degree-(M-1) Lagrange polynomial gives the same selector through gap 2M, but its tail equals (-1)^(M-1) C(h/2-2,M-1); no fixed polynomial can vanish at every non-two even gap while taking value one at gap two.",
+    "proof": "After omitting the unique odd gap from 2 to 3, every consecutive prime gap is even. At h=2r the cardinal-sine argument is the integer r-1, so the sine vanishes for every r>=2 and the removable value at r=1 is one. Summing against gap counts is therefore exactly coordinate projection onto t_2. For the finite polynomial, its roots are r=2,...,M and direct multiplication gives the binomial tail formula. A fixed nonzero polynomial cannot have the infinitely many roots 2,3,..., so polynomial exact selection at all even gaps is impossible. The analytic selector solves representation of the channel, not the arithmetic lower bound for that channel.",
+    "cardinal_selector": "S(h)=sinc(h/2-1)",
+    "exact_even_gap_values": "S(2)=1 and S(2r)=0 for every integer r>=2",
+    "finite_lagrange_rows": [
+      {
+        "gap_cutoff_2M": 4,
+        "polynomial_degree": 1,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "-1",
+          "-2",
+          "-3"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 6,
+        "polynomial_degree": 2,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "1",
+          "3",
+          "6"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 8,
+        "polynomial_degree": 3,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "-4",
+          "-10"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 10,
+        "polynomial_degree": 4,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "5",
+          "15"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 12,
+        "polynomial_degree": 5,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "-6",
+          "-21"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 14,
+        "polynomial_degree": 6,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "7",
+          "28"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 16,
+        "polynomial_degree": 7,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "-8",
+          "-36"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 18,
+        "polynomial_degree": 8,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "9",
+          "45"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 20,
+        "polynomial_degree": 9,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "-10",
+          "-55"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 22,
+        "polynomial_degree": 10,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "11",
+          "66"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      },
+      {
+        "gap_cutoff_2M": 24,
+        "polynomial_degree": 11,
+        "half_gap_r_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "selector_values": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "-12",
+          "-78"
+        ],
+        "tail_formula": "(-1)^(M-1)*C(r-2,M-1) for r>M",
+        "finite_gap_exact_selector_verified": true
+      }
+    ],
+    "prime_gap_audit_rows": [
+      {
+        "prime_limit": 100,
+        "exceptional_gap_one_omitted": true,
+        "observed_even_gap_channels": 4,
+        "consecutive_gap_two_count": 8,
+        "cardinal_sine_symbolic_functional": 8,
+        "functional_equals_gap_two_count": true
+      },
+      {
+        "prime_limit": 1000,
+        "exceptional_gap_one_omitted": true,
+        "observed_even_gap_channels": 9,
+        "consecutive_gap_two_count": 35,
+        "cardinal_sine_symbolic_functional": 35,
+        "functional_equals_gap_two_count": true
+      },
+      {
+        "prime_limit": 10000,
+        "exceptional_gap_one_omitted": true,
+        "observed_even_gap_channels": 18,
+        "consecutive_gap_two_count": 205,
+        "cardinal_sine_symbolic_functional": 205,
+        "functional_equals_gap_two_count": true
+      },
+      {
+        "prime_limit": 100000,
+        "exceptional_gap_one_omitted": true,
+        "observed_even_gap_channels": 33,
+        "consecutive_gap_two_count": 1224,
+        "cardinal_sine_symbolic_functional": 1224,
+        "functional_equals_gap_two_count": true
+      }
+    ],
+    "aggregate": {
+      "cardinal_sine_exact_gap_two_selector_constructed": true,
+      "selector_remainder_is_zero_on_even_integer_gaps": true,
+      "fixed_degree_polynomial_all_gap_selector_refuted": true,
+      "selector_value_equals_exact_twin_count": true,
+      "unbounded_gap_two_count_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "This constructs an exact analytic coordinate selector and rejects fixed polynomial all-gap selectors. It provides no positive lower bound for the selected prime-pair correlation.",
+    "failure_count": 0
+  },
+  "discarded_route": "exact selector construction alone, or a fixed-degree polynomial selector, as a Twin Prime proof",
+  "remaining_gap": "No unbounded lower bound is proved for the exact cardinal-sine prime-gap functional.",
+  "candidate_theorem": "UnboundedArithmeticMinorantForCardinalSinePrimeGapFunctional",
+  "claim_boundary": "No Twin Prime proof or counterexample. Exact all-gap selection is solved analytically, but positivity of the selected arithmetic channel remains exactly the conjectural step.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T213",
+        "label": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T214",
+        "label": "CardinalSineExactGapTwoSelectorAndPositivityCircularity",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N214",
+        "label": "ExactAnalyticSelectorAloneProvesTwinInfinitude",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN214",
+        "label": "UnboundedArithmeticMinorantForCardinalSinePrimeGapFunctional",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T213",
+        "TP-T214"
+      ],
+      [
+        "TP-T214",
+        "TP-N214"
+      ],
+      [
+        "TP-T214",
+        "TP-OPEN214"
+      ],
+      [
+        "TP-OPEN214",
+        "TP"
+      ]
+    ]
+  }
+}
