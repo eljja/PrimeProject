@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260812-ticket214-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260812-ticket215-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-214</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-215</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-214 actually changed</h2>
-          <p>TICKET-214 did not solve a conjecture. It proves an exact cofinal RH multiplicity criterion and refutes density-one promotion, exhaustively excludes all 4,349,349 seven-one Collatz cycle candidates, constructs an exact scale-growing exponential Goldbach selector with a sharp occupancy no-go, and constructs an exact cardinal-sine gap-two selector while isolating the unproved arithmetic lower bound.</p>
-          <p class="proof-boundary">TICKET-214는 난제를 해결하지 않았습니다. 리만 트랙은 비유계 높이 수열의 정확한 중복도 등식을 RH와 동치로 만들고 밀도 1 경로를 폐기했습니다. 콜라츠 트랙은 일곱-1 후보 4,349,349개를 정확 산술로 모두 배제했습니다. 골드바흐 트랙은 규모 증가형 지수 선택자 동치와 날카로운 점유 no-go를 증명했습니다. 쌍둥이 소수 트랙은 cardinal-sine으로 gap 2를 정확히 선택했지만 선택값의 비유계성은 여전히 미증명임을 분리했습니다.</p>
+          <h2>What TICKET-215 actually changed</h2>
+          <p>TICKET-215 did not solve a conjecture. It turns four broad proof goals into sharper exact obligations: certified RH defect intervals must cross the even lattice below two; a single-mountain Collatz cycle can occur only at one power near-collision per k; a cold exponential Goldbach selector exactly counts exceptions; and Twin Prime infinitude is equivalent to divergence of a cardinal-selected Abel transform. It also proves a sharp failure mode for each finite-information shortcut.</p>
+          <p class="proof-boundary">TICKET-215는 난제를 해결하지 않았습니다. 리만 결함의 엄밀 구간을 음이 아닌 짝수 격자와 교차시켜 2 미만 상계가 결함 0을 강제함을 증명했습니다. 콜라츠 단일 봉우리 단어는 각 <code>k</code>마다 최대 한 개의 거듭제곱 근접충돌 후보만 가질 수 있고 <code>k≤4096</code>에서는 후보가 없었습니다. 골드바흐 지수 선택자는 충분히 낮은 온도에서 예외 수를 정확히 복원합니다. 쌍둥이 소수 무한성은 정확 선택된 아벨 변환의 경계 발산과 동치이지만, 유한 반지름 관측은 이를 판정할 수 없습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>RH is equivalent to exact multiplicity equality on one unbounded sequence of boundary-free heights.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Critical-line density one, or relative defect o(N), does not force the exact defect to vanish.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CertifiedCofinalMultiplicityEqualityForActualZeta</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Because the defect lies in 2Z≥0, any rigorous upper endpoint below two certifies zero defect.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Interval width or relative precision alone is insufficient: the exact interval [2,2] can retain one off-line pair.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CofinalActualZetaDefectUpperBoundStrictlyBelowTwo</code></dd></div>
           </dl>
-          <p class="workbench-ko">비유계 높이 수열에서 중복도 결함이 정확히 0이면 RH와 동치입니다. 밀도 1은 고정된 비임계선 영점쌍을 숨길 수 있으므로, 실제 제타에서 정확한 등식을 인증하는 일이 남았습니다.</p>
+          <p class="workbench-ko">결함의 짝수 격자 구조 때문에 엄밀 상계가 2 아래로 내려가면 결함 0이 강제됩니다. 실제 제타에서 이런 상계를 비유계 높이까지 만드는 일이 남았습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>All 4,349,349 admissible cycles with exactly seven valuation-one entries are excluded by exact integer divisibility.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Direct fixed-stratum enumeration grows exponentially and no finite list of strata covers all cycles.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformPrimitiveOddDivisorWitnessForAllOneCountsAtLeastEight</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A single-mountain word 1^k2^m has at most one candidate m and must satisfy 0&lt;Δ≤3^k−2^k.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The candidate cannot recur after the first positive crossing; exact audit through k=4096 finds zero near-collisions.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoSingleMountainPowerNearCollisionForAllK</code></dd></div>
           </dl>
-          <p class="workbench-ko">일곱-1 층은 완전히 배제되어 비자명 양의 주기에 최소 8개의 one 항이 필요합니다. <code>k≥8</code> 전체를 한 번에 막는 보통 홀수 나눗셈 증인이 남았습니다.</p>
+          <p class="workbench-ko">단일 봉우리 단어의 무한한 <code>m</code> 탐색을 각 <code>k</code>의 유일 후보 하나로 줄였습니다. 계산 범위 밖의 모든 <code>k</code>와 여러 봉우리 단어는 아직 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The scale-growing sum E_B=Σ2<sup>−k_B A_i</sup> is below one exactly when every target in the block is represented.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Total witness mass and a per-target capacity alone permit sharply quantified empty targets.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformArithmeticSubunitBoundForDyadicExponentialWitnessSelector</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>If Bq&lt;1, then floor(Σq<sup>A_i</sup>) is exactly the number of unrepresented targets in the finite block.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The strict temperature threshold is sharp: at Bq=1, an all-one count vector is misclassified.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ArithmeticExactExceptionSelectorBelowOneOnEveryDyadicBlock</code></dd></div>
           </dl>
-          <p class="workbench-ko">지수형 선택자는 블록의 예외 0개와 정확히 동치지만 스스로 1 미만 상계를 주지는 않습니다. 표현 수의 목표별 집중을 막는 산술적 추정이 남았습니다.</p>
+          <p class="workbench-ko">선택자의 정수부가 유한 블록의 골드바흐 예외 개수를 정확히 줍니다. 그러나 이 등식은 예외가 없다는 산술 상계를 제공하지 않으므로 모든 블록에서 값이 1 미만임을 따로 증명해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Cardinal-sine projects consecutive odd-prime gaps exactly onto gap two with zero remainder.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Exact selection alone is equivalent to, not a proof of, unbounded twin-prime count; fixed-degree polynomial selection also fails.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UnboundedArithmeticMinorantForCardinalSinePrimeGapFunctional</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Twin Prime infinitude is equivalent to F(r)=Σa_nr^n diverging as r approaches one from below.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No finite collection of radii below one can distinguish finite support from a sufficiently delayed infinite tail.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ParityBreakingLowerBoundForCardinalSelectedAbelTransformNearOne</code></dd></div>
           </dl>
-          <p class="workbench-ko">예외 간격 <code>(2,3)</code>을 뺀 짝수 간격 격자에서 gap 2 선택은 정확합니다. 이제 선택된 누적 소수쌍 개수가 비유계임을 보이는 산술 하한이 필요합니다.</p>
+          <p class="workbench-ko">정확히 선택된 쌍둥이 지시수열을 아벨 경계 문제로 옮겼습니다. 고정된 유한 반지름 표본은 지연된 무한 꼬리를 볼 수 없으므로 경계에 접근하는 산술 하한이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>214 tickets reduced to four meaningful eras</h2>
+          <h2>215 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–214 · Structure, certified promotion, and exact obstruction isolation</strong><p>리만 중복도 결함, Collatz 보통 정수 나눗셈, Goldbach 규모 증가형 선택자, Twin 정확 간격 2 투영을 정리하고 각 선택값의 무한 산술 통제를 현재 간극으로 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–215 · Structure, certified promotion, and exact obstruction isolation</strong><p>리만 결함 격자, Collatz 거듭제곱 근접충돌, Goldbach 예외 개수 선택자, Twin 아벨 경계 동치를 정리하고 유한 정보에서 무한 산술 결론으로 넘어가는 정확한 간극을 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,10 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/cofinal-sevenone-exponential-cardinal.ko.md">TICKET-214 한국어 보고서</a>
-          <a href="../docs/cofinal-sevenone-exponential-cardinal.md">TICKET-214 English report</a>
+          <a href="../docs/lattice-nearcollision-exception-abel.ko.md">TICKET-215 한국어 보고서</a>
+          <a href="../docs/lattice-nearcollision-exception-abel.md">TICKET-215 English report</a>
+          <a href="../docs/cofinal-sevenone-exponential-cardinal.ko.md">TICKET-214 이전 한국어 보고서</a>
+          <a href="../docs/cofinal-sevenone-exponential-cardinal.md">TICKET-214 previous English report</a>
           <a href="../docs/multiplicity-sixone-polynomial-selector.ko.md">TICKET-213 한국어 보고서</a>
           <a href="../docs/multiplicity-sixone-polynomial-selector.md">TICKET-213 English report</a>
           <a href="../docs/even-defect-ghost-bonferroni-gapchannel.ko.md">TICKET-212 이전 보고서</a>
@@ -154,7 +156,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260812-ticket214"></script>
+    <script src="../assets/i18n.js?v=20260812-ticket215"></script>
   </body>
 </html>
 

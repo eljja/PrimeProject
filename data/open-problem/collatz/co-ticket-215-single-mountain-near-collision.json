@@ -1,0 +1,202 @@
+{
+  "schema": "primeproject.ticket215-lattice-nearcollision-exception-abel.v1",
+  "generated_at": "2026-08-13T01:00:00+09:00",
+  "ticket_id": "CO-TICKET-215",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+  "declared_proposition": "Suppose a positive accelerated Collatz cycle has a cyclic valuation word 1^k 2^m with k,m>=1. Put Delta=2^(k+2m)-3^(k+m). Integer closure forces 0<Delta<=3^k-2^k. For each k at most one m can satisfy this inequality, namely the first m for which Delta is positive. An exact integer audit finds no such near-collision for 1<=k<=4096, and therefore excludes every single-mountain word in that range.",
+  "mathematical_argument": "Iterating T_1(x)=(3x+1)/2 k times and T_2(x)=(3x+1)/4 m times gives Delta*x=C with C=Delta+2*3^m(3^k-2^k). Hence an integer x requires Delta to divide 2*3^m(3^k-2^k). Delta is odd and coprime to three, so Delta divides 3^k-2^k, proving the near-collision bound. Once Delta_m>0, Delta_(m+1)=3Delta_m+2^(k+2m)>3^k, so no later m can satisfy the bound. The finite audit uses exact powers and comparisons only.",
+  "reproducible_computation": {
+    "theorem": "Suppose a positive accelerated Collatz cycle has a cyclic valuation word 1^k 2^m with k,m>=1. Put Delta=2^(k+2m)-3^(k+m). Integer closure forces 0<Delta<=3^k-2^k. For each k at most one m can satisfy this inequality, namely the first m for which Delta is positive. An exact integer audit finds no such near-collision for 1<=k<=4096, and therefore excludes every single-mountain word in that range.",
+    "proof": "Iterating T_1(x)=(3x+1)/2 k times and T_2(x)=(3x+1)/4 m times gives Delta*x=C with C=Delta+2*3^m(3^k-2^k). Hence an integer x requires Delta to divide 2*3^m(3^k-2^k). Delta is odd and coprime to three, so Delta divides 3^k-2^k, proving the near-collision bound. Once Delta_m>0, Delta_(m+1)=3Delta_m+2^(k+2m)>3^k, so no later m can satisfy the bound. The finite audit uses exact powers and comparisons only.",
+    "valuation_word_family": "cyclic rotations of 1^k 2^m",
+    "near_collision_condition": "0<2^(k+2m)-3^(k+m)<=3^k-2^k",
+    "audited_k_min": 1,
+    "audited_k_max": 4096,
+    "near_collision_candidate_count": 0,
+    "checkpoint_rows": [
+      {
+        "valuation_one_count_k": 8,
+        "unique_possible_m": 12,
+        "delta_bit_length": 30,
+        "divisor_ceiling_bit_length": 13,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 9,
+        "unique_possible_m": 13,
+        "delta_bit_length": 32,
+        "divisor_ceiling_bit_length": 15,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 10,
+        "unique_possible_m": 15,
+        "delta_bit_length": 38,
+        "divisor_ceiling_bit_length": 16,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 11,
+        "unique_possible_m": 16,
+        "delta_bit_length": 41,
+        "divisor_ceiling_bit_length": 18,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 12,
+        "unique_possible_m": 17,
+        "delta_bit_length": 41,
+        "divisor_ceiling_bit_length": 20,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 13,
+        "unique_possible_m": 19,
+        "delta_bit_length": 49,
+        "divisor_ceiling_bit_length": 21,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 14,
+        "unique_possible_m": 20,
+        "delta_bit_length": 51,
+        "divisor_ceiling_bit_length": 23,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 15,
+        "unique_possible_m": 22,
+        "delta_bit_length": 57,
+        "divisor_ceiling_bit_length": 24,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 16,
+        "unique_possible_m": 23,
+        "delta_bit_length": 59,
+        "divisor_ceiling_bit_length": 26,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 32,
+        "unique_possible_m": 46,
+        "delta_bit_length": 122,
+        "divisor_ceiling_bit_length": 51,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 64,
+        "unique_possible_m": 91,
+        "delta_bit_length": 244,
+        "divisor_ceiling_bit_length": 102,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 128,
+        "unique_possible_m": 181,
+        "delta_bit_length": 488,
+        "divisor_ceiling_bit_length": 203,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 256,
+        "unique_possible_m": 361,
+        "delta_bit_length": 974,
+        "divisor_ceiling_bit_length": 406,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 512,
+        "unique_possible_m": 722,
+        "delta_bit_length": 1953,
+        "divisor_ceiling_bit_length": 812,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 1024,
+        "unique_possible_m": 1444,
+        "delta_bit_length": 3910,
+        "divisor_ceiling_bit_length": 1624,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 2048,
+        "unique_possible_m": 2887,
+        "delta_bit_length": 7820,
+        "divisor_ceiling_bit_length": 3247,
+        "near_collision_inequality_holds": false
+      },
+      {
+        "valuation_one_count_k": 4096,
+        "unique_possible_m": 5773,
+        "delta_bit_length": 15634,
+        "divisor_ceiling_bit_length": 6493,
+        "near_collision_inequality_holds": false
+      }
+    ],
+    "transcript_sha256": "7e480e162ad783a841d71778b6a916460ab5d3414d229d0b2cf1120b4d69d5d8",
+    "aggregate": {
+      "single_mountain_words_through_k_4096_excluded": true,
+      "one_m_per_k_reduction_proved": true,
+      "all_k_near_collision_exclusion_proved": false,
+      "multi_run_cycle_words_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The exact diagonal audit is finite and the divisibility reduction covers only one contiguous run of one-valuations followed by one run of two-valuations. It does not cover multi-run words, entries above two, or nonperiodic trajectories.",
+    "failure_count": 0
+  },
+  "discarded_route": "single-mountain valuation words with k through 4096 and finite diagonal testing as a complete Collatz proof",
+  "remaining_gap": "The near-collision is not excluded for every k, and multi-run words, valuations above two, and divergence remain open.",
+  "candidate_theorem": "NoSingleMountainPowerNearCollisionForAllK",
+  "claim_boundary": "No Collatz proof or divergent orbit. One infinite word family is reduced to a one-dimensional exponential near-collision and checked only through k=4096.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T214",
+        "label": "CompleteSevenValuationOneExclusionAndFiniteStratumNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T215",
+        "label": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N215",
+        "label": "FiniteSingleMountainDiagonalAuditProvesCollatz",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN215",
+        "label": "NoSingleMountainPowerNearCollisionForAllK",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T214",
+        "CO-T215"
+      ],
+      [
+        "CO-T215",
+        "CO-N215"
+      ],
+      [
+        "CO-T215",
+        "CO-OPEN215"
+      ],
+      [
+        "CO-OPEN215",
+        "CO"
+      ]
+    ]
+  }
+}

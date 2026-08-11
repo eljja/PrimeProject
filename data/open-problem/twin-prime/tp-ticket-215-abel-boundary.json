@@ -1,0 +1,154 @@
+{
+  "schema": "primeproject.ticket215-lattice-nearcollision-exception-abel.v1",
+  "generated_at": "2026-08-13T01:00:00+09:00",
+  "ticket_id": "TP-TICKET-215",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+  "declared_proposition": "Let a_n be one when n and n+2 are prime and zero otherwise, and F(r)=sum_(odd n>=3) a_n r^n for 0<r<1. The Twin Prime Conjecture is equivalent to F(r) tending to infinity as r increases to one. However, every fixed-radius value is finite, and any finite set of radii bounded away from one cannot distinguish a finite sequence from an infinite odd-support extension: the extension can be placed far enough out to change every sampled value by less than epsilon.",
+  "mathematical_argument": "If there are finitely many twins, F has a finite limit at one. If there are infinitely many, then for every K the first K nonzero terms tend individually to one, so monotone convergence makes F unbounded. At a fixed r<1, F(r)<=r^3/(1-r^2). For finitely many sample radii let r_* be their maximum and append ones at every odd index N,N+2,...; its contribution is at most r_*^N/(1-r_*^2), which is below any prescribed epsilon for large odd N. This is a logical support countermodel, not a construction of prime pairs.",
+  "reproducible_computation": {
+    "theorem": "Let a_n be one when n and n+2 are prime and zero otherwise, and F(r)=sum_(odd n>=3) a_n r^n for 0<r<1. The Twin Prime Conjecture is equivalent to F(r) tending to infinity as r increases to one. However, every fixed-radius value is finite, and any finite set of radii bounded away from one cannot distinguish a finite sequence from an infinite odd-support extension: the extension can be placed far enough out to change every sampled value by less than epsilon.",
+    "proof": "If there are finitely many twins, F has a finite limit at one. If there are infinitely many, then for every K the first K nonzero terms tend individually to one, so monotone convergence makes F unbounded. At a fixed r<1, F(r)<=r^3/(1-r^2). For finitely many sample radii let r_* be their maximum and append ones at every odd index N,N+2,...; its contribution is at most r_*^N/(1-r_*^2), which is below any prescribed epsilon for large odd N. This is a logical support countermodel, not a construction of prime pairs.",
+    "Abel_transform": "F(r)=sum_(odd n>=3) 1_P(n)1_P(n+2) r^n",
+    "finite_prime_rows": [
+      {
+        "X": 100,
+        "radius_r_X": "99/100",
+        "twin_lower_endpoint_count_T_X": 8,
+        "scheduled_partial_Abel_sum_decimal": "6.1115983830248139405073009976392959797710743915279",
+        "exact_lower_factor": "((99)/100)^100",
+        "lower_factor_decimal": "0.36603234127322950493061602657251738618971207663892",
+        "lower_bound_decimal": "2.9282587301858360394449282125801390895176966131114",
+        "weighted_sum_between_lower_bound_and_count": true
+      },
+      {
+        "X": 1000,
+        "radius_r_X": "999/1000",
+        "twin_lower_endpoint_count_T_X": 35,
+        "scheduled_partial_Abel_sum_decimal": "25.721321448712111371472765982174083487182431007672",
+        "exact_lower_factor": "((999)/1000)^1000",
+        "lower_factor_decimal": "0.36769542477096404462680613922046134397249989380532",
+        "lower_bound_decimal": "12.869339866983741561938214872716147039037496283186",
+        "weighted_sum_between_lower_bound_and_count": true
+      },
+      {
+        "X": 10000,
+        "radius_r_X": "9999/10000",
+        "twin_lower_endpoint_count_T_X": 205,
+        "scheduled_partial_Abel_sum_decimal": "140.32062068313509514396696999971699667386601425460",
+        "exact_lower_factor": "((9999)/10000)^10000",
+        "lower_factor_decimal": "0.36786104643292992411133567221850874479697993602962",
+        "lower_bound_decimal": "75.411514518750634442823812804794292683380886886072",
+        "weighted_sum_between_lower_bound_and_count": true
+      },
+      {
+        "X": 100000,
+        "radius_r_X": "99999/100000",
+        "twin_lower_endpoint_count_T_X": 1224,
+        "scheduled_partial_Abel_sum_decimal": "819.47463035285252436179770259663811461378413785662",
+        "exact_lower_factor": "((99999)/100000)^100000",
+        "lower_factor_decimal": "0.36787760176657227103852038581803104615392165671422",
+        "lower_bound_decimal": "450.28218456228445975114895224127000049240010781821",
+        "weighted_sum_between_lower_bound_and_count": true
+      },
+      {
+        "X": 1000000,
+        "radius_r_X": "999999/1000000",
+        "twin_lower_endpoint_count_T_X": 8169,
+        "scheduled_partial_Abel_sum_decimal": "5414.3613052955066541893570215960257914177120681311",
+        "exact_lower_factor": "((999999)/1000000)^1000000",
+        "lower_factor_decimal": "0.36787925723164509428579812527036965901889043562494",
+        "lower_bound_decimal": "3005.2056523253087752206848853336497445253159686201",
+        "weighted_sum_between_lower_bound_and_count": true
+      }
+    ],
+    "finite_radius_indistinguishability_rows": [
+      {
+        "radius": "1/2",
+        "infinite_odd_tail_start_N": 83,
+        "exact_infinite_tail_bound": "1/7253554917687775048237056",
+        "below_epsilon": true
+      },
+      {
+        "radius": "2/3",
+        "infinite_odd_tail_start_N": 83,
+        "exact_infinite_tail_bound": "9671406556917033397649408/2217132441215188849741248153095749464015",
+        "below_epsilon": true
+      },
+      {
+        "radius": "3/4",
+        "infinite_odd_tail_start_N": 83,
+        "exact_infinite_tail_bound": "3990838394187339929534246675572349035227/40922045845265281709703175316055924550366111203328",
+        "below_epsilon": true
+      },
+      {
+        "radius": "9/10",
+        "infinite_odd_tail_start_N": 83,
+        "exact_infinite_tail_bound": "15926791088519786003064148590679881418931379526481396121112548658575277686941529/19000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "below_epsilon": true
+      }
+    ],
+    "epsilon": "1/1000",
+    "aggregate": {
+      "boundary_divergence_equivalent_to_twin_infinitude": true,
+      "fixed_radius_finiteness_informative": false,
+      "finite_radius_samples_sufficient": false,
+      "parity_breaking_boundary_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The infinite odd-support extension need not be prime-supported. It refutes finite-radius inference, not the Twin Prime Conjecture.",
+    "failure_count": 0
+  },
+  "discarded_route": "fixed-radius values or any finite radius sample as evidence sufficient for Twin Prime infinitude",
+  "remaining_gap": "No parity-breaking lower bound forces the exact gap-two Abel transform to diverge near radius one.",
+  "candidate_theorem": "ParityBreakingLowerBoundForCardinalSelectedAbelTransformNearOne",
+  "claim_boundary": "No Twin Prime proof or last-twin counterexample. Boundary divergence is an exact reformulation; finite-radius inference is refuted only by a logical support model.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T214",
+        "label": "CardinalSineExactGapTwoSelectorAndPositivityCircularity",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T215",
+        "label": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N215",
+        "label": "FiniteRadiusAbelEvidenceProvesTwinInfinitude",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN215",
+        "label": "ParityBreakingLowerBoundForCardinalSelectedAbelTransformNearOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T214",
+        "TP-T215"
+      ],
+      [
+        "TP-T215",
+        "TP-N215"
+      ],
+      [
+        "TP-T215",
+        "TP-OPEN215"
+      ],
+      [
+        "TP-OPEN215",
+        "TP"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,810 @@
+{
+  "schema": "primeproject.ticket215-lattice-nearcollision-exception-abel.v1",
+  "generated_at": "2026-08-13T01:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-215 proves four exact partial, reduction, or no-go theorems and resolves none of the parent conjectures. It gives a sharp even-lattice RH certificate, reduces single-mountain Collatz cycles to one power near-collision per k, upgrades the Goldbach selector to exact exception counting, and moves exact twin selection to an Abel boundary-divergence target.",
+  "lattice_nearcollision_exception_abel_audit": {
+    "theorem_name": "LatticeNearCollisionExceptionAbelAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-215 proves four exact partial, reduction, or no-go theorems and resolves none of the parent conjectures. It gives a sharp even-lattice RH certificate, reduces single-mountain Collatz cycles to one power near-collision per k, upgrades the Goldbach selector to exact exception counting, and moves exact twin selection to an Abel boundary-divergence target.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-215",
+      "theorem_name": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+      "declared_proposition": "At every boundary-free height let D(T)=N(T)-M(T), so D(T) lies in the nonnegative even integers. If a certified interval I(T) contains D(T), then I(T) proves zero defect exactly when its intersection with 2Z_{>=0} is {0}. In particular, a certified upper endpoint below two forces D(T)=0. Therefore such upper bounds on an unbounded sequence of heights imply the Riemann Hypothesis by TICKET-214. The constant two is sharp, and interval width alone is insufficient: a width-zero interval [2,2] can certify one persistent off-line symmetry pair.",
+      "mathematical_argument": "The symmetry identity from TICKET-213 places D on the lattice 2Z_{>=0}. Intersecting a rigorous enclosure with that lattice gives the complete list of possible defects. An upper endpoint below two leaves only zero. Applying this at a cofinal sequence invokes the TICKET-214 monotonicity argument. Sharpness follows from the logical symmetric model with one off-line pair, for which D=2 at every later height even though the enclosure width is zero and D/N tends to zero.",
+      "reproducible_computation": {
+        "theorem": "At every boundary-free height let D(T)=N(T)-M(T), so D(T) lies in the nonnegative even integers. If a certified interval I(T) contains D(T), then I(T) proves zero defect exactly when its intersection with 2Z_{>=0} is {0}. In particular, a certified upper endpoint below two forces D(T)=0. Therefore such upper bounds on an unbounded sequence of heights imply the Riemann Hypothesis by TICKET-214. The constant two is sharp, and interval width alone is insufficient: a width-zero interval [2,2] can certify one persistent off-line symmetry pair.",
+        "proof": "The symmetry identity from TICKET-213 places D on the lattice 2Z_{>=0}. Intersecting a rigorous enclosure with that lattice gives the complete list of possible defects. An upper endpoint below two leaves only zero. Applying this at a cofinal sequence invokes the TICKET-214 monotonicity argument. Sharpness follows from the logical symmetric model with one off-line pair, for which D=2 at every later height even though the enclosure width is zero and D/N tends to zero.",
+        "lattice_interval_rows": [
+          {
+            "lower": "-1/2",
+            "upper": "3/2",
+            "width": "2",
+            "even_nonnegative_defect_candidates": [
+              0
+            ],
+            "certifies_zero_defect": true,
+            "certifies_positive_defect": false
+          },
+          {
+            "lower": "3/2",
+            "upper": "5/2",
+            "width": "1",
+            "even_nonnegative_defect_candidates": [
+              2
+            ],
+            "certifies_zero_defect": false,
+            "certifies_positive_defect": true
+          },
+          {
+            "lower": "-1/4",
+            "upper": "9/4",
+            "width": "5/2",
+            "even_nonnegative_defect_candidates": [
+              0,
+              2
+            ],
+            "certifies_zero_defect": false,
+            "certifies_positive_defect": false
+          },
+          {
+            "lower": "7/2",
+            "upper": "9/2",
+            "width": "1",
+            "even_nonnegative_defect_candidates": [
+              4
+            ],
+            "certifies_zero_defect": false,
+            "certifies_positive_defect": true
+          }
+        ],
+        "persistent_offline_pair_rows": [
+          {
+            "critical_line_multiplicity_M": 100,
+            "total_multiplicity_N": 102,
+            "exact_defect_interval": [
+              2,
+              2
+            ],
+            "interval_width": 0,
+            "relative_defect": "1/51",
+            "rectangle_RH": false
+          },
+          {
+            "critical_line_multiplicity_M": 10000,
+            "total_multiplicity_N": 10002,
+            "exact_defect_interval": [
+              2,
+              2
+            ],
+            "interval_width": 0,
+            "relative_defect": "1/5001",
+            "rectangle_RH": false
+          },
+          {
+            "critical_line_multiplicity_M": 1000000,
+            "total_multiplicity_N": 1000002,
+            "exact_defect_interval": [
+              2,
+              2
+            ],
+            "interval_width": 0,
+            "relative_defect": "1/500001",
+            "rectangle_RH": false
+          },
+          {
+            "critical_line_multiplicity_M": 100000000,
+            "total_multiplicity_N": 100000002,
+            "exact_defect_interval": [
+              2,
+              2
+            ],
+            "interval_width": 0,
+            "relative_defect": "1/50000001",
+            "rectangle_RH": false
+          }
+        ],
+        "aggregate": {
+          "strict_upper_endpoint_below_two_is_zero_defect_certificate": true,
+          "cofinal_such_certificates_imply_RH": true,
+          "interval_width_alone_sufficient": false,
+          "threshold_two_is_sharp": true,
+          "actual_zeta_cofinal_upper_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The width-zero countermodel is not an off-line zero of the actual zeta function. It refutes precision-only promotion and leaves the one-sided actual-zeta estimate unproved.",
+        "failure_count": 0
+      },
+      "logical_limit": "No certified actual-zeta defect upper bound below two is proved on an unbounded height sequence.",
+      "route_decision": {
+        "discard": "interval precision or shrinking relative error without a one-sided defect upper endpoint below two",
+        "retain": "cofinal certified actual-zeta defect enclosures whose upper endpoints are strictly below two",
+        "next_single_lemma": "CofinalActualZetaDefectUpperBoundStrictlyBelowTwo"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T214",
+            "label": "CofinalExactDefectEquivalenceAndDensityOneNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T215",
+            "label": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N215",
+            "label": "WidthOnlyOrRelativeErrorDefectCertification",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN215",
+            "label": "CofinalActualZetaDefectUpperBoundStrictlyBelowTwo",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T214",
+            "RH-T215"
+          ],
+          [
+            "RH-T215",
+            "RH-N215"
+          ],
+          [
+            "RH-T215",
+            "RH-OPEN215"
+          ],
+          [
+            "RH-OPEN215",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-line zeta zero. A sharp certification interface is proved; the required actual-zeta bound is open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-215",
+      "theorem_name": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+      "declared_proposition": "Suppose a positive accelerated Collatz cycle has a cyclic valuation word 1^k 2^m with k,m>=1. Put Delta=2^(k+2m)-3^(k+m). Integer closure forces 0<Delta<=3^k-2^k. For each k at most one m can satisfy this inequality, namely the first m for which Delta is positive. An exact integer audit finds no such near-collision for 1<=k<=4096, and therefore excludes every single-mountain word in that range.",
+      "mathematical_argument": "Iterating T_1(x)=(3x+1)/2 k times and T_2(x)=(3x+1)/4 m times gives Delta*x=C with C=Delta+2*3^m(3^k-2^k). Hence an integer x requires Delta to divide 2*3^m(3^k-2^k). Delta is odd and coprime to three, so Delta divides 3^k-2^k, proving the near-collision bound. Once Delta_m>0, Delta_(m+1)=3Delta_m+2^(k+2m)>3^k, so no later m can satisfy the bound. The finite audit uses exact powers and comparisons only.",
+      "reproducible_computation": {
+        "theorem": "Suppose a positive accelerated Collatz cycle has a cyclic valuation word 1^k 2^m with k,m>=1. Put Delta=2^(k+2m)-3^(k+m). Integer closure forces 0<Delta<=3^k-2^k. For each k at most one m can satisfy this inequality, namely the first m for which Delta is positive. An exact integer audit finds no such near-collision for 1<=k<=4096, and therefore excludes every single-mountain word in that range.",
+        "proof": "Iterating T_1(x)=(3x+1)/2 k times and T_2(x)=(3x+1)/4 m times gives Delta*x=C with C=Delta+2*3^m(3^k-2^k). Hence an integer x requires Delta to divide 2*3^m(3^k-2^k). Delta is odd and coprime to three, so Delta divides 3^k-2^k, proving the near-collision bound. Once Delta_m>0, Delta_(m+1)=3Delta_m+2^(k+2m)>3^k, so no later m can satisfy the bound. The finite audit uses exact powers and comparisons only.",
+        "valuation_word_family": "cyclic rotations of 1^k 2^m",
+        "near_collision_condition": "0<2^(k+2m)-3^(k+m)<=3^k-2^k",
+        "audited_k_min": 1,
+        "audited_k_max": 4096,
+        "near_collision_candidate_count": 0,
+        "checkpoint_rows": [
+          {
+            "valuation_one_count_k": 8,
+            "unique_possible_m": 12,
+            "delta_bit_length": 30,
+            "divisor_ceiling_bit_length": 13,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 9,
+            "unique_possible_m": 13,
+            "delta_bit_length": 32,
+            "divisor_ceiling_bit_length": 15,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 10,
+            "unique_possible_m": 15,
+            "delta_bit_length": 38,
+            "divisor_ceiling_bit_length": 16,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 11,
+            "unique_possible_m": 16,
+            "delta_bit_length": 41,
+            "divisor_ceiling_bit_length": 18,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 12,
+            "unique_possible_m": 17,
+            "delta_bit_length": 41,
+            "divisor_ceiling_bit_length": 20,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 13,
+            "unique_possible_m": 19,
+            "delta_bit_length": 49,
+            "divisor_ceiling_bit_length": 21,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 14,
+            "unique_possible_m": 20,
+            "delta_bit_length": 51,
+            "divisor_ceiling_bit_length": 23,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 15,
+            "unique_possible_m": 22,
+            "delta_bit_length": 57,
+            "divisor_ceiling_bit_length": 24,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 16,
+            "unique_possible_m": 23,
+            "delta_bit_length": 59,
+            "divisor_ceiling_bit_length": 26,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 32,
+            "unique_possible_m": 46,
+            "delta_bit_length": 122,
+            "divisor_ceiling_bit_length": 51,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 64,
+            "unique_possible_m": 91,
+            "delta_bit_length": 244,
+            "divisor_ceiling_bit_length": 102,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 128,
+            "unique_possible_m": 181,
+            "delta_bit_length": 488,
+            "divisor_ceiling_bit_length": 203,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 256,
+            "unique_possible_m": 361,
+            "delta_bit_length": 974,
+            "divisor_ceiling_bit_length": 406,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 512,
+            "unique_possible_m": 722,
+            "delta_bit_length": 1953,
+            "divisor_ceiling_bit_length": 812,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 1024,
+            "unique_possible_m": 1444,
+            "delta_bit_length": 3910,
+            "divisor_ceiling_bit_length": 1624,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 2048,
+            "unique_possible_m": 2887,
+            "delta_bit_length": 7820,
+            "divisor_ceiling_bit_length": 3247,
+            "near_collision_inequality_holds": false
+          },
+          {
+            "valuation_one_count_k": 4096,
+            "unique_possible_m": 5773,
+            "delta_bit_length": 15634,
+            "divisor_ceiling_bit_length": 6493,
+            "near_collision_inequality_holds": false
+          }
+        ],
+        "transcript_sha256": "7e480e162ad783a841d71778b6a916460ab5d3414d229d0b2cf1120b4d69d5d8",
+        "aggregate": {
+          "single_mountain_words_through_k_4096_excluded": true,
+          "one_m_per_k_reduction_proved": true,
+          "all_k_near_collision_exclusion_proved": false,
+          "multi_run_cycle_words_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The exact diagonal audit is finite and the divisibility reduction covers only one contiguous run of one-valuations followed by one run of two-valuations. It does not cover multi-run words, entries above two, or nonperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "The near-collision is not excluded for every k, and multi-run words, valuations above two, and divergence remain open.",
+      "route_decision": {
+        "discard": "single-mountain valuation words with k through 4096 and finite diagonal testing as a complete Collatz proof",
+        "retain": "an all-k Diophantine exclusion of the unique power near-collision diagonal, followed by a multi-run extension",
+        "next_single_lemma": "NoSingleMountainPowerNearCollisionForAllK"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T214",
+            "label": "CompleteSevenValuationOneExclusionAndFiniteStratumNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T215",
+            "label": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N215",
+            "label": "FiniteSingleMountainDiagonalAuditProvesCollatz",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN215",
+            "label": "NoSingleMountainPowerNearCollisionForAllK",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T214",
+            "CO-T215"
+          ],
+          [
+            "CO-T215",
+            "CO-N215"
+          ],
+          [
+            "CO-T215",
+            "CO-OPEN215"
+          ],
+          [
+            "CO-OPEN215",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or divergent orbit. One infinite word family is reduced to a one-dimensional exponential near-collision and checked only through k=4096."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-215",
+      "theorem_name": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+      "declared_proposition": "For nonnegative integer Goldbach counts A_1,...,A_B and 0<q<1, let E(q)=sum q^(A_i) and let Z be the number of zero counts. Then Z<=E(q)<=Z+(B-Z)q. Consequently Bq<1 implies floor(E(q))=Z, so the exponential selector reconstructs the exact number of Goldbach exceptions in a finite block. The universal threshold is sharp: at Bq=1 the all-one vector has Z=0 but E=1.",
+      "mathematical_argument": "Every zero count contributes exactly one. Every positive integer count contributes at most q, which proves the two-sided bound. If Bq<1, the positive tail lies in [0,1), and taking the integer floor recovers Z. Conversely, choosing A_i=1 for every i gives E=Bq, so no q with Bq>=1 can make E<1 a universal coverage test. The prime audit computes each finite representation vector exactly; it does not provide an all-block arithmetic upper bound.",
+      "reproducible_computation": {
+        "theorem": "For nonnegative integer Goldbach counts A_1,...,A_B and 0<q<1, let E(q)=sum q^(A_i) and let Z be the number of zero counts. Then Z<=E(q)<=Z+(B-Z)q. Consequently Bq<1 implies floor(E(q))=Z, so the exponential selector reconstructs the exact number of Goldbach exceptions in a finite block. The universal threshold is sharp: at Bq=1 the all-one vector has Z=0 but E=1.",
+        "proof": "Every zero count contributes exactly one. Every positive integer count contributes at most q, which proves the two-sided bound. If Bq<1, the positive tail lies in [0,1), and taking the integer floor recovers Z. Conversely, choosing A_i=1 for every i gives E=Bq, so no q with Bq>=1 can make E<1 a universal coverage test. The prime audit computes each finite representation vector exactly; it does not provide an all-block arithmetic upper bound.",
+        "selector": "E_B(q)=sum_i q^(A_i)",
+        "exact_exception_formula": "Bq<1 implies floor(E_B(q))=Z_B",
+        "synthetic_exception_rows": [
+          {
+            "counts": [
+              0,
+              3,
+              0,
+              2
+            ],
+            "B": 4,
+            "q": "1/5",
+            "exact_selector_sum": "256/125",
+            "exception_count_Z": 2,
+            "positive_tail": "6/125",
+            "universal_tail_upper_bound": "2/5",
+            "floor_selector_equals_Z": true
+          },
+          {
+            "counts": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "B": 4,
+            "q": "1/5",
+            "exact_selector_sum": "4/5",
+            "exception_count_Z": 0,
+            "positive_tail": "4/5",
+            "universal_tail_upper_bound": "4/5",
+            "floor_selector_equals_Z": true
+          },
+          {
+            "counts": [
+              2,
+              7,
+              1,
+              3,
+              4
+            ],
+            "B": 5,
+            "q": "1/6",
+            "exact_selector_sum": "55945/279936",
+            "exception_count_Z": 0,
+            "positive_tail": "55945/279936",
+            "universal_tail_upper_bound": "5/6",
+            "floor_selector_equals_Z": true
+          }
+        ],
+        "sharp_temperature_rows": [
+          {
+            "B": 2,
+            "q": "1/2",
+            "all_positive_selector_sum": "1",
+            "exception_count_Z": 0,
+            "subunit_test_fails_at_Bq_equals_one": true
+          },
+          {
+            "B": 3,
+            "q": "1/3",
+            "all_positive_selector_sum": "1",
+            "exception_count_Z": 0,
+            "subunit_test_fails_at_Bq_equals_one": true
+          },
+          {
+            "B": 8,
+            "q": "1/8",
+            "all_positive_selector_sum": "1",
+            "exception_count_Z": 0,
+            "subunit_test_fails_at_Bq_equals_one": true
+          },
+          {
+            "B": 32,
+            "q": "1/32",
+            "all_positive_selector_sum": "1",
+            "exception_count_Z": 0,
+            "subunit_test_fails_at_Bq_equals_one": true
+          }
+        ],
+        "dyadic_goldbach_rows": [
+          {
+            "dyadic_start_X": 128,
+            "even_targets_B": 64,
+            "minimum_representation_count": 3,
+            "maximum_representation_count": 19,
+            "exception_count_Z": 0,
+            "q": "1/65",
+            "exact_tail_upper_bound": "64/65",
+            "floor_selector_exception_count": 0,
+            "representation_vector_sha256": "fb55cd5bf482f59eda99077bffb888d96cbffd4791d86d6c05ddc599e29e819a"
+          },
+          {
+            "dyadic_start_X": 512,
+            "even_targets_B": 256,
+            "minimum_representation_count": 10,
+            "maximum_representation_count": 52,
+            "exception_count_Z": 0,
+            "q": "1/257",
+            "exact_tail_upper_bound": "256/257",
+            "floor_selector_exception_count": 0,
+            "representation_vector_sha256": "904b515e7ffa9eb5f7016a9b338348941442a3ea99d5aebb9e316febcac41929"
+          },
+          {
+            "dyadic_start_X": 2048,
+            "even_targets_B": 1024,
+            "minimum_representation_count": 25,
+            "maximum_representation_count": 163,
+            "exception_count_Z": 0,
+            "q": "1/1025",
+            "exact_tail_upper_bound": "1024/1025",
+            "floor_selector_exception_count": 0,
+            "representation_vector_sha256": "270bd35f9e4aff28162e9161545e3e14a3dda1ce655bb7ca6e84ac4dcd493291"
+          },
+          {
+            "dyadic_start_X": 8192,
+            "even_targets_B": 4096,
+            "minimum_representation_count": 75,
+            "maximum_representation_count": 517,
+            "exception_count_Z": 0,
+            "q": "1/4097",
+            "exact_tail_upper_bound": "4096/4097",
+            "floor_selector_exception_count": 0,
+            "representation_vector_sha256": "56060a2ae6880e6331b84fa795b054516e00b40f4eb97ff358e82a03dc59d01a"
+          },
+          {
+            "dyadic_start_X": 32768,
+            "even_targets_B": 16384,
+            "minimum_representation_count": 223,
+            "maximum_representation_count": 1564,
+            "exception_count_Z": 0,
+            "q": "1/16385",
+            "exact_tail_upper_bound": "16384/16385",
+            "floor_selector_exception_count": 0,
+            "representation_vector_sha256": "1f0ba6b46a83d634216fc807abc24606044a90d38a646aa74b62383f82d9c7de"
+          }
+        ],
+        "aggregate": {
+          "finite_block_exception_count_reconstruction_proved": true,
+          "universal_temperature_threshold_sharp": true,
+          "audited_exception_count": 0,
+          "uniform_arithmetic_selector_bound_proved": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The floor identity is an exact re-encoding of unknown Goldbach counts. It does not estimate E(q) arithmetically on unseen blocks.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform arithmetic estimate bounds the selector below one on every future block.",
+      "route_decision": {
+        "discard": "treating exact exception-count reconstruction or a non-sharp temperature as an independent Goldbach proof",
+        "retain": "an arithmetic upper bound for the exact selector at a universally sharp scale Bq<1",
+        "next_single_lemma": "ArithmeticExactExceptionSelectorBelowOneOnEveryDyadicBlock"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T214",
+            "label": "DyadicExponentialSelectorEquivalenceAndOccupancyNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T215",
+            "label": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N215",
+            "label": "ExactSelectorFloorIdentityAloneProvesCoverage",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN215",
+            "label": "ArithmeticExactExceptionSelectorBelowOneOnEveryDyadicBlock",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T214",
+            "GB-T215"
+          ],
+          [
+            "GB-T215",
+            "GB-N215"
+          ],
+          [
+            "GB-T215",
+            "GB-OPEN215"
+          ],
+          [
+            "GB-OPEN215",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The selector exactly counts finite exceptions, but its all-block arithmetic bound remains the conjectural content."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-215",
+      "theorem_name": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+      "declared_proposition": "Let a_n be one when n and n+2 are prime and zero otherwise, and F(r)=sum_(odd n>=3) a_n r^n for 0<r<1. The Twin Prime Conjecture is equivalent to F(r) tending to infinity as r increases to one. However, every fixed-radius value is finite, and any finite set of radii bounded away from one cannot distinguish a finite sequence from an infinite odd-support extension: the extension can be placed far enough out to change every sampled value by less than epsilon.",
+      "mathematical_argument": "If there are finitely many twins, F has a finite limit at one. If there are infinitely many, then for every K the first K nonzero terms tend individually to one, so monotone convergence makes F unbounded. At a fixed r<1, F(r)<=r^3/(1-r^2). For finitely many sample radii let r_* be their maximum and append ones at every odd index N,N+2,...; its contribution is at most r_*^N/(1-r_*^2), which is below any prescribed epsilon for large odd N. This is a logical support countermodel, not a construction of prime pairs.",
+      "reproducible_computation": {
+        "theorem": "Let a_n be one when n and n+2 are prime and zero otherwise, and F(r)=sum_(odd n>=3) a_n r^n for 0<r<1. The Twin Prime Conjecture is equivalent to F(r) tending to infinity as r increases to one. However, every fixed-radius value is finite, and any finite set of radii bounded away from one cannot distinguish a finite sequence from an infinite odd-support extension: the extension can be placed far enough out to change every sampled value by less than epsilon.",
+        "proof": "If there are finitely many twins, F has a finite limit at one. If there are infinitely many, then for every K the first K nonzero terms tend individually to one, so monotone convergence makes F unbounded. At a fixed r<1, F(r)<=r^3/(1-r^2). For finitely many sample radii let r_* be their maximum and append ones at every odd index N,N+2,...; its contribution is at most r_*^N/(1-r_*^2), which is below any prescribed epsilon for large odd N. This is a logical support countermodel, not a construction of prime pairs.",
+        "Abel_transform": "F(r)=sum_(odd n>=3) 1_P(n)1_P(n+2) r^n",
+        "finite_prime_rows": [
+          {
+            "X": 100,
+            "radius_r_X": "99/100",
+            "twin_lower_endpoint_count_T_X": 8,
+            "scheduled_partial_Abel_sum_decimal": "6.1115983830248139405073009976392959797710743915279",
+            "exact_lower_factor": "((99)/100)^100",
+            "lower_factor_decimal": "0.36603234127322950493061602657251738618971207663892",
+            "lower_bound_decimal": "2.9282587301858360394449282125801390895176966131114",
+            "weighted_sum_between_lower_bound_and_count": true
+          },
+          {
+            "X": 1000,
+            "radius_r_X": "999/1000",
+            "twin_lower_endpoint_count_T_X": 35,
+            "scheduled_partial_Abel_sum_decimal": "25.721321448712111371472765982174083487182431007672",
+            "exact_lower_factor": "((999)/1000)^1000",
+            "lower_factor_decimal": "0.36769542477096404462680613922046134397249989380532",
+            "lower_bound_decimal": "12.869339866983741561938214872716147039037496283186",
+            "weighted_sum_between_lower_bound_and_count": true
+          },
+          {
+            "X": 10000,
+            "radius_r_X": "9999/10000",
+            "twin_lower_endpoint_count_T_X": 205,
+            "scheduled_partial_Abel_sum_decimal": "140.32062068313509514396696999971699667386601425460",
+            "exact_lower_factor": "((9999)/10000)^10000",
+            "lower_factor_decimal": "0.36786104643292992411133567221850874479697993602962",
+            "lower_bound_decimal": "75.411514518750634442823812804794292683380886886072",
+            "weighted_sum_between_lower_bound_and_count": true
+          },
+          {
+            "X": 100000,
+            "radius_r_X": "99999/100000",
+            "twin_lower_endpoint_count_T_X": 1224,
+            "scheduled_partial_Abel_sum_decimal": "819.47463035285252436179770259663811461378413785662",
+            "exact_lower_factor": "((99999)/100000)^100000",
+            "lower_factor_decimal": "0.36787760176657227103852038581803104615392165671422",
+            "lower_bound_decimal": "450.28218456228445975114895224127000049240010781821",
+            "weighted_sum_between_lower_bound_and_count": true
+          },
+          {
+            "X": 1000000,
+            "radius_r_X": "999999/1000000",
+            "twin_lower_endpoint_count_T_X": 8169,
+            "scheduled_partial_Abel_sum_decimal": "5414.3613052955066541893570215960257914177120681311",
+            "exact_lower_factor": "((999999)/1000000)^1000000",
+            "lower_factor_decimal": "0.36787925723164509428579812527036965901889043562494",
+            "lower_bound_decimal": "3005.2056523253087752206848853336497445253159686201",
+            "weighted_sum_between_lower_bound_and_count": true
+          }
+        ],
+        "finite_radius_indistinguishability_rows": [
+          {
+            "radius": "1/2",
+            "infinite_odd_tail_start_N": 83,
+            "exact_infinite_tail_bound": "1/7253554917687775048237056",
+            "below_epsilon": true
+          },
+          {
+            "radius": "2/3",
+            "infinite_odd_tail_start_N": 83,
+            "exact_infinite_tail_bound": "9671406556917033397649408/2217132441215188849741248153095749464015",
+            "below_epsilon": true
+          },
+          {
+            "radius": "3/4",
+            "infinite_odd_tail_start_N": 83,
+            "exact_infinite_tail_bound": "3990838394187339929534246675572349035227/40922045845265281709703175316055924550366111203328",
+            "below_epsilon": true
+          },
+          {
+            "radius": "9/10",
+            "infinite_odd_tail_start_N": 83,
+            "exact_infinite_tail_bound": "15926791088519786003064148590679881418931379526481396121112548658575277686941529/19000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "below_epsilon": true
+          }
+        ],
+        "epsilon": "1/1000",
+        "aggregate": {
+          "boundary_divergence_equivalent_to_twin_infinitude": true,
+          "fixed_radius_finiteness_informative": false,
+          "finite_radius_samples_sufficient": false,
+          "parity_breaking_boundary_lower_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The infinite odd-support extension need not be prime-supported. It refutes finite-radius inference, not the Twin Prime Conjecture.",
+        "failure_count": 0
+      },
+      "logical_limit": "No parity-breaking lower bound forces the exact gap-two Abel transform to diverge near radius one.",
+      "route_decision": {
+        "discard": "fixed-radius values or any finite radius sample as evidence sufficient for Twin Prime infinitude",
+        "retain": "a uniform arithmetic lower bound diverging as the cardinal-selected Abel radius tends to one",
+        "next_single_lemma": "ParityBreakingLowerBoundForCardinalSelectedAbelTransformNearOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T214",
+            "label": "CardinalSineExactGapTwoSelectorAndPositivityCircularity",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T215",
+            "label": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N215",
+            "label": "FiniteRadiusAbelEvidenceProvesTwinInfinitude",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN215",
+            "label": "ParityBreakingLowerBoundForCardinalSelectedAbelTransformNearOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T214",
+            "TP-T215"
+          ],
+          [
+            "TP-T215",
+            "TP-N215"
+          ],
+          [
+            "TP-T215",
+            "TP-OPEN215"
+          ],
+          [
+            "TP-OPEN215",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or last-twin counterexample. Boundary divergence is an exact reformulation; finite-radius inference is refuted only by a logical support model."
+    },
+    "cross_problem_synthesis": "The next useful object is not another finite success row but a uniform one-sided estimate at the correct boundary: below two for RH defect, outside the Collatz power near-collision, below one for Goldbach exception mass, and divergent near one for the twin Abel transform.",
+    "literature_boundary": {
+      "riemann": "Platt-Trudgian rigorously verify a finite height using interval arithmetic; TICKET-215 does not reproduce or extend that height.",
+      "collatz": "Hercher's cycle lower bounds concern local minima and verified ranges; the single-mountain near-collision reduction here is narrower and carries no priority claim.",
+      "goldbach": "The published verification through 4e18 is finite; the selector theorem is elementary and does not improve binary circle-method estimates.",
+      "twin_prime": "Ford-Maynard explain the need for substantial Type II information in general prime-producing lower bounds; the Abel reformulation does not supply such information."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-215",
+      "status": "open_not_proven",
+      "declared_proposition": "At every boundary-free height let D(T)=N(T)-M(T), so D(T) lies in the nonnegative even integers. If a certified interval I(T) contains D(T), then I(T) proves zero defect exactly when its intersection with 2Z_{>=0} is {0}. In particular, a certified upper endpoint below two forces D(T)=0. Therefore such upper bounds on an unbounded sequence of heights imply the Riemann Hypothesis by TICKET-214. The constant two is sharp, and interval width alone is insufficient: a width-zero interval [2,2] can certify one persistent off-line symmetry pair.",
+      "new_result": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+      "discarded_route": "interval precision or shrinking relative error without a one-sided defect upper endpoint below two",
+      "remaining_gap": "No certified actual-zeta defect upper bound below two is proved on an unbounded height sequence.",
+      "candidate_theorem": "CofinalActualZetaDefectUpperBoundStrictlyBelowTwo",
+      "bounded_result": {
+        "audit_ref": "#/lattice_nearcollision_exception_abel_audit"
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-215",
+      "status": "open_not_proven",
+      "declared_proposition": "Suppose a positive accelerated Collatz cycle has a cyclic valuation word 1^k 2^m with k,m>=1. Put Delta=2^(k+2m)-3^(k+m). Integer closure forces 0<Delta<=3^k-2^k. For each k at most one m can satisfy this inequality, namely the first m for which Delta is positive. An exact integer audit finds no such near-collision for 1<=k<=4096, and therefore excludes every single-mountain word in that range.",
+      "new_result": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+      "discarded_route": "single-mountain valuation words with k through 4096 and finite diagonal testing as a complete Collatz proof",
+      "remaining_gap": "The near-collision is not excluded for every k, and multi-run words, valuations above two, and divergence remain open.",
+      "candidate_theorem": "NoSingleMountainPowerNearCollisionForAllK",
+      "bounded_result": {
+        "audit_ref": "#/lattice_nearcollision_exception_abel_audit"
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-215",
+      "status": "open_not_proven",
+      "declared_proposition": "For nonnegative integer Goldbach counts A_1,...,A_B and 0<q<1, let E(q)=sum q^(A_i) and let Z be the number of zero counts. Then Z<=E(q)<=Z+(B-Z)q. Consequently Bq<1 implies floor(E(q))=Z, so the exponential selector reconstructs the exact number of Goldbach exceptions in a finite block. The universal threshold is sharp: at Bq=1 the all-one vector has Z=0 but E=1.",
+      "new_result": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+      "discarded_route": "treating exact exception-count reconstruction or a non-sharp temperature as an independent Goldbach proof",
+      "remaining_gap": "No target-uniform arithmetic estimate bounds the selector below one on every future block.",
+      "candidate_theorem": "ArithmeticExactExceptionSelectorBelowOneOnEveryDyadicBlock",
+      "bounded_result": {
+        "audit_ref": "#/lattice_nearcollision_exception_abel_audit"
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-215",
+      "status": "open_not_proven",
+      "declared_proposition": "Let a_n be one when n and n+2 are prime and zero otherwise, and F(r)=sum_(odd n>=3) a_n r^n for 0<r<1. The Twin Prime Conjecture is equivalent to F(r) tending to infinity as r increases to one. However, every fixed-radius value is finite, and any finite set of radii bounded away from one cannot distinguish a finite sequence from an infinite odd-support extension: the extension can be placed far enough out to change every sampled value by less than epsilon.",
+      "new_result": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+      "discarded_route": "fixed-radius values or any finite radius sample as evidence sufficient for Twin Prime infinitude",
+      "remaining_gap": "No parity-breaking lower bound forces the exact gap-two Abel transform to diverge near radius one.",
+      "candidate_theorem": "ParityBreakingLowerBoundForCardinalSelectedAbelTransformNearOne",
+      "bounded_result": {
+        "audit_ref": "#/lattice_nearcollision_exception_abel_audit"
+      }
+    }
+  ]
+}

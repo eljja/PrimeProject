@@ -1,0 +1,211 @@
+{
+  "schema": "primeproject.ticket215-lattice-nearcollision-exception-abel.v1",
+  "generated_at": "2026-08-13T01:00:00+09:00",
+  "ticket_id": "GB-TICKET-215",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+  "declared_proposition": "For nonnegative integer Goldbach counts A_1,...,A_B and 0<q<1, let E(q)=sum q^(A_i) and let Z be the number of zero counts. Then Z<=E(q)<=Z+(B-Z)q. Consequently Bq<1 implies floor(E(q))=Z, so the exponential selector reconstructs the exact number of Goldbach exceptions in a finite block. The universal threshold is sharp: at Bq=1 the all-one vector has Z=0 but E=1.",
+  "mathematical_argument": "Every zero count contributes exactly one. Every positive integer count contributes at most q, which proves the two-sided bound. If Bq<1, the positive tail lies in [0,1), and taking the integer floor recovers Z. Conversely, choosing A_i=1 for every i gives E=Bq, so no q with Bq>=1 can make E<1 a universal coverage test. The prime audit computes each finite representation vector exactly; it does not provide an all-block arithmetic upper bound.",
+  "reproducible_computation": {
+    "theorem": "For nonnegative integer Goldbach counts A_1,...,A_B and 0<q<1, let E(q)=sum q^(A_i) and let Z be the number of zero counts. Then Z<=E(q)<=Z+(B-Z)q. Consequently Bq<1 implies floor(E(q))=Z, so the exponential selector reconstructs the exact number of Goldbach exceptions in a finite block. The universal threshold is sharp: at Bq=1 the all-one vector has Z=0 but E=1.",
+    "proof": "Every zero count contributes exactly one. Every positive integer count contributes at most q, which proves the two-sided bound. If Bq<1, the positive tail lies in [0,1), and taking the integer floor recovers Z. Conversely, choosing A_i=1 for every i gives E=Bq, so no q with Bq>=1 can make E<1 a universal coverage test. The prime audit computes each finite representation vector exactly; it does not provide an all-block arithmetic upper bound.",
+    "selector": "E_B(q)=sum_i q^(A_i)",
+    "exact_exception_formula": "Bq<1 implies floor(E_B(q))=Z_B",
+    "synthetic_exception_rows": [
+      {
+        "counts": [
+          0,
+          3,
+          0,
+          2
+        ],
+        "B": 4,
+        "q": "1/5",
+        "exact_selector_sum": "256/125",
+        "exception_count_Z": 2,
+        "positive_tail": "6/125",
+        "universal_tail_upper_bound": "2/5",
+        "floor_selector_equals_Z": true
+      },
+      {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "B": 4,
+        "q": "1/5",
+        "exact_selector_sum": "4/5",
+        "exception_count_Z": 0,
+        "positive_tail": "4/5",
+        "universal_tail_upper_bound": "4/5",
+        "floor_selector_equals_Z": true
+      },
+      {
+        "counts": [
+          2,
+          7,
+          1,
+          3,
+          4
+        ],
+        "B": 5,
+        "q": "1/6",
+        "exact_selector_sum": "55945/279936",
+        "exception_count_Z": 0,
+        "positive_tail": "55945/279936",
+        "universal_tail_upper_bound": "5/6",
+        "floor_selector_equals_Z": true
+      }
+    ],
+    "sharp_temperature_rows": [
+      {
+        "B": 2,
+        "q": "1/2",
+        "all_positive_selector_sum": "1",
+        "exception_count_Z": 0,
+        "subunit_test_fails_at_Bq_equals_one": true
+      },
+      {
+        "B": 3,
+        "q": "1/3",
+        "all_positive_selector_sum": "1",
+        "exception_count_Z": 0,
+        "subunit_test_fails_at_Bq_equals_one": true
+      },
+      {
+        "B": 8,
+        "q": "1/8",
+        "all_positive_selector_sum": "1",
+        "exception_count_Z": 0,
+        "subunit_test_fails_at_Bq_equals_one": true
+      },
+      {
+        "B": 32,
+        "q": "1/32",
+        "all_positive_selector_sum": "1",
+        "exception_count_Z": 0,
+        "subunit_test_fails_at_Bq_equals_one": true
+      }
+    ],
+    "dyadic_goldbach_rows": [
+      {
+        "dyadic_start_X": 128,
+        "even_targets_B": 64,
+        "minimum_representation_count": 3,
+        "maximum_representation_count": 19,
+        "exception_count_Z": 0,
+        "q": "1/65",
+        "exact_tail_upper_bound": "64/65",
+        "floor_selector_exception_count": 0,
+        "representation_vector_sha256": "fb55cd5bf482f59eda99077bffb888d96cbffd4791d86d6c05ddc599e29e819a"
+      },
+      {
+        "dyadic_start_X": 512,
+        "even_targets_B": 256,
+        "minimum_representation_count": 10,
+        "maximum_representation_count": 52,
+        "exception_count_Z": 0,
+        "q": "1/257",
+        "exact_tail_upper_bound": "256/257",
+        "floor_selector_exception_count": 0,
+        "representation_vector_sha256": "904b515e7ffa9eb5f7016a9b338348941442a3ea99d5aebb9e316febcac41929"
+      },
+      {
+        "dyadic_start_X": 2048,
+        "even_targets_B": 1024,
+        "minimum_representation_count": 25,
+        "maximum_representation_count": 163,
+        "exception_count_Z": 0,
+        "q": "1/1025",
+        "exact_tail_upper_bound": "1024/1025",
+        "floor_selector_exception_count": 0,
+        "representation_vector_sha256": "270bd35f9e4aff28162e9161545e3e14a3dda1ce655bb7ca6e84ac4dcd493291"
+      },
+      {
+        "dyadic_start_X": 8192,
+        "even_targets_B": 4096,
+        "minimum_representation_count": 75,
+        "maximum_representation_count": 517,
+        "exception_count_Z": 0,
+        "q": "1/4097",
+        "exact_tail_upper_bound": "4096/4097",
+        "floor_selector_exception_count": 0,
+        "representation_vector_sha256": "56060a2ae6880e6331b84fa795b054516e00b40f4eb97ff358e82a03dc59d01a"
+      },
+      {
+        "dyadic_start_X": 32768,
+        "even_targets_B": 16384,
+        "minimum_representation_count": 223,
+        "maximum_representation_count": 1564,
+        "exception_count_Z": 0,
+        "q": "1/16385",
+        "exact_tail_upper_bound": "16384/16385",
+        "floor_selector_exception_count": 0,
+        "representation_vector_sha256": "1f0ba6b46a83d634216fc807abc24606044a90d38a646aa74b62383f82d9c7de"
+      }
+    ],
+    "aggregate": {
+      "finite_block_exception_count_reconstruction_proved": true,
+      "universal_temperature_threshold_sharp": true,
+      "audited_exception_count": 0,
+      "uniform_arithmetic_selector_bound_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The floor identity is an exact re-encoding of unknown Goldbach counts. It does not estimate E(q) arithmetically on unseen blocks.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating exact exception-count reconstruction or a non-sharp temperature as an independent Goldbach proof",
+  "remaining_gap": "No target-uniform arithmetic estimate bounds the selector below one on every future block.",
+  "candidate_theorem": "ArithmeticExactExceptionSelectorBelowOneOnEveryDyadicBlock",
+  "claim_boundary": "No Goldbach proof or counterexample. The selector exactly counts finite exceptions, but its all-block arithmetic bound remains the conjectural content.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T214",
+        "label": "DyadicExponentialSelectorEquivalenceAndOccupancyNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T215",
+        "label": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N215",
+        "label": "ExactSelectorFloorIdentityAloneProvesCoverage",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN215",
+        "label": "ArithmeticExactExceptionSelectorBelowOneOnEveryDyadicBlock",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T214",
+        "GB-T215"
+      ],
+      [
+        "GB-T215",
+        "GB-N215"
+      ],
+      [
+        "GB-T215",
+        "GB-OPEN215"
+      ],
+      [
+        "GB-OPEN215",
+        "GB"
+      ]
+    ]
+  }
+}

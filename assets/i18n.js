@@ -62,12 +62,12 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-214 separates exact selection from infinite arithmetic control: cofinal RH equality, seven-one Collatz exclusion, an exponential Goldbach selector, and cardinal-sine gap-two selection.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-214는 비유계 높이에서의 정확한 RH 등식, 콜라츠 일곱-1 층 배제, 골드바흐 지수형 선택자, cardinal-sine gap-two 선택을 통해 정확한 대상 선택과 아직 미증명인 무한 산술 통제를 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-215 proves four exact reductions and sharp finite-information limits: an RH defect-lattice certificate, a Collatz single-mountain near-collision reduction, an exact Goldbach exception counter, and a Twin Prime Abel-boundary equivalence.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-215는 리만 결함의 짝수 격자 인증, 콜라츠 단일 봉우리의 거듭제곱 근접충돌 환원, 골드바흐 예외 개수의 정확 복원, 쌍둥이 소수의 아벨 경계 동치를 증명하고 유한 정보의 한계를 분리합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-214 establishes the exact cofinal RH criterion, excludes the seven-one Collatz stratum, constructs an exact exponential Goldbach selector, and constructs a cardinal-sine gap-two selector. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-214는 정확한 비유계 RH 기준을 확립하고, 콜라츠 일곱-1 층을 배제했으며, 골드바흐 지수형 선택자와 cardinal-sine gap-two 선택자를 구성했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-215 adds an RH even-lattice certificate, a Collatz single-mountain near-collision reduction, an exact Goldbach exception counter, and a Twin Prime Abel-boundary equivalence. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-215는 리만 결함의 짝수 격자 인증, 콜라츠 단일 봉우리 근접충돌 환원, 골드바흐 예외 수의 정확 복원, 쌍둥이 소수의 아벨 경계 동치를 추가했습니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

@@ -37,7 +37,28 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-12 TICKET-214 Cofinal Defects, Seven-One Cycles, Exponential Witnesses, and Cardinal Gap Selection
+## 2026-08-12 TICKET-215 Lattice Certificates, Power Near-Collisions, Exception Counts, and Abel Boundaries
+
+TICKET-215 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial, reduction, or no-go results:
+
+1. the nonnegative-even RH defect can be certified by a rigorous interval
+   whose upper endpoint is below two; width alone is refuted by `[2,2]`;
+2. every Collatz word cyclically equal to `1^k2^m` forces one power
+   near-collision per `k`, and exact arithmetic excludes it through `k=4096`;
+3. for `Bq<1`, the floor of the exponential Goldbach selector equals the exact
+   number of exceptions, and the threshold is universally sharp;
+4. the exact gap-two Abel transform diverges at radius one exactly when twins
+   are infinite, while any finite radius sample is logically insufficient.
+
+No actual-zeta cofinal upper bound, all-`k` near-collision exclusion,
+all-block Goldbach selector bound, or parity-breaking Twin Abel lower bound is
+proved. The machine resolution count remains zero.
+
+English report: [TICKET-215](lattice-nearcollision-exception-abel.md).
+한국어 보고서: [TICKET-215](lattice-nearcollision-exception-abel.ko.md).
+
+## Preserved: 2026-08-12 TICKET-214 Cofinal Defects, Seven-One Cycles, Exponential Witnesses, and Cardinal Gap Selection
 
 TICKET-214 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

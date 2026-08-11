@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket215AttemptGlobal = null;
 let ticket214AttemptGlobal = null;
 let ticket213AttemptGlobal = null;
 let ticket212AttemptGlobal = null;
@@ -10010,6 +10011,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket215LatticeNearCollisionExceptionAbel(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.lattice_nearcollision_exception_abel_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.lattice_interval_rows || [];
+    detail = `
+      <div class="poc-equation">D(T)=N(T)−M(T)∈2ℤ≥0; certified sup I(T)&lt;2 ⇒ D(T)=0</div>
+      ${table(["lower", "upper", "width", "even defect candidates", "zero certified"], rows.map((row) => [row.lower, row.upper, row.width, (row.even_nonnegative_defect_candidates || []).join(", "), row.certifies_zero_defect]))}
+      <div class="poc-head"><div><span>Even-lattice certificate</span><strong>${aggregate.strict_upper_endpoint_below_two_is_zero_defect_certificate ? "proved" : "open"}</strong></div><div><span>Width-only certificate</span><strong>${aggregate.interval_width_alone_sufficient ? "proved" : "refuted"}</strong></div><div><span>Actual zeta cofinal bound</span><strong>${aggregate.actual_zeta_cofinal_upper_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">결함이 음이 아닌 짝수라는 양자화를 이용하면 상단 2 미만의 엄밀 구간은 결함 0을 인증합니다. 폭이 0인 [2,2]는 비임계선 쌍을 인증하므로 정밀도만으로는 RH가 나오지 않습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = (computation.checkpoint_rows || []).filter((row) => [8, 16, 128, 1024, 4096].includes(row.valuation_one_count_k));
+    detail = `
+      <div class="poc-equation">1<sup>k</sup>2<sup>m</sup> cycle ⇒ 0&lt;2<sup>k+2m</sup>−3<sup>k+m</sup>≤3<sup>k</sup>−2<sup>k</sup>; at most one m per k</div>
+      ${table(["k", "unique m", "Delta bits", "ceiling bits", "near collision"], rows.map((row) => [row.valuation_one_count_k, row.unique_possible_m, row.delta_bit_length, row.divisor_ceiling_bit_length, row.near_collision_inequality_holds]))}
+      <div class="poc-head"><div><span>Unique m reduction</span><strong>${aggregate.one_m_per_k_reduction_proved ? "proved" : "open"}</strong></div><div><span>Near collisions through 4096</span><strong>${formatter.format(computation.near_collision_candidate_count || 0)}</strong></div><div><span>All-k exclusion</span><strong>${aggregate.all_k_near_collision_exclusion_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">단일-산 valuation word는 2차원 열거가 아니라 거듭제곱이 처음 교차하는 한 대각선으로 축소됩니다. 감사 범위 밖 k, 다중 run, valuation 3 이상과 발산은 남아 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.dyadic_goldbach_rows || [];
+    detail = `
+      <div class="poc-equation">Z<sub>B</sub>≤E<sub>B</sub>(q)=Σq<sup>Aᵢ</sup>≤Z<sub>B</sub>+(B−Z<sub>B</sub>)q; Bq&lt;1 ⇒ ⌊E<sub>B</sub>⌋=Z<sub>B</sub></div>
+      ${table(["dyadic X", "targets B", "min A", "max A", "exceptions Z", "tail upper"], rows.map((row) => [formatter.format(row.dyadic_start_X), formatter.format(row.even_targets_B), row.minimum_representation_count, formatter.format(row.maximum_representation_count), row.exception_count_Z, row.exact_tail_upper_bound]))}
+      <div class="poc-head"><div><span>Exact exception floor</span><strong>${aggregate.finite_block_exception_count_reconstruction_proved ? "proved" : "open"}</strong></div><div><span>Sharp Bq threshold</span><strong>${aggregate.universal_temperature_threshold_sharp ? "proved" : "open"}</strong></div><div><span>All-block arithmetic bound</span><strong>${aggregate.uniform_arithmetic_selector_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">선택자의 정수부는 유한 블록의 예외 수를 정확히 복원하지만, 보지 않은 모든 블록에서 그 값이 1 미만이라는 산술 상계는 제공하지 않습니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_prime_rows || [];
+    const noGoRows = computation.finite_radius_indistinguishability_rows || [];
+    detail = `
+      <div class="poc-equation">F(r)=Σ1<sub>ℙ</sub>(n)1<sub>ℙ</sub>(n+2)r<sup>n</sup>; twins infinite ⇔ F(r)→∞ as r↑1</div>
+      ${table(["X", "r_X", "twin count", "scheduled Abel sum", "bounds hold"], rows.map((row) => [formatter.format(row.X), row.radius_r_X, formatter.format(row.twin_lower_endpoint_count_T_X), row.scheduled_partial_Abel_sum_decimal, row.weighted_sum_between_lower_bound_and_count]))}
+      ${table(["sample radius", "infinite tail start", "tail below 1/1000"], noGoRows.map((row) => [row.radius, row.infinite_odd_tail_start_N, row.below_epsilon]))}
+      <div class="poc-head"><div><span>Boundary equivalence</span><strong>${aggregate.boundary_divergence_equivalent_to_twin_infinitude ? "proved" : "open"}</strong></div><div><span>Finite-radius inference</span><strong>${aggregate.finite_radius_samples_sufficient ? "proved" : "refuted"}</strong></div><div><span>Parity-breaking lower bound</span><strong>${aggregate.parity_breaking_boundary_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">정확 gap-2 채널을 Abel 경계 문제로 옮겼지만 고정 반지름 값은 항상 유한합니다. 반지름 1에 접근하는 독립적인 parity-breaking 하한이 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket215-lattice-nearcollision-exception-abel" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 215 lattice certificates, power near-collisions, exception counts, and Abel boundaries</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial, reduction, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET215 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/lattice-nearcollision-exception-abel.ko.md">한국어 보고서</a> · <a href="../docs/lattice-nearcollision-exception-abel.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket214CofinalSevenOneExponentialCardinal(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.cofinal_sevenone_exponential_cardinal_audit || {};
@@ -10062,7 +10131,7 @@ function renderTicket214CofinalSevenOneExponentialCardinal(attempt) {
   }
   return `
     <div id="ticket214-cofinal-sevenone-exponential-cardinal" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 214 cofinal defects, seven-one cycles, exponential witnesses, and cardinal gap selection</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial, equivalence, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET214 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16360,7 +16429,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket214CofinalSevenOneExponentialCardinal(ticket214AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket215LatticeNearCollisionExceptionAbel(ticket215AttemptGlobal) ||
+      renderTicket214CofinalSevenOneExponentialCardinal(ticket214AttemptGlobal) ||
       renderTicket213MultiplicitySixOnePolynomialSelector(ticket213AttemptGlobal) ||
       renderTicket212EvenDefectGhostBonferroniGapChannel(ticket212AttemptGlobal) ||
       renderTicket211WindingDensityFullRangeUnitScale(ticket211AttemptGlobal) ||
@@ -16794,6 +16864,26 @@ async function loadTicket214Attempt() {
     return Boolean(ticket214AttemptGlobal);
   } catch (_error) {
     ticket214AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket215Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket215-lattice-nearcollision-exception-abel.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket215AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket215AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket215AttemptGlobal) {
+      ticket215AttemptGlobal.bounded_result = ticket215AttemptGlobal.bounded_result || {};
+      ticket215AttemptGlobal.bounded_result.lattice_nearcollision_exception_abel_audit = payload.lattice_nearcollision_exception_abel_audit || {};
+    }
+    return Boolean(ticket215AttemptGlobal);
+  } catch (_error) {
+    ticket215AttemptGlobal = null;
     return false;
   }
 }
@@ -18367,9 +18457,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket214Loaded = await loadTicket214Attempt();
+  const ticket215Loaded = await loadTicket215Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket214-current";
+  document.documentElement.dataset.openProblemCache = "ticket215-current";
+  const ticket214Loaded = await loadTicket214Attempt();
   const ticket213Loaded = await loadTicket213Attempt();
   const ticket212Loaded = await loadTicket212Attempt();
   const ticket211Loaded = await loadTicket211Attempt();
@@ -18416,8 +18507,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket215AttemptGlobal) await loadTicket215Attempt();
     if (!ticket214AttemptGlobal) await loadTicket214Attempt();
     if (!ticket213AttemptGlobal) await loadTicket213Attempt();
     if (!ticket212AttemptGlobal) await loadTicket212Attempt();
@@ -18510,7 +18602,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket214-current";
+  document.documentElement.dataset.openProblemCache = "ticket215-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

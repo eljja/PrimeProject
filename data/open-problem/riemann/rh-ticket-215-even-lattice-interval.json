@@ -1,0 +1,164 @@
+{
+  "schema": "primeproject.ticket215-lattice-nearcollision-exception-abel.v1",
+  "generated_at": "2026-08-13T01:00:00+09:00",
+  "ticket_id": "RH-TICKET-215",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+  "declared_proposition": "At every boundary-free height let D(T)=N(T)-M(T), so D(T) lies in the nonnegative even integers. If a certified interval I(T) contains D(T), then I(T) proves zero defect exactly when its intersection with 2Z_{>=0} is {0}. In particular, a certified upper endpoint below two forces D(T)=0. Therefore such upper bounds on an unbounded sequence of heights imply the Riemann Hypothesis by TICKET-214. The constant two is sharp, and interval width alone is insufficient: a width-zero interval [2,2] can certify one persistent off-line symmetry pair.",
+  "mathematical_argument": "The symmetry identity from TICKET-213 places D on the lattice 2Z_{>=0}. Intersecting a rigorous enclosure with that lattice gives the complete list of possible defects. An upper endpoint below two leaves only zero. Applying this at a cofinal sequence invokes the TICKET-214 monotonicity argument. Sharpness follows from the logical symmetric model with one off-line pair, for which D=2 at every later height even though the enclosure width is zero and D/N tends to zero.",
+  "reproducible_computation": {
+    "theorem": "At every boundary-free height let D(T)=N(T)-M(T), so D(T) lies in the nonnegative even integers. If a certified interval I(T) contains D(T), then I(T) proves zero defect exactly when its intersection with 2Z_{>=0} is {0}. In particular, a certified upper endpoint below two forces D(T)=0. Therefore such upper bounds on an unbounded sequence of heights imply the Riemann Hypothesis by TICKET-214. The constant two is sharp, and interval width alone is insufficient: a width-zero interval [2,2] can certify one persistent off-line symmetry pair.",
+    "proof": "The symmetry identity from TICKET-213 places D on the lattice 2Z_{>=0}. Intersecting a rigorous enclosure with that lattice gives the complete list of possible defects. An upper endpoint below two leaves only zero. Applying this at a cofinal sequence invokes the TICKET-214 monotonicity argument. Sharpness follows from the logical symmetric model with one off-line pair, for which D=2 at every later height even though the enclosure width is zero and D/N tends to zero.",
+    "lattice_interval_rows": [
+      {
+        "lower": "-1/2",
+        "upper": "3/2",
+        "width": "2",
+        "even_nonnegative_defect_candidates": [
+          0
+        ],
+        "certifies_zero_defect": true,
+        "certifies_positive_defect": false
+      },
+      {
+        "lower": "3/2",
+        "upper": "5/2",
+        "width": "1",
+        "even_nonnegative_defect_candidates": [
+          2
+        ],
+        "certifies_zero_defect": false,
+        "certifies_positive_defect": true
+      },
+      {
+        "lower": "-1/4",
+        "upper": "9/4",
+        "width": "5/2",
+        "even_nonnegative_defect_candidates": [
+          0,
+          2
+        ],
+        "certifies_zero_defect": false,
+        "certifies_positive_defect": false
+      },
+      {
+        "lower": "7/2",
+        "upper": "9/2",
+        "width": "1",
+        "even_nonnegative_defect_candidates": [
+          4
+        ],
+        "certifies_zero_defect": false,
+        "certifies_positive_defect": true
+      }
+    ],
+    "persistent_offline_pair_rows": [
+      {
+        "critical_line_multiplicity_M": 100,
+        "total_multiplicity_N": 102,
+        "exact_defect_interval": [
+          2,
+          2
+        ],
+        "interval_width": 0,
+        "relative_defect": "1/51",
+        "rectangle_RH": false
+      },
+      {
+        "critical_line_multiplicity_M": 10000,
+        "total_multiplicity_N": 10002,
+        "exact_defect_interval": [
+          2,
+          2
+        ],
+        "interval_width": 0,
+        "relative_defect": "1/5001",
+        "rectangle_RH": false
+      },
+      {
+        "critical_line_multiplicity_M": 1000000,
+        "total_multiplicity_N": 1000002,
+        "exact_defect_interval": [
+          2,
+          2
+        ],
+        "interval_width": 0,
+        "relative_defect": "1/500001",
+        "rectangle_RH": false
+      },
+      {
+        "critical_line_multiplicity_M": 100000000,
+        "total_multiplicity_N": 100000002,
+        "exact_defect_interval": [
+          2,
+          2
+        ],
+        "interval_width": 0,
+        "relative_defect": "1/50000001",
+        "rectangle_RH": false
+      }
+    ],
+    "aggregate": {
+      "strict_upper_endpoint_below_two_is_zero_defect_certificate": true,
+      "cofinal_such_certificates_imply_RH": true,
+      "interval_width_alone_sufficient": false,
+      "threshold_two_is_sharp": true,
+      "actual_zeta_cofinal_upper_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The width-zero countermodel is not an off-line zero of the actual zeta function. It refutes precision-only promotion and leaves the one-sided actual-zeta estimate unproved.",
+    "failure_count": 0
+  },
+  "discarded_route": "interval precision or shrinking relative error without a one-sided defect upper endpoint below two",
+  "remaining_gap": "No certified actual-zeta defect upper bound below two is proved on an unbounded height sequence.",
+  "candidate_theorem": "CofinalActualZetaDefectUpperBoundStrictlyBelowTwo",
+  "claim_boundary": "No RH proof and no off-line zeta zero. A sharp certification interface is proved; the required actual-zeta bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T214",
+        "label": "CofinalExactDefectEquivalenceAndDensityOneNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T215",
+        "label": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N215",
+        "label": "WidthOnlyOrRelativeErrorDefectCertification",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN215",
+        "label": "CofinalActualZetaDefectUpperBoundStrictlyBelowTwo",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T214",
+        "RH-T215"
+      ],
+      [
+        "RH-T215",
+        "RH-N215"
+      ],
+      [
+        "RH-T215",
+        "RH-OPEN215"
+      ],
+      [
+        "RH-OPEN215",
+        "RH"
+      ]
+    ]
+  }
+}

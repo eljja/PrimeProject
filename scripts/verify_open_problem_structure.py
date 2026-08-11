@@ -213,6 +213,7 @@ TICKET211_SCHEMA = "primeproject.ticket211-winding-density-fullrange-unitscale.v
 TICKET212_SCHEMA = "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1"
 TICKET213_SCHEMA = "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1"
 TICKET214_SCHEMA = "primeproject.ticket214-cofinal-sevenone-exponential-cardinal.v1"
+TICKET215_SCHEMA = "primeproject.ticket215-lattice-nearcollision-exception-abel.v1"
 
 
 def fail(message: str) -> int:
@@ -18038,6 +18039,164 @@ def main() -> int:
         or machine214.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket214 proof boundary changed")
+
+    path215 = Path(
+        "data/open-problem/ticket215-lattice-nearcollision-exception-abel.json"
+    )
+    if not path215.exists():
+        return fail("missing ticket215 lattice/nearcollision/exception/Abel audit")
+    ticket215 = read_json(path215)
+    if (
+        ticket215.get("schema") != TICKET215_SCHEMA
+        or ticket215.get("status") != "open_not_proven"
+    ):
+        return fail("ticket215 schema or status changed")
+    audit215 = ticket215.get("lattice_nearcollision_exception_abel_audit", {})
+    machine215 = audit215.get("machine_audit", {})
+    if machine215 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket215 global machine audit changed")
+
+    attempts215 = {
+        row.get("problem_id"): row for row in ticket215.get("attempts", [])
+    }
+    if set(attempts215) != EXPECTED_PROBLEMS:
+        return fail("ticket215 attempts missing problems")
+    track_paths215 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-215-even-lattice-interval.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-215-single-mountain-near-collision.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-215-exact-exception-selector.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-215-abel-boundary.json"
+        ),
+    }
+    theorem_names215 = {
+        "riemann": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+        "collatz": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+        "goldbach": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+        "twin-prime": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+    }
+    for problem_id, track_path in track_paths215.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket215 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts215[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET215_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names215[problem_id]
+            or attempt.get("new_result") != theorem_names215[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/lattice_nearcollision_exception_abel_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket215 contract changed")
+
+    rh215 = audit215.get("riemann", {}).get("reproducible_computation", {})
+    rh215_rows = rh215.get("lattice_interval_rows", [])
+    rh215_aggregate = rh215.get("aggregate", {})
+    if (
+        len(rh215_rows) != 4
+        or rh215_rows[0].get("even_nonnegative_defect_candidates") != [0]
+        or rh215_rows[1].get("even_nonnegative_defect_candidates") != [2]
+        or rh215_aggregate.get(
+            "strict_upper_endpoint_below_two_is_zero_defect_certificate"
+        )
+        is not True
+        or rh215_aggregate.get("interval_width_alone_sufficient") is not False
+        or rh215_aggregate.get("threshold_two_is_sharp") is not True
+        or rh215_aggregate.get("actual_zeta_cofinal_upper_bound_proved") is not False
+        or rh215_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket215 RH even-lattice boundary changed")
+
+    collatz215 = audit215.get("collatz", {}).get("reproducible_computation", {})
+    collatz215_aggregate = collatz215.get("aggregate", {})
+    if (
+        collatz215.get("audited_k_min") != 1
+        or collatz215.get("audited_k_max") != 4096
+        or collatz215.get("near_collision_candidate_count") != 0
+        or len(collatz215.get("transcript_sha256", "")) != 64
+        or collatz215_aggregate.get("one_m_per_k_reduction_proved") is not True
+        or collatz215_aggregate.get("single_mountain_words_through_k_4096_excluded")
+        is not True
+        or collatz215_aggregate.get("all_k_near_collision_exclusion_proved")
+        is not False
+        or collatz215_aggregate.get("multi_run_cycle_words_excluded") is not False
+        or collatz215_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket215 Collatz near-collision boundary changed")
+
+    goldbach215 = audit215.get("goldbach", {}).get("reproducible_computation", {})
+    goldbach215_rows = goldbach215.get("dyadic_goldbach_rows", [])
+    goldbach215_aggregate = goldbach215.get("aggregate", {})
+    if (
+        [row.get("dyadic_start_X") for row in goldbach215_rows]
+        != [128, 512, 2048, 8192, 32768]
+        or [row.get("minimum_representation_count") for row in goldbach215_rows]
+        != [3, 10, 25, 75, 223]
+        or any(row.get("exception_count_Z") != 0 for row in goldbach215_rows)
+        or any(row.get("floor_selector_exception_count") != 0 for row in goldbach215_rows)
+        or goldbach215_aggregate.get(
+            "finite_block_exception_count_reconstruction_proved"
+        )
+        is not True
+        or goldbach215_aggregate.get("universal_temperature_threshold_sharp")
+        is not True
+        or goldbach215_aggregate.get("uniform_arithmetic_selector_bound_proved")
+        is not False
+        or goldbach215_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket215 Goldbach exception-selector boundary changed")
+
+    twin215 = audit215.get("twin_prime", {}).get("reproducible_computation", {})
+    twin215_rows = twin215.get("finite_prime_rows", [])
+    twin215_aggregate = twin215.get("aggregate", {})
+    if (
+        [row.get("X") for row in twin215_rows]
+        != [100, 1000, 10000, 100000, 1000000]
+        or [row.get("twin_lower_endpoint_count_T_X") for row in twin215_rows]
+        != [8, 35, 205, 1224, 8169]
+        or len(twin215.get("finite_radius_indistinguishability_rows", [])) != 4
+        or any(
+            row.get("infinite_odd_tail_start_N") != 83
+            for row in twin215.get("finite_radius_indistinguishability_rows", [])
+        )
+        or twin215_aggregate.get("boundary_divergence_equivalent_to_twin_infinitude")
+        is not True
+        or twin215_aggregate.get("finite_radius_samples_sufficient") is not False
+        or twin215_aggregate.get("parity_breaking_boundary_lower_bound_proved")
+        is not False
+        or twin215_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket215 Twin Abel-boundary contract changed")
+
+    if (
+        "resolves none" not in str(audit215.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket215.get("claim_boundary", "")).lower()
+        or machine215.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket215 proof boundary changed")
 
     print("open problem structure verified")
     return 0
