@@ -65,6 +65,14 @@
       en: "PrimeProject has not solved any conjecture. TICKET-213 corrects the Riemann multiplicity target, excludes the complete six-one Collatz cycle stratum, refutes every fixed polynomial Goldbach witness majorant, and characterizes exact nonnegative gap-two selectors.",
       ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-213은 리만 영점의 중복도 계수 목표를 교정하고, 콜라츠의 여섯-1 주기 층 전체를 배제하며, 모든 고정 다항식 골드바흐 예외 상계와 다른 간격이 섞인 비음수 gap-two 선택자를 불가능성 정리로 확정합니다.",
     },
+    "rail.researchStatus": {
+      en: "All four conjectures remain open_not_proven. TICKET-213 establishes the multiplicity-aware finite-rectangle Riemann equivalence, excludes the complete six-one Collatz cycle stratum, rules out every fixed-polynomial Goldbach witness majorant, and characterizes nonnegative gap-two selectors. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-213은 중복도를 반영한 유한 직사각형 리만 동치 정리를 확립하고, 콜라츠의 여섯-1 주기 층 전체를 배제했으며, 모든 고정 다항식 골드바흐 증인 상계를 기각하고 비음수 gap-two 선택자의 필요충분조건을 규명했습니다. 해결된 난제: 0개.",
+    },
+    "rail.researchLink": {
+      en: "Four-problem status",
+      ko: "네 문제 연구 현황",
+    },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {
       en: "Explore generator-weighted observations against the baseline p ≈ n log n. This is an experimental instrument, not a proof engine.",

@@ -162,6 +162,7 @@ async function main() {
       navGroupCount: document.querySelectorAll(".nav-group-label").length,
       currentBriefText: document.querySelector("#research-brief-panel")?.textContent || "",
       currentBriefCards: document.querySelectorAll("#research-brief-panel .brief-problem-card").length,
+      railResearchText: document.querySelector(".rail-research-status")?.textContent || "",
       desktopViewportWidth: window.innerWidth,
       desktopHorizontalOverflow:
         document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
@@ -709,6 +710,8 @@ async function main() {
     !metrics.currentBriefText.includes("gap 2") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
+    !metrics.railResearchText.includes("TICKET-213") ||
+    !metrics.railResearchText.includes("Resolution count: 0") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
   ) {
