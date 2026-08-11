@@ -211,6 +211,7 @@ TICKET209_SCHEMA = "primeproject.ticket209-normalized-fourone-covering-factorial
 TICKET210_SCHEMA = "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1"
 TICKET211_SCHEMA = "primeproject.ticket211-winding-density-fullrange-unitscale.v1"
 TICKET212_SCHEMA = "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1"
+TICKET213_SCHEMA = "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1"
 
 
 def fail(message: str) -> int:
@@ -17678,6 +17679,182 @@ def main() -> int:
         or machine212.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket212 proof boundary changed")
+
+    path213 = Path(
+        "data/open-problem/ticket213-multiplicity-sixone-polynomial-selector.json"
+    )
+    if not path213.exists():
+        return fail("missing ticket213 multiplicity/six-one/polynomial/selector audit")
+    ticket213 = read_json(path213)
+    if (
+        ticket213.get("schema") != TICKET213_SCHEMA
+        or ticket213.get("status") != "open_not_proven"
+    ):
+        return fail("ticket213 schema or status changed")
+    audit213 = ticket213.get("multiplicity_sixone_polynomial_selector_audit", {})
+    machine213 = audit213.get("machine_audit", {})
+    expected_machine213 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine213 != expected_machine213:
+        return fail("ticket213 global machine audit changed")
+
+    attempts213 = {
+        row.get("problem_id"): row for row in ticket213.get("attempts", [])
+    }
+    if set(attempts213) != EXPECTED_PROBLEMS:
+        return fail("ticket213 attempts missing problems")
+    track_paths213 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-213-multiplicity-aware-count.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-213-six-one-exclusion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-213-polynomial-majorant-no-go.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-213-nonnegative-selector.json"
+        ),
+    }
+    theorem_names213 = {
+        "riemann": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+        "collatz": "CompleteSixValuationOneCycleStratumExclusion",
+        "goldbach": "FixedDegreePolynomialWitnessMajorantNoGo",
+        "twin-prime": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+    }
+    for problem_id, track_path in track_paths213.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket213 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts213[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET213_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names213[problem_id]
+            or attempt.get("new_result") != theorem_names213[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/multiplicity_sixone_polynomial_selector_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket213 contract changed")
+
+    rh213 = audit213.get("riemann", {}).get("reproducible_computation", {})
+    rh213_rows = rh213.get("configuration_rows", [])
+    rh213_aggregate = rh213.get("aggregate", {})
+    if (
+        len(rh213_rows) != 5
+        or any(
+            row.get("multiplicity_subtwo_certificate")
+            != row.get("all_zeros_on_critical_line")
+            or row.get("sign_change_subtwo_certificate")
+            != row.get("all_zeros_on_line_and_simple")
+            or row.get("multiplicity_aware_defect_N_minus_M", 1) % 2
+            for row in rh213_rows
+        )
+        or rh213_aggregate.get(
+            "multiplicity_aware_subtwo_equivalent_to_rectangle_RH"
+        )
+        is not True
+        or rh213_aggregate.get("ticket212_sign_change_target_was_stronger_than_RH")
+        is not True
+        or rh213_aggregate.get("all_height_multiplicity_count_bound_proved")
+        is not False
+        or rh213_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket213 RH multiplicity boundary changed")
+
+    collatz213 = audit213.get("collatz", {}).get("reproducible_computation", {})
+    collatz213_aggregate = collatz213.get("aggregate", {})
+    collatz213_rows = collatz213.get("exact_enumeration_rows", [])
+    if (
+        collatz213.get("exact_length_cap_h") != 22
+        or collatz213.get("total_exact_words_enumerated") != 376788
+        or collatz213.get("ordinary_divisibility_candidate_count") != 0
+        or collatz213.get("positive_odd_integer_fixed_point_count") != 0
+        or [row.get("length_h") for row in collatz213_rows] != list(range(7, 23))
+        or not all(
+            len(row.get("valuation_word_and_divisor_sha256", "")) == 64
+            for row in collatz213_rows
+        )
+        or collatz213_aggregate.get(
+            "exactly_six_valuation_one_cycle_stratum_excluded"
+        )
+        is not True
+        or collatz213_aggregate.get(
+            "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle"
+        )
+        != 7
+        or collatz213_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket213 Collatz six-one boundary changed")
+
+    goldbach213 = audit213.get("goldbach", {}).get("reproducible_computation", {})
+    goldbach213_aggregate = goldbach213.get("aggregate", {})
+    interpolation213 = goldbach213.get("finite_interpolation_rows", [])
+    if (
+        len(interpolation213) != 12
+        or not all(
+            row.get("degree") == row.get("interpolation_order_M")
+            and row.get("matches_zero_indicator_on_0_through_M")
+            for row in interpolation213
+        )
+        or goldbach213_aggregate.get("fixed_degree_polynomial_majorant_route_refuted")
+        is not True
+        or goldbach213_aggregate.get(
+            "degree_at_least_witness_range_for_exact_interpolation_proved"
+        )
+        is not True
+        or goldbach213_aggregate.get("uniform_subunit_exception_bound_proved")
+        is not False
+        or goldbach213_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket213 Goldbach polynomial boundary changed")
+
+    twin213 = audit213.get("twin_prime", {}).get("reproducible_computation", {})
+    twin213_aggregate = twin213.get("aggregate", {})
+    selector213 = twin213.get("weight_audit_rows", [])
+    if (
+        len(selector213) != 4
+        or any(
+            row.get("support_only_at_gap_two_with_positive_weight")
+            != row.get("basis_equivalence_observed")
+            for row in selector213
+        )
+        or selector213[0].get("support_only_at_gap_two_with_positive_weight")
+        is not True
+        or any(
+            row.get("support_only_at_gap_two_with_positive_weight")
+            for row in selector213[1:]
+        )
+        or twin213_aggregate.get("nonnegative_selector_characterization_proved")
+        is not True
+        or twin213_aggregate.get("signed_or_arithmetic_remainder_selector_constructed")
+        is not False
+        or twin213_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket213 Twin selector boundary changed")
+
+    if (
+        "resolves none" not in str(audit213.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket213.get("claim_boundary", "")).lower()
+        or machine213.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket213 proof boundary changed")
 
     print("open problem structure verified")
     return 0

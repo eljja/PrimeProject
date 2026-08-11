@@ -62,8 +62,8 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-212 proves a sharp parity certificate for Riemann zero localization, exposes universal 2-adic Collatz ghost cycles, gives an exact Goldbach witness-product identity, and isolates the dyadic gap-two channel required for Twin Primes.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-212는 리만 영점 위치의 날카로운 짝홀성 인증 조건, 모든 valuation 단어에 존재하는 콜라츠 2-adic 유령 주기, 골드바흐 전체 증인 곱 항등식, 쌍둥이 소수에 필요한 dyadic 간격 2 채널을 각각 확립합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-213 corrects the Riemann multiplicity target, excludes the complete six-one Collatz cycle stratum, refutes every fixed polynomial Goldbach witness majorant, and characterizes exact nonnegative gap-two selectors.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-213은 리만 영점의 중복도 계수 목표를 교정하고, 콜라츠의 여섯-1 주기 층 전체를 배제하며, 모든 고정 다항식 골드바흐 예외 상계와 다른 간격이 섞인 비음수 gap-two 선택자를 불가능성 정리로 확정합니다.",
     },
     "overview.title": { en: "Prime Explorer", ko: "소수 탐색기" },
     "overview.subtitle": {

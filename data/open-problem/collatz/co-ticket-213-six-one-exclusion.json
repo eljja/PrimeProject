@@ -1,0 +1,232 @@
+{
+  "schema": "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1",
+  "generated_at": "2026-08-12T23:58:00+09:00",
+  "ticket_id": "CO-TICKET-213",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "CompleteSixValuationOneCycleStratumExclusion",
+  "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly six valuation entries equal to one and every other valuation at least two. Rotating a hypothetical cycle to its least odd element forces the first valuation to be one and the last to be at least two. The cycle product bound gives h<=floor(6 log(2)/log(6/5))=22. Exact ordinary-integer divisibility enumeration of all 376,788 admissible minimum-rotation candidate words of lengths 7 through 22 finds no positive odd integer fixed point. Combined with TICKET-210, every hypothetical nontrivial positive cycle therefore has at least seven valuation-one entries.",
+  "mathematical_argument": "For a least cycle element m>=3, valuation one is forced on the outgoing step and valuation at least two on the incoming step. If exactly k entries equal one, then A>=2h-k. Multiplying 2^A=product_i(3+1/x_i) and using x_i>=3 gives 2^A<=(10/3)^h, hence (6/5)^h<=2^k. At k=6 this leaves only 7<=h<=22 and the same inequality gives a finite upper bound for A. The position choices and weak compositions enumerate every such least-rotation candidate. For each word the exact cycle equation is (2^A-3^h)x=C. None has positive divisor dividing C, as recorded by the deterministic transcript hashes. Length h>=23 is excluded by the product inequality.",
+  "reproducible_computation": {
+    "theorem": "No nontrivial positive accelerated Collatz cycle has exactly six valuation entries equal to one and every other valuation at least two. Rotating a hypothetical cycle to its least odd element forces the first valuation to be one and the last to be at least two. The cycle product bound gives h<=floor(6 log(2)/log(6/5))=22. Exact ordinary-integer divisibility enumeration of all 376,788 admissible minimum-rotation candidate words of lengths 7 through 22 finds no positive odd integer fixed point. Combined with TICKET-210, every hypothetical nontrivial positive cycle therefore has at least seven valuation-one entries.",
+    "proof": "For a least cycle element m>=3, valuation one is forced on the outgoing step and valuation at least two on the incoming step. If exactly k entries equal one, then A>=2h-k. Multiplying 2^A=product_i(3+1/x_i) and using x_i>=3 gives 2^A<=(10/3)^h, hence (6/5)^h<=2^k. At k=6 this leaves only 7<=h<=22 and the same inequality gives a finite upper bound for A. The position choices and weak compositions enumerate every such least-rotation candidate. For each word the exact cycle equation is (2^A-3^h)x=C. None has positive divisor dividing C, as recorded by the deterministic transcript hashes. Length h>=23 is excluded by the product inequality.",
+    "general_k_one_length_cap": "h<=floor(k*log(2)/log(6/5)) for a cycle with exactly k ones",
+    "k": 6,
+    "exact_length_cap_h": 22,
+    "exact_enumeration_rows": [
+      {
+        "length_h": 7,
+        "minimum_total_valuation_2h_minus_6": 8,
+        "maximum_total_valuation_from_minimum_bound": 12,
+        "enumerated_word_count": 5,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "894c81ea44a2149489b62026ceb428ac570262ad78eec3ee73e13f3380d90519"
+      },
+      {
+        "length_h": 8,
+        "minimum_total_valuation_2h_minus_6": 10,
+        "maximum_total_valuation_from_minimum_bound": 13,
+        "enumerated_word_count": 60,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "6d6be99f3cfaee3d40e1a660d089d2df6554f569d5ddf25d30c8d2c0ae5ca1c3"
+      },
+      {
+        "length_h": 9,
+        "minimum_total_valuation_2h_minus_6": 12,
+        "maximum_total_valuation_from_minimum_bound": 15,
+        "enumerated_word_count": 420,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "8f6e378b99389c3f003e6c4c89f22379dcf596d576bbd2666569619e155a4e26"
+      },
+      {
+        "length_h": 10,
+        "minimum_total_valuation_2h_minus_6": 14,
+        "maximum_total_valuation_from_minimum_bound": 17,
+        "enumerated_word_count": 1960,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "4979744a900531877ffdcfea4761895b085d17c6eb80421e6556e9ba77756974"
+      },
+      {
+        "length_h": 11,
+        "minimum_total_valuation_2h_minus_6": 16,
+        "maximum_total_valuation_from_minimum_bound": 19,
+        "enumerated_word_count": 7056,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "3d5dc2a2f353af8ce6aa75adcca18343bcf8402f4c61d9d8258eb0f4c2e815f5"
+      },
+      {
+        "length_h": 12,
+        "minimum_total_valuation_2h_minus_6": 18,
+        "maximum_total_valuation_from_minimum_bound": 20,
+        "enumerated_word_count": 7056,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "2ec2f2fb1c1a66ef8af01f0c3cb78ae444cbbb542fe7978a54b768521fcdab09"
+      },
+      {
+        "length_h": 13,
+        "minimum_total_valuation_2h_minus_6": 20,
+        "maximum_total_valuation_from_minimum_bound": 22,
+        "enumerated_word_count": 16632,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "f1e0b7cec97755833ab48fe566769cba2660e2c6d0672cfc367a5982dccd126b"
+      },
+      {
+        "length_h": 14,
+        "minimum_total_valuation_2h_minus_6": 22,
+        "maximum_total_valuation_from_minimum_bound": 24,
+        "enumerated_word_count": 35640,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "9f9d4b53aa237fe3abbe06d549dea966cee396c1d0a73fc1830a54f9c9e7c28c"
+      },
+      {
+        "length_h": 15,
+        "minimum_total_valuation_2h_minus_6": 24,
+        "maximum_total_valuation_from_minimum_bound": 26,
+        "enumerated_word_count": 70785,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "ed841d232dbba9332872a951af2baf808767d1d498a0344e0c4892646f8597ec"
+      },
+      {
+        "length_h": 16,
+        "minimum_total_valuation_2h_minus_6": 26,
+        "maximum_total_valuation_from_minimum_bound": 27,
+        "enumerated_word_count": 22022,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "73444076d5144aae04ce57ef29f5d5c3b176909f080280e4818bf5103ff21b0b"
+      },
+      {
+        "length_h": 17,
+        "minimum_total_valuation_2h_minus_6": 28,
+        "maximum_total_valuation_from_minimum_bound": 29,
+        "enumerated_word_count": 36036,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "5a759320b9bfaf9e24a90a586b3cb5aeb4ebf61962427cdd4500635d437023ed"
+      },
+      {
+        "length_h": 18,
+        "minimum_total_valuation_2h_minus_6": 30,
+        "maximum_total_valuation_from_minimum_bound": 31,
+        "enumerated_word_count": 56784,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "abefb5c513bfefec41c3a483509c20cfd3b23dd228c2e0c3c70d02c737107ae9"
+      },
+      {
+        "length_h": 19,
+        "minimum_total_valuation_2h_minus_6": 32,
+        "maximum_total_valuation_from_minimum_bound": 33,
+        "enumerated_word_count": 86632,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "630389b8739b5ec89ae0b7cb74eaa52fe7f2c54cb36fdfefbf4f4c37aca1f4b6"
+      },
+      {
+        "length_h": 20,
+        "minimum_total_valuation_2h_minus_6": 34,
+        "maximum_total_valuation_from_minimum_bound": 34,
+        "enumerated_word_count": 8568,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "acd435f4b987847b440fd5a8ede36cc99ae777bdedb59f97482e928d0616ef8b"
+      },
+      {
+        "length_h": 21,
+        "minimum_total_valuation_2h_minus_6": 36,
+        "maximum_total_valuation_from_minimum_bound": 36,
+        "enumerated_word_count": 11628,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "56f86ccc2caa519e83d17612dba84c05d30ca0201f5063665b5a46c6b3595892"
+      },
+      {
+        "length_h": 22,
+        "minimum_total_valuation_2h_minus_6": 38,
+        "maximum_total_valuation_from_minimum_bound": 38,
+        "enumerated_word_count": 15504,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "valuation_word_and_divisor_sha256": "e667b2af3c639d2bb2d02bd4974090ed38672dcfc72ed6a6017f2648e77e67f0"
+      }
+    ],
+    "total_exact_words_enumerated": 376788,
+    "ordinary_divisibility_candidate_count": 0,
+    "positive_odd_integer_fixed_point_count": 0,
+    "length_at_least_twenty_three_exclusion": {
+      "threshold_h": 23,
+      "left_2_pow_40_times_3_pow_23": "103511519796081828298752",
+      "right_10_pow_23": "100000000000000000000000",
+      "left_exceeds_right": true
+    },
+    "aggregate": {
+      "exactly_six_valuation_one_cycle_stratum_excluded": true,
+      "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 7,
+      "seven_or_more_one_necklaces_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This is a finite exhaustive proof for one periodic stratum, not a proof of Collatz. Cycles with seven or more valuation-one entries and all nonperiodic divergent trajectories remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "every accelerated positive cycle word with exactly six valuation-one entries",
+  "remaining_gap": "Cycles with at least seven valuation-one entries and nonperiodic divergence remain open.",
+  "candidate_theorem": "UniformPrimitiveOddDivisorWitnessForAllOneCountsAtLeastSeven",
+  "claim_boundary": "No Collatz proof or positive integer counterexample. One previously open periodic stratum is exhaustively eliminated with exact integer arithmetic.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T212",
+        "label": "TwoAdicGhostUniversalityAndOddDivisibilityCorrection",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T213",
+        "label": "CompleteSixValuationOneCycleStratumExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N213",
+        "label": "SixValuationOnePositiveCycleStratum",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN213",
+        "label": "UniformPrimitiveOddDivisorWitnessForAllOneCountsAtLeastSeven",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T212",
+        "CO-T213"
+      ],
+      [
+        "CO-T213",
+        "CO-N213"
+      ],
+      [
+        "CO-T213",
+        "CO-OPEN213"
+      ],
+      [
+        "CO-OPEN213",
+        "CO"
+      ]
+    ]
+  }
+}

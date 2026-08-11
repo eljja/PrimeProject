@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260812-ticket212-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260812-ticket213-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-212 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-213 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-212 proves a sharp parity certificate for Riemann zero localization, exposes universal 2-adic Collatz ghost cycles, gives an exact Goldbach witness-product identity, and isolates the dyadic gap-two channel required for Twin Primes.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-212는 리만 영점 위치의 날카로운 짝홀성 인증 조건, 모든 valuation 단어에 존재하는 콜라츠 2-adic 유령 주기, 골드바흐 전체 증인 곱 항등식, 쌍둥이 소수에 필요한 dyadic 간격 2 채널을 각각 확립했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-213 corrects the Riemann multiplicity target, excludes the complete six-one Collatz cycle stratum, refutes every fixed polynomial Goldbach witness majorant, and characterizes exact nonnegative gap-two selectors.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-213은 리만 영점의 중복도 계수 목표를 교정하고, 콜라츠의 여섯-1 주기 층 전체를 배제하며, 모든 고정 다항식 골드바흐 예외 상계와 다른 간격이 섞인 비음수 gap-two 선택자를 불가능성 정리로 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>212</strong><small>2026-08-12</small></div>
+              <div><span>Latest ticket</span><strong>213</strong><small>2026-08-12</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 대칭 띠에서 전체 영점 수 <code>N</code>과 서로소 Hardy 부호변화 구간 수 <code>L</code>가 <code>N-L&lt;2</code>이면 모든 영점이 임계선 위의 단순 영점입니다.</p>
-                <p><strong>폐기:</strong> 결함 <code>N-L=2</code>에서는 임계선 밖 대칭쌍 또는 임계선 중근이 가능하므로 상수 2를 포함하는 완화는 충분하지 않습니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 완성 제타에 대해 모든 높이에서 임계선 결함을 엄격히 2 미만으로 만드는 균일 추정.</p>
+                <p><strong>확립:</strong> 전체 영점 중복도 <code>N</code>과 임계선 영점 중복도 합 <code>M</code>에 대해 <code>N-M&lt;2</code>가 유한 직사각형 RH와 정확히 동치입니다.</p>
+                <p><strong>폐기:</strong> Hardy 부호변화 수는 임계선 중근을 놓치므로, 단순성 정리 없이 RH와 동치인 목표로 사용할 수 없습니다.</p>
+                <p><strong>다음 핵심:</strong> 실제 완성 제타에 대해 모든 높이에서 중복도 결함 <code>N-M</code>을 엄격히 2 미만으로 만드는 균일 추정.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 비어 있지 않은 valuation 단어는 정확한 <code>2-adic</code> 주기점을 가지며, 순환 상태가 지정된 valuation을 그대로 재현합니다.</p>
-                <p><strong>폐기:</strong> 따라서 <code>2-adic</code> 정수성만으로 valuation 단어를 배제하는 전략은 어떤 단어도 제거하지 못합니다.</p>
-                <p><strong>다음 핵심:</strong> 양의 정수 주기에 필요한 보통 정수 나눗셈 <code>2^A-3^h | C</code>을 높은 valuation-1 밀도에서 균일하게 배제.</p>
+                <p><strong>확립:</strong> valuation-one 항이 정확히 6개인 후보 <code>376,788</code>개를 정확 산술로 완전 배제했습니다. 비자명 양의 주기에는 최소 7개의 one 항이 필요합니다.</p>
+                <p><strong>폐기:</strong> 정확히 여섯 개의 valuation-one 항을 갖는 모든 양의 가속 콜라츠 주기 단어.</p>
+                <p><strong>다음 핵심:</strong> one 항이 7개 이상인 모든 원시 단어에서 보통 홀수 나눗셈을 균일하게 막는 증인.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 짝수 <code>N</code>의 무표현 지시자는 모든 후보 소수 증인에 대한 정확한 곱 <code>∏(1-y_p)</code>입니다.</p>
-                <p><strong>폐기:</strong> 고정된 짝수 차수 Bonferroni 절단은 표현 수가 커질수록 <code>C(A-1,2r)</code>의 거짓 예외 질량을 만들어 1 미만 상계를 줄 수 없습니다.</p>
-                <p><strong>다음 핵심:</strong> 전체 증인 곱을 보존하면서 dyadic 예외 합을 1 미만으로 만드는 균일 재합산.</p>
+                <p><strong>확립:</strong> 표현 개수 <code>A(N)</code>의 어떤 고정 실수 다항식도 모든 표현 가능 목표에서 <code>[0,1)</code> 예외 상계를 유지할 수 없습니다.</p>
+                <p><strong>폐기:</strong> 고정 Bonferroni 차수를 포함해, 증인 개수만의 모든 고정차수 다항식 점별 예외 상계.</p>
+                <p><strong>다음 핵심:</strong> 규모에 따라 복잡도가 증가하거나 비다항식인 전체 증인 재합산으로 dyadic 예외 합을 1 미만으로 만들기.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 쌍둥이 소수 추측은 dyadic 블록의 간격 2 개수 <code>T_{j,2}</code>가 무한히 자주 양수라는 명제와 동치입니다.</p>
-                <p><strong>폐기:</strong> 유한한 여러 간격의 합이 무한히 자주 양수여도 간격 2가 선택되지는 않습니다. 간격 6만 반복되는 정확한 논리 반례가 이를 보입니다.</p>
-                <p><strong>다음 핵심:</strong> 간격 2 dyadic 채널이 무한히 많은 블록에서 양수임을 직접 보이는 추정.</p>
+                <p><strong>확립:</strong> 비음수 간격 가중합이 gap 2를 정확히 선택할 필요충분조건은 양의 가중치가 오직 gap 2에만 있는 것입니다.</p>
+                <p><strong>폐기:</strong> 다른 간격의 양의 가중치가 아무리 작게라도 섞인 모든 비음수 bounded-gap 통계.</p>
+                <p><strong>다음 핵심:</strong> 산술 나머지를 균일하게 통제하는 부호 있는 gap-two 선택 함수.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>212개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-212는 짝홀 결함, 2-adic 유령과 보통 정수 나눗셈, 전체 증인 곱의 재합산, 간격 2 채널 격리라는 네 증명 간극을 결정적 미해결 보조정리로 좁혔습니다.</p>
+                <p>213개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-213은 중복도 기반 RH 계수, 일곱-1 이상 콜라츠 나눗셈, 규모 증가형 골드바흐 재합산, 부호 있는 gap-two 산술 선택자라는 네 결정적 미해결 보조정리를 남겼습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/even-defect-ghost-bonferroni-gapchannel.ko.md">최신 한국어 보고서</a>
-              <a href="docs/even-defect-ghost-bonferroni-gapchannel.md">Latest English report</a>
+              <a href="docs/multiplicity-sixone-polynomial-selector.ko.md">최신 한국어 보고서</a>
+              <a href="docs/multiplicity-sixone-polynomial-selector.md">Latest English report</a>
             </div>
           </section>
 
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260812-ticket212"></script>
-    <script src="assets/app.js?v=20260812-ticket212"></script>
+    <script src="assets/i18n.js?v=20260812-ticket213"></script>
+    <script src="assets/app.js?v=20260812-ticket213"></script>
   </body>
 </html>
 

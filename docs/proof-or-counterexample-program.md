@@ -37,7 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-12 TICKET-212 Even Defect, 2-Adic Ghosts, Full-Witness Products, and Gap Channels
+## 2026-08-12 TICKET-213 Multiplicity, Six-One Cycles, Polynomial Majorants, and Gap Selectors
+
+TICKET-213 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. total critical-line multiplicity `M` gives the exact finite-rectangle RH
+   certificate `N-M<2`, while odd-multiplicity sign counts also demand zero
+   simplicity and therefore define a strictly stronger target;
+2. the product bound reduces exactly-six-one accelerated Collatz cycles to
+   lengths `7..22`, and exact enumeration excludes all `376,788` candidates;
+3. unbounded attained Goldbach representation multiplicity rules out every
+   fixed polynomial pointwise exception majorant, and exact interpolation on
+   witness counts through `M` requires degree at least `M`;
+4. a nonnegative weighted gap functional selects gap two on the whole
+   nonnegative cone exactly when its positive support is only gap two.
+
+The all-height zeta multiplicity equality, Collatz strata with seven or more
+ones and nonperiodic divergence, a scale-growing Goldbach resummation below
+one, and a signed arithmetic gap-two selector with a uniform remainder are not
+proved. The machine resolution count remains zero.
+
+English report: [TICKET-213](multiplicity-sixone-polynomial-selector.md).
+한국어 보고서: [TICKET-213](multiplicity-sixone-polynomial-selector.ko.md).
+
+## Preserved: 2026-08-12 TICKET-212 Even Defect, 2-Adic Ghosts, Full-Witness Products, and Gap Channels
 
 TICKET-212 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

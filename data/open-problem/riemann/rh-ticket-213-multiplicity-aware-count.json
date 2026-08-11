@@ -1,0 +1,167 @@
+{
+  "schema": "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1",
+  "generated_at": "2026-08-12T23:58:00+09:00",
+  "ticket_id": "RH-TICKET-213",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+  "declared_proposition": "Let R be an upper-half critical-strip rectangle invariant under rho -> 1-conjugate(rho), with no boundary zeros. Let N count all zeros in R with multiplicity and M count the total multiplicity of zeros on Re(s)=1/2. Then N-M is a nonnegative even integer and N-M<2 if and only if every zero in R lies on the critical line. If O instead counts distinct odd-multiplicity line zeros, N-O<2 holds if and only if every zero lies on the line and is simple. Consequently an all-height N-O<2 target is strictly stronger than RH unless simplicity is supplied separately; N-M<2 is the exact multiplicity-aware finite-rectangle RH certificate.",
+  "mathematical_argument": "Symmetry partitions every off-line zero, including multiplicity, into a pair {rho,1-conjugate(rho)}. Hence N-M equals twice the total multiplicity on one side of the line. It is nonnegative and even, so it is below two exactly when it vanishes. For a line zero of multiplicity m, a Hardy-function sign count sees m mod 2 rather than m. Therefore N-O=(N-M)+sum_line(m-(m mod 2)); this vanishes exactly when there are no off-line zeros and every line multiplicity is one. A double line zero gives N-M=0 but N-O=2, proving strictness.",
+  "reproducible_computation": {
+    "theorem": "Let R be an upper-half critical-strip rectangle invariant under rho -> 1-conjugate(rho), with no boundary zeros. Let N count all zeros in R with multiplicity and M count the total multiplicity of zeros on Re(s)=1/2. Then N-M is a nonnegative even integer and N-M<2 if and only if every zero in R lies on the critical line. If O instead counts distinct odd-multiplicity line zeros, N-O<2 holds if and only if every zero lies on the line and is simple. Consequently an all-height N-O<2 target is strictly stronger than RH unless simplicity is supplied separately; N-M<2 is the exact multiplicity-aware finite-rectangle RH certificate.",
+    "proof": "Symmetry partitions every off-line zero, including multiplicity, into a pair {rho,1-conjugate(rho)}. Hence N-M equals twice the total multiplicity on one side of the line. It is nonnegative and even, so it is below two exactly when it vanishes. For a line zero of multiplicity m, a Hardy-function sign count sees m mod 2 rather than m. Therefore N-O=(N-M)+sum_line(m-(m mod 2)); this vanishes exactly when there are no off-line zeros and every line multiplicity is one. A double line zero gives N-M=0 but N-O=2, proving strictness.",
+    "multiplicity_identity": "N-M=2*(off-line multiplicity on one side)",
+    "sign_identity": "N-O=(N-M)+sum_line(m-(m mod 2))",
+    "configuration_rows": [
+      {
+        "configuration": "simple_line_zeros",
+        "critical_line_multiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "off_line_pair_multiplicities": [],
+        "total_zero_count_N": 4,
+        "critical_line_multiplicity_count_M": 4,
+        "distinct_odd_line_zero_count_O": 4,
+        "multiplicity_aware_defect_N_minus_M": 0,
+        "sign_change_defect_N_minus_O": 0,
+        "multiplicity_subtwo_certificate": true,
+        "sign_change_subtwo_certificate": true,
+        "all_zeros_on_critical_line": true,
+        "all_zeros_on_line_and_simple": true
+      },
+      {
+        "configuration": "double_line_zero_is_RH_compatible",
+        "critical_line_multiplicities": [
+          1,
+          2,
+          1
+        ],
+        "off_line_pair_multiplicities": [],
+        "total_zero_count_N": 4,
+        "critical_line_multiplicity_count_M": 4,
+        "distinct_odd_line_zero_count_O": 2,
+        "multiplicity_aware_defect_N_minus_M": 0,
+        "sign_change_defect_N_minus_O": 2,
+        "multiplicity_subtwo_certificate": true,
+        "sign_change_subtwo_certificate": false,
+        "all_zeros_on_critical_line": true,
+        "all_zeros_on_line_and_simple": false
+      },
+      {
+        "configuration": "triple_line_zero_is_RH_compatible",
+        "critical_line_multiplicities": [
+          1,
+          3
+        ],
+        "off_line_pair_multiplicities": [],
+        "total_zero_count_N": 4,
+        "critical_line_multiplicity_count_M": 4,
+        "distinct_odd_line_zero_count_O": 2,
+        "multiplicity_aware_defect_N_minus_M": 0,
+        "sign_change_defect_N_minus_O": 2,
+        "multiplicity_subtwo_certificate": true,
+        "sign_change_subtwo_certificate": false,
+        "all_zeros_on_critical_line": true,
+        "all_zeros_on_line_and_simple": false
+      },
+      {
+        "configuration": "one_simple_off_line_pair",
+        "critical_line_multiplicities": [
+          1,
+          1
+        ],
+        "off_line_pair_multiplicities": [
+          1
+        ],
+        "total_zero_count_N": 4,
+        "critical_line_multiplicity_count_M": 2,
+        "distinct_odd_line_zero_count_O": 2,
+        "multiplicity_aware_defect_N_minus_M": 2,
+        "sign_change_defect_N_minus_O": 2,
+        "multiplicity_subtwo_certificate": false,
+        "sign_change_subtwo_certificate": false,
+        "all_zeros_on_critical_line": false,
+        "all_zeros_on_line_and_simple": false
+      },
+      {
+        "configuration": "one_double_off_line_pair",
+        "critical_line_multiplicities": [],
+        "off_line_pair_multiplicities": [
+          2
+        ],
+        "total_zero_count_N": 4,
+        "critical_line_multiplicity_count_M": 0,
+        "distinct_odd_line_zero_count_O": 0,
+        "multiplicity_aware_defect_N_minus_M": 4,
+        "sign_change_defect_N_minus_O": 4,
+        "multiplicity_subtwo_certificate": false,
+        "sign_change_subtwo_certificate": false,
+        "all_zeros_on_critical_line": false,
+        "all_zeros_on_line_and_simple": false
+      }
+    ],
+    "aggregate": {
+      "multiplicity_aware_subtwo_equivalent_to_rectangle_RH": true,
+      "sign_change_subtwo_equivalent_to_rectangle_RH_plus_simplicity": true,
+      "ticket212_sign_change_target_was_stronger_than_RH": true,
+      "all_height_multiplicity_count_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This corrects the target contract but computes no zeta zeros and does not prove an all-height equality N=M. Multiple line zeros are logical configurations; their existence for zeta is not asserted.",
+    "failure_count": 0
+  },
+  "discarded_route": "using odd-multiplicity sign changes as an RH-equivalent count without a separate simplicity theorem",
+  "remaining_gap": "No all-height equality between total zero multiplicity and critical-line multiplicity is proved for zeta.",
+  "candidate_theorem": "UniformMultiplicityAwareCriticalLineDefectStrictlyBelowTwo",
+  "claim_boundary": "No RH proof and no off-line zeta zero. The finite-rectangle target is corrected so multiple critical-line zeros no longer create a false RH defect.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T212",
+        "label": "EvenCriticalLineDefectSubTwoSaturationCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T213",
+        "label": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N213",
+        "label": "SignChangeSubTwoIsExactlyRHEquivalent",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN213",
+        "label": "UniformMultiplicityAwareCriticalLineDefectStrictlyBelowTwo",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T212",
+        "RH-T213"
+      ],
+      [
+        "RH-T213",
+        "RH-N213"
+      ],
+      [
+        "RH-T213",
+        "RH-OPEN213"
+      ],
+      [
+        "RH-OPEN213",
+        "RH"
+      ]
+    ]
+  }
+}

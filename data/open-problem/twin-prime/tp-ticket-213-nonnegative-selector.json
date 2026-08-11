@@ -1,0 +1,233 @@
+{
+  "schema": "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1",
+  "generated_at": "2026-08-12T23:58:00+09:00",
+  "ticket_id": "TP-TICKET-213",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+  "declared_proposition": "Let H be a finite gap set containing 2, let w_h>=0, and define L_w(t)=sum_{h in H}w_h t_h on the nonnegative gap-channel cone. Then L_w(t)>0 if and only if t_2>0 for every t>=0 exactly when w_2>0 and w_h=0 for all h!=2. Thus no nonnegative weighted bounded-gap statistic contaminated by another gap can isolate twin primes, regardless of how small the contaminating weight is.",
+  "mathematical_argument": "If only w_2 is positive, L_w(t)=w_2 t_2 and the equivalence is immediate. Conversely, testing the extreme ray e_2 forces w_2>0. Testing e_g for each g!=2 forces w_g=0, because t_2=0 there while L_w(e_g)=w_g. These extreme rays exhaust the required coefficient conditions on the nonnegative orthant.",
+  "reproducible_computation": {
+    "theorem": "Let H be a finite gap set containing 2, let w_h>=0, and define L_w(t)=sum_{h in H}w_h t_h on the nonnegative gap-channel cone. Then L_w(t)>0 if and only if t_2>0 for every t>=0 exactly when w_2>0 and w_h=0 for all h!=2. Thus no nonnegative weighted bounded-gap statistic contaminated by another gap can isolate twin primes, regardless of how small the contaminating weight is.",
+    "proof": "If only w_2 is positive, L_w(t)=w_2 t_2 and the equivalence is immediate. Conversely, testing the extreme ray e_2 forces w_2>0. Testing e_g for each g!=2 forces w_g=0, because t_2=0 there while L_w(e_g)=w_g. These extreme rays exhaust the required coefficient conditions on the nonnegative orthant.",
+    "selector_equivalence": "forall t>=0, L_w(t)>0 iff t_2>0  <=>  w_2>0 and support(w)={2}",
+    "weight_audit_rows": [
+      {
+        "label": "pure_gap_two_selector",
+        "gaps": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "nonnegative_weights": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "basis_extreme_ray_rows": [
+          {
+            "positive_gap_channel": 2,
+            "gap_two_positive": true,
+            "functional_value": "1"
+          },
+          {
+            "positive_gap_channel": 4,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          },
+          {
+            "positive_gap_channel": 6,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          },
+          {
+            "positive_gap_channel": 8,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          }
+        ],
+        "support_only_at_gap_two_with_positive_weight": true,
+        "basis_equivalence_observed": true
+      },
+      {
+        "label": "uniform_bounded_gap_aggregate",
+        "gaps": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "nonnegative_weights": [
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "basis_extreme_ray_rows": [
+          {
+            "positive_gap_channel": 2,
+            "gap_two_positive": true,
+            "functional_value": "1"
+          },
+          {
+            "positive_gap_channel": 4,
+            "gap_two_positive": false,
+            "functional_value": "1"
+          },
+          {
+            "positive_gap_channel": 6,
+            "gap_two_positive": false,
+            "functional_value": "1"
+          },
+          {
+            "positive_gap_channel": 8,
+            "gap_two_positive": false,
+            "functional_value": "1"
+          }
+        ],
+        "support_only_at_gap_two_with_positive_weight": false,
+        "basis_equivalence_observed": false
+      },
+      {
+        "label": "small_gap_suppressed_but_contaminated",
+        "gaps": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "nonnegative_weights": [
+          "1/100",
+          "0",
+          "7/3",
+          "0"
+        ],
+        "basis_extreme_ray_rows": [
+          {
+            "positive_gap_channel": 2,
+            "gap_two_positive": true,
+            "functional_value": "1/100"
+          },
+          {
+            "positive_gap_channel": 4,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          },
+          {
+            "positive_gap_channel": 6,
+            "gap_two_positive": false,
+            "functional_value": "7/3"
+          },
+          {
+            "positive_gap_channel": 8,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          }
+        ],
+        "support_only_at_gap_two_with_positive_weight": false,
+        "basis_equivalence_observed": false
+      },
+      {
+        "label": "gap_two_missing",
+        "gaps": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "nonnegative_weights": [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        "basis_extreme_ray_rows": [
+          {
+            "positive_gap_channel": 2,
+            "gap_two_positive": true,
+            "functional_value": "0"
+          },
+          {
+            "positive_gap_channel": 4,
+            "gap_two_positive": false,
+            "functional_value": "1"
+          },
+          {
+            "positive_gap_channel": 6,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          },
+          {
+            "positive_gap_channel": 8,
+            "gap_two_positive": false,
+            "functional_value": "0"
+          }
+        ],
+        "support_only_at_gap_two_with_positive_weight": false,
+        "basis_equivalence_observed": false
+      }
+    ],
+    "aggregate": {
+      "nonnegative_selector_characterization_proved": true,
+      "all_contaminated_nonnegative_aggregates_refuted": true,
+      "signed_or_arithmetic_remainder_selector_constructed": false,
+      "gap_two_positive_on_infinitely_many_blocks_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "This is an exact cone-duality theorem for abstract nonnegative channels. It does not rule out signed arithmetic functionals with controlled remainders and gives no lower bound for actual gap two.",
+    "failure_count": 0
+  },
+  "discarded_route": "every nonnegative bounded-gap weighted aggregate with positive support away from gap two",
+  "remaining_gap": "No signed arithmetic selector with a uniformly controlled remainder, or direct infinite gap-two lower bound, is proved.",
+  "candidate_theorem": "GapTwoSelectiveSignedFunctionalWithUniformArithmeticRemainder",
+  "claim_boundary": "No Twin Prime proof or counterexample. The aggregate no-go now covers every nonnegative weighting and identifies the only exact nonnegative selector.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T212",
+        "label": "DyadicGapTwoEquivalenceAndFiniteGapAggregateNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T213",
+        "label": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N213",
+        "label": "ContaminatedNonnegativeWeightsCanSelectGapTwo",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN213",
+        "label": "GapTwoSelectiveSignedFunctionalWithUniformArithmeticRemainder",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T212",
+        "TP-T213"
+      ],
+      [
+        "TP-T213",
+        "TP-N213"
+      ],
+      [
+        "TP-T213",
+        "TP-OPEN213"
+      ],
+      [
+        "TP-OPEN213",
+        "TP"
+      ]
+    ]
+  }
+}

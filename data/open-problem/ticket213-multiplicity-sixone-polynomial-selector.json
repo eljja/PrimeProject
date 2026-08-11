@@ -1,0 +1,1006 @@
+{
+  "schema": "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1",
+  "generated_at": "2026-08-12T23:58:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-213 proves four exact partial or no-go theorems and resolves none of the parent conjectures. It corrects the RH counting target, eliminates the full six-one Collatz cycle stratum, rejects all fixed polynomial Goldbach witness majorants, and characterizes every exact nonnegative gap-two selector.",
+  "multiplicity_sixone_polynomial_selector_audit": {
+    "theorem_name": "MultiplicitySixOnePolynomialSelectorAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-213 proves four exact partial or no-go theorems and resolves none of the parent conjectures. It corrects the RH counting target, eliminates the full six-one Collatz cycle stratum, rejects all fixed polynomial Goldbach witness majorants, and characterizes every exact nonnegative gap-two selector.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-213",
+      "theorem_name": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+      "declared_proposition": "Let R be an upper-half critical-strip rectangle invariant under rho -> 1-conjugate(rho), with no boundary zeros. Let N count all zeros in R with multiplicity and M count the total multiplicity of zeros on Re(s)=1/2. Then N-M is a nonnegative even integer and N-M<2 if and only if every zero in R lies on the critical line. If O instead counts distinct odd-multiplicity line zeros, N-O<2 holds if and only if every zero lies on the line and is simple. Consequently an all-height N-O<2 target is strictly stronger than RH unless simplicity is supplied separately; N-M<2 is the exact multiplicity-aware finite-rectangle RH certificate.",
+      "mathematical_argument": "Symmetry partitions every off-line zero, including multiplicity, into a pair {rho,1-conjugate(rho)}. Hence N-M equals twice the total multiplicity on one side of the line. It is nonnegative and even, so it is below two exactly when it vanishes. For a line zero of multiplicity m, a Hardy-function sign count sees m mod 2 rather than m. Therefore N-O=(N-M)+sum_line(m-(m mod 2)); this vanishes exactly when there are no off-line zeros and every line multiplicity is one. A double line zero gives N-M=0 but N-O=2, proving strictness.",
+      "reproducible_computation": {
+        "theorem": "Let R be an upper-half critical-strip rectangle invariant under rho -> 1-conjugate(rho), with no boundary zeros. Let N count all zeros in R with multiplicity and M count the total multiplicity of zeros on Re(s)=1/2. Then N-M is a nonnegative even integer and N-M<2 if and only if every zero in R lies on the critical line. If O instead counts distinct odd-multiplicity line zeros, N-O<2 holds if and only if every zero lies on the line and is simple. Consequently an all-height N-O<2 target is strictly stronger than RH unless simplicity is supplied separately; N-M<2 is the exact multiplicity-aware finite-rectangle RH certificate.",
+        "proof": "Symmetry partitions every off-line zero, including multiplicity, into a pair {rho,1-conjugate(rho)}. Hence N-M equals twice the total multiplicity on one side of the line. It is nonnegative and even, so it is below two exactly when it vanishes. For a line zero of multiplicity m, a Hardy-function sign count sees m mod 2 rather than m. Therefore N-O=(N-M)+sum_line(m-(m mod 2)); this vanishes exactly when there are no off-line zeros and every line multiplicity is one. A double line zero gives N-M=0 but N-O=2, proving strictness.",
+        "multiplicity_identity": "N-M=2*(off-line multiplicity on one side)",
+        "sign_identity": "N-O=(N-M)+sum_line(m-(m mod 2))",
+        "configuration_rows": [
+          {
+            "configuration": "simple_line_zeros",
+            "critical_line_multiplicities": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "off_line_pair_multiplicities": [],
+            "total_zero_count_N": 4,
+            "critical_line_multiplicity_count_M": 4,
+            "distinct_odd_line_zero_count_O": 4,
+            "multiplicity_aware_defect_N_minus_M": 0,
+            "sign_change_defect_N_minus_O": 0,
+            "multiplicity_subtwo_certificate": true,
+            "sign_change_subtwo_certificate": true,
+            "all_zeros_on_critical_line": true,
+            "all_zeros_on_line_and_simple": true
+          },
+          {
+            "configuration": "double_line_zero_is_RH_compatible",
+            "critical_line_multiplicities": [
+              1,
+              2,
+              1
+            ],
+            "off_line_pair_multiplicities": [],
+            "total_zero_count_N": 4,
+            "critical_line_multiplicity_count_M": 4,
+            "distinct_odd_line_zero_count_O": 2,
+            "multiplicity_aware_defect_N_minus_M": 0,
+            "sign_change_defect_N_minus_O": 2,
+            "multiplicity_subtwo_certificate": true,
+            "sign_change_subtwo_certificate": false,
+            "all_zeros_on_critical_line": true,
+            "all_zeros_on_line_and_simple": false
+          },
+          {
+            "configuration": "triple_line_zero_is_RH_compatible",
+            "critical_line_multiplicities": [
+              1,
+              3
+            ],
+            "off_line_pair_multiplicities": [],
+            "total_zero_count_N": 4,
+            "critical_line_multiplicity_count_M": 4,
+            "distinct_odd_line_zero_count_O": 2,
+            "multiplicity_aware_defect_N_minus_M": 0,
+            "sign_change_defect_N_minus_O": 2,
+            "multiplicity_subtwo_certificate": true,
+            "sign_change_subtwo_certificate": false,
+            "all_zeros_on_critical_line": true,
+            "all_zeros_on_line_and_simple": false
+          },
+          {
+            "configuration": "one_simple_off_line_pair",
+            "critical_line_multiplicities": [
+              1,
+              1
+            ],
+            "off_line_pair_multiplicities": [
+              1
+            ],
+            "total_zero_count_N": 4,
+            "critical_line_multiplicity_count_M": 2,
+            "distinct_odd_line_zero_count_O": 2,
+            "multiplicity_aware_defect_N_minus_M": 2,
+            "sign_change_defect_N_minus_O": 2,
+            "multiplicity_subtwo_certificate": false,
+            "sign_change_subtwo_certificate": false,
+            "all_zeros_on_critical_line": false,
+            "all_zeros_on_line_and_simple": false
+          },
+          {
+            "configuration": "one_double_off_line_pair",
+            "critical_line_multiplicities": [],
+            "off_line_pair_multiplicities": [
+              2
+            ],
+            "total_zero_count_N": 4,
+            "critical_line_multiplicity_count_M": 0,
+            "distinct_odd_line_zero_count_O": 0,
+            "multiplicity_aware_defect_N_minus_M": 4,
+            "sign_change_defect_N_minus_O": 4,
+            "multiplicity_subtwo_certificate": false,
+            "sign_change_subtwo_certificate": false,
+            "all_zeros_on_critical_line": false,
+            "all_zeros_on_line_and_simple": false
+          }
+        ],
+        "aggregate": {
+          "multiplicity_aware_subtwo_equivalent_to_rectangle_RH": true,
+          "sign_change_subtwo_equivalent_to_rectangle_RH_plus_simplicity": true,
+          "ticket212_sign_change_target_was_stronger_than_RH": true,
+          "all_height_multiplicity_count_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "This corrects the target contract but computes no zeta zeros and does not prove an all-height equality N=M. Multiple line zeros are logical configurations; their existence for zeta is not asserted.",
+        "failure_count": 0
+      },
+      "logical_limit": "No all-height equality between total zero multiplicity and critical-line multiplicity is proved for zeta.",
+      "route_decision": {
+        "discard": "using odd-multiplicity sign changes as an RH-equivalent count without a separate simplicity theorem",
+        "retain": "total critical-line multiplicity M and the exact symmetry-quantized defect N-M",
+        "next_single_lemma": "UniformMultiplicityAwareCriticalLineDefectStrictlyBelowTwo"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T212",
+            "label": "EvenCriticalLineDefectSubTwoSaturationCertificate",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T213",
+            "label": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N213",
+            "label": "SignChangeSubTwoIsExactlyRHEquivalent",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN213",
+            "label": "UniformMultiplicityAwareCriticalLineDefectStrictlyBelowTwo",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T212",
+            "RH-T213"
+          ],
+          [
+            "RH-T213",
+            "RH-N213"
+          ],
+          [
+            "RH-T213",
+            "RH-OPEN213"
+          ],
+          [
+            "RH-OPEN213",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-line zeta zero. The finite-rectangle target is corrected so multiple critical-line zeros no longer create a false RH defect."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-213",
+      "theorem_name": "CompleteSixValuationOneCycleStratumExclusion",
+      "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly six valuation entries equal to one and every other valuation at least two. Rotating a hypothetical cycle to its least odd element forces the first valuation to be one and the last to be at least two. The cycle product bound gives h<=floor(6 log(2)/log(6/5))=22. Exact ordinary-integer divisibility enumeration of all 376,788 admissible minimum-rotation candidate words of lengths 7 through 22 finds no positive odd integer fixed point. Combined with TICKET-210, every hypothetical nontrivial positive cycle therefore has at least seven valuation-one entries.",
+      "mathematical_argument": "For a least cycle element m>=3, valuation one is forced on the outgoing step and valuation at least two on the incoming step. If exactly k entries equal one, then A>=2h-k. Multiplying 2^A=product_i(3+1/x_i) and using x_i>=3 gives 2^A<=(10/3)^h, hence (6/5)^h<=2^k. At k=6 this leaves only 7<=h<=22 and the same inequality gives a finite upper bound for A. The position choices and weak compositions enumerate every such least-rotation candidate. For each word the exact cycle equation is (2^A-3^h)x=C. None has positive divisor dividing C, as recorded by the deterministic transcript hashes. Length h>=23 is excluded by the product inequality.",
+      "reproducible_computation": {
+        "theorem": "No nontrivial positive accelerated Collatz cycle has exactly six valuation entries equal to one and every other valuation at least two. Rotating a hypothetical cycle to its least odd element forces the first valuation to be one and the last to be at least two. The cycle product bound gives h<=floor(6 log(2)/log(6/5))=22. Exact ordinary-integer divisibility enumeration of all 376,788 admissible minimum-rotation candidate words of lengths 7 through 22 finds no positive odd integer fixed point. Combined with TICKET-210, every hypothetical nontrivial positive cycle therefore has at least seven valuation-one entries.",
+        "proof": "For a least cycle element m>=3, valuation one is forced on the outgoing step and valuation at least two on the incoming step. If exactly k entries equal one, then A>=2h-k. Multiplying 2^A=product_i(3+1/x_i) and using x_i>=3 gives 2^A<=(10/3)^h, hence (6/5)^h<=2^k. At k=6 this leaves only 7<=h<=22 and the same inequality gives a finite upper bound for A. The position choices and weak compositions enumerate every such least-rotation candidate. For each word the exact cycle equation is (2^A-3^h)x=C. None has positive divisor dividing C, as recorded by the deterministic transcript hashes. Length h>=23 is excluded by the product inequality.",
+        "general_k_one_length_cap": "h<=floor(k*log(2)/log(6/5)) for a cycle with exactly k ones",
+        "k": 6,
+        "exact_length_cap_h": 22,
+        "exact_enumeration_rows": [
+          {
+            "length_h": 7,
+            "minimum_total_valuation_2h_minus_6": 8,
+            "maximum_total_valuation_from_minimum_bound": 12,
+            "enumerated_word_count": 5,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "894c81ea44a2149489b62026ceb428ac570262ad78eec3ee73e13f3380d90519"
+          },
+          {
+            "length_h": 8,
+            "minimum_total_valuation_2h_minus_6": 10,
+            "maximum_total_valuation_from_minimum_bound": 13,
+            "enumerated_word_count": 60,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "6d6be99f3cfaee3d40e1a660d089d2df6554f569d5ddf25d30c8d2c0ae5ca1c3"
+          },
+          {
+            "length_h": 9,
+            "minimum_total_valuation_2h_minus_6": 12,
+            "maximum_total_valuation_from_minimum_bound": 15,
+            "enumerated_word_count": 420,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "8f6e378b99389c3f003e6c4c89f22379dcf596d576bbd2666569619e155a4e26"
+          },
+          {
+            "length_h": 10,
+            "minimum_total_valuation_2h_minus_6": 14,
+            "maximum_total_valuation_from_minimum_bound": 17,
+            "enumerated_word_count": 1960,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "4979744a900531877ffdcfea4761895b085d17c6eb80421e6556e9ba77756974"
+          },
+          {
+            "length_h": 11,
+            "minimum_total_valuation_2h_minus_6": 16,
+            "maximum_total_valuation_from_minimum_bound": 19,
+            "enumerated_word_count": 7056,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "3d5dc2a2f353af8ce6aa75adcca18343bcf8402f4c61d9d8258eb0f4c2e815f5"
+          },
+          {
+            "length_h": 12,
+            "minimum_total_valuation_2h_minus_6": 18,
+            "maximum_total_valuation_from_minimum_bound": 20,
+            "enumerated_word_count": 7056,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "2ec2f2fb1c1a66ef8af01f0c3cb78ae444cbbb542fe7978a54b768521fcdab09"
+          },
+          {
+            "length_h": 13,
+            "minimum_total_valuation_2h_minus_6": 20,
+            "maximum_total_valuation_from_minimum_bound": 22,
+            "enumerated_word_count": 16632,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "f1e0b7cec97755833ab48fe566769cba2660e2c6d0672cfc367a5982dccd126b"
+          },
+          {
+            "length_h": 14,
+            "minimum_total_valuation_2h_minus_6": 22,
+            "maximum_total_valuation_from_minimum_bound": 24,
+            "enumerated_word_count": 35640,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "9f9d4b53aa237fe3abbe06d549dea966cee396c1d0a73fc1830a54f9c9e7c28c"
+          },
+          {
+            "length_h": 15,
+            "minimum_total_valuation_2h_minus_6": 24,
+            "maximum_total_valuation_from_minimum_bound": 26,
+            "enumerated_word_count": 70785,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "ed841d232dbba9332872a951af2baf808767d1d498a0344e0c4892646f8597ec"
+          },
+          {
+            "length_h": 16,
+            "minimum_total_valuation_2h_minus_6": 26,
+            "maximum_total_valuation_from_minimum_bound": 27,
+            "enumerated_word_count": 22022,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "73444076d5144aae04ce57ef29f5d5c3b176909f080280e4818bf5103ff21b0b"
+          },
+          {
+            "length_h": 17,
+            "minimum_total_valuation_2h_minus_6": 28,
+            "maximum_total_valuation_from_minimum_bound": 29,
+            "enumerated_word_count": 36036,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "5a759320b9bfaf9e24a90a586b3cb5aeb4ebf61962427cdd4500635d437023ed"
+          },
+          {
+            "length_h": 18,
+            "minimum_total_valuation_2h_minus_6": 30,
+            "maximum_total_valuation_from_minimum_bound": 31,
+            "enumerated_word_count": 56784,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "abefb5c513bfefec41c3a483509c20cfd3b23dd228c2e0c3c70d02c737107ae9"
+          },
+          {
+            "length_h": 19,
+            "minimum_total_valuation_2h_minus_6": 32,
+            "maximum_total_valuation_from_minimum_bound": 33,
+            "enumerated_word_count": 86632,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "630389b8739b5ec89ae0b7cb74eaa52fe7f2c54cb36fdfefbf4f4c37aca1f4b6"
+          },
+          {
+            "length_h": 20,
+            "minimum_total_valuation_2h_minus_6": 34,
+            "maximum_total_valuation_from_minimum_bound": 34,
+            "enumerated_word_count": 8568,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "acd435f4b987847b440fd5a8ede36cc99ae777bdedb59f97482e928d0616ef8b"
+          },
+          {
+            "length_h": 21,
+            "minimum_total_valuation_2h_minus_6": 36,
+            "maximum_total_valuation_from_minimum_bound": 36,
+            "enumerated_word_count": 11628,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "56f86ccc2caa519e83d17612dba84c05d30ca0201f5063665b5a46c6b3595892"
+          },
+          {
+            "length_h": 22,
+            "minimum_total_valuation_2h_minus_6": 38,
+            "maximum_total_valuation_from_minimum_bound": 38,
+            "enumerated_word_count": 15504,
+            "ordinary_divisibility_candidate_count": 0,
+            "positive_odd_integer_fixed_point_count": 0,
+            "valuation_word_and_divisor_sha256": "e667b2af3c639d2bb2d02bd4974090ed38672dcfc72ed6a6017f2648e77e67f0"
+          }
+        ],
+        "total_exact_words_enumerated": 376788,
+        "ordinary_divisibility_candidate_count": 0,
+        "positive_odd_integer_fixed_point_count": 0,
+        "length_at_least_twenty_three_exclusion": {
+          "threshold_h": 23,
+          "left_2_pow_40_times_3_pow_23": "103511519796081828298752",
+          "right_10_pow_23": "100000000000000000000000",
+          "left_exceeds_right": true
+        },
+        "aggregate": {
+          "exactly_six_valuation_one_cycle_stratum_excluded": true,
+          "minimum_required_valuation_one_multiplicity_in_nontrivial_cycle": 7,
+          "seven_or_more_one_necklaces_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "This is a finite exhaustive proof for one periodic stratum, not a proof of Collatz. Cycles with seven or more valuation-one entries and all nonperiodic divergent trajectories remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Cycles with at least seven valuation-one entries and nonperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "every accelerated positive cycle word with exactly six valuation-one entries",
+        "retain": "ordinary divisor tests on the unbounded primitive strata with seven or more valuation-one entries",
+        "next_single_lemma": "UniformPrimitiveOddDivisorWitnessForAllOneCountsAtLeastSeven"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T212",
+            "label": "TwoAdicGhostUniversalityAndOddDivisibilityCorrection",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T213",
+            "label": "CompleteSixValuationOneCycleStratumExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N213",
+            "label": "SixValuationOnePositiveCycleStratum",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN213",
+            "label": "UniformPrimitiveOddDivisorWitnessForAllOneCountsAtLeastSeven",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T212",
+            "CO-T213"
+          ],
+          [
+            "CO-T213",
+            "CO-N213"
+          ],
+          [
+            "CO-T213",
+            "CO-OPEN213"
+          ],
+          [
+            "CO-OPEN213",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or positive integer counterexample. One previously open periodic stratum is exhaustively eliminated with exact integer arithmetic."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-213",
+      "theorem_name": "FixedDegreePolynomialWitnessMajorantNoGo",
+      "declared_proposition": "Let A(N) be the number of unordered Goldbach witnesses of an even target N. There is no fixed real polynomial P such that P(0)>=1 and 0<=P(A(N))<1 for every represented even N. TICKET-212 proves that the attained positive values A(N) are unbounded. A nonconstant polynomial tends to positive or negative infinity along that unbounded sequence, violating respectively P<1 or P>=0; a constant polynomial cannot satisfy both P(0)>=1 and P(A(N))<1. Moreover, any polynomial agreeing with the exact zero indicator on A=0,1,...,M has degree at least M, and the degree-M product prod_{j=1}^M(1-A/j) attains this bound. Thus polynomial complexity must grow with the witness range.",
+      "mathematical_argument": "The unbounded attained sequence A(N_k) tends to infinity after passing to a subsequence. The sign of a nonconstant polynomial on the positive tail is the sign of its leading coefficient, and its absolute value diverges. This contradicts membership in [0,1). A constant c must have c>=1 at zero and c<1 on represented targets, also impossible. For finite interpolation, a polynomial with value zero at each of 1,...,M has M distinct roots; because its value at zero is one it is nonzero, so its degree is at least M. The displayed product has exactly those roots and value one at zero.",
+      "reproducible_computation": {
+        "theorem": "Let A(N) be the number of unordered Goldbach witnesses of an even target N. There is no fixed real polynomial P such that P(0)>=1 and 0<=P(A(N))<1 for every represented even N. TICKET-212 proves that the attained positive values A(N) are unbounded. A nonconstant polynomial tends to positive or negative infinity along that unbounded sequence, violating respectively P<1 or P>=0; a constant polynomial cannot satisfy both P(0)>=1 and P(A(N))<1. Moreover, any polynomial agreeing with the exact zero indicator on A=0,1,...,M has degree at least M, and the degree-M product prod_{j=1}^M(1-A/j) attains this bound. Thus polynomial complexity must grow with the witness range.",
+        "proof": "The unbounded attained sequence A(N_k) tends to infinity after passing to a subsequence. The sign of a nonconstant polynomial on the positive tail is the sign of its leading coefficient, and its absolute value diverges. This contradicts membership in [0,1). A constant c must have c>=1 at zero and c<1 on represented targets, also impossible. For finite interpolation, a polynomial with value zero at each of 1,...,M has M distinct roots; because its value at zero is one it is nonzero, so its degree is at least M. The displayed product has exactly those roots and value one at zero.",
+        "pointwise_majorant_contract": "P(0)>=1 and 0<=P(A(N))<1 for every represented target N",
+        "finite_interpolation_rows": [
+          {
+            "interpolation_order_M": 1,
+            "degree": 1,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "-1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "-1"
+          },
+          {
+            "interpolation_order_M": 2,
+            "degree": 2,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "1"
+          },
+          {
+            "interpolation_order_M": 3,
+            "degree": 3,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "-1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "-1"
+          },
+          {
+            "interpolation_order_M": 4,
+            "degree": 4,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "1"
+          },
+          {
+            "interpolation_order_M": 5,
+            "degree": 5,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "-1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "-1"
+          },
+          {
+            "interpolation_order_M": 6,
+            "degree": 6,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "1"
+          },
+          {
+            "interpolation_order_M": 7,
+            "degree": 7,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "-1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "-1"
+          },
+          {
+            "interpolation_order_M": 8,
+            "degree": 8,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "1"
+          },
+          {
+            "interpolation_order_M": 9,
+            "degree": 9,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "-1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "-1"
+          },
+          {
+            "interpolation_order_M": 10,
+            "degree": 10,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "1"
+          },
+          {
+            "interpolation_order_M": 11,
+            "degree": 11,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "-1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "-1"
+          },
+          {
+            "interpolation_order_M": 12,
+            "degree": 12,
+            "values_at_A_0_through_M_plus_1": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            "matches_zero_indicator_on_0_through_M": true,
+            "first_out_of_range_value_at_M_plus_1": "1"
+          }
+        ],
+        "polynomial_tail_cases": [
+          {
+            "label": "constant_one",
+            "degree": 0,
+            "P_0": "1",
+            "tail_behavior": "equals 1, violating strict subunit value"
+          },
+          {
+            "label": "positive_leading_coefficient",
+            "degree": 2,
+            "P_0": "1",
+            "tail_behavior": "tends to positive infinity"
+          },
+          {
+            "label": "negative_leading_coefficient",
+            "degree": 3,
+            "P_0": "1",
+            "tail_behavior": "tends to negative infinity"
+          }
+        ],
+        "aggregate": {
+          "fixed_degree_polynomial_majorant_route_refuted": true,
+          "degree_at_least_witness_range_for_exact_interpolation_proved": true,
+          "scale_growing_or_nonpolynomial_resummation_required": true,
+          "uniform_subunit_exception_bound_proved": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem rejects fixed polynomials of the witness count only. It does not reject scale-dependent, rational, exponential, or analytic resummations, and proves no Goldbach tail positivity.",
+        "failure_count": 0
+      },
+      "logical_limit": "No scale-growing or nonpolynomial resummation has a proved uniformly subunit exceptional tail.",
+      "route_decision": {
+        "discard": "every fixed-degree polynomial in the Goldbach witness count as a pointwise subunit exception majorant",
+        "retain": "scale-growing or nonpolynomial full-witness resummation with a uniform dyadic tail bound",
+        "next_single_lemma": "ScaleGrowingWitnessResummationWithUniformDyadicTailBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T212",
+            "label": "FullWitnessProductIdentityAndFixedBonferroniNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T213",
+            "label": "FixedDegreePolynomialWitnessMajorantNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N213",
+            "label": "FixedPolynomialCanMajorizeAllGoldbachExceptionsBelowOne",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN213",
+            "label": "ScaleGrowingWitnessResummationWithUniformDyadicTailBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T212",
+            "GB-T213"
+          ],
+          [
+            "GB-T213",
+            "GB-N213"
+          ],
+          [
+            "GB-T213",
+            "GB-OPEN213"
+          ],
+          [
+            "GB-OPEN213",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The fixed-Bonferroni obstruction is extended to every fixed polynomial of representation multiplicity."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-213",
+      "theorem_name": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+      "declared_proposition": "Let H be a finite gap set containing 2, let w_h>=0, and define L_w(t)=sum_{h in H}w_h t_h on the nonnegative gap-channel cone. Then L_w(t)>0 if and only if t_2>0 for every t>=0 exactly when w_2>0 and w_h=0 for all h!=2. Thus no nonnegative weighted bounded-gap statistic contaminated by another gap can isolate twin primes, regardless of how small the contaminating weight is.",
+      "mathematical_argument": "If only w_2 is positive, L_w(t)=w_2 t_2 and the equivalence is immediate. Conversely, testing the extreme ray e_2 forces w_2>0. Testing e_g for each g!=2 forces w_g=0, because t_2=0 there while L_w(e_g)=w_g. These extreme rays exhaust the required coefficient conditions on the nonnegative orthant.",
+      "reproducible_computation": {
+        "theorem": "Let H be a finite gap set containing 2, let w_h>=0, and define L_w(t)=sum_{h in H}w_h t_h on the nonnegative gap-channel cone. Then L_w(t)>0 if and only if t_2>0 for every t>=0 exactly when w_2>0 and w_h=0 for all h!=2. Thus no nonnegative weighted bounded-gap statistic contaminated by another gap can isolate twin primes, regardless of how small the contaminating weight is.",
+        "proof": "If only w_2 is positive, L_w(t)=w_2 t_2 and the equivalence is immediate. Conversely, testing the extreme ray e_2 forces w_2>0. Testing e_g for each g!=2 forces w_g=0, because t_2=0 there while L_w(e_g)=w_g. These extreme rays exhaust the required coefficient conditions on the nonnegative orthant.",
+        "selector_equivalence": "forall t>=0, L_w(t)>0 iff t_2>0  <=>  w_2>0 and support(w)={2}",
+        "weight_audit_rows": [
+          {
+            "label": "pure_gap_two_selector",
+            "gaps": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "nonnegative_weights": [
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            "basis_extreme_ray_rows": [
+              {
+                "positive_gap_channel": 2,
+                "gap_two_positive": true,
+                "functional_value": "1"
+              },
+              {
+                "positive_gap_channel": 4,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              },
+              {
+                "positive_gap_channel": 6,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              },
+              {
+                "positive_gap_channel": 8,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              }
+            ],
+            "support_only_at_gap_two_with_positive_weight": true,
+            "basis_equivalence_observed": true
+          },
+          {
+            "label": "uniform_bounded_gap_aggregate",
+            "gaps": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "nonnegative_weights": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ],
+            "basis_extreme_ray_rows": [
+              {
+                "positive_gap_channel": 2,
+                "gap_two_positive": true,
+                "functional_value": "1"
+              },
+              {
+                "positive_gap_channel": 4,
+                "gap_two_positive": false,
+                "functional_value": "1"
+              },
+              {
+                "positive_gap_channel": 6,
+                "gap_two_positive": false,
+                "functional_value": "1"
+              },
+              {
+                "positive_gap_channel": 8,
+                "gap_two_positive": false,
+                "functional_value": "1"
+              }
+            ],
+            "support_only_at_gap_two_with_positive_weight": false,
+            "basis_equivalence_observed": false
+          },
+          {
+            "label": "small_gap_suppressed_but_contaminated",
+            "gaps": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "nonnegative_weights": [
+              "1/100",
+              "0",
+              "7/3",
+              "0"
+            ],
+            "basis_extreme_ray_rows": [
+              {
+                "positive_gap_channel": 2,
+                "gap_two_positive": true,
+                "functional_value": "1/100"
+              },
+              {
+                "positive_gap_channel": 4,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              },
+              {
+                "positive_gap_channel": 6,
+                "gap_two_positive": false,
+                "functional_value": "7/3"
+              },
+              {
+                "positive_gap_channel": 8,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              }
+            ],
+            "support_only_at_gap_two_with_positive_weight": false,
+            "basis_equivalence_observed": false
+          },
+          {
+            "label": "gap_two_missing",
+            "gaps": [
+              2,
+              4,
+              6,
+              8
+            ],
+            "nonnegative_weights": [
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            "basis_extreme_ray_rows": [
+              {
+                "positive_gap_channel": 2,
+                "gap_two_positive": true,
+                "functional_value": "0"
+              },
+              {
+                "positive_gap_channel": 4,
+                "gap_two_positive": false,
+                "functional_value": "1"
+              },
+              {
+                "positive_gap_channel": 6,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              },
+              {
+                "positive_gap_channel": 8,
+                "gap_two_positive": false,
+                "functional_value": "0"
+              }
+            ],
+            "support_only_at_gap_two_with_positive_weight": false,
+            "basis_equivalence_observed": false
+          }
+        ],
+        "aggregate": {
+          "nonnegative_selector_characterization_proved": true,
+          "all_contaminated_nonnegative_aggregates_refuted": true,
+          "signed_or_arithmetic_remainder_selector_constructed": false,
+          "gap_two_positive_on_infinitely_many_blocks_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "This is an exact cone-duality theorem for abstract nonnegative channels. It does not rule out signed arithmetic functionals with controlled remainders and gives no lower bound for actual gap two.",
+        "failure_count": 0
+      },
+      "logical_limit": "No signed arithmetic selector with a uniformly controlled remainder, or direct infinite gap-two lower bound, is proved.",
+      "route_decision": {
+        "discard": "every nonnegative bounded-gap weighted aggregate with positive support away from gap two",
+        "retain": "a gap-two-selective signed arithmetic functional with a uniform remainder estimate",
+        "next_single_lemma": "GapTwoSelectiveSignedFunctionalWithUniformArithmeticRemainder"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T212",
+            "label": "DyadicGapTwoEquivalenceAndFiniteGapAggregateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T213",
+            "label": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N213",
+            "label": "ContaminatedNonnegativeWeightsCanSelectGapTwo",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN213",
+            "label": "GapTwoSelectiveSignedFunctionalWithUniformArithmeticRemainder",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T212",
+            "TP-T213"
+          ],
+          [
+            "TP-T213",
+            "TP-N213"
+          ],
+          [
+            "TP-T213",
+            "TP-OPEN213"
+          ],
+          [
+            "TP-OPEN213",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or counterexample. The aggregate no-go now covers every nonnegative weighting and identifies the only exact nonnegative selector."
+    },
+    "cross_problem_synthesis": "The common requirement is target-selective information. Multiplicity must be counted rather than inferred from signs; Collatz integrality needs its ordinary odd divisor; Goldbach needs complexity growing with the witness range; and Twin Prime needs a functional that annihilates every non-two gap or controls signed cancellation arithmetically.",
+    "literature_boundary": {
+      "riemann": "Published finite-height verification does not provide the all-height multiplicity equality required here; no novelty claim is made for symmetry counting.",
+      "collatz": "The finite stratum proof uses the standard accelerated-cycle equation and PrimeProject's earlier product bound and primitive-word reductions.",
+      "goldbach": "Unbounded representation multiplicity imports the prime number theorem through TICKET-212; no new analytic Goldbach range is claimed.",
+      "twin_prime": "Maynard-style bounded-gap theorems control an aggregate existence statement, not the exact gap-two channel characterized here."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-213",
+      "status": "open_not_proven",
+      "declared_proposition": "Let R be an upper-half critical-strip rectangle invariant under rho -> 1-conjugate(rho), with no boundary zeros. Let N count all zeros in R with multiplicity and M count the total multiplicity of zeros on Re(s)=1/2. Then N-M is a nonnegative even integer and N-M<2 if and only if every zero in R lies on the critical line. If O instead counts distinct odd-multiplicity line zeros, N-O<2 holds if and only if every zero lies on the line and is simple. Consequently an all-height N-O<2 target is strictly stronger than RH unless simplicity is supplied separately; N-M<2 is the exact multiplicity-aware finite-rectangle RH certificate.",
+      "new_result": "MultiplicityAwareCriticalLineCountEquivalenceAndSignChangeNoGo",
+      "discarded_route": "using odd-multiplicity sign changes as an RH-equivalent count without a separate simplicity theorem",
+      "remaining_gap": "No all-height equality between total zero multiplicity and critical-line multiplicity is proved for zeta.",
+      "candidate_theorem": "UniformMultiplicityAwareCriticalLineDefectStrictlyBelowTwo",
+      "bounded_result": {
+        "audit_ref": "#/multiplicity_sixone_polynomial_selector_audit"
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-213",
+      "status": "open_not_proven",
+      "declared_proposition": "No nontrivial positive accelerated Collatz cycle has exactly six valuation entries equal to one and every other valuation at least two. Rotating a hypothetical cycle to its least odd element forces the first valuation to be one and the last to be at least two. The cycle product bound gives h<=floor(6 log(2)/log(6/5))=22. Exact ordinary-integer divisibility enumeration of all 376,788 admissible minimum-rotation candidate words of lengths 7 through 22 finds no positive odd integer fixed point. Combined with TICKET-210, every hypothetical nontrivial positive cycle therefore has at least seven valuation-one entries.",
+      "new_result": "CompleteSixValuationOneCycleStratumExclusion",
+      "discarded_route": "every accelerated positive cycle word with exactly six valuation-one entries",
+      "remaining_gap": "Cycles with at least seven valuation-one entries and nonperiodic divergence remain open.",
+      "candidate_theorem": "UniformPrimitiveOddDivisorWitnessForAllOneCountsAtLeastSeven",
+      "bounded_result": {
+        "audit_ref": "#/multiplicity_sixone_polynomial_selector_audit"
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-213",
+      "status": "open_not_proven",
+      "declared_proposition": "Let A(N) be the number of unordered Goldbach witnesses of an even target N. There is no fixed real polynomial P such that P(0)>=1 and 0<=P(A(N))<1 for every represented even N. TICKET-212 proves that the attained positive values A(N) are unbounded. A nonconstant polynomial tends to positive or negative infinity along that unbounded sequence, violating respectively P<1 or P>=0; a constant polynomial cannot satisfy both P(0)>=1 and P(A(N))<1. Moreover, any polynomial agreeing with the exact zero indicator on A=0,1,...,M has degree at least M, and the degree-M product prod_{j=1}^M(1-A/j) attains this bound. Thus polynomial complexity must grow with the witness range.",
+      "new_result": "FixedDegreePolynomialWitnessMajorantNoGo",
+      "discarded_route": "every fixed-degree polynomial in the Goldbach witness count as a pointwise subunit exception majorant",
+      "remaining_gap": "No scale-growing or nonpolynomial resummation has a proved uniformly subunit exceptional tail.",
+      "candidate_theorem": "ScaleGrowingWitnessResummationWithUniformDyadicTailBelowOne",
+      "bounded_result": {
+        "audit_ref": "#/multiplicity_sixone_polynomial_selector_audit"
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-213",
+      "status": "open_not_proven",
+      "declared_proposition": "Let H be a finite gap set containing 2, let w_h>=0, and define L_w(t)=sum_{h in H}w_h t_h on the nonnegative gap-channel cone. Then L_w(t)>0 if and only if t_2>0 for every t>=0 exactly when w_2>0 and w_h=0 for all h!=2. Thus no nonnegative weighted bounded-gap statistic contaminated by another gap can isolate twin primes, regardless of how small the contaminating weight is.",
+      "new_result": "NonnegativeGapFunctionalIsolationIffSupportAtTwo",
+      "discarded_route": "every nonnegative bounded-gap weighted aggregate with positive support away from gap two",
+      "remaining_gap": "No signed arithmetic selector with a uniformly controlled remainder, or direct infinite gap-two lower bound, is proved.",
+      "candidate_theorem": "GapTwoSelectiveSignedFunctionalWithUniformArithmeticRemainder",
+      "bounded_result": {
+        "audit_ref": "#/multiplicity_sixone_polynomial_selector_audit"
+      }
+    }
+  ]
+}

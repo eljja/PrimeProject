@@ -1,0 +1,295 @@
+{
+  "schema": "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1",
+  "generated_at": "2026-08-12T23:58:00+09:00",
+  "ticket_id": "GB-TICKET-213",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "FixedDegreePolynomialWitnessMajorantNoGo",
+  "declared_proposition": "Let A(N) be the number of unordered Goldbach witnesses of an even target N. There is no fixed real polynomial P such that P(0)>=1 and 0<=P(A(N))<1 for every represented even N. TICKET-212 proves that the attained positive values A(N) are unbounded. A nonconstant polynomial tends to positive or negative infinity along that unbounded sequence, violating respectively P<1 or P>=0; a constant polynomial cannot satisfy both P(0)>=1 and P(A(N))<1. Moreover, any polynomial agreeing with the exact zero indicator on A=0,1,...,M has degree at least M, and the degree-M product prod_{j=1}^M(1-A/j) attains this bound. Thus polynomial complexity must grow with the witness range.",
+  "mathematical_argument": "The unbounded attained sequence A(N_k) tends to infinity after passing to a subsequence. The sign of a nonconstant polynomial on the positive tail is the sign of its leading coefficient, and its absolute value diverges. This contradicts membership in [0,1). A constant c must have c>=1 at zero and c<1 on represented targets, also impossible. For finite interpolation, a polynomial with value zero at each of 1,...,M has M distinct roots; because its value at zero is one it is nonzero, so its degree is at least M. The displayed product has exactly those roots and value one at zero.",
+  "reproducible_computation": {
+    "theorem": "Let A(N) be the number of unordered Goldbach witnesses of an even target N. There is no fixed real polynomial P such that P(0)>=1 and 0<=P(A(N))<1 for every represented even N. TICKET-212 proves that the attained positive values A(N) are unbounded. A nonconstant polynomial tends to positive or negative infinity along that unbounded sequence, violating respectively P<1 or P>=0; a constant polynomial cannot satisfy both P(0)>=1 and P(A(N))<1. Moreover, any polynomial agreeing with the exact zero indicator on A=0,1,...,M has degree at least M, and the degree-M product prod_{j=1}^M(1-A/j) attains this bound. Thus polynomial complexity must grow with the witness range.",
+    "proof": "The unbounded attained sequence A(N_k) tends to infinity after passing to a subsequence. The sign of a nonconstant polynomial on the positive tail is the sign of its leading coefficient, and its absolute value diverges. This contradicts membership in [0,1). A constant c must have c>=1 at zero and c<1 on represented targets, also impossible. For finite interpolation, a polynomial with value zero at each of 1,...,M has M distinct roots; because its value at zero is one it is nonzero, so its degree is at least M. The displayed product has exactly those roots and value one at zero.",
+    "pointwise_majorant_contract": "P(0)>=1 and 0<=P(A(N))<1 for every represented target N",
+    "finite_interpolation_rows": [
+      {
+        "interpolation_order_M": 1,
+        "degree": 1,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "-1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "-1"
+      },
+      {
+        "interpolation_order_M": 2,
+        "degree": 2,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "1"
+      },
+      {
+        "interpolation_order_M": 3,
+        "degree": 3,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "-1"
+      },
+      {
+        "interpolation_order_M": 4,
+        "degree": 4,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "1"
+      },
+      {
+        "interpolation_order_M": 5,
+        "degree": 5,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "-1"
+      },
+      {
+        "interpolation_order_M": 6,
+        "degree": 6,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "1"
+      },
+      {
+        "interpolation_order_M": 7,
+        "degree": 7,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "-1"
+      },
+      {
+        "interpolation_order_M": 8,
+        "degree": 8,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "1"
+      },
+      {
+        "interpolation_order_M": 9,
+        "degree": 9,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "-1"
+      },
+      {
+        "interpolation_order_M": 10,
+        "degree": 10,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "1"
+      },
+      {
+        "interpolation_order_M": 11,
+        "degree": 11,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "-1"
+      },
+      {
+        "interpolation_order_M": 12,
+        "degree": 12,
+        "values_at_A_0_through_M_plus_1": [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "matches_zero_indicator_on_0_through_M": true,
+        "first_out_of_range_value_at_M_plus_1": "1"
+      }
+    ],
+    "polynomial_tail_cases": [
+      {
+        "label": "constant_one",
+        "degree": 0,
+        "P_0": "1",
+        "tail_behavior": "equals 1, violating strict subunit value"
+      },
+      {
+        "label": "positive_leading_coefficient",
+        "degree": 2,
+        "P_0": "1",
+        "tail_behavior": "tends to positive infinity"
+      },
+      {
+        "label": "negative_leading_coefficient",
+        "degree": 3,
+        "P_0": "1",
+        "tail_behavior": "tends to negative infinity"
+      }
+    ],
+    "aggregate": {
+      "fixed_degree_polynomial_majorant_route_refuted": true,
+      "degree_at_least_witness_range_for_exact_interpolation_proved": true,
+      "scale_growing_or_nonpolynomial_resummation_required": true,
+      "uniform_subunit_exception_bound_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem rejects fixed polynomials of the witness count only. It does not reject scale-dependent, rational, exponential, or analytic resummations, and proves no Goldbach tail positivity.",
+    "failure_count": 0
+  },
+  "discarded_route": "every fixed-degree polynomial in the Goldbach witness count as a pointwise subunit exception majorant",
+  "remaining_gap": "No scale-growing or nonpolynomial resummation has a proved uniformly subunit exceptional tail.",
+  "candidate_theorem": "ScaleGrowingWitnessResummationWithUniformDyadicTailBelowOne",
+  "claim_boundary": "No Goldbach proof or counterexample. The fixed-Bonferroni obstruction is extended to every fixed polynomial of representation multiplicity.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T212",
+        "label": "FullWitnessProductIdentityAndFixedBonferroniNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T213",
+        "label": "FixedDegreePolynomialWitnessMajorantNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N213",
+        "label": "FixedPolynomialCanMajorizeAllGoldbachExceptionsBelowOne",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN213",
+        "label": "ScaleGrowingWitnessResummationWithUniformDyadicTailBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T212",
+        "GB-T213"
+      ],
+      [
+        "GB-T213",
+        "GB-N213"
+      ],
+      [
+        "GB-T213",
+        "GB-OPEN213"
+      ],
+      [
+        "GB-OPEN213",
+        "GB"
+      ]
+    ]
+  }
+}

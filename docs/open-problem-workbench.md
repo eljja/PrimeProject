@@ -15,27 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-212
+## Current research boundary: TICKET-213
 
 The current machine-readable boundary is
-`data/open-problem/ticket212-even-defect-ghost-bonferroni-gapchannel.json`.
+`data/open-problem/ticket213-multiplicity-sixone-polynomial-selector.json`.
 
-TICKET-212 records four exact intermediate or no-go results and zero
+TICKET-213 records four exact intermediate or no-go results and zero
 conjecture resolutions:
 
-- a sharp symmetry-parity certificate: total rectangle zeros minus certified
-  critical-line sign changes strictly below two forces simple line zeros;
-- a proof that every Collatz valuation word has a `2`-adic ghost cycle, so the
-  actual remaining cycle predicate is ordinary odd divisibility;
-- the exact full Goldbach witness-product indicator and, using an exact
-  prime-pair pigeonhole count plus the prime number theorem, a proof that
-  every fixed even Bonferroni truncation fails on arbitrarily large targets;
-- an exact dyadic gap-two equivalence and a channel countermodel showing that
-  positive bounded-gap aggregate mass does not select twins.
+- an exact multiplicity-aware finite-rectangle RH equivalence and a proof that
+  odd-multiplicity sign counts additionally require zero simplicity;
+- complete exact exclusion of all `376,788` Collatz cycle candidates with
+  exactly six valuation-one entries;
+- a no-go theorem for every fixed polynomial Goldbach witness-count majorant,
+  together with a degree lower bound for finite exact interpolation;
+- a necessary-and-sufficient support theorem for exact nonnegative gap-two
+  selectors.
 
-An all-height critical-line defect below two, uniform odd-divisor
-nondivisibility, a controlled full-witness resummation below one, and actual
-gap-two positivity on infinitely many dyadic blocks remain open.
+An all-height multiplicity-aware critical-line defect below two, a uniform
+odd-divisor witness for Collatz strata with at least seven ones, a scale-growing
+Goldbach resummation below one, and a signed gap-two arithmetic selector with a
+uniform remainder remain open.
+
+English report: [TICKET-213](multiplicity-sixone-polynomial-selector.md).
+한국어 보고서: [TICKET-213](multiplicity-sixone-polynomial-selector.ko.md).
+
+## Preserved research boundary: TICKET-212
+
+The direct machine-readable input is
+`data/open-problem/ticket212-even-defect-ghost-bonferroni-gapchannel.json`.
 
 English report: [TICKET-212](even-defect-ghost-bonferroni-gapchannel.md).
 한국어 보고서: [TICKET-212](even-defect-ghost-bonferroni-gapchannel.ko.md).
