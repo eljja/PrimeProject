@@ -1,0 +1,156 @@
+{
+  "schema": "primeproject.ticket216-laplace-gcd-radix-tauberian.v1",
+  "generated_at": "2026-08-13T02:00:00+09:00",
+  "ticket_id": "RH-TICKET-216",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+  "declared_proposition": "At every boundary-free height let D(T)=N(T)-M(T), and let C(T)=D(T)/2 count off-critical symmetry pairs with multiplicity. The Stieltjes measure dC is nonnegative and atomic. For 0<r<1 put L(r)=integral r^t dC(t). Then C(H) r^H<=L(r). Hence any rigorous upper bound U(r)<r^H certifies that no off-critical zero has ordinate at most H. Cofinal certificates with H tending to infinity imply RH. The threshold is sharp for this information: one pair at height H contributes exactly r^H.",
+  "mathematical_argument": "Critical-line zeros increase N and M equally, while each off-line pair increases N-M by two; therefore C is an integer-valued nondecreasing step function. Every atom below H has weight at least r^H, so L(r)>=C(H)r^H. If U(r)<r^H, the integer C(H) is zero. Applying the certificate at unbounded H excludes every finite ordinate. Equality for one atom at H proves sharpness. Finally, any fixed positive tolerance is insufficient globally because a single atom can be delayed until its weight is below that tolerance.",
+  "reproducible_computation": {
+    "theorem": "At every boundary-free height let D(T)=N(T)-M(T), and let C(T)=D(T)/2 count off-critical symmetry pairs with multiplicity. The Stieltjes measure dC is nonnegative and atomic. For 0<r<1 put L(r)=integral r^t dC(t). Then C(H) r^H<=L(r). Hence any rigorous upper bound U(r)<r^H certifies that no off-critical zero has ordinate at most H. Cofinal certificates with H tending to infinity imply RH. The threshold is sharp for this information: one pair at height H contributes exactly r^H.",
+    "proof": "Critical-line zeros increase N and M equally, while each off-line pair increases N-M by two; therefore C is an integer-valued nondecreasing step function. Every atom below H has weight at least r^H, so L(r)>=C(H)r^H. If U(r)<r^H, the integer C(H) is zero. Applying the certificate at unbounded H excludes every finite ordinate. Equality for one atom at H proves sharpness. Finally, any fixed positive tolerance is insufficient globally because a single atom can be delayed until its weight is below that tolerance.",
+    "defect_pair_measure": "dC=d(N-M)/2",
+    "transform": "L(r)=integral r^t dC(t)",
+    "synthetic_atoms": [
+      {
+        "height": 12,
+        "pair_multiplicity": 1
+      },
+      {
+        "height": 47,
+        "pair_multiplicity": 2
+      }
+    ],
+    "threshold_rows": [
+      {
+        "H": 8,
+        "transform": "17179869185/70368744177664",
+        "first_atom_threshold_r_pow_H": "1/256",
+        "certifies_no_offline_pair_through_H": true,
+        "actual_synthetic_pair_count_through_H": 0
+      },
+      {
+        "H": 10,
+        "transform": "17179869185/70368744177664",
+        "first_atom_threshold_r_pow_H": "1/1024",
+        "certifies_no_offline_pair_through_H": true,
+        "actual_synthetic_pair_count_through_H": 0
+      },
+      {
+        "H": 11,
+        "transform": "17179869185/70368744177664",
+        "first_atom_threshold_r_pow_H": "1/2048",
+        "certifies_no_offline_pair_through_H": true,
+        "actual_synthetic_pair_count_through_H": 0
+      },
+      {
+        "H": 12,
+        "transform": "17179869185/70368744177664",
+        "first_atom_threshold_r_pow_H": "1/4096",
+        "certifies_no_offline_pair_through_H": false,
+        "actual_synthetic_pair_count_through_H": 1
+      },
+      {
+        "H": 46,
+        "transform": "17179869185/70368744177664",
+        "first_atom_threshold_r_pow_H": "1/70368744177664",
+        "certifies_no_offline_pair_through_H": false,
+        "actual_synthetic_pair_count_through_H": 1
+      },
+      {
+        "H": 47,
+        "transform": "17179869185/70368744177664",
+        "first_atom_threshold_r_pow_H": "1/140737488355328",
+        "certifies_no_offline_pair_through_H": false,
+        "actual_synthetic_pair_count_through_H": 3
+      }
+    ],
+    "fixed_tolerance_no_go_rows": [
+      {
+        "epsilon": "1/1000",
+        "delayed_offline_pair_height": 10,
+        "transform_of_one_delayed_pair": "1/1024",
+        "below_epsilon": true
+      },
+      {
+        "epsilon": "1/1000000",
+        "delayed_offline_pair_height": 20,
+        "transform_of_one_delayed_pair": "1/1048576",
+        "below_epsilon": true
+      },
+      {
+        "epsilon": "1/1000000000000",
+        "delayed_offline_pair_height": 40,
+        "transform_of_one_delayed_pair": "1/1099511627776",
+        "below_epsilon": true
+      },
+      {
+        "epsilon": "1/1000000000000000000000000",
+        "delayed_offline_pair_height": 80,
+        "transform_of_one_delayed_pair": "1/1208925819614629174706176",
+        "below_epsilon": true
+      }
+    ],
+    "aggregate": {
+      "first_atom_threshold_certificate_proved": true,
+      "cofinal_certificates_imply_RH": true,
+      "fixed_positive_tolerance_sufficient_for_RH": false,
+      "actual_zeta_transform_upper_bounds_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The delayed atoms are logical defect measures, not zeros of the actual zeta function. They refute fixed-tolerance promotion only.",
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed positive transform tolerance, since one off-line pair can be delayed below it",
+  "remaining_gap": "No rigorous actual-zeta upper bound for the full off-line defect transform is proved on a cofinal height schedule.",
+  "candidate_theorem": "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold",
+  "claim_boundary": "No RH proof and no off-line zeta zero. A nonnegative transform certificate is proved only as an interface; the actual-zeta bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T215",
+        "label": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T216",
+        "label": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N216",
+        "label": "FixedPositiveLaplaceToleranceImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN216",
+        "label": "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T215",
+        "RH-T216"
+      ],
+      [
+        "RH-T216",
+        "RH-N216"
+      ],
+      [
+        "RH-T216",
+        "RH-OPEN216"
+      ],
+      [
+        "RH-OPEN216",
+        "RH"
+      ]
+    ]
+  }
+}

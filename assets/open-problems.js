@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket216AttemptGlobal = null;
 let ticket215AttemptGlobal = null;
 let ticket214AttemptGlobal = null;
 let ticket213AttemptGlobal = null;
@@ -10011,6 +10012,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket216LaplaceGcdRadixTauberian(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.laplace_gcd_radix_tauberian_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.threshold_rows || [];
+    detail = `
+      <div class="poc-equation">C(H)r<sup>H</sup>≤L(r)=∫r<sup>t</sup>dC(t); U(r)&lt;r<sup>H</sup> ⇒ C(H)=0</div>
+      ${table(["H", "transform L(r)", "first-atom threshold", "zero certified", "synthetic pair count"], rows.map((row) => [row.H, row.transform, row.first_atom_threshold_r_pow_H, row.certifies_no_offline_pair_through_H, row.actual_synthetic_pair_count_through_H]))}
+      <div class="poc-head"><div><span>First-atom certificate</span><strong>${aggregate.first_atom_threshold_certificate_proved ? "proved" : "open"}</strong></div><div><span>Fixed tolerance</span><strong>${aggregate.fixed_positive_tolerance_sufficient_for_RH ? "sufficient" : "refuted"}</strong></div><div><span>Actual zeta bound</span><strong>${aggregate.actual_zeta_transform_upper_bounds_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">임계선 밖 대칭쌍은 비음수 원자 측도를 만듭니다. 첫 원자보다 작은 엄밀 상계는 유한 높이의 결함 0을 강제하지만, 고정 허용오차 아래에는 임의로 늦은 논리적 원자를 숨길 수 있습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = (computation.checkpoint_rows || []).filter((row) => [8, 16, 128, 1024, 4096].includes(row.valuation_one_count_k));
+    detail = `
+      <div class="poc-equation">1<sup>k</sup>2<sup>m</sup> cycle ⇒ Δ=gcd(3<sup>k</sup>−2<sup>k</sup>,4<sup>m</sup>−3<sup>m</sup>)</div>
+      ${table(["k", "first-positive m", "Delta bits", "gcd bits", "gcd equality"], rows.map((row) => [row.valuation_one_count_k, row.valuation_two_count_m, row.delta_bit_length, row.gcd_bit_length, row.delta_equals_cross_power_gcd]))}
+      <div class="poc-head"><div><span>GCD necessity</span><strong>${aggregate.cross_power_gcd_identity_proved_as_cycle_necessity ? "proved" : "open"}</strong></div><div><span>Equalities through 4096</span><strong>${formatter.format(aggregate.gcd_equalities_through_k_4096 || 0)}</strong></div><div><span>All-k gap</span><strong>${aggregate.all_k_gcd_gap_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">TICKET-215의 근접충돌 필요조건을 정확한 교차 거듭제곱 GCD 등식으로 강화했습니다. 등식은 필요조건일 뿐이며 모든 k와 다중 run은 아직 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.dyadic_goldbach_rows || [];
+    detail = `
+      <div class="poc-equation">b=B+1, U=max Aᵢ: b<sup>U</sup>Σb<sup>−Aᵢ</sup>=Σh<sub>a</sub>b<sup>U−a</sup>; digits=h<sub>a</sub></div>
+      ${table(["dyadic X", "targets B", "max count U", "occupied digits", "exception digit", "decoded"], rows.map((row) => [formatter.format(row.dyadic_start_X), formatter.format(row.even_targets_B), formatter.format(row.maximum_representation_count_U), row.nonzero_histogram_bins, row.exception_digit_h_0, row.full_histogram_recovered]))}
+      <div class="poc-head"><div><span>Full histogram radix</span><strong>${aggregate.full_histogram_radix_reconstruction_proved ? "proved" : "open"}</strong></div><div><span>Decode failures</span><strong>${aggregate.audited_histogram_decode_failures ?? "missing"}</strong></div><div><span>Arithmetic all-block bound</span><strong>${aggregate.uniform_arithmetic_selector_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">선택자 하나의 정확한 진법 자릿수가 예외 수를 포함한 전체 표현 수 히스토그램을 복원합니다. 그러나 이는 정확한 Aᵢ를 다시 인코딩한 것이며 보지 않은 블록의 산술 하한이 아닙니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_prime_rows || [];
+    const scaleRows = computation.tail_scale_rows || [];
+    detail = `
+      <div class="poc-equation">r<sup>X</sup>T(X)≤F(r)≤T(Y)+r<sup>n₀</sup>/(1−r²)</div>
+      ${table(["X", "Y", "transferred T(Y) lower", "bounded T(Y)", "tail upper"], rows.map((row) => [formatter.format(row.X), formatter.format(row.Y), formatter.format(row.transferred_integer_lower_bound_for_T_Y), formatter.format(row.actual_bounded_twin_count_T_Y), row.geometric_unknown_tail_upper_decimal]))}
+      ${table(["X", "fixed c", "fixed tail / twin scale", "adaptive c", "adaptive tail / twin scale"], scaleRows.map((row) => [formatter.format(row.X), row.fixed_multiplier, row.fixed_tail_over_X_log2X_scale, row.adaptive_multiplier, row.adaptive_tail_over_X_log2X_scale]))}
+      <div class="poc-head"><div><span>Abel-count bracket</span><strong>${aggregate.quantitative_Abel_to_count_bracket_proved ? "proved" : "open"}</strong></div><div><span>Fixed dilation</span><strong>${aggregate.fixed_dilation_sufficient_at_Hardy_Littlewood_scale ? "sufficient" : "refuted for this envelope"}</strong></div><div><span>Parity lower bound</span><strong>${aggregate.parity_breaking_Abel_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">고정 Y=cX의 계수-1 꼬리는 X 차수라 쌍둥이 예상 규모를 덮습니다. 약 2 log log X로 커지는 배율은 기하 꼬리를 제거하지만, 필요한 패리티 민감 아벨 하한은 여전히 미증명입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket216-laplace-gcd-radix-tauberian" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 216 Laplace defects, cross-power GCDs, radix histograms, and Tauberian tails</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial, reduction, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET216 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/laplace-gcd-radix-tauberian.ko.md">한국어 보고서</a> · <a href="../docs/laplace-gcd-radix-tauberian.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket215LatticeNearCollisionExceptionAbel(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.lattice_nearcollision_exception_abel_audit || {};
@@ -10063,7 +10132,7 @@ function renderTicket215LatticeNearCollisionExceptionAbel(attempt) {
   }
   return `
     <div id="ticket215-lattice-nearcollision-exception-abel" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 215 lattice certificates, power near-collisions, exception counts, and Abel boundaries</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial, reduction, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET215 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16429,7 +16498,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket215LatticeNearCollisionExceptionAbel(ticket215AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket216LaplaceGcdRadixTauberian(ticket216AttemptGlobal) ||
+      renderTicket215LatticeNearCollisionExceptionAbel(ticket215AttemptGlobal) ||
       renderTicket214CofinalSevenOneExponentialCardinal(ticket214AttemptGlobal) ||
       renderTicket213MultiplicitySixOnePolynomialSelector(ticket213AttemptGlobal) ||
       renderTicket212EvenDefectGhostBonferroniGapChannel(ticket212AttemptGlobal) ||
@@ -16884,6 +16954,26 @@ async function loadTicket215Attempt() {
     return Boolean(ticket215AttemptGlobal);
   } catch (_error) {
     ticket215AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket216Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket216-laplace-gcd-radix-tauberian.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket216AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket216AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket216AttemptGlobal) {
+      ticket216AttemptGlobal.bounded_result = ticket216AttemptGlobal.bounded_result || {};
+      ticket216AttemptGlobal.bounded_result.laplace_gcd_radix_tauberian_audit = payload.laplace_gcd_radix_tauberian_audit || {};
+    }
+    return Boolean(ticket216AttemptGlobal);
+  } catch (_error) {
+    ticket216AttemptGlobal = null;
     return false;
   }
 }
@@ -18457,9 +18547,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket215Loaded = await loadTicket215Attempt();
+  const ticket216Loaded = await loadTicket216Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket215-current";
+  document.documentElement.dataset.openProblemCache = "ticket216-current";
+  const ticket215Loaded = await loadTicket215Attempt();
   const ticket214Loaded = await loadTicket214Attempt();
   const ticket213Loaded = await loadTicket213Attempt();
   const ticket212Loaded = await loadTicket212Attempt();
@@ -18507,8 +18598,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket216AttemptGlobal) await loadTicket216Attempt();
     if (!ticket215AttemptGlobal) await loadTicket215Attempt();
     if (!ticket214AttemptGlobal) await loadTicket214Attempt();
     if (!ticket213AttemptGlobal) await loadTicket213Attempt();
@@ -18602,7 +18694,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket215-current";
+  document.documentElement.dataset.openProblemCache = "ticket216-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

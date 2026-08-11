@@ -37,7 +37,32 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-12 TICKET-215 Lattice Certificates, Power Near-Collisions, Exception Counts, and Abel Boundaries
+## 2026-08-13 TICKET-216 Laplace Defects, Cross-Power GCDs, Radix Histograms, and Tauberian Tails
+
+TICKET-216 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial, reduction, or no-go results:
+
+1. the nonnegative RH off-line-pair measure satisfies the sharp first-atom
+   bound `C(H)r^H<=L(r)`, while every fixed positive transform tolerance is
+   defeated by a sufficiently delayed logical atom;
+2. a single-mountain Collatz cycle forces the exact necessary identity
+   `Delta=gcd(3^k-2^k,4^m-3^m)`, and exact arithmetic finds no equality at the
+   first positive crossing through `k=4096`;
+3. a base-`B+1` selector recovers every digit of the finite Goldbach
+   representation histogram exactly, while fixed absolute precision cannot
+   recover arbitrarily deep digits;
+4. an Abel lower bound can be transferred to an explicit integer Twin count
+   after subtracting a geometric tail, but fixed dilation leaves that envelope
+   too large at the conjectural `X/log^2 X` scale.
+
+No actual-zeta cofinal Laplace upper bound, all-`k` cross-power gcd gap,
+all-block arithmetic zero-digit interval, or parity-breaking Twin Abel lower
+bound is proved. The machine resolution count remains zero.
+
+English report: [TICKET-216](laplace-gcd-radix-tauberian.md).
+한국어 보고서: [TICKET-216](laplace-gcd-radix-tauberian.ko.md).
+
+## Preserved: 2026-08-12 TICKET-215 Lattice Certificates, Power Near-Collisions, Exception Counts, and Abel Boundaries
 
 TICKET-215 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial, reduction, or no-go results:

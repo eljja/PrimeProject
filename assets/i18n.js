@@ -62,12 +62,12 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-215 proves four exact reductions and sharp finite-information limits: an RH defect-lattice certificate, a Collatz single-mountain near-collision reduction, an exact Goldbach exception counter, and a Twin Prime Abel-boundary equivalence.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-215는 리만 결함의 짝수 격자 인증, 콜라츠 단일 봉우리의 거듭제곱 근접충돌 환원, 골드바흐 예외 개수의 정확 복원, 쌍둥이 소수의 아벨 경계 동치를 증명하고 유한 정보의 한계를 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-216 proves four exact threshold results: an RH off-line-pair Laplace certificate, a Collatz cross-power gcd necessity, a full Goldbach radix histogram, and a quantitative Twin Abel-to-count bracket.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-216은 리만 결함의 첫 라플라스 원자 인증, 콜라츠의 정확한 교차 거듭제곱 GCD 필요조건, 골드바흐 전체 표현 수 진법 히스토그램, 쌍둥이 소수의 정량 아벨-개수 부등식을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-215 adds an RH even-lattice certificate, a Collatz single-mountain near-collision reduction, an exact Goldbach exception counter, and a Twin Prime Abel-boundary equivalence. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-215는 리만 결함의 짝수 격자 인증, 콜라츠 단일 봉우리 근접충돌 환원, 골드바흐 예외 수의 정확 복원, 쌍둥이 소수의 아벨 경계 동치를 추가했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-216 adds an RH first-atom transform certificate, an exact Collatz cross-power gcd necessity, a complete Goldbach radix histogram, and a quantitative Twin Abel-count bracket. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-216은 리만 첫 원자 변환 인증, 콜라츠 교차 거듭제곱 GCD 필요조건, 골드바흐 전체 진법 히스토그램, 쌍둥이 소수의 정량 아벨-개수 부등식을 추가했습니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

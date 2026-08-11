@@ -1,0 +1,274 @@
+{
+  "schema": "primeproject.ticket216-laplace-gcd-radix-tauberian.v1",
+  "generated_at": "2026-08-13T02:00:00+09:00",
+  "ticket_id": "GB-TICKET-216",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+  "declared_proposition": "For a block of B Goldbach counts A_i, set b=B+1 and let h_a be the number of targets with A_i=a. If U=max A_i, then the TICKET-215 selector E=sum b^(-A_i) satisfies b^U E=sum_(a=0)^U h_a b^(U-a). Because 0<=h_a<b, the base-b digits of this integer recover the entire representation-count histogram exactly, including the exception count h_0. This is exact encoding, not an arithmetic estimate of unseen counts.",
+  "mathematical_argument": "Grouping equal exponents gives E=sum h_a b^(-a). Multiplication by b^U produces an integer whose base-b digit at place U-a is h_a. No carry occurs because h_a<=B=b-1, and uniqueness of finite radix expansions proves exact recovery. The pairs [1,M] and [1,M+1] have different histograms but selector distance (b-1)/b^(M+1), so uniform fixed absolute precision cannot recover arbitrarily deep histogram digits.",
+  "reproducible_computation": {
+    "theorem": "For a block of B Goldbach counts A_i, set b=B+1 and let h_a be the number of targets with A_i=a. If U=max A_i, then the TICKET-215 selector E=sum b^(-A_i) satisfies b^U E=sum_(a=0)^U h_a b^(U-a). Because 0<=h_a<b, the base-b digits of this integer recover the entire representation-count histogram exactly, including the exception count h_0. This is exact encoding, not an arithmetic estimate of unseen counts.",
+    "proof": "Grouping equal exponents gives E=sum h_a b^(-a). Multiplication by b^U produces an integer whose base-b digit at place U-a is h_a. No carry occurs because h_a<=B=b-1, and uniqueness of finite radix expansions proves exact recovery. The pairs [1,M] and [1,M+1] have different histograms but selector distance (b-1)/b^(M+1), so uniform fixed absolute precision cannot recover arbitrarily deep histogram digits.",
+    "radix_identity": "b^U E=sum_a h_a b^(U-a), b=B+1",
+    "synthetic_rows": [
+      {
+        "counts": [
+          0,
+          3,
+          0,
+          2
+        ],
+        "base_b": 5,
+        "histogram_h_a": [
+          2,
+          0,
+          1,
+          1
+        ],
+        "selector": "256/125",
+        "packed_integer": 256,
+        "decoded_histogram": [
+          2,
+          0,
+          1,
+          1
+        ],
+        "exception_digit_h_0": 2
+      },
+      {
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "base_b": 5,
+        "histogram_h_a": [
+          0,
+          4
+        ],
+        "selector": "4/5",
+        "packed_integer": 4,
+        "decoded_histogram": [
+          0,
+          4
+        ],
+        "exception_digit_h_0": 0
+      },
+      {
+        "counts": [
+          2,
+          7,
+          1,
+          3,
+          4
+        ],
+        "base_b": 6,
+        "histogram_h_a": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "selector": "55945/279936",
+        "packed_integer": 55945,
+        "decoded_histogram": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "exception_digit_h_0": 0
+      }
+    ],
+    "dyadic_goldbach_rows": [
+      {
+        "dyadic_start_X": 128,
+        "even_targets_B": 64,
+        "radix_base_b": 65,
+        "maximum_representation_count_U": 19,
+        "nonzero_histogram_bins": 16,
+        "exception_digit_h_0": 0,
+        "minimum_positive_representation_count": 3,
+        "packed_bit_length": 97,
+        "packed_sha256": "063845058e5150490b1fb64be1e80f986187d346d030cd905342dacc6dedb924",
+        "full_histogram_recovered": true
+      },
+      {
+        "dyadic_start_X": 512,
+        "even_targets_B": 256,
+        "radix_base_b": 257,
+        "maximum_representation_count_U": 52,
+        "nonzero_histogram_bins": 40,
+        "exception_digit_h_0": 0,
+        "minimum_positive_representation_count": 10,
+        "packed_bit_length": 338,
+        "packed_sha256": "ba6b01966d87656af7dff8add0b02d7be731940e86e52a6c2e0a756642ee39c6",
+        "full_histogram_recovered": true
+      },
+      {
+        "dyadic_start_X": 2048,
+        "even_targets_B": 1024,
+        "radix_base_b": 1025,
+        "maximum_representation_count_U": 163,
+        "nonzero_histogram_bins": 112,
+        "exception_digit_h_0": 0,
+        "minimum_positive_representation_count": 25,
+        "packed_bit_length": 1381,
+        "packed_sha256": "fac6baee620c662ca7a8d3fb4bef40d68152f997cc2e42991c8d228acac9828e",
+        "full_histogram_recovered": true
+      },
+      {
+        "dyadic_start_X": 8192,
+        "even_targets_B": 4096,
+        "radix_base_b": 4097,
+        "maximum_representation_count_U": 517,
+        "nonzero_histogram_bins": 332,
+        "exception_digit_h_0": 0,
+        "minimum_positive_representation_count": 75,
+        "packed_bit_length": 5305,
+        "packed_sha256": "caefd933c6fed7fcccd3ac4f9dc6f96f2fd79bf6b5f8b1140faa929e4dea2461",
+        "full_histogram_recovered": true
+      },
+      {
+        "dyadic_start_X": 32768,
+        "even_targets_B": 16384,
+        "radix_base_b": 16385,
+        "maximum_representation_count_U": 1564,
+        "nonzero_histogram_bins": 1016,
+        "exception_digit_h_0": 0,
+        "minimum_positive_representation_count": 223,
+        "packed_bit_length": 18775,
+        "packed_sha256": "2746ec1251992c693828b7d16f5c884f2c0fea50dc6a064340243b3b3b3adb37",
+        "full_histogram_recovered": true
+      }
+    ],
+    "finite_precision_no_go_rows": [
+      {
+        "B": 2,
+        "base_b": 3,
+        "left_counts": [
+          1,
+          8
+        ],
+        "right_counts": [
+          1,
+          9
+        ],
+        "exact_selector_difference": "2/19683",
+        "histograms_differ": true
+      },
+      {
+        "B": 2,
+        "base_b": 3,
+        "left_counts": [
+          1,
+          16
+        ],
+        "right_counts": [
+          1,
+          17
+        ],
+        "exact_selector_difference": "2/129140163",
+        "histograms_differ": true
+      },
+      {
+        "B": 2,
+        "base_b": 3,
+        "left_counts": [
+          1,
+          32
+        ],
+        "right_counts": [
+          1,
+          33
+        ],
+        "exact_selector_difference": "2/5559060566555523",
+        "histograms_differ": true
+      },
+      {
+        "B": 2,
+        "base_b": 3,
+        "left_counts": [
+          1,
+          64
+        ],
+        "right_counts": [
+          1,
+          65
+        ],
+        "exact_selector_difference": "2/10301051460877537453973547267843",
+        "histograms_differ": true
+      }
+    ],
+    "aggregate": {
+      "full_histogram_radix_reconstruction_proved": true,
+      "audited_histogram_decode_failures": 0,
+      "fixed_precision_sufficient_for_unbounded_histogram_depth": false,
+      "uniform_arithmetic_selector_bound_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The selector is a lossless encoding only after the exact counts and their maximum are already available. It supplies no new circle-method or parity estimate.",
+    "failure_count": 0
+  },
+  "discarded_route": "claiming that lossless histogram encoding or fixed-precision selector values independently prove Goldbach coverage",
+  "remaining_gap": "The lossless radix representation begins from exact Goldbach counts and supplies no uniform arithmetic estimate for unseen blocks.",
+  "candidate_theorem": "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock",
+  "claim_boundary": "No Goldbach proof or counterexample. The full finite histogram is encoded exactly, but the required all-block arithmetic interval remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T215",
+        "label": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T216",
+        "label": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N216",
+        "label": "LosslessRadixEncodingAloneProvesCoverage",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN216",
+        "label": "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T215",
+        "GB-T216"
+      ],
+      [
+        "GB-T216",
+        "GB-N216"
+      ],
+      [
+        "GB-T216",
+        "GB-OPEN216"
+      ],
+      [
+        "GB-OPEN216",
+        "GB"
+      ]
+    ]
+  }
+}

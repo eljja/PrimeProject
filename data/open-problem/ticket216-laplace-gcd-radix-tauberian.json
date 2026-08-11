@@ -1,0 +1,858 @@
+{
+  "schema": "primeproject.ticket216-laplace-gcd-radix-tauberian.v1",
+  "generated_at": "2026-08-13T02:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-216 proves four exact partial, reduction, or no-go theorems and resolves none of the parent conjectures. It adds an RH first-atom transform certificate, an exact Collatz cross-power gcd necessity, a lossless Goldbach histogram radix, and a quantitative Twin Abel-to-count bracket with the correct growing tail horizon.",
+  "laplace_gcd_radix_tauberian_audit": {
+    "theorem_name": "LaplaceGCDRadixTauberianAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-216 proves four exact partial, reduction, or no-go theorems and resolves none of the parent conjectures. It adds an RH first-atom transform certificate, an exact Collatz cross-power gcd necessity, a lossless Goldbach histogram radix, and a quantitative Twin Abel-to-count bracket with the correct growing tail horizon.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-216",
+      "theorem_name": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+      "declared_proposition": "At every boundary-free height let D(T)=N(T)-M(T), and let C(T)=D(T)/2 count off-critical symmetry pairs with multiplicity. The Stieltjes measure dC is nonnegative and atomic. For 0<r<1 put L(r)=integral r^t dC(t). Then C(H) r^H<=L(r). Hence any rigorous upper bound U(r)<r^H certifies that no off-critical zero has ordinate at most H. Cofinal certificates with H tending to infinity imply RH. The threshold is sharp for this information: one pair at height H contributes exactly r^H.",
+      "mathematical_argument": "Critical-line zeros increase N and M equally, while each off-line pair increases N-M by two; therefore C is an integer-valued nondecreasing step function. Every atom below H has weight at least r^H, so L(r)>=C(H)r^H. If U(r)<r^H, the integer C(H) is zero. Applying the certificate at unbounded H excludes every finite ordinate. Equality for one atom at H proves sharpness. Finally, any fixed positive tolerance is insufficient globally because a single atom can be delayed until its weight is below that tolerance.",
+      "reproducible_computation": {
+        "theorem": "At every boundary-free height let D(T)=N(T)-M(T), and let C(T)=D(T)/2 count off-critical symmetry pairs with multiplicity. The Stieltjes measure dC is nonnegative and atomic. For 0<r<1 put L(r)=integral r^t dC(t). Then C(H) r^H<=L(r). Hence any rigorous upper bound U(r)<r^H certifies that no off-critical zero has ordinate at most H. Cofinal certificates with H tending to infinity imply RH. The threshold is sharp for this information: one pair at height H contributes exactly r^H.",
+        "proof": "Critical-line zeros increase N and M equally, while each off-line pair increases N-M by two; therefore C is an integer-valued nondecreasing step function. Every atom below H has weight at least r^H, so L(r)>=C(H)r^H. If U(r)<r^H, the integer C(H) is zero. Applying the certificate at unbounded H excludes every finite ordinate. Equality for one atom at H proves sharpness. Finally, any fixed positive tolerance is insufficient globally because a single atom can be delayed until its weight is below that tolerance.",
+        "defect_pair_measure": "dC=d(N-M)/2",
+        "transform": "L(r)=integral r^t dC(t)",
+        "synthetic_atoms": [
+          {
+            "height": 12,
+            "pair_multiplicity": 1
+          },
+          {
+            "height": 47,
+            "pair_multiplicity": 2
+          }
+        ],
+        "threshold_rows": [
+          {
+            "H": 8,
+            "transform": "17179869185/70368744177664",
+            "first_atom_threshold_r_pow_H": "1/256",
+            "certifies_no_offline_pair_through_H": true,
+            "actual_synthetic_pair_count_through_H": 0
+          },
+          {
+            "H": 10,
+            "transform": "17179869185/70368744177664",
+            "first_atom_threshold_r_pow_H": "1/1024",
+            "certifies_no_offline_pair_through_H": true,
+            "actual_synthetic_pair_count_through_H": 0
+          },
+          {
+            "H": 11,
+            "transform": "17179869185/70368744177664",
+            "first_atom_threshold_r_pow_H": "1/2048",
+            "certifies_no_offline_pair_through_H": true,
+            "actual_synthetic_pair_count_through_H": 0
+          },
+          {
+            "H": 12,
+            "transform": "17179869185/70368744177664",
+            "first_atom_threshold_r_pow_H": "1/4096",
+            "certifies_no_offline_pair_through_H": false,
+            "actual_synthetic_pair_count_through_H": 1
+          },
+          {
+            "H": 46,
+            "transform": "17179869185/70368744177664",
+            "first_atom_threshold_r_pow_H": "1/70368744177664",
+            "certifies_no_offline_pair_through_H": false,
+            "actual_synthetic_pair_count_through_H": 1
+          },
+          {
+            "H": 47,
+            "transform": "17179869185/70368744177664",
+            "first_atom_threshold_r_pow_H": "1/140737488355328",
+            "certifies_no_offline_pair_through_H": false,
+            "actual_synthetic_pair_count_through_H": 3
+          }
+        ],
+        "fixed_tolerance_no_go_rows": [
+          {
+            "epsilon": "1/1000",
+            "delayed_offline_pair_height": 10,
+            "transform_of_one_delayed_pair": "1/1024",
+            "below_epsilon": true
+          },
+          {
+            "epsilon": "1/1000000",
+            "delayed_offline_pair_height": 20,
+            "transform_of_one_delayed_pair": "1/1048576",
+            "below_epsilon": true
+          },
+          {
+            "epsilon": "1/1000000000000",
+            "delayed_offline_pair_height": 40,
+            "transform_of_one_delayed_pair": "1/1099511627776",
+            "below_epsilon": true
+          },
+          {
+            "epsilon": "1/1000000000000000000000000",
+            "delayed_offline_pair_height": 80,
+            "transform_of_one_delayed_pair": "1/1208925819614629174706176",
+            "below_epsilon": true
+          }
+        ],
+        "aggregate": {
+          "first_atom_threshold_certificate_proved": true,
+          "cofinal_certificates_imply_RH": true,
+          "fixed_positive_tolerance_sufficient_for_RH": false,
+          "actual_zeta_transform_upper_bounds_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The delayed atoms are logical defect measures, not zeros of the actual zeta function. They refute fixed-tolerance promotion only.",
+        "failure_count": 0
+      },
+      "logical_limit": "No rigorous actual-zeta upper bound for the full off-line defect transform is proved on a cofinal height schedule.",
+      "route_decision": {
+        "discard": "any fixed positive transform tolerance, since one off-line pair can be delayed below it",
+        "retain": "cofinal actual-zeta transform upper bounds below the first-atom threshold r^H, with an explicit tail budget",
+        "next_single_lemma": "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T215",
+            "label": "EvenLatticeOneSidedCofinalCertificationAndSharpTwoBarrier",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T216",
+            "label": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N216",
+            "label": "FixedPositiveLaplaceToleranceImpliesRH",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN216",
+            "label": "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T215",
+            "RH-T216"
+          ],
+          [
+            "RH-T216",
+            "RH-N216"
+          ],
+          [
+            "RH-T216",
+            "RH-OPEN216"
+          ],
+          [
+            "RH-OPEN216",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-line zeta zero. A nonnegative transform certificate is proved only as an interface; the actual-zeta bound is open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-216",
+      "theorem_name": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+      "declared_proposition": "For a positive accelerated Collatz cycle with cyclic valuation word 1^k 2^m, put Delta=2^(k+2m)-3^(k+m)>0. In addition to the TICKET-215 near-collision bound, integer closure forces the exact necessary identity Delta=gcd(3^k-2^k,4^m-3^m). At the unique first-positive candidate m for each 1<=k<=4096, exact integer arithmetic finds no gcd equality.",
+      "mathematical_argument": "TICKET-215 proves that a cycle forces Delta to divide C=3^k-2^k. Write E=4^m-3^m. The exact identity Delta=2^k E-3^m C shows that gcd(C,E) divides Delta. Conversely Delta divides C, and the same identity gives Delta|2^k E. Since Delta is odd, Delta|E. Thus Delta divides gcd(C,E), proving equality. The audit recomputes the first positive crossing and the gcd with arbitrary-precision integers.",
+      "reproducible_computation": {
+        "theorem": "For a positive accelerated Collatz cycle with cyclic valuation word 1^k 2^m, put Delta=2^(k+2m)-3^(k+m)>0. In addition to the TICKET-215 near-collision bound, integer closure forces the exact necessary identity Delta=gcd(3^k-2^k,4^m-3^m). At the unique first-positive candidate m for each 1<=k<=4096, exact integer arithmetic finds no gcd equality.",
+        "proof": "TICKET-215 proves that a cycle forces Delta to divide C=3^k-2^k. Write E=4^m-3^m. The exact identity Delta=2^k E-3^m C shows that gcd(C,E) divides Delta. Conversely Delta divides C, and the same identity gives Delta|2^k E. Since Delta is odd, Delta|E. Thus Delta divides gcd(C,E), proving equality. The audit recomputes the first positive crossing and the gcd with arbitrary-precision integers.",
+        "necessary_identity": "Delta=gcd(3^k-2^k,4^m-3^m)",
+        "audited_k_min": 1,
+        "audited_k_max": 4096,
+        "gcd_equality_candidate_count": 0,
+        "checkpoint_rows": [
+          {
+            "valuation_one_count_k": 1,
+            "valuation_two_count_m": 2,
+            "delta_bit_length": 3,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 2,
+            "valuation_two_count_m": 3,
+            "delta_bit_length": 4,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 3,
+            "valuation_two_count_m": 5,
+            "delta_bit_length": 11,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 4,
+            "valuation_two_count_m": 6,
+            "delta_bit_length": 13,
+            "gcd_bit_length": 4,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 8,
+            "valuation_two_count_m": 12,
+            "delta_bit_length": 30,
+            "gcd_bit_length": 7,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 16,
+            "valuation_two_count_m": 23,
+            "delta_bit_length": 59,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 32,
+            "valuation_two_count_m": 46,
+            "delta_bit_length": 122,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 64,
+            "valuation_two_count_m": 91,
+            "delta_bit_length": 244,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 128,
+            "valuation_two_count_m": 181,
+            "delta_bit_length": 488,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 256,
+            "valuation_two_count_m": 361,
+            "delta_bit_length": 974,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 512,
+            "valuation_two_count_m": 722,
+            "delta_bit_length": 1953,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 1024,
+            "valuation_two_count_m": 1444,
+            "delta_bit_length": 3910,
+            "gcd_bit_length": 3,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 2048,
+            "valuation_two_count_m": 2887,
+            "delta_bit_length": 7820,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          },
+          {
+            "valuation_one_count_k": 4096,
+            "valuation_two_count_m": 5773,
+            "delta_bit_length": 15634,
+            "gcd_bit_length": 1,
+            "delta_equals_cross_power_gcd": false,
+            "delta_exceeds_ticket215_ceiling": true
+          }
+        ],
+        "transcript_sha256": "7b8cfb07ec44d1d6c5dd8450eca945fbd311ca83ab4ce54407ba51207b38ffc1",
+        "aggregate": {
+          "cross_power_gcd_identity_proved_as_cycle_necessity": true,
+          "gcd_equalities_through_k_4096": 0,
+          "all_k_gcd_gap_proved": false,
+          "multi_run_cycle_words_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The gcd equality is necessary, not sufficient, and the audit is finite. It covers only one 1-run and one 2-run.",
+        "failure_count": 0
+      },
+      "logical_limit": "The strict gcd gap is unproved for every k, and the single-mountain family does not cover multi-run words or divergence.",
+      "route_decision": {
+        "discard": "treating the finite gcd audit or a necessary gcd equality as a complete Collatz proof",
+        "retain": "an all-k strict gap between the first-positive Delta and the cross-power gcd, then a multi-run resultant extension",
+        "next_single_lemma": "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T215",
+            "label": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T216",
+            "label": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N216",
+            "label": "FiniteCrossPowerGCDAuditProvesCollatz",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN216",
+            "label": "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T215",
+            "CO-T216"
+          ],
+          [
+            "CO-T216",
+            "CO-N216"
+          ],
+          [
+            "CO-T216",
+            "CO-OPEN216"
+          ],
+          [
+            "CO-OPEN216",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or divergent orbit. The new gcd identity is a necessary condition for one valuation-word family only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-216",
+      "theorem_name": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+      "declared_proposition": "For a block of B Goldbach counts A_i, set b=B+1 and let h_a be the number of targets with A_i=a. If U=max A_i, then the TICKET-215 selector E=sum b^(-A_i) satisfies b^U E=sum_(a=0)^U h_a b^(U-a). Because 0<=h_a<b, the base-b digits of this integer recover the entire representation-count histogram exactly, including the exception count h_0. This is exact encoding, not an arithmetic estimate of unseen counts.",
+      "mathematical_argument": "Grouping equal exponents gives E=sum h_a b^(-a). Multiplication by b^U produces an integer whose base-b digit at place U-a is h_a. No carry occurs because h_a<=B=b-1, and uniqueness of finite radix expansions proves exact recovery. The pairs [1,M] and [1,M+1] have different histograms but selector distance (b-1)/b^(M+1), so uniform fixed absolute precision cannot recover arbitrarily deep histogram digits.",
+      "reproducible_computation": {
+        "theorem": "For a block of B Goldbach counts A_i, set b=B+1 and let h_a be the number of targets with A_i=a. If U=max A_i, then the TICKET-215 selector E=sum b^(-A_i) satisfies b^U E=sum_(a=0)^U h_a b^(U-a). Because 0<=h_a<b, the base-b digits of this integer recover the entire representation-count histogram exactly, including the exception count h_0. This is exact encoding, not an arithmetic estimate of unseen counts.",
+        "proof": "Grouping equal exponents gives E=sum h_a b^(-a). Multiplication by b^U produces an integer whose base-b digit at place U-a is h_a. No carry occurs because h_a<=B=b-1, and uniqueness of finite radix expansions proves exact recovery. The pairs [1,M] and [1,M+1] have different histograms but selector distance (b-1)/b^(M+1), so uniform fixed absolute precision cannot recover arbitrarily deep histogram digits.",
+        "radix_identity": "b^U E=sum_a h_a b^(U-a), b=B+1",
+        "synthetic_rows": [
+          {
+            "counts": [
+              0,
+              3,
+              0,
+              2
+            ],
+            "base_b": 5,
+            "histogram_h_a": [
+              2,
+              0,
+              1,
+              1
+            ],
+            "selector": "256/125",
+            "packed_integer": 256,
+            "decoded_histogram": [
+              2,
+              0,
+              1,
+              1
+            ],
+            "exception_digit_h_0": 2
+          },
+          {
+            "counts": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "base_b": 5,
+            "histogram_h_a": [
+              0,
+              4
+            ],
+            "selector": "4/5",
+            "packed_integer": 4,
+            "decoded_histogram": [
+              0,
+              4
+            ],
+            "exception_digit_h_0": 0
+          },
+          {
+            "counts": [
+              2,
+              7,
+              1,
+              3,
+              4
+            ],
+            "base_b": 6,
+            "histogram_h_a": [
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            "selector": "55945/279936",
+            "packed_integer": 55945,
+            "decoded_histogram": [
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            "exception_digit_h_0": 0
+          }
+        ],
+        "dyadic_goldbach_rows": [
+          {
+            "dyadic_start_X": 128,
+            "even_targets_B": 64,
+            "radix_base_b": 65,
+            "maximum_representation_count_U": 19,
+            "nonzero_histogram_bins": 16,
+            "exception_digit_h_0": 0,
+            "minimum_positive_representation_count": 3,
+            "packed_bit_length": 97,
+            "packed_sha256": "063845058e5150490b1fb64be1e80f986187d346d030cd905342dacc6dedb924",
+            "full_histogram_recovered": true
+          },
+          {
+            "dyadic_start_X": 512,
+            "even_targets_B": 256,
+            "radix_base_b": 257,
+            "maximum_representation_count_U": 52,
+            "nonzero_histogram_bins": 40,
+            "exception_digit_h_0": 0,
+            "minimum_positive_representation_count": 10,
+            "packed_bit_length": 338,
+            "packed_sha256": "ba6b01966d87656af7dff8add0b02d7be731940e86e52a6c2e0a756642ee39c6",
+            "full_histogram_recovered": true
+          },
+          {
+            "dyadic_start_X": 2048,
+            "even_targets_B": 1024,
+            "radix_base_b": 1025,
+            "maximum_representation_count_U": 163,
+            "nonzero_histogram_bins": 112,
+            "exception_digit_h_0": 0,
+            "minimum_positive_representation_count": 25,
+            "packed_bit_length": 1381,
+            "packed_sha256": "fac6baee620c662ca7a8d3fb4bef40d68152f997cc2e42991c8d228acac9828e",
+            "full_histogram_recovered": true
+          },
+          {
+            "dyadic_start_X": 8192,
+            "even_targets_B": 4096,
+            "radix_base_b": 4097,
+            "maximum_representation_count_U": 517,
+            "nonzero_histogram_bins": 332,
+            "exception_digit_h_0": 0,
+            "minimum_positive_representation_count": 75,
+            "packed_bit_length": 5305,
+            "packed_sha256": "caefd933c6fed7fcccd3ac4f9dc6f96f2fd79bf6b5f8b1140faa929e4dea2461",
+            "full_histogram_recovered": true
+          },
+          {
+            "dyadic_start_X": 32768,
+            "even_targets_B": 16384,
+            "radix_base_b": 16385,
+            "maximum_representation_count_U": 1564,
+            "nonzero_histogram_bins": 1016,
+            "exception_digit_h_0": 0,
+            "minimum_positive_representation_count": 223,
+            "packed_bit_length": 18775,
+            "packed_sha256": "2746ec1251992c693828b7d16f5c884f2c0fea50dc6a064340243b3b3b3adb37",
+            "full_histogram_recovered": true
+          }
+        ],
+        "finite_precision_no_go_rows": [
+          {
+            "B": 2,
+            "base_b": 3,
+            "left_counts": [
+              1,
+              8
+            ],
+            "right_counts": [
+              1,
+              9
+            ],
+            "exact_selector_difference": "2/19683",
+            "histograms_differ": true
+          },
+          {
+            "B": 2,
+            "base_b": 3,
+            "left_counts": [
+              1,
+              16
+            ],
+            "right_counts": [
+              1,
+              17
+            ],
+            "exact_selector_difference": "2/129140163",
+            "histograms_differ": true
+          },
+          {
+            "B": 2,
+            "base_b": 3,
+            "left_counts": [
+              1,
+              32
+            ],
+            "right_counts": [
+              1,
+              33
+            ],
+            "exact_selector_difference": "2/5559060566555523",
+            "histograms_differ": true
+          },
+          {
+            "B": 2,
+            "base_b": 3,
+            "left_counts": [
+              1,
+              64
+            ],
+            "right_counts": [
+              1,
+              65
+            ],
+            "exact_selector_difference": "2/10301051460877537453973547267843",
+            "histograms_differ": true
+          }
+        ],
+        "aggregate": {
+          "full_histogram_radix_reconstruction_proved": true,
+          "audited_histogram_decode_failures": 0,
+          "fixed_precision_sufficient_for_unbounded_histogram_depth": false,
+          "uniform_arithmetic_selector_bound_proved": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The selector is a lossless encoding only after the exact counts and their maximum are already available. It supplies no new circle-method or parity estimate.",
+        "failure_count": 0
+      },
+      "logical_limit": "The lossless radix representation begins from exact Goldbach counts and supplies no uniform arithmetic estimate for unseen blocks.",
+      "route_decision": {
+        "discard": "claiming that lossless histogram encoding or fixed-precision selector values independently prove Goldbach coverage",
+        "retain": "an independently certified interval for the radix selector whose leading digit is zero on every dyadic block",
+        "next_single_lemma": "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T215",
+            "label": "ExponentialSelectorExactExceptionCountAndSharpTemperature",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T216",
+            "label": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N216",
+            "label": "LosslessRadixEncodingAloneProvesCoverage",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN216",
+            "label": "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T215",
+            "GB-T216"
+          ],
+          [
+            "GB-T216",
+            "GB-N216"
+          ],
+          [
+            "GB-T216",
+            "GB-OPEN216"
+          ],
+          [
+            "GB-OPEN216",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The full finite histogram is encoded exactly, but the required all-block arithmetic interval remains open."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-216",
+      "theorem_name": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+      "declared_proposition": "For any odd-supported sequence 0<=a_n<=1, let T(Y)=sum_(n<=Y)a_n and F(r)=sum a_n r^n. For 0<r<1 and Y>=X, r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2), where n0 is the first odd integer above Y. Thus a certified lower bound L<=F(r) gives T(Y)>=ceil(L-r^n0/(1-r^2)). At r_X=1-1/X, a fixed dilation Y=cX leaves a tail of order X and cannot by this bracket alone transfer a Hardy-Littlewood-scale X/log^2 X lower bound. A growing dilation of about (2 log log X)X removes that geometric obstruction.",
+      "mathematical_argument": "For n<=X, r^n>=r^X, giving the lower inequality. Terms through Y are at most T(Y), while replacing every later odd coefficient by one gives the geometric upper tail r^n0/(1-r^2). Rearrangement and integrality of T give the transferred lower bound. For r=1-1/X and Y=cX the tail is asymptotic to (X/2)e^(-c); for fixed c this dominates X/log^2 X. Taking c=2 log log X+omega(1) makes the tail little-o of that scale.",
+      "reproducible_computation": {
+        "theorem": "For any odd-supported sequence 0<=a_n<=1, let T(Y)=sum_(n<=Y)a_n and F(r)=sum a_n r^n. For 0<r<1 and Y>=X, r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2), where n0 is the first odd integer above Y. Thus a certified lower bound L<=F(r) gives T(Y)>=ceil(L-r^n0/(1-r^2)). At r_X=1-1/X, a fixed dilation Y=cX leaves a tail of order X and cannot by this bracket alone transfer a Hardy-Littlewood-scale X/log^2 X lower bound. A growing dilation of about (2 log log X)X removes that geometric obstruction.",
+        "proof": "For n<=X, r^n>=r^X, giving the lower inequality. Terms through Y are at most T(Y), while replacing every later odd coefficient by one gives the geometric upper tail r^n0/(1-r^2). Rearrangement and integrality of T give the transferred lower bound. For r=1-1/X and Y=cX the tail is asymptotic to (X/2)e^(-c); for fixed c this dominates X/log^2 X. Taking c=2 log log X+omega(1) makes the tail little-o of that scale.",
+        "count_transform_bracket": "r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2)",
+        "finite_prime_rows": [
+          {
+            "X": 100,
+            "radius_r_X": "99/100",
+            "Y": 1000,
+            "known_Abel_lower_decimal": "8.1896864177525088458287655262282126174319951474276114478781751623448568900717871",
+            "geometric_unknown_tail_upper_decimal": "0.0021477153234448074612435427311008613979280470931012943728851011999621160174779876",
+            "transferred_integer_lower_bound_for_T_Y": 9,
+            "actual_bounded_twin_count_T_Y": 35,
+            "local_count_T_X": 8,
+            "r_X_pow_X_decimal": "0.36603234127322950493061602657251738618971207663892369140595737269931704475072475",
+            "lower_factor_inequality_holds": true
+          },
+          {
+            "X": 1000,
+            "radius_r_X": "999/1000",
+            "Y": 10000,
+            "known_Abel_lower_decimal": "34.875112964625861530797435234928785046746058506396002019514708620850530050395113",
+            "geometric_unknown_tail_upper_decimal": "0.022575374002537067278301915436992291627821830895848464743035958621189532800415250",
+            "transferred_integer_lower_bound_for_T_Y": 35,
+            "actual_bounded_twin_count_T_Y": 205,
+            "local_count_T_X": 35,
+            "r_X_pow_X_decimal": "0.36769542477096404462680613922046134397249989380531585145130366181558858369117176",
+            "lower_factor_inequality_holds": true
+          },
+          {
+            "X": 10000,
+            "radius_r_X": "9999/10000",
+            "Y": 100000,
+            "known_Abel_lower_decimal": "189.29147576846181004228307784077540040469536134481954585524790961655334340725434",
+            "geometric_unknown_tail_upper_decimal": "0.22687482491907233850226461622645726187900916497320719472874397713942640405109318",
+            "transferred_integer_lower_bound_for_T_Y": 190,
+            "actual_bounded_twin_count_T_Y": 1224,
+            "local_count_T_X": 205,
+            "r_X_pow_X_decimal": "0.36786104643292992411133567221850874479697993602962027087832164281842317992386630",
+            "lower_factor_inequality_holds": true
+          },
+          {
+            "X": 100000,
+            "radius_r_X": "99999/100000",
+            "Y": 1000000,
+            "known_Abel_lower_decimal": "1150.5546242833841760617536100556664034040123638560870823053627865994440074743705",
+            "geometric_unknown_tail_upper_decimal": "2.2698716409089520837114427445439358570320072312385892128013669470078881102937122",
+            "transferred_integer_lower_bound_for_T_Y": 1149,
+            "actual_bounded_twin_count_T_Y": 8169,
+            "local_count_T_X": 1224,
+            "r_X_pow_X_decimal": "0.36787760176657227103852038581803104615392165671422331938644936491921842155144067",
+            "lower_factor_inequality_holds": true
+          }
+        ],
+        "tail_scale_rows": [
+          {
+            "X": 1000,
+            "fixed_multiplier": 4,
+            "fixed_tail_over_X_log2X_scale": "0.43589258862266627146490980702507715277440560795921747635314543690660169708487302",
+            "adaptive_multiplier": 7,
+            "adaptive_tail_over_X_log2X_scale": "0.021669264106433938292723171303777026702014750952805585678066128224410929200914506"
+          },
+          {
+            "X": 10000,
+            "fixed_multiplier": 4,
+            "fixed_tail_over_X_log2X_scale": "0.77666700543446789536895821613374638206001572159920977336913387418524092484263432",
+            "adaptive_multiplier": 8,
+            "adaptive_tail_over_X_log2X_scale": "0.014222307472689685910749128065775449994496006022052980247752062935781123011353573"
+          },
+          {
+            "X": 100000,
+            "fixed_multiplier": 4,
+            "fixed_tail_over_X_log2X_scale": "1.2138152942357621230151879000441895090318404150541735462985155670721825713008118",
+            "adaptive_multiplier": 8,
+            "adaptive_tail_over_X_log2X_scale": "0.022231357972274836937341143416461381901442722413635887378392501349267126817872963"
+          },
+          {
+            "X": 1000000,
+            "fixed_multiplier": 4,
+            "fixed_tail_over_X_log2X_scale": "1.7479333520530909700869596886131408071549364796624294439871287989198909705201788",
+            "adaptive_multiplier": 9,
+            "adaptive_tail_over_X_log2X_scale": "0.011777452840378990909148835067860840788318655960889876125956642831908463819421382"
+          }
+        ],
+        "aggregate": {
+          "quantitative_Abel_to_count_bracket_proved": true,
+          "fixed_dilation_sufficient_at_Hardy_Littlewood_scale": false,
+          "adaptive_geometric_tail_schedule_identified": true,
+          "parity_breaking_Abel_lower_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The fixed-dilation result is a limitation of this coefficient-one geometric tail envelope, not a theorem that every Tauberian or sieve transfer must fail.",
+        "failure_count": 0
+      },
+      "logical_limit": "No parity-breaking lower bound for the actual twin Abel transform dominates the adaptive geometric tail on an unbounded schedule.",
+      "route_decision": {
+        "discard": "a fixed-dilation coefficient-one tail bound as a transfer of Hardy-Littlewood-scale Abel mass",
+        "retain": "a parity-sensitive Abel lower bound above the tail at a growing roughly 2 log log X dilation",
+        "next_single_lemma": "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T215",
+            "label": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T216",
+            "label": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N216",
+            "label": "FixedDilationAbelTailTransfersTwinScaleMass",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN216",
+            "label": "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T215",
+            "TP-T216"
+          ],
+          [
+            "TP-T216",
+            "TP-N216"
+          ],
+          [
+            "TP-T216",
+            "TP-OPEN216"
+          ],
+          [
+            "TP-OPEN216",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or last-twin counterexample. The Abel-to-count transfer is quantitative, but its parity-breaking lower input is unproved."
+    },
+    "cross_problem_synthesis": "All four routes now expose a discrete object hidden behind a transform: off-line zero pairs, a cross-power gcd collision, Goldbach count digits, and exact-gap-two support counts. The remaining work is not decoding; it is an independent arithmetic bound that crosses the first discrete threshold.",
+    "literature_boundary": {
+      "riemann": "Platt-Trudgian rigorously verify RH through height 3e12 by interval arithmetic; TICKET-216 neither reproduces nor extends that height.",
+      "collatz": "Simons-de Weger use transcendence and Diophantine approximation for m-cycle bounds; the gcd identity here is narrower and carries no priority claim.",
+      "goldbach": "Montgomery-Vaughan type exceptional-set theorems do not prove the exceptional set empty; radix decoding is not a circle-method improvement.",
+      "twin_prime": "Polymath8 identifies a parity limitation for purely sieve-theoretic bounded-gap methods; the Tauberian bracket supplies no parity-breaking estimate."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-216",
+      "status": "open_not_proven",
+      "declared_proposition": "At every boundary-free height let D(T)=N(T)-M(T), and let C(T)=D(T)/2 count off-critical symmetry pairs with multiplicity. The Stieltjes measure dC is nonnegative and atomic. For 0<r<1 put L(r)=integral r^t dC(t). Then C(H) r^H<=L(r). Hence any rigorous upper bound U(r)<r^H certifies that no off-critical zero has ordinate at most H. Cofinal certificates with H tending to infinity imply RH. The threshold is sharp for this information: one pair at height H contributes exactly r^H.",
+      "new_result": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+      "discarded_route": "any fixed positive transform tolerance, since one off-line pair can be delayed below it",
+      "remaining_gap": "No rigorous actual-zeta upper bound for the full off-line defect transform is proved on a cofinal height schedule.",
+      "candidate_theorem": "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold",
+      "bounded_result": {
+        "audit_ref": "#/laplace_gcd_radix_tauberian_audit"
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-216",
+      "status": "open_not_proven",
+      "declared_proposition": "For a positive accelerated Collatz cycle with cyclic valuation word 1^k 2^m, put Delta=2^(k+2m)-3^(k+m)>0. In addition to the TICKET-215 near-collision bound, integer closure forces the exact necessary identity Delta=gcd(3^k-2^k,4^m-3^m). At the unique first-positive candidate m for each 1<=k<=4096, exact integer arithmetic finds no gcd equality.",
+      "new_result": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+      "discarded_route": "treating the finite gcd audit or a necessary gcd equality as a complete Collatz proof",
+      "remaining_gap": "The strict gcd gap is unproved for every k, and the single-mountain family does not cover multi-run words or divergence.",
+      "candidate_theorem": "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing",
+      "bounded_result": {
+        "audit_ref": "#/laplace_gcd_radix_tauberian_audit"
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-216",
+      "status": "open_not_proven",
+      "declared_proposition": "For a block of B Goldbach counts A_i, set b=B+1 and let h_a be the number of targets with A_i=a. If U=max A_i, then the TICKET-215 selector E=sum b^(-A_i) satisfies b^U E=sum_(a=0)^U h_a b^(U-a). Because 0<=h_a<b, the base-b digits of this integer recover the entire representation-count histogram exactly, including the exception count h_0. This is exact encoding, not an arithmetic estimate of unseen counts.",
+      "new_result": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+      "discarded_route": "claiming that lossless histogram encoding or fixed-precision selector values independently prove Goldbach coverage",
+      "remaining_gap": "The lossless radix representation begins from exact Goldbach counts and supplies no uniform arithmetic estimate for unseen blocks.",
+      "candidate_theorem": "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock",
+      "bounded_result": {
+        "audit_ref": "#/laplace_gcd_radix_tauberian_audit"
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-216",
+      "status": "open_not_proven",
+      "declared_proposition": "For any odd-supported sequence 0<=a_n<=1, let T(Y)=sum_(n<=Y)a_n and F(r)=sum a_n r^n. For 0<r<1 and Y>=X, r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2), where n0 is the first odd integer above Y. Thus a certified lower bound L<=F(r) gives T(Y)>=ceil(L-r^n0/(1-r^2)). At r_X=1-1/X, a fixed dilation Y=cX leaves a tail of order X and cannot by this bracket alone transfer a Hardy-Littlewood-scale X/log^2 X lower bound. A growing dilation of about (2 log log X)X removes that geometric obstruction.",
+      "new_result": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+      "discarded_route": "a fixed-dilation coefficient-one tail bound as a transfer of Hardy-Littlewood-scale Abel mass",
+      "remaining_gap": "No parity-breaking lower bound for the actual twin Abel transform dominates the adaptive geometric tail on an unbounded schedule.",
+      "candidate_theorem": "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail",
+      "bounded_result": {
+        "audit_ref": "#/laplace_gcd_radix_tauberian_audit"
+      }
+    }
+  ]
+}

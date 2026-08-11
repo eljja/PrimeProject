@@ -214,6 +214,7 @@ TICKET212_SCHEMA = "primeproject.ticket212-even-defect-ghost-bonferroni-gapchann
 TICKET213_SCHEMA = "primeproject.ticket213-multiplicity-sixone-polynomial-selector.v1"
 TICKET214_SCHEMA = "primeproject.ticket214-cofinal-sevenone-exponential-cardinal.v1"
 TICKET215_SCHEMA = "primeproject.ticket215-lattice-nearcollision-exception-abel.v1"
+TICKET216_SCHEMA = "primeproject.ticket216-laplace-gcd-radix-tauberian.v1"
 
 
 def fail(message: str) -> int:
@@ -18197,6 +18198,175 @@ def main() -> int:
         or machine215.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket215 proof boundary changed")
+
+    path216 = Path(
+        "data/open-problem/ticket216-laplace-gcd-radix-tauberian.json"
+    )
+    if not path216.exists():
+        return fail("missing ticket216 Laplace/gcd/radix/Tauberian audit")
+    ticket216 = read_json(path216)
+    if (
+        ticket216.get("schema") != TICKET216_SCHEMA
+        or ticket216.get("status") != "open_not_proven"
+    ):
+        return fail("ticket216 schema or status changed")
+    audit216 = ticket216.get("laplace_gcd_radix_tauberian_audit", {})
+    machine216 = audit216.get("machine_audit", {})
+    if machine216 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket216 global machine audit changed")
+
+    attempts216 = {
+        row.get("problem_id"): row for row in ticket216.get("attempts", [])
+    }
+    if set(attempts216) != EXPECTED_PROBLEMS:
+        return fail("ticket216 attempts missing problems")
+    track_paths216 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-216-defect-laplace.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-216-cross-power-gcd.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-216-radix-histogram.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-216-tauberian-bracket.json"
+        ),
+    }
+    theorem_names216 = {
+        "riemann": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+        "collatz": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+        "goldbach": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+        "twin-prime": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+    }
+    next_lemmas216 = {
+        "riemann": "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold",
+        "collatz": "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing",
+        "goldbach": "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock",
+        "twin-prime": "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail",
+    }
+    for problem_id, track_path in track_paths216.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket216 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts216[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET216_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names216[problem_id]
+            or attempt.get("new_result") != theorem_names216[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas216[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/laplace_gcd_radix_tauberian_audit"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket216 contract changed")
+
+    rh216 = audit216.get("riemann", {}).get("reproducible_computation", {})
+    rh216_thresholds = rh216.get("threshold_rows", [])
+    rh216_no_go = rh216.get("fixed_tolerance_no_go_rows", [])
+    rh216_aggregate = rh216.get("aggregate", {})
+    if (
+        [row.get("H") for row in rh216_thresholds] != [8, 10, 11, 12, 46, 47]
+        or any(
+            row.get("actual_synthetic_pair_count_through_H") != 0
+            for row in rh216_thresholds
+            if row.get("certifies_no_offline_pair_through_H")
+        )
+        or len(rh216_no_go) != 4
+        or any(row.get("below_epsilon") is not True for row in rh216_no_go)
+        or rh216_aggregate.get("first_atom_threshold_certificate_proved")
+        is not True
+        or rh216_aggregate.get("fixed_positive_tolerance_sufficient_for_RH")
+        is not False
+        or rh216_aggregate.get("actual_zeta_transform_upper_bounds_proved")
+        is not False
+        or rh216_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket216 RH first-atom boundary changed")
+
+    collatz216 = audit216.get("collatz", {}).get("reproducible_computation", {})
+    collatz216_aggregate = collatz216.get("aggregate", {})
+    if (
+        collatz216.get("audited_k_min") != 1
+        or collatz216.get("audited_k_max") != 4096
+        or collatz216.get("gcd_equality_candidate_count") != 0
+        or len(collatz216.get("checkpoint_rows", [])) != 14
+        or len(collatz216.get("transcript_sha256", "")) != 64
+        or collatz216_aggregate.get(
+            "cross_power_gcd_identity_proved_as_cycle_necessity"
+        )
+        is not True
+        or collatz216_aggregate.get("all_k_gcd_gap_proved") is not False
+        or collatz216_aggregate.get("multi_run_cycle_words_excluded") is not False
+        or collatz216_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket216 Collatz cross-power gcd boundary changed")
+
+    goldbach216 = audit216.get("goldbach", {}).get("reproducible_computation", {})
+    goldbach216_rows = goldbach216.get("dyadic_goldbach_rows", [])
+    goldbach216_aggregate = goldbach216.get("aggregate", {})
+    if (
+        [row.get("dyadic_start_X") for row in goldbach216_rows]
+        != [128, 512, 2048, 8192, 32768]
+        or any(row.get("exception_digit_h_0") != 0 for row in goldbach216_rows)
+        or any(row.get("full_histogram_recovered") is not True for row in goldbach216_rows)
+        or len(goldbach216.get("finite_precision_no_go_rows", [])) != 4
+        or goldbach216_aggregate.get("full_histogram_radix_reconstruction_proved")
+        is not True
+        or goldbach216_aggregate.get(
+            "fixed_precision_sufficient_for_unbounded_histogram_depth"
+        )
+        is not False
+        or goldbach216_aggregate.get("uniform_arithmetic_selector_bound_proved")
+        is not False
+        or goldbach216_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket216 Goldbach radix-histogram boundary changed")
+
+    twin216 = audit216.get("twin_prime", {}).get("reproducible_computation", {})
+    twin216_rows = twin216.get("finite_prime_rows", [])
+    twin216_aggregate = twin216.get("aggregate", {})
+    if (
+        [row.get("X") for row in twin216_rows] != [100, 1000, 10000, 100000]
+        or [row.get("transferred_integer_lower_bound_for_T_Y") for row in twin216_rows]
+        != [9, 35, 190, 1149]
+        or any(row.get("lower_factor_inequality_holds") is not True for row in twin216_rows)
+        or len(twin216.get("tail_scale_rows", [])) != 4
+        or twin216_aggregate.get("quantitative_Abel_to_count_bracket_proved")
+        is not True
+        or twin216_aggregate.get(
+            "fixed_dilation_sufficient_at_Hardy_Littlewood_scale"
+        )
+        is not False
+        or twin216_aggregate.get("parity_breaking_Abel_lower_bound_proved")
+        is not False
+        or twin216_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket216 Twin Tauberian boundary changed")
+
+    if (
+        "resolves none" not in str(audit216.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket216.get("claim_boundary", "")).lower()
+        or machine216.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket216 proof boundary changed")
 
     print("open problem structure verified")
     return 0

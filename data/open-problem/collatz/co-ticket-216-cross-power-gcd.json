@@ -1,0 +1,194 @@
+{
+  "schema": "primeproject.ticket216-laplace-gcd-radix-tauberian.v1",
+  "generated_at": "2026-08-13T02:00:00+09:00",
+  "ticket_id": "CO-TICKET-216",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+  "declared_proposition": "For a positive accelerated Collatz cycle with cyclic valuation word 1^k 2^m, put Delta=2^(k+2m)-3^(k+m)>0. In addition to the TICKET-215 near-collision bound, integer closure forces the exact necessary identity Delta=gcd(3^k-2^k,4^m-3^m). At the unique first-positive candidate m for each 1<=k<=4096, exact integer arithmetic finds no gcd equality.",
+  "mathematical_argument": "TICKET-215 proves that a cycle forces Delta to divide C=3^k-2^k. Write E=4^m-3^m. The exact identity Delta=2^k E-3^m C shows that gcd(C,E) divides Delta. Conversely Delta divides C, and the same identity gives Delta|2^k E. Since Delta is odd, Delta|E. Thus Delta divides gcd(C,E), proving equality. The audit recomputes the first positive crossing and the gcd with arbitrary-precision integers.",
+  "reproducible_computation": {
+    "theorem": "For a positive accelerated Collatz cycle with cyclic valuation word 1^k 2^m, put Delta=2^(k+2m)-3^(k+m)>0. In addition to the TICKET-215 near-collision bound, integer closure forces the exact necessary identity Delta=gcd(3^k-2^k,4^m-3^m). At the unique first-positive candidate m for each 1<=k<=4096, exact integer arithmetic finds no gcd equality.",
+    "proof": "TICKET-215 proves that a cycle forces Delta to divide C=3^k-2^k. Write E=4^m-3^m. The exact identity Delta=2^k E-3^m C shows that gcd(C,E) divides Delta. Conversely Delta divides C, and the same identity gives Delta|2^k E. Since Delta is odd, Delta|E. Thus Delta divides gcd(C,E), proving equality. The audit recomputes the first positive crossing and the gcd with arbitrary-precision integers.",
+    "necessary_identity": "Delta=gcd(3^k-2^k,4^m-3^m)",
+    "audited_k_min": 1,
+    "audited_k_max": 4096,
+    "gcd_equality_candidate_count": 0,
+    "checkpoint_rows": [
+      {
+        "valuation_one_count_k": 1,
+        "valuation_two_count_m": 2,
+        "delta_bit_length": 3,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 2,
+        "valuation_two_count_m": 3,
+        "delta_bit_length": 4,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 3,
+        "valuation_two_count_m": 5,
+        "delta_bit_length": 11,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 4,
+        "valuation_two_count_m": 6,
+        "delta_bit_length": 13,
+        "gcd_bit_length": 4,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 8,
+        "valuation_two_count_m": 12,
+        "delta_bit_length": 30,
+        "gcd_bit_length": 7,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 16,
+        "valuation_two_count_m": 23,
+        "delta_bit_length": 59,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 32,
+        "valuation_two_count_m": 46,
+        "delta_bit_length": 122,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 64,
+        "valuation_two_count_m": 91,
+        "delta_bit_length": 244,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 128,
+        "valuation_two_count_m": 181,
+        "delta_bit_length": 488,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 256,
+        "valuation_two_count_m": 361,
+        "delta_bit_length": 974,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 512,
+        "valuation_two_count_m": 722,
+        "delta_bit_length": 1953,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 1024,
+        "valuation_two_count_m": 1444,
+        "delta_bit_length": 3910,
+        "gcd_bit_length": 3,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 2048,
+        "valuation_two_count_m": 2887,
+        "delta_bit_length": 7820,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      },
+      {
+        "valuation_one_count_k": 4096,
+        "valuation_two_count_m": 5773,
+        "delta_bit_length": 15634,
+        "gcd_bit_length": 1,
+        "delta_equals_cross_power_gcd": false,
+        "delta_exceeds_ticket215_ceiling": true
+      }
+    ],
+    "transcript_sha256": "7b8cfb07ec44d1d6c5dd8450eca945fbd311ca83ab4ce54407ba51207b38ffc1",
+    "aggregate": {
+      "cross_power_gcd_identity_proved_as_cycle_necessity": true,
+      "gcd_equalities_through_k_4096": 0,
+      "all_k_gcd_gap_proved": false,
+      "multi_run_cycle_words_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The gcd equality is necessary, not sufficient, and the audit is finite. It covers only one 1-run and one 2-run.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating the finite gcd audit or a necessary gcd equality as a complete Collatz proof",
+  "remaining_gap": "The strict gcd gap is unproved for every k, and the single-mountain family does not cover multi-run words or divergence.",
+  "candidate_theorem": "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing",
+  "claim_boundary": "No Collatz proof or divergent orbit. The new gcd identity is a necessary condition for one valuation-word family only.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T215",
+        "label": "SingleMountainCycleNearCollisionReductionAndFiniteDiagonalAudit",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T216",
+        "label": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N216",
+        "label": "FiniteCrossPowerGCDAuditProvesCollatz",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN216",
+        "label": "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T215",
+        "CO-T216"
+      ],
+      [
+        "CO-T216",
+        "CO-N216"
+      ],
+      [
+        "CO-T216",
+        "CO-OPEN216"
+      ],
+      [
+        "CO-OPEN216",
+        "CO"
+      ]
+    ]
+  }
+}

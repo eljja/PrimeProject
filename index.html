@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260812-ticket215-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260812-ticket216-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-215 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-216 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-215 proves four exact reductions and sharp finite-information limits: an RH defect-lattice certificate, a Collatz single-mountain near-collision reduction, an exact Goldbach exception counter, and a Twin Prime Abel-boundary equivalence.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-215는 리만 결함의 짝수 격자 인증, 콜라츠 단일 봉우리의 거듭제곱 근접충돌 환원, 골드바흐 예외 개수의 정확 복원, 쌍둥이 소수의 아벨 경계 동치를 증명하고 유한 정보만으로는 부족한 지점을 날카롭게 분리했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-216 proves four exact threshold results: an RH off-line-pair Laplace certificate, a Collatz cross-power gcd necessity, a full Goldbach radix histogram, and a quantitative Twin Abel-to-count bracket.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-216은 리만 결함의 첫 라플라스 원자 인증, 콜라츠 단일 봉우리의 정확한 교차 거듭제곱 GCD 필요조건, 골드바흐 전체 표현 수 진법 히스토그램, 쌍둥이 소수의 정량 아벨-개수 부등식을 증명했습니다. 정확한 복호화와 아직 필요한 산술 추정을 분리했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>215</strong><small>2026-08-12</small></div>
+              <div><span>Latest ticket</span><strong>216</strong><small>2026-08-13</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 결함 <code>D=N−M</code>은 음이 아닌 짝수입니다. 엄밀 구간의 상단이 <code>2</code>보다 작으면 <code>D=0</code>이 강제됩니다.</p>
-                <p><strong>폐기:</strong> 구간 폭이나 상대오차가 작다는 사실만으로 결함 0을 결론내리는 경로. 정확한 <code>[2,2]</code>도 비임계선 대칭쌍 하나와 양립합니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 제타 결함에 대해 비유계 높이에서 <code>D&lt;2</code>인 엄밀 상계를 구성하기.</p>
+                <p><strong>확립:</strong> 임계선 밖 대칭쌍 측도의 변환 <code>L(r)</code>에 대해 <code>L(r)&lt;r<sup>H</sup></code>이면 높이 <code>H</code>까지 결함이 0입니다.</p>
+                <p><strong>폐기:</strong> 고정된 양의 변환 허용오차로 RH를 결론내리는 경로. 충분히 늦은 논리적 대칭쌍은 그 아래에 숨을 수 있습니다.</p>
+                <p><strong>다음 핵심:</strong> 실제 제타 변환에서 첫 원자 임계값보다 작은 공종 엄밀 상계를 구성하기.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 단일 봉우리 단어 <code>1^k2^m</code>이 주기를 이루려면 양의 첫 교차점에서 <code>0&lt;Δ≤3^k−2^k</code>여야 하며, 각 <code>k</code>에는 후보 <code>m</code>이 최대 하나입니다.</p>
-                <p><strong>폐기:</strong> 후보가 여러 <code>m</code>에 걸쳐 반복될 수 있다는 경로. <code>k≤4096</code>의 유일 후보를 전수 검사했지만 근접충돌은 0개였습니다.</p>
-                <p><strong>다음 핵심:</strong> 모든 <code>k</code>에서 단일 봉우리 거듭제곱 근접충돌이 불가능함을 증명하기.</p>
+                <p><strong>확립:</strong> 단일 봉우리 주기는 <code>Δ=gcd(3^k−2^k,4^m−3^m)</code>라는 정확한 교차 거듭제곱 충돌을 강제합니다.</p>
+                <p><strong>폐기:</strong> <code>k≤4096</code>의 GCD 등식 0개를 전체 콜라츠 증명으로 승격하는 경로.</p>
+                <p><strong>다음 핵심:</strong> 모든 첫 양의 교차점에서 엄격한 GCD 간극을 증명하고 다중 run으로 확장하기.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 블록 크기 <code>B</code>, 표현 수 <code>Aᵢ</code>, <code>Bq&lt;1</code>이면 <code>⌊Σq<sup>Aᵢ</sup>⌋</code>가 표현되지 않은 짝수의 개수를 정확히 복원합니다.</p>
-                <p><strong>폐기:</strong> 임계 온도 <code>Bq=1</code>에서도 같은 바닥함수 복원이 된다는 경로. 모든 <code>Aᵢ=1</code>인 경우가 날카로운 반례입니다.</p>
-                <p><strong>다음 핵심:</strong> 모든 이진 블록에서 선택자 값이 1 미만임을 보이는 산술 상계를 증명하기.</p>
+                <p><strong>확립:</strong> 밑 <code>B+1</code>에서 선택자 하나의 진법 자릿수는 예외 수를 포함한 전체 골드바흐 표현 수 히스토그램을 정확히 복원합니다.</p>
+                <p><strong>폐기:</strong> 무손실 인코딩이나 고정 정밀도 값을 보지 않은 블록의 산술 증명으로 승격하는 경로.</p>
+                <p><strong>다음 핵심:</strong> 모든 이진 블록에서 0번 자릿수를 분리하는 독립적인 선택자 구간을 증명하기.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 쌍둥이 지시수열의 아벨 변환 <code>F(r)=Σaₙrⁿ</code>이 <code>r→1−</code>에서 발산하는 것은 쌍둥이 소수가 무한한 것과 동치입니다.</p>
-                <p><strong>폐기:</strong> 유한 개의 고정 반지름 값으로 경계 발산을 판정하는 경로. 임의의 유한 관측 뒤에 무한 꼬리를 숨길 수 있습니다.</p>
-                <p><strong>다음 핵심:</strong> <code>r→1−</code>에서 발산하는 패리티 장벽을 깨는 산술 하한을 증명하기.</p>
+                <p><strong>확립:</strong> <code>r^XT(X)≤F(r)≤T(Y)+r^n₀/(1−r²)</code>가 아벨 하한을 실제 쌍둥이 개수 하한으로 바꿉니다.</p>
+                <p><strong>폐기:</strong> 고정 <code>Y=cX</code> 꼬리로 <code>X/log²X</code> 규모 질량을 전달하는 경로. 꼬리는 <code>X</code> 차수입니다.</p>
+                <p><strong>다음 핵심:</strong> 약 <code>2 log log X</code>로 커지는 지평의 꼬리를 넘는 패리티 민감 아벨 하한을 증명하기.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>215개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-215는 이산 결함·거듭제곱 근접충돌·예외 개수·아벨 경계라는 네 개의 정확한 중간 명제로 환원하고, 실제 제타 상계·모든 <code>k</code>의 배제·전 블록 산술 상계·패리티를 깨는 경계 하한을 다음 핵심으로 남겼습니다.</p>
+                <p>216개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-216은 라플라스 원자·교차 GCD·진법 히스토그램·타우버 꼬리라는 네 이산 임계값을 확정하고, 실제 제타 상계·모든 <code>k</code>의 GCD 간극·전 블록 0번 자릿수 분리·패리티를 깨는 아벨 하한을 다음 핵심으로 남겼습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/lattice-nearcollision-exception-abel.ko.md">최신 한국어 보고서</a>
-              <a href="docs/lattice-nearcollision-exception-abel.md">Latest English report</a>
+              <a href="docs/laplace-gcd-radix-tauberian.ko.md">최신 한국어 보고서</a>
+              <a href="docs/laplace-gcd-radix-tauberian.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-215</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-215 adds an RH even-lattice certificate, a Collatz single-mountain near-collision reduction, an exact Goldbach exception counter, and a Twin Prime Abel-boundary equivalence. Resolution count: 0.</p>
+              <strong>TICKET-216</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-216 adds an RH first-atom transform certificate, an exact Collatz cross-power gcd necessity, a complete Goldbach radix histogram, and a quantitative Twin Abel-count bracket. Resolution count: 0.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260812-ticket215"></script>
-    <script src="assets/app.js?v=20260812-ticket215"></script>
+    <script src="assets/i18n.js?v=20260812-ticket216"></script>
+    <script src="assets/app.js?v=20260812-ticket216"></script>
   </body>
 </html>
 

@@ -1,0 +1,155 @@
+{
+  "schema": "primeproject.ticket216-laplace-gcd-radix-tauberian.v1",
+  "generated_at": "2026-08-13T02:00:00+09:00",
+  "ticket_id": "TP-TICKET-216",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+  "declared_proposition": "For any odd-supported sequence 0<=a_n<=1, let T(Y)=sum_(n<=Y)a_n and F(r)=sum a_n r^n. For 0<r<1 and Y>=X, r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2), where n0 is the first odd integer above Y. Thus a certified lower bound L<=F(r) gives T(Y)>=ceil(L-r^n0/(1-r^2)). At r_X=1-1/X, a fixed dilation Y=cX leaves a tail of order X and cannot by this bracket alone transfer a Hardy-Littlewood-scale X/log^2 X lower bound. A growing dilation of about (2 log log X)X removes that geometric obstruction.",
+  "mathematical_argument": "For n<=X, r^n>=r^X, giving the lower inequality. Terms through Y are at most T(Y), while replacing every later odd coefficient by one gives the geometric upper tail r^n0/(1-r^2). Rearrangement and integrality of T give the transferred lower bound. For r=1-1/X and Y=cX the tail is asymptotic to (X/2)e^(-c); for fixed c this dominates X/log^2 X. Taking c=2 log log X+omega(1) makes the tail little-o of that scale.",
+  "reproducible_computation": {
+    "theorem": "For any odd-supported sequence 0<=a_n<=1, let T(Y)=sum_(n<=Y)a_n and F(r)=sum a_n r^n. For 0<r<1 and Y>=X, r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2), where n0 is the first odd integer above Y. Thus a certified lower bound L<=F(r) gives T(Y)>=ceil(L-r^n0/(1-r^2)). At r_X=1-1/X, a fixed dilation Y=cX leaves a tail of order X and cannot by this bracket alone transfer a Hardy-Littlewood-scale X/log^2 X lower bound. A growing dilation of about (2 log log X)X removes that geometric obstruction.",
+    "proof": "For n<=X, r^n>=r^X, giving the lower inequality. Terms through Y are at most T(Y), while replacing every later odd coefficient by one gives the geometric upper tail r^n0/(1-r^2). Rearrangement and integrality of T give the transferred lower bound. For r=1-1/X and Y=cX the tail is asymptotic to (X/2)e^(-c); for fixed c this dominates X/log^2 X. Taking c=2 log log X+omega(1) makes the tail little-o of that scale.",
+    "count_transform_bracket": "r^X T(X)<=F(r)<=T(Y)+r^n0/(1-r^2)",
+    "finite_prime_rows": [
+      {
+        "X": 100,
+        "radius_r_X": "99/100",
+        "Y": 1000,
+        "known_Abel_lower_decimal": "8.1896864177525088458287655262282126174319951474276114478781751623448568900717871",
+        "geometric_unknown_tail_upper_decimal": "0.0021477153234448074612435427311008613979280470931012943728851011999621160174779876",
+        "transferred_integer_lower_bound_for_T_Y": 9,
+        "actual_bounded_twin_count_T_Y": 35,
+        "local_count_T_X": 8,
+        "r_X_pow_X_decimal": "0.36603234127322950493061602657251738618971207663892369140595737269931704475072475",
+        "lower_factor_inequality_holds": true
+      },
+      {
+        "X": 1000,
+        "radius_r_X": "999/1000",
+        "Y": 10000,
+        "known_Abel_lower_decimal": "34.875112964625861530797435234928785046746058506396002019514708620850530050395113",
+        "geometric_unknown_tail_upper_decimal": "0.022575374002537067278301915436992291627821830895848464743035958621189532800415250",
+        "transferred_integer_lower_bound_for_T_Y": 35,
+        "actual_bounded_twin_count_T_Y": 205,
+        "local_count_T_X": 35,
+        "r_X_pow_X_decimal": "0.36769542477096404462680613922046134397249989380531585145130366181558858369117176",
+        "lower_factor_inequality_holds": true
+      },
+      {
+        "X": 10000,
+        "radius_r_X": "9999/10000",
+        "Y": 100000,
+        "known_Abel_lower_decimal": "189.29147576846181004228307784077540040469536134481954585524790961655334340725434",
+        "geometric_unknown_tail_upper_decimal": "0.22687482491907233850226461622645726187900916497320719472874397713942640405109318",
+        "transferred_integer_lower_bound_for_T_Y": 190,
+        "actual_bounded_twin_count_T_Y": 1224,
+        "local_count_T_X": 205,
+        "r_X_pow_X_decimal": "0.36786104643292992411133567221850874479697993602962027087832164281842317992386630",
+        "lower_factor_inequality_holds": true
+      },
+      {
+        "X": 100000,
+        "radius_r_X": "99999/100000",
+        "Y": 1000000,
+        "known_Abel_lower_decimal": "1150.5546242833841760617536100556664034040123638560870823053627865994440074743705",
+        "geometric_unknown_tail_upper_decimal": "2.2698716409089520837114427445439358570320072312385892128013669470078881102937122",
+        "transferred_integer_lower_bound_for_T_Y": 1149,
+        "actual_bounded_twin_count_T_Y": 8169,
+        "local_count_T_X": 1224,
+        "r_X_pow_X_decimal": "0.36787760176657227103852038581803104615392165671422331938644936491921842155144067",
+        "lower_factor_inequality_holds": true
+      }
+    ],
+    "tail_scale_rows": [
+      {
+        "X": 1000,
+        "fixed_multiplier": 4,
+        "fixed_tail_over_X_log2X_scale": "0.43589258862266627146490980702507715277440560795921747635314543690660169708487302",
+        "adaptive_multiplier": 7,
+        "adaptive_tail_over_X_log2X_scale": "0.021669264106433938292723171303777026702014750952805585678066128224410929200914506"
+      },
+      {
+        "X": 10000,
+        "fixed_multiplier": 4,
+        "fixed_tail_over_X_log2X_scale": "0.77666700543446789536895821613374638206001572159920977336913387418524092484263432",
+        "adaptive_multiplier": 8,
+        "adaptive_tail_over_X_log2X_scale": "0.014222307472689685910749128065775449994496006022052980247752062935781123011353573"
+      },
+      {
+        "X": 100000,
+        "fixed_multiplier": 4,
+        "fixed_tail_over_X_log2X_scale": "1.2138152942357621230151879000441895090318404150541735462985155670721825713008118",
+        "adaptive_multiplier": 8,
+        "adaptive_tail_over_X_log2X_scale": "0.022231357972274836937341143416461381901442722413635887378392501349267126817872963"
+      },
+      {
+        "X": 1000000,
+        "fixed_multiplier": 4,
+        "fixed_tail_over_X_log2X_scale": "1.7479333520530909700869596886131408071549364796624294439871287989198909705201788",
+        "adaptive_multiplier": 9,
+        "adaptive_tail_over_X_log2X_scale": "0.011777452840378990909148835067860840788318655960889876125956642831908463819421382"
+      }
+    ],
+    "aggregate": {
+      "quantitative_Abel_to_count_bracket_proved": true,
+      "fixed_dilation_sufficient_at_Hardy_Littlewood_scale": false,
+      "adaptive_geometric_tail_schedule_identified": true,
+      "parity_breaking_Abel_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The fixed-dilation result is a limitation of this coefficient-one geometric tail envelope, not a theorem that every Tauberian or sieve transfer must fail.",
+    "failure_count": 0
+  },
+  "discarded_route": "a fixed-dilation coefficient-one tail bound as a transfer of Hardy-Littlewood-scale Abel mass",
+  "remaining_gap": "No parity-breaking lower bound for the actual twin Abel transform dominates the adaptive geometric tail on an unbounded schedule.",
+  "candidate_theorem": "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail",
+  "claim_boundary": "No Twin Prime proof or last-twin counterexample. The Abel-to-count transfer is quantitative, but its parity-breaking lower input is unproved.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T215",
+        "label": "CardinalSelectedAbelBoundaryEquivalenceAndFiniteRadiusNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T216",
+        "label": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N216",
+        "label": "FixedDilationAbelTailTransfersTwinScaleMass",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN216",
+        "label": "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T215",
+        "TP-T216"
+      ],
+      [
+        "TP-T216",
+        "TP-N216"
+      ],
+      [
+        "TP-T216",
+        "TP-OPEN216"
+      ],
+      [
+        "TP-OPEN216",
+        "TP"
+      ]
+    ]
+  }
+}
