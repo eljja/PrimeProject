@@ -1,0 +1,205 @@
+{
+  "schema": "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1",
+  "generated_at": "2026-08-13T03:00:00+09:00",
+  "ticket_id": "RH-TICKET-217",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility",
+  "declared_proposition": "Let C be the nonnegative integer-valued off-critical-pair counting measure from TICKET-216 and L(r)=integral r^t dC(t). For every H and every finite family 0<r_j<1, C(H)<=floor(min_j L(r_j)/r_j^H). Hence rigorous upper bounds U_j with min_j U_j/r_j^H<1 certify C(H)=0. Conversely, for every finite family of radii and positive absolute tolerances epsilon_j, one nonzero atom can be placed at a finite height K so that r_j^K<epsilon_j for all j. Thus finitely many fixed absolute-error Laplace observations cannot imply RH; the required accuracy must track the moving first-atom scale.",
+  "mathematical_argument": "TICKET-216 gives C(H)r_j^H<=L(r_j) for each j. Divide, take the minimum, and use integrality. For invisibility, r_j^K tends to zero for each of finitely many radii. Choose K larger than every individual threshold. The unit atom delta_K is nonzero but changes every observed transform by less than its prescribed tolerance.",
+  "reproducible_computation": {
+    "theorem": "Let C be the nonnegative integer-valued off-critical-pair counting measure from TICKET-216 and L(r)=integral r^t dC(t). For every H and every finite family 0<r_j<1, C(H)<=floor(min_j L(r_j)/r_j^H). Hence rigorous upper bounds U_j with min_j U_j/r_j^H<1 certify C(H)=0. Conversely, for every finite family of radii and positive absolute tolerances epsilon_j, one nonzero atom can be placed at a finite height K so that r_j^K<epsilon_j for all j. Thus finitely many fixed absolute-error Laplace observations cannot imply RH; the required accuracy must track the moving first-atom scale.",
+    "proof": "TICKET-216 gives C(H)r_j^H<=L(r_j) for each j. Divide, take the minimum, and use integrality. For invisibility, r_j^K tends to zero for each of finitely many radii. Choose K larger than every individual threshold. The unit atom delta_K is nonzero but changes every observed transform by less than its prescribed tolerance.",
+    "normalized_certificate": "C(H)<=floor(min_j U_j(r_j)/r_j^H)",
+    "synthetic_atoms": [
+      {
+        "height": 17,
+        "pair_multiplicity": 1
+      },
+      {
+        "height": 53,
+        "pair_multiplicity": 2
+      }
+    ],
+    "normalized_certificate_rows": [
+      {
+        "H": 10,
+        "normalized_transform_bounds": [
+          "34359738369/4398046511104",
+          "19212130910201931904/328256967394537077627",
+          "2499237136643058178097424660240453423951129/5000000000000000000000000000000000000000000"
+        ],
+        "best_integer_upper_for_C_H": 0,
+        "actual_synthetic_pair_count_C_H": 0,
+        "zero_certified": true
+      },
+      {
+        "H": 16,
+        "normalized_transform_bounds": [
+          "34359738369/68719476736",
+          "300189545471905186/450283905890997363",
+          "4702755595904452569706561330872953769/5000000000000000000000000000000000000"
+        ],
+        "best_integer_upper_for_C_H": 0,
+        "actual_synthetic_pair_count_C_H": 0,
+        "zero_certified": true
+      },
+      {
+        "H": 17,
+        "normalized_transform_bounds": [
+          "34359738369/34359738368",
+          "150094772735952593/150094635296999121",
+          "522528399544939174411840147874772641/500000000000000000000000000000000000"
+        ],
+        "best_integer_upper_for_C_H": 1,
+        "actual_synthetic_pair_count_C_H": 1,
+        "zero_certified": false
+      },
+      {
+        "H": 40,
+        "normalized_transform_bounds": [
+          "34359738369/4096",
+          "150094772735952593/13374150672384",
+          "522528399544939174411840147874772641/44314690598262505479645000000000000"
+        ],
+        "best_integer_upper_for_C_H": 11,
+        "actual_synthetic_pair_count_C_H": 1,
+        "zero_certified": false
+      },
+      {
+        "H": 52,
+        "normalized_transform_bounds": [
+          "34359738369",
+          "150094772735952593/103079215104",
+          "522528399544939174411840147874772641/12515777524966208006577859930429245"
+        ],
+        "best_integer_upper_for_C_H": 41,
+        "actual_synthetic_pair_count_C_H": 1,
+        "zero_certified": false
+      },
+      {
+        "H": 53,
+        "normalized_transform_bounds": [
+          "68719476738",
+          "150094772735952593/68719476736",
+          "1045056799089878348823680295749545282/22528399544939174411840147874772641"
+        ],
+        "best_integer_upper_for_C_H": 46,
+        "actual_synthetic_pair_count_C_H": 3,
+        "zero_certified": false
+      }
+    ],
+    "finite_absolute_precision_invisibility_rows": [
+      {
+        "radii": [
+          "1/2",
+          "2/3"
+        ],
+        "absolute_tolerances": [
+          "1/100000000",
+          "1/100000000"
+        ],
+        "first_simultaneously_hidden_height": 46,
+        "one_atom_contributions_decimal": [
+          "1.421085471520200372E-14",
+          "7.939663261512540526E-9"
+        ],
+        "hidden_at_every_radius": true
+      },
+      {
+        "radii": [
+          "3/5",
+          "4/5",
+          "9/10"
+        ],
+        "absolute_tolerances": [
+          "1/1000000000000",
+          "1/10000000000000000",
+          "1/100000000000000000000"
+        ],
+        "first_simultaneously_hidden_height": 438,
+        "one_atom_contributions_decimal": [
+          "6.764686397359546808E-98",
+          "3.576138271605527980E-43",
+          "9.082787099036689143E-21"
+        ],
+        "hidden_at_every_radius": true
+      },
+      {
+        "radii": [
+          "99/100",
+          "999/1000"
+        ],
+        "absolute_tolerances": [
+          "1/1000000000000000000",
+          "1/1000000000000000000000000"
+        ],
+        "first_simultaneously_hidden_height": 55235,
+        "one_atom_contributions_decimal": [
+          "8.127810990197337192E-242",
+          "9.994064825718147505E-25"
+        ],
+        "hidden_at_every_radius": true
+      }
+    ],
+    "aggregate": {
+      "multi_radius_normalized_certificate_proved": true,
+      "finite_absolute_precision_family_sufficient_for_RH": false,
+      "cofinal_relative_precision_actual_zeta_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The hidden atoms are admissible logical defect measures, not zeros of the actual zeta function. The theorem rejects only finite fixed absolute-error promotion.",
+    "failure_count": 0
+  },
+  "discarded_route": "any finite family of fixed absolute-precision Laplace observations as a global RH certificate",
+  "remaining_gap": "No cofinal actual-zeta explicit-formula enclosure is proved with error below the moving first-atom threshold.",
+  "candidate_theorem": "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne",
+  "claim_boundary": "No RH proof and no off-line zeta zero. The normalized multi-radius certificate is exact, but its actual-zeta relative-precision input is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T216",
+        "label": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T217",
+        "label": "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N217",
+        "label": "FiniteAbsolutePrecisionLaplaceFamilyImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN217",
+        "label": "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T216",
+        "RH-T217"
+      ],
+      [
+        "RH-T217",
+        "RH-N217"
+      ],
+      [
+        "RH-T217",
+        "RH-OPEN217"
+      ],
+      [
+        "RH-OPEN217",
+        "RH"
+      ]
+    ]
+  }
+}

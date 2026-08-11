@@ -15,29 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-216
+## Current research boundary: TICKET-217
 
 The current machine-readable boundary is
-`data/open-problem/ticket216-laplace-gcd-radix-tauberian.json`.
+`data/open-problem/ticket217-relative-threshold-convergent-moment-tail.json`.
 
-TICKET-216 records four exact intermediate, reduction, or no-go results and zero
+TICKET-217 records four exact intermediate, reduction, or no-go results and zero
 conjecture resolutions:
 
-- a first-atom Laplace certificate for the nonnegative RH off-line-pair defect,
-  together with a fixed-positive-tolerance no-go;
-- an exact cross-power gcd identity necessary for every single-mountain
-  Collatz cycle, with no equality at the first crossing through `k=4096`;
-- a lossless radix identity recovering the full finite-block Goldbach
-  representation histogram, together with an unbounded-depth precision no-go;
-- a quantitative Abel-to-count bracket for the Twin Prime indicator, together
-  with a proof that a fixed dilation leaves a tail too large at the
-  `X/log^2 X` scale for this coefficient-one envelope.
+- a normalized multi-radius RH defect certificate and a proof that finitely
+  many fixed absolute tolerances cannot detect an arbitrarily late atom;
+- a continued-fraction reduction for single-mountain Collatz candidates and an
+  exact exclusion of `k<71,356,888` in that word family;
+- a sharp weighted second-moment sufficient condition for full Goldbach support,
+  including the optimal `B-1` coefficient and finite arithmetic diagnostics;
+- the exact `2 log log X` phase transition for the coefficient-one Twin Abel
+  tail, including its limiting constant `exp(-a)/2`.
 
-An actual-zeta cofinal Laplace upper bound below the first-atom threshold, a
-uniform strict cross-power gcd gap followed by a multi-run extension, an
-independent arithmetic interval separating the Goldbach zero digit on every
-block, and a parity-breaking Twin Abel lower bound dominating the adaptive
-geometric tail remain open.
+An actual-zeta cofinal relative-precision enclosure below one, an effective
+barrier for every upper convergent followed by multi-run and divergence control,
+a pointwise Goldbach lower-tail theorem beyond the second-moment barrier, and a
+Twin Abel lower bound with explicit surplus above the critical tail remain open.
+
+English report: [TICKET-217](relative-threshold-convergent-moment-tail.md).
+한국어 보고서: [TICKET-217](relative-threshold-convergent-moment-tail.ko.md).
+
+## Preserved research boundary: TICKET-216
+
+The direct machine-readable input is
+`data/open-problem/ticket216-laplace-gcd-radix-tauberian.json`.
 
 English report: [TICKET-216](laplace-gcd-radix-tauberian.md).
 한국어 보고서: [TICKET-216](laplace-gcd-radix-tauberian.ko.md).

@@ -31,19 +31,19 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-216: Laplace Defects, Cross-Power GCDs, Radix Histograms, and Tauberian Tails](docs/laplace-gcd-radix-tauberian.md),
-with a separate [Korean report](docs/laplace-gcd-radix-tauberian.ko.md).
-It turns the RH defect into a nonnegative first-atom transform certificate;
-strengthens the Collatz single-mountain condition to an exact cross-power gcd
-necessity; proves that one exact Goldbach selector losslessly encodes the full
-representation-count histogram; and gives a quantitative Twin Abel-to-count
-bracket with a fixed-dilation tail no-go. These are exact partial or no-go
+[TICKET-217: Relative Thresholds, Convergent Compression, Moment Support, and Critical Abel Tails](docs/relative-threshold-convergent-moment-tail.md),
+with a separate [Korean report](docs/relative-threshold-convergent-moment-tail.ko.md).
+It gives a normalized multi-radius RH defect certificate; compresses
+single-mountain Collatz candidates to upper continued-fraction convergents and
+excludes `k<71,356,888`; proves a sharp weighted second-moment certificate for
+full Goldbach support; and identifies the exact `2 log log X` phase transition
+of the coefficient-one Twin Abel tail. These are exact partial or no-go
 results, not resolutions. Every conjecture remains `open_not_proven`; the
 machine resolution count is zero.
 
 The preserved direct input is
-[TICKET-215: Lattice Certificates, Power Near-Collisions, Exception Counts, and Abel Boundaries](docs/lattice-nearcollision-exception-abel.md),
-with a separate [Korean report](docs/lattice-nearcollision-exception-abel.ko.md).
+[TICKET-216: Laplace Defects, Cross-Power GCDs, Radix Histograms, and Tauberian Tails](docs/laplace-gcd-radix-tauberian.md),
+with a separate [Korean report](docs/laplace-gcd-radix-tauberian.ko.md).
 It proves a sharp even-lattice interface for cofinal RH defect certificates;
 reduces single-mountain Collatz words `1^k2^m` to one exponential
 near-collision per `k` and excludes it through `k=4096`; upgrades the
@@ -306,7 +306,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-216 boundary, four exact partial or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-217 boundary, four exact partial or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -323,16 +323,18 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-216. The RH track proves a first-atom
-certificate for the nonnegative off-line-pair transform and rejects every fixed
-positive tolerance. The Collatz track proves an exact cross-power gcd necessity
-for single-mountain cycles and audits zero equalities through `k=4096`. The
-Goldbach track proves that one radix selector exactly encodes the complete
-representation histogram. The Twin track proves a quantitative Abel-to-count
-bracket and identifies the growing tail horizon required at twin scale.
+The latest proof-search track is TICKET-217. The RH track proves a normalized
+multi-radius defect certificate and rejects finite fixed absolute precision as
+a global route. The Collatz track reduces single-mountain candidates to upper
+continued-fraction convergents and excludes `k<71,356,888`. The Goldbach track
+proves the sharp weighted second-moment full-support threshold. The Twin track
+proves the exact `2 log log X` transition and limiting constant for the Abel
+tail.
 These are partial or no-go results, not solutions. All four conjectures remain
 open and the machine resolution count is zero.
 See
+[TICKET217 EN](docs/relative-threshold-convergent-moment-tail.md),
+[TICKET217 KO](docs/relative-threshold-convergent-moment-tail.ko.md),
 [TICKET216 EN](docs/laplace-gcd-radix-tauberian.md),
 [TICKET216 KO](docs/laplace-gcd-radix-tauberian.ko.md),
 [TICKET215 EN](docs/lattice-nearcollision-exception-abel.md),
@@ -454,14 +456,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-216입니다. 리만 트랙은 임계선 밖
-대칭쌍의 비음수 변환에서 첫 원자보다 작은 상계가 유한 높이의 결함 0을
-강제함을 증명했습니다. 콜라츠 트랙은 `1^k2^m` 단일-산 주기의 필요조건을
-정확한 교차 거듭제곱 GCD 등식으로 강화하고 `k=4096`까지 등식 0개를
-확인했습니다. 골드바흐 트랙은 선택자 하나가 전체 표현 수 히스토그램을
-진법 자릿수로 정확히 담는다는 사실을 증명했습니다. 쌍둥이 소수 트랙은
-Abel 하한을 개수 하한으로 되돌리는 정량 부등식과 고정 배율 꼬리의 한계를
-증명했습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-217입니다. 리만 트랙은 여러 변환
+반지름을 첫 결함 원자의 크기로 정규화하고, 유한한 고정 절대오차 관측으로는
+충분히 늦은 결함을 배제할 수 없음을 증명했습니다. 콜라츠 트랙은
+`1^k2^m` 단일 산형 후보를 상측 연분수 수렴분수로 압축하여
+`k<71,356,888`을 배제했습니다. 골드바흐 트랙은 모든 표적이 표현됨을
+인증하는 날카로운 가중 2차 모멘트 조건을 증명했습니다. 쌍둥이 소수
+트랙은 아벨 꼬리의 `2 log log X` 임계 전이와 극한 상수를 확정했습니다.
 네 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -482,19 +483,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-216입니다.
-[라플라스 결함·교차 GCD·진법 히스토그램·타우버 꼬리 한국어 보고서](docs/laplace-gcd-radix-tauberian.ko.md)와
-[영문 보고서](docs/laplace-gcd-radix-tauberian.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-217입니다.
+[상대 임계값·수렴분수 압축·모멘트 지지집합·임계 아벨 꼬리 한국어 보고서](docs/relative-threshold-convergent-moment-tail.ko.md)와
+[영문 보고서](docs/relative-threshold-convergent-moment-tail.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-RH 첫 원자 변환 인증, Collatz 교차 거듭제곱 GCD 필요조건, Goldbach 전체
-진법 히스토그램, Twin 정량 Abel-개수 부등식을 확정했지만 실제 전역·무한
-전제는 남아 있습니다. 각 proof DAG는 TICKET-215 직접 입력, 이번에 닫힌 정리,
+RH 상대정밀도 인증, Collatz 연분수 압축, Goldbach 2차 모멘트 인증, Twin
+임계 아벨 꼬리 상수를 확정했지만 실제 전역·무한 전제는 남아 있습니다.
+각 proof DAG는 TICKET-216 직접 입력, 이번에 닫힌 정리,
 폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-216의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 216개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-217의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 217개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

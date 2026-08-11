@@ -37,27 +37,33 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-13 TICKET-216 Laplace Defects, Cross-Power GCDs, Radix Histograms, and Tauberian Tails
+## 2026-08-13 TICKET-217 Relative Thresholds, Convergent Compression, Moment Support, and Critical Abel Tails
 
-TICKET-216 keeps all four parent conjectures at `open_not_proven` and proves
+TICKET-217 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial, reduction, or no-go results:
 
-1. the nonnegative RH off-line-pair measure satisfies the sharp first-atom
-   bound `C(H)r^H<=L(r)`, while every fixed positive transform tolerance is
-   defeated by a sufficiently delayed logical atom;
-2. a single-mountain Collatz cycle forces the exact necessary identity
-   `Delta=gcd(3^k-2^k,4^m-3^m)`, and exact arithmetic finds no equality at the
-   first positive crossing through `k=4096`;
-3. a base-`B+1` selector recovers every digit of the finite Goldbach
-   representation histogram exactly, while fixed absolute precision cannot
-   recover arbitrarily deep digits;
-4. an Abel lower bound can be transferred to an explicit integer Twin count
-   after subtracting a geometric tail, but fixed dilation leaves that envelope
-   too large at the conjectural `X/log^2 X` scale.
+1. finitely many RH defect transforms give the exact normalized certificate
+   `C(H)<=floor(min_j U_j/r_j^H)`, while fixed absolute errors hide late atoms;
+2. every single-mountain Collatz candidate reduces to an upper continued-
+   fraction convergent and exact arithmetic excludes `k<71,356,888`;
+3. `S^2>(B-1)Q` is a sharp weighted second-moment sufficient condition for
+   every Goldbach target in a block to have a representation;
+4. at dilation `2 log log X+a`, the coefficient-one Twin Abel tail divided by
+   `X/log^2 X` tends exactly to `exp(-a)/2`.
 
-No actual-zeta cofinal Laplace upper bound, all-`k` cross-power gcd gap,
-all-block arithmetic zero-digit interval, or parity-breaking Twin Abel lower
-bound is proved. The machine resolution count remains zero.
+No actual-zeta cofinal relative enclosure, all-convergent and multi-run Collatz
+barrier, pointwise Goldbach lower-tail bound, or Twin Abel surplus above the
+critical tail is proved. The machine resolution count remains zero.
+
+English report: [TICKET-217](relative-threshold-convergent-moment-tail.md).
+한국어 보고서: [TICKET-217](relative-threshold-convergent-moment-tail.ko.md).
+
+## Preserved: 2026-08-13 TICKET-216 Laplace Defects, Cross-Power GCDs, Radix Histograms, and Tauberian Tails
+
+TICKET-216 is the direct input to TICKET-217. Its first-atom RH transform
+certificate, Collatz cross-power gcd necessity, exact Goldbach radix histogram,
+and quantitative Twin Abel-to-count bracket remain valid within their stated
+scopes.
 
 English report: [TICKET-216](laplace-gcd-radix-tauberian.md).
 한국어 보고서: [TICKET-216](laplace-gcd-radix-tauberian.ko.md).

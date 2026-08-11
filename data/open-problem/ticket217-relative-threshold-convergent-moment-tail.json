@@ -1,0 +1,836 @@
+{
+  "schema": "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1",
+  "generated_at": "2026-08-13T03:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-217 proves four exact partial, reduction, or no-go theorems and resolves none of the parent conjectures. It normalizes the RH transform threshold across finitely many radii, compresses single-mountain Collatz candidates to continued-fraction convergents and excludes k<71,356,888, proves the sharp Goldbach two-moment support threshold, and identifies the exact Twin Abel-tail phase transition.",
+  "relative_threshold_convergent_moment_tail_audit": {
+    "theorem_name": "RelativeThresholdConvergentMomentCriticalTailAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-217 proves four exact partial, reduction, or no-go theorems and resolves none of the parent conjectures. It normalizes the RH transform threshold across finitely many radii, compresses single-mountain Collatz candidates to continued-fraction convergents and excludes k<71,356,888, proves the sharp Goldbach two-moment support threshold, and identifies the exact Twin Abel-tail phase transition.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-217",
+      "theorem_name": "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility",
+      "declared_proposition": "Let C be the nonnegative integer-valued off-critical-pair counting measure from TICKET-216 and L(r)=integral r^t dC(t). For every H and every finite family 0<r_j<1, C(H)<=floor(min_j L(r_j)/r_j^H). Hence rigorous upper bounds U_j with min_j U_j/r_j^H<1 certify C(H)=0. Conversely, for every finite family of radii and positive absolute tolerances epsilon_j, one nonzero atom can be placed at a finite height K so that r_j^K<epsilon_j for all j. Thus finitely many fixed absolute-error Laplace observations cannot imply RH; the required accuracy must track the moving first-atom scale.",
+      "mathematical_argument": "TICKET-216 gives C(H)r_j^H<=L(r_j) for each j. Divide, take the minimum, and use integrality. For invisibility, r_j^K tends to zero for each of finitely many radii. Choose K larger than every individual threshold. The unit atom delta_K is nonzero but changes every observed transform by less than its prescribed tolerance.",
+      "reproducible_computation": {
+        "theorem": "Let C be the nonnegative integer-valued off-critical-pair counting measure from TICKET-216 and L(r)=integral r^t dC(t). For every H and every finite family 0<r_j<1, C(H)<=floor(min_j L(r_j)/r_j^H). Hence rigorous upper bounds U_j with min_j U_j/r_j^H<1 certify C(H)=0. Conversely, for every finite family of radii and positive absolute tolerances epsilon_j, one nonzero atom can be placed at a finite height K so that r_j^K<epsilon_j for all j. Thus finitely many fixed absolute-error Laplace observations cannot imply RH; the required accuracy must track the moving first-atom scale.",
+        "proof": "TICKET-216 gives C(H)r_j^H<=L(r_j) for each j. Divide, take the minimum, and use integrality. For invisibility, r_j^K tends to zero for each of finitely many radii. Choose K larger than every individual threshold. The unit atom delta_K is nonzero but changes every observed transform by less than its prescribed tolerance.",
+        "normalized_certificate": "C(H)<=floor(min_j U_j(r_j)/r_j^H)",
+        "synthetic_atoms": [
+          {
+            "height": 17,
+            "pair_multiplicity": 1
+          },
+          {
+            "height": 53,
+            "pair_multiplicity": 2
+          }
+        ],
+        "normalized_certificate_rows": [
+          {
+            "H": 10,
+            "normalized_transform_bounds": [
+              "34359738369/4398046511104",
+              "19212130910201931904/328256967394537077627",
+              "2499237136643058178097424660240453423951129/5000000000000000000000000000000000000000000"
+            ],
+            "best_integer_upper_for_C_H": 0,
+            "actual_synthetic_pair_count_C_H": 0,
+            "zero_certified": true
+          },
+          {
+            "H": 16,
+            "normalized_transform_bounds": [
+              "34359738369/68719476736",
+              "300189545471905186/450283905890997363",
+              "4702755595904452569706561330872953769/5000000000000000000000000000000000000"
+            ],
+            "best_integer_upper_for_C_H": 0,
+            "actual_synthetic_pair_count_C_H": 0,
+            "zero_certified": true
+          },
+          {
+            "H": 17,
+            "normalized_transform_bounds": [
+              "34359738369/34359738368",
+              "150094772735952593/150094635296999121",
+              "522528399544939174411840147874772641/500000000000000000000000000000000000"
+            ],
+            "best_integer_upper_for_C_H": 1,
+            "actual_synthetic_pair_count_C_H": 1,
+            "zero_certified": false
+          },
+          {
+            "H": 40,
+            "normalized_transform_bounds": [
+              "34359738369/4096",
+              "150094772735952593/13374150672384",
+              "522528399544939174411840147874772641/44314690598262505479645000000000000"
+            ],
+            "best_integer_upper_for_C_H": 11,
+            "actual_synthetic_pair_count_C_H": 1,
+            "zero_certified": false
+          },
+          {
+            "H": 52,
+            "normalized_transform_bounds": [
+              "34359738369",
+              "150094772735952593/103079215104",
+              "522528399544939174411840147874772641/12515777524966208006577859930429245"
+            ],
+            "best_integer_upper_for_C_H": 41,
+            "actual_synthetic_pair_count_C_H": 1,
+            "zero_certified": false
+          },
+          {
+            "H": 53,
+            "normalized_transform_bounds": [
+              "68719476738",
+              "150094772735952593/68719476736",
+              "1045056799089878348823680295749545282/22528399544939174411840147874772641"
+            ],
+            "best_integer_upper_for_C_H": 46,
+            "actual_synthetic_pair_count_C_H": 3,
+            "zero_certified": false
+          }
+        ],
+        "finite_absolute_precision_invisibility_rows": [
+          {
+            "radii": [
+              "1/2",
+              "2/3"
+            ],
+            "absolute_tolerances": [
+              "1/100000000",
+              "1/100000000"
+            ],
+            "first_simultaneously_hidden_height": 46,
+            "one_atom_contributions_decimal": [
+              "1.421085471520200372E-14",
+              "7.939663261512540526E-9"
+            ],
+            "hidden_at_every_radius": true
+          },
+          {
+            "radii": [
+              "3/5",
+              "4/5",
+              "9/10"
+            ],
+            "absolute_tolerances": [
+              "1/1000000000000",
+              "1/10000000000000000",
+              "1/100000000000000000000"
+            ],
+            "first_simultaneously_hidden_height": 438,
+            "one_atom_contributions_decimal": [
+              "6.764686397359546808E-98",
+              "3.576138271605527980E-43",
+              "9.082787099036689143E-21"
+            ],
+            "hidden_at_every_radius": true
+          },
+          {
+            "radii": [
+              "99/100",
+              "999/1000"
+            ],
+            "absolute_tolerances": [
+              "1/1000000000000000000",
+              "1/1000000000000000000000000"
+            ],
+            "first_simultaneously_hidden_height": 55235,
+            "one_atom_contributions_decimal": [
+              "8.127810990197337192E-242",
+              "9.994064825718147505E-25"
+            ],
+            "hidden_at_every_radius": true
+          }
+        ],
+        "aggregate": {
+          "multi_radius_normalized_certificate_proved": true,
+          "finite_absolute_precision_family_sufficient_for_RH": false,
+          "cofinal_relative_precision_actual_zeta_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The hidden atoms are admissible logical defect measures, not zeros of the actual zeta function. The theorem rejects only finite fixed absolute-error promotion.",
+        "failure_count": 0
+      },
+      "logical_limit": "No cofinal actual-zeta explicit-formula enclosure is proved with error below the moving first-atom threshold.",
+      "route_decision": {
+        "discard": "any finite family of fixed absolute-precision Laplace observations as a global RH certificate",
+        "retain": "cofinal normalized actual-zeta bounds with relative error strictly below one at the first-atom scale",
+        "next_single_lemma": "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T216",
+            "label": "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T217",
+            "label": "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N217",
+            "label": "FiniteAbsolutePrecisionLaplaceFamilyImpliesRH",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN217",
+            "label": "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T216",
+            "RH-T217"
+          ],
+          [
+            "RH-T217",
+            "RH-N217"
+          ],
+          [
+            "RH-T217",
+            "RH-OPEN217"
+          ],
+          [
+            "RH-OPEN217",
+            "RH"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof and no off-line zeta zero. The normalized multi-radius certificate is exact, but its actual-zeta relative-precision input is open."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-217",
+      "theorem_name": "SingleMountainContinuedFractionCompressionAnd71356888Barrier",
+      "declared_proposition": "If a positive accelerated Collatz cycle has single-mountain word 1^k 2^m, then the reduced fraction p/q=m/k is an upper continued-fraction convergent of alpha=log(3/2)/log(4/3). If for such p/q, 2^(q+2p)-3^(q+p)>=3^q, then no positive multiple (m,k)=(gp,gq) can satisfy the cycle near-collision. A rigorous rational-interval continued-fraction computation and exact integer audit exclude all upper convergents through q=4,474,633. The next possible reduced denominator is q=71,356,888; consequently no single-mountain cycle can have k<71,356,888.",
+      "mathematical_argument": "Put lambda=m log(4/3)-k log(3/2). The TICKET-215 necessity gives 0<exp(lambda)-1<3^(-m), hence 0<m/k-alpha<3^(-m)/(k log(4/3))<1/(2k^2). The last inequality uses m>=k+1 and 2k<3^(k+1)log(4/3). Legendre's theorem makes the reduced fraction a convergent, necessarily from above. For a fixed upper reduced p/q, write lambda_0>0. A multiple g would require exp(g lambda_0)-1<3^(-gp). If the audited base difference is at least 3^q, then exp(lambda_0)-1>=3^(-p), contradicting that inequality for every g>=1. Exact atanh-series intervals certify the continued-fraction coefficients; powers are compared as exact integers.",
+      "reproducible_computation": {
+        "theorem": "If a positive accelerated Collatz cycle has single-mountain word 1^k 2^m, then the reduced fraction p/q=m/k is an upper continued-fraction convergent of alpha=log(3/2)/log(4/3). If for such p/q, 2^(q+2p)-3^(q+p)>=3^q, then no positive multiple (m,k)=(gp,gq) can satisfy the cycle near-collision. A rigorous rational-interval continued-fraction computation and exact integer audit exclude all upper convergents through q=4,474,633. The next possible reduced denominator is q=71,356,888; consequently no single-mountain cycle can have k<71,356,888.",
+        "proof": "Put lambda=m log(4/3)-k log(3/2). The TICKET-215 necessity gives 0<exp(lambda)-1<3^(-m), hence 0<m/k-alpha<3^(-m)/(k log(4/3))<1/(2k^2). The last inequality uses m>=k+1 and 2k<3^(k+1)log(4/3). Legendre's theorem makes the reduced fraction a convergent, necessarily from above. For a fixed upper reduced p/q, write lambda_0>0. A multiple g would require exp(g lambda_0)-1<3^(-gp). If the audited base difference is at least 3^q, then exp(lambda_0)-1>=3^(-p), contradicting that inequality for every g>=1. Exact atanh-series intervals certify the continued-fraction coefficients; powers are compared as exact integers.",
+        "alpha_definition": "log(3/2)/log(4/3)",
+        "alpha_interval_decimal": [
+          "1.409420839653209",
+          "1.409420839653209"
+        ],
+        "certified_continued_fraction_coefficients": [
+          1,
+          2,
+          2,
+          3,
+          1,
+          5,
+          2,
+          23,
+          2,
+          2,
+          1,
+          1,
+          55,
+          1,
+          4,
+          3,
+          1,
+          1,
+          15,
+          1,
+          9,
+          2,
+          5,
+          7
+        ],
+        "audited_upper_convergent_rows": [
+          {
+            "reduced_upper_convergent_m": 3,
+            "reduced_upper_convergent_k": 2,
+            "delta_bit_length": 4,
+            "three_pow_k_bit_length": 4,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          },
+          {
+            "reduced_upper_convergent_m": 24,
+            "reduced_upper_convergent_k": 17,
+            "delta_bit_length": 59,
+            "three_pow_k_bit_length": 27,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          },
+          {
+            "reduced_upper_convergent_m": 179,
+            "reduced_upper_convergent_k": 127,
+            "delta_bit_length": 476,
+            "three_pow_k_bit_length": 202,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          },
+          {
+            "reduced_upper_convergent_m": 9126,
+            "reduced_upper_convergent_k": 6475,
+            "delta_bit_length": 24712,
+            "three_pow_k_bit_length": 10263,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          },
+          {
+            "reduced_upper_convergent_m": 46408,
+            "reduced_upper_convergent_k": 32927,
+            "delta_bit_length": 125725,
+            "three_pow_k_bit_length": 52189,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          },
+          {
+            "reduced_upper_convergent_m": 111457,
+            "reduced_upper_convergent_k": 79080,
+            "delta_bit_length": 301971,
+            "three_pow_k_bit_length": 125339,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          },
+          {
+            "reduced_upper_convergent_m": 6306641,
+            "reduced_upper_convergent_k": 4474633,
+            "delta_bit_length": 17087889,
+            "three_pow_k_bit_length": 7092126,
+            "delta_at_least_three_pow_k": true,
+            "all_positive_multiples_excluded": true
+          }
+        ],
+        "next_unaudited_upper_convergent": {
+          "m": 100571885,
+          "k": 71356888
+        },
+        "single_mountain_k_exclusive_upper_bound": 71356888,
+        "transcript_sha256": "368d7400699f1e09836c736fce25bd5d27b31df9ec34b790ffc2537571d5ab28",
+        "aggregate": {
+          "near_collision_implies_upper_convergent_proved": true,
+          "positive_multiple_exclusion_proved": true,
+          "audited_upper_convergent_count": 7,
+          "single_mountain_cycles_with_k_below_71356888_excluded": true,
+          "all_single_mountain_cycles_excluded": false,
+          "multi_run_cycle_words_excluded": false,
+          "nonperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The result concerns one 1-run and one 2-run. It neither audits the next upper convergent nor covers multi-run words, valuation entries above two, or divergent nonperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "The next upper convergent, all later convergents, multi-run valuation words, and nonperiodic divergence remain uncontrolled.",
+      "route_decision": {
+        "discard": "linear scanning in k as the primary single-mountain method",
+        "retain": "rigorous continued-fraction candidate compression followed by exact scaling-barrier tests and an effective all-convergent bound",
+        "next_single_lemma": "EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T216",
+            "label": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T217",
+            "label": "SingleMountainContinuedFractionCompressionAnd71356888Barrier",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N217",
+            "label": "FiniteLinearDiagonalScanIsTheOnlyAvailableExclusion",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN217",
+            "label": "EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T216",
+            "CO-T217"
+          ],
+          [
+            "CO-T217",
+            "CO-N217"
+          ],
+          [
+            "CO-T217",
+            "CO-OPEN217"
+          ],
+          [
+            "CO-OPEN217",
+            "CO"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or divergent orbit. The exact k<71,356,888 exclusion applies only to single-mountain words 1^k2^m."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-217",
+      "theorem_name": "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo",
+      "declared_proposition": "For B nonnegative Goldbach counts A_i and arbitrary positive normalizers w_i, put y_i=A_i/w_i, S=sum y_i, and Q=sum y_i^2. If S^2>(B-1)Q, then every A_i is positive. The coefficient B-1 and strict threshold are sharp: a vector with B-1 equal positive coordinates and one zero has S^2=(B-1)Q. Therefore no universal certificate of this Cauchy form can replace B-1 by a smaller coefficient. Exact raw-moment audits and a separately labelled Hardy-Littlewood-shape diagnostic both fail the threshold on the five tested dyadic blocks, despite their known zero exception count.",
+      "mathematical_argument": "If one coordinate vanishes, at most B-1 coordinates contribute. Cauchy-Schwarz gives S^2<=|supp(y)|Q<=(B-1)Q. The contrapositive proves the certificate. Equality for (1,...,1,0), and its weighted rescalings A_i=w_i y_i, proves sharpness for information consisting only of S and Q.",
+      "reproducible_computation": {
+        "theorem": "For B nonnegative Goldbach counts A_i and arbitrary positive normalizers w_i, put y_i=A_i/w_i, S=sum y_i, and Q=sum y_i^2. If S^2>(B-1)Q, then every A_i is positive. The coefficient B-1 and strict threshold are sharp: a vector with B-1 equal positive coordinates and one zero has S^2=(B-1)Q. Therefore no universal certificate of this Cauchy form can replace B-1 by a smaller coefficient. Exact raw-moment audits and a separately labelled Hardy-Littlewood-shape diagnostic both fail the threshold on the five tested dyadic blocks, despite their known zero exception count.",
+        "proof": "If one coordinate vanishes, at most B-1 coordinates contribute. Cauchy-Schwarz gives S^2<=|supp(y)|Q<=(B-1)Q. The contrapositive proves the certificate. Equality for (1,...,1,0), and its weighted rescalings A_i=w_i y_i, proves sharpness for information consisting only of S and Q.",
+        "support_certificate": "(sum_i A_i/w_i)^2>(B-1)sum_i(A_i/w_i)^2",
+        "synthetic_sharpness_rows": [
+          {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "sum_S": 8.0,
+            "square_sum_Q": 8.0,
+            "support_margin_S2_minus_Bminus1Q": 8.0,
+            "moment_ratio": 1.1428571428571428,
+            "full_support": true,
+            "full_support_certified": true
+          },
+          {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "sum_S": 7.0,
+            "square_sum_Q": 7.0,
+            "support_margin_S2_minus_Bminus1Q": 0.0,
+            "moment_ratio": 1.0,
+            "full_support": false,
+            "full_support_certified": false
+          },
+          {
+            "values": [
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              3.0,
+              0.0
+            ],
+            "sum_S": 21.0,
+            "square_sum_Q": 63.0,
+            "support_margin_S2_minus_Bminus1Q": 0.0,
+            "moment_ratio": 1.0,
+            "full_support": false,
+            "full_support_certified": false
+          }
+        ],
+        "dyadic_goldbach_rows": [
+          {
+            "dyadic_start_X": 128,
+            "target_count_B": 64,
+            "minimum_exact_representation_count": 3,
+            "raw_exact_margin": -40508,
+            "raw_moment_ratio": 0.8908531442905913,
+            "raw_second_moment_certificate_passed": false,
+            "hardy_littlewood_shape_diagnostic_ratio": 0.9897298579158021,
+            "hardy_littlewood_shape_diagnostic_margin": -32.93710407320623,
+            "hardy_littlewood_shape_diagnostic_passed": false,
+            "diagnostic_is_not_rigorous_interval": true
+          },
+          {
+            "dyadic_start_X": 512,
+            "target_count_B": 256,
+            "minimum_exact_representation_count": 10,
+            "raw_exact_margin": -5374754,
+            "raw_moment_ratio": 0.8634994031158861,
+            "raw_second_moment_certificate_passed": false,
+            "hardy_littlewood_shape_diagnostic_ratio": 0.9936444036843238,
+            "hardy_littlewood_shape_diagnostic_margin": -321.0696554818569,
+            "hardy_littlewood_shape_diagnostic_passed": false,
+            "diagnostic_is_not_rigorous_interval": true
+          },
+          {
+            "dyadic_start_X": 2048,
+            "target_count_B": 1024,
+            "minimum_exact_representation_count": 25,
+            "raw_exact_margin": -669303998,
+            "raw_moment_ratio": 0.854866285785773,
+            "raw_second_moment_certificate_passed": false,
+            "hardy_littlewood_shape_diagnostic_ratio": 0.9972480564888082,
+            "hardy_littlewood_shape_diagnostic_margin": -2115.91603291675,
+            "hardy_littlewood_shape_diagnostic_passed": false,
+            "diagnostic_is_not_rigorous_interval": true
+          },
+          {
+            "dyadic_start_X": 8192,
+            "target_count_B": 4096,
+            "minimum_exact_representation_count": 75,
+            "raw_exact_margin": -88839970946,
+            "raw_moment_ratio": 0.850740441801867,
+            "raw_second_moment_certificate_passed": false,
+            "hardy_littlewood_shape_diagnostic_ratio": 0.9988547243121937,
+            "hardy_littlewood_shape_diagnostic_margin": -13283.553011042997,
+            "hardy_littlewood_shape_diagnostic_passed": false,
+            "diagnostic_is_not_rigorous_interval": true
+          },
+          {
+            "dyadic_start_X": 32768,
+            "target_count_B": 16384,
+            "minimum_exact_representation_count": 223,
+            "raw_exact_margin": -12637063576856,
+            "raw_moment_ratio": 0.8490834115843848,
+            "raw_second_moment_certificate_passed": false,
+            "hardy_littlewood_shape_diagnostic_ratio": 0.9995331482264177,
+            "hardy_littlewood_shape_diagnostic_margin": -82122.55989742279,
+            "hardy_littlewood_shape_diagnostic_passed": false,
+            "diagnostic_is_not_rigorous_interval": true
+          }
+        ],
+        "aggregate": {
+          "weighted_second_moment_full_support_certificate_proved": true,
+          "two_moment_threshold_sharpness_proved": true,
+          "raw_dyadic_blocks_certified": 0,
+          "hl_shape_diagnostic_blocks_certified": 0,
+          "pointwise_arithmetic_lower_tail_proved": false,
+          "goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem rejects only lowering the universal coefficient in this Cauchy-form certificate or treating a failed inequality as a certificate. The normalized rows use floating diagnostics and are not interval certificates. Other deductions from moments, higher moments, targetwise estimates, and circle-method cancellation remain available.",
+        "failure_count": 0
+      },
+      "logical_limit": "The sharp two-moment inequality fails on every audited block and no pointwise arithmetic lower-tail estimate is proved.",
+      "route_decision": {
+        "discard": "lowering the sharp universal coefficient in the Cauchy support test or treating failure of that test as coverage",
+        "retain": "targetwise or higher-order arithmetic control that separates the zero-count tail beyond the two-moment barrier",
+        "next_single_lemma": "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T216",
+            "label": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T217",
+            "label": "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N217",
+            "label": "TwoWeightedMomentsAlwaysSeparateTheGoldbachZeroDigit",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN217",
+            "label": "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T216",
+            "GB-T217"
+          ],
+          [
+            "GB-T217",
+            "GB-N217"
+          ],
+          [
+            "GB-T217",
+            "GB-OPEN217"
+          ],
+          [
+            "GB-OPEN217",
+            "GB"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample. The Cauchy support certificate and its sharpness are exact; the actual audited blocks do not satisfy it."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-217",
+      "theorem_name": "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog",
+      "declared_proposition": "Let r_X=1-1/X and let Y_X=floor(c_X X), with the odd geometric tail R_X=r_X^n0/(1-r_X^2) from TICKET-216. If c_X=2 log log X+a_X and 0<=c_X=o(X), then R_X/(X/log^2 X)=(1/2)exp(-a_X)(1+o(1)) whenever a_X is bounded, with the corresponding extended limits for a_X tending to plus or minus infinity while c_X remains nonnegative. Thus a bounded offset leaves a nonzero critical tail constant, a_X tending to plus infinity is necessary and sufficient for this geometric envelope to be little-o of the twin scale, and a_X tending to minus infinity makes it dominate.",
+      "mathematical_argument": "The first odd n0 above Y_X satisfies n0/X=c_X+o(1). Also log(1-1/X)=-1/X+O(1/X^2) and 1-r_X^2=2/X+O(1/X^2). Hence R_X=(X/2)exp(-c_X)(1+o(1)). Substituting c_X=2 log log X+a_X and dividing by X/log^2 X gives the formula and all three regimes.",
+      "reproducible_computation": {
+        "theorem": "Let r_X=1-1/X and let Y_X=floor(c_X X), with the odd geometric tail R_X=r_X^n0/(1-r_X^2) from TICKET-216. If c_X=2 log log X+a_X and 0<=c_X=o(X), then R_X/(X/log^2 X)=(1/2)exp(-a_X)(1+o(1)) whenever a_X is bounded, with the corresponding extended limits for a_X tending to plus or minus infinity while c_X remains nonnegative. Thus a bounded offset leaves a nonzero critical tail constant, a_X tending to plus infinity is necessary and sufficient for this geometric envelope to be little-o of the twin scale, and a_X tending to minus infinity makes it dominate.",
+        "proof": "The first odd n0 above Y_X satisfies n0/X=c_X+o(1). Also log(1-1/X)=-1/X+O(1/X^2) and 1-r_X^2=2/X+O(1/X^2). Hence R_X=(X/2)exp(-c_X)(1+o(1)). Substituting c_X=2 log log X+a_X and dividing by X/log^2 X gives the formula and all three regimes.",
+        "critical_schedule": "Y/X=2 log log X+a_X",
+        "critical_limit": "tail/(X/log^2 X)~exp(-a_X)/2",
+        "critical_limit_rows": [
+          {
+            "X": 1000,
+            "offset_a": "-2",
+            "dilation_c_X": "1.8652894678321309823969165695601296003087233723768587381989921457628650911965088",
+            "Y_floor_c_X_X": 1865,
+            "tail_over_X_log2X": "3.6866135130118134836663271955008999722437776942665406471664005039314290947120561",
+            "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+            "absolute_limit_error": "0.0079145364535116299488865347866039343463800910093830148771634073298578033274728"
+          },
+          {
+            "X": 100000,
+            "offset_a": "-2",
+            "dilation_c_X": "2.8869407153641123488079447621674534700649449652683952785548992614362344801746064",
+            "Y_floor_c_X_X": 288694,
+            "tail_over_X_log2X": "3.6944588905070544459307503532398100244758068507952292644507151681934136939801464",
+            "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+            "absolute_limit_error": "0.0000691589582706676844633770476938821143509344806943975928487430678732040593825"
+          },
+          {
+            "X": 100000000,
+            "offset_a": "-2",
+            "dilation_c_X": "3.8269479738555834561098188244641375994667430628928913594536835354482382365774592",
+            "Y_floor_c_X_X": 382694797,
+            "tail_over_X_log2X": "3.6945279375981334012992816343029241590351511866182462699708269501098221127799569",
+            "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+            "absolute_limit_error": "1.118671917123159320959845797475550065986576773920727369611514647852595720E-7"
+          },
+          {
+            "X": 1000000000000,
+            "offset_a": "-2",
+            "dilation_c_X": "4.6378781900719122200658450553928358726107239098178797546817121837364395790752878",
+            "Y_floor_c_X_X": 4637878190071,
+            "tail_over_X_log2X": "3.6945280494545861586299616768210566549589650171011507609637401329863310898727719",
+            "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+            "absolute_limit_error": "1.07389549852520534664472516311927681747729010798237782749558081667570E-11"
+          },
+          {
+            "X": 1000,
+            "offset_a": "0",
+            "dilation_c_X": "3.8652894678321309823969165695601296003087233723768587381989921457628650911965088",
+            "Y_floor_c_X_X": 3865,
+            "tail_over_X_log2X": "0.49842987192861139567793510300314767112199617487096066699258006252685751466008561",
+            "predicted_limit_half_exp_minus_a": "0.5",
+            "absolute_limit_error": "0.00157012807138860432206489699685232887800382512903933300741993747314248533991439"
+          },
+          {
+            "X": 100000,
+            "offset_a": "0",
+            "dilation_c_X": "4.8869407153641123488079447621674534700649449652683952785548992614362344801746064",
+            "Y_floor_c_X_X": 488694,
+            "tail_over_X_log2X": "0.49998564043805738483107761792175627465290734481429179284139024276290240281546379",
+            "predicted_limit_half_exp_minus_a": "0.5",
+            "absolute_limit_error": "0.00001435956194261516892238207824372534709265518570820715860975723709759718453621"
+          },
+          {
+            "X": 100000000,
+            "offset_a": "0",
+            "dilation_c_X": "5.8269479738555834561098188244641375994667430628928913594536835354482382365774592",
+            "Y_floor_c_X_X": 582694797,
+            "tail_over_X_log2X": "0.49999997986042206779171905040821459290083883434551960985589919515566075560652386",
+            "predicted_limit_half_exp_minus_a": "0.5",
+            "absolute_limit_error": "2.013957793220828094959178540709916116565448039014410080484433924439347614E-8"
+          },
+          {
+            "X": 1000000000000,
+            "offset_a": "0",
+            "dilation_c_X": "6.6378781900719122200658450553928358726107239098178797546817121837364395790752878",
+            "Y_floor_c_X_X": 6637878190071,
+            "tail_over_X_log2X": "0.49999999999804664048540704949677951740802342735620744468103658385913328062603981",
+            "predicted_limit_half_exp_minus_a": "0.5",
+            "absolute_limit_error": "1.95335951459295050322048259197657264379255531896341614086671937396019E-12"
+          },
+          {
+            "X": 1000,
+            "offset_a": "2",
+            "dilation_c_X": "5.8652894678321309823969165695601296003087233723768587381989921457628650911965088",
+            "Y_floor_c_X_X": 5865,
+            "tail_over_X_log2X": "0.067387681500633580220201952029409332195319947612304625724351809525229650856830159",
+            "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+            "absolute_limit_error": "0.000279960117672765726797795456832869508495825342483315009727626801807036193913686"
+          },
+          {
+            "X": 100000,
+            "offset_a": "2",
+            "dilation_c_X": "6.8869407153641123488079447621674534700649449652683952785548992614362344801746064",
+            "Y_floor_c_X_X": 688694,
+            "tail_over_X_log2X": "0.067665021604813297564168776849465386308038343227420428268782221176984871349515121",
+            "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+            "absolute_limit_error": "0.000002620013493048382830970636776815395777429727367512465297215150051815701228724"
+          },
+          {
+            "X": 100000000,
+            "offset_a": "2",
+            "dilation_c_X": "7.8269479738555834561098188244641375994667430628928913594536835354482382365774592",
+            "Y_floor_c_X_X": 782694797,
+            "tail_over_X_log2X": "0.067667638216034472170854878278183923609505547728606470433399766110669695551710990",
+            "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+            "absolute_limit_error": "3.402271873776144869208058278094310225226181470300679670216366991499032855E-9"
+          },
+          {
+            "X": 1000000000000,
+            "offset_a": "2",
+            "dilation_c_X": "8.6378781900719122200658450553928358726107239098178797546817121837364395790752878",
+            "Y_floor_c_X_X": 8637878190071,
+            "tail_over_X_log2X": "0.067667641617974319842211324981675172021179772476927550500161173129604742876413246",
+            "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+            "absolute_limit_error": "3.32026104788422504567029682636000477860390233918263197431944174330599E-13"
+          }
+        ],
+        "aggregate": {
+          "sharp_adaptive_tail_phase_transition_proved": true,
+          "bounded_offset_makes_tail_negligible": false,
+          "positive_diverging_offset_removes_geometric_tail": true,
+          "actual_twin_Abel_surplus_above_tail_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "This is sharp only for the coefficient-one odd geometric tail used in TICKET-216. It is not a parity-breaking estimate for the actual twin-prime Abel transform.",
+        "failure_count": 0
+      },
+      "logical_limit": "No lower bound for the actual twin-prime Abel transform supplies a positive surplus above the critical geometric tail on cofinal radii.",
+      "route_decision": {
+        "discard": "treating a bounded additive offset beyond 2 log log X as a negligible Abel tail",
+        "retain": "an explicit parity-sensitive Abel lower surplus over the exact critical constant, then a diverging-offset transfer",
+        "next_single_lemma": "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T216",
+            "label": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T217",
+            "label": "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N217",
+            "label": "BoundedOffsetBeyondTwoLogLogMakesTheTailNegligible",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN217",
+            "label": "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T216",
+            "TP-T217"
+          ],
+          [
+            "TP-T217",
+            "TP-N217"
+          ],
+          [
+            "TP-T217",
+            "TP-OPEN217"
+          ],
+          [
+            "TP-OPEN217",
+            "TP"
+          ]
+        ]
+      },
+      "claim_boundary": "No Twin Prime proof or last-twin counterexample. The geometric tail transition is sharp, but the parity-breaking Abel surplus is open."
+    },
+    "cross_problem_synthesis": "All four routes now use the scale of the discrete event rather than an absolute numerical tolerance: an RH first atom, a Collatz exponential rational approximation, a missing Goldbach support coordinate, and a Twin critical tail. The remaining gaps require arithmetic estimates at those relative scales.",
+    "literature_boundary": {
+      "riemann": "Rigorous zero verification methods certify finite heights; this finite-observation no-go neither reproduces nor extends a verified height.",
+      "collatz": "Continued fractions and linear forms in logarithms are established cycle tools; the theorem here is a narrow single-mountain reduction and carries no priority claim.",
+      "goldbach": "Second-moment support bounds are elementary Cauchy consequences and do not improve binary circle-method exceptional-set estimates.",
+      "twin_prime": "The critical tail calculation does not overcome the parity limitation of sieve-theoretic exact-gap-two estimates."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_limited_route_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-217",
+      "status": "open_not_proven",
+      "declared_proposition": "Let C be the nonnegative integer-valued off-critical-pair counting measure from TICKET-216 and L(r)=integral r^t dC(t). For every H and every finite family 0<r_j<1, C(H)<=floor(min_j L(r_j)/r_j^H). Hence rigorous upper bounds U_j with min_j U_j/r_j^H<1 certify C(H)=0. Conversely, for every finite family of radii and positive absolute tolerances epsilon_j, one nonzero atom can be placed at a finite height K so that r_j^K<epsilon_j for all j. Thus finitely many fixed absolute-error Laplace observations cannot imply RH; the required accuracy must track the moving first-atom scale.",
+      "new_result": "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility",
+      "discarded_route": "any finite family of fixed absolute-precision Laplace observations as a global RH certificate",
+      "remaining_gap": "No cofinal actual-zeta explicit-formula enclosure is proved with error below the moving first-atom threshold.",
+      "candidate_theorem": "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne",
+      "bounded_result": {
+        "audit_ref": "#/relative_threshold_convergent_moment_tail_audit"
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-217",
+      "status": "open_not_proven",
+      "declared_proposition": "If a positive accelerated Collatz cycle has single-mountain word 1^k 2^m, then the reduced fraction p/q=m/k is an upper continued-fraction convergent of alpha=log(3/2)/log(4/3). If for such p/q, 2^(q+2p)-3^(q+p)>=3^q, then no positive multiple (m,k)=(gp,gq) can satisfy the cycle near-collision. A rigorous rational-interval continued-fraction computation and exact integer audit exclude all upper convergents through q=4,474,633. The next possible reduced denominator is q=71,356,888; consequently no single-mountain cycle can have k<71,356,888.",
+      "new_result": "SingleMountainContinuedFractionCompressionAnd71356888Barrier",
+      "discarded_route": "linear scanning in k as the primary single-mountain method",
+      "remaining_gap": "The next upper convergent, all later convergents, multi-run valuation words, and nonperiodic divergence remain uncontrolled.",
+      "candidate_theorem": "EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords",
+      "bounded_result": {
+        "audit_ref": "#/relative_threshold_convergent_moment_tail_audit"
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-217",
+      "status": "open_not_proven",
+      "declared_proposition": "For B nonnegative Goldbach counts A_i and arbitrary positive normalizers w_i, put y_i=A_i/w_i, S=sum y_i, and Q=sum y_i^2. If S^2>(B-1)Q, then every A_i is positive. The coefficient B-1 and strict threshold are sharp: a vector with B-1 equal positive coordinates and one zero has S^2=(B-1)Q. Therefore no universal certificate of this Cauchy form can replace B-1 by a smaller coefficient. Exact raw-moment audits and a separately labelled Hardy-Littlewood-shape diagnostic both fail the threshold on the five tested dyadic blocks, despite their known zero exception count.",
+      "new_result": "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo",
+      "discarded_route": "lowering the sharp universal coefficient in the Cauchy support test or treating failure of that test as coverage",
+      "remaining_gap": "The sharp two-moment inequality fails on every audited block and no pointwise arithmetic lower-tail estimate is proved.",
+      "candidate_theorem": "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier",
+      "bounded_result": {
+        "audit_ref": "#/relative_threshold_convergent_moment_tail_audit"
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-217",
+      "status": "open_not_proven",
+      "declared_proposition": "Let r_X=1-1/X and let Y_X=floor(c_X X), with the odd geometric tail R_X=r_X^n0/(1-r_X^2) from TICKET-216. If c_X=2 log log X+a_X and 0<=c_X=o(X), then R_X/(X/log^2 X)=(1/2)exp(-a_X)(1+o(1)) whenever a_X is bounded, with the corresponding extended limits for a_X tending to plus or minus infinity while c_X remains nonnegative. Thus a bounded offset leaves a nonzero critical tail constant, a_X tending to plus infinity is necessary and sufficient for this geometric envelope to be little-o of the twin scale, and a_X tending to minus infinity makes it dominate.",
+      "new_result": "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog",
+      "discarded_route": "treating a bounded additive offset beyond 2 log log X as a negligible Abel tail",
+      "remaining_gap": "No lower bound for the actual twin-prime Abel transform supplies a positive surplus above the critical geometric tail on cofinal radii.",
+      "candidate_theorem": "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant",
+      "bounded_result": {
+        "audit_ref": "#/relative_threshold_convergent_moment_tail_audit"
+      }
+    }
+  ]
+}

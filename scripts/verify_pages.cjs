@@ -14,8 +14,9 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket217Load = openProblemSource.indexOf("const ticket217Loaded = await loadTicket217Attempt();");
+  const ticket217EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket217Load);
   const ticket216Load = openProblemSource.indexOf("const ticket216Loaded = await loadTicket216Attempt();");
-  const ticket216EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket216Load);
   const ticket215Load = openProblemSource.indexOf("const ticket215Loaded = await loadTicket215Attempt();");
   const ticket214Load = openProblemSource.indexOf("const ticket214Loaded = await loadTicket214Attempt();");
   const ticket213Load = openProblemSource.indexOf("const ticket213Loaded = await loadTicket213Attempt();");
@@ -66,15 +67,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket216Load >= 0 && ticket216Load < ticket216EarlyRender && ticket216EarlyRender < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET216 must render before archive loading, and TICKET215 through TICKET125 must precede historical ticket loading");
+  if (!(ticket217Load >= 0 && ticket217Load < ticket217EarlyRender && ticket217EarlyRender < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET217 must render before archive loading, and TICKET216 through TICKET125 must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260812-ticket216")) {
+    if (!source.includes("open-problems.js?v=20260813-ticket217")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260812-ticket216-layout")) {
+    if (!source.includes("styles.css?v=20260813-ticket217-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -469,9 +470,9 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket216AuditOverflow: (() => {
+          ticket217AuditOverflow: (() => {
             const wrapper = document.querySelector(
-              "#ticket216-laplace-gcd-radix-tauberian .ticket161-audit-table .proof-table-wrap",
+              "#ticket217-relative-threshold-convergent-moment-tail .ticket161-audit-table .proof-table-wrap",
             );
             return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
           })(),
@@ -707,13 +708,13 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-216") ||
-    !metrics.currentBriefText.includes("k≤4096") ||
-    !metrics.currentBriefText.includes("B+1") ||
-    !metrics.currentBriefText.includes("r^XT(X)≤F(r)") ||
+    !metrics.currentBriefText.includes("TICKET-217") ||
+    !metrics.currentBriefText.includes("71,356,888") ||
+    !metrics.currentBriefText.includes("(B−1)Q") ||
+    !metrics.currentBriefText.includes("2 log log X") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    !metrics.railResearchText.includes("TICKET-216") ||
+    !metrics.railResearchText.includes("TICKET-217") ||
     !metrics.railResearchText.includes("Resolution count: 0") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -730,12 +731,12 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-216 actually changed") ||
-    !metrics.proofHub?.boundary.includes("CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold") ||
-    !metrics.proofHub?.boundary.includes("UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing") ||
-    !metrics.proofHub?.boundary.includes("ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock") ||
-    !metrics.proofHub?.boundary.includes("ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail") ||
-    !metrics.proofHub?.boundary.includes("TICKET-161–216") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-217 actually changed") ||
+    !metrics.proofHub?.boundary.includes("CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne") ||
+    !metrics.proofHub?.boundary.includes("EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords") ||
+    !metrics.proofHub?.boundary.includes("PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier") ||
+    !metrics.proofHub?.boundary.includes("TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant") ||
+    !metrics.proofHub?.boundary.includes("TICKET-161–217") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -747,8 +748,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-216 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-216 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 216 Laplace defects")) failures.push(`${page.problemId}: current TICKET-216 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-217 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-217 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 217 relative thresholds")) failures.push(`${page.problemId}: current TICKET-217 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1618,37 +1619,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket216 title", "Ticket 216 Laplace defects, cross-power GCDs, radix histograms, and Tauberian tails");
-    requireCurrentText("ticket216 table", "TICKET216 audit");
-    requireCurrentText("ticket216 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket216 exact results", "Exact results4");
-    requireCurrentText("ticket216 resolutions", "Resolution count0");
-    requireCurrentText("ticket216 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket216AuditOverflow) checks.push(`${page.problemId}: ticket216 audit table overflow`);
+    requireCurrentText("ticket217 title", "Ticket 217 relative thresholds, convergent compression, moment support, and critical Abel tails");
+    requireCurrentText("ticket217 table", "TICKET217 audit");
+    requireCurrentText("ticket217 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket217 exact results", "Exact results4");
+    requireCurrentText("ticket217 resolutions", "Resolution count0");
+    requireCurrentText("ticket217 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket217AuditOverflow) checks.push(`${page.problemId}: ticket217 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket216 RH theorem", "OffLineDefectLaplaceFirstAtomCertificateAndFixedToleranceNoGo");
-      requireCurrentText("ticket216 RH target", "CofinalActualZetaOffLineLaplaceUpperBoundsBelowFirstAtomThreshold");
-      requireCurrentText("ticket216 RH atom", "First-atom certificateproved");
-      requireCurrentText("ticket216 RH no-go", "Fixed tolerancerefuted");
-      requireCurrentText("ticket216 RH actual", "Actual zeta boundopen");
+      requireCurrentText("ticket217 RH theorem", "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility");
+      requireCurrentText("ticket217 RH target", "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne");
+      requireCurrentText("ticket217 RH certificate", "Normalized certificateproved");
+      requireCurrentText("ticket217 RH no-go", "Finite absolute precisionrefuted");
+      requireCurrentText("ticket217 RH actual", "Actual zeta relative boundopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket216 Collatz theorem", "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit");
-      requireCurrentText("ticket216 Collatz target", "UniformStrictCrossPowerGCDGapAtEverySingleMountainCrossing");
-      requireCurrentText("ticket216 Collatz necessity", "GCD necessityproved");
-      requireCurrentText("ticket216 Collatz audit", "Equalities through 40960");
-      requireCurrentText("ticket216 Collatz open", "All-k gapopen");
+      requireCurrentText("ticket217 Collatz theorem", "SingleMountainContinuedFractionCompressionAnd71356888Barrier");
+      requireCurrentText("ticket217 Collatz target", "EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords");
+      requireCurrentText("ticket217 Collatz reduction", "Convergent reductionproved");
+      requireCurrentText("ticket217 Collatz bound", "71,356,888");
+      requireCurrentText("ticket217 Collatz exact", "all multiples excluded");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket216 Goldbach theorem", "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo");
-      requireCurrentText("ticket216 Goldbach target", "ArithmeticRadixSelectorIntervalSeparatesTheZeroDigitOnEveryDyadicBlock");
-      requireCurrentText("ticket216 Goldbach radix", "Full histogram radixproved");
-      requireCurrentText("ticket216 Goldbach decode", "Decode failures0");
-      requireCurrentText("ticket216 Goldbach open", "Arithmetic all-block boundopen");
+      requireCurrentText("ticket217 Goldbach theorem", "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo");
+      requireCurrentText("ticket217 Goldbach target", "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier");
+      requireCurrentText("ticket217 Goldbach support", "Support certificateproved");
+      requireCurrentText("ticket217 Goldbach sharp", "Sharp coefficientproved");
+      requireCurrentText("ticket217 Goldbach audit", "Audited blocks certified0");
     } else {
-      requireCurrentText("ticket216 Twin theorem", "QuantitativeAbelCountBracketAndFixedDilationTailNoGo");
-      requireCurrentText("ticket216 Twin target", "ParityBreakingAbelLowerBoundDominatesAdaptiveGeometricTail");
-      requireCurrentText("ticket216 Twin bracket", "Abel-count bracketproved");
-      requireCurrentText("ticket216 Twin no-go", "Fixed dilationrefuted for this envelope");
-      requireCurrentText("ticket216 Twin open", "Parity lower boundopen");
+      requireCurrentText("ticket217 Twin theorem", "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog");
+      requireCurrentText("ticket217 Twin target", "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant");
+      requireCurrentText("ticket217 Twin transition", "Sharp phase transitionproved");
+      requireCurrentText("ticket217 Twin no-go", "Bounded offset negligibleno");
+      requireCurrentText("ticket217 Twin open", "Actual Abel surplusopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3812,6 +3813,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-217") ||
     !metrics.evolutionPanel.includes("TICKET-216") ||
     !metrics.evolutionPanel.includes("TICKET-215") ||
     !metrics.evolutionPanel.includes("TICKET-214") ||

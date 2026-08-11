@@ -1,0 +1,194 @@
+{
+  "schema": "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1",
+  "generated_at": "2026-08-13T03:00:00+09:00",
+  "ticket_id": "GB-TICKET-217",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo",
+  "declared_proposition": "For B nonnegative Goldbach counts A_i and arbitrary positive normalizers w_i, put y_i=A_i/w_i, S=sum y_i, and Q=sum y_i^2. If S^2>(B-1)Q, then every A_i is positive. The coefficient B-1 and strict threshold are sharp: a vector with B-1 equal positive coordinates and one zero has S^2=(B-1)Q. Therefore no universal certificate of this Cauchy form can replace B-1 by a smaller coefficient. Exact raw-moment audits and a separately labelled Hardy-Littlewood-shape diagnostic both fail the threshold on the five tested dyadic blocks, despite their known zero exception count.",
+  "mathematical_argument": "If one coordinate vanishes, at most B-1 coordinates contribute. Cauchy-Schwarz gives S^2<=|supp(y)|Q<=(B-1)Q. The contrapositive proves the certificate. Equality for (1,...,1,0), and its weighted rescalings A_i=w_i y_i, proves sharpness for information consisting only of S and Q.",
+  "reproducible_computation": {
+    "theorem": "For B nonnegative Goldbach counts A_i and arbitrary positive normalizers w_i, put y_i=A_i/w_i, S=sum y_i, and Q=sum y_i^2. If S^2>(B-1)Q, then every A_i is positive. The coefficient B-1 and strict threshold are sharp: a vector with B-1 equal positive coordinates and one zero has S^2=(B-1)Q. Therefore no universal certificate of this Cauchy form can replace B-1 by a smaller coefficient. Exact raw-moment audits and a separately labelled Hardy-Littlewood-shape diagnostic both fail the threshold on the five tested dyadic blocks, despite their known zero exception count.",
+    "proof": "If one coordinate vanishes, at most B-1 coordinates contribute. Cauchy-Schwarz gives S^2<=|supp(y)|Q<=(B-1)Q. The contrapositive proves the certificate. Equality for (1,...,1,0), and its weighted rescalings A_i=w_i y_i, proves sharpness for information consisting only of S and Q.",
+    "support_certificate": "(sum_i A_i/w_i)^2>(B-1)sum_i(A_i/w_i)^2",
+    "synthetic_sharpness_rows": [
+      {
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "sum_S": 8.0,
+        "square_sum_Q": 8.0,
+        "support_margin_S2_minus_Bminus1Q": 8.0,
+        "moment_ratio": 1.1428571428571428,
+        "full_support": true,
+        "full_support_certified": true
+      },
+      {
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "sum_S": 7.0,
+        "square_sum_Q": 7.0,
+        "support_margin_S2_minus_Bminus1Q": 0.0,
+        "moment_ratio": 1.0,
+        "full_support": false,
+        "full_support_certified": false
+      },
+      {
+        "values": [
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          0.0
+        ],
+        "sum_S": 21.0,
+        "square_sum_Q": 63.0,
+        "support_margin_S2_minus_Bminus1Q": 0.0,
+        "moment_ratio": 1.0,
+        "full_support": false,
+        "full_support_certified": false
+      }
+    ],
+    "dyadic_goldbach_rows": [
+      {
+        "dyadic_start_X": 128,
+        "target_count_B": 64,
+        "minimum_exact_representation_count": 3,
+        "raw_exact_margin": -40508,
+        "raw_moment_ratio": 0.8908531442905913,
+        "raw_second_moment_certificate_passed": false,
+        "hardy_littlewood_shape_diagnostic_ratio": 0.9897298579158021,
+        "hardy_littlewood_shape_diagnostic_margin": -32.93710407320623,
+        "hardy_littlewood_shape_diagnostic_passed": false,
+        "diagnostic_is_not_rigorous_interval": true
+      },
+      {
+        "dyadic_start_X": 512,
+        "target_count_B": 256,
+        "minimum_exact_representation_count": 10,
+        "raw_exact_margin": -5374754,
+        "raw_moment_ratio": 0.8634994031158861,
+        "raw_second_moment_certificate_passed": false,
+        "hardy_littlewood_shape_diagnostic_ratio": 0.9936444036843238,
+        "hardy_littlewood_shape_diagnostic_margin": -321.0696554818569,
+        "hardy_littlewood_shape_diagnostic_passed": false,
+        "diagnostic_is_not_rigorous_interval": true
+      },
+      {
+        "dyadic_start_X": 2048,
+        "target_count_B": 1024,
+        "minimum_exact_representation_count": 25,
+        "raw_exact_margin": -669303998,
+        "raw_moment_ratio": 0.854866285785773,
+        "raw_second_moment_certificate_passed": false,
+        "hardy_littlewood_shape_diagnostic_ratio": 0.9972480564888082,
+        "hardy_littlewood_shape_diagnostic_margin": -2115.91603291675,
+        "hardy_littlewood_shape_diagnostic_passed": false,
+        "diagnostic_is_not_rigorous_interval": true
+      },
+      {
+        "dyadic_start_X": 8192,
+        "target_count_B": 4096,
+        "minimum_exact_representation_count": 75,
+        "raw_exact_margin": -88839970946,
+        "raw_moment_ratio": 0.850740441801867,
+        "raw_second_moment_certificate_passed": false,
+        "hardy_littlewood_shape_diagnostic_ratio": 0.9988547243121937,
+        "hardy_littlewood_shape_diagnostic_margin": -13283.553011042997,
+        "hardy_littlewood_shape_diagnostic_passed": false,
+        "diagnostic_is_not_rigorous_interval": true
+      },
+      {
+        "dyadic_start_X": 32768,
+        "target_count_B": 16384,
+        "minimum_exact_representation_count": 223,
+        "raw_exact_margin": -12637063576856,
+        "raw_moment_ratio": 0.8490834115843848,
+        "raw_second_moment_certificate_passed": false,
+        "hardy_littlewood_shape_diagnostic_ratio": 0.9995331482264177,
+        "hardy_littlewood_shape_diagnostic_margin": -82122.55989742279,
+        "hardy_littlewood_shape_diagnostic_passed": false,
+        "diagnostic_is_not_rigorous_interval": true
+      }
+    ],
+    "aggregate": {
+      "weighted_second_moment_full_support_certificate_proved": true,
+      "two_moment_threshold_sharpness_proved": true,
+      "raw_dyadic_blocks_certified": 0,
+      "hl_shape_diagnostic_blocks_certified": 0,
+      "pointwise_arithmetic_lower_tail_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem rejects only lowering the universal coefficient in this Cauchy-form certificate or treating a failed inequality as a certificate. The normalized rows use floating diagnostics and are not interval certificates. Other deductions from moments, higher moments, targetwise estimates, and circle-method cancellation remain available.",
+    "failure_count": 0
+  },
+  "discarded_route": "lowering the sharp universal coefficient in the Cauchy support test or treating failure of that test as coverage",
+  "remaining_gap": "The sharp two-moment inequality fails on every audited block and no pointwise arithmetic lower-tail estimate is proved.",
+  "candidate_theorem": "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier",
+  "claim_boundary": "No Goldbach proof or counterexample. The Cauchy support certificate and its sharpness are exact; the actual audited blocks do not satisfy it.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T216",
+        "label": "RadixSelectorFullRepresentationHistogramAndPrecisionDepthNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T217",
+        "label": "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N217",
+        "label": "TwoWeightedMomentsAlwaysSeparateTheGoldbachZeroDigit",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN217",
+        "label": "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T216",
+        "GB-T217"
+      ],
+      [
+        "GB-T217",
+        "GB-N217"
+      ],
+      [
+        "GB-T217",
+        "GB-OPEN217"
+      ],
+      [
+        "GB-OPEN217",
+        "GB"
+      ]
+    ]
+  }
+}

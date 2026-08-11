@@ -1,0 +1,186 @@
+{
+  "schema": "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1",
+  "generated_at": "2026-08-13T03:00:00+09:00",
+  "ticket_id": "TP-TICKET-217",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog",
+  "declared_proposition": "Let r_X=1-1/X and let Y_X=floor(c_X X), with the odd geometric tail R_X=r_X^n0/(1-r_X^2) from TICKET-216. If c_X=2 log log X+a_X and 0<=c_X=o(X), then R_X/(X/log^2 X)=(1/2)exp(-a_X)(1+o(1)) whenever a_X is bounded, with the corresponding extended limits for a_X tending to plus or minus infinity while c_X remains nonnegative. Thus a bounded offset leaves a nonzero critical tail constant, a_X tending to plus infinity is necessary and sufficient for this geometric envelope to be little-o of the twin scale, and a_X tending to minus infinity makes it dominate.",
+  "mathematical_argument": "The first odd n0 above Y_X satisfies n0/X=c_X+o(1). Also log(1-1/X)=-1/X+O(1/X^2) and 1-r_X^2=2/X+O(1/X^2). Hence R_X=(X/2)exp(-c_X)(1+o(1)). Substituting c_X=2 log log X+a_X and dividing by X/log^2 X gives the formula and all three regimes.",
+  "reproducible_computation": {
+    "theorem": "Let r_X=1-1/X and let Y_X=floor(c_X X), with the odd geometric tail R_X=r_X^n0/(1-r_X^2) from TICKET-216. If c_X=2 log log X+a_X and 0<=c_X=o(X), then R_X/(X/log^2 X)=(1/2)exp(-a_X)(1+o(1)) whenever a_X is bounded, with the corresponding extended limits for a_X tending to plus or minus infinity while c_X remains nonnegative. Thus a bounded offset leaves a nonzero critical tail constant, a_X tending to plus infinity is necessary and sufficient for this geometric envelope to be little-o of the twin scale, and a_X tending to minus infinity makes it dominate.",
+    "proof": "The first odd n0 above Y_X satisfies n0/X=c_X+o(1). Also log(1-1/X)=-1/X+O(1/X^2) and 1-r_X^2=2/X+O(1/X^2). Hence R_X=(X/2)exp(-c_X)(1+o(1)). Substituting c_X=2 log log X+a_X and dividing by X/log^2 X gives the formula and all three regimes.",
+    "critical_schedule": "Y/X=2 log log X+a_X",
+    "critical_limit": "tail/(X/log^2 X)~exp(-a_X)/2",
+    "critical_limit_rows": [
+      {
+        "X": 1000,
+        "offset_a": "-2",
+        "dilation_c_X": "1.8652894678321309823969165695601296003087233723768587381989921457628650911965088",
+        "Y_floor_c_X_X": 1865,
+        "tail_over_X_log2X": "3.6866135130118134836663271955008999722437776942665406471664005039314290947120561",
+        "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+        "absolute_limit_error": "0.0079145364535116299488865347866039343463800910093830148771634073298578033274728"
+      },
+      {
+        "X": 100000,
+        "offset_a": "-2",
+        "dilation_c_X": "2.8869407153641123488079447621674534700649449652683952785548992614362344801746064",
+        "Y_floor_c_X_X": 288694,
+        "tail_over_X_log2X": "3.6944588905070544459307503532398100244758068507952292644507151681934136939801464",
+        "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+        "absolute_limit_error": "0.0000691589582706676844633770476938821143509344806943975928487430678732040593825"
+      },
+      {
+        "X": 100000000,
+        "offset_a": "-2",
+        "dilation_c_X": "3.8269479738555834561098188244641375994667430628928913594536835354482382365774592",
+        "Y_floor_c_X_X": 382694797,
+        "tail_over_X_log2X": "3.6945279375981334012992816343029241590351511866182462699708269501098221127799569",
+        "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+        "absolute_limit_error": "1.118671917123159320959845797475550065986576773920727369611514647852595720E-7"
+      },
+      {
+        "X": 1000000000000,
+        "offset_a": "-2",
+        "dilation_c_X": "4.6378781900719122200658450553928358726107239098178797546817121837364395790752878",
+        "Y_floor_c_X_X": 4637878190071,
+        "tail_over_X_log2X": "3.6945280494545861586299616768210566549589650171011507609637401329863310898727719",
+        "predicted_limit_half_exp_minus_a": "3.6945280494653251136152137302875039065901577852759236620435639112612868980395289",
+        "absolute_limit_error": "1.07389549852520534664472516311927681747729010798237782749558081667570E-11"
+      },
+      {
+        "X": 1000,
+        "offset_a": "0",
+        "dilation_c_X": "3.8652894678321309823969165695601296003087233723768587381989921457628650911965088",
+        "Y_floor_c_X_X": 3865,
+        "tail_over_X_log2X": "0.49842987192861139567793510300314767112199617487096066699258006252685751466008561",
+        "predicted_limit_half_exp_minus_a": "0.5",
+        "absolute_limit_error": "0.00157012807138860432206489699685232887800382512903933300741993747314248533991439"
+      },
+      {
+        "X": 100000,
+        "offset_a": "0",
+        "dilation_c_X": "4.8869407153641123488079447621674534700649449652683952785548992614362344801746064",
+        "Y_floor_c_X_X": 488694,
+        "tail_over_X_log2X": "0.49998564043805738483107761792175627465290734481429179284139024276290240281546379",
+        "predicted_limit_half_exp_minus_a": "0.5",
+        "absolute_limit_error": "0.00001435956194261516892238207824372534709265518570820715860975723709759718453621"
+      },
+      {
+        "X": 100000000,
+        "offset_a": "0",
+        "dilation_c_X": "5.8269479738555834561098188244641375994667430628928913594536835354482382365774592",
+        "Y_floor_c_X_X": 582694797,
+        "tail_over_X_log2X": "0.49999997986042206779171905040821459290083883434551960985589919515566075560652386",
+        "predicted_limit_half_exp_minus_a": "0.5",
+        "absolute_limit_error": "2.013957793220828094959178540709916116565448039014410080484433924439347614E-8"
+      },
+      {
+        "X": 1000000000000,
+        "offset_a": "0",
+        "dilation_c_X": "6.6378781900719122200658450553928358726107239098178797546817121837364395790752878",
+        "Y_floor_c_X_X": 6637878190071,
+        "tail_over_X_log2X": "0.49999999999804664048540704949677951740802342735620744468103658385913328062603981",
+        "predicted_limit_half_exp_minus_a": "0.5",
+        "absolute_limit_error": "1.95335951459295050322048259197657264379255531896341614086671937396019E-12"
+      },
+      {
+        "X": 1000,
+        "offset_a": "2",
+        "dilation_c_X": "5.8652894678321309823969165695601296003087233723768587381989921457628650911965088",
+        "Y_floor_c_X_X": 5865,
+        "tail_over_X_log2X": "0.067387681500633580220201952029409332195319947612304625724351809525229650856830159",
+        "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+        "absolute_limit_error": "0.000279960117672765726797795456832869508495825342483315009727626801807036193913686"
+      },
+      {
+        "X": 100000,
+        "offset_a": "2",
+        "dilation_c_X": "6.8869407153641123488079447621674534700649449652683952785548992614362344801746064",
+        "Y_floor_c_X_X": 688694,
+        "tail_over_X_log2X": "0.067665021604813297564168776849465386308038343227420428268782221176984871349515121",
+        "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+        "absolute_limit_error": "0.000002620013493048382830970636776815395777429727367512465297215150051815701228724"
+      },
+      {
+        "X": 100000000,
+        "offset_a": "2",
+        "dilation_c_X": "7.8269479738555834561098188244641375994667430628928913594536835354482382365774592",
+        "Y_floor_c_X_X": 782694797,
+        "tail_over_X_log2X": "0.067667638216034472170854878278183923609505547728606470433399766110669695551710990",
+        "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+        "absolute_limit_error": "3.402271873776144869208058278094310225226181470300679670216366991499032855E-9"
+      },
+      {
+        "X": 1000000000000,
+        "offset_a": "2",
+        "dilation_c_X": "8.6378781900719122200658450553928358726107239098178797546817121837364395790752878",
+        "Y_floor_c_X_X": 8637878190071,
+        "tail_over_X_log2X": "0.067667641617974319842211324981675172021179772476927550500161173129604742876413246",
+        "predicted_limit_half_exp_minus_a": "0.067667641618306345946999747486242201703815772954787940734079436327036687050743845",
+        "absolute_limit_error": "3.32026104788422504567029682636000477860390233918263197431944174330599E-13"
+      }
+    ],
+    "aggregate": {
+      "sharp_adaptive_tail_phase_transition_proved": true,
+      "bounded_offset_makes_tail_negligible": false,
+      "positive_diverging_offset_removes_geometric_tail": true,
+      "actual_twin_Abel_surplus_above_tail_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "This is sharp only for the coefficient-one odd geometric tail used in TICKET-216. It is not a parity-breaking estimate for the actual twin-prime Abel transform.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating a bounded additive offset beyond 2 log log X as a negligible Abel tail",
+  "remaining_gap": "No lower bound for the actual twin-prime Abel transform supplies a positive surplus above the critical geometric tail on cofinal radii.",
+  "candidate_theorem": "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant",
+  "claim_boundary": "No Twin Prime proof or last-twin counterexample. The geometric tail transition is sharp, but the parity-breaking Abel surplus is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T216",
+        "label": "QuantitativeAbelCountBracketAndFixedDilationTailNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T217",
+        "label": "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N217",
+        "label": "BoundedOffsetBeyondTwoLogLogMakesTheTailNegligible",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN217",
+        "label": "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T216",
+        "TP-T217"
+      ],
+      [
+        "TP-T217",
+        "TP-N217"
+      ],
+      [
+        "TP-T217",
+        "TP-OPEN217"
+      ],
+      [
+        "TP-OPEN217",
+        "TP"
+      ]
+    ]
+  }
+}

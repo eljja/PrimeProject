@@ -1,0 +1,172 @@
+{
+  "schema": "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1",
+  "generated_at": "2026-08-13T03:00:00+09:00",
+  "ticket_id": "CO-TICKET-217",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "SingleMountainContinuedFractionCompressionAnd71356888Barrier",
+  "declared_proposition": "If a positive accelerated Collatz cycle has single-mountain word 1^k 2^m, then the reduced fraction p/q=m/k is an upper continued-fraction convergent of alpha=log(3/2)/log(4/3). If for such p/q, 2^(q+2p)-3^(q+p)>=3^q, then no positive multiple (m,k)=(gp,gq) can satisfy the cycle near-collision. A rigorous rational-interval continued-fraction computation and exact integer audit exclude all upper convergents through q=4,474,633. The next possible reduced denominator is q=71,356,888; consequently no single-mountain cycle can have k<71,356,888.",
+  "mathematical_argument": "Put lambda=m log(4/3)-k log(3/2). The TICKET-215 necessity gives 0<exp(lambda)-1<3^(-m), hence 0<m/k-alpha<3^(-m)/(k log(4/3))<1/(2k^2). The last inequality uses m>=k+1 and 2k<3^(k+1)log(4/3). Legendre's theorem makes the reduced fraction a convergent, necessarily from above. For a fixed upper reduced p/q, write lambda_0>0. A multiple g would require exp(g lambda_0)-1<3^(-gp). If the audited base difference is at least 3^q, then exp(lambda_0)-1>=3^(-p), contradicting that inequality for every g>=1. Exact atanh-series intervals certify the continued-fraction coefficients; powers are compared as exact integers.",
+  "reproducible_computation": {
+    "theorem": "If a positive accelerated Collatz cycle has single-mountain word 1^k 2^m, then the reduced fraction p/q=m/k is an upper continued-fraction convergent of alpha=log(3/2)/log(4/3). If for such p/q, 2^(q+2p)-3^(q+p)>=3^q, then no positive multiple (m,k)=(gp,gq) can satisfy the cycle near-collision. A rigorous rational-interval continued-fraction computation and exact integer audit exclude all upper convergents through q=4,474,633. The next possible reduced denominator is q=71,356,888; consequently no single-mountain cycle can have k<71,356,888.",
+    "proof": "Put lambda=m log(4/3)-k log(3/2). The TICKET-215 necessity gives 0<exp(lambda)-1<3^(-m), hence 0<m/k-alpha<3^(-m)/(k log(4/3))<1/(2k^2). The last inequality uses m>=k+1 and 2k<3^(k+1)log(4/3). Legendre's theorem makes the reduced fraction a convergent, necessarily from above. For a fixed upper reduced p/q, write lambda_0>0. A multiple g would require exp(g lambda_0)-1<3^(-gp). If the audited base difference is at least 3^q, then exp(lambda_0)-1>=3^(-p), contradicting that inequality for every g>=1. Exact atanh-series intervals certify the continued-fraction coefficients; powers are compared as exact integers.",
+    "alpha_definition": "log(3/2)/log(4/3)",
+    "alpha_interval_decimal": [
+      "1.409420839653209",
+      "1.409420839653209"
+    ],
+    "certified_continued_fraction_coefficients": [
+      1,
+      2,
+      2,
+      3,
+      1,
+      5,
+      2,
+      23,
+      2,
+      2,
+      1,
+      1,
+      55,
+      1,
+      4,
+      3,
+      1,
+      1,
+      15,
+      1,
+      9,
+      2,
+      5,
+      7
+    ],
+    "audited_upper_convergent_rows": [
+      {
+        "reduced_upper_convergent_m": 3,
+        "reduced_upper_convergent_k": 2,
+        "delta_bit_length": 4,
+        "three_pow_k_bit_length": 4,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      },
+      {
+        "reduced_upper_convergent_m": 24,
+        "reduced_upper_convergent_k": 17,
+        "delta_bit_length": 59,
+        "three_pow_k_bit_length": 27,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      },
+      {
+        "reduced_upper_convergent_m": 179,
+        "reduced_upper_convergent_k": 127,
+        "delta_bit_length": 476,
+        "three_pow_k_bit_length": 202,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      },
+      {
+        "reduced_upper_convergent_m": 9126,
+        "reduced_upper_convergent_k": 6475,
+        "delta_bit_length": 24712,
+        "three_pow_k_bit_length": 10263,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      },
+      {
+        "reduced_upper_convergent_m": 46408,
+        "reduced_upper_convergent_k": 32927,
+        "delta_bit_length": 125725,
+        "three_pow_k_bit_length": 52189,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      },
+      {
+        "reduced_upper_convergent_m": 111457,
+        "reduced_upper_convergent_k": 79080,
+        "delta_bit_length": 301971,
+        "three_pow_k_bit_length": 125339,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      },
+      {
+        "reduced_upper_convergent_m": 6306641,
+        "reduced_upper_convergent_k": 4474633,
+        "delta_bit_length": 17087889,
+        "three_pow_k_bit_length": 7092126,
+        "delta_at_least_three_pow_k": true,
+        "all_positive_multiples_excluded": true
+      }
+    ],
+    "next_unaudited_upper_convergent": {
+      "m": 100571885,
+      "k": 71356888
+    },
+    "single_mountain_k_exclusive_upper_bound": 71356888,
+    "transcript_sha256": "368d7400699f1e09836c736fce25bd5d27b31df9ec34b790ffc2537571d5ab28",
+    "aggregate": {
+      "near_collision_implies_upper_convergent_proved": true,
+      "positive_multiple_exclusion_proved": true,
+      "audited_upper_convergent_count": 7,
+      "single_mountain_cycles_with_k_below_71356888_excluded": true,
+      "all_single_mountain_cycles_excluded": false,
+      "multi_run_cycle_words_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The result concerns one 1-run and one 2-run. It neither audits the next upper convergent nor covers multi-run words, valuation entries above two, or divergent nonperiodic trajectories.",
+    "failure_count": 0
+  },
+  "discarded_route": "linear scanning in k as the primary single-mountain method",
+  "remaining_gap": "The next upper convergent, all later convergents, multi-run valuation words, and nonperiodic divergence remain uncontrolled.",
+  "candidate_theorem": "EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords",
+  "claim_boundary": "No Collatz proof or divergent orbit. The exact k<71,356,888 exclusion applies only to single-mountain words 1^k2^m.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T216",
+        "label": "SingleMountainCrossPowerGCDNecessityAndFiniteDiagonalAudit",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T217",
+        "label": "SingleMountainContinuedFractionCompressionAnd71356888Barrier",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N217",
+        "label": "FiniteLinearDiagonalScanIsTheOnlyAvailableExclusion",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN217",
+        "label": "EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T216",
+        "CO-T217"
+      ],
+      [
+        "CO-T217",
+        "CO-N217"
+      ],
+      [
+        "CO-T217",
+        "CO-OPEN217"
+      ],
+      [
+        "CO-OPEN217",
+        "CO"
+      ]
+    ]
+  }
+}

@@ -62,12 +62,12 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-216 proves four exact threshold results: an RH off-line-pair Laplace certificate, a Collatz cross-power gcd necessity, a full Goldbach radix histogram, and a quantitative Twin Abel-to-count bracket.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-216은 리만 결함의 첫 라플라스 원자 인증, 콜라츠의 정확한 교차 거듭제곱 GCD 필요조건, 골드바흐 전체 표현 수 진법 히스토그램, 쌍둥이 소수의 정량 아벨-개수 부등식을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-217 proves four exact relative-scale results: an RH multi-radius precision boundary, a Collatz continued-fraction compression, a sharp Goldbach support-moment certificate, and the critical Twin Abel-tail constant.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-217은 리만 결함의 다중 반지름 상대정밀도 경계, 콜라츠 연분수 후보 압축과 단일 산형 k<71,356,888 배제, 골드바흐 지지집합의 날카로운 2차 모멘트 인증, 쌍둥이 소수 아벨 꼬리의 임계상수를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-216 adds an RH first-atom transform certificate, an exact Collatz cross-power gcd necessity, a complete Goldbach radix histogram, and a quantitative Twin Abel-count bracket. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-216은 리만 첫 원자 변환 인증, 콜라츠 교차 거듭제곱 GCD 필요조건, 골드바흐 전체 진법 히스토그램, 쌍둥이 소수의 정량 아벨-개수 부등식을 추가했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-217 adds an RH relative-precision boundary, a Collatz continued-fraction compression with k<71,356,888 excluded for single-mountain words, a sharp Goldbach support-moment certificate, and the critical Twin Abel-tail constant. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-217은 리만 상대정밀도 경계, 콜라츠 단일 산형의 연분수 압축과 k<71,356,888 배제, 골드바흐의 날카로운 지지집합 모멘트 인증, 쌍둥이 소수 아벨 꼬리의 임계상수를 추가했습니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",
