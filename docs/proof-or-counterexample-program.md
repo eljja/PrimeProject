@@ -37,7 +37,32 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-13 TICKET-217 Relative Thresholds, Convergent Compression, Moment Support, and Critical Abel Tails
+## 2026-08-13 TICKET-218 Adaptive Radii, Exponential Spikes, Residual Moments, and Abel Surplus
+
+TICKET-218 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial, reduction, or no-go results:
+
+1. the moving radius `r_H=exp(-tau/H)` preserves the first RH defect signal at
+   scale `exp(-tau)`, while faster radial approach makes that signal vanish;
+2. a single-mountain Collatz candidate that escapes the inherited scaling test
+   forces an exponential next continued-fraction denominator spike, and exact
+   rational arithmetic excludes the first 49 upper convergents;
+3. `sum |A_i-M_i|^p < min_i M_i^p` is a sharp sufficient condition for full
+   support, and its exact integer eighth-moment form certifies five finite
+   Goldbach blocks where the fourth-moment form fails;
+4. `T(Y)>=F(r)-R(r,Y)` transfers a strict Abel surplus to a Twin count lower
+   bound, so an actual liminf coefficient above `exp(-a)/2` at horizon
+   `(2 log log X+a)X` would imply infinitely many twins.
+
+The actual-zeta adaptive-radius bound, an all-convergent Collatz denominator
+bound plus multi-run/divergence control, a cofinal Goldbach eighth-moment
+estimate, and the actual Twin Abel coefficient above `1/2` are not proved. The
+machine resolution count remains zero.
+
+English report: [TICKET-218](adaptive-radius-spike-residual-surplus.md).
+한국어 보고서: [TICKET-218](adaptive-radius-spike-residual-surplus.ko.md).
+
+## Preserved: 2026-08-13 TICKET-217 Relative Thresholds, Convergent Compression, Moment Support, and Critical Abel Tails
 
 TICKET-217 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial, reduction, or no-go results:

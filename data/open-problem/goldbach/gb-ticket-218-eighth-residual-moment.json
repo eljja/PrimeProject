@@ -1,0 +1,283 @@
+{
+  "schema": "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1",
+  "generated_at": "2026-08-13T05:30:00+09:00",
+  "ticket_id": "GB-TICKET-218",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "SharpResidualMomentSupportCertificateAndExactEighthMomentAudit",
+  "declared_proposition": "Let A_i>=0 and let M_i>0 be any positive model on a finite block. For every p>0, if E_p=sum_i |A_i-M_i|^p is strictly smaller than m^p, where m=min_i M_i, then every A_i is positive. The threshold is sharp over nonnegative vectors: setting one minimum-model coordinate to zero and every other coordinate equal to its model gives equality. With an exact integer Hardy-Littlewood-shaped weight w_i and rational least-squares scale M_i=(P/Q)w_i, the condition is equivalent to sum_i |A_i Q-Pw_i|^p<(P min_i w_i)^p. Exact arithmetic shows that p=8 certifies full support on all five audited Goldbach dyadic blocks, while p=4 fails on all five.",
+  "mathematical_argument": "If A_j=0, then the j-th residual alone equals M_j^p>=m^p, contradicting E_p<m^p. Equality in the one-zero construction proves sharpness. Multiplication by Q^p gives the integer certificate. The finite audit computes every representation count and every rounded singular-series weight exactly. It does not provide a cofinal circle-method bound for the eighth residual moment.",
+  "reproducible_computation": {
+    "theorem": "Let A_i>=0 and let M_i>0 be any positive model on a finite block. For every p>0, if E_p=sum_i |A_i-M_i|^p is strictly smaller than m^p, where m=min_i M_i, then every A_i is positive. The threshold is sharp over nonnegative vectors: setting one minimum-model coordinate to zero and every other coordinate equal to its model gives equality. With an exact integer Hardy-Littlewood-shaped weight w_i and rational least-squares scale M_i=(P/Q)w_i, the condition is equivalent to sum_i |A_i Q-Pw_i|^p<(P min_i w_i)^p. Exact arithmetic shows that p=8 certifies full support on all five audited Goldbach dyadic blocks, while p=4 fails on all five.",
+    "proof": "If A_j=0, then the j-th residual alone equals M_j^p>=m^p, contradicting E_p<m^p. Equality in the one-zero construction proves sharpness. Multiplication by Q^p gives the integer certificate. The finite audit computes every representation count and every rounded singular-series weight exactly. It does not provide a cofinal circle-method bound for the eighth residual moment.",
+    "residual_certificate": "sum_i |A_i Q-Pw_i|^p < (P min_i w_i)^p => all A_i>0",
+    "model_weight_scale": 1000000,
+    "dyadic_goldbach_rows": [
+      {
+        "dyadic_start_X": 128,
+        "target_count_B": 64,
+        "minimum_exact_representation_count": 3,
+        "integer_model_shape": "round(10^6*n*product_{odd p|n}(p-1)/(p-2))",
+        "least_squares_scale_numerator_P": "191395726383",
+        "least_squares_scale_denominator_Q": "6333632124875974960",
+        "moment_rows": [
+          {
+            "order_p": 2,
+            "exact_residual_integer_sum": "4301187119962637092374064790885480158160",
+            "exact_zero_coordinate_threshold": "600183997688646897871896576000000000000",
+            "residual_to_threshold_ratio": "7.166447516972841315E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 4,
+            "exact_residual_integer_sum": "874265931744000055596773044432468407385854757428479558192193499391089933076780",
+            "exact_zero_coordinate_threshold": "360220831081525704847045911857174896894852983240523776000000000000000000000000",
+            "residual_to_threshold_ratio": "2.427027690539459425E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 6,
+            "exact_residual_integer_sum": "281072295579600253642348244849074028172195297749145992247475659646281205492044022774633261093342656706066992028092380",
+            "exact_zero_coordinate_threshold": "216198778449236888266471428913461588475520686404675608068767723107921136740990976000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "1.300064216808678957E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 8,
+            "exact_residual_integer_sum": "114275242190996138371228598727832494323412139411706564695082354912878213852069352009018123829313941933295571969949422113053321452257669646268092431800251420",
+            "exact_zero_coordinate_threshold": "129759047145065075302373653079496234630049561126374606390335953001052838407893154971119717929899302821298176000000000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "8.806726367467949730E-1",
+            "full_support_certificate_passed": true
+          }
+        ],
+        "eighth_residual_moment_full_support_certified": true
+      },
+      {
+        "dyadic_start_X": 512,
+        "target_count_B": 256,
+        "minimum_exact_representation_count": 10,
+        "integer_model_shape": "round(10^6*n*product_{odd p|n}(p-1)/(p-2))",
+        "least_squares_scale_numerator_P": "7939102942445",
+        "least_squares_scale_denominator_Q": "411957120741057055955",
+        "moment_rows": [
+          {
+            "order_p": 2,
+            "exact_residual_integer_sum": "239832930531712192713854441831728011970777450",
+            "exact_zero_coordinate_threshold": "16522767376250006924840933785600000000000000",
+            "residual_to_threshold_ratio": "1.451530031684949307E+1",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 4,
+            "exact_residual_integer_sum": "659001224976353037137159763067152242466626538317555085780612280881959520720068066466250",
+            "exact_zero_coordinate_threshold": "273001841769671537899134232946644137485958232620563546767360000000000000000000000000000",
+            "residual_to_threshold_ratio": "2.413907615804089212E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 6,
+            "exact_residual_integer_sum": "2789205076760958618219409826330763179857283055660139889446729393675093877279855574550836027364335098193958164968788789343530281250",
+            "exact_zero_coordinate_threshold": "4510745924848095343572309452731250165010832122451537565544643344522293728989078687318016000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "6.183467486821236487E-1",
+            "full_support_certificate_passed": true
+          },
+          {
+            "order_p": 8,
+            "exact_residual_integer_sum": "14731082564284199497279549799618247235112655836445508738107125586551217594022779753570216818969851996045016212238342948242589898211640650679312855712385808740776891510156250",
+            "exact_zero_coordinate_threshold": "74530005609632775215924112053131832502209051747303907055317178692000002034805290753235046383170277391525401905961369600000000000000000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "1.976530451566241683E-1",
+            "full_support_certificate_passed": true
+          }
+        ],
+        "eighth_residual_moment_full_support_certified": true
+      },
+      {
+        "dyadic_start_X": 2048,
+        "target_count_B": 1024,
+        "minimum_exact_representation_count": 25,
+        "integer_model_shape": "round(10^6*n*product_{odd p|n}(p-1)/(p-2))",
+        "least_squares_scale_numerator_P": "344313809263600",
+        "least_squares_scale_denominator_Q": "26419566205097057061760",
+        "moment_rows": [
+          {
+            "order_p": 2,
+            "exact_residual_integer_sum": "14430100300786869881369539007784982309129553510400",
+            "exact_zero_coordinate_threshold": "497243124660639246264188104867840000000000000000",
+            "residual_to_threshold_ratio": "2.902021080861638961E+1",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 4,
+            "exact_residual_integer_sum": "541227619271358015214878630948974669596488217542666368781418069372247228552383097981344481280000",
+            "exact_zero_coordinate_threshold": "247250725022276021735264658880763314338232849250940825103866265600000000000000000000000000000000",
+            "residual_to_threshold_ratio": "2.188982941192978033E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 6,
+            "exact_residual_integer_sum": "32727561984377948805131427597402586115672728918745211006782503932018907939147583439236485116267284390016484634920674389915895564676890624000000",
+            "exact_zero_coordinate_threshold": "122943723084685031254925364622564478929805957360477717966212683741809688485142255036563722338304000000000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "2.661995355536356485E-1",
+            "full_support_certificate_passed": true
+          },
+          {
+            "order_p": 8,
+            "exact_residual_integer_sum": "2839498969019941601502549552484870509530155627156690641902113716224985991809659661906874656547067431216753802115503280108347064731918186746660342014884869988514024140480077512887500800000000",
+            "exact_zero_coordinate_threshold": "61132921024041150048816111094642819551247493163723042951104413466613114658102021493403283678874510361566586569454441129689743360000000000000000000000000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "4.644795179839810734E-2",
+            "full_support_certificate_passed": true
+          }
+        ],
+        "eighth_residual_moment_full_support_certified": true
+      },
+      {
+        "dyadic_start_X": 8192,
+        "target_count_B": 4096,
+        "minimum_exact_representation_count": 75,
+        "integer_model_shape": "round(10^6*n*product_{odd p|n}(p-1)/(p-2))",
+        "least_squares_scale_numerator_P": "15666245743373006",
+        "least_squares_scale_denominator_Q": "1693026198291439618255244",
+        "moment_rows": [
+          {
+            "order_p": 2,
+            "exact_residual_integer_sum": "1098063269202208838564435904853211922816409149432184352",
+            "exact_zero_coordinate_threshold": "16470612759567066547696883116504571183104000000000000",
+            "residual_to_threshold_ratio": "6.666802779176454016E+1",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 4,
+            "exact_residual_integer_sum": "882019573076496947547225083552837754840724258835551964917446198465452647221368147848241226402084667354688",
+            "exact_zero_coordinate_threshold": "271281084675613459112718294715980608635076273106978103776681236222946970295074816000000000000000000000000",
+            "residual_to_threshold_ratio": "3.251312468509107270E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 6,
+            "exact_residual_integer_sum": "1243256652658909700417828507489337081747233776883193903222752401449251944371455138355453974663326244868430594677936245764753789996026276294874486918401949952",
+            "exact_zero_coordinate_threshold": "4468165694687352843956528711225009315396312715804982314869731238377793961285623067697118888345461182342444899893315108864000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "2.782476608101488591E-1",
+            "full_support_certificate_passed": true
+          },
+          {
+            "order_p": 8,
+            "exact_residual_integer_sum": "2907559763215182994425633960447359229206367513680638197143805148301995783770951010249611003579212443804167764395125401593408390354953737255229106690893466207971026348301921398070850709746991398495772162290688",
+            "exact_zero_coordinate_threshold": "73593426902777359562629340488618058251002080699699097116356630900138946042753255531015449847198700717676918450497151407215597069681433170458124388084187037433856000000000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "3.950841652008263684E-2",
+            "full_support_certificate_passed": true
+          }
+        ],
+        "eighth_residual_moment_full_support_certified": true
+      },
+      {
+        "dyadic_start_X": 32768,
+        "target_count_B": 16384,
+        "minimum_exact_representation_count": 223,
+        "integer_model_shape": "round(10^6*n*product_{odd p|n}(p-1)/(p-2))",
+        "least_squares_scale_numerator_P": "743539815591510407",
+        "least_squares_scale_denominator_Q": "108350825087541140787121154",
+        "moment_rows": [
+          {
+            "order_p": 2,
+            "exact_residual_integer_sum": "102088900749222873342549227863415888328356725651645428470078",
+            "exact_zero_coordinate_threshold": "593619732237368822641067270505705226450763776000000000000",
+            "residual_to_threshold_ratio": "1.719769327148999004E+2",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 4,
+            "exact_residual_integer_sum": "2020138197961438553411226106221111635141258925199961818438582960216294863447503585591726591907492497151291890419586",
+            "exact_zero_coordinate_threshold": "352384386501565457819035728585142932049759840886213179165567366650041310632574733753778176000000000000000000000000",
+            "residual_to_threshold_ratio": "5.732768747268160094E+0",
+            "full_support_certificate_passed": false
+          },
+          {
+            "order_p": 6,
+            "exact_residual_integer_sum": "69658303108260448255697806258962436785234824777989311701174733553313458921611051659412152337108963049396408753064888733343702128336188705993008638643599901013467871465138",
+            "exact_zero_coordinate_threshold": "209182325159688771591964684402918531319076766313110596638036623941184601927238947641640898148733132601271599905472076436995480880152576000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "3.330028149131798674E-1",
+            "full_support_certificate_passed": true
+          },
+          {
+            "order_p": 8,
+            "exact_residual_integer_sum": "3479508926290836315048287162884187234671302431537265305610372375405895124681545288617725023370961564176239448714188411680934115408424544019011320162361781221954149280393908766776744189739689103826881347588048603699155338355666",
+            "exact_zero_coordinate_threshold": "124174755850084668036307517136295390350278566903003255692665912031022133188649655565992875989666110916528524020484880697235589984332491688007215901773991736564466417035554613886976000000000000000000000000000000000000000000000000",
+            "residual_to_threshold_ratio": "2.802106517118200419E-2",
+            "full_support_certificate_passed": true
+          }
+        ],
+        "eighth_residual_moment_full_support_certified": true
+      }
+    ],
+    "transcript_sha256": "48e32bffabf72f50b4e96490143b2bcdb0b0bf358624f37d942257e9834293b0",
+    "aggregate": {
+      "sharp_residual_moment_support_certificate_proved": true,
+      "exact_eighth_moment_blocks_certified": 5,
+      "exact_fourth_moment_blocks_certified": 0,
+      "cofinal_eighth_moment_arithmetic_bound_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The strict threshold cannot be weakened to a non-strict one. The p=4 version of this chosen exact model also fails on every audited block. Passing p=8 is a finite certificate computed from the full block, not an independent proof for all even integers.",
+    "failure_count": 0
+  },
+  "discarded_route": "the uncentered two-moment test and the non-strict residual threshold as routes to empty exceptional sets",
+  "remaining_gap": "No cofinal arithmetic eighth-residual-moment estimate is proved independently of full block enumeration.",
+  "candidate_theorem": "CofinalGoldbachEighthResidualMomentBelowZeroCoordinateBarrier",
+  "claim_boundary": "No Goldbach proof or counterexample. The p=8 certificate closes five finite blocks exactly; its required cofinal arithmetic estimate is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T217",
+        "label": "WeightedSecondMomentFullSupportCertificateAndSharpThresholdNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-OPEN217",
+        "label": "PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier",
+        "status": "refined_by_ticket218"
+      },
+      {
+        "id": "GB-T218",
+        "label": "SharpResidualMomentSupportCertificateAndExactEighthMomentAudit",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N218",
+        "label": "NonStrictResidualMomentThresholdForcesFullSupport",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN218",
+        "label": "CofinalGoldbachEighthResidualMomentBelowZeroCoordinateBarrier",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T217",
+        "GB-OPEN217"
+      ],
+      [
+        "GB-OPEN217",
+        "GB-T218"
+      ],
+      [
+        "GB-T218",
+        "GB-N218"
+      ],
+      [
+        "GB-T218",
+        "GB-OPEN218"
+      ],
+      [
+        "GB-OPEN218",
+        "GB"
+      ]
+    ]
+  }
+}

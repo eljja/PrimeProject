@@ -1,0 +1,224 @@
+{
+  "schema": "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1",
+  "generated_at": "2026-08-13T05:30:00+09:00",
+  "ticket_id": "RH-TICKET-218",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "ScaleAdaptiveRadiusCertificateAndSignalPhaseTransition",
+  "declared_proposition": "Let C be the nonnegative integer-valued off-critical-pair counting measure of TICKET-217 and L(r)=integral r^t dC(t). For tau>0 set r_H=exp(-tau/H). Then C(H)<=floor(exp(tau)L(r_H)); consequently a rigorous actual-zeta upper bound U_H<exp(-tau) certifies C(H)=0. If such bounds hold on a cofinal sequence of H, then C is identically zero and RH follows within the established defect-measure equivalence. More generally the first-atom signal is r_H^H=exp(-H beta_H), where beta_H=-log r_H. It stays uniformly detectable exactly when H beta_H is bounded above, and vanishes when H beta_H tends to infinity.",
+  "mathematical_argument": "TICKET-217 gives C(H)r_H^H<=L(r_H). Substitution of r_H^H=exp(-tau) and integrality gives the certificate. A cofinal zero certificate covers every finite height. The phase statement is the identity r_H^H=exp(-H beta_H): bounded H beta_H gives a positive uniform lower signal, while H beta_H tending to infinity makes that signal tend to zero. This schedule theorem does not construct or bound the actual zeta defect transform.",
+  "reproducible_computation": {
+    "theorem": "Let C be the nonnegative integer-valued off-critical-pair counting measure of TICKET-217 and L(r)=integral r^t dC(t). For tau>0 set r_H=exp(-tau/H). Then C(H)<=floor(exp(tau)L(r_H)); consequently a rigorous actual-zeta upper bound U_H<exp(-tau) certifies C(H)=0. If such bounds hold on a cofinal sequence of H, then C is identically zero and RH follows within the established defect-measure equivalence. More generally the first-atom signal is r_H^H=exp(-H beta_H), where beta_H=-log r_H. It stays uniformly detectable exactly when H beta_H is bounded above, and vanishes when H beta_H tends to infinity.",
+    "proof": "TICKET-217 gives C(H)r_H^H<=L(r_H). Substitution of r_H^H=exp(-tau) and integrality gives the certificate. A cofinal zero certificate covers every finite height. The phase statement is the identity r_H^H=exp(-H beta_H): bounded H beta_H gives a positive uniform lower signal, while H beta_H tending to infinity makes that signal tend to zero. This schedule theorem does not construct or bound the actual zeta defect transform.",
+    "scale_adaptive_certificate": "r_H=exp(-tau/H), C(H)<=floor(exp(tau)U_H), U_H<exp(-tau) => C(H)=0",
+    "scale_adaptive_rows": [
+      {
+        "H": 100,
+        "tau": "1",
+        "radius_exp_minus_tau_over_H": "9.900498337491680535739060E-1",
+        "first_atom_signal_r_H_pow_H": "3.678794411714423215955238E-1",
+        "exact_target_exp_minus_tau": "3.678794411714423215955238E-1",
+        "absolute_decimal_error": "8.000000000000000000000000E-90"
+      },
+      {
+        "H": 10000,
+        "tau": "1",
+        "radius_exp_minus_tau_over_H": "9.999000049998333374999167E-1",
+        "first_atom_signal_r_H_pow_H": "3.678794411714423215955238E-1",
+        "exact_target_exp_minus_tau": "3.678794411714423215955238E-1",
+        "absolute_decimal_error": "8.410000000000000000000000E-88"
+      },
+      {
+        "H": 1000000,
+        "tau": "1",
+        "radius_exp_minus_tau_over_H": "9.999990000004999998333334E-1",
+        "first_atom_signal_r_H_pow_H": "3.678794411714423215955238E-1",
+        "exact_target_exp_minus_tau": "3.678794411714423215955238E-1",
+        "absolute_decimal_error": "1.725170000000000000000000E-85"
+      },
+      {
+        "H": 1000000000,
+        "tau": "1",
+        "radius_exp_minus_tau_over_H": "9.999999990000000005000000E-1",
+        "first_atom_signal_r_H_pow_H": "3.678794411714423215955238E-1",
+        "exact_target_exp_minus_tau": "3.678794411714423215955238E-1",
+        "absolute_decimal_error": "1.570139030000000000000000E-82"
+      },
+      {
+        "H": 100,
+        "tau": "2",
+        "radius_exp_minus_tau_over_H": "9.801986733067553022208141E-1",
+        "first_atom_signal_r_H_pow_H": "1.353352832366126918939995E-1",
+        "exact_target_exp_minus_tau": "1.353352832366126918939995E-1",
+        "absolute_decimal_error": "3.000000000000000000000000E-90"
+      },
+      {
+        "H": 10000,
+        "tau": "2",
+        "radius_exp_minus_tau_over_H": "9.998000199986667333306668E-1",
+        "first_atom_signal_r_H_pow_H": "1.353352832366126918939995E-1",
+        "exact_target_exp_minus_tau": "1.353352832366126918939995E-1",
+        "absolute_decimal_error": "2.100000000000000000000000E-89"
+      },
+      {
+        "H": 1000000,
+        "tau": "2",
+        "radius_exp_minus_tau_over_H": "9.999980000019999986666673E-1",
+        "first_atom_signal_r_H_pow_H": "1.353352832366126918939995E-1",
+        "exact_target_exp_minus_tau": "1.353352832366126918939995E-1",
+        "absolute_decimal_error": "3.768000000000000000000000E-87"
+      },
+      {
+        "H": 1000000000,
+        "tau": "2",
+        "radius_exp_minus_tau_over_H": "9.999999980000000020000000E-1",
+        "first_atom_signal_r_H_pow_H": "1.353352832366126918939995E-1",
+        "exact_target_exp_minus_tau": "1.353352832366126918939995E-1",
+        "absolute_decimal_error": "5.127942300000000000000000E-83"
+      }
+    ],
+    "schedule_phase_rows": [
+      {
+        "H": 100,
+        "schedule": "bounded_H_beta",
+        "H_times_minus_log_radius": "2.000000000000000000000000E+0",
+        "first_atom_signal": "1.353352832366126918939995E-1"
+      },
+      {
+        "H": 100,
+        "schedule": "logarithmic_H_beta",
+        "H_times_minus_log_radius": "4.605170185988091368035983E+0",
+        "first_atom_signal": "1.000000000000000000000000E-2"
+      },
+      {
+        "H": 100,
+        "schedule": "square_root_H_beta",
+        "H_times_minus_log_radius": "2.145966026289347239636184E+0",
+        "first_atom_signal": "1.169550008494578340066305E-1"
+      },
+      {
+        "H": 10000,
+        "schedule": "bounded_H_beta",
+        "H_times_minus_log_radius": "2.000000000000000000000000E+0",
+        "first_atom_signal": "1.353352832366126918939995E-1"
+      },
+      {
+        "H": 10000,
+        "schedule": "logarithmic_H_beta",
+        "H_times_minus_log_radius": "9.210340371976182736071966E+0",
+        "first_atom_signal": "1.000000000000000000000000E-4"
+      },
+      {
+        "H": 10000,
+        "schedule": "square_root_H_beta",
+        "H_times_minus_log_radius": "3.034854258770292701725945E+0",
+        "first_atom_signal": "4.808166984667032446998511E-2"
+      },
+      {
+        "H": 1000000,
+        "schedule": "bounded_H_beta",
+        "H_times_minus_log_radius": "2.000000000000000000000000E+0",
+        "first_atom_signal": "1.353352832366126918939995E-1"
+      },
+      {
+        "H": 1000000,
+        "schedule": "logarithmic_H_beta",
+        "H_times_minus_log_radius": "1.381551055796427410410795E+1",
+        "first_atom_signal": "1.000000000000000000000000E-6"
+      },
+      {
+        "H": 1000000,
+        "schedule": "square_root_H_beta",
+        "H_times_minus_log_radius": "3.716922188849838446952407E+0",
+        "first_atom_signal": "2.430867032322751305915933E-2"
+      },
+      {
+        "H": 1000000000,
+        "schedule": "bounded_H_beta",
+        "H_times_minus_log_radius": "2.000000000000000000000000E+0",
+        "first_atom_signal": "1.353352832366126918939995E-1"
+      },
+      {
+        "H": 1000000000,
+        "schedule": "logarithmic_H_beta",
+        "H_times_minus_log_radius": "2.072326583694641115616192E+1",
+        "first_atom_signal": "1.000000000000000000000000E-9"
+      },
+      {
+        "H": 1000000000,
+        "schedule": "square_root_H_beta",
+        "H_times_minus_log_radius": "4.552281388155439052588917E+0",
+        "first_atom_signal": "1.054312396776758716226573E-2"
+      }
+    ],
+    "aggregate": {
+      "scale_adaptive_radius_certificate_proved": true,
+      "first_atom_schedule_phase_transition_proved": true,
+      "cofinal_certificate_would_imply_RH": true,
+      "actual_zeta_scale_adaptive_upper_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "Any radius schedule with H(-log r_H) tending to infinity again drives the first-atom signal to zero, so a fixed positive absolute error floor cannot close that schedule. This is an information boundary for the defect measure, not an off-line zeta zero.",
+    "failure_count": 0
+  },
+  "discarded_route": "radius schedules whose first-atom signal vanishes while numerical absolute error has a fixed positive floor",
+  "remaining_gap": "No rigorous actual-zeta defect-transform upper bound below exp(-tau) is proved on a cofinal scale-adaptive radius sequence.",
+  "candidate_theorem": "ActualZetaScaleAdaptiveDefectEnvelopeBelowExpMinusTau",
+  "claim_boundary": "No RH proof and no off-line zeta zero. TICKET-218 specifies the nonvanishing-signal radius schedule; the actual-zeta bound on that schedule is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T217",
+        "label": "MultiRadiusNormalizedDefectCertificateAndFinitePrecisionInvisibility",
+        "status": "closed"
+      },
+      {
+        "id": "RH-OPEN217",
+        "label": "CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne",
+        "status": "refined_by_ticket218"
+      },
+      {
+        "id": "RH-T218",
+        "label": "ScaleAdaptiveRadiusCertificateAndSignalPhaseTransition",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N218",
+        "label": "VanishingSignalScheduleWithFixedAbsolutePrecisionImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN218",
+        "label": "ActualZetaScaleAdaptiveDefectEnvelopeBelowExpMinusTau",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T217",
+        "RH-OPEN217"
+      ],
+      [
+        "RH-OPEN217",
+        "RH-T218"
+      ],
+      [
+        "RH-T218",
+        "RH-N218"
+      ],
+      [
+        "RH-T218",
+        "RH-OPEN218"
+      ],
+      [
+        "RH-OPEN218",
+        "RH"
+      ]
+    ]
+  }
+}

@@ -15,9 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-217
+## Current research boundary: TICKET-218
 
 The current machine-readable boundary is
+`data/open-problem/ticket218-adaptive-radius-spike-residual-surplus.json`.
+
+TICKET-218 records four exact partial, reduction, or no-go results and zero
+conjecture resolutions:
+
+- a scale-adaptive RH defect certificate at `r_H=exp(-tau/H)` and the exact
+  phase boundary between detectable and vanishing late-defect signals;
+- an exponential next-denominator barrier for surviving single-mountain
+  Collatz candidates, with 49 upper convergents excluded and
+  `k<11828991589305104738667316989568711874512497900863` closed in that family;
+- the sharp residual `L^p` full-support certificate for nonnegative Goldbach
+  counts, with exact eighth-moment certification on five finite dyadic blocks;
+- the sharp Abel-surplus-to-count transfer for Twin Prime, including the
+  critical coefficient `exp(-a)/2` at horizon `(2 log log X+a)X`.
+
+An actual-zeta cofinal adaptive-radius bound below `exp(-tau)`, an effective
+upper bound excluding every future Collatz denominator spike followed by
+multi-run and divergence control, a cofinal arithmetic eighth-residual-moment
+bound, and an actual Twin Abel liminf coefficient strictly above `1/2` remain
+open.
+
+English report: [TICKET-218](adaptive-radius-spike-residual-surplus.md).
+한국어 보고서: [TICKET-218](adaptive-radius-spike-residual-surplus.ko.md).
+
+## Preserved research boundary: TICKET-217
+
+The direct machine-readable input is
 `data/open-problem/ticket217-relative-threshold-convergent-moment-tail.json`.
 
 TICKET-217 records four exact intermediate, reduction, or no-go results and zero

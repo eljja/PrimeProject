@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket218AttemptGlobal = null;
 let ticket217AttemptGlobal = null;
 let ticket216AttemptGlobal = null;
 let ticket215AttemptGlobal = null;
@@ -10013,6 +10014,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket218AdaptiveRadiusSpikeResidualSurplus(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.adaptive_radius_spike_residual_surplus_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = (computation.scale_adaptive_rows || []).filter((row) => row.tau === "1");
+    detail = `
+      <div class="poc-equation">r<sub>H</sub>=e<sup>−τ/H</sup> ⇒ r<sub>H</sub><sup>H</sup>=e<sup>−τ</sup>; U<sub>H</sub>&lt;e<sup>−τ</sup> ⇒ C(H)=0</div>
+      ${table(["H", "tau", "moving radius", "first-atom signal", "decimal error"], rows.map((row) => [formatter.format(row.H), row.tau, row.radius_exp_minus_tau_over_H, row.first_atom_signal_r_H_pow_H, row.absolute_decimal_error]))}
+      <div class="poc-head"><div><span>Adaptive certificate</span><strong>${aggregate.scale_adaptive_radius_certificate_proved ? "proved" : "open"}</strong></div><div><span>Signal phase transition</span><strong>${aggregate.first_atom_schedule_phase_transition_proved ? "proved" : "open"}</strong></div><div><span>Actual zeta envelope</span><strong>${aggregate.actual_zeta_scale_adaptive_upper_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">높이에 따라 반지름을 1로 이동시키면 첫 결함 원자의 신호를 고정된 e<sup>−τ</sup>로 유지할 수 있습니다. 그러나 실제 제타 함수의 결함 변환 상계가 이 문턱보다 작다는 공종 증명은 아직 없습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const allRows = computation.audited_upper_convergent_rows || [];
+    const rows = [...allRows.slice(0, 3), ...allRows.slice(-5)];
+    const next = computation.next_unaudited_upper_convergent || {};
+    detail = `
+      <div class="poc-equation">4(q<sub>n</sub>+q<sub>n+1</sub>)&lt;3<sup>p<sub>n</sub></sup> ⇒ all positive multiples excluded</div>
+      ${table(["index", "upper p", "upper q", "next q", "method", "excluded"], rows.map((row) => [row.convergent_index, row.reduced_upper_numerator_p_decimal, row.reduced_upper_denominator_q_decimal, row.next_convergent_denominator_q_next_decimal, row.neighbor_barrier_method, row.all_positive_multiples_excluded]))}
+      <div class="poc-head"><div><span>Upper convergents excluded</span><strong>${aggregate.audited_upper_convergent_count || 0}</strong></div><div><span>Single-mountain k bound</span><strong>${escapeHtml(computation.single_mountain_k_exclusive_upper_bound_decimal || "missing")}</strong></div><div><span>All single mountains</span><strong>${aggregate.all_single_mountain_cycles_excluded ? "excluded" : "open"}</strong></div></div>
+      <p class="proof-note">이웃 수렴분수의 분모만으로 48개 후보를 배제하고 첫 후보는 기존 정확 비교로 닫았습니다. 다음 미검사 상측 분모는 ${escapeHtml(next.q_decimal || "missing")}이며, 미래의 지수적 부분몫 급등과 다중 run은 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.dyadic_goldbach_rows || [];
+    detail = `
+      <div class="poc-equation">Σ|AᵢQ−Pwᵢ|<sup>p</sup>&lt;(P min w)<sup>p</sup> ⇒ every Aᵢ&gt;0</div>
+      ${table(["dyadic X", "targets", "minimum count", "p=4", "p=8", "p=8 ratio"], rows.map((row) => { const p4 = (row.moment_rows || []).find((item) => item.order_p === 4) || {}; const p8 = (row.moment_rows || []).find((item) => item.order_p === 8) || {}; return [formatter.format(row.dyadic_start_X), formatter.format(row.target_count_B), row.minimum_exact_representation_count, p4.full_support_certificate_passed, p8.full_support_certificate_passed, p8.residual_to_threshold_ratio]; }))}
+      <div class="poc-head"><div><span>Sharp residual theorem</span><strong>${aggregate.sharp_residual_moment_support_certificate_proved ? "proved" : "open"}</strong></div><div><span>Exact p=8 blocks</span><strong>${aggregate.exact_eighth_moment_blocks_certified ?? 0}</strong></div><div><span>Cofinal arithmetic bound</span><strong>${aggregate.cofinal_eighth_moment_arithmetic_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">TICKET-217의 2차 모멘트가 실패한 다섯 블록을 중심화한 정확한 8차 잔차 에너지가 모두 인증합니다. 모형 배율은 완전한 유한 블록에서 적합했으므로, 모든 큰 블록에 대한 독립적 원 방법 추정은 여전히 미증명입니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_actual_twin_diagnostic_rows || [];
+    detail = `
+      <div class="poc-equation">T(Y)≥F(r)−R(r,Y); liminf F/(X/log²X)&gt;1/2 ⇒ infinitely many twins</div>
+      ${table(["X", "adaptive Y", "twin count", "partial Abel / scale", "tail / scale", "finite surplus / scale"], rows.map((row) => [formatter.format(row.X), formatter.format(row.Y_floor_2_loglogX_X), formatter.format(row.exact_twin_count_through_Y), Number(row.partial_actual_twin_Abel_over_X_log2X).toFixed(6), Number(row.coefficient_one_tail_over_X_log2X).toFixed(6), Number(row.finite_partial_surplus_over_X_log2X).toFixed(6)]))}
+      <div class="poc-head"><div><span>Surplus transfer</span><strong>${aggregate.strict_abel_surplus_to_count_transfer_proved ? "proved" : "open"}</strong></div><div><span>Critical constant 1/2</span><strong>${aggregate.critical_constant_sharp_for_transfer_proved ? "sharp" : "open"}</strong></div><div><span>Actual Abel liminf &gt; 1/2</span><strong>${aggregate.actual_twin_abel_liminf_above_one_half_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">유한 계산에서는 부분 아벨 질량이 임계 꼬리를 넘지만, 이는 배정밀도 진단입니다. 쌍둥이 소수 무한성을 얻으려면 실제 아벨 하극한 계수가 1/2보다 엄격히 크다는 패리티 민감 증명이 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket218-adaptive-radius-spike-residual-surplus" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 218 adaptive radii, exponential spikes, residual moments, and Abel surplus</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial, reduction, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET218 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/adaptive-radius-spike-residual-surplus.ko.md">한국어 보고서</a> · <a href="../docs/adaptive-radius-spike-residual-surplus.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket217RelativeThresholdConvergentMomentTail(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.relative_threshold_convergent_moment_tail_audit || {};
@@ -10068,7 +10137,7 @@ function renderTicket217RelativeThresholdConvergentMomentTail(attempt) {
   }
   return `
     <div id="ticket217-relative-threshold-convergent-moment-tail" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 217 relative thresholds, convergent compression, moment support, and critical Abel tails</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial, reduction, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET217 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16570,7 +16639,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket217RelativeThresholdConvergentMomentTail(ticket217AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket218AdaptiveRadiusSpikeResidualSurplus(ticket218AttemptGlobal) ||
+      renderTicket217RelativeThresholdConvergentMomentTail(ticket217AttemptGlobal) ||
       renderTicket216LaplaceGcdRadixTauberian(ticket216AttemptGlobal) ||
       renderTicket215LatticeNearCollisionExceptionAbel(ticket215AttemptGlobal) ||
       renderTicket214CofinalSevenOneExponentialCardinal(ticket214AttemptGlobal) ||
@@ -17067,6 +17137,26 @@ async function loadTicket217Attempt() {
     return Boolean(ticket217AttemptGlobal);
   } catch (_error) {
     ticket217AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket218Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket218-adaptive-radius-spike-residual-surplus.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket218AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket218AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket218AttemptGlobal) {
+      ticket218AttemptGlobal.bounded_result = ticket218AttemptGlobal.bounded_result || {};
+      ticket218AttemptGlobal.bounded_result.adaptive_radius_spike_residual_surplus_audit = payload.adaptive_radius_spike_residual_surplus_audit || {};
+    }
+    return Boolean(ticket218AttemptGlobal);
+  } catch (_error) {
+    ticket218AttemptGlobal = null;
     return false;
   }
 }
@@ -18640,9 +18730,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket217Loaded = await loadTicket217Attempt();
+  const ticket218Loaded = await loadTicket218Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket217-current";
+  document.documentElement.dataset.openProblemCache = "ticket218-current";
+  const ticket217Loaded = await loadTicket217Attempt();
   const ticket216Loaded = await loadTicket216Attempt();
   const ticket215Loaded = await loadTicket215Attempt();
   const ticket214Loaded = await loadTicket214Attempt();
@@ -18692,8 +18783,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket218AttemptGlobal) await loadTicket218Attempt();
     if (!ticket217AttemptGlobal) await loadTicket217Attempt();
     if (!ticket216AttemptGlobal) await loadTicket216Attempt();
     if (!ticket215AttemptGlobal) await loadTicket215Attempt();
@@ -18789,7 +18881,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket217-current";
+  document.documentElement.dataset.openProblemCache = "ticket218-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

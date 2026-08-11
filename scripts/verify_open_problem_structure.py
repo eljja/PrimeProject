@@ -216,6 +216,7 @@ TICKET214_SCHEMA = "primeproject.ticket214-cofinal-sevenone-exponential-cardinal
 TICKET215_SCHEMA = "primeproject.ticket215-lattice-nearcollision-exception-abel.v1"
 TICKET216_SCHEMA = "primeproject.ticket216-laplace-gcd-radix-tauberian.v1"
 TICKET217_SCHEMA = "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1"
+TICKET218_SCHEMA = "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1"
 
 
 def fail(message: str) -> int:
@@ -18543,6 +18544,186 @@ def main() -> int:
         or machine217.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket217 proof boundary changed")
+
+    path218 = Path(
+        "data/open-problem/ticket218-adaptive-radius-spike-residual-surplus.json"
+    )
+    if not path218.exists():
+        return fail("missing ticket218 adaptive-radius/spike/residual/surplus audit")
+    ticket218 = read_json(path218)
+    if (
+        ticket218.get("schema") != TICKET218_SCHEMA
+        or ticket218.get("status") != "open_not_proven"
+    ):
+        return fail("ticket218 schema or status changed")
+    audit218 = ticket218.get("adaptive_radius_spike_residual_surplus_audit", {})
+    machine218 = audit218.get("machine_audit", {})
+    if machine218 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket218 global machine audit changed")
+
+    attempts218 = {
+        row.get("problem_id"): row for row in ticket218.get("attempts", [])
+    }
+    if set(attempts218) != EXPECTED_PROBLEMS:
+        return fail("ticket218 attempts missing problems")
+    track_paths218 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-218-scale-adaptive-radius.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-218-exponential-spike-barrier.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-218-eighth-residual-moment.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-218-abel-surplus-transfer.json"
+        ),
+    }
+    theorem_names218 = {
+        "riemann": "ScaleAdaptiveRadiusCertificateAndSignalPhaseTransition",
+        "collatz": "ExponentialNextDenominatorSpikeBarrierAnd49ConvergentExclusion",
+        "goldbach": "SharpResidualMomentSupportCertificateAndExactEighthMomentAudit",
+        "twin-prime": "SharpAbelSurplusToTwinCountTransferAtCriticalConstant",
+    }
+    next_lemmas218 = {
+        "riemann": "ActualZetaScaleAdaptiveDefectEnvelopeBelowExpMinusTau",
+        "collatz": "EffectiveExponentialPartialQuotientBoundForCollatzLogRatio",
+        "goldbach": "CofinalGoldbachEighthResidualMomentBelowZeroCoordinateBarrier",
+        "twin-prime": "ActualTwinAbelLiminfCoefficientGreaterThanOneHalf",
+    }
+    for problem_id, track_path in track_paths218.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket218 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts218[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET218_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names218[problem_id]
+            or attempt.get("new_result") != theorem_names218[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas218[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/adaptive_radius_spike_residual_surplus_audit"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket218 contract changed")
+
+    rh218 = audit218.get("riemann", {}).get("reproducible_computation", {})
+    rh218_aggregate = rh218.get("aggregate", {})
+    if (
+        [row.get("H") for row in rh218.get("scale_adaptive_rows", [])]
+        != [100, 10000, 1000000, 1000000000] * 2
+        or len(rh218.get("schedule_phase_rows", [])) != 12
+        or rh218_aggregate.get("scale_adaptive_radius_certificate_proved")
+        is not True
+        or rh218_aggregate.get("first_atom_schedule_phase_transition_proved")
+        is not True
+        or rh218_aggregate.get("actual_zeta_scale_adaptive_upper_bound_proved")
+        is not False
+        or rh218_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket218 RH adaptive-radius boundary changed")
+
+    collatz218 = audit218.get("collatz", {}).get("reproducible_computation", {})
+    collatz218_rows = collatz218.get("audited_upper_convergent_rows", [])
+    collatz218_aggregate = collatz218.get("aggregate", {})
+    next_q218 = (
+        collatz218.get("next_unaudited_upper_convergent", {}).get("q_decimal")
+    )
+    if (
+        collatz218.get("certified_continued_fraction_coefficient_count") != 100
+        or len(collatz218_rows) != 49
+        or any(
+            row.get("all_positive_multiples_excluded") is not True
+            for row in collatz218_rows
+        )
+        or next_q218
+        != "11828991589305104738667316989568711874512497900863"
+        or str(collatz218.get("single_mountain_k_exclusive_upper_bound_decimal"))
+        != next_q218
+        or len(collatz218.get("transcript_sha256", "")) != 64
+        or collatz218_aggregate.get(
+            "exponential_next_denominator_spike_necessity_proved"
+        )
+        is not True
+        or collatz218_aggregate.get("all_single_mountain_cycles_excluded")
+        is not False
+        or collatz218_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket218 Collatz exponential-spike boundary changed")
+
+    goldbach218 = audit218.get("goldbach", {}).get("reproducible_computation", {})
+    goldbach218_rows = goldbach218.get("dyadic_goldbach_rows", [])
+    goldbach218_aggregate = goldbach218.get("aggregate", {})
+    if (
+        [row.get("dyadic_start_X") for row in goldbach218_rows]
+        != [128, 512, 2048, 8192, 32768]
+        or any(
+            not next(
+                item for item in row.get("moment_rows", []) if item.get("order_p") == 8
+            ).get("full_support_certificate_passed")
+            for row in goldbach218_rows
+        )
+        or any(
+            next(
+                item for item in row.get("moment_rows", []) if item.get("order_p") == 4
+            ).get("full_support_certificate_passed")
+            for row in goldbach218_rows
+        )
+        or goldbach218_aggregate.get(
+            "sharp_residual_moment_support_certificate_proved"
+        )
+        is not True
+        or goldbach218_aggregate.get("exact_eighth_moment_blocks_certified") != 5
+        or goldbach218_aggregate.get("exact_fourth_moment_blocks_certified") != 0
+        or goldbach218_aggregate.get("cofinal_eighth_moment_arithmetic_bound_proved")
+        is not False
+        or goldbach218_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket218 Goldbach residual-moment boundary changed")
+
+    twin218 = audit218.get("twin_prime", {}).get("reproducible_computation", {})
+    twin218_rows = twin218.get("finite_actual_twin_diagnostic_rows", [])
+    twin218_aggregate = twin218.get("aggregate", {})
+    if (
+        [row.get("X") for row in twin218_rows] != [1000, 10000, 100000, 1000000]
+        or any(
+            row.get("finite_partial_surplus_over_X_log2X", 0) <= 0
+            or row.get("finite_transfer_inequality_checked") is not True
+            for row in twin218_rows
+        )
+        or twin218_aggregate.get("strict_abel_surplus_to_count_transfer_proved")
+        is not True
+        or twin218_aggregate.get("critical_constant_sharp_for_transfer_proved")
+        is not True
+        or twin218_aggregate.get("actual_twin_abel_liminf_above_one_half_proved")
+        is not False
+        or twin218_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket218 Twin Abel-surplus boundary changed")
+
+    if (
+        "resolves none" not in str(audit218.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket218.get("claim_boundary", "")).lower()
+        or machine218.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket218 proof boundary changed")
 
     print("open problem structure verified")
     return 0

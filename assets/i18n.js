@@ -62,12 +62,12 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-217 proves four exact relative-scale results: an RH multi-radius precision boundary, a Collatz continued-fraction compression, a sharp Goldbach support-moment certificate, and the critical Twin Abel-tail constant.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-217은 리만 결함의 다중 반지름 상대정밀도 경계, 콜라츠 연분수 후보 압축과 단일 산형 k<71,356,888 배제, 골드바흐 지지집합의 날카로운 2차 모멘트 인증, 쌍둥이 소수 아벨 꼬리의 임계상수를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-218 proves four exact margin results: an RH scale-adaptive signal boundary, a Collatz exponential next-denominator barrier, a sharp Goldbach residual-moment certificate, and a Twin Abel-surplus transfer.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-218은 리만 결함의 이동 반지름 신호 경계, 콜라츠 지수적 다음 분모 장벽과 상측 수렴분수 49개 배제, 골드바흐의 날카로운 8차 잔차 모멘트 인증, 쌍둥이 소수 아벨 잉여량의 개수 전이를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-217 adds an RH relative-precision boundary, a Collatz continued-fraction compression with k<71,356,888 excluded for single-mountain words, a sharp Goldbach support-moment certificate, and the critical Twin Abel-tail constant. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-217은 리만 상대정밀도 경계, 콜라츠 단일 산형의 연분수 압축과 k<71,356,888 배제, 골드바흐의 날카로운 지지집합 모멘트 인증, 쌍둥이 소수 아벨 꼬리의 임계상수를 추가했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-218 adds an RH scale-adaptive signal boundary, a Collatz exponential next-denominator barrier with 49 upper convergents excluded, a sharp Goldbach eighth-residual-moment certificate, and the Twin Abel-surplus transfer above one half. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-218은 리만 이동 신호 경계, 콜라츠 지수적 다음 분모 장벽과 상측 수렴분수 49개 배제, 골드바흐의 날카로운 8차 잔차 모멘트 인증, 쌍둥이 소수 아벨 계수 1/2 초과의 개수 전이를 추가했습니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

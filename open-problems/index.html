@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260813-ticket217-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260813-ticket218-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-217</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-218</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-217 actually changed</h2>
-          <p>TICKET-217 did not solve a conjecture. It replaces fixed absolute tolerances with the relative scale of the discrete event: an RH first atom across multiple radii, a Collatz exponential near-collision compressed to continued-fraction convergents, a missing Goldbach support coordinate tested by a sharp moment inequality, and the exact critical constant of the Twin Abel tail.</p>
-          <p class="proof-boundary">TICKET-217은 난제를 해결하지 않았습니다. 리만 트랙은 여러 반지름을 첫 원자 규모로 정규화했고, 콜라츠 트랙은 단일 산형 후보를 상측 연분수 수렴분수로 압축해 <code>k&lt;71,356,888</code>을 배제했습니다. 골드바흐 트랙은 전지지집합의 날카로운 2차 모멘트 충분조건을 증명했고, 쌍둥이 소수 트랙은 <code>2 log log X</code> 지평에서 아벨 꼬리의 정확한 상전이 상수를 확정했습니다.</p>
+          <h2>What TICKET-218 actually changed</h2>
+          <p>TICKET-218 did not solve a conjecture. It identifies one strict promotion margin per track: a nonvanishing RH first-atom signal, an exponential Collatz next-denominator barrier, a Goldbach residual energy below one missing-coordinate cost, and a Twin Abel coefficient strictly above the critical tail.</p>
+          <p class="proof-boundary">TICKET-218은 난제를 해결하지 않았습니다. 리만 트랙은 첫 결함 신호를 고정하는 이동 반지름을 정했고, 콜라츠 트랙은 상측 수렴분수 49개를 배제해 단일 산형 <code>k&lt;1.1829×10<sup>49</sup></code>를 닫았습니다. 골드바흐 트랙은 정확한 8차 잔차 모멘트로 다섯 유한 블록을 인증했고, 쌍둥이 소수 트랙은 아벨 계수 <code>1/2</code>를 넘는 엄격한 잉여가 개수 하계로 전이됨을 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Multiple radii give C(H)≤floor(min U(r)/r<sup>H</sup>); a normalized upper bound below one certifies zero defect.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>One delayed logical atom can be hidden under every member of a finite fixed absolute-error family.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CofinalRelativePrecisionExplicitFormulaEnvelopeBelowOne</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>At r<sub>H</sub>=exp(−tau/H), the first-atom signal is exp(−tau); an upper bound below it certifies zero defect through H.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>If H(−log r<sub>H</sub>) tends to infinity, the signal vanishes and fixed positive absolute error cannot close the schedule.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualZetaScaleAdaptiveDefectEnvelopeBelowExpMinusTau</code></dd></div>
           </dl>
-          <p class="workbench-ko">다중 반지름 인증은 정확하지만 고정 절대오차는 충분하지 않습니다. 실제 제타 명시적 공식에서 첫 원자 규모에 대한 공종 상대정밀도 상계를 만드는 일이 남았습니다.</p>
+          <p class="workbench-ko">신호가 사라지지 않는 반지름 일정은 정확히 정했지만, 실제 제타 결함 변환이 그 고정 문턱보다 작다는 공종 상계는 없습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A single-mountain candidate reduces to an upper convergent of log(3/2)/log(4/3); exact scaling tests exclude k&lt;71,356,888.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Linear scanning in k is replaced by convergent compression, but later convergents and other word families remain open.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EffectiveAllUpperConvergentScalingBarrierForSingleMountainWords</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Any upper convergent escaping the new test needs an exponential next-denominator spike; 49 upper convergents are excluded.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Huge cross-power differences need not be materialized when the neighboring convergent already supplies the barrier.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EffectiveExponentialPartialQuotientBoundForCollatzLogRatio</code></dd></div>
           </dl>
-          <p class="workbench-ko">모든 <code>k</code>를 훑지 않고 상측 수렴분수만 검사합니다. 7개 수렴분수의 모든 양의 배수를 배제했지만 다중 run과 발산은 여전히 열려 있습니다.</p>
+          <p class="workbench-ko">단일 산형 <code>k&lt;1.1829×10<sup>49</sup></code>를 배제했지만 미래의 지수적 부분몫 급등, 다중 run, 발산은 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>For weighted counts, S²&gt;(B−1)Q certifies full support, and the universal coefficient B−1 is sharp.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>All five covered blocks fail this sufficient test; its coefficient cannot be lowered universally.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PointwiseGoldbachLowerTailBoundBeyondSecondMomentSupportBarrier</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A residual p-moment below one zero-coordinate energy certifies full support; exact p=8 arithmetic closes all five audited blocks.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The threshold is strictly sharp, and p=4 fails on every audited block for the selected exact model.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CofinalGoldbachEighthResidualMomentBelowZeroCoordinateBarrier</code></dd></div>
           </dl>
-          <p class="workbench-ko">두 모멘트의 날카로운 전지지 충분조건을 증명했지만 실제 블록은 통과하지 못합니다. 점별 하한이나 고차 산술 정보가 필요합니다.</p>
+          <p class="workbench-ko">유한 8차 잔차 인증은 성공했지만, 모든 큰 블록에서 이를 전수 열거 없이 보이는 원 방법 추정이 남았습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>At Y/X=2 log log X+a, the geometric tail divided by X/log²X tends exactly to exp(−a)/2.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>A bounded offset leaves a nonzero critical tail constant and is not negligible.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>T(Y)≥F(r)−R(r,Y); at offset zero, an actual Abel liminf coefficient above 1/2 implies infinitely many twins.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Equality at 1/2 is insufficient for this transfer; a horizon-local logical tail sequence saturates the bound with T(Y)=0.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualTwinAbelLiminfCoefficientGreaterThanOneHalf</code></dd></div>
           </dl>
-          <p class="workbench-ko"><code>2 log log X</code>의 정확한 상전이 상수를 구했습니다. 실제 쌍둥이 아벨 질량이 이 상수를 넘는 패리티 민감 잉여는 아직 없습니다.</p>
+          <p class="workbench-ko">유한 부분 아벨 잉여는 양수지만, 실제 하극한 계수가 <code>1/2</code>보다 크다는 패리티 민감 증명은 없습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>217 tickets reduced to four meaningful eras</h2>
+          <h2>218 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–217 · Structure, relative thresholds, and candidate compression</strong><p>리만 결함의 상대정밀도, Collatz 연분수 후보, Goldbach 지지집합 모멘트, Twin 임계 아벨 꼬리를 분리하고 실제 산술 추정의 정확한 목표를 고정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–218 · Structure, strict margins, and candidate compression</strong><p>리만 이동 신호, Collatz 지수 급등, Goldbach 잔차 에너지, Twin 아벨 잉여량으로 실제 무한 증명에 필요한 엄격한 문턱을 고정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/adaptive-radius-spike-residual-surplus.ko.md">TICKET-218 한국어 보고서</a>
+          <a href="../docs/adaptive-radius-spike-residual-surplus.md">TICKET-218 English report</a>
           <a href="../docs/relative-threshold-convergent-moment-tail.ko.md">TICKET-217 한국어 보고서</a>
           <a href="../docs/relative-threshold-convergent-moment-tail.md">TICKET-217 English report</a>
           <a href="../docs/laplace-gcd-radix-tauberian.ko.md">TICKET-216 한국어 보고서</a>
@@ -160,7 +162,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260813-ticket217"></script>
+    <script src="../assets/i18n.js?v=20260813-ticket218"></script>
   </body>
 </html>
 

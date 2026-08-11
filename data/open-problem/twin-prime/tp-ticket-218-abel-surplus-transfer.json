@@ -1,0 +1,135 @@
+{
+  "schema": "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1",
+  "generated_at": "2026-08-13T05:30:00+09:00",
+  "ticket_id": "TP-TICKET-218",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "SharpAbelSurplusToTwinCountTransferAtCriticalConstant",
+  "declared_proposition": "For any sequence 0<=a_n<=1 supported on odd n, define F(r)=sum_n a_n r^n and T(Y)=sum_{n<=Y}a_n. Then T(Y)>=F(r)-R(r,Y), where R is the coefficient-one odd geometric tail. Put r_X=1-1/X and Y_X=floor((2 log log X+a)X), with fixed a. If liminf F(r_X)/(X/log^2 X)>=A and A>exp(-a)/2, then liminf T(Y_X)/(X/log^2 X)>=A-exp(-a)/2>0. Applied to the twin-prime indicator, this would prove infinitely many twins. The strict constant is sharp for this transfer: at any fixed horizon the logical sequence that is zero through Y and one on every later odd index has T(Y)=0 and F(r)=R(r,Y).",
+  "mathematical_argument": "Split F at Y. The initial part is at most T(Y), because r^n<=1, and the tail is at most R because a_n<=1. Rearrangement gives the finite inequality. Divide by X/log^2 X and use the TICKET-217 limit R/(X/log^2 X)->exp(-a)/2. A positive liminf then forces T(Y_X) to grow without bound. The horizon-local saturating sequence proves that equality at the critical constant cannot yield a positive count from this information alone.",
+  "reproducible_computation": {
+    "theorem": "For any sequence 0<=a_n<=1 supported on odd n, define F(r)=sum_n a_n r^n and T(Y)=sum_{n<=Y}a_n. Then T(Y)>=F(r)-R(r,Y), where R is the coefficient-one odd geometric tail. Put r_X=1-1/X and Y_X=floor((2 log log X+a)X), with fixed a. If liminf F(r_X)/(X/log^2 X)>=A and A>exp(-a)/2, then liminf T(Y_X)/(X/log^2 X)>=A-exp(-a)/2>0. Applied to the twin-prime indicator, this would prove infinitely many twins. The strict constant is sharp for this transfer: at any fixed horizon the logical sequence that is zero through Y and one on every later odd index has T(Y)=0 and F(r)=R(r,Y).",
+    "proof": "Split F at Y. The initial part is at most T(Y), because r^n<=1, and the tail is at most R because a_n<=1. Rearrangement gives the finite inequality. Divide by X/log^2 X and use the TICKET-217 limit R/(X/log^2 X)->exp(-a)/2. A positive liminf then forces T(Y_X) to grow without bound. The horizon-local saturating sequence proves that equality at the critical constant cannot yield a positive count from this information alone.",
+    "surplus_transfer": "T(Y)>=F(r)-R(r,Y); liminf F/scale>A_critical => liminf T/scale>=A-A_critical",
+    "critical_constant_at_offset_zero": 0.5,
+    "finite_actual_twin_diagnostic_rows": [
+      {
+        "X": 1000,
+        "offset_a": 0,
+        "Y_floor_2_loglogX_X": 3865,
+        "exact_twin_count_through_Y": 101,
+        "partial_actual_twin_Abel_over_X_log2X": 1.6430570767218025,
+        "coefficient_one_tail_over_X_log2X": 0.4984298719286163,
+        "finite_partial_surplus_over_X_log2X": 1.144627204793186,
+        "transfer_lower_bound_from_partial_data": 23.987786615744778,
+        "finite_transfer_inequality_checked": true,
+        "numeric_powers_are_not_interval_certificates": true
+      },
+      {
+        "X": 10000,
+        "offset_a": 0,
+        "Y_floor_2_loglogX_X": 44406,
+        "exact_twin_count_through_Y": 641,
+        "partial_actual_twin_Abel_over_X_log2X": 1.5952572822553817,
+        "coefficient_one_tail_over_X_log2X": 0.4998907940192538,
+        "finite_partial_surplus_over_X_log2X": 1.095366488236128,
+        "transfer_lower_bound_from_partial_data": 129.12433262241757,
+        "finite_transfer_inequality_checked": true,
+        "numeric_powers_are_not_interval_certificates": true
+      },
+      {
+        "X": 100000,
+        "offset_a": 0,
+        "Y_floor_2_loglogX_X": 488694,
+        "exact_twin_count_through_Y": 4477,
+        "partial_actual_twin_Abel_over_X_log2X": 1.5175444477966487,
+        "coefficient_one_tail_over_X_log2X": 0.4999856404516598,
+        "finite_partial_surplus_over_X_log2X": 1.0175588073449888,
+        "transfer_lower_bound_from_partial_data": 767.693973849809,
+        "finite_transfer_inequality_checked": true,
+        "numeric_powers_are_not_interval_certificates": true
+      },
+      {
+        "X": 1000000,
+        "offset_a": 0,
+        "Y_floor_2_loglogX_X": 5251583,
+        "exact_twin_count_through_Y": 33812,
+        "partial_actual_twin_Abel_over_X_log2X": 1.4830538996772953,
+        "coefficient_one_tail_over_X_log2X": 0.4999983514862509,
+        "finite_partial_surplus_over_X_log2X": 0.9830555481910443,
+        "transfer_lower_bound_from_partial_data": 5150.438200027647,
+        "finite_transfer_inequality_checked": true,
+        "numeric_powers_are_not_interval_certificates": true
+      }
+    ],
+    "aggregate": {
+      "strict_abel_surplus_to_count_transfer_proved": true,
+      "critical_constant_sharp_for_transfer_proved": true,
+      "finite_partial_surplus_positive_at_all_scales": true,
+      "actual_twin_abel_liminf_above_one_half_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The sharpness sequence is an admissible logical 0-1 sequence, not a prime sequence. The finite twin rows use deterministic double-precision powers and are diagnostics, not a cofinal interval proof of the required Abel liminf.",
+    "failure_count": 0
+  },
+  "discarded_route": "a non-strict Abel lower coefficient equal to the geometric-tail constant as sufficient for twin infinitude",
+  "remaining_gap": "No parity-sensitive proof establishes that the actual twin-prime Abel liminf coefficient is strictly greater than one half at offset zero.",
+  "candidate_theorem": "ActualTwinAbelLiminfCoefficientGreaterThanOneHalf",
+  "claim_boundary": "No Twin Prime proof or last-twin counterexample. The surplus transfer and its constant are exact; the actual parity-breaking Abel lower bound is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T217",
+        "label": "SharpAdaptiveAbelTailPhaseTransitionAtTwoLogLog",
+        "status": "closed"
+      },
+      {
+        "id": "TP-OPEN217",
+        "label": "TwinAbelLowerBoundWithExplicitSurplusAboveCriticalTailConstant",
+        "status": "refined_by_ticket218"
+      },
+      {
+        "id": "TP-T218",
+        "label": "SharpAbelSurplusToTwinCountTransferAtCriticalConstant",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N218",
+        "label": "CriticalEqualityAbelCoefficientImpliesTwinInfinitude",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN218",
+        "label": "ActualTwinAbelLiminfCoefficientGreaterThanOneHalf",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T217",
+        "TP-OPEN217"
+      ],
+      [
+        "TP-OPEN217",
+        "TP-T218"
+      ],
+      [
+        "TP-T218",
+        "TP-N218"
+      ],
+      [
+        "TP-T218",
+        "TP-OPEN218"
+      ],
+      [
+        "TP-OPEN218",
+        "TP"
+      ]
+    ]
+  }
+}
