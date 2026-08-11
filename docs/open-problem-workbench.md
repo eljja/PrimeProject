@@ -15,29 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-211
+## Current research boundary: TICKET-212
 
 The current machine-readable boundary is
-`data/open-problem/ticket211-winding-density-fullrange-unitscale.json`.
+`data/open-problem/ticket212-even-defect-ghost-bonferroni-gapchannel.json`.
 
-TICKET-211 records four exact intermediate or no-go results and zero
+TICKET-212 records four exact intermediate or no-go results and zero
 conjecture resolutions:
 
-- an entire symmetric model with effective cofinal horizontal clearance and
-  exact total winding, but two off-critical and zero critical-line zeros per
-  band, proving that total winding does not locate zeros;
-- the multiplicity-uniform Collatz necessity
-  `k/h>=log_2(6/5)` and an exact rational `(1,2,2)^m` counterfamily to any
-  aggregate-only sufficiency claim;
-- a proof that small-witness exceptional counts cannot be driven below one
-  beyond the TICKET-209 covering floor, requiring a full-range
-  nonrepresentation predicate instead;
-- factorial twin-free windows whose ratio to `log X/log log X` tends to one,
-  refuting every fixed subunit local-positivity threshold.
+- a sharp symmetry-parity certificate: total rectangle zeros minus certified
+  critical-line sign changes strictly below two forces simple line zeros;
+- a proof that every Collatz valuation word has a `2`-adic ghost cycle, so the
+  actual remaining cycle predicate is ordinary odd divisibility;
+- the exact full Goldbach witness-product indicator and, using an exact
+  prime-pair pigeonhole count plus the prime number theorem, a proof that
+  every fixed even Bonferroni truncation fails on arbitrarily large targets;
+- an exact dyadic gap-two equivalence and a channel countermodel showing that
+  positive bounded-gap aggregate mass does not select twins.
 
-Critical-line zero-count equality, a uniform 2-adic Collatz integrality
-obstruction, a full-range Goldbach exceptional count strictly below one, and
-sparse dyadic Twin positivity remain open.
+An all-height critical-line defect below two, uniform odd-divisor
+nondivisibility, a controlled full-witness resummation below one, and actual
+gap-two positivity on infinitely many dyadic blocks remain open.
+
+English report: [TICKET-212](even-defect-ghost-bonferroni-gapchannel.md).
+한국어 보고서: [TICKET-212](even-defect-ghost-bonferroni-gapchannel.ko.md).
+
+## Preserved research boundary: TICKET-211
+
+The direct machine-readable input is
+`data/open-problem/ticket211-winding-density-fullrange-unitscale.json`.
 
 English report: [TICKET-211](winding-density-fullrange-unitscale.md).
 한국어 보고서: [TICKET-211](winding-density-fullrange-unitscale.ko.md).

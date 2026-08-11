@@ -210,6 +210,7 @@ TICKET208_SCHEMA = "primeproject.ticket208-vertical-threeone-unitlog-cyclotomic.
 TICKET209_SCHEMA = "primeproject.ticket209-normalized-fourone-covering-factorial.v1"
 TICKET210_SCHEMA = "primeproject.ticket210-cofinal-fiveone-primegap-scaledtwin.v1"
 TICKET211_SCHEMA = "primeproject.ticket211-winding-density-fullrange-unitscale.v1"
+TICKET212_SCHEMA = "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1"
 
 
 def fail(message: str) -> int:
@@ -17483,6 +17484,200 @@ def main() -> int:
         or machine211.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket211 proof boundary changed")
+
+    path212 = Path(
+        "data/open-problem/ticket212-even-defect-ghost-bonferroni-gapchannel.json"
+    )
+    if not path212.exists():
+        return fail("missing ticket212 even-defect/ghost/bonferroni/gap-channel audit")
+    ticket212 = read_json(path212)
+    if (
+        ticket212.get("schema") != TICKET212_SCHEMA
+        or ticket212.get("status") != "open_not_proven"
+    ):
+        return fail("ticket212 schema or status changed")
+    audit212 = ticket212.get("even_defect_ghost_bonferroni_gapchannel_audit", {})
+    machine212 = audit212.get("machine_audit", {})
+    expected_machine212 = {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }
+    if machine212 != expected_machine212:
+        return fail("ticket212 global machine audit changed")
+
+    attempts212 = {
+        row.get("problem_id"): row for row in ticket212.get("attempts", [])
+    }
+    if set(attempts212) != EXPECTED_PROBLEMS:
+        return fail("ticket212 attempts missing problems")
+    track_paths212 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-212-even-defect-saturation.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-212-two-adic-ghost-no-go.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-212-full-witness-bonferroni.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-212-gap-channel-isolation.json"
+        ),
+    }
+    theorem_names212 = {
+        "riemann": "EvenCriticalLineDefectSubTwoSaturationCertificate",
+        "collatz": "TwoAdicGhostUniversalityAndOddDivisibilityCorrection",
+        "goldbach": "FullWitnessProductIdentityAndFixedBonferroniNoGo",
+        "twin-prime": "DyadicGapTwoEquivalenceAndFiniteGapAggregateNoGo",
+    }
+    for problem_id, track_path in track_paths212.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket212 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts212[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET212_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names212[problem_id]
+            or attempt.get("new_result") != theorem_names212[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/even_defect_ghost_bonferroni_gapchannel_audit"
+            or not attempt.get("declared_proposition")
+            or not attempt.get("candidate_theorem")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket212 contract changed")
+
+    rh212 = audit212.get("riemann", {}).get("reproducible_computation", {})
+    rh212_rows = rh212.get("configuration_rows", [])
+    rh212_aggregate = rh212.get("aggregate", {})
+    if (
+        len(rh212_rows) != 5
+        or any(
+            row.get("subtwo_certificate_applies")
+            and not row.get("all_zeros_on_line_and_simple")
+            for row in rh212_rows
+        )
+        or not all(
+            row.get("uncertified_defect_N_minus_L") == 2
+            for row in rh212_rows
+            if row.get("configuration")
+            in {
+                "one_off_line_pair",
+                "one_double_line_zero",
+                "ticket211_symmetric_off_line_model_band",
+            }
+        )
+        or rh212_aggregate.get("subtwo_defect_certificate_proved") is not True
+        or rh212_aggregate.get("threshold_two_is_sharp") is not True
+        or rh212_aggregate.get("all_height_subtwo_bound_for_actual_zeta_proved")
+        is not False
+        or rh212_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket212 RH even-defect boundary changed")
+
+    collatz212 = audit212.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz212_aggregate = collatz212.get("aggregate", {})
+    enumeration212 = collatz212.get("finite_word_enumeration", [])
+    if (
+        len(collatz212.get("ghost_family_rows", [])) != 8
+        or not all(
+            row.get("ghost_fixed_point") == "23/5"
+            and row.get("ghost_reduced_denominator") == 5
+            and row.get("ghost_is_two_adic_integer")
+            for row in collatz212.get("ghost_family_rows", [])
+        )
+        or [row.get("words_tested") for row in enumeration212]
+        != [4**length for length in range(1, 9)]
+        or not all(
+            row.get("two_adic_ghosts")
+            == row.get("above_ticket211_density_floor")
+            and len(row.get("transcript_sha256", "")) == 64
+            for row in enumeration212
+        )
+        or collatz212_aggregate.get(
+            "two_adic_ghost_exists_for_every_valuation_word"
+        )
+        is not True
+        or collatz212_aggregate.get("uniform_two_adic_membership_obstruction_refuted")
+        is not True
+        or collatz212_aggregate.get("odd_divisibility_excluded_for_all_high_density_words")
+        is not False
+        or collatz212_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket212 Collatz ghost boundary changed")
+
+    goldbach212 = audit212.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach212_aggregate = goldbach212.get("aggregate", {})
+    if (
+        len(goldbach212.get("identity_rows", [])) != 52
+        or len(goldbach212.get("finite_target_rows", [])) != 6
+        or not all(
+            row.get("bonferroni_upper_bound") == row.get("closed_form")
+            for row in goldbach212.get("identity_rows", [])
+        )
+        or not all(
+            row.get("unordered_full_range_witness_count_A", 0) > 0
+            and row.get("exact_zero_indicator_product") == 0
+            for row in goldbach212.get("finite_target_rows", [])
+        )
+        or goldbach212_aggregate.get("full_witness_product_identity_proved")
+        is not True
+        or goldbach212_aggregate.get("fixed_even_bonferroni_route_refuted")
+        is not True
+        or goldbach212_aggregate.get("uniform_resummed_product_bound_below_one_proved")
+        is not False
+        or goldbach212_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket212 Goldbach Bonferroni boundary changed")
+
+    twin212 = audit212.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin212_aggregate = twin212.get("aggregate", {})
+    if (
+        len(twin212.get("countermodel_rows", [])) != 11
+        or not all(
+            row.get("gap_2_channel") == 0
+            and row.get("finite_gap_aggregate", 0) > 0
+            for row in twin212.get("countermodel_rows", [])
+        )
+        or not twin212.get("finite_prime_channel_rows")
+        or not all(
+            row.get("gap_two_positive")
+            and row.get("bounded_gap_aggregate", 0) > 0
+            and len(row.get("transcript_sha256", "")) == 64
+            for row in twin212.get("finite_prime_channel_rows", [])
+        )
+        or twin212_aggregate.get("dyadic_gap_two_equivalence_proved") is not True
+        or twin212_aggregate.get("bounded_gap_aggregate_selects_gap_two_refuted")
+        is not True
+        or twin212_aggregate.get("gap_two_positive_on_infinitely_many_blocks_proved")
+        is not False
+        or twin212_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket212 Twin gap-channel boundary changed")
+
+    if (
+        "resolves none" not in str(audit212.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket212.get("claim_boundary", "")).lower()
+        or machine212.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket212 proof boundary changed")
 
     print("open problem structure verified")
     return 0

@@ -1,0 +1,624 @@
+{
+  "schema": "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1",
+  "generated_at": "2026-08-12T23:55:00+09:00",
+  "ticket_id": "TP-TICKET-212",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicGapTwoEquivalenceAndFiniteGapAggregateNoGo",
+  "declared_proposition": "Let T_{j,h} count prime pairs p,p+h with 2^j<=p<2^{j+1}, for even h in a fixed finite set H containing 2. The twin-prime conjecture is equivalent to T_{j,2}>0 for infinitely many j. If sum_{h in H}T_{j,h}>0 for infinitely many j, finite pigeonhole only implies that some h in H is positive infinitely often; it does not select h=2. The exact countermodel T_{j,6}=1 and T_{j,h}=0 for h!=6 has positive bounded-gap aggregate on every block and no gap-two mass.",
+  "mathematical_argument": "Every twin pair belongs to one dyadic block, and each bounded block contains finitely many integers, so infinitely many twin pairs are equivalent to gap-two positivity on infinitely many dyadic indices. For a finite channel set H, infinitely many positive aggregate blocks contain infinitely many occurrences distributed among finitely many h; one channel therefore recurs infinitely often. Nothing in this pigeonhole statement identifies that channel as two, as the gap-six countermodel proves. Thus bounded-gap positivity and even exact aggregate mass require a gap-two channel-isolation input.",
+  "reproducible_computation": {
+    "theorem": "Let T_{j,h} count prime pairs p,p+h with 2^j<=p<2^{j+1}, for even h in a fixed finite set H containing 2. The twin-prime conjecture is equivalent to T_{j,2}>0 for infinitely many j. If sum_{h in H}T_{j,h}>0 for infinitely many j, finite pigeonhole only implies that some h in H is positive infinitely often; it does not select h=2. The exact countermodel T_{j,6}=1 and T_{j,h}=0 for h!=6 has positive bounded-gap aggregate on every block and no gap-two mass.",
+    "proof": "Every twin pair belongs to one dyadic block, and each bounded block contains finitely many integers, so infinitely many twin pairs are equivalent to gap-two positivity on infinitely many dyadic indices. For a finite channel set H, infinitely many positive aggregate blocks contain infinitely many occurrences distributed among finitely many h; one channel therefore recurs infinitely often. Nothing in this pigeonhole statement identifies that channel as two, as the gap-six countermodel proves. Thus bounded-gap positivity and even exact aggregate mass require a gap-two channel-isolation input.",
+    "minimal_dyadic_equivalence": "infinitely many twin primes iff T_{j,2}>0 for infinitely many j",
+    "finite_channel_set": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30
+    ],
+    "countermodel_rows": [
+      {
+        "dyadic_index_j": 10,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 11,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 12,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 13,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 14,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 15,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 16,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 17,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 18,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 19,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      },
+      {
+        "dyadic_index_j": 20,
+        "gap_2_channel": 0,
+        "gap_6_channel": 1,
+        "all_other_channels": 0,
+        "finite_gap_aggregate": 1
+      }
+    ],
+    "finite_prime_channel_rows": [
+      {
+        "dyadic_lower_X": 32,
+        "dyadic_upper_2X": 64,
+        "gap_channel_counts": {
+          "2": 2,
+          "4": 2,
+          "6": 5,
+          "8": 2,
+          "10": 3,
+          "12": 4,
+          "14": 3,
+          "16": 2,
+          "18": 4,
+          "20": 4,
+          "22": 2,
+          "24": 4,
+          "26": 3,
+          "28": 2,
+          "30": 5
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 47,
+        "dominant_gap_channel": 6,
+        "transcript_sha256": "5445037c713fa50f318dd0d6654639b0d08a8f2046ab86f92d52b194a7ed1a0d"
+      },
+      {
+        "dyadic_lower_X": 64,
+        "dyadic_upper_2X": 128,
+        "gap_channel_counts": {
+          "2": 3,
+          "4": 6,
+          "6": 7,
+          "8": 3,
+          "10": 5,
+          "12": 6,
+          "14": 3,
+          "16": 3,
+          "18": 6,
+          "20": 3,
+          "22": 4,
+          "24": 8,
+          "26": 4,
+          "28": 4,
+          "30": 10
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 75,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "e8b9feb09b611a332407e704ce09f8bb2ca29751df6e0abda3becf75b56cade2"
+      },
+      {
+        "dyadic_lower_X": 128,
+        "dyadic_upper_2X": 256,
+        "gap_channel_counts": {
+          "2": 7,
+          "4": 4,
+          "6": 11,
+          "8": 5,
+          "10": 7,
+          "12": 12,
+          "14": 6,
+          "16": 7,
+          "18": 13,
+          "20": 6,
+          "22": 5,
+          "24": 9,
+          "26": 6,
+          "28": 8,
+          "30": 15
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 121,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "2fb6c1e5f04d1898617e8a45f7d0e763e739cec67267bbcf179bcf95f658180e"
+      },
+      {
+        "dyadic_lower_X": 256,
+        "dyadic_upper_2X": 512,
+        "gap_channel_counts": {
+          "2": 7,
+          "4": 11,
+          "6": 17,
+          "8": 9,
+          "10": 13,
+          "12": 19,
+          "14": 12,
+          "16": 8,
+          "18": 16,
+          "20": 15,
+          "22": 12,
+          "24": 19,
+          "26": 8,
+          "28": 7,
+          "30": 23
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 196,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "997edca994d1df23dcc964c439058aa0dcdae23562a526f814b70c0a155a28da"
+      },
+      {
+        "dyadic_lower_X": 512,
+        "dyadic_upper_2X": 1024,
+        "gap_channel_counts": {
+          "2": 12,
+          "4": 15,
+          "6": 28,
+          "8": 15,
+          "10": 20,
+          "12": 25,
+          "14": 20,
+          "16": 15,
+          "18": 31,
+          "20": 18,
+          "22": 16,
+          "24": 33,
+          "26": 18,
+          "28": 17,
+          "30": 42
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 325,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "ac94106e02c5288cd8e42171fbdc3c585dd92bf35fb3473de7e66063e0af6f5e"
+      },
+      {
+        "dyadic_lower_X": 1024,
+        "dyadic_upper_2X": 2048,
+        "gap_channel_counts": {
+          "2": 26,
+          "4": 23,
+          "6": 55,
+          "8": 25,
+          "10": 34,
+          "12": 52,
+          "14": 27,
+          "16": 22,
+          "18": 45,
+          "20": 36,
+          "22": 24,
+          "24": 50,
+          "26": 26,
+          "28": 31,
+          "30": 61
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 537,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "98100863df15e03aa54ca0483fdf20bc985522319355ab123a0f13ee1512eecf"
+      },
+      {
+        "dyadic_lower_X": 2048,
+        "dyadic_upper_2X": 4096,
+        "gap_channel_counts": {
+          "2": 45,
+          "4": 44,
+          "6": 79,
+          "8": 46,
+          "10": 52,
+          "12": 83,
+          "14": 55,
+          "16": 41,
+          "18": 86,
+          "20": 51,
+          "22": 48,
+          "24": 78,
+          "26": 50,
+          "28": 54,
+          "30": 112
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 924,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "211d00b0c5f743988b3a202a93c061b2b72d847a8324bd115afd03993b9a264b"
+      },
+      {
+        "dyadic_lower_X": 4096,
+        "dyadic_upper_2X": 8192,
+        "gap_channel_counts": {
+          "2": 70,
+          "4": 64,
+          "6": 142,
+          "8": 72,
+          "10": 95,
+          "12": 140,
+          "14": 82,
+          "16": 69,
+          "18": 143,
+          "20": 91,
+          "22": 78,
+          "24": 138,
+          "26": 84,
+          "28": 81,
+          "30": 193
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 1542,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "2d337c90d013cc4f5c92b6bbdf85f97c690e74c013f6328ed149c3e271f5c02b"
+      },
+      {
+        "dyadic_lower_X": 8192,
+        "dyadic_upper_2X": 16384,
+        "gap_channel_counts": {
+          "2": 113,
+          "4": 131,
+          "6": 241,
+          "8": 121,
+          "10": 156,
+          "12": 239,
+          "14": 154,
+          "16": 114,
+          "18": 240,
+          "20": 162,
+          "22": 137,
+          "24": 253,
+          "26": 127,
+          "28": 153,
+          "30": 329
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 2670,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "07ec63f0ba3cd8752014393dada73f6db842d19a5bd00136e621d65c1cc279d5"
+      },
+      {
+        "dyadic_lower_X": 16384,
+        "dyadic_upper_2X": 32768,
+        "gap_channel_counts": {
+          "2": 215,
+          "4": 197,
+          "6": 434,
+          "8": 208,
+          "10": 262,
+          "12": 419,
+          "14": 254,
+          "16": 204,
+          "18": 430,
+          "20": 287,
+          "22": 228,
+          "24": 407,
+          "26": 234,
+          "28": 256,
+          "30": 551
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 4586,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "12872e2b526e9b6b5f53e4f676ecc3f18d415f2c5ca0dcce499982866742b4b3"
+      },
+      {
+        "dyadic_lower_X": 32768,
+        "dyadic_upper_2X": 65536,
+        "gap_channel_counts": {
+          "2": 355,
+          "4": 359,
+          "6": 719,
+          "8": 382,
+          "10": 502,
+          "12": 703,
+          "14": 448,
+          "16": 389,
+          "18": 735,
+          "20": 475,
+          "22": 411,
+          "24": 754,
+          "26": 399,
+          "28": 423,
+          "30": 1006
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 8060,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "101ca1ca4497a32c7ff90ba64674798a4ef5ee0c32cb5177c2f79f5a44178221"
+      },
+      {
+        "dyadic_lower_X": 65536,
+        "dyadic_upper_2X": 131072,
+        "gap_channel_counts": {
+          "2": 666,
+          "4": 658,
+          "6": 1291,
+          "8": 670,
+          "10": 882,
+          "12": 1341,
+          "14": 787,
+          "16": 647,
+          "18": 1328,
+          "20": 891,
+          "22": 718,
+          "24": 1333,
+          "26": 721,
+          "28": 776,
+          "30": 1787
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 14496,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "b13e5dd7b1e9eafeed834f0a6240d8022f786ff9d79e069deefdc0d9c95e3dab"
+      },
+      {
+        "dyadic_lower_X": 131072,
+        "dyadic_upper_2X": 262144,
+        "gap_channel_counts": {
+          "2": 1153,
+          "4": 1160,
+          "6": 2319,
+          "8": 1147,
+          "10": 1551,
+          "12": 2281,
+          "14": 1434,
+          "16": 1152,
+          "18": 2335,
+          "20": 1538,
+          "22": 1283,
+          "24": 2291,
+          "26": 1284,
+          "28": 1376,
+          "30": 3090
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 25394,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "4150938c88314c5c88acd3631549d1ede0243003c161a5f5e5ed5ab2a48dedcd"
+      },
+      {
+        "dyadic_lower_X": 262144,
+        "dyadic_upper_2X": 524288,
+        "gap_channel_counts": {
+          "2": 2071,
+          "4": 2071,
+          "6": 4171,
+          "8": 2109,
+          "10": 2779,
+          "12": 4199,
+          "14": 2516,
+          "16": 2140,
+          "18": 4183,
+          "20": 2817,
+          "22": 2358,
+          "24": 4193,
+          "26": 2275,
+          "28": 2537,
+          "30": 5579
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 45998,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "764e8a724da8e09056619ef2ca8c1360bdf6662302ffe83bb90038e9dc20bd11"
+      },
+      {
+        "dyadic_lower_X": 524288,
+        "dyadic_upper_2X": 1048576,
+        "gap_channel_counts": {
+          "2": 3785,
+          "4": 3751,
+          "6": 7538,
+          "8": 3769,
+          "10": 5017,
+          "12": 7527,
+          "14": 4460,
+          "16": 3729,
+          "18": 7519,
+          "20": 5045,
+          "22": 4196,
+          "24": 7428,
+          "26": 4062,
+          "28": 4464,
+          "30": 10079
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 82369,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "8cba59f6c44c71b6e9adc8247e7de9f2ed54dad6328e9b055e882c895236a4b2"
+      },
+      {
+        "dyadic_lower_X": 1048576,
+        "dyadic_upper_2X": 2097152,
+        "gap_channel_counts": {
+          "2": 6965,
+          "4": 6820,
+          "6": 13569,
+          "8": 6852,
+          "10": 9056,
+          "12": 13672,
+          "14": 8079,
+          "16": 6783,
+          "18": 13631,
+          "20": 9100,
+          "22": 7537,
+          "24": 13736,
+          "26": 7481,
+          "28": 8233,
+          "30": 18136
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 149650,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "9b0d97e492cf5b909016d2b3fd6139a5f205d08711e1df1f64c154c76a467f25"
+      },
+      {
+        "dyadic_lower_X": 2097152,
+        "dyadic_upper_2X": 4194304,
+        "gap_channel_counts": {
+          "2": 12495,
+          "4": 12445,
+          "6": 24824,
+          "8": 12330,
+          "10": 16557,
+          "12": 24797,
+          "14": 15000,
+          "16": 12426,
+          "18": 24928,
+          "20": 16529,
+          "22": 13736,
+          "24": 24891,
+          "26": 13642,
+          "28": 14807,
+          "30": 33127
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 272534,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "6948591f47e984e6f9edf38bf4b22844dacb693df1ad3b94767828400fb5f553"
+      },
+      {
+        "dyadic_lower_X": 4194304,
+        "dyadic_upper_2X": 8388608,
+        "gap_channel_counts": {
+          "2": 22643,
+          "4": 22561,
+          "6": 45263,
+          "8": 22662,
+          "10": 30109,
+          "12": 45448,
+          "14": 27139,
+          "16": 22617,
+          "18": 45278,
+          "20": 30183,
+          "22": 25285,
+          "24": 45255,
+          "26": 24831,
+          "28": 27270,
+          "30": 60400
+        },
+        "gap_two_positive": true,
+        "bounded_gap_aggregate": 496944,
+        "dominant_gap_channel": 30,
+        "transcript_sha256": "e053ab4fd8203a7f4055e708d2d09c32136daa234c305e1f74e920776b98da7d"
+      }
+    ],
+    "finite_limit": 10000000,
+    "aggregate": {
+      "dyadic_gap_two_equivalence_proved": true,
+      "bounded_gap_aggregate_selects_gap_two_refuted": true,
+      "finite_gap_two_blocks_all_positive": true,
+      "gap_two_positive_on_infinitely_many_blocks_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The channel countermodel is logical, not a model of the primes, and does not weaken bounded-gap theorems. The sieve through ten million is finite. No parity-breaking lower bound for the actual gap-two channel is obtained.",
+    "failure_count": 0
+  },
+  "discarded_route": "promoting positive bounded-gap aggregate mass to gap-two positivity without a channel-isolation theorem",
+  "remaining_gap": "No arithmetic lower bound selects the actual gap-two channel on infinitely many dyadic blocks.",
+  "candidate_theorem": "GapTwoDyadicChannelPositiveOnInfinitelyManyBlocks",
+  "claim_boundary": "No Twin Prime proof or counterexample. The minimal dyadic gap-two quantifier is isolated, and aggregate bounded-gap positivity is proved insufficient to select it.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T211",
+        "label": "SparseDyadicBilinearOmegaStrictPositivity",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T212",
+        "label": "DyadicGapTwoEquivalenceAndFiniteGapAggregateNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N212",
+        "label": "FiniteBoundedGapAggregateSelectsGapTwo",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN212",
+        "label": "GapTwoDyadicChannelPositiveOnInfinitelyManyBlocks",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T211",
+        "TP-T212"
+      ],
+      [
+        "TP-T212",
+        "TP-N212"
+      ],
+      [
+        "TP-T212",
+        "TP-OPEN212"
+      ],
+      [
+        "TP-OPEN212",
+        "TP"
+      ]
+    ]
+  }
+}

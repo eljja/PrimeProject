@@ -1,0 +1,150 @@
+{
+  "schema": "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1",
+  "generated_at": "2026-08-12T23:55:00+09:00",
+  "ticket_id": "RH-TICKET-212",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "EvenCriticalLineDefectSubTwoSaturationCertificate",
+  "declared_proposition": "Let R be an upper-half critical-strip rectangle invariant under s->1-conjugate(s), with no boundary zeros, and let N be its total zero count with multiplicity. Suppose L disjoint critical-line intervals have rigorously certified sign changes of the real Hardy function. If N-L<2, then every zero in R is simple and lies on the critical line. The constant two is sharp: one symmetric off-line pair, or one double critical-line zero, has defect exactly two.",
+  "mathematical_argument": "Each certified sign change contains a distinct critical-line zero of odd multiplicity. Let O be the total number of distinct odd-multiplicity critical-line zeros. Functional and conjugation symmetry pair every off-line upper-half zero with 1-conjugate(rho). Hence N-O equals twice the off-line multiplicity plus, for each line zero of multiplicity m, the even integer m-(m mod 2). Thus N-O is a nonnegative even integer. Since O>=L, N-L=(N-O)+(O-L). If N-L<2, the even term N-O must be zero; there are no off-line zeros and every line multiplicity is one. At most one simple line zero can remain outside the certified intervals. An off-line pair or a double line zero realizes defect two.",
+  "reproducible_computation": {
+    "theorem": "Let R be an upper-half critical-strip rectangle invariant under s->1-conjugate(s), with no boundary zeros, and let N be its total zero count with multiplicity. Suppose L disjoint critical-line intervals have rigorously certified sign changes of the real Hardy function. If N-L<2, then every zero in R is simple and lies on the critical line. The constant two is sharp: one symmetric off-line pair, or one double critical-line zero, has defect exactly two.",
+    "proof": "Each certified sign change contains a distinct critical-line zero of odd multiplicity. Let O be the total number of distinct odd-multiplicity critical-line zeros. Functional and conjugation symmetry pair every off-line upper-half zero with 1-conjugate(rho). Hence N-O equals twice the off-line multiplicity plus, for each line zero of multiplicity m, the even integer m-(m mod 2). Thus N-O is a nonnegative even integer. Since O>=L, N-L=(N-O)+(O-L). If N-L<2, the even term N-O must be zero; there are no off-line zeros and every line multiplicity is one. At most one simple line zero can remain outside the certified intervals. An off-line pair or a double line zero realizes defect two.",
+    "defect_identity": "N-O=2*(off-line upper-half multiplicity pairs)+sum_line(m-(m mod 2))",
+    "threshold": "N-L<2",
+    "configuration_rows": [
+      {
+        "configuration": "all_line_certified",
+        "critical_line_multiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "off_critical_symmetric_pairs": 0,
+        "total_upper_rectangle_zero_count_N": 4,
+        "available_odd_line_sign_changes": 4,
+        "certified_disjoint_sign_changes_L": 4,
+        "uncertified_defect_N_minus_L": 0,
+        "subtwo_certificate_applies": true,
+        "all_zeros_on_line_and_simple": true
+      },
+      {
+        "configuration": "one_unseen_simple_line_zero",
+        "critical_line_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "off_critical_symmetric_pairs": 0,
+        "total_upper_rectangle_zero_count_N": 3,
+        "available_odd_line_sign_changes": 3,
+        "certified_disjoint_sign_changes_L": 2,
+        "uncertified_defect_N_minus_L": 1,
+        "subtwo_certificate_applies": true,
+        "all_zeros_on_line_and_simple": true
+      },
+      {
+        "configuration": "one_off_line_pair",
+        "critical_line_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "off_critical_symmetric_pairs": 1,
+        "total_upper_rectangle_zero_count_N": 5,
+        "available_odd_line_sign_changes": 3,
+        "certified_disjoint_sign_changes_L": 3,
+        "uncertified_defect_N_minus_L": 2,
+        "subtwo_certificate_applies": false,
+        "all_zeros_on_line_and_simple": false
+      },
+      {
+        "configuration": "one_double_line_zero",
+        "critical_line_multiplicities": [
+          1,
+          1,
+          2
+        ],
+        "off_critical_symmetric_pairs": 0,
+        "total_upper_rectangle_zero_count_N": 4,
+        "available_odd_line_sign_changes": 2,
+        "certified_disjoint_sign_changes_L": 2,
+        "uncertified_defect_N_minus_L": 2,
+        "subtwo_certificate_applies": false,
+        "all_zeros_on_line_and_simple": false
+      },
+      {
+        "configuration": "ticket211_symmetric_off_line_model_band",
+        "critical_line_multiplicities": [],
+        "off_critical_symmetric_pairs": 1,
+        "total_upper_rectangle_zero_count_N": 2,
+        "available_odd_line_sign_changes": 0,
+        "certified_disjoint_sign_changes_L": 0,
+        "uncertified_defect_N_minus_L": 2,
+        "subtwo_certificate_applies": false,
+        "all_zeros_on_line_and_simple": false
+      }
+    ],
+    "aggregate": {
+      "subtwo_defect_certificate_proved": true,
+      "threshold_two_is_sharp": true,
+      "ticket211_defect_equals_sharp_boundary": true,
+      "all_height_subtwo_bound_for_actual_zeta_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem is an exact counting certificate, not a new zeta-zero verification. PrimeProject does not compute rigorous interval values of the Hardy function or extend the published finite-height verification. The unbounded-height defect estimate remains open.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring exact equality N=L when the symmetry-quantized sufficient threshold is N-L<2",
+  "remaining_gap": "No all-height bound N-L<2 is proved for the actual completed zeta function.",
+  "candidate_theorem": "UniformAllHeightCriticalLineDefectStrictlyBelowTwo",
+  "claim_boundary": "No RH proof and no off-critical zeta zero. An exact symmetry-parity theorem relaxes finite-rectangle saturation from equality to a sharp sub-two defect.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T211",
+        "label": "EffectiveCriticalLineRectangleZeroCountEqualityCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T212",
+        "label": "EvenCriticalLineDefectSubTwoSaturationCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N212",
+        "label": "ExactEqualityIsTheMinimalSaturationThreshold",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN212",
+        "label": "UniformAllHeightCriticalLineDefectStrictlyBelowTwo",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T211",
+        "RH-T212"
+      ],
+      [
+        "RH-T212",
+        "RH-N212"
+      ],
+      [
+        "RH-T212",
+        "RH-OPEN212"
+      ],
+      [
+        "RH-OPEN212",
+        "RH"
+      ]
+    ]
+  }
+}

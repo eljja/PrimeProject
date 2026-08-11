@@ -1,0 +1,584 @@
+{
+  "schema": "primeproject.ticket212-even-defect-ghost-bonferroni-gapchannel.v1",
+  "generated_at": "2026-08-12T23:55:00+09:00",
+  "ticket_id": "GB-TICKET-212",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "FullWitnessProductIdentityAndFixedBonferroniNoGo",
+  "declared_proposition": "For an even N let y_p=1 if N-p is prime, for primes p<=N/2, and let A(N)=sum y_p. The full Goldbach-exception indicator is exactly I_0(N)=product_{p<=N/2}(1-y_p). Its inclusion-exclusion truncation through any fixed even order 2r is an upper bound, but for A>=1 it equals binomial(A-1,2r). Hence every represented target with A>=2r+1 contributes at least one false exception. Moreover, the prime number theorem and an exact pigeonhole count over unordered pairs of odd primes imply that A(N) is unbounded. Therefore every fixed-order, unnormalized Bonferroni upper bound is at least one on arbitrarily large represented targets and cannot prove all sufficiently large dyadic full-range exception counts below one.",
+  "mathematical_argument": "The product is one exactly when every witness bit is zero and is zero otherwise. Expanding it gives the complete inclusion-exclusion sum. For integer A>=1, Pascal's identity yields sum_{j=0}^{k}(-1)^j binomial(A,j)=(-1)^k binomial(A-1,k), with the binomial interpreted as zero when k>A-1. At even k=2r this is a nonnegative upper bound and is at least one once A>=2r+1. Thus larger representation multiplicity worsens the fixed-order upper bound. For odd primes p<=q<=x there are P(P+1)/2 unordered pairs, where P=pi(x)-1, distributed over at most x-2 even sums from 6 through 2x. Some target therefore has at least ceil(P(P+1)/(2(x-2))) representations. By the prime number theorem this lower bound is asymptotic to x/(2 log(x)^2) and tends to infinity. Hence every fixed 2r fails on arbitrarily large targets. The full product or a uniformly controlled resummation is required before an integer-below-one argument can close Goldbach.",
+  "reproducible_computation": {
+    "theorem": "For an even N let y_p=1 if N-p is prime, for primes p<=N/2, and let A(N)=sum y_p. The full Goldbach-exception indicator is exactly I_0(N)=product_{p<=N/2}(1-y_p). Its inclusion-exclusion truncation through any fixed even order 2r is an upper bound, but for A>=1 it equals binomial(A-1,2r). Hence every represented target with A>=2r+1 contributes at least one false exception. Moreover, the prime number theorem and an exact pigeonhole count over unordered pairs of odd primes imply that A(N) is unbounded. Therefore every fixed-order, unnormalized Bonferroni upper bound is at least one on arbitrarily large represented targets and cannot prove all sufficiently large dyadic full-range exception counts below one.",
+    "proof": "The product is one exactly when every witness bit is zero and is zero otherwise. Expanding it gives the complete inclusion-exclusion sum. For integer A>=1, Pascal's identity yields sum_{j=0}^{k}(-1)^j binomial(A,j)=(-1)^k binomial(A-1,k), with the binomial interpreted as zero when k>A-1. At even k=2r this is a nonnegative upper bound and is at least one once A>=2r+1. Thus larger representation multiplicity worsens the fixed-order upper bound. For odd primes p<=q<=x there are P(P+1)/2 unordered pairs, where P=pi(x)-1, distributed over at most x-2 even sums from 6 through 2x. Some target therefore has at least ceil(P(P+1)/(2(x-2))) representations. By the prime number theorem this lower bound is asymptotic to x/(2 log(x)^2) and tends to infinity. Hence every fixed 2r fails on arbitrarily large targets. The full product or a uniformly controlled resummation is required before an integer-below-one argument can close Goldbach.",
+    "exact_exception_indicator": "I_0(N)=product_{p<=N/2}(1-1_P(N-p))",
+    "even_truncation_identity": "sum_{j=0}^{2r}(-1)^j*C(A,j)=C(A-1,2r) for A>=1",
+    "identity_rows": [
+      {
+        "witness_count_A": 0,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 1,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 0,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 1,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 0,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 1,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 0,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 1,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 1,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 1,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 1,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 1,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 2,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 2,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 2,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 2,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 3,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 3,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 3,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 3,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 4,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 4,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "3",
+        "closed_form": "3",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 4,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 4,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 5,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 5,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "6",
+        "closed_form": "6",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 5,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 5,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 6,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 6,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "10",
+        "closed_form": "10",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 6,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "5",
+        "closed_form": "5",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 6,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "0",
+        "closed_form": "0",
+        "exact_zero_indicator": 0,
+        "false_positive": false
+      },
+      {
+        "witness_count_A": 7,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 7,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "15",
+        "closed_form": "15",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 7,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "15",
+        "closed_form": "15",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 7,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 8,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 8,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "21",
+        "closed_form": "21",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 8,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "35",
+        "closed_form": "35",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 8,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "7",
+        "closed_form": "7",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 9,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 9,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "28",
+        "closed_form": "28",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 9,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "70",
+        "closed_form": "70",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 9,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "28",
+        "closed_form": "28",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 10,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 10,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "36",
+        "closed_form": "36",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 10,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "126",
+        "closed_form": "126",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 10,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "84",
+        "closed_form": "84",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 11,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 11,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "45",
+        "closed_form": "45",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 11,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "210",
+        "closed_form": "210",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 11,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "210",
+        "closed_form": "210",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 12,
+        "even_truncation_order": 0,
+        "bonferroni_upper_bound": "1",
+        "closed_form": "1",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 12,
+        "even_truncation_order": 2,
+        "bonferroni_upper_bound": "55",
+        "closed_form": "55",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 12,
+        "even_truncation_order": 4,
+        "bonferroni_upper_bound": "330",
+        "closed_form": "330",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      },
+      {
+        "witness_count_A": 12,
+        "even_truncation_order": 6,
+        "bonferroni_upper_bound": "462",
+        "closed_form": "462",
+        "exact_zero_indicator": 0,
+        "false_positive": true
+      }
+    ],
+    "representation_multiplicity_lower_bound_rows": [
+      {
+        "prime_cutoff_x": 1000,
+        "odd_prime_count": 167,
+        "unordered_odd_prime_pair_count": 14028,
+        "possible_even_sums_6_through_2x": 998,
+        "maximum_representation_count_lower_bound": 15
+      },
+      {
+        "prime_cutoff_x": 10000,
+        "odd_prime_count": 1228,
+        "unordered_odd_prime_pair_count": 754606,
+        "possible_even_sums_6_through_2x": 9998,
+        "maximum_representation_count_lower_bound": 76
+      },
+      {
+        "prime_cutoff_x": 100000,
+        "odd_prime_count": 9591,
+        "unordered_odd_prime_pair_count": 45998436,
+        "possible_even_sums_6_through_2x": 99998,
+        "maximum_representation_count_lower_bound": 460
+      },
+      {
+        "prime_cutoff_x": 1000000,
+        "odd_prime_count": 78497,
+        "unordered_odd_prime_pair_count": 3080928753,
+        "possible_even_sums_6_through_2x": 999998,
+        "maximum_representation_count_lower_bound": 3081
+      },
+      {
+        "prime_cutoff_x": 2000000,
+        "odd_prime_count": 148932,
+        "unordered_odd_prime_pair_count": 11090444778,
+        "possible_even_sums_6_through_2x": 1999998,
+        "maximum_representation_count_lower_bound": 5546
+      }
+    ],
+    "finite_target_rows": [
+      {
+        "even_target_N": 100,
+        "unordered_full_range_witness_count_A": 6,
+        "exact_zero_indicator_product": 0,
+        "bonferroni_order_2": "10",
+        "bonferroni_order_4": "5",
+        "bonferroni_order_6": "0"
+      },
+      {
+        "even_target_N": 1000,
+        "unordered_full_range_witness_count_A": 28,
+        "exact_zero_indicator_product": 0,
+        "bonferroni_order_2": "351",
+        "bonferroni_order_4": "17550",
+        "bonferroni_order_6": "296010"
+      },
+      {
+        "even_target_N": 10000,
+        "unordered_full_range_witness_count_A": 127,
+        "exact_zero_indicator_product": 0,
+        "bonferroni_order_2": "7875",
+        "bonferroni_order_4": "10009125",
+        "bonferroni_order_6": "4925156775"
+      },
+      {
+        "even_target_N": 100000,
+        "unordered_full_range_witness_count_A": 810,
+        "exact_zero_indicator_product": 0,
+        "bonferroni_order_2": "326836",
+        "bonferroni_order_4": "17715655126",
+        "bonferroni_order_6": "382197543688324"
+      },
+      {
+        "even_target_N": 1000000,
+        "unordered_full_range_witness_count_A": 5402,
+        "exact_zero_indicator_product": 0,
+        "bonferroni_order_2": "14582700",
+        "bonferroni_order_4": "35416276785450",
+        "bonferroni_order_6": "34380010693218447180"
+      },
+      {
+        "even_target_N": 2000000,
+        "unordered_full_range_witness_count_A": 9720,
+        "exact_zero_indicator_product": 0,
+        "bonferroni_order_2": "47224621",
+        "bonferroni_order_4": "371541169680751",
+        "bonferroni_order_6": "1168763373664622993467"
+      }
+    ],
+    "finite_limit": 2000000,
+    "aggregate": {
+      "full_witness_product_identity_proved": true,
+      "fixed_even_bonferroni_route_refuted": true,
+      "unbounded_representation_multiplicity_from_pnt_proved": true,
+      "finite_targets_all_represented": true,
+      "uniform_resummed_product_bound_below_one_proved": false,
+      "goldbach_counterexample_found": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The Bonferroni identity and pair-count pigeonhole argument are exact; unbounded multiplicity imports the prime number theorem. They reject only fixed-order inclusion-exclusion. The finite targets are diagnostics, not a Goldbach tail theorem. No minor-arc cancellation or strictly subunit full exception bound is proved.",
+    "failure_count": 0
+  },
+  "discarded_route": "using any fixed even-order unnormalized Bonferroni truncation to upper-bound the full exception count below one",
+  "remaining_gap": "No uniformly controlled full-product resummation or subunit tail exceptional bound is proved.",
+  "candidate_theorem": "UniformFullWitnessProductResummationBelowOne",
+  "claim_boundary": "No Goldbach proof or counterexample. The exact full-range exception product is identified and every fixed even Bonferroni truncation is ruled out as a subunit upper-bound route.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T211",
+        "label": "FullRangeBinaryGoldbachExceptionalCountStrictlyBelowOne",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T212",
+        "label": "FullWitnessProductIdentityAndFixedBonferroniNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N212",
+        "label": "FixedOrderBonferroniUpperBoundCanCloseFullExceptions",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN212",
+        "label": "UniformFullWitnessProductResummationBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T211",
+        "GB-T212"
+      ],
+      [
+        "GB-T212",
+        "GB-N212"
+      ],
+      [
+        "GB-T212",
+        "GB-OPEN212"
+      ],
+      [
+        "GB-OPEN212",
+        "GB"
+      ]
+    ]
+  }
+}

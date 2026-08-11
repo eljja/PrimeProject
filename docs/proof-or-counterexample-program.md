@@ -37,7 +37,35 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-10 TICKET-211 Winding Localization, Collatz Integrality, Full-Range Goldbach Exceptions, and Unit-Scale Twin Deserts
+## 2026-08-12 TICKET-212 Even Defect, 2-Adic Ghosts, Full-Witness Products, and Gap Channels
+
+TICKET-212 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. in a symmetric upper critical-strip rectangle, total zero count `N` and
+   `L` certified Hardy sign-change intervals satisfy a sharp sufficient
+   condition: `N-L<2` forces every zero to be simple and on the critical line;
+2. every accelerated Collatz valuation word has a unique `2`-adic ghost
+   cycle, so `Z_2` membership cannot be an exclusion theorem and the correct
+   ordinary-integer target is `(2^A-3^h)|C` with positive divisor;
+3. the full Goldbach exception indicator is the exact product of witness
+   failures, while every fixed even-order Bonferroni upper bound equals
+   `binomial(A-1,2r)` on represented targets; a prime-pair pigeonhole count
+   and the prime number theorem make `A` unbounded, so a fixed order fails on
+   arbitrarily large targets;
+4. Twin Prime is equivalent to gap-two positivity on infinitely many dyadic
+   blocks, while positive mass summed over finitely many bounded-gap channels
+   does not identify the gap-two channel.
+
+The all-height RH defect bound, uniform Collatz odd-divisor nondivisibility,
+uniform Goldbach witness-product resummation below one, and infinitely-often
+gap-two channel positivity are not proved. The machine resolution count
+remains zero.
+
+English report: [TICKET-212](even-defect-ghost-bonferroni-gapchannel.md).
+한국어 보고서: [TICKET-212](even-defect-ghost-bonferroni-gapchannel.ko.md).
+
+## Preserved: 2026-08-10 TICKET-211 Winding Localization, Collatz Integrality, Full-Range Goldbach Exceptions, and Unit-Scale Twin Deserts
 
 TICKET-211 keeps all four parent conjectures at `open_not_proven` and proves
 four exact intermediate or no-go results:

@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260810-ticket211-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260812-ticket212-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-211</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-212</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-211 actually changed</h2>
-          <p>TICKET-211 did not solve a conjecture. It proves that effective horizontal clearance plus exact total winding still does not locate Riemann zeros, derives a multiplicity-uniform Collatz valuation-one density floor and refutes aggregate-only sufficiency, corrects the Goldbach tail target from small-witness failure to full-range nonrepresentation, and sharpens factorial twin-free intervals to every fixed coefficient below one of log X/log log X.</p>
-          <p class="proof-boundary">TICKET-211은 난제를 해결하지 않았습니다. 리만 트랙은 계산 가능한 수평 하한과 정확한 전체 감김수만으로 임계선 영점 위치를 결정할 수 없음을 증명했습니다. 콜라츠 트랙은 valuation 1 밀도의 필요 하한을 얻고 정수성 없는 집계 경로를 폐기했습니다. 골드바흐 트랙은 작은 증인 실패와 전체 무표현을 분리하여 예외 개수 목표를 수정했습니다. 쌍둥이 소수 트랙은 factorial 부재 구간을 모든 고정 계수 1 미만의 log X/log log X 크기로 강화했습니다.</p>
+          <h2>What TICKET-212 actually changed</h2>
+          <p>TICKET-212 did not solve a conjecture. It proves a sharp sub-two parity certificate for critical-line zero localization, proves that every finite Collatz valuation word has an exact 2-adic ghost cycle, identifies the exact full-witness Goldbach product while refuting every fixed even Bonferroni truncation, and reduces Twin Primes to positivity of the gap-two dyadic channel while refuting finite-gap aggregate inference.</p>
+          <p class="proof-boundary">TICKET-212는 난제를 해결하지 않았습니다. 리만 트랙은 전체 영점 수와 Hardy 부호변화 수의 차이가 2 미만이면 모든 영점이 임계선 위 단순 영점임을 증명하고 상수 2가 날카로움을 보였습니다. 콜라츠 트랙은 모든 valuation 단어가 2-adic 유령 주기를 가지므로 보통 정수 나눗셈이 진짜 장애물임을 확정했습니다. 골드바흐 트랙은 전체 증인 곱 항등식과 고정 짝수 차수 Bonferroni 절단의 불가능성을 증명했습니다. 쌍둥이 소수 트랙은 간격 2 dyadic 채널의 무한 양성과의 동치를 증명하고 유한 간격 합만으로는 간격 2를 선택할 수 없음을 보였습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>An exact symmetric entire model has effective cofinal clearance and total winding two in every band.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Total winding still does not locate zeros: each band has two off-critical and zero critical-line zeros.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Effective equality between total rectangle zeros and critical-line zeros.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>If total zero count N minus disjoint Hardy sign-change count L is below two, every zero is simple and critical-line.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The threshold two is sharp: one off-line pair or one double line zero exactly saturates it.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>A uniform all-height critical-line defect strictly below two for completed zeta.</dd></div>
           </dl>
-          <p class="workbench-ko">계산 가능한 수평 하한과 전체 감김수까지 있어도 영점 위치는 결정되지 않습니다. 실제 제타의 전체 영점 수와 임계선 영점 수를 잇는 등식이 남았습니다.</p>
+          <p class="workbench-ko">전체 영점 수에서 독립적인 Hardy 부호변화 인증 수를 뺀 결함이 2 미만이면 임계선 밖 쌍과 중근을 동시에 배제합니다. 실제 제타에서 이 결함을 모든 높이에 걸쳐 제어하는 일이 남았습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every positive accelerated cycle must satisfy k/h≥log₂(6/5).</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The exact rational family (1,2,2)^m satisfies density, contraction, and product constraints but is not integral.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>A uniform 2-adic integrality obstruction above the density floor.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every nonempty accelerated valuation word has an exact 2-adic periodic point that realizes the word.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Pure 2-adic membership excludes no valuation word and therefore cannot rule out positive integer cycles.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>Uniform ordinary odd-divisor nondivisibility for high valuation-one density words.</dd></div>
           </dl>
-          <p class="workbench-ko">valuation 1의 필요 밀도는 전체 multiplicity에 균일합니다. 그러나 유리수 반례모형이 집계 정보와 정수성 사이의 간극을 정확히 드러냅니다.</p>
+          <p class="workbench-ko">모든 valuation 단어가 2-adic 세계에서는 정확한 주기를 만듭니다. 양의 정수 주기를 배제하려면 <code>2^A-3^h</code>가 궤도 상수를 보통 정수로 나누지 못함을 증명해야 합니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Small-witness exceptions and full Goldbach nonrepresentations are distinct integer predicates.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>TICKET-209 forces the small-witness exception count to be at least one on infinitely many dyadic blocks.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Full-range binary Goldbach exceptional count strictly below one.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The nonrepresentation indicator is exactly the product over all prime witnesses, ∏(1-y_p).</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Every fixed even Bonferroni truncation produces false exception mass C(A-1,2r) on represented targets.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>A uniform full-witness product resummation whose dyadic exception bound is below one.</dd></div>
           </dl>
-          <p class="workbench-ko">작은 증인이 없는 수에는 큰 증인으로 표현되는 수도 포함됩니다. 무한 증명에는 전체 소수 범위에서 표현이 전혀 없는 수의 개수를 1 미만으로 만들어야 합니다.</p>
+          <p class="workbench-ko">무표현 사건은 전체 증인을 사용하는 정확한 곱으로 쓸 수 있습니다. 그러나 고정 차수 포함배제는 표현 수가 커질수록 거짓 질량을 만들므로 전체 곱을 보존하는 균일 재합산이 필요합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Factorial twin deserts satisfy H/(log X/log log X)→1.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Every-window positivity fails for every fixed coefficient c&lt;1 at this scale.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd>Sparse dyadic bilinear Omega strict positivity.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Twin Primes are equivalent to positivity of the gap-two count on infinitely many dyadic blocks.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Positivity of a finite aggregate of even-gap channels does not select gap two.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd>The gap-two dyadic channel is positive on infinitely many blocks.</dd></div>
           </dl>
-          <p class="workbench-ko"><code>X=K!</code>에서 길이 <code>K-3</code>인 부재 구간과 <code>log X/log log X</code>의 비율은 1로 갑니다. 국소 모든-구간 전략만 닫고 희소 dyadic 양성은 열어 둡니다.</p>
+          <p class="workbench-ko">여러 유계 간격 중 하나가 반복된다는 사실은 간격 2를 고르지 못합니다. 쌍둥이 소수에는 정확히 간격 2 채널의 무한히 잦은 양성이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>211 tickets reduced to four meaningful eras</h2>
+          <h2>212 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–211 · Structure, certified promotion, and localization limits</strong><p>리만 전체 감김수와 임계선 위치, Collatz 집계 밀도와 정수성, Goldbach 작은 증인과 전체 무표현, Twin 국소 부재와 희소 dyadic 양성을 각각 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–212 · Structure, certified promotion, and exact obstruction isolation</strong><p>리만 짝홀 결함, Collatz 2-adic 유령과 보통 정수 나눗셈, Goldbach 전체 증인 곱과 재합산, Twin 유한 간격 합과 간격 2 채널을 각각 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,8 +117,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/winding-density-fullrange-unitscale.ko.md">TICKET-211 한국어 보고서</a>
-          <a href="../docs/winding-density-fullrange-unitscale.md">TICKET-211 English report</a>
+          <a href="../docs/even-defect-ghost-bonferroni-gapchannel.ko.md">TICKET-212 한국어 보고서</a>
+          <a href="../docs/even-defect-ghost-bonferroni-gapchannel.md">TICKET-212 English report</a>
+          <a href="../docs/winding-density-fullrange-unitscale.ko.md">TICKET-211 이전 보고서</a>
           <a href="../docs/cofinal-fiveone-primegap-scaledtwin.ko.md">TICKET-210 이전 보고서</a>
           <a href="../docs/normalized-fourone-covering-factorial.ko.md">TICKET-209 이전 보고서</a>
           <a href="../docs/vertical-threeone-unitlog-cyclotomic.ko.md">TICKET-208 이전 보고서</a>
@@ -150,7 +151,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260810-ticket211"></script>
+    <script src="../assets/i18n.js?v=20260812-ticket212"></script>
   </body>
 </html>
 
