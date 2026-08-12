@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket221AttemptGlobal = null;
 let ticket220AttemptGlobal = null;
 let ticket219AttemptGlobal = null;
 let ticket218AttemptGlobal = null;
@@ -10016,6 +10017,79 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket221SharpObstructionCertificates(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.sharp_obstruction_certificate_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const scaleRows = (computation.scale_maximum_rows || []).filter((row) => [-12, -6, 0, 6, 12].includes(row.dyadic_index_j));
+    const partialRows = computation.universal_envelope_partial_sum_rows || [];
+    detail = `
+      <div class="poc-equation">sup<sub>t&gt;0</sub>[e<sup>−2⁻ʲt/H</sup>−e<sup>−2¹⁻ʲt/H</sup>]=1/4 ⇒ Σ<sub>j</sub>U<sub>j</sub>=∞ for every universal coordinatewise envelope</div>
+      ${table(["dyadic j", "maximizing atom t", "kernel", "stationary"], scaleRows.map((row) => [row.dyadic_index_j, row.maximizing_atom_t, row.kernel_value, row.stationary_point_verified]))}
+      ${table(["radius R", "coordinates", "partial lower bound", "> 1"], partialRows.map((row) => [row.radius_R, row.envelope_coordinates, row.universal_envelope_partial_sum_lower_bound, row.already_exceeds_one]))}
+      <div class="poc-head"><div><span>Sharp per-scale supremum</span><strong>${aggregate.sharp_scale_supremum_one_quarter_proved ? "1/4 proved" : "open"}</strong></div><div><span>Universal envelope</span><strong>${aggregate.universal_coordinatewise_envelope_diverges ? "diverges" : "open"}</strong></div><div><span>Arithmetic coupling</span><strong>${aggregate.actual_arithmetic_coupled_tail_budget_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">각 스케일의 독립 최악값은 정확히 1/4이므로 합산 가능한 RH envelope가 될 수 없습니다. 실제 소수 explicit formula가 스케일 사이를 결합하는 상계가 필요합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const classes = computation.permutation_class_rows || [];
+    const witness = computation.opposite_side_witness || {};
+    detail = `
+      <div class="poc-equation">B(a)=Σ3<sup>h−i</sup>2<sup>sᵢ₋₁</sup>; same (h,S) preserves Baker data but adjacent x↔y changes B by 3<sup>h−i−1</sup>2<sup>s</sup>(2<sup>x</sup>−2<sup>y</sup>)</div>
+      ${table(["valuation multiset", "permutations", "single slope", "distinct B", "primitive multi-run"], classes.map((row) => [row.valuation_multiset.join(","), row.permutation_count, row.single_baker_datum_for_all_permutations, row.distinct_intercept_count, row.primitive_multi_run_permutation_count]))}
+      ${table(["ordered witness", "B", "D−A", "rational fixed point"], [[(witness.low_word || []).join(""), witness.low_intercept_B, witness.common_D_minus_A, witness.low_fixed_point], [(witness.high_word || []).join(""), witness.high_intercept_B, witness.common_D_minus_A, witness.high_fixed_point]])}
+      <div class="poc-head"><div><span>Swap identities</span><strong>${(computation.adjacent_swap_identity_rows || []).length}</strong></div><div><span>Same Baker data straddles 1</span><strong>${aggregate.same_baker_data_can_straddle_fixed_point_one ? "proved" : "open"}</strong></div><div><span>Order-sensitive divisibility</span><strong>${aggregate.order_sensitive_cycle_divisibility_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">h,S만 보는 Baker 하계는 valuation 순서를 잃습니다. 서로 순환 동치가 아닌 동일 기울기 단어에서 고정점이 133/943과 995/943으로 갈리므로 ordered intercept, divisibility, 2-adic admissibility가 반드시 추가돼야 합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const radiusRows = computation.exact_lp_radius_rows || [];
+    const extensionRows = computation.finite_prefix_extension_rows || [];
+    const previous = computation.ticket220_finite_margin_summary || {};
+    detail = `
+      <div class="poc-equation">dist<sub>p</sub>(m,{r≥0: some rᵢ=0})=min<sub>i</sub>mᵢ; strict L<sup>p</sup> positivity radius is exact</div>
+      ${table(["model", "dimension", "p", "min model", "zero witness", "sharp"], radiusRows.map((row) => [row.model_index, row.dimension, row.p, row.minimum_model_coordinate, row.residual_pth_power, row.sharp_boundary_verified]))}
+      ${table(["certified prefix", "old residual", "new coordinate", "extended residual"], extensionRows.map((row) => [row.certified_prefix_length, row.old_eighth_residual_power, row.new_model_coordinate, row.extended_eighth_residual_power]))}
+      <div class="poc-head"><div><span>T220 direct p=8</span><strong>${previous.direct_eighth_moment_folds_certified || 0} / ${previous.direct_eighth_moment_fold_total || 0}</strong></div><div><span>T220 bridges</span><strong>${previous.refinement_bridges_certified || 0} / ${previous.refinement_bridge_total || 0}</strong></div><div><span>Cofinal margin</span><strong>${aggregate.uniform_cofinal_margin_from_prime_distribution_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">유한 블록의 residual margin은 정확한 positive-orthant 반경 안에 있지만, 새 unchecked zero coordinate 하나가 모든 prefix 인증을 보존한 채 장벽에 닿습니다. 공종 소수분포 추정이 별도로 필요합니다.</p>
+    `;
+  } else {
+    const rows = computation.boolean_parity_orthogonality_rows || [];
+    detail = `
+      <div class="poc-equation">E[(∏<sub>i=1</sub><sup>m</sup>xᵢ)(∏<sub>i∈S</sub>xᵢ)]=0 for every proper S; full degree correlation = 1</div>
+      ${table(["Boolean m", "cube points", "proper monomials", "max low-degree correlation", "full-degree sum"], rows.map((row) => [row.boolean_dimension_m, row.cube_point_count, row.proper_monomials_checked, row.maximum_low_degree_absolute_correlation_sum, row.full_degree_correlation_sum]))}
+      <div class="poc-head"><div><span>Dimensions</span><strong>${rows.length}</strong></div><div><span>Proper Walsh correlations</span><strong>all zero</strong></div><div><span>Arithmetic Type II lower bound</span><strong>${aggregate.arithmetic_parity_breaking_type_ii_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">모든 proper Walsh 차수의 국소 관측은 균형 Boolean 모델에서 parity와 정확히 직교합니다. 실제 Λ(n)Λ(n+2) 하계에는 이 모델을 깨는 산술 Type II 정보가 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket221-sharp-obstruction-certificates" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 221 sharp obstruction certificates: scale coupling, word order, positivity radius, and sieve parity</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact obstruction or sharpness theorems; conjectures open</strong></div><div><span>Corrected next lemmas</span><strong>${audit.machine_audit?.corrected_next_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET221 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/sharp-obstruction-certificates.ko.md">한국어 보고서</a> · <a href="../docs/sharp-obstruction-certificates.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket220DyadicPartitionPrimitiveRefinementCRT(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.dyadic_partition_primitive_refinement_crt_audit || {};
@@ -10082,7 +10156,7 @@ function renderTicket220DyadicPartitionPrimitiveRefinementCRT(attempt) {
   }
   return `
     <div id="ticket220-dyadic-partition-primitive-refinement-crt" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 220 dyadic partition, primitive-word closure, refinement stability, and finite-wheel CRT no-go</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all parent conjectures open</strong></div><div><span>Closed infinite subfamilies</span><strong>${audit.machine_audit?.closed_infinite_subfamily_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET220 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16790,7 +16864,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket220DyadicPartitionPrimitiveRefinementCRT(ticket220AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket221SharpObstructionCertificates(ticket221AttemptGlobal) ||
+      renderTicket220DyadicPartitionPrimitiveRefinementCRT(ticket220AttemptGlobal) ||
       renderTicket219BandpassMatveevCrossFitQualitativeAbel(ticket219AttemptGlobal) ||
       renderTicket218AdaptiveRadiusSpikeResidualSurplus(ticket218AttemptGlobal) ||
       renderTicket217RelativeThresholdConvergentMomentTail(ticket217AttemptGlobal) ||
@@ -17330,6 +17405,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket221Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket221-sharp-obstruction-certificates.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket221AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket221AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket221AttemptGlobal) {
+      ticket221AttemptGlobal.bounded_result = ticket221AttemptGlobal.bounded_result || {};
+      ticket221AttemptGlobal.bounded_result.sharp_obstruction_certificate_audit = payload.sharp_obstruction_certificate_audit || {};
+    }
+    return Boolean(ticket221AttemptGlobal);
+  } catch (_error) {
+    ticket221AttemptGlobal = null;
     return false;
   }
 }
@@ -18923,9 +19018,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket220-current";
+  document.documentElement.dataset.openProblemCache = "ticket221-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -18978,8 +19074,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket221AttemptGlobal) await loadTicket221Attempt();
     if (!ticket220AttemptGlobal) await loadTicket220Attempt();
     if (!ticket219AttemptGlobal) await loadTicket219Attempt();
     if (!ticket218AttemptGlobal) await loadTicket218Attempt();
@@ -19078,7 +19175,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket220-current";
+  document.documentElement.dataset.openProblemCache = "ticket221-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

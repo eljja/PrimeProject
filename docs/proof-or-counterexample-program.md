@@ -37,7 +37,32 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-14 TICKET-220 Dyadic Partition, Primitive-Word Closure, Refinement Stability, and a Finite-Wheel CRT No-Go
+## 2026-08-15 TICKET-221 Sharp Obstruction Certificates
+
+TICKET-221 keeps all four parent conjectures at `open_not_proven` and proves
+four exact obstruction or sharpness theorems:
+
+1. every arithmetic-free coordinatewise envelope for the RH dyadic kernel has
+   sharp per-scale lower bound `1/4`, hence cannot be summable;
+2. the ordered Collatz affine intercept is not determined by `(h,S)` or its
+   scalar Baker form, as cyclically inequivalent primitive multi-run witnesses
+   with fixed point `133/943` and `995/943` demonstrate;
+3. the strict Goldbach `L^p` positivity radius is exactly the minimum model
+   coordinate, and any finite certified prefix admits a zero-coordinate
+   extension that preserves all old data;
+4. full parity on the balanced Boolean cube is orthogonal to every proper
+   Walsh monomial, so the stated low-degree Twin stress route cannot detect it.
+
+These theorems do not show that the actual zeta defect, Collatz dynamics,
+Goldbach representation function, or Twin von Mangoldt correlation realizes
+the abstract obstruction model in the decisive direction. They instead rule
+out four insufficient next-lemma formulations. The machine parent-conjecture
+resolution count remains zero.
+
+English report: [TICKET-221](sharp-obstruction-certificates.md).
+한국어 보고서: [TICKET-221](sharp-obstruction-certificates.ko.md).
+
+## Preserved: 2026-08-14 TICKET-220 Dyadic Partition, Primitive-Word Closure, Refinement Stability, and a Finite-Wheel CRT No-Go
 
 TICKET-220 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

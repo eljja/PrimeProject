@@ -219,6 +219,7 @@ TICKET217_SCHEMA = "primeproject.ticket217-relative-threshold-convergent-moment-
 TICKET218_SCHEMA = "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1"
 TICKET219_SCHEMA = "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1"
 TICKET220_SCHEMA = "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1"
+TICKET221_SCHEMA = "primeproject.ticket221-sharp-obstruction-certificates.v1"
 
 
 def fail(message: str) -> int:
@@ -19060,6 +19061,188 @@ def main() -> int:
         or machine220.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket220 proof boundary changed")
+
+    path221 = Path(
+        "data/open-problem/ticket221-sharp-obstruction-certificates.json"
+    )
+    if not path221.exists():
+        return fail("missing ticket221 sharp obstruction certificate audit")
+    ticket221 = read_json(path221)
+    if (
+        ticket221.get("schema") != TICKET221_SCHEMA
+        or ticket221.get("status") != "open_not_proven"
+    ):
+        return fail("ticket221 schema or status changed")
+    audit221 = ticket221.get("sharp_obstruction_certificate_audit", {})
+    machine221 = audit221.get("machine_audit", {})
+    if machine221 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "corrected_next_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket221 global machine audit changed")
+
+    attempts221 = {
+        row.get("problem_id"): row for row in ticket221.get("attempts", [])
+    }
+    if set(attempts221) != EXPECTED_PROBLEMS:
+        return fail("ticket221 attempts missing problems")
+    track_paths221 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-221-scale-uniform-envelope.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-221-order-sensitive-intercept.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-221-sharp-lp-positivity-barrier.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-221-boolean-parity-orthogonality.json"
+        ),
+    }
+    theorem_names221 = {
+        "riemann": "ScaleUniformDyadicEnvelopeDivergenceNoGo",
+        "collatz": "OrderBlindLogarithmicSeparationNoGoForPrimitiveWords",
+        "goldbach": "SharpLpDistanceToGoldbachZeroSet",
+        "twin-prime": "LowDegreeBooleanParityOrthogonalityNoGo",
+    }
+    next_lemmas221 = {
+        "riemann": "ArithmeticCoupledDyadicTailBudgetBelowOne",
+        "collatz": "OrderSensitiveDivisibilityOrDescentForPrimitiveValuationWords",
+        "goldbach": "UniformCofinalLpMarginBelowOneFromPrimeDistribution",
+        "twin-prime": "VonMangoldtPairLowerBoundWithParityBreakingTypeIIInput",
+    }
+    for problem_id, track_path in track_paths221.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket221 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts221[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET221_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names221[problem_id]
+            or attempt.get("new_result") != theorem_names221[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas221[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/sharp_obstruction_certificate_audit"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket221 contract changed")
+
+    rh221 = audit221.get("riemann", {}).get("reproducible_computation", {})
+    rh221_aggregate = rh221.get("aggregate", {})
+    if (
+        [row.get("dyadic_index_j") for row in rh221.get("scale_maximum_rows", [])]
+        != list(range(-12, 13))
+        or any(
+            row.get("maximum_one_quarter_verified") is not True
+            or row.get("stationary_point_verified") is not True
+            for row in rh221.get("scale_maximum_rows", [])
+        )
+        or len(rh221.get("universal_envelope_partial_sum_rows", [])) != 6
+        or rh221_aggregate.get("universal_coordinatewise_envelope_diverges")
+        is not True
+        or rh221_aggregate.get("actual_arithmetic_coupled_tail_budget_proved")
+        is not False
+        or rh221_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket221 RH scale-envelope boundary changed")
+
+    collatz221 = audit221.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz221_aggregate = collatz221.get("aggregate", {})
+    collatz221_witness = collatz221.get("opposite_side_witness", {})
+    if (
+        len(collatz221.get("permutation_class_rows", [])) != 4
+        or any(
+            row.get("identity_verified") is not True
+            for row in collatz221.get("adjacent_swap_identity_rows", [])
+        )
+        or collatz221_witness.get("common_D_minus_A") != 943
+        or collatz221_witness.get("low_fixed_point") != "133/943"
+        or collatz221_witness.get("high_fixed_point") != "995/943"
+        or not collatz221_witness.get("checks", {}).get("not_cyclic_rotations")
+        or any(
+            value is not True
+            for value in collatz221_witness.get("checks", {}).values()
+        )
+        or collatz221_aggregate.get(
+            "baker_separation_alone_sufficient_for_primitive_words"
+        )
+        is not False
+        or collatz221_aggregate.get("order_sensitive_cycle_divisibility_proved")
+        is not False
+        or collatz221_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket221 Collatz order-information boundary changed")
+
+    goldbach221 = audit221.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach221_aggregate = goldbach221.get("aggregate", {})
+    if (
+        len(goldbach221.get("exact_lp_radius_rows", [])) != 12
+        or any(
+            row.get("sharp_boundary_verified") is not True
+            for row in goldbach221.get("exact_lp_radius_rows", [])
+        )
+        or any(
+            any(value is not True for value in row.get("checks", {}).values())
+            for row in goldbach221.get("finite_prefix_extension_rows", [])
+        )
+        or goldbach221_aggregate.get("strict_zero_barrier_constant_proved_sharp")
+        is not True
+        or goldbach221_aggregate.get(
+            "uniform_cofinal_margin_from_prime_distribution_proved"
+        )
+        is not False
+        or goldbach221_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket221 Goldbach sharp-radius boundary changed")
+
+    twin221 = audit221.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin221_aggregate = twin221.get("aggregate", {})
+    twin221_rows = twin221.get("boolean_parity_orthogonality_rows", [])
+    if (
+        [row.get("boolean_dimension_m") for row in twin221_rows]
+        != list(range(2, 13))
+        or any(
+            row.get("maximum_low_degree_absolute_correlation_sum") != 0
+            or any(value is not True for value in row.get("checks", {}).values())
+            for row in twin221_rows
+        )
+        or twin221_aggregate.get("proper_walsh_degree_parity_orthogonality_proved")
+        is not True
+        or twin221_aggregate.get(
+            "arithmetic_parity_breaking_type_ii_lower_bound_proved"
+        )
+        is not False
+        or twin221_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket221 Twin Boolean-parity boundary changed")
+
+    if (
+        "resolve none" not in str(audit221.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket221.get("claim_boundary", "")).lower()
+        or machine221.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket221 proof boundary changed")
 
     print("open problem structure verified")
     return 0

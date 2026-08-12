@@ -1,0 +1,267 @@
+{
+  "schema": "primeproject.ticket221-sharp-obstruction-certificates.v1",
+  "generated_at": "2026-08-15T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-221",
+  "theorem_name": "SharpLpDistanceToGoldbachZeroSet",
+  "declared_proposition": "Let m be a vector with strictly positive coordinates and let Z be the set of nonnegative vectors having at least one zero coordinate. For every 1<=p<infinity, dist_p(m,Z)=min_i m_i; the same holds for p=infinity. Hence ||r-m||_p<min_i m_i guarantees r_i>0 for every i, and the strict constant is optimal. Appending one unchecked zero coordinate leaves every finite-prefix certificate unchanged while hitting the new zero barrier exactly. Therefore TICKET-220's finite cross-fit margins cannot become a cofinal Goldbach theorem without an independent uniform all-block margin estimate.",
+  "mathematical_argument": "If z_k=0, then ||z-m||_p>=|z_k-m_k|=m_k>=min_i m_i. Equality is attained by changing only a coordinate where m is minimal to zero; the sup norm is identical. The positivity implication follows by contraposition. For any certified finite prefix, append a positive model coordinate and an observed value zero. No old coordinate or old statistic changes, but the extended vector is on Z. This proves sharpness and the finite-prefix no-go, not an asymptotic estimate for actual Goldbach representation counts.",
+  "reproducible_computation": {
+    "theorem": "Let m be a vector with strictly positive coordinates and let Z be the set of nonnegative vectors having at least one zero coordinate. For every 1<=p<infinity, dist_p(m,Z)=min_i m_i; the same holds for p=infinity. Hence ||r-m||_p<min_i m_i guarantees r_i>0 for every i, and the strict constant is optimal. Appending one unchecked zero coordinate leaves every finite-prefix certificate unchanged while hitting the new zero barrier exactly. Therefore TICKET-220's finite cross-fit margins cannot become a cofinal Goldbach theorem without an independent uniform all-block margin estimate.",
+    "proof": "If z_k=0, then ||z-m||_p>=|z_k-m_k|=m_k>=min_i m_i. Equality is attained by changing only a coordinate where m is minimal to zero; the sup norm is identical. The positivity implication follows by contraposition. For any certified finite prefix, append a positive model coordinate and an observed value zero. No old coordinate or old statistic changes, but the extended vector is on Z. This proves sharpness and the finite-prefix no-go, not an asymptotic estimate for actual Goldbach representation counts.",
+    "exact_lp_radius_rows": [
+      {
+        "model_index": 0,
+        "dimension": 5,
+        "p": 1,
+        "minimum_model_coordinate": "3/1",
+        "zero_witness_index": 0,
+        "residual_pth_power": "3/1",
+        "expected_radius_pth_power": "3/1",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 0,
+        "dimension": 5,
+        "p": 2,
+        "minimum_model_coordinate": "3/1",
+        "zero_witness_index": 0,
+        "residual_pth_power": "9/1",
+        "expected_radius_pth_power": "9/1",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 0,
+        "dimension": 5,
+        "p": 4,
+        "minimum_model_coordinate": "3/1",
+        "zero_witness_index": 0,
+        "residual_pth_power": "81/1",
+        "expected_radius_pth_power": "81/1",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 0,
+        "dimension": 5,
+        "p": 8,
+        "minimum_model_coordinate": "3/1",
+        "zero_witness_index": 0,
+        "residual_pth_power": "6561/1",
+        "expected_radius_pth_power": "6561/1",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 1,
+        "dimension": 6,
+        "p": 1,
+        "minimum_model_coordinate": "5/3",
+        "zero_witness_index": 0,
+        "residual_pth_power": "5/3",
+        "expected_radius_pth_power": "5/3",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 1,
+        "dimension": 6,
+        "p": 2,
+        "minimum_model_coordinate": "5/3",
+        "zero_witness_index": 0,
+        "residual_pth_power": "25/9",
+        "expected_radius_pth_power": "25/9",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 1,
+        "dimension": 6,
+        "p": 4,
+        "minimum_model_coordinate": "5/3",
+        "zero_witness_index": 0,
+        "residual_pth_power": "625/81",
+        "expected_radius_pth_power": "625/81",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 1,
+        "dimension": 6,
+        "p": 8,
+        "minimum_model_coordinate": "5/3",
+        "zero_witness_index": 0,
+        "residual_pth_power": "390625/6561",
+        "expected_radius_pth_power": "390625/6561",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 2,
+        "dimension": 7,
+        "p": 1,
+        "minimum_model_coordinate": "7/5",
+        "zero_witness_index": 0,
+        "residual_pth_power": "7/5",
+        "expected_radius_pth_power": "7/5",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 2,
+        "dimension": 7,
+        "p": 2,
+        "minimum_model_coordinate": "7/5",
+        "zero_witness_index": 0,
+        "residual_pth_power": "49/25",
+        "expected_radius_pth_power": "49/25",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 2,
+        "dimension": 7,
+        "p": 4,
+        "minimum_model_coordinate": "7/5",
+        "zero_witness_index": 0,
+        "residual_pth_power": "2401/625",
+        "expected_radius_pth_power": "2401/625",
+        "sharp_boundary_verified": true
+      },
+      {
+        "model_index": 2,
+        "dimension": 7,
+        "p": 8,
+        "minimum_model_coordinate": "7/5",
+        "zero_witness_index": 0,
+        "residual_pth_power": "5764801/390625",
+        "expected_radius_pth_power": "5764801/390625",
+        "sharp_boundary_verified": true
+      }
+    ],
+    "finite_prefix_extension_rows": [
+      {
+        "certified_prefix_length": 4,
+        "old_eighth_residual_power": "0/1",
+        "new_model_coordinate": "6/1",
+        "extended_eighth_residual_power": "1679616/1",
+        "checks": {
+          "old_prefix_unchanged": true,
+          "old_prefix_certificate_exact": true,
+          "new_coordinate_is_zero": true,
+          "extended_residual_hits_new_zero_barrier": true
+        }
+      },
+      {
+        "certified_prefix_length": 8,
+        "old_eighth_residual_power": "0/1",
+        "new_model_coordinate": "10/1",
+        "extended_eighth_residual_power": "100000000/1",
+        "checks": {
+          "old_prefix_unchanged": true,
+          "old_prefix_certificate_exact": true,
+          "new_coordinate_is_zero": true,
+          "extended_residual_hits_new_zero_barrier": true
+        }
+      },
+      {
+        "certified_prefix_length": 16,
+        "old_eighth_residual_power": "0/1",
+        "new_model_coordinate": "18/1",
+        "extended_eighth_residual_power": "11019960576/1",
+        "checks": {
+          "old_prefix_unchanged": true,
+          "old_prefix_certificate_exact": true,
+          "new_coordinate_is_zero": true,
+          "extended_residual_hits_new_zero_barrier": true
+        }
+      },
+      {
+        "certified_prefix_length": 32,
+        "old_eighth_residual_power": "0/1",
+        "new_model_coordinate": "34/1",
+        "extended_eighth_residual_power": "1785793904896/1",
+        "checks": {
+          "old_prefix_unchanged": true,
+          "old_prefix_certificate_exact": true,
+          "new_coordinate_is_zero": true,
+          "extended_residual_hits_new_zero_barrier": true
+        }
+      },
+      {
+        "certified_prefix_length": 64,
+        "old_eighth_residual_power": "0/1",
+        "new_model_coordinate": "66/1",
+        "extended_eighth_residual_power": "360040606269696/1",
+        "checks": {
+          "old_prefix_unchanged": true,
+          "old_prefix_certificate_exact": true,
+          "new_coordinate_is_zero": true,
+          "extended_residual_hits_new_zero_barrier": true
+        }
+      }
+    ],
+    "ticket220_finite_margin_summary": {
+      "direct_eighth_moment_folds_certified": 150,
+      "direct_eighth_moment_fold_total": 150,
+      "refinement_bridges_certified": 140,
+      "refinement_bridge_total": 140,
+      "worst_minkowski_to_zero_barrier_ratio": "9.670275612437417084E-1"
+    },
+    "aggregate": {
+      "exact_lp_distance_to_zero_set_proved": true,
+      "strict_zero_barrier_constant_proved_sharp": true,
+      "finite_prefix_to_cofinal_positivity_route_refuted": true,
+      "uniform_cofinal_margin_from_prime_distribution_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem is the exact geometry of residual certificates. It does not rule out a circle-method or transference estimate that proves a uniform residual ratio below one for every sufficiently large dyadic block.",
+    "failure_count": 0
+  },
+  "logical_limit": "No representation-free prime-distribution estimate proves a strict residual ratio below one on every sufficiently large block.",
+  "route_decision": {
+    "discard": "promoting finite cross-fit success or higher moment order to cofinal positivity without a uniform margin theorem",
+    "retain": "derive an all-large-block residual bound strictly inside the exact positive-orthant radius",
+    "next_single_lemma": "UniformCofinalLpMarginBelowOneFromPrimeDistribution"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T220",
+        "label": "CrossFitPartitionRefinementStabilityCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T221",
+        "label": "SharpLpDistanceToGoldbachZeroSet",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N221",
+        "label": "FiniteCrossFitMarginsImplyCofinalPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN221",
+        "label": "UniformCofinalLpMarginBelowOneFromPrimeDistribution",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T220",
+        "GB-T221"
+      ],
+      [
+        "GB-T221",
+        "GB-N221"
+      ],
+      [
+        "GB-T221",
+        "GB-OPEN221"
+      ],
+      [
+        "GB-OPEN221",
+        "GB"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,541 @@
+{
+  "schema": "primeproject.ticket221-sharp-obstruction-certificates.v1",
+  "generated_at": "2026-08-15T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-221",
+  "theorem_name": "LowDegreeBooleanParityOrthogonalityNoGo",
+  "declared_proposition": "On the uniform Boolean cube {-1,1}^m, the parity character P(x)=product_(i=1)^m x_i is orthogonal to every polynomial of Walsh degree below m. Indeed, for every proper subset S, the mean of P(x) product_(i in S)x_i is zero, while the full-degree correlation is one. Consequently any abstract sieve statistic whose selected-prime interaction expansion has degree <m has zero correlation with factor parity in this balanced model. A claimed Twin lower bound from such low-degree local data alone therefore fails this exact parity stress test.",
+  "mathematical_argument": "For a proper S choose k outside S. Pair each cube point x with the point obtained by flipping x_k. The monomial on S is unchanged and P changes sign, so all terms cancel. For S equal to every coordinate, P(x)^2=1 at all 2^m points. By linearity every polynomial supported on proper Walsh subsets is orthogonal to parity. This is an exact finite model of the information loss behind the sieve parity barrier; it is not a theorem that every analytic bilinear form has low Walsh degree, nor a lower bound for Lambda(n)Lambda(n+2).",
+  "reproducible_computation": {
+    "theorem": "On the uniform Boolean cube {-1,1}^m, the parity character P(x)=product_(i=1)^m x_i is orthogonal to every polynomial of Walsh degree below m. Indeed, for every proper subset S, the mean of P(x) product_(i in S)x_i is zero, while the full-degree correlation is one. Consequently any abstract sieve statistic whose selected-prime interaction expansion has degree <m has zero correlation with factor parity in this balanced model. A claimed Twin lower bound from such low-degree local data alone therefore fails this exact parity stress test.",
+    "proof": "For a proper S choose k outside S. Pair each cube point x with the point obtained by flipping x_k. The monomial on S is unchanged and P changes sign, so all terms cancel. For S equal to every coordinate, P(x)^2=1 at all 2^m points. By linearity every polynomial supported on proper Walsh subsets is orthogonal to parity. This is an exact finite model of the information loss behind the sieve parity barrier; it is not a theorem that every analytic bilinear form has low Walsh degree, nor a lower bound for Lambda(n)Lambda(n+2).",
+    "boolean_parity_orthogonality_rows": [
+      {
+        "boolean_dimension_m": 2,
+        "cube_point_count": 4,
+        "proper_monomials_checked": 3,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 4,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 2,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 3,
+        "cube_point_count": 8,
+        "proper_monomials_checked": 7,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 8,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 3,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 3,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 4,
+        "cube_point_count": 16,
+        "proper_monomials_checked": 15,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 16,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 4,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 6,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 4,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 5,
+        "cube_point_count": 32,
+        "proper_monomials_checked": 31,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 32,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 5,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 10,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 10,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 5,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 6,
+        "cube_point_count": 64,
+        "proper_monomials_checked": 63,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 64,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 6,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 15,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 20,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 15,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 6,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 7,
+        "cube_point_count": 128,
+        "proper_monomials_checked": 127,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 128,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 7,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 21,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 35,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 35,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 21,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "6": {
+            "monomial_count": 7,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 8,
+        "cube_point_count": 256,
+        "proper_monomials_checked": 255,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 256,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 8,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 28,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 56,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 70,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 56,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "6": {
+            "monomial_count": 28,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "7": {
+            "monomial_count": 8,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 9,
+        "cube_point_count": 512,
+        "proper_monomials_checked": 511,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 512,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 9,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 36,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 84,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 126,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 126,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "6": {
+            "monomial_count": 84,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "7": {
+            "monomial_count": 36,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "8": {
+            "monomial_count": 9,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 10,
+        "cube_point_count": 1024,
+        "proper_monomials_checked": 1023,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 1024,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 10,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 45,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 120,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 210,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 252,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "6": {
+            "monomial_count": 210,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "7": {
+            "monomial_count": 120,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "8": {
+            "monomial_count": 45,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "9": {
+            "monomial_count": 10,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 11,
+        "cube_point_count": 2048,
+        "proper_monomials_checked": 2047,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 2048,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 11,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 55,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 165,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 330,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 462,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "6": {
+            "monomial_count": 462,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "7": {
+            "monomial_count": 330,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "8": {
+            "monomial_count": 165,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "9": {
+            "monomial_count": 55,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "10": {
+            "monomial_count": 11,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      },
+      {
+        "boolean_dimension_m": 12,
+        "cube_point_count": 4096,
+        "proper_monomials_checked": 4095,
+        "maximum_low_degree_absolute_correlation_sum": 0,
+        "full_degree_correlation_sum": 4096,
+        "degree_audit": {
+          "0": {
+            "monomial_count": 1,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "1": {
+            "monomial_count": 12,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "2": {
+            "monomial_count": 66,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "3": {
+            "monomial_count": 220,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "4": {
+            "monomial_count": 495,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "5": {
+            "monomial_count": 792,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "6": {
+            "monomial_count": 924,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "7": {
+            "monomial_count": 792,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "8": {
+            "monomial_count": 495,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "9": {
+            "monomial_count": 220,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "10": {
+            "monomial_count": 66,
+            "maximum_absolute_correlation_sum": 0
+          },
+          "11": {
+            "monomial_count": 12,
+            "maximum_absolute_correlation_sum": 0
+          }
+        },
+        "checks": {
+          "all_degrees_below_m_orthogonal": true,
+          "full_degree_recovers_parity": true,
+          "all_proper_walsh_monomials_checked": true
+        }
+      }
+    ],
+    "transcript_sha256": "855c9c821b6f6b5f84535f2102898454fe79c0c11b53fb7348c991e80d920875",
+    "aggregate": {
+      "proper_walsh_degree_parity_orthogonality_proved": true,
+      "full_degree_parity_correlation_recovered": true,
+      "low_degree_local_parity_certificate_refuted": true,
+      "arithmetic_parity_breaking_type_ii_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The no-go applies to the balanced Boolean model and observables with no full selected-prime interaction. It does not classify Maynard weights, Type II information, shifted convolution sums, or every possible parity-breaking analytic method.",
+    "failure_count": 0
+  },
+  "logical_limit": "No arithmetic Type II or shifted-von-Mangoldt lower bound breaking parity at gap two is proved.",
+  "route_decision": {
+    "discard": "claiming parity sensitivity from an observable with only proper low-degree selected-prime interactions",
+    "retain": "construct genuinely parity-breaking arithmetic correlation beyond the balanced Boolean model",
+    "next_single_lemma": "VonMangoldtPairLowerBoundWithParityBreakingTypeIIInput"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T220",
+        "label": "FiniteWheelTwinCertificationCRTNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T221",
+        "label": "LowDegreeBooleanParityOrthogonalityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N221",
+        "label": "LowDegreeLocalSieveStatisticDetectsFactorParity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN221",
+        "label": "VonMangoldtPairLowerBoundWithParityBreakingTypeIIInput",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T220",
+        "TP-T221"
+      ],
+      [
+        "TP-T221",
+        "TP-N221"
+      ],
+      [
+        "TP-T221",
+        "TP-OPEN221"
+      ],
+      [
+        "TP-OPEN221",
+        "TP"
+      ]
+    ]
+  }
+}

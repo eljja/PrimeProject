@@ -1,0 +1,342 @@
+{
+  "schema": "primeproject.ticket221-sharp-obstruction-certificates.v1",
+  "generated_at": "2026-08-15T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-221",
+  "theorem_name": "ScaleUniformDyadicEnvelopeDivergenceNoGo",
+  "declared_proposition": "For K_j(t;H)=exp(-2^(-j)t/H)-exp(-2^(1-j)t/H), H>0, one has sup_(t>0) K_j(t;H)=1/4 for every integer j. Hence any coordinatewise envelope U_j that dominates K_j(t;H) for every possible one-atom positive defect measure must satisfy U_j>=1/4 for all j, so sum_j U_j diverges. In particular, the TICKET-220 summable-envelope route cannot be completed by scale-uniform, arithmetic-free bounds applied independently to each band.",
+  "mathematical_argument": "Put x=2^(-j)t/H. As t ranges over (0,infinity), so does x, and K_j=e^(-x)-e^(-2x). Its derivative is -e^(-x)+2e^(-2x), which vanishes only at x=log 2; the endpoint limits are zero and the value at log 2 is 1/2-1/4=1/4. A one-atom defect placed at t=H 2^j log 2 therefore forces U_j>=1/4. Summing over infinitely many j proves divergence. This does not exclude an envelope tied to the actual prime-side explicit formula or a coupled estimate that transfers budget between scales.",
+  "reproducible_computation": {
+    "theorem": "For K_j(t;H)=exp(-2^(-j)t/H)-exp(-2^(1-j)t/H), H>0, one has sup_(t>0) K_j(t;H)=1/4 for every integer j. Hence any coordinatewise envelope U_j that dominates K_j(t;H) for every possible one-atom positive defect measure must satisfy U_j>=1/4 for all j, so sum_j U_j diverges. In particular, the TICKET-220 summable-envelope route cannot be completed by scale-uniform, arithmetic-free bounds applied independently to each band.",
+    "proof": "Put x=2^(-j)t/H. As t ranges over (0,infinity), so does x, and K_j=e^(-x)-e^(-2x). Its derivative is -e^(-x)+2e^(-2x), which vanishes only at x=log 2; the endpoint limits are zero and the value at log 2 is 1/2-1/4=1/4. A one-atom defect placed at t=H 2^j log 2 therefore forces U_j>=1/4. Summing over infinitely many j proves divergence. This does not exclude an envelope tied to the actual prime-side explicit formula or a coupled estimate that transfers budget between scales.",
+    "kernel": "exp(-x)-exp(-2x), x=2^(-j)t/H",
+    "scale_maximum_rows": [
+      {
+        "dyadic_index_j": -12,
+        "maximizing_atom_t": "1.861479244667821875876355794932E-3",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "-1.000000000000000000000000000000E-100",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -11,
+        "maximizing_atom_t": "3.722958489335643751752711589863E-3",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -10,
+        "maximizing_atom_t": "7.445916978671287503505423179727E-3",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -9,
+        "maximizing_atom_t": "1.489183395734257500701084635945E-2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -8,
+        "maximizing_atom_t": "2.978366791468515001402169271891E-2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -7,
+        "maximizing_atom_t": "5.956733582937030002804338543781E-2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -6,
+        "maximizing_atom_t": "1.191346716587406000560867708756E-1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -5,
+        "maximizing_atom_t": "2.382693433174812001121735417512E-1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -4,
+        "maximizing_atom_t": "4.765386866349624002243470835025E-1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -3,
+        "maximizing_atom_t": "9.530773732699248004486941670050E-1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -2,
+        "maximizing_atom_t": "1.906154746539849600897388334010E+0",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": -1,
+        "maximizing_atom_t": "3.812309493079699201794776668020E+0",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 0,
+        "maximizing_atom_t": "7.624618986159398403589553336040E+0",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 1,
+        "maximizing_atom_t": "1.524923797231879680717910667208E+1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "-1.000000000000000000000000000000E-100",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 2,
+        "maximizing_atom_t": "3.049847594463759361435821334416E+1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 3,
+        "maximizing_atom_t": "6.099695188927518722871642668832E+1",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 4,
+        "maximizing_atom_t": "1.219939037785503744574328533766E+2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 5,
+        "maximizing_atom_t": "2.439878075571007489148657067533E+2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 6,
+        "maximizing_atom_t": "4.879756151142014978297314135066E+2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 7,
+        "maximizing_atom_t": "9.759512302284029956594628270131E+2",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 8,
+        "maximizing_atom_t": "1.951902460456805991318925654026E+3",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 9,
+        "maximizing_atom_t": "3.903804920913611982637851308052E+3",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 10,
+        "maximizing_atom_t": "7.807609841827223965275702616105E+3",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 11,
+        "maximizing_atom_t": "1.561521968365444793055140523221E+4",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      },
+      {
+        "dyadic_index_j": 12,
+        "maximizing_atom_t": "3.123043936730889586110281046442E+4",
+        "normalized_x": "6.931471805599453094172321214582E-1",
+        "kernel_value": "2.500000000000000000000000000000E-1",
+        "derivative_at_x": "0.000000000000000000000000000000E-70",
+        "maximum_one_quarter_verified": true,
+        "stationary_point_verified": true
+      }
+    ],
+    "universal_envelope_partial_sum_rows": [
+      {
+        "radius_R": 1,
+        "envelope_coordinates": 3,
+        "universal_envelope_partial_sum_lower_bound": "3/4",
+        "already_exceeds_one": false
+      },
+      {
+        "radius_R": 2,
+        "envelope_coordinates": 5,
+        "universal_envelope_partial_sum_lower_bound": "5/4",
+        "already_exceeds_one": true
+      },
+      {
+        "radius_R": 4,
+        "envelope_coordinates": 9,
+        "universal_envelope_partial_sum_lower_bound": "9/4",
+        "already_exceeds_one": true
+      },
+      {
+        "radius_R": 8,
+        "envelope_coordinates": 17,
+        "universal_envelope_partial_sum_lower_bound": "17/4",
+        "already_exceeds_one": true
+      },
+      {
+        "radius_R": 16,
+        "envelope_coordinates": 33,
+        "universal_envelope_partial_sum_lower_bound": "33/4",
+        "already_exceeds_one": true
+      },
+      {
+        "radius_R": 32,
+        "envelope_coordinates": 65,
+        "universal_envelope_partial_sum_lower_bound": "65/4",
+        "already_exceeds_one": true
+      }
+    ],
+    "aggregate": {
+      "sharp_scale_supremum_one_quarter_proved": true,
+      "universal_coordinatewise_envelope_diverges": true,
+      "ticket220_scale_uniform_envelope_route_refuted": true,
+      "actual_arithmetic_coupled_tail_budget_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "Only envelopes that dominate every possible one-atom defect independently at every scale are excluded. Arithmetic-dependent coupled bounds, signed explicit-formula cancellation, and direct Weil or Li positivity arguments are not excluded.",
+    "failure_count": 0
+  },
+  "logical_limit": "No arithmetic-coupled prime-side tail budget with total mass below one is proved.",
+  "route_decision": {
+    "discard": "independently dominating every dyadic band by a scale-uniform arithmetic-free envelope",
+    "retain": "coupled explicit-formula estimates whose total tail budget uses actual prime arithmetic across scales",
+    "next_single_lemma": "ArithmeticCoupledDyadicTailBudgetBelowOne"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T220",
+        "label": "DyadicLaplacePartitionAndFiniteWindowNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T221",
+        "label": "ScaleUniformDyadicEnvelopeDivergenceNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N221",
+        "label": "ScaleUniformCoordinatewiseEnvelopeCanBeSummable",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN221",
+        "label": "ArithmeticCoupledDyadicTailBudgetBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T220",
+        "RH-T221"
+      ],
+      [
+        "RH-T221",
+        "RH-N221"
+      ],
+      [
+        "RH-T221",
+        "RH-OPEN221"
+      ],
+      [
+        "RH-OPEN221",
+        "RH"
+      ]
+    ]
+  }
+}

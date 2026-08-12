@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260814-ticket220-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260815-ticket221-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-220 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-220 isolates the irreducible gaps: infinite RH scale coverage, primitive Collatz words, representation-free Goldbach refinement margins, and parity-sensitive Twin input.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-220은 리만의 무한 스케일, 콜라츠의 원시 다중 run 단어, 표현 수를 읽지 않는 골드바흐 정제 여유, 쌍둥이 소수의 parity 민감 전역 하계를 유한 반복으로 대체할 수 없는 핵심 간극으로 분리했습니다.</p>
+                <p class="brief-kicker">TICKET-221 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, missing coupling information made explicit</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-221 proves four sharp obstruction theorems showing why scale-independent, order-blind, finite-prefix, and low-degree parity data are insufficient.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-221은 스케일 독립 상계, 순서 비민감 Baker 데이터, 유한 prefix 양성, 저차 parity 관측이 각각 어떤 필수 정보를 잃는지 네 개의 정확한 obstruction 정리로 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>220</strong><small>2026-08-14</small></div>
-              <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
-              <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
+              <div><span>Latest ticket</span><strong>221</strong><small>2026-08-15</small></div>
+              <div><span>Exact results</span><strong>4</strong><small>obstruction·sharpness</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>정보 경계</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 이진 라플라스 대역의 합은 전체 정수 결함 중복도를 정확히 복원합니다.</p>
-                <p><strong>폐기:</strong> 유한 대역 창만으로 전역 결함 부재를 인증하는 경로. 충분히 낮거나 높은 원자 하나가 임의의 유한 창을 피합니다.</p>
-                <p><strong>다음 핵심:</strong> <code>PrimeSideSummableDyadicBandpassEnvelopeBelowOne</code>.</p>
+                <p><strong>확립:</strong> 모든 스케일에서 이진 핵의 독립 최댓값은 정확히 <code>1/4</code>이므로 보편 좌표별 envelope의 합은 발산합니다.</p>
+                <p><strong>폐기:</strong> 실제 소수 산술과 무관한 스케일별 최악값을 독립 합산해 총합을 1 아래로 내리는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ArithmeticCoupledDyadicTailBudgetBelowOne</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 단일 봉우리 원시근의 모든 순환 이동과 양의 거듭제곱은 같은 affine 고정점 장애로 배제됩니다.</p>
-                <p><strong>폐기:</strong> 반복되거나 회전된 단일 봉우리 단어를 독립적인 새 주기 후보로 열거하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>EffectiveBakerSeparationForPrimitiveMultiRunValuationWords</code>.</p>
+                <p><strong>확립:</strong> 서로 순환 동치가 아닌 단어에서 동일한 <code>h=4,S=10</code> Baker 데이터가 valuation 순서에 따라 고정점 <code>133/943</code>과 <code>995/943</code>으로 갈립니다.</p>
+                <p><strong>폐기:</strong> <code>|S log 2-h log 3|</code>의 하계만으로 원시 다중-run word 폐쇄를 결정하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>OrderSensitiveDivisibilityOrDescentForPrimitiveValuationWords</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 정확한 Minkowski 정제 다리로 <code>p=8</code> 직접 fold <code>150 / 150</code>과 중첩 정제 <code>140 / 140</code>을 인증했습니다.</p>
-                <p><strong>폐기:</strong> mod 2, 4, 8, 16의 유한 성공을 공종 골드바흐 정리로 승격하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>CofinalCrossFitRefinementMarginWithoutRepresentationEnumeration</code>.</p>
+                <p><strong>확립:</strong> 양의 모델에서 zero set까지의 <code>L^p</code> 거리는 정확히 최소 모델 좌표이며 TICKET-220의 strict 장벽은 최적입니다.</p>
+                <p><strong>폐기:</strong> 유한 cross-fit 성공이나 더 높은 moment 차수만으로 공종 양성을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformCofinalLpMarginBelowOneFromPrimeDistribution</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 고정 유한 휠의 허용 잉여류 안에는 <code>n</code>과 <code>n+2</code>가 모두 합성수인 무한 CRT 수열이 존재합니다.</p>
-                <p><strong>폐기:</strong> 고정 휠을 통과한 후보만으로 실제 쌍둥이 소수를 인증하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel</code>.</p>
+                <p><strong>확립:</strong> 균형 Boolean cube에서 모든 proper 저차 Walsh observable은 factor parity와 정확히 직교합니다.</p>
+                <p><strong>폐기:</strong> selected-prime의 저차 국소 상호작용만으로 parity를 감지한다는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>VonMangoldtPairLowerBoundWithParityBreakingTypeIIInput</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>220개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-220은 유한 반복으로 제거할 수 없는 네 핵심 간극을 명시하고, 그 전 단계의 정확한 정리와 no-go를 분리했습니다.</p>
+                <p>221개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-221은 네 이전 목표에서 누락된 결합 정보를 정확한 증인과 sharpness 정리로 드러냈습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/dyadic-partition-primitive-refinement-crt.ko.md">최신 한국어 보고서</a>
-              <a href="docs/dyadic-partition-primitive-refinement-crt.md">Latest English report</a>
+              <a href="docs/sharp-obstruction-certificates.ko.md">최신 한국어 보고서</a>
+              <a href="docs/sharp-obstruction-certificates.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-220</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-220 proves four exact partial or no-go results and isolates the remaining infinite-scale, primitive-word, representation-free, and parity-sensitive gaps. Resolution count: 0.</p>
+              <strong>TICKET-221</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-221 proves four sharp obstruction theorems and replaces four insufficient next-lemma formulations with coupling-aware targets. Resolution count: 0.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260814-ticket220"></script>
-    <script src="assets/app.js?v=20260814-ticket220"></script>
+    <script src="assets/i18n.js?v=20260815-ticket221"></script>
+    <script src="assets/app.js?v=20260815-ticket221"></script>
   </body>
 </html>
 

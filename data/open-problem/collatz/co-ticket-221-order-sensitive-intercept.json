@@ -1,0 +1,6894 @@
+{
+  "schema": "primeproject.ticket221-sharp-obstruction-certificates.v1",
+  "generated_at": "2026-08-15T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-221",
+  "theorem_name": "OrderBlindLogarithmicSeparationNoGoForPrimitiveWords",
+  "declared_proposition": "For an accelerated Collatz valuation word a=(a_1,...,a_h), its one-turn affine map is (3^h n+B(a))/2^S, where S=sum a_i and B(a)=sum_(i=1)^h 3^(h-i)2^(a_1+...+a_(i-1)). The Baker linear form S log 2-h log 3 and the slope 3^h/2^S are invariant under permutation, but B is not: swapping adjacent unequal x,y after prefix sum s changes B by 3^(h-i-1)2^s(2^x-2^y), with one-based position i. In particular, the cyclically inequivalent primitive multi-run words (1,2,3,4) and (3,4,2,1) share h=4,S=10 and denominator 943, yet their intercepts are 133 and 995, so their rational fixed points lie on opposite sides of one. Thus scalar Baker separation in h,S is not a sufficient statistic for primitive-word closure.",
+  "mathematical_argument": "Induction through n -> (3n+1)/2^a gives the displayed affine formula. A permutation leaves h and S unchanged. In the intercept sum, an adjacent swap changes only the second of the two local terms before their common total prefix resumes, giving the stated difference exactly. Direct substitution gives A=81,D=1024 and D-A=943 for both witness words, while B=133 and B=995. The words are not cyclic rotations. Therefore a lower bound for |S log 2-h log 3| alone loses order information needed even to locate the rational fixed point, let alone prove divisibility and exact 2-adic valuation admissibility.",
+  "reproducible_computation": {
+    "theorem": "For an accelerated Collatz valuation word a=(a_1,...,a_h), its one-turn affine map is (3^h n+B(a))/2^S, where S=sum a_i and B(a)=sum_(i=1)^h 3^(h-i)2^(a_1+...+a_(i-1)). The Baker linear form S log 2-h log 3 and the slope 3^h/2^S are invariant under permutation, but B is not: swapping adjacent unequal x,y after prefix sum s changes B by 3^(h-i-1)2^s(2^x-2^y), with one-based position i. In particular, the cyclically inequivalent primitive multi-run words (1,2,3,4) and (3,4,2,1) share h=4,S=10 and denominator 943, yet their intercepts are 133 and 995, so their rational fixed points lie on opposite sides of one. Thus scalar Baker separation in h,S is not a sufficient statistic for primitive-word closure.",
+    "proof": "Induction through n -> (3n+1)/2^a gives the displayed affine formula. A permutation leaves h and S unchanged. In the intercept sum, an adjacent swap changes only the second of the two local terms before their common total prefix resumes, giving the stated difference exactly. Direct substitution gives A=81,D=1024 and D-A=943 for both witness words, while B=133 and B=995. The words are not cyclic rotations. Therefore a lower bound for |S log 2-h log 3| alone loses order information needed even to locate the rational fixed point, let alone prove divisibility and exact 2-adic valuation admissibility.",
+    "permutation_class_rows": [
+      {
+        "valuation_multiset": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "height_h": 4,
+        "valuation_sum_S": 8,
+        "permutation_count": 12,
+        "slope_pair_A_D": [
+          81,
+          256
+        ],
+        "single_baker_datum_for_all_permutations": true,
+        "distinct_intercept_count": 12,
+        "minimum_intercept_B": 73,
+        "maximum_intercept_B": 491,
+        "primitive_multi_run_permutation_count": 4,
+        "any_integer_fixed_point": false
+      },
+      {
+        "valuation_multiset": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "height_h": 4,
+        "valuation_sum_S": 9,
+        "permutation_count": 12,
+        "slope_pair_A_D": [
+          81,
+          512
+        ],
+        "single_baker_datum_for_all_permutations": true,
+        "distinct_intercept_count": 12,
+        "minimum_intercept_B": 101,
+        "maximum_intercept_B": 619,
+        "primitive_multi_run_permutation_count": 4,
+        "any_integer_fixed_point": false
+      },
+      {
+        "valuation_multiset": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "height_h": 4,
+        "valuation_sum_S": 10,
+        "permutation_count": 24,
+        "slope_pair_A_D": [
+          81,
+          1024
+        ],
+        "single_baker_datum_for_all_permutations": true,
+        "distinct_intercept_count": 24,
+        "minimum_intercept_B": 133,
+        "maximum_intercept_B": 1067,
+        "primitive_multi_run_permutation_count": 24,
+        "any_integer_fixed_point": false
+      },
+      {
+        "valuation_multiset": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "height_h": 5,
+        "valuation_sum_S": 11,
+        "permutation_count": 60,
+        "slope_pair_A_D": [
+          243,
+          2048
+        ],
+        "single_baker_datum_for_all_permutations": true,
+        "distinct_intercept_count": 60,
+        "minimum_intercept_B": 347,
+        "maximum_intercept_B": 4225,
+        "primitive_multi_run_permutation_count": 60,
+        "any_integer_fixed_point": false
+      }
+    ],
+    "adjacent_swap_identity_rows": [
+      {
+        "word": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -12,
+        "predicted_B_difference": -12,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -48,
+        "predicted_B_difference": -48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": -84,
+        "predicted_B_difference": -84,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 48,
+        "predicted_B_difference": 48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": -18,
+        "predicted_B_difference": -18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 12,
+        "predicted_B_difference": 12,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -112,
+        "predicted_B_difference": -112,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -18,
+        "predicted_B_difference": -18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 112,
+        "predicted_B_difference": 112,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": -126,
+        "predicted_B_difference": -126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": 84,
+        "predicted_B_difference": 84,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -64,
+        "predicted_B_difference": -64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -126,
+        "predicted_B_difference": -126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 64,
+        "predicted_B_difference": 64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 18,
+        "predicted_B_difference": 18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -112,
+        "predicted_B_difference": -112,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 18,
+        "predicted_B_difference": 18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": -168,
+        "predicted_B_difference": -168,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": 112,
+        "predicted_B_difference": 112,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": 168,
+        "predicted_B_difference": 168,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 126,
+        "predicted_B_difference": 126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -64,
+        "predicted_B_difference": -64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": 126,
+        "predicted_B_difference": 126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": 64,
+        "predicted_B_difference": 64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": -18,
+        "predicted_B_difference": -18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -18,
+        "predicted_B_difference": -18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          2
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          2
+        ],
+        "actual_B_difference": -126,
+        "predicted_B_difference": -126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "actual_B_difference": 18,
+        "predicted_B_difference": 18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -24,
+        "predicted_B_difference": -24,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "actual_B_difference": 18,
+        "predicted_B_difference": 18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": -168,
+        "predicted_B_difference": -168,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 24,
+        "predicted_B_difference": 24,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -224,
+        "predicted_B_difference": -224,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 224,
+        "predicted_B_difference": 224,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": 168,
+        "predicted_B_difference": 168,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          2,
+          1
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          2
+        ],
+        "actual_B_difference": 126,
+        "predicted_B_difference": 126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          2
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          2,
+          2,
+          1
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": -18,
+        "predicted_B_difference": -18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "actual_B_difference": -24,
+        "predicted_B_difference": -24,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "actual_B_difference": -64,
+        "predicted_B_difference": -64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": -18,
+        "predicted_B_difference": -18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "actual_B_difference": 64,
+        "predicted_B_difference": 64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "actual_B_difference": 24,
+        "predicted_B_difference": 24,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "actual_B_difference": -48,
+        "predicted_B_difference": -48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": -126,
+        "predicted_B_difference": -126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": -126,
+        "predicted_B_difference": -126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "actual_B_difference": 48,
+        "predicted_B_difference": 48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "actual_B_difference": 18,
+        "predicted_B_difference": 18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": -64,
+        "predicted_B_difference": -64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "actual_B_difference": 18,
+        "predicted_B_difference": 18,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": -168,
+        "predicted_B_difference": -168,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 64,
+        "predicted_B_difference": 64,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -36,
+        "predicted_B_difference": -36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": -448,
+        "predicted_B_difference": -448,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -36,
+        "predicted_B_difference": -36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 448,
+        "predicted_B_difference": 448,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": 168,
+        "predicted_B_difference": 168,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -48,
+        "predicted_B_difference": -48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": -336,
+        "predicted_B_difference": -336,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 36,
+        "predicted_B_difference": 36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 48,
+        "predicted_B_difference": 48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -448,
+        "predicted_B_difference": -448,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 36,
+        "predicted_B_difference": 36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -288,
+        "predicted_B_difference": -288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 448,
+        "predicted_B_difference": 448,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": 336,
+        "predicted_B_difference": 336,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -256,
+        "predicted_B_difference": -256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 288,
+        "predicted_B_difference": 288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 256,
+        "predicted_B_difference": 256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "actual_B_difference": 126,
+        "predicted_B_difference": 126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "actual_B_difference": 126,
+        "predicted_B_difference": 126,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": -288,
+        "predicted_B_difference": -288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": 288,
+        "predicted_B_difference": 288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -256,
+        "predicted_B_difference": -256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": 256,
+        "predicted_B_difference": 256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": -36,
+        "predicted_B_difference": -36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "actual_B_difference": -48,
+        "predicted_B_difference": -48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": -36,
+        "predicted_B_difference": -36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "actual_B_difference": 48,
+        "predicted_B_difference": 48,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          3,
+          2
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": -252,
+        "predicted_B_difference": -252,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          3,
+          2
+        ],
+        "actual_B_difference": -256,
+        "predicted_B_difference": -256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": -252,
+        "predicted_B_difference": -252,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "actual_B_difference": 256,
+        "predicted_B_difference": 256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "actual_B_difference": 36,
+        "predicted_B_difference": 36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "actual_B_difference": 36,
+        "predicted_B_difference": 36,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": -336,
+        "predicted_B_difference": -336,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": -896,
+        "predicted_B_difference": -896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -72,
+        "predicted_B_difference": -72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 896,
+        "predicted_B_difference": 896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": 336,
+        "predicted_B_difference": 336,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -54,
+        "predicted_B_difference": -54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": -162,
+        "predicted_B_difference": -162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -162,
+        "predicted_B_difference": -162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          3,
+          4,
+          2
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": -672,
+        "predicted_B_difference": -672,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -162,
+        "predicted_B_difference": -162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -896,
+        "predicted_B_difference": -896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -162,
+        "predicted_B_difference": -162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 72,
+        "predicted_B_difference": 72,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -576,
+        "predicted_B_difference": -576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 896,
+        "predicted_B_difference": 896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": -162,
+        "predicted_B_difference": -162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": 672,
+        "predicted_B_difference": 672,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -512,
+        "predicted_B_difference": -512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -162,
+        "predicted_B_difference": -162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 576,
+        "predicted_B_difference": 576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 512,
+        "predicted_B_difference": 512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": -378,
+        "predicted_B_difference": -378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "actual_B_difference": 252,
+        "predicted_B_difference": 252,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": -256,
+        "predicted_B_difference": -256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": -378,
+        "predicted_B_difference": -378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          1,
+          4,
+          3,
+          2
+        ],
+        "actual_B_difference": 252,
+        "predicted_B_difference": 252,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": -576,
+        "predicted_B_difference": -576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 256,
+        "predicted_B_difference": 256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": -378,
+        "predicted_B_difference": -378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": -378,
+        "predicted_B_difference": -378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": -378,
+        "predicted_B_difference": -378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": 576,
+        "predicted_B_difference": 576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -512,
+        "predicted_B_difference": -512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -378,
+        "predicted_B_difference": -378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": 512,
+        "predicted_B_difference": 512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          3,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": -128,
+        "predicted_B_difference": -128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": -336,
+        "predicted_B_difference": -336,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 128,
+        "predicted_B_difference": 128,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          3,
+          4
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": -896,
+        "predicted_B_difference": -896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 896,
+        "predicted_B_difference": 896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          1,
+          3
+        ],
+        "actual_B_difference": -504,
+        "predicted_B_difference": -504,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        "actual_B_difference": 336,
+        "predicted_B_difference": 336,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": 54,
+        "predicted_B_difference": 54,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": -504,
+        "predicted_B_difference": -504,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          1,
+          4
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -896,
+        "predicted_B_difference": -896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": -1344,
+        "predicted_B_difference": -1344,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": 896,
+        "predicted_B_difference": 896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          2,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": -108,
+        "predicted_B_difference": -108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "actual_B_difference": -288,
+        "predicted_B_difference": -288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": 1344,
+        "predicted_B_difference": 1344,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          1,
+          3
+        ],
+        "actual_B_difference": -324,
+        "predicted_B_difference": -324,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          1,
+          3
+        ],
+        "actual_B_difference": 504,
+        "predicted_B_difference": 504,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": -324,
+        "predicted_B_difference": -324,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          1,
+          4,
+          3,
+          1
+        ],
+        "actual_B_difference": 504,
+        "predicted_B_difference": 504,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "actual_B_difference": -1152,
+        "predicted_B_difference": -1152,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          1,
+          3
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          2,
+          3,
+          1,
+          1
+        ],
+        "actual_B_difference": -324,
+        "predicted_B_difference": -324,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": 288,
+        "predicted_B_difference": 288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": 1152,
+        "predicted_B_difference": 1152,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 162,
+        "predicted_B_difference": 162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": -96,
+        "predicted_B_difference": -96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          1,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": 162,
+        "predicted_B_difference": 162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": -672,
+        "predicted_B_difference": -672,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          1,
+          4,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 162,
+        "predicted_B_difference": 162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "actual_B_difference": 96,
+        "predicted_B_difference": 96,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": -896,
+        "predicted_B_difference": -896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 162,
+        "predicted_B_difference": 162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -144,
+        "predicted_B_difference": -144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -576,
+        "predicted_B_difference": -576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 896,
+        "predicted_B_difference": 896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 162,
+        "predicted_B_difference": 162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": -1008,
+        "predicted_B_difference": -1008,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          1,
+          4,
+          2
+        ],
+        "actual_B_difference": 672,
+        "predicted_B_difference": 672,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": -512,
+        "predicted_B_difference": -512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          3,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": 162,
+        "predicted_B_difference": 162,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -1008,
+        "predicted_B_difference": -1008,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 576,
+        "predicted_B_difference": 576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 512,
+        "predicted_B_difference": 512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          1,
+          4
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": -896,
+        "predicted_B_difference": -896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          3,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          1,
+          2,
+          4,
+          1
+        ],
+        "actual_B_difference": 144,
+        "predicted_B_difference": 144,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          2,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": -1344,
+        "predicted_B_difference": -1344,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          1,
+          4
+        ],
+        "actual_B_difference": 896,
+        "predicted_B_difference": 896,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          3,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": 108,
+        "predicted_B_difference": 108,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -864,
+        "predicted_B_difference": -864,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          2,
+          4,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          2,
+          1,
+          4,
+          1
+        ],
+        "actual_B_difference": 1344,
+        "predicted_B_difference": 1344,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          1,
+          2
+        ],
+        "actual_B_difference": 1008,
+        "predicted_B_difference": 1008,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -512,
+        "predicted_B_difference": -512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          1,
+          4,
+          2,
+          1
+        ],
+        "actual_B_difference": 1008,
+        "predicted_B_difference": 1008,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": 512,
+        "predicted_B_difference": 512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -216,
+        "predicted_B_difference": -216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          3,
+          2,
+          4,
+          1,
+          1
+        ],
+        "actual_B_difference": 864,
+        "predicted_B_difference": 864,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 378,
+        "predicted_B_difference": 378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": -192,
+        "predicted_B_difference": -192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          2,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": -256,
+        "predicted_B_difference": -256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": 378,
+        "predicted_B_difference": 378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": -576,
+        "predicted_B_difference": -576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          1,
+          3,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 256,
+        "predicted_B_difference": 256,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": 378,
+        "predicted_B_difference": 378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          1,
+          3
+        ],
+        "actual_B_difference": -288,
+        "predicted_B_difference": -288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          2,
+          3
+        ],
+        "actual_B_difference": 192,
+        "predicted_B_difference": 192,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": 378,
+        "predicted_B_difference": 378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": -288,
+        "predicted_B_difference": -288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -384,
+        "predicted_B_difference": -384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": 378,
+        "predicted_B_difference": 378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": -864,
+        "predicted_B_difference": -864,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          1,
+          3,
+          2
+        ],
+        "actual_B_difference": 576,
+        "predicted_B_difference": 576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": -512,
+        "predicted_B_difference": -512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          1,
+          4,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": 378,
+        "predicted_B_difference": 378,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -864,
+        "predicted_B_difference": -864,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": 384,
+        "predicted_B_difference": 384,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": 512,
+        "predicted_B_difference": 512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          1,
+          3
+        ],
+        "actual_B_difference": 324,
+        "predicted_B_difference": 324,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          1,
+          3
+        ],
+        "actual_B_difference": 288,
+        "predicted_B_difference": 288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          1,
+          3
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": 324,
+        "predicted_B_difference": 324,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          2,
+          3,
+          1
+        ],
+        "actual_B_difference": 288,
+        "predicted_B_difference": 288,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          2,
+          3,
+          1,
+          1
+        ],
+        "actual_B_difference": -1152,
+        "predicted_B_difference": -1152,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          1,
+          3
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          3,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "actual_B_difference": 324,
+        "predicted_B_difference": 324,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          3,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -576,
+        "predicted_B_difference": -576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          2,
+          3,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          2,
+          1,
+          3,
+          1
+        ],
+        "actual_B_difference": 1152,
+        "predicted_B_difference": 1152,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          1,
+          2
+        ],
+        "actual_B_difference": 864,
+        "predicted_B_difference": 864,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": -512,
+        "predicted_B_difference": -512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          4,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          1,
+          3,
+          2,
+          1
+        ],
+        "actual_B_difference": 864,
+        "predicted_B_difference": 864,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": -768,
+        "predicted_B_difference": -768,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "swap_index_zero_based": 3,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "actual_B_difference": 512,
+        "predicted_B_difference": 512,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 0,
+        "swapped_word": [
+          3,
+          4,
+          2,
+          1,
+          1
+        ],
+        "actual_B_difference": 216,
+        "predicted_B_difference": 216,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 1,
+        "swapped_word": [
+          4,
+          2,
+          3,
+          1,
+          1
+        ],
+        "actual_B_difference": 576,
+        "predicted_B_difference": 576,
+        "identity_verified": true
+      },
+      {
+        "word": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ],
+        "swap_index_zero_based": 2,
+        "swapped_word": [
+          4,
+          3,
+          1,
+          2,
+          1
+        ],
+        "actual_B_difference": 768,
+        "predicted_B_difference": 768,
+        "identity_verified": true
+      }
+    ],
+    "opposite_side_witness": {
+      "low_word": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "low_intercept_B": 133,
+      "low_fixed_point": "133/943",
+      "high_word": [
+        3,
+        4,
+        2,
+        1
+      ],
+      "high_intercept_B": 995,
+      "high_fixed_point": "995/943",
+      "common_A": 81,
+      "common_D": 1024,
+      "common_D_minus_A": 943,
+      "checks": {
+        "same_height": true,
+        "same_valuation_sum": true,
+        "same_slope_A_over_D": true,
+        "both_primitive_multi_run": true,
+        "not_cyclic_rotations": true,
+        "low_order_fixed_point_below_one": true,
+        "high_order_fixed_point_above_one": true,
+        "intercepts_differ": true
+      }
+    },
+    "transcript_sha256": "338cec7fa44d2588ecceb4071c9380f7b551a7d54bbf399bb2e004ebdb087a63",
+    "aggregate": {
+      "order_sensitive_intercept_formula_proved": true,
+      "adjacent_swap_identity_proved": true,
+      "same_baker_data_can_straddle_fixed_point_one": true,
+      "baker_separation_alone_sufficient_for_primitive_words": false,
+      "order_sensitive_cycle_divisibility_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The result rejects only a criterion that uses h,S or the scalar two-logarithm separation without order-sensitive data. It does not reject Baker estimates combined with intercept divisibility, 2-adic admissibility, or a global descent argument.",
+    "failure_count": 0
+  },
+  "logical_limit": "No order-sensitive divisibility or global descent theorem for arbitrary primitive valuation words is proved.",
+  "route_decision": {
+    "discard": "treating a lower bound for |S log 2-h log 3| alone as a complete primitive-word cycle criterion",
+    "retain": "combine logarithmic separation with the ordered affine intercept, divisibility, and exact valuation admissibility",
+    "next_single_lemma": "OrderSensitiveDivisibilityOrDescentForPrimitiveValuationWords"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T220",
+        "label": "PrimitiveRootExtensionOfSingleMountainExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T221",
+        "label": "OrderBlindLogarithmicSeparationNoGoForPrimitiveWords",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N221",
+        "label": "BakerDatumHSDeterminesPrimitiveWordClosure",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN221",
+        "label": "OrderSensitiveDivisibilityOrDescentForPrimitiveValuationWords",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T220",
+        "CO-T221"
+      ],
+      [
+        "CO-T221",
+        "CO-N221"
+      ],
+      [
+        "CO-T221",
+        "CO-OPEN221"
+      ],
+      [
+        "CO-OPEN221",
+        "CO"
+      ]
+    ]
+  }
+}

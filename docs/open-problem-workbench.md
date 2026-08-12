@@ -15,9 +15,37 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-220
+## Current research boundary: TICKET-221
 
 The current machine-readable boundary is
+`data/open-problem/ticket221-sharp-obstruction-certificates.json`.
+
+TICKET-221 records four exact obstruction or sharpness results and zero
+parent-conjecture resolutions:
+
+- every arithmetic-free coordinatewise RH dyadic envelope has the sharp
+  per-scale lower bound `1/4`, so its infinite sum diverges;
+- the Collatz affine intercept is order-sensitive even when `(h,S)` and the
+  scalar Baker form are fixed, with cyclically inequivalent exact witnesses
+  `133/943` and `995/943`;
+- the Goldbach `L^p` distance from a positive model to the coordinate-zero set
+  is exactly the minimum model coordinate, and finite-prefix certificates have
+  no automatic cofinal extension;
+- full Boolean parity is exactly orthogonal to every proper Walsh monomial in
+  the balanced Twin stress model.
+
+The corrected decisive targets are an arithmetic-coupled RH dyadic tail budget
+below one; an order-sensitive Collatz divisibility or descent theorem for
+primitive valuation words; a prime-distribution theorem giving a uniform
+cofinal Goldbach `L^p` margin below one; and a positive shifted-von-Mangoldt
+pair lower bound supplied with parity-breaking Type II input.
+
+English report: [TICKET-221](sharp-obstruction-certificates.md).
+한국어 보고서: [TICKET-221](sharp-obstruction-certificates.ko.md).
+
+## Preserved research boundary: TICKET-220
+
+The direct machine-readable input is
 `data/open-problem/ticket220-dyadic-partition-primitive-refinement-crt.json`.
 
 TICKET-220 records four exact partial or no-go results and zero parent-
