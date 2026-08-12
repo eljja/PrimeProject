@@ -1,0 +1,133 @@
+{
+  "schema": "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1",
+  "generated_at": "2026-08-13T09:30:00+09:00",
+  "ticket_id": "TP-TICKET-219",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "QualitativeAbelInfinitudeEquivalenceAndDensityScaleNoGo",
+  "declared_proposition": "For any 0-1 sequence a_n, F(r)=sum a_n r^n is unbounded as r tends to one from below if and only if the support of a is infinite. Applied to the twin-prime indicator, unboundedness of the actual Abel transform is exactly equivalent to the Twin Prime Conjecture. The quantitative TICKET-218 condition liminf F(1-1/X)/(X/log^2 X)>1/2 is sufficient but not a necessary qualitative infinitude criterion: the infinite odd support n_j=2^j+1 has F(1-1/X)=O(log X) and hence normalized liminf zero. Moreover, for any support count T(X), F(1-1/X)>=T(X)/4 for X>=2.",
+  "mathematical_argument": "Finite support makes F bounded by its support size. For infinite support, choose any K supported indices; their finite partial sum tends to K as r tends to one, so F is unbounded. For n_j=2^j+1, there are O(log X) terms below X, while the terms above X are at most a convergent sum of exp(-2^k), giving F=O(log X). Finally, for n<=X and X>=2, (1-1/X)^n>=(1-1/X)^X>=1/4, proving the finite lower certificate. This refutes necessity only for abstract binary supports, not the Hardy-Littlewood prediction for actual twins.",
+  "reproducible_computation": {
+    "theorem": "For any 0-1 sequence a_n, F(r)=sum a_n r^n is unbounded as r tends to one from below if and only if the support of a is infinite. Applied to the twin-prime indicator, unboundedness of the actual Abel transform is exactly equivalent to the Twin Prime Conjecture. The quantitative TICKET-218 condition liminf F(1-1/X)/(X/log^2 X)>1/2 is sufficient but not a necessary qualitative infinitude criterion: the infinite odd support n_j=2^j+1 has F(1-1/X)=O(log X) and hence normalized liminf zero. Moreover, for any support count T(X), F(1-1/X)>=T(X)/4 for X>=2.",
+    "proof": "Finite support makes F bounded by its support size. For infinite support, choose any K supported indices; their finite partial sum tends to K as r tends to one, so F is unbounded. For n_j=2^j+1, there are O(log X) terms below X, while the terms above X are at most a convergent sum of exp(-2^k), giving F=O(log X). Finally, for n<=X and X>=2, (1-1/X)^n>=(1-1/X)^X>=1/4, proving the finite lower certificate. This refutes necessity only for abstract binary supports, not the Hardy-Littlewood prediction for actual twins.",
+    "qualitative_equivalence": "infinitely many twin primes iff the actual twin Abel transform is unbounded",
+    "finite_and_sparse_diagnostic_rows": [
+      {
+        "X": 1000,
+        "actual_twin_count_through_X": 35,
+        "actual_partial_Abel_sum_through_X": 25.721321448712104,
+        "quarter_of_bounded_twin_count": 8.75,
+        "sparse_support_2_pow_j_plus_1_Abel_value": 8.625681080828247,
+        "sparse_terms_numerically_summed": 16,
+        "sparse_Abel_over_X_log2X": 0.4115923400162929,
+        "checks": {
+          "actual_partial_abel_dominates_quarter_count": true,
+          "sparse_normalized_coefficient_below_one_half": true
+        },
+        "floating_values_are_diagnostics_not_interval_proofs": true
+      },
+      {
+        "X": 10000,
+        "actual_twin_count_through_X": 205,
+        "actual_partial_Abel_sum_through_X": 140.32062068314033,
+        "quarter_of_bounded_twin_count": 51.25,
+        "sparse_support_2_pow_j_plus_1_Abel_value": 11.953899823690076,
+        "sparse_terms_numerically_summed": 19,
+        "sparse_Abel_over_X_log2X": 0.10140537422091277,
+        "checks": {
+          "actual_partial_abel_dominates_quarter_count": true,
+          "sparse_normalized_coefficient_below_one_half": true
+        },
+        "floating_values_are_diagnostics_not_interval_proofs": true
+      },
+      {
+        "X": 100000,
+        "actual_twin_count_through_X": 1224,
+        "actual_partial_Abel_sum_through_X": 819.474630354189,
+        "quarter_of_bounded_twin_count": 306.0,
+        "sparse_support_2_pow_j_plus_1_Abel_value": 15.276754602241715,
+        "sparse_terms_numerically_summed": 23,
+        "sparse_Abel_over_X_log2X": 0.02024894908996688,
+        "checks": {
+          "actual_partial_abel_dominates_quarter_count": true,
+          "sparse_normalized_coefficient_below_one_half": true
+        },
+        "floating_values_are_diagnostics_not_interval_proofs": true
+      },
+      {
+        "X": 1000000,
+        "actual_twin_count_through_X": 8169,
+        "actual_partial_Abel_sum_through_X": 5414.361305237968,
+        "quarter_of_bounded_twin_count": 2042.25,
+        "sparse_support_2_pow_j_plus_1_Abel_value": 18.59880355488382,
+        "sparse_terms_numerically_summed": 26,
+        "sparse_Abel_over_X_log2X": 0.0035499226112927075,
+        "checks": {
+          "actual_partial_abel_dominates_quarter_count": true,
+          "sparse_normalized_coefficient_below_one_half": true
+        },
+        "floating_values_are_diagnostics_not_interval_proofs": true
+      }
+    ],
+    "aggregate": {
+      "qualitative_abel_infinitude_equivalence_proved": true,
+      "ticket218_density_scale_condition_not_necessary_for_abstract_infinitude": true,
+      "finite_quarter_count_lower_certificate_proved": true,
+      "actual_twin_abel_transform_unbounded_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The sparse sequence is not a model of the primes and does not disprove the TICKET-218 condition for actual twins. It proves only that requiring a Hardy-Littlewood-scale coefficient is an overstrong route to qualitative infinitude.",
+    "failure_count": 0
+  },
+  "discarded_route": "requiring a positive Hardy-Littlewood-scale Abel liminf as though it were necessary for qualitative twin infinitude",
+  "remaining_gap": "No parity-sensitive argument proves that the actual twin-prime Abel transform is unbounded, or equivalently that infinitely many dyadic blocks contain a twin.",
+  "candidate_theorem": "UnboundedParityCorrectedTwinAbelTransform",
+  "claim_boundary": "No Twin Prime proof or last-twin counterexample. The density-scale requirement is demoted to a sufficient quantitative route; qualitative Abel unboundedness remains open and equivalent to infinitude.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T218",
+        "label": "SharpAbelSurplusToTwinCountTransferAtCriticalConstant",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T219",
+        "label": "QualitativeAbelInfinitudeEquivalenceAndDensityScaleNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N219",
+        "label": "PositiveNormalizedAbelLiminfIsNecessaryForTwinInfinitude",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN219",
+        "label": "UnboundedParityCorrectedTwinAbelTransform",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T218",
+        "TP-T219"
+      ],
+      [
+        "TP-T219",
+        "TP-N219"
+      ],
+      [
+        "TP-T219",
+        "TP-OPEN219"
+      ],
+      [
+        "TP-OPEN219",
+        "TP"
+      ]
+    ]
+  }
+}

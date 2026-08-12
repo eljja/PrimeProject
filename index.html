@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260813-ticket218-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260813-ticket219-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-218 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-219 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, finite-data limits separated from infinite bridges</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-218 proves four exact margin results: an RH scale-adaptive signal boundary, a Collatz exponential next-denominator barrier, a sharp Goldbach residual-moment certificate, and a Twin Abel-surplus transfer.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-218은 리만 결함의 신호가 사라지지 않는 이동 반지름, 콜라츠 후보가 살아남기 위한 지수적 다음 분모 급등 조건과 상측 수렴분수 49개 배제, 골드바흐의 날카로운 8차 잔차 모멘트 인증, 쌍둥이 소수 아벨 잉여량의 개수 전이를 증명했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-219 localizes RH defects, closes every positive single-mountain Collatz cycle, cross-fits the finite Goldbach eighth-moment certificate, and replaces an overstrong Twin density premise by the exact qualitative Abel criterion.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-219는 리만 결함을 이진 띠에 국소화하고, 양의 단일 봉우리 콜라츠 주기 전체를 배제하며, 골드바흐 8차 모멘트 인증을 교차적합으로 강화하고, 쌍둥이 소수의 지나치게 강한 밀도 전제를 정확한 정성적 Abel 기준으로 교정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>218</strong><small>2026-08-13</small></div>
+              <div><span>Latest ticket</span><strong>219</strong><small>2026-08-13</small></div>
               <div><span>Exact results</span><strong>4</strong><small>부분정리·환원</small></div>
               <div><span>Routes discarded</span><strong>4</strong><small>반례·순환성</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
@@ -98,30 +98,30 @@
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> <code>r<sub>H</sub>=e<sup>−τ/H</sup></code>이면 첫 결함 신호가 <code>e<sup>−τ</sup></code>로 유지되고, 그보다 작은 엄밀 상계는 높이 <code>H</code>까지 결함 0을 인증합니다.</p>
-                <p><strong>폐기:</strong> 첫 원자 신호는 0으로 사라지는데 절대오차 바닥은 양수로 고정된 반지름 일정.</p>
-                <p><strong>다음 핵심:</strong> 실제 제타 결함 변환의 공종 상계가 <code>e<sup>−τ</sup></code>보다 작음을 증명하기.</p>
+                <p><strong>확립:</strong> 양의 결함 측도에 대해 <code>W(H)=L(1/H)−L(2/H)</code>는 이진 띠 <code>[H,2H]</code>의 결함 질량을 양의 커널로 지배합니다. 공종적으로 <code>W(H)=0</code>인 조건은 이 결함 모형에서 리만 가설과 동치입니다.</p>
+                <p><strong>폐기:</strong> 실제 소수항으로 계산하지 않은 결함 변환의 소멸을 리만 가설의 새로운 증명으로 간주하는 순환 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 상측 수렴분수가 새 인증을 피하려면 다음 분모가 <code>3<sup>p</sup></code> 규모로 급등해야 합니다. 49개 후보를 배제해 단일 산형 <code>k&lt;1.1829×10<sup>49</sup></code>를 닫았습니다.</p>
-                <p><strong>폐기:</strong> 각 수렴분수마다 거대한 교차 거듭제곱 차이를 직접 구성하는 경로.</p>
-                <p><strong>다음 핵심:</strong> 로그비의 지수적 부분몫 급등을 유효하게 배제한 뒤 다중 run과 발산을 별도로 다루기.</p>
+                <p><strong>확립:</strong> TICKET-218의 49개 상측 수렴분수 배제와 명시적 Matveev 하한을 연결해, 양의 가속 콜라츠 주기 중 valuation word가 <code>1<sup>k</sup>2<sup>m</sup></code>인 모든 단일 봉우리 가족을 배제했습니다. 최초 완전 연결 문턱은 <code>p=27,456,680,737</code>입니다.</p>
+                <p><strong>폐기:</strong> 단일 봉우리 주기 배제를 전체 콜라츠 추측으로 일반화하는 경로. 다중 run 주기와 비주기 발산은 별도입니다.</p>
+                <p><strong>다음 핵심:</strong> <code>EffectiveBakerSeparationForAllPositiveCycleValuationWords</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 양의 산술 모형에 대한 <code>p</code>차 잔차 합이 한 좌표가 0일 때의 에너지보다 작으면 모든 목표가 표현됩니다. 정확한 <code>p=8</code> 비교가 다섯 블록을 모두 인증했습니다.</p>
-                <p><strong>폐기:</strong> 비엄격 잔차 문턱과 기존 비중심 2차 모멘트. 선택한 <code>p=4</code> 인증도 다섯 블록에서 실패합니다.</p>
-                <p><strong>다음 핵심:</strong> 전수 열거와 독립적인 공종 8차 잔차 모멘트 산술 상계를 증명하기.</p>
+                <p><strong>확립:</strong> 블록을 두 fold로 나눠 다른 fold에서만 산술 모형을 적합했습니다. 학습·시험 좌표가 분리된 정확한 <code>p=8</code> 지지 인증은 10개 holdout fold 전부를 통과했습니다.</p>
+                <p><strong>폐기:</strong> 같은 좌표에서 모형을 적합하고 잔차 인증까지 수행해 독립 산술 증거로 해석하는 누수 경로. 교차적합 <code>p=4</code>는 10개 중 1개만 통과합니다.</p>
+                <p><strong>다음 핵심:</strong> <code>CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> <code>T(Y)≥F(r)−R(r,Y)</code>이며, 오프셋 0에서 실제 아벨 하극한 계수가 <code>1/2</code>보다 크면 쌍둥이 소수가 무한히 많습니다.</p>
-                <p><strong>폐기:</strong> 임계 계수 <code>1/2</code>와 같기만 하면 충분하다는 경로. 논리적 꼬리 수열이 등호를 포화합니다.</p>
-                <p><strong>다음 핵심:</strong> 실제 쌍둥이 아벨 하극한 계수가 <code>1/2</code>보다 엄격히 큼을 증명하기.</p>
+                <p><strong>확립:</strong> 0-1 수열의 지지가 무한한 것과 Abel 변환이 <code>r↑1</code>에서 무계인 것은 동치입니다. 쌍둥이 소수에는 이것이 추측 자체의 정확한 정성적 Abel 재표현입니다.</p>
+                <p><strong>폐기:</strong> 양의 밀도 규모 Abel 하극한을 추측의 필요조건으로 두는 경로. 무한 희박 지지 <code>n<sub>j</sub>=2<sup>j</sup>+1</code>은 정규화 계수가 0입니다.</p>
+                <p><strong>다음 핵심:</strong> <code>UnboundedParityCorrectedTwinAbelTransform</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>218개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-218은 네 트랙을 각각 실제 무한 증명에 필요한 하나의 엄격한 수치 여유로 축소했습니다.</p>
+                <p>219개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-219는 단일 봉우리 콜라츠 주기 가족을 완전히 닫고, 나머지 세 트랙에서는 순환적이거나 과도한 목표를 더 정직한 계산 경계로 교정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/adaptive-radius-spike-residual-surplus.ko.md">최신 한국어 보고서</a>
-              <a href="docs/adaptive-radius-spike-residual-surplus.md">Latest English report</a>
+              <a href="docs/bandpass-matveev-crossfit-qualitative-abel.ko.md">최신 한국어 보고서</a>
+              <a href="docs/bandpass-matveev-crossfit-qualitative-abel.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-218</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-218 adds an RH scale-adaptive signal boundary, a Collatz exponential next-denominator barrier with 49 upper convergents excluded, a sharp Goldbach eighth-residual-moment certificate, and the Twin Abel-surplus transfer above one half. Resolution count: 0.</p>
+              <strong>TICKET-219</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-219 proves a positive RH band-pass certificate, excludes every positive single-mountain Collatz cycle, certifies ten cross-fitted Goldbach folds at p=8, and proves the qualitative Twin Abel/support equivalence. Resolution count: 0.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260813-ticket218"></script>
-    <script src="assets/app.js?v=20260813-ticket218"></script>
+    <script src="assets/i18n.js?v=20260813-ticket219"></script>
+    <script src="assets/app.js?v=20260813-ticket219"></script>
   </body>
 </html>
 

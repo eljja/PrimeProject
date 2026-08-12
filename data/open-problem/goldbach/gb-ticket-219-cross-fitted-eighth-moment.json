@@ -1,0 +1,374 @@
+{
+  "schema": "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1",
+  "generated_at": "2026-08-13T09:30:00+09:00",
+  "ticket_id": "GB-TICKET-219",
+  "problem_id": "goldbach",
+  "status": "open_not_proven",
+  "theorem_name": "LeakageFreeCrossFittedEighthMomentSupportCertificate",
+  "declared_proposition": "Partition a finite coordinate set into folds. For each fold F, fit a positive model M_i=(P_F/Q_F)w_i using only coordinates outside F. If sum_{i in F}|A_i Q_F-P_F w_i|^p is strictly below (P_F min_{i in F}w_i)^p, then every A_i in F is positive. If this holds for every fold, the full vector has positive support. This is the sharp residual-moment argument of TICKET-218 with disjoint parameter fitting. Exact two-fold replay at five Goldbach dyadic blocks certifies all ten held-out folds at p=8; p=4 certifies only one of the ten folds.",
+  "mathematical_argument": "For a zero coordinate j in held-out fold F, its residual contribution equals (P_F w_j)^p and is at least the displayed threshold, a contradiction. The model parameters cannot read any held-out count because training and test index sets are disjoint. Taking the union over folds proves full support. The audit still enumerates the held-out residuals, so it is a finite certificate and not the missing cofinal circle-method estimate.",
+  "reproducible_computation": {
+    "theorem": "Partition a finite coordinate set into folds. For each fold F, fit a positive model M_i=(P_F/Q_F)w_i using only coordinates outside F. If sum_{i in F}|A_i Q_F-P_F w_i|^p is strictly below (P_F min_{i in F}w_i)^p, then every A_i in F is positive. If this holds for every fold, the full vector has positive support. This is the sharp residual-moment argument of TICKET-218 with disjoint parameter fitting. Exact two-fold replay at five Goldbach dyadic blocks certifies all ten held-out folds at p=8; p=4 certifies only one of the ten folds.",
+    "proof": "For a zero coordinate j in held-out fold F, its residual contribution equals (P_F w_j)^p and is at least the displayed threshold, a contradiction. The model parameters cannot read any held-out count because training and test index sets are disjoint. Taking the union over folds proves full support. The audit still enumerates the held-out residuals, so it is a finite certificate and not the missing cofinal circle-method estimate.",
+    "cross_fit_contract": "fit P_F/Q_F on complement of F; evaluate residual moment only on F",
+    "dyadic_goldbach_rows": [
+      {
+        "dyadic_start_X": 128,
+        "minimum_exact_representation_count": 3,
+        "fold_rows": [
+          {
+            "held_out_fold": 0,
+            "training_index_parity": 1,
+            "training_and_test_disjoint": true,
+            "training_count": 32,
+            "held_out_count": 32,
+            "least_squares_scale_numerator_P": "95831353614",
+            "least_squares_scale_denominator_Q": "3123920165880788136",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "18929872765902807988145341416383929982969848614702685125130819374450591097536",
+                "exact_zero_coordinate_threshold": "22639684425344725019079113579805319609904189770039296000000000000000000000000",
+                "residual_to_threshold_ratio": "8.361367769204040361E-1",
+                "held_out_full_support_certificate_passed": true
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "63023791475176467446873370082091032006362483796162463595059509940069303722666494950588857883452987981502299627558650251587870470338375003236554703236096",
+                "exact_zero_coordinate_threshold": "512555310879196511915825306449828073030599274354166164066447752162395475740358018678954242982405384175616000000000000000000000000000000000000000000000000",
+                "residual_to_threshold_ratio": "1.229599813668313781E-1",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          },
+          {
+            "held_out_fold": 1,
+            "training_index_parity": 0,
+            "training_and_test_disjoint": true,
+            "training_count": 32,
+            "held_out_count": 32,
+            "least_squares_scale_numerator_P": "95564372769",
+            "least_squares_scale_denominator_Q": "3209711958995186824",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "40975191110282873633723210599888351680268445428463162576353969631012193566192",
+                "exact_zero_coordinate_threshold": "28584168143016376103112544618544275972994530280280461531017479029489384944656",
+                "residual_to_threshold_ratio": "1.433492516041396371E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "496379578494526240372763785653716725288305988488024047559346404230944195343251143441460980135188406393755016783272502889461908798362050892882436973289232",
+                "exact_zero_coordinate_threshold": "817054668428232263018792430234871913298084581339634903080337376103387366852873589398731485503991167510250702095079311983485034845191108862103956182958336",
+                "residual_to_threshold_ratio": "6.075230919975176641E-1",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          }
+        ],
+        "both_folds_eighth_moment_certified": true
+      },
+      {
+        "dyadic_start_X": 512,
+        "minimum_exact_representation_count": 10,
+        "fold_rows": [
+          {
+            "held_out_fold": 0,
+            "training_index_parity": 1,
+            "training_and_test_disjoint": true,
+            "training_count": 128,
+            "held_out_count": 128,
+            "least_squares_scale_numerator_P": "3940300832581",
+            "least_squares_scale_denominator_Q": "204391210306951143145",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "19913100021195900125187476927420756492312134280880870662805447256980376484935477311514",
+                "exact_zero_coordinate_threshold": "16565226011845960800862050179613099067771750381594332318662656000000000000000000000000",
+                "residual_to_threshold_ratio": "1.202102525311507415E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "29088267590063317605590450123819801778213345273355071856396914796834710780502898064302814637303972127413531979537685274043025111541199975257698257794096553222363813019514",
+                "exact_zero_coordinate_threshold": "274406712823538035847168499392823422507459314932245083454615464660709877128567212176441887710774171261950800877472328974336000000000000000000000000000000000000000000000000",
+                "residual_to_threshold_ratio": "1.060042128370563194E-1",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          },
+          {
+            "held_out_fold": 1,
+            "training_index_parity": 0,
+            "training_and_test_disjoint": true,
+            "training_count": 128,
+            "held_out_count": 128,
+            "least_squares_scale_numerator_P": "3998802109864",
+            "least_squares_scale_denominator_Q": "207565910434105912810",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "21332307981645464961167924536244687287785654149995723512400455237575151620926058754384",
+                "exact_zero_coordinate_threshold": "18128892131707733409797820382454128279025092433252520037263741983450417648050813075456",
+                "residual_to_threshold_ratio": "1.176702240085311337E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "28404872656614214030537658282154266127711985716712298505289594393796741793196994377523914256448988331443737150947604009516438352562058025274621039398986210326858134381824",
+                "exact_zero_coordinate_threshold": "328656729923094566448959895044192162811889546478213221725896615717580130034154630584679333537140312269548603448618791593967656216837576931985814254367658063613297149607936",
+                "residual_to_threshold_ratio": "8.642717483150560581E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          }
+        ],
+        "both_folds_eighth_moment_certified": true
+      },
+      {
+        "dyadic_start_X": 2048,
+        "minimum_exact_representation_count": 25,
+        "fold_rows": [
+          {
+            "held_out_fold": 0,
+            "training_index_parity": 1,
+            "training_and_test_disjoint": true,
+            "training_count": 512,
+            "held_out_count": 512,
+            "least_squares_scale_numerator_P": "172216632048488",
+            "least_squares_scale_denominator_Q": "13203446678601132406524",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "16692060609600457481466976822467543228597124218419151915604801210538363975298583763482953979648",
+                "exact_zero_coordinate_threshold": "15474626516927273798861452826038807445723626732490258529206391512498176000000000000000000000000",
+                "residual_to_threshold_ratio": "1.078672922499387341E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "3579314655229458192939755816118134067631812892700997739324432673253374864337393213915624675117250275050791722670123202139961491092049669656701902638694207679512608515185913384870232915968",
+                "exact_zero_coordinate_threshold": "239464065838388729687766813722261479961565907607224286976224342865910799319485753756383276113520080268303438749355143218317492740012403326976000000000000000000000000000000000000000000000000",
+                "residual_to_threshold_ratio": "1.494718901851893051E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          },
+          {
+            "held_out_fold": 1,
+            "training_index_parity": 0,
+            "training_and_test_disjoint": true,
+            "training_count": 512,
+            "held_out_count": 512,
+            "least_squares_scale_numerator_P": "172097177215112",
+            "least_squares_scale_denominator_Q": "13216119526495924655236",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "17125960058503930025558838911975677704549358696293279602616539122754688214502754790117520372480",
+                "exact_zero_coordinate_threshold": "15919778878613111874403227580684245318802524860517813332740191146369839725934244828638858448896",
+                "residual_to_threshold_ratio": "1.075766201847892588E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "7264635121494583048988321538550810052589459805390181493838353193974996532679002688555244911138553643558284394384149766500626541133860617417730620299335473510505048142969007469992389836800",
+                "exact_zero_coordinate_threshold": "253439359543936149820326888758542417938731823236280718149457824884055449703609644640761951009860855083334557335294330075770162024906642368907036800669973815577696375018520737501803043618816",
+                "residual_to_threshold_ratio": "2.866419460089895272E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          }
+        ],
+        "both_folds_eighth_moment_certified": true
+      },
+      {
+        "dyadic_start_X": 8192,
+        "minimum_exact_representation_count": 75,
+        "fold_rows": [
+          {
+            "held_out_fold": 0,
+            "training_index_parity": 1,
+            "training_and_test_disjoint": true,
+            "training_count": 2048,
+            "held_out_count": 2048,
+            "least_squares_scale_numerator_P": "7827020656835466",
+            "least_squares_scale_denominator_Q": "845607514110678861847663",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "26531610552602176056208629906505753136617816380271697893463403257198136303884089488725234011461206975153",
+                "exact_zero_coordinate_threshold": "16902295670715998791923139999427439683501131300037067744408208482179680259014656000000000000000000000000",
+                "residual_to_threshold_ratio": "1.569704557858930738E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "3238031738347169619354576215367624279768917727966844059430991520369273647482085260819482939168980756868162488956875472545054071038162957188641886738966767800687103378737254676969743026687133079472311999073",
+                "exact_zero_coordinate_threshold": "285687598940304795461408094640287828412134446495203360606714949414630234307670417868499025125145678431926825180755562625275056257299892078503957868752022798336000000000000000000000000000000000000000000000000",
+                "residual_to_threshold_ratio": "1.133416973770627405E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          },
+          {
+            "held_out_fold": 1,
+            "training_index_parity": 0,
+            "training_and_test_disjoint": true,
+            "training_count": 2048,
+            "held_out_count": 2048,
+            "least_squares_scale_numerator_P": "7839225086537540",
+            "least_squares_scale_denominator_Q": "847418684180760756407581",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "28585851504953548342363629281501933083714437633682188946507950556310913001457683876361784689404518306624",
+                "exact_zero_coordinate_threshold": "17074506260542025517409388016228570670129747565673473506583939135061273291537647421517442937845186560000",
+                "residual_to_threshold_ratio": "1.674183198551013230E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "8037050594821040251629517878273158037355161869958337328072082644235429245109736713093083574462580326626936683331906605821007396234576910156381656100138495619532856478659547221459899053283963518877053502944",
+                "exact_zero_coordinate_threshold": "291538764041288823780466460993250337787432929007750759213323212003536665548445438485780300921873522819822897352700957347825595919656481004040138123766053362797372221442340816421581121552993761204633600000000",
+                "residual_to_threshold_ratio": "2.756769111390896447E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          }
+        ],
+        "both_folds_eighth_moment_certified": true
+      },
+      {
+        "dyadic_start_X": 32768,
+        "minimum_exact_representation_count": 223,
+        "fold_rows": [
+          {
+            "held_out_fold": 0,
+            "training_index_parity": 1,
+            "training_and_test_disjoint": true,
+            "training_count": 8192,
+            "held_out_count": 8192,
+            "least_squares_scale_numerator_P": "371746126929531727",
+            "least_squares_scale_denominator_Q": "54167680807776842173445583",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "63383235537806402044220872896090943550192283493790943917860505855703899377895943275546200200885424695870810378800",
+                "exact_zero_coordinate_threshold": "22018389487059006825553162493465240153256842199141322827731150868874336273960302926626816000000000000000000000000",
+                "residual_to_threshold_ratio": "2.878649938273595862E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "7690478471424634496478130163110813623637301081435700466554058337959295745008839088796409686643505463558450182034472747473068680630020738701064983212668324772221818237720220495014496389367461476501310405488241983525784115680",
+                "exact_zero_coordinate_threshold": "484809475603830593703845473816897361331004369059571607145427025280567760216604948258990996269801185417198872649024089197272760014375704906912723554510523237481563954120130297856000000000000000000000000000000000000000000000000",
+                "residual_to_threshold_ratio": "1.586288812083579296E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          },
+          {
+            "held_out_fold": 1,
+            "training_index_parity": 0,
+            "training_and_test_disjoint": true,
+            "training_count": 8192,
+            "held_out_count": 8192,
+            "least_squares_scale_numerator_P": "371793688661978680",
+            "least_squares_scale_denominator_Q": "54183144279764298613675571",
+            "moment_rows": [
+              {
+                "order_p": 4,
+                "exact_residual_integer_sum": "62891415160519021468419652013207539716454550035294167375266046970391292919360522812079843041040800247675243439343",
+                "exact_zero_coordinate_threshold": "22180640427440956021996742489892786628638407162119113349470026306447992796489273152322589212682565542583336960000",
+                "residual_to_threshold_ratio": "2.835419264211704462E+0",
+                "held_out_full_support_certificate_passed": false
+              },
+              {
+                "order_p": 8,
+                "exact_residual_integer_sum": "5928807418230565274768765242563098260947735292872117683020763581224338607863375676438526698465987107702812175523469857707805781545755017608780843545188079284733260351304626138100694885865106200097226452131400404144040331183",
+                "exact_zero_coordinate_threshold": "491980809771428116265254537680584355628327187137861562291819378572175846355716849093517586588403329325423624875536130602670742658892589318327968832882940547250707198559330132512916819701113788435836220882346648902041600000000",
+                "residual_to_threshold_ratio": "1.205089162112859701E-2",
+                "held_out_full_support_certificate_passed": true
+              }
+            ],
+            "eighth_moment_held_out_support_certified": true
+          }
+        ],
+        "both_folds_eighth_moment_certified": true
+      }
+    ],
+    "transcript_sha256": "067826b32a34c5bcc6bc3e079f1f9e3102ea62837d9206152c3cdac7c22ef7fc",
+    "aggregate": {
+      "cross_fitted_support_theorem_proved": true,
+      "training_test_disjoint_for_every_fold": true,
+      "exact_eighth_moment_held_out_folds_certified": 10,
+      "exact_fourth_moment_held_out_folds_certified": 1,
+      "cofinal_cross_fitted_eighth_moment_bound_proved": false,
+      "goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "Cross-fitting removes same-coordinate scale leakage but does not replace held-out representation counts by an analytic bound. A finite pass cannot establish the cofinal foldwise inequality.",
+    "failure_count": 0
+  },
+  "discarded_route": "using a scale fitted on the same target coordinates as independent evidence for the Hardy-Littlewood model",
+  "remaining_gap": "No cofinal arithmetic estimate proves the cross-fitted eighth residual moment inequality without enumerating the held-out Goldbach counts.",
+  "candidate_theorem": "CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier",
+  "claim_boundary": "No Goldbach proof or counterexample. Ten held-out folds pass exactly at p=8, but the cofinal arithmetic moment estimate is open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T218",
+        "label": "SharpResidualMomentSupportCertificateAndExactEighthMomentAudit",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T219",
+        "label": "LeakageFreeCrossFittedEighthMomentSupportCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N219",
+        "label": "SameBlockLeastSquaresFitIsIndependentArithmeticEvidence",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN219",
+        "label": "CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T218",
+        "GB-T219"
+      ],
+      [
+        "GB-T219",
+        "GB-N219"
+      ],
+      [
+        "GB-T219",
+        "GB-OPEN219"
+      ],
+      [
+        "GB-OPEN219",
+        "GB"
+      ]
+    ]
+  }
+}

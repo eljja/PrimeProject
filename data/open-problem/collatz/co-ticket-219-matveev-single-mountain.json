@@ -1,0 +1,106 @@
+{
+  "schema": "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1",
+  "generated_at": "2026-08-13T09:30:00+09:00",
+  "ticket_id": "CO-TICKET-219",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "ExplicitMatveevClosureOfAllPositiveSingleMountainCycles",
+  "declared_proposition": "No positive accelerated Collatz cycle has a single-mountain valuation word 1^k 2^m. Indeed TICKET-217 reduces any such cycle, after gcd(m,k) reduction, to an upper convergent p/q of alpha=log(3/2)/log(4/3) satisfying 0<(4/3)^p(3/2)^(-q)-1<3^(-p). Matveev's explicit rational two-logarithm estimate gives log Lambda>-K(1+log(2p)), with K=1.4*30^5*2^4.5*log(4)*log(3). Exact rational log intervals certify that p>=27,456,680,737 makes the lower bound at least 3^(-p), a contradiction. TICKET-218 exactly excludes all 49 upper convergents before the first unaudited one, whose numerator is 16,672,027,258,049,147,969,018,986,102,532,625,254,200,541,727,292 and already exceeds the Matveev threshold. Monotonicity of convergent numerators closes every later candidate.",
+  "mathematical_argument": "Because log(3/2)>log(4/3), an upper convergent has p>q, so the Matveev coefficient parameter is B=p. The rational heights are log(4) and log(3), yielding the displayed conservative constant. For p at or above the certified threshold, p log 3>K(1+log(2p)); hence Matveev gives Lambda>3^(-p), contrary to the necessary near-collision inequality. The exact interval certificate also proves the threshold inequality is increasing thereafter. TICKET-218 covers every earlier upper convergent, so the two ranges meet without a gap. This excludes one valuation-word family only; arbitrary multi-run words and nonperiodic divergence are untouched.",
+  "reproducible_computation": {
+    "theorem": "No positive accelerated Collatz cycle has a single-mountain valuation word 1^k 2^m. Indeed TICKET-217 reduces any such cycle, after gcd(m,k) reduction, to an upper convergent p/q of alpha=log(3/2)/log(4/3) satisfying 0<(4/3)^p(3/2)^(-q)-1<3^(-p). Matveev's explicit rational two-logarithm estimate gives log Lambda>-K(1+log(2p)), with K=1.4*30^5*2^4.5*log(4)*log(3). Exact rational log intervals certify that p>=27,456,680,737 makes the lower bound at least 3^(-p), a contradiction. TICKET-218 exactly excludes all 49 upper convergents before the first unaudited one, whose numerator is 16,672,027,258,049,147,969,018,986,102,532,625,254,200,541,727,292 and already exceeds the Matveev threshold. Monotonicity of convergent numerators closes every later candidate.",
+    "proof": "Because log(3/2)>log(4/3), an upper convergent has p>q, so the Matveev coefficient parameter is B=p. The rational heights are log(4) and log(3), yielding the displayed conservative constant. For p at or above the certified threshold, p log 3>K(1+log(2p)); hence Matveev gives Lambda>3^(-p), contrary to the necessary near-collision inequality. The exact interval certificate also proves the threshold inequality is increasing thereafter. TICKET-218 covers every earlier upper convergent, so the two ranges meet without a gap. This excludes one valuation-word family only; arbitrary multi-run words and nonperiodic divergence are untouched.",
+    "matveev_threshold_certificate": {
+      "matveev_constant": {
+        "formula": "1.4*30^5*2^4.5*log(4)*log(3)",
+        "lower_decimal": 1172382154.1510959,
+        "upper_decimal": 1172382154.1510959
+      },
+      "first_certified_numerator_p": 27456680737,
+      "threshold_margin_lower": 0.8022740601977678,
+      "previous_margin_upper": -0.2536388881749008,
+      "derivative_lower_at_threshold": 1.0559129483734462,
+      "checks": {
+        "threshold_condition_certified_positive": true,
+        "previous_integer_certified_nonpositive": true,
+        "condition_increasing_from_threshold": true
+      }
+    },
+    "ticket218_audited_upper_convergent_count": 49,
+    "first_unaudited_upper_convergent": {
+      "p": 16672027258049147969018986102532625254200541727292,
+      "q": 11828991589305104738667316989568711874512497900863,
+      "p_decimal": "16672027258049147969018986102532625254200541727292",
+      "q_decimal": "11828991589305104738667316989568711874512497900863"
+    },
+    "range_glue_checks": {
+      "threshold_condition_certified_positive": true,
+      "previous_integer_certified_nonpositive": true,
+      "condition_increasing_from_threshold": true,
+      "ticket218_prefix_closed": true,
+      "first_unaudited_upper_convergent_exceeds_matveev_threshold": true,
+      "all_later_upper_numerators_exceed_threshold_by_monotonicity": true
+    },
+    "aggregate": {
+      "explicit_exponential_partial_quotient_bound_proved": true,
+      "ticket218_finite_prefix_and_matveev_tail_meet_without_gap": true,
+      "all_positive_single_mountain_cycles_excluded": true,
+      "all_multi_run_cycles_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "A complete theorem for the word family 1^k2^m has zero combinatorial coverage of general long valuation words. It must not be promoted to the Collatz conjecture.",
+    "failure_count": 0
+  },
+  "discarded_route": "continued enumeration of single-mountain convergents after the explicit Matveev tail already closes them",
+  "remaining_gap": "The theorem covers only valuation words 1^k2^m; arbitrary multi-run cycles and nonperiodic divergent trajectories remain uncontrolled.",
+  "candidate_theorem": "EffectiveBakerSeparationForAllPositiveCycleValuationWords",
+  "claim_boundary": "No Collatz proof or divergent orbit. A complete infinite single-mountain cycle family is excluded, but its share of general valuation words vanishes.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T218",
+        "label": "ExponentialNextDenominatorSpikeBarrierAnd49ConvergentExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T219",
+        "label": "ExplicitMatveevClosureOfAllPositiveSingleMountainCycles",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N219",
+        "label": "SingleMountainFamilyClosureImpliesCollatz",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN219",
+        "label": "EffectiveBakerSeparationForAllPositiveCycleValuationWords",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T218",
+        "CO-T219"
+      ],
+      [
+        "CO-T219",
+        "CO-N219"
+      ],
+      [
+        "CO-T219",
+        "CO-OPEN219"
+      ],
+      [
+        "CO-OPEN219",
+        "CO"
+      ]
+    ]
+  }
+}

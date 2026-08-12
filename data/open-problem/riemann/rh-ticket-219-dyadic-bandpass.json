@@ -1,0 +1,134 @@
+{
+  "schema": "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1",
+  "generated_at": "2026-08-13T09:30:00+09:00",
+  "ticket_id": "RH-TICKET-219",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "PositiveDyadicBandpassDefectCertificateAndEquivalenceAudit",
+  "declared_proposition": "Let C be a locally finite nonnegative integer-valued defect measure on (0,infinity), L(s)=integral exp(-s t)dC(t), and W(H)=L(1/H)-L(2/H). Then W(H)=integral exp(-t/H)(1-exp(-t/H))dC(t). On H<=t<=2H the kernel is at least c=exp(-2)(1-exp(-2)), so C([H,2H])<=floor(W(H)/c). Therefore W(H)<c certifies an empty dyadic defect band. Finite verification below H0 plus this strict bound for every H=2^j H0 proves C=0. Conversely C=0 makes every W(H) zero, so the cofinal actual-defect condition is equivalent to RH inside the established defect-measure model, not an independent proof of RH.",
+  "mathematical_argument": "Subtract the two Laplace transforms to obtain the positive kernel. For x=t/H in [1,2], f(x)=exp(-x)(1-exp(-x)) is decreasing because f'(x)=exp(-x)(2exp(-x)-1)<0; hence its minimum is f(2)=c. Integrating over the band gives c C([H,2H])<=W(H), and integrality gives the floor. Dyadic bands cover [H0,infinity). The converse is immediate. Unlike a single Laplace radius, the difference suppresses both low-height and high-height contamination, but no prime-side interval enclosure for the actual defect difference is constructed.",
+  "reproducible_computation": {
+    "theorem": "Let C be a locally finite nonnegative integer-valued defect measure on (0,infinity), L(s)=integral exp(-s t)dC(t), and W(H)=L(1/H)-L(2/H). Then W(H)=integral exp(-t/H)(1-exp(-t/H))dC(t). On H<=t<=2H the kernel is at least c=exp(-2)(1-exp(-2)), so C([H,2H])<=floor(W(H)/c). Therefore W(H)<c certifies an empty dyadic defect band. Finite verification below H0 plus this strict bound for every H=2^j H0 proves C=0. Conversely C=0 makes every W(H) zero, so the cofinal actual-defect condition is equivalent to RH inside the established defect-measure model, not an independent proof of RH.",
+    "proof": "Subtract the two Laplace transforms to obtain the positive kernel. For x=t/H in [1,2], f(x)=exp(-x)(1-exp(-x)) is decreasing because f'(x)=exp(-x)(2exp(-x)-1)<0; hence its minimum is f(2)=c. Integrating over the band gives c C([H,2H])<=W(H), and integrality gives the floor. Dyadic bands cover [H0,infinity). The converse is immediate. Unlike a single Laplace radius, the difference suppresses both low-height and high-height contamination, but no prime-side interval enclosure for the actual defect difference is constructed.",
+    "kernel": "exp(-t/H)*(1-exp(-t/H))",
+    "kernel_floor_on_closed_band": "1.170196443478785116002815E-1",
+    "synthetic_replay_rows": [
+      {
+        "H": 2,
+        "synthetic_atom_count_in_closed_band_H_2H": 1,
+        "bandpass_transform_W_H": "2.027034397433679427663681E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 1,
+        "upper_bound_covers_exact_band_count": true
+      },
+      {
+        "H": 4,
+        "synthetic_atom_count_in_closed_band_H_2H": 1,
+        "bandpass_transform_W_H": "4.014064975475530169520367E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 3,
+        "upper_bound_covers_exact_band_count": true
+      },
+      {
+        "H": 8,
+        "synthetic_atom_count_in_closed_band_H_2H": 0,
+        "bandpass_transform_W_H": "5.464551451972282215001940E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 4,
+        "upper_bound_covers_exact_band_count": true
+      },
+      {
+        "H": 16,
+        "synthetic_atom_count_in_closed_band_H_2H": 1,
+        "bandpass_transform_W_H": "6.457324347202398513958597E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 5,
+        "upper_bound_covers_exact_band_count": true
+      },
+      {
+        "H": 32,
+        "synthetic_atom_count_in_closed_band_H_2H": 1,
+        "bandpass_transform_W_H": "7.348239282445292750082782E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 6,
+        "upper_bound_covers_exact_band_count": true
+      },
+      {
+        "H": 64,
+        "synthetic_atom_count_in_closed_band_H_2H": 1,
+        "bandpass_transform_W_H": "8.230059989155467999430324E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 7,
+        "upper_bound_covers_exact_band_count": true
+      },
+      {
+        "H": 128,
+        "synthetic_atom_count_in_closed_band_H_2H": 1,
+        "bandpass_transform_W_H": "8.399686727616806700538656E-1",
+        "kernel_floor_c": "1.170196443478785116002815E-1",
+        "integer_count_upper_bound_floor_W_over_c": 7,
+        "upper_bound_covers_exact_band_count": true
+      }
+    ],
+    "aggregate": {
+      "positive_dyadic_bandpass_certificate_proved": true,
+      "low_and_high_tail_suppression_proved": true,
+      "cofinal_actual_defect_condition_equivalent_to_RH": true,
+      "prime_side_actual_zeta_enclosure_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "Renaming the cofinal inequality as an envelope does not weaken RH: in the defect model it is equivalent to the absence of all off-critical atoms. The new value is localization and a cleaner computational interface, not a resolution.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating the TICKET-218 cofinal defect envelope as a theorem weaker than RH",
+  "remaining_gap": "No rigorous prime-side interval enclosure bounds the actual dyadic defect difference below its positive kernel floor on every dyadic band.",
+  "candidate_theorem": "PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor",
+  "claim_boundary": "No RH proof and no off-line zero. TICKET-219 proves a localized exact certificate and explicitly records that its cofinal actual-defect premise is RH-equivalent.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T218",
+        "label": "ScaleAdaptiveRadiusCertificateAndSignalPhaseTransition",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T219",
+        "label": "PositiveDyadicBandpassDefectCertificateAndEquivalenceAudit",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N219",
+        "label": "CofinalDefectEnvelopeIsStrictlyWeakerThanRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN219",
+        "label": "PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T218",
+        "RH-T219"
+      ],
+      [
+        "RH-T219",
+        "RH-N219"
+      ],
+      [
+        "RH-T219",
+        "RH-OPEN219"
+      ],
+      [
+        "RH-OPEN219",
+        "RH"
+      ]
+    ]
+  }
+}

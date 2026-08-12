@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket219AttemptGlobal = null;
 let ticket218AttemptGlobal = null;
 let ticket217AttemptGlobal = null;
 let ticket216AttemptGlobal = null;
@@ -10014,6 +10015,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket219BandpassMatveevCrossFitQualitativeAbel(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.bandpass_matveev_crossfit_qualitative_abel_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.synthetic_replay_rows || [];
+    detail = `
+      <div class="poc-equation">W(H)=L(1/H)−L(2/H), c=e<sup>−2</sup>(1−e<sup>−2</sup>), W(H)&lt;c ⇒ C([H,2H])=0</div>
+      ${table(["H", "atoms in [H,2H]", "W(H)", "floor(W/c)", "covered"], rows.map((row) => [formatter.format(row.H), row.synthetic_atom_count_in_closed_band_H_2H, row.bandpass_transform_W_H, row.integer_count_upper_bound_floor_W_over_c, row.upper_bound_covers_exact_band_count]))}
+      <div class="poc-head"><div><span>Positive band-pass certificate</span><strong>${aggregate.positive_dyadic_bandpass_certificate_proved ? "proved" : "open"}</strong></div><div><span>Cofinal condition</span><strong>${aggregate.cofinal_actual_defect_condition_equivalent_to_RH ? "RH-equivalent" : "open"}</strong></div><div><span>Prime-side enclosure</span><strong>${aggregate.prime_side_actual_zeta_enclosure_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">두 Laplace 반지름의 차이는 낮은 높이와 높은 높이의 꼬리를 동시에 줄여 결함을 이진 띠에 국소화합니다. 다만 모든 띠의 실제 제타 상계를 증명하는 것은 결함 모형 안에서 RH와 동치이며 아직 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const threshold = computation.matveev_threshold_certificate || {};
+    const next = computation.first_unaudited_upper_convergent || {};
+    detail = `
+      <div class="poc-equation">p log 3&gt;K(1+log(2p)) ⇒ Λ&gt;3<sup>−p</sup>; T218 prefix + Matveev tail ⇒ no 1<sup>k</sup>2<sup>m</sup> cycle</div>
+      ${table(["certificate", "value"], [["first certified p", formatter.format(threshold.first_certified_numerator_p || 0)], ["threshold lower margin", threshold.threshold_margin_lower], ["previous upper margin", threshold.previous_margin_upper], ["first unaudited upper p", next.p_decimal || next.p || "missing"], ["first unaudited upper q", next.q_decimal || next.q || "missing"]])}
+      <div class="poc-head"><div><span>TICKET-218 prefix</span><strong>${computation.ticket218_audited_upper_convergent_count || 0} excluded</strong></div><div><span>Matveev tail</span><strong>${aggregate.explicit_exponential_partial_quotient_bound_proved ? "proved" : "open"}</strong></div><div><span>All single mountains</span><strong>${aggregate.all_positive_single_mountain_cycles_excluded ? "excluded" : "open"}</strong></div></div>
+      <p class="proof-note">정확 로그 구간으로 p=27,456,680,737부터 모든 미래 후보를 배제하고, 앞의 49개 수렴분수 인증과 빈틈없이 연결했습니다. 이는 단일 봉우리 valuation 단어 전체에 대한 정리이며 다중 run이나 비주기 발산에는 적용되지 않습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.dyadic_goldbach_rows || [];
+    detail = `
+      <div class="poc-equation">fit P<sub>F</sub>/Q<sub>F</sub> outside F; Σ<sub>i∈F</sub>|AᵢQ<sub>F</sub>−P<sub>F</sub>wᵢ|<sup>8</sup>&lt;(P<sub>F</sub> min<sub>F</sub>w)<sup>8</sup></div>
+      ${table(["dyadic X", "minimum count", "fold 0 p=8", "fold 1 p=8", "both"], rows.map((row) => [formatter.format(row.dyadic_start_X), row.minimum_exact_representation_count, row.fold_rows?.[0]?.eighth_moment_held_out_support_certified, row.fold_rows?.[1]?.eighth_moment_held_out_support_certified, row.both_folds_eighth_moment_certified]))}
+      <div class="poc-head"><div><span>Training/test split</span><strong>${aggregate.training_test_disjoint_for_every_fold ? "disjoint" : "failed"}</strong></div><div><span>Exact p=8 held-out folds</span><strong>${aggregate.exact_eighth_moment_held_out_folds_certified ?? 0} / 10</strong></div><div><span>Cofinal foldwise bound</span><strong>${aggregate.cofinal_cross_fitted_eighth_moment_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">모형 scale을 holdout 밖에서만 적합해 같은 좌표의 정보 누수를 제거했습니다. 10개 fold의 정확한 유한 인증은 통과하지만, holdout 표현 개수를 열거하지 않는 공종 8차 모멘트 추정은 아직 없습니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_and_sparse_diagnostic_rows || [];
+    detail = `
+      <div class="poc-equation">support(a) infinite ⇔ F(r)=Σa<sub>n</sub>r<sup>n</sup> unbounded as r↑1; F(1−1/X)≥T(X)/4</div>
+      ${table(["X", "bounded twins", "partial actual Abel", "sparse normalized Abel", "quarter bound"], rows.map((row) => [formatter.format(row.X), formatter.format(row.actual_twin_count_through_X), Number(row.actual_partial_Abel_sum_through_X).toFixed(4), Number(row.sparse_Abel_over_X_log2X).toFixed(6), Number(row.quarter_of_bounded_twin_count).toFixed(2)]))}
+      <div class="poc-head"><div><span>Qualitative Abel equivalence</span><strong>${aggregate.qualitative_abel_infinitude_equivalence_proved ? "proved" : "open"}</strong></div><div><span>Density-scale necessity</span><strong>${aggregate.ticket218_density_scale_condition_not_necessary_for_abstract_infinitude ? "refuted abstractly" : "open"}</strong></div><div><span>Actual twin Abel unbounded</span><strong>${aggregate.actual_twin_abel_transform_unbounded_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">양의 정규화 Abel 계수는 충분조건이지만 추상적 무한성의 필요조건은 아닙니다. 실제 쌍둥이 소수에 필요한 최소 정성 목표는 parity 보정 Abel 변환의 무계성이며, 이는 여전히 쌍둥이 소수 무한성과 동치입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket219-bandpass-matveev-crossfit-qualitative-abel" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 219 band-pass defects, Matveev closure, cross-fitted moments, and qualitative Abel growth</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all parent conjectures open</strong></div><div><span>Closed infinite subfamilies</span><strong>${audit.machine_audit?.closed_infinite_subfamily_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET219 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/bandpass-matveev-crossfit-qualitative-abel.ko.md">한국어 보고서</a> · <a href="../docs/bandpass-matveev-crossfit-qualitative-abel.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket218AdaptiveRadiusSpikeResidualSurplus(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.adaptive_radius_spike_residual_surplus_audit || {};
@@ -10066,7 +10134,7 @@ function renderTicket218AdaptiveRadiusSpikeResidualSurplus(attempt) {
   }
   return `
     <div id="ticket218-adaptive-radius-spike-residual-surplus" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 218 adaptive radii, exponential spikes, residual moments, and Abel surplus</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial, reduction, or no-go results; all conjectures open</strong></div><div><span>Exact results</span><strong>${audit.machine_audit?.exact_partial_theorem_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET218 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16639,7 +16707,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket218AdaptiveRadiusSpikeResidualSurplus(ticket218AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket219BandpassMatveevCrossFitQualitativeAbel(ticket219AttemptGlobal) ||
+      renderTicket218AdaptiveRadiusSpikeResidualSurplus(ticket218AttemptGlobal) ||
       renderTicket217RelativeThresholdConvergentMomentTail(ticket217AttemptGlobal) ||
       renderTicket216LaplaceGcdRadixTauberian(ticket216AttemptGlobal) ||
       renderTicket215LatticeNearCollisionExceptionAbel(ticket215AttemptGlobal) ||
@@ -17157,6 +17226,26 @@ async function loadTicket218Attempt() {
     return Boolean(ticket218AttemptGlobal);
   } catch (_error) {
     ticket218AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket219Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket219-bandpass-matveev-crossfit-qualitative-abel.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket219AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket219AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket219AttemptGlobal) {
+      ticket219AttemptGlobal.bounded_result = ticket219AttemptGlobal.bounded_result || {};
+      ticket219AttemptGlobal.bounded_result.bandpass_matveev_crossfit_qualitative_abel_audit = payload.bandpass_matveev_crossfit_qualitative_abel_audit || {};
+    }
+    return Boolean(ticket219AttemptGlobal);
+  } catch (_error) {
+    ticket219AttemptGlobal = null;
     return false;
   }
 }
@@ -18730,9 +18819,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket218Loaded = await loadTicket218Attempt();
+  const ticket219Loaded = await loadTicket219Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket218-current";
+  document.documentElement.dataset.openProblemCache = "ticket219-current";
+  const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
   const ticket216Loaded = await loadTicket216Attempt();
   const ticket215Loaded = await loadTicket215Attempt();
@@ -18783,8 +18873,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket219AttemptGlobal) await loadTicket219Attempt();
     if (!ticket218AttemptGlobal) await loadTicket218Attempt();
     if (!ticket217AttemptGlobal) await loadTicket217Attempt();
     if (!ticket216AttemptGlobal) await loadTicket216Attempt();
@@ -18881,7 +18972,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket218-current";
+  document.documentElement.dataset.openProblemCache = "ticket219-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

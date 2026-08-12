@@ -217,6 +217,7 @@ TICKET215_SCHEMA = "primeproject.ticket215-lattice-nearcollision-exception-abel.
 TICKET216_SCHEMA = "primeproject.ticket216-laplace-gcd-radix-tauberian.v1"
 TICKET217_SCHEMA = "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1"
 TICKET218_SCHEMA = "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1"
+TICKET219_SCHEMA = "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1"
 
 
 def fail(message: str) -> int:
@@ -18724,6 +18725,168 @@ def main() -> int:
         or machine218.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket218 proof boundary changed")
+
+    path219 = Path(
+        "data/open-problem/ticket219-bandpass-matveev-crossfit-qualitative-abel.json"
+    )
+    if not path219.exists():
+        return fail("missing ticket219 bandpass/Matveev/cross-fit/Abel audit")
+    ticket219 = read_json(path219)
+    if (
+        ticket219.get("schema") != TICKET219_SCHEMA
+        or ticket219.get("status") != "open_not_proven"
+    ):
+        return fail("ticket219 schema or status changed")
+    audit219 = ticket219.get("bandpass_matveev_crossfit_qualitative_abel_audit", {})
+    machine219 = audit219.get("machine_audit", {})
+    if machine219 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "closed_infinite_subfamily_count": 1,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket219 global machine audit changed")
+
+    attempts219 = {
+        row.get("problem_id"): row for row in ticket219.get("attempts", [])
+    }
+    if set(attempts219) != EXPECTED_PROBLEMS:
+        return fail("ticket219 attempts missing problems")
+    track_paths219 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-219-dyadic-bandpass.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-219-matveev-single-mountain.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-219-cross-fitted-eighth-moment.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-219-qualitative-abel.json"
+        ),
+    }
+    theorem_names219 = {
+        "riemann": "PositiveDyadicBandpassDefectCertificateAndEquivalenceAudit",
+        "collatz": "ExplicitMatveevClosureOfAllPositiveSingleMountainCycles",
+        "goldbach": "LeakageFreeCrossFittedEighthMomentSupportCertificate",
+        "twin-prime": "QualitativeAbelInfinitudeEquivalenceAndDensityScaleNoGo",
+    }
+    next_lemmas219 = {
+        "riemann": "PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor",
+        "collatz": "EffectiveBakerSeparationForAllPositiveCycleValuationWords",
+        "goldbach": "CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier",
+        "twin-prime": "UnboundedParityCorrectedTwinAbelTransform",
+    }
+    for problem_id, track_path in track_paths219.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket219 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts219[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET219_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names219[problem_id]
+            or attempt.get("new_result") != theorem_names219[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas219[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/bandpass_matveev_crossfit_qualitative_abel_audit"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket219 contract changed")
+
+    rh219 = audit219.get("riemann", {}).get("reproducible_computation", {})
+    rh219_aggregate = rh219.get("aggregate", {})
+    if (
+        [row.get("H") for row in rh219.get("synthetic_replay_rows", [])]
+        != [2, 4, 8, 16, 32, 64, 128]
+        or any(
+            row.get("upper_bound_covers_exact_band_count") is not True
+            for row in rh219.get("synthetic_replay_rows", [])
+        )
+        or rh219_aggregate.get("positive_dyadic_bandpass_certificate_proved")
+        is not True
+        or rh219_aggregate.get("cofinal_actual_defect_condition_equivalent_to_RH")
+        is not True
+        or rh219_aggregate.get("prime_side_actual_zeta_enclosure_proved")
+        is not False
+        or rh219_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket219 RH band-pass boundary changed")
+
+    collatz219 = audit219.get("collatz", {}).get("reproducible_computation", {})
+    collatz219_aggregate = collatz219.get("aggregate", {})
+    if (
+        collatz219.get("matveev_threshold_certificate", {}).get(
+            "first_certified_numerator_p"
+        )
+        != 27456680737
+        or collatz219.get("ticket218_audited_upper_convergent_count") != 49
+        or any(value is not True for value in collatz219.get("range_glue_checks", {}).values())
+        or collatz219_aggregate.get("all_positive_single_mountain_cycles_excluded")
+        is not True
+        or collatz219_aggregate.get("all_multi_run_cycles_excluded") is not False
+        or collatz219_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket219 Collatz Matveev closure changed")
+
+    goldbach219 = audit219.get("goldbach", {}).get("reproducible_computation", {})
+    goldbach219_aggregate = goldbach219.get("aggregate", {})
+    goldbach219_rows = goldbach219.get("dyadic_goldbach_rows", [])
+    if (
+        [row.get("dyadic_start_X") for row in goldbach219_rows]
+        != [128, 512, 2048, 8192, 32768]
+        or any(
+            fold.get("training_and_test_disjoint") is not True
+            or fold.get("eighth_moment_held_out_support_certified") is not True
+            for row in goldbach219_rows
+            for fold in row.get("fold_rows", [])
+        )
+        or goldbach219_aggregate.get("exact_eighth_moment_held_out_folds_certified")
+        != 10
+        or goldbach219_aggregate.get("exact_fourth_moment_held_out_folds_certified")
+        != 1
+        or goldbach219_aggregate.get("cofinal_cross_fitted_eighth_moment_bound_proved")
+        is not False
+        or goldbach219_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket219 Goldbach cross-fit boundary changed")
+
+    twin219 = audit219.get("twin_prime", {}).get("reproducible_computation", {})
+    twin219_aggregate = twin219.get("aggregate", {})
+    twin219_rows = twin219.get("finite_and_sparse_diagnostic_rows", [])
+    if (
+        [row.get("X") for row in twin219_rows] != [1000, 10000, 100000, 1000000]
+        or any(any(value is not True for value in row.get("checks", {}).values()) for row in twin219_rows)
+        or twin219_aggregate.get("qualitative_abel_infinitude_equivalence_proved")
+        is not True
+        or twin219_aggregate.get(
+            "ticket218_density_scale_condition_not_necessary_for_abstract_infinitude"
+        )
+        is not True
+        or twin219_aggregate.get("actual_twin_abel_transform_unbounded_proved")
+        is not False
+        or twin219_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket219 Twin qualitative Abel boundary changed")
+
+    if (
+        "resolves none" not in str(audit219.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket219.get("claim_boundary", "")).lower()
+        or machine219.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket219 proof boundary changed")
 
     print("open problem structure verified")
     return 0

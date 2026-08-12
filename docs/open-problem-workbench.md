@@ -15,29 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-218
+## Current research boundary: TICKET-219
 
 The current machine-readable boundary is
-`data/open-problem/ticket218-adaptive-radius-spike-residual-surplus.json`.
+`data/open-problem/ticket219-bandpass-matveev-crossfit-qualitative-abel.json`.
 
-TICKET-218 records four exact partial, reduction, or no-go results and zero
+TICKET-219 records four exact partial or no-go results and zero parent-
 conjecture resolutions:
 
-- a scale-adaptive RH defect certificate at `r_H=exp(-tau/H)` and the exact
-  phase boundary between detectable and vanishing late-defect signals;
-- an exponential next-denominator barrier for surviving single-mountain
-  Collatz candidates, with 49 upper convergents excluded and
-  `k<11828991589305104738667316989568711874512497900863` closed in that family;
-- the sharp residual `L^p` full-support certificate for nonnegative Goldbach
-  counts, with exact eighth-moment certification on five finite dyadic blocks;
-- the sharp Abel-surplus-to-count transfer for Twin Prime, including the
-  critical coefficient `exp(-a)/2` at horizon `(2 log log X+a)X`.
+- a positive dyadic band-pass RH defect count certificate and an explicit
+  audit that its cofinal actual-defect premise is RH-equivalent;
+- an exact Matveev threshold `p=27,456,680,737` glued to the 49-convergent
+  prefix, excluding every positive single-mountain Collatz cycle;
+- a leakage-free two-fold Goldbach residual theorem with ten exact held-out
+  eighth-moment certificates;
+- the qualitative Twin Abel/support equivalence and an abstract sparse-support
+  no-go for treating positive normalized Abel density as necessary.
 
-An actual-zeta cofinal adaptive-radius bound below `exp(-tau)`, an effective
-upper bound excluding every future Collatz denominator spike followed by
-multi-run and divergence control, a cofinal arithmetic eighth-residual-moment
-bound, and an actual Twin Abel liminf coefficient strictly above `1/2` remain
-open.
+A prime-side actual-zeta band-pass enclosure, effective Baker separation for
+all Collatz valuation words plus divergence control, a cofinal cross-fitted
+Goldbach eighth-moment bound, and an unbounded parity-corrected actual Twin Abel
+transform remain open.
+
+English report: [TICKET-219](bandpass-matveev-crossfit-qualitative-abel.md).
+한국어 보고서: [TICKET-219](bandpass-matveev-crossfit-qualitative-abel.ko.md).
+
+## Preserved research boundary: TICKET-218
+
+The direct machine-readable input is
+`data/open-problem/ticket218-adaptive-radius-spike-residual-surplus.json`.
 
 English report: [TICKET-218](adaptive-radius-spike-residual-surplus.md).
 한국어 보고서: [TICKET-218](adaptive-radius-spike-residual-surplus.ko.md).

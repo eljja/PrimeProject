@@ -37,7 +37,32 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-13 TICKET-218 Adaptive Radii, Exponential Spikes, Residual Moments, and Abel Surplus
+## 2026-08-13 TICKET-219 Band-pass Defects, Matveev Closure, Cross-fitted Moments, and Qualitative Abel Growth
+
+TICKET-219 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. a positive Laplace-difference kernel gives an exact dyadic RH defect count
+   certificate, while the cofinal actual-defect premise is explicitly
+   identified as RH-equivalent;
+2. an exact rational-interval Matveev threshold at `p=27,456,680,737` meets the
+   49-convergent TICKET-218 prefix without a gap and excludes every positive
+   single-mountain Collatz cycle;
+3. disjoint two-fold model fitting removes same-coordinate leakage and all ten
+   finite Goldbach holdout folds pass the exact eighth-moment support test;
+4. Twin infinitude is equivalent to unboundedness of the actual Abel transform,
+   while an infinite sparse support proves that a positive normalized density-
+   scale coefficient is not necessary for abstract infinitude.
+
+The prime-side RH band-pass enclosure, all-word Collatz Baker separation and
+divergence control, cofinal Goldbach cross-fitted eighth moment, and actual
+parity-corrected Twin Abel unboundedness are not proved. The machine parent-
+conjecture resolution count remains zero.
+
+English report: [TICKET-219](bandpass-matveev-crossfit-qualitative-abel.md).
+한국어 보고서: [TICKET-219](bandpass-matveev-crossfit-qualitative-abel.ko.md).
+
+## Preserved: 2026-08-13 TICKET-218 Adaptive Radii, Exponential Spikes, Residual Moments, and Abel Surplus
 
 TICKET-218 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial, reduction, or no-go results:
