@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket220AttemptGlobal = null;
 let ticket219AttemptGlobal = null;
 let ticket218AttemptGlobal = null;
 let ticket217AttemptGlobal = null;
@@ -10015,6 +10016,88 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket220DyadicPartitionPrimitiveRefinementCRT(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.dyadic_partition_primitive_refinement_crt_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.telescoping_rows || [];
+    const hidden = computation.finite_window_hidden_atom_rows || [];
+    detail = `
+      <div class="poc-equation">Σ<sub>j∈Z</sub>[L(2<sup>−j</sup>/H)−L(2<sup>1−j</sup>/H)]=C((0,∞)); every finite j-window misses a remote atom</div>
+      ${table(["M=N", "dyadic sum", "distance to total count", "identity"], rows.map((row) => [row.M_equals_N, row.direct_dyadic_sum, row.distance_to_total_defect_count, row.identity_verified]))}
+      ${table(["hidden placement", "atom t", "observed mass on −4…4", "< 10⁻⁶"], hidden.map((row) => [row.placement, row.synthetic_atom_t, row.observed_kernel_mass, row.below_epsilon_1e_minus_6]))}
+      <div class="poc-head"><div><span>Dyadic partition</span><strong>${aggregate.dyadic_partition_of_unity_proved ? "proved" : "open"}</strong></div><div><span>Finite-window sufficiency</span><strong>${aggregate.finite_window_global_certificate_refuted ? "refuted" : "open"}</strong></div><div><span>Prime-side summable envelope</span><strong>${aggregate.actual_prime_side_summable_envelope_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">이진 커널 전체는 결함 중복도를 정확히 복원하지만, 유한 창만으로는 충분히 낮거나 높은 결함 원자를 배제할 수 없습니다. 실제 소수 측 상계의 무한 합을 1 아래로 내리는 일이 남았습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const samples = computation.affine_power_replay_rows || [];
+    const counts = (computation.binary_word_enumeration_rows || []).slice(-6);
+    detail = `
+      <div class="poc-equation">f<sup>r</sup>(n)−n=(f(n)−n)(1+a+⋯+a<sup>r−1</sup>), a=3<sup>h</sup>/2<sup>S</sup>≠1</div>
+      ${table(["primitive root", "power", "composition", "same fixed point"], samples.map((row) => [row.primitive_root.join(""), row.power, row.composition_identity_verified, row.fixed_point_identity_verified]))}
+      ${table(["word length", "all words", "closed by T220", "primitive multi-run open"], counts.map((row) => [row.word_length, formatter.format(row.all_binary_words), formatter.format(row.closed_by_ticket220), formatter.format(row.primitive_multi_run_still_open)]))}
+      <div class="poc-head"><div><span>Affine root extension</span><strong>${aggregate.primitive_root_extension_proved ? "proved" : "open"}</strong></div><div><span>Imprimitive multi-run family</span><strong>${aggregate.infinite_imprimitive_multi_run_family_closed ? "closed" : "open"}</strong></div><div><span>Primitive multi-run words</span><strong>${aggregate.primitive_multi_run_cycles_excluded ? "excluded" : "open"}</strong></div></div>
+      <p class="proof-note">단일 봉우리 원시근의 반복은 새 고정점을 만들지 않습니다. 따라서 그 모든 순환 이동과 거듭제곱은 닫혔지만, 위상 정보가 새로운 원시 다중 run 단어와 비주기 발산은 그대로 남습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const direct = computation.direct_crossfit_rows || [];
+    const bridges = computation.refinement_bridge_rows || [];
+    const starts = [...new Set(direct.map((row) => row.dyadic_start_X))];
+    const rows = starts.map((start) => {
+      const directAtStart = direct.filter((row) => row.dyadic_start_X === start);
+      const bridgeAtStart = bridges.filter((row) => row.dyadic_start_X === start);
+      return [
+        formatter.format(start),
+        `${directAtStart.filter((row) => row.moment_pass_by_order?.["8"]).length} / ${directAtStart.length}`,
+        `${bridgeAtStart.filter((row) => row.refinement_certificate_passed).length} / ${bridgeAtStart.length}`,
+        Math.max(...bridgeAtStart.map((row) => Number(row.minkowski_to_barrier_ratio))).toFixed(6),
+      ];
+    });
+    detail = `
+      <div class="poc-equation">||e(β)||<sub>p,F′</sub>≤||e(α)||<sub>p,F′</sub>+|α−β|·||w||<sub>p,F′</sub>&lt;β min<sub>F′</sub>w ⇒ A<sub>i</sub>&gt;0</div>
+      ${table(["dyadic X", "direct p=8 folds", "refinement bridges", "worst ratio"], rows)}
+      <div class="poc-head"><div><span>Direct p=8 folds</span><strong>${aggregate.direct_eighth_moment_folds_certified ?? 0} / ${aggregate.direct_eighth_moment_fold_total ?? 0}</strong></div><div><span>Refinement bridges</span><strong>${aggregate.refinement_bridges_certified ?? 0} / ${aggregate.refinement_bridge_total ?? 0}</strong></div><div><span>Cofinal margin</span><strong>${aggregate.cofinal_refinement_margin_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">정확 유리수 scale과 바깥쪽 반올림 8제곱근으로 140개 정제 다리를 인증했습니다. 그러나 이 유한 계산은 실제 표현 수를 읽으므로, 표현 수를 열거하지 않는 공종 산술 여유가 필요합니다.</p>
+    `;
+  } else {
+    const rows = computation.finite_wheel_crt_witness_rows || [];
+    detail = `
+      <div class="poc-equation">n≡a (mod W), n≡0 (mod q), n≡−2 (mod r) ⇒ infinitely many wheel survivors with n,n+2 composite</div>
+      ${table(["wheel W", "admissible a", "q", "r", "composite-pair witness", "period Wqr"], rows.map((row) => [formatter.format(row.wheel_W), row.admissible_residue_a, row.external_prime_q, row.external_prime_r, formatter.format(row.composite_pair_witness_n), formatter.format(row.infinite_progression_period_Wqr)]))}
+      <div class="poc-head"><div><span>Fixed-wheel CRT no-go</span><strong>${aggregate.finite_wheel_crt_no_go_proved ? "proved" : "open"}</strong></div><div><span>Tested wheels</span><strong>${rows.length} / ${rows.length}</strong></div><div><span>Parity-sensitive lower bound</span><strong>${aggregate.parity_sensitive_bilinear_lower_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">어떤 고정 휠의 허용 잉여류도 쌍둥이 소수를 인증하지 못합니다. CRT가 같은 잉여류 안에 두 수가 모두 합성수인 무한 수열을 만들기 때문입니다. 성장하는 체나 전역 쌍선형 추정은 이 no-go의 범위 밖입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket220-dyadic-partition-primitive-refinement-crt" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 220 dyadic partition, primitive-word closure, refinement stability, and finite-wheel CRT no-go</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go results; all parent conjectures open</strong></div><div><span>Closed infinite subfamilies</span><strong>${audit.machine_audit?.closed_infinite_subfamily_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET220 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || attempt.new_result || computation.theorem || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || computation.no_go_scope || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(section.claim_boundary || attempt.claim_boundary || audit.proof_boundary || "")}</p>
+      <p><a href="../docs/dyadic-partition-primitive-refinement-crt.ko.md">한국어 보고서</a> · <a href="../docs/dyadic-partition-primitive-refinement-crt.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket219BandpassMatveevCrossFitQualitativeAbel(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.bandpass_matveev_crossfit_qualitative_abel_audit || {};
@@ -16707,7 +16790,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket219BandpassMatveevCrossFitQualitativeAbel(ticket219AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket220DyadicPartitionPrimitiveRefinementCRT(ticket220AttemptGlobal) ||
+      renderTicket219BandpassMatveevCrossFitQualitativeAbel(ticket219AttemptGlobal) ||
       renderTicket218AdaptiveRadiusSpikeResidualSurplus(ticket218AttemptGlobal) ||
       renderTicket217RelativeThresholdConvergentMomentTail(ticket217AttemptGlobal) ||
       renderTicket216LaplaceGcdRadixTauberian(ticket216AttemptGlobal) ||
@@ -17246,6 +17330,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket220Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket220-dyadic-partition-primitive-refinement-crt.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket220AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket220AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket220AttemptGlobal) {
+      ticket220AttemptGlobal.bounded_result = ticket220AttemptGlobal.bounded_result || {};
+      ticket220AttemptGlobal.bounded_result.dyadic_partition_primitive_refinement_crt_audit = payload.dyadic_partition_primitive_refinement_crt_audit || {};
+    }
+    return Boolean(ticket220AttemptGlobal);
+  } catch (_error) {
+    ticket220AttemptGlobal = null;
     return false;
   }
 }
@@ -18819,9 +18923,10 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket219Loaded = await loadTicket219Attempt();
+  const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket219-current";
+  document.documentElement.dataset.openProblemCache = "ticket220-current";
+  const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
   const ticket216Loaded = await loadTicket216Attempt();
@@ -18873,8 +18978,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket220AttemptGlobal) await loadTicket220Attempt();
     if (!ticket219AttemptGlobal) await loadTicket219Attempt();
     if (!ticket218AttemptGlobal) await loadTicket218Attempt();
     if (!ticket217AttemptGlobal) await loadTicket217Attempt();
@@ -18972,7 +19078,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket219-current";
+  document.documentElement.dataset.openProblemCache = "ticket220-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

@@ -15,27 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-219
+## Current research boundary: TICKET-220
 
 The current machine-readable boundary is
-`data/open-problem/ticket219-bandpass-matveev-crossfit-qualitative-abel.json`.
+`data/open-problem/ticket220-dyadic-partition-primitive-refinement-crt.json`.
 
-TICKET-219 records four exact partial or no-go results and zero parent-
+TICKET-220 records four exact partial or no-go results and zero parent-
 conjecture resolutions:
 
-- a positive dyadic band-pass RH defect count certificate and an explicit
-  audit that its cofinal actual-defect premise is RH-equivalent;
-- an exact Matveev threshold `p=27,456,680,737` glued to the 49-convergent
-  prefix, excluding every positive single-mountain Collatz cycle;
-- a leakage-free two-fold Goldbach residual theorem with ten exact held-out
-  eighth-moment certificates;
-- the qualitative Twin Abel/support equivalence and an abstract sparse-support
-  no-go for treating positive normalized Abel density as necessary.
+- a complete dyadic partition identity for RH defect multiplicity and a
+  one-atom counterexample to every finite-window sufficiency claim;
+- an affine fixed-point extension from single-mountain Collatz words to all
+  their cyclic rotations and positive powers;
+- an exact Goldbach cross-fit refinement theorem with `150 / 150` direct
+  eighth-moment folds and `140 / 140` finite refinement bridges;
+- a CRT construction of infinite composite-pair progressions inside every
+  fixed admissible Twin wheel class.
 
-A prime-side actual-zeta band-pass enclosure, effective Baker separation for
-all Collatz valuation words plus divergence control, a cofinal cross-fitted
-Goldbach eighth-moment bound, and an unbounded parity-corrected actual Twin Abel
-transform remain open.
+A prime-side summable dyadic envelope below one, effective Baker separation for
+primitive multi-run Collatz words plus divergence control, a representation-
+free cofinal Goldbach refinement margin, and a parity-sensitive Twin lower
+bound beyond every fixed wheel remain open.
+
+English report: [TICKET-220](dyadic-partition-primitive-refinement-crt.md).
+한국어 보고서: [TICKET-220](dyadic-partition-primitive-refinement-crt.ko.md).
+
+## Preserved research boundary: TICKET-219
+
+The direct machine-readable input is
+`data/open-problem/ticket219-bandpass-matveev-crossfit-qualitative-abel.json`.
 
 English report: [TICKET-219](bandpass-matveev-crossfit-qualitative-abel.md).
 한국어 보고서: [TICKET-219](bandpass-matveev-crossfit-qualitative-abel.ko.md).

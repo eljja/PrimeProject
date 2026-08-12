@@ -14,8 +14,9 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket220Load = openProblemSource.indexOf("const ticket220Loaded = await loadTicket220Attempt();");
+  const ticket220EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket220Load);
   const ticket219Load = openProblemSource.indexOf("const ticket219Loaded = await loadTicket219Attempt();");
-  const ticket219EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket219Load);
   const ticket218Load = openProblemSource.indexOf("const ticket218Loaded = await loadTicket218Attempt();");
   const ticket217Load = openProblemSource.indexOf("const ticket217Loaded = await loadTicket217Attempt();");
   const ticket216Load = openProblemSource.indexOf("const ticket216Loaded = await loadTicket216Attempt();");
@@ -69,15 +70,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket219Load >= 0 && ticket219Load < ticket219EarlyRender && ticket219EarlyRender < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET219 must render before archive loading, and TICKET218 through TICKET125 must precede historical ticket loading");
+  if (!(ticket220Load >= 0 && ticket220Load < ticket220EarlyRender && ticket220EarlyRender < ticket219Load && ticket219Load < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET220 must render before archive loading, and TICKET219 through TICKET125 must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260813-ticket219")) {
+    if (!source.includes("open-problems.js?v=20260814-ticket220")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260813-ticket219-layout")) {
+    if (!source.includes("styles.css?v=20260814-ticket220-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -472,9 +473,9 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket219AuditOverflow: (() => {
+          ticket220AuditOverflow: (() => {
             const wrapper = document.querySelector(
-              "#ticket219-bandpass-matveev-crossfit-qualitative-abel .ticket161-audit-table .proof-table-wrap",
+              "#ticket220-dyadic-partition-primitive-refinement-crt .ticket161-audit-table .proof-table-wrap",
             );
             return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
           })(),
@@ -710,13 +711,13 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-219") ||
-    !metrics.currentBriefText.includes("27,456,680,737") ||
+    !metrics.currentBriefText.includes("TICKET-220") ||
+    !metrics.currentBriefText.includes("140 / 140") ||
     !metrics.currentBriefText.includes("p=8") ||
-    !metrics.currentBriefText.includes("Abel") ||
+    !metrics.currentBriefText.includes("CRT") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    !metrics.railResearchText.includes("TICKET-219") ||
+    !metrics.railResearchText.includes("TICKET-220") ||
     !metrics.railResearchText.includes("Resolution count: 0") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -733,12 +734,12 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-219 actually changed") ||
-    !metrics.proofHub?.boundary.includes("PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor") ||
-    !metrics.proofHub?.boundary.includes("EffectiveBakerSeparationForAllPositiveCycleValuationWords") ||
-    !metrics.proofHub?.boundary.includes("CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier") ||
-    !metrics.proofHub?.boundary.includes("UnboundedParityCorrectedTwinAbelTransform") ||
-    !metrics.proofHub?.boundary.includes("TICKET-161–219") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-220 actually changed") ||
+    !metrics.proofHub?.boundary.includes("PrimeSideSummableDyadicBandpassEnvelopeBelowOne") ||
+    !metrics.proofHub?.boundary.includes("EffectiveBakerSeparationForPrimitiveMultiRunValuationWords") ||
+    !metrics.proofHub?.boundary.includes("CofinalCrossFitRefinementMarginWithoutRepresentationEnumeration") ||
+    !metrics.proofHub?.boundary.includes("ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel") ||
+    !metrics.proofHub?.boundary.includes("TICKET-161–220") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -750,8 +751,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-219 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-219 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 219 band-pass defects")) failures.push(`${page.problemId}: current TICKET-219 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-220 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-220 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 220 dyadic partition")) failures.push(`${page.problemId}: current TICKET-220 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1621,37 +1622,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket219 title", "Ticket 219 band-pass defects, Matveev closure, cross-fitted moments, and qualitative Abel growth");
-    requireCurrentText("ticket219 table", "TICKET219 audit");
-    requireCurrentText("ticket219 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket219 closed family", "Closed infinite subfamilies1");
-    requireCurrentText("ticket219 resolutions", "Resolution count0");
-    requireCurrentText("ticket219 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket219AuditOverflow) checks.push(`${page.problemId}: ticket219 audit table overflow`);
+    requireCurrentText("ticket220 title", "Ticket 220 dyadic partition, primitive-word closure, refinement stability, and finite-wheel CRT no-go");
+    requireCurrentText("ticket220 table", "TICKET220 audit");
+    requireCurrentText("ticket220 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket220 closed family", "Closed infinite subfamilies1");
+    requireCurrentText("ticket220 resolutions", "Resolution count0");
+    requireCurrentText("ticket220 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket220AuditOverflow) checks.push(`${page.problemId}: ticket220 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket219 RH theorem", "PositiveDyadicBandpassDefectCertificateAndEquivalenceAudit");
-      requireCurrentText("ticket219 RH target", "PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor");
-      requireCurrentText("ticket219 RH certificate", "Positive band-pass certificateproved");
-      requireCurrentText("ticket219 RH equivalence", "Cofinal conditionRH-equivalent");
-      requireCurrentText("ticket219 RH actual", "Prime-side enclosureopen");
+      requireCurrentText("ticket220 RH theorem", "DyadicLaplacePartitionAndFiniteWindowNoGo");
+      requireCurrentText("ticket220 RH target", "PrimeSideSummableDyadicBandpassEnvelopeBelowOne");
+      requireCurrentText("ticket220 RH partition", "Dyadic partitionproved");
+      requireCurrentText("ticket220 RH no-go", "Finite-window sufficiencyrefuted");
+      requireCurrentText("ticket220 RH actual", "Prime-side summable envelopeopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket219 Collatz theorem", "ExplicitMatveevClosureOfAllPositiveSingleMountainCycles");
-      requireCurrentText("ticket219 Collatz target", "EffectiveBakerSeparationForAllPositiveCycleValuationWords");
-      requireCurrentText("ticket219 Collatz threshold", "first certified p27,456,680,737");
-      requireCurrentText("ticket219 Collatz prefix", "TICKET-218 prefix49 excluded");
-      requireCurrentText("ticket219 Collatz closure", "All single mountainsexcluded");
+      requireCurrentText("ticket220 Collatz theorem", "PrimitiveRootExtensionOfSingleMountainExclusion");
+      requireCurrentText("ticket220 Collatz target", "EffectiveBakerSeparationForPrimitiveMultiRunValuationWords");
+      requireCurrentText("ticket220 Collatz affine", "Affine root extensionproved");
+      requireCurrentText("ticket220 Collatz family", "Imprimitive multi-run familyclosed");
+      requireCurrentText("ticket220 Collatz open", "Primitive multi-run wordsopen");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket219 Goldbach theorem", "LeakageFreeCrossFittedEighthMomentSupportCertificate");
-      requireCurrentText("ticket219 Goldbach target", "CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier");
-      requireCurrentText("ticket219 Goldbach split", "Training/test splitdisjoint");
-      requireCurrentText("ticket219 Goldbach audit", "Exact p=8 held-out folds10 / 10");
-      requireCurrentText("ticket219 Goldbach open", "Cofinal foldwise boundopen");
+      requireCurrentText("ticket220 Goldbach theorem", "CrossFitPartitionRefinementStabilityCertificate");
+      requireCurrentText("ticket220 Goldbach target", "CofinalCrossFitRefinementMarginWithoutRepresentationEnumeration");
+      requireCurrentText("ticket220 Goldbach direct", "Direct p=8 folds150 / 150");
+      requireCurrentText("ticket220 Goldbach bridge", "Refinement bridges140 / 140");
+      requireCurrentText("ticket220 Goldbach open", "Cofinal marginopen");
     } else {
-      requireCurrentText("ticket219 Twin theorem", "QualitativeAbelInfinitudeEquivalenceAndDensityScaleNoGo");
-      requireCurrentText("ticket219 Twin target", "UnboundedParityCorrectedTwinAbelTransform");
-      requireCurrentText("ticket219 Twin equivalence", "Qualitative Abel equivalenceproved");
-      requireCurrentText("ticket219 Twin no-go", "Density-scale necessityrefuted abstractly");
-      requireCurrentText("ticket219 Twin open", "Actual twin Abel unboundedopen");
+      requireCurrentText("ticket220 Twin theorem", "FiniteWheelTwinCertificationCRTNoGo");
+      requireCurrentText("ticket220 Twin target", "ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel");
+      requireCurrentText("ticket220 Twin no-go", "Fixed-wheel CRT no-goproved");
+      requireCurrentText("ticket220 Twin wheels", "Tested wheels5 / 5");
+      requireCurrentText("ticket220 Twin open", "Parity-sensitive lower boundopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3815,6 +3816,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-220") ||
     !metrics.evolutionPanel.includes("TICKET-219") ||
     !metrics.evolutionPanel.includes("TICKET-218") ||
     !metrics.evolutionPanel.includes("TICKET-217") ||

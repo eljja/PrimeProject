@@ -37,7 +37,31 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-13 TICKET-219 Band-pass Defects, Matveev Closure, Cross-fitted Moments, and Qualitative Abel Growth
+## 2026-08-14 TICKET-220 Dyadic Partition, Primitive-Word Closure, Refinement Stability, and a Finite-Wheel CRT No-Go
+
+TICKET-220 keeps all four parent conjectures at `open_not_proven` and proves
+four exact partial or no-go results:
+
+1. the complete dyadic Laplace-band sum equals total RH-defect multiplicity,
+   while one remote atom refutes every finite-window sufficiency claim;
+2. the complete TICKET-219 single-mountain Collatz exclusion extends to every
+   cyclic rotation and positive power of each primitive root;
+3. an exact Minkowski bridge transfers a Goldbach cross-fit certificate under
+   fold refinement, and all 140 finite nested bridges pass with outward-rounded
+   rational eighth-root bounds;
+4. CRT constructs an infinite progression of composite pairs inside every
+   fixed admissible twin-wheel class.
+
+The actual-zeta summable dyadic envelope, primitive multi-run Collatz Baker
+separation and divergence control, representation-free cofinal Goldbach
+refinement margin, and parity-sensitive Twin lower bound beyond every fixed
+wheel are not proved. The machine parent-conjecture resolution count remains
+zero.
+
+English report: [TICKET-220](dyadic-partition-primitive-refinement-crt.md).
+한국어 보고서: [TICKET-220](dyadic-partition-primitive-refinement-crt.ko.md).
+
+## Preserved: 2026-08-13 TICKET-219 Band-pass Defects, Matveev Closure, Cross-fitted Moments, and Qualitative Abel Growth
 
 TICKET-219 keeps all four parent conjectures at `open_not_proven` and proves
 four exact partial or no-go results:

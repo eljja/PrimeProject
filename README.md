@@ -31,16 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-220: Dyadic Partition, Primitive-Word Closure, Refinement Stability, and a Finite-Wheel CRT No-Go](docs/dyadic-partition-primitive-refinement-crt.md),
+with a separate [Korean report](docs/dyadic-partition-primitive-refinement-crt.ko.md).
+It proves that all dyadic RH bands partition total defect multiplicity while
+no finite band window is globally sufficient; extends the closed Collatz
+family to every rotation and positive power of a single-mountain primitive
+root; proves an exact Goldbach cross-fit refinement theorem and certifies all
+`140 / 140` finite refinement bridges; and constructs infinite composite-pair
+CRT progressions inside every fixed admissible twin-wheel class. These are
+exact partial or no-go results, not parent-problem resolutions. Every
+conjecture remains `open_not_proven`; the machine resolution count is zero.
+
+The preserved direct input is
 [TICKET-219: Band-pass Defects, Matveev Closure, Cross-fitted Moments, and Qualitative Abel Growth](docs/bandpass-matveev-crossfit-qualitative-abel.md),
-with a separate [Korean report](docs/bandpass-matveev-crossfit-qualitative-abel.ko.md).
-It proves a positive dyadic band-pass count certificate for RH defects while
-recording that the cofinal actual-defect premise is RH-equivalent; combines an
-exact `p=27,456,680,737` Matveev threshold with the TICKET-218 prefix to
-exclude every positive single-mountain Collatz cycle; certifies ten disjoint
-Goldbach holdout folds at `p=8`; and replaces an overstrong normalized Twin
-Abel premise by the exact qualitative unboundedness criterion. These are exact
-partial or no-go results, not parent-problem resolutions. Every conjecture
-remains `open_not_proven`; the machine resolution count is zero.
+with its [Korean report](docs/bandpass-matveev-crossfit-qualitative-abel.ko.md).
 
 The preserved direct input is
 [TICKET-218: Adaptive Radii, Exponential Spikes, Residual Moments, and Abel Surplus](docs/adaptive-radius-spike-residual-surplus.md),
@@ -328,7 +332,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-219 boundary, four exact partial or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-220 boundary, four exact partial or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -345,16 +349,17 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-219. The RH track localizes a positive
-defect transform to dyadic height bands and marks its cofinal premise as
-RH-equivalent. The Collatz track closes the complete positive single-mountain
-cycle family by gluing 49 exact convergent exclusions to an explicit Matveev
-tail. The Goldbach track cross-fits the finite eighth-moment model and certifies
-all ten held-out folds. The Twin track proves the qualitative Abel/support
-equivalence and refutes density-scale positivity as a necessary abstract
-infinitude premise. These are partial or no-go results, not solutions. All four
-parent conjectures remain open and the machine resolution count is zero.
+The latest proof-search track is TICKET-220. The RH track proves a full dyadic
+partition identity and a finite-window no-go. The Collatz track closes all
+rotations and positive powers of every single-mountain primitive root. The
+Goldbach track proves exact cross-fit refinement stability, with all 150 direct
+`p=8` folds and 140 refinement bridges passing on the finite audit. The Twin
+track proves by CRT that every fixed admissible wheel class contains infinitely
+many composite pairs. These are partial or no-go results, not solutions. All
+four parent conjectures remain open and the machine resolution count is zero.
 See
+[TICKET220 EN](docs/dyadic-partition-primitive-refinement-crt.md),
+[TICKET220 KO](docs/dyadic-partition-primitive-refinement-crt.ko.md),
 [TICKET219 EN](docs/bandpass-matveev-crossfit-qualitative-abel.md),
 [TICKET219 KO](docs/bandpass-matveev-crossfit-qualitative-abel.ko.md),
 [TICKET218 EN](docs/adaptive-radius-spike-residual-surplus.md),
@@ -482,13 +487,13 @@ See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-219입니다. 리만 트랙은 결함을 이진
-높이 띠에 국소화하는 양의 대역 통과 인증을 만들고 공종 전제가 RH와
-동치임을 명시했습니다. 콜라츠 트랙은 정확한 Matveev 임계값과 기존 49개
-수렴분수 배제를 연결해 양의 단일 봉우리 주기 전체를 닫았습니다. 골드바흐
-트랙은 모형 적합과 시험 fold를 분리한 8차 모멘트 인증 10개를 통과시켰습니다.
-쌍둥이 소수 트랙은 정규화 밀도 조건을 충분조건으로 내리고 정성적 Abel
-무계성 기준을 확정했습니다. 네 상위 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-220입니다. 리만 트랙은 이진 대역
+전체가 결함 중복도를 복원함을 증명하고 유한 창의 전역 충분성을
+반례로 폐기했습니다. 콜라츠 트랙은 단일 봉우리 원시근의 모든 순환 이동과
+거듭제곱을 닫았습니다. 골드바흐 트랙은 교차 적합 정제 안정성을 증명하고
+유한 정제 다리 140개를 모두 인증했습니다. 쌍둥이 소수 트랙은 모든 고정
+유한 휠 허용류 안의 무한 합성수쌍 CRT 수열을 구성했습니다. 네 상위 문제의
+해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -508,19 +513,17 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-219입니다.
-[대역 통과·Matveev 폐쇄·교차적합·정성적 Abel 한국어 보고서](docs/bandpass-matveev-crossfit-qualitative-abel.ko.md)와
-[영문 보고서](docs/bandpass-matveev-crossfit-qualitative-abel.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-220입니다.
+[이진 분할·원시 단어 폐쇄·정제 안정성·유한 휠 CRT 한계 한국어 보고서](docs/dyadic-partition-primitive-refinement-crt.ko.md)와
+[영문 보고서](docs/dyadic-partition-primitive-refinement-crt.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-RH 대역 통과 인증, Collatz 단일 봉우리 주기 전체 폐쇄, Goldbach 교차적합
-8차 잔차 인증, Twin 정성적 Abel 동치를 확정했지만 실제 전역·무한 전제는
-남아 있습니다. 각 proof DAG는 TICKET-218 직접 입력, 이번에 닫힌 정리,
-폐기된 경로, 다음 단일 미증명 보조정리를 분리합니다.
+리만 무한 스케일, 콜라츠 원시 다중 run, 골드바흐 무열거 정제 여유,
+쌍둥이 소수 parity 민감 하계가 현재의 결정적 미해결 보조정리입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-219의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 219개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-220의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 220개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

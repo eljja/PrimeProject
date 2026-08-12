@@ -1,0 +1,186 @@
+{
+  "schema": "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1",
+  "generated_at": "2026-08-14T09:30:00+09:00",
+  "ticket_id": "TP-TICKET-220",
+  "problem_id": "twin-prime",
+  "status": "open_not_proven",
+  "theorem_name": "FiniteWheelTwinCertificationCRTNoGo",
+  "declared_proposition": "For every squarefree finite wheel W and every twin-admissible residue a modulo W, there are infinitely many n congruent to a modulo W for which both n and n+2 are composite. Choose distinct primes q,r not dividing W and impose n=0 mod q and n=-2 mod r. The Chinese remainder theorem gives one class modulo Wqr, and all sufficiently large members are composite pairs.",
+  "mathematical_argument": "The three moduli W,q,r are pairwise coprime, so CRT produces a unique residue class modulo Wqr satisfying all congruences. Every member remains in the same admissible wheel class, while q divides n and r divides n+2. Taking the progression parameter large makes both divisors proper. Therefore survival of any fixed finite wheel cannot certify even one twin pair without additional nonlocal input, and cannot by itself prove infinitely many twins.",
+  "reproducible_computation": {
+    "theorem": "For every squarefree finite wheel W and every twin-admissible residue a modulo W, there are infinitely many n congruent to a modulo W for which both n and n+2 are composite. Choose distinct primes q,r not dividing W and impose n=0 mod q and n=-2 mod r. The Chinese remainder theorem gives one class modulo Wqr, and all sufficiently large members are composite pairs.",
+    "proof": "The three moduli W,q,r are pairwise coprime, so CRT produces a unique residue class modulo Wqr satisfying all congruences. Every member remains in the same admissible wheel class, while q divides n and r divides n+2. Taking the progression parameter large makes both divisors proper. Therefore survival of any fixed finite wheel cannot certify even one twin pair without additional nonlocal input, and cannot by itself prove infinitely many twins.",
+    "finite_wheel_crt_witness_rows": [
+      {
+        "wheel_W": 30,
+        "wheel_prime_factors": [
+          2,
+          3,
+          5
+        ],
+        "admissible_residue_a": 11,
+        "external_prime_q": 7,
+        "external_prime_r": 11,
+        "composite_pair_witness_n": 581,
+        "infinite_progression_period_Wqr": 2310,
+        "checks": {
+          "wheel_residue_preserved": true,
+          "residue_is_twin_admissible": true,
+          "n_composite_by_q": true,
+          "n_plus_2_composite_by_r": true,
+          "progression_preserves_all_congruences": true
+        }
+      },
+      {
+        "wheel_W": 210,
+        "wheel_prime_factors": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "admissible_residue_a": 11,
+        "external_prime_q": 11,
+        "external_prime_r": 13,
+        "composite_pair_witness_n": 30041,
+        "infinite_progression_period_Wqr": 30030,
+        "checks": {
+          "wheel_residue_preserved": true,
+          "residue_is_twin_admissible": true,
+          "n_composite_by_q": true,
+          "n_plus_2_composite_by_r": true,
+          "progression_preserves_all_congruences": true
+        }
+      },
+      {
+        "wheel_W": 2310,
+        "wheel_prime_factors": [
+          2,
+          3,
+          5,
+          7,
+          11
+        ],
+        "admissible_residue_a": 17,
+        "external_prime_q": 13,
+        "external_prime_r": 17,
+        "composite_pair_witness_n": 2327,
+        "infinite_progression_period_Wqr": 510510,
+        "checks": {
+          "wheel_residue_preserved": true,
+          "residue_is_twin_admissible": true,
+          "n_composite_by_q": true,
+          "n_plus_2_composite_by_r": true,
+          "progression_preserves_all_congruences": true
+        }
+      },
+      {
+        "wheel_W": 30030,
+        "wheel_prime_factors": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "admissible_residue_a": 17,
+        "external_prime_q": 17,
+        "external_prime_r": 19,
+        "composite_pair_witness_n": 9699707,
+        "infinite_progression_period_Wqr": 9699690,
+        "checks": {
+          "wheel_residue_preserved": true,
+          "residue_is_twin_admissible": true,
+          "n_composite_by_q": true,
+          "n_plus_2_composite_by_r": true,
+          "progression_preserves_all_congruences": true
+        }
+      },
+      {
+        "wheel_W": 510510,
+        "wheel_prime_factors": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17
+        ],
+        "admissible_residue_a": 29,
+        "external_prime_q": 19,
+        "external_prime_r": 23,
+        "composite_pair_witness_n": 150600479,
+        "infinite_progression_period_Wqr": 223092870,
+        "checks": {
+          "wheel_residue_preserved": true,
+          "residue_is_twin_admissible": true,
+          "n_composite_by_q": true,
+          "n_plus_2_composite_by_r": true,
+          "progression_preserves_all_congruences": true
+        }
+      }
+    ],
+    "aggregate": {
+      "finite_wheel_crt_no_go_proved": true,
+      "every_tested_wheel_has_infinite_composite_pair_progression": true,
+      "finite_local_divisibility_survival_sufficient_for_twins": false,
+      "parity_sensitive_bilinear_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "This theorem excludes only certificates using divisibility data from a fixed finite wheel. It does not rule out growing sieves, bilinear forms, distribution estimates, or other global input.",
+    "failure_count": 0
+  },
+  "discarded_route": "using survival of any fixed finite wheel as sufficient evidence that a residue class contains twin primes",
+  "remaining_gap": "No parity-sensitive global lower bound proves actual twin support beyond all finite local divisibility filters.",
+  "candidate_theorem": "ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel",
+  "claim_boundary": "No Twin Prime proof or last-twin counterexample. A precise fixed-wheel route is closed by CRT; global parity-sensitive control remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T219",
+        "label": "QualitativeAbelInfinitudeEquivalenceAndDensityScaleNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T220",
+        "label": "FiniteWheelTwinCertificationCRTNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N220",
+        "label": "FixedFiniteWheelSurvivalCertifiesTwinSupport",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN220",
+        "label": "ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T219",
+        "TP-T220"
+      ],
+      [
+        "TP-T220",
+        "TP-N220"
+      ],
+      [
+        "TP-T220",
+        "TP-OPEN220"
+      ],
+      [
+        "TP-OPEN220",
+        "TP"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "schema": "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1",
+  "generated_at": "2026-08-14T09:30:00+09:00",
+  "ticket_id": "CO-TICKET-220",
+  "problem_id": "collatz",
+  "status": "open_not_proven",
+  "theorem_name": "PrimitiveRootExtensionOfSingleMountainExclusion",
+  "declared_proposition": "Let u be a cyclic rotation of a binary single-mountain valuation word 1^k2^m with k,m>=1. No positive accelerated Collatz cycle has valuation word u^r for any r>=1. Thus TICKET-219 excludes not only one traversal of every single-mountain word but every rotation and imprimitive cyclic power of that family, including words with arbitrarily many displayed runs.",
+  "mathematical_argument": "Align the cycle at the beginning of one copy of u. Its one-block map is f(n)=(A n+B)/D with A=3^h, D=2^S and A!=D. If u^r closes, then f^r(n)=n. For an affine map of nonunit positive slope, f^r(n)-n=(f(n)-n)(1+A/D+...+(A/D)^(r-1)); hence f(n)=n. This would be a positive single-mountain cycle, contradicted by TICKET-219. Rotation only changes the chosen cycle base point. Primitive multi-run words and nonperiodic divergent trajectories are not covered.",
+  "reproducible_computation": {
+    "theorem": "Let u be a cyclic rotation of a binary single-mountain valuation word 1^k2^m with k,m>=1. No positive accelerated Collatz cycle has valuation word u^r for any r>=1. Thus TICKET-219 excludes not only one traversal of every single-mountain word but every rotation and imprimitive cyclic power of that family, including words with arbitrarily many displayed runs.",
+    "proof": "Align the cycle at the beginning of one copy of u. Its one-block map is f(n)=(A n+B)/D with A=3^h, D=2^S and A!=D. If u^r closes, then f^r(n)=n. For an affine map of nonunit positive slope, f^r(n)-n=(f(n)-n)(1+A/D+...+(A/D)^(r-1)); hence f(n)=n. This would be a positive single-mountain cycle, contradicted by TICKET-219. Rotation only changes the chosen cycle base point. Primitive multi-run words and nonperiodic divergent trajectories are not covered.",
+    "affine_power_replay_rows": [
+      {
+        "primitive_root": [
+          1,
+          2
+        ],
+        "power": 5,
+        "one_block_affine_A_B_D": [
+          9,
+          5,
+          8
+        ],
+        "direct_power_affine_A_B_D": [
+          59049,
+          131405,
+          32768
+        ],
+        "composition_identity_verified": true,
+        "fixed_point_identity_verified": true,
+        "nonunit_slope_verified": true
+      },
+      {
+        "primitive_root": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "power": 3,
+        "one_block_affine_A_B_D": [
+          81,
+          73,
+          64
+        ],
+        "direct_power_affine_A_B_D": [
+          531441,
+          1156393,
+          262144
+        ],
+        "composition_identity_verified": true,
+        "fixed_point_identity_verified": true,
+        "nonunit_slope_verified": true
+      },
+      {
+        "primitive_root": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "power": 4,
+        "one_block_affine_A_B_D": [
+          81,
+          65,
+          32
+        ],
+        "direct_power_affine_A_B_D": [
+          43046721,
+          55711825,
+          1048576
+        ],
+        "composition_identity_verified": true,
+        "fixed_point_identity_verified": true,
+        "nonunit_slope_verified": true
+      }
+    ],
+    "binary_word_enumeration_rows": [
+      {
+        "word_length": 2,
+        "all_binary_words": 4,
+        "closed_by_ticket220": 2,
+        "primitive_multi_run_still_open": 0
+      },
+      {
+        "word_length": 3,
+        "all_binary_words": 8,
+        "closed_by_ticket220": 6,
+        "primitive_multi_run_still_open": 0
+      },
+      {
+        "word_length": 4,
+        "all_binary_words": 16,
+        "closed_by_ticket220": 14,
+        "primitive_multi_run_still_open": 0
+      },
+      {
+        "word_length": 5,
+        "all_binary_words": 32,
+        "closed_by_ticket220": 20,
+        "primitive_multi_run_still_open": 10
+      },
+      {
+        "word_length": 6,
+        "all_binary_words": 64,
+        "closed_by_ticket220": 38,
+        "primitive_multi_run_still_open": 24
+      },
+      {
+        "word_length": 7,
+        "all_binary_words": 128,
+        "closed_by_ticket220": 42,
+        "primitive_multi_run_still_open": 84
+      },
+      {
+        "word_length": 8,
+        "all_binary_words": 256,
+        "closed_by_ticket220": 70,
+        "primitive_multi_run_still_open": 184
+      },
+      {
+        "word_length": 9,
+        "all_binary_words": 512,
+        "closed_by_ticket220": 78,
+        "primitive_multi_run_still_open": 432
+      },
+      {
+        "word_length": 10,
+        "all_binary_words": 1024,
+        "closed_by_ticket220": 112,
+        "primitive_multi_run_still_open": 900
+      },
+      {
+        "word_length": 11,
+        "all_binary_words": 2048,
+        "closed_by_ticket220": 110,
+        "primitive_multi_run_still_open": 1936
+      },
+      {
+        "word_length": 12,
+        "all_binary_words": 4096,
+        "closed_by_ticket220": 182,
+        "primitive_multi_run_still_open": 3888
+      },
+      {
+        "word_length": 13,
+        "all_binary_words": 8192,
+        "closed_by_ticket220": 156,
+        "primitive_multi_run_still_open": 8034
+      },
+      {
+        "word_length": 14,
+        "all_binary_words": 16384,
+        "closed_by_ticket220": 226,
+        "primitive_multi_run_still_open": 16072
+      },
+      {
+        "word_length": 15,
+        "all_binary_words": 32768,
+        "closed_by_ticket220": 236,
+        "primitive_multi_run_still_open": 32520
+      },
+      {
+        "word_length": 16,
+        "all_binary_words": 65536,
+        "closed_by_ticket220": 310,
+        "primitive_multi_run_still_open": 65040
+      }
+    ],
+    "transcript_sha256": "cb499e31b855837f4169999dac0f91b07b88701b77609be0855377525d80e88a",
+    "aggregate": {
+      "primitive_root_extension_proved": true,
+      "all_rotations_and_positive_powers_of_single_mountains_excluded": true,
+      "infinite_imprimitive_multi_run_family_closed": true,
+      "primitive_multi_run_cycles_excluded": false,
+      "nonperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "A word with many runs need not contain new phase information: if it is a cyclic power of one single-mountain root, it has the same affine fixed point. Enumeration of those powers is retired; primitive multi-run words remain genuinely open.",
+    "failure_count": 0
+  },
+  "discarded_route": "enumerating rotations and powers of single-mountain words as independent cycle candidates",
+  "remaining_gap": "Primitive multi-run valuation words and nonperiodic divergent trajectories remain uncontrolled.",
+  "candidate_theorem": "EffectiveBakerSeparationForPrimitiveMultiRunValuationWords",
+  "claim_boundary": "No Collatz proof or divergent orbit. An infinite imprimitive multi-run family is closed, but every primitive multi-run family remains open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T219",
+        "label": "ExplicitMatveevClosureOfAllPositiveSingleMountainCycles",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T220",
+        "label": "PrimitiveRootExtensionOfSingleMountainExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N220",
+        "label": "RepeatedSingleMountainWordsCreateNewCycleFixedPoints",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN220",
+        "label": "EffectiveBakerSeparationForPrimitiveMultiRunValuationWords",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T219",
+        "CO-T220"
+      ],
+      [
+        "CO-T220",
+        "CO-N220"
+      ],
+      [
+        "CO-T220",
+        "CO-OPEN220"
+      ],
+      [
+        "CO-OPEN220",
+        "CO"
+      ]
+    ]
+  }
+}

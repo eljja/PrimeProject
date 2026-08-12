@@ -1,0 +1,147 @@
+{
+  "schema": "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1",
+  "generated_at": "2026-08-14T09:30:00+09:00",
+  "ticket_id": "RH-TICKET-220",
+  "problem_id": "riemann",
+  "status": "open_not_proven",
+  "theorem_name": "DyadicLaplacePartitionAndFiniteWindowNoGo",
+  "declared_proposition": "Let C be a nonnegative integer-valued locally finite measure on (0,infinity), L(s)=integral exp(-s t)dC(t), and W_j(H)=L(2^(-j)/H)-L(2^(1-j)/H). Then the nonnegative kernels form a dyadic partition of unity: sum over all integer j of W_j(H)=C((0,infinity)), possibly infinity. For finite limits, sum from j=-M to N equals L(2^(-N)/H)-L(2^(M+1)/H). Moreover, for every finite index window and epsilon>0, a single defect atom can be placed sufficiently near zero or infinity so that its total mass in that window is below epsilon. Consequently no finite collection of these band measurements alone certifies C=0.",
+  "mathematical_argument": "For a fixed t>0, the j-th kernel is exp(-2^(-j)t/H)-exp(-2^(1-j)t/H). Its finite sum telescopes. The lower endpoint tends to infinity and the upper endpoint to zero, so the sum tends to 1. Tonelli's theorem transfers this identity to C. On a fixed finite window every kernel tends to zero both as t tends to zero and as t tends to infinity; a one-atom measure therefore proves the finite-window no-go statement. If certified upper bounds U_j>=W_j are summable with sum U_j<1, integrality would force C=0, but no such actual prime-side bounds are constructed here.",
+  "reproducible_computation": {
+    "theorem": "Let C be a nonnegative integer-valued locally finite measure on (0,infinity), L(s)=integral exp(-s t)dC(t), and W_j(H)=L(2^(-j)/H)-L(2^(1-j)/H). Then the nonnegative kernels form a dyadic partition of unity: sum over all integer j of W_j(H)=C((0,infinity)), possibly infinity. For finite limits, sum from j=-M to N equals L(2^(-N)/H)-L(2^(M+1)/H). Moreover, for every finite index window and epsilon>0, a single defect atom can be placed sufficiently near zero or infinity so that its total mass in that window is below epsilon. Consequently no finite collection of these band measurements alone certifies C=0.",
+    "proof": "For a fixed t>0, the j-th kernel is exp(-2^(-j)t/H)-exp(-2^(1-j)t/H). Its finite sum telescopes. The lower endpoint tends to infinity and the upper endpoint to zero, so the sum tends to 1. Tonelli's theorem transfers this identity to C. On a fixed finite window every kernel tends to zero both as t tends to zero and as t tends to infinity; a one-atom measure therefore proves the finite-window no-go statement. If certified upper bounds U_j>=W_j are summable with sum U_j<1, integrality would force C=0, but no such actual prime-side bounds are constructed here.",
+    "kernel": "exp(-2^(-j)t/H)-exp(-2^(1-j)t/H)",
+    "synthetic_atoms": [
+      3,
+      7,
+      19,
+      44,
+      91,
+      173
+    ],
+    "telescoping_rows": [
+      {
+        "M_equals_N": 2,
+        "direct_dyadic_sum": "2.531121445452918307622737E+0",
+        "telescoping_boundary_value": "2.531121445452918307622737E+0",
+        "absolute_identity_error": "0.000000000000000000000000E-75",
+        "distance_to_total_defect_count": "3.468878554547081692377263E+0",
+        "identity_verified": true
+      },
+      {
+        "M_equals_N": 4,
+        "direct_dyadic_sum": "4.244788928853315906201606E+0",
+        "telescoping_boundary_value": "4.244788928853315906201606E+0",
+        "absolute_identity_error": "0.000000000000000000000000E-75",
+        "distance_to_total_defect_count": "1.755211071146684093798394E+0",
+        "identity_verified": true
+      },
+      {
+        "M_equals_N": 8,
+        "direct_dyadic_sum": "5.840170324743933611305192E+0",
+        "telescoping_boundary_value": "5.840170324743933611305192E+0",
+        "absolute_identity_error": "0.000000000000000000000000E-75",
+        "distance_to_total_defect_count": "1.598296752560663886948082E-1",
+        "identity_verified": true
+      },
+      {
+        "M_equals_N": 12,
+        "direct_dyadic_sum": "5.989734437222970004618842E+0",
+        "telescoping_boundary_value": "5.989734437222970004618842E+0",
+        "absolute_identity_error": "0.000000000000000000000000E-75",
+        "distance_to_total_defect_count": "1.026556277702999538115802E-2",
+        "identity_verified": true
+      },
+      {
+        "M_equals_N": 16,
+        "direct_dyadic_sum": "5.999357297291081572530423E+0",
+        "telescoping_boundary_value": "5.999357297291081572530423E+0",
+        "absolute_identity_error": "0.000000000000000000000000E-75",
+        "distance_to_total_defect_count": "6.427027089184274695772342E-4",
+        "identity_verified": true
+      }
+    ],
+    "finite_window_hidden_atom_rows": [
+      {
+        "placement": "below_finite_window",
+        "synthetic_atom_t": "9.094947017729282379150391E-13",
+        "observed_index_window": [
+          -4,
+          4
+        ],
+        "observed_kernel_mass": "3.630873379727494530144578E-12",
+        "below_epsilon_1e_minus_6": true
+      },
+      {
+        "placement": "above_finite_window",
+        "synthetic_atom_t": "1.099511627776000000000000E+12",
+        "observed_index_window": [
+          -4,
+          4
+        ],
+        "observed_kernel_mass": "0.000000000000000000000000E-1000074",
+        "below_epsilon_1e_minus_6": true
+      }
+    ],
+    "aggregate": {
+      "dyadic_partition_of_unity_proved": true,
+      "finite_window_global_certificate_refuted": true,
+      "summable_upper_envelope_below_one_would_prove_no_defects": true,
+      "actual_prime_side_summable_envelope_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The no-go applies only to finitely many dyadic Laplace bands without additional tail information. It is not a no-go for explicit-formula methods or for an infinite certified envelope.",
+    "failure_count": 0
+  },
+  "discarded_route": "treating any fixed finite collection of dyadic defect bands as a global RH certificate",
+  "remaining_gap": "No rigorous prime-side summable upper envelope controls all dyadic defect bands with total mass below one.",
+  "candidate_theorem": "PrimeSideSummableDyadicBandpassEnvelopeBelowOne",
+  "claim_boundary": "No RH proof and no off-line zero. The dyadic kernels now recover total defect multiplicity exactly, while finite-window sufficiency is rigorously rejected.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T219",
+        "label": "PositiveDyadicBandpassDefectCertificateAndEquivalenceAudit",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T220",
+        "label": "DyadicLaplacePartitionAndFiniteWindowNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N220",
+        "label": "FiniteDyadicWindowCertifiesGlobalDefectAbsence",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN220",
+        "label": "PrimeSideSummableDyadicBandpassEnvelopeBelowOne",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T219",
+        "RH-T220"
+      ],
+      [
+        "RH-T220",
+        "RH-N220"
+      ],
+      [
+        "RH-T220",
+        "RH-OPEN220"
+      ],
+      [
+        "RH-OPEN220",
+        "RH"
+      ]
+    ]
+  }
+}

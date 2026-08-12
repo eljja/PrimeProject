@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260813-ticket219-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket220-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-219</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-220</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-219 actually changed</h2>
-          <p>TICKET-219 did not solve a parent conjecture. It proves a positive dyadic band-pass count certificate for RH defects, closes every positive single-mountain Collatz cycle by gluing the TICKET-218 prefix to an explicit Matveev tail, certifies ten leakage-free Goldbach holdout folds at p=8, and replaces an overstrong Twin density premise by the exact qualitative Abel/support equivalence.</p>
-          <p class="proof-boundary">TICKET-219는 상위 난제를 해결하지 않았습니다. 리만 트랙은 양의 이진 대역 통과 결함 개수 인증을 만들고 공종 전제가 RH와 동치임을 명시했습니다. 콜라츠 트랙은 정확한 임계값 <code>p=27,456,680,737</code> 이후를 Matveev 하계로 닫아 모든 양의 단일 봉우리 주기를 배제했습니다. 골드바흐 트랙은 학습·시험을 분리한 holdout fold 10개를 8차 모멘트로 인증했고, 쌍둥이 소수 트랙은 정규화 밀도 조건을 충분조건으로 내리고 정성적 Abel 무계성 기준을 남겼습니다.</p>
+          <h2>What TICKET-220 actually changed</h2>
+          <p>TICKET-220 did not solve a parent conjecture. It proves that the full dyadic RH band family partitions total defect multiplicity while every finite window is insufficient; extends the closed Collatz family to every rotation and power of a single-mountain primitive root; proves an exact Goldbach cross-fit refinement bridge with 140/140 finite passes; and constructs infinite composite-pair CRT progressions inside every fixed admissible twin-wheel class.</p>
+          <p class="proof-boundary">TICKET-220은 상위 난제를 해결하지 않았습니다. 리만 트랙은 이진 대역 전체 합이 결함 중복도를 복원함을 증명하고 유한 창 인증을 반례로 폐기했습니다. 콜라츠 트랙은 단일 봉우리 원시근의 모든 순환 이동과 거듭제곱을 배제했습니다. 골드바흐 트랙은 정확한 정제 안정성 부등식과 유한 정제 다리 <code>140 / 140</code>을 인증했습니다. 쌍둥이 소수 트랙은 모든 고정 유한 휠 허용류 안에 두 수가 모두 합성수인 무한 CRT 수열이 있음을 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The positive difference L(1/H)−L(2/H) bounds the integer defect count in [H,2H] through the kernel floor e<sup>−2</sup>(1−e<sup>−2</sup>).</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The cofinal actual-defect inequality is RH-equivalent inside this model, not a weaker substitute for RH.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PrimeSideDyadicBandpassDefectEnclosureBelowKernelFloor</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The complete dyadic Laplace-band sum equals total integer defect multiplicity.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Every finite band window can miss a defect atom placed sufficiently far below or above its scales.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PrimeSideSummableDyadicBandpassEnvelopeBelowOne</code></dd></div>
           </dl>
-          <p class="workbench-ko">양의 대역 통과 핵으로 결함을 이진 높이 띠에 국소화했지만, 실제 제타 함수에서 그 엄밀 상계를 만드는 소수 측 공식은 열려 있습니다.</p>
+          <p class="workbench-ko">이진 커널 전체는 결함 수를 정확히 복원하지만, 실제 제타 함수에서 가합 소수 측 상계의 총합을 1 아래로 내리는 일은 열려 있습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The 49-convergent prefix and an exact Matveev tail from p=27,456,680,737 meet without a gap, excluding every positive single-mountain cycle.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Closing the infinite word family 1<sup>k</sup>2<sup>m</sup> does not cover arbitrary multi-run words or nonperiodic divergence.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EffectiveBakerSeparationForAllPositiveCycleValuationWords</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every cyclic rotation and positive power of a single-mountain primitive root is excluded by the same affine fixed-point obstruction.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Repeated or rotated single-mountain words do not create new fixed points and should not be enumerated as independent candidates.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EffectiveBakerSeparationForPrimitiveMultiRunValuationWords</code></dd></div>
           </dl>
-          <p class="workbench-ko">양의 단일 봉우리 주기 전체를 닫았습니다. 그러나 일반 다중 run 주기와 비주기 발산은 별도 문제로 남습니다.</p>
+          <p class="workbench-ko">비원시 다중 run 무한 족까지 닫았지만, 위상 정보가 새로운 원시 다중 run 주기와 비주기 발산은 남습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Two-fold disjoint fitting certifies all ten held-out Goldbach folds at p=8 without letting a test coordinate set its own model scale.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>A model fitted on the same coordinates is not independent arithmetic evidence, and finite holdout residuals still read actual counts.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CofinalCrossFittedGoldbachEighthMomentBelowFoldwiseZeroBarrier</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Minkowski controls a refined fold by its parent residual and scale-refit drift; 140/140 exact finite bridges pass.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Finite success for q=2,4,8,16 is not a cofinal theorem and still reads actual representation counts.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CofinalCrossFitRefinementMarginWithoutRepresentationEnumeration</code></dd></div>
           </dl>
-          <p class="workbench-ko">학습·시험 누수는 제거했지만, 모든 큰 블록에서 holdout 표현 개수를 열거하지 않는 원 방법 8차 추정이 남았습니다.</p>
+          <p class="workbench-ko">정제 안정성은 확보했지만, 모든 큰 블록에서 표현 수를 열거하지 않고 부모 잔차와 재적합 이동을 제어해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Infinite support is equivalent to an unbounded Abel transform; for twins this is exactly the qualitative Twin Prime Conjecture.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The infinite support n<sub>j</sub>=2<sup>j</sup>+1 has normalized Abel coefficient zero, so positive density-scale liminf is not necessary for abstract infinitude.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UnboundedParityCorrectedTwinAbelTransform</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every fixed admissible wheel class contains an infinite CRT progression where both n and n+2 are composite.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Survival of a fixed finite wheel cannot certify even one twin pair without nonlocal input.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel</code></dd></div>
           </dl>
-          <p class="workbench-ko">밀도 상수를 필요조건처럼 요구하지 않고 정성적 무계성으로 목표를 낮췄지만, 실제 소수의 parity 장벽은 그대로 남습니다.</p>
+          <p class="workbench-ko">고정 휠 경로는 CRT로 닫혔습니다. 성장하는 체를 넘어 실제 소수쌍을 남기는 parity 민감 전역 하계가 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>219 tickets reduced to four meaningful eras</h2>
+          <h2>220 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–219 · Structure, theorem strength, and candidate compression</strong><p>리만 대역 통과 국소화, Collatz 단일 봉우리 전체 폐쇄, Goldbach 교차적합, Twin 정성적 Abel 기준으로 현재의 정확한 성과와 동치 수준의 미해결 전제를 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–220 · Structure, theorem strength, and irreducible gaps</strong><p>리만 무한 스케일, Collatz 원시 단어, Goldbach 무열거 정제 여유, Twin parity 민감 하계를 유한 반복으로 대체할 수 없는 핵심 간극으로 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/dyadic-partition-primitive-refinement-crt.ko.md">TICKET-220 한국어 보고서</a>
+          <a href="../docs/dyadic-partition-primitive-refinement-crt.md">TICKET-220 English report</a>
           <a href="../docs/bandpass-matveev-crossfit-qualitative-abel.ko.md">TICKET-219 한국어 보고서</a>
           <a href="../docs/bandpass-matveev-crossfit-qualitative-abel.md">TICKET-219 English report</a>
           <a href="../docs/adaptive-radius-spike-residual-surplus.ko.md">TICKET-218 한국어 보고서</a>
@@ -164,7 +166,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260813-ticket219"></script>
+    <script src="../assets/i18n.js?v=20260814-ticket220"></script>
   </body>
 </html>
 

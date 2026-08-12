@@ -62,12 +62,12 @@
       ko: "네 개의 미해결 문제, 유한 자료의 한계와 무한 연결 정리의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-219 localizes RH defects, closes every positive single-mountain Collatz cycle, cross-fits the finite Goldbach eighth-moment certificate, and replaces an overstrong Twin density premise by the exact qualitative Abel criterion.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-219는 리만 결함을 이진 띠에 국소화하고, 양의 단일 봉우리 콜라츠 주기 전체를 배제하며, 골드바흐 8차 모멘트 인증을 교차적합으로 강화하고, 쌍둥이 소수의 지나치게 강한 밀도 전제를 정확한 정성적 Abel 기준으로 교정합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-220 isolates the irreducible gaps: infinite RH scale coverage, primitive Collatz words, representation-free Goldbach refinement margins, and parity-sensitive Twin input.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-220은 리만의 무한 스케일, 콜라츠의 원시 다중 run 단어, 표현 수를 읽지 않는 골드바흐 정제 여유, 쌍둥이 소수의 parity 민감 전역 하계를 유한 반복으로 대체할 수 없는 핵심 간극으로 분리합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-219 proves a positive RH band-pass certificate, excludes every positive single-mountain Collatz cycle, certifies ten cross-fitted Goldbach folds at p=8, and proves the qualitative Twin Abel/support equivalence. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-219는 양의 리만 대역 통과 인증을 증명하고, 모든 양의 단일 봉우리 콜라츠 주기를 배제하며, 골드바흐 교차적합 fold 10개를 p=8에서 인증하고, 쌍둥이 소수의 정성적 Abel-지지집합 동치를 증명했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-220 proves four exact partial or no-go results and isolates the remaining infinite-scale, primitive-word, representation-free, and parity-sensitive gaps. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-220은 네 개의 정확한 부분정리 또는 한계 정리를 증명하고, 남은 무한 스케일·원시 단어·무열거·parity 민감 간극을 분리했습니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

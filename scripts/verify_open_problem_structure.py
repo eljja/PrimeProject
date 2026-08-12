@@ -218,6 +218,7 @@ TICKET216_SCHEMA = "primeproject.ticket216-laplace-gcd-radix-tauberian.v1"
 TICKET217_SCHEMA = "primeproject.ticket217-relative-threshold-convergent-moment-tail.v1"
 TICKET218_SCHEMA = "primeproject.ticket218-adaptive-radius-spike-residual-surplus.v1"
 TICKET219_SCHEMA = "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1"
+TICKET220_SCHEMA = "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1"
 
 
 def fail(message: str) -> int:
@@ -18887,6 +18888,178 @@ def main() -> int:
         or machine219.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket219 proof boundary changed")
+
+    path220 = Path(
+        "data/open-problem/ticket220-dyadic-partition-primitive-refinement-crt.json"
+    )
+    if not path220.exists():
+        return fail("missing ticket220 dyadic/primitive/refinement/CRT audit")
+    ticket220 = read_json(path220)
+    if (
+        ticket220.get("schema") != TICKET220_SCHEMA
+        or ticket220.get("status") != "open_not_proven"
+    ):
+        return fail("ticket220 schema or status changed")
+    audit220 = ticket220.get(
+        "dyadic_partition_primitive_refinement_crt_audit", {}
+    )
+    machine220 = audit220.get("machine_audit", {})
+    if machine220 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_limited_route_count": 4,
+        "closed_infinite_subfamily_count": 1,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket220 global machine audit changed")
+
+    attempts220 = {
+        row.get("problem_id"): row for row in ticket220.get("attempts", [])
+    }
+    if set(attempts220) != EXPECTED_PROBLEMS:
+        return fail("ticket220 attempts missing problems")
+    track_paths220 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-220-dyadic-partition.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-220-primitive-word-closure.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-220-refinement-stability.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-220-finite-wheel-crt-no-go.json"
+        ),
+    }
+    theorem_names220 = {
+        "riemann": "DyadicLaplacePartitionAndFiniteWindowNoGo",
+        "collatz": "PrimitiveRootExtensionOfSingleMountainExclusion",
+        "goldbach": "CrossFitPartitionRefinementStabilityCertificate",
+        "twin-prime": "FiniteWheelTwinCertificationCRTNoGo",
+    }
+    next_lemmas220 = {
+        "riemann": "PrimeSideSummableDyadicBandpassEnvelopeBelowOne",
+        "collatz": "EffectiveBakerSeparationForPrimitiveMultiRunValuationWords",
+        "goldbach": "CofinalCrossFitRefinementMarginWithoutRepresentationEnumeration",
+        "twin-prime": "ParitySensitiveBilinearLowerBoundBeyondEveryFiniteWheel",
+    }
+    for problem_id, track_path in track_paths220.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket220 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts220[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET220_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names220[problem_id]
+            or attempt.get("new_result") != theorem_names220[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas220[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/dyadic_partition_primitive_refinement_crt_audit"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket220 contract changed")
+
+    rh220 = audit220.get("riemann", {}).get("reproducible_computation", {})
+    rh220_aggregate = rh220.get("aggregate", {})
+    if (
+        [row.get("M_equals_N") for row in rh220.get("telescoping_rows", [])]
+        != [2, 4, 8, 12, 16]
+        or any(
+            row.get("identity_verified") is not True
+            for row in rh220.get("telescoping_rows", [])
+        )
+        or any(
+            row.get("below_epsilon_1e_minus_6") is not True
+            for row in rh220.get("finite_window_hidden_atom_rows", [])
+        )
+        or rh220_aggregate.get("dyadic_partition_of_unity_proved") is not True
+        or rh220_aggregate.get("finite_window_global_certificate_refuted")
+        is not True
+        or rh220_aggregate.get("actual_prime_side_summable_envelope_proved")
+        is not False
+        or rh220_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket220 RH dyadic partition boundary changed")
+
+    collatz220 = audit220.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz220_aggregate = collatz220.get("aggregate", {})
+    if (
+        len(collatz220.get("binary_word_enumeration_rows", [])) != 15
+        or any(
+            row.get("composition_identity_verified") is not True
+            or row.get("fixed_point_identity_verified") is not True
+            or row.get("nonunit_slope_verified") is not True
+            for row in collatz220.get("affine_power_replay_rows", [])
+        )
+        or collatz220_aggregate.get("primitive_root_extension_proved") is not True
+        or collatz220_aggregate.get("infinite_imprimitive_multi_run_family_closed")
+        is not True
+        or collatz220_aggregate.get("primitive_multi_run_cycles_excluded")
+        is not False
+        or collatz220_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket220 Collatz primitive-root boundary changed")
+
+    goldbach220 = audit220.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach220_aggregate = goldbach220.get("aggregate", {})
+    if (
+        len(goldbach220.get("direct_crossfit_rows", [])) != 150
+        or len(goldbach220.get("refinement_bridge_rows", [])) != 140
+        or any(
+            row.get("refinement_certificate_passed") is not True
+            for row in goldbach220.get("refinement_bridge_rows", [])
+        )
+        or goldbach220_aggregate.get("direct_eighth_moment_folds_certified")
+        != 150
+        or goldbach220_aggregate.get("direct_fourth_moment_folds_certified")
+        != 137
+        or goldbach220_aggregate.get("refinement_bridges_certified") != 140
+        or goldbach220_aggregate.get("cofinal_refinement_margin_proved")
+        is not False
+        or goldbach220_aggregate.get("goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket220 Goldbach refinement boundary changed")
+
+    twin220 = audit220.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin220_aggregate = twin220.get("aggregate", {})
+    if (
+        [row.get("wheel_W") for row in twin220.get("finite_wheel_crt_witness_rows", [])]
+        != [30, 210, 2310, 30030, 510510]
+        or any(
+            any(value is not True for value in row.get("checks", {}).values())
+            for row in twin220.get("finite_wheel_crt_witness_rows", [])
+        )
+        or twin220_aggregate.get("finite_wheel_crt_no_go_proved") is not True
+        or twin220_aggregate.get("parity_sensitive_bilinear_lower_bound_proved")
+        is not False
+        or twin220_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket220 Twin finite-wheel CRT boundary changed")
+
+    if (
+        "resolves none" not in str(audit220.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket220.get("claim_boundary", "")).lower()
+        or machine220.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket220 proof boundary changed")
 
     print("open problem structure verified")
     return 0
