@@ -641,3 +641,5 @@ This project is for defensive quality auditing and controlled experiments. It do
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
+본 프로젝트의 코드, 문서 및 배포 자료는 별도 표기가 없는 한 Apache License 2.0에 따라 제공됩니다. 자세한 조건은 [LICENSE](LICENSE)에서 확인할 수 있습니다.
