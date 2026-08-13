@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260813-ticket222-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket223-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-222</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-223</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-222 actually changed</h2>
-          <p>TICKET-222 did not solve a parent conjecture. It proves that the complete dyadic Laplace profile is injective on compactly supported signed defects, `(h,S,B)` losslessly reconstructs a finite Collatz valuation word, ordered Goldbach-count parity is only a diagonal-prime indicator, and biased finite-wheel parity has an exact CRT product formula.</p>
-          <p class="proof-boundary">TICKET-222는 상위 난제를 해결하지 않았습니다. 콤팩트 지지 리만 결함의 전체 이진 프로필은 손실이 없고, 콜라츠 `(h,S,B)`는 유한 단어를 복원하며, 골드바흐 개수 홀짝은 0 검출기가 아니고, 실제 유한 휠 패리티는 편향된 정확 상관식을 가짐을 증명했습니다. 무한 꼬리, 모든 콜라츠 코드와 발산, 공종 골드바흐 하한, Type II 소수쌍 하한은 열려 있습니다.</p>
+          <h2>What TICKET-223 actually changed</h2>
+          <p>TICKET-223 did not solve a parent conjecture. It extends complete dyadic Laplace injectivity to exponentially tight unbounded defects, constructs a primitive false positive for every fixed Collatz modular sieve whose moduli are coprime to six, proves a uniform positive Goldbach local margin, and constructs infinitely many composite-pair countermodels for every fixed twin wheel.</p>
+          <p class="proof-boundary">TICKET-223은 상위 난제를 해결하지 않았습니다. 지수 꼬리를 갖는 리만 결함의 전체 이진 프로필은 손실이 없고, 6과 서로소인 모듈러스로 만든 고정 콜라츠 체는 모두 거짓 양성을 가지며, 골드바흐 국소 밀도는 공통 양의 하한을 갖고, 고정 쌍둥이 휠은 무한 합성수 쌍을 걸러내지 못함을 증명했습니다. 실제 제타 결함 구성, code-adaptive 방해, 소수 가중 골드바흐 remainder, 스케일 증가형 Type II 하한은 열려 있습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The complete two-sided dyadic Laplace-band profile is injective for finite signed defects compactly supported away from zero.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Compact injectivity does not control an unbounded actual-zeta tail, and a finite band window remains insufficient.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The complete dyadic profile is injective for unbounded signed defects with an exponential total-variation tail, with a uniform cofinal truncation bound.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The abstract exponential-tail theorem does not construct an RH-equivalent actual-zeta defect or its prime-side bands.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands</code></dd></div>
           </dl>
-          <p class="workbench-ko">콤팩트 구간에서는 전체 프로필이 손실 없이 결함을 복원합니다. 실제 제타 영점의 무한 높이 꼬리까지 제어하는 소수 측 포락선은 아직 없습니다.</p>
+          <p class="workbench-ko">지수 총변동 꼬리가 있으면 비콤팩트 결함도 전체 프로필로 복원되고 절단 오차가 균일하게 사라집니다. 실제 제타 결함과 소수 쪽 band 표현은 아직 없습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The triple `(h,S,B)` losslessly reconstructs every finite positive valuation word; `D&gt;0` and `D|B` are the exact finite-cycle criterion.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Adding unordered scalar summaries cannot replace exact ordered divisibility and aperiodic descent.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every fixed modulus coprime to six, and every finite fixed family of them, has a primitive nontrivial word passing `M|D` and `M|B` while satisfying `0&lt;B&lt;D`.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No finite fixed modular sieve with moduli coprime to six can exclude every nontrivial primitive cycle code.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent</code></dd></div>
           </dl>
-          <p class="workbench-ko">유한 단어의 순서 정보는 복원됐습니다. 이제 비자명 원시 코드의 나눗셈을 모두 배제하고 비주기 궤도의 하강도 증명해야 합니다.</p>
+          <p class="workbench-ko">고정 합동 검사는 완전한 주기 배제 도구가 될 수 없습니다. code 크기에 따라 성장하는 소수 방해 또는 모든 비주기 궤도의 하강이 필요합니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Ordered Goldbach representation-count parity equals the prime indicator of `N/2`.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Count parity cannot distinguish zero representations from a positive even count.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformCofinalPositiveGoldbachCountLowerBound</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every finite odd wheel has a uniform positive normalized Goldbach local margin `C_W`, bounded below independently of the target.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No finite local congruence obstruction blocks an even Goldbach target; local positivity alone does not force primes.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin</code></dd></div>
           </dl>
-          <p class="workbench-ko">표현 개수의 홀짝은 대각선 표현만 남기므로 0 검출기가 아닙니다. 모든 충분히 큰 짝수에 대한 양의 개수 하한이 필요합니다.</p>
+          <p class="workbench-ko">유한 합동 수준의 밀도는 균일하게 양수입니다. 이제 실제 소수 가중 전역 remainder가 이 국소 main term보다 작음을 증명해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Biased finite-wheel divisibility parity obeys an exact CRT product-correlation formula.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Balanced-cube orthogonality does not transfer literally, and nonzero wheel leakage is not a prime-pair lower bound.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every fixed wheel survivor class contains an infinite progression where both shifted values are composite.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A fixed finite-wheel signature cannot certify twin primality, even when its biased parity signal is nonzero.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance</code></dd></div>
           </dl>
-          <p class="workbench-ko">실제 유한 휠 변수의 편향은 정확히 계산되지만 이는 작은 소인수 정보입니다. 소수쌍을 보장하는 스케일 증가형 Type II 하계가 필요합니다.</p>
+          <p class="workbench-ko">고정 휠의 전체 생존 signature는 합성수 쌍도 재현합니다. 탐색 scale과 함께 증가하는 Type II 정보와 균일 꼬리 경계가 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>222 tickets reduced to four meaningful eras</h2>
+          <h2>223 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–222 · Structure, information recovery, and coupling gaps</strong><p>유한 반복의 한계를 넘어 복원 가능한 정보와 실제 무한 산술에서 필요한 스케일 결합, 순서, 공종 양성, Type II 입력을 분리했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–223 · Structure, local duality, and global gaps</strong><p>복원 가능한 정보, 고정 체의 한계, 골드바흐·쌍둥이 소수의 공통 국소 인자와 실제 전역 산술에서 필요한 Type II 입력을 분리했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/exponential-tail-local-duality-no-go.ko.md">TICKET-223 한국어 보고서</a>
+          <a href="../docs/exponential-tail-local-duality-no-go.md">TICKET-223 English report</a>
           <a href="../docs/lossless-coupling-biased-parity.ko.md">TICKET-222 한국어 보고서</a>
           <a href="../docs/lossless-coupling-biased-parity.md">TICKET-222 English report</a>
           <a href="../docs/sharp-obstruction-certificates.ko.md">TICKET-221 한국어 보고서</a>
@@ -170,7 +172,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260813-ticket222"></script>
+    <script src="../assets/i18n.js?v=20260814-ticket223"></script>
   </body>
 </html>
 

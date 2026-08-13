@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket223AttemptGlobal = null;
 let ticket222AttemptGlobal = null;
 let ticket221AttemptGlobal = null;
 let ticket220AttemptGlobal = null;
@@ -10018,6 +10019,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket223ExponentialTailLocalDualityNoGo(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.exponential_tail_local_duality_no_go_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.cofinal_tail_rows || [];
+    detail = `
+      <div class="poc-equation">∫e<sup>ηt</sup>d|σ|&lt;∞ and W<sub>j</sub>(σ)=0 for every j ∈ Z ⇒ σ=0; sup<sub>j</sub>|W<sub>j</sub>(σ−σ<sub>T</sub>)|≤e<sup>−ηT</sup>||σ||<sub>η</sub></div>
+      ${table(["cutoff T", "max band tail", "exact TV tail", "uniform exp bound", "verified"], rows.map((row) => [row.cutoff_T, row.maximum_observed_band_tail, row.exact_total_variation_tail, row.uniform_exponential_bound, row.tv_bound_verified && row.exponential_bound_verified]))}
+      <div class="poc-head"><div><span>Exponential-tail injectivity</span><strong>${aggregate.exponential_tail_dyadic_injectivity_proved ? "proved" : "open"}</strong></div><div><span>Cofinal tail checks</span><strong>${rows.length}</strong></div><div><span>Actual zeta defect</span><strong>${aggregate.actual_zeta_defect_measure_constructed ? "constructed" : "open"}</strong></div></div>
+      <p class="proof-note">콤팩트 지지가 아니어도 지수 총변동 꼬리가 있으면 전체 dyadic profile은 단사이며 절단 오차가 균일하게 사라집니다. 리만 가설과 동치인 실제 제타 결함 측도 및 소수 쪽 band 표현은 아직 구성되지 않았습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.witness_rows || [];
+    const families = computation.finite_family_rows || [];
+    detail = `
+      <div class="poc-equation">r=ord<sub>M</sub>(2), h=ord<sub>M</sub>(4/3), a=(2+r,2,…,2): M|D, M|B, but D−B=4(2<sup>r</sup>−1)3<sup>h−1</sup>&gt;0</div>
+      ${table(["M", "r", "h", "M|D", "M|B", "0<B<D", "D|B"], rows.slice(0, 10).map((row) => [row.modulus_M, row.order_of_two_r, row.word_height_h, row.M_divides_D, row.M_divides_B, row.positive_false_positive, row.actual_cycle_divisibility]))}
+      <div class="poc-head"><div><span>Fixed moduli checked</span><strong>${aggregate.moduli_checked ?? rows.length}</strong></div><div><span>Finite families defeated</span><strong>${families.length}</strong></div><div><span>Nontrivial cycles found</span><strong>${aggregate.nontrivial_cycle_found ? "yes" : "0"}</strong></div></div>
+      <p class="proof-note">6과 서로소인 모듈러스로 만든 모든 고정 체에는 검사를 통과하지만 D&gt;B라 실제 주기가 아닌 비자명 원시 word가 존재합니다. 다음 방해 인자는 code 크기에 따라 성장하거나 비주기 하강을 직접 다뤄야 합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const exact = computation.exact_wheel_audit || {};
+    const rows = computation.wheel_prefix_rows || [];
+    detail = `
+      <div class="poc-equation">A<sub>W</sub>(N)=∏<sub>p|W,p|N</sub>(p−1)∏<sub>p|W,p∤N</sub>(p−2); normalized A<sub>W</sub>(N)≥C<sub>W</sub>=∏p(p−2)/(p−1)<sup>2</sup>&gt;0</div>
+      ${table(["largest p", "prime count", "exact local floor", "decimal"], rows.filter((row) => [3, 5, 11, 19, 43].includes(row.largest_prime)).map((row) => [row.largest_prime, row.prime_count, row.wheel_normalized_floor, row.wheel_normalized_floor_decimal]))}
+      <div class="poc-head"><div><span>Exact wheel W</span><strong>${formatter.format(exact.wheel_W || 0)}</strong></div><div><span>Minimum local ratio</span><strong>${exact.minimum_observed_ratio || "missing"}</strong></div><div><span>Prime-weighted remainder</span><strong>${aggregate.prime_weighted_global_remainder_controlled ? "controlled" : "open"}</strong></div></div>
+      <p class="proof-note">모든 유한 wheel에서 짝수 목표의 정규화 국소 밀도는 공통 양의 하한을 가집니다. 그러나 국소 허용 가능성은 실제 소수 두 개를 보장하지 않으므로 전역 소수 가중 remainder 제어가 남습니다.</p>
+    `;
+  } else {
+    const rows = computation.wheel_prefix_countermodels || [];
+    detail = `
+      <div class="poc-equation">n≡a (mod W), n≡0 (mod r), n≡−2 (mod s) ⇒ fixed-wheel survivor signature with both n and n+2 composite</div>
+      ${table(["largest wheel p", "W", "composite n", "external factors", "verified"], rows.filter((row) => [3, 7, 13, 23, 43].includes(row.largest_wheel_prime)).map((row) => [row.largest_wheel_prime, row.wheel_W, row.composite_pair_n, `${row.external_left_factor_r}, ${row.external_right_factor_s}`, row.countermodel_verified]))}
+      <div class="poc-head"><div><span>Wheel prefixes</span><strong>${aggregate.wheel_prefixes_checked ?? rows.length}</strong></div><div><span>Composite countermodels</span><strong>${rows.filter((row) => row.countermodel_verified).length}</strong></div><div><span>Scale-growing Type II</span><strong>${aggregate.scale_growing_type_ii_dominance_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">고정 wheel의 모든 생존 정보는 무한히 많은 합성수 쌍도 재현합니다. 같은 정규화 인자 C_W가 골드바흐의 최소 국소 밀도와 정확히 일치하지만, 어느 쪽도 전역 소수 상관 하한은 아닙니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket223-exponential-tail-local-duality-no-go" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 223 exponential tails, local duality, and fixed-sieve no-go results</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial or no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET223 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/exponential-tail-local-duality-no-go.ko.md">한국어 보고서</a> · <a href="../docs/exponential-tail-local-duality-no-go.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket222LosslessCouplingBiasedParity(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.lossless_coupling_biased_parity_audit || {};
@@ -10070,7 +10139,7 @@ function renderTicket222LosslessCouplingBiasedParity(attempt) {
   }
   return `
     <div id="ticket222-lossless-coupling-biased-parity" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 222 lossless coupling and biased-parity corrections</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial or route-correction theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET222 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -16933,7 +17002,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket222LosslessCouplingBiasedParity(ticket222AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket223ExponentialTailLocalDualityNoGo(ticket223AttemptGlobal) ||
+      renderTicket222LosslessCouplingBiasedParity(ticket222AttemptGlobal) ||
       renderTicket221SharpObstructionCertificates(ticket221AttemptGlobal) ||
       renderTicket220DyadicPartitionPrimitiveRefinementCRT(ticket220AttemptGlobal) ||
       renderTicket219BandpassMatveevCrossFitQualitativeAbel(ticket219AttemptGlobal) ||
@@ -17475,6 +17545,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket223Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket223-exponential-tail-local-duality-no-go.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket223AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket223AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket223AttemptGlobal) {
+      ticket223AttemptGlobal.bounded_result = ticket223AttemptGlobal.bounded_result || {};
+      ticket223AttemptGlobal.bounded_result.exponential_tail_local_duality_no_go_audit = payload.exponential_tail_local_duality_no_go_audit || {};
+    }
+    return Boolean(ticket223AttemptGlobal);
+  } catch (error) {
+    ticket223AttemptGlobal = null;
     return false;
   }
 }
@@ -19108,11 +19198,12 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket223Loaded = await loadTicket223Attempt();
   const ticket222Loaded = await loadTicket222Attempt();
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket222-current";
+  document.documentElement.dataset.openProblemCache = "ticket223-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19165,8 +19256,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket223AttemptGlobal) await loadTicket223Attempt();
     if (!ticket222AttemptGlobal) await loadTicket222Attempt();
     if (!ticket221AttemptGlobal) await loadTicket221Attempt();
     if (!ticket220AttemptGlobal) await loadTicket220Attempt();
@@ -19267,7 +19359,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket222-current";
+  document.documentElement.dataset.openProblemCache = "ticket223-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

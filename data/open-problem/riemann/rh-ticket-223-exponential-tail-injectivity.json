@@ -1,0 +1,139 @@
+{
+  "schema": "primeproject.ticket223-exponential-tail-local-duality-no-go.v1",
+  "generated_at": "2026-08-14T17:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-223",
+  "theorem_name": "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation",
+  "declared_proposition": "Let sigma be a finite signed Borel measure supported on [a,infinity) with a>0 and integral exp(eta t) d|sigma|(t)<infinity for some eta>0. Put L_sigma(s)=integral exp(-st) d sigma(t) and W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Moreover, truncating sigma at height T changes every dyadic band by at most exp(-eta T) times the exponential total-variation norm, uniformly in j.",
+  "mathematical_argument": "The exponential moment makes L_sigma holomorphic on Re(s)>-eta. The band equations make all dyadic samples L_sigma(2^(-j)) equal. As j tends to minus infinity, support above a forces these samples to zero, so every sample is zero. The samples accumulating at s=0 now accumulate inside the holomorphy domain; the identity theorem gives L_sigma identically zero. Uniqueness of the Laplace transform then gives sigma=0. For the tail, |sigma|([T,infinity)) is at most exp(-eta T) integral exp(eta t)d|sigma|, and the band kernel has absolute value at most one. This extends TICKET-222 from compact support to an exponentially tight unbounded class, but does not construct an RH-equivalent zeta defect measure in that class.",
+  "reproducible_computation": {
+    "theorem": "Let sigma be a finite signed Borel measure supported on [a,infinity) with a>0 and integral exp(eta t) d|sigma|(t)<infinity for some eta>0. Put L_sigma(s)=integral exp(-st) d sigma(t) and W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Moreover, truncating sigma at height T changes every dyadic band by at most exp(-eta T) times the exponential total-variation norm, uniformly in j.",
+    "proof": "The exponential moment makes L_sigma holomorphic on Re(s)>-eta. The band equations make all dyadic samples L_sigma(2^(-j)) equal. As j tends to minus infinity, support above a forces these samples to zero, so every sample is zero. The samples accumulating at s=0 now accumulate inside the holomorphy domain; the identity theorem gives L_sigma identically zero. Uniqueness of the Laplace transform then gives sigma=0. For the tail, |sigma|([T,infinity)) is at most exp(-eta T) integral exp(eta t)d|sigma|, and the band kernel has absolute value at most one. This extends TICKET-222 from compact support to an exponentially tight unbounded class, but does not construct an RH-equivalent zeta defect measure in that class.",
+    "hypotheses": {
+      "support": "[a,infinity) with a>0",
+      "tail": "finite exponential total-variation moment",
+      "observations": "all two-sided dyadic bands"
+    },
+    "model_measure": {
+      "atoms": "t=n for n>=1",
+      "weights": "(-1)^n 4^(-n)",
+      "eta": "log(2)",
+      "weighted_norm": "1"
+    },
+    "cofinal_tail_rows": [
+      {
+        "cutoff_T": 4,
+        "maximum_observed_band_tail": "1.940443089963081952186062308017E-4",
+        "exact_total_variation_tail": "1.302083333333333333333333333333E-3",
+        "uniform_exponential_bound": "6.250000000000000000000000000000E-2",
+        "tv_bound_verified": true,
+        "exponential_bound_verified": true
+      },
+      {
+        "cutoff_T": 8,
+        "maximum_observed_band_tail": "7.455632834574884297287963713780E-7",
+        "exact_total_variation_tail": "5.086263020833333333333333333333E-6",
+        "uniform_exponential_bound": "3.906250000000000000000000000000E-3",
+        "tv_bound_verified": true,
+        "exponential_bound_verified": true
+      },
+      {
+        "cutoff_T": 12,
+        "maximum_observed_band_tail": "2.950903586115211356333597153022E-9",
+        "exact_total_variation_tail": "1.986821492513020833333333333333E-8",
+        "uniform_exponential_bound": "2.441406250000000000000000000000E-4",
+        "tv_bound_verified": true,
+        "exponential_bound_verified": true
+      },
+      {
+        "cutoff_T": 16,
+        "maximum_observed_band_tail": "1.125408634845794999725409306409E-11",
+        "exact_total_variation_tail": "7.761021455128987630208333333333E-11",
+        "uniform_exponential_bound": "1.525878906250000000000000000000E-5",
+        "tv_bound_verified": true,
+        "exponential_bound_verified": true
+      },
+      {
+        "cutoff_T": 24,
+        "maximum_observed_band_tail": "1.765595884299575734229949064146E-16",
+        "exact_total_variation_tail": "1.184237892933500309785207112630E-15",
+        "uniform_exponential_bound": "5.960464477539062500000000000000E-8",
+        "tv_bound_verified": true,
+        "exponential_bound_verified": true
+      },
+      {
+        "cutoff_T": 32,
+        "maximum_observed_band_tail": "2.604426459238018867416726935008E-21",
+        "exact_total_variation_tail": "1.807003620809174056679088001450E-20",
+        "uniform_exponential_bound": "2.328306436538696289062500000000E-10",
+        "tv_bound_verified": true,
+        "exponential_bound_verified": true
+      }
+    ],
+    "transcript_sha256": "72998fce2257221ac18fac9dc8c1b61048d4ee721f510699358651ee28c69e24",
+    "aggregate": {
+      "exponential_tail_dyadic_injectivity_proved": true,
+      "uniform_cofinal_truncation_bound_proved": true,
+      "all_model_tail_checks_pass": true,
+      "actual_zeta_defect_measure_constructed": false,
+      "prime_side_equivalent_bands_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem closes the abstract analytic tail step only under an exponential moment. It does not show that an RH-equivalent zero defect has this moment or that its bands are computable with rigorous prime-side signs.",
+    "failure_count": 0
+  },
+  "logical_limit": "No RH-equivalent exponentially weighted zeta defect with rigorously computable prime-side bands is constructed.",
+  "route_decision": {
+    "discard": "claiming that compact support is essential for full dyadic injectivity",
+    "retain": "build an RH-equivalent exponentially weighted defect and prime-side band enclosure",
+    "next_single_lemma": "RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T222",
+        "label": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T223",
+        "label": "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N223",
+        "label": "AbstractExponentialTailImpliesActualZetaTail",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN223",
+        "label": "RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T222",
+        "RH-T223"
+      ],
+      [
+        "RH-T223",
+        "RH-N223"
+      ],
+      [
+        "RH-T223",
+        "RH-OPEN223"
+      ],
+      [
+        "RH-OPEN223",
+        "RH"
+      ]
+    ]
+  }
+}

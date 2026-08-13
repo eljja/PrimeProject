@@ -8182,3 +8182,32 @@ conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
 한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).
+
+## TICKET-223 continuation: exponential tails, local duality, and fixed-sieve no-go
+
+TICKET-223 continues the latest proof DAG rather than restarting a classical
+reproduction. It proves four exact partial or no-go statements while keeping
+the conjecture-resolution count at zero:
+
+1. RH: complete dyadic Laplace data remain injective for signed measures with
+   an exponential total-variation moment, and every band has a uniform
+   exponentially decaying truncation error. The missing bridge is an
+   RH-equivalent actual-zeta defect with rigorous prime-side bands.
+2. Collatz: every finite fixed family of `(D,B)` congruence tests whose moduli
+   are coprime to six admits a primitive non-cycle false positive. The theorem
+   does not exclude code-growing divisibility obstructions or prove descent of
+   every aperiodic orbit.
+3. Goldbach: the normalized local convolution count on every finite odd wheel
+   is bounded below by the positive factor
+   `C_W=product p(p-2)/(p-1)^2`. This gives no prime-weighted global remainder
+   estimate.
+4. Twin Prime: every fixed wheel survivor class contains an infinite CRT
+   progression of composite pairs. Its normalized survivor density is exactly
+   the Goldbach minimum factor `C_W`, but no scale-growing Type-II lower bound
+   follows.
+
+Machine audit: four exact partial theorems, four refuted or corrected routes,
+four proof DAGs, zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-223 exponential-tail-local-duality-no-go](exponential-tail-local-duality-no-go.md).
+한국어 보고서: [TICKET-223 지수 꼬리·국소 쌍대성·고정 체 no-go](exponential-tail-local-duality-no-go.ko.md).

@@ -1,0 +1,261 @@
+{
+  "schema": "primeproject.ticket223-exponential-tail-local-duality-no-go.v1",
+  "generated_at": "2026-08-14T17:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-223",
+  "theorem_name": "FixedWheelCompositePairCountermodel",
+  "declared_proposition": "For every finite squarefree odd wheel W and every residue a modulo W avoiding 0 and -2 modulo each prime divisor, there are infinitely many n congruent to a modulo W for which both n and n+2 are composite. Choose distinct primes r,s not dividing W and solve n=0 mod r and n=-2 mod s together with n=a mod W by CRT. Moreover, the normalized density of wheel survivors is exactly C_W=product_(p|W)p(p-2)/(p-1)^2, the minimum normalized Goldbach local factor from the companion theorem.",
+  "mathematical_argument": "The three congruences have pairwise coprime moduli, so CRT gives an infinite arithmetic progression. Large members are proper multiples of r while their shifts by two are proper multiples of s, yet their entire finite-wheel signature is the all-survivor signature. The survivor count is product(p-2); division by the squared coprime density gives C_W. Thus fixed-wheel biased parity signal is real but cannot certify twin primality. Any successful lower bound must let the arithmetic information scale grow and dominate the omitted prime Type-II remainder.",
+  "reproducible_computation": {
+    "theorem": "For every finite squarefree odd wheel W and every residue a modulo W avoiding 0 and -2 modulo each prime divisor, there are infinitely many n congruent to a modulo W for which both n and n+2 are composite. Choose distinct primes r,s not dividing W and solve n=0 mod r and n=-2 mod s together with n=a mod W by CRT. Moreover, the normalized density of wheel survivors is exactly C_W=product_(p|W)p(p-2)/(p-1)^2, the minimum normalized Goldbach local factor from the companion theorem.",
+    "proof": "The three congruences have pairwise coprime moduli, so CRT gives an infinite arithmetic progression. Large members are proper multiples of r while their shifts by two are proper multiples of s, yet their entire finite-wheel signature is the all-survivor signature. The survivor count is product(p-2); division by the squared coprime density gives C_W. Thus fixed-wheel biased parity signal is real but cannot certify twin primality. Any successful lower bound must let the arithmetic information scale grow and dominate the omitted prime Type-II remainder.",
+    "wheel_prefix_countermodels": [
+      {
+        "largest_wheel_prime": 3,
+        "wheel_prime_count": 1,
+        "wheel_W": "3",
+        "survivor_residue_a": "2",
+        "external_left_factor_r": 5,
+        "external_right_factor_s": 7,
+        "composite_pair_n": "110",
+        "composite_pair_n_plus_2": "112",
+        "infinite_progression_modulus": "105",
+        "wheel_survivor_count": 1,
+        "normalized_survivor_density": "3/4",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 5,
+        "wheel_prime_count": 2,
+        "wheel_W": "15",
+        "survivor_residue_a": "11",
+        "external_left_factor_r": 7,
+        "external_right_factor_s": 11,
+        "composite_pair_n": "1736",
+        "composite_pair_n_plus_2": "1738",
+        "infinite_progression_modulus": "1155",
+        "wheel_survivor_count": 3,
+        "normalized_survivor_density": "45/64",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 7,
+        "wheel_prime_count": 3,
+        "wheel_W": "105",
+        "survivor_residue_a": "71",
+        "external_left_factor_r": 11,
+        "external_right_factor_s": 13,
+        "composite_pair_n": "27896",
+        "composite_pair_n_plus_2": "27898",
+        "infinite_progression_modulus": "15015",
+        "wheel_survivor_count": 15,
+        "normalized_survivor_density": "175/256",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 11,
+        "wheel_prime_count": 4,
+        "wheel_W": "1155",
+        "survivor_residue_a": "386",
+        "external_left_factor_r": 13,
+        "external_right_factor_s": 17,
+        "composite_pair_n": "448526",
+        "composite_pair_n_plus_2": "448528",
+        "infinite_progression_modulus": "255255",
+        "wheel_survivor_count": 135,
+        "normalized_survivor_density": "693/1024",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 13,
+        "wheel_prime_count": 5,
+        "wheel_W": "15015",
+        "survivor_residue_a": "5006",
+        "external_left_factor_r": 17,
+        "external_right_factor_s": 19,
+        "composite_pair_n": "5335331",
+        "composite_pair_n_plus_2": "5335333",
+        "infinite_progression_modulus": "4849845",
+        "wheel_survivor_count": 1485,
+        "normalized_survivor_density": "11011/16384",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 17,
+        "wheel_prime_count": 6,
+        "wheel_W": "255255",
+        "survivor_residue_a": "170171",
+        "external_left_factor_r": 19,
+        "external_right_factor_s": 23,
+        "composite_pair_n": "183188006",
+        "composite_pair_n_plus_2": "183188008",
+        "infinite_progression_modulus": "111546435",
+        "wheel_survivor_count": 22275,
+        "normalized_survivor_density": "2807805/4194304",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 19,
+        "wheel_prime_count": 7,
+        "wheel_W": "4849845",
+        "survivor_residue_a": "3233231",
+        "external_left_factor_r": 23,
+        "external_right_factor_s": 29,
+        "composite_pair_n": "3970406441",
+        "composite_pair_n_plus_2": "3970406443",
+        "infinite_progression_modulus": "3234846615",
+        "wheel_survivor_count": 378675,
+        "normalized_survivor_density": "302307005/452984832",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 23,
+        "wheel_prime_count": 8,
+        "wheel_W": "111546435",
+        "survivor_residue_a": "37182146",
+        "external_left_factor_r": 29,
+        "external_right_factor_s": 31,
+        "composite_pair_n": "177396013796",
+        "composite_pair_n_plus_2": "177396013798",
+        "infinite_progression_modulus": "100280245065",
+        "wheel_survivor_count": 7952175,
+        "normalized_survivor_density": "402243205/603979776",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 29,
+        "wheel_prime_count": 9,
+        "wheel_W": "3234846615",
+        "survivor_residue_a": "2156564411",
+        "external_left_factor_r": 31,
+        "external_right_factor_s": 37,
+        "composite_pair_n": "4061889066236",
+        "composite_pair_n_plus_2": "4061889066238",
+        "infinite_progression_modulus": "3710369067405",
+        "wheel_survivor_count": 214708725,
+        "normalized_survivor_density": "714186915/1073741824",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 31,
+        "wheel_prime_count": 10,
+        "wheel_W": "100280245065",
+        "survivor_residue_a": "66853496711",
+        "external_left_factor_r": 37,
+        "external_right_factor_s": 41,
+        "composite_pair_n": "219680590189061",
+        "composite_pair_n_plus_2": "219680590189063",
+        "infinite_progression_modulus": "152125131763605",
+        "wheel_survivor_count": 6226553025,
+        "normalized_survivor_density": "42803602439/64424509440",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 37,
+        "wheel_prime_count": 11,
+        "wheel_W": "3710369067405",
+        "survivor_residue_a": "2473579378271",
+        "external_left_factor_r": 41,
+        "external_right_factor_s": 43,
+        "composite_pair_n": "9582646511417981",
+        "composite_pair_n_plus_2": "9582646511417983",
+        "infinite_progression_modulus": "6541380665835015",
+        "wheel_survivor_count": 217929355875,
+        "normalized_survivor_density": "11086133031701/16698832846848",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 41,
+        "wheel_prime_count": 12,
+        "wheel_W": "152125131763605",
+        "survivor_residue_a": "50708377254536",
+        "external_left_factor_r": 43,
+        "external_right_factor_s": 47,
+        "composite_pair_n": "497804139507770096",
+        "composite_pair_n_plus_2": "497804139507770098",
+        "infinite_progression_modulus": "307444891294245705",
+        "wheel_survivor_count": 8499244879125,
+        "normalized_survivor_density": "5908908905896633/8906044184985600",
+        "countermodel_verified": true
+      },
+      {
+        "largest_wheel_prime": 43,
+        "wheel_prime_count": 13,
+        "wheel_W": "6541380665835015",
+        "survivor_residue_a": "2180460221945006",
+        "external_left_factor_r": 47,
+        "external_right_factor_s": 53,
+        "composite_pair_n": "23930550935846429876",
+        "composite_pair_n_plus_2": "23930550935846429878",
+        "infinite_progression_modulus": "16294579238595022365",
+        "wheel_survivor_count": 348469040044125,
+        "normalized_survivor_density": "1488200914442251997/2244323134616371200",
+        "countermodel_verified": true
+      }
+    ],
+    "aggregate": {
+      "wheel_prefixes_checked": 13,
+      "fixed_wheel_composite_pair_countermodel_proved": true,
+      "infinitely_many_countermodels_per_survivor_class_proved": true,
+      "goldbach_twin_local_factor_identity_proved": true,
+      "scale_growing_type_ii_dominance_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem defeats certificates depending on one fixed finite wheel. It does not defeat wheels growing with the search scale or analytic estimates that control the omitted-prime tail.",
+    "failure_count": 0
+  },
+  "logical_limit": "Fixed wheels are insufficient, but no scale-growing Type-II lower bound for Lambda(n)Lambda(n+2) is proved.",
+  "route_decision": {
+    "discard": "using any fixed finite-wheel signature as a certificate of twin primality",
+    "retain": "grow arithmetic information with scale and dominate the omitted-prime remainder",
+    "next_single_lemma": "ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T222",
+        "label": "FiniteWheelBiasedParityLeakageProductFormula",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T223",
+        "label": "FixedWheelCompositePairCountermodel",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N223",
+        "label": "NonzeroFixedWheelLeakageCertifiesTwinPrimes",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN223",
+        "label": "ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T222",
+        "TP-T223"
+      ],
+      [
+        "TP-T223",
+        "TP-N223"
+      ],
+      [
+        "TP-T223",
+        "TP-OPEN223"
+      ],
+      [
+        "TP-OPEN223",
+        "TP"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,492 @@
+{
+  "schema": "primeproject.ticket223-exponential-tail-local-duality-no-go.v1",
+  "generated_at": "2026-08-14T17:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-223",
+  "theorem_name": "FiniteWheelUniformLocalMarginAndTwinFactorIdentity",
+  "declared_proposition": "Let W be a squarefree product of odd primes and A_W(N) count residues a modulo W for which both a and N-a are coprime to W. Then A_W(N)=product_(p|W,p|N)(p-1) product_(p|W,p not|N)(p-2). After division by the independent coprime density (phi(W)/W)^2, the ratio is at least C_W=product_(p|W)p(p-2)/(p-1)^2, with equality exactly when gcd(N,W)=1. The products C_W are bounded below by the positive infinite odd-prime product C_* because sum_p 1/(p-1)^2 converges.",
+  "mathematical_argument": "For each odd p dividing W, one residue is forbidden when p divides N and two distinct residues are forbidden otherwise. CRT multiplies the local counts. Normalization gives p/(p-1) in the first case and p(p-2)/(p-1)^2 in the second. Replacing the second factor by the first only increases the product, proving the floor and its equality condition. Since one minus the floor factor is 1/(p-1)^2 and the sum of these deficits converges, the infinite product is positive. This proves a uniform local margin, not a prime-weighted Goldbach representation.",
+  "reproducible_computation": {
+    "theorem": "Let W be a squarefree product of odd primes and A_W(N) count residues a modulo W for which both a and N-a are coprime to W. Then A_W(N)=product_(p|W,p|N)(p-1) product_(p|W,p not|N)(p-2). After division by the independent coprime density (phi(W)/W)^2, the ratio is at least C_W=product_(p|W)p(p-2)/(p-1)^2, with equality exactly when gcd(N,W)=1. The products C_W are bounded below by the positive infinite odd-prime product C_* because sum_p 1/(p-1)^2 converges.",
+    "proof": "For each odd p dividing W, one residue is forbidden when p divides N and two distinct residues are forbidden otherwise. CRT multiplies the local counts. Normalization gives p/(p-1) in the first case and p(p-2)/(p-1)^2 in the second. Replacing the second factor by the first only increases the product, proving the floor and its equality condition. Since one minus the floor factor is 1/(p-1)^2 and the sum of these deficits converges, the infinite product is positive. This proves a uniform local margin, not a prime-weighted Goldbach representation.",
+    "exact_wheel_audit": {
+      "wheel_primes": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "wheel_W": 1155,
+      "phi_W": 480,
+      "uniform_floor": "693/1024",
+      "minimum_observed_ratio": "693/1024",
+      "floor_equality_residue_count": 480,
+      "expected_equality_residue_count": 480,
+      "sample_residue_rows": [
+        {
+          "target_residue_mod_W": 0,
+          "direct_admissible_count": 480,
+          "formula_admissible_count": 480,
+          "normalized_ratio": "77/32",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 1,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 2,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 3,
+          "direct_admissible_count": 270,
+          "formula_admissible_count": 270,
+          "normalized_ratio": "693/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 4,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 5,
+          "direct_admissible_count": 180,
+          "formula_admissible_count": 180,
+          "normalized_ratio": "231/256",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 6,
+          "direct_admissible_count": 270,
+          "formula_admissible_count": 270,
+          "normalized_ratio": "693/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 7,
+          "direct_admissible_count": 162,
+          "formula_admissible_count": 162,
+          "normalized_ratio": "2079/2560",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 8,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 9,
+          "direct_admissible_count": 270,
+          "formula_admissible_count": 270,
+          "normalized_ratio": "693/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 10,
+          "direct_admissible_count": 180,
+          "formula_admissible_count": 180,
+          "normalized_ratio": "231/256",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 11,
+          "direct_admissible_count": 150,
+          "formula_admissible_count": 150,
+          "normalized_ratio": "385/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 12,
+          "direct_admissible_count": 270,
+          "formula_admissible_count": 270,
+          "normalized_ratio": "693/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 13,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 14,
+          "direct_admissible_count": 162,
+          "formula_admissible_count": 162,
+          "normalized_ratio": "2079/2560",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 15,
+          "direct_admissible_count": 360,
+          "formula_admissible_count": 360,
+          "normalized_ratio": "231/128",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 16,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 17,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 18,
+          "direct_admissible_count": 270,
+          "formula_admissible_count": 270,
+          "normalized_ratio": "693/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 19,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 20,
+          "direct_admissible_count": 180,
+          "formula_admissible_count": 180,
+          "normalized_ratio": "231/256",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 21,
+          "direct_admissible_count": 324,
+          "formula_admissible_count": 324,
+          "normalized_ratio": "2079/1280",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 22,
+          "direct_admissible_count": 150,
+          "formula_admissible_count": 150,
+          "normalized_ratio": "385/512",
+          "attains_uniform_floor": false,
+          "coprime_to_W": false
+        },
+        {
+          "target_residue_mod_W": 23,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 26,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 29,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 31,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 32,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 34,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 37,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 38,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 41,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 43,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 46,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 47,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 52,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 53,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 58,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 59,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        },
+        {
+          "target_residue_mod_W": 61,
+          "direct_admissible_count": 135,
+          "formula_admissible_count": 135,
+          "normalized_ratio": "693/1024",
+          "attains_uniform_floor": true,
+          "coprime_to_W": true
+        }
+      ]
+    },
+    "wheel_prefix_rows": [
+      {
+        "largest_prime": 3,
+        "prime_count": 1,
+        "wheel_normalized_floor": "3/4",
+        "wheel_normalized_floor_decimal": "0.750000000000000"
+      },
+      {
+        "largest_prime": 5,
+        "prime_count": 2,
+        "wheel_normalized_floor": "45/64",
+        "wheel_normalized_floor_decimal": "0.703125000000000"
+      },
+      {
+        "largest_prime": 7,
+        "prime_count": 3,
+        "wheel_normalized_floor": "175/256",
+        "wheel_normalized_floor_decimal": "0.683593750000000"
+      },
+      {
+        "largest_prime": 11,
+        "prime_count": 4,
+        "wheel_normalized_floor": "693/1024",
+        "wheel_normalized_floor_decimal": "0.676757812500000"
+      },
+      {
+        "largest_prime": 13,
+        "prime_count": 5,
+        "wheel_normalized_floor": "11011/16384",
+        "wheel_normalized_floor_decimal": "0.672058105468750"
+      },
+      {
+        "largest_prime": 17,
+        "prime_count": 6,
+        "wheel_normalized_floor": "2807805/4194304",
+        "wheel_normalized_floor_decimal": "0.669432878494263"
+      },
+      {
+        "largest_prime": 19,
+        "prime_count": 7,
+        "wheel_normalized_floor": "302307005/452984832",
+        "wheel_normalized_floor_decimal": "0.667366727634712"
+      },
+      {
+        "largest_prime": 23,
+        "prime_count": 8,
+        "wheel_normalized_floor": "402243205/603979776",
+        "wheel_normalized_floor_decimal": "0.665987870759434"
+      },
+      {
+        "largest_prime": 29,
+        "prime_count": 9,
+        "wheel_normalized_floor": "714186915/1073741824",
+        "wheel_normalized_floor_decimal": "0.665138396434486"
+      },
+      {
+        "largest_prime": 31,
+        "prime_count": 10,
+        "wheel_normalized_floor": "42803602439/64424509440",
+        "wheel_normalized_floor_decimal": "0.664399353771781"
+      },
+      {
+        "largest_prime": 37,
+        "prime_count": 11,
+        "wheel_normalized_floor": "11086133031701/16698832846848",
+        "wheel_normalized_floor_decimal": "0.663886699949426"
+      },
+      {
+        "largest_prime": 41,
+        "prime_count": 12,
+        "wheel_normalized_floor": "5908908905896633/8906044184985600",
+        "wheel_normalized_floor_decimal": "0.663471770761958"
+      },
+      {
+        "largest_prime": 43,
+        "prime_count": 13,
+        "wheel_normalized_floor": "1488200914442251997/2244323134616371200",
+        "wheel_normalized_floor_decimal": "0.663095652978079"
+      }
+    ],
+    "aggregate": {
+      "crt_local_count_formula_proved": true,
+      "uniform_positive_normalized_local_floor_proved": true,
+      "goldbach_twin_local_factor_identity_proved": true,
+      "prime_weighted_global_remainder_controlled": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "Every finite wheel is locally admissible for every even target, so local congruence positivity cannot by itself force two actual primes. The remaining issue is a uniform prime-weighted global remainder smaller than the local main term.",
+    "failure_count": 0
+  },
+  "logical_limit": "A positive local singular factor is not a positive lower bound for the global prime representation count.",
+  "route_decision": {
+    "discard": "searching for a finite congruence obstruction to even Goldbach targets",
+    "retain": "bound the prime-weighted global remainder below the uniform local margin",
+    "next_single_lemma": "PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T222",
+        "label": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T223",
+        "label": "FiniteWheelUniformLocalMarginAndTwinFactorIdentity",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N223",
+        "label": "FiniteLocalAdmissibilityForcesPrimeRepresentation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN223",
+        "label": "PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T222",
+        "GB-T223"
+      ],
+      [
+        "GB-T223",
+        "GB-N223"
+      ],
+      [
+        "GB-T223",
+        "GB-OPEN223"
+      ],
+      [
+        "GB-OPEN223",
+        "GB"
+      ]
+    ]
+  }
+}

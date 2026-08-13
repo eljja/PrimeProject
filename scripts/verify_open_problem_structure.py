@@ -221,6 +221,7 @@ TICKET219_SCHEMA = "primeproject.ticket219-bandpass-matveev-crossfit-qualitative
 TICKET220_SCHEMA = "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1"
 TICKET221_SCHEMA = "primeproject.ticket221-sharp-obstruction-certificates.v1"
 TICKET222_SCHEMA = "primeproject.ticket222-lossless-coupling-biased-parity.v1"
+TICKET223_SCHEMA = "primeproject.ticket223-exponential-tail-local-duality-no-go.v1"
 
 
 def fail(message: str) -> int:
@@ -19403,6 +19404,170 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path223 = Path(
+        "data/open-problem/ticket223-exponential-tail-local-duality-no-go.json"
+    )
+    if not path223.exists():
+        return fail("missing ticket223 exponential-tail local-duality audit")
+    ticket223 = read_json(path223)
+    if (
+        ticket223.get("schema") != TICKET223_SCHEMA
+        or ticket223.get("status") != "open_not_proven"
+    ):
+        return fail("ticket223 schema or status changed")
+    audit223 = ticket223.get("exponential_tail_local_duality_no_go_audit", {})
+    machine223 = audit223.get("machine_audit", {})
+    if machine223 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket223 global machine audit changed")
+
+    attempts223 = {
+        row.get("problem_id"): row for row in ticket223.get("attempts", [])
+    }
+    if set(attempts223) != EXPECTED_PROBLEMS:
+        return fail("ticket223 attempts missing problems")
+    track_paths223 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-223-exponential-tail-injectivity.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-223-fixed-modulus-no-go.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-223-local-margin-duality.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-223-fixed-wheel-countermodel.json"
+        ),
+    }
+    theorem_names223 = {
+        "riemann": "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation",
+        "collatz": "FixedModulusPrimitiveFalsePositiveConstruction",
+        "goldbach": "FiniteWheelUniformLocalMarginAndTwinFactorIdentity",
+        "twin-prime": "FixedWheelCompositePairCountermodel",
+    }
+    next_lemmas223 = {
+        "riemann": "RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands",
+        "collatz": "CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent",
+        "goldbach": "PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin",
+        "twin-prime": "ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance",
+    }
+    for problem_id, track_path in track_paths223.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket223 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts223[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET223_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names223[problem_id]
+            or attempt.get("new_result") != theorem_names223[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas223[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != f"#/exponential_tail_local_duality_no_go_audit/{problem_id.replace('-', '_')}"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket223 contract changed")
+
+    rh223 = audit223.get("riemann", {}).get("reproducible_computation", {})
+    rh223_aggregate = rh223.get("aggregate", {})
+    if (
+        len(rh223.get("cofinal_tail_rows", [])) != 6
+        or any(
+            row.get("tv_bound_verified") is not True
+            or row.get("exponential_bound_verified") is not True
+            for row in rh223.get("cofinal_tail_rows", [])
+        )
+        or rh223_aggregate.get("exponential_tail_dyadic_injectivity_proved")
+        is not True
+        or rh223_aggregate.get("actual_zeta_defect_measure_constructed")
+        is not False
+        or rh223_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket223 RH exponential-tail boundary changed")
+
+    collatz223 = audit223.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz223_aggregate = collatz223.get("aggregate", {})
+    if (
+        len(collatz223.get("witness_rows", [])) != 66
+        or len(collatz223.get("finite_family_rows", [])) != 3
+        or any(
+            row.get("simultaneous_false_positive", {}).get("positive_false_positive")
+            is not True
+            or row.get("simultaneous_false_positive", {}).get(
+                "actual_cycle_divisibility"
+            )
+            is not False
+            for row in collatz223.get("finite_family_rows", [])
+        )
+        or collatz223_aggregate.get("constructive_fixed_modulus_no_go_proved")
+        is not True
+        or collatz223_aggregate.get("nontrivial_cycle_found") is not False
+        or collatz223_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket223 Collatz fixed-modulus boundary changed")
+
+    goldbach223 = audit223.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach223_exact = goldbach223.get("exact_wheel_audit", {})
+    goldbach223_aggregate = goldbach223.get("aggregate", {})
+    if (
+        goldbach223_exact.get("wheel_W") != 1155
+        or goldbach223_exact.get("minimum_observed_ratio") != "693/1024"
+        or goldbach223_exact.get("floor_equality_residue_count") != 480
+        or len(goldbach223.get("wheel_prefix_rows", [])) != 13
+        or goldbach223_aggregate.get("uniform_positive_normalized_local_floor_proved")
+        is not True
+        or goldbach223_aggregate.get("prime_weighted_global_remainder_controlled")
+        is not False
+        or goldbach223_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket223 Goldbach local-margin boundary changed")
+
+    twin223 = audit223.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin223_aggregate = twin223.get("aggregate", {})
+    if (
+        len(twin223.get("wheel_prefix_countermodels", [])) != 13
+        or any(
+            row.get("countermodel_verified") is not True
+            for row in twin223.get("wheel_prefix_countermodels", [])
+        )
+        or twin223_aggregate.get("fixed_wheel_composite_pair_countermodel_proved")
+        is not True
+        or twin223_aggregate.get("scale_growing_type_ii_dominance_proved")
+        is not False
+        or twin223_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket223 Twin fixed-wheel boundary changed")
+
+    if (
+        "resolves none" not in str(audit223.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket223.get("claim_boundary", "")).lower()
+        or machine223.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket223 proof boundary changed")
 
     print("open problem structure verified")
     return 0

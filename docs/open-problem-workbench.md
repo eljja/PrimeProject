@@ -499,6 +499,31 @@ Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This i
 
 The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
+## TICKET-223 Current Boundary / 현재 연구 경계
+
+TICKET-223 replaces four overbroad routes with exact theorems and explicit
+remaining obligations:
+
+| Problem | New exact result | Route closed | Single next lemma |
+|---|---|---|---|
+| Riemann | Exponential-tail dyadic Laplace injectivity plus a uniform cofinal truncation bound | Compact support is not necessary for abstract injectivity | `RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands` |
+| Collatz | Every fixed family of modular tests with moduli coprime to six has a primitive non-cycle false positive | Such a finite fixed modular sieve cannot be a complete cycle proof | `CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent` |
+| Goldbach | Every finite odd wheel has the uniform normalized local floor `C_W` | A finite local congruence obstruction cannot settle the global prime problem | `PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin` |
+| Twin Prime | Every fixed wheel survivor class contains infinitely many composite-pair countermodels | A fixed wheel signature cannot certify twin primality | `ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance` |
+
+The Goldbach minimum local factor and the normalized Twin wheel-survivor
+density are exactly the same finite Euler product. This is a proved local
+duality, not a proof reduction between the conjectures. The machine artifact
+records four exact partial theorems, four closed or corrected routes, four
+proof DAGs, zero failures, and zero conjecture resolutions.
+
+한국어 요약: 리만 트랙은 지수 꼬리 아래 추상 단사성과 절단 오차를
+닫았지만 실제 제타 결함을 구성하지 못했다. 콜라츠 트랙은 6과 서로소인
+고정 모듈러 체 전체를 no-go로 만들었지만 code-adaptive 방해와 비주기
+하강은 열려 있다. 골드바흐와 쌍둥이 소수 트랙은 동일한 국소 오일러
+인자를 공유하지만, 소수 가중 전역 remainder를 제어하지 못한다. 따라서
+네 상위 추측은 모두 `open_not_proven`이다.
+
 ## Claim Boundary
 
 The pages must keep these claims blocked:

@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, recoverable information separated from the infinite gap",
-      ko: "네 미해결 문제, 식별 가능한 관측량과 무한 간극의 분리",
+      en: "Four open problems, local information separated from global arithmetic",
+      ko: "네 미해결 문제, 국소 정보와 전역 산술 간극의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-222 proves four exact information-recovery, reduction, or parity-correction theorems and exposes the remaining infinite arithmetic premises.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-222는 관측 유일성, 정확한 환원, 패리티 교정에 관한 네 정리를 증명하고 남은 무한 산술 전제를 분리합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-223 proves an exponential-tail extension, a coprime-to-six fixed-modulus Collatz no-go, a uniform Goldbach local margin, and fixed-wheel twin composite countermodels.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-223은 지수 꼬리 확장, 6과 서로소인 고정 모듈러 콜라츠 한계, 골드바흐 국소 하한, 고정 휠 합성수 쌍 반례 모형을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-222 proves four exact partial or route-correction theorems while keeping every infinite arithmetic premise explicit. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-222는 네 개의 정확한 부분정리 또는 경로 교정 정리를 증명하고 필요한 무한 산술 전제를 명시합니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-223 proves four exact partial or no-go theorems while isolating the global arithmetic gaps. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-223은 네 개의 정확한 부분정리 또는 한계 정리를 증명하고 남은 전역 산술 간극을 명시합니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",
