@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260814-ticket223-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260814-ticket224-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-223 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, local information separated from global arithmetic</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-223 proves an exponential-tail extension, a fixed-modulus Collatz no-go, a uniform Goldbach local margin, and fixed-wheel twin composite countermodels.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-223은 리만 결함의 지수 꼬리 확장, 6과 서로소인 모듈러스로 만든 모든 고정 콜라츠 체의 거짓 양성, 골드바흐의 균일 국소 하한, 고정 휠을 통과하는 무한 합성수 쌍을 정확히 증명했습니다.</p>
+                <p class="brief-kicker">TICKET-224 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, exact completeness thresholds exposed</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-224 proves an optimal RH tail envelope, a Collatz prime-power no-go, and square-root completeness boundaries for Goldbach and Twin filters.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-224는 리만 band 꼬리의 최적 상수 <code>1/4</code>, 콜라츠 cycle 판정에서 prime-power 중복도의 필수성, 골드바흐·쌍둥이 소수 filter의 제곱근 완전성과 그 아래의 명시적 합성수 반례를 증명했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>223</strong><small>2026-08-14</small></div>
+              <div><span>Latest ticket</span><strong>224</strong><small>2026-08-14</small></div>
               <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>꼬리·고정 체·국소 밀도</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>꼬리·radical·불완전 체</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 지수 총변동 꼬리를 갖는 비콤팩트 부호 측도도 전체 양방향 이진 라플라스 대역 프로필로 유일하게 결정되며 절단 오차가 균일하게 사라집니다.</p>
-                <p><strong>폐기:</strong> 추상 지수 꼬리 정리를 실제 제타 결함과 소수 쪽 band 표현으로 자동 승격하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands</code>.</p>
+                <p><strong>확립:</strong> 이진 라플라스 band 꼬리는 최적 포락선 <code>(1/4)e<sup>-ηT</sup>||σ||<sub>η</sub></code>를 가지며 정렬 원자에서 등호가 성립합니다.</p>
+                <p><strong>폐기:</strong> 기존 계수 1 경계를 최적으로 보거나 추상 부호 인증을 실제 RH 판정으로 승격하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 6과 서로소인 모든 고정 모듈러스 또는 그 유한 가족에는 <code>M|D</code>, <code>M|B</code>를 통과하지만 <code>0&lt;B&lt;D</code>인 비자명 원시 word가 존재합니다.</p>
-                <p><strong>폐기:</strong> 고정된 유한 합동 검사 목록으로 모든 비자명 콜라츠 주기를 배제하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent</code>.</p>
+                <p><strong>확립:</strong> <code>D|B</code>는 모든 소수 거듭제곱 지수 비교와 동치입니다. 원시 word <code>(1,1,2,4,3)</code>은 <code>rad(D)|B</code>를 통과하지만 <code>D|B</code>는 실패합니다.</p>
+                <p><strong>폐기:</strong> 소인수 중복도를 버린 radical-only adaptive 검사를 완전한 cycle 방해로 사용하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformPrimePowerDeficitOrUniversalAperiodicDescent</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 유한 홀수 wheel에서 골드바흐 허용 잉여류의 정규화 밀도는 양의 공통 오일러 곱 하한을 가집니다.</p>
-                <p><strong>폐기:</strong> 짝수 목표를 막는 유한 국소 합동 장애를 찾는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin</code>.</p>
+                <p><strong>확립:</strong> <code>z≥√X</code>까지 인수를 검사하면 <code>X</code> 이하 filter는 소수 판정과 같고 골드바흐 convolution도 정확합니다.</p>
+                <p><strong>폐기:</strong> 고정 또는 불완전 wheel convolution을 소수 convolution과 동일시하는 경로. Semiprime 대각쌍이 반박합니다.</p>
+                <p><strong>다음 핵심:</strong> <code>SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 고정 wheel 생존류에는 같은 signature를 가지면서 두 수가 모두 합성수인 무한 산술진행이 존재합니다.</p>
-                <p><strong>폐기:</strong> 고정 유한 wheel signature를 쌍둥이 소수 인증서로 읽는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance</code>.</p>
+                <p><strong>확립:</strong> 제곱근 filter는 유한 gap-two 후보를 정확히 판정하지만, 그 아래 모든 고정 cutoff에는 무한 CRT 합성수 쌍이 남습니다.</p>
+                <p><strong>폐기:</strong> sub-square-root wheel 생존을 쌍둥이 소수 인증서로 읽는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformSubSquareRootTypeIIBilinearSeparationForGapTwo</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>223개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-223은 국소 산술 정보와 실제 전역 소수 상관 사이의 경계를 분명히 나눕니다.</p>
+                <p>224개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-224는 정확 판정에 필요한 정보 임계값과 그 아래에서 살아남는 반례를 분명히 나눕니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/exponential-tail-local-duality-no-go.ko.md">최신 한국어 보고서</a>
-              <a href="docs/exponential-tail-local-duality-no-go.md">Latest English report</a>
+              <a href="docs/sharp-completeness-thresholds.ko.md">최신 한국어 보고서</a>
+              <a href="docs/sharp-completeness-thresholds.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-223</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-223 proves four exact partial or no-go theorems while isolating the global arithmetic gaps. Resolution count: 0.</p>
+              <strong>TICKET-224</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-224 proves four exact completeness-threshold or no-go theorems and preserves a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260814-ticket223"></script>
-    <script src="assets/app.js?v=20260814-ticket223"></script>
+    <script src="assets/i18n.js?v=20260814-ticket224"></script>
+    <script src="assets/app.js?v=20260814-ticket224"></script>
   </body>
 </html>
 

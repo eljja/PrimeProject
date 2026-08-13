@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket224-sharp-completeness-thresholds.v1",
+  "generated_at": "2026-08-14T20:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-224",
+  "theorem_name": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+  "declared_proposition": "With the same Q_z filter, if z>=sqrt(X), then for every n with n+2<=X, Q_z(n)Q_z(n+2)=1 exactly when (n,n+2) is a twin-prime pair. For every finite z this implication fails at larger scales: CRT gives an infinite progression surviving every prime at most z while n is divisible by a chosen prime r>z and n+2 by another prime s>z.",
+  "mathematical_argument": "Square-root exactness applies separately to n and n+2. For the countermodel, select a residue avoiding 0 and -2 modulo every prime at most z, then impose n=0 mod r and n=-2 mod s. Pairwise coprimality lets CRT combine the conditions. Every sufficiently large member is a proper multiple on both sides but has the same finite-wheel signature as a candidate twin pair.",
+  "reproducible_computation": {
+    "theorem": "With the same Q_z filter, if z>=sqrt(X), then for every n with n+2<=X, Q_z(n)Q_z(n+2)=1 exactly when (n,n+2) is a twin-prime pair. For every finite z this implication fails at larger scales: CRT gives an infinite progression surviving every prime at most z while n is divisible by a chosen prime r>z and n+2 by another prime s>z.",
+    "proof": "Square-root exactness applies separately to n and n+2. For the countermodel, select a residue avoiding 0 and -2 modulo every prime at most z, then impose n=0 mod r and n=-2 mod s. Pairwise coprimality lets CRT combine the conditions. Every sufficiently large member is a proper multiple on both sides but has the same finite-wheel signature as a candidate twin pair.",
+    "square_root_exactness_rows": [
+      {
+        "horizon_X": 100,
+        "cutoff_z": 10,
+        "prime_count_through_z": 4,
+        "integers_checked": 99,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      },
+      {
+        "horizon_X": 1000,
+        "cutoff_z": 32,
+        "prime_count_through_z": 11,
+        "integers_checked": 999,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      },
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 100,
+        "prime_count_through_z": 25,
+        "integers_checked": 9999,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 317,
+        "prime_count_through_z": 66,
+        "integers_checked": 99999,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      }
+    ],
+    "subthreshold_crt_countermodels": [
+      {
+        "cutoff_z": 3,
+        "wheel_W": 6,
+        "wheel_survivor_residue": 5,
+        "external_left_factor": 5,
+        "external_right_factor": 7,
+        "composite_n": 215,
+        "composite_n_plus_2": 217,
+        "progression_modulus": 210,
+        "z_below_sqrt_X": true,
+        "countermodel_verified": true
+      },
+      {
+        "cutoff_z": 5,
+        "wheel_W": 30,
+        "wheel_survivor_residue": 11,
+        "external_left_factor": 7,
+        "external_right_factor": 11,
+        "composite_n": 2891,
+        "composite_n_plus_2": 2893,
+        "progression_modulus": 2310,
+        "z_below_sqrt_X": true,
+        "countermodel_verified": true
+      },
+      {
+        "cutoff_z": 7,
+        "wheel_W": 210,
+        "wheel_survivor_residue": 71,
+        "external_left_factor": 11,
+        "external_right_factor": 13,
+        "composite_n": 42911,
+        "composite_n_plus_2": 42913,
+        "progression_modulus": 30030,
+        "z_below_sqrt_X": true,
+        "countermodel_verified": true
+      },
+      {
+        "cutoff_z": 11,
+        "wheel_W": 2310,
+        "wheel_survivor_residue": 1541,
+        "external_left_factor": 13,
+        "external_right_factor": 17,
+        "composite_n": 703781,
+        "composite_n_plus_2": 703783,
+        "progression_modulus": 510510,
+        "z_below_sqrt_X": true,
+        "countermodel_verified": true
+      },
+      {
+        "cutoff_z": 17,
+        "wheel_W": 510510,
+        "wheel_survivor_residue": 170171,
+        "external_left_factor": 19,
+        "external_right_factor": 23,
+        "composite_n": 294734441,
+        "composite_n_plus_2": 294734443,
+        "progression_modulus": 223092870,
+        "z_below_sqrt_X": true,
+        "countermodel_verified": true
+      },
+      {
+        "cutoff_z": 29,
+        "wheel_W": 6469693230,
+        "wheel_survivor_residue": 2156564411,
+        "external_left_factor": 31,
+        "external_right_factor": 37,
+        "composite_n": 7772258133641,
+        "composite_n_plus_2": 7772258133643,
+        "progression_modulus": 7420738134810,
+        "z_below_sqrt_X": true,
+        "countermodel_verified": true
+      }
+    ],
+    "aggregate": {
+      "square_root_twin_filter_equivalence_proved": true,
+      "finite_subthreshold_twin_filter_sufficiency_refuted": true,
+      "infinite_countermodel_progression_per_cutoff_proved": true,
+      "uniform_sub_square_root_type_ii_separation_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "Exact square-root trial division decides bounded candidates but does not imply infinitely many candidates. Below that complete information threshold, an analytic parity/Type-II separation is still required.",
+    "failure_count": 0
+  },
+  "logical_limit": "Exact bounded primality filtering does not create infinitely many twin candidates; sub-square-root Type-II separation remains open.",
+  "route_decision": {
+    "discard": "treating survival below the square-root completeness threshold as twin primality",
+    "retain": "prove a uniform sub-square-root bilinear estimate that removes the CRT composite-pair mass",
+    "next_single_lemma": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T223",
+        "label": "FixedWheelCompositePairCountermodel",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T224",
+        "label": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N224",
+        "label": "SubSquareRootWheelSurvivalCertifiesTwinPrimality",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN224",
+        "label": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T223",
+        "TP-T224"
+      ],
+      [
+        "TP-T224",
+        "TP-N224"
+      ],
+      [
+        "TP-T224",
+        "TP-OPEN224"
+      ],
+      [
+        "TP-OPEN224",
+        "TP"
+      ]
+    ]
+  }
+}

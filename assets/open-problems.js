@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket224AttemptGlobal = null;
 let ticket223AttemptGlobal = null;
 let ticket222AttemptGlobal = null;
 let ticket221AttemptGlobal = null;
@@ -10019,6 +10020,76 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket224SharpCompletenessThresholds(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.sharp_completeness_thresholds_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.sharpness_rows || [];
+    detail = `
+      <div class="poc-equation">sup<sub>j</sub>|W<sub>j</sub>(σ<sub>≥T</sub>)| ≤ (1/4)e<sup>−ηT</sup>||σ||<sub>η</sub>; k(u)=e<sup>−u</sup>−e<sup>−2u</sup> attains 1/4 at u=log 2</div>
+      ${table(["j", "support T", "kernel", "band", "quarter bound", "equality"], rows.slice(0, 6).map((row) => [row.dyadic_index_j, row.support_T, row.band_kernel, row.band_value, row.quarter_bound, row.equality_verified]))}
+      <div class="poc-head"><div><span>Sharp constant</span><strong>1/4</strong></div><div><span>Equality rows</span><strong>${rows.filter((row) => row.equality_verified).length}</strong></div><div><span>Actual zeta margin</span><strong>${aggregate.actual_zeta_prime_side_margin_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">band kernel 자체의 최적 상수는 1/4입니다. 절단 신호가 이 꼬리 포락선보다 엄격히 클 때만 전체 부호를 인증할 수 있으며, 실제 제타-소수 band margin은 아직 없습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const witness = computation.explicit_radical_false_positive || {};
+    const finite = computation.finite_audit || {};
+    detail = `
+      <div class="poc-equation">D|B ⇔ v<sub>q</sub>(B)≥v<sub>q</sub>(D) for every q|D; a=(1,1,2,4,3): D=1805=5·19², B=475=5²·19</div>
+      ${table(["q", "v_q(D)", "v_q(B)", "passes"], (witness.valuation_rows || []).map((row) => [row.prime_q, row.v_q_D, row.v_q_B, row.prime_power_condition_passes]))}
+      <div class="poc-head"><div><span>Words checked</span><strong>${formatter.format(finite.words_checked || 0)}</strong></div><div><span>Radical false positives</span><strong>${finite.radical_false_positive_count ?? 0}</strong></div><div><span>Criterion mismatches</span><strong>${finite.prime_power_criterion_mismatches ?? 0}</strong></div></div>
+      <p class="proof-note"><code>rad(D)|B</code>는 중복도를 잃으므로 완전한 adaptive 판정이 아닙니다. 정확 판정은 모든 prime-power valuation을 요구하지만, 이는 아직 모든 비자명 cycle 배제나 비주기 하강을 증명하지 않습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const exact = computation.square_root_exactness_rows || [];
+    const falseRows = computation.subthreshold_false_positive_rows || [];
+    detail = `
+      <div class="poc-equation">z≥√X ⇒ Q<sub>z</sub>(m)=1 ⇔ m prime for 2≤m≤X; r,s&gt;z and m=rs give a false diagonal (m,m) at N=2m below completeness</div>
+      ${table(["X", "z", "integers", "mismatches", "exact"], exact.map((row) => [formatter.format(row.horizon_X), row.cutoff_z, formatter.format(row.integers_checked), row.primality_filter_mismatches, row.exactness_verified]))}
+      ${table(["subthreshold z", "false m", "target N", "filtered excess", "verified"], falseRows.map((row) => [row.cutoff_z, row.composite_m, row.even_target_N, row.false_positive_excess, row.diagonal_false_positive_verified]))}
+      <div class="poc-head"><div><span>Exact horizons</span><strong>${exact.length}</strong></div><div><span>False diagonals</span><strong>${falseRows.length}</strong></div><div><span>Sub-square-root remainder</span><strong>${aggregate.sub_square_root_prime_weighted_remainder_controlled ? "controlled" : "open"}</strong></div></div>
+      <p class="proof-note">제곱근까지 인수 정보를 넣으면 유한 범위에서는 소수 판정과 정확히 같습니다. 그러나 이는 완전한 trial division이며 모든 짝수에 대한 증명이 아닙니다. 그보다 낮은 level의 균일 오차 제어가 핵심입니다.</p>
+    `;
+  } else {
+    const exact = computation.square_root_exactness_rows || [];
+    const rows = computation.subthreshold_crt_countermodels || [];
+    detail = `
+      <div class="poc-equation">z≥√X ⇒ Q<sub>z</sub>(n)Q<sub>z</sub>(n+2)=1 iff both are prime; below it CRT preserves the wheel signature while forcing external factors</div>
+      ${table(["z", "W", "composite pair", "external factors", "verified"], rows.map((row) => [row.cutoff_z, row.wheel_W, `${row.composite_n}, ${row.composite_n_plus_2}`, `${row.external_left_factor}, ${row.external_right_factor}`, row.countermodel_verified]))}
+      <div class="poc-head"><div><span>Exact horizons</span><strong>${exact.length}</strong></div><div><span>CRT countermodels</span><strong>${rows.length}</strong></div><div><span>Sub-square-root Type II</span><strong>${aggregate.uniform_sub_square_root_type_ii_separation_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">제곱근 완전성 아래에서는 모든 고정 cutoff에 무한 CRT 합성수 쌍이 남습니다. 필요한 것은 생존 여부가 아니라 이 합성수 mass를 제거하는 균일 gap-two Type-II 분리입니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket224-sharp-completeness-thresholds" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 224 sharp completeness thresholds and adversarial countermodels</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact threshold or no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET224 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/sharp-completeness-thresholds.ko.md">한국어 보고서</a> · <a href="../docs/sharp-completeness-thresholds.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket223ExponentialTailLocalDualityNoGo(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.exponential_tail_local_duality_no_go_audit || {};
@@ -17002,7 +17073,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket223ExponentialTailLocalDualityNoGo(ticket223AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket224SharpCompletenessThresholds(ticket224AttemptGlobal) ||
+      renderTicket223ExponentialTailLocalDualityNoGo(ticket223AttemptGlobal) ||
       renderTicket222LosslessCouplingBiasedParity(ticket222AttemptGlobal) ||
       renderTicket221SharpObstructionCertificates(ticket221AttemptGlobal) ||
       renderTicket220DyadicPartitionPrimitiveRefinementCRT(ticket220AttemptGlobal) ||
@@ -17545,6 +17617,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket224Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket224-sharp-completeness-thresholds.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket224AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket224AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket224AttemptGlobal) {
+      ticket224AttemptGlobal.bounded_result = ticket224AttemptGlobal.bounded_result || {};
+      ticket224AttemptGlobal.bounded_result.sharp_completeness_thresholds_audit = payload.sharp_completeness_thresholds_audit || {};
+    }
+    return Boolean(ticket224AttemptGlobal);
+  } catch (error) {
+    ticket224AttemptGlobal = null;
     return false;
   }
 }
@@ -19198,12 +19290,13 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket224Loaded = await loadTicket224Attempt();
   const ticket223Loaded = await loadTicket223Attempt();
   const ticket222Loaded = await loadTicket222Attempt();
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket223-current";
+  document.documentElement.dataset.openProblemCache = "ticket224-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19256,8 +19349,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket224AttemptGlobal) await loadTicket224Attempt();
     if (!ticket223AttemptGlobal) await loadTicket223Attempt();
     if (!ticket222AttemptGlobal) await loadTicket222Attempt();
     if (!ticket221AttemptGlobal) await loadTicket221Attempt();
@@ -19359,7 +19453,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket223-current";
+  document.documentElement.dataset.openProblemCache = "ticket224-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

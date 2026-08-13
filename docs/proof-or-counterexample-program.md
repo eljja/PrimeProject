@@ -8183,7 +8183,33 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
 한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).
 
-## TICKET-223 continuation: exponential tails, local duality, and fixed-sieve no-go
+## TICKET-224 continuation: sharp completeness thresholds
+
+TICKET-224 continues the TICKET-223 proof DAG and proves four exact threshold
+or no-go statements while keeping the conjecture-resolution count at zero:
+
+1. RH: the exponential dyadic-band tail has the optimal uniform constant
+   `1/4`, attained by aligned atoms. The missing bridge is a rigorous
+   actual-zeta prime-side band margin above this sharp envelope.
+2. Collatz: finite-cycle divisibility is equivalent to every prime-power
+   valuation inequality. The primitive word `(1,1,2,4,3)` satisfies
+   `rad(D)|B` but not `D|B`, refuting radical-only adaptive tests. Universal
+   prime-power deficit and aperiodic descent remain open.
+3. Goldbach: factor filtering through `sqrt(X)` equals primality on `[2,X]`,
+   but every fixed lower cutoff admits semiprime false diagonals. The missing
+   theorem is a uniform sub-square-root prime-weighted remainder below the
+   positive local margin.
+4. Twin Prime: square-root filtering exactly decides bounded gap-two
+   candidates, while every lower fixed cutoff admits infinite CRT composite
+   progressions. Uniform sub-square-root Type-II separation remains open.
+
+Machine audit: four exact threshold or no-go theorems, four rejected routes,
+four proof DAGs, zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-224 sharp completeness thresholds](sharp-completeness-thresholds.md).
+한국어 보고서: [TICKET-224 날카로운 완전성 임계값](sharp-completeness-thresholds.ko.md).
+
+## TICKET-223 preserved continuation: exponential tails, local duality, and fixed-sieve no-go
 
 TICKET-223 continues the latest proof DAG rather than restarting a classical
 reproduction. It proves four exact partial or no-go statements while keeping

@@ -499,7 +499,31 @@ Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This i
 
 The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
-## TICKET-223 Current Boundary / 현재 연구 경계
+## TICKET-224 Current Boundary / 현재 연구 경계
+
+TICKET-224 identifies the information threshold at which each current finite
+test becomes exact, then constructs countermodels below that threshold:
+
+| Problem | New exact result | Route closed | Single next lemma |
+|---|---|---|---|
+| Riemann | The dyadic band-tail envelope has the optimal uniform constant `1/4`; a strict margin above it certifies the full sign | The earlier factor-one bound is sharp, or an abstract sign certificate is already an RH criterion | `PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs` |
+| Collatz | `D|B` is equivalent to all prime-power valuation inequalities; `(1,1,2,4,3)` refutes radical-only sufficiency | `rad(D)|B` is a complete code-adaptive cycle obstruction | `UniformPrimePowerDeficitOrUniversalAperiodicDescent` |
+| Goldbach | A wheel filter through `sqrt(X)` equals primality on `[2,X]`; every fixed lower cutoff has semiprime false diagonals | A fixed or incomplete wheel convolution equals the prime convolution | `SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin` |
+| Twin Prime | The same square-root filter exactly decides bounded gap-two candidates; lower cutoffs admit infinite CRT composite-pair progressions | Sub-square-root wheel survival certifies twin primality | `UniformSubSquareRootTypeIIBilinearSeparationForGapTwo` |
+
+The machine artifact records four exact threshold or no-go theorems, four
+closed routes, four proof DAGs, zero failures, and zero conjecture resolutions.
+Square-root filtering is a complete bounded decision procedure, not an
+all-scale proof. The decisive remaining content is the sub-complete analytic
+information that replaces full trial division.
+
+한국어 요약: 리만 band의 최적 꼬리 상수는 `1/4`이고, 콜라츠 cycle 판정은
+소인수의 존재뿐 아니라 중복도까지 요구한다. 골드바흐와 쌍둥이 소수
+filter는 유한 범위에서 제곱근 인수 정보까지 넣으면 정확하지만, 그 아래
+모든 고정 cutoff에는 명시적 합성수 거짓 양성이 남는다. 이 정확한 유한
+판정은 네 상위 난제의 증명이 아니며 모두 `open_not_proven`이다.
+
+## TICKET-223 Preserved Boundary / 보존된 이전 연구 경계
 
 TICKET-223 replaces four overbroad routes with exact theorems and explicit
 remaining obligations:

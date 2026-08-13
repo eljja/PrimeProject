@@ -14,10 +14,11 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket224Load = openProblemSource.indexOf("const ticket224Loaded = await loadTicket224Attempt();");
   const ticket223Load = openProblemSource.indexOf("const ticket223Loaded = await loadTicket223Attempt();");
   const ticket222Load = openProblemSource.indexOf("const ticket222Loaded = await loadTicket222Attempt();");
   const ticket221Load = openProblemSource.indexOf("const ticket221Loaded = await loadTicket221Attempt();");
-  const ticket223EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket223Load);
+  const ticket224EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket224Load);
   const ticket220Load = openProblemSource.indexOf("const ticket220Loaded = await loadTicket220Attempt();");
   const ticket219Load = openProblemSource.indexOf("const ticket219Loaded = await loadTicket219Attempt();");
   const ticket218Load = openProblemSource.indexOf("const ticket218Loaded = await loadTicket218Attempt();");
@@ -73,15 +74,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket223Load >= 0 && ticket223Load < ticket222Load && ticket222Load < ticket221Load && ticket221Load < ticket220Load && ticket220Load < ticket223EarlyRender && ticket223EarlyRender < ticket219Load && ticket219Load < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET223 must render before archive loading, and TICKET222 through TICKET125 must precede historical ticket loading");
+  if (!(ticket224Load >= 0 && ticket224Load < ticket223Load && ticket223Load < ticket222Load && ticket222Load < ticket221Load && ticket221Load < ticket220Load && ticket220Load < ticket224EarlyRender && ticket224EarlyRender < ticket219Load && ticket219Load < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET224 must render before archive loading, and TICKET223 through TICKET125 must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260814-ticket223")) {
+    if (!source.includes("open-problems.js?v=20260814-ticket224")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260814-ticket223-layout")) {
+    if (!source.includes("styles.css?v=20260814-ticket224-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -477,6 +478,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket224AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket224-sharp-completeness-thresholds .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket223AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket223-exponential-tail-local-duality-no-go .ticket161-audit-table .proof-table-wrap",
@@ -721,16 +728,16 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-223") ||
-    !metrics.currentBriefText.includes("RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands") ||
-    !metrics.currentBriefText.includes("CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent") ||
-    !metrics.currentBriefText.includes("PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin") ||
-    !metrics.currentBriefText.includes("ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance") ||
+    !metrics.currentBriefText.includes("TICKET-224") ||
+    !metrics.currentBriefText.includes("PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs") ||
+    !metrics.currentBriefText.includes("UniformPrimePowerDeficitOrUniversalAperiodicDescent") ||
+    !metrics.currentBriefText.includes("SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin") ||
+    !metrics.currentBriefText.includes("UniformSubSquareRootTypeIIBilinearSeparationForGapTwo") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-223" ||
-    !metrics.railResearchText.includes("TICKET-223") ||
-    !metrics.railResearchText.includes("Resolution count: 0") ||
+    metrics.railResearchTicket.trim() !== "TICKET-224" ||
+    !metrics.railResearchText.includes("TICKET-224") ||
+    !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
   ) {
@@ -746,12 +753,12 @@ async function main() {
     !metrics.proofHub?.links.includes("collatz.html") ||
     !metrics.proofHub?.links.includes("goldbach.html") ||
     !metrics.proofHub?.links.includes("twin-prime.html") ||
-    !metrics.proofHub?.boundary.includes("What TICKET-223 actually changed") ||
-    !metrics.proofHub?.boundary.includes("RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands") ||
-    !metrics.proofHub?.boundary.includes("CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent") ||
-    !metrics.proofHub?.boundary.includes("PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin") ||
-    !metrics.proofHub?.boundary.includes("ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance") ||
-    !metrics.proofHub?.boundary.includes("TICKET-161–223") ||
+    !metrics.proofHub?.boundary.includes("What TICKET-224 actually changed") ||
+    !metrics.proofHub?.boundary.includes("PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs") ||
+    !metrics.proofHub?.boundary.includes("UniformPrimePowerDeficitOrUniversalAperiodicDescent") ||
+    !metrics.proofHub?.boundary.includes("SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin") ||
+    !metrics.proofHub?.boundary.includes("UniformSubSquareRootTypeIIBilinearSeparationForGapTwo") ||
+    !metrics.proofHub?.boundary.includes("TICKET-161–224") ||
     !metrics.proofHub?.boundary.includes("Resolution count") ||
     !metrics.proofHub?.boundary.includes("0") ||
     !metrics.proofHub?.boundary.includes("not present a conjecture as solved")
@@ -763,8 +770,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-223 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-223 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 223 exponential tails, local duality, and fixed-sieve no-go results")) failures.push(`${page.problemId}: current TICKET-223 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-224 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-224 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 224 sharp completeness thresholds and adversarial countermodels")) failures.push(`${page.problemId}: current TICKET-224 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1634,37 +1641,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket223 title", "Ticket 223 exponential tails, local duality, and fixed-sieve no-go results");
-    requireCurrentText("ticket223 table", "TICKET223 audit");
-    requireCurrentText("ticket223 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket223 next lemmas", "Next lemmas4");
-    requireCurrentText("ticket223 resolutions", "Resolution count0");
-    requireCurrentText("ticket223 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket223AuditOverflow) checks.push(`${page.problemId}: ticket223 audit table overflow`);
+    requireCurrentText("ticket224 title", "Ticket 224 sharp completeness thresholds and adversarial countermodels");
+    requireCurrentText("ticket224 table", "TICKET224 audit");
+    requireCurrentText("ticket224 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket224 next lemmas", "Next lemmas4");
+    requireCurrentText("ticket224 resolutions", "Resolution count0");
+    requireCurrentText("ticket224 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket224AuditOverflow) checks.push(`${page.problemId}: ticket224 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket223 RH theorem", "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation");
-      requireCurrentText("ticket223 RH target", "RHEquivalentExponentiallyWeightedDefectWithPrimeSideDyadicBands");
-      requireCurrentText("ticket223 RH injectivity", "Exponential-tail injectivityproved");
-      requireCurrentText("ticket223 RH checks", "Cofinal tail checks6");
-      requireCurrentText("ticket223 RH open", "Actual zeta defectopen");
+      requireCurrentText("ticket224 RH theorem", "SharpQuarterDyadicTailEnvelopeAndSignCertificate");
+      requireCurrentText("ticket224 RH target", "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs");
+      requireCurrentText("ticket224 RH constant", "Sharp constant1/4");
+      requireCurrentText("ticket224 RH equality", "Equality rows9");
+      requireCurrentText("ticket224 RH open", "Actual zeta marginopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket223 Collatz theorem", "FixedModulusPrimitiveFalsePositiveConstruction");
-      requireCurrentText("ticket223 Collatz target", "CodeAdaptiveLargePrimeObstructionOrUniversalAperiodicDescent");
-      requireCurrentText("ticket223 Collatz moduli", "Fixed moduli checked66");
-      requireCurrentText("ticket223 Collatz families", "Finite families defeated3");
-      requireCurrentText("ticket223 Collatz cycles", "Nontrivial cycles found0");
+      requireCurrentText("ticket224 Collatz theorem", "PrimePowerValuationCycleCriterionAndRadicalNoGo");
+      requireCurrentText("ticket224 Collatz target", "UniformPrimePowerDeficitOrUniversalAperiodicDescent");
+      requireCurrentText("ticket224 Collatz words", "Words checked1,360");
+      requireCurrentText("ticket224 Collatz false positives", "Radical false positives5");
+      requireCurrentText("ticket224 Collatz mismatches", "Criterion mismatches0");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket223 Goldbach theorem", "FiniteWheelUniformLocalMarginAndTwinFactorIdentity");
-      requireCurrentText("ticket223 Goldbach target", "PrimeWeightedGoldbachRemainderStrictlyBelowUniformLocalMargin");
-      requireCurrentText("ticket223 Goldbach wheel", "Exact wheel W1,155");
-      requireCurrentText("ticket223 Goldbach ratio", "Minimum local ratio693/1024");
-      requireCurrentText("ticket223 Goldbach open", "Prime-weighted remainderopen");
+      requireCurrentText("ticket224 Goldbach theorem", "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo");
+      requireCurrentText("ticket224 Goldbach target", "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin");
+      requireCurrentText("ticket224 Goldbach horizons", "Exact horizons4");
+      requireCurrentText("ticket224 Goldbach false diagonals", "False diagonals6");
+      requireCurrentText("ticket224 Goldbach open", "Sub-square-root remainderopen");
     } else {
-      requireCurrentText("ticket223 Twin theorem", "FixedWheelCompositePairCountermodel");
-      requireCurrentText("ticket223 Twin target", "ScaleGrowingWheelSignalWithUniformTypeIIRemainderDominance");
-      requireCurrentText("ticket223 Twin prefixes", "Wheel prefixes13");
-      requireCurrentText("ticket223 Twin models", "Composite countermodels13");
-      requireCurrentText("ticket223 Twin open", "Scale-growing Type IIopen");
+      requireCurrentText("ticket224 Twin theorem", "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo");
+      requireCurrentText("ticket224 Twin target", "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo");
+      requireCurrentText("ticket224 Twin horizons", "Exact horizons4");
+      requireCurrentText("ticket224 Twin models", "CRT countermodels6");
+      requireCurrentText("ticket224 Twin open", "Sub-square-root Type IIopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3828,6 +3835,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("Evidence pack") ||
     !metrics.evolutionPanel.includes("Publication consistency") ||
+    !metrics.evolutionPanel.includes("TICKET-224") ||
     !metrics.evolutionPanel.includes("TICKET-223") ||
     !metrics.evolutionPanel.includes("TICKET-222") ||
     !metrics.evolutionPanel.includes("TICKET-221") ||

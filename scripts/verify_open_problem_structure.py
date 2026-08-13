@@ -222,6 +222,7 @@ TICKET220_SCHEMA = "primeproject.ticket220-dyadic-partition-primitive-refinement
 TICKET221_SCHEMA = "primeproject.ticket221-sharp-obstruction-certificates.v1"
 TICKET222_SCHEMA = "primeproject.ticket222-lossless-coupling-biased-parity.v1"
 TICKET223_SCHEMA = "primeproject.ticket223-exponential-tail-local-duality-no-go.v1"
+TICKET224_SCHEMA = "primeproject.ticket224-sharp-completeness-thresholds.v1"
 
 
 def fail(message: str) -> int:
@@ -19404,6 +19405,178 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path224 = Path(
+        "data/open-problem/ticket224-sharp-completeness-thresholds.json"
+    )
+    if not path224.exists():
+        return fail("missing ticket224 sharp-completeness audit")
+    ticket224 = read_json(path224)
+    if (
+        ticket224.get("schema") != TICKET224_SCHEMA
+        or ticket224.get("status") != "open_not_proven"
+    ):
+        return fail("ticket224 schema or status changed")
+    audit224 = ticket224.get("sharp_completeness_thresholds_audit", {})
+    machine224 = audit224.get("machine_audit", {})
+    if machine224 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket224 global machine audit changed")
+
+    attempts224 = {
+        row.get("problem_id"): row for row in ticket224.get("attempts", [])
+    }
+    if set(attempts224) != EXPECTED_PROBLEMS:
+        return fail("ticket224 attempts missing problems")
+    track_paths224 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-224-sharp-quarter-tail.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-224-prime-power-criterion.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-224-square-root-wheel.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-224-square-root-wheel.json"
+        ),
+    }
+    theorem_names224 = {
+        "riemann": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+        "collatz": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+        "goldbach": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+        "twin-prime": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+    }
+    next_lemmas224 = {
+        "riemann": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs",
+        "collatz": "UniformPrimePowerDeficitOrUniversalAperiodicDescent",
+        "goldbach": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin",
+        "twin-prime": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo",
+    }
+    for problem_id, track_path in track_paths224.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket224 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts224[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET224_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names224[problem_id]
+            or attempt.get("new_result") != theorem_names224[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas224[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != f"#/sharp_completeness_thresholds_audit/{problem_id.replace('-', '_')}"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket224 contract changed")
+
+    rh224 = audit224.get("riemann", {}).get("reproducible_computation", {})
+    rh224_aggregate = rh224.get("aggregate", {})
+    if (
+        len(rh224.get("model_tail_rows", [])) != 6
+        or len(rh224.get("sharpness_rows", [])) != 9
+        or any(
+            row.get("bound_verified") is not True
+            for row in rh224.get("model_tail_rows", [])
+        )
+        or any(
+            row.get("equality_verified") is not True
+            for row in rh224.get("sharpness_rows", [])
+        )
+        or rh224_aggregate.get("sharp_quarter_tail_envelope_proved") is not True
+        or rh224_aggregate.get("uniform_constant_optimality_proved") is not True
+        or rh224_aggregate.get("actual_zeta_prime_side_margin_proved") is not False
+        or rh224_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket224 RH sharp-tail boundary changed")
+
+    collatz224 = audit224.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz224_witness = collatz224.get("explicit_radical_false_positive", {})
+    collatz224_finite = collatz224.get("finite_audit", {})
+    collatz224_aggregate = collatz224.get("aggregate", {})
+    if (
+        collatz224_witness.get("valuation_word") != [1, 1, 2, 4, 3]
+        or collatz224_witness.get("D") != 1805
+        or collatz224_witness.get("B") != 475
+        or collatz224_witness.get("rad_D") != 95
+        or collatz224_witness.get("rad_D_divides_B") is not True
+        or collatz224_witness.get("D_divides_B") is not False
+        or collatz224_witness.get("verified") is not True
+        or collatz224_finite.get("words_checked") != 1360
+        or collatz224_finite.get("prime_power_criterion_mismatches") != 0
+        or collatz224_finite.get("radical_false_positive_count") != 5
+        or collatz224_aggregate.get("radical_only_sufficiency_refuted") is not True
+        or collatz224_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket224 Collatz prime-power boundary changed")
+
+    goldbach224 = audit224.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach224_aggregate = goldbach224.get("aggregate", {})
+    if (
+        len(goldbach224.get("square_root_exactness_rows", [])) != 4
+        or any(
+            row.get("primality_filter_mismatches") != 0
+            or row.get("exactness_verified") is not True
+            for row in goldbach224.get("square_root_exactness_rows", [])
+        )
+        or len(goldbach224.get("subthreshold_false_positive_rows", [])) != 6
+        or any(
+            row.get("diagonal_false_positive_verified") is not True
+            or int(row.get("false_positive_excess", 0)) <= 0
+            for row in goldbach224.get("subthreshold_false_positive_rows", [])
+        )
+        or goldbach224_aggregate.get("goldbach_filtered_count_exact_at_square_root_proved")
+        is not True
+        or goldbach224_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket224 Goldbach square-root boundary changed")
+
+    twin224 = audit224.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin224_aggregate = twin224.get("aggregate", {})
+    if (
+        len(twin224.get("square_root_exactness_rows", [])) != 4
+        or len(twin224.get("subthreshold_crt_countermodels", [])) != 6
+        or any(
+            row.get("countermodel_verified") is not True
+            for row in twin224.get("subthreshold_crt_countermodels", [])
+        )
+        or twin224_aggregate.get("square_root_twin_filter_equivalence_proved")
+        is not True
+        or twin224_aggregate.get("uniform_sub_square_root_type_ii_separation_proved")
+        is not False
+        or twin224_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket224 Twin square-root boundary changed")
+
+    if (
+        "resolves none" not in str(audit224.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket224.get("claim_boundary", "")).lower()
+        or machine224.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket224 proof boundary changed")
 
     path223 = Path(
         "data/open-problem/ticket223-exponential-tail-local-duality-no-go.json"

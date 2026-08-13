@@ -1,0 +1,203 @@
+{
+  "schema": "primeproject.ticket224-sharp-completeness-thresholds.v1",
+  "generated_at": "2026-08-14T20:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-224",
+  "theorem_name": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+  "declared_proposition": "Let sigma be a finite signed Borel measure on (0,infinity) with finite norm ||sigma||_eta=integral exp(eta t)d|sigma|(t), eta>0. For W_j(sigma)=integral (exp(-2^(-j)t)-exp(-2^(1-j)t)) d sigma(t), the tail sigma restricted to [T,infinity) satisfies sup_j |W_j| <= (1/4) exp(-eta T)||sigma||_eta. The constant 1/4 is optimal uniformly: equality holds for a suitably normalized atom at T=2^j log 2. Consequently a truncated band has a certified full-band sign whenever its absolute margin is strictly greater than this sharp tail envelope.",
+  "mathematical_argument": "For u>0, k(u)=exp(-u)-exp(-2u). Differentiation gives its unique maximum k(log 2)=1/4. Therefore the absolute tail band is at most one quarter of the tail total variation, which is at most exp(-eta T)||sigma||_eta/4. For T=2^j log 2, the measure exp(-eta T) delta_T has weighted norm one and attains equality at dyadic scale 2^(-j). The triangle inequality proves the strict sign-margin certificate, while the extremal atom shows that a uniformly smaller envelope is impossible.",
+  "reproducible_computation": {
+    "theorem": "Let sigma be a finite signed Borel measure on (0,infinity) with finite norm ||sigma||_eta=integral exp(eta t)d|sigma|(t), eta>0. For W_j(sigma)=integral (exp(-2^(-j)t)-exp(-2^(1-j)t)) d sigma(t), the tail sigma restricted to [T,infinity) satisfies sup_j |W_j| <= (1/4) exp(-eta T)||sigma||_eta. The constant 1/4 is optimal uniformly: equality holds for a suitably normalized atom at T=2^j log 2. Consequently a truncated band has a certified full-band sign whenever its absolute margin is strictly greater than this sharp tail envelope.",
+    "proof": "For u>0, k(u)=exp(-u)-exp(-2u). Differentiation gives its unique maximum k(log 2)=1/4. Therefore the absolute tail band is at most one quarter of the tail total variation, which is at most exp(-eta T)||sigma||_eta/4. For T=2^j log 2, the measure exp(-eta T) delta_T has weighted norm one and attains equality at dyadic scale 2^(-j). The triangle inequality proves the strict sign-margin certificate, while the extremal atom shows that a uniformly smaller envelope is impossible.",
+    "kernel_optimization": {
+      "kernel": "k(u)=exp(-u)-exp(-2u)",
+      "maximizer": "u=log(2)",
+      "maximum": "1/4"
+    },
+    "model_tail_rows": [
+      {
+        "cutoff_T": 4,
+        "maximum_observed_band_tail": "1.940443089963081952186062308017E-4",
+        "sharp_quarter_exponential_bound": "1.562500000000000000000000000000E-2",
+        "bound_verified": true
+      },
+      {
+        "cutoff_T": 8,
+        "maximum_observed_band_tail": "7.455632834574884297287963713780E-7",
+        "sharp_quarter_exponential_bound": "9.765625000000000000000000000000E-4",
+        "bound_verified": true
+      },
+      {
+        "cutoff_T": 12,
+        "maximum_observed_band_tail": "2.950903586115211356333597153022E-9",
+        "sharp_quarter_exponential_bound": "6.103515625000000000000000000000E-5",
+        "bound_verified": true
+      },
+      {
+        "cutoff_T": 16,
+        "maximum_observed_band_tail": "1.125408634845794999725409306409E-11",
+        "sharp_quarter_exponential_bound": "3.814697265625000000000000000000E-6",
+        "bound_verified": true
+      },
+      {
+        "cutoff_T": 24,
+        "maximum_observed_band_tail": "1.765595884299575734229949064146E-16",
+        "sharp_quarter_exponential_bound": "1.490116119384765625000000000000E-8",
+        "bound_verified": true
+      },
+      {
+        "cutoff_T": 32,
+        "maximum_observed_band_tail": "2.604426459238018867416726935008E-21",
+        "sharp_quarter_exponential_bound": "5.820766091346740722656250000000E-11",
+        "bound_verified": true
+      }
+    ],
+    "sharpness_rows": [
+      {
+        "dyadic_index_j": 0,
+        "support_T": "6.931471805599453094172321214582E-1",
+        "unit_weighted_norm_atom_mass": "6.185031378015759836141127884429E-1",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "1.546257844503939959035281971107E-1",
+        "quarter_bound": "1.546257844503939959035281971107E-1",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 1,
+        "support_T": "1.386294361119890618834464242916E+0",
+        "unit_weighted_norm_atom_mass": "3.825461314703952904609027717544E-1",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "9.563653286759882261522569293861E-2",
+        "quarter_bound": "9.563653286759882261522569293861E-2",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 2,
+        "support_T": "2.772588722239781237668928485833E+0",
+        "unit_weighted_norm_atom_mass": "1.463415427029649580341508534915E-1",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "3.658538567574123950853771337287E-2",
+        "quarter_bound": "3.658538567574123950853771337287E-2",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 3,
+        "support_T": "5.545177444479562475337856971665E+0",
+        "unit_weighted_norm_atom_mass": "2.141584712068371635552558134507E-2",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "5.353961780170929088881395336267E-3",
+        "quarter_bound": "5.353961780170929088881395336267E-3",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 4,
+        "support_T": "1.109035488895912495067571394333E+1",
+        "unit_weighted_norm_atom_mass": "4.586385078964970242872263027250E-4",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "1.146596269741242560718065756813E-4",
+        "quarter_bound": "1.146596269741242560718065756813E-4",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 5,
+        "support_T": "2.218070977791824990135142788666E+1",
+        "unit_weighted_norm_atom_mass": "2.103492809255251633017793358617E-7",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "5.258732023138129082544483396543E-8",
+        "quarter_bound": "5.258732023138129082544483396543E-8",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 6,
+        "support_T": "4.436141955583649980270285577332E+1",
+        "unit_weighted_norm_atom_mass": "4.424681998588550430142023993957E-14",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "1.106170499647137607535505998489E-14",
+        "quarter_bound": "1.106170499647137607535505998489E-14",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 7,
+        "support_T": "8.872283911167299960540571154665E+1",
+        "unit_weighted_norm_atom_mass": "1.957781078863356899067553190751E-27",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "4.894452697158392247668882976879E-28",
+        "quarter_bound": "4.894452697158392247668882976879E-28",
+        "equality_verified": true
+      },
+      {
+        "dyadic_index_j": 8,
+        "support_T": "1.774456782233459992108114230933E+2",
+        "unit_weighted_norm_atom_mass": "3.832906752755369685855808096391E-54",
+        "band_kernel": "2.500000000000000000000000000000E-1",
+        "band_value": "9.582266881888424214639520240977E-55",
+        "quarter_bound": "9.582266881888424214639520240977E-55",
+        "equality_verified": true
+      }
+    ],
+    "transcript_sha256": "67ca72ff20c7010ce8cddc5dd17f6cb8d2fff24c941f8dbed8b93ef3ea7cc58b",
+    "aggregate": {
+      "sharp_quarter_tail_envelope_proved": true,
+      "uniform_constant_optimality_proved": true,
+      "strict_sign_margin_certificate_proved": true,
+      "actual_zeta_prime_side_margin_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "TICKET-223's factor-one envelope is not sharp; factor one quarter is optimal for this band kernel. The theorem remains abstract and supplies no RH-equivalent zeta defect or prime-side lower margin.",
+    "failure_count": 0
+  },
+  "logical_limit": "No RH-equivalent actual-zeta defect or rigorous prime-side band margin is constructed.",
+  "route_decision": {
+    "discard": "using the nonsharp factor-one tail envelope or treating an abstract sign certificate as an RH criterion",
+    "retain": "derive actual-zeta prime-side bands whose certified margins dominate the sharp quarter tail",
+    "next_single_lemma": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T223",
+        "label": "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T224",
+        "label": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N224",
+        "label": "NonsharpFactorOneTailOrAbstractSignImpliesRH",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN224",
+        "label": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T223",
+        "RH-T224"
+      ],
+      [
+        "RH-T224",
+        "RH-N224"
+      ],
+      [
+        "RH-T224",
+        "RH-OPEN224"
+      ],
+      [
+        "RH-OPEN224",
+        "RH"
+      ]
+    ]
+  }
+}

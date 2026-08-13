@@ -1,0 +1,213 @@
+{
+  "schema": "primeproject.ticket224-sharp-completeness-thresholds.v1",
+  "generated_at": "2026-08-14T20:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-224",
+  "theorem_name": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+  "declared_proposition": "For any positive accelerated Collatz valuation word with D=2^S-3^h>0 and intercept B, the exact finite-cycle condition D|B is equivalent to v_q(B)>=v_q(D) for every prime q dividing D. Thus every failed cycle has a prime-power valuation-deficit certificate. Checking only rad(D)|B is insufficient: the primitive word (1,1,2,4,3) has D=1805=5*19^2 and B=475=5^2*19, so rad(D)=95 divides B but D does not.",
+  "mathematical_argument": "Unique factorization gives D|B exactly when each prime exponent in D is no larger than the corresponding exponent in B. The stated word has S=11 and h=5, hence D=2^11-3^5=1805. Direct evaluation of the affine intercept gives B=475. Its length is prime and it is nonconstant, hence primitive. The displayed factorizations prove radical divisibility and exhibit the missing second power of 19.",
+  "reproducible_computation": {
+    "theorem": "For any positive accelerated Collatz valuation word with D=2^S-3^h>0 and intercept B, the exact finite-cycle condition D|B is equivalent to v_q(B)>=v_q(D) for every prime q dividing D. Thus every failed cycle has a prime-power valuation-deficit certificate. Checking only rad(D)|B is insufficient: the primitive word (1,1,2,4,3) has D=1805=5*19^2 and B=475=5^2*19, so rad(D)=95 divides B but D does not.",
+    "proof": "Unique factorization gives D|B exactly when each prime exponent in D is no larger than the corresponding exponent in B. The stated word has S=11 and h=5, hence D=2^11-3^5=1805. Direct evaluation of the affine intercept gives B=475. Its length is prime and it is nonconstant, hence primitive. The displayed factorizations prove radical divisibility and exhibit the missing second power of 19.",
+    "explicit_radical_false_positive": {
+      "valuation_word": [
+        1,
+        1,
+        2,
+        4,
+        3
+      ],
+      "primitive": true,
+      "S": 11,
+      "h": 5,
+      "D": 1805,
+      "B": 475,
+      "factorization_D": {
+        "5": 1,
+        "19": 2
+      },
+      "rad_D": 95,
+      "rad_D_divides_B": true,
+      "D_divides_B": false,
+      "valuation_rows": [
+        {
+          "prime_q": 5,
+          "v_q_D": 1,
+          "v_q_B": 2,
+          "prime_power_condition_passes": true
+        },
+        {
+          "prime_q": 19,
+          "v_q_D": 2,
+          "v_q_B": 1,
+          "prime_power_condition_passes": false
+        }
+      ],
+      "verified": true
+    },
+    "finite_audit": {
+      "heights": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "alphabet": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "words_checked": 1360,
+      "primitive_positive_words": 1295,
+      "prime_power_criterion_mismatches": 0,
+      "radical_false_positive_count": 5,
+      "sample_radical_false_positives": [
+        {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            4,
+            3
+          ],
+          "D": 1805,
+          "B": 475,
+          "rad_D": 95,
+          "factorization_D": {
+            "5": 1,
+            "19": 2
+          }
+        },
+        {
+          "valuation_word": [
+            1,
+            2,
+            4,
+            3,
+            1
+          ],
+          "D": 1805,
+          "B": 1615,
+          "rad_D": 95,
+          "factorization_D": {
+            "5": 1,
+            "19": 2
+          }
+        },
+        {
+          "valuation_word": [
+            2,
+            4,
+            3,
+            1,
+            1
+          ],
+          "D": 1805,
+          "B": 3325,
+          "rad_D": 95,
+          "factorization_D": {
+            "5": 1,
+            "19": 2
+          }
+        },
+        {
+          "valuation_word": [
+            3,
+            1,
+            1,
+            2,
+            4
+          ],
+          "D": 1805,
+          "B": 665,
+          "rad_D": 95,
+          "factorization_D": {
+            "5": 1,
+            "19": 2
+          }
+        },
+        {
+          "valuation_word": [
+            4,
+            3,
+            1,
+            1,
+            2
+          ],
+          "D": 1805,
+          "B": 2945,
+          "rad_D": 95,
+          "factorization_D": {
+            "5": 1,
+            "19": 2
+          }
+        }
+      ]
+    },
+    "aggregate": {
+      "prime_power_cycle_criterion_proved": true,
+      "radical_only_sufficiency_refuted": true,
+      "explicit_primitive_counterexample_verified": true,
+      "all_nontrivial_cycles_excluded": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The exact adaptive test must retain prime multiplicities. Full factorization of D merely restates D|B and does not uniformly exclude nontrivial words or control aperiodic trajectories.",
+    "failure_count": 0
+  },
+  "logical_limit": "Prime-power factorization exactly recognizes finite cycles but does not uniformly exclude them or prove descent for aperiodic trajectories.",
+  "route_decision": {
+    "discard": "radical-only code-adaptive divisibility as a complete cycle obstruction",
+    "retain": "bound a missing prime-power valuation in every nontrivial primitive code and combine it with aperiodic descent",
+    "next_single_lemma": "UniformPrimePowerDeficitOrUniversalAperiodicDescent"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T223",
+        "label": "FixedModulusPrimitiveFalsePositiveConstruction",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T224",
+        "label": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N224",
+        "label": "RadicalDivisibilityIsACompleteAdaptiveCycleTest",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN224",
+        "label": "UniformPrimePowerDeficitOrUniversalAperiodicDescent",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T223",
+        "CO-T224"
+      ],
+      [
+        "CO-T224",
+        "CO-N224"
+      ],
+      [
+        "CO-T224",
+        "CO-OPEN224"
+      ],
+      [
+        "CO-OPEN224",
+        "CO"
+      ]
+    ]
+  }
+}

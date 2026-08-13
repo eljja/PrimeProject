@@ -1,0 +1,196 @@
+{
+  "schema": "primeproject.ticket224-sharp-completeness-thresholds.v1",
+  "generated_at": "2026-08-14T20:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-224",
+  "theorem_name": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+  "declared_proposition": "Define Q_z(m) to be exact primality for m<=z and, for m>z, the condition that m has no prime divisor at most z. If z>=sqrt(X), then Q_z(m) is equivalent to primality for every 2<=m<=X; hence for every even N<=X the Q_z ordered representation count equals the exact Goldbach count. This threshold cannot be replaced by an arbitrary fixed wheel: for primes r,s>z, m=rs passes Q_z although composite, and N=2m contains the false diagonal pair (m,m).",
+  "mathematical_argument": "Every composite m<=X has a prime divisor at most sqrt(m), hence at most sqrt(X)<=z; Q_z rejects it, while it accepts every prime. Substitution in the ordered convolution proves count equality. Conversely, if r and s are primes above z, no sieving prime divides m=rs. The filtered convolution for 2m contains all genuine prime representations plus the nonprime diagonal, so it strictly exceeds the true count.",
+  "reproducible_computation": {
+    "theorem": "Define Q_z(m) to be exact primality for m<=z and, for m>z, the condition that m has no prime divisor at most z. If z>=sqrt(X), then Q_z(m) is equivalent to primality for every 2<=m<=X; hence for every even N<=X the Q_z ordered representation count equals the exact Goldbach count. This threshold cannot be replaced by an arbitrary fixed wheel: for primes r,s>z, m=rs passes Q_z although composite, and N=2m contains the false diagonal pair (m,m).",
+    "proof": "Every composite m<=X has a prime divisor at most sqrt(m), hence at most sqrt(X)<=z; Q_z rejects it, while it accepts every prime. Substitution in the ordered convolution proves count equality. Conversely, if r and s are primes above z, no sieving prime divides m=rs. The filtered convolution for 2m contains all genuine prime representations plus the nonprime diagonal, so it strictly exceeds the true count.",
+    "square_root_exactness_rows": [
+      {
+        "horizon_X": 100,
+        "cutoff_z": 10,
+        "prime_count_through_z": 4,
+        "integers_checked": 99,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      },
+      {
+        "horizon_X": 1000,
+        "cutoff_z": 32,
+        "prime_count_through_z": 11,
+        "integers_checked": 999,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      },
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 100,
+        "prime_count_through_z": 25,
+        "integers_checked": 9999,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 317,
+        "prime_count_through_z": 66,
+        "integers_checked": 99999,
+        "primality_filter_mismatches": 0,
+        "exactness_verified": true
+      }
+    ],
+    "subthreshold_false_positive_rows": [
+      {
+        "cutoff_z": 3,
+        "external_factors": [
+          5,
+          7
+        ],
+        "composite_m": 35,
+        "even_target_N": 70,
+        "actual_ordered_goldbach_count": 10,
+        "filtered_ordered_pair_count": 13,
+        "false_positive_excess": 3,
+        "z_below_sqrt_N": true,
+        "diagonal_false_positive_verified": true
+      },
+      {
+        "cutoff_z": 5,
+        "external_factors": [
+          7,
+          11
+        ],
+        "composite_m": 77,
+        "even_target_N": 154,
+        "actual_ordered_goldbach_count": 16,
+        "filtered_ordered_pair_count": 19,
+        "false_positive_excess": 3,
+        "z_below_sqrt_N": true,
+        "diagonal_false_positive_verified": true
+      },
+      {
+        "cutoff_z": 7,
+        "external_factors": [
+          11,
+          13
+        ],
+        "composite_m": 143,
+        "even_target_N": 286,
+        "actual_ordered_goldbach_count": 24,
+        "filtered_ordered_pair_count": 25,
+        "false_positive_excess": 1,
+        "z_below_sqrt_N": true,
+        "diagonal_false_positive_verified": true
+      },
+      {
+        "cutoff_z": 11,
+        "external_factors": [
+          13,
+          17
+        ],
+        "composite_m": 221,
+        "even_target_N": 442,
+        "actual_ordered_goldbach_count": 26,
+        "filtered_ordered_pair_count": 29,
+        "false_positive_excess": 3,
+        "z_below_sqrt_N": true,
+        "diagonal_false_positive_verified": true
+      },
+      {
+        "cutoff_z": 17,
+        "external_factors": [
+          19,
+          23
+        ],
+        "composite_m": 437,
+        "even_target_N": 874,
+        "actual_ordered_goldbach_count": 38,
+        "filtered_ordered_pair_count": 41,
+        "false_positive_excess": 3,
+        "z_below_sqrt_N": true,
+        "diagonal_false_positive_verified": true
+      },
+      {
+        "cutoff_z": 29,
+        "external_factors": [
+          31,
+          37
+        ],
+        "composite_m": 1147,
+        "even_target_N": 2294,
+        "actual_ordered_goldbach_count": 64,
+        "filtered_ordered_pair_count": 75,
+        "false_positive_excess": 11,
+        "z_below_sqrt_N": true,
+        "diagonal_false_positive_verified": true
+      }
+    ],
+    "aggregate": {
+      "square_root_wheel_primality_equivalence_proved": true,
+      "goldbach_filtered_count_exact_at_square_root_proved": true,
+      "fixed_subthreshold_wheel_sufficiency_refuted": true,
+      "sub_square_root_prime_weighted_remainder_controlled": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "Sieving to sqrt(X) is an exact finite decision procedure, not an all-X proof and not an analytic improvement. A useful proof must obtain a uniform positive result with less than complete square-root factor information.",
+    "failure_count": 0
+  },
+  "logical_limit": "The square-root filter is exact only at each finite horizon; no uniform sub-square-root prime-weighted remainder bound is proved.",
+  "route_decision": {
+    "discard": "claiming that any fixed or incomplete wheel count equals the prime Goldbach count",
+    "retain": "beat complete square-root sieving by a uniform prime-weighted remainder below the local margin",
+    "next_single_lemma": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T223",
+        "label": "FiniteWheelUniformLocalMarginAndTwinFactorIdentity",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T224",
+        "label": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N224",
+        "label": "FixedOrIncompleteWheelCountEqualsPrimeGoldbachCount",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN224",
+        "label": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T223",
+        "GB-T224"
+      ],
+      [
+        "GB-T224",
+        "GB-N224"
+      ],
+      [
+        "GB-T224",
+        "GB-OPEN224"
+      ],
+      [
+        "GB-OPEN224",
+        "GB"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,1056 @@
+{
+  "schema": "primeproject.ticket224-sharp-completeness-thresholds.v1",
+  "generated_at": "2026-08-14T20:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-224 proves four bounded threshold or no-go results and resolves none of the four parent conjectures.",
+  "sharp_completeness_thresholds_audit": {
+    "theorem_name": "SharpCompletenessThresholdsForFourOpenProblems",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-224 proves four exact threshold or no-go theorems and resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-224",
+      "theorem_name": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+      "declared_proposition": "Let sigma be a finite signed Borel measure on (0,infinity) with finite norm ||sigma||_eta=integral exp(eta t)d|sigma|(t), eta>0. For W_j(sigma)=integral (exp(-2^(-j)t)-exp(-2^(1-j)t)) d sigma(t), the tail sigma restricted to [T,infinity) satisfies sup_j |W_j| <= (1/4) exp(-eta T)||sigma||_eta. The constant 1/4 is optimal uniformly: equality holds for a suitably normalized atom at T=2^j log 2. Consequently a truncated band has a certified full-band sign whenever its absolute margin is strictly greater than this sharp tail envelope.",
+      "mathematical_argument": "For u>0, k(u)=exp(-u)-exp(-2u). Differentiation gives its unique maximum k(log 2)=1/4. Therefore the absolute tail band is at most one quarter of the tail total variation, which is at most exp(-eta T)||sigma||_eta/4. For T=2^j log 2, the measure exp(-eta T) delta_T has weighted norm one and attains equality at dyadic scale 2^(-j). The triangle inequality proves the strict sign-margin certificate, while the extremal atom shows that a uniformly smaller envelope is impossible.",
+      "reproducible_computation": {
+        "theorem": "Let sigma be a finite signed Borel measure on (0,infinity) with finite norm ||sigma||_eta=integral exp(eta t)d|sigma|(t), eta>0. For W_j(sigma)=integral (exp(-2^(-j)t)-exp(-2^(1-j)t)) d sigma(t), the tail sigma restricted to [T,infinity) satisfies sup_j |W_j| <= (1/4) exp(-eta T)||sigma||_eta. The constant 1/4 is optimal uniformly: equality holds for a suitably normalized atom at T=2^j log 2. Consequently a truncated band has a certified full-band sign whenever its absolute margin is strictly greater than this sharp tail envelope.",
+        "proof": "For u>0, k(u)=exp(-u)-exp(-2u). Differentiation gives its unique maximum k(log 2)=1/4. Therefore the absolute tail band is at most one quarter of the tail total variation, which is at most exp(-eta T)||sigma||_eta/4. For T=2^j log 2, the measure exp(-eta T) delta_T has weighted norm one and attains equality at dyadic scale 2^(-j). The triangle inequality proves the strict sign-margin certificate, while the extremal atom shows that a uniformly smaller envelope is impossible.",
+        "kernel_optimization": {
+          "kernel": "k(u)=exp(-u)-exp(-2u)",
+          "maximizer": "u=log(2)",
+          "maximum": "1/4"
+        },
+        "model_tail_rows": [
+          {
+            "cutoff_T": 4,
+            "maximum_observed_band_tail": "1.940443089963081952186062308017E-4",
+            "sharp_quarter_exponential_bound": "1.562500000000000000000000000000E-2",
+            "bound_verified": true
+          },
+          {
+            "cutoff_T": 8,
+            "maximum_observed_band_tail": "7.455632834574884297287963713780E-7",
+            "sharp_quarter_exponential_bound": "9.765625000000000000000000000000E-4",
+            "bound_verified": true
+          },
+          {
+            "cutoff_T": 12,
+            "maximum_observed_band_tail": "2.950903586115211356333597153022E-9",
+            "sharp_quarter_exponential_bound": "6.103515625000000000000000000000E-5",
+            "bound_verified": true
+          },
+          {
+            "cutoff_T": 16,
+            "maximum_observed_band_tail": "1.125408634845794999725409306409E-11",
+            "sharp_quarter_exponential_bound": "3.814697265625000000000000000000E-6",
+            "bound_verified": true
+          },
+          {
+            "cutoff_T": 24,
+            "maximum_observed_band_tail": "1.765595884299575734229949064146E-16",
+            "sharp_quarter_exponential_bound": "1.490116119384765625000000000000E-8",
+            "bound_verified": true
+          },
+          {
+            "cutoff_T": 32,
+            "maximum_observed_band_tail": "2.604426459238018867416726935008E-21",
+            "sharp_quarter_exponential_bound": "5.820766091346740722656250000000E-11",
+            "bound_verified": true
+          }
+        ],
+        "sharpness_rows": [
+          {
+            "dyadic_index_j": 0,
+            "support_T": "6.931471805599453094172321214582E-1",
+            "unit_weighted_norm_atom_mass": "6.185031378015759836141127884429E-1",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "1.546257844503939959035281971107E-1",
+            "quarter_bound": "1.546257844503939959035281971107E-1",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 1,
+            "support_T": "1.386294361119890618834464242916E+0",
+            "unit_weighted_norm_atom_mass": "3.825461314703952904609027717544E-1",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "9.563653286759882261522569293861E-2",
+            "quarter_bound": "9.563653286759882261522569293861E-2",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 2,
+            "support_T": "2.772588722239781237668928485833E+0",
+            "unit_weighted_norm_atom_mass": "1.463415427029649580341508534915E-1",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "3.658538567574123950853771337287E-2",
+            "quarter_bound": "3.658538567574123950853771337287E-2",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 3,
+            "support_T": "5.545177444479562475337856971665E+0",
+            "unit_weighted_norm_atom_mass": "2.141584712068371635552558134507E-2",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "5.353961780170929088881395336267E-3",
+            "quarter_bound": "5.353961780170929088881395336267E-3",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 4,
+            "support_T": "1.109035488895912495067571394333E+1",
+            "unit_weighted_norm_atom_mass": "4.586385078964970242872263027250E-4",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "1.146596269741242560718065756813E-4",
+            "quarter_bound": "1.146596269741242560718065756813E-4",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 5,
+            "support_T": "2.218070977791824990135142788666E+1",
+            "unit_weighted_norm_atom_mass": "2.103492809255251633017793358617E-7",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "5.258732023138129082544483396543E-8",
+            "quarter_bound": "5.258732023138129082544483396543E-8",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 6,
+            "support_T": "4.436141955583649980270285577332E+1",
+            "unit_weighted_norm_atom_mass": "4.424681998588550430142023993957E-14",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "1.106170499647137607535505998489E-14",
+            "quarter_bound": "1.106170499647137607535505998489E-14",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 7,
+            "support_T": "8.872283911167299960540571154665E+1",
+            "unit_weighted_norm_atom_mass": "1.957781078863356899067553190751E-27",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "4.894452697158392247668882976879E-28",
+            "quarter_bound": "4.894452697158392247668882976879E-28",
+            "equality_verified": true
+          },
+          {
+            "dyadic_index_j": 8,
+            "support_T": "1.774456782233459992108114230933E+2",
+            "unit_weighted_norm_atom_mass": "3.832906752755369685855808096391E-54",
+            "band_kernel": "2.500000000000000000000000000000E-1",
+            "band_value": "9.582266881888424214639520240977E-55",
+            "quarter_bound": "9.582266881888424214639520240977E-55",
+            "equality_verified": true
+          }
+        ],
+        "transcript_sha256": "67ca72ff20c7010ce8cddc5dd17f6cb8d2fff24c941f8dbed8b93ef3ea7cc58b",
+        "aggregate": {
+          "sharp_quarter_tail_envelope_proved": true,
+          "uniform_constant_optimality_proved": true,
+          "strict_sign_margin_certificate_proved": true,
+          "actual_zeta_prime_side_margin_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "TICKET-223's factor-one envelope is not sharp; factor one quarter is optimal for this band kernel. The theorem remains abstract and supplies no RH-equivalent zeta defect or prime-side lower margin.",
+        "failure_count": 0
+      },
+      "logical_limit": "No RH-equivalent actual-zeta defect or rigorous prime-side band margin is constructed.",
+      "route_decision": {
+        "discard": "using the nonsharp factor-one tail envelope or treating an abstract sign certificate as an RH criterion",
+        "retain": "derive actual-zeta prime-side bands whose certified margins dominate the sharp quarter tail",
+        "next_single_lemma": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T223",
+            "label": "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T224",
+            "label": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N224",
+            "label": "NonsharpFactorOneTailOrAbstractSignImpliesRH",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN224",
+            "label": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T223",
+            "RH-T224"
+          ],
+          [
+            "RH-T224",
+            "RH-N224"
+          ],
+          [
+            "RH-T224",
+            "RH-OPEN224"
+          ],
+          [
+            "RH-OPEN224",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-224",
+      "theorem_name": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+      "declared_proposition": "For any positive accelerated Collatz valuation word with D=2^S-3^h>0 and intercept B, the exact finite-cycle condition D|B is equivalent to v_q(B)>=v_q(D) for every prime q dividing D. Thus every failed cycle has a prime-power valuation-deficit certificate. Checking only rad(D)|B is insufficient: the primitive word (1,1,2,4,3) has D=1805=5*19^2 and B=475=5^2*19, so rad(D)=95 divides B but D does not.",
+      "mathematical_argument": "Unique factorization gives D|B exactly when each prime exponent in D is no larger than the corresponding exponent in B. The stated word has S=11 and h=5, hence D=2^11-3^5=1805. Direct evaluation of the affine intercept gives B=475. Its length is prime and it is nonconstant, hence primitive. The displayed factorizations prove radical divisibility and exhibit the missing second power of 19.",
+      "reproducible_computation": {
+        "theorem": "For any positive accelerated Collatz valuation word with D=2^S-3^h>0 and intercept B, the exact finite-cycle condition D|B is equivalent to v_q(B)>=v_q(D) for every prime q dividing D. Thus every failed cycle has a prime-power valuation-deficit certificate. Checking only rad(D)|B is insufficient: the primitive word (1,1,2,4,3) has D=1805=5*19^2 and B=475=5^2*19, so rad(D)=95 divides B but D does not.",
+        "proof": "Unique factorization gives D|B exactly when each prime exponent in D is no larger than the corresponding exponent in B. The stated word has S=11 and h=5, hence D=2^11-3^5=1805. Direct evaluation of the affine intercept gives B=475. Its length is prime and it is nonconstant, hence primitive. The displayed factorizations prove radical divisibility and exhibit the missing second power of 19.",
+        "explicit_radical_false_positive": {
+          "valuation_word": [
+            1,
+            1,
+            2,
+            4,
+            3
+          ],
+          "primitive": true,
+          "S": 11,
+          "h": 5,
+          "D": 1805,
+          "B": 475,
+          "factorization_D": {
+            "5": 1,
+            "19": 2
+          },
+          "rad_D": 95,
+          "rad_D_divides_B": true,
+          "D_divides_B": false,
+          "valuation_rows": [
+            {
+              "prime_q": 5,
+              "v_q_D": 1,
+              "v_q_B": 2,
+              "prime_power_condition_passes": true
+            },
+            {
+              "prime_q": 19,
+              "v_q_D": 2,
+              "v_q_B": 1,
+              "prime_power_condition_passes": false
+            }
+          ],
+          "verified": true
+        },
+        "finite_audit": {
+          "heights": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "alphabet": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "words_checked": 1360,
+          "primitive_positive_words": 1295,
+          "prime_power_criterion_mismatches": 0,
+          "radical_false_positive_count": 5,
+          "sample_radical_false_positives": [
+            {
+              "valuation_word": [
+                1,
+                1,
+                2,
+                4,
+                3
+              ],
+              "D": 1805,
+              "B": 475,
+              "rad_D": 95,
+              "factorization_D": {
+                "5": 1,
+                "19": 2
+              }
+            },
+            {
+              "valuation_word": [
+                1,
+                2,
+                4,
+                3,
+                1
+              ],
+              "D": 1805,
+              "B": 1615,
+              "rad_D": 95,
+              "factorization_D": {
+                "5": 1,
+                "19": 2
+              }
+            },
+            {
+              "valuation_word": [
+                2,
+                4,
+                3,
+                1,
+                1
+              ],
+              "D": 1805,
+              "B": 3325,
+              "rad_D": 95,
+              "factorization_D": {
+                "5": 1,
+                "19": 2
+              }
+            },
+            {
+              "valuation_word": [
+                3,
+                1,
+                1,
+                2,
+                4
+              ],
+              "D": 1805,
+              "B": 665,
+              "rad_D": 95,
+              "factorization_D": {
+                "5": 1,
+                "19": 2
+              }
+            },
+            {
+              "valuation_word": [
+                4,
+                3,
+                1,
+                1,
+                2
+              ],
+              "D": 1805,
+              "B": 2945,
+              "rad_D": 95,
+              "factorization_D": {
+                "5": 1,
+                "19": 2
+              }
+            }
+          ]
+        },
+        "aggregate": {
+          "prime_power_cycle_criterion_proved": true,
+          "radical_only_sufficiency_refuted": true,
+          "explicit_primitive_counterexample_verified": true,
+          "all_nontrivial_cycles_excluded": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The exact adaptive test must retain prime multiplicities. Full factorization of D merely restates D|B and does not uniformly exclude nontrivial words or control aperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "Prime-power factorization exactly recognizes finite cycles but does not uniformly exclude them or prove descent for aperiodic trajectories.",
+      "route_decision": {
+        "discard": "radical-only code-adaptive divisibility as a complete cycle obstruction",
+        "retain": "bound a missing prime-power valuation in every nontrivial primitive code and combine it with aperiodic descent",
+        "next_single_lemma": "UniformPrimePowerDeficitOrUniversalAperiodicDescent"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T223",
+            "label": "FixedModulusPrimitiveFalsePositiveConstruction",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T224",
+            "label": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N224",
+            "label": "RadicalDivisibilityIsACompleteAdaptiveCycleTest",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN224",
+            "label": "UniformPrimePowerDeficitOrUniversalAperiodicDescent",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T223",
+            "CO-T224"
+          ],
+          [
+            "CO-T224",
+            "CO-N224"
+          ],
+          [
+            "CO-T224",
+            "CO-OPEN224"
+          ],
+          [
+            "CO-OPEN224",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-224",
+      "theorem_name": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+      "declared_proposition": "Define Q_z(m) to be exact primality for m<=z and, for m>z, the condition that m has no prime divisor at most z. If z>=sqrt(X), then Q_z(m) is equivalent to primality for every 2<=m<=X; hence for every even N<=X the Q_z ordered representation count equals the exact Goldbach count. This threshold cannot be replaced by an arbitrary fixed wheel: for primes r,s>z, m=rs passes Q_z although composite, and N=2m contains the false diagonal pair (m,m).",
+      "mathematical_argument": "Every composite m<=X has a prime divisor at most sqrt(m), hence at most sqrt(X)<=z; Q_z rejects it, while it accepts every prime. Substitution in the ordered convolution proves count equality. Conversely, if r and s are primes above z, no sieving prime divides m=rs. The filtered convolution for 2m contains all genuine prime representations plus the nonprime diagonal, so it strictly exceeds the true count.",
+      "reproducible_computation": {
+        "theorem": "Define Q_z(m) to be exact primality for m<=z and, for m>z, the condition that m has no prime divisor at most z. If z>=sqrt(X), then Q_z(m) is equivalent to primality for every 2<=m<=X; hence for every even N<=X the Q_z ordered representation count equals the exact Goldbach count. This threshold cannot be replaced by an arbitrary fixed wheel: for primes r,s>z, m=rs passes Q_z although composite, and N=2m contains the false diagonal pair (m,m).",
+        "proof": "Every composite m<=X has a prime divisor at most sqrt(m), hence at most sqrt(X)<=z; Q_z rejects it, while it accepts every prime. Substitution in the ordered convolution proves count equality. Conversely, if r and s are primes above z, no sieving prime divides m=rs. The filtered convolution for 2m contains all genuine prime representations plus the nonprime diagonal, so it strictly exceeds the true count.",
+        "square_root_exactness_rows": [
+          {
+            "horizon_X": 100,
+            "cutoff_z": 10,
+            "prime_count_through_z": 4,
+            "integers_checked": 99,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          },
+          {
+            "horizon_X": 1000,
+            "cutoff_z": 32,
+            "prime_count_through_z": 11,
+            "integers_checked": 999,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          },
+          {
+            "horizon_X": 10000,
+            "cutoff_z": 100,
+            "prime_count_through_z": 25,
+            "integers_checked": 9999,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          },
+          {
+            "horizon_X": 100000,
+            "cutoff_z": 317,
+            "prime_count_through_z": 66,
+            "integers_checked": 99999,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          }
+        ],
+        "subthreshold_false_positive_rows": [
+          {
+            "cutoff_z": 3,
+            "external_factors": [
+              5,
+              7
+            ],
+            "composite_m": 35,
+            "even_target_N": 70,
+            "actual_ordered_goldbach_count": 10,
+            "filtered_ordered_pair_count": 13,
+            "false_positive_excess": 3,
+            "z_below_sqrt_N": true,
+            "diagonal_false_positive_verified": true
+          },
+          {
+            "cutoff_z": 5,
+            "external_factors": [
+              7,
+              11
+            ],
+            "composite_m": 77,
+            "even_target_N": 154,
+            "actual_ordered_goldbach_count": 16,
+            "filtered_ordered_pair_count": 19,
+            "false_positive_excess": 3,
+            "z_below_sqrt_N": true,
+            "diagonal_false_positive_verified": true
+          },
+          {
+            "cutoff_z": 7,
+            "external_factors": [
+              11,
+              13
+            ],
+            "composite_m": 143,
+            "even_target_N": 286,
+            "actual_ordered_goldbach_count": 24,
+            "filtered_ordered_pair_count": 25,
+            "false_positive_excess": 1,
+            "z_below_sqrt_N": true,
+            "diagonal_false_positive_verified": true
+          },
+          {
+            "cutoff_z": 11,
+            "external_factors": [
+              13,
+              17
+            ],
+            "composite_m": 221,
+            "even_target_N": 442,
+            "actual_ordered_goldbach_count": 26,
+            "filtered_ordered_pair_count": 29,
+            "false_positive_excess": 3,
+            "z_below_sqrt_N": true,
+            "diagonal_false_positive_verified": true
+          },
+          {
+            "cutoff_z": 17,
+            "external_factors": [
+              19,
+              23
+            ],
+            "composite_m": 437,
+            "even_target_N": 874,
+            "actual_ordered_goldbach_count": 38,
+            "filtered_ordered_pair_count": 41,
+            "false_positive_excess": 3,
+            "z_below_sqrt_N": true,
+            "diagonal_false_positive_verified": true
+          },
+          {
+            "cutoff_z": 29,
+            "external_factors": [
+              31,
+              37
+            ],
+            "composite_m": 1147,
+            "even_target_N": 2294,
+            "actual_ordered_goldbach_count": 64,
+            "filtered_ordered_pair_count": 75,
+            "false_positive_excess": 11,
+            "z_below_sqrt_N": true,
+            "diagonal_false_positive_verified": true
+          }
+        ],
+        "aggregate": {
+          "square_root_wheel_primality_equivalence_proved": true,
+          "goldbach_filtered_count_exact_at_square_root_proved": true,
+          "fixed_subthreshold_wheel_sufficiency_refuted": true,
+          "sub_square_root_prime_weighted_remainder_controlled": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "Sieving to sqrt(X) is an exact finite decision procedure, not an all-X proof and not an analytic improvement. A useful proof must obtain a uniform positive result with less than complete square-root factor information.",
+        "failure_count": 0
+      },
+      "logical_limit": "The square-root filter is exact only at each finite horizon; no uniform sub-square-root prime-weighted remainder bound is proved.",
+      "route_decision": {
+        "discard": "claiming that any fixed or incomplete wheel count equals the prime Goldbach count",
+        "retain": "beat complete square-root sieving by a uniform prime-weighted remainder below the local margin",
+        "next_single_lemma": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T223",
+            "label": "FiniteWheelUniformLocalMarginAndTwinFactorIdentity",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T224",
+            "label": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N224",
+            "label": "FixedOrIncompleteWheelCountEqualsPrimeGoldbachCount",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN224",
+            "label": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T223",
+            "GB-T224"
+          ],
+          [
+            "GB-T224",
+            "GB-N224"
+          ],
+          [
+            "GB-T224",
+            "GB-OPEN224"
+          ],
+          [
+            "GB-OPEN224",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-224",
+      "theorem_name": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+      "declared_proposition": "With the same Q_z filter, if z>=sqrt(X), then for every n with n+2<=X, Q_z(n)Q_z(n+2)=1 exactly when (n,n+2) is a twin-prime pair. For every finite z this implication fails at larger scales: CRT gives an infinite progression surviving every prime at most z while n is divisible by a chosen prime r>z and n+2 by another prime s>z.",
+      "mathematical_argument": "Square-root exactness applies separately to n and n+2. For the countermodel, select a residue avoiding 0 and -2 modulo every prime at most z, then impose n=0 mod r and n=-2 mod s. Pairwise coprimality lets CRT combine the conditions. Every sufficiently large member is a proper multiple on both sides but has the same finite-wheel signature as a candidate twin pair.",
+      "reproducible_computation": {
+        "theorem": "With the same Q_z filter, if z>=sqrt(X), then for every n with n+2<=X, Q_z(n)Q_z(n+2)=1 exactly when (n,n+2) is a twin-prime pair. For every finite z this implication fails at larger scales: CRT gives an infinite progression surviving every prime at most z while n is divisible by a chosen prime r>z and n+2 by another prime s>z.",
+        "proof": "Square-root exactness applies separately to n and n+2. For the countermodel, select a residue avoiding 0 and -2 modulo every prime at most z, then impose n=0 mod r and n=-2 mod s. Pairwise coprimality lets CRT combine the conditions. Every sufficiently large member is a proper multiple on both sides but has the same finite-wheel signature as a candidate twin pair.",
+        "square_root_exactness_rows": [
+          {
+            "horizon_X": 100,
+            "cutoff_z": 10,
+            "prime_count_through_z": 4,
+            "integers_checked": 99,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          },
+          {
+            "horizon_X": 1000,
+            "cutoff_z": 32,
+            "prime_count_through_z": 11,
+            "integers_checked": 999,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          },
+          {
+            "horizon_X": 10000,
+            "cutoff_z": 100,
+            "prime_count_through_z": 25,
+            "integers_checked": 9999,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          },
+          {
+            "horizon_X": 100000,
+            "cutoff_z": 317,
+            "prime_count_through_z": 66,
+            "integers_checked": 99999,
+            "primality_filter_mismatches": 0,
+            "exactness_verified": true
+          }
+        ],
+        "subthreshold_crt_countermodels": [
+          {
+            "cutoff_z": 3,
+            "wheel_W": 6,
+            "wheel_survivor_residue": 5,
+            "external_left_factor": 5,
+            "external_right_factor": 7,
+            "composite_n": 215,
+            "composite_n_plus_2": 217,
+            "progression_modulus": 210,
+            "z_below_sqrt_X": true,
+            "countermodel_verified": true
+          },
+          {
+            "cutoff_z": 5,
+            "wheel_W": 30,
+            "wheel_survivor_residue": 11,
+            "external_left_factor": 7,
+            "external_right_factor": 11,
+            "composite_n": 2891,
+            "composite_n_plus_2": 2893,
+            "progression_modulus": 2310,
+            "z_below_sqrt_X": true,
+            "countermodel_verified": true
+          },
+          {
+            "cutoff_z": 7,
+            "wheel_W": 210,
+            "wheel_survivor_residue": 71,
+            "external_left_factor": 11,
+            "external_right_factor": 13,
+            "composite_n": 42911,
+            "composite_n_plus_2": 42913,
+            "progression_modulus": 30030,
+            "z_below_sqrt_X": true,
+            "countermodel_verified": true
+          },
+          {
+            "cutoff_z": 11,
+            "wheel_W": 2310,
+            "wheel_survivor_residue": 1541,
+            "external_left_factor": 13,
+            "external_right_factor": 17,
+            "composite_n": 703781,
+            "composite_n_plus_2": 703783,
+            "progression_modulus": 510510,
+            "z_below_sqrt_X": true,
+            "countermodel_verified": true
+          },
+          {
+            "cutoff_z": 17,
+            "wheel_W": 510510,
+            "wheel_survivor_residue": 170171,
+            "external_left_factor": 19,
+            "external_right_factor": 23,
+            "composite_n": 294734441,
+            "composite_n_plus_2": 294734443,
+            "progression_modulus": 223092870,
+            "z_below_sqrt_X": true,
+            "countermodel_verified": true
+          },
+          {
+            "cutoff_z": 29,
+            "wheel_W": 6469693230,
+            "wheel_survivor_residue": 2156564411,
+            "external_left_factor": 31,
+            "external_right_factor": 37,
+            "composite_n": 7772258133641,
+            "composite_n_plus_2": 7772258133643,
+            "progression_modulus": 7420738134810,
+            "z_below_sqrt_X": true,
+            "countermodel_verified": true
+          }
+        ],
+        "aggregate": {
+          "square_root_twin_filter_equivalence_proved": true,
+          "finite_subthreshold_twin_filter_sufficiency_refuted": true,
+          "infinite_countermodel_progression_per_cutoff_proved": true,
+          "uniform_sub_square_root_type_ii_separation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "Exact square-root trial division decides bounded candidates but does not imply infinitely many candidates. Below that complete information threshold, an analytic parity/Type-II separation is still required.",
+        "failure_count": 0
+      },
+      "logical_limit": "Exact bounded primality filtering does not create infinitely many twin candidates; sub-square-root Type-II separation remains open.",
+      "route_decision": {
+        "discard": "treating survival below the square-root completeness threshold as twin primality",
+        "retain": "prove a uniform sub-square-root bilinear estimate that removes the CRT composite-pair mass",
+        "next_single_lemma": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T223",
+            "label": "FixedWheelCompositePairCountermodel",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T224",
+            "label": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N224",
+            "label": "SubSquareRootWheelSurvivalCertifiesTwinPrimality",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN224",
+            "label": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T223",
+            "TP-T224"
+          ],
+          [
+            "TP-T224",
+            "TP-N224"
+          ],
+          [
+            "TP-T224",
+            "TP-OPEN224"
+          ],
+          [
+            "TP-OPEN224",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "cross_problem_synthesis": "Each track now has an explicit completeness threshold. RH band signs require a margin above the optimal quarter tail envelope. Collatz cycle divisibility requires every prime-power multiplicity, not only the radical. Goldbach and Twin filters become exact at square-root factor depth, while incomplete wheels admit explicit composite false positives. These are decision boundaries, not proofs of the parent conjectures.",
+    "literature_boundary": {
+      "riemann": "The result is a kernel optimization inside the project's Laplace model, not a new RH equivalence.",
+      "collatz": "The prime-power criterion is unique factorization applied to the exact cycle equation; no priority claim is made.",
+      "goldbach": "Square-root trial division is elementary; the unsolved content remains a uniform sub-square-root prime correlation estimate.",
+      "twin_prime": "The CRT false positives instantiate the classical parity barrier and do not improve bounded-gap theorems."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-224",
+      "declared_proposition": "Let sigma be a finite signed Borel measure on (0,infinity) with finite norm ||sigma||_eta=integral exp(eta t)d|sigma|(t), eta>0. For W_j(sigma)=integral (exp(-2^(-j)t)-exp(-2^(1-j)t)) d sigma(t), the tail sigma restricted to [T,infinity) satisfies sup_j |W_j| <= (1/4) exp(-eta T)||sigma||_eta. The constant 1/4 is optimal uniformly: equality holds for a suitably normalized atom at T=2^j log 2. Consequently a truncated band has a certified full-band sign whenever its absolute margin is strictly greater than this sharp tail envelope.",
+      "new_result": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sharp_completeness_thresholds_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "using the nonsharp factor-one tail envelope or treating an abstract sign certificate as an RH criterion",
+      "remaining_gap": "No RH-equivalent actual-zeta defect or rigorous prime-side band margin is constructed.",
+      "candidate_theorem": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T223",
+            "label": "ExponentialTailDyadicProfileInjectivityAndUniformCofinalTruncation",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T224",
+            "label": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N224",
+            "label": "NonsharpFactorOneTailOrAbstractSignImpliesRH",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN224",
+            "label": "PrimeSideDyadicBandMarginsExceedSharpQuarterTailEnvelopeAtCofinalCutoffs",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T223",
+            "RH-T224"
+          ],
+          [
+            "RH-T224",
+            "RH-N224"
+          ],
+          [
+            "RH-T224",
+            "RH-OPEN224"
+          ],
+          [
+            "RH-OPEN224",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-224",
+      "declared_proposition": "For any positive accelerated Collatz valuation word with D=2^S-3^h>0 and intercept B, the exact finite-cycle condition D|B is equivalent to v_q(B)>=v_q(D) for every prime q dividing D. Thus every failed cycle has a prime-power valuation-deficit certificate. Checking only rad(D)|B is insufficient: the primitive word (1,1,2,4,3) has D=1805=5*19^2 and B=475=5^2*19, so rad(D)=95 divides B but D does not.",
+      "new_result": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sharp_completeness_thresholds_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "radical-only code-adaptive divisibility as a complete cycle obstruction",
+      "remaining_gap": "Prime-power factorization exactly recognizes finite cycles but does not uniformly exclude them or prove descent for aperiodic trajectories.",
+      "candidate_theorem": "UniformPrimePowerDeficitOrUniversalAperiodicDescent",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T223",
+            "label": "FixedModulusPrimitiveFalsePositiveConstruction",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T224",
+            "label": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N224",
+            "label": "RadicalDivisibilityIsACompleteAdaptiveCycleTest",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN224",
+            "label": "UniformPrimePowerDeficitOrUniversalAperiodicDescent",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T223",
+            "CO-T224"
+          ],
+          [
+            "CO-T224",
+            "CO-N224"
+          ],
+          [
+            "CO-T224",
+            "CO-OPEN224"
+          ],
+          [
+            "CO-OPEN224",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-224",
+      "declared_proposition": "Define Q_z(m) to be exact primality for m<=z and, for m>z, the condition that m has no prime divisor at most z. If z>=sqrt(X), then Q_z(m) is equivalent to primality for every 2<=m<=X; hence for every even N<=X the Q_z ordered representation count equals the exact Goldbach count. This threshold cannot be replaced by an arbitrary fixed wheel: for primes r,s>z, m=rs passes Q_z although composite, and N=2m contains the false diagonal pair (m,m).",
+      "new_result": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sharp_completeness_thresholds_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "claiming that any fixed or incomplete wheel count equals the prime Goldbach count",
+      "remaining_gap": "The square-root filter is exact only at each finite horizon; no uniform sub-square-root prime-weighted remainder bound is proved.",
+      "candidate_theorem": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T223",
+            "label": "FiniteWheelUniformLocalMarginAndTwinFactorIdentity",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T224",
+            "label": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N224",
+            "label": "FixedOrIncompleteWheelCountEqualsPrimeGoldbachCount",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN224",
+            "label": "SubSquareRootPrimeWeightedGoldbachRemainderBelowUniformLocalMargin",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T223",
+            "GB-T224"
+          ],
+          [
+            "GB-T224",
+            "GB-N224"
+          ],
+          [
+            "GB-T224",
+            "GB-OPEN224"
+          ],
+          [
+            "GB-OPEN224",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-224",
+      "declared_proposition": "With the same Q_z filter, if z>=sqrt(X), then for every n with n+2<=X, Q_z(n)Q_z(n+2)=1 exactly when (n,n+2) is a twin-prime pair. For every finite z this implication fails at larger scales: CRT gives an infinite progression surviving every prime at most z while n is divisible by a chosen prime r>z and n+2 by another prime s>z.",
+      "new_result": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sharp_completeness_thresholds_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating survival below the square-root completeness threshold as twin primality",
+      "remaining_gap": "Exact bounded primality filtering does not create infinitely many twin candidates; sub-square-root Type-II separation remains open.",
+      "candidate_theorem": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T223",
+            "label": "FixedWheelCompositePairCountermodel",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T224",
+            "label": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N224",
+            "label": "SubSquareRootWheelSurvivalCertifiesTwinPrimality",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN224",
+            "label": "UniformSubSquareRootTypeIIBilinearSeparationForGapTwo",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T223",
+            "TP-T224"
+          ],
+          [
+            "TP-T224",
+            "TP-N224"
+          ],
+          [
+            "TP-T224",
+            "TP-OPEN224"
+          ],
+          [
+            "TP-OPEN224",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}
