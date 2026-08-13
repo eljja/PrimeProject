@@ -1,0 +1,253 @@
+{
+  "schema": "primeproject.ticket227-mellin-block-buchstab-lifts.v1",
+  "generated_at": "2026-08-14T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-227",
+  "theorem_name": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+  "declared_proposition": "At the cube-root cutoff the Twin PS, SP, and SS channels lift exactly to qr-2 prime, qr+2 prime, and pq+2=rs factor sums, respectively, with all prime factors above z. In every SS term the factor sets {p,q} and {r,s} are disjoint because a common odd prime would divide both n and n+2 and hence divide 2.",
+  "mathematical_argument": "Unique two-prime factorization follows from the same cube-root argument as in the Goldbach lift. Substituting each semiprime factorization gives qr-2, qr+2, and pq+2=rs without approximation. All factors exceed z>=22 in the audited ranges, so a shared factor cannot divide the difference 2. Complete enumeration verifies the factor-cell totals and zero shared-factor collisions.",
+  "reproducible_computation": {
+    "theorem": "At the cube-root cutoff the Twin PS, SP, and SS channels lift exactly to qr-2 prime, qr+2 prime, and pq+2=rs factor sums, respectively, with all prime factors above z. In every SS term the factor sets {p,q} and {r,s} are disjoint because a common odd prime would divide both n and n+2 and hence divide 2.",
+    "proof": "Unique two-prime factorization follows from the same cube-root argument as in the Goldbach lift. Substituting each semiprime factorization gives qr-2, qr+2, and pq+2=rs without approximation. All factors exceed z>=22 in the audited ranges, so a shared factor cannot divide the difference 2. Complete enumeration verifies the factor-cell totals and zero shared-factor collisions.",
+    "factor_cell_rows": [
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 22,
+        "counts": {
+          "PP": 205,
+          "PS": 78,
+          "SP": 76,
+          "SS": 35
+        },
+        "least_factor_bin_labels": [
+          "[1/3,3/8)",
+          "[3/8,5/12)",
+          "[5/12,11/24)",
+          "[11/24,1/2]"
+        ],
+        "PS_qr_minus_2_bins": [
+          31,
+          17,
+          22,
+          8
+        ],
+        "SP_qr_plus_2_bins": [
+          33,
+          19,
+          19,
+          5
+        ],
+        "SS_pq_plus_2_equals_rs_matrix": [
+          [
+            1,
+            5,
+            1,
+            1
+          ],
+          [
+            3,
+            1,
+            2,
+            1
+          ],
+          [
+            4,
+            3,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            2,
+            1
+          ]
+        ],
+        "SS_shared_prime_factor_collisions": 0,
+        "factor_pair_count_verified": true,
+        "bin_totals_verified": true,
+        "exact_decomposition_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 47,
+        "counts": {
+          "PP": 1224,
+          "PS": 559,
+          "SP": 537,
+          "SS": 253
+        },
+        "least_factor_bin_labels": [
+          "[1/3,3/8)",
+          "[3/8,5/12)",
+          "[5/12,11/24)",
+          "[11/24,1/2]"
+        ],
+        "PS_qr_minus_2_bins": [
+          184,
+          177,
+          131,
+          67
+        ],
+        "SP_qr_plus_2_bins": [
+          191,
+          146,
+          138,
+          62
+        ],
+        "SS_pq_plus_2_equals_rs_matrix": [
+          [
+            23,
+            27,
+            14,
+            11
+          ],
+          [
+            28,
+            18,
+            27,
+            9
+          ],
+          [
+            15,
+            17,
+            26,
+            10
+          ],
+          [
+            7,
+            10,
+            7,
+            4
+          ]
+        ],
+        "SS_shared_prime_factor_collisions": 0,
+        "factor_pair_count_verified": true,
+        "bin_totals_verified": true,
+        "exact_decomposition_verified": true
+      },
+      {
+        "horizon_X": 1000000,
+        "cutoff_z": 100,
+        "counts": {
+          "PP": 8169,
+          "PS": 4332,
+          "SP": 4350,
+          "SS": 2453
+        },
+        "least_factor_bin_labels": [
+          "[1/3,3/8)",
+          "[3/8,5/12)",
+          "[5/12,11/24)",
+          "[11/24,1/2]"
+        ],
+        "PS_qr_minus_2_bins": [
+          1467,
+          1346,
+          1003,
+          516
+        ],
+        "SP_qr_plus_2_bins": [
+          1467,
+          1348,
+          994,
+          541
+        ],
+        "SS_pq_plus_2_equals_rs_matrix": [
+          [
+            274,
+            244,
+            174,
+            94
+          ],
+          [
+            254,
+            224,
+            179,
+            98
+          ],
+          [
+            177,
+            183,
+            141,
+            85
+          ],
+          [
+            95,
+            85,
+            86,
+            60
+          ]
+        ],
+        "SS_shared_prime_factor_collisions": 0,
+        "factor_pair_count_verified": true,
+        "bin_totals_verified": true,
+        "exact_decomposition_verified": true
+      }
+    ],
+    "aggregate": {
+      "exact_shift_two_factor_lifts_proved": true,
+      "SS_factor_graph_disjointness_proved": true,
+      "audited_horizons": 3,
+      "uniform_shifted_bilinear_power_saving_proved": false,
+      "infinitely_many_twin_primes_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "Disjoint factor support is an exact structural restriction, not cancellation. The factor-cell tables are finite and prove no unbounded positive lower bound for the PP channel.",
+    "failure_count": 0
+  },
+  "logical_limit": "Disjoint factor support is an exact structural restriction, not cancellation. The factor-cell tables are finite and prove no unbounded positive lower bound for the PP channel.",
+  "route_decision": {
+    "discard": "treating shifted contamination as an unstructured marginal error term",
+    "retain": "attack the exact qr-2, qr+2, and pq+2=rs factor-cell sums with shifted bilinear estimates",
+    "next_single_lemma": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T226",
+        "label": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T227",
+        "label": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N227",
+        "label": "FactorDisjointnessAloneForcesShiftedCancellation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN227",
+        "label": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T226",
+        "TP-T227"
+      ],
+      [
+        "TP-T227",
+        "TP-N227"
+      ],
+      [
+        "TP-T227",
+        "TP-OPEN227"
+      ],
+      [
+        "TP-OPEN227",
+        "TP"
+      ]
+    ]
+  }
+}

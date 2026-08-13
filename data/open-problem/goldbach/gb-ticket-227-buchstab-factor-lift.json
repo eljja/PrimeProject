@@ -1,0 +1,268 @@
+{
+  "schema": "primeproject.ticket227-mellin-block-buchstab-lifts.v1",
+  "generated_at": "2026-08-14T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-227",
+  "theorem_name": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+  "declared_proposition": "At z=ceil(X^(1/3)), every retained composite m<=X has the unique form m=qr with primes z<q<=r. Therefore the Goldbach PS and SP channels lift exactly to prime sums over N-qr, and SS lifts to a two-factor-cell convolution. In a PS or SP cell with q|N, a prime N-qr divisible by q must equal q, leaving at most the single explicit candidate r=N/q-1.",
+  "mathematical_argument": "Three factors greater than z have product greater than or equal to z^3>=X, so every retained composite below X has exactly two prime factors; ordering gives uniqueness. Substitution m=qr gives the factor-lift identities. If q divides N and N-qr is prime, q divides that prime, so it equals q and r=N/q-1. The tables enumerate every summand and verify all channel totals.",
+  "reproducible_computation": {
+    "theorem": "At z=ceil(X^(1/3)), every retained composite m<=X has the unique form m=qr with primes z<q<=r. Therefore the Goldbach PS and SP channels lift exactly to prime sums over N-qr, and SS lifts to a two-factor-cell convolution. In a PS or SP cell with q|N, a prime N-qr divisible by q must equal q, leaving at most the single explicit candidate r=N/q-1.",
+    "proof": "Three factors greater than z have product greater than or equal to z^3>=X, so every retained composite below X has exactly two prime factors; ordering gives uniqueness. Substitution m=qr gives the factor-lift identities. If q divides N and N-qr is prime, q divides that prime, so it equals q and r=N/q-1. The tables enumerate every summand and verify all channel totals.",
+    "factor_cell_rows": [
+      {
+        "even_target_N": 10000,
+        "cutoff_z": 22,
+        "counts": {
+          "PP": 254,
+          "PS": 118,
+          "SP": 118,
+          "SS": 34
+        },
+        "least_factor_bin_labels": [
+          "[1/3,3/8)",
+          "[3/8,5/12)",
+          "[5/12,11/24)",
+          "[11/24,1/2]"
+        ],
+        "PS_least_factor_bins": [
+          51,
+          28,
+          29,
+          10
+        ],
+        "SP_least_factor_bins": [
+          51,
+          28,
+          29,
+          10
+        ],
+        "SS_least_factor_matrix": [
+          [
+            0,
+            2,
+            6,
+            2
+          ],
+          [
+            2,
+            0,
+            4,
+            2
+          ],
+          [
+            6,
+            4,
+            2,
+            0
+          ],
+          [
+            2,
+            2,
+            0,
+            0
+          ]
+        ],
+        "q_divides_N_exception_counts": {
+          "PS": 0,
+          "SP": 0
+        },
+        "q_divides_N_exception_identity_failures": 0,
+        "rough_semiprime_factor_pair_count": 489,
+        "factor_pair_count_verified": true,
+        "bin_totals_verified": true,
+        "exact_decomposition_verified": true
+      },
+      {
+        "even_target_N": 100000,
+        "cutoff_z": 47,
+        "counts": {
+          "PP": 1620,
+          "PS": 759,
+          "SP": 759,
+          "SS": 294
+        },
+        "least_factor_bin_labels": [
+          "[1/3,3/8)",
+          "[3/8,5/12)",
+          "[5/12,11/24)",
+          "[11/24,1/2]"
+        ],
+        "PS_least_factor_bins": [
+          250,
+          228,
+          180,
+          101
+        ],
+        "SP_least_factor_bins": [
+          250,
+          228,
+          180,
+          101
+        ],
+        "SS_least_factor_matrix": [
+          [
+            24,
+            36,
+            25,
+            10
+          ],
+          [
+            36,
+            26,
+            25,
+            9
+          ],
+          [
+            25,
+            25,
+            26,
+            4
+          ],
+          [
+            10,
+            9,
+            4,
+            0
+          ]
+        ],
+        "q_divides_N_exception_counts": {
+          "PS": 0,
+          "SP": 0
+        },
+        "q_divides_N_exception_identity_failures": 0,
+        "rough_semiprime_factor_pair_count": 4320,
+        "factor_pair_count_verified": true,
+        "bin_totals_verified": true,
+        "exact_decomposition_verified": true
+      },
+      {
+        "even_target_N": 1000000,
+        "cutoff_z": 100,
+        "counts": {
+          "PP": 10804,
+          "PS": 5833,
+          "SP": 5833,
+          "SS": 3216
+        },
+        "least_factor_bin_labels": [
+          "[1/3,3/8)",
+          "[3/8,5/12)",
+          "[5/12,11/24)",
+          "[11/24,1/2]"
+        ],
+        "PS_least_factor_bins": [
+          1936,
+          1739,
+          1378,
+          780
+        ],
+        "SP_least_factor_bins": [
+          1936,
+          1739,
+          1378,
+          780
+        ],
+        "SS_least_factor_matrix": [
+          [
+            328,
+            365,
+            271,
+            136
+          ],
+          [
+            365,
+            332,
+            220,
+            117
+          ],
+          [
+            271,
+            220,
+            170,
+            73
+          ],
+          [
+            136,
+            117,
+            73,
+            22
+          ]
+        ],
+        "q_divides_N_exception_counts": {
+          "PS": 0,
+          "SP": 0
+        },
+        "q_divides_N_exception_identity_failures": 0,
+        "rough_semiprime_factor_pair_count": 42286,
+        "factor_pair_count_verified": true,
+        "bin_totals_verified": true,
+        "exact_decomposition_verified": true
+      }
+    ],
+    "aggregate": {
+      "unique_cube_root_rough_semiprime_factorization_proved": true,
+      "exact_PS_SP_SS_factor_lifts_proved": true,
+      "q_divides_target_exception_split_proved": true,
+      "audited_even_targets": 3,
+      "uniform_moving_residue_prime_estimate_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The exact lift localizes the arithmetic obligation but supplies no uniform estimate for primes N-qr in moving nonzero residue classes and no positive lower bound for PP at every even N.",
+    "failure_count": 0
+  },
+  "logical_limit": "The exact lift localizes the arithmetic obligation but supplies no uniform estimate for primes N-qr in moving nonzero residue classes and no positive lower bound for PP at every even N.",
+  "route_decision": {
+    "discard": "estimating PS, SP, and SS only from one-variable marginal densities",
+    "retain": "estimate the exact factor-resolved moving-residue sums exposed by the cube-root Buchstab lift",
+    "next_single_lemma": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T226",
+        "label": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T227",
+        "label": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N227",
+        "label": "MarginalDensityDeterminesPointwiseGoldbachFactorCells",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN227",
+        "label": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T226",
+        "GB-T227"
+      ],
+      [
+        "GB-T227",
+        "GB-N227"
+      ],
+      [
+        "GB-T227",
+        "GB-OPEN227"
+      ],
+      [
+        "GB-OPEN227",
+        "GB"
+      ]
+    ]
+  }
+}

@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket227AttemptGlobal = null;
 let ticket226AttemptGlobal = null;
 let ticket225AttemptGlobal = null;
 let ticket224AttemptGlobal = null;
@@ -10022,6 +10023,79 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket227MellinBlockBuchstabLifts(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.mellin_block_buchstab_lifts_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.mellin_alias_rows || [];
+    detail = `
+      <div class="poc-equation">B<sub>q</sub>[x<sup>s−1</sup>](a)=a<sup>1−s</sup>Γ(s)(1−q<sup>1−s</sup>); q=2 aliases τ=2πk/log 2, but q=2 and q=3 have no common nonconstant alias</div>
+      ${table(["k", "tau", "|q=2 multiplier|", "|q=3 multiplier|", "q=3 visible"], rows.map((row) => [row.alias_index_k, Number(row.tau_2pi_k_over_log2).toFixed(5), Number(row.q2_analytic_multiplier_abs).toExponential(2), Number(row.q3_analytic_multiplier_abs).toExponential(2), row.q3_alias_visible_verified]))}
+      <div class="poc-head"><div><span>Single-ratio aliases</span><strong>${aggregate.single_dilation_infinite_alias_family_proved ? "proved" : "open"}</strong></div><div><span>Dual-ratio mode separation</span><strong>${aggregate.dual_incommensurate_dilation_removes_nonconstant_line_aliases_proved ? "proved" : "open"}</strong></div><div><span>Weil-core frame bound</span><strong>${aggregate.uniform_dense_weil_core_frame_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">단일 dilation band 족에는 무한 Mellin 사각지대가 있습니다. 2와 3을 결합하면 개별 비상수 mode의 공통 alias는 사라지지만, 임의 중첩의 균일 frame 하한과 Weil 양성은 아직 증명되지 않았습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.selected_family_rows || [];
+    const endpoints = computation.selected_endpoint_ratios || {};
+    detail = `
+      <div class="poc-equation">w<sub>r</sub>=(1,1,3)<sup>r</sup>,(4,2,1); B<sub>1</sub>/D<sub>1</sub>=${endpoints.r_equals_1 || "?"}, limit=${endpoints.r_to_infinity || "?"} ∈ (1,2)</div>
+      ${table(["r", "height", "S", "B/D", "primitive", "D divides B"], rows.map((row) => [row.repetition_r, row.height_h, row.valuation_sum_S, Number(row.B_over_D).toFixed(7), row.primitive_unique_marker_4_verified, row.D_divides_B]))}
+      <div class="poc-head"><div><span>Infinite family</span><strong>${aggregate.selected_infinite_primitive_noncycle_family_proved ? "proved" : "open"}</strong></div><div><span>Suffix certificates</span><strong>${formatter.format(computation.bounded_suffix_search?.certificate_count || 0)}</strong></div><div><span>All primitive words</span><strong>${aggregate.all_primitive_words_excluded ? "excluded" : "open"}</strong></div></div>
+      <p class="proof-note">유한 반복 검사가 아니라 분수선형 endpoint 정리로 전체 무한족의 <code>1&lt;B/D&lt;2</code>를 증명했습니다. 그러나 임의의 원시 valuation word와 비주기 궤도 하강은 여전히 열려 있습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.factor_cell_rows || [];
+    const selected = rows.at(-1) || {};
+    const labels = selected.least_factor_bin_labels || [];
+    detail = `
+      <div class="poc-equation">PS(N)=Σ<sub>z&lt;q≤r, qr≤N−2</sub>1<sub>prime</sub>(N−qr); q|N leaves only r=N/q−1</div>
+      ${table(["N", "PP", "PS", "SP", "SS", "cell totals"], rows.map((row) => [formatter.format(row.even_target_N), formatter.format(row.counts?.PP || 0), formatter.format(row.counts?.PS || 0), formatter.format(row.counts?.SP || 0), formatter.format(row.counts?.SS || 0), row.bin_totals_verified]))}
+      ${table(["SS factor cell", ...labels], (selected.SS_least_factor_matrix || []).map((row, index) => [labels[index], ...row.map((value) => formatter.format(value))]))}
+      <div class="poc-head"><div><span>Exact factor lifts</span><strong>${aggregate.exact_PS_SP_SS_factor_lifts_proved ? "proved" : "open"}</strong></div><div><span>Audited targets</span><strong>${aggregate.audited_even_targets ?? 0}</strong></div><div><span>Moving-residue estimate</span><strong>${aggregate.uniform_moving_residue_prime_estimate_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">거친 오차를 주변 밀도가 아니라 정확한 <code>N−qr</code> 소인수 cell로 올렸습니다. 표는 정수 항등식을 검증하지만 모든 짝수에서 PP가 양수라는 하한은 주지 않습니다.</p>
+    `;
+  } else {
+    const rows = computation.factor_cell_rows || [];
+    const selected = rows.at(-1) || {};
+    const labels = selected.least_factor_bin_labels || [];
+    detail = `
+      <div class="poc-equation">PS: qr−2 prime; SP: qr+2 prime; SS: pq+2=rs with {p,q}∩{r,s}=∅</div>
+      ${table(["X", "PP", "PS", "SP", "SS", "shared-factor collisions"], rows.map((row) => [formatter.format(row.horizon_X), formatter.format(row.counts?.PP || 0), formatter.format(row.counts?.PS || 0), formatter.format(row.counts?.SP || 0), formatter.format(row.counts?.SS || 0), row.SS_shared_prime_factor_collisions]))}
+      ${table(["SS factor cell", ...labels], (selected.SS_pq_plus_2_equals_rs_matrix || []).map((row, index) => [labels[index], ...row.map((value) => formatter.format(value))]))}
+      <div class="poc-head"><div><span>Exact shift-two lift</span><strong>${aggregate.exact_shift_two_factor_lifts_proved ? "proved" : "open"}</strong></div><div><span>Disjoint factor graph</span><strong>${aggregate.SS_factor_graph_disjointness_proved ? "proved" : "open"}</strong></div><div><span>Shifted power saving</span><strong>${aggregate.uniform_shifted_bilinear_power_saving_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">SS 양쪽 소인수 집합이 겹치지 않는다는 것은 정확한 구조 제약이지만 상쇄 정리는 아닙니다. 무한 결론에는 모든 factor cell의 shifted bilinear 추정이 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket227-mellin-block-buchstab-lifts" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 227 Mellin, block, and Buchstab factor lifts</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact structural lemmas; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET227 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/mellin-block-buchstab-lifts.ko.md">한국어 보고서</a> · <a href="../docs/mellin-block-buchstab-lifts.md">English report</a> · <a href="../data/open-problem/ticket227-mellin-block-buchstab-lifts.json">machine JSON</a></p>
+    </div>
+  `;
+}
+
 function renderTicket226SignalTransferSameOrderObstructions(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.signal_transfer_same_order_obstructions_audit || {};
@@ -17220,7 +17294,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket226SignalTransferSameOrderObstructions(ticket226AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket227MellinBlockBuchstabLifts(ticket227AttemptGlobal) ||
+      renderTicket226SignalTransferSameOrderObstructions(ticket226AttemptGlobal) ||
       renderTicket225ArithmeticRemainderLocalization(ticket225AttemptGlobal) ||
       renderTicket224SharpCompletenessThresholds(ticket224AttemptGlobal) ||
       renderTicket223ExponentialTailLocalDualityNoGo(ticket223AttemptGlobal) ||
@@ -17766,6 +17841,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket227Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket227-mellin-block-buchstab-lifts.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket227AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket227AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket227AttemptGlobal) {
+      ticket227AttemptGlobal.bounded_result = ticket227AttemptGlobal.bounded_result || {};
+      ticket227AttemptGlobal.bounded_result.mellin_block_buchstab_lifts_audit = payload.mellin_block_buchstab_lifts_audit || {};
+    }
+    return Boolean(ticket227AttemptGlobal);
+  } catch (error) {
+    ticket227AttemptGlobal = null;
     return false;
   }
 }
@@ -19479,6 +19574,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket227Loaded = await loadTicket227Attempt();
   const ticket226Loaded = await loadTicket226Attempt();
   const ticket225Loaded = await loadTicket225Attempt();
   const ticket224Loaded = await loadTicket224Attempt();
@@ -19487,7 +19583,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket226-current";
+  document.documentElement.dataset.openProblemCache = "ticket227-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19540,8 +19636,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket227AttemptGlobal) await loadTicket227Attempt();
     if (!ticket226AttemptGlobal) await loadTicket226Attempt();
     if (!ticket225AttemptGlobal) await loadTicket225Attempt();
     if (!ticket224AttemptGlobal) await loadTicket224Attempt();
@@ -19646,7 +19743,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket226-current";
+  document.documentElement.dataset.openProblemCache = "ticket227-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

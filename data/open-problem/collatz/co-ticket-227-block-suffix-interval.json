@@ -1,0 +1,328 @@
+{
+  "schema": "primeproject.ticket227-mellin-block-buchstab-lifts.v1",
+  "generated_at": "2026-08-14T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-227",
+  "theorem_name": "RepeatedBlockSuffixUnitIntervalCertificate",
+  "declared_proposition": "Let U=(1,1,3) with affine data (27,32,19), and let a fixed suffix V have affine data (A,C,B). For w_r=U^r V, D_r=C 32^r-A 27^r and B_r=((5B+19A)32^r-19A27^r)/5. If the r=1 and r=infinity ratios lie strictly in one unit interval and D_r stays positive, fractional-linearity puts every B_r/D_r in that interval. For V=(4,2,1), 1<B_r/D_r<2 for every r>=1; the unique 4 makes w_r primitive, so this is an infinite primitive noncycle family.",
+  "mathematical_argument": "Affine composition and the geometric sum for U^r give the two closed forms. Writing t=(27/32)^r makes B_r/D_r a fractional-linear function of t with no pole on 0<=t<=27/32, hence it is monotone or constant and lies between its endpoint values. For V=(4,2,1) these values are 4385/3367 and 559/320, both strictly between 1 and 2. An integer fixed point would require D_r|B_r, which is impossible in that open unit interval.",
+  "reproducible_computation": {
+    "theorem": "Let U=(1,1,3) with affine data (27,32,19), and let a fixed suffix V have affine data (A,C,B). For w_r=U^r V, D_r=C 32^r-A 27^r and B_r=((5B+19A)32^r-19A27^r)/5. If the r=1 and r=infinity ratios lie strictly in one unit interval and D_r stays positive, fractional-linearity puts every B_r/D_r in that interval. For V=(4,2,1), 1<B_r/D_r<2 for every r>=1; the unique 4 makes w_r primitive, so this is an infinite primitive noncycle family.",
+    "proof": "Affine composition and the geometric sum for U^r give the two closed forms. Writing t=(27/32)^r makes B_r/D_r a fractional-linear function of t with no pole on 0<=t<=27/32, hence it is monotone or constant and lies between its endpoint values. For V=(4,2,1) these values are 4385/3367 and 559/320, both strictly between 1 and 2. An integer fixed point would require D_r|B_r, which is impossible in that open unit interval.",
+    "selected_suffix": [
+      4,
+      2,
+      1
+    ],
+    "selected_endpoint_ratios": {
+      "r_equals_1": "4385/3367",
+      "r_to_infinity": "559/320",
+      "common_open_unit_interval": [
+        1,
+        2
+      ]
+    },
+    "selected_family_rows": [
+      {
+        "repetition_r": 1,
+        "height_h": 6,
+        "valuation_sum_S": 12,
+        "D": 3367,
+        "B": 4385,
+        "B_over_D": 1.3023463023463024,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      },
+      {
+        "repetition_r": 2,
+        "height_h": 9,
+        "valuation_sum_S": 17,
+        "D": 111389,
+        "B": 154171,
+        "B_over_D": 1.384077422366661,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      },
+      {
+        "repetition_r": 3,
+        "height_h": 12,
+        "valuation_sum_S": 22,
+        "D": 3662863,
+        "B": 5307449,
+        "B_over_D": 1.4489892196350231,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      },
+      {
+        "repetition_r": 5,
+        "height_h": 18,
+        "valuation_sum_S": 32,
+        "D": 3907546807,
+        "B": 6030573137,
+        "B_over_D": 1.5433143695673202,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      },
+      {
+        "repetition_r": 10,
+        "height_h": 33,
+        "valuation_sum_S": 57,
+        "D": 138556127509300349,
+        "B": 230626789017099739,
+        "B_over_D": 1.6645008283853726,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      },
+      {
+        "repetition_r": 20,
+        "height_h": 63,
+        "valuation_sum_S": 107,
+        "D": 161114715555782525896692060591701,
+        "B": 279097341371994911694096227875651,
+        "B_over_D": 1.7322895702556942,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      },
+      {
+        "repetition_r": 40,
+        "height_h": 123,
+        "valuation_sum_S": 207,
+        "D": 205639550387053065626689991964272053786769233362253960938703301,
+        "B": 359126973439539004968994331596976272446888140010447094449870931,
+        "B_over_D": 1.746390578872562,
+        "formula_verified": true,
+        "primitive_unique_marker_4_verified": true,
+        "strict_unit_interval_1_2_verified": true,
+        "D_divides_B": false
+      }
+    ],
+    "bounded_suffix_search": {
+      "suffix_length_max": 4,
+      "exponent_range": [
+        1,
+        6
+      ],
+      "certificate_count": 1425,
+      "first_twelve": [
+        {
+          "suffix": [
+            4
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "89/431",
+          "ratio_limit": "31/40"
+        },
+        {
+          "suffix": [
+            5
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "89/943",
+          "ratio_limit": "31/80"
+        },
+        {
+          "suffix": [
+            6
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "89/1967",
+          "ratio_limit": "31/160"
+        },
+        {
+          "suffix": [
+            1,
+            5
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "331/1805",
+          "ratio_limit": "49/80"
+        },
+        {
+          "suffix": [
+            1,
+            6
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "331/3853",
+          "ratio_limit": "49/160"
+        },
+        {
+          "suffix": [
+            2,
+            4
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "79/361",
+          "ratio_limit": "103/160"
+        },
+        {
+          "suffix": [
+            2,
+            5
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "395/3853",
+          "ratio_limit": "103/320"
+        },
+        {
+          "suffix": [
+            2,
+            6
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "395/7949",
+          "ratio_limit": "103/640"
+        },
+        {
+          "suffix": [
+            3,
+            3
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "523/1805",
+          "ratio_limit": "113/160"
+        },
+        {
+          "suffix": [
+            3,
+            4
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "523/3853",
+          "ratio_limit": "113/320"
+        },
+        {
+          "suffix": [
+            3,
+            5
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "523/7949",
+          "ratio_limit": "113/640"
+        },
+        {
+          "suffix": [
+            3,
+            6
+          ],
+          "unit_interval": [
+            0,
+            1
+          ],
+          "ratio_at_r1": "523/16141",
+          "ratio_limit": "113/1280"
+        }
+      ],
+      "role": "discovery audit; the selected infinite family is proved symbolically"
+    },
+    "aggregate": {
+      "general_repeated_block_suffix_interval_criterion_proved": true,
+      "selected_infinite_primitive_noncycle_family_proved": true,
+      "selected_repetitions_computationally_checked": 40,
+      "all_primitive_words_excluded": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The interval criterion settles only suffixes whose two endpoint ratios share a unit interval. It does not cover arbitrary primitive valuation words or prove descent of aperiodic orbits.",
+    "failure_count": 0
+  },
+  "logical_limit": "The interval criterion settles only suffixes whose two endpoint ratios share a unit interval. It does not cover arbitrary primitive valuation words or prove descent of aperiodic orbits.",
+  "route_decision": {
+    "discard": "checking divisibility separately for every repetition of a block-suffix family",
+    "retain": "use exact affine composition and fractional-linear endpoint intervals to certify entire infinite families",
+    "next_single_lemma": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T226",
+        "label": "InfinitePrimitiveMinimumInterceptCounterfamily",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T227",
+        "label": "RepeatedBlockSuffixUnitIntervalCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N227",
+        "label": "FiniteRepetitionChecksEstablishAnInfiniteFamily",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN227",
+        "label": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T226",
+        "CO-T227"
+      ],
+      [
+        "CO-T227",
+        "CO-N227"
+      ],
+      [
+        "CO-T227",
+        "CO-OPEN227"
+      ],
+      [
+        "CO-OPEN227",
+        "CO"
+      ]
+    ]
+  }
+}

@@ -225,6 +225,7 @@ TICKET223_SCHEMA = "primeproject.ticket223-exponential-tail-local-duality-no-go.
 TICKET224_SCHEMA = "primeproject.ticket224-sharp-completeness-thresholds.v1"
 TICKET225_SCHEMA = "primeproject.ticket225-arithmetic-remainder-localization.v1"
 TICKET226_SCHEMA = "primeproject.ticket226-signal-transfer-same-order-obstructions.v1"
+TICKET227_SCHEMA = "primeproject.ticket227-mellin-block-buchstab-lifts.v1"
 
 
 def fail(message: str) -> int:
@@ -19407,6 +19408,222 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path227 = Path(
+        "data/open-problem/ticket227-mellin-block-buchstab-lifts.json"
+    )
+    if not path227.exists():
+        return fail("missing ticket227 Mellin/block/Buchstab audit")
+    ticket227 = read_json(path227)
+    if (
+        ticket227.get("schema") != TICKET227_SCHEMA
+        or ticket227.get("status") != "open_not_proven"
+    ):
+        return fail("ticket227 schema or status changed")
+    audit227 = ticket227.get("mellin_block_buchstab_lifts_audit", {})
+    machine227 = audit227.get("machine_audit", {})
+    if machine227 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket227 global machine audit changed")
+
+    attempts227 = {
+        row.get("problem_id"): row for row in ticket227.get("attempts", [])
+    }
+    if set(attempts227) != EXPECTED_PROBLEMS:
+        return fail("ticket227 attempts missing problems")
+    theorem_names227 = {
+        "riemann": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+        "collatz": "RepeatedBlockSuffixUnitIntervalCertificate",
+        "goldbach": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+        "twin-prime": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+    }
+    next_lemmas227 = {
+        "riemann": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore",
+        "collatz": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility",
+        "goldbach": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget",
+        "twin-prime": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells",
+    }
+    track_paths227 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-227-dual-dilation-mellin.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-227-block-suffix-interval.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-227-buchstab-factor-lift.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-227-shift-two-factor-lift.json"
+        ),
+    }
+    audit_sections227 = {
+        "riemann": audit227.get("riemann", {}),
+        "collatz": audit227.get("collatz", {}),
+        "goldbach": audit227.get("goldbach", {}),
+        "twin-prime": audit227.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts227.items():
+        track_path = track_paths227[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket227 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections227[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names227[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas227[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names227[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas227[problem_id]
+            or track.get("schema") != TICKET227_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names227[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket227 contract changed")
+
+    rh227 = audit_sections227["riemann"].get("reproducible_computation", {})
+    rh227_rows = rh227.get("mellin_alias_rows", [])
+    rh227_aggregate = rh227.get("aggregate", {})
+    if (
+        len(rh227_rows) != 5
+        or any(
+            row.get("q2_alias_zero_verified") is not True
+            or row.get("q3_alias_visible_verified") is not True
+            for row in rh227_rows
+        )
+        or rh227_rows[0].get("quadrature_identity_verified") is not True
+        or rh227_rows[1].get("quadrature_identity_verified") is not True
+        or any(
+            row.get("quadrature_identity_verified") is not None
+            for row in rh227_rows[2:]
+        )
+        or rh227_aggregate.get("single_dilation_infinite_alias_family_proved")
+        is not True
+        or rh227_aggregate.get(
+            "dual_incommensurate_dilation_removes_nonconstant_line_aliases_proved"
+        )
+        is not True
+        or rh227_aggregate.get("uniform_dense_weil_core_frame_bound_proved")
+        is not False
+        or rh227_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket227 RH Mellin-alias boundary changed")
+
+    collatz227 = audit_sections227["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz227_rows = collatz227.get("selected_family_rows", [])
+    collatz227_aggregate = collatz227.get("aggregate", {})
+    if (
+        collatz227.get("selected_suffix") != [4, 2, 1]
+        or collatz227.get("selected_endpoint_ratios", {}).get("r_equals_1")
+        != "4385/3367"
+        or collatz227.get("selected_endpoint_ratios", {}).get("r_to_infinity")
+        != "559/320"
+        or collatz227.get("bounded_suffix_search", {}).get("certificate_count")
+        != 1425
+        or [row.get("repetition_r") for row in collatz227_rows]
+        != [1, 2, 3, 5, 10, 20, 40]
+        or any(
+            row.get("formula_verified") is not True
+            or row.get("primitive_unique_marker_4_verified") is not True
+            or row.get("strict_unit_interval_1_2_verified") is not True
+            or row.get("D_divides_B") is not False
+            for row in collatz227_rows
+        )
+        or collatz227_aggregate.get(
+            "general_repeated_block_suffix_interval_criterion_proved"
+        )
+        is not True
+        or collatz227_aggregate.get("all_primitive_words_excluded") is not False
+        or collatz227_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket227 Collatz block-suffix boundary changed")
+
+    expected_goldbach227 = {
+        10000: {"PP": 254, "PS": 118, "SP": 118, "SS": 34},
+        100000: {"PP": 1620, "PS": 759, "SP": 759, "SS": 294},
+        1000000: {"PP": 10804, "PS": 5833, "SP": 5833, "SS": 3216},
+    }
+    goldbach227 = audit_sections227["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    goldbach227_rows = goldbach227.get("factor_cell_rows", [])
+    goldbach227_aggregate = goldbach227.get("aggregate", {})
+    if (
+        len(goldbach227_rows) != 3
+        or any(
+            row.get("counts")
+            != expected_goldbach227.get(row.get("even_target_N"))
+            or row.get("factor_pair_count_verified") is not True
+            or row.get("bin_totals_verified") is not True
+            or row.get("exact_decomposition_verified") is not True
+            or row.get("q_divides_N_exception_identity_failures") != 0
+            for row in goldbach227_rows
+        )
+        or goldbach227_aggregate.get("exact_PS_SP_SS_factor_lifts_proved")
+        is not True
+        or goldbach227_aggregate.get("uniform_moving_residue_prime_estimate_proved")
+        is not False
+        or goldbach227_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket227 Goldbach factor-lift boundary changed")
+
+    expected_twin227 = {
+        10000: {"PP": 205, "PS": 78, "SP": 76, "SS": 35},
+        100000: {"PP": 1224, "PS": 559, "SP": 537, "SS": 253},
+        1000000: {"PP": 8169, "PS": 4332, "SP": 4350, "SS": 2453},
+    }
+    twin227 = audit_sections227["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin227_rows = twin227.get("factor_cell_rows", [])
+    twin227_aggregate = twin227.get("aggregate", {})
+    if (
+        len(twin227_rows) != 3
+        or any(
+            row.get("counts") != expected_twin227.get(row.get("horizon_X"))
+            or row.get("SS_shared_prime_factor_collisions") != 0
+            or row.get("factor_pair_count_verified") is not True
+            or row.get("bin_totals_verified") is not True
+            or row.get("exact_decomposition_verified") is not True
+            for row in twin227_rows
+        )
+        or twin227_aggregate.get("SS_factor_graph_disjointness_proved") is not True
+        or twin227_aggregate.get("uniform_shifted_bilinear_power_saving_proved")
+        is not False
+        or twin227_aggregate.get("infinitely_many_twin_primes_proved") is not False
+        or twin227_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket227 Twin factor-lift boundary changed")
+
+    if (
+        "resolves none" not in str(audit227.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket227.get("claim_boundary", "")).lower()
+        or machine227.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket227 proof boundary changed")
 
     path226 = Path(
         "data/open-problem/ticket226-signal-transfer-same-order-obstructions.json"

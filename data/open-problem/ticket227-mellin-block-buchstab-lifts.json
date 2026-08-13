@@ -1,0 +1,1256 @@
+{
+  "schema": "primeproject.ticket227-mellin-block-buchstab-lifts.v1",
+  "generated_at": "2026-08-14T23:58:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-227 proves four exact structural lemmas and resolves none of the four parent conjectures.",
+  "mellin_block_buchstab_lifts_audit": {
+    "theorem_name": "MellinBlockAndBuchstabFactorLiftsForFourOpenProblems",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-227 proves four exact structural lemmas and resolves none of the four parent conjectures. Numerical rows verify the identities at finite ranges but are not extrapolated.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-227",
+      "theorem_name": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+      "declared_proposition": "For q>1 define B_q[E](a)=a integral E(x)(exp(-a x)-q exp(-q a x)) dx. On the Mellin mode E_s(x)=x^(s-1), B_q[E_s](a)=a^(1-s) Gamma(s)(1-q^(1-s)). Consequently a single q=2 family is blind to every nonconstant log-periodic mode s=1+2 pi i k/log(2). The joint q=2 and q=3 family has no nonconstant common blind mode on Re(s)=1.",
+      "mathematical_argument": "The Mellin-Laplace integral is Gamma(s)a^(-s); scaling the second term gives q^(1-s), proving the multiplier identity. On Re(s)=1 blindness is equivalent to tau log(q) in 2 pi Z. A common nonzero blind frequency for q=2 and q=3 would imply log(2)/log(3) is rational and hence 2^ell=3^k for positive integers k,ell, contradicting unique prime factorization.",
+      "reproducible_computation": {
+        "theorem": "For q>1 define B_q[E](a)=a integral E(x)(exp(-a x)-q exp(-q a x)) dx. On the Mellin mode E_s(x)=x^(s-1), B_q[E_s](a)=a^(1-s) Gamma(s)(1-q^(1-s)). Consequently a single q=2 family is blind to every nonconstant log-periodic mode s=1+2 pi i k/log(2). The joint q=2 and q=3 family has no nonconstant common blind mode on Re(s)=1.",
+        "proof": "The Mellin-Laplace integral is Gamma(s)a^(-s); scaling the second term gives q^(1-s), proving the multiplier identity. On Re(s)=1 blindness is equivalent to tau log(q) in 2 pi Z. A common nonzero blind frequency for q=2 and q=3 would imply log(2)/log(3) is rational and hence 2^ell=3^k for positive integers k,ell, contradicting unique prime factorization.",
+        "mellin_alias_rows": [
+          {
+            "alias_index_k": 1,
+            "tau_2pi_k_over_log2": 9.064720283654388,
+            "q2_analytic_multiplier_abs": 3.1790788032898176e-21,
+            "q3_analytic_multiplier_abs": 9.534418436414748e-06,
+            "q2_quadrature_error": 4.1975237535592536e-17,
+            "q3_quadrature_error": 3.727546593813368e-17,
+            "q2_alias_zero_verified": true,
+            "q3_alias_visible_verified": true,
+            "quadrature_independent_check_required": true,
+            "quadrature_identity_verified": true,
+            "quadrature_limit": null
+          },
+          {
+            "alias_index_k": 2,
+            "tau_2pi_k_over_log2": 18.129440567308777,
+            "q2_analytic_multiplier_abs": 5.888453939405459e-27,
+            "q3_analytic_multiplier_abs": 4.6580288003618635e-12,
+            "q2_quadrature_error": 1.320254792126292e-17,
+            "q3_quadrature_error": 4.025575827008056e-17,
+            "q2_alias_zero_verified": true,
+            "q3_alias_visible_verified": true,
+            "quadrature_independent_check_required": true,
+            "quadrature_identity_verified": true,
+            "quadrature_limit": null
+          },
+          {
+            "alias_index_k": 3,
+            "tau_2pi_k_over_log2": 27.19416085096316,
+            "q2_analytic_multiplier_abs": 2.697459007062922e-33,
+            "q3_analytic_multiplier_abs": 5.111353318586477e-18,
+            "q2_quadrature_error": null,
+            "q3_quadrature_error": null,
+            "q2_alias_zero_verified": true,
+            "q3_alias_visible_verified": true,
+            "quadrature_independent_check_required": false,
+            "quadrature_identity_verified": null,
+            "quadrature_limit": "double-precision quadrature is not required after Gamma decay"
+          },
+          {
+            "alias_index_k": 4,
+            "tau_2pi_k_over_log2": 36.25888113461755,
+            "q2_analytic_multiplier_abs": 7.14259896582877e-39,
+            "q3_analytic_multiplier_abs": 4.863967468314024e-24,
+            "q2_quadrature_error": null,
+            "q3_quadrature_error": null,
+            "q2_alias_zero_verified": true,
+            "q3_alias_visible_verified": true,
+            "quadrature_independent_check_required": false,
+            "quadrature_identity_verified": null,
+            "quadrature_limit": "double-precision quadrature is not required after Gamma decay"
+          },
+          {
+            "alias_index_k": 5,
+            "tau_2pi_k_over_log2": 45.323601418271934,
+            "q2_analytic_multiplier_abs": 9.709908320709364e-45,
+            "q3_analytic_multiplier_abs": 9.512759884058471e-31,
+            "q2_quadrature_error": null,
+            "q3_quadrature_error": null,
+            "q2_alias_zero_verified": true,
+            "q3_alias_visible_verified": true,
+            "quadrature_independent_check_required": false,
+            "quadrature_identity_verified": null,
+            "quadrature_limit": "double-precision quadrature is not required after Gamma decay"
+          }
+        ],
+        "bounded_integer_relation_audit": {
+          "absolute_index_bound": 100,
+          "nonzero_common_aliases": [],
+          "none_found": true,
+          "role": "reproducible sanity check only; the proof uses unique factorization"
+        },
+        "aggregate": {
+          "mellin_multiplier_identity_proved": true,
+          "single_dilation_infinite_alias_family_proved": true,
+          "dual_incommensurate_dilation_removes_nonconstant_line_aliases_proved": true,
+          "constant_mode_remains_blind": true,
+          "uniform_dense_weil_core_frame_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "Alias elimination is injectivity on individual Mellin modes, not a lower frame bound for arbitrary superpositions and not control of the zeta explicit formula on a dense Weil core.",
+        "failure_count": 0
+      },
+      "logical_limit": "Alias elimination is injectivity on individual Mellin modes, not a lower frame bound for arbitrary superpositions and not control of the zeta explicit formula on a dense Weil core.",
+      "route_decision": {
+        "discard": "using one fixed dilation ratio as if its balanced bands separated every Mellin mode",
+        "retain": "combine multiplicatively independent dilation ratios and seek a quantitative frame bound on the explicit-formula test space",
+        "next_single_lemma": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T226",
+            "label": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T227",
+            "label": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N227",
+            "label": "SingleDilationSeparatesAllMellinModes",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN227",
+            "label": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T226",
+            "RH-T227"
+          ],
+          [
+            "RH-T227",
+            "RH-N227"
+          ],
+          [
+            "RH-T227",
+            "RH-OPEN227"
+          ],
+          [
+            "RH-OPEN227",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-227",
+      "theorem_name": "RepeatedBlockSuffixUnitIntervalCertificate",
+      "declared_proposition": "Let U=(1,1,3) with affine data (27,32,19), and let a fixed suffix V have affine data (A,C,B). For w_r=U^r V, D_r=C 32^r-A 27^r and B_r=((5B+19A)32^r-19A27^r)/5. If the r=1 and r=infinity ratios lie strictly in one unit interval and D_r stays positive, fractional-linearity puts every B_r/D_r in that interval. For V=(4,2,1), 1<B_r/D_r<2 for every r>=1; the unique 4 makes w_r primitive, so this is an infinite primitive noncycle family.",
+      "mathematical_argument": "Affine composition and the geometric sum for U^r give the two closed forms. Writing t=(27/32)^r makes B_r/D_r a fractional-linear function of t with no pole on 0<=t<=27/32, hence it is monotone or constant and lies between its endpoint values. For V=(4,2,1) these values are 4385/3367 and 559/320, both strictly between 1 and 2. An integer fixed point would require D_r|B_r, which is impossible in that open unit interval.",
+      "reproducible_computation": {
+        "theorem": "Let U=(1,1,3) with affine data (27,32,19), and let a fixed suffix V have affine data (A,C,B). For w_r=U^r V, D_r=C 32^r-A 27^r and B_r=((5B+19A)32^r-19A27^r)/5. If the r=1 and r=infinity ratios lie strictly in one unit interval and D_r stays positive, fractional-linearity puts every B_r/D_r in that interval. For V=(4,2,1), 1<B_r/D_r<2 for every r>=1; the unique 4 makes w_r primitive, so this is an infinite primitive noncycle family.",
+        "proof": "Affine composition and the geometric sum for U^r give the two closed forms. Writing t=(27/32)^r makes B_r/D_r a fractional-linear function of t with no pole on 0<=t<=27/32, hence it is monotone or constant and lies between its endpoint values. For V=(4,2,1) these values are 4385/3367 and 559/320, both strictly between 1 and 2. An integer fixed point would require D_r|B_r, which is impossible in that open unit interval.",
+        "selected_suffix": [
+          4,
+          2,
+          1
+        ],
+        "selected_endpoint_ratios": {
+          "r_equals_1": "4385/3367",
+          "r_to_infinity": "559/320",
+          "common_open_unit_interval": [
+            1,
+            2
+          ]
+        },
+        "selected_family_rows": [
+          {
+            "repetition_r": 1,
+            "height_h": 6,
+            "valuation_sum_S": 12,
+            "D": 3367,
+            "B": 4385,
+            "B_over_D": 1.3023463023463024,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          },
+          {
+            "repetition_r": 2,
+            "height_h": 9,
+            "valuation_sum_S": 17,
+            "D": 111389,
+            "B": 154171,
+            "B_over_D": 1.384077422366661,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          },
+          {
+            "repetition_r": 3,
+            "height_h": 12,
+            "valuation_sum_S": 22,
+            "D": 3662863,
+            "B": 5307449,
+            "B_over_D": 1.4489892196350231,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          },
+          {
+            "repetition_r": 5,
+            "height_h": 18,
+            "valuation_sum_S": 32,
+            "D": 3907546807,
+            "B": 6030573137,
+            "B_over_D": 1.5433143695673202,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          },
+          {
+            "repetition_r": 10,
+            "height_h": 33,
+            "valuation_sum_S": 57,
+            "D": 138556127509300349,
+            "B": 230626789017099739,
+            "B_over_D": 1.6645008283853726,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          },
+          {
+            "repetition_r": 20,
+            "height_h": 63,
+            "valuation_sum_S": 107,
+            "D": 161114715555782525896692060591701,
+            "B": 279097341371994911694096227875651,
+            "B_over_D": 1.7322895702556942,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          },
+          {
+            "repetition_r": 40,
+            "height_h": 123,
+            "valuation_sum_S": 207,
+            "D": 205639550387053065626689991964272053786769233362253960938703301,
+            "B": 359126973439539004968994331596976272446888140010447094449870931,
+            "B_over_D": 1.746390578872562,
+            "formula_verified": true,
+            "primitive_unique_marker_4_verified": true,
+            "strict_unit_interval_1_2_verified": true,
+            "D_divides_B": false
+          }
+        ],
+        "bounded_suffix_search": {
+          "suffix_length_max": 4,
+          "exponent_range": [
+            1,
+            6
+          ],
+          "certificate_count": 1425,
+          "first_twelve": [
+            {
+              "suffix": [
+                4
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "89/431",
+              "ratio_limit": "31/40"
+            },
+            {
+              "suffix": [
+                5
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "89/943",
+              "ratio_limit": "31/80"
+            },
+            {
+              "suffix": [
+                6
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "89/1967",
+              "ratio_limit": "31/160"
+            },
+            {
+              "suffix": [
+                1,
+                5
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "331/1805",
+              "ratio_limit": "49/80"
+            },
+            {
+              "suffix": [
+                1,
+                6
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "331/3853",
+              "ratio_limit": "49/160"
+            },
+            {
+              "suffix": [
+                2,
+                4
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "79/361",
+              "ratio_limit": "103/160"
+            },
+            {
+              "suffix": [
+                2,
+                5
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "395/3853",
+              "ratio_limit": "103/320"
+            },
+            {
+              "suffix": [
+                2,
+                6
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "395/7949",
+              "ratio_limit": "103/640"
+            },
+            {
+              "suffix": [
+                3,
+                3
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "523/1805",
+              "ratio_limit": "113/160"
+            },
+            {
+              "suffix": [
+                3,
+                4
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "523/3853",
+              "ratio_limit": "113/320"
+            },
+            {
+              "suffix": [
+                3,
+                5
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "523/7949",
+              "ratio_limit": "113/640"
+            },
+            {
+              "suffix": [
+                3,
+                6
+              ],
+              "unit_interval": [
+                0,
+                1
+              ],
+              "ratio_at_r1": "523/16141",
+              "ratio_limit": "113/1280"
+            }
+          ],
+          "role": "discovery audit; the selected infinite family is proved symbolically"
+        },
+        "aggregate": {
+          "general_repeated_block_suffix_interval_criterion_proved": true,
+          "selected_infinite_primitive_noncycle_family_proved": true,
+          "selected_repetitions_computationally_checked": 40,
+          "all_primitive_words_excluded": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The interval criterion settles only suffixes whose two endpoint ratios share a unit interval. It does not cover arbitrary primitive valuation words or prove descent of aperiodic orbits.",
+        "failure_count": 0
+      },
+      "logical_limit": "The interval criterion settles only suffixes whose two endpoint ratios share a unit interval. It does not cover arbitrary primitive valuation words or prove descent of aperiodic orbits.",
+      "route_decision": {
+        "discard": "checking divisibility separately for every repetition of a block-suffix family",
+        "retain": "use exact affine composition and fractional-linear endpoint intervals to certify entire infinite families",
+        "next_single_lemma": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T226",
+            "label": "InfinitePrimitiveMinimumInterceptCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T227",
+            "label": "RepeatedBlockSuffixUnitIntervalCertificate",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N227",
+            "label": "FiniteRepetitionChecksEstablishAnInfiniteFamily",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN227",
+            "label": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T226",
+            "CO-T227"
+          ],
+          [
+            "CO-T227",
+            "CO-N227"
+          ],
+          [
+            "CO-T227",
+            "CO-OPEN227"
+          ],
+          [
+            "CO-OPEN227",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-227",
+      "theorem_name": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+      "declared_proposition": "At z=ceil(X^(1/3)), every retained composite m<=X has the unique form m=qr with primes z<q<=r. Therefore the Goldbach PS and SP channels lift exactly to prime sums over N-qr, and SS lifts to a two-factor-cell convolution. In a PS or SP cell with q|N, a prime N-qr divisible by q must equal q, leaving at most the single explicit candidate r=N/q-1.",
+      "mathematical_argument": "Three factors greater than z have product greater than or equal to z^3>=X, so every retained composite below X has exactly two prime factors; ordering gives uniqueness. Substitution m=qr gives the factor-lift identities. If q divides N and N-qr is prime, q divides that prime, so it equals q and r=N/q-1. The tables enumerate every summand and verify all channel totals.",
+      "reproducible_computation": {
+        "theorem": "At z=ceil(X^(1/3)), every retained composite m<=X has the unique form m=qr with primes z<q<=r. Therefore the Goldbach PS and SP channels lift exactly to prime sums over N-qr, and SS lifts to a two-factor-cell convolution. In a PS or SP cell with q|N, a prime N-qr divisible by q must equal q, leaving at most the single explicit candidate r=N/q-1.",
+        "proof": "Three factors greater than z have product greater than or equal to z^3>=X, so every retained composite below X has exactly two prime factors; ordering gives uniqueness. Substitution m=qr gives the factor-lift identities. If q divides N and N-qr is prime, q divides that prime, so it equals q and r=N/q-1. The tables enumerate every summand and verify all channel totals.",
+        "factor_cell_rows": [
+          {
+            "even_target_N": 10000,
+            "cutoff_z": 22,
+            "counts": {
+              "PP": 254,
+              "PS": 118,
+              "SP": 118,
+              "SS": 34
+            },
+            "least_factor_bin_labels": [
+              "[1/3,3/8)",
+              "[3/8,5/12)",
+              "[5/12,11/24)",
+              "[11/24,1/2]"
+            ],
+            "PS_least_factor_bins": [
+              51,
+              28,
+              29,
+              10
+            ],
+            "SP_least_factor_bins": [
+              51,
+              28,
+              29,
+              10
+            ],
+            "SS_least_factor_matrix": [
+              [
+                0,
+                2,
+                6,
+                2
+              ],
+              [
+                2,
+                0,
+                4,
+                2
+              ],
+              [
+                6,
+                4,
+                2,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ]
+            ],
+            "q_divides_N_exception_counts": {
+              "PS": 0,
+              "SP": 0
+            },
+            "q_divides_N_exception_identity_failures": 0,
+            "rough_semiprime_factor_pair_count": 489,
+            "factor_pair_count_verified": true,
+            "bin_totals_verified": true,
+            "exact_decomposition_verified": true
+          },
+          {
+            "even_target_N": 100000,
+            "cutoff_z": 47,
+            "counts": {
+              "PP": 1620,
+              "PS": 759,
+              "SP": 759,
+              "SS": 294
+            },
+            "least_factor_bin_labels": [
+              "[1/3,3/8)",
+              "[3/8,5/12)",
+              "[5/12,11/24)",
+              "[11/24,1/2]"
+            ],
+            "PS_least_factor_bins": [
+              250,
+              228,
+              180,
+              101
+            ],
+            "SP_least_factor_bins": [
+              250,
+              228,
+              180,
+              101
+            ],
+            "SS_least_factor_matrix": [
+              [
+                24,
+                36,
+                25,
+                10
+              ],
+              [
+                36,
+                26,
+                25,
+                9
+              ],
+              [
+                25,
+                25,
+                26,
+                4
+              ],
+              [
+                10,
+                9,
+                4,
+                0
+              ]
+            ],
+            "q_divides_N_exception_counts": {
+              "PS": 0,
+              "SP": 0
+            },
+            "q_divides_N_exception_identity_failures": 0,
+            "rough_semiprime_factor_pair_count": 4320,
+            "factor_pair_count_verified": true,
+            "bin_totals_verified": true,
+            "exact_decomposition_verified": true
+          },
+          {
+            "even_target_N": 1000000,
+            "cutoff_z": 100,
+            "counts": {
+              "PP": 10804,
+              "PS": 5833,
+              "SP": 5833,
+              "SS": 3216
+            },
+            "least_factor_bin_labels": [
+              "[1/3,3/8)",
+              "[3/8,5/12)",
+              "[5/12,11/24)",
+              "[11/24,1/2]"
+            ],
+            "PS_least_factor_bins": [
+              1936,
+              1739,
+              1378,
+              780
+            ],
+            "SP_least_factor_bins": [
+              1936,
+              1739,
+              1378,
+              780
+            ],
+            "SS_least_factor_matrix": [
+              [
+                328,
+                365,
+                271,
+                136
+              ],
+              [
+                365,
+                332,
+                220,
+                117
+              ],
+              [
+                271,
+                220,
+                170,
+                73
+              ],
+              [
+                136,
+                117,
+                73,
+                22
+              ]
+            ],
+            "q_divides_N_exception_counts": {
+              "PS": 0,
+              "SP": 0
+            },
+            "q_divides_N_exception_identity_failures": 0,
+            "rough_semiprime_factor_pair_count": 42286,
+            "factor_pair_count_verified": true,
+            "bin_totals_verified": true,
+            "exact_decomposition_verified": true
+          }
+        ],
+        "aggregate": {
+          "unique_cube_root_rough_semiprime_factorization_proved": true,
+          "exact_PS_SP_SS_factor_lifts_proved": true,
+          "q_divides_target_exception_split_proved": true,
+          "audited_even_targets": 3,
+          "uniform_moving_residue_prime_estimate_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The exact lift localizes the arithmetic obligation but supplies no uniform estimate for primes N-qr in moving nonzero residue classes and no positive lower bound for PP at every even N.",
+        "failure_count": 0
+      },
+      "logical_limit": "The exact lift localizes the arithmetic obligation but supplies no uniform estimate for primes N-qr in moving nonzero residue classes and no positive lower bound for PP at every even N.",
+      "route_decision": {
+        "discard": "estimating PS, SP, and SS only from one-variable marginal densities",
+        "retain": "estimate the exact factor-resolved moving-residue sums exposed by the cube-root Buchstab lift",
+        "next_single_lemma": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T226",
+            "label": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T227",
+            "label": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N227",
+            "label": "MarginalDensityDeterminesPointwiseGoldbachFactorCells",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN227",
+            "label": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T226",
+            "GB-T227"
+          ],
+          [
+            "GB-T227",
+            "GB-N227"
+          ],
+          [
+            "GB-T227",
+            "GB-OPEN227"
+          ],
+          [
+            "GB-OPEN227",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-227",
+      "theorem_name": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+      "declared_proposition": "At the cube-root cutoff the Twin PS, SP, and SS channels lift exactly to qr-2 prime, qr+2 prime, and pq+2=rs factor sums, respectively, with all prime factors above z. In every SS term the factor sets {p,q} and {r,s} are disjoint because a common odd prime would divide both n and n+2 and hence divide 2.",
+      "mathematical_argument": "Unique two-prime factorization follows from the same cube-root argument as in the Goldbach lift. Substituting each semiprime factorization gives qr-2, qr+2, and pq+2=rs without approximation. All factors exceed z>=22 in the audited ranges, so a shared factor cannot divide the difference 2. Complete enumeration verifies the factor-cell totals and zero shared-factor collisions.",
+      "reproducible_computation": {
+        "theorem": "At the cube-root cutoff the Twin PS, SP, and SS channels lift exactly to qr-2 prime, qr+2 prime, and pq+2=rs factor sums, respectively, with all prime factors above z. In every SS term the factor sets {p,q} and {r,s} are disjoint because a common odd prime would divide both n and n+2 and hence divide 2.",
+        "proof": "Unique two-prime factorization follows from the same cube-root argument as in the Goldbach lift. Substituting each semiprime factorization gives qr-2, qr+2, and pq+2=rs without approximation. All factors exceed z>=22 in the audited ranges, so a shared factor cannot divide the difference 2. Complete enumeration verifies the factor-cell totals and zero shared-factor collisions.",
+        "factor_cell_rows": [
+          {
+            "horizon_X": 10000,
+            "cutoff_z": 22,
+            "counts": {
+              "PP": 205,
+              "PS": 78,
+              "SP": 76,
+              "SS": 35
+            },
+            "least_factor_bin_labels": [
+              "[1/3,3/8)",
+              "[3/8,5/12)",
+              "[5/12,11/24)",
+              "[11/24,1/2]"
+            ],
+            "PS_qr_minus_2_bins": [
+              31,
+              17,
+              22,
+              8
+            ],
+            "SP_qr_plus_2_bins": [
+              33,
+              19,
+              19,
+              5
+            ],
+            "SS_pq_plus_2_equals_rs_matrix": [
+              [
+                1,
+                5,
+                1,
+                1
+              ],
+              [
+                3,
+                1,
+                2,
+                1
+              ],
+              [
+                4,
+                3,
+                2,
+                2
+              ],
+              [
+                4,
+                2,
+                2,
+                1
+              ]
+            ],
+            "SS_shared_prime_factor_collisions": 0,
+            "factor_pair_count_verified": true,
+            "bin_totals_verified": true,
+            "exact_decomposition_verified": true
+          },
+          {
+            "horizon_X": 100000,
+            "cutoff_z": 47,
+            "counts": {
+              "PP": 1224,
+              "PS": 559,
+              "SP": 537,
+              "SS": 253
+            },
+            "least_factor_bin_labels": [
+              "[1/3,3/8)",
+              "[3/8,5/12)",
+              "[5/12,11/24)",
+              "[11/24,1/2]"
+            ],
+            "PS_qr_minus_2_bins": [
+              184,
+              177,
+              131,
+              67
+            ],
+            "SP_qr_plus_2_bins": [
+              191,
+              146,
+              138,
+              62
+            ],
+            "SS_pq_plus_2_equals_rs_matrix": [
+              [
+                23,
+                27,
+                14,
+                11
+              ],
+              [
+                28,
+                18,
+                27,
+                9
+              ],
+              [
+                15,
+                17,
+                26,
+                10
+              ],
+              [
+                7,
+                10,
+                7,
+                4
+              ]
+            ],
+            "SS_shared_prime_factor_collisions": 0,
+            "factor_pair_count_verified": true,
+            "bin_totals_verified": true,
+            "exact_decomposition_verified": true
+          },
+          {
+            "horizon_X": 1000000,
+            "cutoff_z": 100,
+            "counts": {
+              "PP": 8169,
+              "PS": 4332,
+              "SP": 4350,
+              "SS": 2453
+            },
+            "least_factor_bin_labels": [
+              "[1/3,3/8)",
+              "[3/8,5/12)",
+              "[5/12,11/24)",
+              "[11/24,1/2]"
+            ],
+            "PS_qr_minus_2_bins": [
+              1467,
+              1346,
+              1003,
+              516
+            ],
+            "SP_qr_plus_2_bins": [
+              1467,
+              1348,
+              994,
+              541
+            ],
+            "SS_pq_plus_2_equals_rs_matrix": [
+              [
+                274,
+                244,
+                174,
+                94
+              ],
+              [
+                254,
+                224,
+                179,
+                98
+              ],
+              [
+                177,
+                183,
+                141,
+                85
+              ],
+              [
+                95,
+                85,
+                86,
+                60
+              ]
+            ],
+            "SS_shared_prime_factor_collisions": 0,
+            "factor_pair_count_verified": true,
+            "bin_totals_verified": true,
+            "exact_decomposition_verified": true
+          }
+        ],
+        "aggregate": {
+          "exact_shift_two_factor_lifts_proved": true,
+          "SS_factor_graph_disjointness_proved": true,
+          "audited_horizons": 3,
+          "uniform_shifted_bilinear_power_saving_proved": false,
+          "infinitely_many_twin_primes_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "Disjoint factor support is an exact structural restriction, not cancellation. The factor-cell tables are finite and prove no unbounded positive lower bound for the PP channel.",
+        "failure_count": 0
+      },
+      "logical_limit": "Disjoint factor support is an exact structural restriction, not cancellation. The factor-cell tables are finite and prove no unbounded positive lower bound for the PP channel.",
+      "route_decision": {
+        "discard": "treating shifted contamination as an unstructured marginal error term",
+        "retain": "attack the exact qr-2, qr+2, and pq+2=rs factor-cell sums with shifted bilinear estimates",
+        "next_single_lemma": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T226",
+            "label": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T227",
+            "label": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N227",
+            "label": "FactorDisjointnessAloneForcesShiftedCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN227",
+            "label": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T226",
+            "TP-T227"
+          ],
+          [
+            "TP-T227",
+            "TP-N227"
+          ],
+          [
+            "TP-T227",
+            "TP-OPEN227"
+          ],
+          [
+            "TP-OPEN227",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-227",
+      "status": "open_not_proven",
+      "declared_proposition": "For q>1 define B_q[E](a)=a integral E(x)(exp(-a x)-q exp(-q a x)) dx. On the Mellin mode E_s(x)=x^(s-1), B_q[E_s](a)=a^(1-s) Gamma(s)(1-q^(1-s)). Consequently a single q=2 family is blind to every nonconstant log-periodic mode s=1+2 pi i k/log(2). The joint q=2 and q=3 family has no nonconstant common blind mode on Re(s)=1.",
+      "mathematical_argument": "The Mellin-Laplace integral is Gamma(s)a^(-s); scaling the second term gives q^(1-s), proving the multiplier identity. On Re(s)=1 blindness is equivalent to tau log(q) in 2 pi Z. A common nonzero blind frequency for q=2 and q=3 would imply log(2)/log(3) is rational and hence 2^ell=3^k for positive integers k,ell, contradicting unique prime factorization.",
+      "new_result": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+      "bounded_result": {
+        "audit_ref": "#/mellin_block_buchstab_lifts_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "using one fixed dilation ratio as if its balanced bands separated every Mellin mode",
+      "remaining_gap": "Alias elimination is injectivity on individual Mellin modes, not a lower frame bound for arbitrary superpositions and not control of the zeta explicit formula on a dense Weil core.",
+      "candidate_theorem": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T226",
+            "label": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T227",
+            "label": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N227",
+            "label": "SingleDilationSeparatesAllMellinModes",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN227",
+            "label": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T226",
+            "RH-T227"
+          ],
+          [
+            "RH-T227",
+            "RH-N227"
+          ],
+          [
+            "RH-T227",
+            "RH-OPEN227"
+          ],
+          [
+            "RH-OPEN227",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-227",
+      "status": "open_not_proven",
+      "declared_proposition": "Let U=(1,1,3) with affine data (27,32,19), and let a fixed suffix V have affine data (A,C,B). For w_r=U^r V, D_r=C 32^r-A 27^r and B_r=((5B+19A)32^r-19A27^r)/5. If the r=1 and r=infinity ratios lie strictly in one unit interval and D_r stays positive, fractional-linearity puts every B_r/D_r in that interval. For V=(4,2,1), 1<B_r/D_r<2 for every r>=1; the unique 4 makes w_r primitive, so this is an infinite primitive noncycle family.",
+      "mathematical_argument": "Affine composition and the geometric sum for U^r give the two closed forms. Writing t=(27/32)^r makes B_r/D_r a fractional-linear function of t with no pole on 0<=t<=27/32, hence it is monotone or constant and lies between its endpoint values. For V=(4,2,1) these values are 4385/3367 and 559/320, both strictly between 1 and 2. An integer fixed point would require D_r|B_r, which is impossible in that open unit interval.",
+      "new_result": "RepeatedBlockSuffixUnitIntervalCertificate",
+      "bounded_result": {
+        "audit_ref": "#/mellin_block_buchstab_lifts_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "checking divisibility separately for every repetition of a block-suffix family",
+      "remaining_gap": "The interval criterion settles only suffixes whose two endpoint ratios share a unit interval. It does not cover arbitrary primitive valuation words or prove descent of aperiodic orbits.",
+      "candidate_theorem": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T226",
+            "label": "InfinitePrimitiveMinimumInterceptCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T227",
+            "label": "RepeatedBlockSuffixUnitIntervalCertificate",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N227",
+            "label": "FiniteRepetitionChecksEstablishAnInfiniteFamily",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN227",
+            "label": "UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T226",
+            "CO-T227"
+          ],
+          [
+            "CO-T227",
+            "CO-N227"
+          ],
+          [
+            "CO-T227",
+            "CO-OPEN227"
+          ],
+          [
+            "CO-OPEN227",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-227",
+      "status": "open_not_proven",
+      "declared_proposition": "At z=ceil(X^(1/3)), every retained composite m<=X has the unique form m=qr with primes z<q<=r. Therefore the Goldbach PS and SP channels lift exactly to prime sums over N-qr, and SS lifts to a two-factor-cell convolution. In a PS or SP cell with q|N, a prime N-qr divisible by q must equal q, leaving at most the single explicit candidate r=N/q-1.",
+      "mathematical_argument": "Three factors greater than z have product greater than or equal to z^3>=X, so every retained composite below X has exactly two prime factors; ordering gives uniqueness. Substitution m=qr gives the factor-lift identities. If q divides N and N-qr is prime, q divides that prime, so it equals q and r=N/q-1. The tables enumerate every summand and verify all channel totals.",
+      "new_result": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+      "bounded_result": {
+        "audit_ref": "#/mellin_block_buchstab_lifts_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "estimating PS, SP, and SS only from one-variable marginal densities",
+      "remaining_gap": "The exact lift localizes the arithmetic obligation but supplies no uniform estimate for primes N-qr in moving nonzero residue classes and no positive lower bound for PP at every even N.",
+      "candidate_theorem": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T226",
+            "label": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T227",
+            "label": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N227",
+            "label": "MarginalDensityDeterminesPointwiseGoldbachFactorCells",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN227",
+            "label": "UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T226",
+            "GB-T227"
+          ],
+          [
+            "GB-T227",
+            "GB-N227"
+          ],
+          [
+            "GB-T227",
+            "GB-OPEN227"
+          ],
+          [
+            "GB-OPEN227",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-227",
+      "status": "open_not_proven",
+      "declared_proposition": "At the cube-root cutoff the Twin PS, SP, and SS channels lift exactly to qr-2 prime, qr+2 prime, and pq+2=rs factor sums, respectively, with all prime factors above z. In every SS term the factor sets {p,q} and {r,s} are disjoint because a common odd prime would divide both n and n+2 and hence divide 2.",
+      "mathematical_argument": "Unique two-prime factorization follows from the same cube-root argument as in the Goldbach lift. Substituting each semiprime factorization gives qr-2, qr+2, and pq+2=rs without approximation. All factors exceed z>=22 in the audited ranges, so a shared factor cannot divide the difference 2. Complete enumeration verifies the factor-cell totals and zero shared-factor collisions.",
+      "new_result": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+      "bounded_result": {
+        "audit_ref": "#/mellin_block_buchstab_lifts_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating shifted contamination as an unstructured marginal error term",
+      "remaining_gap": "Disjoint factor support is an exact structural restriction, not cancellation. The factor-cell tables are finite and prove no unbounded positive lower bound for the PP channel.",
+      "candidate_theorem": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T226",
+            "label": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T227",
+            "label": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N227",
+            "label": "FactorDisjointnessAloneForcesShiftedCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN227",
+            "label": "UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T226",
+            "TP-T227"
+          ],
+          [
+            "TP-T227",
+            "TP-N227"
+          ],
+          [
+            "TP-T227",
+            "TP-OPEN227"
+          ],
+          [
+            "TP-OPEN227",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "primeproject.ticket227-mellin-block-buchstab-lifts.v1",
+  "generated_at": "2026-08-14T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-227",
+  "theorem_name": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+  "declared_proposition": "For q>1 define B_q[E](a)=a integral E(x)(exp(-a x)-q exp(-q a x)) dx. On the Mellin mode E_s(x)=x^(s-1), B_q[E_s](a)=a^(1-s) Gamma(s)(1-q^(1-s)). Consequently a single q=2 family is blind to every nonconstant log-periodic mode s=1+2 pi i k/log(2). The joint q=2 and q=3 family has no nonconstant common blind mode on Re(s)=1.",
+  "mathematical_argument": "The Mellin-Laplace integral is Gamma(s)a^(-s); scaling the second term gives q^(1-s), proving the multiplier identity. On Re(s)=1 blindness is equivalent to tau log(q) in 2 pi Z. A common nonzero blind frequency for q=2 and q=3 would imply log(2)/log(3) is rational and hence 2^ell=3^k for positive integers k,ell, contradicting unique prime factorization.",
+  "reproducible_computation": {
+    "theorem": "For q>1 define B_q[E](a)=a integral E(x)(exp(-a x)-q exp(-q a x)) dx. On the Mellin mode E_s(x)=x^(s-1), B_q[E_s](a)=a^(1-s) Gamma(s)(1-q^(1-s)). Consequently a single q=2 family is blind to every nonconstant log-periodic mode s=1+2 pi i k/log(2). The joint q=2 and q=3 family has no nonconstant common blind mode on Re(s)=1.",
+    "proof": "The Mellin-Laplace integral is Gamma(s)a^(-s); scaling the second term gives q^(1-s), proving the multiplier identity. On Re(s)=1 blindness is equivalent to tau log(q) in 2 pi Z. A common nonzero blind frequency for q=2 and q=3 would imply log(2)/log(3) is rational and hence 2^ell=3^k for positive integers k,ell, contradicting unique prime factorization.",
+    "mellin_alias_rows": [
+      {
+        "alias_index_k": 1,
+        "tau_2pi_k_over_log2": 9.064720283654388,
+        "q2_analytic_multiplier_abs": 3.1790788032898176e-21,
+        "q3_analytic_multiplier_abs": 9.534418436414748e-06,
+        "q2_quadrature_error": 4.1975237535592536e-17,
+        "q3_quadrature_error": 3.727546593813368e-17,
+        "q2_alias_zero_verified": true,
+        "q3_alias_visible_verified": true,
+        "quadrature_independent_check_required": true,
+        "quadrature_identity_verified": true,
+        "quadrature_limit": null
+      },
+      {
+        "alias_index_k": 2,
+        "tau_2pi_k_over_log2": 18.129440567308777,
+        "q2_analytic_multiplier_abs": 5.888453939405459e-27,
+        "q3_analytic_multiplier_abs": 4.6580288003618635e-12,
+        "q2_quadrature_error": 1.320254792126292e-17,
+        "q3_quadrature_error": 4.025575827008056e-17,
+        "q2_alias_zero_verified": true,
+        "q3_alias_visible_verified": true,
+        "quadrature_independent_check_required": true,
+        "quadrature_identity_verified": true,
+        "quadrature_limit": null
+      },
+      {
+        "alias_index_k": 3,
+        "tau_2pi_k_over_log2": 27.19416085096316,
+        "q2_analytic_multiplier_abs": 2.697459007062922e-33,
+        "q3_analytic_multiplier_abs": 5.111353318586477e-18,
+        "q2_quadrature_error": null,
+        "q3_quadrature_error": null,
+        "q2_alias_zero_verified": true,
+        "q3_alias_visible_verified": true,
+        "quadrature_independent_check_required": false,
+        "quadrature_identity_verified": null,
+        "quadrature_limit": "double-precision quadrature is not required after Gamma decay"
+      },
+      {
+        "alias_index_k": 4,
+        "tau_2pi_k_over_log2": 36.25888113461755,
+        "q2_analytic_multiplier_abs": 7.14259896582877e-39,
+        "q3_analytic_multiplier_abs": 4.863967468314024e-24,
+        "q2_quadrature_error": null,
+        "q3_quadrature_error": null,
+        "q2_alias_zero_verified": true,
+        "q3_alias_visible_verified": true,
+        "quadrature_independent_check_required": false,
+        "quadrature_identity_verified": null,
+        "quadrature_limit": "double-precision quadrature is not required after Gamma decay"
+      },
+      {
+        "alias_index_k": 5,
+        "tau_2pi_k_over_log2": 45.323601418271934,
+        "q2_analytic_multiplier_abs": 9.709908320709364e-45,
+        "q3_analytic_multiplier_abs": 9.512759884058471e-31,
+        "q2_quadrature_error": null,
+        "q3_quadrature_error": null,
+        "q2_alias_zero_verified": true,
+        "q3_alias_visible_verified": true,
+        "quadrature_independent_check_required": false,
+        "quadrature_identity_verified": null,
+        "quadrature_limit": "double-precision quadrature is not required after Gamma decay"
+      }
+    ],
+    "bounded_integer_relation_audit": {
+      "absolute_index_bound": 100,
+      "nonzero_common_aliases": [],
+      "none_found": true,
+      "role": "reproducible sanity check only; the proof uses unique factorization"
+    },
+    "aggregate": {
+      "mellin_multiplier_identity_proved": true,
+      "single_dilation_infinite_alias_family_proved": true,
+      "dual_incommensurate_dilation_removes_nonconstant_line_aliases_proved": true,
+      "constant_mode_remains_blind": true,
+      "uniform_dense_weil_core_frame_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "Alias elimination is injectivity on individual Mellin modes, not a lower frame bound for arbitrary superpositions and not control of the zeta explicit formula on a dense Weil core.",
+    "failure_count": 0
+  },
+  "logical_limit": "Alias elimination is injectivity on individual Mellin modes, not a lower frame bound for arbitrary superpositions and not control of the zeta explicit formula on a dense Weil core.",
+  "route_decision": {
+    "discard": "using one fixed dilation ratio as if its balanced bands separated every Mellin mode",
+    "retain": "combine multiplicatively independent dilation ratios and seek a quantitative frame bound on the explicit-formula test space",
+    "next_single_lemma": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T226",
+        "label": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T227",
+        "label": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N227",
+        "label": "SingleDilationSeparatesAllMellinModes",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN227",
+        "label": "UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T226",
+        "RH-T227"
+      ],
+      [
+        "RH-T227",
+        "RH-N227"
+      ],
+      [
+        "RH-T227",
+        "RH-OPEN227"
+      ],
+      [
+        "RH-OPEN227",
+        "RH"
+      ]
+    ]
+  }
+}

@@ -15,31 +15,30 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-226
+## Current research boundary: TICKET-227
 
 The current machine-readable boundary is
-`data/open-problem/ticket226-signal-transfer-same-order-obstructions.json`.
+`data/open-problem/ticket227-mellin-block-buchstab-lifts.json`.
 
-TICKET-226 proves four exact transfer or route-correction theorems and resolves
+TICKET-227 proves four exact structural lemmas and resolves
 none of the parent conjectures:
 
-- the actual prime Laplace band is a balanced Chebyshev-error contrast with
-  exact negative and positive kernel masses `-1/4` and `+1/4`;
-- the infinite primitive Collatz family `(1,1,3)^r,2` contains only
-  noncycles while every cyclic intercept exceeds `D`;
-- cube-root rough semiprimes satisfy `S_z(X)~(log 2)X/log X`, the same
-  marginal asymptotic order as primes;
-- Type-I marginals consequently cannot separate shifted Twin PP from the
-  PS/SP/SS parity channels without genuine Type-II information.
+- dilation ratios `2` and `3` have no common nonconstant Mellin alias on
+  `Re(s)=1`, while either single ratio has infinitely many aliases;
+- a fractional-linear endpoint theorem proves every
+  `(1,1,3)^r,(4,2,1)` is a primitive Collatz noncycle;
+- cube-root Goldbach error channels lift exactly to moving `N-qr` factor
+  cells with a one-candidate exception when `q|N`;
+- Twin error channels lift exactly to `qr-2`, `qr+2`, and `pq+2=rs`, with
+  disjoint factor sets in every `SS` term.
 
-The remaining decisive targets are explicit-formula control of balanced bands
-on a dense Weil core; exclusion of exact Collatz `D|B` for every nontrivial
-primitive code together with aperiodic descent; a uniform signed Goldbach
-minor-arc power saving; and shifted Type-II bilinear separation on unbounded
-Twin blocks.
+The remaining decisive targets are a uniform dual-dilation frame bound on a
+dense Weil core; a universal prime-power witness excluding exact Collatz
+`D|B` together with aperiodic descent; a uniform moving-residue Goldbach cell
+estimate; and shifted bilinear estimates across all cube-root Twin cells.
 
-English report: [TICKET-226](signal-transfer-same-order-obstructions.md).
-한국어 보고서: [TICKET-226](signal-transfer-same-order-obstructions.ko.md).
+English report: [TICKET-227](mellin-block-buchstab-lifts.md).
+한국어 보고서: [TICKET-227](mellin-block-buchstab-lifts.ko.md).
 
 ## Preserved research boundary: TICKET-221
 
@@ -499,7 +498,28 @@ Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This i
 
 The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
-## TICKET-226 Current Boundary / 현재 연구 경계
+## TICKET-227 Current Boundary / 현재 연구 경계
+
+TICKET-227 lifts the TICKET-226 obstructions into the exact coordinates needed
+by the next proof step:
+
+| Problem | New exact result | Route closed | Single next lemma |
+|---|---|---|---|
+| Riemann | Ratios `2,3` remove common nonconstant Mellin aliases on `Re(s)=1` | One fixed dilation separates all Mellin modes | `UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore` |
+| Collatz | `(1,1,3)^r,(4,2,1)` is an infinite primitive noncycle family with `1<B/D<2` | Finite repetition checks establish an infinite family | `UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility` |
+| Goldbach | `PS,SP,SS` lift exactly to factor-resolved `N-qr` cells | Marginal density determines pointwise factor cells | `UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget` |
+| Twin Prime | Shift-two errors lift to `qr-2`, `qr+2`, `pq+2=rs`, with disjoint `SS` factor sets | Factor disjointness alone forces cancellation | `UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells` |
+
+The machine audit records four exact lemmas, four corrected routes, four proof
+DAGs, zero failures, and zero conjecture resolutions. Mode-wise injectivity is
+not a frame inequality; an exact factor lift is not an asymptotic estimate.
+
+한국어 요약: TICKET-227은 거친 관측량을 Mellin 주파수, Collatz affine
+block, Goldbach·Twin 소인수 cell로 올렸다. 이 결과는 다음 무한 추정의
+정확한 대상을 고정하지만 그 추정 자체를 증명하지 않는다. 네 난제의
+해결 수는 0이다.
+
+## TICKET-226 Preserved Boundary / 보존된 이전 연구 경계
 
 TICKET-226 tests whether TICKET-225's localized arithmetic remainders can be
 promoted by sign or marginal size alone:

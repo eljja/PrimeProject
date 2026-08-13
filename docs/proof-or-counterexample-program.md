@@ -8183,7 +8183,33 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
 한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).
 
-## TICKET-226 continuation: signal transfer and same-order obstructions
+## TICKET-227 continuation: Mellin, block, and Buchstab factor lifts
+
+TICKET-227 continues the TICKET-226 proof DAG and proves four exact structural
+lemmas while keeping the conjecture-resolution count at zero:
+
+1. RH: a single dilation ratio has infinitely many Mellin aliases, while
+   ratios `2` and `3` have no common nonconstant alias on `Re(s)=1`. The next
+   target is `UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore`.
+2. Collatz: a fractional-linear endpoint theorem proves every
+   `(1,1,3)^r,(4,2,1)` is a primitive noncycle with `1<B/D<2`. The next target
+   is `UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility`.
+3. Goldbach: the cube-root `PS`, `SP`, and `SS` channels lift exactly to
+   factor-resolved moving-residue cells, including a one-candidate split when
+   `q|N`. The next target is
+   `UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget`.
+4. Twin Prime: the shifted channels lift exactly to `qr-2`, `qr+2`, and
+   `pq+2=rs`; every `SS` factor graph is disjoint. The next target is
+   `UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells`.
+
+Machine audit: four exact structural lemmas, four rejected or corrected
+routes, four proof DAGs, zero conjecture resolutions, and zero computational
+failures.
+
+English report: [TICKET-227 Mellin, block, and Buchstab factor lifts](mellin-block-buchstab-lifts.md).
+한국어 보고서: [TICKET-227 Mellin·반복 블록·Buchstab 인수 분해](mellin-block-buchstab-lifts.ko.md).
+
+## TICKET-226 preserved continuation: signal transfer and same-order obstructions
 
 TICKET-226 continues the TICKET-225 proof DAG and proves four exact transfer
 or no-go statements while keeping the conjecture-resolution count at zero:

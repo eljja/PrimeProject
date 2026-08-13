@@ -62,7 +62,33 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Latest Continuation After TICKET-209
+## Current continuation: TICKET-227
+
+The current machine-readable boundary is
+`data/open-problem/ticket227-mellin-block-buchstab-lifts.json`. It records four
+exact structural lemmas, zero machine failures, and zero parent-conjecture
+resolutions.
+
+| Problem | Newly closed lemma | Current single open lemma |
+|---|---|---|
+| Riemann | `DualDilationMellinAliasEliminationAndSingleRatioNoGo` | `UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore` |
+| Collatz | `RepeatedBlockSuffixUnitIntervalCertificate` | `UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility` |
+| Goldbach | `CubeRootBuchstabFactorLiftAndDivisorExceptionSplit` | `UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget` |
+| Twin Prime | `ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph` | `UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells` |
+
+The RH result is mode-wise alias elimination, not a frame inequality or Weil
+positivity. The Collatz result proves one all-`r` primitive noncycle family,
+not all primitive words or aperiodic descent. The Goldbach and Twin results are
+exact factor identities, not asymptotic estimates or positive prime lower
+bounds.
+
+Reports: [English](mellin-block-buchstab-lifts.md),
+[한국어](mellin-block-buchstab-lifts.ko.md).
+
+All older "latest" or "current" headings below are preserved historical
+snapshots and must not override this TICKET-227 boundary.
+
+## Historical continuation after TICKET-209
 
 TICKET-209 is the current boundary. It resolves none of the four conjectures
 and narrows the exact premises left by TICKET-208:

@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, signal-transfer routes audited",
-      ko: "네 미해결 문제, 신호 전달 경로를 검증하다",
+      en: "Four open problems, exact obstruction coordinates exposed",
+      ko: "네 미해결 문제, 정확한 장애 좌표를 드러내다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-226 proves a balanced Chebyshev-kernel identity, an infinite Collatz route counterfamily, and same-order rough-semiprime obstructions for Goldbach and Twin filters.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-226은 균형 Chebyshev 커널 항등식, 콜라츠 경로의 무한 반례족, 골드바흐·쌍둥이 소수 체에서 반소수가 같은 차수라는 방해 정리를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-227 proves dual-dilation Mellin mode separation, an all-r Collatz block-suffix certificate, and exact Goldbach/Twin factor-cell lifts.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-227은 이중 dilation의 Mellin mode 분리, 모든 r에 대한 콜라츠 블록-suffix 인증, 골드바흐·쌍둥이 소수의 정확한 소인수 cell 분해를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-226 proves four exact transfer or no-go theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-226은 네 개의 정확한 전달 또는 불가능성 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-227 proves four exact structural lemmas and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-227은 네 개의 정확한 구조 보조정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",
