@@ -62,31 +62,33 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-228
+## Current continuation: TICKET-229
 
 The current machine-readable boundary is
-`data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json`.
+`data/open-problem/ticket229-band-frame-semilinear-character-barriers.json`.
 It records four exact partial or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `FiniteDilationNearAliasNoUniformFrame` | `ExplicitDiophantineLossDualDilationFrameBoundOnBandlimitedWeilCores` |
-| Collatz | `BinaryEqualSlopeAffineLanguageNoncycleCone` | `CofinalEqualSlopeAffineConeCoverForAllPrimitiveCycleCandidateWords` |
-| Goldbach | `MovingResidueUnitOperatorSpectrumAndLocalFactor` | `UniformMovingTargetCharacterCancellationAfterLocalSpectrumExtraction` |
-| Twin Prime | `ShiftTwoOperatorCrossGramAndModThreeJointNoGo` | `UniformShiftTwoCharacterModeCancellationAcrossCubeRootFactorCells` |
+| Riemann | `ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch` | `SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail` |
+| Collatz | `FiniteEqualSlopeLanguageSemilinearCoverageNoGo` | `OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords` |
+| Goldbach | `CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo` | `PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell` |
+| Twin Prime | `ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction` | `PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode` |
 
-The RH result refutes a full-line finite-dilation frame bound but does not prove
-a corrected bandlimited bound or Weil positivity. The Collatz result proves an
-exponentially branching language, not a cofinal cover or aperiodic descent.
-The Goldbach and Twin results expose exact local operator spectra; they do not
-provide the global character cancellation or positive prime lower bounds.
+The RH result proves a corrected finite-band scalar bound, but its exponential
+condition loss is not matched to an actual Weil-core tail. The Collatz result
+refutes every finite equal-slope semilinear cover, but does not prove cycle
+nondivisibility outside those languages or aperiodic descent. Goldbach gains
+exact cancellation only after target averaging; the fixed-target prime-weighted
+estimate remains open. Twin isolates a full-size modulo-5 quadratic mode; its
+prime-weighted cancellation remains open.
 
-Reports: [English](near-alias-affine-language-residue-spectrum.md),
-[한국어](near-alias-affine-language-residue-spectrum.ko.md).
+Reports: [English](band-frame-semilinear-character-barriers.md),
+[한국어](band-frame-semilinear-character-barriers.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-228 boundary.
+snapshots and must not override this TICKET-229 boundary.
 
 ## Historical continuation after TICKET-209
 

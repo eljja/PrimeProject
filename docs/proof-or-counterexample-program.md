@@ -8348,3 +8348,30 @@ four proof DAGs, zero conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-223 exponential-tail-local-duality-no-go](exponential-tail-local-duality-no-go.md).
 한국어 보고서: [TICKET-223 지수 꼬리·국소 쌍대성·고정 체 no-go](exponential-tail-local-duality-no-go.ko.md).
+
+## TICKET-229 continuation: band frames, semilinear coverage, and character barriers
+
+TICKET-229 directly tests the four open lemmas from TICKET-228 and keeps the
+parent-conjecture resolution count at zero:
+
+1. RH: `F(tau)=|1-2^(-itau)|^2+|1-3^(-itau)|^2` has an explicit positive
+   lower bound on every finite band. The bound decays exponentially, so it
+   cannot by itself dominate a merely polynomial Weil-core truncation tail.
+2. Collatz: each fixed-suffix equal-slope language lies on one affine `(h,S)`
+   line. No finite union is cofinal among primitive positive-denominator
+   words; exact cycle nondivisibility and aperiodic descent remain open.
+3. Goldbach: averaging one complete target-residue period annihilates every
+   nonconstant local character exactly, but each fixed nonzero target is still
+   an isometry on that space. Prime-weighted pointwise cancellation remains
+   open.
+4. Twin Prime: shift-two symmetry annihilates odd characters, while the
+   modulo-5 quadratic character has normalized singular ratio one. Local
+   tensorization alone cannot remove it; prime-weighted cancellation remains
+   open.
+
+Machine audit: four exact partial or no-go theorems, four rejected or narrowed
+routes, four proof DAGs, zero conjecture resolutions, and zero computational
+failures.
+
+English report: [TICKET-229 band frames, semilinear coverage, and character barriers](band-frame-semilinear-character-barriers.md).
+한국어 보고서: [TICKET-229 대역 프레임·준선형 포괄·지표 방해](band-frame-semilinear-character-barriers.ko.md).

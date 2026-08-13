@@ -227,6 +227,7 @@ TICKET225_SCHEMA = "primeproject.ticket225-arithmetic-remainder-localization.v1"
 TICKET226_SCHEMA = "primeproject.ticket226-signal-transfer-same-order-obstructions.v1"
 TICKET227_SCHEMA = "primeproject.ticket227-mellin-block-buchstab-lifts.v1"
 TICKET228_SCHEMA = "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1"
+TICKET229_SCHEMA = "primeproject.ticket229-band-frame-semilinear-character-barriers.v1"
 
 
 def fail(message: str) -> int:
@@ -19409,6 +19410,211 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path229 = Path(
+        "data/open-problem/ticket229-band-frame-semilinear-character-barriers.json"
+    )
+    if not path229.exists():
+        return fail("missing ticket229 band-frame/semilinear/character audit")
+    ticket229 = read_json(path229)
+    if (
+        ticket229.get("schema") != TICKET229_SCHEMA
+        or ticket229.get("status") != "open_not_proven"
+    ):
+        return fail("ticket229 schema or status changed")
+    audit229 = ticket229.get(
+        "band_frame_semilinear_character_barriers_audit", {}
+    )
+    machine229 = audit229.get("machine_audit", {})
+    if machine229 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket229 global machine audit changed")
+
+    attempts229 = {
+        row.get("problem_id"): row for row in ticket229.get("attempts", [])
+    }
+    if set(attempts229) != EXPECTED_PROBLEMS:
+        return fail("ticket229 attempts missing problems")
+    theorem_names229 = {
+        "riemann": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+        "collatz": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+        "goldbach": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+        "twin-prime": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+    }
+    next_lemmas229 = {
+        "riemann": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail",
+        "collatz": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords",
+        "goldbach": "PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell",
+        "twin-prime": "PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode",
+    }
+    track_paths229 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-229-band-frame-bound.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-229-semilinear-coverage-no-go.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-229-target-period-cancellation.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-229-character-parity-obstruction.json"
+        ),
+    }
+    audit_sections229 = {
+        "riemann": audit229.get("riemann", {}),
+        "collatz": audit229.get("collatz", {}),
+        "goldbach": audit229.get("goldbach", {}),
+        "twin-prime": audit229.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts229.items():
+        track_path = track_paths229[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket229 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections229[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names229[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas229[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names229[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas229[problem_id]
+            or track.get("schema") != TICKET229_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names229[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket229 contract changed")
+
+    rh229 = audit_sections229["riemann"].get("reproducible_computation", {})
+    rh229_rows = rh229.get("band_rows", [])
+    rh229_aggregate = rh229.get("aggregate", {})
+    if (
+        len(rh229_rows) < 8
+        or any(
+            current.get("log10_certified_frame_lower_bound", math.inf)
+            >= previous.get("log10_certified_frame_lower_bound", -math.inf)
+            for previous, current in zip(rh229_rows, rh229_rows[1:])
+        )
+        or rh229_aggregate.get(
+            "explicit_finite_band_dual_dilation_lower_bound_proved"
+        )
+        is not True
+        or rh229_aggregate.get("polynomial_tail_matching_from_this_bound_refuted")
+        is not True
+        or rh229_aggregate.get("actual_weil_core_operator_bound_proved")
+        is not False
+        or rh229_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket229 RH band-frame boundary changed")
+
+    collatz229 = audit_sections229["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz229_aggregate = collatz229.get("aggregate", {})
+    collatz229_tail = [
+        row
+        for row in collatz229.get("witness_family_rows", [])
+        if row.get("height_h", -1)
+        >= collatz229.get("eventual_outside_start_height", math.inf)
+    ]
+    if (
+        collatz229.get("eventual_outside_start_height") != 4
+        or not collatz229_tail
+        or any(
+            row.get("sample_language_memberships")
+            or row.get("D_positive") is not True
+            or row.get("primitive_unique_exception_verified") is not True
+            for row in collatz229_tail
+        )
+        or collatz229_aggregate.get("finite_equal_slope_union_cofinal_coverage_refuted")
+        is not True
+        or collatz229_aggregate.get(
+            "exact_cycle_divisibility_for_all_outside_words_proved"
+        )
+        is not False
+        or collatz229_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket229 Collatz semilinear boundary changed")
+
+    goldbach229 = audit_sections229["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    goldbach229_aggregate = goldbach229.get("aggregate", {})
+    if (
+        not goldbach229.get("complete_period_rows")
+        or any(
+            row.get("complete_sum_equals_l_minus_1_times_J") is not True
+            or row.get("complete_period_annihilates_nonconstant_space") is not True
+            or row.get("each_nonzero_target_nonconstant_norm") != 1
+            for row in goldbach229.get("complete_period_rows", [])
+        )
+        or any(
+            row.get("strict_l_over_H_upper") is not True
+            for row in goldbach229.get("window_rows", [])
+        )
+        or goldbach229_aggregate.get(
+            "complete_target_period_character_cancellation_proved"
+        )
+        is not True
+        or goldbach229_aggregate.get("target_averaging_implies_pointwise_goldbach_refuted")
+        is not True
+        or goldbach229_aggregate.get("prime_weighted_single_target_cancellation_proved")
+        is not False
+        or goldbach229_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket229 Goldbach target-period boundary changed")
+
+    twin229 = audit_sections229["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin229_rows = twin229.get("local_character_rows", [])
+    twin229_mod5 = next(
+        (row for row in twin229_rows if row.get("prime_l") == 5), {}
+    )
+    twin229_aggregate = twin229.get("aggregate", {})
+    if (
+        twin229_mod5.get("worst_normalized_nonconstant_ratio") != "1"
+        or twin229_mod5.get("mod5_quadratic_mode_has_no_contraction") is not True
+        or twin229_aggregate.get("odd_shift_two_characters_annihilated_proved")
+        is not True
+        or twin229_aggregate.get("mod5_quadratic_normalized_no_contraction_proved")
+        is not True
+        or twin229_aggregate.get("local_tensor_uniform_contraction_refuted")
+        is not True
+        or twin229_aggregate.get("prime_weighted_mod5_quadratic_cancellation_proved")
+        is not False
+        or twin229_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket229 Twin character-parity boundary changed")
+
+    if (
+        "resolves none" not in str(audit229.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket229.get("claim_boundary", "")).lower()
+        or machine229.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket229 proof boundary changed")
 
     path228 = Path(
         "data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json"

@@ -1,0 +1,239 @@
+{
+  "schema": "primeproject.ticket229-band-frame-semilinear-character-barriers.v1",
+  "generated_at": "2026-08-14T15:20:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-229",
+  "theorem_name": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+  "declared_proposition": "Let F(tau)=|1-2^(-i tau)|^2+|1-3^(-i tau)|^2 and T>=pi/log 3. For every pi/log 3<=|tau|<=T, F(tau) >= 16 exp(-T log(2)log(3)/pi-log(3)) / (log(2)^2+log(3)^2). This is a positive, completely explicit band-limited frame lower bound. Its reciprocal grows exponentially in T, so this elementary certificate cannot be paired with only polynomially decaying Weil-core truncation error.",
+  "mathematical_argument": "Write x=tau log(2)/(2 pi), y=tau log(3)/(2 pi), and let n,m be nearest integers. Since |sin(pi u)|>=2|u| for |u|<=1/2, F is at least 16 times the squared torus distance. The linear form Lambda=n log(3)-m log(2) is bounded above by that distance times sqrt(log(2)^2+log(3)^2). Here m is nonzero and 3^n differs from 2^m. For distinct positive integers A,B, |log(A/B)| is at least 1/max(A,B). The phase bounds give max(3^n,2^m) at most exp(T log(2)log(3)/(2 pi)+log(3)/2). Squaring yields the formula. Finally exp(-cT)=o(T^-k) for every fixed k, proving the mismatch with polynomial error budgets.",
+  "reproducible_computation": {
+    "theorem": "Let F(tau)=|1-2^(-i tau)|^2+|1-3^(-i tau)|^2 and T>=pi/log 3. For every pi/log 3<=|tau|<=T, F(tau) >= 16 exp(-T log(2)log(3)/pi-log(3)) / (log(2)^2+log(3)^2). This is a positive, completely explicit band-limited frame lower bound. Its reciprocal grows exponentially in T, so this elementary certificate cannot be paired with only polynomially decaying Weil-core truncation error.",
+    "proof": "Write x=tau log(2)/(2 pi), y=tau log(3)/(2 pi), and let n,m be nearest integers. Since |sin(pi u)|>=2|u| for |u|<=1/2, F is at least 16 times the squared torus distance. The linear form Lambda=n log(3)-m log(2) is bounded above by that distance times sqrt(log(2)^2+log(3)^2). Here m is nonzero and 3^n differs from 2^m. For distinct positive integers A,B, |log(A/B)| is at least 1/max(A,B). The phase bounds give max(3^n,2^m) at most exp(T log(2)log(3)/(2 pi)+log(3)/2). Squaring yields the formula. Finally exp(-cT)=o(T^-k) for every fixed k, proving the mismatch with polynomial error budgets.",
+    "band_rows": [
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 10,
+        "log10_certified_frame_lower_bound": -0.5529191688874426,
+        "log10_inverse_condition_upper": 0.5529191688874426,
+        "polynomial_T_minus_12_log10": -12.0,
+        "polynomial_error_eventually_exceeds_bound": false
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 25,
+        "log10_certified_frame_lower_bound": -2.1319681845973264,
+        "log10_inverse_condition_upper": 2.1319681845973264,
+        "polynomial_T_minus_12_log10": -16.775280104064453,
+        "polynomial_error_eventually_exceeds_bound": false
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 50,
+        "log10_certified_frame_lower_bound": -4.763716544113798,
+        "log10_inverse_condition_upper": 4.763716544113798,
+        "polynomial_T_minus_12_log10": -20.387640052032225,
+        "polynomial_error_eventually_exceeds_bound": false
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 100,
+        "log10_certified_frame_lower_bound": -10.027213263146743,
+        "log10_inverse_condition_upper": 10.027213263146743,
+        "polynomial_T_minus_12_log10": -24.0,
+        "polynomial_error_eventually_exceeds_bound": false
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 250,
+        "log10_certified_frame_lower_bound": -25.81770342024557,
+        "log10_inverse_condition_upper": 25.81770342024557,
+        "polynomial_T_minus_12_log10": -28.77528010406445,
+        "polynomial_error_eventually_exceeds_bound": false
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 500,
+        "log10_certified_frame_lower_bound": -52.13518701541029,
+        "log10_inverse_condition_upper": 52.13518701541029,
+        "polynomial_T_minus_12_log10": -32.387640052032225,
+        "polynomial_error_eventually_exceeds_bound": true
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 1000,
+        "log10_certified_frame_lower_bound": -104.77015420573971,
+        "log10_inverse_condition_upper": 104.77015420573971,
+        "polynomial_T_minus_12_log10": -36.0,
+        "polynomial_error_eventually_exceeds_bound": true
+      },
+      {
+        "band_lower_abs_tau": 2.8596008673801268,
+        "band_upper_T": 5000,
+        "log10_certified_frame_lower_bound": -525.8498917283752,
+        "log10_inverse_condition_upper": 525.8498917283752,
+        "polynomial_T_minus_12_log10": -44.387640052032225,
+        "polynomial_error_eventually_exceeds_bound": true
+      }
+    ],
+    "phase_inequality_rows": [
+      {
+        "tau": 2.8596008673801268,
+        "nearest_n_for_log2_phase": 0,
+        "nearest_m_for_log3_phase": 1,
+        "delta_two": 0.31546487678572865,
+        "delta_three": 0.5,
+        "linear_form_abs": 0.6931471805599453,
+        "dual_energy": 6.799653737104731,
+        "torus_distance_lower": 5.59228941576696,
+        "linear_form_lower": 4.555670988780064,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      },
+      {
+        "tau": 5.0,
+        "nearest_n_for_log2_phase": 1,
+        "nearest_m_for_log3_phase": 1,
+        "delta_two": 0.44841099961837094,
+        "delta_three": 0.12575211858485036,
+        "linear_form_abs": 0.4054651081081645,
+        "dual_energy": 4.488333246935891,
+        "torus_distance_lower": 3.4701763185171988,
+        "linear_form_lower": 1.5588646343206518,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      },
+      {
+        "tau": 10.0,
+        "nearest_n_for_log2_phase": 1,
+        "nearest_m_for_log3_phase": 2,
+        "delta_two": 0.10317800076325812,
+        "delta_three": 0.2515042371697007,
+        "linear_form_abs": 0.2876820724517808,
+        "dual_energy": 2.4246632859026427,
+        "torus_distance_lower": 1.1824012984930554,
+        "linear_form_lower": 0.7847422349814969,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      },
+      {
+        "tau": 18.129440567308777,
+        "nearest_n_for_log2_phase": 2,
+        "nearest_m_for_log3_phase": 3,
+        "delta_two": 4.440892098500626e-16,
+        "delta_three": 0.1699250014423126,
+        "linear_form_abs": 0.11778303565638382,
+        "dual_energy": 1.0356668750984213,
+        "torus_distance_lower": 0.461992097842719,
+        "linear_form_lower": 0.1315427498242327,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      },
+      {
+        "tau": 45.323601418271934,
+        "nearest_n_for_log2_phase": 5,
+        "nearest_m_for_log3_phase": 8,
+        "delta_two": 8.881784197001252e-16,
+        "delta_three": 0.07518749639421962,
+        "linear_form_abs": 0.05211600113901316,
+        "dual_energy": 0.21905785731083946,
+        "torus_distance_lower": 0.09045055382449262,
+        "linear_form_lower": 0.02575393524858196,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      },
+      {
+        "tau": 108.77664340385265,
+        "nearest_n_for_log2_phase": 12,
+        "nearest_m_for_log3_phase": 19,
+        "delta_two": 0.0,
+        "delta_three": 0.01955000865387646,
+        "linear_form_abs": 0.013551033378355726,
+        "dual_energy": 0.015069800237722376,
+        "torus_distance_lower": 0.006115245413866312,
+        "linear_form_lower": 0.001741190382575991,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      },
+      {
+        "tau": 480.43017503368253,
+        "nearest_n_for_log2_phase": 53,
+        "nearest_m_for_log3_phase": 84,
+        "delta_two": 0.0,
+        "delta_three": 0.003012538221298655,
+        "linear_form_abs": 0.002088132374410634,
+        "dual_energy": 0.0003582712025067628,
+        "torus_distance_lower": 0.00014520618455656422,
+        "linear_form_lower": 4.134447514802706e-05,
+        "energy_above_torus_lower": true,
+        "torus_lower_above_form_lower": true
+      }
+    ],
+    "exact_constants": {
+      "lower_frequency_pi_over_log3": 2.8596008673801268,
+      "bound_formula": "16*exp(-T*log(2)*log(3)/pi-log(3))/(log(2)^2+log(3)^2)"
+    },
+    "aggregate": {
+      "explicit_finite_band_dual_dilation_lower_bound_proved": true,
+      "elementary_bound_has_exponential_condition_loss": true,
+      "polynomial_tail_matching_from_this_bound_refuted": true,
+      "actual_weil_core_operator_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "TICKET-229 closes the scalar finite-band Diophantine bound but not the Weil-core frame theorem. Its elementary lower bound is exponentially small, so a polynomial truncation estimate cannot certify positivity at all large bands.",
+    "failure_count": 0
+  },
+  "logical_limit": "TICKET-229 closes the scalar finite-band Diophantine bound but not the Weil-core frame theorem. Its elementary lower bound is exponentially small, so a polynomial truncation estimate cannot certify positivity at all large bands.",
+  "route_decision": {
+    "discard": "combining the elementary exponentially small frame floor with only polynomial Weil-core truncation errors",
+    "retain": "seek a subexponential Diophantine loss or prove an exponentially decaying actual Weil-core tail",
+    "next_single_lemma": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T228",
+        "label": "FiniteDilationNearAliasNoUniformFrame",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T229",
+        "label": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N229",
+        "label": "ElementaryExponentialFrameFloorClosesPolynomialWeilTail",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN229",
+        "label": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T228",
+        "RH-T229"
+      ],
+      [
+        "RH-T229",
+        "RH-N229"
+      ],
+      [
+        "RH-T229",
+        "RH-OPEN229"
+      ],
+      [
+        "RH-OPEN229",
+        "RH"
+      ]
+    ]
+  }
+}

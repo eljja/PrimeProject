@@ -1,0 +1,3632 @@
+{
+  "schema": "primeproject.ticket229-band-frame-semilinear-character-barriers.v1",
+  "generated_at": "2026-08-14T15:20:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-229 proves four exact partial results and resolves none of the four parent conjectures.",
+  "band_frame_semilinear_character_barriers_audit": {
+    "theorem_name": "BandFrameSemilinearAndCharacterBarriersForFourOpenProblems",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-229 proves four exact partial or no-go theorems and resolves none of the four parent conjectures. Computations audit the identities and are not extrapolated to infinite claims.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-229",
+      "theorem_name": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+      "declared_proposition": "Let F(tau)=|1-2^(-i tau)|^2+|1-3^(-i tau)|^2 and T>=pi/log 3. For every pi/log 3<=|tau|<=T, F(tau) >= 16 exp(-T log(2)log(3)/pi-log(3)) / (log(2)^2+log(3)^2). This is a positive, completely explicit band-limited frame lower bound. Its reciprocal grows exponentially in T, so this elementary certificate cannot be paired with only polynomially decaying Weil-core truncation error.",
+      "mathematical_argument": "Write x=tau log(2)/(2 pi), y=tau log(3)/(2 pi), and let n,m be nearest integers. Since |sin(pi u)|>=2|u| for |u|<=1/2, F is at least 16 times the squared torus distance. The linear form Lambda=n log(3)-m log(2) is bounded above by that distance times sqrt(log(2)^2+log(3)^2). Here m is nonzero and 3^n differs from 2^m. For distinct positive integers A,B, |log(A/B)| is at least 1/max(A,B). The phase bounds give max(3^n,2^m) at most exp(T log(2)log(3)/(2 pi)+log(3)/2). Squaring yields the formula. Finally exp(-cT)=o(T^-k) for every fixed k, proving the mismatch with polynomial error budgets.",
+      "reproducible_computation": {
+        "theorem": "Let F(tau)=|1-2^(-i tau)|^2+|1-3^(-i tau)|^2 and T>=pi/log 3. For every pi/log 3<=|tau|<=T, F(tau) >= 16 exp(-T log(2)log(3)/pi-log(3)) / (log(2)^2+log(3)^2). This is a positive, completely explicit band-limited frame lower bound. Its reciprocal grows exponentially in T, so this elementary certificate cannot be paired with only polynomially decaying Weil-core truncation error.",
+        "proof": "Write x=tau log(2)/(2 pi), y=tau log(3)/(2 pi), and let n,m be nearest integers. Since |sin(pi u)|>=2|u| for |u|<=1/2, F is at least 16 times the squared torus distance. The linear form Lambda=n log(3)-m log(2) is bounded above by that distance times sqrt(log(2)^2+log(3)^2). Here m is nonzero and 3^n differs from 2^m. For distinct positive integers A,B, |log(A/B)| is at least 1/max(A,B). The phase bounds give max(3^n,2^m) at most exp(T log(2)log(3)/(2 pi)+log(3)/2). Squaring yields the formula. Finally exp(-cT)=o(T^-k) for every fixed k, proving the mismatch with polynomial error budgets.",
+        "band_rows": [
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 10,
+            "log10_certified_frame_lower_bound": -0.5529191688874426,
+            "log10_inverse_condition_upper": 0.5529191688874426,
+            "polynomial_T_minus_12_log10": -12.0,
+            "polynomial_error_eventually_exceeds_bound": false
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 25,
+            "log10_certified_frame_lower_bound": -2.1319681845973264,
+            "log10_inverse_condition_upper": 2.1319681845973264,
+            "polynomial_T_minus_12_log10": -16.775280104064453,
+            "polynomial_error_eventually_exceeds_bound": false
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 50,
+            "log10_certified_frame_lower_bound": -4.763716544113798,
+            "log10_inverse_condition_upper": 4.763716544113798,
+            "polynomial_T_minus_12_log10": -20.387640052032225,
+            "polynomial_error_eventually_exceeds_bound": false
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 100,
+            "log10_certified_frame_lower_bound": -10.027213263146743,
+            "log10_inverse_condition_upper": 10.027213263146743,
+            "polynomial_T_minus_12_log10": -24.0,
+            "polynomial_error_eventually_exceeds_bound": false
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 250,
+            "log10_certified_frame_lower_bound": -25.81770342024557,
+            "log10_inverse_condition_upper": 25.81770342024557,
+            "polynomial_T_minus_12_log10": -28.77528010406445,
+            "polynomial_error_eventually_exceeds_bound": false
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 500,
+            "log10_certified_frame_lower_bound": -52.13518701541029,
+            "log10_inverse_condition_upper": 52.13518701541029,
+            "polynomial_T_minus_12_log10": -32.387640052032225,
+            "polynomial_error_eventually_exceeds_bound": true
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 1000,
+            "log10_certified_frame_lower_bound": -104.77015420573971,
+            "log10_inverse_condition_upper": 104.77015420573971,
+            "polynomial_T_minus_12_log10": -36.0,
+            "polynomial_error_eventually_exceeds_bound": true
+          },
+          {
+            "band_lower_abs_tau": 2.8596008673801268,
+            "band_upper_T": 5000,
+            "log10_certified_frame_lower_bound": -525.8498917283752,
+            "log10_inverse_condition_upper": 525.8498917283752,
+            "polynomial_T_minus_12_log10": -44.387640052032225,
+            "polynomial_error_eventually_exceeds_bound": true
+          }
+        ],
+        "phase_inequality_rows": [
+          {
+            "tau": 2.8596008673801268,
+            "nearest_n_for_log2_phase": 0,
+            "nearest_m_for_log3_phase": 1,
+            "delta_two": 0.31546487678572865,
+            "delta_three": 0.5,
+            "linear_form_abs": 0.6931471805599453,
+            "dual_energy": 6.799653737104731,
+            "torus_distance_lower": 5.59228941576696,
+            "linear_form_lower": 4.555670988780064,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          },
+          {
+            "tau": 5.0,
+            "nearest_n_for_log2_phase": 1,
+            "nearest_m_for_log3_phase": 1,
+            "delta_two": 0.44841099961837094,
+            "delta_three": 0.12575211858485036,
+            "linear_form_abs": 0.4054651081081645,
+            "dual_energy": 4.488333246935891,
+            "torus_distance_lower": 3.4701763185171988,
+            "linear_form_lower": 1.5588646343206518,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          },
+          {
+            "tau": 10.0,
+            "nearest_n_for_log2_phase": 1,
+            "nearest_m_for_log3_phase": 2,
+            "delta_two": 0.10317800076325812,
+            "delta_three": 0.2515042371697007,
+            "linear_form_abs": 0.2876820724517808,
+            "dual_energy": 2.4246632859026427,
+            "torus_distance_lower": 1.1824012984930554,
+            "linear_form_lower": 0.7847422349814969,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          },
+          {
+            "tau": 18.129440567308777,
+            "nearest_n_for_log2_phase": 2,
+            "nearest_m_for_log3_phase": 3,
+            "delta_two": 4.440892098500626e-16,
+            "delta_three": 0.1699250014423126,
+            "linear_form_abs": 0.11778303565638382,
+            "dual_energy": 1.0356668750984213,
+            "torus_distance_lower": 0.461992097842719,
+            "linear_form_lower": 0.1315427498242327,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          },
+          {
+            "tau": 45.323601418271934,
+            "nearest_n_for_log2_phase": 5,
+            "nearest_m_for_log3_phase": 8,
+            "delta_two": 8.881784197001252e-16,
+            "delta_three": 0.07518749639421962,
+            "linear_form_abs": 0.05211600113901316,
+            "dual_energy": 0.21905785731083946,
+            "torus_distance_lower": 0.09045055382449262,
+            "linear_form_lower": 0.02575393524858196,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          },
+          {
+            "tau": 108.77664340385265,
+            "nearest_n_for_log2_phase": 12,
+            "nearest_m_for_log3_phase": 19,
+            "delta_two": 0.0,
+            "delta_three": 0.01955000865387646,
+            "linear_form_abs": 0.013551033378355726,
+            "dual_energy": 0.015069800237722376,
+            "torus_distance_lower": 0.006115245413866312,
+            "linear_form_lower": 0.001741190382575991,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          },
+          {
+            "tau": 480.43017503368253,
+            "nearest_n_for_log2_phase": 53,
+            "nearest_m_for_log3_phase": 84,
+            "delta_two": 0.0,
+            "delta_three": 0.003012538221298655,
+            "linear_form_abs": 0.002088132374410634,
+            "dual_energy": 0.0003582712025067628,
+            "torus_distance_lower": 0.00014520618455656422,
+            "linear_form_lower": 4.134447514802706e-05,
+            "energy_above_torus_lower": true,
+            "torus_lower_above_form_lower": true
+          }
+        ],
+        "exact_constants": {
+          "lower_frequency_pi_over_log3": 2.8596008673801268,
+          "bound_formula": "16*exp(-T*log(2)*log(3)/pi-log(3))/(log(2)^2+log(3)^2)"
+        },
+        "aggregate": {
+          "explicit_finite_band_dual_dilation_lower_bound_proved": true,
+          "elementary_bound_has_exponential_condition_loss": true,
+          "polynomial_tail_matching_from_this_bound_refuted": true,
+          "actual_weil_core_operator_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "TICKET-229 closes the scalar finite-band Diophantine bound but not the Weil-core frame theorem. Its elementary lower bound is exponentially small, so a polynomial truncation estimate cannot certify positivity at all large bands.",
+        "failure_count": 0
+      },
+      "logical_limit": "TICKET-229 closes the scalar finite-band Diophantine bound but not the Weil-core frame theorem. Its elementary lower bound is exponentially small, so a polynomial truncation estimate cannot certify positivity at all large bands.",
+      "route_decision": {
+        "discard": "combining the elementary exponentially small frame floor with only polynomial Weil-core truncation errors",
+        "retain": "seek a subexponential Diophantine loss or prove an exponentially decaying actual Weil-core tail",
+        "next_single_lemma": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T228",
+            "label": "FiniteDilationNearAliasNoUniformFrame",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T229",
+            "label": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N229",
+            "label": "ElementaryExponentialFrameFloorClosesPolynomialWeilTail",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN229",
+            "label": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T228",
+            "RH-T229"
+          ],
+          [
+            "RH-T229",
+            "RH-N229"
+          ],
+          [
+            "RH-T229",
+            "RH-OPEN229"
+          ],
+          [
+            "RH-OPEN229",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-229",
+      "theorem_name": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+      "declared_proposition": "Every language obtained by concatenating blocks with one common normalized Collatz slope and then one fixed suffix lies on one affine line in the integer (height h, valuation sum S) plane. Consequently no finite union of such languages is cofinal among all primitive positive-denominator valuation words. More explicitly, for an offset c avoiding the finitely many parallel-line intercepts, w_(h,c)=(c+2,2,...,2) has S=2h+c, is primitive, and has 2^S-3^h>0; each nonparallel language meets this family at most once.",
+      "mathematical_argument": "Equal normalized slopes 3^k/2^S force both k and S to agree, by unique factorization. A concatenation of r common-slope blocks and a suffix therefore has (h,S)=(rk+h0,rS0+s0), hence satisfies one affine linear equation. A finite union gives finitely many lines. Choose c so S=2h+c is not one of their parallel lines. Every other line intersects it in at most one lattice point. The word with one entry c+2 and all remaining entries 2 is primitive because its exceptional symbol occurs once, and 2^(2h+c)>3^h. Thus infinitely many positive-denominator primitive words remain outside.",
+      "reproducible_computation": {
+        "theorem": "Every language obtained by concatenating blocks with one common normalized Collatz slope and then one fixed suffix lies on one affine line in the integer (height h, valuation sum S) plane. Consequently no finite union of such languages is cofinal among all primitive positive-denominator valuation words. More explicitly, for an offset c avoiding the finitely many parallel-line intercepts, w_(h,c)=(c+2,2,...,2) has S=2h+c, is primitive, and has 2^S-3^h>0; each nonparallel language meets this family at most once.",
+        "proof": "Equal normalized slopes 3^k/2^S force both k and S to agree, by unique factorization. A concatenation of r common-slope blocks and a suffix therefore has (h,S)=(rk+h0,rS0+s0), hence satisfies one affine linear equation. A finite union gives finitely many lines. Choose c so S=2h+c is not one of their parallel lines. Every other line intersects it in at most one lattice point. The word with one entry c+2 and all remaining entries 2 is primitive because its exceptional symbol occurs once, and 2^(2h+c)>3^h. Thus infinitely many positive-denominator primitive words remain outside.",
+        "sample_language_invariants": [
+          {
+            "name": "T228-equal-slope-binary-language",
+            "block_height": 4,
+            "block_sum": 8,
+            "suffix_height": 3,
+            "suffix_sum": 6,
+            "affine_invariant": "4*S-8*h=0",
+            "parallel_to_S_equals_2h_plus_c": true
+          },
+          {
+            "name": "T227-repeated-block-language",
+            "block_height": 3,
+            "block_sum": 5,
+            "suffix_height": 3,
+            "suffix_sum": 7,
+            "affine_invariant": "3*S-5*h=6",
+            "parallel_to_S_equals_2h_plus_c": false
+          },
+          {
+            "name": "independent-sample-language",
+            "block_height": 5,
+            "block_sum": 9,
+            "suffix_height": 2,
+            "suffix_sum": 4,
+            "affine_invariant": "5*S-9*h=2",
+            "parallel_to_S_equals_2h_plus_c": false
+          }
+        ],
+        "witness_family_rows": [
+          {
+            "height_h": 2,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 5,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 3,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 7,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": [
+              "T227-repeated-block-language"
+            ]
+          },
+          {
+            "height_h": 4,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 9,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 5,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 11,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 6,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 13,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 7,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 15,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 8,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 17,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 9,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 19,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 10,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 21,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 11,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 23,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 12,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 25,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 13,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 27,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 14,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 29,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 15,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 31,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 16,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 33,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 17,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 35,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 18,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 37,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 19,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 39,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 20,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 41,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 21,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 43,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 22,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 45,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 23,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 47,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 24,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 49,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 25,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 51,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 26,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 53,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 27,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 55,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 28,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 57,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 29,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 59,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 30,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 61,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 31,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 63,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 32,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 65,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 33,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 67,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 34,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 69,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 35,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 71,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 36,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 73,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 37,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 75,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 38,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 77,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 39,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 79,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 40,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 81,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 41,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 83,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 42,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 85,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 43,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 87,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 44,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 89,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 45,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 91,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 46,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 93,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 47,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 95,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 48,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 97,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 49,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 99,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 50,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 101,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 51,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 103,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 52,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 105,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 53,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 107,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 54,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 109,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 55,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 111,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 56,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 113,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 57,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 115,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 58,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 117,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 59,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 119,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 60,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 121,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 61,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 123,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 62,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 125,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 63,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 127,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          },
+          {
+            "height_h": 64,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 129,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": []
+          }
+        ],
+        "finite_sample_intersection_rows": [
+          {
+            "height_h": 3,
+            "offset_c": 1,
+            "valuation_sum_S_equals_2h_plus_c": 7,
+            "word_head": 3,
+            "tail_symbol": 2,
+            "D_positive": true,
+            "primitive_unique_exception_verified": true,
+            "sample_language_memberships": [
+              "T227-repeated-block-language"
+            ]
+          }
+        ],
+        "eventual_outside_start_height": 4,
+        "aggregate": {
+          "equal_slope_languages_have_affine_count_invariant_proved": true,
+          "finite_equal_slope_union_cofinal_coverage_refuted": true,
+          "positive_denominator_primitive_witness_family_proved": true,
+          "exact_cycle_divisibility_for_all_outside_words_proved": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The cofinal equal-slope-cone route is too narrow even before the order-sensitive D|B test. The theorem does not show that an outside witness is an actual cycle; it redirects the proof to a uniform order-sensitive nondivisibility theorem and still does not address divergent aperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "The cofinal equal-slope-cone route is too narrow even before the order-sensitive D|B test. The theorem does not show that an outside witness is an actual cycle; it redirects the proof to a uniform order-sensitive nondivisibility theorem and still does not address divergent aperiodic trajectories.",
+      "route_decision": {
+        "discard": "covering all positive-denominator primitive valuation words by finitely many fixed-suffix equal-slope affine languages",
+        "retain": "attack order-sensitive D nondivisibility directly outside every regular affine language",
+        "next_single_lemma": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T228",
+            "label": "BinaryEqualSlopeAffineLanguageNoncycleCone",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T229",
+            "label": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N229",
+            "label": "FiniteEqualSlopeConeCofinalCoverage",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN229",
+            "label": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T228",
+            "CO-T229"
+          ],
+          [
+            "CO-T229",
+            "CO-N229"
+          ],
+          [
+            "CO-T229",
+            "CO-OPEN229"
+          ],
+          [
+            "CO-OPEN229",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-229",
+      "theorem_name": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+      "declared_proposition": "For an odd prime l, let M_a(u,v)=1_{uv!=a} on the unit group. The complete moving-target sum satisfies sum_(a mod l) M_a=(l-1)J, so it annihilates every nonconstant character exactly. For any H consecutive targets, complete residue periods vanish on that space and the normalized remainder has operator norm at most r/H<l/H, where r=H mod l. In contrast, each fixed nonzero M_a restricts to minus a permutation and has nonconstant operator norm exactly one.",
+      "mathematical_argument": "For fixed units u,v there is exactly one nonzero residue a=uv. Among all l targets, M_a(u,v) is one zero and l-1 ones, proving the rank-one complete-period identity. On the zero-sum space J vanishes. Splitting an H-window into complete periods and a remainder of r targets, then using the triangle inequality and ||M_a||=1 on the nonconstant space, gives r/H. For one nonzero target, M_a=J-P_a=-P_a on that space, and P_a is a permutation isometry.",
+      "reproducible_computation": {
+        "theorem": "For an odd prime l, let M_a(u,v)=1_{uv!=a} on the unit group. The complete moving-target sum satisfies sum_(a mod l) M_a=(l-1)J, so it annihilates every nonconstant character exactly. For any H consecutive targets, complete residue periods vanish on that space and the normalized remainder has operator norm at most r/H<l/H, where r=H mod l. In contrast, each fixed nonzero M_a restricts to minus a permutation and has nonconstant operator norm exactly one.",
+        "proof": "For fixed units u,v there is exactly one nonzero residue a=uv. Among all l targets, M_a(u,v) is one zero and l-1 ones, proving the rank-one complete-period identity. On the zero-sum space J vanishes. Splitting an H-window into complete periods and a remainder of r targets, then using the triangle inequality and ||M_a||=1 on the nonconstant space, gives r/H. For one nonzero target, M_a=J-P_a=-P_a on that space, and P_a is a permutation isometry.",
+        "complete_period_rows": [
+          {
+            "prime_l": 3,
+            "complete_target_period_length": 3,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 1,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 3/H"
+          },
+          {
+            "prime_l": 5,
+            "complete_target_period_length": 5,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 3,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 5/H"
+          },
+          {
+            "prime_l": 7,
+            "complete_target_period_length": 7,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 5,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 7/H"
+          },
+          {
+            "prime_l": 11,
+            "complete_target_period_length": 11,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 9,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 11/H"
+          },
+          {
+            "prime_l": 13,
+            "complete_target_period_length": 13,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 11,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 13/H"
+          },
+          {
+            "prime_l": 17,
+            "complete_target_period_length": 17,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 15,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 17/H"
+          },
+          {
+            "prime_l": 19,
+            "complete_target_period_length": 19,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 17,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 19/H"
+          },
+          {
+            "prime_l": 23,
+            "complete_target_period_length": 23,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 21,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 23/H"
+          },
+          {
+            "prime_l": 29,
+            "complete_target_period_length": 29,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 27,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 29/H"
+          },
+          {
+            "prime_l": 31,
+            "complete_target_period_length": 31,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 29,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 31/H"
+          },
+          {
+            "prime_l": 37,
+            "complete_target_period_length": 37,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 35,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 37/H"
+          },
+          {
+            "prime_l": 41,
+            "complete_target_period_length": 41,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 39,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 41/H"
+          },
+          {
+            "prime_l": 43,
+            "complete_target_period_length": 43,
+            "complete_sum_equals_l_minus_1_times_J": true,
+            "zero_sum_basis_dimension": 41,
+            "complete_period_annihilates_nonconstant_space": true,
+            "each_nonzero_target_nonconstant_norm": 1,
+            "individual_nonzero_target_isometry_verified": true,
+            "window_average_bound": "remainder/H < 43/H"
+          }
+        ],
+        "window_rows": [
+          {
+            "prime_l": 5,
+            "window_length_H": 10,
+            "complete_periods": 2,
+            "remainder_r": 0,
+            "certified_nonconstant_average_norm_upper": "0",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 5,
+            "window_length_H": 25,
+            "complete_periods": 5,
+            "remainder_r": 0,
+            "certified_nonconstant_average_norm_upper": "0",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 5,
+            "window_length_H": 100,
+            "complete_periods": 20,
+            "remainder_r": 0,
+            "certified_nonconstant_average_norm_upper": "0",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 5,
+            "window_length_H": 1000,
+            "complete_periods": 200,
+            "remainder_r": 0,
+            "certified_nonconstant_average_norm_upper": "0",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 7,
+            "window_length_H": 10,
+            "complete_periods": 1,
+            "remainder_r": 3,
+            "certified_nonconstant_average_norm_upper": "3/10",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 7,
+            "window_length_H": 25,
+            "complete_periods": 3,
+            "remainder_r": 4,
+            "certified_nonconstant_average_norm_upper": "4/25",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 7,
+            "window_length_H": 100,
+            "complete_periods": 14,
+            "remainder_r": 2,
+            "certified_nonconstant_average_norm_upper": "1/50",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 7,
+            "window_length_H": 1000,
+            "complete_periods": 142,
+            "remainder_r": 6,
+            "certified_nonconstant_average_norm_upper": "3/500",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 11,
+            "window_length_H": 10,
+            "complete_periods": 0,
+            "remainder_r": 10,
+            "certified_nonconstant_average_norm_upper": "1",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 11,
+            "window_length_H": 25,
+            "complete_periods": 2,
+            "remainder_r": 3,
+            "certified_nonconstant_average_norm_upper": "3/25",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 11,
+            "window_length_H": 100,
+            "complete_periods": 9,
+            "remainder_r": 1,
+            "certified_nonconstant_average_norm_upper": "1/100",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 11,
+            "window_length_H": 1000,
+            "complete_periods": 90,
+            "remainder_r": 10,
+            "certified_nonconstant_average_norm_upper": "1/100",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 13,
+            "window_length_H": 10,
+            "complete_periods": 0,
+            "remainder_r": 10,
+            "certified_nonconstant_average_norm_upper": "1",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 13,
+            "window_length_H": 25,
+            "complete_periods": 1,
+            "remainder_r": 12,
+            "certified_nonconstant_average_norm_upper": "12/25",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 13,
+            "window_length_H": 100,
+            "complete_periods": 7,
+            "remainder_r": 9,
+            "certified_nonconstant_average_norm_upper": "9/100",
+            "strict_l_over_H_upper": true
+          },
+          {
+            "prime_l": 13,
+            "window_length_H": 1000,
+            "complete_periods": 76,
+            "remainder_r": 12,
+            "certified_nonconstant_average_norm_upper": "3/250",
+            "strict_l_over_H_upper": true
+          }
+        ],
+        "aggregate": {
+          "complete_target_period_character_cancellation_proved": true,
+          "consecutive_target_average_l_over_H_bound_proved": true,
+          "single_target_nonconstant_norm_one_proved": true,
+          "target_averaging_implies_pointwise_goldbach_refuted": true,
+          "prime_weighted_single_target_cancellation_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "Target averaging provides exact character cancellation but strong Goldbach is pointwise in each even N. A single target retains norm one on every nonconstant mode, so the remaining saving must come from prime weights and factor-cell geometry, not target averaging.",
+        "failure_count": 0
+      },
+      "logical_limit": "Target averaging provides exact character cancellation but strong Goldbach is pointwise in each even N. A single target retains norm one on every nonconstant mode, so the remaining saving must come from prime weights and factor-cell geometry, not target averaging.",
+      "route_decision": {
+        "discard": "promoting exact cancellation after averaging a complete target-residue period to a pointwise statement for each even target",
+        "retain": "use prime weights and factor-cell geometry to cancel nonconstant modes at one fixed target",
+        "next_single_lemma": "PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T228",
+            "label": "MovingResidueUnitOperatorSpectrumAndLocalFactor",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T229",
+            "label": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N229",
+            "label": "TargetAverageCancellationImpliesPointwiseGoldbachCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN229",
+            "label": "PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T228",
+            "GB-T229"
+          ],
+          [
+            "GB-T229",
+            "GB-N229"
+          ],
+          [
+            "GB-T229",
+            "GB-OPEN229"
+          ],
+          [
+            "GB-OPEN229",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-229",
+      "theorem_name": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+      "declared_proposition": "For l>3 define the simultaneous shift-two survival operator S=J-P_2-P_{-2} on the unit group. On a nonprincipal multiplicative character chi, S chi=-chi(2)(1+chi(-1)) chi^{-1}. Hence every odd character is annihilated exactly, while every even nonprincipal character has singular value two; the constant singular value is l-3. In particular, modulo 5 the quadratic character has normalized singular ratio 2/(5-3)=1. Tensoring more local factors cannot remove a mode supported only on this modulo-5 component.",
+      "mathematical_argument": "The identity S=J-P_2-P_{-2} follows because the two forbidden products are distinct for l>3. On nonprincipal characters J=0 and P_a chi=chi(a)chi^{-1}. Since chi(-2)=chi(-1)chi(2), the displayed formula follows. Character parity gives 1+chi(-1) equal to zero or two. The constant row sum is l-3. Local operators tensor over a squarefree modulus, and a global character may be principal at every prime except 5, so its normalized ratio remains one.",
+      "reproducible_computation": {
+        "theorem": "For l>3 define the simultaneous shift-two survival operator S=J-P_2-P_{-2} on the unit group. On a nonprincipal multiplicative character chi, S chi=-chi(2)(1+chi(-1)) chi^{-1}. Hence every odd character is annihilated exactly, while every even nonprincipal character has singular value two; the constant singular value is l-3. In particular, modulo 5 the quadratic character has normalized singular ratio 2/(5-3)=1. Tensoring more local factors cannot remove a mode supported only on this modulo-5 component.",
+        "proof": "The identity S=J-P_2-P_{-2} follows because the two forbidden products are distinct for l>3. On nonprincipal characters J=0 and P_a chi=chi(a)chi^{-1}. Since chi(-2)=chi(-1)chi(2), the displayed formula follows. Character parity gives 1+chi(-1) equal to zero or two. The constant row sum is l-3. Local operators tensor over a squarefree modulus, and a global character may be principal at every prime except 5, so its normalized ratio remains one.",
+        "local_character_rows": [
+          {
+            "prime_l": 3,
+            "special_case": "joint mask identically zero",
+            "odd_nonconstant_modes": 1,
+            "even_nonconstant_modes": 0,
+            "worst_normalized_nonconstant_ratio": 0.0,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 5,
+            "primitive_root": 2,
+            "constant_singular_value": 2,
+            "odd_nonconstant_modes": 2,
+            "even_nonconstant_modes": 1,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1",
+            "mod5_quadratic_mode_has_no_contraction": true,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 7,
+            "primitive_root": 3,
+            "constant_singular_value": 4,
+            "odd_nonconstant_modes": 3,
+            "even_nonconstant_modes": 2,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/2"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/2"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/2",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 11,
+            "primitive_root": 2,
+            "constant_singular_value": 8,
+            "odd_nonconstant_modes": 5,
+            "even_nonconstant_modes": 4,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/4"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/4"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/4"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/4"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/4",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 13,
+            "primitive_root": 2,
+            "constant_singular_value": 10,
+            "odd_nonconstant_modes": 6,
+            "even_nonconstant_modes": 5,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/5"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/5"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/5"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/5"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/5"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/5",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 17,
+            "primitive_root": 3,
+            "constant_singular_value": 14,
+            "odd_nonconstant_modes": 8,
+            "even_nonconstant_modes": 7,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/7"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/7",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 19,
+            "primitive_root": 2,
+            "constant_singular_value": 16,
+            "odd_nonconstant_modes": 9,
+            "even_nonconstant_modes": 8,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/8"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/8",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 23,
+            "primitive_root": 5,
+            "constant_singular_value": 20,
+            "odd_nonconstant_modes": 11,
+            "even_nonconstant_modes": 10,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 18,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 19,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 20,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/10"
+              },
+              {
+                "character_index_k": 21,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/10",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 29,
+            "primitive_root": 2,
+            "constant_singular_value": 26,
+            "odd_nonconstant_modes": 14,
+            "even_nonconstant_modes": 13,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 18,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 19,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 20,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 21,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 22,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 23,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 24,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 25,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 26,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/13"
+              },
+              {
+                "character_index_k": 27,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/13",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 31,
+            "primitive_root": 3,
+            "constant_singular_value": 28,
+            "odd_nonconstant_modes": 15,
+            "even_nonconstant_modes": 14,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 18,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 19,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 20,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 21,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 22,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 23,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 24,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 25,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 26,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 27,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 28,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/14"
+              },
+              {
+                "character_index_k": 29,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/14",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 37,
+            "primitive_root": 2,
+            "constant_singular_value": 34,
+            "odd_nonconstant_modes": 18,
+            "even_nonconstant_modes": 17,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 18,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 19,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 20,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 21,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 22,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 23,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 24,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 25,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 26,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 27,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 28,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 29,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 30,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 31,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 32,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 33,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 34,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/17"
+              },
+              {
+                "character_index_k": 35,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/17",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 41,
+            "primitive_root": 6,
+            "constant_singular_value": 38,
+            "odd_nonconstant_modes": 20,
+            "even_nonconstant_modes": 19,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 18,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 19,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 20,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 21,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 22,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 23,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 24,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 25,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 26,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 27,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 28,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 29,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 30,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 31,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 32,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 33,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 34,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 35,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 36,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 37,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 38,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/19"
+              },
+              {
+                "character_index_k": 39,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/19",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          },
+          {
+            "prime_l": 43,
+            "primitive_root": 3,
+            "constant_singular_value": 40,
+            "odd_nonconstant_modes": 21,
+            "even_nonconstant_modes": 20,
+            "mode_rows": [
+              {
+                "character_index_k": 1,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 2,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 3,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 4,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 5,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 6,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 7,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 8,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 9,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 10,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 11,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 12,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 13,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 14,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 15,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 16,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 17,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 18,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 19,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 20,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 21,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 22,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 23,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 24,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 25,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 26,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 27,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 28,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 29,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 30,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 31,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 32,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 33,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 34,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 35,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 36,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 37,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 38,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 39,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              },
+              {
+                "character_index_k": 40,
+                "chi_of_minus_one": 1,
+                "parity": "even",
+                "nonconstant_singular_value": 2,
+                "normalized_to_constant_mode": "1/20"
+              },
+              {
+                "character_index_k": 41,
+                "chi_of_minus_one": -1,
+                "parity": "odd",
+                "nonconstant_singular_value": 0,
+                "normalized_to_constant_mode": "0"
+              }
+            ],
+            "worst_normalized_nonconstant_ratio": "1/20",
+            "mod5_quadratic_mode_has_no_contraction": false,
+            "verification_failures": 0
+          }
+        ],
+        "tensor_obstruction_rows": [
+          {
+            "squarefree_local_primes": [
+              5
+            ],
+            "all_even_nonprincipal_tensor_ratio": "1",
+            "worst_single_prime_supported_ratio": "1",
+            "mod5_supported_mode_blocks_uniform_contraction": true
+          },
+          {
+            "squarefree_local_primes": [
+              7
+            ],
+            "all_even_nonprincipal_tensor_ratio": "1/2",
+            "worst_single_prime_supported_ratio": "1/2",
+            "mod5_supported_mode_blocks_uniform_contraction": false
+          },
+          {
+            "squarefree_local_primes": [
+              5,
+              7
+            ],
+            "all_even_nonprincipal_tensor_ratio": "1/2",
+            "worst_single_prime_supported_ratio": "1",
+            "mod5_supported_mode_blocks_uniform_contraction": true
+          },
+          {
+            "squarefree_local_primes": [
+              5,
+              7,
+              11
+            ],
+            "all_even_nonprincipal_tensor_ratio": "1/8",
+            "worst_single_prime_supported_ratio": "1",
+            "mod5_supported_mode_blocks_uniform_contraction": true
+          },
+          {
+            "squarefree_local_primes": [
+              7,
+              11,
+              13
+            ],
+            "all_even_nonprincipal_tensor_ratio": "1/40",
+            "worst_single_prime_supported_ratio": "1/2",
+            "mod5_supported_mode_blocks_uniform_contraction": false
+          }
+        ],
+        "aggregate": {
+          "odd_shift_two_characters_annihilated_proved": true,
+          "even_character_singular_value_two_proved": true,
+          "mod5_quadratic_normalized_no_contraction_proved": true,
+          "local_tensor_uniform_contraction_refuted": true,
+          "prime_weighted_mod5_quadratic_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "Local shift symmetry solves exactly half of the character modes, but the modulo-5 quadratic mode survives at full normalized size. The remaining theorem is a prime-weighted cancellation estimate for that explicit mode across the cube-root factor cells.",
+        "failure_count": 0
+      },
+      "logical_limit": "Local shift symmetry solves exactly half of the character modes, but the modulo-5 quadratic mode survives at full normalized size. The remaining theorem is a prime-weighted cancellation estimate for that explicit mode across the cube-root factor cells.",
+      "route_decision": {
+        "discard": "claiming uniform local character contraction after shift-two parity projection and tensoring more local primes",
+        "retain": "isolate and cancel the full-size modulo-5 quadratic mode with prime-weighted Type-II information",
+        "next_single_lemma": "PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T228",
+            "label": "ShiftTwoOperatorCrossGramAndModThreeJointNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T229",
+            "label": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N229",
+            "label": "LocalParityProjectionGivesUniformCharacterContraction",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN229",
+            "label": "PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T228",
+            "TP-T229"
+          ],
+          [
+            "TP-T229",
+            "TP-N229"
+          ],
+          [
+            "TP-T229",
+            "TP-OPEN229"
+          ],
+          [
+            "TP-OPEN229",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-229",
+      "status": "open_not_proven",
+      "declared_proposition": "Let F(tau)=|1-2^(-i tau)|^2+|1-3^(-i tau)|^2 and T>=pi/log 3. For every pi/log 3<=|tau|<=T, F(tau) >= 16 exp(-T log(2)log(3)/pi-log(3)) / (log(2)^2+log(3)^2). This is a positive, completely explicit band-limited frame lower bound. Its reciprocal grows exponentially in T, so this elementary certificate cannot be paired with only polynomially decaying Weil-core truncation error.",
+      "mathematical_argument": "Write x=tau log(2)/(2 pi), y=tau log(3)/(2 pi), and let n,m be nearest integers. Since |sin(pi u)|>=2|u| for |u|<=1/2, F is at least 16 times the squared torus distance. The linear form Lambda=n log(3)-m log(2) is bounded above by that distance times sqrt(log(2)^2+log(3)^2). Here m is nonzero and 3^n differs from 2^m. For distinct positive integers A,B, |log(A/B)| is at least 1/max(A,B). The phase bounds give max(3^n,2^m) at most exp(T log(2)log(3)/(2 pi)+log(3)/2). Squaring yields the formula. Finally exp(-cT)=o(T^-k) for every fixed k, proving the mismatch with polynomial error budgets.",
+      "new_result": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+      "bounded_result": {
+        "audit_ref": "#/band_frame_semilinear_character_barriers_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "combining the elementary exponentially small frame floor with only polynomial Weil-core truncation errors",
+      "remaining_gap": "TICKET-229 closes the scalar finite-band Diophantine bound but not the Weil-core frame theorem. Its elementary lower bound is exponentially small, so a polynomial truncation estimate cannot certify positivity at all large bands.",
+      "candidate_theorem": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T228",
+            "label": "FiniteDilationNearAliasNoUniformFrame",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T229",
+            "label": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N229",
+            "label": "ElementaryExponentialFrameFloorClosesPolynomialWeilTail",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN229",
+            "label": "SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T228",
+            "RH-T229"
+          ],
+          [
+            "RH-T229",
+            "RH-N229"
+          ],
+          [
+            "RH-T229",
+            "RH-OPEN229"
+          ],
+          [
+            "RH-OPEN229",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-229",
+      "status": "open_not_proven",
+      "declared_proposition": "Every language obtained by concatenating blocks with one common normalized Collatz slope and then one fixed suffix lies on one affine line in the integer (height h, valuation sum S) plane. Consequently no finite union of such languages is cofinal among all primitive positive-denominator valuation words. More explicitly, for an offset c avoiding the finitely many parallel-line intercepts, w_(h,c)=(c+2,2,...,2) has S=2h+c, is primitive, and has 2^S-3^h>0; each nonparallel language meets this family at most once.",
+      "mathematical_argument": "Equal normalized slopes 3^k/2^S force both k and S to agree, by unique factorization. A concatenation of r common-slope blocks and a suffix therefore has (h,S)=(rk+h0,rS0+s0), hence satisfies one affine linear equation. A finite union gives finitely many lines. Choose c so S=2h+c is not one of their parallel lines. Every other line intersects it in at most one lattice point. The word with one entry c+2 and all remaining entries 2 is primitive because its exceptional symbol occurs once, and 2^(2h+c)>3^h. Thus infinitely many positive-denominator primitive words remain outside.",
+      "new_result": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+      "bounded_result": {
+        "audit_ref": "#/band_frame_semilinear_character_barriers_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "covering all positive-denominator primitive valuation words by finitely many fixed-suffix equal-slope affine languages",
+      "remaining_gap": "The cofinal equal-slope-cone route is too narrow even before the order-sensitive D|B test. The theorem does not show that an outside witness is an actual cycle; it redirects the proof to a uniform order-sensitive nondivisibility theorem and still does not address divergent aperiodic trajectories.",
+      "candidate_theorem": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T228",
+            "label": "BinaryEqualSlopeAffineLanguageNoncycleCone",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T229",
+            "label": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N229",
+            "label": "FiniteEqualSlopeConeCofinalCoverage",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN229",
+            "label": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T228",
+            "CO-T229"
+          ],
+          [
+            "CO-T229",
+            "CO-N229"
+          ],
+          [
+            "CO-T229",
+            "CO-OPEN229"
+          ],
+          [
+            "CO-OPEN229",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-229",
+      "status": "open_not_proven",
+      "declared_proposition": "For an odd prime l, let M_a(u,v)=1_{uv!=a} on the unit group. The complete moving-target sum satisfies sum_(a mod l) M_a=(l-1)J, so it annihilates every nonconstant character exactly. For any H consecutive targets, complete residue periods vanish on that space and the normalized remainder has operator norm at most r/H<l/H, where r=H mod l. In contrast, each fixed nonzero M_a restricts to minus a permutation and has nonconstant operator norm exactly one.",
+      "mathematical_argument": "For fixed units u,v there is exactly one nonzero residue a=uv. Among all l targets, M_a(u,v) is one zero and l-1 ones, proving the rank-one complete-period identity. On the zero-sum space J vanishes. Splitting an H-window into complete periods and a remainder of r targets, then using the triangle inequality and ||M_a||=1 on the nonconstant space, gives r/H. For one nonzero target, M_a=J-P_a=-P_a on that space, and P_a is a permutation isometry.",
+      "new_result": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+      "bounded_result": {
+        "audit_ref": "#/band_frame_semilinear_character_barriers_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "promoting exact cancellation after averaging a complete target-residue period to a pointwise statement for each even target",
+      "remaining_gap": "Target averaging provides exact character cancellation but strong Goldbach is pointwise in each even N. A single target retains norm one on every nonconstant mode, so the remaining saving must come from prime weights and factor-cell geometry, not target averaging.",
+      "candidate_theorem": "PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T228",
+            "label": "MovingResidueUnitOperatorSpectrumAndLocalFactor",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T229",
+            "label": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N229",
+            "label": "TargetAverageCancellationImpliesPointwiseGoldbachCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN229",
+            "label": "PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T228",
+            "GB-T229"
+          ],
+          [
+            "GB-T229",
+            "GB-N229"
+          ],
+          [
+            "GB-T229",
+            "GB-OPEN229"
+          ],
+          [
+            "GB-OPEN229",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-229",
+      "status": "open_not_proven",
+      "declared_proposition": "For l>3 define the simultaneous shift-two survival operator S=J-P_2-P_{-2} on the unit group. On a nonprincipal multiplicative character chi, S chi=-chi(2)(1+chi(-1)) chi^{-1}. Hence every odd character is annihilated exactly, while every even nonprincipal character has singular value two; the constant singular value is l-3. In particular, modulo 5 the quadratic character has normalized singular ratio 2/(5-3)=1. Tensoring more local factors cannot remove a mode supported only on this modulo-5 component.",
+      "mathematical_argument": "The identity S=J-P_2-P_{-2} follows because the two forbidden products are distinct for l>3. On nonprincipal characters J=0 and P_a chi=chi(a)chi^{-1}. Since chi(-2)=chi(-1)chi(2), the displayed formula follows. Character parity gives 1+chi(-1) equal to zero or two. The constant row sum is l-3. Local operators tensor over a squarefree modulus, and a global character may be principal at every prime except 5, so its normalized ratio remains one.",
+      "new_result": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+      "bounded_result": {
+        "audit_ref": "#/band_frame_semilinear_character_barriers_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "claiming uniform local character contraction after shift-two parity projection and tensoring more local primes",
+      "remaining_gap": "Local shift symmetry solves exactly half of the character modes, but the modulo-5 quadratic mode survives at full normalized size. The remaining theorem is a prime-weighted cancellation estimate for that explicit mode across the cube-root factor cells.",
+      "candidate_theorem": "PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T228",
+            "label": "ShiftTwoOperatorCrossGramAndModThreeJointNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T229",
+            "label": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N229",
+            "label": "LocalParityProjectionGivesUniformCharacterContraction",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN229",
+            "label": "PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T228",
+            "TP-T229"
+          ],
+          [
+            "TP-T229",
+            "TP-N229"
+          ],
+          [
+            "TP-T229",
+            "TP-OPEN229"
+          ],
+          [
+            "TP-OPEN229",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}

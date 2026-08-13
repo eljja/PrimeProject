@@ -15,32 +15,33 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-228
+## Current research boundary: TICKET-229
 
 The current machine-readable boundary is
-`data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json`.
+`data/open-problem/ticket229-band-frame-semilinear-character-barriers.json`.
 
-TICKET-228 proves four exact partial or no-go theorems and resolves
+TICKET-229 proves four exact partial or no-go theorems and resolves
 none of the parent conjectures:
 
-- every finite dilation family has arbitrarily large simultaneous near
-  aliases, so no positive full-line uniform frame lower bound is possible;
-- two equal-slope Collatz blocks generate `2^r` distinct primitive noncycle
-  words at every depth `r` inside the exact cone
-  `[887/700,7123/5600]`;
-- the Goldbach moving-residue unit operator has an exact target-dependent
-  singular spectrum, with all nonconstant modes surviving at singular value
-  `1`;
-- the Twin shift-two masks have an exact cross Gram operator, while joint
-  side-channel survival is already impossible modulo `3`.
+- the two-frequency dilation energy has an explicit positive lower bound on
+  every finite band, but the elementary bound loses exponentially with band
+  height and cannot absorb a merely polynomial tail;
+- each fixed-suffix equal-slope Collatz language lies on one affine `(h,S)`
+  line, so no finite union can be cofinal among primitive
+  positive-denominator words;
+- complete Goldbach target-residue periods annihilate nonconstant local
+  characters exactly, while each fixed nonzero target still has norm `1`;
+- the Twin shift-two operator annihilates odd characters, while the modulo-5
+  quadratic mode survives with normalized singular ratio `1`.
 
-The remaining decisive targets are a bandlimited Weil-core frame estimate with
-explicit Diophantine loss; a cofinal equal-slope affine cover plus aperiodic
-descent; uniform moving-target character cancellation for Goldbach; and
-uniform shift-two character cancellation across all cube-root Twin cells.
+The remaining decisive targets are a subexponential dual-dilation loss matched
+to an explicit Weil-core tail; order-sensitive Collatz nondivisibility for all
+remaining primitive positive-denominator words plus aperiodic descent;
+prime-weighted pointwise Goldbach character cancellation; and prime-weighted
+cancellation of the explicit modulo-5 Twin quadratic mode.
 
-English report: [TICKET-228](near-alias-affine-language-residue-spectrum.md).
-한국어 보고서: [TICKET-228](near-alias-affine-language-residue-spectrum.ko.md).
+English report: [TICKET-229](band-frame-semilinear-character-barriers.md).
+한국어 보고서: [TICKET-229](band-frame-semilinear-character-barriers.ko.md).
 
 ## Preserved research boundary: TICKET-221
 

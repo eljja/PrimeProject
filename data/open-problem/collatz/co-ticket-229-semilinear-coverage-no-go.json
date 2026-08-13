@@ -1,0 +1,755 @@
+{
+  "schema": "primeproject.ticket229-band-frame-semilinear-character-barriers.v1",
+  "generated_at": "2026-08-14T15:20:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-229",
+  "theorem_name": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+  "declared_proposition": "Every language obtained by concatenating blocks with one common normalized Collatz slope and then one fixed suffix lies on one affine line in the integer (height h, valuation sum S) plane. Consequently no finite union of such languages is cofinal among all primitive positive-denominator valuation words. More explicitly, for an offset c avoiding the finitely many parallel-line intercepts, w_(h,c)=(c+2,2,...,2) has S=2h+c, is primitive, and has 2^S-3^h>0; each nonparallel language meets this family at most once.",
+  "mathematical_argument": "Equal normalized slopes 3^k/2^S force both k and S to agree, by unique factorization. A concatenation of r common-slope blocks and a suffix therefore has (h,S)=(rk+h0,rS0+s0), hence satisfies one affine linear equation. A finite union gives finitely many lines. Choose c so S=2h+c is not one of their parallel lines. Every other line intersects it in at most one lattice point. The word with one entry c+2 and all remaining entries 2 is primitive because its exceptional symbol occurs once, and 2^(2h+c)>3^h. Thus infinitely many positive-denominator primitive words remain outside.",
+  "reproducible_computation": {
+    "theorem": "Every language obtained by concatenating blocks with one common normalized Collatz slope and then one fixed suffix lies on one affine line in the integer (height h, valuation sum S) plane. Consequently no finite union of such languages is cofinal among all primitive positive-denominator valuation words. More explicitly, for an offset c avoiding the finitely many parallel-line intercepts, w_(h,c)=(c+2,2,...,2) has S=2h+c, is primitive, and has 2^S-3^h>0; each nonparallel language meets this family at most once.",
+    "proof": "Equal normalized slopes 3^k/2^S force both k and S to agree, by unique factorization. A concatenation of r common-slope blocks and a suffix therefore has (h,S)=(rk+h0,rS0+s0), hence satisfies one affine linear equation. A finite union gives finitely many lines. Choose c so S=2h+c is not one of their parallel lines. Every other line intersects it in at most one lattice point. The word with one entry c+2 and all remaining entries 2 is primitive because its exceptional symbol occurs once, and 2^(2h+c)>3^h. Thus infinitely many positive-denominator primitive words remain outside.",
+    "sample_language_invariants": [
+      {
+        "name": "T228-equal-slope-binary-language",
+        "block_height": 4,
+        "block_sum": 8,
+        "suffix_height": 3,
+        "suffix_sum": 6,
+        "affine_invariant": "4*S-8*h=0",
+        "parallel_to_S_equals_2h_plus_c": true
+      },
+      {
+        "name": "T227-repeated-block-language",
+        "block_height": 3,
+        "block_sum": 5,
+        "suffix_height": 3,
+        "suffix_sum": 7,
+        "affine_invariant": "3*S-5*h=6",
+        "parallel_to_S_equals_2h_plus_c": false
+      },
+      {
+        "name": "independent-sample-language",
+        "block_height": 5,
+        "block_sum": 9,
+        "suffix_height": 2,
+        "suffix_sum": 4,
+        "affine_invariant": "5*S-9*h=2",
+        "parallel_to_S_equals_2h_plus_c": false
+      }
+    ],
+    "witness_family_rows": [
+      {
+        "height_h": 2,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 5,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 3,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 7,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": [
+          "T227-repeated-block-language"
+        ]
+      },
+      {
+        "height_h": 4,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 9,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 5,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 11,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 6,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 13,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 7,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 15,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 8,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 17,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 9,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 19,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 10,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 21,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 11,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 23,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 12,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 25,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 13,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 27,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 14,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 29,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 15,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 31,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 16,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 33,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 17,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 35,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 18,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 37,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 19,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 39,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 20,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 41,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 21,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 43,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 22,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 45,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 23,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 47,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 24,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 49,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 25,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 51,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 26,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 53,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 27,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 55,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 28,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 57,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 29,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 59,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 30,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 61,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 31,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 63,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 32,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 65,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 33,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 67,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 34,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 69,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 35,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 71,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 36,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 73,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 37,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 75,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 38,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 77,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 39,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 79,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 40,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 81,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 41,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 83,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 42,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 85,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 43,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 87,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 44,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 89,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 45,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 91,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 46,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 93,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 47,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 95,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 48,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 97,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 49,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 99,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 50,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 101,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 51,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 103,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 52,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 105,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 53,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 107,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 54,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 109,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 55,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 111,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 56,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 113,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 57,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 115,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 58,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 117,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 59,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 119,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 60,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 121,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 61,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 123,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 62,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 125,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 63,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 127,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      },
+      {
+        "height_h": 64,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 129,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": []
+      }
+    ],
+    "finite_sample_intersection_rows": [
+      {
+        "height_h": 3,
+        "offset_c": 1,
+        "valuation_sum_S_equals_2h_plus_c": 7,
+        "word_head": 3,
+        "tail_symbol": 2,
+        "D_positive": true,
+        "primitive_unique_exception_verified": true,
+        "sample_language_memberships": [
+          "T227-repeated-block-language"
+        ]
+      }
+    ],
+    "eventual_outside_start_height": 4,
+    "aggregate": {
+      "equal_slope_languages_have_affine_count_invariant_proved": true,
+      "finite_equal_slope_union_cofinal_coverage_refuted": true,
+      "positive_denominator_primitive_witness_family_proved": true,
+      "exact_cycle_divisibility_for_all_outside_words_proved": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The cofinal equal-slope-cone route is too narrow even before the order-sensitive D|B test. The theorem does not show that an outside witness is an actual cycle; it redirects the proof to a uniform order-sensitive nondivisibility theorem and still does not address divergent aperiodic trajectories.",
+    "failure_count": 0
+  },
+  "logical_limit": "The cofinal equal-slope-cone route is too narrow even before the order-sensitive D|B test. The theorem does not show that an outside witness is an actual cycle; it redirects the proof to a uniform order-sensitive nondivisibility theorem and still does not address divergent aperiodic trajectories.",
+  "route_decision": {
+    "discard": "covering all positive-denominator primitive valuation words by finitely many fixed-suffix equal-slope affine languages",
+    "retain": "attack order-sensitive D nondivisibility directly outside every regular affine language",
+    "next_single_lemma": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T228",
+        "label": "BinaryEqualSlopeAffineLanguageNoncycleCone",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T229",
+        "label": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N229",
+        "label": "FiniteEqualSlopeConeCofinalCoverage",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN229",
+        "label": "OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T228",
+        "CO-T229"
+      ],
+      [
+        "CO-T229",
+        "CO-N229"
+      ],
+      [
+        "CO-T229",
+        "CO-OPEN229"
+      ],
+      [
+        "CO-OPEN229",
+        "CO"
+      ]
+    ]
+  }
+}
