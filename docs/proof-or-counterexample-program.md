@@ -8183,7 +8183,37 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
 한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).
 
-## TICKET-225 continuation: arithmetic remainder localization
+## TICKET-226 continuation: signal transfer and same-order obstructions
+
+TICKET-226 continues the TICKET-225 proof DAG and proves four exact transfer
+or no-go statements while keeping the conjecture-resolution count at zero:
+
+1. RH: the actual prime Laplace band is exactly a Chebyshev-error integral
+   against a balanced sign-changing kernel with negative and positive masses
+   `-1/4` and `+1/4`. A band sign is therefore not direct Weil positivity. The
+   next target is
+   `ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore`.
+2. Collatz: every word `(1,1,3)^r,2` is primitive and noncyclic, yet all its
+   cyclic intercepts exceed `D`. This infinite family rejects universal
+   minimum-intercept descent; the next target is
+   `NoNontrivialPrimitiveValuationWordSatisfiesDDividesB`.
+3. Goldbach: cube-root rough semiprimes satisfy
+   `S_z(X)~(log 2)X/log X`, the same marginal order as primes. Exact finite
+   rows also refute total contamination below `PP`; the next target is
+   `FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly`.
+4. Twin Prime: Type-I rough-semiprime marginals are likewise same-order and
+   cannot yield shifted pair separation. Exact finite rows reject
+   contamination below `PP` at two larger horizons; the next target is
+   `ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks`.
+
+Machine audit: four exact transfer or no-go theorems, four rejected or
+corrected routes, four proof DAGs, zero conjecture resolutions, and zero
+computational failures.
+
+English report: [TICKET-226 signal transfer and same-order obstructions](signal-transfer-same-order-obstructions.md).
+한국어 보고서: [TICKET-226 신호 전달과 같은 차수 방해항](signal-transfer-same-order-obstructions.ko.md).
+
+## TICKET-225 preserved continuation: arithmetic remainder localization
 
 TICKET-225 continues the TICKET-224 proof DAG and proves four exact arithmetic
 localization or no-go statements while keeping the conjecture-resolution count

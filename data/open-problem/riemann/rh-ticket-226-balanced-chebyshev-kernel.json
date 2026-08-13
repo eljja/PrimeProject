@@ -1,0 +1,247 @@
+{
+  "schema": "primeproject.ticket226-signal-transfer-same-order-obstructions.v1",
+  "generated_at": "2026-08-14T23:55:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-226",
+  "theorem_name": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+  "declared_proposition": "Let psi(x)=sum_{n<=x} Lambda(n), E(x)=psi(x)-x, and P(a)=sum Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every a>0, P(a)=a integral_0^infinity E(x)(exp(-ax)-2exp(-2ax)) dx. The kernel changes sign at log(2)/a, has total mass zero, and has negative and positive masses -1/4 and +1/4. Therefore a sign of P(a) is a balanced contrast of Chebyshev error, not a positive functional and not by itself a Weil-positivity or RH certificate.",
+  "mathematical_argument": "Stieltjes partial summation gives sum Lambda(n)exp(-can)=ca integral psi(x)exp(-cax) dx. Subtracting the exact x integrals for c=1 and c=2 yields the displayed identity. With u=ax, the kernel e^(-u)-2e^(-2u) vanishes at log 2. Its antiderivative -e^(-u)+e^(-2u) gives -1/4 below the crossing and +1/4 above it.",
+  "reproducible_computation": {
+    "theorem": "Let psi(x)=sum_{n<=x} Lambda(n), E(x)=psi(x)-x, and P(a)=sum Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every a>0, P(a)=a integral_0^infinity E(x)(exp(-ax)-2exp(-2ax)) dx. The kernel changes sign at log(2)/a, has total mass zero, and has negative and positive masses -1/4 and +1/4. Therefore a sign of P(a) is a balanced contrast of Chebyshev error, not a positive functional and not by itself a Weil-positivity or RH certificate.",
+    "proof": "Stieltjes partial summation gives sum Lambda(n)exp(-can)=ca integral psi(x)exp(-cax) dx. Subtracting the exact x integrals for c=1 and c=2 yields the displayed identity. With u=ax, the kernel e^(-u)-2e^(-2u) vanishes at log 2. Its antiderivative -e^(-u)+e^(-2u) gives -1/4 below the crossing and +1/4 above it.",
+    "actual_prime_kernel_rows": [
+      {
+        "dyadic_index_j": 3,
+        "scale_2_to_j": 8,
+        "cutoff_N": 384,
+        "prime_band_P_a": -0.17509901671890304,
+        "chebyshev_error_kernel_integral": -0.17509901671890304,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 4.201263560979583e-18,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 4,
+        "scale_2_to_j": 16,
+        "cutoff_N": 768,
+        "prime_band_P_a": -0.10164754364233008,
+        "chebyshev_error_kernel_integral": -0.10164754364233008,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 1.7335576790877956e-17,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 5,
+        "scale_2_to_j": 32,
+        "cutoff_N": 1536,
+        "prime_band_P_a": -0.0553965609826097,
+        "chebyshev_error_kernel_integral": -0.0553965609826097,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 7.042008880574382e-17,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 6,
+        "scale_2_to_j": 64,
+        "cutoff_N": 3072,
+        "prime_band_P_a": -0.029101166642444554,
+        "chebyshev_error_kernel_integral": -0.029101166642444554,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 2.838526619023001e-16,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 7,
+        "scale_2_to_j": 128,
+        "cutoff_N": 6144,
+        "prime_band_P_a": -0.014965603233555669,
+        "chebyshev_error_kernel_integral": -0.014965603233555669,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 1.1397720060748023e-15,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 8,
+        "scale_2_to_j": 256,
+        "cutoff_N": 12288,
+        "prime_band_P_a": -0.007602572549203046,
+        "chebyshev_error_kernel_integral": -0.007602572549203046,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 4.567827486767345e-15,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 9,
+        "scale_2_to_j": 512,
+        "cutoff_N": 24576,
+        "prime_band_P_a": -0.003835187860147471,
+        "chebyshev_error_kernel_integral": -0.003835187860147471,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 1.8288805617662997e-14,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 10,
+        "scale_2_to_j": 1024,
+        "cutoff_N": 49152,
+        "prime_band_P_a": -0.0019270606820214198,
+        "chebyshev_error_kernel_integral": -0.0019270606820214198,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 7.319023055740612e-14,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 11,
+        "scale_2_to_j": 2048,
+        "cutoff_N": 98304,
+        "prime_band_P_a": -0.0009661972841286115,
+        "chebyshev_error_kernel_integral": -0.0009661972841286115,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 2.928309551499499e-13,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 12,
+        "scale_2_to_j": 4096,
+        "cutoff_N": 196608,
+        "prime_band_P_a": -0.00048369456612817885,
+        "chebyshev_error_kernel_integral": -0.00048369456612817885,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 1.171463903179645e-12,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      },
+      {
+        "dyadic_index_j": 13,
+        "scale_2_to_j": 8192,
+        "cutoff_N": 393216,
+        "prime_band_P_a": -0.00024225742163253017,
+        "chebyshev_error_kernel_integral": -0.00024225742163253017,
+        "identity_absolute_error": 0.0,
+        "tail_upper_bound": 4.686135794544421e-12,
+        "negative_sign_certified": true,
+        "identity_verified": true
+      }
+    ],
+    "balanced_kernel_mass_rows": [
+      {
+        "rate_a": 1.0,
+        "zero_crossing_log2_over_a": 0.6931471805599453,
+        "negative_kernel_mass": -0.25,
+        "positive_kernel_mass": 0.25,
+        "total_kernel_mass": 0.0,
+        "balanced_mass_verified": true
+      },
+      {
+        "rate_a": 0.5,
+        "zero_crossing_log2_over_a": 1.3862943611198906,
+        "negative_kernel_mass": -0.25,
+        "positive_kernel_mass": 0.25,
+        "total_kernel_mass": 0.0,
+        "balanced_mass_verified": true
+      },
+      {
+        "rate_a": 0.125,
+        "zero_crossing_log2_over_a": 5.545177444479562,
+        "negative_kernel_mass": -0.25,
+        "positive_kernel_mass": 0.25,
+        "total_kernel_mass": 0.0,
+        "balanced_mass_verified": true
+      },
+      {
+        "rate_a": 0.0009765625,
+        "zero_crossing_log2_over_a": 709.782712893384,
+        "negative_kernel_mass": -0.25,
+        "positive_kernel_mass": 0.25,
+        "total_kernel_mass": 0.0,
+        "balanced_mass_verified": true
+      }
+    ],
+    "opposite_sign_atomic_witnesses": [
+      {
+        "support_x": 0.17328679513998632,
+        "kernel_value_at_a_1": -0.5733171471193806,
+        "sign": "negative"
+      },
+      {
+        "support_x": 1.3862943611198906,
+        "kernel_value_at_a_1": 0.125,
+        "sign": "positive"
+      }
+    ],
+    "transcript_sha256": "a57524073ecbcfeac905ea17cd96e9ca4c5811fc6a395241635a777a8fc53625",
+    "aggregate": {
+      "chebyshev_error_kernel_identity_proved": true,
+      "balanced_sign_changing_kernel_proved": true,
+      "direct_band_sign_to_positive_functional_transfer_refuted": true,
+      "certified_negative_prime_bands": 11,
+      "dense_weil_core_transfer_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem rejects only a direct sign-to-positivity reading. The complete band profile can still carry information, but no uniform explicit-formula estimate transfers it to the Weil form.",
+    "failure_count": 0
+  },
+  "logical_limit": "The exact balanced kernel explains the observed prime-band signs but supplies no uniform estimate on a dense Weil core and excludes no off-critical zero.",
+  "route_decision": {
+    "discard": "reading cofinal signs of one balanced Laplace contrast as direct Weil positivity",
+    "retain": "use the explicit formula with quantitative control of the full balanced-band profile on a dense Weil core",
+    "next_single_lemma": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T225",
+        "label": "ActualPrimeBandTailCertificateAndFiniteBandNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T226",
+        "label": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N226",
+        "label": "BandSignDirectlyImpliesWeilPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN226",
+        "label": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T225",
+        "RH-T226"
+      ],
+      [
+        "RH-T226",
+        "RH-N226"
+      ],
+      [
+        "RH-T226",
+        "RH-OPEN226"
+      ],
+      [
+        "RH-OPEN226",
+        "RH"
+      ]
+    ]
+  }
+}

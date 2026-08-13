@@ -224,6 +224,7 @@ TICKET222_SCHEMA = "primeproject.ticket222-lossless-coupling-biased-parity.v1"
 TICKET223_SCHEMA = "primeproject.ticket223-exponential-tail-local-duality-no-go.v1"
 TICKET224_SCHEMA = "primeproject.ticket224-sharp-completeness-thresholds.v1"
 TICKET225_SCHEMA = "primeproject.ticket225-arithmetic-remainder-localization.v1"
+TICKET226_SCHEMA = "primeproject.ticket226-signal-transfer-same-order-obstructions.v1"
 
 
 def fail(message: str) -> int:
@@ -19406,6 +19407,209 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path226 = Path(
+        "data/open-problem/ticket226-signal-transfer-same-order-obstructions.json"
+    )
+    if not path226.exists():
+        return fail("missing ticket226 signal-transfer audit")
+    ticket226 = read_json(path226)
+    if (
+        ticket226.get("schema") != TICKET226_SCHEMA
+        or ticket226.get("status") != "open_not_proven"
+    ):
+        return fail("ticket226 schema or status changed")
+    audit226 = ticket226.get(
+        "signal_transfer_same_order_obstructions_audit", {}
+    )
+    machine226 = audit226.get("machine_audit", {})
+    if machine226 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket226 global machine audit changed")
+
+    attempts226 = {
+        row.get("problem_id"): row for row in ticket226.get("attempts", [])
+    }
+    if set(attempts226) != EXPECTED_PROBLEMS:
+        return fail("ticket226 attempts missing problems")
+    theorem_names226 = {
+        "riemann": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+        "collatz": "InfinitePrimitiveMinimumInterceptCounterfamily",
+        "goldbach": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+        "twin-prime": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+    }
+    next_lemmas226 = {
+        "riemann": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore",
+        "collatz": "NoNontrivialPrimitiveValuationWordSatisfiesDDividesB",
+        "goldbach": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+        "twin-prime": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks",
+    }
+    track_paths226 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-226-balanced-chebyshev-kernel.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-226-minimum-intercept-counterfamily.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-226-semiprime-same-order.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-226-semiprime-marginal.json"
+        ),
+    }
+    audit_sections226 = {
+        "riemann": audit226.get("riemann", {}),
+        "collatz": audit226.get("collatz", {}),
+        "goldbach": audit226.get("goldbach", {}),
+        "twin-prime": audit226.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts226.items():
+        track_path = track_paths226[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket226 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections226[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names226[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas226[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names226[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas226[problem_id]
+            or track.get("schema") != TICKET226_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names226[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket226 contract changed")
+
+    rh226 = audit_sections226["riemann"].get("reproducible_computation", {})
+    rh226_rows = rh226.get("actual_prime_kernel_rows", [])
+    rh226_masses = rh226.get("balanced_kernel_mass_rows", [])
+    rh226_aggregate = rh226.get("aggregate", {})
+    if (
+        len(rh226_rows) != 11
+        or any(
+            row.get("identity_verified") is not True
+            or row.get("negative_sign_certified") is not True
+            for row in rh226_rows
+        )
+        or len(rh226_masses) != 4
+        or any(
+            row.get("balanced_mass_verified") is not True
+            or row.get("negative_kernel_mass") != -0.25
+            or row.get("positive_kernel_mass") != 0.25
+            for row in rh226_masses
+        )
+        or rh226_aggregate.get("balanced_sign_changing_kernel_proved") is not True
+        or rh226_aggregate.get("direct_band_sign_to_positive_functional_transfer_refuted")
+        is not True
+        or rh226_aggregate.get("dense_weil_core_transfer_proved") is not False
+        or rh226_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket226 RH balanced-kernel boundary changed")
+
+    collatz226 = audit_sections226["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz226_rows = collatz226.get("infinite_family_audit_rows", [])
+    collatz226_aggregate = collatz226.get("aggregate", {})
+    if (
+        [row.get("repetition_r") for row in collatz226_rows]
+        != [1, 2, 3, 5, 10, 20, 40]
+        or any(
+            row.get("primitive_word_verified") is not True
+            or row.get("all_cyclic_intercepts_above_D") is not True
+            or row.get("D_divides_B") is not False
+            or row.get("noncycle_verified") is not True
+            for row in collatz226_rows
+        )
+        or collatz226_aggregate.get("infinite_primitive_family_proved") is not True
+        or collatz226_aggregate.get("universal_minimum_intercept_descent_refuted")
+        is not True
+        or collatz226_aggregate.get("all_nontrivial_cycles_excluded") is not False
+        or collatz226_aggregate.get("aperiodic_descent_proved") is not False
+        or collatz226_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket226 Collatz infinite-family boundary changed")
+
+    goldbach226 = audit_sections226["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    density226 = goldbach226.get("rough_semiprime_density_rows", [])
+    goldbach226_rows = goldbach226.get("goldbach_convolution_rows", [])
+    goldbach226_aggregate = goldbach226.get("aggregate", {})
+    if (
+        [row.get("horizon_X") for row in density226]
+        != [10000, 100000, 1000000]
+        or any(
+            row.get("exact_count_identity_verified") is not True
+            or row.get("rough_semiprime_count_S_X")
+            != row.get("exact_prime_pair_formula_count")
+            for row in density226
+        )
+        or len(goldbach226_rows) != 3
+        or any(
+            row.get("exact_decomposition_verified") is not True
+            or row.get("contamination_below_PP") is not False
+            or row.get("prime_prime_PP", 0) <= 0
+            for row in goldbach226_rows
+        )
+        or goldbach226_aggregate.get("rough_semiprime_to_prime_ratio_limit")
+        != "log(2)"
+        or goldbach226_aggregate.get("same_asymptotic_order_via_PNT_proved")
+        is not True
+        or goldbach226_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket226 Goldbach same-order boundary changed")
+
+    twin226 = audit_sections226["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin226_rows = twin226.get("gap_two_pair_rows", [])
+    twin226_aggregate = twin226.get("aggregate", {})
+    if (
+        len(twin226_rows) != 3
+        or any(
+            row.get("exact_pair_decomposition_verified") is not True
+            or row.get("prime_prime_PP", 0) <= 0
+            for row in twin226_rows
+        )
+        or [row.get("contamination_below_PP") for row in twin226_rows]
+        != [True, False, False]
+        or twin226_aggregate.get("type_i_marginal_only_route_refuted") is not True
+        or twin226_aggregate.get("shifted_type_ii_power_saving_proved") is not False
+        or twin226_aggregate.get("infinitely_many_twin_primes_proved") is not False
+        or twin226_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket226 Twin same-order boundary changed")
+
+    if (
+        "resolves none" not in str(audit226.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket226.get("claim_boundary", "")).lower()
+        or machine226.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket226 proof boundary changed")
 
     path225 = Path(
         "data/open-problem/ticket225-arithmetic-remainder-localization.json"

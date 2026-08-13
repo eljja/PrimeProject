@@ -1,0 +1,154 @@
+{
+  "schema": "primeproject.ticket226-signal-transfer-same-order-obstructions.v1",
+  "generated_at": "2026-08-14T23:55:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-226",
+  "theorem_name": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+  "declared_proposition": "Let z=X^(1/3) and let S_z(X) count products pq<=X with primes z<p<=q. Then S_z(X)~(log 2)X/log X and S_z(X)/pi(X)->log 2. Thus the cube-root rough-semiprime marginal is of the same asymptotic order as the prime marginal, not a lower-order error. Moreover, the stronger pointwise route PS+SP+SS<PP is already false for explicit even targets while PP remains positive.",
+  "mathematical_argument": "Unique ordering by the smaller prime gives exactly S_z(X)=sum_{z<p<=sqrt(X)}(pi(X/p)-pi(p-1)). The second term is O(X/log^2 X). Uniform PNT for X/p>=sqrt(X), followed by prime partial summation and t=X^u, gives (X/log X) times the integral from 1/3 to 1/2 of du/[u(1-u)]=(log 2)X/log X. The finite convolution rows are complete enumerations and directly refute contamination<PP; they do not refute Goldbach.",
+  "reproducible_computation": {
+    "theorem": "Let z=X^(1/3) and let S_z(X) count products pq<=X with primes z<p<=q. Then S_z(X)~(log 2)X/log X and S_z(X)/pi(X)->log 2. Thus the cube-root rough-semiprime marginal is of the same asymptotic order as the prime marginal, not a lower-order error. Moreover, the stronger pointwise route PS+SP+SS<PP is already false for explicit even targets while PP remains positive.",
+    "proof": "Unique ordering by the smaller prime gives exactly S_z(X)=sum_{z<p<=sqrt(X)}(pi(X/p)-pi(p-1)). The second term is O(X/log^2 X). Uniform PNT for X/p>=sqrt(X), followed by prime partial summation and t=X^u, gives (X/log X) times the integral from 1/3 to 1/2 of du/[u(1-u)]=(log 2)X/log X. The finite convolution rows are complete enumerations and directly refute contamination<PP; they do not refute Goldbach.",
+    "rough_semiprime_density_rows": [
+      {
+        "horizon_X": 10000,
+        "cube_root_cutoff_z": 22,
+        "prime_count_pi_X": 1229,
+        "rough_semiprime_count_S_X": 489,
+        "exact_prime_pair_formula_count": 489,
+        "S_over_pi": 0.39788445890968266,
+        "S_normalized_by_X_over_log_X": 0.45038564418963545,
+        "asymptotic_ratio_log_2": 0.6931471805599453,
+        "exact_count_identity_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cube_root_cutoff_z": 47,
+        "prime_count_pi_X": 9592,
+        "rough_semiprime_count_S_X": 4320,
+        "exact_prime_pair_formula_count": 4320,
+        "S_over_pi": 0.45037531276063386,
+        "S_normalized_by_X_over_log_X": 0.49735838008671385,
+        "asymptotic_ratio_log_2": 0.6931471805599453,
+        "exact_count_identity_verified": true
+      },
+      {
+        "horizon_X": 1000000,
+        "cube_root_cutoff_z": 100,
+        "prime_count_pi_X": 78498,
+        "rough_semiprime_count_S_X": 42286,
+        "exact_prime_pair_formula_count": 42286,
+        "S_over_pi": 0.5386888837932177,
+        "S_normalized_by_X_over_log_X": 0.5842026794540772,
+        "asymptotic_ratio_log_2": 0.6931471805599453,
+        "exact_count_identity_verified": true
+      }
+    ],
+    "goldbach_convolution_rows": [
+      {
+        "even_target_N": 10000,
+        "cutoff_z": 22,
+        "prime_prime_PP": 254,
+        "prime_semiprime_PS": 118,
+        "semiprime_prime_SP": 118,
+        "semiprime_semiprime_SS": 34,
+        "rough_semiprime_contamination_E": 270,
+        "filtered_total_QQ": 524,
+        "E_over_PP": 1.062992125984252,
+        "contamination_below_PP": false,
+        "exact_decomposition_verified": true
+      },
+      {
+        "even_target_N": 100000,
+        "cutoff_z": 47,
+        "prime_prime_PP": 1620,
+        "prime_semiprime_PS": 759,
+        "semiprime_prime_SP": 759,
+        "semiprime_semiprime_SS": 294,
+        "rough_semiprime_contamination_E": 1812,
+        "filtered_total_QQ": 3432,
+        "E_over_PP": 1.1185185185185185,
+        "contamination_below_PP": false,
+        "exact_decomposition_verified": true
+      },
+      {
+        "even_target_N": 1000000,
+        "cutoff_z": 100,
+        "prime_prime_PP": 10804,
+        "prime_semiprime_PS": 5833,
+        "semiprime_prime_SP": 5833,
+        "semiprime_semiprime_SS": 3216,
+        "rough_semiprime_contamination_E": 14882,
+        "filtered_total_QQ": 25686,
+        "E_over_PP": 1.3774527952610145,
+        "contamination_below_PP": false,
+        "exact_decomposition_verified": true
+      }
+    ],
+    "aggregate": {
+      "exact_semiprime_count_formula_proved": true,
+      "rough_semiprime_to_prime_ratio_limit": "log(2)",
+      "same_asymptotic_order_via_PNT_proved": true,
+      "lower_order_contamination_route_refuted": true,
+      "finite_targets_with_contamination_at_least_PP": 3,
+      "uniform_pointwise_signed_minor_arc_bound_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The PNT argument is a one-point density theorem, not a pointwise additive convolution asymptotic. The finite targets show that PP can be positive even when contamination exceeds PP.",
+    "failure_count": 0
+  },
+  "logical_limit": "The marginal PNT theorem rejects a lower-order-error model but gives no pointwise additive cancellation for every even target.",
+  "route_decision": {
+    "discard": "treating cube-root rough-semiprime contamination as o(prime mass), or requiring contamination below PP",
+    "retain": "return to a signed circle-method decomposition where arithmetic cancellation, not marginal sparsity, controls the minor contribution",
+    "next_single_lemma": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T225",
+        "label": "CubeRootRoughSemiprimeGoldbachDecomposition",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T226",
+        "label": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N226",
+        "label": "CubeRootSemiprimeContaminationIsLowerOrder",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN226",
+        "label": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T225",
+        "GB-T226"
+      ],
+      [
+        "GB-T226",
+        "GB-N226"
+      ],
+      [
+        "GB-T226",
+        "GB-OPEN226"
+      ],
+      [
+        "GB-OPEN226",
+        "GB"
+      ]
+    ]
+  }
+}

@@ -15,31 +15,31 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-222
+## Current research boundary: TICKET-226
 
 The current machine-readable boundary is
-`data/open-problem/ticket222-lossless-coupling-biased-parity.json`.
+`data/open-problem/ticket226-signal-transfer-same-order-obstructions.json`.
 
-TICKET-222 proves four exact partial or route-correction theorems and resolves
+TICKET-226 proves four exact transfer or route-correction theorems and resolves
 none of the parent conjectures:
 
-- the complete two-sided dyadic Laplace-band profile is injective for finite
-  signed measures compactly supported in `[a,b]` with `0<a<b`;
-- the Collatz triple `(h,S,B)` is a lossless code for every finite positive
-  valuation word, and `D=2^S-3^h>0` with `D|B` is the exact finite-cycle test;
-- the parity of the ordered odd-prime Goldbach count is exactly the prime
-  indicator of `N/2`, so count parity cannot detect zero representations;
-- finite-wheel divisibility parity has an exact biased-product leakage formula,
-  correcting the literal transfer of balanced-cube Walsh orthogonality.
+- the actual prime Laplace band is a balanced Chebyshev-error contrast with
+  exact negative and positive kernel masses `-1/4` and `+1/4`;
+- the infinite primitive Collatz family `(1,1,3)^r,2` contains only
+  noncycles while every cyclic intercept exceeds `D`;
+- cube-root rough semiprimes satisfy `S_z(X)~(log 2)X/log X`, the same
+  marginal asymptotic order as primes;
+- Type-I marginals consequently cannot separate shifted Twin PP from the
+  PS/SP/SS parity channels without genuine Type-II information.
 
-The remaining decisive targets are an actual-zeta cofinal dyadic enclosure with
-a controlled unbounded tail; exclusion of every nontrivial primitive Collatz
-code together with aperiodic descent; a cofinal positive Goldbach-count lower
-bound; and a scale-growing Type II estimate that dominates the biased Twin
-remainder.
+The remaining decisive targets are explicit-formula control of balanced bands
+on a dense Weil core; exclusion of exact Collatz `D|B` for every nontrivial
+primitive code together with aperiodic descent; a uniform signed Goldbach
+minor-arc power saving; and shifted Type-II bilinear separation on unbounded
+Twin blocks.
 
-English report: [TICKET-222](lossless-coupling-biased-parity.md).
-한국어 보고서: [TICKET-222](lossless-coupling-biased-parity.ko.md).
+English report: [TICKET-226](signal-transfer-same-order-obstructions.md).
+한국어 보고서: [TICKET-226](signal-transfer-same-order-obstructions.ko.md).
 
 ## Preserved research boundary: TICKET-221
 
@@ -499,7 +499,30 @@ Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This i
 
 The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
-## TICKET-225 Current Boundary / 현재 연구 경계
+## TICKET-226 Current Boundary / 현재 연구 경계
+
+TICKET-226 tests whether TICKET-225's localized arithmetic remainders can be
+promoted by sign or marginal size alone:
+
+| Problem | New exact result | Route closed | Single next lemma |
+|---|---|---|---|
+| Riemann | The prime band is a sign-changing zero-mass Chebyshev-error kernel contrast with masses `-1/4,+1/4` | A band sign directly implies Weil positivity | `ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore` |
+| Collatz | `(1,1,3)^r,2` is an infinite primitive noncycle family with every cyclic intercept above `D` | Every noncycle has `min B_i<D` | `NoNontrivialPrimitiveValuationWordSatisfiesDDividesB` |
+| Goldbach | Cube-root rough semiprimes have prime-order marginal density; exact contamination `<PP` fails at three targets | Rough-semiprime contamination is a lower-order error | `FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly` |
+| Twin Prime | The same marginal obstruction holds; pair contamination `<PP` fails at two larger audited horizons | Type-I marginals imply shifted pair separation | `ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks` |
+
+The machine audit records four exact theorems, four corrected routes, four proof
+DAGs, zero failures, and zero conjecture resolutions. The marginal PNT theorem
+does not claim a shifted pair asymptotic, and the finite convolution rows do not
+decide any unbounded target.
+
+한국어 요약: 리만 band 부호는 양의 함수가 아니라 Chebyshev 오차의 균형
+대조량이다. 콜라츠 최소-intercept 경로에는 비순환 무한 원시 반례족이
+있다. 골드바흐·쌍둥이 소수의 거친 반소수는 소수와 같은 주변분포 차수라서
+희소성만으로 오염항을 제거할 수 없다. 따라서 조밀한 Weil 핵 전달, 정확한
+`D|B` 배제, 부호 있는 원방법 추정, shifted Type-II 추정이 남는다.
+
+## TICKET-225 Preserved Boundary / 보존된 이전 연구 경계
 
 TICKET-225 applies the preceding completeness thresholds to actual arithmetic
 observables and identifies the exact remainder that each tractable finite

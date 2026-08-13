@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket226AttemptGlobal = null;
 let ticket225AttemptGlobal = null;
 let ticket224AttemptGlobal = null;
 let ticket223AttemptGlobal = null;
@@ -10021,6 +10022,78 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket226SignalTransferSameOrderObstructions(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.signal_transfer_same_order_obstructions_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.actual_prime_kernel_rows || [];
+    const masses = computation.balanced_kernel_mass_rows || [];
+    detail = `
+      <div class="poc-equation">P(a)=a∫E(x)(e<sup>−ax</sup>−2e<sup>−2ax</sup>)dx; k changes sign at log(2)/a and has masses −1/4, +1/4</div>
+      ${table(["j", "scale", "P(a)", "identity error", "tail upper", "sign"], rows.slice(0, 8).map((row) => [row.dyadic_index_j, row.scale_2_to_j, Number(row.prime_band_P_a).toExponential(5), Number(row.identity_absolute_error).toExponential(1), Number(row.tail_upper_bound).toExponential(3), row.negative_sign_certified ? "negative" : "open"]))}
+      ${table(["a", "crossing", "negative mass", "positive mass", "total"], masses.map((row) => [row.rate_a, Number(row.zero_crossing_log2_over_a).toPrecision(5), row.negative_kernel_mass, row.positive_kernel_mass, row.total_kernel_mass]))}
+      <div class="poc-head"><div><span>Balanced identity</span><strong>${aggregate.balanced_sign_changing_kernel_proved ? "proved" : "open"}</strong></div><div><span>Certified bands</span><strong>${aggregate.certified_negative_prime_bands ?? 0}</strong></div><div><span>Weil-core transfer</span><strong>${aggregate.dense_weil_core_transfer_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">부호가 인증된 실제 소수 band는 양의 함수가 아니라 Chebyshev 오차의 균형 대조량입니다. 따라서 band 부호를 곧바로 Weil 양성으로 읽는 경로를 폐기하며, 전체 profile에 대한 정량적 명시공식 전달이 필요합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.infinite_family_audit_rows || [];
+    detail = `
+      <div class="poc-equation">w<sub>r</sub>=(1,1,3)<sup>r</sup>,2; D<sub>r</sub>=4·32<sup>r</sup>−3·27<sup>r</sup>; min B<sub>i</sub>=(62·32<sup>r</sup>−57·27<sup>r</sup>)/5 &gt; D<sub>r</sub></div>
+      ${table(["r", "height", "S", "min B/D", "all B>D", "D divides B"], rows.map((row) => [row.repetition_r, row.height_h, row.valuation_sum_S, Number(row.B_over_D).toFixed(6), row.all_cyclic_intercepts_above_D, row.D_divides_B]))}
+      <div class="poc-head"><div><span>Infinite family</span><strong>${aggregate.infinite_primitive_family_proved ? "proved" : "open"}</strong></div><div><span>Minimum-size criterion</span><strong>${aggregate.universal_minimum_intercept_descent_refuted ? "refuted" : "open"}</strong></div><div><span>Aperiodic descent</span><strong>${aggregate.aperiodic_descent_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">이 무한 원시족은 모두 비순환이지만 모든 순환 intercept가 D보다 큽니다. 따라서 <code>min B&lt;D</code>는 충분조건일 뿐 보편 판정이 아니며, 정확한 <code>D∣B</code> 배제로 돌아가야 합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const density = computation.rough_semiprime_density_rows || [];
+    const rows = computation.goldbach_convolution_rows || [];
+    detail = `
+      <div class="poc-equation">S<sub>z</sub>(X)=Σ<sub>X^(1/3)&lt;p≤√X</sub>[π(X/p)−π(p−1)] ~ (log 2)X/log X; S<sub>z</sub>(X)/π(X)→log 2</div>
+      ${table(["X", "primes", "rough semiprimes", "S/π", "exact factor count"], density.map((row) => [formatter.format(row.horizon_X), formatter.format(row.prime_count_pi_X), formatter.format(row.rough_semiprime_count_S_X), Number(row.S_over_pi).toFixed(5), row.exact_count_identity_verified]))}
+      ${table(["N", "PP", "PS+SP+SS", "contamination/PP", "below PP"], rows.map((row) => [formatter.format(row.even_target_N), formatter.format(row.prime_prime_PP), formatter.format(row.rough_semiprime_contamination_E), Number(row.E_over_PP).toFixed(4), row.contamination_below_PP]))}
+      <div class="poc-head"><div><span>Marginal limit</span><strong>${aggregate.rough_semiprime_to_prime_ratio_limit || "open"}</strong></div><div><span>Lower-order route</span><strong>${aggregate.lower_order_contamination_route_refuted ? "refuted" : "open"}</strong></div><div><span>Signed minor bound</span><strong>${aggregate.uniform_pointwise_signed_minor_arc_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">거친 반소수는 소수와 같은 주변분포 차수이므로 희소성만으로 오염항을 제거할 수 없습니다. 표는 더 강한 <code>오염&lt;PP</code> 경로의 반례이며, 모든 행의 PP는 양수이므로 골드바흐 반례가 아닙니다.</p>
+    `;
+  } else {
+    const density = computation.rough_semiprime_density_rows || [];
+    const rows = computation.gap_two_pair_rows || [];
+    detail = `
+      <div class="poc-equation">rough-semiprime marginal / prime marginal → log 2; shifted PP/PS/SP/SS separation still requires genuine Type-II correlation</div>
+      ${table(["X", "S/π", "exact marginal count"], density.map((row) => [formatter.format(row.horizon_X), Number(row.S_over_pi).toFixed(5), row.exact_count_identity_verified]))}
+      ${table(["X", "PP", "PS+SP+SS", "contamination/PP", "below PP"], rows.map((row) => [formatter.format(row.horizon_X), formatter.format(row.prime_prime_PP), formatter.format(row.rough_semiprime_pair_contamination_E), Number(row.E_over_PP).toFixed(4), row.contamination_below_PP]))}
+      <div class="poc-head"><div><span>Type-I-only route</span><strong>${aggregate.type_i_marginal_only_route_refuted ? "refuted" : "open"}</strong></div><div><span>Failed domination horizons</span><strong>${aggregate.finite_horizons_with_contamination_at_least_PP ?? 0}</strong></div><div><span>Shifted Type-II</span><strong>${aggregate.shifted_type_ii_power_saving_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">주변분포가 같은 차수라는 사실은 shifted pair 점근식이 아닙니다. 두 큰 유한 범위에서 오염이 PP를 넘지만 PP도 양수입니다. 무한 gap-two 결론에는 별도의 Type-II bilinear power saving이 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket226-signal-transfer-same-order-obstructions" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 226 signal transfer and same-order obstructions</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact transfer or no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET226 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/signal-transfer-same-order-obstructions.ko.md">한국어 보고서</a> · <a href="../docs/signal-transfer-same-order-obstructions.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket225ArithmeticRemainderLocalization(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.arithmetic_remainder_localization_audit || {};
@@ -10078,7 +10151,7 @@ function renderTicket225ArithmeticRemainderLocalization(attempt) {
   }
   return `
     <div id="ticket225-arithmetic-remainder-localization" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 225 arithmetic remainder localization</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact localization or no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET225 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -17147,7 +17220,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket225ArithmeticRemainderLocalization(ticket225AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket226SignalTransferSameOrderObstructions(ticket226AttemptGlobal) ||
+      renderTicket225ArithmeticRemainderLocalization(ticket225AttemptGlobal) ||
       renderTicket224SharpCompletenessThresholds(ticket224AttemptGlobal) ||
       renderTicket223ExponentialTailLocalDualityNoGo(ticket223AttemptGlobal) ||
       renderTicket222LosslessCouplingBiasedParity(ticket222AttemptGlobal) ||
@@ -17692,6 +17766,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket226Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket226-signal-transfer-same-order-obstructions.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket226AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket226AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket226AttemptGlobal) {
+      ticket226AttemptGlobal.bounded_result = ticket226AttemptGlobal.bounded_result || {};
+      ticket226AttemptGlobal.bounded_result.signal_transfer_same_order_obstructions_audit = payload.signal_transfer_same_order_obstructions_audit || {};
+    }
+    return Boolean(ticket226AttemptGlobal);
+  } catch (error) {
+    ticket226AttemptGlobal = null;
     return false;
   }
 }
@@ -19385,6 +19479,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket226Loaded = await loadTicket226Attempt();
   const ticket225Loaded = await loadTicket225Attempt();
   const ticket224Loaded = await loadTicket224Attempt();
   const ticket223Loaded = await loadTicket223Attempt();
@@ -19392,7 +19487,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket225-current";
+  document.documentElement.dataset.openProblemCache = "ticket226-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19445,8 +19540,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket226AttemptGlobal) await loadTicket226Attempt();
     if (!ticket225AttemptGlobal) await loadTicket225Attempt();
     if (!ticket224AttemptGlobal) await loadTicket224Attempt();
     if (!ticket223AttemptGlobal) await loadTicket223Attempt();
@@ -19550,7 +19646,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket225-current";
+  document.documentElement.dataset.openProblemCache = "ticket226-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

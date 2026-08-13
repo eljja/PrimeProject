@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket225-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket226-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-225</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-226</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-225 actually changed</h2>
-          <p>TICKET-225 did not solve a parent conjecture. It bounds the omitted tail of an actual von Mangoldt Laplace band and proves a finite-band non-identifiability theorem; proves cyclic invariance of the Collatz gcd residual; and replaces arbitrary cube-root wheel errors by exact rough-semiprime PP/PS/SP/SS decompositions for Goldbach and Twin candidates.</p>
-          <p class="proof-boundary">TICKET-225는 상위 난제를 해결하지 않았습니다. 실제 폰 망골트 band의 꼬리를 닫힌 식으로 제한하고 유한 band 관측의 비단사성을 증명했으며, 콜라츠 순환 회전에서 최대공약수 잔여량이 불변임을 보였습니다. 골드바흐·쌍둥이 소수에서는 세제곱근 체의 오차를 거친 반소수 항으로 정확히 분해했습니다. Weil 양성으로의 명시공식 전달, 모든 콜라츠 word 또는 비주기 궤도의 하강, 반소수 오염항의 균일 지배는 여전히 열려 있습니다.</p>
+          <h2>What TICKET-226 actually changed</h2>
+          <p>TICKET-226 did not solve a parent conjecture. It proves that the actual prime band is a balanced Chebyshev-error contrast rather than a positive functional; constructs an infinite primitive Collatz noncycle family outside the minimum-intercept certificate; and proves that cube-root rough semiprimes have the same marginal asymptotic order as primes, invalidating lower-order contamination routes for Goldbach and Twin candidates.</p>
+          <p class="proof-boundary">TICKET-226은 상위 난제를 해결하지 않았습니다. 실제 소수 band가 양의 함수가 아니라 음·양 질량이 각각 −1/4,+1/4인 Chebyshev 오차 대조량임을 증명했고, 최소-intercept 인증이 실패하는 콜라츠 비순환 무한 원시족을 만들었습니다. 골드바흐·쌍둥이 소수에서는 세제곱근 거친 반소수가 소수와 같은 주변분포 차수임을 증명해 단순 희소성 경로를 폐기했습니다. Weil 핵 전달, 모든 Collatz word의 D∣B 배제와 비주기 하강, pointwise 원방법 및 shifted Type-II 추정은 여전히 열려 있습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The actual von Mangoldt Laplace-band tail has a closed positive upper bound; 13 dyadic signs are numerically separated, while every finite family of band functionals is non-injective on signed atomic defects.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>A finite list of actual prime-band signs cannot identify an arbitrary defect measure and is not an RH criterion.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ExplicitFormulaTransferFromCofinalPrimeBandMarginsToWeilCorePositivity</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The actual prime band is exactly a Chebyshev-error integral against a sign-changing zero-mass kernel whose negative and positive masses are −1/4 and +1/4.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The sign of one balanced band is not a positive functional and does not directly imply Weil positivity.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore</code></dd></div>
           </dl>
-          <p class="workbench-ko">실제 소수 band까지 내려왔지만 유한 부호는 RH와 동치가 아닙니다. 공종적인 band margin을 Weil 핵의 양성으로 옮기는 무한 전달 정리가 필요합니다.</p>
+          <p class="workbench-ko">관측된 band 부호의 정확한 의미는 Chebyshev 오차의 두 영역 사이 균형 대조입니다. 전체 profile을 조밀한 Weil 핵의 양성으로 옮기는 정량적 명시공식 제어가 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Consecutive cyclic intercepts satisfy <code>2^a B'=3B+D</code>, so <code>gcd(D,B)</code> and <code>D/gcd(D,B)</code> are invariant under every rotation.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Rotations of one valuation word cannot be accumulated as independent prime-power deficit evidence.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformCyclicInterceptDescentOrAperiodicOrbitDescent</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>For every <code>r≥1</code>, the primitive word <code>(1,1,3)^r,2</code> is a noncycle and every cyclic intercept exceeds <code>D</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd><code>min B&lt;D</code> is a sufficient noncycle certificate, not a necessary one, on an explicit infinite family.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoNontrivialPrimitiveValuationWordSatisfiesDDividesB</code></dd></div>
           </dl>
-          <p class="workbench-ko">회전은 intercept 크기를 바꾸지만 잔여 방해량은 바꾸지 않습니다. 최소 intercept가 <code>D</code>보다 작다는 인증을 모든 word로 확장하거나 별도의 비주기 하강을 증명해야 합니다.</p>
+          <p class="workbench-ko">최소-intercept 크기 조건은 보편화할 수 없습니다. 이제 크기와 독립적으로 정확한 affine 나눗셈 <code>D∣B</code>를 모든 비자명 word에서 배제해야 합니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>If <code>z^3≥X</code>, every composite survivor is exactly a product of two primes above <code>z</code>, so <code>Q*Q=PP+PS+SP+SS</code> on the finite horizon.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>A cube-root wheel representation need not be a prime-prime representation; three exact rough-semiprime contamination terms remain.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformCubeRootRoughSemiprimeErrorBelowGoldbachWheelMainTerm</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Cube-root rough semiprimes satisfy <code>S_z(X)~(log 2)X/log X</code>, the same marginal order as primes; at three exact targets contamination exceeds <code>PP</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Rough-semiprime contamination is not a lower-order marginal error, and requiring total contamination below <code>PP</code> is already false.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly</code></dd></div>
           </dl>
-          <p class="workbench-ko">세제곱근 체는 완전 소수 판정은 아니지만 오차의 산술 구조를 정확히 거친 반소수로 좁힙니다. 이제 세 오염항을 모든 짝수에서 주항보다 작게 만들어야 합니다.</p>
+          <p class="workbench-ko">오염항 전체를 PP보다 작게 만드는 전략은 PP가 양수인 실제 유한 표에서도 실패합니다. 주변분포 희소성이 아니라 원방법의 부호 있는 주호·부호 오차 상쇄가 필요합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every cube-root gap-two survivor has exactly one type among PP, PS, SP, and SS; only PP is a twin-prime pair.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Positive survivor counts and termwise survival do not certify twin primality; explicit SS composite pairs survive.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PositiveTwinPrimeLowerBoundAfterCubeRootSemiprimeContaminationControl</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Rough-semiprime and prime marginals have the same order; exact gap-two audits at <code>10^5</code> and <code>10^6</code> have contamination above <code>PP</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Type-I marginal sparsity alone cannot separate shifted PP from PS, SP, and SS channels.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks</code></dd></div>
           </dl>
-          <p class="workbench-ko">세제곱근 수준의 정확한 parity 오염은 <code>PS+SP+SS</code>입니다. 이 세 항을 제어한 뒤 <code>PP</code>의 양의 무한 하한을 남겨야 합니다.</p>
+          <p class="workbench-ko">같은 차수의 주변분포는 shifted pair 점근식이 아닙니다. exact gap-two 양의 하한을 위해서는 무한 block에서 실제 Type-II bilinear power saving이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>225 tickets reduced to four meaningful eras</h2>
+          <h2>226 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–225 · Structure, arithmetic remainders, and global gaps</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 실제 소수 band·순환 잔여량·거친 반소수 오염항을 정확히 분리하고 필요한 무한 전달 정리를 명시했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–226 · Structure, arithmetic remainders, and transfer obstructions</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 실제 산술 나머지를 분리하고 부호 전달·최소-intercept·낮은 차수 가정의 한계를 무한족과 점근 정리로 확정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/signal-transfer-same-order-obstructions.ko.md">TICKET-226 한국어 보고서</a>
+          <a href="../docs/signal-transfer-same-order-obstructions.md">TICKET-226 English report</a>
           <a href="../docs/arithmetic-remainder-localization.ko.md">TICKET-225 한국어 보고서</a>
           <a href="../docs/arithmetic-remainder-localization.md">TICKET-225 English report</a>
           <a href="../docs/sharp-completeness-thresholds.ko.md">TICKET-224 한국어 보고서</a>
@@ -176,7 +178,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260814-ticket225"></script>
+    <script src="../assets/i18n.js?v=20260814-ticket226"></script>
   </body>
 </html>
 

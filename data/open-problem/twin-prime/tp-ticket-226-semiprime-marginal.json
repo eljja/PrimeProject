@@ -1,0 +1,153 @@
+{
+  "schema": "primeproject.ticket226-signal-transfer-same-order-obstructions.v1",
+  "generated_at": "2026-08-14T23:55:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-226",
+  "theorem_name": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+  "declared_proposition": "The same exact count S_z(X)~(log 2)X/log X proves that cube-root rough semiprimes have the same marginal order as primes. Therefore Type-I or marginal density alone cannot make the shifted PS, SP, and SS channels lower order. Complete finite gap-two audits also give explicit horizons where PS+SP+SS>=PP, refuting that stronger domination route without refuting the Twin Prime conjecture.",
+  "mathematical_argument": "The marginal asymptotic is the unique-smaller-factor formula and PNT calculation stated in the Goldbach track. It makes no claim about shifted independence. The pair rows classify every retained n,n+2 into PP, PS, SP, or SS and compare exact integer counts. Since shifted pair control is absent from the marginal theorem, a genuine Type-II correlation estimate remains necessary.",
+  "reproducible_computation": {
+    "theorem": "The same exact count S_z(X)~(log 2)X/log X proves that cube-root rough semiprimes have the same marginal order as primes. Therefore Type-I or marginal density alone cannot make the shifted PS, SP, and SS channels lower order. Complete finite gap-two audits also give explicit horizons where PS+SP+SS>=PP, refuting that stronger domination route without refuting the Twin Prime conjecture.",
+    "proof": "The marginal asymptotic is the unique-smaller-factor formula and PNT calculation stated in the Goldbach track. It makes no claim about shifted independence. The pair rows classify every retained n,n+2 into PP, PS, SP, or SS and compare exact integer counts. Since shifted pair control is absent from the marginal theorem, a genuine Type-II correlation estimate remains necessary.",
+    "rough_semiprime_density_rows": [
+      {
+        "horizon_X": 10000,
+        "cube_root_cutoff_z": 22,
+        "prime_count_pi_X": 1229,
+        "rough_semiprime_count_S_X": 489,
+        "exact_prime_pair_formula_count": 489,
+        "S_over_pi": 0.39788445890968266,
+        "S_normalized_by_X_over_log_X": 0.45038564418963545,
+        "asymptotic_ratio_log_2": 0.6931471805599453,
+        "exact_count_identity_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cube_root_cutoff_z": 47,
+        "prime_count_pi_X": 9592,
+        "rough_semiprime_count_S_X": 4320,
+        "exact_prime_pair_formula_count": 4320,
+        "S_over_pi": 0.45037531276063386,
+        "S_normalized_by_X_over_log_X": 0.49735838008671385,
+        "asymptotic_ratio_log_2": 0.6931471805599453,
+        "exact_count_identity_verified": true
+      },
+      {
+        "horizon_X": 1000000,
+        "cube_root_cutoff_z": 100,
+        "prime_count_pi_X": 78498,
+        "rough_semiprime_count_S_X": 42286,
+        "exact_prime_pair_formula_count": 42286,
+        "S_over_pi": 0.5386888837932177,
+        "S_normalized_by_X_over_log_X": 0.5842026794540772,
+        "asymptotic_ratio_log_2": 0.6931471805599453,
+        "exact_count_identity_verified": true
+      }
+    ],
+    "gap_two_pair_rows": [
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 22,
+        "prime_prime_PP": 205,
+        "prime_semiprime_PS": 78,
+        "semiprime_prime_SP": 76,
+        "semiprime_semiprime_SS": 35,
+        "rough_semiprime_pair_contamination_E": 189,
+        "filtered_gap_two_pairs_R": 394,
+        "E_over_PP": 0.9219512195121952,
+        "contamination_below_PP": true,
+        "exact_pair_decomposition_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 47,
+        "prime_prime_PP": 1224,
+        "prime_semiprime_PS": 559,
+        "semiprime_prime_SP": 537,
+        "semiprime_semiprime_SS": 253,
+        "rough_semiprime_pair_contamination_E": 1349,
+        "filtered_gap_two_pairs_R": 2573,
+        "E_over_PP": 1.102124183006536,
+        "contamination_below_PP": false,
+        "exact_pair_decomposition_verified": true
+      },
+      {
+        "horizon_X": 1000000,
+        "cutoff_z": 100,
+        "prime_prime_PP": 8169,
+        "prime_semiprime_PS": 4332,
+        "semiprime_prime_SP": 4350,
+        "semiprime_semiprime_SS": 2453,
+        "rough_semiprime_pair_contamination_E": 11135,
+        "filtered_gap_two_pairs_R": 19304,
+        "E_over_PP": 1.363079936344718,
+        "contamination_below_PP": false,
+        "exact_pair_decomposition_verified": true
+      }
+    ],
+    "aggregate": {
+      "same_order_rough_semiprime_marginal_proved": true,
+      "type_i_marginal_only_route_refuted": true,
+      "finite_horizons_with_contamination_at_least_PP": 2,
+      "shifted_type_ii_power_saving_proved": false,
+      "infinitely_many_twin_primes_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "No asymptotic for rough-semiprime gap-two pairs is claimed. Marginal same-order density and three finite counterexamples do not decide whether PP occurs infinitely often.",
+    "failure_count": 0
+  },
+  "logical_limit": "Same-order marginals show why Type-I data are insufficient, but no shifted Type-II power saving or positive unbounded PP block margin has been proved.",
+  "route_decision": {
+    "discard": "expecting marginal cube-root semiprime sparsity alone to dominate PS, SP, and SS",
+    "retain": "estimate the shifted semiprime channels with genuine Type-II bilinear information on unbounded blocks",
+    "next_single_lemma": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T225",
+        "label": "CubeRootTwinPairTypeDecompositionAndParityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T226",
+        "label": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N226",
+        "label": "CubeRootPairContaminationIsLowerOrderFromMarginals",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN226",
+        "label": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T225",
+        "TP-T226"
+      ],
+      [
+        "TP-T226",
+        "TP-N226"
+      ],
+      [
+        "TP-T226",
+        "TP-OPEN226"
+      ],
+      [
+        "TP-OPEN226",
+        "TP"
+      ]
+    ]
+  }
+}

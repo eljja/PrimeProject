@@ -1,0 +1,976 @@
+{
+  "schema": "primeproject.ticket226-signal-transfer-same-order-obstructions.v1",
+  "generated_at": "2026-08-14T23:55:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-226 proves four transfer or same-order obstruction results and resolves none of the four parent conjectures.",
+  "signal_transfer_same_order_obstructions_audit": {
+    "theorem_name": "SignalTransferAndSameOrderObstructionsForFourOpenProblems",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-226 proves four exact transfer or no-go theorems, corrects three TICKET-225 continuation routes, and resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-226",
+      "theorem_name": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+      "declared_proposition": "Let psi(x)=sum_{n<=x} Lambda(n), E(x)=psi(x)-x, and P(a)=sum Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every a>0, P(a)=a integral_0^infinity E(x)(exp(-ax)-2exp(-2ax)) dx. The kernel changes sign at log(2)/a, has total mass zero, and has negative and positive masses -1/4 and +1/4. Therefore a sign of P(a) is a balanced contrast of Chebyshev error, not a positive functional and not by itself a Weil-positivity or RH certificate.",
+      "mathematical_argument": "Stieltjes partial summation gives sum Lambda(n)exp(-can)=ca integral psi(x)exp(-cax) dx. Subtracting the exact x integrals for c=1 and c=2 yields the displayed identity. With u=ax, the kernel e^(-u)-2e^(-2u) vanishes at log 2. Its antiderivative -e^(-u)+e^(-2u) gives -1/4 below the crossing and +1/4 above it.",
+      "reproducible_computation": {
+        "theorem": "Let psi(x)=sum_{n<=x} Lambda(n), E(x)=psi(x)-x, and P(a)=sum Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every a>0, P(a)=a integral_0^infinity E(x)(exp(-ax)-2exp(-2ax)) dx. The kernel changes sign at log(2)/a, has total mass zero, and has negative and positive masses -1/4 and +1/4. Therefore a sign of P(a) is a balanced contrast of Chebyshev error, not a positive functional and not by itself a Weil-positivity or RH certificate.",
+        "proof": "Stieltjes partial summation gives sum Lambda(n)exp(-can)=ca integral psi(x)exp(-cax) dx. Subtracting the exact x integrals for c=1 and c=2 yields the displayed identity. With u=ax, the kernel e^(-u)-2e^(-2u) vanishes at log 2. Its antiderivative -e^(-u)+e^(-2u) gives -1/4 below the crossing and +1/4 above it.",
+        "actual_prime_kernel_rows": [
+          {
+            "dyadic_index_j": 3,
+            "scale_2_to_j": 8,
+            "cutoff_N": 384,
+            "prime_band_P_a": -0.17509901671890304,
+            "chebyshev_error_kernel_integral": -0.17509901671890304,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 4.201263560979583e-18,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 4,
+            "scale_2_to_j": 16,
+            "cutoff_N": 768,
+            "prime_band_P_a": -0.10164754364233008,
+            "chebyshev_error_kernel_integral": -0.10164754364233008,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 1.7335576790877956e-17,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 5,
+            "scale_2_to_j": 32,
+            "cutoff_N": 1536,
+            "prime_band_P_a": -0.0553965609826097,
+            "chebyshev_error_kernel_integral": -0.0553965609826097,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 7.042008880574382e-17,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 6,
+            "scale_2_to_j": 64,
+            "cutoff_N": 3072,
+            "prime_band_P_a": -0.029101166642444554,
+            "chebyshev_error_kernel_integral": -0.029101166642444554,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 2.838526619023001e-16,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 7,
+            "scale_2_to_j": 128,
+            "cutoff_N": 6144,
+            "prime_band_P_a": -0.014965603233555669,
+            "chebyshev_error_kernel_integral": -0.014965603233555669,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 1.1397720060748023e-15,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 8,
+            "scale_2_to_j": 256,
+            "cutoff_N": 12288,
+            "prime_band_P_a": -0.007602572549203046,
+            "chebyshev_error_kernel_integral": -0.007602572549203046,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 4.567827486767345e-15,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 9,
+            "scale_2_to_j": 512,
+            "cutoff_N": 24576,
+            "prime_band_P_a": -0.003835187860147471,
+            "chebyshev_error_kernel_integral": -0.003835187860147471,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 1.8288805617662997e-14,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 10,
+            "scale_2_to_j": 1024,
+            "cutoff_N": 49152,
+            "prime_band_P_a": -0.0019270606820214198,
+            "chebyshev_error_kernel_integral": -0.0019270606820214198,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 7.319023055740612e-14,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 11,
+            "scale_2_to_j": 2048,
+            "cutoff_N": 98304,
+            "prime_band_P_a": -0.0009661972841286115,
+            "chebyshev_error_kernel_integral": -0.0009661972841286115,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 2.928309551499499e-13,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 12,
+            "scale_2_to_j": 4096,
+            "cutoff_N": 196608,
+            "prime_band_P_a": -0.00048369456612817885,
+            "chebyshev_error_kernel_integral": -0.00048369456612817885,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 1.171463903179645e-12,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          },
+          {
+            "dyadic_index_j": 13,
+            "scale_2_to_j": 8192,
+            "cutoff_N": 393216,
+            "prime_band_P_a": -0.00024225742163253017,
+            "chebyshev_error_kernel_integral": -0.00024225742163253017,
+            "identity_absolute_error": 0.0,
+            "tail_upper_bound": 4.686135794544421e-12,
+            "negative_sign_certified": true,
+            "identity_verified": true
+          }
+        ],
+        "balanced_kernel_mass_rows": [
+          {
+            "rate_a": 1.0,
+            "zero_crossing_log2_over_a": 0.6931471805599453,
+            "negative_kernel_mass": -0.25,
+            "positive_kernel_mass": 0.25,
+            "total_kernel_mass": 0.0,
+            "balanced_mass_verified": true
+          },
+          {
+            "rate_a": 0.5,
+            "zero_crossing_log2_over_a": 1.3862943611198906,
+            "negative_kernel_mass": -0.25,
+            "positive_kernel_mass": 0.25,
+            "total_kernel_mass": 0.0,
+            "balanced_mass_verified": true
+          },
+          {
+            "rate_a": 0.125,
+            "zero_crossing_log2_over_a": 5.545177444479562,
+            "negative_kernel_mass": -0.25,
+            "positive_kernel_mass": 0.25,
+            "total_kernel_mass": 0.0,
+            "balanced_mass_verified": true
+          },
+          {
+            "rate_a": 0.0009765625,
+            "zero_crossing_log2_over_a": 709.782712893384,
+            "negative_kernel_mass": -0.25,
+            "positive_kernel_mass": 0.25,
+            "total_kernel_mass": 0.0,
+            "balanced_mass_verified": true
+          }
+        ],
+        "opposite_sign_atomic_witnesses": [
+          {
+            "support_x": 0.17328679513998632,
+            "kernel_value_at_a_1": -0.5733171471193806,
+            "sign": "negative"
+          },
+          {
+            "support_x": 1.3862943611198906,
+            "kernel_value_at_a_1": 0.125,
+            "sign": "positive"
+          }
+        ],
+        "transcript_sha256": "a57524073ecbcfeac905ea17cd96e9ca4c5811fc6a395241635a777a8fc53625",
+        "aggregate": {
+          "chebyshev_error_kernel_identity_proved": true,
+          "balanced_sign_changing_kernel_proved": true,
+          "direct_band_sign_to_positive_functional_transfer_refuted": true,
+          "certified_negative_prime_bands": 11,
+          "dense_weil_core_transfer_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem rejects only a direct sign-to-positivity reading. The complete band profile can still carry information, but no uniform explicit-formula estimate transfers it to the Weil form.",
+        "failure_count": 0
+      },
+      "logical_limit": "The exact balanced kernel explains the observed prime-band signs but supplies no uniform estimate on a dense Weil core and excludes no off-critical zero.",
+      "route_decision": {
+        "discard": "reading cofinal signs of one balanced Laplace contrast as direct Weil positivity",
+        "retain": "use the explicit formula with quantitative control of the full balanced-band profile on a dense Weil core",
+        "next_single_lemma": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T225",
+            "label": "ActualPrimeBandTailCertificateAndFiniteBandNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T226",
+            "label": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N226",
+            "label": "BandSignDirectlyImpliesWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN226",
+            "label": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T225",
+            "RH-T226"
+          ],
+          [
+            "RH-T226",
+            "RH-N226"
+          ],
+          [
+            "RH-T226",
+            "RH-OPEN226"
+          ],
+          [
+            "RH-OPEN226",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-226",
+      "theorem_name": "InfinitePrimitiveMinimumInterceptCounterfamily",
+      "declared_proposition": "For every r>=1, the valuation word w_r=(1,1,3)^r followed by 2 is primitive, has D_r=4*32^r-3*27^r>0, and has minimum cyclic intercept B_r=(62*32^r-57*27^r)/5>D_r. Nevertheless D_r does not divide B_r, so w_r is not a Collatz cycle. Hence the sufficient certificate min_i B_i<D cannot be promoted to a universal noncycle criterion, even within an explicit infinite primitive family.",
+      "mathematical_argument": "The final exponent 2 is unique, proving primitivity. Concatenation of U=(1,1,3), whose affine data are (27,32,19), gives the displayed D_r and B_r. The associated fixed point n_0=B_r/D_r satisfies 1<n_0<19/5. Inside U, the first two accelerated steps increase, and U maps n to (27n+19)/32, which increases every n<19/5 while preserving that interval. Thus n_0 is the least cyclic state and B_r is the least intercept. Also 1<B_r/D_r<4. Equality to 2 would force 22*32^r=27*27^r, and equality to 3 would force 2*32^r=12*27^r; prime factorization rules out both. Therefore the fixed point is not an integer and D_r does not divide B_r.",
+      "reproducible_computation": {
+        "theorem": "For every r>=1, the valuation word w_r=(1,1,3)^r followed by 2 is primitive, has D_r=4*32^r-3*27^r>0, and has minimum cyclic intercept B_r=(62*32^r-57*27^r)/5>D_r. Nevertheless D_r does not divide B_r, so w_r is not a Collatz cycle. Hence the sufficient certificate min_i B_i<D cannot be promoted to a universal noncycle criterion, even within an explicit infinite primitive family.",
+        "proof": "The final exponent 2 is unique, proving primitivity. Concatenation of U=(1,1,3), whose affine data are (27,32,19), gives the displayed D_r and B_r. The associated fixed point n_0=B_r/D_r satisfies 1<n_0<19/5. Inside U, the first two accelerated steps increase, and U maps n to (27n+19)/32, which increases every n<19/5 while preserving that interval. Thus n_0 is the least cyclic state and B_r is the least intercept. Also 1<B_r/D_r<4. Equality to 2 would force 22*32^r=27*27^r, and equality to 3 would force 2*32^r=12*27^r; prime factorization rules out both. Therefore the fixed point is not an integer and D_r does not divide B_r.",
+        "infinite_family_audit_rows": [
+          {
+            "repetition_r": 1,
+            "height_h": 4,
+            "valuation_sum_S": 7,
+            "D": 47,
+            "minimum_intercept_B": 89,
+            "B_over_D": 1.8936170212765957,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          },
+          {
+            "repetition_r": 2,
+            "height_h": 7,
+            "valuation_sum_S": 12,
+            "D": 1909,
+            "minimum_intercept_B": 4387,
+            "B_over_D": 2.2980618124672603,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          },
+          {
+            "repetition_r": 3,
+            "height_h": 10,
+            "valuation_sum_S": 17,
+            "D": 72023,
+            "minimum_intercept_B": 181937,
+            "B_over_D": 2.5260958304985905,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          },
+          {
+            "repetition_r": 5,
+            "height_h": 16,
+            "valuation_sum_S": 27,
+            "D": 91171007,
+            "minimum_intercept_B": 252497417,
+            "B_over_D": 2.7694924659546647,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          },
+          {
+            "repetition_r": 10,
+            "height_h": 31,
+            "valuation_sum_S": 52,
+            "D": 3885926231086549,
+            "minimum_intercept_B": 11613999938969539,
+            "B_over_D": 2.988734023322448,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          },
+          {
+            "repetition_r": 20,
+            "height_h": 61,
+            "valuation_sum_S": 102,
+            "D": 4943428926087268995443929521901,
+            "minimum_intercept_B": 15235608238492579858496163208171,
+            "B_over_D": 3.081991966768618,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          },
+          {
+            "repetition_r": 40,
+            "height_h": 121,
+            "valuation_sum_S": 202,
+            "D": 6422361146136217808536608829876121594969617548248557787886301,
+            "minimum_intercept_B": 19905545831392454900921619694974006773822378300752699655124091,
+            "B_over_D": 3.0994124089966366,
+            "primitive_word_verified": true,
+            "all_cyclic_intercepts_above_D": true,
+            "D_divides_B": false,
+            "noncycle_verified": true
+          }
+        ],
+        "aggregate": {
+          "repetitions_checked": 40,
+          "infinite_primitive_family_proved": true,
+          "all_family_minimum_intercepts_above_D_proved": true,
+          "all_family_words_noncycles_proved": true,
+          "universal_minimum_intercept_descent_refuted": true,
+          "all_nontrivial_cycles_excluded": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The infinite family refutes necessity of min B<D but contains no cycle. It neither constructs a divergent orbit nor excludes D|B for every other primitive word.",
+        "failure_count": 0
+      },
+      "logical_limit": "The family proves that min B<D is not necessary for a noncycle, but it neither excludes every D|B word nor proves descent of every aperiodic natural orbit.",
+      "route_decision": {
+        "discard": "promoting the minimum cyclic intercept below D from a sufficient test to a universal noncycle criterion",
+        "retain": "attack exact affine divisibility D|B directly, independent of intercept size",
+        "next_single_lemma": "NoNontrivialPrimitiveValuationWordSatisfiesDDividesB"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T225",
+            "label": "CyclicGcdResidualInvarianceAndRotationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T226",
+            "label": "InfinitePrimitiveMinimumInterceptCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N226",
+            "label": "EveryNontrivialPrimitiveWordHasMinimumInterceptBelowD",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN226",
+            "label": "NoNontrivialPrimitiveValuationWordSatisfiesDDividesB",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T225",
+            "CO-T226"
+          ],
+          [
+            "CO-T226",
+            "CO-N226"
+          ],
+          [
+            "CO-T226",
+            "CO-OPEN226"
+          ],
+          [
+            "CO-OPEN226",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-226",
+      "theorem_name": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+      "declared_proposition": "Let z=X^(1/3) and let S_z(X) count products pq<=X with primes z<p<=q. Then S_z(X)~(log 2)X/log X and S_z(X)/pi(X)->log 2. Thus the cube-root rough-semiprime marginal is of the same asymptotic order as the prime marginal, not a lower-order error. Moreover, the stronger pointwise route PS+SP+SS<PP is already false for explicit even targets while PP remains positive.",
+      "mathematical_argument": "Unique ordering by the smaller prime gives exactly S_z(X)=sum_{z<p<=sqrt(X)}(pi(X/p)-pi(p-1)). The second term is O(X/log^2 X). Uniform PNT for X/p>=sqrt(X), followed by prime partial summation and t=X^u, gives (X/log X) times the integral from 1/3 to 1/2 of du/[u(1-u)]=(log 2)X/log X. The finite convolution rows are complete enumerations and directly refute contamination<PP; they do not refute Goldbach.",
+      "reproducible_computation": {
+        "theorem": "Let z=X^(1/3) and let S_z(X) count products pq<=X with primes z<p<=q. Then S_z(X)~(log 2)X/log X and S_z(X)/pi(X)->log 2. Thus the cube-root rough-semiprime marginal is of the same asymptotic order as the prime marginal, not a lower-order error. Moreover, the stronger pointwise route PS+SP+SS<PP is already false for explicit even targets while PP remains positive.",
+        "proof": "Unique ordering by the smaller prime gives exactly S_z(X)=sum_{z<p<=sqrt(X)}(pi(X/p)-pi(p-1)). The second term is O(X/log^2 X). Uniform PNT for X/p>=sqrt(X), followed by prime partial summation and t=X^u, gives (X/log X) times the integral from 1/3 to 1/2 of du/[u(1-u)]=(log 2)X/log X. The finite convolution rows are complete enumerations and directly refute contamination<PP; they do not refute Goldbach.",
+        "rough_semiprime_density_rows": [
+          {
+            "horizon_X": 10000,
+            "cube_root_cutoff_z": 22,
+            "prime_count_pi_X": 1229,
+            "rough_semiprime_count_S_X": 489,
+            "exact_prime_pair_formula_count": 489,
+            "S_over_pi": 0.39788445890968266,
+            "S_normalized_by_X_over_log_X": 0.45038564418963545,
+            "asymptotic_ratio_log_2": 0.6931471805599453,
+            "exact_count_identity_verified": true
+          },
+          {
+            "horizon_X": 100000,
+            "cube_root_cutoff_z": 47,
+            "prime_count_pi_X": 9592,
+            "rough_semiprime_count_S_X": 4320,
+            "exact_prime_pair_formula_count": 4320,
+            "S_over_pi": 0.45037531276063386,
+            "S_normalized_by_X_over_log_X": 0.49735838008671385,
+            "asymptotic_ratio_log_2": 0.6931471805599453,
+            "exact_count_identity_verified": true
+          },
+          {
+            "horizon_X": 1000000,
+            "cube_root_cutoff_z": 100,
+            "prime_count_pi_X": 78498,
+            "rough_semiprime_count_S_X": 42286,
+            "exact_prime_pair_formula_count": 42286,
+            "S_over_pi": 0.5386888837932177,
+            "S_normalized_by_X_over_log_X": 0.5842026794540772,
+            "asymptotic_ratio_log_2": 0.6931471805599453,
+            "exact_count_identity_verified": true
+          }
+        ],
+        "goldbach_convolution_rows": [
+          {
+            "even_target_N": 10000,
+            "cutoff_z": 22,
+            "prime_prime_PP": 254,
+            "prime_semiprime_PS": 118,
+            "semiprime_prime_SP": 118,
+            "semiprime_semiprime_SS": 34,
+            "rough_semiprime_contamination_E": 270,
+            "filtered_total_QQ": 524,
+            "E_over_PP": 1.062992125984252,
+            "contamination_below_PP": false,
+            "exact_decomposition_verified": true
+          },
+          {
+            "even_target_N": 100000,
+            "cutoff_z": 47,
+            "prime_prime_PP": 1620,
+            "prime_semiprime_PS": 759,
+            "semiprime_prime_SP": 759,
+            "semiprime_semiprime_SS": 294,
+            "rough_semiprime_contamination_E": 1812,
+            "filtered_total_QQ": 3432,
+            "E_over_PP": 1.1185185185185185,
+            "contamination_below_PP": false,
+            "exact_decomposition_verified": true
+          },
+          {
+            "even_target_N": 1000000,
+            "cutoff_z": 100,
+            "prime_prime_PP": 10804,
+            "prime_semiprime_PS": 5833,
+            "semiprime_prime_SP": 5833,
+            "semiprime_semiprime_SS": 3216,
+            "rough_semiprime_contamination_E": 14882,
+            "filtered_total_QQ": 25686,
+            "E_over_PP": 1.3774527952610145,
+            "contamination_below_PP": false,
+            "exact_decomposition_verified": true
+          }
+        ],
+        "aggregate": {
+          "exact_semiprime_count_formula_proved": true,
+          "rough_semiprime_to_prime_ratio_limit": "log(2)",
+          "same_asymptotic_order_via_PNT_proved": true,
+          "lower_order_contamination_route_refuted": true,
+          "finite_targets_with_contamination_at_least_PP": 3,
+          "uniform_pointwise_signed_minor_arc_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The PNT argument is a one-point density theorem, not a pointwise additive convolution asymptotic. The finite targets show that PP can be positive even when contamination exceeds PP.",
+        "failure_count": 0
+      },
+      "logical_limit": "The marginal PNT theorem rejects a lower-order-error model but gives no pointwise additive cancellation for every even target.",
+      "route_decision": {
+        "discard": "treating cube-root rough-semiprime contamination as o(prime mass), or requiring contamination below PP",
+        "retain": "return to a signed circle-method decomposition where arithmetic cancellation, not marginal sparsity, controls the minor contribution",
+        "next_single_lemma": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T225",
+            "label": "CubeRootRoughSemiprimeGoldbachDecomposition",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T226",
+            "label": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N226",
+            "label": "CubeRootSemiprimeContaminationIsLowerOrder",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN226",
+            "label": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T225",
+            "GB-T226"
+          ],
+          [
+            "GB-T226",
+            "GB-N226"
+          ],
+          [
+            "GB-T226",
+            "GB-OPEN226"
+          ],
+          [
+            "GB-OPEN226",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-226",
+      "theorem_name": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+      "declared_proposition": "The same exact count S_z(X)~(log 2)X/log X proves that cube-root rough semiprimes have the same marginal order as primes. Therefore Type-I or marginal density alone cannot make the shifted PS, SP, and SS channels lower order. Complete finite gap-two audits also give explicit horizons where PS+SP+SS>=PP, refuting that stronger domination route without refuting the Twin Prime conjecture.",
+      "mathematical_argument": "The marginal asymptotic is the unique-smaller-factor formula and PNT calculation stated in the Goldbach track. It makes no claim about shifted independence. The pair rows classify every retained n,n+2 into PP, PS, SP, or SS and compare exact integer counts. Since shifted pair control is absent from the marginal theorem, a genuine Type-II correlation estimate remains necessary.",
+      "reproducible_computation": {
+        "theorem": "The same exact count S_z(X)~(log 2)X/log X proves that cube-root rough semiprimes have the same marginal order as primes. Therefore Type-I or marginal density alone cannot make the shifted PS, SP, and SS channels lower order. Complete finite gap-two audits also give explicit horizons where PS+SP+SS>=PP, refuting that stronger domination route without refuting the Twin Prime conjecture.",
+        "proof": "The marginal asymptotic is the unique-smaller-factor formula and PNT calculation stated in the Goldbach track. It makes no claim about shifted independence. The pair rows classify every retained n,n+2 into PP, PS, SP, or SS and compare exact integer counts. Since shifted pair control is absent from the marginal theorem, a genuine Type-II correlation estimate remains necessary.",
+        "rough_semiprime_density_rows": [
+          {
+            "horizon_X": 10000,
+            "cube_root_cutoff_z": 22,
+            "prime_count_pi_X": 1229,
+            "rough_semiprime_count_S_X": 489,
+            "exact_prime_pair_formula_count": 489,
+            "S_over_pi": 0.39788445890968266,
+            "S_normalized_by_X_over_log_X": 0.45038564418963545,
+            "asymptotic_ratio_log_2": 0.6931471805599453,
+            "exact_count_identity_verified": true
+          },
+          {
+            "horizon_X": 100000,
+            "cube_root_cutoff_z": 47,
+            "prime_count_pi_X": 9592,
+            "rough_semiprime_count_S_X": 4320,
+            "exact_prime_pair_formula_count": 4320,
+            "S_over_pi": 0.45037531276063386,
+            "S_normalized_by_X_over_log_X": 0.49735838008671385,
+            "asymptotic_ratio_log_2": 0.6931471805599453,
+            "exact_count_identity_verified": true
+          },
+          {
+            "horizon_X": 1000000,
+            "cube_root_cutoff_z": 100,
+            "prime_count_pi_X": 78498,
+            "rough_semiprime_count_S_X": 42286,
+            "exact_prime_pair_formula_count": 42286,
+            "S_over_pi": 0.5386888837932177,
+            "S_normalized_by_X_over_log_X": 0.5842026794540772,
+            "asymptotic_ratio_log_2": 0.6931471805599453,
+            "exact_count_identity_verified": true
+          }
+        ],
+        "gap_two_pair_rows": [
+          {
+            "horizon_X": 10000,
+            "cutoff_z": 22,
+            "prime_prime_PP": 205,
+            "prime_semiprime_PS": 78,
+            "semiprime_prime_SP": 76,
+            "semiprime_semiprime_SS": 35,
+            "rough_semiprime_pair_contamination_E": 189,
+            "filtered_gap_two_pairs_R": 394,
+            "E_over_PP": 0.9219512195121952,
+            "contamination_below_PP": true,
+            "exact_pair_decomposition_verified": true
+          },
+          {
+            "horizon_X": 100000,
+            "cutoff_z": 47,
+            "prime_prime_PP": 1224,
+            "prime_semiprime_PS": 559,
+            "semiprime_prime_SP": 537,
+            "semiprime_semiprime_SS": 253,
+            "rough_semiprime_pair_contamination_E": 1349,
+            "filtered_gap_two_pairs_R": 2573,
+            "E_over_PP": 1.102124183006536,
+            "contamination_below_PP": false,
+            "exact_pair_decomposition_verified": true
+          },
+          {
+            "horizon_X": 1000000,
+            "cutoff_z": 100,
+            "prime_prime_PP": 8169,
+            "prime_semiprime_PS": 4332,
+            "semiprime_prime_SP": 4350,
+            "semiprime_semiprime_SS": 2453,
+            "rough_semiprime_pair_contamination_E": 11135,
+            "filtered_gap_two_pairs_R": 19304,
+            "E_over_PP": 1.363079936344718,
+            "contamination_below_PP": false,
+            "exact_pair_decomposition_verified": true
+          }
+        ],
+        "aggregate": {
+          "same_order_rough_semiprime_marginal_proved": true,
+          "type_i_marginal_only_route_refuted": true,
+          "finite_horizons_with_contamination_at_least_PP": 2,
+          "shifted_type_ii_power_saving_proved": false,
+          "infinitely_many_twin_primes_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "No asymptotic for rough-semiprime gap-two pairs is claimed. Marginal same-order density and three finite counterexamples do not decide whether PP occurs infinitely often.",
+        "failure_count": 0
+      },
+      "logical_limit": "Same-order marginals show why Type-I data are insufficient, but no shifted Type-II power saving or positive unbounded PP block margin has been proved.",
+      "route_decision": {
+        "discard": "expecting marginal cube-root semiprime sparsity alone to dominate PS, SP, and SS",
+        "retain": "estimate the shifted semiprime channels with genuine Type-II bilinear information on unbounded blocks",
+        "next_single_lemma": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T225",
+            "label": "CubeRootTwinPairTypeDecompositionAndParityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T226",
+            "label": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N226",
+            "label": "CubeRootPairContaminationIsLowerOrderFromMarginals",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN226",
+            "label": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T225",
+            "TP-T226"
+          ],
+          [
+            "TP-T226",
+            "TP-N226"
+          ],
+          [
+            "TP-T226",
+            "TP-OPEN226"
+          ],
+          [
+            "TP-OPEN226",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-226",
+      "status": "open_not_proven",
+      "declared_proposition": "Let psi(x)=sum_{n<=x} Lambda(n), E(x)=psi(x)-x, and P(a)=sum Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every a>0, P(a)=a integral_0^infinity E(x)(exp(-ax)-2exp(-2ax)) dx. The kernel changes sign at log(2)/a, has total mass zero, and has negative and positive masses -1/4 and +1/4. Therefore a sign of P(a) is a balanced contrast of Chebyshev error, not a positive functional and not by itself a Weil-positivity or RH certificate.",
+      "mathematical_argument": "Stieltjes partial summation gives sum Lambda(n)exp(-can)=ca integral psi(x)exp(-cax) dx. Subtracting the exact x integrals for c=1 and c=2 yields the displayed identity. With u=ax, the kernel e^(-u)-2e^(-2u) vanishes at log 2. Its antiderivative -e^(-u)+e^(-2u) gives -1/4 below the crossing and +1/4 above it.",
+      "new_result": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+      "bounded_result": {
+        "audit_ref": "#/signal_transfer_same_order_obstructions_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "reading cofinal signs of one balanced Laplace contrast as direct Weil positivity",
+      "remaining_gap": "The exact balanced kernel explains the observed prime-band signs but supplies no uniform estimate on a dense Weil core and excludes no off-critical zero.",
+      "candidate_theorem": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T225",
+            "label": "ActualPrimeBandTailCertificateAndFiniteBandNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T226",
+            "label": "BalancedChebyshevKernelIdentityAndDirectSignTransferNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N226",
+            "label": "BandSignDirectlyImpliesWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN226",
+            "label": "ExplicitFormulaControlOfBalancedChebyshevBandsOnDenseWeilCore",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T225",
+            "RH-T226"
+          ],
+          [
+            "RH-T226",
+            "RH-N226"
+          ],
+          [
+            "RH-T226",
+            "RH-OPEN226"
+          ],
+          [
+            "RH-OPEN226",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-226",
+      "status": "open_not_proven",
+      "declared_proposition": "For every r>=1, the valuation word w_r=(1,1,3)^r followed by 2 is primitive, has D_r=4*32^r-3*27^r>0, and has minimum cyclic intercept B_r=(62*32^r-57*27^r)/5>D_r. Nevertheless D_r does not divide B_r, so w_r is not a Collatz cycle. Hence the sufficient certificate min_i B_i<D cannot be promoted to a universal noncycle criterion, even within an explicit infinite primitive family.",
+      "mathematical_argument": "The final exponent 2 is unique, proving primitivity. Concatenation of U=(1,1,3), whose affine data are (27,32,19), gives the displayed D_r and B_r. The associated fixed point n_0=B_r/D_r satisfies 1<n_0<19/5. Inside U, the first two accelerated steps increase, and U maps n to (27n+19)/32, which increases every n<19/5 while preserving that interval. Thus n_0 is the least cyclic state and B_r is the least intercept. Also 1<B_r/D_r<4. Equality to 2 would force 22*32^r=27*27^r, and equality to 3 would force 2*32^r=12*27^r; prime factorization rules out both. Therefore the fixed point is not an integer and D_r does not divide B_r.",
+      "new_result": "InfinitePrimitiveMinimumInterceptCounterfamily",
+      "bounded_result": {
+        "audit_ref": "#/signal_transfer_same_order_obstructions_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "promoting the minimum cyclic intercept below D from a sufficient test to a universal noncycle criterion",
+      "remaining_gap": "The family proves that min B<D is not necessary for a noncycle, but it neither excludes every D|B word nor proves descent of every aperiodic natural orbit.",
+      "candidate_theorem": "NoNontrivialPrimitiveValuationWordSatisfiesDDividesB",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T225",
+            "label": "CyclicGcdResidualInvarianceAndRotationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T226",
+            "label": "InfinitePrimitiveMinimumInterceptCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N226",
+            "label": "EveryNontrivialPrimitiveWordHasMinimumInterceptBelowD",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN226",
+            "label": "NoNontrivialPrimitiveValuationWordSatisfiesDDividesB",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T225",
+            "CO-T226"
+          ],
+          [
+            "CO-T226",
+            "CO-N226"
+          ],
+          [
+            "CO-T226",
+            "CO-OPEN226"
+          ],
+          [
+            "CO-OPEN226",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-226",
+      "status": "open_not_proven",
+      "declared_proposition": "Let z=X^(1/3) and let S_z(X) count products pq<=X with primes z<p<=q. Then S_z(X)~(log 2)X/log X and S_z(X)/pi(X)->log 2. Thus the cube-root rough-semiprime marginal is of the same asymptotic order as the prime marginal, not a lower-order error. Moreover, the stronger pointwise route PS+SP+SS<PP is already false for explicit even targets while PP remains positive.",
+      "mathematical_argument": "Unique ordering by the smaller prime gives exactly S_z(X)=sum_{z<p<=sqrt(X)}(pi(X/p)-pi(p-1)). The second term is O(X/log^2 X). Uniform PNT for X/p>=sqrt(X), followed by prime partial summation and t=X^u, gives (X/log X) times the integral from 1/3 to 1/2 of du/[u(1-u)]=(log 2)X/log X. The finite convolution rows are complete enumerations and directly refute contamination<PP; they do not refute Goldbach.",
+      "new_result": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+      "bounded_result": {
+        "audit_ref": "#/signal_transfer_same_order_obstructions_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "treating cube-root rough-semiprime contamination as o(prime mass), or requiring contamination below PP",
+      "remaining_gap": "The marginal PNT theorem rejects a lower-order-error model but gives no pointwise additive cancellation for every even target.",
+      "candidate_theorem": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T225",
+            "label": "CubeRootRoughSemiprimeGoldbachDecomposition",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T226",
+            "label": "CubeRootSemiprimeSameOrderAndGoldbachDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N226",
+            "label": "CubeRootSemiprimeContaminationIsLowerOrder",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN226",
+            "label": "FixedFareySignedMinorDeficitPowerSavingBelowMajorMainUniformly",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T225",
+            "GB-T226"
+          ],
+          [
+            "GB-T226",
+            "GB-N226"
+          ],
+          [
+            "GB-T226",
+            "GB-OPEN226"
+          ],
+          [
+            "GB-OPEN226",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-226",
+      "status": "open_not_proven",
+      "declared_proposition": "The same exact count S_z(X)~(log 2)X/log X proves that cube-root rough semiprimes have the same marginal order as primes. Therefore Type-I or marginal density alone cannot make the shifted PS, SP, and SS channels lower order. Complete finite gap-two audits also give explicit horizons where PS+SP+SS>=PP, refuting that stronger domination route without refuting the Twin Prime conjecture.",
+      "mathematical_argument": "The marginal asymptotic is the unique-smaller-factor formula and PNT calculation stated in the Goldbach track. It makes no claim about shifted independence. The pair rows classify every retained n,n+2 into PP, PS, SP, or SS and compare exact integer counts. Since shifted pair control is absent from the marginal theorem, a genuine Type-II correlation estimate remains necessary.",
+      "new_result": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+      "bounded_result": {
+        "audit_ref": "#/signal_transfer_same_order_obstructions_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "expecting marginal cube-root semiprime sparsity alone to dominate PS, SP, and SS",
+      "remaining_gap": "Same-order marginals show why Type-I data are insufficient, but no shifted Type-II power saving or positive unbounded PP block margin has been proved.",
+      "candidate_theorem": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T225",
+            "label": "CubeRootTwinPairTypeDecompositionAndParityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T226",
+            "label": "CubeRootSemiprimeMarginalSameOrderAndPairDominationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N226",
+            "label": "CubeRootPairContaminationIsLowerOrderFromMarginals",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN226",
+            "label": "ShiftedCubeRootParityTypeIIBilinearPowerSavingOnUnboundedBlocks",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T225",
+            "TP-T226"
+          ],
+          [
+            "TP-T226",
+            "TP-N226"
+          ],
+          [
+            "TP-T226",
+            "TP-OPEN226"
+          ],
+          [
+            "TP-OPEN226",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}
