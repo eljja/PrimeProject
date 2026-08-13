@@ -1,0 +1,199 @@
+{
+  "schema": "primeproject.ticket222-lossless-coupling-biased-parity.v1",
+  "generated_at": "2026-08-13T16:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-222",
+  "theorem_name": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+  "declared_proposition": "For every even N>=6, let R_ord(N) count ordered pairs of odd primes (p,q) with p+q=N. Then R_ord(N) modulo 2 equals 1_P(N/2). Off-diagonal representations occur in swapped pairs, and the only fixed point of the swap is p=q=N/2. Therefore the parity of the Goldbach representation count detects only the diagonal representation and cannot distinguish zero from a positive even number of off-diagonal representations.",
+  "mathematical_argument": "The involution (p,q)->(q,p) partitions all ordered representations into two-element orbits except when p=q. A fixed point exists exactly when N/2 is an odd prime, proving the congruence. For N=20, the four ordered representations (3,17),(17,3),(7,13),(13,7) already show that parity zero is compatible with strict positivity. Thus a parity-only replacement for the TICKET-221 cofinal Lp margin is refuted; an arithmetic one-sided lower bound remains necessary.",
+  "reproducible_computation": {
+    "theorem": "For every even N>=6, let R_ord(N) count ordered pairs of odd primes (p,q) with p+q=N. Then R_ord(N) modulo 2 equals 1_P(N/2). Off-diagonal representations occur in swapped pairs, and the only fixed point of the swap is p=q=N/2. Therefore the parity of the Goldbach representation count detects only the diagonal representation and cannot distinguish zero from a positive even number of off-diagonal representations.",
+    "proof": "The involution (p,q)->(q,p) partitions all ordered representations into two-element orbits except when p=q. A fixed point exists exactly when N/2 is an odd prime, proving the congruence. For N=20, the four ordered representations (3,17),(17,3),(7,13),(13,7) already show that parity zero is compatible with strict positivity. Thus a parity-only replacement for the TICKET-221 cofinal Lp margin is refuted; an arithmetic one-sided lower bound remains necessary.",
+    "finite_exact_scan": {
+      "limit": 100000,
+      "even_targets_checked": 49998,
+      "parity_identity_failures": 0,
+      "zero_representation_count": 0,
+      "positive_even_parity_count": 44866,
+      "positive_odd_parity_count": 5132,
+      "parity_zero_positive_examples": [
+        {
+          "even_target_N": 8,
+          "ordered_odd_prime_representation_count": 2,
+          "N_over_2": 4,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 12,
+          "ordered_odd_prime_representation_count": 2,
+          "N_over_2": 6,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 16,
+          "ordered_odd_prime_representation_count": 4,
+          "N_over_2": 8,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 18,
+          "ordered_odd_prime_representation_count": 4,
+          "N_over_2": 9,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 20,
+          "ordered_odd_prime_representation_count": 4,
+          "N_over_2": 10,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 24,
+          "ordered_odd_prime_representation_count": 6,
+          "N_over_2": 12,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 28,
+          "ordered_odd_prime_representation_count": 4,
+          "N_over_2": 14,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 30,
+          "ordered_odd_prime_representation_count": 6,
+          "N_over_2": 15,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 32,
+          "ordered_odd_prime_representation_count": 4,
+          "N_over_2": 16,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 36,
+          "ordered_odd_prime_representation_count": 8,
+          "N_over_2": 18,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 40,
+          "ordered_odd_prime_representation_count": 6,
+          "N_over_2": 20,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 42,
+          "ordered_odd_prime_representation_count": 8,
+          "N_over_2": 21,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 44,
+          "ordered_odd_prime_representation_count": 6,
+          "N_over_2": 22,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 48,
+          "ordered_odd_prime_representation_count": 10,
+          "N_over_2": 24,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 50,
+          "ordered_odd_prime_representation_count": 8,
+          "N_over_2": 25,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        },
+        {
+          "even_target_N": 52,
+          "ordered_odd_prime_representation_count": 6,
+          "N_over_2": 26,
+          "N_over_2_is_prime": false,
+          "parity_bit": 0
+        }
+      ]
+    },
+    "transcript_sha256": "82da544d35f8334f58dfb98b8da1fb43042f27c15d13a9dbe9e72d908ef00416",
+    "aggregate": {
+      "ordered_count_parity_identity_proved": true,
+      "count_parity_is_zero_detector_refuted": true,
+      "finite_scan_counterexamples": 0,
+      "cofinal_positive_lower_bound_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem refutes only parity of the representation count as a positivity certificate. It does not weaken phase-resolved circle methods, singular-series lower bounds, or direct exception-count estimates. The finite scan is far below the published 4e18 verification and is included only to replay the identity.",
+    "failure_count": 0
+  },
+  "logical_limit": "No all-large-even arithmetic lower bound or exception-count estimate below one is proved.",
+  "route_decision": {
+    "discard": "using the parity bit of the ordered representation count as a zero-versus-positive detector",
+    "retain": "prove a one-sided positive lower bound for the full representation count or a strict subunit tail exception bound",
+    "next_single_lemma": "UniformCofinalPositiveGoldbachCountLowerBound"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T221",
+        "label": "SharpLpDistanceToGoldbachZeroSet",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T222",
+        "label": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N222",
+        "label": "RepresentationCountParityDetectsGoldbachPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN222",
+        "label": "UniformCofinalPositiveGoldbachCountLowerBound",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "Strong Goldbach Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T221",
+        "GB-T222"
+      ],
+      [
+        "GB-T222",
+        "GB-N222"
+      ],
+      [
+        "GB-T222",
+        "GB-OPEN222"
+      ],
+      [
+        "GB-OPEN222",
+        "GB"
+      ]
+    ]
+  }
+}

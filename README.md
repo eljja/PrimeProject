@@ -31,18 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-222: Lossless Coupling and Biased-Parity Corrections](docs/lossless-coupling-biased-parity.md),
+with a separate [Korean report](docs/lossless-coupling-biased-parity.ko.md).
+It proves four exact narrower results: compactly supported signed defects are
+uniquely determined by their complete dyadic Laplace-band profile; `(h,S,B)`
+losslessly encodes every finite positive Collatz valuation word; ordered
+Goldbach-count parity equals the diagonal prime indicator and therefore is not
+a zero detector; and finite-wheel parity variables obey an exact biased CRT
+correlation formula. These are information-recovery, reduction, or no-go
+theorems, not parent-problem resolutions. Every conjecture remains
+`open_not_proven`; the machine resolution count is zero.
+
+The preserved direct input is
 [TICKET-221: Sharp Obstruction Certificates](docs/sharp-obstruction-certificates.md),
-with a separate [Korean report](docs/sharp-obstruction-certificates.ko.md).
-It proves four exact information-boundary results: an arithmetic-free,
-coordinatewise RH dyadic envelope has a sharp per-scale lower bound `1/4` and
-cannot be summable; Collatz scalar Baker data `(h,S)` lose the ordered affine
-intercept; the Goldbach strict `L^p` positivity radius is exactly the minimum
-model coordinate and finite prefixes do not imply a cofinal margin; and every
-proper Walsh monomial is orthogonal to full parity in the balanced Boolean
-Twin stress model. These results reject four insufficient formulations and
-replace them with coupled arithmetic targets. They are not parent-problem
-resolutions. Every conjecture remains `open_not_proven`; the machine
-resolution count is zero.
+with its [Korean report](docs/sharp-obstruction-certificates.ko.md).
 
 The preserved direct input is
 [TICKET-220: Dyadic Partition, Primitive-Word Closure, Refinement Stability, and a Finite-Wheel CRT No-Go](docs/dyadic-partition-primitive-refinement-crt.md),
@@ -338,7 +340,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-221 boundary, four exact obstruction or sharpness results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-222 boundary, four exact partial or route-correction results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -355,17 +357,16 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-221. The RH track proves that every
-arithmetic-free coordinatewise dyadic envelope has per-scale worst case `1/4`
-and therefore diverges. The Collatz track proves that identical scalar Baker
-data can yield cyclically inequivalent ordered fixed points `133/943` and
-`995/943`, so word order cannot
-be discarded. The Goldbach track proves the exact `L^p` distance to the
-coordinate-zero set and a finite-prefix extension no-go. The Twin track proves
-exact low-degree Walsh orthogonality to factor parity in its stated Boolean
-stress model. These are exact obstruction or sharpness results, not solutions.
-All four parent conjectures remain open and the machine resolution count is
-zero. See
+The latest proof-search track is TICKET-222. The RH track proves complete
+dyadic-profile injectivity for compactly supported finite signed measures. The
+Collatz track gives a recursive decoder for `(h,S,B)` and an exact finite-cycle
+divisibility reduction. The Goldbach track proves the ordered-count parity
+identity and refutes parity as a zero detector. The Twin track computes the
+exact biased finite-wheel correlation that replaces a literal balanced-cube
+model. These are exact partial or route-correction results, not solutions. All
+four parent conjectures remain open and the machine resolution count is zero.
+See [TICKET222 EN](docs/lossless-coupling-biased-parity.md),
+[TICKET222 KO](docs/lossless-coupling-biased-parity.ko.md),
 [TICKET221 EN](docs/sharp-obstruction-certificates.md),
 [TICKET221 KO](docs/sharp-obstruction-certificates.ko.md),
 [TICKET220 EN](docs/dyadic-partition-primitive-refinement-crt.md),
@@ -497,17 +498,15 @@ zero. See
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-221입니다. 리만 트랙은 산술 정보 없이
-각 이진 스케일을 독립적으로 지배하는 상계가 스케일마다 최소 `1/4`를
-필요로 하므로 합산 불가능함을 증명했습니다. 콜라츠 트랙은 같은 `(h,S)`
-로그 데이터에서도 서로 순환 동치가 아닌 valuation 순서에 따라 고정점이
-`133/943`과 `995/943`으로
-갈림을 증명했습니다. 골드바흐 트랙은 양의 모델에서 0 좌표 집합까지의
-`L^p` 거리가 정확히 최소 모델 좌표이고 유한 prefix 인증은 공종 결론을
-주지 못함을 증명했습니다. 쌍둥이 소수 트랙은 균형 Boolean 모형에서 모든
-proper 저차 Walsh 관측량이 전체 parity와 정확히 직교함을 증명했습니다.
-이 결과들은 불충분한 네 경로를 폐기한 것이며 네 상위 문제의 해결 수는
-여전히 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-222입니다. 리만 트랙은 높이 0에서
+떨어진 유한 구간에 지지된 부호 측도가 전체 양방향 이진 라플라스 대역
+프로필로 유일하게 결정됨을 증명했습니다. 콜라츠 트랙은 `(h,S,B)`에서
+유한 양의 2진 지수 단어를 순서까지 복원하는 재귀 복호기와 정확한 유한
+주기 나눗셈 판정을 증명했습니다. 골드바흐 트랙은 순서 있는 표현 개수의
+홀짝이 `N/2`의 소수 여부만 나타내므로 반례 탐지기가 될 수 없음을
+증명했습니다. 쌍둥이 소수 트랙은 실제 유한 바퀴 변수의 편향을 포함한
+정확한 중국인의 나머지 정리 곱 상관식을 증명했습니다. 네 상위 문제의
+해결 수는 여전히 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -527,19 +526,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-221입니다.
-[날카로운 장애물 인증서 한국어 보고서](docs/sharp-obstruction-certificates.ko.md)와
-[영문 보고서](docs/sharp-obstruction-certificates.md)는 네 트랙의 정확 명제,
+최신 난제 연구 트랙은 TICKET-222입니다.
+[손실 없는 결합과 편향 패리티 교정 한국어 보고서](docs/lossless-coupling-biased-parity.ko.md)와
+[영문 보고서](docs/lossless-coupling-biased-parity.md)는 네 트랙의 정확 명제,
 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재의 결정적
-미해결 보조정리는 리만의 산술 결합 이진 tail budget, 콜라츠의 순서 민감
-divisibility 또는 descent, 골드바흐의 소수분포 기반 공종 `L^p` 여유,
-쌍둥이 소수의 parity-breaking Type II 입력을 포함한 von Mangoldt 쌍
+미해결 보조정리는 리만의 실제 제타 함수 공종 이진 포락선과 무한 꼬리,
+콜라츠의 모든 비자명 원시 코드 배제와 비주기 하강, 골드바흐의 공종 양의
+표현 개수 하한, 쌍둥이 소수의 편향 잔차를 이기는 스케일 증가형 Type II
 하계입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-221의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 221개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-222의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 222개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

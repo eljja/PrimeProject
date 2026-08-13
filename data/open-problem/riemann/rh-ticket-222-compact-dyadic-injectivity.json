@@ -1,0 +1,286 @@
+{
+  "schema": "primeproject.ticket222-lossless-coupling-biased-parity.v1",
+  "generated_at": "2026-08-13T16:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-222",
+  "theorem_name": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+  "declared_proposition": "Let sigma be a finite signed Borel measure supported in a compact interval [a,b] with 0<a<b, let L_sigma(s)=integral exp(-st) d sigma(t), and let W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Consequently the complete two-sided dyadic Laplace-band profile is injective on compactly supported defect measures away from height zero.",
+  "mathematical_argument": "Write s_j=2^(-j). The equations W_j=0 give L_sigma(s_j)=L_sigma(s_(j-1)), so all dyadic samples have one common value. As j tends to minus infinity, s_j tends to infinity; support in [a,b] with a>0 forces L_sigma(s_j) to zero. Hence every dyadic sample is zero. Compact support makes L_sigma an entire function, and the zeros s_j accumulate at the interior point zero, so the identity theorem gives L_sigma identically zero. Its derivatives at zero show that every polynomial moment vanishes; polynomial density in C[a,b] then gives sigma=0. This proves information sufficiency of the infinite coupled profile, not an actual-zeta prime-side enclosure or control of unbounded support.",
+  "reproducible_computation": {
+    "theorem": "Let sigma be a finite signed Borel measure supported in a compact interval [a,b] with 0<a<b, let L_sigma(s)=integral exp(-st) d sigma(t), and let W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Consequently the complete two-sided dyadic Laplace-band profile is injective on compactly supported defect measures away from height zero.",
+    "proof": "Write s_j=2^(-j). The equations W_j=0 give L_sigma(s_j)=L_sigma(s_(j-1)), so all dyadic samples have one common value. As j tends to minus infinity, s_j tends to infinity; support in [a,b] with a>0 forces L_sigma(s_j) to zero. Hence every dyadic sample is zero. Compact support makes L_sigma an entire function, and the zeros s_j accumulate at the interior point zero, so the identity theorem gives L_sigma identically zero. Its derivatives at zero show that every polynomial moment vanishes; polynomial density in C[a,b] then gives sigma=0. This proves information sufficiency of the infinite coupled profile, not an actual-zeta prime-side enclosure or control of unbounded support.",
+    "hypotheses": {
+      "measure_class": "finite signed Borel measures",
+      "support": "compact [a,b] with 0<a<b",
+      "observations": "all W_j for every j in Z"
+    },
+    "finite_atomic_profile_rows": [
+      {
+        "dyadic_index_j": -12,
+        "measure_A_band": "1.34834840045589340763610867189605E-1779",
+        "measure_B_band": "1.81804340901196629372122861908039E-3558",
+        "profiles_distinct_at_this_scale": false
+      },
+      {
+        "dyadic_index_j": -11,
+        "measure_A_band": "3.67198638403779134660860694153952E-890",
+        "measure_B_band": "1.34834840045589340763610867189605E-1779",
+        "profiles_distinct_at_this_scale": false
+      },
+      {
+        "dyadic_index_j": -10,
+        "measure_A_band": "1.91624277794797998988359419144723E-445",
+        "measure_B_band": "3.67198638403779134660860694153952E-890",
+        "profiles_distinct_at_this_scale": false
+      },
+      {
+        "dyadic_index_j": -9,
+        "measure_A_band": "4.37749103705305145412147276290219E-223",
+        "measure_B_band": "1.91624277794797998988359419144723E-445",
+        "profiles_distinct_at_this_scale": false
+      },
+      {
+        "dyadic_index_j": -8,
+        "measure_A_band": "6.61626105670948526102953080736206E-112",
+        "measure_B_band": "4.37749103705305145412147276290219E-223",
+        "profiles_distinct_at_this_scale": false
+      },
+      {
+        "dyadic_index_j": -7,
+        "measure_A_band": "2.57220937264241482683953808360877E-56",
+        "measure_B_band": "6.61626105670948526102953080736206E-112",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": -6,
+        "measure_A_band": "1.60381089054863785297608703388511E-28",
+        "measure_B_band": "2.57220937264241482683953808360877E-56",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": -5,
+        "measure_A_band": "1.26641655490940153420318492921798E-14",
+        "measure_B_band": "1.60381089054863785297608703439956E-28",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": -4,
+        "measure_A_band": "1.12535162055093565419920218117333E-7",
+        "measure_B_band": "1.26641655490943361042099590197504E-14",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": -3,
+        "measure_A_band": "3.35350092753120910805063381339666E-4",
+        "measure_B_band": "1.12535187383424663607790521091976E-7",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": -2,
+        "measure_A_band": "1.79804013311560105943104957032573E-2",
+        "measure_B_band": "3.35575163064566932386808564855711E-4",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": -1,
+        "measure_A_band": "1.17690359763313609520040636180137E-1",
+        "measure_B_band": "1.86509889814493087078758024481199E-2",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 0,
+        "measure_A_band": "2.68627905030599901448186740037998E-1",
+        "measure_B_band": "1.53315346962269641089781613344766E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 1,
+        "measure_A_band": "4.83676093971103752155484209824406E-1",
+        "measure_B_band": "4.84563622891418321356983854734923E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 2,
+        "measure_A_band": "7.31648667252052734331493837318861E-1",
+        "measure_B_band": "8.20759178758728873011605788906916E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 3,
+        "measure_A_band": "8.00251799392058131650123854141943E-1",
+        "measure_B_band": "8.82116718375983278359446536835556E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 4,
+        "measure_A_band": "6.46586764318996552507121697724186E-1",
+        "measure_B_band": "6.86887584771924525910739105054730E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 5,
+        "measure_A_band": "4.22269187947333692528559527213915E-1",
+        "measure_B_band": "4.36578522614032897135633165881855E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 6,
+        "measure_A_band": "2.43070977260660920059673434510987E-1",
+        "measure_B_band": "2.47348611633819596857757607661286E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 7,
+        "measure_A_band": "1.30649280677256108738644451592487E-1",
+        "measure_B_band": "1.31819706083681298850495055092017E-1",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 8,
+        "measure_A_band": "6.77618961063128818547643408340947E-2",
+        "measure_B_band": "6.80680779758320501251060379419803E-2",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 9,
+        "measure_A_band": "3.45113309070907313145706150650412E-2",
+        "measure_B_band": "3.45896362486085143337038651154137E-2",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 10,
+        "measure_A_band": "1.74159749386661159407956755156187E-2",
+        "measure_B_band": "1.74357753119410446799812652172044E-2",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 11,
+        "measure_A_band": "8.74840920382926110621753700254333E-3",
+        "measure_B_band": "8.75338755909013277595256063421615E-3",
+        "profiles_distinct_at_this_scale": true
+      },
+      {
+        "dyadic_index_j": 12,
+        "measure_A_band": "4.38435340651679658751776133693722E-3",
+        "measure_B_band": "4.38560154427206484974022468548971E-3",
+        "profiles_distinct_at_this_scale": true
+      }
+    ],
+    "finite_telescoping_rows": [
+      {
+        "radius_R": 2,
+        "finite_band_sum": "1.61962342734822600804951591906466E+0",
+        "telescoping_boundary": "1.61962342734822600804951591906466E+0",
+        "distance_to_total_mass_four": "2.38037657265177399195048408093534E+0",
+        "telescoping_identity_verified": true
+      },
+      {
+        "radius_R": 4,
+        "finite_band_sum": "3.06679745368719586821113195423235E+0",
+        "telescoping_boundary": "3.06679745368719586821113195423235E+0",
+        "distance_to_total_mass_four": "9.33202546312804131788868045767654E-1",
+        "telescoping_identity_verified": true
+      },
+      {
+        "radius_R": 8,
+        "finite_band_sum": "3.93054879567877213555832280255955E+0",
+        "telescoping_boundary": "3.93054879567877213555832280255955E+0",
+        "distance_to_total_mass_four": "6.94512043212278644416771974404469E-2",
+        "telescoping_identity_verified": true
+      },
+      {
+        "radius_R": 12,
+        "finite_band_sum": "3.99560886413487504050742439147969E+0",
+        "telescoping_boundary": "3.99560886413487504050742439147969E+0",
+        "distance_to_total_mass_four": "4.39113586512495949257560852030639E-3",
+        "telescoping_identity_verified": true
+      },
+      {
+        "radius_R": 16,
+        "finite_band_sum": "3.99972535506771366619250874347932E+0",
+        "telescoping_boundary": "3.99972535506771366619250874347932E+0",
+        "distance_to_total_mass_four": "2.74644932286333807491256520676858E-4",
+        "telescoping_identity_verified": true
+      },
+      {
+        "radius_R": 24,
+        "finite_band_sum": "3.99999892711659654761816020440890E+0",
+        "telescoping_boundary": "3.99999892711659654761816020440890E+0",
+        "distance_to_total_mass_four": "1.07288340345238183979559110032072E-6",
+        "telescoping_identity_verified": true
+      },
+      {
+        "radius_R": 32,
+        "finite_band_sum": "3.99999999580904841732032286946627E+0",
+        "telescoping_boundary": "3.99999999580904841732032286946627E+0",
+        "distance_to_total_mass_four": "4.19095158267967713053372611335824E-9",
+        "telescoping_identity_verified": true
+      }
+    ],
+    "transcript_sha256": "dbfe82553254361ce37245fd05279bd4b06a78271e14c2526b2b14ba0f41d7e7",
+    "aggregate": {
+      "compact_full_dyadic_profile_injectivity_proved": true,
+      "finite_example_profiles_differ_somewhere": true,
+      "finite_window_injectivity_claimed": false,
+      "unbounded_actual_zeta_defect_support_controlled": false,
+      "prime_side_arithmetic_enclosure_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem positively identifies a lossless coupled observable on compact support. It does not extend by itself to an unbounded defect measure, and no finite subset of bands is promoted to an infinite certificate.",
+    "failure_count": 0
+  },
+  "logical_limit": "No tail-tight actual-zeta prime-side enclosure is proved for the unbounded defect class required by RH.",
+  "route_decision": {
+    "discard": "treating the full coupled dyadic profile as intrinsically information-losing on compact positive-height defects",
+    "retain": "construct an actual prime-side enclosure on a cofinal compact exhaustion with a rigorously vanishing tail",
+    "next_single_lemma": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T221",
+        "label": "ScaleUniformDyadicEnvelopeDivergenceNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T222",
+        "label": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N222",
+        "label": "CompactInjectivityControlsUnboundedActualZetaTail",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN222",
+        "label": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "Riemann Hypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T221",
+        "RH-T222"
+      ],
+      [
+        "RH-T222",
+        "RH-N222"
+      ],
+      [
+        "RH-T222",
+        "RH-OPEN222"
+      ],
+      [
+        "RH-OPEN222",
+        "RH"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "schema": "primeproject.ticket222-lossless-coupling-biased-parity.v1",
+  "generated_at": "2026-08-13T16:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-222",
+  "theorem_name": "FiniteWheelBiasedParityLeakageProductFormula",
+  "declared_proposition": "Let q_1,...,q_m be distinct odd primes and choose n uniformly modulo W=product q_i. Put X_q(n)=-1 when q divides n(n+2) and +1 otherwise, and P=product_q X_q. CRT makes the X_q independent with mean mu_q=1-4/q. For every subset S, E[P product_(q in S)X_q]=product_(q not in S)mu_q. Thus, unlike the balanced cube of TICKET-221, finite-wheel divisibility parity has nonzero leakage into every proper uncentered degree because no odd prime has mu_q=0. The leakage from a fixed-degree observable is exactly attenuated by the product of all omitted local biases.",
+  "mathematical_argument": "For one odd prime q, exactly the two residues 0 and -2 make q divide n(n+2), so E[X_q]=(q-2-2)/q=1-4/q. The Chinese remainder theorem identifies uniform residues modulo W with the product of uniform residues modulo each q, proving independence. In the product P times the S-monomial, coordinates in S occur squared and contribute one; every omitted coordinate contributes its mean. This corrects, rather than solves, the balanced Boolean stress model: local bias creates signal, but proving a positive gap-two prime correlation still requires a scale-growing arithmetic Type-II estimate and control of the omitted-prime tail.",
+  "reproducible_computation": {
+    "theorem": "Let q_1,...,q_m be distinct odd primes and choose n uniformly modulo W=product q_i. Put X_q(n)=-1 when q divides n(n+2) and +1 otherwise, and P=product_q X_q. CRT makes the X_q independent with mean mu_q=1-4/q. For every subset S, E[P product_(q in S)X_q]=product_(q not in S)mu_q. Thus, unlike the balanced cube of TICKET-221, finite-wheel divisibility parity has nonzero leakage into every proper uncentered degree because no odd prime has mu_q=0. The leakage from a fixed-degree observable is exactly attenuated by the product of all omitted local biases.",
+    "proof": "For one odd prime q, exactly the two residues 0 and -2 make q divide n(n+2), so E[X_q]=(q-2-2)/q=1-4/q. The Chinese remainder theorem identifies uniform residues modulo W with the product of uniform residues modulo each q, proving independence. In the product P times the S-monomial, coordinates in S occur squared and contribute one; every omitted coordinate contributes its mean. This corrects, rather than solves, the balanced Boolean stress model: local bias creates signal, but proving a positive gap-two prime correlation still requires a scale-growing arithmetic Type-II estimate and control of the omitted-prime tail.",
+    "bias_formula": "mu_q=1-4/q; correlation(S)=product_(q notin S)mu_q",
+    "wheel_prefix_rows": [
+      {
+        "wheel_prime_count_m": 2,
+        "largest_wheel_prime": 5,
+        "constant_parity_correlation": "-1/15",
+        "constant_parity_correlation_abs_decimal": 0.06666666666666667,
+        "audited_fixed_degree_d": 1,
+        "minimum_degree_d_correlation_abs": "1/5",
+        "maximum_degree_d_correlation_abs": "1/3",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 3,
+        "largest_wheel_prime": 7,
+        "constant_parity_correlation": "-1/35",
+        "constant_parity_correlation_abs_decimal": 0.02857142857142857,
+        "audited_fixed_degree_d": 2,
+        "minimum_degree_d_correlation_abs": "1/5",
+        "maximum_degree_d_correlation_abs": "3/7",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 4,
+        "largest_wheel_prime": 11,
+        "constant_parity_correlation": "-1/55",
+        "constant_parity_correlation_abs_decimal": 0.01818181818181818,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "1/5",
+        "maximum_degree_d_correlation_abs": "7/11",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 5,
+        "largest_wheel_prime": 13,
+        "constant_parity_correlation": "-9/715",
+        "constant_parity_correlation_abs_decimal": 0.012587412587412588,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "1/15",
+        "maximum_degree_d_correlation_abs": "63/143",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 6,
+        "largest_wheel_prime": 17,
+        "constant_parity_correlation": "-9/935",
+        "constant_parity_correlation_abs_decimal": 0.009625668449197862,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "1/35",
+        "maximum_degree_d_correlation_abs": "63/187",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 7,
+        "largest_wheel_prime": 19,
+        "constant_parity_correlation": "-27/3553",
+        "constant_parity_correlation_abs_decimal": 0.007599211933577259,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "1/55",
+        "maximum_degree_d_correlation_abs": "945/3553",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 8,
+        "largest_wheel_prime": 23,
+        "constant_parity_correlation": "-27/4301",
+        "constant_parity_correlation_abs_decimal": 0.006277609858172518,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "9/715",
+        "maximum_degree_d_correlation_abs": "945/4301",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 9,
+        "largest_wheel_prime": 29,
+        "constant_parity_correlation": "-675/124729",
+        "constant_parity_correlation_abs_decimal": 0.005411732636355619,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "9/935",
+        "maximum_degree_d_correlation_abs": "23625/124729",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 10,
+        "largest_wheel_prime": 31,
+        "constant_parity_correlation": "-18225/3866599",
+        "constant_parity_correlation_abs_decimal": 0.004713444554245216,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "27/3553",
+        "maximum_degree_d_correlation_abs": "637875/3866599",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 11,
+        "largest_wheel_prime": 37,
+        "constant_parity_correlation": "-54675/13005833",
+        "constant_parity_correlation_abs_decimal": 0.004203882980813301,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "27/4301",
+        "maximum_degree_d_correlation_abs": "1913625/13005833",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 12,
+        "largest_wheel_prime": 41,
+        "constant_parity_correlation": "-54675/14411869",
+        "constant_parity_correlation_abs_decimal": 0.003793748055855906,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "675/124729",
+        "maximum_degree_d_correlation_abs": "1913625/14411869",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      },
+      {
+        "wheel_prime_count_m": 13,
+        "largest_wheel_prime": 43,
+        "constant_parity_correlation": "-2132325/619710367",
+        "constant_parity_correlation_abs_decimal": 0.0034408412599623334,
+        "audited_fixed_degree_d": 3,
+        "minimum_degree_d_correlation_abs": "18225/3866599",
+        "maximum_degree_d_correlation_abs": "74631375/619710367",
+        "every_proper_uncentered_monomial_correlation_nonzero": true,
+        "full_degree_correlation": "1/1"
+      }
+    ],
+    "exact_crt_enumeration": {
+      "primes": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "modulus_W": 1155,
+      "subset_rows": [
+        {
+          "selected_prime_subset": [],
+          "degree": 0,
+          "exact_crt_correlation": "-1/55",
+          "product_bias_prediction": "-1/55",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3
+          ],
+          "degree": 1,
+          "exact_crt_correlation": "3/55",
+          "product_bias_prediction": "3/55",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            5
+          ],
+          "degree": 1,
+          "exact_crt_correlation": "-1/11",
+          "product_bias_prediction": "-1/11",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            5
+          ],
+          "degree": 2,
+          "exact_crt_correlation": "3/11",
+          "product_bias_prediction": "3/11",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            7
+          ],
+          "degree": 1,
+          "exact_crt_correlation": "-7/165",
+          "product_bias_prediction": "-7/165",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            7
+          ],
+          "degree": 2,
+          "exact_crt_correlation": "7/55",
+          "product_bias_prediction": "7/55",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            5,
+            7
+          ],
+          "degree": 2,
+          "exact_crt_correlation": "-7/33",
+          "product_bias_prediction": "-7/33",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            5,
+            7
+          ],
+          "degree": 3,
+          "exact_crt_correlation": "7/11",
+          "product_bias_prediction": "7/11",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            11
+          ],
+          "degree": 1,
+          "exact_crt_correlation": "-1/35",
+          "product_bias_prediction": "-1/35",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            11
+          ],
+          "degree": 2,
+          "exact_crt_correlation": "3/35",
+          "product_bias_prediction": "3/35",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            5,
+            11
+          ],
+          "degree": 2,
+          "exact_crt_correlation": "-1/7",
+          "product_bias_prediction": "-1/7",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            5,
+            11
+          ],
+          "degree": 3,
+          "exact_crt_correlation": "3/7",
+          "product_bias_prediction": "3/7",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            7,
+            11
+          ],
+          "degree": 2,
+          "exact_crt_correlation": "-1/15",
+          "product_bias_prediction": "-1/15",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            7,
+            11
+          ],
+          "degree": 3,
+          "exact_crt_correlation": "1/5",
+          "product_bias_prediction": "1/5",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            5,
+            7,
+            11
+          ],
+          "degree": 3,
+          "exact_crt_correlation": "-1/3",
+          "product_bias_prediction": "-1/3",
+          "identity_verified": true
+        },
+        {
+          "selected_prime_subset": [
+            3,
+            5,
+            7,
+            11
+          ],
+          "degree": 4,
+          "exact_crt_correlation": "1/1",
+          "product_bias_prediction": "1/1",
+          "identity_verified": true
+        }
+      ]
+    },
+    "aggregate": {
+      "crt_product_independence_proved": true,
+      "biased_parity_leakage_formula_proved": true,
+      "balanced_orthogonality_applies_to_actual_finite_wheel": false,
+      "proper_uncentered_correlations_all_nonzero": true,
+      "arithmetic_type_ii_pair_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem is exact for divisibility signs under a finite squarefree wheel. P is parity of selected small-prime divisors, not the full prime indicator. Nonzero leakage is not a positive lower bound for Lambda(n)Lambda(n+2), and fixed wheels remain subject to CRT composite-pair countermodels.",
+    "failure_count": 0
+  },
+  "logical_limit": "Finite-wheel parity leakage is not a lower bound for the shift-two von Mangoldt correlation and does not control the tail.",
+  "route_decision": {
+    "discard": "applying balanced-cube exact orthogonality literally to biased finite-wheel divisibility variables",
+    "retain": "quantify scale-growing biased parity signal and prove it dominates the signed arithmetic Type-II remainder",
+    "next_single_lemma": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T221",
+        "label": "LowDegreeBooleanParityOrthogonalityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T222",
+        "label": "FiniteWheelBiasedParityLeakageProductFormula",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N222",
+        "label": "NonzeroFiniteWheelLeakageImpliesPositiveTwinCorrelation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN222",
+        "label": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "Twin Prime Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T221",
+        "TP-T222"
+      ],
+      [
+        "TP-T222",
+        "TP-N222"
+      ],
+      [
+        "TP-T222",
+        "TP-OPEN222"
+      ],
+      [
+        "TP-OPEN222",
+        "TP"
+      ]
+    ]
+  }
+}

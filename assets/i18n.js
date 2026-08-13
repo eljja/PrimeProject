@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, missing coupling information made explicit",
-      ko: "네 개의 미해결 문제, 누락된 결합 정보의 명시적 분리",
+      en: "Four open problems, recoverable information separated from the infinite gap",
+      ko: "네 미해결 문제, 식별 가능한 관측량과 무한 간극의 분리",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-221 proves four sharp obstruction theorems showing why scale-independent, order-blind, finite-prefix, and low-degree parity data are insufficient.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-221은 스케일 독립, 순서 비민감, 유한 prefix, 저차 parity 자료가 왜 불충분한지 네 개의 정확한 obstruction 정리로 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-222 proves four exact information-recovery, reduction, or parity-correction theorems and exposes the remaining infinite arithmetic premises.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-222는 관측 유일성, 정확한 환원, 패리티 교정에 관한 네 정리를 증명하고 남은 무한 산술 전제를 분리합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-221 proves four sharp obstruction theorems and replaces four insufficient next-lemma formulations with coupling-aware targets. Resolution count: 0.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-221은 네 개의 sharp obstruction 정리를 증명하고 불충분한 다음 보조정리 네 개를 결합 정보가 포함된 목표로 교체했습니다. 해결된 난제: 0개.",
+      en: "All four conjectures remain open_not_proven. TICKET-222 proves four exact partial or route-correction theorems while keeping every infinite arithmetic premise explicit. Resolution count: 0.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-222는 네 개의 정확한 부분정리 또는 경로 교정 정리를 증명하고 필요한 무한 산술 전제를 명시합니다. 해결된 난제: 0개.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

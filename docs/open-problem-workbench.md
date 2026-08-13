@@ -15,7 +15,33 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-221
+## Current research boundary: TICKET-222
+
+The current machine-readable boundary is
+`data/open-problem/ticket222-lossless-coupling-biased-parity.json`.
+
+TICKET-222 proves four exact partial or route-correction theorems and resolves
+none of the parent conjectures:
+
+- the complete two-sided dyadic Laplace-band profile is injective for finite
+  signed measures compactly supported in `[a,b]` with `0<a<b`;
+- the Collatz triple `(h,S,B)` is a lossless code for every finite positive
+  valuation word, and `D=2^S-3^h>0` with `D|B` is the exact finite-cycle test;
+- the parity of the ordered odd-prime Goldbach count is exactly the prime
+  indicator of `N/2`, so count parity cannot detect zero representations;
+- finite-wheel divisibility parity has an exact biased-product leakage formula,
+  correcting the literal transfer of balanced-cube Walsh orthogonality.
+
+The remaining decisive targets are an actual-zeta cofinal dyadic enclosure with
+a controlled unbounded tail; exclusion of every nontrivial primitive Collatz
+code together with aperiodic descent; a cofinal positive Goldbach-count lower
+bound; and a scale-growing Type II estimate that dominates the biased Twin
+remainder.
+
+English report: [TICKET-222](lossless-coupling-biased-parity.md).
+한국어 보고서: [TICKET-222](lossless-coupling-biased-parity.ko.md).
+
+## Preserved research boundary: TICKET-221
 
 The current machine-readable boundary is
 `data/open-problem/ticket221-sharp-obstruction-certificates.json`.

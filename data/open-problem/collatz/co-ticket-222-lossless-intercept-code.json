@@ -1,0 +1,294 @@
+{
+  "schema": "primeproject.ticket222-lossless-coupling-biased-parity.v1",
+  "generated_at": "2026-08-13T16:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-222",
+  "theorem_name": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+  "declared_proposition": "For every positive accelerated Collatz valuation word a=(a_1,...,a_h), the triple (h,S,B), where S=sum a_i and B=sum_i 3^(h-i)2^(a_1+...+a_(i-1)), determines a uniquely. Indeed a_1=v_2(B-3^(h-1)); division recovers the tail intercept, and recursion recovers a_1,...,a_(h-1), while S recovers a_h. Together with D=2^S-3^h, D>0 and D|B are equivalent to this ordered word realizing a positive accelerated integer cycle.",
+  "mathematical_argument": "The affine constant satisfies B_h(a)=3^(h-1)+2^(a_1) B_(h-1)(a_2,...,a_h). Every tail intercept is odd, so the exact 2-adic valuation of B_h-3^(h-1) is a_1. Repeating recovers all but the final exponent, which is S minus the recovered prefix. For the cycle criterion, cyclic intercepts satisfy 2^(a_i)B_(i+1)=3B_i+D. Since gcd(D,6)=1, divisibility by D is rotation invariant. If D|B, all n_i=B_i/D are positive odd integers and 3n_i+1=2^(a_i)n_(i+1), so the displayed exponent is the exact 2-adic valuation and the orbit closes. The converse is the affine fixed-point equation. This closes information recovery and cycle admissibility, but neither excludes all nontrivial codes nor controls aperiodic divergence.",
+  "reproducible_computation": {
+    "theorem": "For every positive accelerated Collatz valuation word a=(a_1,...,a_h), the triple (h,S,B), where S=sum a_i and B=sum_i 3^(h-i)2^(a_1+...+a_(i-1)), determines a uniquely. Indeed a_1=v_2(B-3^(h-1)); division recovers the tail intercept, and recursion recovers a_1,...,a_(h-1), while S recovers a_h. Together with D=2^S-3^h, D>0 and D|B are equivalent to this ordered word realizing a positive accelerated integer cycle.",
+    "proof": "The affine constant satisfies B_h(a)=3^(h-1)+2^(a_1) B_(h-1)(a_2,...,a_h). Every tail intercept is odd, so the exact 2-adic valuation of B_h-3^(h-1) is a_1. Repeating recovers all but the final exponent, which is S minus the recovered prefix. For the cycle criterion, cyclic intercepts satisfy 2^(a_i)B_(i+1)=3B_i+D. Since gcd(D,6)=1, divisibility by D is rotation invariant. If D|B, all n_i=B_i/D are positive odd integers and 3n_i+1=2^(a_i)n_(i+1), so the displayed exponent is the exact 2-adic valuation and the orbit closes. The converse is the affine fixed-point equation. This closes information recovery and cycle admissibility, but neither excludes all nontrivial codes nor controls aperiodic divergence.",
+    "decode_recurrence": "a_1=v2(B_h-3^(h-1)); B_tail=(B_h-3^(h-1))/2^a_1; a_h=S-sum_(i<h)a_i",
+    "sample_lossless_decode_rows": [
+      {
+        "word": [
+          1
+        ],
+        "height_h": 1,
+        "total_valuation_S": 1,
+        "intercept_B": 1,
+        "denominator_D": -1,
+        "D_divides_B": false,
+        "cycle_start": null,
+        "exact_cycle_replay": false,
+        "decoded_word": [
+          1
+        ],
+        "decode_matches": true
+      },
+      {
+        "word": [
+          2
+        ],
+        "height_h": 1,
+        "total_valuation_S": 2,
+        "intercept_B": 1,
+        "denominator_D": 1,
+        "D_divides_B": true,
+        "cycle_start": 1,
+        "exact_cycle_replay": true,
+        "decoded_word": [
+          2
+        ],
+        "decode_matches": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "height_h": 4,
+        "total_valuation_S": 10,
+        "intercept_B": 133,
+        "denominator_D": 943,
+        "D_divides_B": false,
+        "cycle_start": null,
+        "exact_cycle_replay": false,
+        "decoded_word": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "decode_matches": true
+      },
+      {
+        "word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "height_h": 4,
+        "total_valuation_S": 10,
+        "intercept_B": 995,
+        "denominator_D": 943,
+        "D_divides_B": false,
+        "cycle_start": null,
+        "exact_cycle_replay": false,
+        "decoded_word": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "decode_matches": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "height_h": 5,
+        "total_valuation_S": 11,
+        "intercept_B": 619,
+        "denominator_D": 1805,
+        "D_divides_B": false,
+        "cycle_start": null,
+        "exact_cycle_replay": false,
+        "decoded_word": [
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        "decode_matches": true
+      },
+      {
+        "word": [
+          5,
+          1,
+          2,
+          4,
+          3,
+          2
+        ],
+        "height_h": 6,
+        "total_valuation_S": 17,
+        "intercept_B": 51923,
+        "denominator_D": 130343,
+        "D_divides_B": false,
+        "cycle_start": null,
+        "exact_cycle_replay": false,
+        "decoded_word": [
+          5,
+          1,
+          2,
+          4,
+          3,
+          2
+        ],
+        "decode_matches": true
+      }
+    ],
+    "finite_complete_alphabet_rows": [
+      {
+        "height_h": 1,
+        "words_checked": 5,
+        "distinct_S_B_codes": 5,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 4,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 2,
+        "words_checked": 25,
+        "distinct_S_B_codes": 25,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 22,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 3,
+        "words_checked": 125,
+        "distinct_S_B_codes": 125,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 121,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 4,
+        "words_checked": 625,
+        "distinct_S_B_codes": 625,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 610,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 5,
+        "words_checked": 3125,
+        "distinct_S_B_codes": 3125,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 3104,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 6,
+        "words_checked": 15625,
+        "distinct_S_B_codes": 15625,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 15541,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 7,
+        "words_checked": 78125,
+        "distinct_S_B_codes": 78125,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 77795,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      },
+      {
+        "height_h": 8,
+        "words_checked": 390625,
+        "distinct_S_B_codes": 390625,
+        "code_collision_count": 0,
+        "decode_failure_count": 0,
+        "contracting_word_count": 390130,
+        "D_divides_B_count": 1,
+        "divisible_but_exact_replay_failure_count": 0
+      }
+    ],
+    "transcript_sha256": "6b64c67315f5a0bad98486fcde77aecefd51c25f25f6f061e5e1a7d44a45f99f",
+    "aggregate": {
+      "valuation_alphabet": "1..5",
+      "maximum_height": 8,
+      "total_words_checked": 488280,
+      "total_code_collisions": 0,
+      "total_decode_failures": 0,
+      "total_divisible_codes": 8,
+      "slope_intercept_code_injectivity_proved": true,
+      "exact_cycle_divisibility_reduction_proved": true,
+      "all_nontrivial_codes_excluded": false,
+      "aperiodic_divergence_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The finite enumeration is only a replay. The symbolic decoding and D|B equivalence hold for every finite positive word, but they turn cycle exclusion into an all-code divisibility problem rather than solve it, and they do not address divergent nonperiodic rays.",
+    "failure_count": 0
+  },
+  "logical_limit": "The lossless code does not prove D does not divide B for all nontrivial primitive words and does not exclude divergent rays.",
+  "route_decision": {
+    "discard": "adding more unordered or scalar Baker summaries after the exact ordered intercept is already available",
+    "retain": "attack all non-all-two primitive (h,S,B) codes by exact divisibility or prove first descent on every aperiodic ray",
+    "next_single_lemma": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T221",
+        "label": "OrderBlindLogarithmicSeparationNoGoForPrimitiveWords",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T222",
+        "label": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N222",
+        "label": "LosslessCodingExcludesEveryNontrivialCodeOrDivergentRay",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN222",
+        "label": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "Collatz Conjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T221",
+        "CO-T222"
+      ],
+      [
+        "CO-T222",
+        "CO-N222"
+      ],
+      [
+        "CO-T222",
+        "CO-OPEN222"
+      ],
+      [
+        "CO-OPEN222",
+        "CO"
+      ]
+    ]
+  }
+}

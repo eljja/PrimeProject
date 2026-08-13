@@ -1,0 +1,1421 @@
+{
+  "schema": "primeproject.ticket222-lossless-coupling-biased-parity.v1",
+  "generated_at": "2026-08-13T16:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-222 proves four exact information-recovery or parity-correction theorems and resolves none of the four parent conjectures.",
+  "lossless_coupling_biased_parity_audit": {
+    "theorem_name": "LosslessCouplingAndBiasedParityCorrectionsForFourOpenProblems",
+    "status": "open_not_proven",
+    "proof_boundary": "The results identify which coupled observables are lossless and which parity inferences fail. They prove no parent conjecture.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-222",
+      "theorem_name": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+      "declared_proposition": "Let sigma be a finite signed Borel measure supported in a compact interval [a,b] with 0<a<b, let L_sigma(s)=integral exp(-st) d sigma(t), and let W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Consequently the complete two-sided dyadic Laplace-band profile is injective on compactly supported defect measures away from height zero.",
+      "mathematical_argument": "Write s_j=2^(-j). The equations W_j=0 give L_sigma(s_j)=L_sigma(s_(j-1)), so all dyadic samples have one common value. As j tends to minus infinity, s_j tends to infinity; support in [a,b] with a>0 forces L_sigma(s_j) to zero. Hence every dyadic sample is zero. Compact support makes L_sigma an entire function, and the zeros s_j accumulate at the interior point zero, so the identity theorem gives L_sigma identically zero. Its derivatives at zero show that every polynomial moment vanishes; polynomial density in C[a,b] then gives sigma=0. This proves information sufficiency of the infinite coupled profile, not an actual-zeta prime-side enclosure or control of unbounded support.",
+      "reproducible_computation": {
+        "theorem": "Let sigma be a finite signed Borel measure supported in a compact interval [a,b] with 0<a<b, let L_sigma(s)=integral exp(-st) d sigma(t), and let W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Consequently the complete two-sided dyadic Laplace-band profile is injective on compactly supported defect measures away from height zero.",
+        "proof": "Write s_j=2^(-j). The equations W_j=0 give L_sigma(s_j)=L_sigma(s_(j-1)), so all dyadic samples have one common value. As j tends to minus infinity, s_j tends to infinity; support in [a,b] with a>0 forces L_sigma(s_j) to zero. Hence every dyadic sample is zero. Compact support makes L_sigma an entire function, and the zeros s_j accumulate at the interior point zero, so the identity theorem gives L_sigma identically zero. Its derivatives at zero show that every polynomial moment vanishes; polynomial density in C[a,b] then gives sigma=0. This proves information sufficiency of the infinite coupled profile, not an actual-zeta prime-side enclosure or control of unbounded support.",
+        "hypotheses": {
+          "measure_class": "finite signed Borel measures",
+          "support": "compact [a,b] with 0<a<b",
+          "observations": "all W_j for every j in Z"
+        },
+        "finite_atomic_profile_rows": [
+          {
+            "dyadic_index_j": -12,
+            "measure_A_band": "1.34834840045589340763610867189605E-1779",
+            "measure_B_band": "1.81804340901196629372122861908039E-3558",
+            "profiles_distinct_at_this_scale": false
+          },
+          {
+            "dyadic_index_j": -11,
+            "measure_A_band": "3.67198638403779134660860694153952E-890",
+            "measure_B_band": "1.34834840045589340763610867189605E-1779",
+            "profiles_distinct_at_this_scale": false
+          },
+          {
+            "dyadic_index_j": -10,
+            "measure_A_band": "1.91624277794797998988359419144723E-445",
+            "measure_B_band": "3.67198638403779134660860694153952E-890",
+            "profiles_distinct_at_this_scale": false
+          },
+          {
+            "dyadic_index_j": -9,
+            "measure_A_band": "4.37749103705305145412147276290219E-223",
+            "measure_B_band": "1.91624277794797998988359419144723E-445",
+            "profiles_distinct_at_this_scale": false
+          },
+          {
+            "dyadic_index_j": -8,
+            "measure_A_band": "6.61626105670948526102953080736206E-112",
+            "measure_B_band": "4.37749103705305145412147276290219E-223",
+            "profiles_distinct_at_this_scale": false
+          },
+          {
+            "dyadic_index_j": -7,
+            "measure_A_band": "2.57220937264241482683953808360877E-56",
+            "measure_B_band": "6.61626105670948526102953080736206E-112",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": -6,
+            "measure_A_band": "1.60381089054863785297608703388511E-28",
+            "measure_B_band": "2.57220937264241482683953808360877E-56",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": -5,
+            "measure_A_band": "1.26641655490940153420318492921798E-14",
+            "measure_B_band": "1.60381089054863785297608703439956E-28",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": -4,
+            "measure_A_band": "1.12535162055093565419920218117333E-7",
+            "measure_B_band": "1.26641655490943361042099590197504E-14",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": -3,
+            "measure_A_band": "3.35350092753120910805063381339666E-4",
+            "measure_B_band": "1.12535187383424663607790521091976E-7",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": -2,
+            "measure_A_band": "1.79804013311560105943104957032573E-2",
+            "measure_B_band": "3.35575163064566932386808564855711E-4",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": -1,
+            "measure_A_band": "1.17690359763313609520040636180137E-1",
+            "measure_B_band": "1.86509889814493087078758024481199E-2",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 0,
+            "measure_A_band": "2.68627905030599901448186740037998E-1",
+            "measure_B_band": "1.53315346962269641089781613344766E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 1,
+            "measure_A_band": "4.83676093971103752155484209824406E-1",
+            "measure_B_band": "4.84563622891418321356983854734923E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 2,
+            "measure_A_band": "7.31648667252052734331493837318861E-1",
+            "measure_B_band": "8.20759178758728873011605788906916E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 3,
+            "measure_A_band": "8.00251799392058131650123854141943E-1",
+            "measure_B_band": "8.82116718375983278359446536835556E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 4,
+            "measure_A_band": "6.46586764318996552507121697724186E-1",
+            "measure_B_band": "6.86887584771924525910739105054730E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 5,
+            "measure_A_band": "4.22269187947333692528559527213915E-1",
+            "measure_B_band": "4.36578522614032897135633165881855E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 6,
+            "measure_A_band": "2.43070977260660920059673434510987E-1",
+            "measure_B_band": "2.47348611633819596857757607661286E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 7,
+            "measure_A_band": "1.30649280677256108738644451592487E-1",
+            "measure_B_band": "1.31819706083681298850495055092017E-1",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 8,
+            "measure_A_band": "6.77618961063128818547643408340947E-2",
+            "measure_B_band": "6.80680779758320501251060379419803E-2",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 9,
+            "measure_A_band": "3.45113309070907313145706150650412E-2",
+            "measure_B_band": "3.45896362486085143337038651154137E-2",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 10,
+            "measure_A_band": "1.74159749386661159407956755156187E-2",
+            "measure_B_band": "1.74357753119410446799812652172044E-2",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 11,
+            "measure_A_band": "8.74840920382926110621753700254333E-3",
+            "measure_B_band": "8.75338755909013277595256063421615E-3",
+            "profiles_distinct_at_this_scale": true
+          },
+          {
+            "dyadic_index_j": 12,
+            "measure_A_band": "4.38435340651679658751776133693722E-3",
+            "measure_B_band": "4.38560154427206484974022468548971E-3",
+            "profiles_distinct_at_this_scale": true
+          }
+        ],
+        "finite_telescoping_rows": [
+          {
+            "radius_R": 2,
+            "finite_band_sum": "1.61962342734822600804951591906466E+0",
+            "telescoping_boundary": "1.61962342734822600804951591906466E+0",
+            "distance_to_total_mass_four": "2.38037657265177399195048408093534E+0",
+            "telescoping_identity_verified": true
+          },
+          {
+            "radius_R": 4,
+            "finite_band_sum": "3.06679745368719586821113195423235E+0",
+            "telescoping_boundary": "3.06679745368719586821113195423235E+0",
+            "distance_to_total_mass_four": "9.33202546312804131788868045767654E-1",
+            "telescoping_identity_verified": true
+          },
+          {
+            "radius_R": 8,
+            "finite_band_sum": "3.93054879567877213555832280255955E+0",
+            "telescoping_boundary": "3.93054879567877213555832280255955E+0",
+            "distance_to_total_mass_four": "6.94512043212278644416771974404469E-2",
+            "telescoping_identity_verified": true
+          },
+          {
+            "radius_R": 12,
+            "finite_band_sum": "3.99560886413487504050742439147969E+0",
+            "telescoping_boundary": "3.99560886413487504050742439147969E+0",
+            "distance_to_total_mass_four": "4.39113586512495949257560852030639E-3",
+            "telescoping_identity_verified": true
+          },
+          {
+            "radius_R": 16,
+            "finite_band_sum": "3.99972535506771366619250874347932E+0",
+            "telescoping_boundary": "3.99972535506771366619250874347932E+0",
+            "distance_to_total_mass_four": "2.74644932286333807491256520676858E-4",
+            "telescoping_identity_verified": true
+          },
+          {
+            "radius_R": 24,
+            "finite_band_sum": "3.99999892711659654761816020440890E+0",
+            "telescoping_boundary": "3.99999892711659654761816020440890E+0",
+            "distance_to_total_mass_four": "1.07288340345238183979559110032072E-6",
+            "telescoping_identity_verified": true
+          },
+          {
+            "radius_R": 32,
+            "finite_band_sum": "3.99999999580904841732032286946627E+0",
+            "telescoping_boundary": "3.99999999580904841732032286946627E+0",
+            "distance_to_total_mass_four": "4.19095158267967713053372611335824E-9",
+            "telescoping_identity_verified": true
+          }
+        ],
+        "transcript_sha256": "dbfe82553254361ce37245fd05279bd4b06a78271e14c2526b2b14ba0f41d7e7",
+        "aggregate": {
+          "compact_full_dyadic_profile_injectivity_proved": true,
+          "finite_example_profiles_differ_somewhere": true,
+          "finite_window_injectivity_claimed": false,
+          "unbounded_actual_zeta_defect_support_controlled": false,
+          "prime_side_arithmetic_enclosure_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem positively identifies a lossless coupled observable on compact support. It does not extend by itself to an unbounded defect measure, and no finite subset of bands is promoted to an infinite certificate.",
+        "failure_count": 0
+      },
+      "logical_limit": "No tail-tight actual-zeta prime-side enclosure is proved for the unbounded defect class required by RH.",
+      "route_decision": {
+        "discard": "treating the full coupled dyadic profile as intrinsically information-losing on compact positive-height defects",
+        "retain": "construct an actual prime-side enclosure on a cofinal compact exhaustion with a rigorously vanishing tail",
+        "next_single_lemma": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T221",
+            "label": "ScaleUniformDyadicEnvelopeDivergenceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T222",
+            "label": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N222",
+            "label": "CompactInjectivityControlsUnboundedActualZetaTail",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN222",
+            "label": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T221",
+            "RH-T222"
+          ],
+          [
+            "RH-T222",
+            "RH-N222"
+          ],
+          [
+            "RH-T222",
+            "RH-OPEN222"
+          ],
+          [
+            "RH-OPEN222",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-222",
+      "theorem_name": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+      "declared_proposition": "For every positive accelerated Collatz valuation word a=(a_1,...,a_h), the triple (h,S,B), where S=sum a_i and B=sum_i 3^(h-i)2^(a_1+...+a_(i-1)), determines a uniquely. Indeed a_1=v_2(B-3^(h-1)); division recovers the tail intercept, and recursion recovers a_1,...,a_(h-1), while S recovers a_h. Together with D=2^S-3^h, D>0 and D|B are equivalent to this ordered word realizing a positive accelerated integer cycle.",
+      "mathematical_argument": "The affine constant satisfies B_h(a)=3^(h-1)+2^(a_1) B_(h-1)(a_2,...,a_h). Every tail intercept is odd, so the exact 2-adic valuation of B_h-3^(h-1) is a_1. Repeating recovers all but the final exponent, which is S minus the recovered prefix. For the cycle criterion, cyclic intercepts satisfy 2^(a_i)B_(i+1)=3B_i+D. Since gcd(D,6)=1, divisibility by D is rotation invariant. If D|B, all n_i=B_i/D are positive odd integers and 3n_i+1=2^(a_i)n_(i+1), so the displayed exponent is the exact 2-adic valuation and the orbit closes. The converse is the affine fixed-point equation. This closes information recovery and cycle admissibility, but neither excludes all nontrivial codes nor controls aperiodic divergence.",
+      "reproducible_computation": {
+        "theorem": "For every positive accelerated Collatz valuation word a=(a_1,...,a_h), the triple (h,S,B), where S=sum a_i and B=sum_i 3^(h-i)2^(a_1+...+a_(i-1)), determines a uniquely. Indeed a_1=v_2(B-3^(h-1)); division recovers the tail intercept, and recursion recovers a_1,...,a_(h-1), while S recovers a_h. Together with D=2^S-3^h, D>0 and D|B are equivalent to this ordered word realizing a positive accelerated integer cycle.",
+        "proof": "The affine constant satisfies B_h(a)=3^(h-1)+2^(a_1) B_(h-1)(a_2,...,a_h). Every tail intercept is odd, so the exact 2-adic valuation of B_h-3^(h-1) is a_1. Repeating recovers all but the final exponent, which is S minus the recovered prefix. For the cycle criterion, cyclic intercepts satisfy 2^(a_i)B_(i+1)=3B_i+D. Since gcd(D,6)=1, divisibility by D is rotation invariant. If D|B, all n_i=B_i/D are positive odd integers and 3n_i+1=2^(a_i)n_(i+1), so the displayed exponent is the exact 2-adic valuation and the orbit closes. The converse is the affine fixed-point equation. This closes information recovery and cycle admissibility, but neither excludes all nontrivial codes nor controls aperiodic divergence.",
+        "decode_recurrence": "a_1=v2(B_h-3^(h-1)); B_tail=(B_h-3^(h-1))/2^a_1; a_h=S-sum_(i<h)a_i",
+        "sample_lossless_decode_rows": [
+          {
+            "word": [
+              1
+            ],
+            "height_h": 1,
+            "total_valuation_S": 1,
+            "intercept_B": 1,
+            "denominator_D": -1,
+            "D_divides_B": false,
+            "cycle_start": null,
+            "exact_cycle_replay": false,
+            "decoded_word": [
+              1
+            ],
+            "decode_matches": true
+          },
+          {
+            "word": [
+              2
+            ],
+            "height_h": 1,
+            "total_valuation_S": 2,
+            "intercept_B": 1,
+            "denominator_D": 1,
+            "D_divides_B": true,
+            "cycle_start": 1,
+            "exact_cycle_replay": true,
+            "decoded_word": [
+              2
+            ],
+            "decode_matches": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "height_h": 4,
+            "total_valuation_S": 10,
+            "intercept_B": 133,
+            "denominator_D": 943,
+            "D_divides_B": false,
+            "cycle_start": null,
+            "exact_cycle_replay": false,
+            "decoded_word": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "decode_matches": true
+          },
+          {
+            "word": [
+              3,
+              4,
+              2,
+              1
+            ],
+            "height_h": 4,
+            "total_valuation_S": 10,
+            "intercept_B": 995,
+            "denominator_D": 943,
+            "D_divides_B": false,
+            "cycle_start": null,
+            "exact_cycle_replay": false,
+            "decoded_word": [
+              3,
+              4,
+              2,
+              1
+            ],
+            "decode_matches": true
+          },
+          {
+            "word": [
+              1,
+              1,
+              4,
+              2,
+              3
+            ],
+            "height_h": 5,
+            "total_valuation_S": 11,
+            "intercept_B": 619,
+            "denominator_D": 1805,
+            "D_divides_B": false,
+            "cycle_start": null,
+            "exact_cycle_replay": false,
+            "decoded_word": [
+              1,
+              1,
+              4,
+              2,
+              3
+            ],
+            "decode_matches": true
+          },
+          {
+            "word": [
+              5,
+              1,
+              2,
+              4,
+              3,
+              2
+            ],
+            "height_h": 6,
+            "total_valuation_S": 17,
+            "intercept_B": 51923,
+            "denominator_D": 130343,
+            "D_divides_B": false,
+            "cycle_start": null,
+            "exact_cycle_replay": false,
+            "decoded_word": [
+              5,
+              1,
+              2,
+              4,
+              3,
+              2
+            ],
+            "decode_matches": true
+          }
+        ],
+        "finite_complete_alphabet_rows": [
+          {
+            "height_h": 1,
+            "words_checked": 5,
+            "distinct_S_B_codes": 5,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 4,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 2,
+            "words_checked": 25,
+            "distinct_S_B_codes": 25,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 22,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 3,
+            "words_checked": 125,
+            "distinct_S_B_codes": 125,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 121,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 4,
+            "words_checked": 625,
+            "distinct_S_B_codes": 625,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 610,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 5,
+            "words_checked": 3125,
+            "distinct_S_B_codes": 3125,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 3104,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 6,
+            "words_checked": 15625,
+            "distinct_S_B_codes": 15625,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 15541,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 7,
+            "words_checked": 78125,
+            "distinct_S_B_codes": 78125,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 77795,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          },
+          {
+            "height_h": 8,
+            "words_checked": 390625,
+            "distinct_S_B_codes": 390625,
+            "code_collision_count": 0,
+            "decode_failure_count": 0,
+            "contracting_word_count": 390130,
+            "D_divides_B_count": 1,
+            "divisible_but_exact_replay_failure_count": 0
+          }
+        ],
+        "transcript_sha256": "6b64c67315f5a0bad98486fcde77aecefd51c25f25f6f061e5e1a7d44a45f99f",
+        "aggregate": {
+          "valuation_alphabet": "1..5",
+          "maximum_height": 8,
+          "total_words_checked": 488280,
+          "total_code_collisions": 0,
+          "total_decode_failures": 0,
+          "total_divisible_codes": 8,
+          "slope_intercept_code_injectivity_proved": true,
+          "exact_cycle_divisibility_reduction_proved": true,
+          "all_nontrivial_codes_excluded": false,
+          "aperiodic_divergence_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The finite enumeration is only a replay. The symbolic decoding and D|B equivalence hold for every finite positive word, but they turn cycle exclusion into an all-code divisibility problem rather than solve it, and they do not address divergent nonperiodic rays.",
+        "failure_count": 0
+      },
+      "logical_limit": "The lossless code does not prove D does not divide B for all nontrivial primitive words and does not exclude divergent rays.",
+      "route_decision": {
+        "discard": "adding more unordered or scalar Baker summaries after the exact ordered intercept is already available",
+        "retain": "attack all non-all-two primitive (h,S,B) codes by exact divisibility or prove first descent on every aperiodic ray",
+        "next_single_lemma": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T221",
+            "label": "OrderBlindLogarithmicSeparationNoGoForPrimitiveWords",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T222",
+            "label": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N222",
+            "label": "LosslessCodingExcludesEveryNontrivialCodeOrDivergentRay",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN222",
+            "label": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T221",
+            "CO-T222"
+          ],
+          [
+            "CO-T222",
+            "CO-N222"
+          ],
+          [
+            "CO-T222",
+            "CO-OPEN222"
+          ],
+          [
+            "CO-OPEN222",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-222",
+      "theorem_name": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+      "declared_proposition": "For every even N>=6, let R_ord(N) count ordered pairs of odd primes (p,q) with p+q=N. Then R_ord(N) modulo 2 equals 1_P(N/2). Off-diagonal representations occur in swapped pairs, and the only fixed point of the swap is p=q=N/2. Therefore the parity of the Goldbach representation count detects only the diagonal representation and cannot distinguish zero from a positive even number of off-diagonal representations.",
+      "mathematical_argument": "The involution (p,q)->(q,p) partitions all ordered representations into two-element orbits except when p=q. A fixed point exists exactly when N/2 is an odd prime, proving the congruence. For N=20, the four ordered representations (3,17),(17,3),(7,13),(13,7) already show that parity zero is compatible with strict positivity. Thus a parity-only replacement for the TICKET-221 cofinal Lp margin is refuted; an arithmetic one-sided lower bound remains necessary.",
+      "reproducible_computation": {
+        "theorem": "For every even N>=6, let R_ord(N) count ordered pairs of odd primes (p,q) with p+q=N. Then R_ord(N) modulo 2 equals 1_P(N/2). Off-diagonal representations occur in swapped pairs, and the only fixed point of the swap is p=q=N/2. Therefore the parity of the Goldbach representation count detects only the diagonal representation and cannot distinguish zero from a positive even number of off-diagonal representations.",
+        "proof": "The involution (p,q)->(q,p) partitions all ordered representations into two-element orbits except when p=q. A fixed point exists exactly when N/2 is an odd prime, proving the congruence. For N=20, the four ordered representations (3,17),(17,3),(7,13),(13,7) already show that parity zero is compatible with strict positivity. Thus a parity-only replacement for the TICKET-221 cofinal Lp margin is refuted; an arithmetic one-sided lower bound remains necessary.",
+        "finite_exact_scan": {
+          "limit": 100000,
+          "even_targets_checked": 49998,
+          "parity_identity_failures": 0,
+          "zero_representation_count": 0,
+          "positive_even_parity_count": 44866,
+          "positive_odd_parity_count": 5132,
+          "parity_zero_positive_examples": [
+            {
+              "even_target_N": 8,
+              "ordered_odd_prime_representation_count": 2,
+              "N_over_2": 4,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 12,
+              "ordered_odd_prime_representation_count": 2,
+              "N_over_2": 6,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 16,
+              "ordered_odd_prime_representation_count": 4,
+              "N_over_2": 8,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 18,
+              "ordered_odd_prime_representation_count": 4,
+              "N_over_2": 9,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 20,
+              "ordered_odd_prime_representation_count": 4,
+              "N_over_2": 10,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 24,
+              "ordered_odd_prime_representation_count": 6,
+              "N_over_2": 12,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 28,
+              "ordered_odd_prime_representation_count": 4,
+              "N_over_2": 14,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 30,
+              "ordered_odd_prime_representation_count": 6,
+              "N_over_2": 15,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 32,
+              "ordered_odd_prime_representation_count": 4,
+              "N_over_2": 16,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 36,
+              "ordered_odd_prime_representation_count": 8,
+              "N_over_2": 18,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 40,
+              "ordered_odd_prime_representation_count": 6,
+              "N_over_2": 20,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 42,
+              "ordered_odd_prime_representation_count": 8,
+              "N_over_2": 21,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 44,
+              "ordered_odd_prime_representation_count": 6,
+              "N_over_2": 22,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 48,
+              "ordered_odd_prime_representation_count": 10,
+              "N_over_2": 24,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 50,
+              "ordered_odd_prime_representation_count": 8,
+              "N_over_2": 25,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            },
+            {
+              "even_target_N": 52,
+              "ordered_odd_prime_representation_count": 6,
+              "N_over_2": 26,
+              "N_over_2_is_prime": false,
+              "parity_bit": 0
+            }
+          ]
+        },
+        "transcript_sha256": "82da544d35f8334f58dfb98b8da1fb43042f27c15d13a9dbe9e72d908ef00416",
+        "aggregate": {
+          "ordered_count_parity_identity_proved": true,
+          "count_parity_is_zero_detector_refuted": true,
+          "finite_scan_counterexamples": 0,
+          "cofinal_positive_lower_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem refutes only parity of the representation count as a positivity certificate. It does not weaken phase-resolved circle methods, singular-series lower bounds, or direct exception-count estimates. The finite scan is far below the published 4e18 verification and is included only to replay the identity.",
+        "failure_count": 0
+      },
+      "logical_limit": "No all-large-even arithmetic lower bound or exception-count estimate below one is proved.",
+      "route_decision": {
+        "discard": "using the parity bit of the ordered representation count as a zero-versus-positive detector",
+        "retain": "prove a one-sided positive lower bound for the full representation count or a strict subunit tail exception bound",
+        "next_single_lemma": "UniformCofinalPositiveGoldbachCountLowerBound"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T221",
+            "label": "SharpLpDistanceToGoldbachZeroSet",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T222",
+            "label": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N222",
+            "label": "RepresentationCountParityDetectsGoldbachPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN222",
+            "label": "UniformCofinalPositiveGoldbachCountLowerBound",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T221",
+            "GB-T222"
+          ],
+          [
+            "GB-T222",
+            "GB-N222"
+          ],
+          [
+            "GB-T222",
+            "GB-OPEN222"
+          ],
+          [
+            "GB-OPEN222",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-222",
+      "theorem_name": "FiniteWheelBiasedParityLeakageProductFormula",
+      "declared_proposition": "Let q_1,...,q_m be distinct odd primes and choose n uniformly modulo W=product q_i. Put X_q(n)=-1 when q divides n(n+2) and +1 otherwise, and P=product_q X_q. CRT makes the X_q independent with mean mu_q=1-4/q. For every subset S, E[P product_(q in S)X_q]=product_(q not in S)mu_q. Thus, unlike the balanced cube of TICKET-221, finite-wheel divisibility parity has nonzero leakage into every proper uncentered degree because no odd prime has mu_q=0. The leakage from a fixed-degree observable is exactly attenuated by the product of all omitted local biases.",
+      "mathematical_argument": "For one odd prime q, exactly the two residues 0 and -2 make q divide n(n+2), so E[X_q]=(q-2-2)/q=1-4/q. The Chinese remainder theorem identifies uniform residues modulo W with the product of uniform residues modulo each q, proving independence. In the product P times the S-monomial, coordinates in S occur squared and contribute one; every omitted coordinate contributes its mean. This corrects, rather than solves, the balanced Boolean stress model: local bias creates signal, but proving a positive gap-two prime correlation still requires a scale-growing arithmetic Type-II estimate and control of the omitted-prime tail.",
+      "reproducible_computation": {
+        "theorem": "Let q_1,...,q_m be distinct odd primes and choose n uniformly modulo W=product q_i. Put X_q(n)=-1 when q divides n(n+2) and +1 otherwise, and P=product_q X_q. CRT makes the X_q independent with mean mu_q=1-4/q. For every subset S, E[P product_(q in S)X_q]=product_(q not in S)mu_q. Thus, unlike the balanced cube of TICKET-221, finite-wheel divisibility parity has nonzero leakage into every proper uncentered degree because no odd prime has mu_q=0. The leakage from a fixed-degree observable is exactly attenuated by the product of all omitted local biases.",
+        "proof": "For one odd prime q, exactly the two residues 0 and -2 make q divide n(n+2), so E[X_q]=(q-2-2)/q=1-4/q. The Chinese remainder theorem identifies uniform residues modulo W with the product of uniform residues modulo each q, proving independence. In the product P times the S-monomial, coordinates in S occur squared and contribute one; every omitted coordinate contributes its mean. This corrects, rather than solves, the balanced Boolean stress model: local bias creates signal, but proving a positive gap-two prime correlation still requires a scale-growing arithmetic Type-II estimate and control of the omitted-prime tail.",
+        "bias_formula": "mu_q=1-4/q; correlation(S)=product_(q notin S)mu_q",
+        "wheel_prefix_rows": [
+          {
+            "wheel_prime_count_m": 2,
+            "largest_wheel_prime": 5,
+            "constant_parity_correlation": "-1/15",
+            "constant_parity_correlation_abs_decimal": 0.06666666666666667,
+            "audited_fixed_degree_d": 1,
+            "minimum_degree_d_correlation_abs": "1/5",
+            "maximum_degree_d_correlation_abs": "1/3",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 3,
+            "largest_wheel_prime": 7,
+            "constant_parity_correlation": "-1/35",
+            "constant_parity_correlation_abs_decimal": 0.02857142857142857,
+            "audited_fixed_degree_d": 2,
+            "minimum_degree_d_correlation_abs": "1/5",
+            "maximum_degree_d_correlation_abs": "3/7",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 4,
+            "largest_wheel_prime": 11,
+            "constant_parity_correlation": "-1/55",
+            "constant_parity_correlation_abs_decimal": 0.01818181818181818,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "1/5",
+            "maximum_degree_d_correlation_abs": "7/11",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 5,
+            "largest_wheel_prime": 13,
+            "constant_parity_correlation": "-9/715",
+            "constant_parity_correlation_abs_decimal": 0.012587412587412588,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "1/15",
+            "maximum_degree_d_correlation_abs": "63/143",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 6,
+            "largest_wheel_prime": 17,
+            "constant_parity_correlation": "-9/935",
+            "constant_parity_correlation_abs_decimal": 0.009625668449197862,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "1/35",
+            "maximum_degree_d_correlation_abs": "63/187",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 7,
+            "largest_wheel_prime": 19,
+            "constant_parity_correlation": "-27/3553",
+            "constant_parity_correlation_abs_decimal": 0.007599211933577259,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "1/55",
+            "maximum_degree_d_correlation_abs": "945/3553",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 8,
+            "largest_wheel_prime": 23,
+            "constant_parity_correlation": "-27/4301",
+            "constant_parity_correlation_abs_decimal": 0.006277609858172518,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "9/715",
+            "maximum_degree_d_correlation_abs": "945/4301",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 9,
+            "largest_wheel_prime": 29,
+            "constant_parity_correlation": "-675/124729",
+            "constant_parity_correlation_abs_decimal": 0.005411732636355619,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "9/935",
+            "maximum_degree_d_correlation_abs": "23625/124729",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 10,
+            "largest_wheel_prime": 31,
+            "constant_parity_correlation": "-18225/3866599",
+            "constant_parity_correlation_abs_decimal": 0.004713444554245216,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "27/3553",
+            "maximum_degree_d_correlation_abs": "637875/3866599",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 11,
+            "largest_wheel_prime": 37,
+            "constant_parity_correlation": "-54675/13005833",
+            "constant_parity_correlation_abs_decimal": 0.004203882980813301,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "27/4301",
+            "maximum_degree_d_correlation_abs": "1913625/13005833",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 12,
+            "largest_wheel_prime": 41,
+            "constant_parity_correlation": "-54675/14411869",
+            "constant_parity_correlation_abs_decimal": 0.003793748055855906,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "675/124729",
+            "maximum_degree_d_correlation_abs": "1913625/14411869",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          },
+          {
+            "wheel_prime_count_m": 13,
+            "largest_wheel_prime": 43,
+            "constant_parity_correlation": "-2132325/619710367",
+            "constant_parity_correlation_abs_decimal": 0.0034408412599623334,
+            "audited_fixed_degree_d": 3,
+            "minimum_degree_d_correlation_abs": "18225/3866599",
+            "maximum_degree_d_correlation_abs": "74631375/619710367",
+            "every_proper_uncentered_monomial_correlation_nonzero": true,
+            "full_degree_correlation": "1/1"
+          }
+        ],
+        "exact_crt_enumeration": {
+          "primes": [
+            3,
+            5,
+            7,
+            11
+          ],
+          "modulus_W": 1155,
+          "subset_rows": [
+            {
+              "selected_prime_subset": [],
+              "degree": 0,
+              "exact_crt_correlation": "-1/55",
+              "product_bias_prediction": "-1/55",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3
+              ],
+              "degree": 1,
+              "exact_crt_correlation": "3/55",
+              "product_bias_prediction": "3/55",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                5
+              ],
+              "degree": 1,
+              "exact_crt_correlation": "-1/11",
+              "product_bias_prediction": "-1/11",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                5
+              ],
+              "degree": 2,
+              "exact_crt_correlation": "3/11",
+              "product_bias_prediction": "3/11",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                7
+              ],
+              "degree": 1,
+              "exact_crt_correlation": "-7/165",
+              "product_bias_prediction": "-7/165",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                7
+              ],
+              "degree": 2,
+              "exact_crt_correlation": "7/55",
+              "product_bias_prediction": "7/55",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                5,
+                7
+              ],
+              "degree": 2,
+              "exact_crt_correlation": "-7/33",
+              "product_bias_prediction": "-7/33",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                5,
+                7
+              ],
+              "degree": 3,
+              "exact_crt_correlation": "7/11",
+              "product_bias_prediction": "7/11",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                11
+              ],
+              "degree": 1,
+              "exact_crt_correlation": "-1/35",
+              "product_bias_prediction": "-1/35",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                11
+              ],
+              "degree": 2,
+              "exact_crt_correlation": "3/35",
+              "product_bias_prediction": "3/35",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                5,
+                11
+              ],
+              "degree": 2,
+              "exact_crt_correlation": "-1/7",
+              "product_bias_prediction": "-1/7",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                5,
+                11
+              ],
+              "degree": 3,
+              "exact_crt_correlation": "3/7",
+              "product_bias_prediction": "3/7",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                7,
+                11
+              ],
+              "degree": 2,
+              "exact_crt_correlation": "-1/15",
+              "product_bias_prediction": "-1/15",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                7,
+                11
+              ],
+              "degree": 3,
+              "exact_crt_correlation": "1/5",
+              "product_bias_prediction": "1/5",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                5,
+                7,
+                11
+              ],
+              "degree": 3,
+              "exact_crt_correlation": "-1/3",
+              "product_bias_prediction": "-1/3",
+              "identity_verified": true
+            },
+            {
+              "selected_prime_subset": [
+                3,
+                5,
+                7,
+                11
+              ],
+              "degree": 4,
+              "exact_crt_correlation": "1/1",
+              "product_bias_prediction": "1/1",
+              "identity_verified": true
+            }
+          ]
+        },
+        "aggregate": {
+          "crt_product_independence_proved": true,
+          "biased_parity_leakage_formula_proved": true,
+          "balanced_orthogonality_applies_to_actual_finite_wheel": false,
+          "proper_uncentered_correlations_all_nonzero": true,
+          "arithmetic_type_ii_pair_lower_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem is exact for divisibility signs under a finite squarefree wheel. P is parity of selected small-prime divisors, not the full prime indicator. Nonzero leakage is not a positive lower bound for Lambda(n)Lambda(n+2), and fixed wheels remain subject to CRT composite-pair countermodels.",
+        "failure_count": 0
+      },
+      "logical_limit": "Finite-wheel parity leakage is not a lower bound for the shift-two von Mangoldt correlation and does not control the tail.",
+      "route_decision": {
+        "discard": "applying balanced-cube exact orthogonality literally to biased finite-wheel divisibility variables",
+        "retain": "quantify scale-growing biased parity signal and prove it dominates the signed arithmetic Type-II remainder",
+        "next_single_lemma": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T221",
+            "label": "LowDegreeBooleanParityOrthogonalityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T222",
+            "label": "FiniteWheelBiasedParityLeakageProductFormula",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N222",
+            "label": "NonzeroFiniteWheelLeakageImpliesPositiveTwinCorrelation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN222",
+            "label": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T221",
+            "TP-T222"
+          ],
+          [
+            "TP-T222",
+            "TP-N222"
+          ],
+          [
+            "TP-T222",
+            "TP-OPEN222"
+          ],
+          [
+            "TP-OPEN222",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "cross_problem_synthesis": "TICKET-222 moves beyond information-loss no-go statements: the complete compact RH dyadic profile and Collatz (h,S,B) code are lossless, while Goldbach count parity is too coarse and finite-wheel Twin parity is biased rather than orthogonal. The remaining work is now explicitly arithmetic and cofinal.",
+    "literature_boundary": {
+      "riemann": "Weil positivity and the Connes-Consani semi-local program motivate coupled test data; compact Laplace injectivity here is an elementary project theorem, not an RH advance.",
+      "collatz": "Classical accelerated-map affine coding and Tao's almost-all descent boundary remain external context; the recursive intercept decoder does not promote density to every orbit.",
+      "goldbach": "Published verification through 4e18 is much stronger than the finite replay. The swap-parity identity is algebraic and does not improve the verified range or exceptional-set bounds.",
+      "twin_prime": "Ford-Maynard Type-I/II theory shows why substantial Type-II information matters for prime-producing lower bounds. The finite-wheel bias formula is not such a lower bound."
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-222",
+      "declared_proposition": "Let sigma be a finite signed Borel measure supported in a compact interval [a,b] with 0<a<b, let L_sigma(s)=integral exp(-st) d sigma(t), and let W_j=L_sigma(2^(-j))-L_sigma(2^(1-j)). If W_j=0 for every integer j, then sigma=0. Consequently the complete two-sided dyadic Laplace-band profile is injective on compactly supported defect measures away from height zero.",
+      "new_result": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/lossless_coupling_biased_parity_audit",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the full coupled dyadic profile as intrinsically information-losing on compact positive-height defects",
+      "remaining_gap": "No tail-tight actual-zeta prime-side enclosure is proved for the unbounded defect class required by RH.",
+      "candidate_theorem": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T221",
+            "label": "ScaleUniformDyadicEnvelopeDivergenceNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T222",
+            "label": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N222",
+            "label": "CompactInjectivityControlsUnboundedActualZetaTail",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN222",
+            "label": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "Riemann Hypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T221",
+            "RH-T222"
+          ],
+          [
+            "RH-T222",
+            "RH-N222"
+          ],
+          [
+            "RH-T222",
+            "RH-OPEN222"
+          ],
+          [
+            "RH-OPEN222",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-222",
+      "declared_proposition": "For every positive accelerated Collatz valuation word a=(a_1,...,a_h), the triple (h,S,B), where S=sum a_i and B=sum_i 3^(h-i)2^(a_1+...+a_(i-1)), determines a uniquely. Indeed a_1=v_2(B-3^(h-1)); division recovers the tail intercept, and recursion recovers a_1,...,a_(h-1), while S recovers a_h. Together with D=2^S-3^h, D>0 and D|B are equivalent to this ordered word realizing a positive accelerated integer cycle.",
+      "new_result": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/lossless_coupling_biased_parity_audit",
+        "failure_count": 0
+      },
+      "discarded_route": "adding more unordered or scalar Baker summaries after the exact ordered intercept is already available",
+      "remaining_gap": "The lossless code does not prove D does not divide B for all nontrivial primitive words and does not exclude divergent rays.",
+      "candidate_theorem": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T221",
+            "label": "OrderBlindLogarithmicSeparationNoGoForPrimitiveWords",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T222",
+            "label": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N222",
+            "label": "LosslessCodingExcludesEveryNontrivialCodeOrDivergentRay",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN222",
+            "label": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "Collatz Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T221",
+            "CO-T222"
+          ],
+          [
+            "CO-T222",
+            "CO-N222"
+          ],
+          [
+            "CO-T222",
+            "CO-OPEN222"
+          ],
+          [
+            "CO-OPEN222",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-222",
+      "declared_proposition": "For every even N>=6, let R_ord(N) count ordered pairs of odd primes (p,q) with p+q=N. Then R_ord(N) modulo 2 equals 1_P(N/2). Off-diagonal representations occur in swapped pairs, and the only fixed point of the swap is p=q=N/2. Therefore the parity of the Goldbach representation count detects only the diagonal representation and cannot distinguish zero from a positive even number of off-diagonal representations.",
+      "new_result": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/lossless_coupling_biased_parity_audit",
+        "failure_count": 0
+      },
+      "discarded_route": "using the parity bit of the ordered representation count as a zero-versus-positive detector",
+      "remaining_gap": "No all-large-even arithmetic lower bound or exception-count estimate below one is proved.",
+      "candidate_theorem": "UniformCofinalPositiveGoldbachCountLowerBound",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T221",
+            "label": "SharpLpDistanceToGoldbachZeroSet",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T222",
+            "label": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N222",
+            "label": "RepresentationCountParityDetectsGoldbachPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN222",
+            "label": "UniformCofinalPositiveGoldbachCountLowerBound",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "Strong Goldbach Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T221",
+            "GB-T222"
+          ],
+          [
+            "GB-T222",
+            "GB-N222"
+          ],
+          [
+            "GB-T222",
+            "GB-OPEN222"
+          ],
+          [
+            "GB-OPEN222",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-222",
+      "declared_proposition": "Let q_1,...,q_m be distinct odd primes and choose n uniformly modulo W=product q_i. Put X_q(n)=-1 when q divides n(n+2) and +1 otherwise, and P=product_q X_q. CRT makes the X_q independent with mean mu_q=1-4/q. For every subset S, E[P product_(q in S)X_q]=product_(q not in S)mu_q. Thus, unlike the balanced cube of TICKET-221, finite-wheel divisibility parity has nonzero leakage into every proper uncentered degree because no odd prime has mu_q=0. The leakage from a fixed-degree observable is exactly attenuated by the product of all omitted local biases.",
+      "new_result": "FiniteWheelBiasedParityLeakageProductFormula",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/lossless_coupling_biased_parity_audit",
+        "failure_count": 0
+      },
+      "discarded_route": "applying balanced-cube exact orthogonality literally to biased finite-wheel divisibility variables",
+      "remaining_gap": "Finite-wheel parity leakage is not a lower bound for the shift-two von Mangoldt correlation and does not control the tail.",
+      "candidate_theorem": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T221",
+            "label": "LowDegreeBooleanParityOrthogonalityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T222",
+            "label": "FiniteWheelBiasedParityLeakageProductFormula",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N222",
+            "label": "NonzeroFiniteWheelLeakageImpliesPositiveTwinCorrelation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN222",
+            "label": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "Twin Prime Conjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T221",
+            "TP-T222"
+          ],
+          [
+            "TP-T222",
+            "TP-N222"
+          ],
+          [
+            "TP-T222",
+            "TP-OPEN222"
+          ],
+          [
+            "TP-OPEN222",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}

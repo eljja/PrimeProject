@@ -37,7 +37,32 @@ attempted_no_full_resolution
 
 This is deliberate. A bounded computation can find a counterexample, but a bounded computation cannot prove these universal or infinitude statements by itself.
 
-## 2026-08-15 TICKET-221 Sharp Obstruction Certificates
+## 2026-08-13 TICKET-222 Lossless Coupling and Biased-Parity Corrections
+
+TICKET-222 keeps all four parent conjectures at `open_not_proven` and proves
+four exact, narrower theorems:
+
+1. the full two-sided dyadic Laplace-band profile uniquely determines every
+   finite signed measure compactly supported away from zero;
+2. `(h,S,B)` losslessly reconstructs a finite positive Collatz valuation word,
+   and the exact cycle question reduces to `2^S-3^h>0` and divisibility by that
+   denominator;
+3. ordered Goldbach-count parity equals the diagonal prime indicator, which
+   proves that parity alone cannot distinguish an exception from a positive
+   even count;
+4. actual finite-wheel parity variables are biased and obey an exact CRT
+   product-correlation formula, so balanced Boolean orthogonality does not
+   transfer literally.
+
+These results recover information or close weak routes. They do not control the
+unbounded zeta tail, exclude all Collatz codes and divergent rays, prove a
+cofinal Goldbach lower bound, or establish a shifted von Mangoldt Type II lower
+bound. The machine parent-conjecture resolution count remains zero.
+
+English report: [TICKET-222](lossless-coupling-biased-parity.md).
+한국어 보고서: [TICKET-222](lossless-coupling-biased-parity.ko.md).
+
+## Preserved: 2026-08-15 TICKET-221 Sharp Obstruction Certificates
 
 TICKET-221 keeps all four parent conjectures at `open_not_proven` and proves
 four exact obstruction or sharpness theorems:

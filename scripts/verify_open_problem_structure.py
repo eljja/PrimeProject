@@ -220,6 +220,7 @@ TICKET218_SCHEMA = "primeproject.ticket218-adaptive-radius-spike-residual-surplu
 TICKET219_SCHEMA = "primeproject.ticket219-bandpass-matveev-crossfit-qualitative-abel.v1"
 TICKET220_SCHEMA = "primeproject.ticket220-dyadic-partition-primitive-refinement-crt.v1"
 TICKET221_SCHEMA = "primeproject.ticket221-sharp-obstruction-certificates.v1"
+TICKET222_SCHEMA = "primeproject.ticket222-lossless-coupling-biased-parity.v1"
 
 
 def fail(message: str) -> int:
@@ -19243,6 +19244,165 @@ def main() -> int:
         or machine221.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket221 proof boundary changed")
+
+    path222 = Path(
+        "data/open-problem/ticket222-lossless-coupling-biased-parity.json"
+    )
+    if not path222.exists():
+        return fail("missing ticket222 lossless coupling audit")
+    ticket222 = read_json(path222)
+    if (
+        ticket222.get("schema") != TICKET222_SCHEMA
+        or ticket222.get("status") != "open_not_proven"
+    ):
+        return fail("ticket222 schema or status changed")
+    audit222 = ticket222.get("lossless_coupling_biased_parity_audit", {})
+    machine222 = audit222.get("machine_audit", {})
+    if machine222 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket222 global machine audit changed")
+
+    attempts222 = {
+        row.get("problem_id"): row for row in ticket222.get("attempts", [])
+    }
+    if set(attempts222) != EXPECTED_PROBLEMS:
+        return fail("ticket222 attempts missing problems")
+    track_paths222 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-222-compact-dyadic-injectivity.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-222-lossless-intercept-code.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-222-count-parity.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-222-biased-parity-leakage.json"
+        ),
+    }
+    theorem_names222 = {
+        "riemann": "CompactSupportFullDyadicLaplaceProfileInjectivity",
+        "collatz": "SlopeInterceptLosslessValuationCodeAndExactCycleReduction",
+        "goldbach": "OrderedGoldbachCountParityEqualsDiagonalPrimeIndicator",
+        "twin-prime": "FiniteWheelBiasedParityLeakageProductFormula",
+    }
+    next_lemmas222 = {
+        "riemann": "ActualZetaCofinalDyadicEnclosureWithVanishingUnboundedTail",
+        "collatz": "AllNontrivialPrimitiveCodesFailDivisibilityOrEveryAperiodicRayDescends",
+        "goldbach": "UniformCofinalPositiveGoldbachCountLowerBound",
+        "twin-prime": "ScaleGrowingBiasedParitySignalDominatesTypeIIRemainder",
+    }
+    for problem_id, track_path in track_paths222.items():
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket222 artifact missing")
+        track = read_json(track_path)
+        attempt = attempts222[problem_id]
+        nodes = track.get("proof_dag", {}).get("nodes", [])
+        if (
+            track.get("schema") != TICKET222_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names222[problem_id]
+            or attempt.get("new_result") != theorem_names222[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas222[problem_id]
+            or attempt.get("status") != "open_not_proven"
+            or attempt.get("bounded_result", {}).get("audit_ref")
+            != "#/lossless_coupling_biased_parity_audit"
+            or not attempt.get("declared_proposition")
+            or not track.get("mathematical_argument")
+            or not attempt.get("remaining_gap")
+            or not attempt.get("discarded_route")
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or not nodes
+            or nodes[-1].get("status") != "open_not_proven"
+        ):
+            return fail(f"{problem_id}: ticket222 contract changed")
+
+    rh222 = audit222.get("riemann", {}).get("reproducible_computation", {})
+    rh222_aggregate = rh222.get("aggregate", {})
+    if (
+        len(rh222.get("finite_atomic_profile_rows", [])) != 25
+        or len(rh222.get("finite_telescoping_rows", [])) != 7
+        or any(
+            row.get("telescoping_identity_verified") is not True
+            for row in rh222.get("finite_telescoping_rows", [])
+        )
+        or rh222_aggregate.get("compact_full_dyadic_profile_injectivity_proved")
+        is not True
+        or rh222_aggregate.get("unbounded_actual_zeta_defect_support_controlled")
+        is not False
+        or rh222_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket222 RH compact-injectivity boundary changed")
+
+    collatz222 = audit222.get("collatz", {}).get(
+        "reproducible_computation", {}
+    )
+    collatz222_aggregate = collatz222.get("aggregate", {})
+    if (
+        collatz222_aggregate.get("total_words_checked") != 488280
+        or collatz222_aggregate.get("total_code_collisions") != 0
+        or collatz222_aggregate.get("total_decode_failures") != 0
+        or collatz222_aggregate.get("slope_intercept_code_injectivity_proved")
+        is not True
+        or collatz222_aggregate.get("all_nontrivial_codes_excluded") is not False
+        or collatz222_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket222 Collatz lossless-code boundary changed")
+
+    goldbach222 = audit222.get("goldbach", {}).get(
+        "reproducible_computation", {}
+    )
+    goldbach222_scan = goldbach222.get("finite_exact_scan", {})
+    goldbach222_aggregate = goldbach222.get("aggregate", {})
+    if (
+        goldbach222_scan.get("limit") != 100000
+        or goldbach222_scan.get("parity_identity_failures") != 0
+        or goldbach222_aggregate.get("ordered_count_parity_identity_proved")
+        is not True
+        or goldbach222_aggregate.get("count_parity_is_zero_detector_refuted")
+        is not True
+        or goldbach222_aggregate.get("cofinal_positive_lower_bound_proved")
+        is not False
+        or goldbach222_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket222 Goldbach count-parity boundary changed")
+
+    twin222 = audit222.get("twin_prime", {}).get(
+        "reproducible_computation", {}
+    )
+    twin222_crt = twin222.get("exact_crt_enumeration", {})
+    twin222_aggregate = twin222.get("aggregate", {})
+    if (
+        twin222_crt.get("modulus_W") != 1155
+        or len(twin222_crt.get("subset_rows", [])) != 16
+        or any(
+            row.get("identity_verified") is not True
+            for row in twin222_crt.get("subset_rows", [])
+        )
+        or twin222_aggregate.get("biased_parity_leakage_formula_proved")
+        is not True
+        or twin222_aggregate.get("balanced_orthogonality_applies_to_actual_finite_wheel")
+        is not False
+        or twin222_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket222 Twin biased-parity boundary changed")
+
+    if (
+        "prove no parent conjecture"
+        not in str(audit222.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket222.get("claim_boundary", "")).lower()
+        or machine222.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket222 proof boundary changed")
 
     print("open problem structure verified")
     return 0
