@@ -223,6 +223,7 @@ TICKET221_SCHEMA = "primeproject.ticket221-sharp-obstruction-certificates.v1"
 TICKET222_SCHEMA = "primeproject.ticket222-lossless-coupling-biased-parity.v1"
 TICKET223_SCHEMA = "primeproject.ticket223-exponential-tail-local-duality-no-go.v1"
 TICKET224_SCHEMA = "primeproject.ticket224-sharp-completeness-thresholds.v1"
+TICKET225_SCHEMA = "primeproject.ticket225-arithmetic-remainder-localization.v1"
 
 
 def fail(message: str) -> int:
@@ -19405,6 +19406,228 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path225 = Path(
+        "data/open-problem/ticket225-arithmetic-remainder-localization.json"
+    )
+    if not path225.exists():
+        return fail("missing ticket225 arithmetic-remainder localization audit")
+    ticket225 = read_json(path225)
+    if (
+        ticket225.get("schema") != TICKET225_SCHEMA
+        or ticket225.get("status") != "open_not_proven"
+    ):
+        return fail("ticket225 schema or status changed")
+    audit225 = ticket225.get("arithmetic_remainder_localization_audit", {})
+    machine225 = audit225.get("machine_audit", {})
+    if machine225 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket225 global machine audit changed")
+
+    attempts225 = {
+        row.get("problem_id"): row for row in ticket225.get("attempts", [])
+    }
+    if set(attempts225) != EXPECTED_PROBLEMS:
+        return fail("ticket225 attempts missing problems")
+    theorem_names225 = {
+        "riemann": "ActualPrimeBandTailCertificateAndFiniteBandNoGo",
+        "collatz": "CyclicGcdResidualInvarianceAndRotationNoGo",
+        "goldbach": "CubeRootRoughSemiprimeGoldbachDecomposition",
+        "twin-prime": "CubeRootTwinPairTypeDecompositionAndParityNoGo",
+    }
+    next_lemmas225 = {
+        "riemann": "ExplicitFormulaTransferFromCofinalPrimeBandMarginsToWeilCorePositivity",
+        "collatz": "UniformCyclicInterceptDescentOrAperiodicOrbitDescent",
+        "goldbach": "UniformCubeRootRoughSemiprimeErrorBelowGoldbachWheelMainTerm",
+        "twin-prime": "PositiveTwinPrimeLowerBoundAfterCubeRootSemiprimeContaminationControl",
+    }
+    track_paths225 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-225-actual-prime-band.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-225-cyclic-gcd-residual.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-225-cube-root-semiprime.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-225-cube-root-pair-types.json"
+        ),
+    }
+    audit_sections225 = {
+        "riemann": audit225.get("riemann", {}),
+        "collatz": audit225.get("collatz", {}),
+        "goldbach": audit225.get("goldbach", {}),
+        "twin-prime": audit225.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts225.items():
+        track_path = track_paths225[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket225 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections225[problem_id]
+        dag = attempt.get("proof_dag", {})
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names225[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas225[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or len(dag.get("nodes", [])) != 5
+            or len(dag.get("edges", [])) != 4
+            or section.get("theorem_name") != theorem_names225[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas225[problem_id]
+            or track.get("schema") != TICKET225_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names225[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket225 contract changed")
+
+    rh225 = audit_sections225["riemann"].get("reproducible_computation", {})
+    rh225_rows = rh225.get("actual_prime_band_rows", [])
+    rh225_kernels = rh225.get("finite_band_kernel_rows", [])
+    rh225_aggregate = rh225.get("aggregate", {})
+    if (
+        len(rh225_rows) != 13
+        or any(row.get("negative_sign_certified") is not True for row in rh225_rows)
+        or any(
+            row.get("von_mangoldt_tail_upper_bound", -1) < 0
+            for row in rh225_rows
+        )
+        or len(rh225_kernels) != 6
+        or any(
+            row.get("nonzero_signed_atomic_kernel_verified") is not True
+            or row.get("maximum_null_residual", 1) >= 1e-10
+            for row in rh225_kernels
+        )
+        or rh225_aggregate.get("actual_von_mangoldt_band_tail_bound_proved")
+        is not True
+        or rh225_aggregate.get("finite_band_family_noninjectivity_proved")
+        is not True
+        or rh225_aggregate.get("explicit_formula_transfer_to_weil_positivity_proved")
+        is not False
+        or rh225_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket225 RH actual-prime-band boundary changed")
+
+    collatz225 = audit_sections225["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz225_rows = collatz225.get("finite_height_rows", [])
+    collatz225_witness = collatz225.get("ticket224_witness_rotation_rows", [])
+    collatz225_aggregate = collatz225.get("aggregate", {})
+    if (
+        len(collatz225_rows) != 6
+        or sum(row.get("positive_primitive_words", 0) for row in collatz225_rows)
+        != 97016
+        or any(
+            row.get("cyclic_gcd_invariance_failures") != 0
+            or row.get("cyclic_transition_identity_failures") != 0
+            for row in collatz225_rows
+        )
+        or len(collatz225_witness) != 5
+        or {row.get("gcd_D_B") for row in collatz225_witness} != {95}
+        or {row.get("residual_D_over_gcd") for row in collatz225_witness} != {19}
+        or collatz225_aggregate.get("cyclic_transition_checks") != 655188
+        or collatz225_aggregate.get("cyclic_gcd_invariance_proved") is not True
+        or collatz225_aggregate.get("rotation_independent_deficit_accumulation_refuted")
+        is not True
+        or collatz225_aggregate.get("all_nontrivial_cycles_excluded") is not False
+        or collatz225_aggregate.get("aperiodic_descent_proved") is not False
+        or collatz225_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket225 Collatz cyclic-residual boundary changed")
+
+    goldbach225 = audit_sections225["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    goldbach225_classes = goldbach225.get("cube_root_classification_rows", [])
+    goldbach225_decompositions = goldbach225.get(
+        "convolution_decomposition_rows", []
+    )
+    goldbach225_diagonals = goldbach225.get(
+        "rough_semiprime_false_diagonal_rows", []
+    )
+    goldbach225_aggregate = goldbach225.get("aggregate", {})
+    if (
+        len(goldbach225_classes) != 3
+        or any(
+            row.get("classification_mismatches") != 0
+            or row.get("rough_semiprime_factorization_failures") != 0
+            for row in goldbach225_classes
+        )
+        or len(goldbach225_decompositions) != 3
+        or any(
+            row.get("exact_decomposition_verified") is not True
+            or row.get("filtered_convolution")
+            != row.get("prime_prime_PP")
+            + row.get("prime_semiprime_PS")
+            + row.get("semiprime_prime_SP")
+            + row.get("semiprime_semiprime_SS")
+            for row in goldbach225_decompositions
+        )
+        or len(goldbach225_diagonals) != 3
+        or any(row.get("SS_diagonal_present") is not True for row in goldbach225_diagonals)
+        or goldbach225_aggregate.get("cube_root_survivor_classification_proved")
+        is not True
+        or goldbach225_aggregate.get("goldbach_four_term_decomposition_proved")
+        is not True
+        or goldbach225_aggregate.get("rough_semiprime_contamination_uniformly_controlled")
+        is not False
+        or goldbach225_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket225 Goldbach cube-root decomposition changed")
+
+    twin225 = audit_sections225["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin225_rows = twin225.get("pair_type_rows", [])
+    twin225_countermodels = twin225.get("explicit_SS_countermodels", [])
+    twin225_aggregate = twin225.get("aggregate", {})
+    if (
+        len(twin225_rows) != 3
+        or any(
+            row.get("exact_pair_decomposition_verified") is not True
+            or row.get("semiprime_semiprime_SS", 0) <= 0
+            or row.get("total_survivor_pairs")
+            != row.get("prime_prime_PP")
+            + row.get("prime_semiprime_PS")
+            + row.get("semiprime_prime_SP")
+            + row.get("semiprime_semiprime_SS")
+            for row in twin225_rows
+        )
+        or len(twin225_countermodels) != 3
+        or any(row.get("verified") is not True for row in twin225_countermodels)
+        or twin225_aggregate.get("cube_root_pair_classification_proved")
+        is not True
+        or twin225_aggregate.get("four_type_pair_decomposition_proved")
+        is not True
+        or twin225_aggregate.get("rough_semiprime_pair_contamination_uniformly_controlled")
+        is not False
+        or twin225_aggregate.get("infinitely_many_twin_primes_proved") is not False
+        or twin225_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket225 Twin cube-root pair boundary changed")
+
+    if (
+        "resolves none" not in str(audit225.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket225.get("claim_boundary", "")).lower()
+        or machine225.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket225 proof boundary changed")
 
     path224 = Path(
         "data/open-problem/ticket224-sharp-completeness-thresholds.json"

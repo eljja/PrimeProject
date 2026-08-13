@@ -31,19 +31,22 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-224: Sharp Completeness Thresholds](docs/sharp-completeness-thresholds.md),
-with a separate [Korean report](docs/sharp-completeness-thresholds.ko.md).
-It proves four exact narrower results: the RH dyadic-band tail has the optimal
-uniform constant `1/4`; exact Collatz cycle divisibility requires every
-prime-power multiplicity and radical-only sufficiency has a primitive
-counterexample; bounded Goldbach and Twin filters become exact at square-root
-factor depth; and explicit semiprime or CRT false positives survive below
-complete depth. These are finite threshold or no-go theorems, not
-parent-problem resolutions.
+[TICKET-225: Arithmetic Remainder Localization](docs/arithmetic-remainder-localization.md),
+with a separate [Korean report](docs/arithmetic-remainder-localization.ko.md).
+It proves four narrower results: an explicit tail bound for an actual von
+Mangoldt Laplace band together with finite-band non-identifiability; cyclic
+invariance of the Collatz gcd residual; exact cube-root rough-semiprime
+decomposition of bounded Goldbach representations; and the corresponding
+PP/PS/SP/SS decomposition of bounded gap-two survivors. These are arithmetic
+localization or no-go theorems, not parent-problem resolutions.
 Every conjecture remains `open_not_proven`; the machine resolution count is
 zero.
 
 The immediate predecessor is
+[TICKET-224: Sharp Completeness Thresholds](docs/sharp-completeness-thresholds.md),
+with its [Korean report](docs/sharp-completeness-thresholds.ko.md).
+
+An earlier preserved input is
 [TICKET-223: Exponential Tails, Local Duality, and Fixed-Sieve No-Go Results](docs/exponential-tail-local-duality-no-go.md),
 with its [Korean report](docs/exponential-tail-local-duality-no-go.ko.md).
 
@@ -349,7 +352,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-224 boundary, four exact threshold or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-225 boundary, four exact arithmetic-localization or no-go results, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -366,15 +369,17 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-224. The RH track proves the optimal
-quarter-tail envelope and strict sign-margin certificate. The Collatz track
-proves the exact prime-power valuation criterion and refutes radical-only
-sufficiency with the primitive word `(1,1,2,4,3)`. The Goldbach and Twin tracks
-prove finite-horizon exactness at square-root factor depth and construct
-explicit false positives below complete depth. These are exact threshold or
-no-go results, not solutions. All four parent
+The latest proof-search track is TICKET-225. The RH track bounds the omitted
+tail of an actual prime-side Laplace band and proves that finite band families
+cannot identify arbitrary signed defects. The Collatz track proves that all
+cyclic rotations have the same gcd residual. The Goldbach and Twin tracks
+classify every cube-root-sieve composite survivor as a rough semiprime and
+split the resulting error into exact PP/PS/SP/SS terms. These are exact
+localization or no-go results, not solutions. All four parent
 conjectures remain open and the machine resolution count is zero.
-See [TICKET224 EN](docs/sharp-completeness-thresholds.md),
+See [TICKET225 EN](docs/arithmetic-remainder-localization.md),
+[TICKET225 KO](docs/arithmetic-remainder-localization.ko.md),
+[TICKET224 EN](docs/sharp-completeness-thresholds.md),
 [TICKET224 KO](docs/sharp-completeness-thresholds.ko.md),
 [TICKET223 EN](docs/exponential-tail-local-duality-no-go.md),
 [TICKET223 KO](docs/exponential-tail-local-duality-no-go.ko.md),
@@ -511,14 +516,14 @@ See [TICKET224 EN](docs/sharp-completeness-thresholds.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-224입니다. 리만 트랙은 이진
-라플라스 band 꼬리의 최적 상수 `1/4`와 엄격한 부호 margin 인증서를
-증명했습니다. 콜라츠 트랙은 정확한 cycle 판정에 prime-power 중복도가
-필수임을 보이고 `(1,1,2,4,3)`으로 radical-only 경로를 반박했습니다.
-골드바흐와 쌍둥이 소수 트랙은 유한 범위의 제곱근 factor 완전성과 그
-아래의 semiprime/CRT 거짓 양성을 확정했습니다. 실제 제타-소수 margin,
-모든 콜라츠 코드의 deficit 또는 비주기 하강, sub-square-root 전역 소수
-상관은 열려 있으며 네 상위 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-225입니다. 리만 트랙은 실제 폰
+망골트 Laplace band의 유한 절단 꼬리를 닫힌 식으로 제한하고, 유한 band
+관측만으로 임의 결함 측도를 식별할 수 없음을 증명했습니다. 콜라츠 트랙은
+모든 순환 회전이 같은 최대공약수 잔여량을 가짐을 증명했습니다. 골드바흐와
+쌍둥이 소수 트랙은 세제곱근 체의 합성수 생존자를 거친 반소수로 정확히
+분류하고 PP/PS/SP/SS 오염항을 분리했습니다. Weil 양성 전달, 모든 콜라츠
+word 또는 비주기 궤도의 하강, 반소수 오염항의 균일 지배는 열려 있으며 네
+상위 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -538,19 +543,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-224입니다.
-[날카로운 완전성 임계값 한국어 보고서](docs/sharp-completeness-thresholds.ko.md)와
-[영문 보고서](docs/sharp-completeness-thresholds.md)는 네 트랙의 정확 명제,
+최신 난제 연구 트랙은 TICKET-225입니다.
+[산술적 나머지 국소화 한국어 보고서](docs/arithmetic-remainder-localization.ko.md)와
+[영문 보고서](docs/arithmetic-remainder-localization.md)는 네 트랙의 정확 명제,
 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재의 결정적
-미해결 보조정리는 최적 꼬리보다 큰 실제 제타-소수 band margin,
-콜라츠의 균일 prime-power deficit 또는 보편 비주기 하강, 골드바흐의
-sub-square-root 소수 가중 remainder, 쌍둥이 소수의 gap-two Type-II
-bilinear 분리입니다.
+미해결 보조정리는 공종적 소수 band margin에서 Weil 핵 양성으로 가는
+명시공식 전달, 콜라츠의 균일 순환 intercept 또는 비주기 하강, 골드바흐의
+거친 반소수 오염항 지배, 쌍둥이 소수의 오염 제어 후 양의 PP 하한입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-224의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 224개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-225의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 225개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

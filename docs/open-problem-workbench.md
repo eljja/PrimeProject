@@ -499,7 +499,34 @@ Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This i
 
 The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
-## TICKET-224 Current Boundary / 현재 연구 경계
+## TICKET-225 Current Boundary / 현재 연구 경계
+
+TICKET-225 applies the preceding completeness thresholds to actual arithmetic
+observables and identifies the exact remainder that each tractable finite
+model leaves behind:
+
+| Problem | New exact result | Route closed | Single next lemma |
+|---|---|---|---|
+| Riemann | The omitted tail of the actual von Mangoldt Laplace band has an explicit positive upper bound; every finite band family is non-injective on signed atomic defects | Finitely many actual prime-band signs constitute an RH criterion | `ExplicitFormulaTransferFromCofinalPrimeBandMarginsToWeilCorePositivity` |
+| Collatz | `2^a B'=3B+D` makes `gcd(D,B)` and `D/gcd(D,B)` invariant under cyclic rotation | Rotations of one word contribute independent prime-power deficits | `UniformCyclicInterceptDescentOrAperiodicOrbitDescent` |
+| Goldbach | At `z^3>=X`, every composite survivor is a rough semiprime and `Q*Q=PP+PS+SP+SS` exactly | Every cube-root wheel representation is termwise prime | `UniformCubeRootRoughSemiprimeErrorBelowGoldbachWheelMainTerm` |
+| Twin Prime | Every cube-root gap-two survivor has one exact type among `PP,PS,SP,SS` | A positive survivor count or survivor pair certifies twin primality | `PositiveTwinPrimeLowerBoundAfterCubeRootSemiprimeContaminationControl` |
+
+The finite audit records 13 separated prime-band signs, 97,016 positive
+primitive Collatz words with zero cyclic-identity failures, three exact
+Goldbach convolution decompositions, and three exact Twin pair-type
+decompositions. These computations test the formulas and expose explicit
+contamination; they do not supply the missing infinite transfer or uniform
+estimate. All four parent claims remain `open_not_proven`.
+
+한국어 요약: TICKET-225는 이전의 완전성 임계값을 실제 산술 관측량에
+적용한다. 실제 폰 망골트 band의 꼬리, 콜라츠 순환 최대공약수 잔여량,
+골드바흐와 쌍둥이 소수 세제곱근 체의 거친 반소수 오염항을 정확히
+분리했다. 유한 band 부호를 Weil 양성으로 옮기는 정리, 모든 콜라츠
+word 또는 비주기 궤도의 하강, 오염항을 주항 아래로 누르는 균일 추정은
+증명되지 않았다. 따라서 네 난제의 해결 수는 0이다.
+
+## TICKET-224 Preserved Boundary / 보존된 이전 연구 경계
 
 TICKET-224 identifies the information threshold at which each current finite
 test becomes exact, then constructs countermodels below that threshold:

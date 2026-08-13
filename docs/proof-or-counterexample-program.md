@@ -8183,7 +8183,34 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
 한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).
 
-## TICKET-224 continuation: sharp completeness thresholds
+## TICKET-225 continuation: arithmetic remainder localization
+
+TICKET-225 continues the TICKET-224 proof DAG and proves four exact arithmetic
+localization or no-go statements while keeping the conjecture-resolution count
+at zero:
+
+1. RH: the actual von Mangoldt Laplace-band tail beyond `N` is positive and is
+   bounded by `q^(N+1)((N+1)-Nq)/(1-q)^2`. Finite band families remain
+   non-injective, so the missing theorem is an explicit-formula transfer from
+   cofinal margins to positivity on a dense Weil core.
+2. Collatz: cyclic intercepts satisfy `2^a B'=3B+D`, hence their gcd residual
+   is rotation-invariant. Rotation-wise deficits are not independent; a
+   uniform intercept descent or separate aperiodic-orbit descent remains open.
+3. Goldbach: under `z^3>=X`, the wheel indicator is exactly `Q=P+S`, where
+   `S` is the rough-semiprime indicator. The three contamination convolutions
+   must still be uniformly dominated by the prime-prime main term.
+4. Twin Prime: the same classification gives the exact pair split
+   `PP+PS+SP+SS`. Explicit SS pairs refute survivor certificates; a positive
+   PP lower bound after controlling all contamination remains open.
+
+Machine audit: four exact localization or no-go theorems, four rejected or
+corrected routes, four proof DAGs, zero conjecture resolutions, and zero
+computational failures.
+
+English report: [TICKET-225 arithmetic remainder localization](arithmetic-remainder-localization.md).
+한국어 보고서: [TICKET-225 산술적 나머지 국소화](arithmetic-remainder-localization.ko.md).
+
+## TICKET-224 preserved continuation: sharp completeness thresholds
 
 TICKET-224 continues the TICKET-223 proof DAG and proves four exact threshold
 or no-go statements while keeping the conjecture-resolution count at zero:

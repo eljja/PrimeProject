@@ -1,0 +1,207 @@
+{
+  "schema": "primeproject.ticket225-arithmetic-remainder-localization.v1",
+  "generated_at": "2026-08-14T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-225",
+  "theorem_name": "CubeRootTwinPairTypeDecompositionAndParityNoGo",
+  "declared_proposition": "Under the same z^3>=X condition, every gap-two survivor pair (n,n+2) with n+2<=X belongs to exactly one of PP, PS, SP, or SS, where P denotes a prime and S a z-rough semiprime. Hence the total pair-filter count is the exact sum of the twin-prime count and three explicit rough-semiprime contamination counts. A positive survivor count or a termwise survivor certificate is not itself a twin-prime certificate.",
+  "mathematical_argument": "The cube-root survivor classification applies independently to n and n+2. The four cases are disjoint and exhaustive, so counting gives the identity. Explicit SS pairs show that the filter can certify both entries while neither is prime; an infinitude proof must retain a positive PP lower bound after controlling PS, SP, SS.",
+  "reproducible_computation": {
+    "theorem": "Under the same z^3>=X condition, every gap-two survivor pair (n,n+2) with n+2<=X belongs to exactly one of PP, PS, SP, or SS, where P denotes a prime and S a z-rough semiprime. Hence the total pair-filter count is the exact sum of the twin-prime count and three explicit rough-semiprime contamination counts. A positive survivor count or a termwise survivor certificate is not itself a twin-prime certificate.",
+    "proof": "The cube-root survivor classification applies independently to n and n+2. The four cases are disjoint and exhaustive, so counting gives the identity. Explicit SS pairs show that the filter can certify both entries while neither is prime; an infinitude proof must retain a positive PP lower bound after controlling PS, SP, SS.",
+    "cube_root_classification_rows": [
+      {
+        "horizon_X": 1000,
+        "cube_root_cutoff_z": 10,
+        "z_cubed_at_least_X": true,
+        "survivor_count": 231,
+        "prime_count": 168,
+        "rough_semiprime_count": 63,
+        "classification_mismatches": 0,
+        "rough_semiprime_factorization_failures": 0
+      },
+      {
+        "horizon_X": 10000,
+        "cube_root_cutoff_z": 22,
+        "z_cubed_at_least_X": true,
+        "survivor_count": 1718,
+        "prime_count": 1229,
+        "rough_semiprime_count": 489,
+        "classification_mismatches": 0,
+        "rough_semiprime_factorization_failures": 0
+      },
+      {
+        "horizon_X": 100000,
+        "cube_root_cutoff_z": 47,
+        "z_cubed_at_least_X": true,
+        "survivor_count": 13912,
+        "prime_count": 9592,
+        "rough_semiprime_count": 4320,
+        "classification_mismatches": 0,
+        "rough_semiprime_factorization_failures": 0
+      }
+    ],
+    "pair_type_rows": [
+      {
+        "horizon_X": 1000,
+        "cutoff_z": 10,
+        "prime_prime_PP": 35,
+        "prime_semiprime_PS": 19,
+        "semiprime_prime_SP": 14,
+        "semiprime_semiprime_SS": 4,
+        "total_survivor_pairs": 72,
+        "contaminating_pairs": 37,
+        "exact_pair_decomposition_verified": true,
+        "first_SS_countermodel": [
+          527,
+          529
+        ]
+      },
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 22,
+        "prime_prime_PP": 205,
+        "prime_semiprime_PS": 78,
+        "semiprime_prime_SP": 76,
+        "semiprime_semiprime_SS": 35,
+        "total_survivor_pairs": 394,
+        "contaminating_pairs": 189,
+        "exact_pair_decomposition_verified": true,
+        "first_SS_countermodel": [
+          1679,
+          1681
+        ]
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 47,
+        "prime_prime_PP": 1224,
+        "prime_semiprime_PS": 559,
+        "semiprime_prime_SP": 537,
+        "semiprime_semiprime_SS": 253,
+        "total_survivor_pairs": 2573,
+        "contaminating_pairs": 1349,
+        "exact_pair_decomposition_verified": true,
+        "first_SS_countermodel": [
+          4187,
+          4189
+        ]
+      }
+    ],
+    "explicit_SS_countermodels": [
+      {
+        "horizon_X": 1000,
+        "cutoff_z": 10,
+        "composite_pair": [
+          527,
+          529
+        ],
+        "left_factorization": {
+          "17": 1,
+          "31": 1
+        },
+        "right_factorization": {
+          "23": 2
+        },
+        "verified": true
+      },
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 22,
+        "composite_pair": [
+          1679,
+          1681
+        ],
+        "left_factorization": {
+          "23": 1,
+          "73": 1
+        },
+        "right_factorization": {
+          "41": 2
+        },
+        "verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 47,
+        "composite_pair": [
+          4187,
+          4189
+        ],
+        "left_factorization": {
+          "53": 1,
+          "79": 1
+        },
+        "right_factorization": {
+          "59": 1,
+          "71": 1
+        },
+        "verified": true
+      }
+    ],
+    "aggregate": {
+      "cube_root_pair_classification_proved": true,
+      "four_type_pair_decomposition_proved": true,
+      "survivor_pair_as_twin_certificate_refuted": true,
+      "rough_semiprime_pair_contamination_uniformly_controlled": false,
+      "infinitely_many_twin_primes_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The decomposition names the exact parity-contamination classes at cube-root level. It supplies no asymptotic upper bound for PS+SP+SS and no positive lower bound for PP.",
+    "failure_count": 0
+  },
+  "logical_limit": "The PP/PS/SP/SS split identifies the exact contamination classes but proves neither their uniform cancellation nor an unbounded positive PP count.",
+  "route_decision": {
+    "discard": "treating a cube-root survivor pair as a twin-prime certificate",
+    "retain": "derive a positive PP lower bound after uniform control of all three rough-semiprime pair classes",
+    "next_single_lemma": "PositiveTwinPrimeLowerBoundAfterCubeRootSemiprimeContaminationControl"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T224",
+        "label": "SquareRootTwinFilterCompletenessAndSubthresholdCRTNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T225",
+        "label": "CubeRootTwinPairTypeDecompositionAndParityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N225",
+        "label": "CubeRootSurvivorPairCertifiesTwinPrimality",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN225",
+        "label": "PositiveTwinPrimeLowerBoundAfterCubeRootSemiprimeContaminationControl",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T224",
+        "TP-T225"
+      ],
+      [
+        "TP-T225",
+        "TP-N225"
+      ],
+      [
+        "TP-T225",
+        "TP-OPEN225"
+      ],
+      [
+        "TP-OPEN225",
+        "TP"
+      ]
+    ]
+  }
+}

@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, exact completeness thresholds exposed",
-      ko: "네 미해결 문제, 정확 판정의 완전성 임계값을 밝히다",
+      en: "Four open problems, arithmetic remainders localized",
+      ko: "네 미해결 문제, 산술적 나머지의 구조를 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-224 proves an optimal RH tail envelope, a Collatz prime-power no-go, and square-root completeness boundaries for Goldbach and Twin filters.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-224는 리만 band 꼬리의 최적 포락선, 콜라츠 prime-power 한계 정리, 골드바흐·쌍둥이 소수 filter의 제곱근 완전성 경계를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-225 isolates an actual prime-band tail, a cyclic Collatz residual, and exact cube-root semiprime contamination terms for Goldbach and Twin filters.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-225는 실제 소수 band의 꼬리, 콜라츠 순환 최대공약수 나머지, 골드바흐·쌍둥이 소수 세제곱근 체의 거친 반소수 오염항을 정확히 분리합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-224 proves four exact completeness-threshold or no-go theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-224는 네 개의 정확한 완전성 임계값 또는 한계 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-225 proves four exact arithmetic-localization or no-go theorems and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-225는 네 개의 정확한 산술적 나머지 국소화 또는 한계 정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

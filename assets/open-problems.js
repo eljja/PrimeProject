@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket225AttemptGlobal = null;
 let ticket224AttemptGlobal = null;
 let ticket223AttemptGlobal = null;
 let ticket222AttemptGlobal = null;
@@ -10020,6 +10021,79 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket225ArithmeticRemainderLocalization(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.arithmetic_remainder_localization_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.actual_prime_band_rows || [];
+    const kernels = computation.finite_band_kernel_rows || [];
+    detail = `
+      <div class="poc-equation">P(a)=ΣΛ(n)(e<sup>−an</sup>−e<sup>−2an</sup>)−1/(2a); tail ≤ q<sup>N+1</sup>((N+1)−Nq)/(1−q)<sup>2</sup></div>
+      ${table(["j", "scale", "cutoff N", "finite defect", "tail upper", "sign"], rows.slice(0, 8).map((row) => [row.dyadic_index_j, row.scale_2_to_j, formatter.format(row.cutoff_N), Number(row.finite_prime_band_defect).toExponential(5), Number(row.von_mangoldt_tail_upper_bound).toExponential(3), row.negative_sign_certified ? "negative" : "open"]))}
+      <div class="poc-head"><div><span>Certified prime bands</span><strong>${aggregate.certified_negative_dyadic_bands ?? 0}</strong></div><div><span>Finite-family kernels</span><strong>${kernels.length}</strong></div><div><span>Weil transfer</span><strong>${aggregate.explicit_formula_transfer_to_weil_positivity_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">실제 von Mangoldt band의 유한 부호는 인증했지만, 유한 band 함수족은 비단사입니다. 이 부호를 Weil form 양성으로 옮기는 명시공식 transfer가 없으므로 RH는 미해결입니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.finite_height_rows || [];
+    const witness = computation.ticket224_witness_rotation_rows || [];
+    detail = `
+      <div class="poc-equation">2<sup>aᵢ</sup>B<sub>i+1</sub>=3B<sub>i</sub>+D ⇒ gcd(D,B<sub>i+1</sub>)=gcd(D,B<sub>i</sub>)</div>
+      ${table(["h", "primitive D>0", "gcd failures", "min B<D", "unresolved"], rows.map((row) => [row.height_h, formatter.format(row.positive_primitive_words), row.cyclic_gcd_invariance_failures, formatter.format(row.minimum_intercept_below_D_certificates), formatter.format(row.unresolved_by_minimum_certificate)]))}
+      ${table(["rotation", "word", "gcd(D,B)", "D/gcd"], witness.map((row) => [row.rotation_index, row.valuation_word.join(","), row.gcd_D_B, row.residual_D_over_gcd]))}
+      <div class="poc-head"><div><span>Primitive words</span><strong>${formatter.format(aggregate.positive_primitive_words_checked || 0)}</strong></div><div><span>Transition checks</span><strong>${formatter.format(aggregate.cyclic_transition_checks || 0)}</strong></div><div><span>Cycles found</span><strong>${aggregate.nontrivial_cycles_found ?? 0}</strong></div></div>
+      <p class="proof-note">모든 회전은 같은 gcd residual을 공유하므로 회전별 deficit을 독립 증거로 누적할 수 없습니다. 최소 intercept 인증은 많은 유한 word를 닫지만 모든 word와 비주기 궤도는 닫지 못합니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const classes = computation.cube_root_classification_rows || [];
+    const rows = computation.convolution_decomposition_rows || [];
+    detail = `
+      <div class="poc-equation">z<sup>3</sup>≥X ⇒ Q<sub>z</sub>=P+S<sub>z</sub>; Q*Q=P*P+P*S+S*P+S*S, where S is the z-rough semiprime indicator</div>
+      ${table(["X", "z", "primes", "rough semiprimes", "mismatches"], classes.map((row) => [formatter.format(row.horizon_X), row.cube_root_cutoff_z, formatter.format(row.prime_count), formatter.format(row.rough_semiprime_count), row.classification_mismatches]))}
+      ${table(["N", "PP", "PS", "SP", "SS", "filtered"], rows.map((row) => [formatter.format(row.target_N), row.prime_prime_PP, row.prime_semiprime_PS, row.semiprime_prime_SP, row.semiprime_semiprime_SS, row.filtered_convolution]))}
+      <div class="poc-head"><div><span>Classification horizons</span><strong>${classes.length}</strong></div><div><span>Exact decompositions</span><strong>${rows.filter((row) => row.exact_decomposition_verified).length}</strong></div><div><span>Uniform contamination bound</span><strong>${aggregate.rough_semiprime_contamination_uniformly_controlled ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">세제곱근 체의 오차는 이제 임의 합성수가 아니라 세 rough-semiprime convolution으로 정확히 분해됩니다. 이 오염항을 모든 짝수에서 main term 아래로 누르는 정리는 아직 없습니다.</p>
+    `;
+  } else {
+    const rows = computation.pair_type_rows || [];
+    const samples = computation.explicit_SS_countermodels || [];
+    detail = `
+      <div class="poc-equation">z<sup>3</sup>≥X ⇒ every gap-two survivor has exact type PP, PS, SP, or SS; only PP is a twin-prime pair</div>
+      ${table(["X", "z", "PP", "PS", "SP", "SS", "contamination"], rows.map((row) => [formatter.format(row.horizon_X), row.cutoff_z, row.prime_prime_PP, row.prime_semiprime_PS, row.semiprime_prime_SP, row.semiprime_semiprime_SS, row.contaminating_pairs]))}
+      ${table(["X", "first SS pair", "verified"], samples.map((row) => [formatter.format(row.horizon_X), row.composite_pair.join(", "), row.verified]))}
+      <div class="poc-head"><div><span>Pair horizons</span><strong>${rows.length}</strong></div><div><span>Explicit SS pairs</span><strong>${samples.length}</strong></div><div><span>Positive infinite PP bound</span><strong>${aggregate.infinitely_many_twin_primes_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">cube-root parity contamination은 정확히 PS+SP+SS입니다. 생존쌍 수가 아니라 이 세 항을 제어한 뒤 남는 PP의 양의 무한 하한이 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket225-arithmetic-remainder-localization" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 225 arithmetic remainder localization</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact localization or no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET225 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/arithmetic-remainder-localization.ko.md">한국어 보고서</a> · <a href="../docs/arithmetic-remainder-localization.md">English report</a></p>
+    </div>
+  `;
+}
+
 function renderTicket224SharpCompletenessThresholds(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.sharp_completeness_thresholds_audit || {};
@@ -10074,7 +10148,7 @@ function renderTicket224SharpCompletenessThresholds(attempt) {
   }
   return `
     <div id="ticket224-sharp-completeness-thresholds" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 224 sharp completeness thresholds and adversarial countermodels</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact threshold or no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET224 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -17073,7 +17147,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket224SharpCompletenessThresholds(ticket224AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket225ArithmeticRemainderLocalization(ticket225AttemptGlobal) ||
+      renderTicket224SharpCompletenessThresholds(ticket224AttemptGlobal) ||
       renderTicket223ExponentialTailLocalDualityNoGo(ticket223AttemptGlobal) ||
       renderTicket222LosslessCouplingBiasedParity(ticket222AttemptGlobal) ||
       renderTicket221SharpObstructionCertificates(ticket221AttemptGlobal) ||
@@ -17617,6 +17692,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket225Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket225-arithmetic-remainder-localization.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket225AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket225AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket225AttemptGlobal) {
+      ticket225AttemptGlobal.bounded_result = ticket225AttemptGlobal.bounded_result || {};
+      ticket225AttemptGlobal.bounded_result.arithmetic_remainder_localization_audit = payload.arithmetic_remainder_localization_audit || {};
+    }
+    return Boolean(ticket225AttemptGlobal);
+  } catch (error) {
+    ticket225AttemptGlobal = null;
     return false;
   }
 }
@@ -19290,13 +19385,14 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket225Loaded = await loadTicket225Attempt();
   const ticket224Loaded = await loadTicket224Attempt();
   const ticket223Loaded = await loadTicket223Attempt();
   const ticket222Loaded = await loadTicket222Attempt();
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket224-current";
+  document.documentElement.dataset.openProblemCache = "ticket225-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19349,8 +19445,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket225AttemptGlobal) await loadTicket225Attempt();
     if (!ticket224AttemptGlobal) await loadTicket224Attempt();
     if (!ticket223AttemptGlobal) await loadTicket223Attempt();
     if (!ticket222AttemptGlobal) await loadTicket222Attempt();
@@ -19453,7 +19550,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket224-current";
+  document.documentElement.dataset.openProblemCache = "ticket225-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

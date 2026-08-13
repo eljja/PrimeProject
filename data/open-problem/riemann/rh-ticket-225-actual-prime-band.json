@@ -1,0 +1,279 @@
+{
+  "schema": "primeproject.ticket225-arithmetic-remainder-localization.v1",
+  "generated_at": "2026-08-14T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-225",
+  "theorem_name": "ActualPrimeBandTailCertificateAndFiniteBandNoGo",
+  "declared_proposition": "For a>0 define the actual prime-side Laplace band defect P(a)=sum_{n>=2} Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every integer N>=2, its omitted prime contribution is positive and at most q^(N+1)((N+1)-Nq)/(1-q)^2, q=exp(-a). Hence the finite von Mangoldt sum plus this explicit interval certifies the full band sign. Conversely, any finite family of band functionals has a nonzero finitely supported signed measure in its common kernel, so finitely many band signs cannot identify an arbitrary defect measure or constitute an RH criterion.",
+  "mathematical_argument": "The main term is the exact integral of exp(-ax)-exp(-2ax) over x>=0. Since 0<=exp(-an)-exp(-2an)<=exp(-an) and Lambda(n)<=log(n)<=n, the tail is bounded by sum_{n>N} n q^n; differentiating the geometric series gives the displayed closed form. For the no-go, evaluate m band functionals on m+1 distinct atoms. The resulting linear map from R^(m+1) to R^m has a nonzero kernel vector by rank-nullity.",
+  "reproducible_computation": {
+    "theorem": "For a>0 define the actual prime-side Laplace band defect P(a)=sum_{n>=2} Lambda(n)(exp(-an)-exp(-2an))-1/(2a). For every integer N>=2, its omitted prime contribution is positive and at most q^(N+1)((N+1)-Nq)/(1-q)^2, q=exp(-a). Hence the finite von Mangoldt sum plus this explicit interval certifies the full band sign. Conversely, any finite family of band functionals has a nonzero finitely supported signed measure in its common kernel, so finitely many band signs cannot identify an arbitrary defect measure or constitute an RH criterion.",
+    "proof": "The main term is the exact integral of exp(-ax)-exp(-2ax) over x>=0. Since 0<=exp(-an)-exp(-2an)<=exp(-an) and Lambda(n)<=log(n)<=n, the tail is bounded by sum_{n>N} n q^n; differentiating the geometric series gives the displayed closed form. For the no-go, evaluate m band functionals on m+1 distinct atoms. The resulting linear map from R^(m+1) to R^m has a nonzero kernel vector by rank-nullity.",
+    "actual_prime_band_rows": [
+      {
+        "dyadic_index_j": 3,
+        "scale_2_to_j": 8,
+        "cutoff_N": 384,
+        "finite_prime_band_defect": -0.1750990167189026,
+        "von_mangoldt_tail_upper_bound": 4.201263560979583e-18,
+        "certified_full_band_interval": [
+          -0.1750990167189026,
+          -0.1750990167189026
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 4,
+        "scale_2_to_j": 16,
+        "cutoff_N": 768,
+        "finite_prime_band_defect": -0.10164754364233008,
+        "von_mangoldt_tail_upper_bound": 1.7335576790877956e-17,
+        "certified_full_band_interval": [
+          -0.10164754364233008,
+          -0.10164754364233007
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 5,
+        "scale_2_to_j": 32,
+        "cutoff_N": 1536,
+        "finite_prime_band_defect": -0.0553965609826097,
+        "von_mangoldt_tail_upper_bound": 7.042008880574382e-17,
+        "certified_full_band_interval": [
+          -0.0553965609826097,
+          -0.05539656098260963
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 6,
+        "scale_2_to_j": 64,
+        "cutoff_N": 3072,
+        "finite_prime_band_defect": -0.029101166642444554,
+        "von_mangoldt_tail_upper_bound": 2.838526619023001e-16,
+        "certified_full_band_interval": [
+          -0.029101166642444554,
+          -0.02910116664244427
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 7,
+        "scale_2_to_j": 128,
+        "cutoff_N": 6144,
+        "finite_prime_band_defect": -0.014965603233555669,
+        "von_mangoldt_tail_upper_bound": 1.1397720060748023e-15,
+        "certified_full_band_interval": [
+          -0.014965603233555669,
+          -0.014965603233554529
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 8,
+        "scale_2_to_j": 256,
+        "cutoff_N": 12288,
+        "finite_prime_band_defect": -0.007602572549203046,
+        "von_mangoldt_tail_upper_bound": 4.567827486767345e-15,
+        "certified_full_band_interval": [
+          -0.007602572549203046,
+          -0.0076025725491984785
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 9,
+        "scale_2_to_j": 512,
+        "cutoff_N": 24576,
+        "finite_prime_band_defect": -0.003835187860147471,
+        "von_mangoldt_tail_upper_bound": 1.8288805617662997e-14,
+        "certified_full_band_interval": [
+          -0.003835187860147471,
+          -0.003835187860129182
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 10,
+        "scale_2_to_j": 1024,
+        "cutoff_N": 49152,
+        "finite_prime_band_defect": -0.0019270606820214198,
+        "von_mangoldt_tail_upper_bound": 7.319023055740612e-14,
+        "certified_full_band_interval": [
+          -0.0019270606820214198,
+          -0.0019270606819482296
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 11,
+        "scale_2_to_j": 2048,
+        "cutoff_N": 98304,
+        "finite_prime_band_defect": -0.0009661972841286115,
+        "von_mangoldt_tail_upper_bound": 2.928309551499499e-13,
+        "certified_full_band_interval": [
+          -0.0009661972841286115,
+          -0.0009661972838357805
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 12,
+        "scale_2_to_j": 4096,
+        "cutoff_N": 196608,
+        "finite_prime_band_defect": -0.00048369456612817885,
+        "von_mangoldt_tail_upper_bound": 1.171463903179645e-12,
+        "certified_full_band_interval": [
+          -0.00048369456612817885,
+          -0.00048369456495671494
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 13,
+        "scale_2_to_j": 8192,
+        "cutoff_N": 393216,
+        "finite_prime_band_defect": -0.00024225742163253017,
+        "von_mangoldt_tail_upper_bound": 4.686135794544421e-12,
+        "certified_full_band_interval": [
+          -0.00024225742163253017,
+          -0.00024225741694639438
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 14,
+        "scale_2_to_j": 16384,
+        "cutoff_N": 786432,
+        "finite_prime_band_defect": -0.00012085361686331453,
+        "von_mangoldt_tail_upper_bound": 1.8745103559665394e-11,
+        "certified_full_band_interval": [
+          -0.00012085361686331453,
+          -0.00012085359811821097
+        ],
+        "negative_sign_certified": true
+      },
+      {
+        "dyadic_index_j": 15,
+        "scale_2_to_j": 32768,
+        "cutoff_N": 1572864,
+        "finite_prime_band_defect": -6.087266046961304e-05,
+        "von_mangoldt_tail_upper_bound": 7.498153500976652e-11,
+        "certified_full_band_interval": [
+          -6.087266046961304e-05,
+          -6.0872585488078026e-05
+        ],
+        "negative_sign_certified": true
+      }
+    ],
+    "finite_band_kernel_rows": [
+      {
+        "observed_band_count": 3,
+        "atomic_support_count": 4,
+        "numerical_matrix_rank": 3,
+        "maximum_null_residual": 2.1467203015212988e-17,
+        "nonzero_signed_atomic_kernel_verified": true
+      },
+      {
+        "observed_band_count": 4,
+        "atomic_support_count": 5,
+        "numerical_matrix_rank": 4,
+        "maximum_null_residual": 1.0652286344670081e-17,
+        "nonzero_signed_atomic_kernel_verified": true
+      },
+      {
+        "observed_band_count": 5,
+        "atomic_support_count": 6,
+        "numerical_matrix_rank": 5,
+        "maximum_null_residual": 1.7040680606818263e-19,
+        "nonzero_signed_atomic_kernel_verified": true
+      },
+      {
+        "observed_band_count": 6,
+        "atomic_support_count": 7,
+        "numerical_matrix_rank": 6,
+        "maximum_null_residual": 3.936862727869566e-23,
+        "nonzero_signed_atomic_kernel_verified": true
+      },
+      {
+        "observed_band_count": 7,
+        "atomic_support_count": 8,
+        "numerical_matrix_rank": 7,
+        "maximum_null_residual": 1.4651590547122556e-30,
+        "nonzero_signed_atomic_kernel_verified": true
+      },
+      {
+        "observed_band_count": 8,
+        "atomic_support_count": 9,
+        "numerical_matrix_rank": 8,
+        "maximum_null_residual": 1.4261614379243976e-44,
+        "nonzero_signed_atomic_kernel_verified": true
+      }
+    ],
+    "transcript_sha256": "2af4425aa5846eadb5bf32c9fa579b099a893bfc516876997e411c00195fb7ef",
+    "aggregate": {
+      "actual_von_mangoldt_band_tail_bound_proved": true,
+      "certified_negative_dyadic_bands": 13,
+      "finite_band_family_noninjectivity_proved": true,
+      "explicit_formula_transfer_to_weil_positivity_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The calculation certifies signs of one actual prime-side Laplace observable at finitely many scales. It neither converts those signs into Weil positivity nor excludes an off-critical zero. Rank-nullity blocks every finite-band identification route.",
+    "failure_count": 0
+  },
+  "logical_limit": "Actual prime-side band signs are certified only at finitely many scales; no explicit-formula transfer to Weil positivity or zero-free conclusion is proved.",
+  "route_decision": {
+    "discard": "treating any finite list of actual prime-band signs as an RH criterion",
+    "retain": "prove an explicit-formula transfer from cofinal prime-band margins to positivity on a dense Weil core",
+    "next_single_lemma": "ExplicitFormulaTransferFromCofinalPrimeBandMarginsToWeilCorePositivity"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T224",
+        "label": "SharpQuarterDyadicTailEnvelopeAndSignCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T225",
+        "label": "ActualPrimeBandTailCertificateAndFiniteBandNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N225",
+        "label": "FinitePrimeBandSignsDetermineRiemannHypothesis",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN225",
+        "label": "ExplicitFormulaTransferFromCofinalPrimeBandMarginsToWeilCorePositivity",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T224",
+        "RH-T225"
+      ],
+      [
+        "RH-T225",
+        "RH-N225"
+      ],
+      [
+        "RH-T225",
+        "RH-OPEN225"
+      ],
+      [
+        "RH-OPEN225",
+        "RH"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "schema": "primeproject.ticket225-arithmetic-remainder-localization.v1",
+  "generated_at": "2026-08-14T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-225",
+  "theorem_name": "CubeRootRoughSemiprimeGoldbachDecomposition",
+  "declared_proposition": "Let z^3>=X and let Q_z(m) accept primes and integers with no prime divisor at most z. Every accepted composite m<=X is exactly a product of two primes r,s>z, counting multiplicity. Writing P for the prime indicator and S_z for this z-rough semiprime indicator, Q_z=P+S_z exactly on [2,X]. Therefore for every even N<=X, Q_z*Q_z(N)=P*P(N)+P*S_z(N)+S_z*P(N)+S_z*S_z(N).",
+  "mathematical_argument": "Every prime factor of an accepted composite exceeds z. Three or more factors would give m>z^3>=X, so exactly two remain. The converse is immediate. Expanding the convolution of P+S_z gives the identity. Thus a filtered representation is a Goldbach representation only after the three non-PP terms are removed.",
+  "reproducible_computation": {
+    "theorem": "Let z^3>=X and let Q_z(m) accept primes and integers with no prime divisor at most z. Every accepted composite m<=X is exactly a product of two primes r,s>z, counting multiplicity. Writing P for the prime indicator and S_z for this z-rough semiprime indicator, Q_z=P+S_z exactly on [2,X]. Therefore for every even N<=X, Q_z*Q_z(N)=P*P(N)+P*S_z(N)+S_z*P(N)+S_z*S_z(N).",
+    "proof": "Every prime factor of an accepted composite exceeds z. Three or more factors would give m>z^3>=X, so exactly two remain. The converse is immediate. Expanding the convolution of P+S_z gives the identity. Thus a filtered representation is a Goldbach representation only after the three non-PP terms are removed.",
+    "cube_root_classification_rows": [
+      {
+        "horizon_X": 1000,
+        "cube_root_cutoff_z": 10,
+        "z_cubed_at_least_X": true,
+        "survivor_count": 231,
+        "prime_count": 168,
+        "rough_semiprime_count": 63,
+        "classification_mismatches": 0,
+        "rough_semiprime_factorization_failures": 0
+      },
+      {
+        "horizon_X": 10000,
+        "cube_root_cutoff_z": 22,
+        "z_cubed_at_least_X": true,
+        "survivor_count": 1718,
+        "prime_count": 1229,
+        "rough_semiprime_count": 489,
+        "classification_mismatches": 0,
+        "rough_semiprime_factorization_failures": 0
+      },
+      {
+        "horizon_X": 100000,
+        "cube_root_cutoff_z": 47,
+        "z_cubed_at_least_X": true,
+        "survivor_count": 13912,
+        "prime_count": 9592,
+        "rough_semiprime_count": 4320,
+        "classification_mismatches": 0,
+        "rough_semiprime_factorization_failures": 0
+      }
+    ],
+    "convolution_decomposition_rows": [
+      {
+        "horizon_X": 1000,
+        "target_N": 1000,
+        "cutoff_z": 10,
+        "prime_prime_PP": 56,
+        "prime_semiprime_PS": 19,
+        "semiprime_prime_SP": 19,
+        "semiprime_semiprime_SS": 4,
+        "filtered_convolution": 98,
+        "rough_semiprime_contamination": 42,
+        "exact_decomposition_verified": true
+      },
+      {
+        "horizon_X": 10000,
+        "target_N": 10000,
+        "cutoff_z": 22,
+        "prime_prime_PP": 254,
+        "prime_semiprime_PS": 118,
+        "semiprime_prime_SP": 118,
+        "semiprime_semiprime_SS": 34,
+        "filtered_convolution": 524,
+        "rough_semiprime_contamination": 270,
+        "exact_decomposition_verified": true
+      },
+      {
+        "horizon_X": 100000,
+        "target_N": 100000,
+        "cutoff_z": 47,
+        "prime_prime_PP": 1620,
+        "prime_semiprime_PS": 759,
+        "semiprime_prime_SP": 759,
+        "semiprime_semiprime_SS": 294,
+        "filtered_convolution": 3432,
+        "rough_semiprime_contamination": 1812,
+        "exact_decomposition_verified": true
+      }
+    ],
+    "rough_semiprime_false_diagonal_rows": [
+      {
+        "horizon_X": 1000,
+        "cutoff_z": 10,
+        "rough_semiprime_m": 143,
+        "factors": [
+          11,
+          13
+        ],
+        "target_N": 286,
+        "SS_diagonal_present": true
+      },
+      {
+        "horizon_X": 10000,
+        "cutoff_z": 22,
+        "rough_semiprime_m": 667,
+        "factors": [
+          23,
+          29
+        ],
+        "target_N": 1334,
+        "SS_diagonal_present": true
+      },
+      {
+        "horizon_X": 100000,
+        "cutoff_z": 47,
+        "rough_semiprime_m": 3127,
+        "factors": [
+          53,
+          59
+        ],
+        "target_N": 6254,
+        "SS_diagonal_present": true
+      }
+    ],
+    "aggregate": {
+      "cube_root_survivor_classification_proved": true,
+      "goldbach_four_term_decomposition_proved": true,
+      "filtered_witness_termwise_primality_refuted": true,
+      "rough_semiprime_contamination_uniformly_controlled": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "Cube-root sieving replaces arbitrary composites by an exact rough-semiprime error, but it does not bound that error below the filtered main term or prove P*P(N)>0 for every even N.",
+    "failure_count": 0
+  },
+  "logical_limit": "The cube-root identity isolates the error as rough-semiprime convolutions but supplies no uniform bound below the local main term for every even target.",
+  "route_decision": {
+    "discard": "reading each cube-root wheel representation as a prime-prime representation",
+    "retain": "bound the three exact rough-semiprime contamination terms below the filtered main term",
+    "next_single_lemma": "UniformCubeRootRoughSemiprimeErrorBelowGoldbachWheelMainTerm"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T224",
+        "label": "SquareRootWheelCompletenessAndGoldbachSubthresholdNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T225",
+        "label": "CubeRootRoughSemiprimeGoldbachDecomposition",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N225",
+        "label": "CubeRootWheelWitnessesAreTermwisePrime",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN225",
+        "label": "UniformCubeRootRoughSemiprimeErrorBelowGoldbachWheelMainTerm",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T224",
+        "GB-T225"
+      ],
+      [
+        "GB-T225",
+        "GB-N225"
+      ],
+      [
+        "GB-T225",
+        "GB-OPEN225"
+      ],
+      [
+        "GB-OPEN225",
+        "GB"
+      ]
+    ]
+  }
+}

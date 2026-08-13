@@ -1,0 +1,215 @@
+{
+  "schema": "primeproject.ticket225-arithmetic-remainder-localization.v1",
+  "generated_at": "2026-08-14T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-225",
+  "theorem_name": "CyclicGcdResidualInvarianceAndRotationNoGo",
+  "declared_proposition": "Let a=(a_1,...,a_h) be a positive accelerated Collatz word, D=2^S-3^h>0, and let B_i be the affine intercept of its i-th cyclic rotation. Consecutive rotations satisfy 2^(a_i) B_(i+1)=3B_i+D. Therefore gcd(D,B_i) and the residual obstruction R=D/gcd(D,B_i) are invariant under every cyclic rotation. In particular, if one rotation has 0<B_i<D then the word is not a cycle. Rotation-by-rotation factor tests cannot accumulate independent prime-power obstructions because every rotation carries the same gcd residual.",
+  "mathematical_argument": "Write B_i=3^(h-1)+2^(a_i)C for the suffix intercept C. The next rotation has B_(i+1)=3C+2^(S-a_i). Multiplication by 2^(a_i) gives 3B_i-3^h+2^S=3B_i+D. Since D is coprime to both 2 and 3, taking gcd with D proves invariance. If D divides every cycle intercept, a positive intercept smaller than D is an immediate contradiction.",
+  "reproducible_computation": {
+    "theorem": "Let a=(a_1,...,a_h) be a positive accelerated Collatz word, D=2^S-3^h>0, and let B_i be the affine intercept of its i-th cyclic rotation. Consecutive rotations satisfy 2^(a_i) B_(i+1)=3B_i+D. Therefore gcd(D,B_i) and the residual obstruction R=D/gcd(D,B_i) are invariant under every cyclic rotation. In particular, if one rotation has 0<B_i<D then the word is not a cycle. Rotation-by-rotation factor tests cannot accumulate independent prime-power obstructions because every rotation carries the same gcd residual.",
+    "proof": "Write B_i=3^(h-1)+2^(a_i)C for the suffix intercept C. The next rotation has B_(i+1)=3C+2^(S-a_i). Multiplication by 2^(a_i) gives 3B_i-3^h+2^S=3B_i+D. Since D is coprime to both 2 and 3, taking gcd with D proves invariance. If D divides every cycle intercept, a positive intercept smaller than D is an immediate contradiction.",
+    "finite_height_rows": [
+      {
+        "height_h": 2,
+        "words_checked": 25,
+        "positive_primitive_words": 18,
+        "cyclic_gcd_invariance_failures": 0,
+        "cyclic_transition_identity_failures": 0,
+        "minimum_intercept_below_D_certificates": 18,
+        "unresolved_by_minimum_certificate": 0,
+        "exact_nontrivial_cycles_found": 0,
+        "distinct_residual_obstructions": 8
+      },
+      {
+        "height_h": 3,
+        "words_checked": 125,
+        "positive_primitive_words": 117,
+        "cyclic_gcd_invariance_failures": 0,
+        "cyclic_transition_identity_failures": 0,
+        "minimum_intercept_below_D_certificates": 111,
+        "unresolved_by_minimum_certificate": 6,
+        "exact_nontrivial_cycles_found": 0,
+        "distinct_residual_obstructions": 11
+      },
+      {
+        "height_h": 4,
+        "words_checked": 625,
+        "positive_primitive_words": 588,
+        "cyclic_gcd_invariance_failures": 0,
+        "cyclic_transition_identity_failures": 0,
+        "minimum_intercept_below_D_certificates": 568,
+        "unresolved_by_minimum_certificate": 20,
+        "exact_nontrivial_cycles_found": 0,
+        "distinct_residual_obstructions": 23
+      },
+      {
+        "height_h": 5,
+        "words_checked": 3125,
+        "positive_primitive_words": 3100,
+        "cyclic_gcd_invariance_failures": 0,
+        "cyclic_transition_identity_failures": 0,
+        "minimum_intercept_below_D_certificates": 3015,
+        "unresolved_by_minimum_certificate": 85,
+        "exact_nontrivial_cycles_found": 0,
+        "distinct_residual_obstructions": 31
+      },
+      {
+        "height_h": 6,
+        "words_checked": 15625,
+        "positive_primitive_words": 15402,
+        "cyclic_gcd_invariance_failures": 0,
+        "cyclic_transition_identity_failures": 0,
+        "minimum_intercept_below_D_certificates": 15198,
+        "unresolved_by_minimum_certificate": 204,
+        "exact_nontrivial_cycles_found": 0,
+        "distinct_residual_obstructions": 63
+      },
+      {
+        "height_h": 7,
+        "words_checked": 78125,
+        "positive_primitive_words": 77791,
+        "cyclic_gcd_invariance_failures": 0,
+        "cyclic_transition_identity_failures": 0,
+        "minimum_intercept_below_D_certificates": 77217,
+        "unresolved_by_minimum_certificate": 574,
+        "exact_nontrivial_cycles_found": 0,
+        "distinct_residual_obstructions": 47
+      }
+    ],
+    "ticket224_witness_rotation_rows": [
+      {
+        "rotation_index": 0,
+        "valuation_word": [
+          1,
+          1,
+          2,
+          4,
+          3
+        ],
+        "B": 475,
+        "gcd_D_B": 95,
+        "residual_D_over_gcd": 19
+      },
+      {
+        "rotation_index": 1,
+        "valuation_word": [
+          1,
+          2,
+          4,
+          3,
+          1
+        ],
+        "B": 1615,
+        "gcd_D_B": 95,
+        "residual_D_over_gcd": 19
+      },
+      {
+        "rotation_index": 2,
+        "valuation_word": [
+          2,
+          4,
+          3,
+          1,
+          1
+        ],
+        "B": 3325,
+        "gcd_D_B": 95,
+        "residual_D_over_gcd": 19
+      },
+      {
+        "rotation_index": 3,
+        "valuation_word": [
+          4,
+          3,
+          1,
+          1,
+          2
+        ],
+        "B": 2945,
+        "gcd_D_B": 95,
+        "residual_D_over_gcd": 19
+      },
+      {
+        "rotation_index": 4,
+        "valuation_word": [
+          3,
+          1,
+          1,
+          2,
+          4
+        ],
+        "B": 665,
+        "gcd_D_B": 95,
+        "residual_D_over_gcd": 19
+      }
+    ],
+    "aggregate": {
+      "positive_primitive_words_checked": 97016,
+      "cyclic_transition_checks": 655188,
+      "cyclic_gcd_invariance_proved": true,
+      "rotation_independent_deficit_accumulation_refuted": true,
+      "minimum_intercept_certificates_found": 96127,
+      "nontrivial_cycles_found": 0,
+      "all_nontrivial_cycles_excluded": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "Cyclic rotations expose different intercept sizes but no new gcd or prime-power residual. The minimum-intercept certificate closes many finite words, not all words, and says nothing about aperiodic divergent trajectories.",
+    "failure_count": 0
+  },
+  "logical_limit": "The invariant residual removes redundant rotation tests but does not force it above one for every word or prove descent for aperiodic trajectories.",
+  "route_decision": {
+    "discard": "accumulating cyclic rotations as independent prime-power deficit evidence",
+    "retain": "prove a uniform cyclic-intercept descent certificate and a separate aperiodic descent theorem",
+    "next_single_lemma": "UniformCyclicInterceptDescentOrAperiodicOrbitDescent"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T224",
+        "label": "PrimePowerValuationCycleCriterionAndRadicalNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T225",
+        "label": "CyclicGcdResidualInvarianceAndRotationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N225",
+        "label": "IndependentPrimePowerDeficitsFromCyclicRotations",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN225",
+        "label": "UniformCyclicInterceptDescentOrAperiodicOrbitDescent",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T224",
+        "CO-T225"
+      ],
+      [
+        "CO-T225",
+        "CO-N225"
+      ],
+      [
+        "CO-T225",
+        "CO-OPEN225"
+      ],
+      [
+        "CO-OPEN225",
+        "CO"
+      ]
+    ]
+  }
+}
