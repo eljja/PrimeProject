@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket228AttemptGlobal = null;
 let ticket227AttemptGlobal = null;
 let ticket226AttemptGlobal = null;
 let ticket225AttemptGlobal = null;
@@ -10023,6 +10024,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket228NearAliasAffineLanguageResidueSpectrum(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.near_alias_affine_language_residue_spectrum_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = (computation.near_alias_rows || []).slice(-7);
+    detail = `
+      <div class="poc-equation">F<sub>Q</sub>(τ)=Σ<sub>q∈Q</sub>|1−q<sup>−iτ</sup>|²; every finite Q has arbitrarily large τ with F<sub>Q</sub>(τ)→0</div>
+      ${table(["p/q", "tau", "reduced phase error", "dual energy"], rows.map((row) => [row.p_over_q, Number(row.frequency_tau_2pi_q_over_log2).toExponential(4), row.absolute_q_log3_over_log2_minus_p, Number(row.normalized_dual_energy).toExponential(4)]))}
+      <div class="poc-head"><div><span>Finite-family near aliases</span><strong>${aggregate.finite_dilation_arbitrarily_large_near_aliases_proved ? "proved" : "open"}</strong></div><div><span>Full-line uniform frame</span><strong>${aggregate.unweighted_uniform_full_line_frame_bound_refuted ? "refuted" : "open"}</strong></div><div><span>RH resolved</span><strong>${aggregate.riemann_hypothesis_resolved ? "yes" : "no"}</strong></div></div>
+      <p class="proof-note">정확한 단사성과 안정적 역변환은 다릅니다. 동시 디리클레 근사가 모든 유한 배율 족에 임의로 큰 근접 에일리어스를 만들므로, 후속 정리는 대역 제한 또는 명시적 디오판토스 손실이 필요합니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.level_rows || [];
+    const cone = computation.global_ratio_cone || {};
+    detail = `
+      <div class="poc-equation">U<sub>0</sub>=(1,3,3,1), U<sub>1</sub>=(2,3,1,2), V=(1,4,1); ${cone.lower || "?"}≤B/D≤${cone.upper || "?"}⊂(1,2)</div>
+      ${table(["depth r", "distinct words", "min B/D", "max B/D", "failures"], rows.map((row) => [row.block_count_r, formatter.format(row.distinct_word_count_2_to_r || 0), Number(row.minimum_B_over_D_float).toFixed(7), Number(row.maximum_B_over_D_float).toFixed(7), row.verification_failures]))}
+      <div class="poc-head"><div><span>Branching language</span><strong>${aggregate.binary_branching_primitive_noncycle_language_proved ? "proved" : "open"}</strong></div><div><span>Words audited</span><strong>${formatter.format(aggregate.words_computationally_checked || 0)}</strong></div><div><span>All primitive words</span><strong>${aggregate.all_primitive_cycle_words_excluded ? "excluded" : "open"}</strong></div></div>
+      <p class="proof-note">같은 기울기의 두 아핀 블록이 깊이마다 2<sup>r</sup>개 원시 비순환 word를 만듭니다. 이는 모든 원시 word의 종국적 포괄이나 비주기 궤도 하강은 아닙니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = (computation.operator_rows || []).slice(0, 9);
+    detail = `
+      <div class="poc-equation">M<sub>a</sub>=J−P<sub>a</sub>, a≠0 ⇒ M<sub>a</sub><sup>T</sup>M<sub>a</sub>=I+(ℓ−3)J; singular values ℓ−2,1,…,1</div>
+      ${table(["prime l", "zero-target principal", "nonzero principal", "nonconstant", "local survival"], rows.map((row) => [row.prime_l, row.zero_target?.principal_singular_value, row.nonzero_target?.principal_singular_value, row.nonzero_target?.nonconstant_singular_value, row.nonzero_target?.local_survival_fraction]))}
+      <div class="poc-head"><div><span>Residue spectra</span><strong>${aggregate.moving_residue_operator_spectrum_proved ? "proved" : "open"}</strong></div><div><span>Residues audited</span><strong>${formatter.format(computation.exhaustive_residue_cases_checked || 0)}</strong></div><div><span>Character cancellation</span><strong>${aggregate.uniform_moving_target_character_cancellation_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">국소 생존 비율은 정확하지만 비상수 지표 mode가 특이값 1로 남습니다. 스칼라 밀도만으로 실제 소수 가중 moving cell을 제어할 수 없습니다.</p>
+    `;
+  } else {
+    const rows = (computation.cross_operator_rows || []).slice(0, 9);
+    detail = `
+      <div class="poc-equation">M<sub>2</sub><sup>T</sup>M<sub>−2</sub>=(ℓ−3)J+P<sub>2</sub>P<sub>−2</sub>; on zero-sum modes P<sub>2</sub>P<sub>−2</sub>:u↦−u</div>
+      ${table(["prime l", "principal", "nonconstant", "joint allowed", "joint fraction"], rows.map((row) => [row.prime_l, row.individual_principal_singular_value, row.individual_nonconstant_singular_value, row.joint_allowed_unit_pairs, row.joint_survival_fraction]))}
+      <div class="poc-head"><div><span>Cross Gram</span><strong>${aggregate.shift_two_cross_gram_permutation_proved ? "proved" : "open"}</strong></div><div><span>mod 3 joint route</span><strong>${aggregate.mod3_simultaneous_side_channel_route_refuted ? "refuted" : "open"}</strong></div><div><span>Shifted power saving</span><strong>${aggregate.uniform_shifted_bilinear_power_saving_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">두 side channel을 동시 생존으로 결합하는 경로는 mod 3에서 이미 막힙니다. 실제 qr−2와 qr+2 합은 별도의 균일 지표 상쇄가 필요합니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket228-near-alias-affine-language-residue-spectrum" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 228 near aliases, affine languages, and residue spectra</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET228 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/near-alias-affine-language-residue-spectrum.ko.md">한국어 보고서</a> · <a href="../docs/near-alias-affine-language-residue-spectrum.md">English report</a> · <a href="../data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json">machine JSON</a></p>
+    </div>
+  `;
+}
+
 function renderTicket227MellinBlockBuchstabLifts(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.mellin_block_buchstab_lifts_audit || {};
@@ -10080,7 +10148,7 @@ function renderTicket227MellinBlockBuchstabLifts(attempt) {
   }
   return `
     <div id="ticket227-mellin-block-buchstab-lifts" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 227 Mellin, block, and Buchstab factor lifts</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact structural lemmas; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET227 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -17294,7 +17362,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket227MellinBlockBuchstabLifts(ticket227AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket228NearAliasAffineLanguageResidueSpectrum(ticket228AttemptGlobal) ||
+      renderTicket227MellinBlockBuchstabLifts(ticket227AttemptGlobal) ||
       renderTicket226SignalTransferSameOrderObstructions(ticket226AttemptGlobal) ||
       renderTicket225ArithmeticRemainderLocalization(ticket225AttemptGlobal) ||
       renderTicket224SharpCompletenessThresholds(ticket224AttemptGlobal) ||
@@ -17841,6 +17910,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket228Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket228AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket228AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket228AttemptGlobal) {
+      ticket228AttemptGlobal.bounded_result = ticket228AttemptGlobal.bounded_result || {};
+      ticket228AttemptGlobal.bounded_result.near_alias_affine_language_residue_spectrum_audit = payload.near_alias_affine_language_residue_spectrum_audit || {};
+    }
+    return Boolean(ticket228AttemptGlobal);
+  } catch (error) {
+    ticket228AttemptGlobal = null;
     return false;
   }
 }
@@ -19574,6 +19663,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket228Loaded = await loadTicket228Attempt();
   const ticket227Loaded = await loadTicket227Attempt();
   const ticket226Loaded = await loadTicket226Attempt();
   const ticket225Loaded = await loadTicket225Attempt();
@@ -19583,7 +19673,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket227-current";
+  document.documentElement.dataset.openProblemCache = "ticket228-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19636,8 +19726,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket228AttemptGlobal) await loadTicket228Attempt();
     if (!ticket227AttemptGlobal) await loadTicket227Attempt();
     if (!ticket226AttemptGlobal) await loadTicket226Attempt();
     if (!ticket225AttemptGlobal) await loadTicket225Attempt();
@@ -19743,7 +19834,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket227-current";
+  document.documentElement.dataset.openProblemCache = "ticket228-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

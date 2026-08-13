@@ -1,0 +1,763 @@
+{
+  "schema": "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1",
+  "generated_at": "2026-08-14T05:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-228",
+  "theorem_name": "MovingResidueUnitOperatorSpectrumAndLocalFactor",
+  "declared_proposition": "Let l be an odd prime, G=(Z/lZ)^*, n=l-1, and define the unit residue operator M_a(u,v)=1_{uv != a}. If a=0 then M_a=J has singular values n,0,...,0. If a is nonzero then M_a=J-P_a, where P_a(u,v)=1_{uv=a} is a symmetric permutation matrix, and M_a^T M_a=I+(n-2)J. Hence its singular values are l-2 on the constant mode and 1 with multiplicity l-2 on the nonconstant modes. Applied with a=N mod l, the local survival fraction is 1 when l divides N and (l-2)/(l-1) otherwise.",
+  "mathematical_argument": "Products of units never equal zero, giving M_0=J. For nonzero a, each row and column has one excluded entry, so P_a is the permutation u -> a/u. This map is an involution, P_a is symmetric, P_a^2=I, and JP_a=P_aJ=J. Expanding (J-P_a)^2 with J^2=nJ gives I+(n-2)J. The constant vector and its orthogonal complement give the stated singular values and exact local fractions.",
+  "reproducible_computation": {
+    "theorem": "Let l be an odd prime, G=(Z/lZ)^*, n=l-1, and define the unit residue operator M_a(u,v)=1_{uv != a}. If a=0 then M_a=J has singular values n,0,...,0. If a is nonzero then M_a=J-P_a, where P_a(u,v)=1_{uv=a} is a symmetric permutation matrix, and M_a^T M_a=I+(n-2)J. Hence its singular values are l-2 on the constant mode and 1 with multiplicity l-2 on the nonconstant modes. Applied with a=N mod l, the local survival fraction is 1 when l divides N and (l-2)/(l-1) otherwise.",
+    "proof": "Products of units never equal zero, giving M_0=J. For nonzero a, each row and column has one excluded entry, so P_a is the permutation u -> a/u. This map is an involution, P_a is symmetric, P_a^2=I, and JP_a=P_aJ=J. Expanding (J-P_a)^2 with J^2=nJ gives I+(n-2)J. The constant vector and its orthogonal complement give the stated singular values and exact local fractions.",
+    "operator_rows": [
+      {
+        "prime_l": 3,
+        "residues_checked": 3,
+        "zero_target": {
+          "prime_l": 3,
+          "target_residue_a": 0,
+          "row_sum": 2,
+          "principal_singular_value": 2,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 1,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 3,
+          "target_residue_a": 1,
+          "row_sum": 1,
+          "principal_singular_value": 1,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 1,
+          "local_survival_fraction": "1/2",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 5,
+        "residues_checked": 5,
+        "zero_target": {
+          "prime_l": 5,
+          "target_residue_a": 0,
+          "row_sum": 4,
+          "principal_singular_value": 4,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 3,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 5,
+          "target_residue_a": 1,
+          "row_sum": 3,
+          "principal_singular_value": 3,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 3,
+          "local_survival_fraction": "3/4",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 7,
+        "residues_checked": 7,
+        "zero_target": {
+          "prime_l": 7,
+          "target_residue_a": 0,
+          "row_sum": 6,
+          "principal_singular_value": 6,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 5,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 7,
+          "target_residue_a": 1,
+          "row_sum": 5,
+          "principal_singular_value": 5,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 5,
+          "local_survival_fraction": "5/6",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 11,
+        "residues_checked": 11,
+        "zero_target": {
+          "prime_l": 11,
+          "target_residue_a": 0,
+          "row_sum": 10,
+          "principal_singular_value": 10,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 9,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 11,
+          "target_residue_a": 1,
+          "row_sum": 9,
+          "principal_singular_value": 9,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 9,
+          "local_survival_fraction": "9/10",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 13,
+        "residues_checked": 13,
+        "zero_target": {
+          "prime_l": 13,
+          "target_residue_a": 0,
+          "row_sum": 12,
+          "principal_singular_value": 12,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 11,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 13,
+          "target_residue_a": 1,
+          "row_sum": 11,
+          "principal_singular_value": 11,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 11,
+          "local_survival_fraction": "11/12",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 17,
+        "residues_checked": 17,
+        "zero_target": {
+          "prime_l": 17,
+          "target_residue_a": 0,
+          "row_sum": 16,
+          "principal_singular_value": 16,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 15,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 17,
+          "target_residue_a": 1,
+          "row_sum": 15,
+          "principal_singular_value": 15,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 15,
+          "local_survival_fraction": "15/16",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 19,
+        "residues_checked": 19,
+        "zero_target": {
+          "prime_l": 19,
+          "target_residue_a": 0,
+          "row_sum": 18,
+          "principal_singular_value": 18,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 17,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 19,
+          "target_residue_a": 1,
+          "row_sum": 17,
+          "principal_singular_value": 17,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 17,
+          "local_survival_fraction": "17/18",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 23,
+        "residues_checked": 23,
+        "zero_target": {
+          "prime_l": 23,
+          "target_residue_a": 0,
+          "row_sum": 22,
+          "principal_singular_value": 22,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 21,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 23,
+          "target_residue_a": 1,
+          "row_sum": 21,
+          "principal_singular_value": 21,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 21,
+          "local_survival_fraction": "21/22",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 29,
+        "residues_checked": 29,
+        "zero_target": {
+          "prime_l": 29,
+          "target_residue_a": 0,
+          "row_sum": 28,
+          "principal_singular_value": 28,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 27,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 29,
+          "target_residue_a": 1,
+          "row_sum": 27,
+          "principal_singular_value": 27,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 27,
+          "local_survival_fraction": "27/28",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 31,
+        "residues_checked": 31,
+        "zero_target": {
+          "prime_l": 31,
+          "target_residue_a": 0,
+          "row_sum": 30,
+          "principal_singular_value": 30,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 29,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 31,
+          "target_residue_a": 1,
+          "row_sum": 29,
+          "principal_singular_value": 29,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 29,
+          "local_survival_fraction": "29/30",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 37,
+        "residues_checked": 37,
+        "zero_target": {
+          "prime_l": 37,
+          "target_residue_a": 0,
+          "row_sum": 36,
+          "principal_singular_value": 36,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 35,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 37,
+          "target_residue_a": 1,
+          "row_sum": 35,
+          "principal_singular_value": 35,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 35,
+          "local_survival_fraction": "35/36",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 41,
+        "residues_checked": 41,
+        "zero_target": {
+          "prime_l": 41,
+          "target_residue_a": 0,
+          "row_sum": 40,
+          "principal_singular_value": 40,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 39,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 41,
+          "target_residue_a": 1,
+          "row_sum": 39,
+          "principal_singular_value": 39,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 39,
+          "local_survival_fraction": "39/40",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      },
+      {
+        "prime_l": 43,
+        "residues_checked": 43,
+        "zero_target": {
+          "prime_l": 43,
+          "target_residue_a": 0,
+          "row_sum": 42,
+          "principal_singular_value": 42,
+          "nonconstant_singular_value": 0,
+          "nonconstant_multiplicity": 41,
+          "local_survival_fraction": "1",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "nonzero_target": {
+          "prime_l": 43,
+          "target_residue_a": 1,
+          "row_sum": 41,
+          "principal_singular_value": 41,
+          "nonconstant_singular_value": 1,
+          "nonconstant_multiplicity": 41,
+          "local_survival_fraction": "41/42",
+          "gram_identity_verified": true,
+          "constant_row_sum_verified": true
+        },
+        "verification_failures": 0
+      }
+    ],
+    "exhaustive_residue_cases_checked": 279,
+    "factor_cell_residue_rows": [
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 3,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 247,
+        "empirical_surviving_pairs": 242,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 5,
+        "target_residue": 0,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 0,
+        "empirical_surviving_pairs": 489,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 7,
+        "target_residue": 4,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 83,
+        "empirical_surviving_pairs": 406,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 11,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 48,
+        "empirical_surviving_pairs": 441,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 13,
+        "target_residue": 3,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 40,
+        "empirical_surviving_pairs": 449,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 17,
+        "target_residue": 4,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 30,
+        "empirical_surviving_pairs": 459,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 19,
+        "target_residue": 6,
+        "rough_semiprime_pairs": 489,
+        "empirical_excluded_pairs": 29,
+        "empirical_surviving_pairs": 460,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 3,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 2169,
+        "empirical_surviving_pairs": 2151,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 5,
+        "target_residue": 0,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 0,
+        "empirical_surviving_pairs": 4320,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 7,
+        "target_residue": 5,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 719,
+        "empirical_surviving_pairs": 3601,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 11,
+        "target_residue": 10,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 425,
+        "empirical_surviving_pairs": 3895,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 13,
+        "target_residue": 4,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 355,
+        "empirical_surviving_pairs": 3965,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 17,
+        "target_residue": 6,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 266,
+        "empirical_surviving_pairs": 4054,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 19,
+        "target_residue": 3,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 239,
+        "empirical_surviving_pairs": 4081,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 23,
+        "target_residue": 19,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 191,
+        "empirical_surviving_pairs": 4129,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 29,
+        "target_residue": 8,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 150,
+        "empirical_surviving_pairs": 4170,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 31,
+        "target_residue": 25,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 144,
+        "empirical_surviving_pairs": 4176,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 37,
+        "target_residue": 26,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 116,
+        "empirical_surviving_pairs": 4204,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 41,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 109,
+        "empirical_surviving_pairs": 4211,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 43,
+        "target_residue": 25,
+        "rough_semiprime_pairs": 4320,
+        "empirical_excluded_pairs": 102,
+        "empirical_surviving_pairs": 4218,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 3,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 21170,
+        "empirical_surviving_pairs": 21116,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 5,
+        "target_residue": 0,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 0,
+        "empirical_surviving_pairs": 42286,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 7,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 7062,
+        "empirical_surviving_pairs": 35224,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 11,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 4232,
+        "empirical_surviving_pairs": 38054,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 13,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 3529,
+        "empirical_surviving_pairs": 38757,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 17,
+        "target_residue": 9,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 2653,
+        "empirical_surviving_pairs": 39633,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 19,
+        "target_residue": 11,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 2347,
+        "empirical_surviving_pairs": 39939,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 23,
+        "target_residue": 6,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 1929,
+        "empirical_surviving_pairs": 40357,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 29,
+        "target_residue": 22,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 1502,
+        "empirical_surviving_pairs": 40784,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 31,
+        "target_residue": 2,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 1409,
+        "empirical_surviving_pairs": 40877,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 37,
+        "target_residue": 1,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 1185,
+        "empirical_surviving_pairs": 41101,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 41,
+        "target_residue": 10,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 1057,
+        "empirical_surviving_pairs": 41229,
+        "divisor_case_has_zero_exclusions": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 43,
+        "target_residue": 35,
+        "rough_semiprime_pairs": 42286,
+        "empirical_excluded_pairs": 1000,
+        "empirical_surviving_pairs": 41286,
+        "divisor_case_has_zero_exclusions": true
+      }
+    ],
+    "aggregate": {
+      "moving_residue_operator_spectrum_proved": true,
+      "target_dependent_local_factor_proved": true,
+      "nonconstant_character_modes_survive_locally": true,
+      "scalar_local_density_suffices_for_pointwise_goldbach": false,
+      "uniform_moving_target_character_cancellation_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "Extracting the scalar local survival factor does not estimate the actual prime-weighted factor cells: every nonzero target leaves l-2 nonconstant unit modes with singular value one. Uniform moving-target character cancellation across unbounded cells is open.",
+    "failure_count": 0
+  },
+  "logical_limit": "Extracting the scalar local survival factor does not estimate the actual prime-weighted factor cells: every nonzero target leaves l-2 nonconstant unit modes with singular value one. Uniform moving-target character cancellation across unbounded cells is open.",
+  "route_decision": {
+    "discard": "using only scalar local survival densities after the factor-cell lift",
+    "retain": "extract the target-dependent local factor and bound every surviving nonconstant unit-character mode",
+    "next_single_lemma": "UniformMovingTargetCharacterCancellationAfterLocalSpectrumExtraction"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T227",
+        "label": "CubeRootBuchstabFactorLiftAndDivisorExceptionSplit",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T228",
+        "label": "MovingResidueUnitOperatorSpectrumAndLocalFactor",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N228",
+        "label": "ScalarLocalDensityControlsEveryMovingFactorCell",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN228",
+        "label": "UniformMovingTargetCharacterCancellationAfterLocalSpectrumExtraction",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T227",
+        "GB-T228"
+      ],
+      [
+        "GB-T228",
+        "GB-N228"
+      ],
+      [
+        "GB-T228",
+        "GB-OPEN228"
+      ],
+      [
+        "GB-OPEN228",
+        "GB"
+      ]
+    ]
+  }
+}

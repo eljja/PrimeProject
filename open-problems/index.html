@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket227-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket228-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-227</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-228</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-227 actually changed</h2>
-          <p>TICKET-227 did not solve a parent conjecture. It proves that dilation ratios 2 and 3 remove common nonconstant Mellin aliases; gives an all-r fractional-linear proof for a new primitive Collatz noncycle family; and lifts the Goldbach and Twin rough-semiprime channels to exact factor cells with explicit divisor and disjointness constraints.</p>
-          <p class="proof-boundary">TICKET-227은 상위 난제를 해결하지 않았습니다. 비율 2와 3을 결합하면 비상수 Mellin mode의 공통 사각지대가 사라짐을 증명했고, 유한 반복 검사가 아니라 끝점 구간 논증으로 콜라츠 무한 원시 비순환족을 확정했습니다. 골드바흐·쌍둥이 소수에서는 거친 오차를 정확한 소인수 cell로 올렸습니다. 조밀한 Weil 핵의 균일 frame 하한, 모든 Collatz word의 D∤B와 비주기 하강, moving-residue 및 shifted bilinear 추정은 여전히 열려 있습니다.</p>
+          <h2>What TICKET-228 actually changed</h2>
+          <p>TICKET-228 did not solve a parent conjecture. It proves a finite-dilation near-alias no-go, an exponentially branching Collatz noncycle language, the exact singular spectrum of the Goldbach moving-residue operator, and the Twin shift-two cross Gram identity with a modulo-3 joint-survival no-go.</p>
+          <p class="proof-boundary">TICKET-228은 상위 난제를 해결하지 않았습니다. 유한 배율 집합의 전체 주파수 균일 frame 하한을 반박하고, 깊이 r마다 2<sup>r</sup>개로 분기하는 콜라츠 원시 비순환 언어를 증명했습니다. 골드바흐와 쌍둥이 소수에서는 국소 잉여류 연산자의 특이값과 교차 Gram 구조를 정확히 구했습니다. 이제 대역 제한 디오판토스 frame 하한, Collatz 종국적 포괄과 비주기 하강, 움직이는 목표의 지표 상쇄가 남아 있습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A single dilation ratio has infinitely many Mellin aliases, while ratios <code>2</code> and <code>3</code> have no common nonconstant alias on <code>Re(s)=1</code>.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>One fixed balanced dilation family does not separate every Mellin mode.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every finite dilation family has arbitrarily large simultaneous near aliases.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A finite dilation set cannot have a positive uniform lower frame bound on the full frequency line.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ExplicitDiophantineLossDualDilationFrameBoundOnBandlimitedWeilCores</code></dd></div>
           </dl>
-          <p class="workbench-ko">개별 mode 분리에서 임의 중첩의 안정적 복원으로 가려면 조밀한 Weil 핵에서 균일한 frame 하한을 증명해야 합니다.</p>
+          <p class="workbench-ko">정확 단사성과 안정 복원은 다릅니다. 대역 제한과 주파수 의존 디오판토스 손실을 가진 frame 정리가 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>For every <code>r≥1</code>, the primitive word <code>(1,1,3)^r,(4,2,1)</code> satisfies <code>1&lt;B/D&lt;2</code> and is a noncycle.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Finite repetition checks are not used to establish the infinite family; a fractional-linear endpoint theorem is required.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Two equal-slope blocks generate <code>2^r</code> distinct primitive noncycles at depth <code>r</code>, all with <code>887/700≤B/D≤7123/5600</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A universal prime-power witness is equivalent to the original <code>D∤B</code> target and is not a weaker bridge.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CofinalEqualSlopeAffineConeCoverForAllPrimitiveCycleCandidateWords</code></dd></div>
           </dl>
-          <p class="workbench-ko">선택한 무한족은 닫혔지만 모든 원시 word는 아니다. 이제 각 비자명 word에서 <code>D∤B</code>를 강제하는 소수 거듭제곱 witness가 필요합니다.</p>
+          <p class="workbench-ko">지수적으로 분기하는 언어는 닫혔지만 모든 원시 word의 종국적 포괄과 비주기 궤도 하강은 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The <code>PS</code>, <code>SP</code>, and <code>SS</code> channels lift exactly to prime-factor cells; if <code>q|N</code>, only <code>r=N/q−1</code> can survive.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>One-variable marginal density does not estimate every pointwise moving-residue cell.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>For nonzero target residue, the unit operator has singular values <code>l−2,1,…,1</code> and exact local factor <code>(l−2)/(l−1)</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Scalar local density cannot control every prime-weighted moving factor cell because nonconstant modes survive.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformMovingTargetCharacterCancellationAfterLocalSpectrumExtraction</code></dd></div>
           </dl>
-          <p class="workbench-ko">정확한 cell 분해는 목표를 선명하게 하지만 PP 하한은 아니다. 모든 짝수의 <code>N−qr</code> 소수 합을 균일하게 추정해야 합니다.</p>
+          <p class="workbench-ko">국소 인수를 분리한 뒤에도 특이값 1인 비상수 지표 mode가 남습니다. 모든 움직이는 목표에서 균일 상쇄가 필요합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Shift-two errors lift exactly to <code>qr−2</code>, <code>qr+2</code>, and <code>pq+2=rs</code>; every <code>SS</code> factor graph is disjoint.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Disjoint factor support is a structural restriction, not a cancellation estimate.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>The shift-two cross Gram operator is <code>(l−3)J+P_2P_{−2}</code>; its zero-sum action is multiplication by <code>−1</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Simultaneous local survival of the two side channels is impossible already modulo <code>3</code>.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformShiftTwoCharacterModeCancellationAcrossCubeRootFactorCells</code></dd></div>
           </dl>
-          <p class="workbench-ko">서로소 factor graph만으로는 상쇄가 생기지 않습니다. 모든 세제곱근 cell의 <code>qr±2</code> 합에서 균일한 bilinear power saving이 필요합니다.</p>
+          <p class="workbench-ko">두 side channel은 따로 추정해야 합니다. 모든 세제곱근 cell에서 비상수 shift-two 지표 mode를 균일하게 상쇄해야 합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>227 tickets reduced to four meaningful eras</h2>
+          <h2>228 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–227 · Structure, arithmetic remainders, and exact factor lifts</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 실제 산술 나머지를 Mellin 주파수·affine block·소인수 cell로 올리고 다음 무한 추정의 정확한 대상을 확정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–228 · Exact coordinates, stability no-go, and character modes</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 근접 에일리어스·분기 아핀 언어·잉여류 연산자 스펙트럼으로 남은 무한 추정의 정확한 대상을 확정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/near-alias-affine-language-residue-spectrum.ko.md">TICKET-228 한국어 보고서</a>
+          <a href="../docs/near-alias-affine-language-residue-spectrum.md">TICKET-228 English report</a>
           <a href="../docs/mellin-block-buchstab-lifts.ko.md">TICKET-227 한국어 보고서</a>
           <a href="../docs/mellin-block-buchstab-lifts.md">TICKET-227 English report</a>
           <a href="../docs/signal-transfer-same-order-obstructions.ko.md">TICKET-226 한국어 보고서</a>
@@ -180,7 +182,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260814-ticket227"></script>
+    <script src="../assets/i18n.js?v=20260814-ticket228"></script>
   </body>
 </html>
 

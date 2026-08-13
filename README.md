@@ -31,16 +31,16 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-227: Mellin, Block, and Buchstab Factor Lifts](docs/mellin-block-buchstab-lifts.md),
-with a separate [Korean report](docs/mellin-block-buchstab-lifts.ko.md).
-It proves four narrower structural results: dilation ratios `2` and `3` remove
-common nonconstant Mellin aliases; a fractional-linear endpoint theorem closes
-the infinite primitive Collatz noncycle family `(1,1,3)^r,(4,2,1)`; and the
-Goldbach/Twin rough-semiprime channels lift to exact factor cells with explicit
-divisor and disjointness constraints. These are partial structural lemmas, not
-parent-problem resolutions. The previous transfer audit remains in
-[TICKET-226 EN](docs/signal-transfer-same-order-obstructions.md) and
-[TICKET-226 KO](docs/signal-transfer-same-order-obstructions.ko.md).
+[TICKET-228: Near Aliases, Affine Languages, and Residue Spectra](docs/near-alias-affine-language-residue-spectrum.md),
+with a separate [Korean report](docs/near-alias-affine-language-residue-spectrum.ko.md).
+It proves four narrower structural results: every finite dilation family has
+arbitrarily large simultaneous near aliases; two equal-slope Collatz blocks
+generate `2^r` primitive noncycle words at depth `r`; the Goldbach moving
+residue operator has an exact singular spectrum; and the Twin shift-two masks
+have an exact cross Gram operator with a modulo-`3` joint-survival no-go. These
+are partial structural lemmas, not parent-problem resolutions. TICKET-227 is
+preserved in [English](docs/mellin-block-buchstab-lifts.md) and
+[Korean](docs/mellin-block-buchstab-lifts.ko.md).
 Every conjecture remains `open_not_proven`; the machine resolution count is
 zero.
 
@@ -357,7 +357,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-227 boundary, four exact structural lemmas, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-228 boundary, four exact structural lemmas, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -374,15 +374,17 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-227. The RH track removes common
-nonconstant Mellin aliases with two multiplicatively independent dilation
-ratios, but lacks a uniform Weil-core frame bound. The Collatz track proves an
-all-`r` primitive noncycle family through exact affine endpoint control. The
-Goldbach and Twin tracks replace coarse contamination counts with exact
-factor-cell sums and isolate the moving-residue and shifted-bilinear estimates
-still missing. These are exact structural lemmas, not solutions. All four
-parent conjectures remain open and the machine resolution count is zero.
-See [TICKET227 EN](docs/mellin-block-buchstab-lifts.md),
+The latest proof-search track is TICKET-228. The RH track proves that finite
+dilation injectivity cannot yield a positive uniform full-line frame bound.
+The Collatz track upgrades one repeated family to an exponentially branching
+equal-slope affine language. The Goldbach and Twin tracks diagonalize the
+local residue masks and expose the nonconstant character modes that still
+need uniform cancellation. These are exact partial and no-go theorems, not
+solutions. All four parent conjectures remain open and the machine resolution
+count is zero.
+See [TICKET228 EN](docs/near-alias-affine-language-residue-spectrum.md),
+[TICKET228 KO](docs/near-alias-affine-language-residue-spectrum.ko.md),
+[TICKET227 EN](docs/mellin-block-buchstab-lifts.md),
 [TICKET227 KO](docs/mellin-block-buchstab-lifts.ko.md),
 [TICKET226 EN](docs/signal-transfer-same-order-obstructions.md),
 [TICKET226 KO](docs/signal-transfer-same-order-obstructions.ko.md),
@@ -525,14 +527,13 @@ See [TICKET227 EN](docs/mellin-block-buchstab-lifts.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-227입니다. 리만 트랙은 dilation
-비율 `2`와 `3`을 함께 쓰면 비상수 Mellin mode의 공통 alias가 사라짐을
-증명했지만 조밀한 Weil 핵의 균일 frame 하한은 아직 없습니다. 콜라츠
-트랙은 분수선형 끝점 논증으로 모든 `(1,1,3)^r,(4,2,1)`이 원시
-비순환임을 증명했습니다. 골드바흐와 쌍둥이 소수 트랙은 세제곱근 거친
-오차를 정확한 `N-qr`, `qr±2`, `pq+2=rs` 소인수 cell로 올렸습니다.
-moving-residue 추정, shifted bilinear power saving, 모든 Collatz word의
-`D|B` 배제와 비주기 하강은 열려 있으며 네 상위 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-228입니다. 리만 트랙은 유한 배율
+집합에 임의로 큰 동시 근접 에일리어스가 생겨 전체 주파수축의 양의 균일
+frame 하한이 불가능함을 증명했습니다. 콜라츠 트랙은 깊이 `r`마다
+`2^r`개의 원시 비순환 word를 만드는 아핀 언어를 증명했습니다. 골드바흐와
+쌍둥이 소수 트랙은 국소 잉여류 연산자의 특이값과 교차 Gram 구조를
+정확히 구해, 남은 핵심이 비상수 지표 mode의 균일 상쇄임을 확정했습니다.
+네 상위 문제의 해결 수는 여전히 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -552,19 +553,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-227입니다.
-[Mellin·반복 블록·Buchstab 인수 분해 한국어 보고서](docs/mellin-block-buchstab-lifts.ko.md)와
-[영문 보고서](docs/mellin-block-buchstab-lifts.md)는 네 트랙의 정확 명제,
-증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재의 결정적
-미해결 보조정리는 이중 dilation의 조밀한 Weil 핵 frame 하한, 모든
-비자명 Collatz word의 prime-power 비가분성 witness와 비주기 하강,
-골드바흐 moving-residue cell 추정, 쌍둥이 소수의 모든 cell shifted
-bilinear 추정입니다.
+최신 난제 연구 트랙은 TICKET-228입니다.
+[근접 에일리어스·아핀 언어·잉여류 스펙트럼 한국어 보고서](docs/near-alias-affine-language-residue-spectrum.ko.md)와
+[영문 보고서](docs/near-alias-affine-language-residue-spectrum.md)는 네 트랙의
+정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
+현재 결정적 미해결 보조정리는 대역 제한 Weil 핵의 명시적 디오판토스
+frame 손실, 모든 원시 Collatz 순환 후보를 종국적으로 덮는 아핀 원뿔,
+골드바흐 moving-target 지표 상쇄, 쌍둥이 소수 shift-two 지표 상쇄입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-227의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 227개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-228의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 228개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

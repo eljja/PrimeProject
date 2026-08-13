@@ -1,0 +1,214 @@
+{
+  "schema": "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1",
+  "generated_at": "2026-08-14T05:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-228",
+  "theorem_name": "BinaryEqualSlopeAffineLanguageNoncycleCone",
+  "declared_proposition": "Let U_0=(1,3,3,1), U_1=(2,3,1,2), and V=(1,4,1). The two blocks have the same normalized slope 81/256 and normalized intercepts 221/256 and 223/256; V has slope 27/64 and intercept 47/64. For every r>=1 and every binary string epsilon of length r, the word U_epsilon1...U_epsilonr V has 887/700 <= B/D <= 7123/5600, hence 1<B/D<2. It contains one symbol 4, so it is primitive. Therefore all 2^r words at level r are distinct primitive noncycles.",
+  "mathematical_argument": "Write each normalized block map as x -> a x+b_j with common a=81/256 and b_j in [221/256,223/256]. After r blocks its intercept y lies between b_min(1-a^r)/(1-a) and b_max(1-a^r)/(1-a). Appending V gives fixed-point ratio R=(c y+d)/(1-c a^r). Each extreme is fractional-linear in t=a^r and is bounded by its values at t=0 and t=a. The four exact endpoint values have minimum 887/700 and maximum 7123/5600. Thus R is never integral. A nontrivial power repeats every symbol count, while these words contain exactly one 4, so they are primitive.",
+  "reproducible_computation": {
+    "theorem": "Let U_0=(1,3,3,1), U_1=(2,3,1,2), and V=(1,4,1). The two blocks have the same normalized slope 81/256 and normalized intercepts 221/256 and 223/256; V has slope 27/64 and intercept 47/64. For every r>=1 and every binary string epsilon of length r, the word U_epsilon1...U_epsilonr V has 887/700 <= B/D <= 7123/5600, hence 1<B/D<2. It contains one symbol 4, so it is primitive. Therefore all 2^r words at level r are distinct primitive noncycles.",
+    "proof": "Write each normalized block map as x -> a x+b_j with common a=81/256 and b_j in [221/256,223/256]. After r blocks its intercept y lies between b_min(1-a^r)/(1-a) and b_max(1-a^r)/(1-a). Appending V gives fixed-point ratio R=(c y+d)/(1-c a^r). Each extreme is fractional-linear in t=a^r and is bounded by its values at t=0 and t=a. The four exact endpoint values have minimum 887/700 and maximum 7123/5600. Thus R is never integral. A nontrivial power repeats every symbol count, while these words contain exactly one 4, so they are primitive.",
+    "blocks": [
+      [
+        1,
+        3,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        1,
+        2
+      ]
+    ],
+    "block_affine_data": [
+      [
+        81,
+        256,
+        221
+      ],
+      [
+        81,
+        256,
+        223
+      ]
+    ],
+    "suffix": [
+      1,
+      4,
+      1
+    ],
+    "suffix_affine_data": [
+      27,
+      64,
+      47
+    ],
+    "global_ratio_cone": {
+      "lower": "887/700",
+      "upper": "7123/5600",
+      "inside_open_unit_interval": [
+        1,
+        2
+      ]
+    },
+    "level_rows": [
+      {
+        "block_count_r": 1,
+        "distinct_word_count_2_to_r": 2,
+        "minimum_B_over_D": "17999/14197",
+        "maximum_B_over_D": "18053/14197",
+        "minimum_B_over_D_float": 1.2678030569838699,
+        "maximum_B_over_D_float": 1.2716066774670705,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 2,
+        "distinct_word_count_2_to_r": 4,
+        "minimum_B_over_D": "5091071/4017157",
+        "maximum_B_over_D": "5109269/4017157",
+        "minimum_B_over_D_float": 1.267331846875788,
+        "maximum_B_over_D_float": 1.2718619162756148,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 3,
+        "distinct_word_count_2_to_r": 8,
+        "minimum_B_over_D": "1342463663/1059392917",
+        "maximum_B_over_D": "1347476645/1059392917",
+        "minimum_B_over_D_float": 1.2672009048367086,
+        "maximum_B_over_D_float": 1.2719328432134496,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 4,
+        "distinct_word_count_2_to_r": 16,
+        "minimum_B_over_D": "346841806175/273715645477",
+        "maximum_B_over_D": "348153827381/273715645477",
+        "minimum_B_over_D_float": 1.2671610553008914,
+        "maximum_B_over_D_float": 1.2719544283786839,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 5,
+        "distinct_word_count_2_to_r": 32,
+        "minimum_B_over_D": "89048362165007/70274600998837",
+        "maximum_B_over_D": "89386564116677/70274600998837",
+        "minimum_B_over_D_float": 1.2671485984883883,
+        "maximum_B_over_D_float": 1.2719611758187896,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 6,
+        "distinct_word_count_2_to_r": 64,
+        "minimum_B_over_D": "22817186356762559/18006772911996997",
+        "maximum_B_over_D": "22903954342747733/18006772911996997",
+        "minimum_B_over_D_float": 1.267144672078395,
+        "maximum_B_over_D_float": 1.2719633026242028,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 7,
+        "distinct_word_count_2_to_r": 128,
+        "minimum_B_over_D": "5842884964375397231/4611068345031103957",
+        "maximum_B_over_D": "5865112819982571749/4611068345031103957",
+        "minimum_B_over_D_float": 1.26714343123361,
+        "maximum_B_over_D_float": 1.2719639747484612,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 8,
+        "distinct_word_count_2_to_r": 256,
+        "minimum_B_over_D": "1495915056700680443423/1180541589172312303717",
+        "maximum_B_over_D": "1501606623082909687925/1180541589172312303717",
+        "minimum_B_over_D_float": 1.2671430387721276,
+        "maximum_B_over_D_float": 1.2719641873317642,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 9,
+        "distinct_word_count_2_to_r": 512,
+        "minimum_B_over_D": "382965311486841072451535/302227402348504274700277",
+        "maximum_B_over_D": "384422452543781957043461/302227402348504274700277",
+        "minimum_B_over_D_float": 1.2671429146098285,
+        "maximum_B_over_D_float": 1.2719642545863428,
+        "verification_failures": 0
+      },
+      {
+        "block_count_r": 10,
+        "distinct_word_count_2_to_r": 1024,
+        "minimum_B_over_D": "98040015355320131741347967/77370924198368872644117637",
+        "maximum_B_over_D": "98413051571007304234833557/77370924198368872644117637",
+        "minimum_B_over_D_float": 1.2671428753255993,
+        "maximum_B_over_D_float": 1.2719642758653003,
+        "verification_failures": 0
+      }
+    ],
+    "aggregate": {
+      "equal_slope_affine_cone_theorem_proved": true,
+      "binary_branching_primitive_noncycle_language_proved": true,
+      "words_computationally_checked": 2046,
+      "universal_prime_power_witness_is_more_than_divisibility_restatement": false,
+      "all_primitive_cycle_words_excluded": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "TICKET-224 already proved that a prime-power witness exists exactly when D does not divide B, so demanding a universal witness merely renames the cycle-exclusion target and does not address divergent aperiodic orbits. The new affine cone certifies an exponentially branching language, not every primitive word.",
+    "failure_count": 0
+  },
+  "logical_limit": "TICKET-224 already proved that a prime-power witness exists exactly when D does not divide B, so demanding a universal witness merely renames the cycle-exclusion target and does not address divergent aperiodic orbits. The new affine cone certifies an exponentially branching language, not every primitive word.",
+  "route_decision": {
+    "discard": "treating universal prime-power witnesses as a bridge stronger than the exact D-divisibility condition already proved in TICKET-224",
+    "retain": "build cofinal affine-cone languages whose exact fixed-point intervals avoid every integer",
+    "next_single_lemma": "CofinalEqualSlopeAffineConeCoverForAllPrimitiveCycleCandidateWords"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T227",
+        "label": "RepeatedBlockSuffixUnitIntervalCertificate",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T228",
+        "label": "BinaryEqualSlopeAffineLanguageNoncycleCone",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N228",
+        "label": "UniversalPrimePowerWitnessIsANewStrictlyWeakerBridge",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN228",
+        "label": "CofinalEqualSlopeAffineConeCoverForAllPrimitiveCycleCandidateWords",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T227",
+        "CO-T228"
+      ],
+      [
+        "CO-T228",
+        "CO-N228"
+      ],
+      [
+        "CO-T228",
+        "CO-OPEN228"
+      ],
+      [
+        "CO-OPEN228",
+        "CO"
+      ]
+    ]
+  }
+}

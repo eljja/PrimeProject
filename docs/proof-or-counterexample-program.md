@@ -8183,7 +8183,35 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.md).
 한국어 보고서: [TICKET-176 relative-cone-harmonic-alias-schur](relative-cone-harmonic-alias-schur.ko.md).
 
-## TICKET-227 continuation: Mellin, block, and Buchstab factor lifts
+## TICKET-228 continuation: near aliases, affine languages, and residue spectra
+
+TICKET-228 directly tests the four open lemmas from TICKET-227. It proves four
+exact partial or no-go theorems and keeps the conjecture-resolution count at
+zero:
+
+1. RH: every finite dilation family has arbitrarily large simultaneous near
+   aliases by simultaneous Dirichlet approximation. This refutes a positive
+   full-line uniform frame bound. The corrected target is a bandlimited
+   Weil-core estimate with explicit Diophantine loss.
+2. Collatz: the equal-slope blocks `(1,3,3,1)` and `(2,3,1,2)`, followed by
+   `(1,4,1)`, produce `2^r` distinct primitive noncycles at every depth `r`,
+   all with `887/700 <= B/D <= 7123/5600`. A cofinal cover and aperiodic
+   descent remain open.
+3. Goldbach: the unit-residue mask `M_a` has an exact target-dependent
+   singular spectrum. For nonzero `a`, the nonconstant modes all survive with
+   singular value `1`; scalar local density therefore cannot replace uniform
+   moving-target character cancellation.
+4. Twin Prime: the `qr-2` and `qr+2` masks have exact cross Gram operator
+   `(l-3)J+P_2P_{-2}`. Their simultaneous local-survival route is impossible
+   modulo `3`; separate uniform shift-two character cancellation remains open.
+
+Machine audit: four exact partial theorems, four rejected or narrowed routes,
+four proof DAGs, zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-228 near aliases, affine languages, and residue spectra](near-alias-affine-language-residue-spectrum.md).
+한국어 보고서: [TICKET-228 근접 에일리어스·아핀 언어·잉여류 스펙트럼](near-alias-affine-language-residue-spectrum.ko.md).
+
+## TICKET-227 preserved continuation: Mellin, block, and Buchstab factor lifts
 
 TICKET-227 continues the TICKET-226 proof DAG and proves four exact structural
 lemmas while keeping the conjecture-resolution count at zero:

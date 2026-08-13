@@ -1,0 +1,265 @@
+{
+  "schema": "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1",
+  "generated_at": "2026-08-14T05:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-228",
+  "theorem_name": "FiniteDilationNearAliasNoUniformFrame",
+  "declared_proposition": "For every finite set Q={q_1,...,q_m} of dilation ratios greater than one, F_Q(tau)=sum_j |1-q_j^(-i tau)|^2 has arbitrarily large near-zero frequencies: for every T and epsilon>0 there is tau>T with F_Q(tau)<epsilon. Thus no finite dilation family has a positive frequency-uniform lower frame bound on the full imaginary axis. For Q={2,3}, convergents p/q to log(3)/log(2) give tau=2 pi q/log(2), where the q=2 factor is exactly zero and the q=3 factor tends to zero.",
+  "mathematical_argument": "Fix q_1 and apply simultaneous Dirichlet approximation to the m-1 ratios log(q_j)/log(q_1). For every N there is an integer n with 1<=n<=N^(m-1) and every distance from n log(q_j)/log(q_1) to an integer at most 1/N. At tau=2 pi n/log(q_1), the first phase is one and every other phase differs from one by at most 2 pi/N. If the selected n are unbounded this gives arbitrarily large near aliases. If some n repeats for unbounded N, it is an exact common alias and its multiples give arbitrarily large exact zeros. Either case forces the tail infimum of F_Q to be zero.",
+  "reproducible_computation": {
+    "theorem": "For every finite set Q={q_1,...,q_m} of dilation ratios greater than one, F_Q(tau)=sum_j |1-q_j^(-i tau)|^2 has arbitrarily large near-zero frequencies: for every T and epsilon>0 there is tau>T with F_Q(tau)<epsilon. Thus no finite dilation family has a positive frequency-uniform lower frame bound on the full imaginary axis. For Q={2,3}, convergents p/q to log(3)/log(2) give tau=2 pi q/log(2), where the q=2 factor is exactly zero and the q=3 factor tends to zero.",
+    "proof": "Fix q_1 and apply simultaneous Dirichlet approximation to the m-1 ratios log(q_j)/log(q_1). For every N there is an integer n with 1<=n<=N^(m-1) and every distance from n log(q_j)/log(q_1) to an integer at most 1/N. At tau=2 pi n/log(q_1), the first phase is one and every other phase differs from one by at most 2 pi/N. If the selected n are unbounded this gives arbitrarily large near aliases. If some n repeats for unbounded N, it is an exact common alias and its multiples give arbitrarily large exact zeros. Either case forces the tail infimum of F_Q to be zero.",
+    "dual_ratio": [
+      2,
+      3
+    ],
+    "near_alias_rows": [
+      {
+        "convergent_index": 2,
+        "p_over_q": "3/2",
+        "numerator_p": 3,
+        "denominator_q": 2,
+        "absolute_q_log3_over_log2_minus_p": "0.1699250014423123629074778878956330175196288153849621209115053090821964555887172",
+        "frequency_tau_2pi_q_over_log2": 18.129440567308777,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 1.0176771959213875,
+        "normalized_dual_energy": 1.0356668750984181,
+        "floating_phase_energy": 1.0356668750984208,
+        "floating_vs_reduced_phase_error": 2.6645352591003757e-15
+      },
+      {
+        "convergent_index": 3,
+        "p_over_q": "8/5",
+        "numerator_p": 8,
+        "denominator_q": 5,
+        "absolute_q_log3_over_log2_minus_p": "0.0751874963942190927313052802609174562009279615375946977212367272945088610282070",
+        "frequency_tau_2pi_q_over_log2": 45.323601418271934,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.46803617094284156,
+        "normalized_dual_energy": 0.2190578573108368,
+        "floating_phase_energy": 0.21905785731083946,
+        "floating_vs_reduced_phase_error": 2.6645352591003757e-15
+      },
+      {
+        "convergent_index": 4,
+        "p_over_q": "19/12",
+        "numerator_p": 19,
+        "denominator_q": 12,
+        "absolute_q_log3_over_log2_minus_p": "0.019550008653874177444867327373798105117772892309772725469031854493178733532303",
+        "frequency_tau_2pi_q_over_log2": 108.77664340385265,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.12275911468286134,
+        "normalized_dual_energy": 0.015069800237719902,
+        "floating_phase_energy": 0.015069800237722373,
+        "floating_vs_reduced_phase_error": 2.4702462297909733e-15
+      },
+      {
+        "convergent_index": 5,
+        "p_over_q": "65/41",
+        "numerator_p": 65,
+        "denominator_q": 41,
+        "absolute_q_log3_over_log2_minus_p": "0.016537470432596560396703298139523140847609284608276521314141163814972660431297",
+        "frequency_tau_2pi_q_over_log2": 371.65353162982984,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.10386125250084469,
+        "normalized_dual_energy": 0.010787159771044217,
+        "floating_phase_energy": 0.010787159771042972,
+        "floating_vs_reduced_phase_error": 1.2455314557513475e-15
+      },
+      {
+        "convergent_index": 6,
+        "p_over_q": "84/53",
+        "numerator_p": 84,
+        "denominator_q": 53,
+        "absolute_q_log3_over_log2_minus_p": "0.003012538221277617048164029234274964270163607701496204154890690678206073101006",
+        "frequency_tau_2pi_q_over_log2": 480.43017503368253,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.018928053320508217,
+        "normalized_dual_energy": 0.00035827120250400213,
+        "floating_phase_energy": 0.0003582712025067628,
+        "floating_vs_reduced_phase_error": 2.7606497816912157e-15
+      },
+      {
+        "convergent_index": 7,
+        "p_over_q": "485/306",
+        "numerator_p": 485,
+        "denominator_q": 306,
+        "absolute_q_log3_over_log2_minus_p": "0.00147477932620847515588315196814831949679124610079550053968771042394229492627",
+        "frequency_tau_2pi_q_over_log2": 2773.804406798243,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.00926627864181978,
+        "normalized_dual_energy": 8.586391986784544e-05,
+        "floating_phase_energy": 8.586391985781608e-05,
+        "floating_vs_reduced_phase_error": 1.0029357986468534e-14
+      },
+      {
+        "convergent_index": 8,
+        "p_over_q": "1054/665",
+        "numerator_p": 1054,
+        "denominator_q": 665,
+        "absolute_q_log3_over_log2_minus_p": "0.0000629795688606667363977252979783252765811154999052030755152698303214832485",
+        "frequency_tau_2pi_q_over_log2": 6028.038988630168,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.0003957122991360176,
+        "normalized_dual_energy": 1.5658822368751307e-07,
+        "floating_phase_energy": 1.5658822478178602e-07,
+        "floating_vs_reduced_phase_error": 1.0942729442421048e-15
+      },
+      {
+        "convergent_index": 9,
+        "p_over_q": "24727/15601",
+        "numerator_p": 24727,
+        "denominator_q": 15601,
+        "absolute_q_log3_over_log2_minus_p": "0.000026249242413140218735470114646838135425589602975829802836504326548180211",
+        "frequency_tau_2pi_q_over_log2": 141418.70114529209,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 0.00016492885406790798,
+        "normalized_dual_energy": 2.7201526904153288e-08,
+        "floating_phase_energy": 2.720152808591121e-08,
+        "floating_vs_reduced_phase_error": 1.1817579216360976e-15
+      },
+      {
+        "convergent_index": 10,
+        "p_over_q": "50508/31867",
+        "numerator_p": 50508,
+        "denominator_q": 31867,
+        "absolute_q_log3_over_log2_minus_p": "0.000010481084034386298926785068684649005729936293953543469842261177225122826",
+        "frequency_tau_2pi_q_over_log2": 288865.4412792144,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 6.585459319627053e-05,
+        "normalized_dual_energy": 4.336827445046281e-09,
+        "floating_phase_energy": 4.3368323135005774e-09,
+        "floating_vs_reduced_phase_error": 4.8684542967873416e-15
+      },
+      {
+        "convergent_index": 11,
+        "p_over_q": "125743/79335",
+        "numerator_p": 125743,
+        "denominator_q": 79335,
+        "absolute_q_log3_over_log2_minus_p": "0.00000528707434436762088189997727754012396571701506874286315198197209793456",
+        "frequency_tau_2pi_q_over_log2": 719149.5837037208,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 3.32196678369693e-05,
+        "normalized_dual_energy": 1.1035463311985727e-09,
+        "floating_phase_energy": 1.1035397239154513e-09,
+        "floating_vs_reduced_phase_error": 6.607283121429447e-15
+      },
+      {
+        "convergent_index": 12,
+        "p_over_q": "176251/111202",
+        "numerator_p": 176251,
+        "denominator_q": 111202,
+        "absolute_q_log3_over_log2_minus_p": "0.00000519400969001867804488509140710888176421927888480060669027920512718827",
+        "frequency_tau_2pi_q_over_log2": 1008015.0249829352,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 3.263492536822553e-05,
+        "normalized_dual_energy": 1.06503835378965e-09,
+        "floating_phase_energy": 1.0650434581927338e-09,
+        "floating_vs_reduced_phase_error": 5.104403083819558e-15
+      },
+      {
+        "convergent_index": 13,
+        "p_over_q": "301994/190537",
+        "numerator_p": 301994,
+        "denominator_q": 190537,
+        "absolute_q_log3_over_log2_minus_p": "9.306465434894283701488587043124220149773618394225646170276697074630E-8",
+        "frequency_tau_2pi_q_over_log2": 1727164.6086866562,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 5.847424688230161e-07,
+        "normalized_dual_energy": 3.419237548452359e-13,
+        "floating_phase_energy": 3.415799340067405e-13,
+        "floating_vs_reduced_phase_error": 3.438208384953977e-16
+      },
+      {
+        "convergent_index": 14,
+        "p_over_q": "16785921/10590737",
+        "numerator_p": 16785921,
+        "denominator_q": 10590737,
+        "absolute_q_log3_over_log2_minus_p": "7.5453700826822009066368533390560681843788767976501296627021736142E-8",
+        "frequency_tau_2pi_q_over_log2": 96002068.50274901,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 4.7408958440740777e-07,
+        "normalized_dual_energy": 2.247609340435886e-13,
+        "floating_phase_energy": 2.1992654100865613e-13,
+        "floating_vs_reduced_phase_error": 4.8343930349324785e-15
+      },
+      {
+        "convergent_index": 15,
+        "p_over_q": "17087915/10781274",
+        "numerator_p": 17087915,
+        "denominator_q": 10781274,
+        "absolute_q_log3_over_log2_minus_p": "1.7610953522120827948517337040681519653947415965755165075745234604E-8",
+        "frequency_tau_2pi_q_over_log2": 97729233.11143567,
+        "q2_phase_factor_abs": 0.0,
+        "q3_phase_factor_abs": 1.1065288441561213e-07,
+        "normalized_dual_energy": 1.2244060829494818e-14,
+        "floating_phase_energy": 1.2486761748768007e-14,
+        "floating_vs_reduced_phase_error": 2.427009192731897e-16
+      }
+    ],
+    "aggregate": {
+      "ticket227_exact_common_alias_elimination_preserved": true,
+      "finite_dilation_arbitrarily_large_near_aliases_proved": true,
+      "unweighted_uniform_full_line_frame_bound_refuted": true,
+      "explicit_bandlimited_diophantine_loss_bound_proved": false,
+      "weil_positivity_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "Mode-wise injectivity does not imply stable inversion. Even after removing Gamma decay, every finite dilation set has unbounded near aliases. A useful frame theorem must be bandlimited or carry an explicit frequency-dependent Diophantine loss.",
+    "failure_count": 0
+  },
+  "logical_limit": "Mode-wise injectivity does not imply stable inversion. Even after removing Gamma decay, every finite dilation set has unbounded near aliases. A useful frame theorem must be bandlimited or carry an explicit frequency-dependent Diophantine loss.",
+  "route_decision": {
+    "discard": "seeking a positive frequency-uniform frame lower bound from any finite set of dilation ratios",
+    "retain": "use bandlimited Weil cores with an explicit frequency-dependent Diophantine loss",
+    "next_single_lemma": "ExplicitDiophantineLossDualDilationFrameBoundOnBandlimitedWeilCores"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T227",
+        "label": "DualDilationMellinAliasEliminationAndSingleRatioNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T228",
+        "label": "FiniteDilationNearAliasNoUniformFrame",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N228",
+        "label": "FiniteDilationUniformFullLineFrameBound",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN228",
+        "label": "ExplicitDiophantineLossDualDilationFrameBoundOnBandlimitedWeilCores",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T227",
+        "RH-T228"
+      ],
+      [
+        "RH-T228",
+        "RH-N228"
+      ],
+      [
+        "RH-T228",
+        "RH-OPEN228"
+      ],
+      [
+        "RH-OPEN228",
+        "RH"
+      ]
+    ]
+  }
+}

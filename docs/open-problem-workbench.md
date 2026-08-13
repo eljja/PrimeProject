@@ -15,30 +15,32 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-227
+## Current research boundary: TICKET-228
 
 The current machine-readable boundary is
-`data/open-problem/ticket227-mellin-block-buchstab-lifts.json`.
+`data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json`.
 
-TICKET-227 proves four exact structural lemmas and resolves
+TICKET-228 proves four exact partial or no-go theorems and resolves
 none of the parent conjectures:
 
-- dilation ratios `2` and `3` have no common nonconstant Mellin alias on
-  `Re(s)=1`, while either single ratio has infinitely many aliases;
-- a fractional-linear endpoint theorem proves every
-  `(1,1,3)^r,(4,2,1)` is a primitive Collatz noncycle;
-- cube-root Goldbach error channels lift exactly to moving `N-qr` factor
-  cells with a one-candidate exception when `q|N`;
-- Twin error channels lift exactly to `qr-2`, `qr+2`, and `pq+2=rs`, with
-  disjoint factor sets in every `SS` term.
+- every finite dilation family has arbitrarily large simultaneous near
+  aliases, so no positive full-line uniform frame lower bound is possible;
+- two equal-slope Collatz blocks generate `2^r` distinct primitive noncycle
+  words at every depth `r` inside the exact cone
+  `[887/700,7123/5600]`;
+- the Goldbach moving-residue unit operator has an exact target-dependent
+  singular spectrum, with all nonconstant modes surviving at singular value
+  `1`;
+- the Twin shift-two masks have an exact cross Gram operator, while joint
+  side-channel survival is already impossible modulo `3`.
 
-The remaining decisive targets are a uniform dual-dilation frame bound on a
-dense Weil core; a universal prime-power witness excluding exact Collatz
-`D|B` together with aperiodic descent; a uniform moving-residue Goldbach cell
-estimate; and shifted bilinear estimates across all cube-root Twin cells.
+The remaining decisive targets are a bandlimited Weil-core frame estimate with
+explicit Diophantine loss; a cofinal equal-slope affine cover plus aperiodic
+descent; uniform moving-target character cancellation for Goldbach; and
+uniform shift-two character cancellation across all cube-root Twin cells.
 
-English report: [TICKET-227](mellin-block-buchstab-lifts.md).
-한국어 보고서: [TICKET-227](mellin-block-buchstab-lifts.ko.md).
+English report: [TICKET-228](near-alias-affine-language-residue-spectrum.md).
+한국어 보고서: [TICKET-228](near-alias-affine-language-residue-spectrum.ko.md).
 
 ## Preserved research boundary: TICKET-221
 
@@ -498,7 +500,7 @@ Each problem also includes a `primeproject.decisive-lemma-lab.v1` object. This i
 
 The decisive lemma lab also carries a `primeproject.proof-gap-taxonomy.v1` object. This breaks the remaining proof gap into named open or blocked items such as infinite-lift, theorem-bridge, formalization, dependency-control, and independent-review gaps. Each gap must name the artifact needed to close it, the next experiment to run, and the failure signal that would invalidate that path.
 
-## TICKET-227 Current Boundary / 현재 연구 경계
+## TICKET-227 Preserved Boundary / 보존된 이전 연구 경계
 
 TICKET-227 lifts the TICKET-226 obstructions into the exact coordinates needed
 by the next proof step:

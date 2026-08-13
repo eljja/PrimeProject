@@ -62,31 +62,31 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-227
+## Current continuation: TICKET-228
 
 The current machine-readable boundary is
-`data/open-problem/ticket227-mellin-block-buchstab-lifts.json`. It records four
-exact structural lemmas, zero machine failures, and zero parent-conjecture
-resolutions.
+`data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json`.
+It records four exact partial or no-go theorems, zero machine failures, and
+zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `DualDilationMellinAliasEliminationAndSingleRatioNoGo` | `UniformDualDilationMellinFrameBoundOnExplicitDenseWeilCore` |
-| Collatz | `RepeatedBlockSuffixUnitIntervalCertificate` | `UniversalPrimePowerWitnessForPrimitiveValuationWordNondivisibility` |
-| Goldbach | `CubeRootBuchstabFactorLiftAndDivisorExceptionSplit` | `UniformMovingResiduePrimeEstimateForCubeRootBuchstabCellsAtEveryEvenTarget` |
-| Twin Prime | `ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph` | `UniformShiftTwoBilinearPrimeEstimateForQrPlusMinus2AcrossAllCubeRootCells` |
+| Riemann | `FiniteDilationNearAliasNoUniformFrame` | `ExplicitDiophantineLossDualDilationFrameBoundOnBandlimitedWeilCores` |
+| Collatz | `BinaryEqualSlopeAffineLanguageNoncycleCone` | `CofinalEqualSlopeAffineConeCoverForAllPrimitiveCycleCandidateWords` |
+| Goldbach | `MovingResidueUnitOperatorSpectrumAndLocalFactor` | `UniformMovingTargetCharacterCancellationAfterLocalSpectrumExtraction` |
+| Twin Prime | `ShiftTwoOperatorCrossGramAndModThreeJointNoGo` | `UniformShiftTwoCharacterModeCancellationAcrossCubeRootFactorCells` |
 
-The RH result is mode-wise alias elimination, not a frame inequality or Weil
-positivity. The Collatz result proves one all-`r` primitive noncycle family,
-not all primitive words or aperiodic descent. The Goldbach and Twin results are
-exact factor identities, not asymptotic estimates or positive prime lower
-bounds.
+The RH result refutes a full-line finite-dilation frame bound but does not prove
+a corrected bandlimited bound or Weil positivity. The Collatz result proves an
+exponentially branching language, not a cofinal cover or aperiodic descent.
+The Goldbach and Twin results expose exact local operator spectra; they do not
+provide the global character cancellation or positive prime lower bounds.
 
-Reports: [English](mellin-block-buchstab-lifts.md),
-[한국어](mellin-block-buchstab-lifts.ko.md).
+Reports: [English](near-alias-affine-language-residue-spectrum.md),
+[한국어](near-alias-affine-language-residue-spectrum.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-227 boundary.
+snapshots and must not override this TICKET-228 boundary.
 
 ## Historical continuation after TICKET-209
 

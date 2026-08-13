@@ -1,0 +1,554 @@
+{
+  "schema": "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1",
+  "generated_at": "2026-08-14T05:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-228",
+  "theorem_name": "ShiftTwoOperatorCrossGramAndModThreeJointNoGo",
+  "declared_proposition": "For every odd prime l, the qr-2 and qr+2 local masks are M_2=J-P_2 and M_{-2}=J-P_{-2}. Each has constant singular value l-2 and nonconstant singular value 1. Their cross Gram matrix is M_2^T M_{-2}=(l-3)J+P_2P_{-2}; on the zero-sum subspace it is the permutation induced by multiplication by -1, so the two side channels retain coherent nonconstant modes. At l=3, the forbidden product residues 2 and -2 exhaust all units, so no rough product qr can make both qr-2 and qr+2 locally prime-eligible.",
+  "mathematical_argument": "Apply the Goldbach unit-operator identity to a=2 and a=-2. Expanding the cross product gives (n-2)J+P_2P_{-2}; composition of u -> 2/u and u -> -2/u is multiplication by -1. For l>3, the two forbidden residues are distinct and each row retains l-3 of l-1 columns. For l=3 they are the two units themselves, so the joint mask is identically zero.",
+  "reproducible_computation": {
+    "theorem": "For every odd prime l, the qr-2 and qr+2 local masks are M_2=J-P_2 and M_{-2}=J-P_{-2}. Each has constant singular value l-2 and nonconstant singular value 1. Their cross Gram matrix is M_2^T M_{-2}=(l-3)J+P_2P_{-2}; on the zero-sum subspace it is the permutation induced by multiplication by -1, so the two side channels retain coherent nonconstant modes. At l=3, the forbidden product residues 2 and -2 exhaust all units, so no rough product qr can make both qr-2 and qr+2 locally prime-eligible.",
+    "proof": "Apply the Goldbach unit-operator identity to a=2 and a=-2. Expanding the cross product gives (n-2)J+P_2P_{-2}; composition of u -> 2/u and u -> -2/u is multiplication by -1. For l>3, the two forbidden residues are distinct and each row retains l-3 of l-1 columns. For l=3 they are the two units themselves, so the joint mask is identically zero.",
+    "cross_operator_rows": [
+      {
+        "prime_l": 3,
+        "individual_principal_singular_value": 1,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 0,
+        "expected_joint_allowed_unit_pairs": 0,
+        "joint_survival_fraction": "0",
+        "mod3_joint_mask_is_zero": true
+      },
+      {
+        "prime_l": 5,
+        "individual_principal_singular_value": 3,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 8,
+        "expected_joint_allowed_unit_pairs": 8,
+        "joint_survival_fraction": "1/2",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 7,
+        "individual_principal_singular_value": 5,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 24,
+        "expected_joint_allowed_unit_pairs": 24,
+        "joint_survival_fraction": "2/3",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 11,
+        "individual_principal_singular_value": 9,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 80,
+        "expected_joint_allowed_unit_pairs": 80,
+        "joint_survival_fraction": "4/5",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 13,
+        "individual_principal_singular_value": 11,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 120,
+        "expected_joint_allowed_unit_pairs": 120,
+        "joint_survival_fraction": "5/6",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 17,
+        "individual_principal_singular_value": 15,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 224,
+        "expected_joint_allowed_unit_pairs": 224,
+        "joint_survival_fraction": "7/8",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 19,
+        "individual_principal_singular_value": 17,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 288,
+        "expected_joint_allowed_unit_pairs": 288,
+        "joint_survival_fraction": "8/9",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 23,
+        "individual_principal_singular_value": 21,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 440,
+        "expected_joint_allowed_unit_pairs": 440,
+        "joint_survival_fraction": "10/11",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 29,
+        "individual_principal_singular_value": 27,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 728,
+        "expected_joint_allowed_unit_pairs": 728,
+        "joint_survival_fraction": "13/14",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 31,
+        "individual_principal_singular_value": 29,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 840,
+        "expected_joint_allowed_unit_pairs": 840,
+        "joint_survival_fraction": "14/15",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 37,
+        "individual_principal_singular_value": 35,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 1224,
+        "expected_joint_allowed_unit_pairs": 1224,
+        "joint_survival_fraction": "17/18",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 41,
+        "individual_principal_singular_value": 39,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 1520,
+        "expected_joint_allowed_unit_pairs": 1520,
+        "joint_survival_fraction": "19/20",
+        "mod3_joint_mask_is_zero": false
+      },
+      {
+        "prime_l": 43,
+        "individual_principal_singular_value": 41,
+        "individual_nonconstant_singular_value": 1,
+        "cross_gram_zero_sum_action": "multiplication-by-minus-one permutation",
+        "cross_gram_shape_verified": true,
+        "joint_allowed_unit_pairs": 1680,
+        "expected_joint_allowed_unit_pairs": 1680,
+        "joint_survival_fraction": "20/21",
+        "mod3_joint_mask_is_zero": false
+      }
+    ],
+    "factor_cell_residue_rows": [
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 3,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 242,
+        "qr_plus_2_excluded": 247,
+        "joint_local_survivors": 0,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 5,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 121,
+        "qr_plus_2_excluded": 122,
+        "joint_local_survivors": 246,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 7,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 81,
+        "qr_plus_2_excluded": 78,
+        "joint_local_survivors": 330,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 11,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 51,
+        "qr_plus_2_excluded": 46,
+        "joint_local_survivors": 392,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 13,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 40,
+        "qr_plus_2_excluded": 41,
+        "joint_local_survivors": 408,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 17,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 36,
+        "qr_plus_2_excluded": 31,
+        "joint_local_survivors": 422,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 10000,
+        "cutoff_z": 22,
+        "prime_l": 19,
+        "rough_semiprime_pairs": 489,
+        "qr_minus_2_excluded": 23,
+        "qr_plus_2_excluded": 28,
+        "joint_local_survivors": 438,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 3,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 2151,
+        "qr_plus_2_excluded": 2169,
+        "joint_local_survivors": 0,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 5,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 1070,
+        "qr_plus_2_excluded": 1075,
+        "joint_local_survivors": 2175,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 7,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 731,
+        "qr_plus_2_excluded": 719,
+        "joint_local_survivors": 2870,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 11,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 434,
+        "qr_plus_2_excluded": 436,
+        "joint_local_survivors": 3450,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 13,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 358,
+        "qr_plus_2_excluded": 353,
+        "joint_local_survivors": 3609,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 17,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 272,
+        "qr_plus_2_excluded": 272,
+        "joint_local_survivors": 3776,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 19,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 240,
+        "qr_plus_2_excluded": 242,
+        "joint_local_survivors": 3838,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 23,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 197,
+        "qr_plus_2_excluded": 192,
+        "joint_local_survivors": 3931,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 29,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 154,
+        "qr_plus_2_excluded": 157,
+        "joint_local_survivors": 4009,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 31,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 145,
+        "qr_plus_2_excluded": 145,
+        "joint_local_survivors": 4030,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 37,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 117,
+        "qr_plus_2_excluded": 119,
+        "joint_local_survivors": 4084,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 41,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 111,
+        "qr_plus_2_excluded": 103,
+        "joint_local_survivors": 4106,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 100000,
+        "cutoff_z": 47,
+        "prime_l": 43,
+        "rough_semiprime_pairs": 4320,
+        "qr_minus_2_excluded": 103,
+        "qr_plus_2_excluded": 105,
+        "joint_local_survivors": 4112,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 3,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 21116,
+        "qr_plus_2_excluded": 21170,
+        "joint_local_survivors": 0,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 5,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 10567,
+        "qr_plus_2_excluded": 10535,
+        "joint_local_survivors": 21184,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 7,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 7059,
+        "qr_plus_2_excluded": 7035,
+        "joint_local_survivors": 28192,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 11,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 4233,
+        "qr_plus_2_excluded": 4246,
+        "joint_local_survivors": 33807,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 13,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 3535,
+        "qr_plus_2_excluded": 3525,
+        "joint_local_survivors": 35226,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 17,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 2647,
+        "qr_plus_2_excluded": 2645,
+        "joint_local_survivors": 36994,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 19,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 2335,
+        "qr_plus_2_excluded": 2369,
+        "joint_local_survivors": 37582,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 23,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 1910,
+        "qr_plus_2_excluded": 1912,
+        "joint_local_survivors": 38464,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 29,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 1514,
+        "qr_plus_2_excluded": 1498,
+        "joint_local_survivors": 39274,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 31,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 1409,
+        "qr_plus_2_excluded": 1421,
+        "joint_local_survivors": 39456,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 37,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 1178,
+        "qr_plus_2_excluded": 1163,
+        "joint_local_survivors": 39945,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 41,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 1071,
+        "qr_plus_2_excluded": 1052,
+        "joint_local_survivors": 40163,
+        "mod3_joint_zero_verified": true
+      },
+      {
+        "horizon_or_target": 1000000,
+        "cutoff_z": 100,
+        "prime_l": 43,
+        "rough_semiprime_pairs": 42286,
+        "qr_minus_2_excluded": 1003,
+        "qr_plus_2_excluded": 985,
+        "joint_local_survivors": 40298,
+        "mod3_joint_zero_verified": true
+      }
+    ],
+    "aggregate": {
+      "shift_two_individual_operator_spectrum_proved": true,
+      "shift_two_cross_gram_permutation_proved": true,
+      "mod3_simultaneous_side_channel_route_refuted": true,
+      "nonconstant_shifted_character_modes_cancelled": false,
+      "uniform_shifted_bilinear_power_saving_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The exact local spectra do not yield cancellation in the actual prime-weighted qr+/-2 sums. Coupling the two side channels through simultaneous local survival is impossible already modulo three; they must be estimated separately with character-mode cancellation.",
+    "failure_count": 0
+  },
+  "logical_limit": "The exact local spectra do not yield cancellation in the actual prime-weighted qr+/-2 sums. Coupling the two side channels through simultaneous local survival is impossible already modulo three; they must be estimated separately with character-mode cancellation.",
+  "route_decision": {
+    "discard": "forcing cancellation by requiring simultaneous local survival of the qr-2 and qr+2 side channels",
+    "retain": "diagonalize each shifted residue operator and prove separate character-mode cancellation across cube-root cells",
+    "next_single_lemma": "UniformShiftTwoCharacterModeCancellationAcrossCubeRootFactorCells"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T227",
+        "label": "ShiftTwoBuchstabFactorLiftAndDisjointFactorGraph",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T228",
+        "label": "ShiftTwoOperatorCrossGramAndModThreeJointNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N228",
+        "label": "SimultaneousPlusMinusTwoLocalSurvivalCreatesCancellation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN228",
+        "label": "UniformShiftTwoCharacterModeCancellationAcrossCubeRootFactorCells",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T227",
+        "TP-T228"
+      ],
+      [
+        "TP-T228",
+        "TP-N228"
+      ],
+      [
+        "TP-T228",
+        "TP-OPEN228"
+      ],
+      [
+        "TP-OPEN228",
+        "TP"
+      ]
+    ]
+  }
+}

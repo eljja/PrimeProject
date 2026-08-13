@@ -226,6 +226,7 @@ TICKET224_SCHEMA = "primeproject.ticket224-sharp-completeness-thresholds.v1"
 TICKET225_SCHEMA = "primeproject.ticket225-arithmetic-remainder-localization.v1"
 TICKET226_SCHEMA = "primeproject.ticket226-signal-transfer-same-order-obstructions.v1"
 TICKET227_SCHEMA = "primeproject.ticket227-mellin-block-buchstab-lifts.v1"
+TICKET228_SCHEMA = "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1"
 
 
 def fail(message: str) -> int:
@@ -19408,6 +19409,220 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path228 = Path(
+        "data/open-problem/ticket228-near-alias-affine-language-residue-spectrum.json"
+    )
+    if not path228.exists():
+        return fail("missing ticket228 near-alias/affine-language/residue-spectrum audit")
+    ticket228 = read_json(path228)
+    if (
+        ticket228.get("schema") != TICKET228_SCHEMA
+        or ticket228.get("status") != "open_not_proven"
+    ):
+        return fail("ticket228 schema or status changed")
+    audit228 = ticket228.get(
+        "near_alias_affine_language_residue_spectrum_audit", {}
+    )
+    machine228 = audit228.get("machine_audit", {})
+    if machine228 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket228 global machine audit changed")
+
+    attempts228 = {
+        row.get("problem_id"): row for row in ticket228.get("attempts", [])
+    }
+    if set(attempts228) != EXPECTED_PROBLEMS:
+        return fail("ticket228 attempts missing problems")
+    theorem_names228 = {
+        "riemann": "FiniteDilationNearAliasNoUniformFrame",
+        "collatz": "BinaryEqualSlopeAffineLanguageNoncycleCone",
+        "goldbach": "MovingResidueUnitOperatorSpectrumAndLocalFactor",
+        "twin-prime": "ShiftTwoOperatorCrossGramAndModThreeJointNoGo",
+    }
+    next_lemmas228 = {
+        "riemann": "ExplicitDiophantineLossDualDilationFrameBoundOnBandlimitedWeilCores",
+        "collatz": "CofinalEqualSlopeAffineConeCoverForAllPrimitiveCycleCandidateWords",
+        "goldbach": "UniformMovingTargetCharacterCancellationAfterLocalSpectrumExtraction",
+        "twin-prime": "UniformShiftTwoCharacterModeCancellationAcrossCubeRootFactorCells",
+    }
+    track_paths228 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-228-finite-dilation-near-alias.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-228-branching-affine-language.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-228-moving-residue-spectrum.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-228-shift-two-residue-spectrum.json"
+        ),
+    }
+    audit_sections228 = {
+        "riemann": audit228.get("riemann", {}),
+        "collatz": audit228.get("collatz", {}),
+        "goldbach": audit228.get("goldbach", {}),
+        "twin-prime": audit228.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts228.items():
+        track_path = track_paths228[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket228 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections228[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names228[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas228[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names228[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas228[problem_id]
+            or track.get("schema") != TICKET228_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names228[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket228 contract changed")
+
+    rh228 = audit_sections228["riemann"].get("reproducible_computation", {})
+    rh228_rows = rh228.get("near_alias_rows", [])
+    rh228_aggregate = rh228.get("aggregate", {})
+    if (
+        len(rh228_rows) < 10
+        or any(
+            current.get("normalized_dual_energy", math.inf)
+            >= previous.get("normalized_dual_energy", -math.inf)
+            for previous, current in zip(rh228_rows, rh228_rows[1:])
+        )
+        or rh228_rows[-1].get("normalized_dual_energy", math.inf) >= 1e-12
+        or rh228_aggregate.get("finite_dilation_arbitrarily_large_near_aliases_proved")
+        is not True
+        or rh228_aggregate.get("unweighted_uniform_full_line_frame_bound_refuted")
+        is not True
+        or rh228_aggregate.get("explicit_bandlimited_diophantine_loss_bound_proved")
+        is not False
+        or rh228_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket228 RH finite-dilation near-alias boundary changed")
+
+    collatz228 = audit_sections228["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz228_rows = collatz228.get("level_rows", [])
+    collatz228_aggregate = collatz228.get("aggregate", {})
+    if (
+        collatz228.get("block_affine_data")
+        != [[81, 256, 221], [81, 256, 223]]
+        or collatz228.get("suffix_affine_data") != [27, 64, 47]
+        or collatz228.get("global_ratio_cone", {}).get("lower") != "887/700"
+        or collatz228.get("global_ratio_cone", {}).get("upper") != "7123/5600"
+        or len(collatz228_rows) != 10
+        or any(
+            row.get("distinct_word_count_2_to_r")
+            != 2 ** row.get("block_count_r", -1)
+            or row.get("verification_failures") != 0
+            for row in collatz228_rows
+        )
+        or collatz228_aggregate.get("words_computationally_checked") != 2046
+        or collatz228_aggregate.get(
+            "binary_branching_primitive_noncycle_language_proved"
+        )
+        is not True
+        or collatz228_aggregate.get("all_primitive_cycle_words_excluded")
+        is not False
+        or collatz228_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket228 Collatz branching-language boundary changed")
+
+    goldbach228 = audit_sections228["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    goldbach228_rows = goldbach228.get("operator_rows", [])
+    goldbach228_aggregate = goldbach228.get("aggregate", {})
+    if (
+        len(goldbach228_rows) != 13
+        or goldbach228.get("exhaustive_residue_cases_checked") != 279
+        or any(
+            row.get("verification_failures") != 0
+            or row.get("zero_target", {}).get("principal_singular_value")
+            != row.get("prime_l") - 1
+            or row.get("nonzero_target", {}).get("principal_singular_value")
+            != row.get("prime_l") - 2
+            or row.get("nonzero_target", {}).get("nonconstant_singular_value")
+            != 1
+            for row in goldbach228_rows
+        )
+        or any(
+            row.get("divisor_case_has_zero_exclusions") is not True
+            for row in goldbach228.get("factor_cell_residue_rows", [])
+        )
+        or goldbach228_aggregate.get("moving_residue_operator_spectrum_proved")
+        is not True
+        or goldbach228_aggregate.get(
+            "uniform_moving_target_character_cancellation_proved"
+        )
+        is not False
+        or goldbach228_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket228 Goldbach residue-spectrum boundary changed")
+
+    twin228 = audit_sections228["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin228_rows = twin228.get("cross_operator_rows", [])
+    twin228_aggregate = twin228.get("aggregate", {})
+    if (
+        len(twin228_rows) != 13
+        or any(
+            row.get("cross_gram_shape_verified") is not True
+            for row in twin228_rows
+        )
+        or not twin228_rows
+        or twin228_rows[0].get("prime_l") != 3
+        or twin228_rows[0].get("joint_allowed_unit_pairs") != 0
+        or twin228_rows[0].get("mod3_joint_mask_is_zero") is not True
+        or any(
+            row.get("mod3_joint_zero_verified") is not True
+            for row in twin228.get("factor_cell_residue_rows", [])
+        )
+        or twin228_aggregate.get("shift_two_cross_gram_permutation_proved")
+        is not True
+        or twin228_aggregate.get("mod3_simultaneous_side_channel_route_refuted")
+        is not True
+        or twin228_aggregate.get("uniform_shifted_bilinear_power_saving_proved")
+        is not False
+        or twin228_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket228 Twin residue-spectrum boundary changed")
+
+    if (
+        "resolves none" not in str(audit228.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket228.get("claim_boundary", "")).lower()
+        or machine228.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket228 proof boundary changed")
 
     path227 = Path(
         "data/open-problem/ticket227-mellin-block-buchstab-lifts.json"
