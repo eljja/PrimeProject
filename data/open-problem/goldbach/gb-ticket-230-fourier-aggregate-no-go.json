@@ -1,0 +1,162 @@
+{
+  "schema": "primeproject.ticket230-quantitative-recurrence-necklace-fourier-centering.v1",
+  "generated_at": "2026-08-20T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-230",
+  "theorem_name": "ModewiseFourierDecayPointwisePositivityNoGo",
+  "declared_proposition": "Modewise relative Fourier decay does not imply pointwise positivity of a growing cyclic convolution. For L=m^2 and w_m(x)=1+m*1_(x=a) on Z/LZ, the mass is W=m^2+m and every nonprincipal Fourier coefficient has magnitude m, so max|w_hat(k)|/W=1/(m+1) tends to zero. Nevertheless at target 2a, (w_m*w_m)(2a)=2m^2+2m while the principal term W^2/L is m^2+2m+1; all nonprincipal phases align and their error is m^2-1, of the same order as the main term.",
+  "mathematical_argument": "The transform of the constant background vanishes at every nonzero frequency, while the spike contributes m*exp(-2*pi*i*k*a/L). At target 2a, squaring this coefficient and multiplying by the inverse-transform phase cancels the phase for every k. The L-1 aligned terms contribute m^2(L-1)/L=m^2-1. Direct expansion of the convolution gives the same formula. Hence a separate o(W) estimate for each mode has no uniform pointwise consequence when the number of modes grows.",
+  "reproducible_computation": {
+    "theorem": "Modewise relative Fourier decay does not imply pointwise positivity of a growing cyclic convolution. For L=m^2 and w_m(x)=1+m*1_(x=a) on Z/LZ, the mass is W=m^2+m and every nonprincipal Fourier coefficient has magnitude m, so max|w_hat(k)|/W=1/(m+1) tends to zero. Nevertheless at target 2a, (w_m*w_m)(2a)=2m^2+2m while the principal term W^2/L is m^2+2m+1; all nonprincipal phases align and their error is m^2-1, of the same order as the main term.",
+    "proof": "The transform of the constant background vanishes at every nonzero frequency, while the spike contributes m*exp(-2*pi*i*k*a/L). At target 2a, squaring this coefficient and multiplying by the inverse-transform phase cancels the phase for every k. The L-1 aligned terms contribute m^2(L-1)/L=m^2-1. Direct expansion of the convolution gives the same formula. Hence a separate o(W) estimate for each mode has no uniform pointwise consequence when the number of modes grows.",
+    "counterexample_rows": [
+      {
+        "spike_scale_m": 2,
+        "cyclic_modulus_L_equals_m_squared": 4,
+        "total_mass_W": 6,
+        "nonprincipal_mode_magnitude": 2,
+        "maximum_mode_to_mass_ratio": "1/3",
+        "target_2a_convolution": 12,
+        "principal_term_W_squared_over_L": 9,
+        "target_aligned_nonprincipal_error": 3,
+        "error_to_principal_ratio": "1/3",
+        "sampled_fourier_formula_verified": true
+      },
+      {
+        "spike_scale_m": 3,
+        "cyclic_modulus_L_equals_m_squared": 9,
+        "total_mass_W": 12,
+        "nonprincipal_mode_magnitude": 3,
+        "maximum_mode_to_mass_ratio": "1/4",
+        "target_2a_convolution": 24,
+        "principal_term_W_squared_over_L": 16,
+        "target_aligned_nonprincipal_error": 8,
+        "error_to_principal_ratio": "1/2",
+        "sampled_fourier_formula_verified": true
+      },
+      {
+        "spike_scale_m": 4,
+        "cyclic_modulus_L_equals_m_squared": 16,
+        "total_mass_W": 20,
+        "nonprincipal_mode_magnitude": 4,
+        "maximum_mode_to_mass_ratio": "1/5",
+        "target_2a_convolution": 40,
+        "principal_term_W_squared_over_L": 25,
+        "target_aligned_nonprincipal_error": 15,
+        "error_to_principal_ratio": "3/5",
+        "sampled_fourier_formula_verified": true
+      },
+      {
+        "spike_scale_m": 5,
+        "cyclic_modulus_L_equals_m_squared": 25,
+        "total_mass_W": 30,
+        "nonprincipal_mode_magnitude": 5,
+        "maximum_mode_to_mass_ratio": "1/6",
+        "target_2a_convolution": 60,
+        "principal_term_W_squared_over_L": 36,
+        "target_aligned_nonprincipal_error": 24,
+        "error_to_principal_ratio": "2/3",
+        "sampled_fourier_formula_verified": true
+      },
+      {
+        "spike_scale_m": 8,
+        "cyclic_modulus_L_equals_m_squared": 64,
+        "total_mass_W": 72,
+        "nonprincipal_mode_magnitude": 8,
+        "maximum_mode_to_mass_ratio": "1/9",
+        "target_2a_convolution": 144,
+        "principal_term_W_squared_over_L": 81,
+        "target_aligned_nonprincipal_error": 63,
+        "error_to_principal_ratio": "7/9",
+        "sampled_fourier_formula_verified": true
+      },
+      {
+        "spike_scale_m": 16,
+        "cyclic_modulus_L_equals_m_squared": 256,
+        "total_mass_W": 272,
+        "nonprincipal_mode_magnitude": 16,
+        "maximum_mode_to_mass_ratio": "1/17",
+        "target_2a_convolution": 544,
+        "principal_term_W_squared_over_L": 289,
+        "target_aligned_nonprincipal_error": 255,
+        "error_to_principal_ratio": "15/17",
+        "sampled_fourier_formula_verified": true
+      },
+      {
+        "spike_scale_m": 32,
+        "cyclic_modulus_L_equals_m_squared": 1024,
+        "total_mass_W": 1056,
+        "nonprincipal_mode_magnitude": 32,
+        "maximum_mode_to_mass_ratio": "1/33",
+        "target_2a_convolution": 2112,
+        "principal_term_W_squared_over_L": 1089,
+        "target_aligned_nonprincipal_error": 1023,
+        "error_to_principal_ratio": "31/33",
+        "sampled_fourier_formula_verified": true
+      }
+    ],
+    "aggregate": {
+      "modewise_relative_decay_counterexample_proved": true,
+      "target_phase_alignment_same_order_error_proved": true,
+      "modewise_o_of_mass_implies_pointwise_positivity_refuted": true,
+      "prime_specific_signed_minor_arc_bound_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The counterfamily is an information-theoretic obstruction, not a model of the primes and not a Goldbach counterexample. It shows that the remaining estimate must control the signed, target-aligned aggregate after a major/minor-arc decomposition; individual small modes are insufficient.",
+    "failure_count": 0
+  },
+  "logical_limit": "The counterfamily is an information-theoretic obstruction, not a model of the primes and not a Goldbach counterexample. It shows that the remaining estimate must control the signed, target-aligned aggregate after a major/minor-arc decomposition; individual small modes are insufficient.",
+  "route_decision": {
+    "discard": "deducing pointwise Goldbach positivity from separate o(W) bounds for each of a growing number of Fourier modes",
+    "retain": "control the target-aligned signed aggregate after an explicit major/minor-arc decomposition of prime weights",
+    "next_single_lemma": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T229",
+        "label": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T230",
+        "label": "ModewiseFourierDecayPointwisePositivityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N230",
+        "label": "ModewiseLittleOImpliesPointwiseBinaryConvolutionPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN230",
+        "label": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T229",
+        "GB-T230"
+      ],
+      [
+        "GB-T230",
+        "GB-N230"
+      ],
+      [
+        "GB-T230",
+        "GB-OPEN230"
+      ],
+      [
+        "GB-OPEN230",
+        "GB"
+      ]
+    ]
+  }
+}

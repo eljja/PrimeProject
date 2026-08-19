@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, exact obstruction coordinates exposed",
-      ko: "네 미해결 문제, 정확한 장애 좌표를 드러내다",
+      en: "Four open problems, invalid successor targets corrected",
+      ko: "네 미해결 문제, 잘못된 후속 목표를 교정하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-229 proves an explicit finite-band bound and three exact semilinear or character barriers.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-229는 명시적 유한 대역 하한과 세 개의 정확한 준선형·지표 방해 정리를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-230 proves four exact rate, symmetry, aggregation, or centering limits.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-230은 재귀 속도·목걸이 대칭·푸리에 합산·국소 중심화에 관한 네 개의 정확한 한계를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-229 proves four exact partial or no-go theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-229는 네 개의 정확한 부분정리 또는 no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-230 proves four exact structural or no-go theorems and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-230은 네 개의 정확한 구조 또는 no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

@@ -62,33 +62,33 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-229
+## Current continuation: TICKET-230
 
 The current machine-readable boundary is
-`data/open-problem/ticket229-band-frame-semilinear-character-barriers.json`.
-It records four exact partial or no-go theorems, zero machine failures, and
+`data/open-problem/ticket230-quantitative-recurrence-necklace-fourier-centering.json`.
+It records four exact structural or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch` | `SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail` |
-| Collatz | `FiniteEqualSlopeLanguageSemilinearCoverageNoGo` | `OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords` |
-| Goldbach | `CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo` | `PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell` |
-| Twin Prime | `ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction` | `PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode` |
+| Riemann | `QuantitativeFiniteDilationRecurrenceRateNoGo` | `AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale` |
+| Collatz | `CollatzCycleDivisibilityNecklaceInvariance` | `NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord` |
+| Goldbach | `ModewiseFourierDecayPointwisePositivityNoGo` | `UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm` |
+| Twin Prime | `ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection` | `CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale` |
 
-The RH result proves a corrected finite-band scalar bound, but its exponential
-condition loss is not matched to an actual Weil-core tail. The Collatz result
-refutes every finite equal-slope semilinear cover, but does not prove cycle
-nondivisibility outside those languages or aperiodic descent. Goldbach gains
-exact cancellation only after target averaging; the fixed-target prime-weighted
-estimate remains open. Twin isolates a full-size modulo-5 quadratic mode; its
-prime-weighted cancellation remains open.
+The RH result quantifies unavoidable finite-family recurrence but does not
+construct a Weil-positive infinite frame. The Collatz result removes cyclic
+rotation duplication but does not prove global necklace nondivisibility or
+aperiodic descent. The Goldbach counterfamily refutes modewise promotion but
+does not estimate prime weights. The Twin result corrects the raw character
+mean from zero to `1/3`, but neither proves centered Type-II cancellation nor a
+positive twin-prime principal mass.
 
-Reports: [English](band-frame-semilinear-character-barriers.md),
-[한국어](band-frame-semilinear-character-barriers.ko.md).
+Reports: [English](quantitative-recurrence-necklace-fourier-centering.md),
+[한국어](quantitative-recurrence-necklace-fourier-centering.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-229 boundary.
+snapshots and must not override this TICKET-230 boundary.
 
 ## Historical continuation after TICKET-209
 

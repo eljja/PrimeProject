@@ -1,0 +1,406 @@
+{
+  "schema": "primeproject.ticket230-quantitative-recurrence-necklace-fourier-centering.v1",
+  "generated_at": "2026-08-20T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-230",
+  "theorem_name": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+  "declared_proposition": "Let q_1,...,q_m be fixed integers greater than one, with m at least two and with two multiplicatively independent members, and put F(t)=sum_j |1-q_j^(-it)|^2. For every integer Q at least two there is an integer 1<=n<=Q^m such that F(n)<=4*pi^2*m/Q^2. These witnesses contain an unbounded subsequence and hence F(n)<=4*pi^2*m*n^(-2/m) along an unbounded sequence. Therefore no global lower floor L(t) with t^(2/m)L(t) tending to infinity can hold for a fixed finite dilation family.",
+  "mathematical_argument": "Apply the simultaneous Dirichlet pigeonhole argument to the Q^m+1 points k(log q_1/(2*pi),...,log q_m/(2*pi)) modulo one, partitioned into Q^m cubes of side 1/Q. The difference n of two points in one cube has every phase distance at most 1/Q. Since |1-exp(-2*pi*i*x)|^2=4*sin^2(pi*x)<=4*pi^2||x||^2, the stated energy bound follows. The witnesses cannot remain bounded as Q grows: otherwise a fixed positive n would have zero energy, forcing log(q_a)/log(q_b) rational for two multiplicatively independent members. Finally n<=Q^m implies Q^(-2)<=n^(-2/m).",
+  "reproducible_computation": {
+    "theorem": "Let q_1,...,q_m be fixed integers greater than one, with m at least two and with two multiplicatively independent members, and put F(t)=sum_j |1-q_j^(-it)|^2. For every integer Q at least two there is an integer 1<=n<=Q^m such that F(n)<=4*pi^2*m/Q^2. These witnesses contain an unbounded subsequence and hence F(n)<=4*pi^2*m*n^(-2/m) along an unbounded sequence. Therefore no global lower floor L(t) with t^(2/m)L(t) tending to infinity can hold for a fixed finite dilation family.",
+    "proof": "Apply the simultaneous Dirichlet pigeonhole argument to the Q^m+1 points k(log q_1/(2*pi),...,log q_m/(2*pi)) modulo one, partitioned into Q^m cubes of side 1/Q. The difference n of two points in one cube has every phase distance at most 1/Q. Since |1-exp(-2*pi*i*x)|^2=4*sin^2(pi*x)<=4*pi^2||x||^2, the stated energy bound follows. The witnesses cannot remain bounded as Q grows: otherwise a fixed positive n would have zero energy, forcing log(q_a)/log(q_b) rational for two multiplicatively independent members. Finally n<=Q^m implies Q^(-2)<=n^(-2/m).",
+    "pigeonhole_rows": [
+      {
+        "primes": [
+          2,
+          3
+        ],
+        "dimension_m": 2,
+        "partition_Q": 4,
+        "maximum_index_Q_to_m": 16,
+        "collision_indices": [
+          0,
+          1
+        ],
+        "witness_frequency_n": 1,
+        "maximum_phase_error": 0.1748495762830299,
+        "phase_errors": [
+          0.1103178000763258,
+          0.1748495762830299
+        ],
+        "dual_energy": 1.5518573516188363,
+        "dirichlet_energy_bound": 4.934802200544679,
+        "sequence_rate_bound": 78.95683520871486,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3
+        ],
+        "dimension_m": 2,
+        "partition_Q": 8,
+        "maximum_index_Q_to_m": 64,
+        "collision_indices": [
+          15,
+          43
+        ],
+        "witness_frequency_n": 28,
+        "maximum_phase_error": 0.10421186407516281,
+        "phase_errors": [
+          0.08889840213712219,
+          0.10421186407516281
+        ],
+        "dual_energy": 0.7176063010087275,
+        "dirichlet_energy_bound": 1.2337005501361697,
+        "sequence_rate_bound": 2.8198869717398165,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3
+        ],
+        "dimension_m": 2,
+        "partition_Q": 16,
+        "maximum_index_Q_to_m": 256,
+        "collision_indices": [
+          9,
+          72
+        ],
+        "witness_frequency_n": 63,
+        "maximum_phase_error": 0.049978595191474184,
+        "phase_errors": [
+          0.049978595191474184,
+          0.015523305830884127
+        ],
+        "dual_energy": 0.10730955924689112,
+        "dirichlet_energy_bound": 0.30842513753404244,
+        "sequence_rate_bound": 1.2532830985510295,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3
+        ],
+        "dimension_m": 2,
+        "partition_Q": 32,
+        "maximum_index_Q_to_m": 1024,
+        "collision_indices": [
+          1,
+          264
+        ],
+        "witness_frequency_n": 263,
+        "maximum_phase_error": 0.014561437563131108,
+        "phase_errors": [
+          0.01358142007368457,
+          0.014561437563131108
+        ],
+        "dual_energy": 0.01564255950144599,
+        "dirichlet_energy_bound": 0.07710628438351061,
+        "sequence_rate_bound": 0.3002161034551896,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3
+        ],
+        "dimension_m": 2,
+        "partition_Q": 64,
+        "maximum_index_Q_to_m": 4096,
+        "collision_indices": [
+          68,
+          331
+        ],
+        "witness_frequency_n": 263,
+        "maximum_phase_error": 0.014561437563131108,
+        "phase_errors": [
+          0.01358142007368457,
+          0.014561437563131108
+        ],
+        "dual_energy": 0.01564255950144599,
+        "dirichlet_energy_bound": 0.019276571095877652,
+        "sequence_rate_bound": 0.3002161034551896,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3
+        ],
+        "dimension_m": 2,
+        "partition_Q": 128,
+        "maximum_index_Q_to_m": 16384,
+        "collision_indices": [
+          0,
+          1813
+        ],
+        "witness_frequency_n": 1813,
+        "maximum_phase_error": 0.006171538378680452,
+        "phase_errors": [
+          0.006171538378680452,
+          0.002281801133221961
+        ],
+        "dual_energy": 0.0017090065196896907,
+        "dirichlet_energy_bound": 0.004819142773969413,
+        "sequence_rate_bound": 0.04355037794192767,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "dimension_m": 3,
+        "partition_Q": 4,
+        "maximum_index_Q_to_m": 64,
+        "collision_indices": [
+          1,
+          29
+        ],
+        "witness_frequency_n": 28,
+        "maximum_phase_error": 0.17219998217486587,
+        "phase_errors": [
+          0.08889840213712219,
+          0.10421186407516281,
+          0.17219998217486587
+        ],
+        "dual_energy": 1.7784164213453177,
+        "dirichlet_energy_bound": 7.4022033008170185,
+        "sequence_rate_bound": 12.84425652048148,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "dimension_m": 3,
+        "partition_Q": 6,
+        "maximum_index_Q_to_m": 216,
+        "collision_indices": [
+          3,
+          38
+        ],
+        "witness_frequency_n": 35,
+        "maximum_phase_error": 0.13887699732859682,
+        "phase_errors": [
+          0.13887699732859682,
+          0.11973516990604693,
+          0.034750022281418325
+        ],
+        "dual_energy": 1.301580563065161,
+        "dirichlet_energy_bound": 3.289868133696453,
+        "sequence_rate_bound": 11.068844726157407,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "dimension_m": 3,
+        "partition_Q": 8,
+        "maximum_index_Q_to_m": 512,
+        "collision_indices": [
+          13,
+          122
+        ],
+        "witness_frequency_n": 109,
+        "maximum_phase_error": 0.07965006939070207,
+        "phase_errors": [
+          0.024640208319512524,
+          0.05860381485026167,
+          0.07965006939070207
+        ],
+        "dual_energy": 0.4032534433493376,
+        "dirichlet_energy_bound": 1.8505508252042546,
+        "sequence_rate_bound": 5.190350178463939,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "dimension_m": 3,
+        "partition_Q": 12,
+        "maximum_index_Q_to_m": 1728,
+        "collision_indices": [
+          13,
+          122
+        ],
+        "witness_frequency_n": 109,
+        "maximum_phase_error": 0.07965006939070207,
+        "phase_errors": [
+          0.024640208319512524,
+          0.05860381485026167,
+          0.07965006939070207
+        ],
+        "dual_energy": 0.4032534433493376,
+        "dirichlet_energy_bound": 0.8224670334241132,
+        "sequence_rate_bound": 5.190350178463939,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "dimension_m": 3,
+        "partition_Q": 16,
+        "maximum_index_Q_to_m": 4096,
+        "collision_indices": [
+          10,
+          1388
+        ],
+        "witness_frequency_n": 1378,
+        "maximum_phase_error": 0.05728388198477319,
+        "phase_errors": [
+          0.01792850517693978,
+          0.05728388198477319,
+          0.025300877251254406
+        ],
+        "dual_energy": 0.1660481925257953,
+        "dirichlet_energy_bound": 0.46263770630106366,
+        "sequence_rate_bound": 0.9564189660805154,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      },
+      {
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "dimension_m": 3,
+        "partition_Q": 24,
+        "maximum_index_Q_to_m": 13824,
+        "collision_indices": [
+          1,
+          1551
+        ],
+        "witness_frequency_n": 1550,
+        "maximum_phase_error": 0.0324990132514813,
+        "phase_errors": [
+          0.0074098816949970114,
+          0.01684323869636728,
+          0.0324990132514813
+        ],
+        "dual_energy": 0.054908456774231534,
+        "dirichlet_energy_bound": 0.2056167583560283,
+        "sequence_rate_bound": 0.8842869026811038,
+        "phase_bound_verified": true,
+        "energy_bound_verified": true,
+        "frequency_bound_verified": true,
+        "sequence_rate_verified": true
+      }
+    ],
+    "exact_constants": {
+      "energy_bound": "4*pi^2*m/Q^2",
+      "unbounded_sequence_bound": "4*pi^2*m*n^(-2/m)"
+    },
+    "aggregate": {
+      "quantitative_finite_dilation_recurrence_proved": true,
+      "slower_than_T_minus_2_over_m_global_floor_refuted": true,
+      "qualitative_subexponential_label_is_sufficient_refuted": true,
+      "infinite_or_adaptive_weil_frame_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This theorem concerns the scalar dilation phase energy, not the full Weil quadratic form. It gives a necessary recurrence-scale compatibility condition; it neither constructs an infinite or adaptive frame nor bounds the actual Weil-core tail.",
+    "failure_count": 0
+  },
+  "logical_limit": "This theorem concerns the scalar dilation phase energy, not the full Weil quadratic form. It gives a necessary recurrence-scale compatibility condition; it neither constructs an infinite or adaptive frame nor bounds the actual Weil-core tail.",
+  "route_decision": {
+    "discard": "treating a qualitative subexponential finite-family frame floor as sufficient without comparing it to the unavoidable T^(-2/m) recurrence scale",
+    "retain": "use an infinite, weighted, or band-adaptive dilation family and compare its explicit floor against the actual Weil-core tail",
+    "next_single_lemma": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T229",
+        "label": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T230",
+        "label": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N230",
+        "label": "SlowerThanTMinusTwoOverMFixedFamilyFrameFloor",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN230",
+        "label": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T229",
+        "RH-T230"
+      ],
+      [
+        "RH-T230",
+        "RH-N230"
+      ],
+      [
+        "RH-T230",
+        "RH-OPEN230"
+      ],
+      [
+        "RH-OPEN230",
+        "RH"
+      ]
+    ]
+  }
+}

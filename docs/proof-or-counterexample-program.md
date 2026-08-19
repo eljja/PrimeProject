@@ -8375,3 +8375,34 @@ failures.
 
 English report: [TICKET-229 band frames, semilinear coverage, and character barriers](band-frame-semilinear-character-barriers.md).
 한국어 보고서: [TICKET-229 대역 프레임·준선형 포괄·지표 방해](band-frame-semilinear-character-barriers.ko.md).
+
+## TICKET-230 continuation: quantitative recurrence, necklaces, Fourier aggregation, and centering
+
+TICKET-230 audits the four successor targets from TICKET-229 before attempting
+stronger analytic estimates. It proves four exact structural or no-go
+statements and keeps the parent-conjecture resolution count at zero:
+
+1. RH: simultaneous Dirichlet approximation forces every fixed finite
+   `m`-dilation family to have an unbounded near-alias sequence with energy
+   `O(T^(-2/m))`. Any slower-decaying global finite-family floor is impossible;
+   an adaptive or infinite frame matched to the actual Weil tail remains open.
+2. Collatz: `2^(a_0)B(rho a)=3B(a)+D`, so both `D|B` and `gcd(D,B)` are
+   invariant under cyclic rotation. Rotation searches must be quotiented by
+   necklaces; global representative nondivisibility and aperiodic descent
+   remain open.
+3. Goldbach: the exact family `w_m=1+m delta_a` on `Z/m^2Z` has every
+   nonprincipal Fourier mode `o(W)` while all target phases align to produce
+   an error of principal-term size. Modewise decay alone cannot prove
+   pointwise positivity; a signed aggregate prime minor-arc estimate remains
+   open.
+4. Twin Prime: on shift-two admissible residues modulo five, the raw quadratic
+   character has exact mean `1/3`, not zero. The previous uncentered target is
+   refuted and replaced by centered Type-II saving at the twin-sieve main
+   scale, still requiring a positive principal lower bound.
+
+Machine audit: four exact partial or no-go theorems, four rejected or corrected
+routes, four proof DAGs, zero conjecture resolutions, and zero computational
+failures.
+
+English report: [TICKET-230 quantitative recurrence, necklace invariance, Fourier aggregation, and local centering](quantitative-recurrence-necklace-fourier-centering.md).
+한국어 보고서: [TICKET-230 정량 재귀·목걸이 불변성·푸리에 합산·국소 중심화](quantitative-recurrence-necklace-fourier-centering.ko.md).

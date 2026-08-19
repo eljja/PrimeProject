@@ -228,6 +228,9 @@ TICKET226_SCHEMA = "primeproject.ticket226-signal-transfer-same-order-obstructio
 TICKET227_SCHEMA = "primeproject.ticket227-mellin-block-buchstab-lifts.v1"
 TICKET228_SCHEMA = "primeproject.ticket228-near-alias-affine-language-residue-spectrum.v1"
 TICKET229_SCHEMA = "primeproject.ticket229-band-frame-semilinear-character-barriers.v1"
+TICKET230_SCHEMA = (
+    "primeproject.ticket230-quantitative-recurrence-necklace-fourier-centering.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -19410,6 +19413,209 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path230 = Path(
+        "data/open-problem/ticket230-quantitative-recurrence-necklace-fourier-centering.json"
+    )
+    if not path230.exists():
+        return fail("missing ticket230 recurrence/necklace/Fourier/centering audit")
+    ticket230 = read_json(path230)
+    if (
+        ticket230.get("schema") != TICKET230_SCHEMA
+        or ticket230.get("status") != "open_not_proven"
+    ):
+        return fail("ticket230 schema or status changed")
+    audit230 = ticket230.get(
+        "quantitative_recurrence_necklace_fourier_centering_audit", {}
+    )
+    machine230 = audit230.get("machine_audit", {})
+    if machine230 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket230 global machine audit changed")
+
+    attempts230 = {
+        row.get("problem_id"): row for row in ticket230.get("attempts", [])
+    }
+    if set(attempts230) != EXPECTED_PROBLEMS:
+        return fail("ticket230 attempts missing problems")
+    theorem_names230 = {
+        "riemann": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+        "collatz": "CollatzCycleDivisibilityNecklaceInvariance",
+        "goldbach": "ModewiseFourierDecayPointwisePositivityNoGo",
+        "twin-prime": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+    }
+    next_lemmas230 = {
+        "riemann": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale",
+        "collatz": "NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord",
+        "goldbach": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm",
+        "twin-prime": "CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale",
+    }
+    track_paths230 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-230-quantitative-recurrence.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-230-necklace-invariance.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-230-fourier-aggregate-no-go.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-230-local-centering-correction.json"
+        ),
+    }
+    audit_sections230 = {
+        "riemann": audit230.get("riemann", {}),
+        "collatz": audit230.get("collatz", {}),
+        "goldbach": audit230.get("goldbach", {}),
+        "twin-prime": audit230.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts230.items():
+        track_path = track_paths230[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket230 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections230[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names230[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas230[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names230[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas230[problem_id]
+            or track.get("schema") != TICKET230_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names230[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket230 contract changed")
+
+    rh230 = audit_sections230["riemann"].get("reproducible_computation", {})
+    rh230_rows = rh230.get("pigeonhole_rows", [])
+    rh230_aggregate = rh230.get("aggregate", {})
+    if (
+        len(rh230_rows) != 12
+        or any(
+            row.get("phase_bound_verified") is not True
+            or row.get("energy_bound_verified") is not True
+            or row.get("frequency_bound_verified") is not True
+            or row.get("sequence_rate_verified") is not True
+            for row in rh230_rows
+        )
+        or rh230_aggregate.get("quantitative_finite_dilation_recurrence_proved")
+        is not True
+        or rh230_aggregate.get(
+            "slower_than_T_minus_2_over_m_global_floor_refuted"
+        )
+        is not True
+        or rh230_aggregate.get("infinite_or_adaptive_weil_frame_proved")
+        is not False
+        or rh230_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket230 RH recurrence boundary changed")
+
+    collatz230 = audit_sections230["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz230_rows = collatz230.get("height_rows", [])
+    collatz230_aggregate = collatz230.get("aggregate", {})
+    if (
+        len(collatz230_rows) != 6
+        or collatz230_rows[-1].get("primitive_positive_denominator_word_count")
+        != 15402
+        or collatz230_rows[-1].get("canonical_necklace_count") != 2567
+        or any(
+            row.get("all_rotation_identities_verified") is not True
+            for row in collatz230.get("sample_rotation_rows", [])
+        )
+        or collatz230_aggregate.get(
+            "cycle_divisibility_necklace_invariance_proved"
+        )
+        is not True
+        or collatz230_aggregate.get("all_primitive_necklaces_excluded")
+        is not False
+        or collatz230_aggregate.get("aperiodic_descent_proved") is not False
+        or collatz230_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket230 Collatz necklace boundary changed")
+
+    goldbach230 = audit_sections230["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    goldbach230_rows = goldbach230.get("counterexample_rows", [])
+    goldbach230_aggregate = goldbach230.get("aggregate", {})
+    if (
+        len(goldbach230_rows) != 7
+        or Fraction(goldbach230_rows[-1].get("maximum_mode_to_mass_ratio", "1"))
+        != Fraction(1, 33)
+        or Fraction(goldbach230_rows[-1].get("error_to_principal_ratio", "0"))
+        != Fraction(31, 33)
+        or any(
+            row.get("sampled_fourier_formula_verified") is not True
+            for row in goldbach230_rows
+        )
+        or goldbach230_aggregate.get("modewise_relative_decay_counterexample_proved")
+        is not True
+        or goldbach230_aggregate.get(
+            "modewise_o_of_mass_implies_pointwise_positivity_refuted"
+        )
+        is not True
+        or goldbach230_aggregate.get("prime_specific_signed_minor_arc_bound_proved")
+        is not False
+        or goldbach230_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket230 Goldbach Fourier boundary changed")
+
+    twin230 = audit_sections230["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin230_mod5 = twin230.get("mod5_exact_row", {})
+    twin230_aggregate = twin230.get("aggregate", {})
+    if (
+        twin230_mod5.get("allowed_start_residues") != [1, 2, 4]
+        or twin230_mod5.get("raw_quadratic_character_sum") != 1
+        or twin230_mod5.get("raw_local_mean") != "1/3"
+        or twin230_mod5.get("centered_character_sum") != "0"
+        or any(
+            row.get("identity_verified") is not True
+            for row in twin230.get("local_character_rows", [])
+        )
+        or twin230_aggregate.get("mod5_raw_quadratic_mean_equals_one_third_proved")
+        is not True
+        or twin230_aggregate.get("uncentered_zero_cancellation_target_refuted")
+        is not True
+        or twin230_aggregate.get("centered_prime_weighted_typeII_saving_proved")
+        is not False
+        or twin230_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket230 Twin centering boundary changed")
+
+    if (
+        "resolves none" not in str(audit230.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket230.get("claim_boundary", "")).lower()
+        or machine230.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket230 proof boundary changed")
 
     path229 = Path(
         "data/open-problem/ticket229-band-frame-semilinear-character-barriers.json"

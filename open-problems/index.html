@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260814-ticket229-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260820-ticket230-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-229</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-230</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-229 actually changed</h2>
-          <p>TICKET-229 did not solve a parent conjecture. It proves an explicit finite-band dual-dilation lower bound with an exponential tail mismatch, a no-go theorem for finite equal-slope Collatz covers, exact complete-period target cancellation with a Goldbach pointwise obstruction, and a Twin parity projection with a full-size modulo-5 quadratic obstruction.</p>
-          <p class="proof-boundary">TICKET-229는 상위 난제를 해결하지 않았습니다. 유한 대역의 명시적 양의 하한과 그 지수 조건 손실을 증명하고, 유한 개 동일 기울기 콜라츠 언어의 종국적 포괄을 반박했습니다. 골드바흐에서는 목표 한 주기 평균과 고정 목표를 분리했고, 쌍둥이 소수에서는 mod 5 이차 지표가 정규화 크기 1로 남는 정확한 방해를 찾았습니다.</p>
+          <h2>What TICKET-230 actually changed</h2>
+          <p>TICKET-230 did not solve a parent conjecture. It quantifies the unavoidable recurrence rate of every fixed finite dilation family, proves Collatz cycle divisibility is invariant under cyclic rotation, gives a Fourier counterfamily to modewise-to-pointwise promotion, and corrects the Twin modulo-five raw character target from zero to its exact admissible mean one third.</p>
+          <p class="proof-boundary">TICKET-230은 상위 난제를 해결하지 않았습니다. 고정 유한 배율 족의 피할 수 없는 재귀 속도를 정량화하고, 콜라츠 순환 나눗셈의 목걸이 불변성을 증명했습니다. 골드바흐에서는 모드별 소량성만으로 점별 양성을 얻을 수 없다는 정렬 반례를 만들었고, 쌍둥이 소수에서는 mod 5 원시 이차지표의 올바른 허용 평균이 0이 아니라 1/3임을 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,44 +55,44 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The dual-dilation energy has a positive explicit lower bound on every finite band.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The elementary exponential certificate cannot absorb a merely polynomial truncation tail.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>SubexponentialDualDilationLossMatchedToExplicitWeilCoreTail</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every fixed finite <code>m</code>-dilation family has an unbounded near-alias sequence with energy <code>O(T^(-2/m))</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No global finite-family floor may decay more slowly than that recurrence scale.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale</code></dd></div>
           </dl>
-          <p class="workbench-ko">유한 대역 하한은 닫혔지만 실제 Weil 핵 꼬리와 호환되는 준지수 이하 조건 손실이 필요합니다.</p>
+          <p class="workbench-ko">정성적 준지수 조건이 아니라 재귀 척도와 직접 비교되는 적응형·무한 프레임 및 실제 Weil 핵 꼬리 정리가 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every fixed-suffix equal-slope language lies on one affine <code>(h,S)</code> line.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>No finite union of those languages is cofinal among primitive positive-denominator words.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>OrderSensitiveNondivisibilityForAllPositiveDenominatorPrimitiveWords</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>2^(a0)B(rho a)=3B(a)+D</code>; both <code>D|B</code> and <code>gcd(D,B)</code> are necklace invariants.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Cyclic rotations of one valuation word are duplicate, not independent, cycle evidence.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord</code></dd></div>
           </dl>
-          <p class="workbench-ko">유한 준선형 포괄은 폐기됐습니다. 밖에 남는 모든 word의 비나눗셈과 비주기 궤도 하강은 열려 있습니다.</p>
+          <p class="workbench-ko">회전 대칭을 몫낸 목걸이 대표 전체의 비나눗셈과 별도의 비주기 궤도 하강은 여전히 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A complete target-residue period annihilates every nonconstant local character.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Each fixed nonzero target remains an isometry on the nonconstant space.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PrimeWeightedPointwiseCharacterCancellationForEachGoldbachFactorCell</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A growing cyclic counterfamily has every nonprincipal mode <code>o(W)</code> while its target-aligned error remains the size of the main term.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Separate modewise decay does not imply pointwise binary-convolution positivity.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm</code></dd></div>
           </dl>
-          <p class="workbench-ko">목표 평균의 정확한 상쇄는 점별 골드바흐 명제로 승격되지 않습니다. 고정 목표의 소수 가중 상쇄가 필요합니다.</p>
+          <p class="workbench-ko">실제 소수 가중치의 주호·부호 구간 분해 뒤 목표에 정렬된 부호 있는 전체 합을 제어해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Shift-two symmetry kills odd characters, while even nonprincipal characters have singular value two.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The modulo-5 quadratic mode has normalized ratio one and survives local tensorization.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PrimeWeightedCancellationOfModuloFiveQuadraticShiftTwoMode</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>On shift-two admissible starts, the modulo-five quadratic character has exact local mean <code>1/3</code>.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Raw quadratic cancellation to zero is false before prime weighting is introduced.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale</code></dd></div>
           </dl>
-          <p class="workbench-ko">홀 지표는 닫혔지만 mod 5 이차 mode는 full-size로 남습니다. 실제 소수 가중 상쇄가 필요합니다.</p>
+          <p class="workbench-ko">평균 1/3을 뺀 중심화 관측량의 Type-II 절약과 parity barrier를 넘는 양의 주성분 하한이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>229 tickets reduced to four meaningful eras</h2>
+          <h2>230 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–229 · Exact coordinates, stability loss, and character barriers</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 유한 대역 손실·준선형 포괄 no-go·평균/점별 지표 장벽으로 남은 무한 추정의 정확한 대상을 확정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–230 · Exact coordinates, rate limits, and target correction</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 유한 배율 재귀 속도·목걸이 불변성·푸리에 합산 장벽·국소 중심화로 남은 무한 추정의 정확한 대상을 교정했습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/quantitative-recurrence-necklace-fourier-centering.ko.md">TICKET-230 한국어 보고서</a>
+          <a href="../docs/quantitative-recurrence-necklace-fourier-centering.md">TICKET-230 English report</a>
           <a href="../docs/band-frame-semilinear-character-barriers.ko.md">TICKET-229 한국어 보고서</a>
           <a href="../docs/band-frame-semilinear-character-barriers.md">TICKET-229 English report</a>
           <a href="../docs/near-alias-affine-language-residue-spectrum.ko.md">TICKET-228 한국어 보고서</a>
@@ -184,7 +186,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260814-ticket229"></script>
+    <script src="../assets/i18n.js?v=20260820-ticket230"></script>
   </body>
 </html>
 

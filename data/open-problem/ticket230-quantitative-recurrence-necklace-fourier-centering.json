@@ -1,0 +1,1793 @@
+{
+  "schema": "primeproject.ticket230-quantitative-recurrence-necklace-fourier-centering.v1",
+  "generated_at": "2026-08-20T12:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-230 proves four exact partial results and resolves none of the four parent conjectures.",
+  "quantitative_recurrence_necklace_fourier_centering_audit": {
+    "theorem_name": "QuantitativeRecurrenceNecklaceFourierAndCenteringCorrections",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-230 proves four exact structural or no-go theorems, corrects one malformed successor target, and resolves none of the four parent conjectures. Finite computations audit formulas and are not promoted to infinite claims.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-230",
+      "theorem_name": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+      "declared_proposition": "Let q_1,...,q_m be fixed integers greater than one, with m at least two and with two multiplicatively independent members, and put F(t)=sum_j |1-q_j^(-it)|^2. For every integer Q at least two there is an integer 1<=n<=Q^m such that F(n)<=4*pi^2*m/Q^2. These witnesses contain an unbounded subsequence and hence F(n)<=4*pi^2*m*n^(-2/m) along an unbounded sequence. Therefore no global lower floor L(t) with t^(2/m)L(t) tending to infinity can hold for a fixed finite dilation family.",
+      "mathematical_argument": "Apply the simultaneous Dirichlet pigeonhole argument to the Q^m+1 points k(log q_1/(2*pi),...,log q_m/(2*pi)) modulo one, partitioned into Q^m cubes of side 1/Q. The difference n of two points in one cube has every phase distance at most 1/Q. Since |1-exp(-2*pi*i*x)|^2=4*sin^2(pi*x)<=4*pi^2||x||^2, the stated energy bound follows. The witnesses cannot remain bounded as Q grows: otherwise a fixed positive n would have zero energy, forcing log(q_a)/log(q_b) rational for two multiplicatively independent members. Finally n<=Q^m implies Q^(-2)<=n^(-2/m).",
+      "reproducible_computation": {
+        "theorem": "Let q_1,...,q_m be fixed integers greater than one, with m at least two and with two multiplicatively independent members, and put F(t)=sum_j |1-q_j^(-it)|^2. For every integer Q at least two there is an integer 1<=n<=Q^m such that F(n)<=4*pi^2*m/Q^2. These witnesses contain an unbounded subsequence and hence F(n)<=4*pi^2*m*n^(-2/m) along an unbounded sequence. Therefore no global lower floor L(t) with t^(2/m)L(t) tending to infinity can hold for a fixed finite dilation family.",
+        "proof": "Apply the simultaneous Dirichlet pigeonhole argument to the Q^m+1 points k(log q_1/(2*pi),...,log q_m/(2*pi)) modulo one, partitioned into Q^m cubes of side 1/Q. The difference n of two points in one cube has every phase distance at most 1/Q. Since |1-exp(-2*pi*i*x)|^2=4*sin^2(pi*x)<=4*pi^2||x||^2, the stated energy bound follows. The witnesses cannot remain bounded as Q grows: otherwise a fixed positive n would have zero energy, forcing log(q_a)/log(q_b) rational for two multiplicatively independent members. Finally n<=Q^m implies Q^(-2)<=n^(-2/m).",
+        "pigeonhole_rows": [
+          {
+            "primes": [
+              2,
+              3
+            ],
+            "dimension_m": 2,
+            "partition_Q": 4,
+            "maximum_index_Q_to_m": 16,
+            "collision_indices": [
+              0,
+              1
+            ],
+            "witness_frequency_n": 1,
+            "maximum_phase_error": 0.1748495762830299,
+            "phase_errors": [
+              0.1103178000763258,
+              0.1748495762830299
+            ],
+            "dual_energy": 1.5518573516188363,
+            "dirichlet_energy_bound": 4.934802200544679,
+            "sequence_rate_bound": 78.95683520871486,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3
+            ],
+            "dimension_m": 2,
+            "partition_Q": 8,
+            "maximum_index_Q_to_m": 64,
+            "collision_indices": [
+              15,
+              43
+            ],
+            "witness_frequency_n": 28,
+            "maximum_phase_error": 0.10421186407516281,
+            "phase_errors": [
+              0.08889840213712219,
+              0.10421186407516281
+            ],
+            "dual_energy": 0.7176063010087275,
+            "dirichlet_energy_bound": 1.2337005501361697,
+            "sequence_rate_bound": 2.8198869717398165,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3
+            ],
+            "dimension_m": 2,
+            "partition_Q": 16,
+            "maximum_index_Q_to_m": 256,
+            "collision_indices": [
+              9,
+              72
+            ],
+            "witness_frequency_n": 63,
+            "maximum_phase_error": 0.049978595191474184,
+            "phase_errors": [
+              0.049978595191474184,
+              0.015523305830884127
+            ],
+            "dual_energy": 0.10730955924689112,
+            "dirichlet_energy_bound": 0.30842513753404244,
+            "sequence_rate_bound": 1.2532830985510295,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3
+            ],
+            "dimension_m": 2,
+            "partition_Q": 32,
+            "maximum_index_Q_to_m": 1024,
+            "collision_indices": [
+              1,
+              264
+            ],
+            "witness_frequency_n": 263,
+            "maximum_phase_error": 0.014561437563131108,
+            "phase_errors": [
+              0.01358142007368457,
+              0.014561437563131108
+            ],
+            "dual_energy": 0.01564255950144599,
+            "dirichlet_energy_bound": 0.07710628438351061,
+            "sequence_rate_bound": 0.3002161034551896,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3
+            ],
+            "dimension_m": 2,
+            "partition_Q": 64,
+            "maximum_index_Q_to_m": 4096,
+            "collision_indices": [
+              68,
+              331
+            ],
+            "witness_frequency_n": 263,
+            "maximum_phase_error": 0.014561437563131108,
+            "phase_errors": [
+              0.01358142007368457,
+              0.014561437563131108
+            ],
+            "dual_energy": 0.01564255950144599,
+            "dirichlet_energy_bound": 0.019276571095877652,
+            "sequence_rate_bound": 0.3002161034551896,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3
+            ],
+            "dimension_m": 2,
+            "partition_Q": 128,
+            "maximum_index_Q_to_m": 16384,
+            "collision_indices": [
+              0,
+              1813
+            ],
+            "witness_frequency_n": 1813,
+            "maximum_phase_error": 0.006171538378680452,
+            "phase_errors": [
+              0.006171538378680452,
+              0.002281801133221961
+            ],
+            "dual_energy": 0.0017090065196896907,
+            "dirichlet_energy_bound": 0.004819142773969413,
+            "sequence_rate_bound": 0.04355037794192767,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3,
+              5
+            ],
+            "dimension_m": 3,
+            "partition_Q": 4,
+            "maximum_index_Q_to_m": 64,
+            "collision_indices": [
+              1,
+              29
+            ],
+            "witness_frequency_n": 28,
+            "maximum_phase_error": 0.17219998217486587,
+            "phase_errors": [
+              0.08889840213712219,
+              0.10421186407516281,
+              0.17219998217486587
+            ],
+            "dual_energy": 1.7784164213453177,
+            "dirichlet_energy_bound": 7.4022033008170185,
+            "sequence_rate_bound": 12.84425652048148,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3,
+              5
+            ],
+            "dimension_m": 3,
+            "partition_Q": 6,
+            "maximum_index_Q_to_m": 216,
+            "collision_indices": [
+              3,
+              38
+            ],
+            "witness_frequency_n": 35,
+            "maximum_phase_error": 0.13887699732859682,
+            "phase_errors": [
+              0.13887699732859682,
+              0.11973516990604693,
+              0.034750022281418325
+            ],
+            "dual_energy": 1.301580563065161,
+            "dirichlet_energy_bound": 3.289868133696453,
+            "sequence_rate_bound": 11.068844726157407,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3,
+              5
+            ],
+            "dimension_m": 3,
+            "partition_Q": 8,
+            "maximum_index_Q_to_m": 512,
+            "collision_indices": [
+              13,
+              122
+            ],
+            "witness_frequency_n": 109,
+            "maximum_phase_error": 0.07965006939070207,
+            "phase_errors": [
+              0.024640208319512524,
+              0.05860381485026167,
+              0.07965006939070207
+            ],
+            "dual_energy": 0.4032534433493376,
+            "dirichlet_energy_bound": 1.8505508252042546,
+            "sequence_rate_bound": 5.190350178463939,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3,
+              5
+            ],
+            "dimension_m": 3,
+            "partition_Q": 12,
+            "maximum_index_Q_to_m": 1728,
+            "collision_indices": [
+              13,
+              122
+            ],
+            "witness_frequency_n": 109,
+            "maximum_phase_error": 0.07965006939070207,
+            "phase_errors": [
+              0.024640208319512524,
+              0.05860381485026167,
+              0.07965006939070207
+            ],
+            "dual_energy": 0.4032534433493376,
+            "dirichlet_energy_bound": 0.8224670334241132,
+            "sequence_rate_bound": 5.190350178463939,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3,
+              5
+            ],
+            "dimension_m": 3,
+            "partition_Q": 16,
+            "maximum_index_Q_to_m": 4096,
+            "collision_indices": [
+              10,
+              1388
+            ],
+            "witness_frequency_n": 1378,
+            "maximum_phase_error": 0.05728388198477319,
+            "phase_errors": [
+              0.01792850517693978,
+              0.05728388198477319,
+              0.025300877251254406
+            ],
+            "dual_energy": 0.1660481925257953,
+            "dirichlet_energy_bound": 0.46263770630106366,
+            "sequence_rate_bound": 0.9564189660805154,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          },
+          {
+            "primes": [
+              2,
+              3,
+              5
+            ],
+            "dimension_m": 3,
+            "partition_Q": 24,
+            "maximum_index_Q_to_m": 13824,
+            "collision_indices": [
+              1,
+              1551
+            ],
+            "witness_frequency_n": 1550,
+            "maximum_phase_error": 0.0324990132514813,
+            "phase_errors": [
+              0.0074098816949970114,
+              0.01684323869636728,
+              0.0324990132514813
+            ],
+            "dual_energy": 0.054908456774231534,
+            "dirichlet_energy_bound": 0.2056167583560283,
+            "sequence_rate_bound": 0.8842869026811038,
+            "phase_bound_verified": true,
+            "energy_bound_verified": true,
+            "frequency_bound_verified": true,
+            "sequence_rate_verified": true
+          }
+        ],
+        "exact_constants": {
+          "energy_bound": "4*pi^2*m/Q^2",
+          "unbounded_sequence_bound": "4*pi^2*m*n^(-2/m)"
+        },
+        "aggregate": {
+          "quantitative_finite_dilation_recurrence_proved": true,
+          "slower_than_T_minus_2_over_m_global_floor_refuted": true,
+          "qualitative_subexponential_label_is_sufficient_refuted": true,
+          "infinite_or_adaptive_weil_frame_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "This theorem concerns the scalar dilation phase energy, not the full Weil quadratic form. It gives a necessary recurrence-scale compatibility condition; it neither constructs an infinite or adaptive frame nor bounds the actual Weil-core tail.",
+        "failure_count": 0
+      },
+      "logical_limit": "This theorem concerns the scalar dilation phase energy, not the full Weil quadratic form. It gives a necessary recurrence-scale compatibility condition; it neither constructs an infinite or adaptive frame nor bounds the actual Weil-core tail.",
+      "route_decision": {
+        "discard": "treating a qualitative subexponential finite-family frame floor as sufficient without comparing it to the unavoidable T^(-2/m) recurrence scale",
+        "retain": "use an infinite, weighted, or band-adaptive dilation family and compare its explicit floor against the actual Weil-core tail",
+        "next_single_lemma": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T229",
+            "label": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T230",
+            "label": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N230",
+            "label": "SlowerThanTMinusTwoOverMFixedFamilyFrameFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN230",
+            "label": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T229",
+            "RH-T230"
+          ],
+          [
+            "RH-T230",
+            "RH-N230"
+          ],
+          [
+            "RH-T230",
+            "RH-OPEN230"
+          ],
+          [
+            "RH-OPEN230",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-230",
+      "theorem_name": "CollatzCycleDivisibilityNecklaceInvariance",
+      "declared_proposition": "For an accelerated Collatz valuation word a=(a_0,...,a_(h-1)), write S=sum a_j, D=2^S-3^h, and B=sum_(j=0)^(h-1) 3^(h-1-j)2^(a_0+...+a_(j-1)). If rho a is the left cyclic rotation, then 2^(a_0)B(rho a)=3B(a)+D. When D>0, gcd(D,B(rho a))=gcd(D,B(a)), and D divides B(rho a) if and only if D divides B(a). Thus cycle divisibility is a necklace invariant and checking every rotation supplies no independent evidence.",
+      "mathematical_argument": "Separate the first term of B(a): B(a)=3^(h-1)+2^(a_0)C. Directly expanding the rotated numerator gives B(rho a)=3C+2^(S-a_0). Multiplication by 2^(a_0) yields 3B(a)+2^S-3^h=3B(a)+D. The odd integer D is coprime to 2, and D is also coprime to 3 because D is congruent to 2^S modulo 3. Multiplication by 2^(a_0) or by 3 is therefore invertible modulo D, proving both invariances.",
+      "reproducible_computation": {
+        "theorem": "For an accelerated Collatz valuation word a=(a_0,...,a_(h-1)), write S=sum a_j, D=2^S-3^h, and B=sum_(j=0)^(h-1) 3^(h-1-j)2^(a_0+...+a_(j-1)). If rho a is the left cyclic rotation, then 2^(a_0)B(rho a)=3B(a)+D. When D>0, gcd(D,B(rho a))=gcd(D,B(a)), and D divides B(rho a) if and only if D divides B(a). Thus cycle divisibility is a necklace invariant and checking every rotation supplies no independent evidence.",
+        "proof": "Separate the first term of B(a): B(a)=3^(h-1)+2^(a_0)C. Directly expanding the rotated numerator gives B(rho a)=3C+2^(S-a_0). Multiplication by 2^(a_0) yields 3B(a)+2^S-3^h=3B(a)+D. The odd integer D is coprime to 2, and D is also coprime to 3 because D is congruent to 2^S modulo 3. Multiplication by 2^(a_0) or by 3 is therefore invertible modulo D, proving both invariances.",
+        "height_rows": [
+          {
+            "height_h": 1,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "primitive_positive_denominator_word_count": 4,
+            "canonical_necklace_count": 4,
+            "divisible_necklace_count": 1,
+            "rotation_reduction_factor": 1.0
+          },
+          {
+            "height_h": 2,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "primitive_positive_denominator_word_count": 18,
+            "canonical_necklace_count": 9,
+            "divisible_necklace_count": 0,
+            "rotation_reduction_factor": 2.0
+          },
+          {
+            "height_h": 3,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "primitive_positive_denominator_word_count": 117,
+            "canonical_necklace_count": 39,
+            "divisible_necklace_count": 0,
+            "rotation_reduction_factor": 3.0
+          },
+          {
+            "height_h": 4,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "primitive_positive_denominator_word_count": 588,
+            "canonical_necklace_count": 147,
+            "divisible_necklace_count": 0,
+            "rotation_reduction_factor": 4.0
+          },
+          {
+            "height_h": 5,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "primitive_positive_denominator_word_count": 3100,
+            "canonical_necklace_count": 620,
+            "divisible_necklace_count": 0,
+            "rotation_reduction_factor": 5.0
+          },
+          {
+            "height_h": 6,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "primitive_positive_denominator_word_count": 15402,
+            "canonical_necklace_count": 2567,
+            "divisible_necklace_count": 0,
+            "rotation_reduction_factor": 6.0
+          }
+        ],
+        "sample_rotation_rows": [
+          {
+            "word": [
+              2
+            ],
+            "height_h": 1,
+            "valuation_sum_S": 2,
+            "denominator_D": 1,
+            "numerator_B": 1,
+            "canonical_necklace": [
+              2
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": true,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              3
+            ],
+            "height_h": 1,
+            "valuation_sum_S": 3,
+            "denominator_D": 5,
+            "numerator_B": 1,
+            "canonical_necklace": [
+              3
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              4
+            ],
+            "height_h": 1,
+            "valuation_sum_S": 4,
+            "denominator_D": 13,
+            "numerator_B": 1,
+            "canonical_necklace": [
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              5
+            ],
+            "height_h": 1,
+            "valuation_sum_S": 5,
+            "denominator_D": 29,
+            "numerator_B": 1,
+            "canonical_necklace": [
+              5
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              1,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 4,
+            "denominator_D": 7,
+            "numerator_B": 5,
+            "canonical_necklace": [
+              1,
+              3
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              1,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 5,
+            "denominator_D": 23,
+            "numerator_B": 5,
+            "canonical_necklace": [
+              1,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              1,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 5,
+            "canonical_necklace": [
+              1,
+              5
+            ],
+            "gcd_D_B": 5,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              2,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 5,
+            "denominator_D": 23,
+            "numerator_B": 7,
+            "canonical_necklace": [
+              2,
+              3
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              2,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 7,
+            "canonical_necklace": [
+              2,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              2,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 7,
+            "canonical_necklace": [
+              2,
+              5
+            ],
+            "gcd_D_B": 7,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              3,
+              1
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 4,
+            "denominator_D": 7,
+            "numerator_B": 11,
+            "canonical_necklace": [
+              1,
+              3
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              3,
+              2
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 5,
+            "denominator_D": 23,
+            "numerator_B": 11,
+            "canonical_necklace": [
+              2,
+              3
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              3,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 11,
+            "canonical_necklace": [
+              3,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              3,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 247,
+            "numerator_B": 11,
+            "canonical_necklace": [
+              3,
+              5
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              4,
+              1
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 5,
+            "denominator_D": 23,
+            "numerator_B": 19,
+            "canonical_necklace": [
+              1,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              4,
+              2
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 19,
+            "canonical_necklace": [
+              2,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              4,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 19,
+            "canonical_necklace": [
+              3,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              4,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 9,
+            "denominator_D": 503,
+            "numerator_B": 19,
+            "canonical_necklace": [
+              4,
+              5
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              5,
+              1
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 35,
+            "canonical_necklace": [
+              1,
+              5
+            ],
+            "gcd_D_B": 5,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              5,
+              2
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 35,
+            "canonical_necklace": [
+              2,
+              5
+            ],
+            "gcd_D_B": 7,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              5,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 247,
+            "numerator_B": 35,
+            "canonical_necklace": [
+              3,
+              5
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              5,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 9,
+            "denominator_D": 503,
+            "numerator_B": 35,
+            "canonical_necklace": [
+              4,
+              5
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              1,
+              1,
+              3
+            ],
+            "height_h": 3,
+            "valuation_sum_S": 5,
+            "denominator_D": 5,
+            "numerator_B": 19,
+            "canonical_necklace": [
+              1,
+              1,
+              3
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          },
+          {
+            "word": [
+              1,
+              1,
+              4
+            ],
+            "height_h": 3,
+            "valuation_sum_S": 6,
+            "denominator_D": 37,
+            "numerator_B": 19,
+            "canonical_necklace": [
+              1,
+              1,
+              4
+            ],
+            "gcd_D_B": 1,
+            "D_divides_B": false,
+            "all_rotation_identities_verified": true
+          }
+        ],
+        "aggregate": {
+          "rotation_numerator_identity_proved": true,
+          "cycle_divisibility_necklace_invariance_proved": true,
+          "gcd_necklace_invariance_proved": true,
+          "independent_rotation_search_information_refuted": true,
+          "all_primitive_necklaces_excluded": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem quotients the finite-cycle search by cyclic symmetry. It does not prove D does not divide B for every primitive positive-denominator necklace, and even that stronger result would not exclude divergent aperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem quotients the finite-cycle search by cyclic symmetry. It does not prove D does not divide B for every primitive positive-denominator necklace, and even that stronger result would not exclude divergent aperiodic trajectories.",
+      "route_decision": {
+        "discard": "counting cyclic rotations of one valuation word as independent cycle-divisibility evidence",
+        "retain": "quotient primitive positive-denominator words by necklaces before attacking D nondivisibility",
+        "next_single_lemma": "NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T229",
+            "label": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T230",
+            "label": "CollatzCycleDivisibilityNecklaceInvariance",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N230",
+            "label": "IndependentCyclicRotationCycleEvidence",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN230",
+            "label": "NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T229",
+            "CO-T230"
+          ],
+          [
+            "CO-T230",
+            "CO-N230"
+          ],
+          [
+            "CO-T230",
+            "CO-OPEN230"
+          ],
+          [
+            "CO-OPEN230",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-230",
+      "theorem_name": "ModewiseFourierDecayPointwisePositivityNoGo",
+      "declared_proposition": "Modewise relative Fourier decay does not imply pointwise positivity of a growing cyclic convolution. For L=m^2 and w_m(x)=1+m*1_(x=a) on Z/LZ, the mass is W=m^2+m and every nonprincipal Fourier coefficient has magnitude m, so max|w_hat(k)|/W=1/(m+1) tends to zero. Nevertheless at target 2a, (w_m*w_m)(2a)=2m^2+2m while the principal term W^2/L is m^2+2m+1; all nonprincipal phases align and their error is m^2-1, of the same order as the main term.",
+      "mathematical_argument": "The transform of the constant background vanishes at every nonzero frequency, while the spike contributes m*exp(-2*pi*i*k*a/L). At target 2a, squaring this coefficient and multiplying by the inverse-transform phase cancels the phase for every k. The L-1 aligned terms contribute m^2(L-1)/L=m^2-1. Direct expansion of the convolution gives the same formula. Hence a separate o(W) estimate for each mode has no uniform pointwise consequence when the number of modes grows.",
+      "reproducible_computation": {
+        "theorem": "Modewise relative Fourier decay does not imply pointwise positivity of a growing cyclic convolution. For L=m^2 and w_m(x)=1+m*1_(x=a) on Z/LZ, the mass is W=m^2+m and every nonprincipal Fourier coefficient has magnitude m, so max|w_hat(k)|/W=1/(m+1) tends to zero. Nevertheless at target 2a, (w_m*w_m)(2a)=2m^2+2m while the principal term W^2/L is m^2+2m+1; all nonprincipal phases align and their error is m^2-1, of the same order as the main term.",
+        "proof": "The transform of the constant background vanishes at every nonzero frequency, while the spike contributes m*exp(-2*pi*i*k*a/L). At target 2a, squaring this coefficient and multiplying by the inverse-transform phase cancels the phase for every k. The L-1 aligned terms contribute m^2(L-1)/L=m^2-1. Direct expansion of the convolution gives the same formula. Hence a separate o(W) estimate for each mode has no uniform pointwise consequence when the number of modes grows.",
+        "counterexample_rows": [
+          {
+            "spike_scale_m": 2,
+            "cyclic_modulus_L_equals_m_squared": 4,
+            "total_mass_W": 6,
+            "nonprincipal_mode_magnitude": 2,
+            "maximum_mode_to_mass_ratio": "1/3",
+            "target_2a_convolution": 12,
+            "principal_term_W_squared_over_L": 9,
+            "target_aligned_nonprincipal_error": 3,
+            "error_to_principal_ratio": "1/3",
+            "sampled_fourier_formula_verified": true
+          },
+          {
+            "spike_scale_m": 3,
+            "cyclic_modulus_L_equals_m_squared": 9,
+            "total_mass_W": 12,
+            "nonprincipal_mode_magnitude": 3,
+            "maximum_mode_to_mass_ratio": "1/4",
+            "target_2a_convolution": 24,
+            "principal_term_W_squared_over_L": 16,
+            "target_aligned_nonprincipal_error": 8,
+            "error_to_principal_ratio": "1/2",
+            "sampled_fourier_formula_verified": true
+          },
+          {
+            "spike_scale_m": 4,
+            "cyclic_modulus_L_equals_m_squared": 16,
+            "total_mass_W": 20,
+            "nonprincipal_mode_magnitude": 4,
+            "maximum_mode_to_mass_ratio": "1/5",
+            "target_2a_convolution": 40,
+            "principal_term_W_squared_over_L": 25,
+            "target_aligned_nonprincipal_error": 15,
+            "error_to_principal_ratio": "3/5",
+            "sampled_fourier_formula_verified": true
+          },
+          {
+            "spike_scale_m": 5,
+            "cyclic_modulus_L_equals_m_squared": 25,
+            "total_mass_W": 30,
+            "nonprincipal_mode_magnitude": 5,
+            "maximum_mode_to_mass_ratio": "1/6",
+            "target_2a_convolution": 60,
+            "principal_term_W_squared_over_L": 36,
+            "target_aligned_nonprincipal_error": 24,
+            "error_to_principal_ratio": "2/3",
+            "sampled_fourier_formula_verified": true
+          },
+          {
+            "spike_scale_m": 8,
+            "cyclic_modulus_L_equals_m_squared": 64,
+            "total_mass_W": 72,
+            "nonprincipal_mode_magnitude": 8,
+            "maximum_mode_to_mass_ratio": "1/9",
+            "target_2a_convolution": 144,
+            "principal_term_W_squared_over_L": 81,
+            "target_aligned_nonprincipal_error": 63,
+            "error_to_principal_ratio": "7/9",
+            "sampled_fourier_formula_verified": true
+          },
+          {
+            "spike_scale_m": 16,
+            "cyclic_modulus_L_equals_m_squared": 256,
+            "total_mass_W": 272,
+            "nonprincipal_mode_magnitude": 16,
+            "maximum_mode_to_mass_ratio": "1/17",
+            "target_2a_convolution": 544,
+            "principal_term_W_squared_over_L": 289,
+            "target_aligned_nonprincipal_error": 255,
+            "error_to_principal_ratio": "15/17",
+            "sampled_fourier_formula_verified": true
+          },
+          {
+            "spike_scale_m": 32,
+            "cyclic_modulus_L_equals_m_squared": 1024,
+            "total_mass_W": 1056,
+            "nonprincipal_mode_magnitude": 32,
+            "maximum_mode_to_mass_ratio": "1/33",
+            "target_2a_convolution": 2112,
+            "principal_term_W_squared_over_L": 1089,
+            "target_aligned_nonprincipal_error": 1023,
+            "error_to_principal_ratio": "31/33",
+            "sampled_fourier_formula_verified": true
+          }
+        ],
+        "aggregate": {
+          "modewise_relative_decay_counterexample_proved": true,
+          "target_phase_alignment_same_order_error_proved": true,
+          "modewise_o_of_mass_implies_pointwise_positivity_refuted": true,
+          "prime_specific_signed_minor_arc_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The counterfamily is an information-theoretic obstruction, not a model of the primes and not a Goldbach counterexample. It shows that the remaining estimate must control the signed, target-aligned aggregate after a major/minor-arc decomposition; individual small modes are insufficient.",
+        "failure_count": 0
+      },
+      "logical_limit": "The counterfamily is an information-theoretic obstruction, not a model of the primes and not a Goldbach counterexample. It shows that the remaining estimate must control the signed, target-aligned aggregate after a major/minor-arc decomposition; individual small modes are insufficient.",
+      "route_decision": {
+        "discard": "deducing pointwise Goldbach positivity from separate o(W) bounds for each of a growing number of Fourier modes",
+        "retain": "control the target-aligned signed aggregate after an explicit major/minor-arc decomposition of prime weights",
+        "next_single_lemma": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T229",
+            "label": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T230",
+            "label": "ModewiseFourierDecayPointwisePositivityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N230",
+            "label": "ModewiseLittleOImpliesPointwiseBinaryConvolutionPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN230",
+            "label": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T229",
+            "GB-T230"
+          ],
+          [
+            "GB-T230",
+            "GB-N230"
+          ],
+          [
+            "GB-T230",
+            "GB-OPEN230"
+          ],
+          [
+            "GB-OPEN230",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-230",
+      "theorem_name": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+      "declared_proposition": "Let l be an odd prime, h nonzero modulo l, and let chi be a nonprincipal multiplicative character extended by chi(0)=0. On the shift-h admissible start set A={r: r is nonzero and r+h is nonzero}, one has sum_(r in A) chi(r)=-chi(-h), so the local mean is -chi(-h)/(l-2), generally not zero. For l=5, h=2, and the quadratic character, A={1,2,4} and the raw mean is 1/3. Therefore the uncentered target 'modulo-five quadratic cancellation to zero' is false already for complete admissible residue blocks.",
+      "mathematical_argument": "A is the complete residue system with 0 and -h removed. The sum of a nonprincipal multiplicative character over all residues is zero, and chi(0)=0, leaving -chi(-h). For l=5 and h=2, the quadratic values on 1,2,4 are 1,-1,1. Subtracting the mean 1/3 gives a centered observable with exact zero sum on every complete local block. This is a local identity only; it does not establish the distribution or infinitude of actual twin primes.",
+      "reproducible_computation": {
+        "theorem": "Let l be an odd prime, h nonzero modulo l, and let chi be a nonprincipal multiplicative character extended by chi(0)=0. On the shift-h admissible start set A={r: r is nonzero and r+h is nonzero}, one has sum_(r in A) chi(r)=-chi(-h), so the local mean is -chi(-h)/(l-2), generally not zero. For l=5, h=2, and the quadratic character, A={1,2,4} and the raw mean is 1/3. Therefore the uncentered target 'modulo-five quadratic cancellation to zero' is false already for complete admissible residue blocks.",
+        "proof": "A is the complete residue system with 0 and -h removed. The sum of a nonprincipal multiplicative character over all residues is zero, and chi(0)=0, leaving -chi(-h). For l=5 and h=2, the quadratic values on 1,2,4 are 1,-1,1. Subtracting the mean 1/3 gives a centered observable with exact zero sum on every complete local block. This is a local identity only; it does not establish the distribution or infinitude of actual twin primes.",
+        "local_character_rows": [
+          {
+            "prime_l": 3,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              2
+            ],
+            "allowed_count_l_minus_2": 1,
+            "raw_quadratic_character_sum": -1,
+            "predicted_sum_minus_chi_of_minus_h": -1,
+            "raw_local_mean": "-1",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 5,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              4
+            ],
+            "allowed_count_l_minus_2": 3,
+            "raw_quadratic_character_sum": 1,
+            "predicted_sum_minus_chi_of_minus_h": 1,
+            "raw_local_mean": "1/3",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 7,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "allowed_count_l_minus_2": 5,
+            "raw_quadratic_character_sum": 1,
+            "predicted_sum_minus_chi_of_minus_h": 1,
+            "raw_local_mean": "1/5",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 11,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              10
+            ],
+            "allowed_count_l_minus_2": 9,
+            "raw_quadratic_character_sum": -1,
+            "predicted_sum_minus_chi_of_minus_h": -1,
+            "raw_local_mean": "-1/9",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 13,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              12
+            ],
+            "allowed_count_l_minus_2": 11,
+            "raw_quadratic_character_sum": 1,
+            "predicted_sum_minus_chi_of_minus_h": 1,
+            "raw_local_mean": "1/11",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 17,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              16
+            ],
+            "allowed_count_l_minus_2": 15,
+            "raw_quadratic_character_sum": -1,
+            "predicted_sum_minus_chi_of_minus_h": -1,
+            "raw_local_mean": "-1/15",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 19,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "allowed_count_l_minus_2": 17,
+            "raw_quadratic_character_sum": -1,
+            "predicted_sum_minus_chi_of_minus_h": -1,
+            "raw_local_mean": "-1/17",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 23,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              22
+            ],
+            "allowed_count_l_minus_2": 21,
+            "raw_quadratic_character_sum": 1,
+            "predicted_sum_minus_chi_of_minus_h": 1,
+            "raw_local_mean": "1/21",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 29,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              28
+            ],
+            "allowed_count_l_minus_2": 27,
+            "raw_quadratic_character_sum": 1,
+            "predicted_sum_minus_chi_of_minus_h": 1,
+            "raw_local_mean": "1/27",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          },
+          {
+            "prime_l": 31,
+            "shift_h": 2,
+            "allowed_start_residues": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              30
+            ],
+            "allowed_count_l_minus_2": 29,
+            "raw_quadratic_character_sum": 1,
+            "predicted_sum_minus_chi_of_minus_h": 1,
+            "raw_local_mean": "1/29",
+            "centered_character_sum": "0",
+            "identity_verified": true
+          }
+        ],
+        "bounded_twin_sample_rows": [
+          {
+            "search_limit": 100,
+            "twin_starts_above_five": 6,
+            "raw_mod5_quadratic_sum": 4,
+            "raw_sample_mean": "2/3",
+            "centered_sum_raw_minus_count_over_3": "2",
+            "all_starts_in_admissible_residues": true,
+            "finite_sample_only_not_asymptotic_proof": true
+          },
+          {
+            "search_limit": 1000,
+            "twin_starts_above_five": 33,
+            "raw_mod5_quadratic_sum": 15,
+            "raw_sample_mean": "5/11",
+            "centered_sum_raw_minus_count_over_3": "4",
+            "all_starts_in_admissible_residues": true,
+            "finite_sample_only_not_asymptotic_proof": true
+          },
+          {
+            "search_limit": 10000,
+            "twin_starts_above_five": 203,
+            "raw_mod5_quadratic_sum": 75,
+            "raw_sample_mean": "75/203",
+            "centered_sum_raw_minus_count_over_3": "22/3",
+            "all_starts_in_admissible_residues": true,
+            "finite_sample_only_not_asymptotic_proof": true
+          },
+          {
+            "search_limit": 100000,
+            "twin_starts_above_five": 1222,
+            "raw_mod5_quadratic_sum": 394,
+            "raw_sample_mean": "197/611",
+            "centered_sum_raw_minus_count_over_3": "-40/3",
+            "all_starts_in_admissible_residues": true,
+            "finite_sample_only_not_asymptotic_proof": true
+          },
+          {
+            "search_limit": 1000000,
+            "twin_starts_above_five": 8167,
+            "raw_mod5_quadratic_sum": 2699,
+            "raw_sample_mean": "2699/8167",
+            "centered_sum_raw_minus_count_over_3": "-70/3",
+            "all_starts_in_admissible_residues": true,
+            "finite_sample_only_not_asymptotic_proof": true
+          }
+        ],
+        "mod5_exact_row": {
+          "prime_l": 5,
+          "shift_h": 2,
+          "allowed_start_residues": [
+            1,
+            2,
+            4
+          ],
+          "allowed_count_l_minus_2": 3,
+          "raw_quadratic_character_sum": 1,
+          "predicted_sum_minus_chi_of_minus_h": 1,
+          "raw_local_mean": "1/3",
+          "centered_character_sum": "0",
+          "identity_verified": true
+        },
+        "aggregate": {
+          "shift_admissible_character_mean_formula_proved": true,
+          "mod5_raw_quadratic_mean_equals_one_third_proved": true,
+          "uncentered_zero_cancellation_target_refuted": true,
+          "centered_prime_weighted_typeII_saving_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem corrects the local centering of the surviving mode. The finite twin counts are illustrative only. A proof still needs prime-weighted cancellation of the centered observable at the sieve main scale and an independent positive principal-mass lower bound overcoming the parity barrier.",
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem corrects the local centering of the surviving mode. The finite twin counts are illustrative only. A proof still needs prime-weighted cancellation of the centered observable at the sieve main scale and an independent positive principal-mass lower bound overcoming the parity barrier.",
+      "route_decision": {
+        "discard": "forcing the raw modulo-five quadratic shift-two mode to cancel to zero instead of its admissibility mean one third",
+        "retain": "subtract the exact local mean and seek a prime-weighted Type-II saving for the centered observable together with a positive principal lower bound",
+        "next_single_lemma": "CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T229",
+            "label": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T230",
+            "label": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N230",
+            "label": "RawModuloFiveQuadraticCancellationToZero",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN230",
+            "label": "CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T229",
+            "TP-T230"
+          ],
+          [
+            "TP-T230",
+            "TP-N230"
+          ],
+          [
+            "TP-T230",
+            "TP-OPEN230"
+          ],
+          [
+            "TP-OPEN230",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-230",
+      "status": "open_not_proven",
+      "declared_proposition": "Let q_1,...,q_m be fixed integers greater than one, with m at least two and with two multiplicatively independent members, and put F(t)=sum_j |1-q_j^(-it)|^2. For every integer Q at least two there is an integer 1<=n<=Q^m such that F(n)<=4*pi^2*m/Q^2. These witnesses contain an unbounded subsequence and hence F(n)<=4*pi^2*m*n^(-2/m) along an unbounded sequence. Therefore no global lower floor L(t) with t^(2/m)L(t) tending to infinity can hold for a fixed finite dilation family.",
+      "mathematical_argument": "Apply the simultaneous Dirichlet pigeonhole argument to the Q^m+1 points k(log q_1/(2*pi),...,log q_m/(2*pi)) modulo one, partitioned into Q^m cubes of side 1/Q. The difference n of two points in one cube has every phase distance at most 1/Q. Since |1-exp(-2*pi*i*x)|^2=4*sin^2(pi*x)<=4*pi^2||x||^2, the stated energy bound follows. The witnesses cannot remain bounded as Q grows: otherwise a fixed positive n would have zero energy, forcing log(q_a)/log(q_b) rational for two multiplicatively independent members. Finally n<=Q^m implies Q^(-2)<=n^(-2/m).",
+      "new_result": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+      "bounded_result": {
+        "audit_ref": "#/quantitative_recurrence_necklace_fourier_centering_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "treating a qualitative subexponential finite-family frame floor as sufficient without comparing it to the unavoidable T^(-2/m) recurrence scale",
+      "remaining_gap": "This theorem concerns the scalar dilation phase energy, not the full Weil quadratic form. It gives a necessary recurrence-scale compatibility condition; it neither constructs an infinite or adaptive frame nor bounds the actual Weil-core tail.",
+      "candidate_theorem": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T229",
+            "label": "ExplicitFiniteBandDualDilationBoundAndPolynomialTailMismatch",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T230",
+            "label": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N230",
+            "label": "SlowerThanTMinusTwoOverMFixedFamilyFrameFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN230",
+            "label": "AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T229",
+            "RH-T230"
+          ],
+          [
+            "RH-T230",
+            "RH-N230"
+          ],
+          [
+            "RH-T230",
+            "RH-OPEN230"
+          ],
+          [
+            "RH-OPEN230",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-230",
+      "status": "open_not_proven",
+      "declared_proposition": "For an accelerated Collatz valuation word a=(a_0,...,a_(h-1)), write S=sum a_j, D=2^S-3^h, and B=sum_(j=0)^(h-1) 3^(h-1-j)2^(a_0+...+a_(j-1)). If rho a is the left cyclic rotation, then 2^(a_0)B(rho a)=3B(a)+D. When D>0, gcd(D,B(rho a))=gcd(D,B(a)), and D divides B(rho a) if and only if D divides B(a). Thus cycle divisibility is a necklace invariant and checking every rotation supplies no independent evidence.",
+      "mathematical_argument": "Separate the first term of B(a): B(a)=3^(h-1)+2^(a_0)C. Directly expanding the rotated numerator gives B(rho a)=3C+2^(S-a_0). Multiplication by 2^(a_0) yields 3B(a)+2^S-3^h=3B(a)+D. The odd integer D is coprime to 2, and D is also coprime to 3 because D is congruent to 2^S modulo 3. Multiplication by 2^(a_0) or by 3 is therefore invertible modulo D, proving both invariances.",
+      "new_result": "CollatzCycleDivisibilityNecklaceInvariance",
+      "bounded_result": {
+        "audit_ref": "#/quantitative_recurrence_necklace_fourier_centering_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "counting cyclic rotations of one valuation word as independent cycle-divisibility evidence",
+      "remaining_gap": "The theorem quotients the finite-cycle search by cyclic symmetry. It does not prove D does not divide B for every primitive positive-denominator necklace, and even that stronger result would not exclude divergent aperiodic trajectories.",
+      "candidate_theorem": "NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T229",
+            "label": "FiniteEqualSlopeLanguageSemilinearCoverageNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T230",
+            "label": "CollatzCycleDivisibilityNecklaceInvariance",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N230",
+            "label": "IndependentCyclicRotationCycleEvidence",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN230",
+            "label": "NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T229",
+            "CO-T230"
+          ],
+          [
+            "CO-T230",
+            "CO-N230"
+          ],
+          [
+            "CO-T230",
+            "CO-OPEN230"
+          ],
+          [
+            "CO-OPEN230",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-230",
+      "status": "open_not_proven",
+      "declared_proposition": "Modewise relative Fourier decay does not imply pointwise positivity of a growing cyclic convolution. For L=m^2 and w_m(x)=1+m*1_(x=a) on Z/LZ, the mass is W=m^2+m and every nonprincipal Fourier coefficient has magnitude m, so max|w_hat(k)|/W=1/(m+1) tends to zero. Nevertheless at target 2a, (w_m*w_m)(2a)=2m^2+2m while the principal term W^2/L is m^2+2m+1; all nonprincipal phases align and their error is m^2-1, of the same order as the main term.",
+      "mathematical_argument": "The transform of the constant background vanishes at every nonzero frequency, while the spike contributes m*exp(-2*pi*i*k*a/L). At target 2a, squaring this coefficient and multiplying by the inverse-transform phase cancels the phase for every k. The L-1 aligned terms contribute m^2(L-1)/L=m^2-1. Direct expansion of the convolution gives the same formula. Hence a separate o(W) estimate for each mode has no uniform pointwise consequence when the number of modes grows.",
+      "new_result": "ModewiseFourierDecayPointwisePositivityNoGo",
+      "bounded_result": {
+        "audit_ref": "#/quantitative_recurrence_necklace_fourier_centering_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "deducing pointwise Goldbach positivity from separate o(W) bounds for each of a growing number of Fourier modes",
+      "remaining_gap": "The counterfamily is an information-theoretic obstruction, not a model of the primes and not a Goldbach counterexample. It shows that the remaining estimate must control the signed, target-aligned aggregate after a major/minor-arc decomposition; individual small modes are insufficient.",
+      "candidate_theorem": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T229",
+            "label": "CompleteTargetPeriodCharacterCancellationAndPointwiseNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T230",
+            "label": "ModewiseFourierDecayPointwisePositivityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N230",
+            "label": "ModewiseLittleOImpliesPointwiseBinaryConvolutionPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN230",
+            "label": "UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T229",
+            "GB-T230"
+          ],
+          [
+            "GB-T230",
+            "GB-N230"
+          ],
+          [
+            "GB-T230",
+            "GB-OPEN230"
+          ],
+          [
+            "GB-OPEN230",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-230",
+      "status": "open_not_proven",
+      "declared_proposition": "Let l be an odd prime, h nonzero modulo l, and let chi be a nonprincipal multiplicative character extended by chi(0)=0. On the shift-h admissible start set A={r: r is nonzero and r+h is nonzero}, one has sum_(r in A) chi(r)=-chi(-h), so the local mean is -chi(-h)/(l-2), generally not zero. For l=5, h=2, and the quadratic character, A={1,2,4} and the raw mean is 1/3. Therefore the uncentered target 'modulo-five quadratic cancellation to zero' is false already for complete admissible residue blocks.",
+      "mathematical_argument": "A is the complete residue system with 0 and -h removed. The sum of a nonprincipal multiplicative character over all residues is zero, and chi(0)=0, leaving -chi(-h). For l=5 and h=2, the quadratic values on 1,2,4 are 1,-1,1. Subtracting the mean 1/3 gives a centered observable with exact zero sum on every complete local block. This is a local identity only; it does not establish the distribution or infinitude of actual twin primes.",
+      "new_result": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+      "bounded_result": {
+        "audit_ref": "#/quantitative_recurrence_necklace_fourier_centering_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "forcing the raw modulo-five quadratic shift-two mode to cancel to zero instead of its admissibility mean one third",
+      "remaining_gap": "The theorem corrects the local centering of the surviving mode. The finite twin counts are illustrative only. A proof still needs prime-weighted cancellation of the centered observable at the sieve main scale and an independent positive principal-mass lower bound overcoming the parity barrier.",
+      "candidate_theorem": "CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T229",
+            "label": "ShiftTwoParityProjectionAndModuloFiveQuadraticObstruction",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T230",
+            "label": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N230",
+            "label": "RawModuloFiveQuadraticCancellationToZero",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN230",
+            "label": "CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T229",
+            "TP-T230"
+          ],
+          [
+            "TP-T230",
+            "TP-N230"
+          ],
+          [
+            "TP-T230",
+            "TP-OPEN230"
+          ],
+          [
+            "TP-OPEN230",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}
