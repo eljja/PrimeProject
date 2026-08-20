@@ -231,6 +231,7 @@ TICKET229_SCHEMA = "primeproject.ticket229-band-frame-semilinear-character-barri
 TICKET230_SCHEMA = (
     "primeproject.ticket230-quantitative-recurrence-necklace-fourier-centering.v1"
 )
+TICKET231_SCHEMA = "primeproject.ticket231-summable-frame-critical-strip-gauss-crt.v1"
 
 
 def fail(message: str) -> int:
@@ -19413,6 +19414,193 @@ def main() -> int:
         or machine222.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket222 proof boundary changed")
+
+    path231 = Path(
+        "data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json"
+    )
+    if not path231.exists():
+        return fail("missing ticket231 summable-frame/critical-strip/Gauss/CRT audit")
+    ticket231 = read_json(path231)
+    if (
+        ticket231.get("schema") != TICKET231_SCHEMA
+        or ticket231.get("status") != "open_not_proven"
+    ):
+        return fail("ticket231 schema or status changed")
+    audit231 = ticket231.get("summable_frame_critical_strip_gauss_crt_audit", {})
+    machine231 = audit231.get("machine_audit", {})
+    if machine231 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket231 global machine audit changed")
+
+    attempts231 = {
+        row.get("problem_id"): row for row in ticket231.get("attempts", [])
+    }
+    if set(attempts231) != EXPECTED_PROBLEMS:
+        return fail("ticket231 attempts missing problems")
+    theorem_names231 = {
+        "riemann": "SummableInfiniteDilationUniformFloorNoGo",
+        "collatz": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+        "goldbach": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+        "twin-prime": "CenteredCRTQuadraticInteractionOrthogonality",
+    }
+    next_lemmas231 = {
+        "riemann": "HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance",
+        "collatz": "CriticalStripPrimitiveNecklaceNondivisibility",
+        "goldbach": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm",
+        "twin-prime": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+    }
+    track_paths231 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-231-summable-frame-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-231-critical-strip-cycle.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-231-gauss-residue-counterfamily.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-231-centered-crt-orthogonality.json"
+        ),
+    }
+    audit_sections231 = {
+        "riemann": audit231.get("riemann", {}),
+        "collatz": audit231.get("collatz", {}),
+        "goldbach": audit231.get("goldbach", {}),
+        "twin-prime": audit231.get("twin_prime", {}),
+    }
+    for problem_id, attempt in attempts231.items():
+        track_path = track_paths231[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket231 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections231[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names231[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas231[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names231[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas231[problem_id]
+            or track.get("schema") != TICKET231_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names231[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket231 contract changed")
+
+    rh231 = audit_sections231["riemann"].get("reproducible_computation", {})
+    rh231_rows = rh231.get("weighted_head_tail_rows", [])
+    rh231_aggregate = rh231.get("aggregate", {})
+    if (
+        len(rh231_rows) != 6
+        or any(row.get("certificate_verified") is not True for row in rh231_rows)
+        or rh231_aggregate.get("summable_infinite_dilation_liminf_zero_proved")
+        is not True
+        or rh231_aggregate.get(
+            "positive_uniform_floor_for_fixed_summable_frame_refuted"
+        )
+        is not True
+        or rh231_aggregate.get("height_adaptive_or_renormalized_frame_proved")
+        is not False
+        or rh231_aggregate.get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket231 RH summable-frame boundary changed")
+
+    collatz231 = audit_sections231["collatz"].get(
+        "reproducible_computation", {}
+    )
+    collatz231_rows = collatz231.get("height_rows", [])
+    collatz231_aggregate = collatz231.get("aggregate", {})
+    if (
+        len(collatz231_rows) != 7
+        or any(row.get("all_two_equality_word_count") != 1 for row in collatz231_rows)
+        or any(
+            row.get("strict_nontrivial_exclusions")
+            != row.get("words_with_S_at_least_2h", 0) - 1
+            for row in collatz231_rows
+        )
+        or collatz231_aggregate.get("nontrivial_cycle_critical_strip_proved")
+        is not True
+        or collatz231_aggregate.get("critical_strip_nondivisibility_proved")
+        is not False
+        or collatz231_aggregate.get("aperiodic_descent_proved") is not False
+        or collatz231_aggregate.get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket231 Collatz critical-strip boundary changed")
+
+    goldbach231 = audit_sections231["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    goldbach231_rows = goldbach231.get("quadratic_residue_counterfamily_rows", [])
+    goldbach231_aggregate = goldbach231.get("aggregate", {})
+    if (
+        len(goldbach231_rows) != 12
+        or any(
+            row.get("convolution_at_zero") != 0
+            or row.get("certificate_verified") is not True
+            for row in goldbach231_rows
+        )
+        or goldbach231_aggregate.get("true_zero_convolution_counterfamily_proved")
+        is not True
+        or goldbach231_aggregate.get("ticket230_spike_positivity_overclaim_corrected")
+        is not True
+        or goldbach231_aggregate.get("prime_specific_minor_arc_bound_proved")
+        is not False
+        or goldbach231_aggregate.get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket231 Goldbach Gauss boundary changed")
+
+    twin231 = audit_sections231["twin-prime"].get(
+        "reproducible_computation", {}
+    )
+    twin231_local = twin231.get("local_centered_rows", [])
+    twin231_products = twin231.get("crt_product_gram_rows", [])
+    twin231_aggregate = twin231.get("aggregate", {})
+    if (
+        len(twin231_local) != 7
+        or len(twin231_products) != 4
+        or any(row.get("certificate_verified") is not True for row in twin231_local)
+        or any(
+            row.get("gram_identity_verified") is not True
+            or row.get("maximum_exact_off_diagonal") != "0"
+            for row in twin231_products
+        )
+        or twin231_aggregate.get("centered_crt_interaction_orthogonality_proved")
+        is not True
+        or twin231_aggregate.get("full_local_function_basis_claimed") is not False
+        or twin231_aggregate.get("prime_weighted_growing_modulus_saving_proved")
+        is not False
+        or twin231_aggregate.get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket231 Twin CRT boundary changed")
+
+    if (
+        "resolves none" not in str(audit231.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket231.get("claim_boundary", "")).lower()
+        or machine231.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket231 proof boundary changed")
 
     path230 = Path(
         "data/open-problem/ticket230-quantitative-recurrence-necklace-fourier-centering.json"

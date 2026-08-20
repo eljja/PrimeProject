@@ -31,15 +31,18 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-230: Quantitative Recurrence, Necklace Invariance, Fourier Aggregation, and Local Centering](docs/quantitative-recurrence-necklace-fourier-centering.md),
-with a separate [Korean report](docs/quantitative-recurrence-necklace-fourier-centering.ko.md).
-It proves four narrower structural results: an unavoidable `T^(-2/m)` near-
-alias rate for every fixed finite dilation family; cyclic-necklace invariance
-of Collatz cycle divisibility and `gcd(D,B)`; a Fourier counterfamily showing
-that modewise `o(W)` does not imply pointwise convolution positivity; and the
-exact modulo-five shift-two quadratic mean `1/3`, correcting the previous raw-
-zero target. These are partial structural and no-go lemmas, not parent-problem
-resolutions. TICKET-229 is preserved in
+[TICKET-231: Summable Frames, the Collatz Critical Strip, a Gauss Counterfamily, and CRT Orthogonality](docs/summable-frame-critical-strip-gauss-crt.md),
+with a separate [Korean report](docs/summable-frame-critical-strip-gauss-crt.ko.md).
+It proves four narrower results: every fixed absolutely summable infinite
+dilation family has energy liminf zero; every nontrivial Collatz cycle must
+lie in `log_2(3)<S/h<2`; quadratic residues modulo primes `3 mod 4` give a
+true zero-convolution Gauss counterfamily despite modewise relative Fourier
+decay; and centered quadratic CRT interaction modes are exactly orthogonal.
+It also corrects the TICKET-230 Goldbach spike overclaim. These are partial
+structural and no-go lemmas, not parent-problem resolutions. TICKET-230 is
+preserved in [English](docs/quantitative-recurrence-necklace-fourier-centering.md)
+and [Korean](docs/quantitative-recurrence-necklace-fourier-centering.ko.md).
+TICKET-229 is preserved in
 [English](docs/band-frame-semilinear-character-barriers.md) and
 [Korean](docs/band-frame-semilinear-character-barriers.ko.md). TICKET-228 is preserved in
 [English](docs/near-alias-affine-language-residue-spectrum.md) and
@@ -362,7 +365,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-230 boundary, four exact structural lemmas, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-231 boundary, four exact structural lemmas, four discarded or corrected routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -379,15 +382,16 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-230. The RH track quantifies an
-unavoidable `T^(-2/m)` near-alias sequence for every fixed finite dilation
-family. The Collatz track proves cycle divisibility and `gcd(D,B)` are cyclic-
-necklace invariants. Goldbach gives an exact aligned Fourier counterfamily to
-modewise-to-pointwise promotion. Twin corrects the raw modulo-five quadratic
-mean from zero to `1/3`. These are exact partial and no-go theorems, not
-solutions. All four parent conjectures remain open and the machine resolution
-count is zero.
-See [TICKET230 EN](docs/quantitative-recurrence-necklace-fourier-centering.md),
+The latest proof-search track is TICKET-231. The RH track closes the fixed
+absolutely summable infinite-frame repair. Collatz confines every nontrivial
+cycle to `log_2(3)<S/h<2`. Goldbach supplies a genuine zero-convolution Gauss
+counterfamily and corrects TICKET-230's stronger wording. Twin diagonalizes
+centered quadratic CRT interactions. These are exact partial and no-go
+theorems, not solutions. All four parent conjectures remain open and the
+machine resolution count is zero.
+See [TICKET231 EN](docs/summable-frame-critical-strip-gauss-crt.md),
+[TICKET231 KO](docs/summable-frame-critical-strip-gauss-crt.ko.md),
+[TICKET230 EN](docs/quantitative-recurrence-necklace-fourier-centering.md),
 [TICKET230 KO](docs/quantitative-recurrence-necklace-fourier-centering.ko.md),
 [TICKET229 EN](docs/band-frame-semilinear-character-barriers.md),
 [TICKET229 KO](docs/band-frame-semilinear-character-barriers.ko.md),
@@ -536,13 +540,14 @@ See [TICKET230 EN](docs/quantitative-recurrence-necklace-fourier-centering.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-230입니다. 리만 트랙은 모든 고정
-유한 배율 족에 `T^(-2/m)` 속도의 무한 근접 재귀가 생김을 증명했습니다.
-콜라츠 트랙은 순환 나눗셈과 `gcd(D,B)`가 목걸이 불변량임을 증명했습니다.
-골드바흐는 각 푸리에 모드가 작아도 목표 정렬 전체 오차가 주항과 같은
-차수가 될 수 있다는 정확한 반례족을 만들었습니다. 쌍둥이 소수는 mod
-`5` 원시 이차지표의 올바른 허용 평균이 `0`이 아니라 `1/3`임을
-확정했습니다. 네 상위 문제의 해결 수는 여전히 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-231입니다. 리만 트랙은 고정된
+절대가합 무한 배율 프레임도 에너지 하극한 0을 피할 수 없음을
+증명했습니다. 콜라츠 트랙은 모든 비자명 순환을
+`log_2(3)<S/h<2` 임계띠로 제한했습니다. 골드바흐는 모드별 상대 푸리에
+감쇠와 점별 양성이 양립하지 않는 진짜 영 합성곱 가우스 반례족을
+증명하고 TICKET-230의 과한 문구를 교정했습니다. 쌍둥이 소수는 중심화
+CRT 이차지표 상호작용의 정확한 직교성을 증명했습니다. 네 상위 문제의
+해결 수는 여전히 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -562,19 +567,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-230입니다.
-[정량 재귀·목걸이 불변성·푸리에 합산·국소 중심화 한국어 보고서](docs/quantitative-recurrence-necklace-fourier-centering.ko.md)와
-[영문 보고서](docs/quantitative-recurrence-necklace-fourier-centering.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-231입니다.
+[절대가합 프레임·콜라츠 임계띠·가우스 반례족·CRT 직교성 한국어 보고서](docs/summable-frame-critical-strip-gauss-crt.ko.md)와
+[영문 보고서](docs/summable-frame-critical-strip-gauss-crt.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 실제 Weil 핵 꼬리를 재귀 척도 아래서
-지배하는 적응형 무한 frame, 모든 원시 양의 분모 Collatz 목걸이 대표의
-비나눗셈, 골드바흐 이항 소수 minor arc의 부호 있는 전체 합 상계,
-쌍둥이 소수 mod `5` 중심화 Type-II 절약과 양의 주항입니다.
+현재 결정적 미해결 보조정리는 명시적 Weil 꼬리를 지배하는 적응형
+재규격화 frame, Collatz 임계띠 원시 목걸이 비나눗셈, 골드바흐 이항
+소수 minor arc의 음의 전체 합 상계, 쌍둥이 소수의 성장 CRT 상호작용
+에너지 절약과 양의 주항입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-230의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 230개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-231의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 231개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

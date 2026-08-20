@@ -8376,7 +8376,34 @@ failures.
 English report: [TICKET-229 band frames, semilinear coverage, and character barriers](band-frame-semilinear-character-barriers.md).
 한국어 보고서: [TICKET-229 대역 프레임·준선형 포괄·지표 방해](band-frame-semilinear-character-barriers.ko.md).
 
-## TICKET-230 continuation: quantitative recurrence, necklaces, Fourier aggregation, and centering
+## TICKET-231 continuation: summable frames, the Collatz critical strip, a Gauss counterfamily, and CRT orthogonality
+
+TICKET-231 proves four exact partial or no-go results and keeps the
+parent-conjecture resolution count at zero:
+
+1. RH: every fixed absolutely summable infinite dilation family has energy
+   liminf zero, so the naive infinite-frame repair cannot provide a positive
+   uniform floor. A height-adaptive or renormalized frame with explicit
+   Weil-tail dominance remains open.
+2. Collatz: every nontrivial positive cycle lies in the strict strip
+   `log_2(3)<S/h<2`. Critical-strip necklace nondivisibility and aperiodic
+   descent remain open.
+3. Goldbach: quadratic residues modulo primes `3 mod 4` give a true
+   zero-convolution Gauss counterfamily while every relative nonprincipal mode
+   tends to zero. This corrects the stronger TICKET-230 wording but does not
+   estimate prime weights.
+4. Twin Prime: centered quadratic CRT interaction tensors are exactly
+   orthogonal with explicit norms. Prime-weighted growing-modulus saving and a
+   positive principal lower bound remain open.
+
+Machine audit: four exact partial or no-go theorems, four rejected or corrected
+routes, four proof DAGs, zero conjecture resolutions, and zero computational
+failures.
+
+English report: [TICKET-231 summable frames, critical strip, Gauss counterfamily, and CRT orthogonality](summable-frame-critical-strip-gauss-crt.md).
+한국어 보고서: [TICKET-231 절대가합 프레임·임계띠·가우스 반례족·CRT 직교성](summable-frame-critical-strip-gauss-crt.ko.md).
+
+## Preserved: TICKET-230 quantitative recurrence, necklaces, Fourier aggregation, and centering
 
 TICKET-230 audits the four successor targets from TICKET-229 before attempting
 stronger analytic estimates. It proves four exact structural or no-go

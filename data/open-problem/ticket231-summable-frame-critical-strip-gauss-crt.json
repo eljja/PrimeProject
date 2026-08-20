@@ -1,0 +1,1506 @@
+{
+  "schema": "primeproject.ticket231-summable-frame-critical-strip-gauss-crt.v1",
+  "generated_at": "2026-08-21T12:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-231 proves four exact partial results and resolves none of the four parent conjectures.",
+  "summable_frame_critical_strip_gauss_crt_audit": {
+    "theorem_name": "SummableFrameCriticalStripGaussAndCRTCorrections",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-231 proves four exact partial or no-go theorems, corrects the TICKET-230 Goldbach positivity overclaim and the literal Collatz all-necklace target, and resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-231",
+      "theorem_name": "SummableInfiniteDilationUniformFloorNoGo",
+      "declared_proposition": "Let q_j>1 and w_j>=0 satisfy sum_j w_j<infinity, and suppose two positive-weight q_j are multiplicatively independent. Put F(n)=sum_j w_j|1-q_j^(-in)|^2. For every head size M and integer Q>=2 there is 1<=n<=Q^M with F(n)<=4*pi^2*Q^(-2)*sum_(j<=M)w_j+4*sum_(j>M)w_j. Consequently liminf_(n->infinity) F(n)=0. No fixed absolutely summable infinite dilation family has a positive uniform frame floor on the integer frequencies.",
+      "mathematical_argument": "Apply simultaneous pigeonhole approximation to the first M phase coordinates. The head contribution is at most 4*pi^2/Q^2 times its weight mass, while |1-z|^2<=4 bounds the tail. First choose M so the summable tail is arbitrarily small and then let Q grow. The witnesses are unbounded: otherwise a fixed positive integer would recur while the two independent positive-weight phases tend to zero, forcing both phases to vanish exactly and the ratio of their logarithms to be rational.",
+      "reproducible_computation": {
+        "theorem": "Let q_j>1 and w_j>=0 satisfy sum_j w_j<infinity, and suppose two positive-weight q_j are multiplicatively independent. Put F(n)=sum_j w_j|1-q_j^(-in)|^2. For every head size M and integer Q>=2 there is 1<=n<=Q^M with F(n)<=4*pi^2*Q^(-2)*sum_(j<=M)w_j+4*sum_(j>M)w_j. Consequently liminf_(n->infinity) F(n)=0. No fixed absolutely summable infinite dilation family has a positive uniform frame floor on the integer frequencies.",
+        "proof": "Apply simultaneous pigeonhole approximation to the first M phase coordinates. The head contribution is at most 4*pi^2/Q^2 times its weight mass, while |1-z|^2<=4 bounds the tail. First choose M so the summable tail is arbitrarily small and then let Q grow. The witnesses are unbounded: otherwise a fixed positive integer would recur while the two independent positive-weight phases tend to zero, forcing both phases to vanish exactly and the ratio of their logarithms to be rational.",
+        "weighted_head_tail_rows": [
+          {
+            "head_size_M": 2,
+            "partition_Q": 64,
+            "dilations": [
+              2,
+              3
+            ],
+            "weights": [
+              "1/2",
+              "1/4"
+            ],
+            "head_weight_mass": "3/4",
+            "exact_tail_weight_mass": "1/4",
+            "witness_frequency_n": 263,
+            "maximum_frequency_Q_to_M": 4096,
+            "maximum_phase_error": 0.014561437563131108,
+            "observed_head_energy": 0.005730033002052567,
+            "head_energy_bound": 0.00722871416095412,
+            "full_infinite_energy_upper_bound": 1.0072287141609542,
+            "certificate_verified": true
+          },
+          {
+            "head_size_M": 3,
+            "partition_Q": 24,
+            "dilations": [
+              2,
+              3,
+              5
+            ],
+            "weights": [
+              "1/2",
+              "1/4",
+              "1/8"
+            ],
+            "head_weight_mass": "7/8",
+            "exact_tail_weight_mass": "1/8",
+            "witness_frequency_n": 1550,
+            "maximum_frequency_Q_to_M": 13824,
+            "maximum_phase_error": 0.0324990132514813,
+            "observed_head_energy": 0.009074937202569647,
+            "head_energy_bound": 0.05997155452050825,
+            "full_infinite_energy_upper_bound": 0.5599715545205083,
+            "certificate_verified": true
+          },
+          {
+            "head_size_M": 4,
+            "partition_Q": 10,
+            "dilations": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "weights": [
+              "1/2",
+              "1/4",
+              "1/8",
+              "1/16"
+            ],
+            "head_weight_mass": "15/16",
+            "exact_tail_weight_mass": "1/16",
+            "witness_frequency_n": 652,
+            "maximum_frequency_Q_to_M": 10000,
+            "maximum_phase_error": 0.07480518928434776,
+            "observed_head_energy": 0.11685268698086096,
+            "head_energy_bound": 0.3701101650408509,
+            "full_infinite_energy_upper_bound": 0.6201101650408509,
+            "certificate_verified": true
+          },
+          {
+            "head_size_M": 5,
+            "partition_Q": 6,
+            "dilations": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "weights": [
+              "1/2",
+              "1/4",
+              "1/8",
+              "1/16",
+              "1/32"
+            ],
+            "head_weight_mass": "31/32",
+            "exact_tail_weight_mass": "1/32",
+            "witness_frequency_n": 933,
+            "maximum_frequency_Q_to_M": 7776,
+            "maximum_phase_error": 0.13465467206691528,
+            "observed_head_energy": 0.28529322283823927,
+            "head_energy_bound": 1.0623532515061462,
+            "full_infinite_energy_upper_bound": 1.1873532515061462,
+            "certificate_verified": true
+          },
+          {
+            "head_size_M": 6,
+            "partition_Q": 4,
+            "dilations": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "weights": [
+              "1/2",
+              "1/4",
+              "1/8",
+              "1/16",
+              "1/32",
+              "1/64"
+            ],
+            "head_weight_mass": "63/64",
+            "exact_tail_weight_mass": "1/64",
+            "witness_frequency_n": 74,
+            "maximum_frequency_Q_to_M": 4096,
+            "maximum_phase_error": 0.2411295405086662,
+            "observed_head_energy": 0.6277773110640952,
+            "head_energy_bound": 2.4288479580805844,
+            "full_infinite_energy_upper_bound": 2.4913479580805844,
+            "certificate_verified": true
+          },
+          {
+            "head_size_M": 7,
+            "partition_Q": 3,
+            "dilations": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "weights": [
+              "1/2",
+              "1/4",
+              "1/8",
+              "1/16",
+              "1/32",
+              "1/64",
+              "1/128"
+            ],
+            "head_weight_mass": "127/128",
+            "exact_tail_weight_mass": "1/128",
+            "witness_frequency_n": 171,
+            "maximum_frequency_Q_to_M": 2187,
+            "maximum_phase_error": 0.25990745171597496,
+            "observed_head_energy": 0.7032636345030366,
+            "head_energy_bound": 4.352221385202599,
+            "full_infinite_energy_upper_bound": 4.383471385202599,
+            "certificate_verified": true
+          }
+        ],
+        "aggregate": {
+          "summable_infinite_dilation_liminf_zero_proved": true,
+          "positive_uniform_floor_for_fixed_summable_frame_refuted": true,
+          "height_adaptive_or_renormalized_frame_proved": false,
+          "weil_positivity_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The result closes the naive fixed absolutely summable extension of TICKET-230. It concerns the dilation phase energy, not the full Weil quadratic form. Height-adaptive weights, a nonsummable renormalized family, and explicit Weil-tail dominance remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "The result closes the naive fixed absolutely summable extension of TICKET-230. It concerns the dilation phase energy, not the full Weil quadratic form. Height-adaptive weights, a nonsummable renormalized family, and explicit Weil-tail dominance remain open.",
+      "route_decision": {
+        "discard": "a fixed absolutely summable infinite dilation family as a source of a positive uniform frequency floor",
+        "retain": "height-adaptive or nonsummable-renormalized dilation frames whose floor is compared with an explicit Weil tail",
+        "next_single_lemma": "HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T230",
+            "label": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T231",
+            "label": "SummableInfiniteDilationUniformFloorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N231",
+            "label": "FixedAbsolutelySummablePositiveUniformFrameFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN231",
+            "label": "HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T230",
+            "RH-T231"
+          ],
+          [
+            "RH-T231",
+            "RH-N231"
+          ],
+          [
+            "RH-T231",
+            "RH-OPEN231"
+          ],
+          [
+            "RH-OPEN231",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-231",
+      "theorem_name": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+      "declared_proposition": "For a positive accelerated Collatz cycle word a of height h, let S=sum a_j, D=2^S-3^h, and B be its cycle numerator. If S>=2h, then a cyclic rotation has every suffix valuation sum at least twice its length. For that rotation B/2^S<=1-(3/4)^h. Hence B<=2^S-2^(S-2h)3^h<=D, with equality only when every a_j=2. By necklace invariance, every non-all-two word with S>=2h has 0<B<D and cannot satisfy D|B. Thus every nontrivial positive cycle must lie in h*log_2(3)<S<2h.",
+      "mathematical_argument": "Apply the maximum-partial-sum rotation lemma to b_j=a_j-2; its total is nonnegative. The rotation after a maximal cumulative sum has all suffix sums of b nonnegative. Dividing B by 2^S and reading suffixes gives a termwise bound by sum_(r=1)^h 3^(r-1)/4^r=1-(3/4)^h. The two comparisons are strict unless S=2h and every suffix inequality is equality, which forces a_j=2 for all j. TICKET-230 proves D|B is invariant under rotation, so the certificate applies to the original necklace.",
+      "reproducible_computation": {
+        "theorem": "For a positive accelerated Collatz cycle word a of height h, let S=sum a_j, D=2^S-3^h, and B be its cycle numerator. If S>=2h, then a cyclic rotation has every suffix valuation sum at least twice its length. For that rotation B/2^S<=1-(3/4)^h. Hence B<=2^S-2^(S-2h)3^h<=D, with equality only when every a_j=2. By necklace invariance, every non-all-two word with S>=2h has 0<B<D and cannot satisfy D|B. Thus every nontrivial positive cycle must lie in h*log_2(3)<S<2h.",
+        "proof": "Apply the maximum-partial-sum rotation lemma to b_j=a_j-2; its total is nonnegative. The rotation after a maximal cumulative sum has all suffix sums of b nonnegative. Dividing B by 2^S and reading suffixes gives a termwise bound by sum_(r=1)^h 3^(r-1)/4^r=1-(3/4)^h. The two comparisons are strict unless S=2h and every suffix inequality is equality, which forces a_j=2 for all j. TICKET-230 proves D|B is invariant under rotation, so the certificate applies to the original necklace.",
+        "height_rows": [
+          {
+            "height_h": 1,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 4,
+            "necklace_count": 4,
+            "strict_nontrivial_exclusions": 3,
+            "all_two_equality_word_count": 1
+          },
+          {
+            "height_h": 2,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 22,
+            "necklace_count": 13,
+            "strict_nontrivial_exclusions": 21,
+            "all_two_equality_word_count": 1
+          },
+          {
+            "height_h": 3,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 115,
+            "necklace_count": 41,
+            "strict_nontrivial_exclusions": 114,
+            "all_two_equality_word_count": 1
+          },
+          {
+            "height_h": 4,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 590,
+            "necklace_count": 155,
+            "strict_nontrivial_exclusions": 589,
+            "all_two_equality_word_count": 1
+          },
+          {
+            "height_h": 5,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 2999,
+            "necklace_count": 603,
+            "strict_nontrivial_exclusions": 2998,
+            "all_two_equality_word_count": 1
+          },
+          {
+            "height_h": 6,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 15169,
+            "necklace_count": 2556,
+            "strict_nontrivial_exclusions": 15168,
+            "all_two_equality_word_count": 1
+          },
+          {
+            "height_h": 7,
+            "alphabet": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "words_with_S_at_least_2h": 76465,
+            "necklace_count": 10927,
+            "strict_nontrivial_exclusions": 76464,
+            "all_two_equality_word_count": 1
+          }
+        ],
+        "mixed_word_certificate_samples": [
+          {
+            "word": [
+              4
+            ],
+            "certificate_rotation": [
+              4
+            ],
+            "height_h": 1,
+            "valuation_sum_S": 4,
+            "denominator_D": 13,
+            "numerator_B": 1,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              5
+            ],
+            "certificate_rotation": [
+              5
+            ],
+            "height_h": 1,
+            "valuation_sum_S": 5,
+            "denominator_D": 29,
+            "numerator_B": 1,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              3
+            ],
+            "certificate_rotation": [
+              1,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 4,
+            "denominator_D": 7,
+            "numerator_B": 5,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              4
+            ],
+            "certificate_rotation": [
+              1,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 5,
+            "denominator_D": 23,
+            "numerator_B": 5,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              5
+            ],
+            "certificate_rotation": [
+              1,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 5,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              2,
+              4
+            ],
+            "certificate_rotation": [
+              2,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 7,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              2,
+              5
+            ],
+            "certificate_rotation": [
+              2,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 7,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              3,
+              1
+            ],
+            "certificate_rotation": [
+              1,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 4,
+            "denominator_D": 7,
+            "numerator_B": 5,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              3,
+              4
+            ],
+            "certificate_rotation": [
+              3,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 11,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              3,
+              5
+            ],
+            "certificate_rotation": [
+              3,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 247,
+            "numerator_B": 11,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              4,
+              1
+            ],
+            "certificate_rotation": [
+              1,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 5,
+            "denominator_D": 23,
+            "numerator_B": 5,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              4,
+              2
+            ],
+            "certificate_rotation": [
+              2,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 7,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              4,
+              3
+            ],
+            "certificate_rotation": [
+              4,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 19,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              4,
+              4
+            ],
+            "certificate_rotation": [
+              4,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 247,
+            "numerator_B": 19,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              4,
+              5
+            ],
+            "certificate_rotation": [
+              4,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 9,
+            "denominator_D": 503,
+            "numerator_B": 19,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              5,
+              1
+            ],
+            "certificate_rotation": [
+              1,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 6,
+            "denominator_D": 55,
+            "numerator_B": 5,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              5,
+              2
+            ],
+            "certificate_rotation": [
+              2,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 7,
+            "denominator_D": 119,
+            "numerator_B": 7,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              5,
+              3
+            ],
+            "certificate_rotation": [
+              5,
+              3
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 247,
+            "numerator_B": 35,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              5,
+              4
+            ],
+            "certificate_rotation": [
+              5,
+              4
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 9,
+            "denominator_D": 503,
+            "numerator_B": 35,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              5,
+              5
+            ],
+            "certificate_rotation": [
+              5,
+              5
+            ],
+            "height_h": 2,
+            "valuation_sum_S": 10,
+            "denominator_D": 1015,
+            "numerator_B": 35,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              1,
+              4
+            ],
+            "certificate_rotation": [
+              1,
+              1,
+              4
+            ],
+            "height_h": 3,
+            "valuation_sum_S": 6,
+            "denominator_D": 37,
+            "numerator_B": 19,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              1,
+              5
+            ],
+            "certificate_rotation": [
+              1,
+              1,
+              5
+            ],
+            "height_h": 3,
+            "valuation_sum_S": 7,
+            "denominator_D": 101,
+            "numerator_B": 19,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              3
+            ],
+            "certificate_rotation": [
+              1,
+              2,
+              3
+            ],
+            "height_h": 3,
+            "valuation_sum_S": 6,
+            "denominator_D": 37,
+            "numerator_B": 23,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              4
+            ],
+            "certificate_rotation": [
+              1,
+              2,
+              4
+            ],
+            "height_h": 3,
+            "valuation_sum_S": 7,
+            "denominator_D": 101,
+            "numerator_B": 23,
+            "all_suffix_averages_at_least_two": true,
+            "strict_B_between_zero_and_D": true
+          }
+        ],
+        "aggregate": {
+          "average_valuation_at_least_two_nontrivial_cycles_excluded": true,
+          "nontrivial_cycle_critical_strip_proved": true,
+          "all_two_trivial_cycle_retained": true,
+          "critical_strip_nondivisibility_proved": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "This excludes all nontrivial cycle words with average valuation at least two and corrects the literal TICKET-230 target, which included the divisible trivial word (2). It does not exclude cycle necklaces in log_2(3)<S/h<2 or divergent aperiodic trajectories.",
+        "failure_count": 0
+      },
+      "logical_limit": "This excludes all nontrivial cycle words with average valuation at least two and corrects the literal TICKET-230 target, which included the divisible trivial word (2). It does not exclude cycle necklaces in log_2(3)<S/h<2 or divergent aperiodic trajectories.",
+      "route_decision": {
+        "discard": "the literal claim that every primitive positive-denominator necklace is nondivisible, which includes the trivial word (2)",
+        "retain": "attack only nontrivial necklaces in the exact critical strip h*log_2(3)<S<2h and treat aperiodic descent separately",
+        "next_single_lemma": "CriticalStripPrimitiveNecklaceNondivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T230",
+            "label": "CollatzCycleDivisibilityNecklaceInvariance",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T231",
+            "label": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N231",
+            "label": "AllPrimitivePositiveDenominatorNecklacesAreNondivisible",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN231",
+            "label": "CriticalStripPrimitiveNecklaceNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T230",
+            "CO-T231"
+          ],
+          [
+            "CO-T231",
+            "CO-N231"
+          ],
+          [
+            "CO-T231",
+            "CO-OPEN231"
+          ],
+          [
+            "CO-OPEN231",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-231",
+      "theorem_name": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+      "declared_proposition": "For every prime p congruent to 3 modulo 4, let w_p be the indicator of the nonzero quadratic residues in Z/pZ. Its mass is W=(p-1)/2, but (w_p*w_p)(0)=0. For k nonzero, w_hat_p(k)=(-1+chi(k)tau_p)/2, where |tau_p|=sqrt(p) and tau_p^2=-p. Hence every nonprincipal magnitude is sqrt(p+1)/2 and max|w_hat_p(k)|/W=sqrt(p+1)/(p-1), which tends to zero. The signed nonprincipal aggregate at zero is exactly -W^2/p and cancels the principal term. Thus modewise relative Fourier decay does not imply pointwise positivity.",
+      "mathematical_argument": "Because chi(-1)=-1, the negative of a nonzero quadratic residue is a nonresidue, proving the zero convolution. Writing the residue indicator as (1+chi)/2 away from zero gives the Gauss-sum formula. For p=3 mod 4 the quadratic Gauss sum is purely imaginary with square -p, so both signs have magnitude sqrt(p+1)/2. Fourier inversion at zero and the already proved zero convolution force the exact negative aggregate.",
+      "reproducible_computation": {
+        "theorem": "For every prime p congruent to 3 modulo 4, let w_p be the indicator of the nonzero quadratic residues in Z/pZ. Its mass is W=(p-1)/2, but (w_p*w_p)(0)=0. For k nonzero, w_hat_p(k)=(-1+chi(k)tau_p)/2, where |tau_p|=sqrt(p) and tau_p^2=-p. Hence every nonprincipal magnitude is sqrt(p+1)/2 and max|w_hat_p(k)|/W=sqrt(p+1)/(p-1), which tends to zero. The signed nonprincipal aggregate at zero is exactly -W^2/p and cancels the principal term. Thus modewise relative Fourier decay does not imply pointwise positivity.",
+        "proof": "Because chi(-1)=-1, the negative of a nonzero quadratic residue is a nonresidue, proving the zero convolution. Writing the residue indicator as (1+chi)/2 away from zero gives the Gauss-sum formula. For p=3 mod 4 the quadratic Gauss sum is purely imaginary with square -p, so both signs have magnitude sqrt(p+1)/2. Fourier inversion at zero and the already proved zero convolution force the exact negative aggregate.",
+        "quadratic_residue_counterfamily_rows": [
+          {
+            "prime_p": 7,
+            "nonzero_quadratic_residue_count_W": 3,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 1.4142135623730951,
+            "maximum_mode_to_mass_ratio": 0.47140452079103173,
+            "elementary_upper_bound_ratio": 0.6076252185107651,
+            "signed_nonprincipal_aggregate_at_zero": -1.2857142857142854,
+            "exact_expected_signed_aggregate": "-9/7",
+            "maximum_dft_formula_error": 8.881784197001252e-16,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 11,
+            "nonzero_quadratic_residue_count_W": 5,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 1.7320508075688772,
+            "maximum_mode_to_mass_ratio": 0.34641016151377546,
+            "elementary_upper_bound_ratio": 0.43166247903554,
+            "signed_nonprincipal_aggregate_at_zero": -2.272727272727273,
+            "exact_expected_signed_aggregate": "-25/11",
+            "maximum_dft_formula_error": 2.4424906541753444e-15,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 19,
+            "nonzero_quadratic_residue_count_W": 9,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 2.23606797749979,
+            "maximum_mode_to_mass_ratio": 0.24845199749997665,
+            "elementary_upper_bound_ratio": 0.2977166079744819,
+            "signed_nonprincipal_aggregate_at_zero": -4.263157894736835,
+            "exact_expected_signed_aggregate": "-81/19",
+            "maximum_dft_formula_error": 1.865174681370263e-14,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 23,
+            "nonzero_quadratic_residue_count_W": 11,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 2.449489742783178,
+            "maximum_mode_to_mass_ratio": 0.22268088570756162,
+            "elementary_upper_bound_ratio": 0.2634468874233054,
+            "signed_nonprincipal_aggregate_at_zero": -5.260869565217388,
+            "exact_expected_signed_aggregate": "-121/23",
+            "maximum_dft_formula_error": 3.4638958368304884e-14,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 31,
+            "nonzero_quadratic_residue_count_W": 15,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 2.8284271247461903,
+            "maximum_mode_to_mass_ratio": 0.1885618083164127,
+            "elementary_upper_bound_ratio": 0.2189254787610007,
+            "signed_nonprincipal_aggregate_at_zero": -7.258064516129029,
+            "exact_expected_signed_aggregate": "-225/31",
+            "maximum_dft_formula_error": 1.8207657603852567e-14,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 43,
+            "nonzero_quadratic_residue_count_W": 21,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 3.3166247903554,
+            "maximum_mode_to_mass_ratio": 0.1579345138264476,
+            "elementary_upper_bound_ratio": 0.17993901248338096,
+            "signed_nonprincipal_aggregate_at_zero": -10.255813953488358,
+            "exact_expected_signed_aggregate": "-441/43",
+            "maximum_dft_formula_error": 5.3734794391857577e-14,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 47,
+            "nonzero_quadratic_residue_count_W": 23,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 3.4641016151377544,
+            "maximum_mode_to_mass_ratio": 0.1506131137016415,
+            "elementary_upper_bound_ratio": 0.17077510000871834,
+            "signed_nonprincipal_aggregate_at_zero": -11.255319148936122,
+            "exact_expected_signed_aggregate": "-529/47",
+            "maximum_dft_formula_error": 5.950795411990839e-14,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 59,
+            "nonzero_quadratic_residue_count_W": 29,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 3.872983346207417,
+            "maximum_mode_to_mass_ratio": 0.1335511498692213,
+            "elementary_upper_bound_ratio": 0.1496749266873898,
+            "signed_nonprincipal_aggregate_at_zero": -14.254237288135602,
+            "exact_expected_signed_aggregate": "-841/59",
+            "maximum_dft_formula_error": 1.0835776720341528e-13,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 67,
+            "nonzero_quadratic_residue_count_W": 33,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 4.123105625617661,
+            "maximum_mode_to_mass_ratio": 0.12494259471568668,
+            "elementary_upper_bound_ratio": 0.13917201169503712,
+            "signed_nonprincipal_aggregate_at_zero": -16.253731343283597,
+            "exact_expected_signed_aggregate": "-1089/67",
+            "maximum_dft_formula_error": 1.6608936448392342e-13,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 71,
+            "nonzero_quadratic_residue_count_W": 35,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 4.242640687119285,
+            "maximum_mode_to_mass_ratio": 0.12121830534626528,
+            "elementary_upper_bound_ratio": 0.13465928247394798,
+            "signed_nonprincipal_aggregate_at_zero": -17.253521126760543,
+            "exact_expected_signed_aggregate": "-1225/71",
+            "maximum_dft_formula_error": 2.1049828546892968e-13,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 79,
+            "nonzero_quadratic_residue_count_W": 39,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 4.47213595499958,
+            "maximum_mode_to_mass_ratio": 0.11467015269229691,
+            "elementary_upper_bound_ratio": 0.1267717232989178,
+            "signed_nonprincipal_aggregate_at_zero": -19.253164556961995,
+            "exact_expected_signed_aggregate": "-1521/79",
+            "maximum_dft_formula_error": 1.2789769243681803e-13,
+            "certificate_verified": true
+          },
+          {
+            "prime_p": 83,
+            "nonzero_quadratic_residue_count_W": 41,
+            "convolution_at_zero": 0,
+            "nonprincipal_coefficient_magnitude": 4.58257569495584,
+            "maximum_mode_to_mass_ratio": 0.11177013890136195,
+            "elementary_upper_bound_ratio": 0.1232979704773695,
+            "signed_nonprincipal_aggregate_at_zero": -20.25301204819263,
+            "exact_expected_signed_aggregate": "-1681/83",
+            "maximum_dft_formula_error": 1.4832579608992091e-13,
+            "certificate_verified": true
+          }
+        ],
+        "ticket230_correction": "The TICKET-230 spike family proves same-order aligned Fourier error, but its convolution remains positive at every target. It therefore did not by itself refute the positivity inference. This quadratic-residue family supplies the required genuine zero-convolution counterfamily.",
+        "aggregate": {
+          "true_zero_convolution_counterfamily_proved": true,
+          "modewise_relative_decay_without_pointwise_positivity_proved": true,
+          "exact_negative_aggregate_cancellation_proved": true,
+          "ticket230_spike_positivity_overclaim_corrected": true,
+          "prime_specific_minor_arc_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The weights are quadratic-residue indicators, not primes, so this is an inference-rule counterexample and not a Goldbach counterexample. The remaining task is a one-sided aggregate minor-arc bound for actual prime weights below the positive singular-series main term.",
+        "failure_count": 0
+      },
+      "logical_limit": "The weights are quadratic-residue indicators, not primes, so this is an inference-rule counterexample and not a Goldbach counterexample. The remaining task is a one-sided aggregate minor-arc bound for actual prime weights below the positive singular-series main term.",
+      "route_decision": {
+        "discard": "using the positive TICKET-230 spike convolution as a counterexample to pointwise positivity",
+        "retain": "bound the negative target-aligned aggregate for actual prime weights below the positive singular-series main term",
+        "next_single_lemma": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T230",
+            "label": "ModewiseFourierDecaySameOrderAggregateExample",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T231",
+            "label": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N231",
+            "label": "TICKET230SpikeFamilyRefutesPointwisePositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN231",
+            "label": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T230",
+            "GB-T231"
+          ],
+          [
+            "GB-T231",
+            "GB-N231"
+          ],
+          [
+            "GB-T231",
+            "GB-OPEN231"
+          ],
+          [
+            "GB-OPEN231",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-231",
+      "theorem_name": "CenteredCRTQuadraticInteractionOrthogonality",
+      "declared_proposition": "For odd primes l not dividing h, let A_l exclude 0 and -h, let chi_l be quadratic, mu_l=-chi_l(-h)/(l-2), and phi_l=chi_l-mu_l on A_l. Under the uniform CRT product measure, Phi_S=product_(l in S)phi_l is orthogonal to Phi_T whenever S differs from T. Its squared norm is product_(l in S)(1-1/(l-2)^2). The l=3 mode is identically zero; after removing such degenerate factors, the normalized Phi_S form an orthonormal dictionary of centered local interactions.",
+      "mathematical_argument": "TICKET-230 gives E(phi_l)=0. Also chi_l^2=1 on A_l, so E(phi_l^2)=1-mu_l^2. If S differs from T, a prime in their symmetric difference occurs to the first power in the product Phi_S Phi_T; independence of CRT coordinates factors out its zero mean. The diagonal factors into the stated local variances.",
+      "reproducible_computation": {
+        "theorem": "For odd primes l not dividing h, let A_l exclude 0 and -h, let chi_l be quadratic, mu_l=-chi_l(-h)/(l-2), and phi_l=chi_l-mu_l on A_l. Under the uniform CRT product measure, Phi_S=product_(l in S)phi_l is orthogonal to Phi_T whenever S differs from T. Its squared norm is product_(l in S)(1-1/(l-2)^2). The l=3 mode is identically zero; after removing such degenerate factors, the normalized Phi_S form an orthonormal dictionary of centered local interactions.",
+        "proof": "TICKET-230 gives E(phi_l)=0. Also chi_l^2=1 on A_l, so E(phi_l^2)=1-mu_l^2. If S differs from T, a prime in their symmetric difference occurs to the first power in the product Phi_S Phi_T; independence of CRT coordinates factors out its zero mean. The diagonal factors into the stated local variances.",
+        "local_centered_rows": [
+          {
+            "prime_l": 3,
+            "allowed_count_l_minus_2": 1,
+            "centered_mean": "0",
+            "centered_variance": "0",
+            "expected_variance": "0",
+            "degenerate_zero_mode": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_l": 5,
+            "allowed_count_l_minus_2": 3,
+            "centered_mean": "0",
+            "centered_variance": "8/9",
+            "expected_variance": "8/9",
+            "degenerate_zero_mode": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_l": 7,
+            "allowed_count_l_minus_2": 5,
+            "centered_mean": "0",
+            "centered_variance": "24/25",
+            "expected_variance": "24/25",
+            "degenerate_zero_mode": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_l": 11,
+            "allowed_count_l_minus_2": 9,
+            "centered_mean": "0",
+            "centered_variance": "80/81",
+            "expected_variance": "80/81",
+            "degenerate_zero_mode": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_l": 13,
+            "allowed_count_l_minus_2": 11,
+            "centered_mean": "0",
+            "centered_variance": "120/121",
+            "expected_variance": "120/121",
+            "degenerate_zero_mode": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_l": 17,
+            "allowed_count_l_minus_2": 15,
+            "centered_mean": "0",
+            "centered_variance": "224/225",
+            "expected_variance": "224/225",
+            "degenerate_zero_mode": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_l": 19,
+            "allowed_count_l_minus_2": 17,
+            "centered_mean": "0",
+            "centered_variance": "288/289",
+            "expected_variance": "288/289",
+            "degenerate_zero_mode": false,
+            "certificate_verified": true
+          }
+        ],
+        "crt_product_gram_rows": [
+          {
+            "active_primes": [
+              5
+            ],
+            "crt_admissible_tuple_count": 3,
+            "orthogonal_mode_count": 2,
+            "diagonal_norm_squared": {
+              "constant": "1",
+              "5": "8/9"
+            },
+            "maximum_exact_off_diagonal": "0",
+            "gram_identity_verified": true
+          },
+          {
+            "active_primes": [
+              5,
+              7
+            ],
+            "crt_admissible_tuple_count": 15,
+            "orthogonal_mode_count": 4,
+            "diagonal_norm_squared": {
+              "constant": "1",
+              "5": "8/9",
+              "7": "24/25",
+              "5*7": "64/75"
+            },
+            "maximum_exact_off_diagonal": "0",
+            "gram_identity_verified": true
+          },
+          {
+            "active_primes": [
+              5,
+              7,
+              11
+            ],
+            "crt_admissible_tuple_count": 135,
+            "orthogonal_mode_count": 8,
+            "diagonal_norm_squared": {
+              "constant": "1",
+              "5": "8/9",
+              "7": "24/25",
+              "11": "80/81",
+              "5*7": "64/75",
+              "5*11": "640/729",
+              "7*11": "128/135",
+              "5*7*11": "1024/1215"
+            },
+            "maximum_exact_off_diagonal": "0",
+            "gram_identity_verified": true
+          },
+          {
+            "active_primes": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "crt_admissible_tuple_count": 1485,
+            "orthogonal_mode_count": 16,
+            "diagonal_norm_squared": {
+              "constant": "1",
+              "5": "8/9",
+              "7": "24/25",
+              "11": "80/81",
+              "13": "120/121",
+              "5*7": "64/75",
+              "5*11": "640/729",
+              "5*13": "320/363",
+              "7*11": "128/135",
+              "7*13": "576/605",
+              "11*13": "3200/3267",
+              "5*7*11": "1024/1215",
+              "5*7*13": "512/605",
+              "5*11*13": "25600/29403",
+              "7*11*13": "1024/1089",
+              "5*7*11*13": "8192/9801"
+            },
+            "maximum_exact_off_diagonal": "0",
+            "gram_identity_verified": true
+          }
+        ],
+        "aggregate": {
+          "centered_crt_interaction_orthogonality_proved": true,
+          "exact_tensor_norm_formula_proved": true,
+          "modulo_three_degenerate_mode_identified": true,
+          "full_local_function_basis_claimed": false,
+          "prime_weighted_growing_modulus_saving_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "This removes deterministic local admissibility bias and diagonalizes one quadratic-character interaction dictionary. It is not a complete basis for all local functions, says nothing by itself about prime-weighted coefficients, and does not overcome the sieve parity barrier or prove twin infinitude.",
+        "failure_count": 0
+      },
+      "logical_limit": "This removes deterministic local admissibility bias and diagonalizes one quadratic-character interaction dictionary. It is not a complete basis for all local functions, says nothing by itself about prime-weighted coefficients, and does not overcome the sieve parity barrier or prove twin infinitude.",
+      "route_decision": {
+        "discard": "treating raw local character correlations or the degenerate modulo-three mode as global prime evidence",
+        "retain": "project prime-weighted data onto normalized centered CRT interactions and seek uniform energy saving as the modulus grows",
+        "next_single_lemma": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T230",
+            "label": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T231",
+            "label": "CenteredCRTQuadraticInteractionOrthogonality",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N231",
+            "label": "RawLocalCharacterBiasAsPrimeWeightedCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN231",
+            "label": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T230",
+            "TP-T231"
+          ],
+          [
+            "TP-T231",
+            "TP-N231"
+          ],
+          [
+            "TP-T231",
+            "TP-OPEN231"
+          ],
+          [
+            "TP-OPEN231",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-231",
+      "status": "open_not_proven",
+      "declared_proposition": "Let q_j>1 and w_j>=0 satisfy sum_j w_j<infinity, and suppose two positive-weight q_j are multiplicatively independent. Put F(n)=sum_j w_j|1-q_j^(-in)|^2. For every head size M and integer Q>=2 there is 1<=n<=Q^M with F(n)<=4*pi^2*Q^(-2)*sum_(j<=M)w_j+4*sum_(j>M)w_j. Consequently liminf_(n->infinity) F(n)=0. No fixed absolutely summable infinite dilation family has a positive uniform frame floor on the integer frequencies.",
+      "mathematical_argument": "Apply simultaneous pigeonhole approximation to the first M phase coordinates. The head contribution is at most 4*pi^2/Q^2 times its weight mass, while |1-z|^2<=4 bounds the tail. First choose M so the summable tail is arbitrarily small and then let Q grow. The witnesses are unbounded: otherwise a fixed positive integer would recur while the two independent positive-weight phases tend to zero, forcing both phases to vanish exactly and the ratio of their logarithms to be rational.",
+      "new_result": "SummableInfiniteDilationUniformFloorNoGo",
+      "bounded_result": {
+        "audit_ref": "#/summable_frame_critical_strip_gauss_crt_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "a fixed absolutely summable infinite dilation family as a source of a positive uniform frequency floor",
+      "remaining_gap": "The result closes the naive fixed absolutely summable extension of TICKET-230. It concerns the dilation phase energy, not the full Weil quadratic form. Height-adaptive weights, a nonsummable renormalized family, and explicit Weil-tail dominance remain open.",
+      "candidate_theorem": "HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T230",
+            "label": "QuantitativeFiniteDilationRecurrenceRateNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T231",
+            "label": "SummableInfiniteDilationUniformFloorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N231",
+            "label": "FixedAbsolutelySummablePositiveUniformFrameFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN231",
+            "label": "HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T230",
+            "RH-T231"
+          ],
+          [
+            "RH-T231",
+            "RH-N231"
+          ],
+          [
+            "RH-T231",
+            "RH-OPEN231"
+          ],
+          [
+            "RH-OPEN231",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-231",
+      "status": "open_not_proven",
+      "declared_proposition": "For a positive accelerated Collatz cycle word a of height h, let S=sum a_j, D=2^S-3^h, and B be its cycle numerator. If S>=2h, then a cyclic rotation has every suffix valuation sum at least twice its length. For that rotation B/2^S<=1-(3/4)^h. Hence B<=2^S-2^(S-2h)3^h<=D, with equality only when every a_j=2. By necklace invariance, every non-all-two word with S>=2h has 0<B<D and cannot satisfy D|B. Thus every nontrivial positive cycle must lie in h*log_2(3)<S<2h.",
+      "mathematical_argument": "Apply the maximum-partial-sum rotation lemma to b_j=a_j-2; its total is nonnegative. The rotation after a maximal cumulative sum has all suffix sums of b nonnegative. Dividing B by 2^S and reading suffixes gives a termwise bound by sum_(r=1)^h 3^(r-1)/4^r=1-(3/4)^h. The two comparisons are strict unless S=2h and every suffix inequality is equality, which forces a_j=2 for all j. TICKET-230 proves D|B is invariant under rotation, so the certificate applies to the original necklace.",
+      "new_result": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+      "bounded_result": {
+        "audit_ref": "#/summable_frame_critical_strip_gauss_crt_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "the literal claim that every primitive positive-denominator necklace is nondivisible, which includes the trivial word (2)",
+      "remaining_gap": "This excludes all nontrivial cycle words with average valuation at least two and corrects the literal TICKET-230 target, which included the divisible trivial word (2). It does not exclude cycle necklaces in log_2(3)<S/h<2 or divergent aperiodic trajectories.",
+      "candidate_theorem": "CriticalStripPrimitiveNecklaceNondivisibility",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T230",
+            "label": "CollatzCycleDivisibilityNecklaceInvariance",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T231",
+            "label": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N231",
+            "label": "AllPrimitivePositiveDenominatorNecklacesAreNondivisible",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN231",
+            "label": "CriticalStripPrimitiveNecklaceNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T230",
+            "CO-T231"
+          ],
+          [
+            "CO-T231",
+            "CO-N231"
+          ],
+          [
+            "CO-T231",
+            "CO-OPEN231"
+          ],
+          [
+            "CO-OPEN231",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-231",
+      "status": "open_not_proven",
+      "declared_proposition": "For every prime p congruent to 3 modulo 4, let w_p be the indicator of the nonzero quadratic residues in Z/pZ. Its mass is W=(p-1)/2, but (w_p*w_p)(0)=0. For k nonzero, w_hat_p(k)=(-1+chi(k)tau_p)/2, where |tau_p|=sqrt(p) and tau_p^2=-p. Hence every nonprincipal magnitude is sqrt(p+1)/2 and max|w_hat_p(k)|/W=sqrt(p+1)/(p-1), which tends to zero. The signed nonprincipal aggregate at zero is exactly -W^2/p and cancels the principal term. Thus modewise relative Fourier decay does not imply pointwise positivity.",
+      "mathematical_argument": "Because chi(-1)=-1, the negative of a nonzero quadratic residue is a nonresidue, proving the zero convolution. Writing the residue indicator as (1+chi)/2 away from zero gives the Gauss-sum formula. For p=3 mod 4 the quadratic Gauss sum is purely imaginary with square -p, so both signs have magnitude sqrt(p+1)/2. Fourier inversion at zero and the already proved zero convolution force the exact negative aggregate.",
+      "new_result": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+      "bounded_result": {
+        "audit_ref": "#/summable_frame_critical_strip_gauss_crt_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "using the positive TICKET-230 spike convolution as a counterexample to pointwise positivity",
+      "remaining_gap": "The weights are quadratic-residue indicators, not primes, so this is an inference-rule counterexample and not a Goldbach counterexample. The remaining task is a one-sided aggregate minor-arc bound for actual prime weights below the positive singular-series main term.",
+      "candidate_theorem": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T230",
+            "label": "ModewiseFourierDecaySameOrderAggregateExample",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T231",
+            "label": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N231",
+            "label": "TICKET230SpikeFamilyRefutesPointwisePositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN231",
+            "label": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T230",
+            "GB-T231"
+          ],
+          [
+            "GB-T231",
+            "GB-N231"
+          ],
+          [
+            "GB-T231",
+            "GB-OPEN231"
+          ],
+          [
+            "GB-OPEN231",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-231",
+      "status": "open_not_proven",
+      "declared_proposition": "For odd primes l not dividing h, let A_l exclude 0 and -h, let chi_l be quadratic, mu_l=-chi_l(-h)/(l-2), and phi_l=chi_l-mu_l on A_l. Under the uniform CRT product measure, Phi_S=product_(l in S)phi_l is orthogonal to Phi_T whenever S differs from T. Its squared norm is product_(l in S)(1-1/(l-2)^2). The l=3 mode is identically zero; after removing such degenerate factors, the normalized Phi_S form an orthonormal dictionary of centered local interactions.",
+      "mathematical_argument": "TICKET-230 gives E(phi_l)=0. Also chi_l^2=1 on A_l, so E(phi_l^2)=1-mu_l^2. If S differs from T, a prime in their symmetric difference occurs to the first power in the product Phi_S Phi_T; independence of CRT coordinates factors out its zero mean. The diagonal factors into the stated local variances.",
+      "new_result": "CenteredCRTQuadraticInteractionOrthogonality",
+      "bounded_result": {
+        "audit_ref": "#/summable_frame_critical_strip_gauss_crt_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating raw local character correlations or the degenerate modulo-three mode as global prime evidence",
+      "remaining_gap": "This removes deterministic local admissibility bias and diagonalizes one quadratic-character interaction dictionary. It is not a complete basis for all local functions, says nothing by itself about prime-weighted coefficients, and does not overcome the sieve parity barrier or prove twin infinitude.",
+      "candidate_theorem": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T230",
+            "label": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T231",
+            "label": "CenteredCRTQuadraticInteractionOrthogonality",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N231",
+            "label": "RawLocalCharacterBiasAsPrimeWeightedCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN231",
+            "label": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T230",
+            "TP-T231"
+          ],
+          [
+            "TP-T231",
+            "TP-N231"
+          ],
+          [
+            "TP-T231",
+            "TP-OPEN231"
+          ],
+          [
+            "TP-OPEN231",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}

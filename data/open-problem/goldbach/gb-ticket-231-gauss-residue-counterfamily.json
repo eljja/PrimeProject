@@ -1,0 +1,224 @@
+{
+  "schema": "primeproject.ticket231-summable-frame-critical-strip-gauss-crt.v1",
+  "generated_at": "2026-08-21T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-231",
+  "theorem_name": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+  "declared_proposition": "For every prime p congruent to 3 modulo 4, let w_p be the indicator of the nonzero quadratic residues in Z/pZ. Its mass is W=(p-1)/2, but (w_p*w_p)(0)=0. For k nonzero, w_hat_p(k)=(-1+chi(k)tau_p)/2, where |tau_p|=sqrt(p) and tau_p^2=-p. Hence every nonprincipal magnitude is sqrt(p+1)/2 and max|w_hat_p(k)|/W=sqrt(p+1)/(p-1), which tends to zero. The signed nonprincipal aggregate at zero is exactly -W^2/p and cancels the principal term. Thus modewise relative Fourier decay does not imply pointwise positivity.",
+  "mathematical_argument": "Because chi(-1)=-1, the negative of a nonzero quadratic residue is a nonresidue, proving the zero convolution. Writing the residue indicator as (1+chi)/2 away from zero gives the Gauss-sum formula. For p=3 mod 4 the quadratic Gauss sum is purely imaginary with square -p, so both signs have magnitude sqrt(p+1)/2. Fourier inversion at zero and the already proved zero convolution force the exact negative aggregate.",
+  "reproducible_computation": {
+    "theorem": "For every prime p congruent to 3 modulo 4, let w_p be the indicator of the nonzero quadratic residues in Z/pZ. Its mass is W=(p-1)/2, but (w_p*w_p)(0)=0. For k nonzero, w_hat_p(k)=(-1+chi(k)tau_p)/2, where |tau_p|=sqrt(p) and tau_p^2=-p. Hence every nonprincipal magnitude is sqrt(p+1)/2 and max|w_hat_p(k)|/W=sqrt(p+1)/(p-1), which tends to zero. The signed nonprincipal aggregate at zero is exactly -W^2/p and cancels the principal term. Thus modewise relative Fourier decay does not imply pointwise positivity.",
+    "proof": "Because chi(-1)=-1, the negative of a nonzero quadratic residue is a nonresidue, proving the zero convolution. Writing the residue indicator as (1+chi)/2 away from zero gives the Gauss-sum formula. For p=3 mod 4 the quadratic Gauss sum is purely imaginary with square -p, so both signs have magnitude sqrt(p+1)/2. Fourier inversion at zero and the already proved zero convolution force the exact negative aggregate.",
+    "quadratic_residue_counterfamily_rows": [
+      {
+        "prime_p": 7,
+        "nonzero_quadratic_residue_count_W": 3,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 1.4142135623730951,
+        "maximum_mode_to_mass_ratio": 0.47140452079103173,
+        "elementary_upper_bound_ratio": 0.6076252185107651,
+        "signed_nonprincipal_aggregate_at_zero": -1.2857142857142854,
+        "exact_expected_signed_aggregate": "-9/7",
+        "maximum_dft_formula_error": 8.881784197001252e-16,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 11,
+        "nonzero_quadratic_residue_count_W": 5,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 1.7320508075688772,
+        "maximum_mode_to_mass_ratio": 0.34641016151377546,
+        "elementary_upper_bound_ratio": 0.43166247903554,
+        "signed_nonprincipal_aggregate_at_zero": -2.272727272727273,
+        "exact_expected_signed_aggregate": "-25/11",
+        "maximum_dft_formula_error": 2.4424906541753444e-15,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 19,
+        "nonzero_quadratic_residue_count_W": 9,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 2.23606797749979,
+        "maximum_mode_to_mass_ratio": 0.24845199749997665,
+        "elementary_upper_bound_ratio": 0.2977166079744819,
+        "signed_nonprincipal_aggregate_at_zero": -4.263157894736835,
+        "exact_expected_signed_aggregate": "-81/19",
+        "maximum_dft_formula_error": 1.865174681370263e-14,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 23,
+        "nonzero_quadratic_residue_count_W": 11,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 2.449489742783178,
+        "maximum_mode_to_mass_ratio": 0.22268088570756162,
+        "elementary_upper_bound_ratio": 0.2634468874233054,
+        "signed_nonprincipal_aggregate_at_zero": -5.260869565217388,
+        "exact_expected_signed_aggregate": "-121/23",
+        "maximum_dft_formula_error": 3.4638958368304884e-14,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 31,
+        "nonzero_quadratic_residue_count_W": 15,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 2.8284271247461903,
+        "maximum_mode_to_mass_ratio": 0.1885618083164127,
+        "elementary_upper_bound_ratio": 0.2189254787610007,
+        "signed_nonprincipal_aggregate_at_zero": -7.258064516129029,
+        "exact_expected_signed_aggregate": "-225/31",
+        "maximum_dft_formula_error": 1.8207657603852567e-14,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 43,
+        "nonzero_quadratic_residue_count_W": 21,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 3.3166247903554,
+        "maximum_mode_to_mass_ratio": 0.1579345138264476,
+        "elementary_upper_bound_ratio": 0.17993901248338096,
+        "signed_nonprincipal_aggregate_at_zero": -10.255813953488358,
+        "exact_expected_signed_aggregate": "-441/43",
+        "maximum_dft_formula_error": 5.3734794391857577e-14,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 47,
+        "nonzero_quadratic_residue_count_W": 23,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 3.4641016151377544,
+        "maximum_mode_to_mass_ratio": 0.1506131137016415,
+        "elementary_upper_bound_ratio": 0.17077510000871834,
+        "signed_nonprincipal_aggregate_at_zero": -11.255319148936122,
+        "exact_expected_signed_aggregate": "-529/47",
+        "maximum_dft_formula_error": 5.950795411990839e-14,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 59,
+        "nonzero_quadratic_residue_count_W": 29,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 3.872983346207417,
+        "maximum_mode_to_mass_ratio": 0.1335511498692213,
+        "elementary_upper_bound_ratio": 0.1496749266873898,
+        "signed_nonprincipal_aggregate_at_zero": -14.254237288135602,
+        "exact_expected_signed_aggregate": "-841/59",
+        "maximum_dft_formula_error": 1.0835776720341528e-13,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 67,
+        "nonzero_quadratic_residue_count_W": 33,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 4.123105625617661,
+        "maximum_mode_to_mass_ratio": 0.12494259471568668,
+        "elementary_upper_bound_ratio": 0.13917201169503712,
+        "signed_nonprincipal_aggregate_at_zero": -16.253731343283597,
+        "exact_expected_signed_aggregate": "-1089/67",
+        "maximum_dft_formula_error": 1.6608936448392342e-13,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 71,
+        "nonzero_quadratic_residue_count_W": 35,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 4.242640687119285,
+        "maximum_mode_to_mass_ratio": 0.12121830534626528,
+        "elementary_upper_bound_ratio": 0.13465928247394798,
+        "signed_nonprincipal_aggregate_at_zero": -17.253521126760543,
+        "exact_expected_signed_aggregate": "-1225/71",
+        "maximum_dft_formula_error": 2.1049828546892968e-13,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 79,
+        "nonzero_quadratic_residue_count_W": 39,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 4.47213595499958,
+        "maximum_mode_to_mass_ratio": 0.11467015269229691,
+        "elementary_upper_bound_ratio": 0.1267717232989178,
+        "signed_nonprincipal_aggregate_at_zero": -19.253164556961995,
+        "exact_expected_signed_aggregate": "-1521/79",
+        "maximum_dft_formula_error": 1.2789769243681803e-13,
+        "certificate_verified": true
+      },
+      {
+        "prime_p": 83,
+        "nonzero_quadratic_residue_count_W": 41,
+        "convolution_at_zero": 0,
+        "nonprincipal_coefficient_magnitude": 4.58257569495584,
+        "maximum_mode_to_mass_ratio": 0.11177013890136195,
+        "elementary_upper_bound_ratio": 0.1232979704773695,
+        "signed_nonprincipal_aggregate_at_zero": -20.25301204819263,
+        "exact_expected_signed_aggregate": "-1681/83",
+        "maximum_dft_formula_error": 1.4832579608992091e-13,
+        "certificate_verified": true
+      }
+    ],
+    "ticket230_correction": "The TICKET-230 spike family proves same-order aligned Fourier error, but its convolution remains positive at every target. It therefore did not by itself refute the positivity inference. This quadratic-residue family supplies the required genuine zero-convolution counterfamily.",
+    "aggregate": {
+      "true_zero_convolution_counterfamily_proved": true,
+      "modewise_relative_decay_without_pointwise_positivity_proved": true,
+      "exact_negative_aggregate_cancellation_proved": true,
+      "ticket230_spike_positivity_overclaim_corrected": true,
+      "prime_specific_minor_arc_bound_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The weights are quadratic-residue indicators, not primes, so this is an inference-rule counterexample and not a Goldbach counterexample. The remaining task is a one-sided aggregate minor-arc bound for actual prime weights below the positive singular-series main term.",
+    "failure_count": 0
+  },
+  "logical_limit": "The weights are quadratic-residue indicators, not primes, so this is an inference-rule counterexample and not a Goldbach counterexample. The remaining task is a one-sided aggregate minor-arc bound for actual prime weights below the positive singular-series main term.",
+  "route_decision": {
+    "discard": "using the positive TICKET-230 spike convolution as a counterexample to pointwise positivity",
+    "retain": "bound the negative target-aligned aggregate for actual prime weights below the positive singular-series main term",
+    "next_single_lemma": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T230",
+        "label": "ModewiseFourierDecaySameOrderAggregateExample",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T231",
+        "label": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N231",
+        "label": "TICKET230SpikeFamilyRefutesPointwisePositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN231",
+        "label": "UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T230",
+        "GB-T231"
+      ],
+      [
+        "GB-T231",
+        "GB-N231"
+      ],
+      [
+        "GB-T231",
+        "GB-OPEN231"
+      ],
+      [
+        "GB-OPEN231",
+        "GB"
+      ]
+    ]
+  }
+}

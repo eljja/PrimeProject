@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket231AttemptGlobal = null;
 let ticket230AttemptGlobal = null;
 let ticket229AttemptGlobal = null;
 let ticket228AttemptGlobal = null;
@@ -10026,6 +10027,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket231SummableFrameCriticalStripGaussCRT(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.summable_frame_critical_strip_gauss_crt_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.weighted_head_tail_rows || [];
+    detail = `
+      <div class="poc-equation">F<sub>w</sub>(n) ≤ 4π²Q<sup>−2</sup>Σ<sub>j≤M</sub>w<sub>j</sub> + 4Σ<sub>j&gt;M</sub>w<sub>j</sub> ⇒ lim inf<sub>n→∞</sub>F<sub>w</sub>(n)=0</div>
+      ${table(["head M", "partition Q", "witness n", "tail mass", "head energy", "full upper bound"], rows.map((row) => [row.head_size_M, row.partition_Q, row.witness_frequency_n, row.exact_tail_weight_mass, Number(row.observed_head_energy).toExponential(3), Number(row.full_infinite_energy_upper_bound).toExponential(3)]))}
+      <div class="poc-head"><div><span>Summable-frame liminf</span><strong>${aggregate.summable_infinite_dilation_liminf_zero_proved ? "proved" : "open"}</strong></div><div><span>Positive uniform floor</span><strong>${aggregate.positive_uniform_floor_for_fixed_summable_frame_refuted ? "refuted" : "open"}</strong></div><div><span>RH resolved</span><strong>${aggregate.riemann_hypothesis_resolved ? "yes" : "no"}</strong></div></div>
+      <p class="proof-note">고정된 절대가합 무한 배율 족도 양의 균일 하한을 만들 수 없습니다. 높이 적응형 또는 재규격화 프레임이 실제 Weil 꼬리를 지배한다는 정리는 아직 없습니다.</p>
+    `;
+  } else if (problemKey === "collatz") {
+    const rows = computation.height_rows || [];
+    detail = `
+      <div class="poc-equation">S≥2h and a≠(2,…,2) ⇒ 0&lt;B&lt;D=2<sup>S</sup>−3<sup>h</sup>; every nontrivial cycle requires log₂3&lt;S/h&lt;2</div>
+      ${table(["height h", "words S≥2h", "necklaces", "strict exclusions", "all-two equality"], rows.map((row) => [row.height_h, formatter.format(row.words_with_S_at_least_2h || 0), formatter.format(row.necklace_count || 0), formatter.format(row.strict_nontrivial_exclusions || 0), row.all_two_equality_word_count]))}
+      <div class="poc-head"><div><span>Critical strip</span><strong>${aggregate.nontrivial_cycle_critical_strip_proved ? "proved" : "open"}</strong></div><div><span>Critical-strip D∤B</span><strong>${aggregate.critical_strip_nondivisibility_proved ? "proved" : "open"}</strong></div><div><span>Aperiodic descent</span><strong>${aggregate.aperiodic_descent_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">평균 valuation이 2 이상인 모든 비자명 순환 word를 배제했습니다. 남은 순환 후보는 엄밀한 임계띠 안에 있으며, 비주기 발산 문제는 별도로 남습니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.quadratic_residue_counterfamily_rows || [];
+    detail = `
+      <div class="poc-equation">p≡3 (mod 4), w=1<sub>nonzero quadratic residues</sub>: (w*w)(0)=0 while max<sub>k≠0</sub>|ŵ(k)|/W=√(p+1)/(p−1)→0</div>
+      ${table(["prime p", "mass W", "convolution at 0", "max mode / mass", "signed nonprincipal aggregate"], rows.map((row) => [row.prime_p, row.nonzero_quadratic_residue_count_W, row.convolution_at_zero, Number(row.maximum_mode_to_mass_ratio).toFixed(5), row.exact_expected_signed_aggregate]))}
+      <div class="poc-head"><div><span>Zero-convolution family</span><strong>${aggregate.true_zero_convolution_counterfamily_proved ? "proved" : "open"}</strong></div><div><span>T230 positivity wording</span><strong>${aggregate.ticket230_spike_positivity_overclaim_corrected ? "corrected" : "open"}</strong></div><div><span>Prime minor arcs</span><strong>${aggregate.prime_specific_minor_arc_bound_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">이차잉여 가중치는 진짜 영 합성곱 반례족이지만 소수 가중치가 아니므로 골드바흐 반례는 아닙니다. 실제 소수의 음의 minor-arc 전체 합 상계가 남습니다.</p>
+    `;
+  } else {
+    const localRows = computation.local_centered_rows || [];
+    const productRows = computation.crt_product_gram_rows || [];
+    detail = `
+      <div class="poc-equation">φ<sub>ℓ</sub>=χ<sub>ℓ</sub>−Eχ<sub>ℓ</sub>; S≠T ⇒ E(Φ<sub>S</sub>Φ<sub>T</sub>)=0; ||Φ<sub>S</sub>||²=Π<sub>ℓ∈S</sub>(1−1/(ℓ−2)²)</div>
+      ${table(["prime l", "allowed count", "centered mean", "variance", "degenerate"], localRows.map((row) => [row.prime_l, row.allowed_count_l_minus_2, row.centered_mean, row.centered_variance, row.degenerate_zero_mode ? "yes" : "no"]))}
+      ${table(["active CRT primes", "admissible tuples", "modes", "max off-diagonal", "Gram identity"], productRows.map((row) => [(row.active_primes || []).join("·"), formatter.format(row.crt_admissible_tuple_count || 0), row.orthogonal_mode_count, row.maximum_exact_off_diagonal, row.gram_identity_verified ? "exact" : "failed"]))}
+      <div class="poc-head"><div><span>CRT orthogonality</span><strong>${aggregate.centered_crt_interaction_orthogonality_proved ? "proved" : "open"}</strong></div><div><span>Complete local basis</span><strong>${aggregate.full_local_function_basis_claimed ? "claimed" : "not claimed"}</strong></div><div><span>Prime-weighted saving</span><strong>${aggregate.prime_weighted_growing_modulus_saving_proved ? "proved" : "open"}</strong></div></div>
+      <p class="proof-note">결정론적 국소 허용 편향을 정확히 분리했지만 이 직교 사전 자체는 소수 가중 상쇄나 쌍둥이 소수의 무한성을 주지 않습니다.</p>
+    `;
+  }
+  return `
+    <div id="ticket231-summable-frame-critical-strip-gauss-crt" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 231 summable frames, Collatz critical strip, Gauss counterfamily, and CRT orthogonality</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET231 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/summable-frame-critical-strip-gauss-crt.ko.md">한국어 보고서</a> · <a href="../docs/summable-frame-critical-strip-gauss-crt.md">English report</a> · <a href="../data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json">machine JSON</a></p>
+    </div>
+  `;
+}
+
 function renderTicket230QuantitativeRecurrenceNecklaceFourierCentering(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.quantitative_recurrence_necklace_fourier_centering_audit || {};
@@ -10078,7 +10147,7 @@ function renderTicket230QuantitativeRecurrenceNecklaceFourierCentering(attempt) 
   }
   return `
     <div id="ticket230-quantitative-recurrence-necklace-fourier-centering" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 230 quantitative recurrence, necklace invariance, Fourier aggregation, and local centering</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact structural/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET230 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -17502,7 +17571,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket230QuantitativeRecurrenceNecklaceFourierCentering(ticket230AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket231SummableFrameCriticalStripGaussCRT(ticket231AttemptGlobal) ||
+      renderTicket230QuantitativeRecurrenceNecklaceFourierCentering(ticket230AttemptGlobal) ||
       renderTicket229BandFrameSemilinearCharacterBarriers(ticket229AttemptGlobal) ||
       renderTicket228NearAliasAffineLanguageResidueSpectrum(ticket228AttemptGlobal) ||
       renderTicket227MellinBlockBuchstabLifts(ticket227AttemptGlobal) ||
@@ -18052,6 +18122,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket231Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket231AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket231AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket231AttemptGlobal) {
+      ticket231AttemptGlobal.bounded_result = ticket231AttemptGlobal.bounded_result || {};
+      ticket231AttemptGlobal.bounded_result.summable_frame_critical_strip_gauss_crt_audit = payload.summable_frame_critical_strip_gauss_crt_audit || {};
+    }
+    return Boolean(ticket231AttemptGlobal);
+  } catch (error) {
+    ticket231AttemptGlobal = null;
     return false;
   }
 }
@@ -19845,6 +19935,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket231Loaded = await loadTicket231Attempt();
   const ticket230Loaded = await loadTicket230Attempt();
   const ticket229Loaded = await loadTicket229Attempt();
   const ticket228Loaded = await loadTicket228Attempt();
@@ -19857,7 +19948,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket230-current";
+  document.documentElement.dataset.openProblemCache = "ticket231-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -19910,8 +20001,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket231AttemptGlobal) await loadTicket231Attempt();
     if (!ticket230AttemptGlobal) await loadTicket230Attempt();
     if (!ticket229AttemptGlobal) await loadTicket229Attempt();
     if (!ticket228AttemptGlobal) await loadTicket228Attempt();
@@ -20020,7 +20112,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket230-current";
+  document.documentElement.dataset.openProblemCache = "ticket231-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

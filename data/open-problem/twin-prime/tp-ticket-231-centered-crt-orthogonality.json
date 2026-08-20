@@ -1,0 +1,224 @@
+{
+  "schema": "primeproject.ticket231-summable-frame-critical-strip-gauss-crt.v1",
+  "generated_at": "2026-08-21T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-231",
+  "theorem_name": "CenteredCRTQuadraticInteractionOrthogonality",
+  "declared_proposition": "For odd primes l not dividing h, let A_l exclude 0 and -h, let chi_l be quadratic, mu_l=-chi_l(-h)/(l-2), and phi_l=chi_l-mu_l on A_l. Under the uniform CRT product measure, Phi_S=product_(l in S)phi_l is orthogonal to Phi_T whenever S differs from T. Its squared norm is product_(l in S)(1-1/(l-2)^2). The l=3 mode is identically zero; after removing such degenerate factors, the normalized Phi_S form an orthonormal dictionary of centered local interactions.",
+  "mathematical_argument": "TICKET-230 gives E(phi_l)=0. Also chi_l^2=1 on A_l, so E(phi_l^2)=1-mu_l^2. If S differs from T, a prime in their symmetric difference occurs to the first power in the product Phi_S Phi_T; independence of CRT coordinates factors out its zero mean. The diagonal factors into the stated local variances.",
+  "reproducible_computation": {
+    "theorem": "For odd primes l not dividing h, let A_l exclude 0 and -h, let chi_l be quadratic, mu_l=-chi_l(-h)/(l-2), and phi_l=chi_l-mu_l on A_l. Under the uniform CRT product measure, Phi_S=product_(l in S)phi_l is orthogonal to Phi_T whenever S differs from T. Its squared norm is product_(l in S)(1-1/(l-2)^2). The l=3 mode is identically zero; after removing such degenerate factors, the normalized Phi_S form an orthonormal dictionary of centered local interactions.",
+    "proof": "TICKET-230 gives E(phi_l)=0. Also chi_l^2=1 on A_l, so E(phi_l^2)=1-mu_l^2. If S differs from T, a prime in their symmetric difference occurs to the first power in the product Phi_S Phi_T; independence of CRT coordinates factors out its zero mean. The diagonal factors into the stated local variances.",
+    "local_centered_rows": [
+      {
+        "prime_l": 3,
+        "allowed_count_l_minus_2": 1,
+        "centered_mean": "0",
+        "centered_variance": "0",
+        "expected_variance": "0",
+        "degenerate_zero_mode": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_l": 5,
+        "allowed_count_l_minus_2": 3,
+        "centered_mean": "0",
+        "centered_variance": "8/9",
+        "expected_variance": "8/9",
+        "degenerate_zero_mode": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_l": 7,
+        "allowed_count_l_minus_2": 5,
+        "centered_mean": "0",
+        "centered_variance": "24/25",
+        "expected_variance": "24/25",
+        "degenerate_zero_mode": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_l": 11,
+        "allowed_count_l_minus_2": 9,
+        "centered_mean": "0",
+        "centered_variance": "80/81",
+        "expected_variance": "80/81",
+        "degenerate_zero_mode": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_l": 13,
+        "allowed_count_l_minus_2": 11,
+        "centered_mean": "0",
+        "centered_variance": "120/121",
+        "expected_variance": "120/121",
+        "degenerate_zero_mode": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_l": 17,
+        "allowed_count_l_minus_2": 15,
+        "centered_mean": "0",
+        "centered_variance": "224/225",
+        "expected_variance": "224/225",
+        "degenerate_zero_mode": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_l": 19,
+        "allowed_count_l_minus_2": 17,
+        "centered_mean": "0",
+        "centered_variance": "288/289",
+        "expected_variance": "288/289",
+        "degenerate_zero_mode": false,
+        "certificate_verified": true
+      }
+    ],
+    "crt_product_gram_rows": [
+      {
+        "active_primes": [
+          5
+        ],
+        "crt_admissible_tuple_count": 3,
+        "orthogonal_mode_count": 2,
+        "diagonal_norm_squared": {
+          "constant": "1",
+          "5": "8/9"
+        },
+        "maximum_exact_off_diagonal": "0",
+        "gram_identity_verified": true
+      },
+      {
+        "active_primes": [
+          5,
+          7
+        ],
+        "crt_admissible_tuple_count": 15,
+        "orthogonal_mode_count": 4,
+        "diagonal_norm_squared": {
+          "constant": "1",
+          "5": "8/9",
+          "7": "24/25",
+          "5*7": "64/75"
+        },
+        "maximum_exact_off_diagonal": "0",
+        "gram_identity_verified": true
+      },
+      {
+        "active_primes": [
+          5,
+          7,
+          11
+        ],
+        "crt_admissible_tuple_count": 135,
+        "orthogonal_mode_count": 8,
+        "diagonal_norm_squared": {
+          "constant": "1",
+          "5": "8/9",
+          "7": "24/25",
+          "11": "80/81",
+          "5*7": "64/75",
+          "5*11": "640/729",
+          "7*11": "128/135",
+          "5*7*11": "1024/1215"
+        },
+        "maximum_exact_off_diagonal": "0",
+        "gram_identity_verified": true
+      },
+      {
+        "active_primes": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "crt_admissible_tuple_count": 1485,
+        "orthogonal_mode_count": 16,
+        "diagonal_norm_squared": {
+          "constant": "1",
+          "5": "8/9",
+          "7": "24/25",
+          "11": "80/81",
+          "13": "120/121",
+          "5*7": "64/75",
+          "5*11": "640/729",
+          "5*13": "320/363",
+          "7*11": "128/135",
+          "7*13": "576/605",
+          "11*13": "3200/3267",
+          "5*7*11": "1024/1215",
+          "5*7*13": "512/605",
+          "5*11*13": "25600/29403",
+          "7*11*13": "1024/1089",
+          "5*7*11*13": "8192/9801"
+        },
+        "maximum_exact_off_diagonal": "0",
+        "gram_identity_verified": true
+      }
+    ],
+    "aggregate": {
+      "centered_crt_interaction_orthogonality_proved": true,
+      "exact_tensor_norm_formula_proved": true,
+      "modulo_three_degenerate_mode_identified": true,
+      "full_local_function_basis_claimed": false,
+      "prime_weighted_growing_modulus_saving_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "This removes deterministic local admissibility bias and diagonalizes one quadratic-character interaction dictionary. It is not a complete basis for all local functions, says nothing by itself about prime-weighted coefficients, and does not overcome the sieve parity barrier or prove twin infinitude.",
+    "failure_count": 0
+  },
+  "logical_limit": "This removes deterministic local admissibility bias and diagonalizes one quadratic-character interaction dictionary. It is not a complete basis for all local functions, says nothing by itself about prime-weighted coefficients, and does not overcome the sieve parity barrier or prove twin infinitude.",
+  "route_decision": {
+    "discard": "treating raw local character correlations or the degenerate modulo-three mode as global prime evidence",
+    "retain": "project prime-weighted data onto normalized centered CRT interactions and seek uniform energy saving as the modulus grows",
+    "next_single_lemma": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T230",
+        "label": "ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T231",
+        "label": "CenteredCRTQuadraticInteractionOrthogonality",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N231",
+        "label": "RawLocalCharacterBiasAsPrimeWeightedCancellation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN231",
+        "label": "PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T230",
+        "TP-T231"
+      ],
+      [
+        "TP-T231",
+        "TP-N231"
+      ],
+      [
+        "TP-T231",
+        "TP-OPEN231"
+      ],
+      [
+        "TP-OPEN231",
+        "TP"
+      ]
+    ]
+  }
+}

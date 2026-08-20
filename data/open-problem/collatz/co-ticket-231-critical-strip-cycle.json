@@ -1,0 +1,567 @@
+{
+  "schema": "primeproject.ticket231-summable-frame-critical-strip-gauss-crt.v1",
+  "generated_at": "2026-08-21T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-231",
+  "theorem_name": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+  "declared_proposition": "For a positive accelerated Collatz cycle word a of height h, let S=sum a_j, D=2^S-3^h, and B be its cycle numerator. If S>=2h, then a cyclic rotation has every suffix valuation sum at least twice its length. For that rotation B/2^S<=1-(3/4)^h. Hence B<=2^S-2^(S-2h)3^h<=D, with equality only when every a_j=2. By necklace invariance, every non-all-two word with S>=2h has 0<B<D and cannot satisfy D|B. Thus every nontrivial positive cycle must lie in h*log_2(3)<S<2h.",
+  "mathematical_argument": "Apply the maximum-partial-sum rotation lemma to b_j=a_j-2; its total is nonnegative. The rotation after a maximal cumulative sum has all suffix sums of b nonnegative. Dividing B by 2^S and reading suffixes gives a termwise bound by sum_(r=1)^h 3^(r-1)/4^r=1-(3/4)^h. The two comparisons are strict unless S=2h and every suffix inequality is equality, which forces a_j=2 for all j. TICKET-230 proves D|B is invariant under rotation, so the certificate applies to the original necklace.",
+  "reproducible_computation": {
+    "theorem": "For a positive accelerated Collatz cycle word a of height h, let S=sum a_j, D=2^S-3^h, and B be its cycle numerator. If S>=2h, then a cyclic rotation has every suffix valuation sum at least twice its length. For that rotation B/2^S<=1-(3/4)^h. Hence B<=2^S-2^(S-2h)3^h<=D, with equality only when every a_j=2. By necklace invariance, every non-all-two word with S>=2h has 0<B<D and cannot satisfy D|B. Thus every nontrivial positive cycle must lie in h*log_2(3)<S<2h.",
+    "proof": "Apply the maximum-partial-sum rotation lemma to b_j=a_j-2; its total is nonnegative. The rotation after a maximal cumulative sum has all suffix sums of b nonnegative. Dividing B by 2^S and reading suffixes gives a termwise bound by sum_(r=1)^h 3^(r-1)/4^r=1-(3/4)^h. The two comparisons are strict unless S=2h and every suffix inequality is equality, which forces a_j=2 for all j. TICKET-230 proves D|B is invariant under rotation, so the certificate applies to the original necklace.",
+    "height_rows": [
+      {
+        "height_h": 1,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 4,
+        "necklace_count": 4,
+        "strict_nontrivial_exclusions": 3,
+        "all_two_equality_word_count": 1
+      },
+      {
+        "height_h": 2,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 22,
+        "necklace_count": 13,
+        "strict_nontrivial_exclusions": 21,
+        "all_two_equality_word_count": 1
+      },
+      {
+        "height_h": 3,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 115,
+        "necklace_count": 41,
+        "strict_nontrivial_exclusions": 114,
+        "all_two_equality_word_count": 1
+      },
+      {
+        "height_h": 4,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 590,
+        "necklace_count": 155,
+        "strict_nontrivial_exclusions": 589,
+        "all_two_equality_word_count": 1
+      },
+      {
+        "height_h": 5,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 2999,
+        "necklace_count": 603,
+        "strict_nontrivial_exclusions": 2998,
+        "all_two_equality_word_count": 1
+      },
+      {
+        "height_h": 6,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 15169,
+        "necklace_count": 2556,
+        "strict_nontrivial_exclusions": 15168,
+        "all_two_equality_word_count": 1
+      },
+      {
+        "height_h": 7,
+        "alphabet": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "words_with_S_at_least_2h": 76465,
+        "necklace_count": 10927,
+        "strict_nontrivial_exclusions": 76464,
+        "all_two_equality_word_count": 1
+      }
+    ],
+    "mixed_word_certificate_samples": [
+      {
+        "word": [
+          4
+        ],
+        "certificate_rotation": [
+          4
+        ],
+        "height_h": 1,
+        "valuation_sum_S": 4,
+        "denominator_D": 13,
+        "numerator_B": 1,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          5
+        ],
+        "certificate_rotation": [
+          5
+        ],
+        "height_h": 1,
+        "valuation_sum_S": 5,
+        "denominator_D": 29,
+        "numerator_B": 1,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          3
+        ],
+        "certificate_rotation": [
+          1,
+          3
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 4,
+        "denominator_D": 7,
+        "numerator_B": 5,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "certificate_rotation": [
+          1,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 5,
+        "denominator_D": 23,
+        "numerator_B": 5,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          5
+        ],
+        "certificate_rotation": [
+          1,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 6,
+        "denominator_D": 55,
+        "numerator_B": 5,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          2,
+          4
+        ],
+        "certificate_rotation": [
+          2,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 6,
+        "denominator_D": 55,
+        "numerator_B": 7,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          2,
+          5
+        ],
+        "certificate_rotation": [
+          2,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 7,
+        "denominator_D": 119,
+        "numerator_B": 7,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          3,
+          1
+        ],
+        "certificate_rotation": [
+          1,
+          3
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 4,
+        "denominator_D": 7,
+        "numerator_B": 5,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          3,
+          4
+        ],
+        "certificate_rotation": [
+          3,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 7,
+        "denominator_D": 119,
+        "numerator_B": 11,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          3,
+          5
+        ],
+        "certificate_rotation": [
+          3,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 247,
+        "numerator_B": 11,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          4,
+          1
+        ],
+        "certificate_rotation": [
+          1,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 5,
+        "denominator_D": 23,
+        "numerator_B": 5,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          4,
+          2
+        ],
+        "certificate_rotation": [
+          2,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 6,
+        "denominator_D": 55,
+        "numerator_B": 7,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          4,
+          3
+        ],
+        "certificate_rotation": [
+          4,
+          3
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 7,
+        "denominator_D": 119,
+        "numerator_B": 19,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          4,
+          4
+        ],
+        "certificate_rotation": [
+          4,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 247,
+        "numerator_B": 19,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          4,
+          5
+        ],
+        "certificate_rotation": [
+          4,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 9,
+        "denominator_D": 503,
+        "numerator_B": 19,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          5,
+          1
+        ],
+        "certificate_rotation": [
+          1,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 6,
+        "denominator_D": 55,
+        "numerator_B": 5,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          5,
+          2
+        ],
+        "certificate_rotation": [
+          2,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 7,
+        "denominator_D": 119,
+        "numerator_B": 7,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          5,
+          3
+        ],
+        "certificate_rotation": [
+          5,
+          3
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 247,
+        "numerator_B": 35,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          5,
+          4
+        ],
+        "certificate_rotation": [
+          5,
+          4
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 9,
+        "denominator_D": 503,
+        "numerator_B": 35,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          5,
+          5
+        ],
+        "certificate_rotation": [
+          5,
+          5
+        ],
+        "height_h": 2,
+        "valuation_sum_S": 10,
+        "denominator_D": 1015,
+        "numerator_B": 35,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          4
+        ],
+        "certificate_rotation": [
+          1,
+          1,
+          4
+        ],
+        "height_h": 3,
+        "valuation_sum_S": 6,
+        "denominator_D": 37,
+        "numerator_B": 19,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          5
+        ],
+        "certificate_rotation": [
+          1,
+          1,
+          5
+        ],
+        "height_h": 3,
+        "valuation_sum_S": 7,
+        "denominator_D": 101,
+        "numerator_B": 19,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          3
+        ],
+        "certificate_rotation": [
+          1,
+          2,
+          3
+        ],
+        "height_h": 3,
+        "valuation_sum_S": 6,
+        "denominator_D": 37,
+        "numerator_B": 23,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          4
+        ],
+        "certificate_rotation": [
+          1,
+          2,
+          4
+        ],
+        "height_h": 3,
+        "valuation_sum_S": 7,
+        "denominator_D": 101,
+        "numerator_B": 23,
+        "all_suffix_averages_at_least_two": true,
+        "strict_B_between_zero_and_D": true
+      }
+    ],
+    "aggregate": {
+      "average_valuation_at_least_two_nontrivial_cycles_excluded": true,
+      "nontrivial_cycle_critical_strip_proved": true,
+      "all_two_trivial_cycle_retained": true,
+      "critical_strip_nondivisibility_proved": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This excludes all nontrivial cycle words with average valuation at least two and corrects the literal TICKET-230 target, which included the divisible trivial word (2). It does not exclude cycle necklaces in log_2(3)<S/h<2 or divergent aperiodic trajectories.",
+    "failure_count": 0
+  },
+  "logical_limit": "This excludes all nontrivial cycle words with average valuation at least two and corrects the literal TICKET-230 target, which included the divisible trivial word (2). It does not exclude cycle necklaces in log_2(3)<S/h<2 or divergent aperiodic trajectories.",
+  "route_decision": {
+    "discard": "the literal claim that every primitive positive-denominator necklace is nondivisible, which includes the trivial word (2)",
+    "retain": "attack only nontrivial necklaces in the exact critical strip h*log_2(3)<S<2h and treat aperiodic descent separately",
+    "next_single_lemma": "CriticalStripPrimitiveNecklaceNondivisibility"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T230",
+        "label": "CollatzCycleDivisibilityNecklaceInvariance",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T231",
+        "label": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N231",
+        "label": "AllPrimitivePositiveDenominatorNecklacesAreNondivisible",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN231",
+        "label": "CriticalStripPrimitiveNecklaceNondivisibility",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T230",
+        "CO-T231"
+      ],
+      [
+        "CO-T231",
+        "CO-N231"
+      ],
+      [
+        "CO-T231",
+        "CO-OPEN231"
+      ],
+      [
+        "CO-OPEN231",
+        "CO"
+      ]
+    ]
+  }
+}

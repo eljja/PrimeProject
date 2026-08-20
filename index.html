@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260820-ticket230-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260821-ticket231-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-230 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-231 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, invalid successor targets corrected</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-230 proves four exact rate, symmetry, aggregation, or centering limits.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-230은 재귀 속도·목걸이 대칭·푸리에 합산·국소 중심화에 관한 네 개의 정확한 부분정리 또는 불가능성 정리를 증명했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-231 proves four exact frame, critical-strip, Gauss, or CRT limits.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-231은 절대가합 프레임·콜라츠 임계띠·가우스 반례족·CRT 직교성에 관한 네 개의 정확한 부분정리 또는 불가능성 정리를 증명했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>230</strong><small>2026-08-20</small></div>
+              <div><span>Latest ticket</span><strong>231</strong><small>2026-08-21</small></div>
               <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>유한 프레임·회전 중복·모드별 추론·raw 중심</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>절대가합 프레임·자명 순환·spike 과장·raw CRT 편향</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 고정된 유한 <code>m</code>개 배율 족에는 에너지가 <code>O(T<sup>−2/m</sup>)</code>인 무한 근접 재귀 수열이 존재합니다.</p>
-                <p><strong>폐기:</strong> 이 재귀 척도보다 느리게 감소하는 고정 유한 족의 전역 프레임 하한.</p>
-                <p><strong>다음 핵심:</strong> <code>AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale</code>.</p>
+                <p><strong>확립:</strong> 고정된 절대가합 무한 배율 족의 에너지 하극한은 0입니다.</p>
+                <p><strong>폐기:</strong> 고정 절대가합 무한 족에서 양의 균일 프레임 하한을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> <code>2<sup>a₀</sup>B(ρa)=3B(a)+D</code>이며 <code>D|B</code>와 <code>gcd(D,B)</code>는 순환 목걸이 불변량입니다.</p>
-                <p><strong>폐기:</strong> 한 valuation word의 순환 회전을 독립적인 순환 증거로 세는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord</code>.</p>
+                <p><strong>확립:</strong> 모든 비자명 양의 순환은 <code>log<sub>2</sub>3&lt;S/h&lt;2</code> 임계띠 안에 있습니다.</p>
+                <p><strong>폐기:</strong> 자명한 가분 word <code>(2)</code>까지 포함한 무예외 전체 목걸이 비나눗셈.</p>
+                <p><strong>다음 핵심:</strong> <code>CriticalStripPrimitiveNecklaceNondivisibility</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 각 비주 푸리에 모드가 <code>o(W)</code>여도 목표 위상 정렬 오차가 주항과 같은 차수인 정확한 반례족이 존재합니다.</p>
-                <p><strong>폐기:</strong> 성장하는 모드의 개별 소량성만으로 점별 이항 합성곱 양성을 결론내리는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm</code>.</p>
+                <p><strong>확립:</strong> 모드별 상대 감쇠에도 합성곱이 0인 이차잉여 가우스 반례족이 존재합니다.</p>
+                <p><strong>폐기:</strong> 합성곱이 양수인 TICKET-230 spike를 점별 양성의 반례로 쓰는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> shift-two 허용 시작 잉여류에서 mod <code>5</code> 이차 지표의 정확한 원시 평균은 <code>1/3</code>입니다.</p>
-                <p><strong>폐기:</strong> 국소 평균을 빼지 않은 raw 이차 지표가 0으로 상쇄된다는 목표.</p>
-                <p><strong>다음 핵심:</strong> <code>CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale</code>.</p>
+                <p><strong>확립:</strong> 중심화 이차지표 CRT 상호작용은 명시적 노름을 갖고 정확히 직교합니다.</p>
+                <p><strong>폐기:</strong> 원시 국소 편향이나 퇴화 mod <code>3</code> 모드를 전역 소수 증거로 해석하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>230개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-230은 유한 배율 재귀 속도, 콜라츠 목걸이 대칭, 푸리에 모드 합산 장벽, 쌍둥이 국소 평균 교정을 정확한 정리로 고정합니다.</p>
+                <p>231개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-231은 절대가합 무한 프레임 장벽, 콜라츠 valuation 임계띠, 진짜 영 합성곱 가우스 반례족, 중심화 CRT 직교성을 정확한 정리로 고정합니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-230</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-230 proves four exact structural or no-go theorems and preserves a resolution count of zero.</p>
+              <strong>TICKET-231</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-231 proves four exact structural or no-go theorems and preserves a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260820-ticket230"></script>
-    <script src="assets/app.js?v=20260820-ticket230"></script>
+    <script src="assets/i18n.js?v=20260821-ticket231"></script>
+    <script src="assets/app.js?v=20260821-ticket231"></script>
   </body>
 </html>
 

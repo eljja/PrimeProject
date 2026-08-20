@@ -62,33 +62,34 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-230
+## Current continuation: TICKET-231
 
 The current machine-readable boundary is
-`data/open-problem/ticket230-quantitative-recurrence-necklace-fourier-centering.json`.
+`data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json`.
 It records four exact structural or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `QuantitativeFiniteDilationRecurrenceRateNoGo` | `AdaptiveInfiniteDilationFrameWithWeilTailDominanceBelowRecurrenceScale` |
-| Collatz | `CollatzCycleDivisibilityNecklaceInvariance` | `NecklaceRepresentativeNondivisibilityForEveryPrimitivePositiveDenominatorWord` |
-| Goldbach | `ModewiseFourierDecayPointwisePositivityNoGo` | `UniformBinaryPrimeMinorArcSignedAggregateBelowSingularSeriesMainTerm` |
-| Twin Prime | `ShiftAdmissibleCharacterMeanAndModuloFiveCenteringCorrection` | `CenteredModFiveQuadraticTypeIISavingAtTwinSieveMainScale` |
+| Riemann | `SummableInfiniteDilationUniformFloorNoGo` | `HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance` |
+| Collatz | `AverageValuationTwoCycleExclusionAndCriticalStrip` | `CriticalStripPrimitiveNecklaceNondivisibility` |
+| Goldbach | `QuadraticResidueGaussZeroConvolutionCounterfamily` | `UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm` |
+| Twin Prime | `CenteredCRTQuadraticInteractionOrthogonality` | `PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale` |
 
-The RH result quantifies unavoidable finite-family recurrence but does not
-construct a Weil-positive infinite frame. The Collatz result removes cyclic
-rotation duplication but does not prove global necklace nondivisibility or
-aperiodic descent. The Goldbach counterfamily refutes modewise promotion but
-does not estimate prime weights. The Twin result corrects the raw character
-mean from zero to `1/3`, but neither proves centered Type-II cancellation nor a
-positive twin-prime principal mass.
+The RH result rules out a positive uniform floor even for a fixed absolutely
+summable infinite family, but does not construct an adaptive Weil-positive
+frame. The Collatz result confines every nontrivial cycle to
+`log_2(3)<S/h<2`, but does not exclude that strip or aperiodic divergence. The
+Goldbach Gauss family is a genuine zero-convolution inference counterexample,
+not a prime-weight result or a Goldbach counterexample. The Twin result removes
+deterministic local CRT bias, but proves no prime-weighted energy saving or
+positive principal mass.
 
-Reports: [English](quantitative-recurrence-necklace-fourier-centering.md),
-[한국어](quantitative-recurrence-necklace-fourier-centering.ko.md).
+Reports: [English](summable-frame-critical-strip-gauss-crt.md),
+[한국어](summable-frame-critical-strip-gauss-crt.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-230 boundary.
+snapshots and must not override this TICKET-231 boundary.
 
 ## Historical continuation after TICKET-209
 

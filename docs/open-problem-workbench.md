@@ -15,33 +15,41 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-230
+## Current research boundary: TICKET-231
 
 The current machine-readable boundary is
-`data/open-problem/ticket230-quantitative-recurrence-necklace-fourier-centering.json`.
+`data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json`.
 
-TICKET-230 proves four exact structural or no-go theorems and resolves
+TICKET-231 proves four exact structural or no-go theorems and resolves
 none of the parent conjectures:
 
-- every fixed finite `m`-dilation family has an unbounded near-alias sequence
-  with energy `O(T^(-2/m))`, ruling out any slower-decaying global floor;
-- accelerated Collatz cycle divisibility and `gcd(D,B)` are invariant under
-  cyclic rotation, so the correct search objects are necklace representatives;
-- an exact growing cyclic counterfamily has every nonprincipal Fourier mode
-  `o(W)` while its target-aligned error remains the size of the principal term;
-- on shift-two admissible residues, the raw modulo-five quadratic character
-  has exact mean `1/3`, correcting the previous zero-centering target.
+- every fixed absolutely summable infinite dilation family has energy liminf
+  zero, ruling out its use as a positive uniform frame floor;
+- every nontrivial accelerated Collatz cycle must lie in the strict critical
+  strip `log_2(3)<S/h<2`;
+- nonzero quadratic residues modulo primes `3 mod 4` form a true
+  zero-convolution Gauss counterfamily despite modewise relative decay;
+- centered quadratic CRT interaction tensors are exactly orthogonal, with an
+  explicit norm and a degenerate modulo-three factor.
 
-The remaining decisive targets are an adaptive or infinite dilation frame
-whose explicit floor dominates the actual Weil tail below the recurrence
-scale; Collatz nondivisibility for every primitive positive-denominator
-necklace representative plus aperiodic descent; a signed aggregate binary-
-prime minor-arc bound below the singular-series main term; and a centered
-modulo-five Type-II saving at the twin-sieve scale together with a positive
+The remaining decisive targets are a height-adaptive renormalized frame whose
+explicit floor dominates the actual Weil tail; critical-strip Collatz
+necklace nondivisibility plus aperiodic descent; a one-sided negative binary-
+prime minor-arc aggregate below the singular-series main term; and a
+prime-weighted growing-CRT energy saving together with a positive twin-prime
 principal lower bound.
 
-English report: [TICKET-230](quantitative-recurrence-necklace-fourier-centering.md).
-한국어 보고서: [TICKET-230](quantitative-recurrence-necklace-fourier-centering.ko.md).
+English report: [TICKET-231](summable-frame-critical-strip-gauss-crt.md).
+한국어 보고서: [TICKET-231](summable-frame-critical-strip-gauss-crt.ko.md).
+
+## Preserved research boundary: TICKET-230
+
+TICKET-230 remains available in
+[English](quantitative-recurrence-necklace-fourier-centering.md) and
+[한국어](quantitative-recurrence-necklace-fourier-centering.ko.md). TICKET-231
+explicitly supersedes its Goldbach positivity wording with a genuine
+zero-convolution counterfamily and exempts the trivial Collatz word `(2)` from
+the corrected nondivisibility target.
 
 ## Preserved research boundary: TICKET-229
 
@@ -50,7 +58,7 @@ TICKET-229 remains available in
 [한국어](band-frame-semilinear-character-barriers.ko.md). Its finite-band,
 semilinear-cover, target-period, and character-parity results are inputs to
 TICKET-230, but its four successor lemmas no longer override the corrected
-TICKET-230 targets.
+TICKET-231 targets.
 
 ## Preserved research boundary: TICKET-221
 
