@@ -56,6 +56,16 @@ class Ticket230QuantitativeRecurrenceNecklaceFourierCenteringTests(unittest.Test
         self.assertFalse(aggregate["infinite_or_adaptive_weil_frame_proved"])
         self.assertFalse(aggregate["riemann_hypothesis_resolved"])
 
+    def test_certificate_float_collapses_last_bit_platform_variants(self) -> None:
+        self.assertEqual(
+            ticket230.certificate_float(0.1660481925257953),
+            ticket230.certificate_float(0.16604819252579528),
+        )
+        self.assertEqual(
+            ticket230.certificate_float(0.7032636345030366),
+            ticket230.certificate_float(0.7032636345030365),
+        )
+
     def test_collatz_rotation_identity_and_necklace_reduction(self) -> None:
         section = self.root["collatz"]["reproducible_computation"]
         for row in section["sample_rotation_rows"]:

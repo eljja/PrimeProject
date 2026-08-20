@@ -62,6 +62,11 @@ def torus_distance(value: float) -> float:
     return abs(value - round(value))
 
 
+def certificate_float(value: float) -> float:
+    """Normalize diagnostic floats across conforming Python/libm builds."""
+    return float(format(value, ".14g"))
+
+
 def dual_dilation_energy(primes: tuple[int, ...], frequency: int) -> float:
     return sum(
         4.0 * math.sin(0.5 * frequency * math.log(prime)) ** 2
@@ -98,7 +103,7 @@ def pigeonhole_witness(primes: tuple[int, ...], partition: int) -> dict[str, Any
             "witness_frequency_n": witness,
             "maximum_phase_error": max(phase_errors),
             "phase_errors": phase_errors,
-            "dual_energy": energy,
+            "dual_energy": certificate_float(energy),
             "dirichlet_energy_bound": bound,
             "sequence_rate_bound": sequence_bound,
             "phase_bound_verified": max(phase_errors) <= 1.0 / partition + 1e-12,

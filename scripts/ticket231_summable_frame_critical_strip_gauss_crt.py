@@ -10,6 +10,7 @@ from typing import Any
 
 from ticket230_quantitative_recurrence_necklace_fourier_centering import (
     canonical_necklace,
+    certificate_float,
     collatz_denominator,
     collatz_numerator,
     quadratic_character,
@@ -136,7 +137,7 @@ def riemann_summable_frame_audit() -> dict[str, Any]:
                 "witness_frequency_n": witness,
                 "maximum_frequency_Q_to_M": partition**head_size,
                 "maximum_phase_error": max(errors),
-                "observed_head_energy": observed_head,
+                "observed_head_energy": certificate_float(observed_head),
                 "head_energy_bound": head_bound,
                 "full_infinite_energy_upper_bound": total_upper_bound,
                 "certificate_verified": verified,
