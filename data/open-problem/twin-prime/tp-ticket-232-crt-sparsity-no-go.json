@@ -1,0 +1,154 @@
+{
+  "schema": "primeproject.ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.v1",
+  "generated_at": "2026-08-21T21:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-232",
+  "theorem_name": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+  "declared_proposition": "For a finite set L of primes l>=5, let A_l exclude 0 and -2, let U be the uniform CRT product measure, and normalize the centered quadratic signs psi_l=(chi_l-mu_l)/sigma_l. Give nonnegative weights to at most N admissible CRT points and let b_S be the normalized coefficient of psi_S=product_(l in S)psi_l. If nu_Y is the quadratic-sign pushforward, then sum_(nonempty S)b_S^2 equals chi^2(nu_Y||U_Y) and is at least max(0,1/(N*u_L)-1), where u_L=product_l (l-1)/(2(l-2)). For L={5<=l<=sqrt(X)} and N<=X this lower bound tends to infinity. Thus full unweighted positive interaction energy cannot be o(1) at the twin-sieve scale.",
+  "mathematical_argument": "For each sign coordinate, {1,psi_l} is an orthonormal basis of its two-point pushforward space, so the tensor products psi_S form a complete basis. Parseval applied to dnu_Y/dU_Y gives the chi-square identity after removing b_empty=1. If B is the support, Cauchy gives 1<=(chi^2+1)U_Y(B)<=(chi^2+1)N*u_L. Finally u_L<=2^(-m)exp(m/3), while m=pi(sqrt(X))-2 is asymptotic to 2sqrt(X)/log(X), so 1/(X*u_L) tends to infinity. Separately, the nonnegative product tilt g=product_l(1+epsilon psi_l), with m=k^2 and epsilon=1/k, has every nonconstant coefficient tending to zero but total energy (1+1/k^2)^(k^2)-1 tending to e-1.",
+  "reproducible_computation": {
+    "theorem": "For a finite set L of primes l>=5, let A_l exclude 0 and -2, let U be the uniform CRT product measure, and normalize the centered quadratic signs psi_l=(chi_l-mu_l)/sigma_l. Give nonnegative weights to at most N admissible CRT points and let b_S be the normalized coefficient of psi_S=product_(l in S)psi_l. If nu_Y is the quadratic-sign pushforward, then sum_(nonempty S)b_S^2 equals chi^2(nu_Y||U_Y) and is at least max(0,1/(N*u_L)-1), where u_L=product_l (l-1)/(2(l-2)). For L={5<=l<=sqrt(X)} and N<=X this lower bound tends to infinity. Thus full unweighted positive interaction energy cannot be o(1) at the twin-sieve scale.",
+    "proof": "For each sign coordinate, {1,psi_l} is an orthonormal basis of its two-point pushforward space, so the tensor products psi_S form a complete basis. Parseval applied to dnu_Y/dU_Y gives the chi-square identity after removing b_empty=1. If B is the support, Cauchy gives 1<=(chi^2+1)U_Y(B)<=(chi^2+1)N*u_L. Finally u_L<=2^(-m)exp(m/3), while m=pi(sqrt(X))-2 is asymptotic to 2sqrt(X)/log(X), so 1/(X*u_L) tends to infinity. Separately, the nonnegative product tilt g=product_l(1+epsilon psi_l), with m=k^2 and epsilon=1/k, has every nonconstant coefficient tending to zero but total energy (1+1/k^2)^(k^2)-1 tending to e-1.",
+    "twin_sieve_sparsity_rows": [
+      {
+        "scale_X": 10000,
+        "sieve_limit_floor_sqrt_X": 100,
+        "active_prime_count_m": 23,
+        "maximum_sign_atom_u_L": "5767168/15398899367535",
+        "minimum_full_interaction_energy": "3068245537507/11534336000",
+        "minimum_full_interaction_energy_float": 266.0097241407741,
+        "positive_and_increasing": true
+      },
+      {
+        "scale_X": 100000,
+        "sieve_limit_floor_sqrt_X": 316,
+        "active_prime_count_m": 63,
+        "maximum_sign_atom_u_L": "1006402806244282809411174366445568/2366937762370976098370181085597929817732815216555453",
+        "minimum_full_interaction_energy": "2366937762370875458089556657316988700296170659755453/100640280624428280941117436644556800000",
+        "minimum_full_interaction_energy_float": 23518791359533.945,
+        "positive_and_increasing": true
+      },
+      {
+        "scale_X": 1000000,
+        "sieve_limit_floor_sqrt_X": 1000,
+        "active_prime_count_m": 166,
+        "maximum_sign_atom_u_L": "3744684772199187280893781300015158794157695825139836856342485886746755072/74896044222352884924123354448672700873064519528140790264460386086372206293903425030506611299479456299715865282199786328125",
+        "minimum_full_interaction_energy": "4793346830230584635143894684715052855876129010141185156177478732325818001839656375859890314217126397262718626268461717/239659825420747985977202003200970162826092532808949558805919096751792324608",
+        "minimum_full_interaction_energy_float": 2.0000627229930428e+43,
+        "positive_and_increasing": true
+      }
+    ],
+    "coefficientwise_decay_counterfamily_rows": [
+      {
+        "k": 2,
+        "dimension_m_k_squared": 4,
+        "maximum_nonconstant_coefficient": "1/2",
+        "full_interaction_energy": "369/256",
+        "full_interaction_energy_float": 1.44140625,
+        "coefficient_tends_to_zero": true,
+        "energy_increasing_to_e_minus_one": true
+      },
+      {
+        "k": 3,
+        "dimension_m_k_squared": 9,
+        "maximum_nonconstant_coefficient": "1/3",
+        "full_interaction_energy": "612579511/387420489",
+        "full_interaction_energy_float": 1.581174791713197,
+        "coefficient_tends_to_zero": true,
+        "energy_increasing_to_e_minus_one": true
+      },
+      {
+        "k": 4,
+        "dimension_m_k_squared": 16,
+        "maximum_nonconstant_coefficient": "1/4",
+        "full_interaction_energy": "30214447801957316865/18446744073709551616",
+        "full_interaction_energy_float": 1.6379284973666,
+        "coefficient_tends_to_zero": true,
+        "energy_increasing_to_e_minus_one": true
+      },
+      {
+        "k": 8,
+        "dimension_m_k_squared": 64,
+        "maximum_nonconstant_coefficient": "1/8",
+        "full_interaction_energy": "66878796338388918501652324430137710536926087256603079274961203483907926368578202885970904303233345756078290222583809/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+        "full_interaction_energy_float": 1.6973449525650988,
+        "coefficient_tends_to_zero": true,
+        "energy_increasing_to_e_minus_one": true
+      },
+      {
+        "k": 20,
+        "dimension_m_k_squared": 400,
+        "maximum_nonconstant_coefficient": "1/20",
+        "full_interaction_energy": "1143492290236093091966669426325232430802552224498246122105210753535034021823002661792002800592268513418978585577234877016968517958260364489199914104915733628821939032317384759386264246505576680223055561016792238408346036533588328052028534024034878407819388019113655679255326322888638134210206498786518352476692020206261710383403509008328521574964958431105316199924684832317692244958785158697648156990819018809725825420478387685976019787709413512143268701914936297703940832785157678198688541336692137876229231919333132486033968650554215326011525492373717546873294133805225352728916667971872214934087015337819046035053112394592039972152187434397619662564604111845532083528909421804070304519050103673633241089137373343098780235204354935159193655998286455829511032969814127438253570925415345684031081897020174640011642207916699699300207427380528798060215813564000257356623955719969595364840964786329358948593935974479556061705216267806480950485105653228302677234517537830371986123503275067197330947429318420691103541627941185010350038207968160001/666801443287985427407985179072125779714475832231590816039625781176403723781763207152143220087155429074292991059343324044588880165411936508036335605233083004609515757951401455846307828591181402472896501613588660198169074803747646129116387737600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "full_interaction_energy_float": 1.714891744381287,
+        "coefficient_tends_to_zero": true,
+        "energy_increasing_to_e_minus_one": true
+      }
+    ],
+    "aggregate": {
+      "full_interaction_chi_square_identity_proved": true,
+      "sparse_support_energy_lower_bound_proved": true,
+      "twin_sieve_full_unweighted_energy_saving_refuted": true,
+      "coefficientwise_decay_to_aggregate_saving_refuted": true,
+      "entropy_matched_signed_large_sieve_proved": false,
+      "positive_twin_main_term_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem applies only when the normalized total mass is positive; it does not create any twin-prime mass and proves neither infinitude nor absence of twins. It closes only the full, unweighted, positive l2-energy route. Bounded mode families, degree damping, entropy-matched normalizations, signed aggregates, and Type-II cancellation remain open.",
+    "failure_count": 0
+  },
+  "logical_limit": "The theorem applies only when the normalized total mass is positive; it does not create any twin-prime mass and proves neither infinitude nor absence of twins. It closes only the full, unweighted, positive l2-energy route. Bounded mode families, degree damping, entropy-matched normalizations, signed aggregates, and Type-II cancellation remain open.",
+  "route_decision": {
+    "discard": "unweighted full growing-CRT positive interaction energy saving at the twin-sieve scale",
+    "retain": "use entropy-matched degree damping and signed Type-II interaction aggregates",
+    "next_single_lemma": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T231",
+        "label": "CenteredCRTQuadraticInteractionOrthogonality",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T232",
+        "label": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N232",
+        "label": "UnweightedFullGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN232",
+        "label": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T231",
+        "TP-T232"
+      ],
+      [
+        "TP-T232",
+        "TP-N232"
+      ],
+      [
+        "TP-T232",
+        "TP-OPEN232"
+      ],
+      [
+        "TP-OPEN232",
+        "TP"
+      ]
+    ]
+  }
+}

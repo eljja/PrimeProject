@@ -1,0 +1,167 @@
+{
+  "schema": "primeproject.ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.v1",
+  "generated_at": "2026-08-21T21:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-232",
+  "theorem_name": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+  "declared_proposition": "At every height T let q_j(T)>1 and w_j(T)>=0 have finite positive total mass W_T, and put F_T(n)=sum_j w_j(T)|1-q_j(T)^(-in)|^2. For every head length M and integer Q>=2 with Q^M<=T there is 1<=n<=T such that F_T(n)/W_T<=4*pi^2/Q^2+4*delta_T(M), where delta_T(M)=sum_(j>M)w_j(T)/W_T. Consequently, if F_T(n)>=c W_T for every 1<=n<=T, delta_T(M)<=c/8, and an integer Q satisfies 4*pi^2/Q^2<c/2, then Q^M>T. Thus every adaptive frame with a fixed positive normalized floor needs at least logarithmically many effective coordinates: M>log(T)/log(Q).",
+  "mathematical_argument": "Apply simultaneous Dirichlet pigeonhole approximation to the first M phases log(q_j(T))/(2*pi). Among Q^M+1 multiples, two occupy the same Q-adic box; their difference n is at most Q^M and gives head energy at most 4*pi^2/Q^2 times the head mass. The pointwise bound |1-z|^2<=4 gives the tail term. A c-floor and tail ratio at most c/8 would contradict this witness whenever 4*pi^2/Q^2<c/2 and Q^M<=T, proving Q^M>T. No independence of the dilations is needed.",
+  "reproducible_computation": {
+    "theorem": "At every height T let q_j(T)>1 and w_j(T)>=0 have finite positive total mass W_T, and put F_T(n)=sum_j w_j(T)|1-q_j(T)^(-in)|^2. For every head length M and integer Q>=2 with Q^M<=T there is 1<=n<=T such that F_T(n)/W_T<=4*pi^2/Q^2+4*delta_T(M), where delta_T(M)=sum_(j>M)w_j(T)/W_T. Consequently, if F_T(n)>=c W_T for every 1<=n<=T, delta_T(M)<=c/8, and an integer Q satisfies 4*pi^2/Q^2<c/2, then Q^M>T. Thus every adaptive frame with a fixed positive normalized floor needs at least logarithmically many effective coordinates: M>log(T)/log(Q).",
+    "proof": "Apply simultaneous Dirichlet pigeonhole approximation to the first M phases log(q_j(T))/(2*pi). Among Q^M+1 multiples, two occupy the same Q-adic box; their difference n is at most Q^M and gives head energy at most 4*pi^2/Q^2 times the head mass. The pointwise bound |1-z|^2<=4 gives the tail term. A c-floor and tail ratio at most c/8 would contradict this witness whenever 4*pi^2/Q^2<c/2 and Q^M<=T, proving Q^M>T. No independence of the dilations is needed.",
+    "adaptive_collision_rows": [
+      {
+        "effective_dimension_M": 2,
+        "partition_Q": 32,
+        "frequency_horizon_T": 1024,
+        "dilations": [
+          2,
+          3
+        ],
+        "witness_frequency_n": 263,
+        "maximum_phase_error": 0.014561437563131108,
+        "observed_normalized_energy": 0.007821279750722998,
+        "normalized_head_bound_4pi2_over_Q2": 0.038553142191755305,
+        "certificate_verified": true
+      },
+      {
+        "effective_dimension_M": 3,
+        "partition_Q": 16,
+        "frequency_horizon_T": 4096,
+        "dilations": [
+          2,
+          3,
+          5
+        ],
+        "witness_frequency_n": 1378,
+        "maximum_phase_error": 0.05728388198477319,
+        "observed_normalized_energy": 0.05534939750859843,
+        "normalized_head_bound_4pi2_over_Q2": 0.15421256876702122,
+        "certificate_verified": true
+      },
+      {
+        "effective_dimension_M": 4,
+        "partition_Q": 10,
+        "frequency_horizon_T": 10000,
+        "dilations": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "witness_frequency_n": 652,
+        "maximum_phase_error": 0.07480518928434776,
+        "observed_normalized_energy": 0.1065970481486086,
+        "normalized_head_bound_4pi2_over_Q2": 0.3947841760435743,
+        "certificate_verified": true
+      },
+      {
+        "effective_dimension_M": 5,
+        "partition_Q": 7,
+        "frequency_horizon_T": 16807,
+        "dilations": [
+          2,
+          3,
+          5,
+          7,
+          11
+        ],
+        "witness_frequency_n": 933,
+        "maximum_phase_error": 0.13465467206691528,
+        "observed_normalized_energy": 0.2316360126730085,
+        "normalized_head_bound_4pi2_over_Q2": 0.8056819919256619,
+        "certificate_verified": true
+      },
+      {
+        "effective_dimension_M": 6,
+        "partition_Q": 5,
+        "frequency_horizon_T": 15625,
+        "dilations": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "witness_frequency_n": 652,
+        "maximum_phase_error": 0.17275053497769477,
+        "observed_normalized_energy": 0.40767513957403284,
+        "normalized_head_bound_4pi2_over_Q2": 1.5791367041742972,
+        "certificate_verified": true
+      }
+    ],
+    "explicit_half_floor_corollary": {
+      "normalized_floor_c": "1/2",
+      "maximum_tail_ratio": "1/16",
+      "partition_Q": 13,
+      "strict_bound_value": 0.4836001041677954,
+      "required_effective_dimension": "M>log(T)/log(13)",
+      "constant_check_verified": true
+    },
+    "aggregate": {
+      "adaptive_weighted_collision_bound_proved": true,
+      "logarithmic_effective_dimension_necessary": true,
+      "sublogarithmic_effective_dimension_positive_floor_refuted": true,
+      "logarithmic_adaptive_weil_frame_constructed": false,
+      "weil_tail_dominance_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem closes height adaptation with sublogarithmic effective dimension, even for changing dilations and weights. It is a scalar phase-energy necessity theorem, not a Weil quadratic-form positivity result. Logarithmically dense frames, signed or renormalized systems, and explicit Weil-tail dominance remain open.",
+    "failure_count": 0
+  },
+  "logical_limit": "The theorem closes height adaptation with sublogarithmic effective dimension, even for changing dilations and weights. It is a scalar phase-energy necessity theorem, not a Weil quadratic-form positivity result. Logarithmically dense frames, signed or renormalized systems, and explicit Weil-tail dominance remain open.",
+  "route_decision": {
+    "discard": "height-adaptive positive frame floors with sublogarithmic effective dimension",
+    "retain": "construct a logarithmically dense adaptive frame and compare its floor with the explicit Weil tail",
+    "next_single_lemma": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T231",
+        "label": "SummableInfiniteDilationUniformFloorNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T232",
+        "label": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N232",
+        "label": "SublogarithmicEffectiveDimensionAdaptivePositiveFrameFloor",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN232",
+        "label": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T231",
+        "RH-T232"
+      ],
+      [
+        "RH-T232",
+        "RH-N232"
+      ],
+      [
+        "RH-T232",
+        "RH-OPEN232"
+      ],
+      [
+        "RH-OPEN232",
+        "RH"
+      ]
+    ]
+  }
+}

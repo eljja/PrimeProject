@@ -8403,6 +8403,31 @@ failures.
 English report: [TICKET-231 summable frames, critical strip, Gauss counterfamily, and CRT orthogonality](summable-frame-critical-strip-gauss-crt.md).
 한국어 보고서: [TICKET-231 절대가합 프레임·임계띠·가우스 반례족·CRT 직교성](summable-frame-critical-strip-gauss-crt.ko.md).
 
+## TICKET-232 continuation: effective dimension, binary defects, rational shells, and CRT sparsity
+
+TICKET-232 proves four exact partial or no-go theorems and keeps the
+parent-conjecture resolution count at zero:
+
+1. RH: every adaptive positive normalized frame floor needs logarithmically
+   many effective dilation coordinates. A logarithmically dense frame with
+   explicit Weil-tail dominance remains open.
+2. Collatz: every positive binary valuation word with one, two, or three
+   valuation-one entries is nondivisible. The four-one layer, valuations at
+   least three, and aperiodic descent remain open.
+3. Goldbach: every actual-prime denominator-prime rational shell has an exact
+   target-aligned residue-autocorrelation decomposition. Classwise relative
+   equidistribution `o(1)` alone does not control growing-shell size or sign.
+4. Twin Prime: full normalized CRT interaction energy equals chi-square and
+   obeys a sparse-support lower bound. Only the full unweighted positive
+   energy-saving route is refuted; entropy-matched signed Type-II estimates
+   and a positive principal lower bound remain open.
+
+Machine audit: four exact partial or no-go theorems, four discarded routes,
+four proof DAGs, zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-232 effective dimension, binary defects, rational shells, and CRT sparsity](effective-dimension-binary-defect-rational-shell-crt-sparsity.md).
+한국어 보고서: [TICKET-232 유효차원·binary defect·유리 shell·CRT 희소성](effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
+
 ## Preserved: TICKET-230 quantitative recurrence, necklaces, Fourier aggregation, and centering
 
 TICKET-230 audits the four successor targets from TICKET-229 before attempting

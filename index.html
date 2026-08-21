@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260821-ticket231-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260821-ticket232-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-231 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-232 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, invalid successor targets corrected</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-231 proves four exact frame, critical-strip, Gauss, or CRT limits.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-231은 절대가합 프레임·콜라츠 임계띠·가우스 반례족·CRT 직교성에 관한 네 개의 정확한 부분정리 또는 불가능성 정리를 증명했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-232 proves four exact effective-dimension, binary-defect, rational-shell, or CRT-sparsity limits.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-232는 유효차원·binary defect·유리 shell·CRT 희소성에 관한 네 개의 정확한 부분정리 또는 불가능성 정리를 증명했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>231</strong><small>2026-08-21</small></div>
+              <div><span>Latest ticket</span><strong>232</strong><small>2026-08-21</small></div>
               <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>절대가합 프레임·자명 순환·spike 과장·raw CRT 편향</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>sublog 프레임·B&lt;D 연장·o(1) shell·full CRT 에너지</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 고정된 절대가합 무한 배율 족의 에너지 하극한은 0입니다.</p>
-                <p><strong>폐기:</strong> 고정 절대가합 무한 족에서 양의 균일 프레임 하한을 얻는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance</code>.</p>
+                <p><strong>확립:</strong> 적응형 양의 프레임 하한에는 로그 개수의 유효 좌표가 필요합니다.</p>
+                <p><strong>폐기:</strong> sublog 유효차원만으로 TICKET-231 프레임 장벽을 피하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 비자명 양의 순환은 <code>log<sub>2</sub>3&lt;S/h&lt;2</code> 임계띠 안에 있습니다.</p>
-                <p><strong>폐기:</strong> 자명한 가분 word <code>(2)</code>까지 포함한 무예외 전체 목걸이 비나눗셈.</p>
-                <p><strong>다음 핵심:</strong> <code>CriticalStripPrimitiveNecklaceNondivisibility</code>.</p>
+                <p><strong>확립:</strong> 값 <code>1</code>이 최대 세 개인 binary 임계띠 word는 모두 비나눗셈입니다.</p>
+                <p><strong>폐기:</strong> TICKET-231의 <code>B&lt;D</code> 크기 인증을 그대로 임계띠에 연장하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>BinaryFourOneCriticalStripNondivisibility</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모드별 상대 감쇠에도 합성곱이 0인 이차잉여 가우스 반례족이 존재합니다.</p>
-                <p><strong>폐기:</strong> 합성곱이 양수인 TICKET-230 spike를 점별 양성의 반례로 쓰는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm</code>.</p>
+                <p><strong>확립:</strong> 실제 소수 가중 유리 shell은 특이계수와 목표 정렬 잉여 자기상관으로 정확히 분해됩니다.</p>
+                <p><strong>폐기:</strong> classwise 상대 등분포 <code>o(1)</code>만으로 성장 shell의 크기·부호를 추론하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 중심화 이차지표 CRT 상호작용은 명시적 노름을 갖고 정확히 직교합니다.</p>
-                <p><strong>폐기:</strong> 원시 국소 편향이나 퇴화 mod <code>3</code> 모드를 전역 소수 증거로 해석하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale</code>.</p>
+                <p><strong>확립:</strong> full CRT interaction 에너지는 chi-square와 같고 희소 지지 하한을 가집니다.</p>
+                <p><strong>폐기:</strong> twin-sieve scale에서 full unweighted 양의 에너지를 작게 만드는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>231개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-231은 절대가합 무한 프레임 장벽, 콜라츠 valuation 임계띠, 진짜 영 합성곱 가우스 반례족, 중심화 CRT 직교성을 정확한 정리로 고정합니다.</p>
+                <p>232개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-232는 로그 유효차원, binary defect 비나눗셈, 실제 소수 유리 shell 항등식, CRT chi-square 희소성 장벽을 정확한 정리로 고정합니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/quantitative-recurrence-necklace-fourier-centering.ko.md">최신 한국어 보고서</a>
-              <a href="docs/quantitative-recurrence-necklace-fourier-centering.md">Latest English report</a>
+              <a href="docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md">최신 한국어 보고서</a>
+              <a href="docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-231</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-231 proves four exact structural or no-go theorems and preserves a resolution count of zero.</p>
+              <strong>TICKET-232</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-232 proves four exact structural or no-go theorems and preserves a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260821-ticket231"></script>
-    <script src="assets/app.js?v=20260821-ticket231"></script>
+    <script src="assets/i18n.js?v=20260821-ticket232"></script>
+    <script src="assets/app.js?v=20260821-ticket232"></script>
   </body>
 </html>
 

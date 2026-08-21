@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 잘못된 후속 목표를 교정하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-231 proves four exact frame, critical-strip, Gauss, or CRT limits.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-231은 프레임·콜라츠 임계띠·가우스 반례족·CRT 직교성에 관한 네 개의 정확한 결과를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-232 proves four exact effective-dimension, binary-defect, rational-shell, or CRT-sparsity limits.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-232는 유효차원·binary defect·유리 shell·CRT 희소성에 관한 네 개의 정확한 결과를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-231 proves four exact structural or no-go theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-231은 네 개의 정확한 구조 또는 no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-232 proves four exact structural or no-go theorems and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-232는 네 개의 정확한 구조 또는 no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

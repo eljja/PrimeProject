@@ -1,0 +1,2517 @@
+{
+  "schema": "primeproject.ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.v1",
+  "generated_at": "2026-08-21T21:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-232 proves four exact partial results and resolves none of the four parent conjectures.",
+  "effective_dimension_binary_defect_rational_shell_crt_sparsity_audit": {
+    "theorem_name": "EffectiveDimensionBinaryDefectRationalShellAndCRTSparsity",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-232 proves four exact partial or no-go theorems, discards four overstrong continuation routes, and resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-232",
+      "theorem_name": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+      "declared_proposition": "At every height T let q_j(T)>1 and w_j(T)>=0 have finite positive total mass W_T, and put F_T(n)=sum_j w_j(T)|1-q_j(T)^(-in)|^2. For every head length M and integer Q>=2 with Q^M<=T there is 1<=n<=T such that F_T(n)/W_T<=4*pi^2/Q^2+4*delta_T(M), where delta_T(M)=sum_(j>M)w_j(T)/W_T. Consequently, if F_T(n)>=c W_T for every 1<=n<=T, delta_T(M)<=c/8, and an integer Q satisfies 4*pi^2/Q^2<c/2, then Q^M>T. Thus every adaptive frame with a fixed positive normalized floor needs at least logarithmically many effective coordinates: M>log(T)/log(Q).",
+      "mathematical_argument": "Apply simultaneous Dirichlet pigeonhole approximation to the first M phases log(q_j(T))/(2*pi). Among Q^M+1 multiples, two occupy the same Q-adic box; their difference n is at most Q^M and gives head energy at most 4*pi^2/Q^2 times the head mass. The pointwise bound |1-z|^2<=4 gives the tail term. A c-floor and tail ratio at most c/8 would contradict this witness whenever 4*pi^2/Q^2<c/2 and Q^M<=T, proving Q^M>T. No independence of the dilations is needed.",
+      "reproducible_computation": {
+        "theorem": "At every height T let q_j(T)>1 and w_j(T)>=0 have finite positive total mass W_T, and put F_T(n)=sum_j w_j(T)|1-q_j(T)^(-in)|^2. For every head length M and integer Q>=2 with Q^M<=T there is 1<=n<=T such that F_T(n)/W_T<=4*pi^2/Q^2+4*delta_T(M), where delta_T(M)=sum_(j>M)w_j(T)/W_T. Consequently, if F_T(n)>=c W_T for every 1<=n<=T, delta_T(M)<=c/8, and an integer Q satisfies 4*pi^2/Q^2<c/2, then Q^M>T. Thus every adaptive frame with a fixed positive normalized floor needs at least logarithmically many effective coordinates: M>log(T)/log(Q).",
+        "proof": "Apply simultaneous Dirichlet pigeonhole approximation to the first M phases log(q_j(T))/(2*pi). Among Q^M+1 multiples, two occupy the same Q-adic box; their difference n is at most Q^M and gives head energy at most 4*pi^2/Q^2 times the head mass. The pointwise bound |1-z|^2<=4 gives the tail term. A c-floor and tail ratio at most c/8 would contradict this witness whenever 4*pi^2/Q^2<c/2 and Q^M<=T, proving Q^M>T. No independence of the dilations is needed.",
+        "adaptive_collision_rows": [
+          {
+            "effective_dimension_M": 2,
+            "partition_Q": 32,
+            "frequency_horizon_T": 1024,
+            "dilations": [
+              2,
+              3
+            ],
+            "witness_frequency_n": 263,
+            "maximum_phase_error": 0.014561437563131108,
+            "observed_normalized_energy": 0.007821279750722998,
+            "normalized_head_bound_4pi2_over_Q2": 0.038553142191755305,
+            "certificate_verified": true
+          },
+          {
+            "effective_dimension_M": 3,
+            "partition_Q": 16,
+            "frequency_horizon_T": 4096,
+            "dilations": [
+              2,
+              3,
+              5
+            ],
+            "witness_frequency_n": 1378,
+            "maximum_phase_error": 0.05728388198477319,
+            "observed_normalized_energy": 0.05534939750859843,
+            "normalized_head_bound_4pi2_over_Q2": 0.15421256876702122,
+            "certificate_verified": true
+          },
+          {
+            "effective_dimension_M": 4,
+            "partition_Q": 10,
+            "frequency_horizon_T": 10000,
+            "dilations": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "witness_frequency_n": 652,
+            "maximum_phase_error": 0.07480518928434776,
+            "observed_normalized_energy": 0.1065970481486086,
+            "normalized_head_bound_4pi2_over_Q2": 0.3947841760435743,
+            "certificate_verified": true
+          },
+          {
+            "effective_dimension_M": 5,
+            "partition_Q": 7,
+            "frequency_horizon_T": 16807,
+            "dilations": [
+              2,
+              3,
+              5,
+              7,
+              11
+            ],
+            "witness_frequency_n": 933,
+            "maximum_phase_error": 0.13465467206691528,
+            "observed_normalized_energy": 0.2316360126730085,
+            "normalized_head_bound_4pi2_over_Q2": 0.8056819919256619,
+            "certificate_verified": true
+          },
+          {
+            "effective_dimension_M": 6,
+            "partition_Q": 5,
+            "frequency_horizon_T": 15625,
+            "dilations": [
+              2,
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "witness_frequency_n": 652,
+            "maximum_phase_error": 0.17275053497769477,
+            "observed_normalized_energy": 0.40767513957403284,
+            "normalized_head_bound_4pi2_over_Q2": 1.5791367041742972,
+            "certificate_verified": true
+          }
+        ],
+        "explicit_half_floor_corollary": {
+          "normalized_floor_c": "1/2",
+          "maximum_tail_ratio": "1/16",
+          "partition_Q": 13,
+          "strict_bound_value": 0.4836001041677954,
+          "required_effective_dimension": "M>log(T)/log(13)",
+          "constant_check_verified": true
+        },
+        "aggregate": {
+          "adaptive_weighted_collision_bound_proved": true,
+          "logarithmic_effective_dimension_necessary": true,
+          "sublogarithmic_effective_dimension_positive_floor_refuted": true,
+          "logarithmic_adaptive_weil_frame_constructed": false,
+          "weil_tail_dominance_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem closes height adaptation with sublogarithmic effective dimension, even for changing dilations and weights. It is a scalar phase-energy necessity theorem, not a Weil quadratic-form positivity result. Logarithmically dense frames, signed or renormalized systems, and explicit Weil-tail dominance remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem closes height adaptation with sublogarithmic effective dimension, even for changing dilations and weights. It is a scalar phase-energy necessity theorem, not a Weil quadratic-form positivity result. Logarithmically dense frames, signed or renormalized systems, and explicit Weil-tail dominance remain open.",
+      "route_decision": {
+        "discard": "height-adaptive positive frame floors with sublogarithmic effective dimension",
+        "retain": "construct a logarithmically dense adaptive frame and compare its floor with the explicit Weil tail",
+        "next_single_lemma": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T231",
+            "label": "SummableInfiniteDilationUniformFloorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T232",
+            "label": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N232",
+            "label": "SublogarithmicEffectiveDimensionAdaptivePositiveFrameFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN232",
+            "label": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T231",
+            "RH-T232"
+          ],
+          [
+            "RH-T232",
+            "RH-N232"
+          ],
+          [
+            "RH-T232",
+            "RH-OPEN232"
+          ],
+          [
+            "RH-OPEN232",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-232",
+      "theorem_name": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+      "declared_proposition": "Let a be a binary accelerated Collatz valuation word in {1,2}^h, S=sum a_j, D=2^S-3^h>0, and B its cycle numerator. If a contains one, two, or three entries equal to 1, then D does not divide B. Hence every nontrivial positive binary Collatz cycle word would have to contain at least four valuation-one entries.",
+      "mathematical_argument": "For a one-step cyclic rotation a', 2^(a_0)B(a')=3B(a)+D, and gcd(D,6)=1, so D|B is rotation invariant. With one 1, rotate to (1,2,...,2). Then B=2^(2h-1)-3^(h-1)=D+2*3^(h-1). Since gcd(D,6)=1 and D>=5, D cannot divide the remainder. With two 1s, start at the endpoint of the shorter cyclic gap to obtain (1,2^(r-1),1,2^(h-r-1)), 1<=r<=floor(h/2). Direct summation gives B-D=3^(h-r-1)(2*3^r+4^r). Since gcd(D,3)=1, divisibility would force D to divide Q=2*3^r+4^r. For h=5, D=13 and Q is 10 or 34. For h>=6, Q<=Q_h=2*3^floor(h/2)+4^floor(h/2)<D_h=4^(h-1)-3^h: check h=6,7, then use Q_(h+2)<4Q_h and D_(h+2)>4D_h. With three 1s, write the cyclic gaps as r,s,t>=1 and rotate so t is largest. Direct summation gives B-D=3^(t-1)Q_(r,s), where Q_(r,s)=2*3^(r+s)+4^r*3^s+4^(r+s)/2. Since r+s<=floor(2h/3), this is at most U_h=2*3^floor(2h/3)+(3/2)4^floor(2h/3). The h=8 cases are checked exactly. For h=9,10,11 the pairs (U_h,D_h) are (7602,13085), (7602,72023), and (28950,347141); then U_(h+3)<16U_h while D_(h+3)>16D_h. Hence 0<Q<D in every three-defect case as well.",
+      "reproducible_computation": {
+        "theorem": "Let a be a binary accelerated Collatz valuation word in {1,2}^h, S=sum a_j, D=2^S-3^h>0, and B its cycle numerator. If a contains one, two, or three entries equal to 1, then D does not divide B. Hence every nontrivial positive binary Collatz cycle word would have to contain at least four valuation-one entries.",
+        "proof": "For a one-step cyclic rotation a', 2^(a_0)B(a')=3B(a)+D, and gcd(D,6)=1, so D|B is rotation invariant. With one 1, rotate to (1,2,...,2). Then B=2^(2h-1)-3^(h-1)=D+2*3^(h-1). Since gcd(D,6)=1 and D>=5, D cannot divide the remainder. With two 1s, start at the endpoint of the shorter cyclic gap to obtain (1,2^(r-1),1,2^(h-r-1)), 1<=r<=floor(h/2). Direct summation gives B-D=3^(h-r-1)(2*3^r+4^r). Since gcd(D,3)=1, divisibility would force D to divide Q=2*3^r+4^r. For h=5, D=13 and Q is 10 or 34. For h>=6, Q<=Q_h=2*3^floor(h/2)+4^floor(h/2)<D_h=4^(h-1)-3^h: check h=6,7, then use Q_(h+2)<4Q_h and D_(h+2)>4D_h. With three 1s, write the cyclic gaps as r,s,t>=1 and rotate so t is largest. Direct summation gives B-D=3^(t-1)Q_(r,s), where Q_(r,s)=2*3^(r+s)+4^r*3^s+4^(r+s)/2. Since r+s<=floor(2h/3), this is at most U_h=2*3^floor(2h/3)+(3/2)4^floor(2h/3). The h=8 cases are checked exactly. For h=9,10,11 the pairs (U_h,D_h) are (7602,13085), (7602,72023), and (28950,347141); then U_(h+3)<16U_h while D_(h+3)>16D_h. Hence 0<Q<D in every three-defect case as well.",
+        "height_rows": [
+          {
+            "height_h": 3,
+            "one_defect_words_tested": 3,
+            "one_defect_positive_denominator": 3,
+            "one_defect_nondivisible": 3,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 3,
+            "two_defect_positive_denominator": 0,
+            "two_defect_nondivisible": 0,
+            "two_defect_necklaces": 0,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 4,
+            "one_defect_words_tested": 4,
+            "one_defect_positive_denominator": 4,
+            "one_defect_nondivisible": 4,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 6,
+            "two_defect_positive_denominator": 0,
+            "two_defect_nondivisible": 0,
+            "two_defect_necklaces": 0,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 5,
+            "one_defect_words_tested": 5,
+            "one_defect_positive_denominator": 5,
+            "one_defect_nondivisible": 5,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 10,
+            "two_defect_positive_denominator": 10,
+            "two_defect_nondivisible": 10,
+            "two_defect_necklaces": 2,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 6,
+            "one_defect_words_tested": 6,
+            "one_defect_positive_denominator": 6,
+            "one_defect_nondivisible": 6,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 15,
+            "two_defect_positive_denominator": 15,
+            "two_defect_nondivisible": 15,
+            "two_defect_necklaces": 3,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 7,
+            "one_defect_words_tested": 7,
+            "one_defect_positive_denominator": 7,
+            "one_defect_nondivisible": 7,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 21,
+            "two_defect_positive_denominator": 21,
+            "two_defect_nondivisible": 21,
+            "two_defect_necklaces": 3,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 8,
+            "one_defect_words_tested": 8,
+            "one_defect_positive_denominator": 8,
+            "one_defect_nondivisible": 8,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 28,
+            "two_defect_positive_denominator": 28,
+            "two_defect_nondivisible": 28,
+            "two_defect_necklaces": 4,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 9,
+            "one_defect_words_tested": 9,
+            "one_defect_positive_denominator": 9,
+            "one_defect_nondivisible": 9,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 36,
+            "two_defect_positive_denominator": 36,
+            "two_defect_nondivisible": 36,
+            "two_defect_necklaces": 4,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 10,
+            "one_defect_words_tested": 10,
+            "one_defect_positive_denominator": 10,
+            "one_defect_nondivisible": 10,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 45,
+            "two_defect_positive_denominator": 45,
+            "two_defect_nondivisible": 45,
+            "two_defect_necklaces": 5,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 11,
+            "one_defect_words_tested": 11,
+            "one_defect_positive_denominator": 11,
+            "one_defect_nondivisible": 11,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 55,
+            "two_defect_positive_denominator": 55,
+            "two_defect_nondivisible": 55,
+            "two_defect_necklaces": 5,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 12,
+            "one_defect_words_tested": 12,
+            "one_defect_positive_denominator": 12,
+            "one_defect_nondivisible": 12,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 66,
+            "two_defect_positive_denominator": 66,
+            "two_defect_nondivisible": 66,
+            "two_defect_necklaces": 6,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 13,
+            "one_defect_words_tested": 13,
+            "one_defect_positive_denominator": 13,
+            "one_defect_nondivisible": 13,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 78,
+            "two_defect_positive_denominator": 78,
+            "two_defect_nondivisible": 78,
+            "two_defect_necklaces": 6,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 14,
+            "one_defect_words_tested": 14,
+            "one_defect_positive_denominator": 14,
+            "one_defect_nondivisible": 14,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 91,
+            "two_defect_positive_denominator": 91,
+            "two_defect_nondivisible": 91,
+            "two_defect_necklaces": 7,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 15,
+            "one_defect_words_tested": 15,
+            "one_defect_positive_denominator": 15,
+            "one_defect_nondivisible": 15,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 105,
+            "two_defect_positive_denominator": 105,
+            "two_defect_nondivisible": 105,
+            "two_defect_necklaces": 7,
+            "certificate_verified": true
+          },
+          {
+            "height_h": 16,
+            "one_defect_words_tested": 16,
+            "one_defect_positive_denominator": 16,
+            "one_defect_nondivisible": 16,
+            "one_defect_necklaces": 1,
+            "two_defect_words_tested": 120,
+            "two_defect_positive_denominator": 120,
+            "two_defect_nondivisible": 120,
+            "two_defect_necklaces": 8,
+            "certificate_verified": true
+          }
+        ],
+        "sample_certificates": [
+          {
+            "word": [
+              1,
+              2,
+              2
+            ],
+            "height_h": 3,
+            "one_count_k": 1,
+            "valuation_sum_S": 5,
+            "denominator_D": 5,
+            "numerator_B": 23,
+            "B_mod_D": 3,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              2
+            ],
+            "height_h": 3,
+            "one_count_k": 1,
+            "valuation_sum_S": 5,
+            "denominator_D": 5,
+            "numerator_B": 29,
+            "B_mod_D": 4,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              1
+            ],
+            "height_h": 3,
+            "one_count_k": 1,
+            "valuation_sum_S": 5,
+            "denominator_D": 5,
+            "numerator_B": 37,
+            "B_mod_D": 2,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              2,
+              2
+            ],
+            "height_h": 4,
+            "one_count_k": 1,
+            "valuation_sum_S": 7,
+            "denominator_D": 47,
+            "numerator_B": 101,
+            "B_mod_D": 7,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "height_h": 4,
+            "one_count_k": 1,
+            "valuation_sum_S": 7,
+            "denominator_D": 47,
+            "numerator_B": 119,
+            "B_mod_D": 25,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              1,
+              2
+            ],
+            "height_h": 4,
+            "one_count_k": 1,
+            "valuation_sum_S": 7,
+            "denominator_D": 47,
+            "numerator_B": 143,
+            "B_mod_D": 2,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              2,
+              1
+            ],
+            "height_h": 4,
+            "one_count_k": 1,
+            "valuation_sum_S": 7,
+            "denominator_D": 47,
+            "numerator_B": 175,
+            "B_mod_D": 34,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 1,
+            "valuation_sum_S": 9,
+            "denominator_D": 269,
+            "numerator_B": 431,
+            "B_mod_D": 162,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              2,
+              2,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 1,
+            "valuation_sum_S": 9,
+            "denominator_D": 269,
+            "numerator_B": 485,
+            "B_mod_D": 216,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              1,
+              2,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 1,
+            "valuation_sum_S": 9,
+            "denominator_D": 269,
+            "numerator_B": 557,
+            "B_mod_D": 19,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              2,
+              1,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 1,
+            "valuation_sum_S": 9,
+            "denominator_D": 269,
+            "numerator_B": 653,
+            "B_mod_D": 115,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              2,
+              2,
+              1
+            ],
+            "height_h": 5,
+            "one_count_k": 1,
+            "valuation_sum_S": 9,
+            "denominator_D": 269,
+            "numerator_B": 781,
+            "B_mod_D": 243,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              1,
+              2,
+              2,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 283,
+            "B_mod_D": 10,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              1,
+              2,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 319,
+            "B_mod_D": 7,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              2,
+              1,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 367,
+            "B_mod_D": 3,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              1
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 431,
+            "B_mod_D": 2,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              1,
+              2,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 373,
+            "B_mod_D": 9,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              2,
+              1,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 421,
+            "B_mod_D": 5,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              2,
+              2,
+              1
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 485,
+            "B_mod_D": 4,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              1,
+              1,
+              2
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 493,
+            "B_mod_D": 12,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              1,
+              2,
+              1
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 557,
+            "B_mod_D": 11,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              2,
+              2,
+              1,
+              1
+            ],
+            "height_h": 5,
+            "one_count_k": 2,
+            "valuation_sum_S": 8,
+            "denominator_D": 13,
+            "numerator_B": 653,
+            "B_mod_D": 3,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              1,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "height_h": 6,
+            "one_count_k": 1,
+            "valuation_sum_S": 11,
+            "denominator_D": 1319,
+            "numerator_B": 1805,
+            "B_mod_D": 486,
+            "D_does_not_divide_B": true
+          },
+          {
+            "word": [
+              2,
+              1,
+              2,
+              2,
+              2,
+              2
+            ],
+            "height_h": 6,
+            "one_count_k": 1,
+            "valuation_sum_S": 11,
+            "denominator_D": 1319,
+            "numerator_B": 1967,
+            "B_mod_D": 648,
+            "D_does_not_divide_B": true
+          }
+        ],
+        "two_defect_remainder_bound_rows": [
+          {
+            "height_h": 5,
+            "maximum_separation_r": 2,
+            "denominator_D_for_two_ones": 13,
+            "maximum_small_remainder_Q": 34,
+            "Q_below_D_for_h_at_least_6": false,
+            "h5_checked_separately": true
+          },
+          {
+            "height_h": 6,
+            "maximum_separation_r": 3,
+            "denominator_D_for_two_ones": 295,
+            "maximum_small_remainder_Q": 118,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 7,
+            "maximum_separation_r": 3,
+            "denominator_D_for_two_ones": 1909,
+            "maximum_small_remainder_Q": 118,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 8,
+            "maximum_separation_r": 4,
+            "denominator_D_for_two_ones": 9823,
+            "maximum_small_remainder_Q": 418,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 9,
+            "maximum_separation_r": 4,
+            "denominator_D_for_two_ones": 45853,
+            "maximum_small_remainder_Q": 418,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 10,
+            "maximum_separation_r": 5,
+            "denominator_D_for_two_ones": 203095,
+            "maximum_small_remainder_Q": 1510,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 11,
+            "maximum_separation_r": 5,
+            "denominator_D_for_two_ones": 871429,
+            "maximum_small_remainder_Q": 1510,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 12,
+            "maximum_separation_r": 6,
+            "denominator_D_for_two_ones": 3662863,
+            "maximum_small_remainder_Q": 5554,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 13,
+            "maximum_separation_r": 6,
+            "denominator_D_for_two_ones": 15182893,
+            "maximum_small_remainder_Q": 5554,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 14,
+            "maximum_separation_r": 7,
+            "denominator_D_for_two_ones": 62325895,
+            "maximum_small_remainder_Q": 20758,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 15,
+            "maximum_separation_r": 7,
+            "denominator_D_for_two_ones": 254086549,
+            "maximum_small_remainder_Q": 20758,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 16,
+            "maximum_separation_r": 8,
+            "denominator_D_for_two_ones": 1030695103,
+            "maximum_small_remainder_Q": 78658,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 17,
+            "maximum_separation_r": 8,
+            "denominator_D_for_two_ones": 4165827133,
+            "maximum_small_remainder_Q": 78658,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 18,
+            "maximum_separation_r": 9,
+            "denominator_D_for_two_ones": 16792448695,
+            "maximum_small_remainder_Q": 301510,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 19,
+            "maximum_separation_r": 9,
+            "denominator_D_for_two_ones": 67557215269,
+            "maximum_small_remainder_Q": 301510,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          },
+          {
+            "height_h": 20,
+            "maximum_separation_r": 10,
+            "denominator_D_for_two_ones": 271391122543,
+            "maximum_small_remainder_Q": 1166674,
+            "Q_below_D_for_h_at_least_6": true,
+            "h5_checked_separately": false
+          }
+        ],
+        "three_defect_gap_certificate_rows": [
+          {
+            "height_h": 8,
+            "maximum_gap_normalized_cases": 8,
+            "denominator_D": 1631,
+            "maximum_residual_Q": 1574,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 9,
+            "maximum_gap_normalized_cases": 11,
+            "denominator_D": 13085,
+            "maximum_residual_Q": 5234,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 10,
+            "maximum_gap_normalized_cases": 13,
+            "denominator_D": 72023,
+            "maximum_residual_Q": 5810,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 11,
+            "maximum_gap_normalized_cases": 17,
+            "denominator_D": 347141,
+            "maximum_residual_Q": 19478,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 12,
+            "maximum_gap_normalized_cases": 20,
+            "denominator_D": 1565711,
+            "maximum_residual_Q": 66626,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 13,
+            "maximum_gap_normalized_cases": 24,
+            "denominator_D": 6794285,
+            "maximum_residual_Q": 73538,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 14,
+            "maximum_gap_normalized_cases": 28,
+            "denominator_D": 28771463,
+            "maximum_residual_Q": 253382,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 15,
+            "maximum_gap_normalized_cases": 33,
+            "denominator_D": 119868821,
+            "maximum_residual_Q": 891218,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 16,
+            "maximum_gap_normalized_cases": 37,
+            "denominator_D": 493824191,
+            "maximum_residual_Q": 974162,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 17,
+            "maximum_gap_normalized_cases": 43,
+            "denominator_D": 2018343485,
+            "maximum_residual_Q": 3446774,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 18,
+            "maximum_gap_normalized_cases": 48,
+            "denominator_D": 8202514103,
+            "maximum_residual_Q": 12437474,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 19,
+            "maximum_gap_normalized_cases": 54,
+            "denominator_D": 33197476901,
+            "maximum_residual_Q": 13432802,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 20,
+            "maximum_gap_normalized_cases": 60,
+            "denominator_D": 133952169071,
+            "maximum_residual_Q": 48687014,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 21,
+            "maximum_gap_normalized_cases": 67,
+            "denominator_D": 539295460685,
+            "maximum_residual_Q": 179615474,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 22,
+            "maximum_gap_normalized_cases": 73,
+            "denominator_D": 2167642195943,
+            "maximum_residual_Q": 191559410,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 23,
+            "maximum_gap_normalized_cases": 81,
+            "denominator_D": 8701949843381,
+            "maximum_residual_Q": 708895958,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          },
+          {
+            "height_h": 24,
+            "maximum_gap_normalized_cases": 88,
+            "denominator_D": 34901942552351,
+            "maximum_residual_Q": 2663558786,
+            "all_Q_strictly_below_D": true,
+            "all_factorizations_and_nondivisibility_verified": true
+          }
+        ],
+        "aggregate": {
+          "one_valuation_one_binary_cycles_excluded": true,
+          "two_valuation_one_binary_cycles_excluded": true,
+          "three_valuation_one_binary_cycles_excluded": true,
+          "binary_nontrivial_cycle_needs_at_least_four_ones": true,
+          "arbitrary_binary_defect_nondivisibility_proved": false,
+          "valuations_above_two_excluded": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "This is an infinite theorem for three exact binary defect layers, not a finite-search promotion. It does not exclude binary words with four or more 1s, words containing valuations above 2, or divergent aperiodic trajectories. The one-defect family has B>D, so simply extending TICKET-231's size certificate into the critical strip is not a viable route; the residue identity is essential.",
+        "failure_count": 0
+      },
+      "logical_limit": "This is an infinite theorem for three exact binary defect layers, not a finite-search promotion. It does not exclude binary words with four or more 1s, words containing valuations above 2, or divergent aperiodic trajectories. The one-defect family has B>D, so simply extending TICKET-231's size certificate into the critical strip is not a viable route; the residue identity is essential.",
+      "route_decision": {
+        "discard": "extending the TICKET-231 B<D size comparison unchanged into the critical strip",
+        "retain": "use exact order-sensitive residue identities for binary critical-strip necklaces",
+        "next_single_lemma": "BinaryFourOneCriticalStripNondivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T231",
+            "label": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T232",
+            "label": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N232",
+            "label": "CriticalStripExclusionByTheSameSizeCertificate",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN232",
+            "label": "BinaryFourOneCriticalStripNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T231",
+            "CO-T232"
+          ],
+          [
+            "CO-T232",
+            "CO-N232"
+          ],
+          [
+            "CO-T232",
+            "CO-OPEN232"
+          ],
+          [
+            "CO-OPEN232",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-232",
+      "theorem_name": "PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo",
+      "declared_proposition": "Let l be odd prime and let nonnegative weights omega_p be supported on actual primes p<=X with p!=l. Put S(alpha)=sum_p omega_p e(p alpha), W_r=sum_(p=r mod l)omega_p, W=sum_r W_r, mu=W/(l-1), delta_r=W_r-mu, and E=sum delta_r^2. The complete rational shell T_l(N)=sum_(a=1)^(l-1)S(a/l)^2e(-aN/l) equals l*sum_(r+s=N mod l)W_rW_s-W^2. If l|N it is W^2/(l-1)+l*sum_r delta_r delta_(-r), with error at most lE. If n=N mod l is nonzero it is -W^2/(l-1)^2+l*(sum_(r!=n) delta_r delta_(n-r)-2mu delta_n), with error at most l*(E-delta_n^2+2mu|delta_n|).",
+      "mathematical_argument": "Expand the shell and use the prime Ramanujan sum sum_(a=1)^(l-1)e(a(p+q-N)/l)=l*1_(p+q=N mod l)-1. Substitute W_r=mu+delta_r and sum delta_r=0. For n!=0 the map r -> n-r permutes the nonzero residues other than n, so Cauchy bounds the quadratic term by E-delta_n^2. For the omitted local prime p=l of weight b, the full shell adds exactly 2b(lW_n-W)+b^2 c_l(N), where c_l(N)=l-1 if l|N and -1 otherwise.",
+      "reproducible_computation": {
+        "theorem": "Let l be odd prime and let nonnegative weights omega_p be supported on actual primes p<=X with p!=l. Put S(alpha)=sum_p omega_p e(p alpha), W_r=sum_(p=r mod l)omega_p, W=sum_r W_r, mu=W/(l-1), delta_r=W_r-mu, and E=sum delta_r^2. The complete rational shell T_l(N)=sum_(a=1)^(l-1)S(a/l)^2e(-aN/l) equals l*sum_(r+s=N mod l)W_rW_s-W^2. If l|N it is W^2/(l-1)+l*sum_r delta_r delta_(-r), with error at most lE. If n=N mod l is nonzero it is -W^2/(l-1)^2+l*(sum_(r!=n) delta_r delta_(n-r)-2mu delta_n), with error at most l*(E-delta_n^2+2mu|delta_n|).",
+        "proof": "Expand the shell and use the prime Ramanujan sum sum_(a=1)^(l-1)e(a(p+q-N)/l)=l*1_(p+q=N mod l)-1. Substitute W_r=mu+delta_r and sum delta_r=0. For n!=0 the map r -> n-r permutes the nonzero residues other than n, so Cauchy bounds the quadratic term by E-delta_n^2. For the omitted local prime p=l of weight b, the full shell adds exactly 2b(lW_n-W)+b^2 c_l(N), where c_l(N)=l-1 if l|N and -1 otherwise.",
+        "actual_prime_indicator_shell_rows": [
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 3,
+            "target_N": 20,
+            "target_residue_n": 2,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              3,
+              6
+            ],
+            "congruent_ordered_pair_mass": 9,
+            "exact_rational_shell_T": -54,
+            "uniform_singular_shell": "-81/4",
+            "autocorrelation_correction": "-135/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 3,
+            "target_N": 30,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              3,
+              6
+            ],
+            "congruent_ordered_pair_mass": 36,
+            "exact_rational_shell_T": 27,
+            "uniform_singular_shell": "81/2",
+            "autocorrelation_correction": "-27/2",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 5,
+            "target_N": 20,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              1,
+              3,
+              3,
+              2
+            ],
+            "congruent_ordered_pair_mass": 22,
+            "exact_rational_shell_T": 29,
+            "uniform_singular_shell": "81/4",
+            "autocorrelation_correction": "35/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 5,
+            "target_N": 30,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              1,
+              3,
+              3,
+              2
+            ],
+            "congruent_ordered_pair_mass": 22,
+            "exact_rational_shell_T": 29,
+            "uniform_singular_shell": "81/4",
+            "autocorrelation_correction": "35/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 7,
+            "target_N": 20,
+            "target_residue_n": 6,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              1,
+              2,
+              2,
+              1,
+              2,
+              1
+            ],
+            "congruent_ordered_pair_mass": 12,
+            "exact_rational_shell_T": 3,
+            "uniform_singular_shell": "-9/4",
+            "autocorrelation_correction": "21/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 7,
+            "target_N": 30,
+            "target_residue_n": 2,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              1,
+              2,
+              2,
+              1,
+              2,
+              1
+            ],
+            "congruent_ordered_pair_mass": 9,
+            "exact_rational_shell_T": -18,
+            "uniform_singular_shell": "-9/4",
+            "autocorrelation_correction": "-63/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 11,
+            "target_N": 20,
+            "target_residue_n": 9,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              1,
+              2,
+              1,
+              0,
+              1,
+              1,
+              2,
+              1,
+              0,
+              0
+            ],
+            "congruent_ordered_pair_mass": 12,
+            "exact_rational_shell_T": 51,
+            "uniform_singular_shell": "-81/100",
+            "autocorrelation_correction": "5181/100",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 11,
+            "target_N": 30,
+            "target_residue_n": 8,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              1,
+              2,
+              1,
+              0,
+              1,
+              1,
+              2,
+              1,
+              0,
+              0
+            ],
+            "congruent_ordered_pair_mass": 10,
+            "exact_rational_shell_T": 29,
+            "uniform_singular_shell": "-81/100",
+            "autocorrelation_correction": "2981/100",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 13,
+            "target_N": 20,
+            "target_residue_n": 7,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              0,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              0
+            ],
+            "congruent_ordered_pair_mass": 7,
+            "exact_rational_shell_T": 10,
+            "uniform_singular_shell": "-9/16",
+            "autocorrelation_correction": "169/16",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 30,
+            "denominator_prime_l": 13,
+            "target_N": 30,
+            "target_residue_n": 4,
+            "unit_prime_mass_W": 9,
+            "residue_masses": [
+              0,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              0
+            ],
+            "congruent_ordered_pair_mass": 5,
+            "exact_rational_shell_T": -16,
+            "uniform_singular_shell": "-9/16",
+            "autocorrelation_correction": "-247/16",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 3,
+            "target_N": 66,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              11,
+              13
+            ],
+            "congruent_ordered_pair_mass": 286,
+            "exact_rational_shell_T": 282,
+            "uniform_singular_shell": "288",
+            "autocorrelation_correction": "-6",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 3,
+            "target_N": 100,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              11,
+              13
+            ],
+            "congruent_ordered_pair_mass": 169,
+            "exact_rational_shell_T": -69,
+            "uniform_singular_shell": "-144",
+            "autocorrelation_correction": "75",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 5,
+            "target_N": 66,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              5,
+              7,
+              7,
+              5
+            ],
+            "congruent_ordered_pair_mass": 119,
+            "exact_rational_shell_T": 19,
+            "uniform_singular_shell": "-36",
+            "autocorrelation_correction": "55",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 5,
+            "target_N": 100,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              5,
+              7,
+              7,
+              5
+            ],
+            "congruent_ordered_pair_mass": 148,
+            "exact_rational_shell_T": 164,
+            "uniform_singular_shell": "144",
+            "autocorrelation_correction": "20",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 7,
+            "target_N": 66,
+            "target_residue_n": 3,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              3,
+              4,
+              5,
+              3,
+              5,
+              4
+            ],
+            "congruent_ordered_pair_mass": 73,
+            "exact_rational_shell_T": -65,
+            "uniform_singular_shell": "-16",
+            "autocorrelation_correction": "-49",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 7,
+            "target_N": 100,
+            "target_residue_n": 2,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              3,
+              4,
+              5,
+              3,
+              5,
+              4
+            ],
+            "congruent_ordered_pair_mass": 79,
+            "exact_rational_shell_T": -23,
+            "uniform_singular_shell": "-16",
+            "autocorrelation_correction": "-7",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 11,
+            "target_N": 66,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              3,
+              3,
+              2,
+              2,
+              2,
+              3,
+              3,
+              2,
+              3,
+              1
+            ],
+            "congruent_ordered_pair_mass": 56,
+            "exact_rational_shell_T": 40,
+            "uniform_singular_shell": "288/5",
+            "autocorrelation_correction": "-88/5",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 11,
+            "target_N": 100,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              3,
+              3,
+              2,
+              2,
+              2,
+              3,
+              3,
+              2,
+              3,
+              1
+            ],
+            "congruent_ordered_pair_mass": 47,
+            "exact_rational_shell_T": -59,
+            "uniform_singular_shell": "-144/25",
+            "autocorrelation_correction": "-1331/25",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 13,
+            "target_N": 66,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              2,
+              3,
+              2,
+              2,
+              3,
+              3,
+              2,
+              2,
+              1,
+              1,
+              3,
+              0
+            ],
+            "congruent_ordered_pair_mass": 38,
+            "exact_rational_shell_T": -82,
+            "uniform_singular_shell": "-4",
+            "autocorrelation_correction": "-78",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "denominator_prime_l": 13,
+            "target_N": 100,
+            "target_residue_n": 9,
+            "unit_prime_mass_W": 24,
+            "residue_masses": [
+              2,
+              3,
+              2,
+              2,
+              3,
+              3,
+              2,
+              2,
+              1,
+              1,
+              3,
+              0
+            ],
+            "congruent_ordered_pair_mass": 53,
+            "exact_rational_shell_T": 113,
+            "uniform_singular_shell": "-4",
+            "autocorrelation_correction": "117",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 3,
+            "target_N": 200,
+            "target_residue_n": 2,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              28,
+              33
+            ],
+            "congruent_ordered_pair_mass": 784,
+            "exact_rational_shell_T": -1369,
+            "uniform_singular_shell": "-3721/4",
+            "autocorrelation_correction": "-1755/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 3,
+            "target_N": 300,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              28,
+              33
+            ],
+            "congruent_ordered_pair_mass": 1848,
+            "exact_rational_shell_T": 1823,
+            "uniform_singular_shell": "3721/2",
+            "autocorrelation_correction": "-75/2",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 5,
+            "target_N": 200,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              15,
+              16,
+              17,
+              13
+            ],
+            "congruent_ordered_pair_mass": 934,
+            "exact_rational_shell_T": 949,
+            "uniform_singular_shell": "3721/4",
+            "autocorrelation_correction": "75/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 5,
+            "target_N": 300,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              15,
+              16,
+              17,
+              13
+            ],
+            "congruent_ordered_pair_mass": 934,
+            "exact_rational_shell_T": 949,
+            "uniform_singular_shell": "3721/4",
+            "autocorrelation_correction": "75/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 7,
+            "target_N": 200,
+            "target_residue_n": 4,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              9,
+              9,
+              12,
+              10,
+              11,
+              10
+            ],
+            "congruent_ordered_pair_mass": 517,
+            "exact_rational_shell_T": -102,
+            "uniform_singular_shell": "-3721/36",
+            "autocorrelation_correction": "49/36",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 7,
+            "target_N": 300,
+            "target_residue_n": 6,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              9,
+              9,
+              12,
+              10,
+              11,
+              10
+            ],
+            "congruent_ordered_pair_mass": 522,
+            "exact_rational_shell_T": -67,
+            "uniform_singular_shell": "-3721/36",
+            "autocorrelation_correction": "1309/36",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 11,
+            "target_N": 200,
+            "target_residue_n": 2,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              4,
+              8,
+              6,
+              5,
+              5,
+              7,
+              7,
+              7,
+              6,
+              6
+            ],
+            "congruent_ordered_pair_mass": 316,
+            "exact_rational_shell_T": -245,
+            "uniform_singular_shell": "-3721/100",
+            "autocorrelation_correction": "-20779/100",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 11,
+            "target_N": 300,
+            "target_residue_n": 3,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              4,
+              8,
+              6,
+              5,
+              5,
+              7,
+              7,
+              7,
+              6,
+              6
+            ],
+            "congruent_ordered_pair_mass": 331,
+            "exact_rational_shell_T": -80,
+            "uniform_singular_shell": "-3721/100",
+            "autocorrelation_correction": "-4279/100",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 13,
+            "target_N": 200,
+            "target_residue_n": 5,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              4,
+              5,
+              5,
+              6,
+              5,
+              5,
+              6,
+              5,
+              5,
+              6,
+              6,
+              3
+            ],
+            "congruent_ordered_pair_mass": 285,
+            "exact_rational_shell_T": -16,
+            "uniform_singular_shell": "-3721/144",
+            "autocorrelation_correction": "1417/144",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "denominator_prime_l": 13,
+            "target_N": 300,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 61,
+            "residue_masses": [
+              4,
+              5,
+              5,
+              6,
+              5,
+              5,
+              6,
+              5,
+              5,
+              6,
+              6,
+              3
+            ],
+            "congruent_ordered_pair_mass": 298,
+            "exact_rational_shell_T": 153,
+            "uniform_singular_shell": "-3721/144",
+            "autocorrelation_correction": "25753/144",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 3,
+            "target_N": 666,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              80,
+              87
+            ],
+            "congruent_ordered_pair_mass": 13920,
+            "exact_rational_shell_T": 13871,
+            "uniform_singular_shell": "27889/2",
+            "autocorrelation_correction": "-147/2",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 3,
+            "target_N": 1000,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              80,
+              87
+            ],
+            "congruent_ordered_pair_mass": 7569,
+            "exact_rational_shell_T": -5182,
+            "uniform_singular_shell": "-27889/4",
+            "autocorrelation_correction": "7161/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 5,
+            "target_N": 666,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              40,
+              47,
+              42,
+              38
+            ],
+            "congruent_ordered_pair_mass": 5336,
+            "exact_rational_shell_T": -1209,
+            "uniform_singular_shell": "-27889/16",
+            "autocorrelation_correction": "8545/16",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 5,
+            "target_N": 1000,
+            "target_residue_n": 0,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              40,
+              47,
+              42,
+              38
+            ],
+            "congruent_ordered_pair_mass": 6988,
+            "exact_rational_shell_T": 7051,
+            "uniform_singular_shell": "27889/4",
+            "autocorrelation_correction": "315/4",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 7,
+            "target_N": 666,
+            "target_residue_n": 1,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              28,
+              27,
+              30,
+              26,
+              29,
+              27
+            ],
+            "congruent_ordered_pair_mass": 3874,
+            "exact_rational_shell_T": -771,
+            "uniform_singular_shell": "-27889/36",
+            "autocorrelation_correction": "133/36",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 7,
+            "target_N": 1000,
+            "target_residue_n": 6,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              28,
+              27,
+              30,
+              26,
+              29,
+              27
+            ],
+            "congruent_ordered_pair_mass": 3928,
+            "exact_rational_shell_T": -393,
+            "uniform_singular_shell": "-27889/36",
+            "autocorrelation_correction": "13741/36",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 11,
+            "target_N": 666,
+            "target_residue_n": 6,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              17,
+              18,
+              18,
+              16,
+              17,
+              18,
+              17,
+              15,
+              15,
+              16
+            ],
+            "congruent_ordered_pair_mass": 2472,
+            "exact_rational_shell_T": -697,
+            "uniform_singular_shell": "-27889/100",
+            "autocorrelation_correction": "-41811/100",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 11,
+            "target_N": 1000,
+            "target_residue_n": 10,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              17,
+              18,
+              18,
+              16,
+              17,
+              18,
+              17,
+              15,
+              15,
+              16
+            ],
+            "congruent_ordered_pair_mass": 2527,
+            "exact_rational_shell_T": -92,
+            "uniform_singular_shell": "-27889/100",
+            "autocorrelation_correction": "18689/100",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 13,
+            "target_N": 666,
+            "target_residue_n": 3,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              13,
+              17,
+              14,
+              13,
+              14,
+              15,
+              14,
+              14,
+              13,
+              15,
+              13,
+              12
+            ],
+            "congruent_ordered_pair_mass": 2128,
+            "exact_rational_shell_T": -225,
+            "uniform_singular_shell": "-27889/144",
+            "autocorrelation_correction": "-4511/144",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "denominator_prime_l": 13,
+            "target_N": 1000,
+            "target_residue_n": 12,
+            "unit_prime_mass_W": 167,
+            "residue_masses": [
+              13,
+              17,
+              14,
+              13,
+              14,
+              15,
+              14,
+              14,
+              13,
+              15,
+              13,
+              12
+            ],
+            "congruent_ordered_pair_mass": 2193,
+            "exact_rational_shell_T": 620,
+            "uniform_singular_shell": "-27889/144",
+            "autocorrelation_correction": "117169/144",
+            "shell_equals_base_plus_correction": true,
+            "integer_identity_verified": true
+          }
+        ],
+        "growing_modulus_relative_equidistribution_counterfamily": [
+          {
+            "denominator_prime_l": 5,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.4472135954999579,
+            "maximum_classwise_relative_discrepancy": 0.4472135954999579,
+            "uniform_singular_shell": -1,
+            "exact_shell": 3.8054692883329126,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          },
+          {
+            "denominator_prime_l": 7,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.3779644730092272,
+            "maximum_classwise_relative_discrepancy": 0.3779644730092272,
+            "uniform_singular_shell": -1,
+            "exact_shell": 4.491502622129181,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          },
+          {
+            "denominator_prime_l": 11,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.30151134457776363,
+            "maximum_classwise_relative_discrepancy": 0.30151134457776363,
+            "uniform_singular_shell": -1,
+            "exact_shell": 5.74436069182191,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          },
+          {
+            "denominator_prime_l": 17,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.24253562503633297,
+            "maximum_classwise_relative_discrepancy": 0.24253562503633297,
+            "uniform_singular_shell": -1,
+            "exact_shell": 7.312877917901988,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          },
+          {
+            "denominator_prime_l": 29,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.18569533817705186,
+            "maximum_classwise_relative_discrepancy": 0.18569533817705186,
+            "uniform_singular_shell": -1,
+            "exact_shell": 9.807366651306046,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          },
+          {
+            "denominator_prime_l": 53,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.13736056394868904,
+            "maximum_classwise_relative_discrepancy": 0.13736056394868904,
+            "uniform_singular_shell": -1,
+            "exact_shell": 13.579827621698294,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          },
+          {
+            "denominator_prime_l": 101,
+            "target_residue_n": 1,
+            "epsilon_l_minus_half": 0.09950371902099892,
+            "maximum_classwise_relative_discrepancy": 0.09950371902099892,
+            "uniform_singular_shell": -1,
+            "exact_shell": 19.10985225234279,
+            "sign_reversed": true,
+            "counterfamily_verified": true
+          }
+        ],
+        "single_local_prime_correction": "T_full=T_unit+2*b*(l*W_n-W)+b^2*c_l(N), with c_l(N)=l-1 for l|N and -1 otherwise",
+        "notable_sign_reversal": {
+          "prime_limit_X": 100,
+          "denominator_prime_l": 5,
+          "target_N": 66,
+          "target_residue_n": 1,
+          "unit_prime_mass_W": 24,
+          "residue_masses": [
+            5,
+            7,
+            7,
+            5
+          ],
+          "congruent_ordered_pair_mass": 119,
+          "exact_rational_shell_T": 19,
+          "uniform_singular_shell": "-36",
+          "autocorrelation_correction": "55",
+          "shell_equals_base_plus_correction": true,
+          "integer_identity_verified": true
+        },
+        "aggregate": {
+          "prime_weighted_rational_shell_identity_proved": true,
+          "target_aligned_residue_autocorrelation_bound_proved": true,
+          "single_local_prime_correction_proved": true,
+          "growing_modulus_o1_relative_equidistribution_shell_control_refuted": true,
+          "uniform_growing_denominator_prime_autocorrelation_proved": false,
+          "full_minor_arc_aggregate_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The identity exactly treats rational centers and actual prime weights, but not neighborhoods of the arcs, composite squarefree denominators, growing-denominator estimates for the actual prime delta_r, or cancellation between shells. The counterfamily uses nonnegative residue weights, not primes, so it refutes only the inference from classwise o(1) equidistribution and is not a Goldbach counterexample.",
+        "failure_count": 0
+      },
+      "logical_limit": "The identity exactly treats rational centers and actual prime weights, but not neighborhoods of the arcs, composite squarefree denominators, growing-denominator estimates for the actual prime delta_r, or cancellation between shells. The counterfamily uses nonnegative residue weights, not primes, so it refutes only the inference from classwise o(1) equidistribution and is not a Goldbach counterexample.",
+      "route_decision": {
+        "discard": "using classwise o(1) relative equidistribution alone to replace growing rational shells by their singular coefficient or infer their sign",
+        "retain": "bound the target-aligned prime residue autocorrelation at the singular-coefficient scale",
+        "next_single_lemma": "UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T231",
+            "label": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T232",
+            "label": "PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N232",
+            "label": "GrowingModulusRelativeResidueEquidistributionImpliesSingularShellControl",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN232",
+            "label": "UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T231",
+            "GB-T232"
+          ],
+          [
+            "GB-T232",
+            "GB-N232"
+          ],
+          [
+            "GB-T232",
+            "GB-OPEN232"
+          ],
+          [
+            "GB-OPEN232",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-232",
+      "theorem_name": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+      "declared_proposition": "For a finite set L of primes l>=5, let A_l exclude 0 and -2, let U be the uniform CRT product measure, and normalize the centered quadratic signs psi_l=(chi_l-mu_l)/sigma_l. Give nonnegative weights to at most N admissible CRT points and let b_S be the normalized coefficient of psi_S=product_(l in S)psi_l. If nu_Y is the quadratic-sign pushforward, then sum_(nonempty S)b_S^2 equals chi^2(nu_Y||U_Y) and is at least max(0,1/(N*u_L)-1), where u_L=product_l (l-1)/(2(l-2)). For L={5<=l<=sqrt(X)} and N<=X this lower bound tends to infinity. Thus full unweighted positive interaction energy cannot be o(1) at the twin-sieve scale.",
+      "mathematical_argument": "For each sign coordinate, {1,psi_l} is an orthonormal basis of its two-point pushforward space, so the tensor products psi_S form a complete basis. Parseval applied to dnu_Y/dU_Y gives the chi-square identity after removing b_empty=1. If B is the support, Cauchy gives 1<=(chi^2+1)U_Y(B)<=(chi^2+1)N*u_L. Finally u_L<=2^(-m)exp(m/3), while m=pi(sqrt(X))-2 is asymptotic to 2sqrt(X)/log(X), so 1/(X*u_L) tends to infinity. Separately, the nonnegative product tilt g=product_l(1+epsilon psi_l), with m=k^2 and epsilon=1/k, has every nonconstant coefficient tending to zero but total energy (1+1/k^2)^(k^2)-1 tending to e-1.",
+      "reproducible_computation": {
+        "theorem": "For a finite set L of primes l>=5, let A_l exclude 0 and -2, let U be the uniform CRT product measure, and normalize the centered quadratic signs psi_l=(chi_l-mu_l)/sigma_l. Give nonnegative weights to at most N admissible CRT points and let b_S be the normalized coefficient of psi_S=product_(l in S)psi_l. If nu_Y is the quadratic-sign pushforward, then sum_(nonempty S)b_S^2 equals chi^2(nu_Y||U_Y) and is at least max(0,1/(N*u_L)-1), where u_L=product_l (l-1)/(2(l-2)). For L={5<=l<=sqrt(X)} and N<=X this lower bound tends to infinity. Thus full unweighted positive interaction energy cannot be o(1) at the twin-sieve scale.",
+        "proof": "For each sign coordinate, {1,psi_l} is an orthonormal basis of its two-point pushforward space, so the tensor products psi_S form a complete basis. Parseval applied to dnu_Y/dU_Y gives the chi-square identity after removing b_empty=1. If B is the support, Cauchy gives 1<=(chi^2+1)U_Y(B)<=(chi^2+1)N*u_L. Finally u_L<=2^(-m)exp(m/3), while m=pi(sqrt(X))-2 is asymptotic to 2sqrt(X)/log(X), so 1/(X*u_L) tends to infinity. Separately, the nonnegative product tilt g=product_l(1+epsilon psi_l), with m=k^2 and epsilon=1/k, has every nonconstant coefficient tending to zero but total energy (1+1/k^2)^(k^2)-1 tending to e-1.",
+        "twin_sieve_sparsity_rows": [
+          {
+            "scale_X": 10000,
+            "sieve_limit_floor_sqrt_X": 100,
+            "active_prime_count_m": 23,
+            "maximum_sign_atom_u_L": "5767168/15398899367535",
+            "minimum_full_interaction_energy": "3068245537507/11534336000",
+            "minimum_full_interaction_energy_float": 266.0097241407741,
+            "positive_and_increasing": true
+          },
+          {
+            "scale_X": 100000,
+            "sieve_limit_floor_sqrt_X": 316,
+            "active_prime_count_m": 63,
+            "maximum_sign_atom_u_L": "1006402806244282809411174366445568/2366937762370976098370181085597929817732815216555453",
+            "minimum_full_interaction_energy": "2366937762370875458089556657316988700296170659755453/100640280624428280941117436644556800000",
+            "minimum_full_interaction_energy_float": 23518791359533.945,
+            "positive_and_increasing": true
+          },
+          {
+            "scale_X": 1000000,
+            "sieve_limit_floor_sqrt_X": 1000,
+            "active_prime_count_m": 166,
+            "maximum_sign_atom_u_L": "3744684772199187280893781300015158794157695825139836856342485886746755072/74896044222352884924123354448672700873064519528140790264460386086372206293903425030506611299479456299715865282199786328125",
+            "minimum_full_interaction_energy": "4793346830230584635143894684715052855876129010141185156177478732325818001839656375859890314217126397262718626268461717/239659825420747985977202003200970162826092532808949558805919096751792324608",
+            "minimum_full_interaction_energy_float": 2.0000627229930428e+43,
+            "positive_and_increasing": true
+          }
+        ],
+        "coefficientwise_decay_counterfamily_rows": [
+          {
+            "k": 2,
+            "dimension_m_k_squared": 4,
+            "maximum_nonconstant_coefficient": "1/2",
+            "full_interaction_energy": "369/256",
+            "full_interaction_energy_float": 1.44140625,
+            "coefficient_tends_to_zero": true,
+            "energy_increasing_to_e_minus_one": true
+          },
+          {
+            "k": 3,
+            "dimension_m_k_squared": 9,
+            "maximum_nonconstant_coefficient": "1/3",
+            "full_interaction_energy": "612579511/387420489",
+            "full_interaction_energy_float": 1.581174791713197,
+            "coefficient_tends_to_zero": true,
+            "energy_increasing_to_e_minus_one": true
+          },
+          {
+            "k": 4,
+            "dimension_m_k_squared": 16,
+            "maximum_nonconstant_coefficient": "1/4",
+            "full_interaction_energy": "30214447801957316865/18446744073709551616",
+            "full_interaction_energy_float": 1.6379284973666,
+            "coefficient_tends_to_zero": true,
+            "energy_increasing_to_e_minus_one": true
+          },
+          {
+            "k": 8,
+            "dimension_m_k_squared": 64,
+            "maximum_nonconstant_coefficient": "1/8",
+            "full_interaction_energy": "66878796338388918501652324430137710536926087256603079274961203483907926368578202885970904303233345756078290222583809/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+            "full_interaction_energy_float": 1.6973449525650988,
+            "coefficient_tends_to_zero": true,
+            "energy_increasing_to_e_minus_one": true
+          },
+          {
+            "k": 20,
+            "dimension_m_k_squared": 400,
+            "maximum_nonconstant_coefficient": "1/20",
+            "full_interaction_energy": "1143492290236093091966669426325232430802552224498246122105210753535034021823002661792002800592268513418978585577234877016968517958260364489199914104915733628821939032317384759386264246505576680223055561016792238408346036533588328052028534024034878407819388019113655679255326322888638134210206498786518352476692020206261710383403509008328521574964958431105316199924684832317692244958785158697648156990819018809725825420478387685976019787709413512143268701914936297703940832785157678198688541336692137876229231919333132486033968650554215326011525492373717546873294133805225352728916667971872214934087015337819046035053112394592039972152187434397619662564604111845532083528909421804070304519050103673633241089137373343098780235204354935159193655998286455829511032969814127438253570925415345684031081897020174640011642207916699699300207427380528798060215813564000257356623955719969595364840964786329358948593935974479556061705216267806480950485105653228302677234517537830371986123503275067197330947429318420691103541627941185010350038207968160001/666801443287985427407985179072125779714475832231590816039625781176403723781763207152143220087155429074292991059343324044588880165411936508036335605233083004609515757951401455846307828591181402472896501613588660198169074803747646129116387737600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "full_interaction_energy_float": 1.714891744381287,
+            "coefficient_tends_to_zero": true,
+            "energy_increasing_to_e_minus_one": true
+          }
+        ],
+        "aggregate": {
+          "full_interaction_chi_square_identity_proved": true,
+          "sparse_support_energy_lower_bound_proved": true,
+          "twin_sieve_full_unweighted_energy_saving_refuted": true,
+          "coefficientwise_decay_to_aggregate_saving_refuted": true,
+          "entropy_matched_signed_large_sieve_proved": false,
+          "positive_twin_main_term_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem applies only when the normalized total mass is positive; it does not create any twin-prime mass and proves neither infinitude nor absence of twins. It closes only the full, unweighted, positive l2-energy route. Bounded mode families, degree damping, entropy-matched normalizations, signed aggregates, and Type-II cancellation remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem applies only when the normalized total mass is positive; it does not create any twin-prime mass and proves neither infinitude nor absence of twins. It closes only the full, unweighted, positive l2-energy route. Bounded mode families, degree damping, entropy-matched normalizations, signed aggregates, and Type-II cancellation remain open.",
+      "route_decision": {
+        "discard": "unweighted full growing-CRT positive interaction energy saving at the twin-sieve scale",
+        "retain": "use entropy-matched degree damping and signed Type-II interaction aggregates",
+        "next_single_lemma": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T231",
+            "label": "CenteredCRTQuadraticInteractionOrthogonality",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T232",
+            "label": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N232",
+            "label": "UnweightedFullGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN232",
+            "label": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T231",
+            "TP-T232"
+          ],
+          [
+            "TP-T232",
+            "TP-N232"
+          ],
+          [
+            "TP-T232",
+            "TP-OPEN232"
+          ],
+          [
+            "TP-OPEN232",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-232",
+      "status": "open_not_proven",
+      "declared_proposition": "At every height T let q_j(T)>1 and w_j(T)>=0 have finite positive total mass W_T, and put F_T(n)=sum_j w_j(T)|1-q_j(T)^(-in)|^2. For every head length M and integer Q>=2 with Q^M<=T there is 1<=n<=T such that F_T(n)/W_T<=4*pi^2/Q^2+4*delta_T(M), where delta_T(M)=sum_(j>M)w_j(T)/W_T. Consequently, if F_T(n)>=c W_T for every 1<=n<=T, delta_T(M)<=c/8, and an integer Q satisfies 4*pi^2/Q^2<c/2, then Q^M>T. Thus every adaptive frame with a fixed positive normalized floor needs at least logarithmically many effective coordinates: M>log(T)/log(Q).",
+      "mathematical_argument": "Apply simultaneous Dirichlet pigeonhole approximation to the first M phases log(q_j(T))/(2*pi). Among Q^M+1 multiples, two occupy the same Q-adic box; their difference n is at most Q^M and gives head energy at most 4*pi^2/Q^2 times the head mass. The pointwise bound |1-z|^2<=4 gives the tail term. A c-floor and tail ratio at most c/8 would contradict this witness whenever 4*pi^2/Q^2<c/2 and Q^M<=T, proving Q^M>T. No independence of the dilations is needed.",
+      "new_result": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+      "bounded_result": {
+        "audit_ref": "#/effective_dimension_binary_defect_rational_shell_crt_sparsity_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "height-adaptive positive frame floors with sublogarithmic effective dimension",
+      "remaining_gap": "The theorem closes height adaptation with sublogarithmic effective dimension, even for changing dilations and weights. It is a scalar phase-energy necessity theorem, not a Weil quadratic-form positivity result. Logarithmically dense frames, signed or renormalized systems, and explicit Weil-tail dominance remain open.",
+      "candidate_theorem": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T231",
+            "label": "SummableInfiniteDilationUniformFloorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T232",
+            "label": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N232",
+            "label": "SublogarithmicEffectiveDimensionAdaptivePositiveFrameFloor",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN232",
+            "label": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T231",
+            "RH-T232"
+          ],
+          [
+            "RH-T232",
+            "RH-N232"
+          ],
+          [
+            "RH-T232",
+            "RH-OPEN232"
+          ],
+          [
+            "RH-OPEN232",
+            "RH"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-232",
+      "status": "open_not_proven",
+      "declared_proposition": "Let a be a binary accelerated Collatz valuation word in {1,2}^h, S=sum a_j, D=2^S-3^h>0, and B its cycle numerator. If a contains one, two, or three entries equal to 1, then D does not divide B. Hence every nontrivial positive binary Collatz cycle word would have to contain at least four valuation-one entries.",
+      "mathematical_argument": "For a one-step cyclic rotation a', 2^(a_0)B(a')=3B(a)+D, and gcd(D,6)=1, so D|B is rotation invariant. With one 1, rotate to (1,2,...,2). Then B=2^(2h-1)-3^(h-1)=D+2*3^(h-1). Since gcd(D,6)=1 and D>=5, D cannot divide the remainder. With two 1s, start at the endpoint of the shorter cyclic gap to obtain (1,2^(r-1),1,2^(h-r-1)), 1<=r<=floor(h/2). Direct summation gives B-D=3^(h-r-1)(2*3^r+4^r). Since gcd(D,3)=1, divisibility would force D to divide Q=2*3^r+4^r. For h=5, D=13 and Q is 10 or 34. For h>=6, Q<=Q_h=2*3^floor(h/2)+4^floor(h/2)<D_h=4^(h-1)-3^h: check h=6,7, then use Q_(h+2)<4Q_h and D_(h+2)>4D_h. With three 1s, write the cyclic gaps as r,s,t>=1 and rotate so t is largest. Direct summation gives B-D=3^(t-1)Q_(r,s), where Q_(r,s)=2*3^(r+s)+4^r*3^s+4^(r+s)/2. Since r+s<=floor(2h/3), this is at most U_h=2*3^floor(2h/3)+(3/2)4^floor(2h/3). The h=8 cases are checked exactly. For h=9,10,11 the pairs (U_h,D_h) are (7602,13085), (7602,72023), and (28950,347141); then U_(h+3)<16U_h while D_(h+3)>16D_h. Hence 0<Q<D in every three-defect case as well.",
+      "new_result": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+      "bounded_result": {
+        "audit_ref": "#/effective_dimension_binary_defect_rational_shell_crt_sparsity_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "extending the TICKET-231 B<D size comparison unchanged into the critical strip",
+      "remaining_gap": "This is an infinite theorem for three exact binary defect layers, not a finite-search promotion. It does not exclude binary words with four or more 1s, words containing valuations above 2, or divergent aperiodic trajectories. The one-defect family has B>D, so simply extending TICKET-231's size certificate into the critical strip is not a viable route; the residue identity is essential.",
+      "candidate_theorem": "BinaryFourOneCriticalStripNondivisibility",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T231",
+            "label": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T232",
+            "label": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N232",
+            "label": "CriticalStripExclusionByTheSameSizeCertificate",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN232",
+            "label": "BinaryFourOneCriticalStripNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T231",
+            "CO-T232"
+          ],
+          [
+            "CO-T232",
+            "CO-N232"
+          ],
+          [
+            "CO-T232",
+            "CO-OPEN232"
+          ],
+          [
+            "CO-OPEN232",
+            "CO"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-232",
+      "status": "open_not_proven",
+      "declared_proposition": "Let l be odd prime and let nonnegative weights omega_p be supported on actual primes p<=X with p!=l. Put S(alpha)=sum_p omega_p e(p alpha), W_r=sum_(p=r mod l)omega_p, W=sum_r W_r, mu=W/(l-1), delta_r=W_r-mu, and E=sum delta_r^2. The complete rational shell T_l(N)=sum_(a=1)^(l-1)S(a/l)^2e(-aN/l) equals l*sum_(r+s=N mod l)W_rW_s-W^2. If l|N it is W^2/(l-1)+l*sum_r delta_r delta_(-r), with error at most lE. If n=N mod l is nonzero it is -W^2/(l-1)^2+l*(sum_(r!=n) delta_r delta_(n-r)-2mu delta_n), with error at most l*(E-delta_n^2+2mu|delta_n|).",
+      "mathematical_argument": "Expand the shell and use the prime Ramanujan sum sum_(a=1)^(l-1)e(a(p+q-N)/l)=l*1_(p+q=N mod l)-1. Substitute W_r=mu+delta_r and sum delta_r=0. For n!=0 the map r -> n-r permutes the nonzero residues other than n, so Cauchy bounds the quadratic term by E-delta_n^2. For the omitted local prime p=l of weight b, the full shell adds exactly 2b(lW_n-W)+b^2 c_l(N), where c_l(N)=l-1 if l|N and -1 otherwise.",
+      "new_result": "PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo",
+      "bounded_result": {
+        "audit_ref": "#/effective_dimension_binary_defect_rational_shell_crt_sparsity_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "using classwise o(1) relative equidistribution alone to replace growing rational shells by their singular coefficient or infer their sign",
+      "remaining_gap": "The identity exactly treats rational centers and actual prime weights, but not neighborhoods of the arcs, composite squarefree denominators, growing-denominator estimates for the actual prime delta_r, or cancellation between shells. The counterfamily uses nonnegative residue weights, not primes, so it refutes only the inference from classwise o(1) equidistribution and is not a Goldbach counterexample.",
+      "candidate_theorem": "UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T231",
+            "label": "QuadraticResidueGaussZeroConvolutionCounterfamily",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T232",
+            "label": "PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N232",
+            "label": "GrowingModulusRelativeResidueEquidistributionImpliesSingularShellControl",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN232",
+            "label": "UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T231",
+            "GB-T232"
+          ],
+          [
+            "GB-T232",
+            "GB-N232"
+          ],
+          [
+            "GB-T232",
+            "GB-OPEN232"
+          ],
+          [
+            "GB-OPEN232",
+            "GB"
+          ]
+        ]
+      }
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-232",
+      "status": "open_not_proven",
+      "declared_proposition": "For a finite set L of primes l>=5, let A_l exclude 0 and -2, let U be the uniform CRT product measure, and normalize the centered quadratic signs psi_l=(chi_l-mu_l)/sigma_l. Give nonnegative weights to at most N admissible CRT points and let b_S be the normalized coefficient of psi_S=product_(l in S)psi_l. If nu_Y is the quadratic-sign pushforward, then sum_(nonempty S)b_S^2 equals chi^2(nu_Y||U_Y) and is at least max(0,1/(N*u_L)-1), where u_L=product_l (l-1)/(2(l-2)). For L={5<=l<=sqrt(X)} and N<=X this lower bound tends to infinity. Thus full unweighted positive interaction energy cannot be o(1) at the twin-sieve scale.",
+      "mathematical_argument": "For each sign coordinate, {1,psi_l} is an orthonormal basis of its two-point pushforward space, so the tensor products psi_S form a complete basis. Parseval applied to dnu_Y/dU_Y gives the chi-square identity after removing b_empty=1. If B is the support, Cauchy gives 1<=(chi^2+1)U_Y(B)<=(chi^2+1)N*u_L. Finally u_L<=2^(-m)exp(m/3), while m=pi(sqrt(X))-2 is asymptotic to 2sqrt(X)/log(X), so 1/(X*u_L) tends to infinity. Separately, the nonnegative product tilt g=product_l(1+epsilon psi_l), with m=k^2 and epsilon=1/k, has every nonconstant coefficient tending to zero but total energy (1+1/k^2)^(k^2)-1 tending to e-1.",
+      "new_result": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+      "bounded_result": {
+        "audit_ref": "#/effective_dimension_binary_defect_rational_shell_crt_sparsity_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "unweighted full growing-CRT positive interaction energy saving at the twin-sieve scale",
+      "remaining_gap": "The theorem applies only when the normalized total mass is positive; it does not create any twin-prime mass and proves neither infinitude nor absence of twins. It closes only the full, unweighted, positive l2-energy route. Bounded mode families, degree damping, entropy-matched normalizations, signed aggregates, and Type-II cancellation remain open.",
+      "candidate_theorem": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T231",
+            "label": "CenteredCRTQuadraticInteractionOrthogonality",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T232",
+            "label": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N232",
+            "label": "UnweightedFullGrowingCRTInteractionEnergySavingAtTwinSieveScale",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN232",
+            "label": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T231",
+            "TP-T232"
+          ],
+          [
+            "TP-T232",
+            "TP-N232"
+          ],
+          [
+            "TP-T232",
+            "TP-OPEN232"
+          ],
+          [
+            "TP-OPEN232",
+            "TP"
+          ]
+        ]
+      }
+    }
+  ]
+}

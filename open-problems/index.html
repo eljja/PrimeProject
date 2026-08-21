@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260821-ticket231-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260821-ticket232-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-231</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-232</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-231 actually changed</h2>
-          <p>TICKET-231 did not solve a parent conjecture. It rules out a positive uniform floor for fixed absolutely summable infinite dilation frames, confines every nontrivial Collatz cycle to a strict valuation critical strip, gives a genuine zero-convolution Gauss counterfamily and corrects the stronger TICKET-230 wording, and proves exact orthogonality of centered quadratic CRT interactions.</p>
-          <p class="proof-boundary">TICKET-231은 상위 난제를 해결하지 않았습니다. 고정 절대가합 무한 배율 프레임의 양의 균일 하한을 배제하고, 모든 비자명 콜라츠 순환을 엄밀한 valuation 임계띠로 제한했습니다. 골드바흐에서는 진짜 영 합성곱 가우스 반례족으로 TICKET-230의 과한 문구를 교정했고, 쌍둥이 소수에서는 중심화 이차지표 CRT 상호작용의 정확한 직교성을 증명했습니다.</p>
+          <h2>What TICKET-232 actually changed</h2>
+          <p>TICKET-232 did not solve a parent conjecture. It proves that adaptive positive frame floors need logarithmic effective dimension, excludes binary Collatz critical-strip words with at most three valuation-one entries, exactly decomposes prime-weighted rational Goldbach shells, and proves a chi-square sparsity obstruction for full unweighted growing-CRT Twin energy.</p>
+          <p class="proof-boundary">TICKET-232는 상위 난제를 해결하지 않았습니다. 적응형 양의 프레임 하한에 로그 유효차원이 필요함을 증명하고, 값 1이 최대 세 개인 binary 콜라츠 임계띠 word를 배제했습니다. 실제 소수 가중 골드바흐 유리 shell을 정확히 분해했으며, 쌍둥이 소수의 full unweighted growing-CRT 에너지 경로에는 chi-square 희소성 장벽이 있음을 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,9 +55,9 @@
           <header><span>01 · SPECTRAL POSITIVITY</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every fixed absolutely summable infinite dilation family has energy liminf zero.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Such a fixed summable family cannot provide a positive uniform frequency floor.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>A fixed positive adaptive floor requires logarithmically many effective dilation coordinates.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Sublogarithmic effective dimension cannot repair the frame floor.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance</code></dd></div>
           </dl>
           <p class="workbench-ko">정성적 준지수 조건이 아니라 재귀 척도와 직접 비교되는 적응형·무한 프레임 및 실제 Weil 핵 꼬리 정리가 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
@@ -66,9 +66,9 @@
           <header><span>02 · GLOBAL DESCENT</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every nontrivial positive cycle must satisfy <code>log_2(3)&lt;S/h&lt;2</code>.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Unqualified all-necklace nondivisibility is false because the trivial word <code>(2)</code> is divisible.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CriticalStripPrimitiveNecklaceNondivisibility</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Binary critical-strip words with one, two, or three valuation-one entries are nondivisible.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The TICKET-231 <code>B&lt;D</code> size certificate cannot extend unchanged into the strip.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>BinaryFourOneCriticalStripNondivisibility</code></dd></div>
           </dl>
           <p class="workbench-ko">회전 대칭을 몫낸 목걸이 대표 전체의 비나눗셈과 별도의 비주기 궤도 하강은 여전히 열려 있습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
@@ -77,9 +77,9 @@
           <header><span>03 · SIGNED MINOR ARCS</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Quadratic residues modulo every prime <code>3 mod 4</code> give zero convolution at 0 while relative nonprincipal modes vanish.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The positive TICKET-230 spike family was not itself a counterexample to pointwise positivity.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every prime-denominator rational shell equals its singular coefficient plus an exact target-aligned residue autocorrelation.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Classwise relative equidistribution <code>o(1)</code> alone does not preserve a growing shell's size or sign.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale</code></dd></div>
           </dl>
           <p class="workbench-ko">실제 소수 가중치의 주호·부호 구간 분해 뒤 목표에 정렬된 부호 있는 전체 합을 제어해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
@@ -88,9 +88,9 @@
           <header><span>04 · PRIME-PAIR OPERATORS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Centered quadratic CRT interaction tensors are exactly orthogonal with explicit norms.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Raw local bias and the degenerate modulo-three mode are not global prime evidence.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Full normalized CRT interaction energy is an exact chi-square divergence with a sparse-support lower bound.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Full unweighted positive interaction energy cannot be small at twin-sieve scale.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale</code></dd></div>
           </dl>
           <p class="workbench-ko">평균 1/3을 뺀 중심화 관측량의 Type-II 절약과 parity barrier를 넘는 양의 주성분 하한이 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
@@ -100,14 +100,14 @@
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>231 tickets reduced to four meaningful eras</h2>
+          <h2>232 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–231 · Exact coordinates, rate limits, and target correction</strong><p>복원 가능한 정보와 완전성 임계값을 거쳐, 절대가합 프레임 장벽·콜라츠 임계띠·가우스 영 합성곱 반례족·CRT 직교성으로 남은 무한 추정의 정확한 대상을 교정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–232 · Exact coordinates, rate limits, and target correction</strong><p>로그 유효차원 필요조건, binary defect 비나눗셈, 실제 소수 유리 shell 항등식, CRT chi-square 희소성 장벽으로 남은 무한 추정의 정확한 대상을 더 좁혔습니다.</p></li>
         </ol>
       </section>
 
@@ -117,6 +117,8 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md">TICKET-232 한국어 보고서</a>
+          <a href="../docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md">TICKET-232 English report</a>
           <a href="../docs/summable-frame-critical-strip-gauss-crt.ko.md">TICKET-231 한국어 보고서</a>
           <a href="../docs/summable-frame-critical-strip-gauss-crt.md">TICKET-231 English report</a>
           <a href="../docs/quantitative-recurrence-necklace-fourier-centering.ko.md">TICKET-230 한국어 보고서</a>
@@ -188,7 +190,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260821-ticket231"></script>
+    <script src="../assets/i18n.js?v=20260821-ticket232"></script>
   </body>
 </html>
 

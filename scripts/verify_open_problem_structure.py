@@ -232,6 +232,10 @@ TICKET230_SCHEMA = (
     "primeproject.ticket230-quantitative-recurrence-necklace-fourier-centering.v1"
 )
 TICKET231_SCHEMA = "primeproject.ticket231-summable-frame-critical-strip-gauss-crt.v1"
+TICKET232_SCHEMA = (
+    "primeproject.ticket232-effective-dimension-binary-defect-"
+    "rational-shell-crt-sparsity.v1"
+)
 
 
 def fail(message: str) -> int:
@@ -19601,6 +19605,185 @@ def main() -> int:
         or machine231.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket231 proof boundary changed")
+
+    path232 = Path(
+        "data/open-problem/ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.json"
+    )
+    if not path232.exists():
+        return fail("missing ticket232 effective-dimension/binary-defect/shell/CRT audit")
+    ticket232 = read_json(path232)
+    if (
+        ticket232.get("schema") != TICKET232_SCHEMA
+        or ticket232.get("status") != "open_not_proven"
+    ):
+        return fail("ticket232 schema or status changed")
+    audit232 = ticket232.get(
+        "effective_dimension_binary_defect_rational_shell_crt_sparsity_audit", {}
+    )
+    machine232 = audit232.get("machine_audit", {})
+    if machine232 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket232 global machine audit changed")
+
+    theorem_names232 = {
+        "riemann": "AdaptiveFrameLogarithmicEffectiveDimensionNecessity",
+        "collatz": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+        "goldbach": "PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo",
+        "twin-prime": "GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo",
+    }
+    next_lemmas232 = {
+        "riemann": "LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance",
+        "collatz": "BinaryFourOneCriticalStripNondivisibility",
+        "goldbach": "UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale",
+        "twin-prime": "EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale",
+    }
+    track_paths232 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-232-adaptive-effective-dimension.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-232-binary-at-most-three-defect.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-232-rational-shell-autocorrelation.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-232-crt-sparsity-no-go.json"
+        ),
+    }
+    audit_sections232 = {
+        "riemann": audit232.get("riemann", {}),
+        "collatz": audit232.get("collatz", {}),
+        "goldbach": audit232.get("goldbach", {}),
+        "twin-prime": audit232.get("twin_prime", {}),
+    }
+    attempts232 = {
+        row.get("problem_id"): row for row in ticket232.get("attempts", [])
+    }
+    if set(attempts232) != EXPECTED_PROBLEMS:
+        return fail("ticket232 attempts missing problems")
+    for problem_id, attempt in attempts232.items():
+        track_path = track_paths232[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket232 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections232[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names232[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas232[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or len(nodes) != 5
+            or len(dag.get("edges", [])) != 4
+            or sum(node.get("status") == "highest_risk_open" for node in nodes)
+            != 1
+            or nodes[-1].get("status") != "open_not_proven"
+            or section.get("theorem_name") != theorem_names232[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas232[problem_id]
+            or track.get("schema") != TICKET232_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names232[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket232 contract changed")
+
+    rh232 = audit_sections232["riemann"].get("reproducible_computation", {})
+    if (
+        len(rh232.get("adaptive_collision_rows", [])) != 5
+        or any(
+            row.get("certificate_verified") is not True
+            for row in rh232.get("adaptive_collision_rows", [])
+        )
+        or rh232.get("aggregate", {}).get(
+            "logarithmic_effective_dimension_necessary"
+        )
+        is not True
+        or rh232.get("aggregate", {}).get("weil_tail_dominance_proved") is not False
+        or rh232.get("aggregate", {}).get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket232 RH effective-dimension boundary changed")
+
+    collatz232 = audit_sections232["collatz"].get(
+        "reproducible_computation", {}
+    )
+    if (
+        any(
+            row.get("certificate_verified") is not True
+            for row in collatz232.get("height_rows", [])
+        )
+        or collatz232.get("aggregate", {}).get(
+            "three_valuation_one_binary_cycles_excluded"
+        )
+        is not True
+        or collatz232.get("aggregate", {}).get(
+            "binary_nontrivial_cycle_needs_at_least_four_ones"
+        )
+        is not True
+        or collatz232.get("aggregate", {}).get("aperiodic_descent_proved") is not False
+        or collatz232.get("aggregate", {}).get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket232 Collatz binary-defect boundary changed")
+
+    goldbach232 = audit_sections232["goldbach"].get(
+        "reproducible_computation", {}
+    )
+    if (
+        len(goldbach232.get("actual_prime_indicator_shell_rows", [])) != 40
+        or any(
+            row.get("integer_identity_verified") is not True
+            for row in goldbach232.get("actual_prime_indicator_shell_rows", [])
+        )
+        or goldbach232.get("aggregate", {}).get(
+            "prime_weighted_rational_shell_identity_proved"
+        )
+        is not True
+        or goldbach232.get("aggregate", {}).get("full_minor_arc_aggregate_bound_proved")
+        is not False
+        or goldbach232.get("aggregate", {}).get("strong_goldbach_conjecture_resolved")
+        is not False
+    ):
+        return fail("ticket232 Goldbach rational-shell boundary changed")
+
+    twin232 = audit_sections232["twin-prime"].get("reproducible_computation", {})
+    if (
+        [
+            row.get("active_prime_count_m")
+            for row in twin232.get("twin_sieve_sparsity_rows", [])
+        ]
+        != [23, 63, 166]
+        or twin232.get("aggregate", {}).get(
+            "full_interaction_chi_square_identity_proved"
+        )
+        is not True
+        or twin232.get("aggregate", {}).get(
+            "twin_sieve_full_unweighted_energy_saving_refuted"
+        )
+        is not True
+        or twin232.get("aggregate", {}).get("positive_twin_main_term_proved") is not False
+        or twin232.get("aggregate", {}).get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket232 Twin CRT-sparsity boundary changed")
+
+    if (
+        "resolves none" not in str(audit232.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket232.get("claim_boundary", "")).lower()
+        or machine232.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket232 proof boundary changed")
 
     path230 = Path(
         "data/open-problem/ticket230-quantitative-recurrence-necklace-fourier-centering.json"

@@ -62,34 +62,32 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-231
+## Current continuation: TICKET-232
 
 The current machine-readable boundary is
-`data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json`.
+`data/open-problem/ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.json`.
 It records four exact structural or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `SummableInfiniteDilationUniformFloorNoGo` | `HeightAdaptiveRenormalizedWeilFrameWithExplicitTailDominance` |
-| Collatz | `AverageValuationTwoCycleExclusionAndCriticalStrip` | `CriticalStripPrimitiveNecklaceNondivisibility` |
-| Goldbach | `QuadraticResidueGaussZeroConvolutionCounterfamily` | `UniformNegativeBinaryPrimeMinorArcAggregateBelowSingularSeriesMainTerm` |
-| Twin Prime | `CenteredCRTQuadraticInteractionOrthogonality` | `PrimeWeightedGrowingCRTInteractionEnergySavingAtTwinSieveScale` |
+| Riemann | `AdaptiveFrameLogarithmicEffectiveDimensionNecessity` | `LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance` |
+| Collatz | `BinaryAtMostThreeOneCriticalStripNondivisibility` | `BinaryFourOneCriticalStripNondivisibility` |
+| Goldbach | `PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo` | `UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale` |
+| Twin Prime | `GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo` | `EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale` |
 
-The RH result rules out a positive uniform floor even for a fixed absolutely
-summable infinite family, but does not construct an adaptive Weil-positive
-frame. The Collatz result confines every nontrivial cycle to
-`log_2(3)<S/h<2`, but does not exclude that strip or aperiodic divergence. The
-Goldbach Gauss family is a genuine zero-convolution inference counterexample,
-not a prime-weight result or a Goldbach counterexample. The Twin result removes
-deterministic local CRT bias, but proves no prime-weighted energy saving or
-positive principal mass.
+The RH theorem turns adaptation into a quantitative logarithmic dimension
+requirement but supplies no Weil-positive frame. The Collatz theorem closes
+only the first three binary defect layers. The Goldbach identity treats actual
+prime weights at rational centers but not arc neighborhoods or the denominator
+aggregate. The Twin theorem refutes only full unweighted positive energy
+saving; it creates no positive twin mass.
 
-Reports: [English](summable-frame-critical-strip-gauss-crt.md),
-[한국어](summable-frame-critical-strip-gauss-crt.ko.md).
+Reports: [English](effective-dimension-binary-defect-rational-shell-crt-sparsity.md),
+[한국어](effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-231 boundary.
+snapshots and must not override this TICKET-232 boundary.
 
 ## Historical continuation after TICKET-209
 

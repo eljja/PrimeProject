@@ -15,32 +15,39 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-231
+## Current research boundary: TICKET-232
 
 The current machine-readable boundary is
-`data/open-problem/ticket231-summable-frame-critical-strip-gauss-crt.json`.
+`data/open-problem/ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.json`.
 
-TICKET-231 proves four exact structural or no-go theorems and resolves
+TICKET-232 proves four exact structural or no-go theorems and resolves
 none of the parent conjectures:
 
-- every fixed absolutely summable infinite dilation family has energy liminf
-  zero, ruling out its use as a positive uniform frame floor;
-- every nontrivial accelerated Collatz cycle must lie in the strict critical
-  strip `log_2(3)<S/h<2`;
-- nonzero quadratic residues modulo primes `3 mod 4` form a true
-  zero-convolution Gauss counterfamily despite modewise relative decay;
-- centered quadratic CRT interaction tensors are exactly orthogonal, with an
-  explicit norm and a degenerate modulo-three factor.
+- a fixed positive adaptive frame floor requires logarithmically many
+  effective dilation coordinates;
+- binary Collatz critical-strip words with at most three valuation-one
+  entries are nondivisible;
+- actual-prime rational Goldbach shells have an exact residue-autocorrelation
+  decomposition and classwise `o(1)` alone does not control growing shells;
+- full unweighted growing-CRT Twin interaction energy equals chi-square and
+  has a sparse-support lower bound.
 
-The remaining decisive targets are a height-adaptive renormalized frame whose
-explicit floor dominates the actual Weil tail; critical-strip Collatz
-necklace nondivisibility plus aperiodic descent; a one-sided negative binary-
-prime minor-arc aggregate below the singular-series main term; and a
-prime-weighted growing-CRT energy saving together with a positive twin-prime
-principal lower bound.
+The remaining decisive targets are a logarithmically dense adaptive frame
+whose floor dominates the actual Weil tail; binary four-one Collatz
+nondivisibility plus later critical layers and aperiodic descent; actual-prime
+growing-denominator residue autocorrelation at singular-coefficient scale;
+and an entropy-matched signed CRT large sieve plus a positive twin-prime main.
 
-English report: [TICKET-231](summable-frame-critical-strip-gauss-crt.md).
-한국어 보고서: [TICKET-231](summable-frame-critical-strip-gauss-crt.ko.md).
+English report: [TICKET-232](effective-dimension-binary-defect-rational-shell-crt-sparsity.md).
+한국어 보고서: [TICKET-232](effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
+
+## Preserved research boundary: TICKET-231
+
+TICKET-231 remains available in
+[English](summable-frame-critical-strip-gauss-crt.md) and
+[한국어](summable-frame-critical-strip-gauss-crt.ko.md). Its summable-frame,
+critical-strip, Gauss-counterfamily, and centered-CRT results are direct
+inputs to TICKET-232.
 
 ## Preserved research boundary: TICKET-230
 

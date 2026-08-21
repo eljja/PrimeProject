@@ -1,0 +1,895 @@
+{
+  "schema": "primeproject.ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.v1",
+  "generated_at": "2026-08-21T21:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-232",
+  "theorem_name": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+  "declared_proposition": "Let a be a binary accelerated Collatz valuation word in {1,2}^h, S=sum a_j, D=2^S-3^h>0, and B its cycle numerator. If a contains one, two, or three entries equal to 1, then D does not divide B. Hence every nontrivial positive binary Collatz cycle word would have to contain at least four valuation-one entries.",
+  "mathematical_argument": "For a one-step cyclic rotation a', 2^(a_0)B(a')=3B(a)+D, and gcd(D,6)=1, so D|B is rotation invariant. With one 1, rotate to (1,2,...,2). Then B=2^(2h-1)-3^(h-1)=D+2*3^(h-1). Since gcd(D,6)=1 and D>=5, D cannot divide the remainder. With two 1s, start at the endpoint of the shorter cyclic gap to obtain (1,2^(r-1),1,2^(h-r-1)), 1<=r<=floor(h/2). Direct summation gives B-D=3^(h-r-1)(2*3^r+4^r). Since gcd(D,3)=1, divisibility would force D to divide Q=2*3^r+4^r. For h=5, D=13 and Q is 10 or 34. For h>=6, Q<=Q_h=2*3^floor(h/2)+4^floor(h/2)<D_h=4^(h-1)-3^h: check h=6,7, then use Q_(h+2)<4Q_h and D_(h+2)>4D_h. With three 1s, write the cyclic gaps as r,s,t>=1 and rotate so t is largest. Direct summation gives B-D=3^(t-1)Q_(r,s), where Q_(r,s)=2*3^(r+s)+4^r*3^s+4^(r+s)/2. Since r+s<=floor(2h/3), this is at most U_h=2*3^floor(2h/3)+(3/2)4^floor(2h/3). The h=8 cases are checked exactly. For h=9,10,11 the pairs (U_h,D_h) are (7602,13085), (7602,72023), and (28950,347141); then U_(h+3)<16U_h while D_(h+3)>16D_h. Hence 0<Q<D in every three-defect case as well.",
+  "reproducible_computation": {
+    "theorem": "Let a be a binary accelerated Collatz valuation word in {1,2}^h, S=sum a_j, D=2^S-3^h>0, and B its cycle numerator. If a contains one, two, or three entries equal to 1, then D does not divide B. Hence every nontrivial positive binary Collatz cycle word would have to contain at least four valuation-one entries.",
+    "proof": "For a one-step cyclic rotation a', 2^(a_0)B(a')=3B(a)+D, and gcd(D,6)=1, so D|B is rotation invariant. With one 1, rotate to (1,2,...,2). Then B=2^(2h-1)-3^(h-1)=D+2*3^(h-1). Since gcd(D,6)=1 and D>=5, D cannot divide the remainder. With two 1s, start at the endpoint of the shorter cyclic gap to obtain (1,2^(r-1),1,2^(h-r-1)), 1<=r<=floor(h/2). Direct summation gives B-D=3^(h-r-1)(2*3^r+4^r). Since gcd(D,3)=1, divisibility would force D to divide Q=2*3^r+4^r. For h=5, D=13 and Q is 10 or 34. For h>=6, Q<=Q_h=2*3^floor(h/2)+4^floor(h/2)<D_h=4^(h-1)-3^h: check h=6,7, then use Q_(h+2)<4Q_h and D_(h+2)>4D_h. With three 1s, write the cyclic gaps as r,s,t>=1 and rotate so t is largest. Direct summation gives B-D=3^(t-1)Q_(r,s), where Q_(r,s)=2*3^(r+s)+4^r*3^s+4^(r+s)/2. Since r+s<=floor(2h/3), this is at most U_h=2*3^floor(2h/3)+(3/2)4^floor(2h/3). The h=8 cases are checked exactly. For h=9,10,11 the pairs (U_h,D_h) are (7602,13085), (7602,72023), and (28950,347141); then U_(h+3)<16U_h while D_(h+3)>16D_h. Hence 0<Q<D in every three-defect case as well.",
+    "height_rows": [
+      {
+        "height_h": 3,
+        "one_defect_words_tested": 3,
+        "one_defect_positive_denominator": 3,
+        "one_defect_nondivisible": 3,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 3,
+        "two_defect_positive_denominator": 0,
+        "two_defect_nondivisible": 0,
+        "two_defect_necklaces": 0,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 4,
+        "one_defect_words_tested": 4,
+        "one_defect_positive_denominator": 4,
+        "one_defect_nondivisible": 4,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 6,
+        "two_defect_positive_denominator": 0,
+        "two_defect_nondivisible": 0,
+        "two_defect_necklaces": 0,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 5,
+        "one_defect_words_tested": 5,
+        "one_defect_positive_denominator": 5,
+        "one_defect_nondivisible": 5,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 10,
+        "two_defect_positive_denominator": 10,
+        "two_defect_nondivisible": 10,
+        "two_defect_necklaces": 2,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 6,
+        "one_defect_words_tested": 6,
+        "one_defect_positive_denominator": 6,
+        "one_defect_nondivisible": 6,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 15,
+        "two_defect_positive_denominator": 15,
+        "two_defect_nondivisible": 15,
+        "two_defect_necklaces": 3,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 7,
+        "one_defect_words_tested": 7,
+        "one_defect_positive_denominator": 7,
+        "one_defect_nondivisible": 7,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 21,
+        "two_defect_positive_denominator": 21,
+        "two_defect_nondivisible": 21,
+        "two_defect_necklaces": 3,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 8,
+        "one_defect_words_tested": 8,
+        "one_defect_positive_denominator": 8,
+        "one_defect_nondivisible": 8,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 28,
+        "two_defect_positive_denominator": 28,
+        "two_defect_nondivisible": 28,
+        "two_defect_necklaces": 4,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 9,
+        "one_defect_words_tested": 9,
+        "one_defect_positive_denominator": 9,
+        "one_defect_nondivisible": 9,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 36,
+        "two_defect_positive_denominator": 36,
+        "two_defect_nondivisible": 36,
+        "two_defect_necklaces": 4,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 10,
+        "one_defect_words_tested": 10,
+        "one_defect_positive_denominator": 10,
+        "one_defect_nondivisible": 10,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 45,
+        "two_defect_positive_denominator": 45,
+        "two_defect_nondivisible": 45,
+        "two_defect_necklaces": 5,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 11,
+        "one_defect_words_tested": 11,
+        "one_defect_positive_denominator": 11,
+        "one_defect_nondivisible": 11,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 55,
+        "two_defect_positive_denominator": 55,
+        "two_defect_nondivisible": 55,
+        "two_defect_necklaces": 5,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 12,
+        "one_defect_words_tested": 12,
+        "one_defect_positive_denominator": 12,
+        "one_defect_nondivisible": 12,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 66,
+        "two_defect_positive_denominator": 66,
+        "two_defect_nondivisible": 66,
+        "two_defect_necklaces": 6,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 13,
+        "one_defect_words_tested": 13,
+        "one_defect_positive_denominator": 13,
+        "one_defect_nondivisible": 13,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 78,
+        "two_defect_positive_denominator": 78,
+        "two_defect_nondivisible": 78,
+        "two_defect_necklaces": 6,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 14,
+        "one_defect_words_tested": 14,
+        "one_defect_positive_denominator": 14,
+        "one_defect_nondivisible": 14,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 91,
+        "two_defect_positive_denominator": 91,
+        "two_defect_nondivisible": 91,
+        "two_defect_necklaces": 7,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 15,
+        "one_defect_words_tested": 15,
+        "one_defect_positive_denominator": 15,
+        "one_defect_nondivisible": 15,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 105,
+        "two_defect_positive_denominator": 105,
+        "two_defect_nondivisible": 105,
+        "two_defect_necklaces": 7,
+        "certificate_verified": true
+      },
+      {
+        "height_h": 16,
+        "one_defect_words_tested": 16,
+        "one_defect_positive_denominator": 16,
+        "one_defect_nondivisible": 16,
+        "one_defect_necklaces": 1,
+        "two_defect_words_tested": 120,
+        "two_defect_positive_denominator": 120,
+        "two_defect_nondivisible": 120,
+        "two_defect_necklaces": 8,
+        "certificate_verified": true
+      }
+    ],
+    "sample_certificates": [
+      {
+        "word": [
+          1,
+          2,
+          2
+        ],
+        "height_h": 3,
+        "one_count_k": 1,
+        "valuation_sum_S": 5,
+        "denominator_D": 5,
+        "numerator_B": 23,
+        "B_mod_D": 3,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2
+        ],
+        "height_h": 3,
+        "one_count_k": 1,
+        "valuation_sum_S": 5,
+        "denominator_D": 5,
+        "numerator_B": 29,
+        "B_mod_D": 4,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1
+        ],
+        "height_h": 3,
+        "one_count_k": 1,
+        "valuation_sum_S": 5,
+        "denominator_D": 5,
+        "numerator_B": 37,
+        "B_mod_D": 2,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          2
+        ],
+        "height_h": 4,
+        "one_count_k": 1,
+        "valuation_sum_S": 7,
+        "denominator_D": 47,
+        "numerator_B": 101,
+        "B_mod_D": 7,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          2
+        ],
+        "height_h": 4,
+        "one_count_k": 1,
+        "valuation_sum_S": 7,
+        "denominator_D": 47,
+        "numerator_B": 119,
+        "B_mod_D": 25,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "height_h": 4,
+        "one_count_k": 1,
+        "valuation_sum_S": 7,
+        "denominator_D": 47,
+        "numerator_B": 143,
+        "B_mod_D": 2,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "height_h": 4,
+        "one_count_k": 1,
+        "valuation_sum_S": 7,
+        "denominator_D": 47,
+        "numerator_B": 175,
+        "B_mod_D": 34,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 1,
+        "valuation_sum_S": 9,
+        "denominator_D": 269,
+        "numerator_B": 431,
+        "B_mod_D": 162,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 1,
+        "valuation_sum_S": 9,
+        "denominator_D": 269,
+        "numerator_B": 485,
+        "B_mod_D": 216,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 1,
+        "valuation_sum_S": 9,
+        "denominator_D": 269,
+        "numerator_B": 557,
+        "B_mod_D": 19,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          2,
+          1,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 1,
+        "valuation_sum_S": 9,
+        "denominator_D": 269,
+        "numerator_B": 653,
+        "B_mod_D": 115,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "height_h": 5,
+        "one_count_k": 1,
+        "valuation_sum_S": 9,
+        "denominator_D": 269,
+        "numerator_B": 781,
+        "B_mod_D": 243,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 283,
+        "B_mod_D": 10,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 319,
+        "B_mod_D": 7,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          1,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 367,
+        "B_mod_D": 3,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          2,
+          1
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 431,
+        "B_mod_D": 2,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          1,
+          2,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 373,
+        "B_mod_D": 9,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          1,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 421,
+        "B_mod_D": 5,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          2,
+          1
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 485,
+        "B_mod_D": 4,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1,
+          1,
+          2
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 493,
+        "B_mod_D": 12,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          1,
+          2,
+          1
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 557,
+        "B_mod_D": 11,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "height_h": 5,
+        "one_count_k": 2,
+        "valuation_sum_S": 8,
+        "denominator_D": 13,
+        "numerator_B": 653,
+        "B_mod_D": 3,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "height_h": 6,
+        "one_count_k": 1,
+        "valuation_sum_S": 11,
+        "denominator_D": 1319,
+        "numerator_B": 1805,
+        "B_mod_D": 486,
+        "D_does_not_divide_B": true
+      },
+      {
+        "word": [
+          2,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "height_h": 6,
+        "one_count_k": 1,
+        "valuation_sum_S": 11,
+        "denominator_D": 1319,
+        "numerator_B": 1967,
+        "B_mod_D": 648,
+        "D_does_not_divide_B": true
+      }
+    ],
+    "two_defect_remainder_bound_rows": [
+      {
+        "height_h": 5,
+        "maximum_separation_r": 2,
+        "denominator_D_for_two_ones": 13,
+        "maximum_small_remainder_Q": 34,
+        "Q_below_D_for_h_at_least_6": false,
+        "h5_checked_separately": true
+      },
+      {
+        "height_h": 6,
+        "maximum_separation_r": 3,
+        "denominator_D_for_two_ones": 295,
+        "maximum_small_remainder_Q": 118,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 7,
+        "maximum_separation_r": 3,
+        "denominator_D_for_two_ones": 1909,
+        "maximum_small_remainder_Q": 118,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 8,
+        "maximum_separation_r": 4,
+        "denominator_D_for_two_ones": 9823,
+        "maximum_small_remainder_Q": 418,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 9,
+        "maximum_separation_r": 4,
+        "denominator_D_for_two_ones": 45853,
+        "maximum_small_remainder_Q": 418,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 10,
+        "maximum_separation_r": 5,
+        "denominator_D_for_two_ones": 203095,
+        "maximum_small_remainder_Q": 1510,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 11,
+        "maximum_separation_r": 5,
+        "denominator_D_for_two_ones": 871429,
+        "maximum_small_remainder_Q": 1510,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 12,
+        "maximum_separation_r": 6,
+        "denominator_D_for_two_ones": 3662863,
+        "maximum_small_remainder_Q": 5554,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 13,
+        "maximum_separation_r": 6,
+        "denominator_D_for_two_ones": 15182893,
+        "maximum_small_remainder_Q": 5554,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 14,
+        "maximum_separation_r": 7,
+        "denominator_D_for_two_ones": 62325895,
+        "maximum_small_remainder_Q": 20758,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 15,
+        "maximum_separation_r": 7,
+        "denominator_D_for_two_ones": 254086549,
+        "maximum_small_remainder_Q": 20758,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 16,
+        "maximum_separation_r": 8,
+        "denominator_D_for_two_ones": 1030695103,
+        "maximum_small_remainder_Q": 78658,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 17,
+        "maximum_separation_r": 8,
+        "denominator_D_for_two_ones": 4165827133,
+        "maximum_small_remainder_Q": 78658,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 18,
+        "maximum_separation_r": 9,
+        "denominator_D_for_two_ones": 16792448695,
+        "maximum_small_remainder_Q": 301510,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 19,
+        "maximum_separation_r": 9,
+        "denominator_D_for_two_ones": 67557215269,
+        "maximum_small_remainder_Q": 301510,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      },
+      {
+        "height_h": 20,
+        "maximum_separation_r": 10,
+        "denominator_D_for_two_ones": 271391122543,
+        "maximum_small_remainder_Q": 1166674,
+        "Q_below_D_for_h_at_least_6": true,
+        "h5_checked_separately": false
+      }
+    ],
+    "three_defect_gap_certificate_rows": [
+      {
+        "height_h": 8,
+        "maximum_gap_normalized_cases": 8,
+        "denominator_D": 1631,
+        "maximum_residual_Q": 1574,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 9,
+        "maximum_gap_normalized_cases": 11,
+        "denominator_D": 13085,
+        "maximum_residual_Q": 5234,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 10,
+        "maximum_gap_normalized_cases": 13,
+        "denominator_D": 72023,
+        "maximum_residual_Q": 5810,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 11,
+        "maximum_gap_normalized_cases": 17,
+        "denominator_D": 347141,
+        "maximum_residual_Q": 19478,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 12,
+        "maximum_gap_normalized_cases": 20,
+        "denominator_D": 1565711,
+        "maximum_residual_Q": 66626,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 13,
+        "maximum_gap_normalized_cases": 24,
+        "denominator_D": 6794285,
+        "maximum_residual_Q": 73538,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 14,
+        "maximum_gap_normalized_cases": 28,
+        "denominator_D": 28771463,
+        "maximum_residual_Q": 253382,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 15,
+        "maximum_gap_normalized_cases": 33,
+        "denominator_D": 119868821,
+        "maximum_residual_Q": 891218,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 16,
+        "maximum_gap_normalized_cases": 37,
+        "denominator_D": 493824191,
+        "maximum_residual_Q": 974162,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 17,
+        "maximum_gap_normalized_cases": 43,
+        "denominator_D": 2018343485,
+        "maximum_residual_Q": 3446774,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 18,
+        "maximum_gap_normalized_cases": 48,
+        "denominator_D": 8202514103,
+        "maximum_residual_Q": 12437474,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 19,
+        "maximum_gap_normalized_cases": 54,
+        "denominator_D": 33197476901,
+        "maximum_residual_Q": 13432802,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 20,
+        "maximum_gap_normalized_cases": 60,
+        "denominator_D": 133952169071,
+        "maximum_residual_Q": 48687014,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 21,
+        "maximum_gap_normalized_cases": 67,
+        "denominator_D": 539295460685,
+        "maximum_residual_Q": 179615474,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 22,
+        "maximum_gap_normalized_cases": 73,
+        "denominator_D": 2167642195943,
+        "maximum_residual_Q": 191559410,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 23,
+        "maximum_gap_normalized_cases": 81,
+        "denominator_D": 8701949843381,
+        "maximum_residual_Q": 708895958,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      },
+      {
+        "height_h": 24,
+        "maximum_gap_normalized_cases": 88,
+        "denominator_D": 34901942552351,
+        "maximum_residual_Q": 2663558786,
+        "all_Q_strictly_below_D": true,
+        "all_factorizations_and_nondivisibility_verified": true
+      }
+    ],
+    "aggregate": {
+      "one_valuation_one_binary_cycles_excluded": true,
+      "two_valuation_one_binary_cycles_excluded": true,
+      "three_valuation_one_binary_cycles_excluded": true,
+      "binary_nontrivial_cycle_needs_at_least_four_ones": true,
+      "arbitrary_binary_defect_nondivisibility_proved": false,
+      "valuations_above_two_excluded": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This is an infinite theorem for three exact binary defect layers, not a finite-search promotion. It does not exclude binary words with four or more 1s, words containing valuations above 2, or divergent aperiodic trajectories. The one-defect family has B>D, so simply extending TICKET-231's size certificate into the critical strip is not a viable route; the residue identity is essential.",
+    "failure_count": 0
+  },
+  "logical_limit": "This is an infinite theorem for three exact binary defect layers, not a finite-search promotion. It does not exclude binary words with four or more 1s, words containing valuations above 2, or divergent aperiodic trajectories. The one-defect family has B>D, so simply extending TICKET-231's size certificate into the critical strip is not a viable route; the residue identity is essential.",
+  "route_decision": {
+    "discard": "extending the TICKET-231 B<D size comparison unchanged into the critical strip",
+    "retain": "use exact order-sensitive residue identities for binary critical-strip necklaces",
+    "next_single_lemma": "BinaryFourOneCriticalStripNondivisibility"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T231",
+        "label": "AverageValuationTwoCycleExclusionAndCriticalStrip",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T232",
+        "label": "BinaryAtMostThreeOneCriticalStripNondivisibility",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N232",
+        "label": "CriticalStripExclusionByTheSameSizeCertificate",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN232",
+        "label": "BinaryFourOneCriticalStripNondivisibility",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T231",
+        "CO-T232"
+      ],
+      [
+        "CO-T232",
+        "CO-N232"
+      ],
+      [
+        "CO-T232",
+        "CO-OPEN232"
+      ],
+      [
+        "CO-OPEN232",
+        "CO"
+      ]
+    ]
+  }
+}
