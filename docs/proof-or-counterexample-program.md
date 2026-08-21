@@ -8454,6 +8454,30 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-233 logarithmic frames, Collatz twelve-one closure, squarefree shells, and CRT entropy](logarithmic-frame-density-shell-entropy.md).
 한국어 보고서: [TICKET-233 로그 프레임·Collatz 12-one·squarefree shell·CRT 엔트로피](logarithmic-frame-density-shell-entropy.ko.md).
 
+## TICKET-234 continuation: operator kernels, binary affine sieves, Goldbach half-channels, and Poisson CRT degrees
+
+TICKET-234 proves four exact partial, equivalence, or no-go theorems and keeps
+the parent-conjecture resolution count at zero:
+
+1. RH: a logarithmic scalar diagonal floor can coexist with a singular full
+   Gram form, and an arbitrarily small unstructured signed tail can be negative
+   on its kernel.
+2. Collatz: every fixed finite affine-modulus sieve has infinitely many
+   primitive binary density-band false positives, so the next divisor must be
+   word-adaptive.
+3. Goldbach: the strict full minor margin is endpoint-equivalent; same-half
+   prime squares have exact major-minor cancellation, leaving reflected
+   low-high cross phase as the decisive channel.
+4. Twin Prime: critical CRT noise tends to zero exactly when all fixed-degree
+   moving-coordinate Cesaro square correlations do; fixed-labelled decay is
+   insufficient.
+
+The machine JSON records four proof DAGs, four discarded routes, four single
+successor lemmas, zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-234 operator kernels, binary affine sieves, Goldbach half-channels, and Poisson CRT degrees](operator-kernel-density-minor-cesaro.md).
+한국어 보고서: [TICKET-234 연산자 영공간·이진 affine sieve·Goldbach half-channel·Poisson CRT](operator-kernel-density-minor-cesaro.ko.md).
+
 ## Preserved: TICKET-230 quantitative recurrence, necklaces, Fourier aggregation, and centering
 
 TICKET-230 audits the four successor targets from TICKET-229 before attempting

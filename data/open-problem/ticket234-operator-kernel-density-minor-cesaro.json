@@ -1,0 +1,2340 @@
+{
+  "schema": "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1",
+  "generated_at": "2026-08-21T11:30:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-234 proves four exact partial, equivalence, or no-go results and resolves none of the four parent conjectures.",
+  "operator_kernel_density_minor_cesaro_audit": {
+    "theorem_name": "FourConjectureOperatorKernelDensityMinorCesaroAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-234 proves a rank-and-kernel obstruction to scalar-to-Weil transfer, an infinite binary Collatz false-positive family for every fixed finite affine sieve, a Goldbach endpoint equivalence and exact half-channel major-minor cancellation, and a Poissonized fixed-degree Cesaro criterion with a moving-coordinate CRT countermodel. It resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-234",
+      "theorem_name": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+      "declared_proposition": "Let V be the M by T adaptive dilation-analysis matrix with entries V_(j,n)=sqrt(w_j/W)(1-exp(-i n theta_j)). If T>M, then rank(V)<=M and the Gram form G=V*V has a nonzero kernel, even when every scalar column energy G_nn has a fixed positive lower bound. For every epsilon>0 and every unit u in ker(V), the signed perturbation H_epsilon=G-epsilon*u*u* has operator norm epsilon relative to G, entrywise magnitude at most epsilon, and u*H_epsilon*u=-epsilon. Hence a logarithmic scalar diagonal floor alone cannot transfer to positivity of the full signed Weil quadratic form.",
+      "mathematical_argument": "Rank-nullity gives dim ker(V)>=T-M. The TICKET-233 construction has M=ceil(8 log(2T))<T from T=35 onward while all pure-frequency column norms are at least one. If u is a unit kernel vector, then G u=0 and the rank-one Hermitian tail -epsilon*u*u* has operator norm epsilon, all entries bounded by epsilon, and quadratic value -epsilon on u. For the seeded rational phases an explicit kernel is also given by C(x)=x(x-1) product_(z in Z)(x-z): its nonconstant coefficients c_n satisfy sum_n c_n(1-z_j^n)=C(1)-C(z_j)=0. The generator reduces this polynomial identity modulo an auxiliary prime for exact arithmetic.",
+      "reproducible_computation": {
+        "theorem": "Let V be the M by T adaptive dilation-analysis matrix with entries V_(j,n)=sqrt(w_j/W)(1-exp(-i n theta_j)). If T>M, then rank(V)<=M and the Gram form G=V*V has a nonzero kernel, even when every scalar column energy G_nn has a fixed positive lower bound. For every epsilon>0 and every unit u in ker(V), the signed perturbation H_epsilon=G-epsilon*u*u* has operator norm epsilon relative to G, entrywise magnitude at most epsilon, and u*H_epsilon*u=-epsilon. Hence a logarithmic scalar diagonal floor alone cannot transfer to positivity of the full signed Weil quadratic form.",
+        "proof": "Rank-nullity gives dim ker(V)>=T-M. The TICKET-233 construction has M=ceil(8 log(2T))<T from T=35 onward while all pure-frequency column norms are at least one. If u is a unit kernel vector, then G u=0 and the rank-one Hermitian tail -epsilon*u*u* has operator norm epsilon, all entries bounded by epsilon, and quadratic value -epsilon on u. For the seeded rational phases an explicit kernel is also given by C(x)=x(x-1) product_(z in Z)(x-z): its nonconstant coefficients c_n satisfy sum_n c_n(1-z_j^n)=C(1)-C(z_j)=0. The generator reduces this polynomial identity modulo an auxiliary prime for exact arithmetic.",
+        "first_horizon_with_logarithmic_dimension_below_band_dimension": 35,
+        "exact_finite_field_kernel_rows": [
+          {
+            "frequency_horizon_T": 64,
+            "frame_dimension_M": 39,
+            "rank_upper_bound": 39,
+            "nullity_lower_bound": 25,
+            "minimum_scalar_column_energy": 1.7139958341771682,
+            "phase_modulus_P": 67,
+            "auxiliary_field_prime_Q": 269,
+            "primitive_generator_mod_Q": 2,
+            "primitive_Pth_root_mod_Q": 16,
+            "distinct_nontrivial_phase_count": 32,
+            "explicit_kernel_polynomial_degree": 34,
+            "maximum_exact_modular_residual": 0,
+            "transcript_sha256": "783f612bbbfa76530b185c995aebe43738dd33a4d6c9c22591e09dd5cf572dda",
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 256,
+            "frame_dimension_M": 50,
+            "rank_upper_bound": 50,
+            "nullity_lower_bound": 206,
+            "minimum_scalar_column_energy": 1.485455389090991,
+            "phase_modulus_P": 257,
+            "auxiliary_field_prime_Q": 1543,
+            "primitive_generator_mod_Q": 5,
+            "primitive_Pth_root_mod_Q": 195,
+            "distinct_nontrivial_phase_count": 49,
+            "explicit_kernel_polynomial_degree": 51,
+            "maximum_exact_modular_residual": 0,
+            "transcript_sha256": "ee4c68b5b6dcfd739e4ba9864f86e14d57ef76e2249372cd06afb43f938e5934",
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 1024,
+            "frame_dimension_M": 61,
+            "rank_upper_bound": 61,
+            "nullity_lower_bound": 963,
+            "minimum_scalar_column_energy": 1.4427616354164594,
+            "phase_modulus_P": 1031,
+            "auxiliary_field_prime_Q": 2063,
+            "primitive_generator_mod_Q": 5,
+            "primitive_Pth_root_mod_Q": 25,
+            "distinct_nontrivial_phase_count": 59,
+            "explicit_kernel_polynomial_degree": 61,
+            "maximum_exact_modular_residual": 0,
+            "transcript_sha256": "48901c054ce15e7cc74cbb431eb01e3be14d8dbe47e690f9448fd66e0ba1db14",
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 4096,
+            "frame_dimension_M": 73,
+            "rank_upper_bound": 73,
+            "nullity_lower_bound": 4023,
+            "minimum_scalar_column_energy": 1.388560517313009,
+            "phase_modulus_P": 4099,
+            "auxiliary_field_prime_Q": 73783,
+            "primitive_generator_mod_Q": 3,
+            "primitive_Pth_root_mod_Q": 59739,
+            "distinct_nontrivial_phase_count": 73,
+            "explicit_kernel_polynomial_degree": 75,
+            "maximum_exact_modular_residual": 0,
+            "transcript_sha256": "ceea3570435c335f8c2612d5aa4b0ee3a772d17ba9b4d341f619b3757f01a7a3",
+            "certificate_verified": true
+          }
+        ],
+        "arbitrarily_small_signed_tail_rows": [
+          {
+            "epsilon": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "signed_tail_operator_norm": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "quadratic_value_on_unit_kernel_vector": {
+              "exact": "-1/16",
+              "float": -0.0625
+            },
+            "positivity_destroyed": true
+          },
+          {
+            "epsilon": {
+              "exact": "1/256",
+              "float": 0.00390625
+            },
+            "signed_tail_operator_norm": {
+              "exact": "1/256",
+              "float": 0.00390625
+            },
+            "quadratic_value_on_unit_kernel_vector": {
+              "exact": "-1/256",
+              "float": -0.00390625
+            },
+            "positivity_destroyed": true
+          },
+          {
+            "epsilon": {
+              "exact": "1/65536",
+              "float": 1.52587890625e-05
+            },
+            "signed_tail_operator_norm": {
+              "exact": "1/65536",
+              "float": 1.52587890625e-05
+            },
+            "quadratic_value_on_unit_kernel_vector": {
+              "exact": "-1/65536",
+              "float": -1.52587890625e-05
+            },
+            "positivity_destroyed": true
+          },
+          {
+            "epsilon": {
+              "exact": "1/4294967296",
+              "float": 2.3283064365386963e-10
+            },
+            "signed_tail_operator_norm": {
+              "exact": "1/4294967296",
+              "float": 2.3283064365386963e-10
+            },
+            "quadratic_value_on_unit_kernel_vector": {
+              "exact": "-1/4294967296",
+              "float": -2.3283064365386963e-10
+            },
+            "positivity_destroyed": true
+          }
+        ],
+        "aggregate": {
+          "scalar_diagonal_floor_with_singular_full_gram_proved": true,
+          "logarithmic_scalar_to_full_quadratic_positivity_transfer_refuted": true,
+          "arbitrarily_small_unstructured_signed_tail_can_break_positivity": true,
+          "actual_weil_tail_kernel_compatibility_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The negative perturbation is an abstract Hermitian signed tail, not the arithmetic Guinand-Weil tail. The theorem refutes transfer from pure-frequency diagonal floors plus size-only tail estimates; it does not refute special arithmetic alignment, a higher-dimensional frame, or Riemann hypothesis. Modular rows audit an exact polynomial identity and are not numerical evidence about zeta zeros.",
+        "failure_count": 0
+      },
+      "logical_limit": "The negative perturbation is an abstract Hermitian signed tail, not the arithmetic Guinand-Weil tail. The theorem refutes transfer from pure-frequency diagonal floors plus size-only tail estimates; it does not refute special arithmetic alignment, a higher-dimensional frame, or Riemann hypothesis. Modular rows audit an exact polynomial identity and are not numerical evidence about zeta zeros.",
+      "route_decision": {
+        "discard": "transferring a logarithmic pure-frequency scalar floor to full Weil positivity using only tail size",
+        "retain": "prove arithmetic compatibility on the scalar-frame kernel and a positive Schur complement on its orthogonal complement",
+        "next_single_lemma": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T233",
+            "label": "LogarithmicAdaptiveScalarFrameExistence",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T234",
+            "label": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N234",
+            "label": "ScalarDiagonalFloorAndSizeOnlyTailImplyWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN234",
+            "label": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T233",
+            "RH-T234"
+          ],
+          [
+            "RH-T234",
+            "RH-N234"
+          ],
+          [
+            "RH-T234",
+            "RH-OPEN234"
+          ],
+          [
+            "RH-OPEN234",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-234",
+      "theorem_name": "UniformBinaryDensityBandFixedFiniteAffineSieveNoGo",
+      "declared_proposition": "For every K>=13 and every nonempty finite family of moduli M>1 coprime to 6, there are infinitely many k>=K such that the primitive binary word w_k=1^k 2^(2k), and every cyclic rotation of it, lies in the necessary Collatz density band and passes every fixed congruence test M|D and M|B, yet D never divides B. Indeed, if r_a is the affine permutation order of F_a(x)=(3x+1)/2^a and L is the common lcm of all r_1,r_2, every sufficiently large multiple k of L works, with D_k=32^k-27^k and B_k=32^k+27^k-2*18^k.",
+      "mathematical_argument": "Each F_a is an affine permutation because gcd(M,6)=1. If k is a multiple of both orders, F_1^k and F_2^(2k) are identities, so the word return is the identity. Comparing its affine coefficient and constant term gives D_k=B_k=0 modulo M. The word has only two cyclic symbol transitions and is primitive; density 1/3 is admissible because 216<250 and 27<32. If D_k divided B_k, then gcd(D_k,18)=1 and B_k-D_k=2*9^k*(3^k-2^k) would force D_k to divide 3^k-2^k. But 0<3^k-2^k<D_k, since D_k>=5*27^(k-1)>3^k. This is impossible. Under one cyclic rotation, 2^(a_0)B'=3B+D; because every admissible modulus and D are coprime to 6, both modular false positivity and exact nondivisibility persist through all rotations.",
+      "reproducible_computation": {
+        "theorem": "For every K>=13 and every nonempty finite family of moduli M>1 coprime to 6, there are infinitely many k>=K such that the primitive binary word w_k=1^k 2^(2k), and every cyclic rotation of it, lies in the necessary Collatz density band and passes every fixed congruence test M|D and M|B, yet D never divides B. Indeed, if r_a is the affine permutation order of F_a(x)=(3x+1)/2^a and L is the common lcm of all r_1,r_2, every sufficiently large multiple k of L works, with D_k=32^k-27^k and B_k=32^k+27^k-2*18^k.",
+        "proof": "Each F_a is an affine permutation because gcd(M,6)=1. If k is a multiple of both orders, F_1^k and F_2^(2k) are identities, so the word return is the identity. Comparing its affine coefficient and constant term gives D_k=B_k=0 modulo M. The word has only two cyclic symbol transitions and is primitive; density 1/3 is admissible because 216<250 and 27<32. If D_k divided B_k, then gcd(D_k,18)=1 and B_k-D_k=2*9^k*(3^k-2^k) would force D_k to divide 3^k-2^k. But 0<3^k-2^k<D_k, since D_k>=5*27^(k-1)>3^k. This is impossible. Under one cyclic rotation, 2^(a_0)B'=3B+D; because every admissible modulus and D are coprime to 6, both modular false positivity and exact nondivisibility persist through all rotations.",
+        "fixed_affine_modulus_rows": [
+          {
+            "modulus_M": 5,
+            "affine_order_r1": 2,
+            "affine_order_r2": 4,
+            "one_count_k": 4,
+            "height_h": 12,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 335795,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 7,
+            "affine_order_r1": 6,
+            "affine_order_r2": 2,
+            "one_count_k": 6,
+            "height_h": 18,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 20495195,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 11,
+            "affine_order_r1": 10,
+            "affine_order_r2": 5,
+            "one_count_k": 10,
+            "height_h": 30,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 404641329736050,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 13,
+            "affine_order_r1": 4,
+            "affine_order_r2": 6,
+            "one_count_k": 12,
+            "height_h": 36,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 297875607831145890,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 17,
+            "affine_order_r1": 16,
+            "affine_order_r2": 16,
+            "one_count_k": 16,
+            "height_h": 48,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 159290007091551831223170,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 19,
+            "affine_order_r1": 3,
+            "affine_order_r2": 18,
+            "one_count_k": 18,
+            "height_h": 54,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 116220781189929526305629490,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 23,
+            "affine_order_r1": 11,
+            "affine_order_r2": 11,
+            "one_count_k": 11,
+            "height_h": 33,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 10989584312952582,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 25,
+            "affine_order_r1": 10,
+            "affine_order_r2": 4,
+            "one_count_k": 20,
+            "height_h": 60,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 84756820077999614872239991650,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 29,
+            "affine_order_r1": 7,
+            "affine_order_r2": 28,
+            "one_count_k": 28,
+            "height_h": 84,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 23944749395003003136832913425565092434210,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 31,
+            "affine_order_r1": 30,
+            "affine_order_r2": 30,
+            "one_count_k": 30,
+            "height_h": 90,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 17455836101856209045102083371523898104285650,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 35,
+            "affine_order_r1": 6,
+            "affine_order_r2": 4,
+            "one_count_k": 12,
+            "height_h": 36,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 297875607831145890,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 37,
+            "affine_order_r1": 36,
+            "affine_order_r2": 3,
+            "one_count_k": 36,
+            "height_h": 108,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 6762780730765795830339277885793432677920365926137570,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 41,
+            "affine_order_r1": 40,
+            "affine_order_r2": 40,
+            "one_count_k": 40,
+            "height_h": 120,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 3594020274793809162761169835786565650094798352967410682050,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 43,
+            "affine_order_r1": 21,
+            "affine_order_r2": 42,
+            "one_count_k": 42,
+            "height_h": 126,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 2620040911963883449169294688697627352813209924667100457169010,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 47,
+            "affine_order_r1": 23,
+            "affine_order_r2": 23,
+            "one_count_k": 23,
+            "height_h": 69,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 1668621641234933023687888019836902,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 49,
+            "affine_order_r1": 42,
+            "affine_order_r2": 14,
+            "one_count_k": 42,
+            "height_h": 126,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 2620040911963883449169294688697627352813209924667100457169010,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 53,
+            "affine_order_r1": 13,
+            "affine_order_r2": 52,
+            "one_count_k": 52,
+            "height_h": 156,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 539443210805204376851755499026027150946263867616720601188259519550027182690,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 55,
+            "affine_order_r1": 10,
+            "affine_order_r2": 20,
+            "one_count_k": 20,
+            "height_h": 60,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 84756820077999614872239991650,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 59,
+            "affine_order_r1": 58,
+            "affine_order_r2": 29,
+            "one_count_k": 58,
+            "height_h": 174,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 208991352650767670087940181456543197872674751560468558802746956392213977656431304690,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 61,
+            "affine_order_r1": 12,
+            "affine_order_r2": 15,
+            "one_count_k": 60,
+            "height_h": 180,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 152354696087589161041036760703715064722329732174919809412091753587696370252942673852450,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 65,
+            "affine_order_r1": 4,
+            "affine_order_r2": 12,
+            "one_count_k": 12,
+            "height_h": 36,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 297875607831145890,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 67,
+            "affine_order_r1": 33,
+            "affine_order_r2": 66,
+            "one_count_k": 66,
+            "height_h": 198,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 59025330861164570442175163509419455233946360805773486376887527445995001404566054490600923153330,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 71,
+            "affine_order_r1": 7,
+            "affine_order_r2": 5,
+            "one_count_k": 35,
+            "height_h": 105,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 250473303060221014910322050233255846173408201383622,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 73,
+            "affine_order_r1": 36,
+            "affine_order_r2": 36,
+            "one_count_k": 36,
+            "height_h": 108,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 6762780730765795830339277885793432677920365926137570,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 77,
+            "affine_order_r1": 30,
+            "affine_order_r2": 10,
+            "one_count_k": 30,
+            "height_h": 90,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 17455836101856209045102083371523898104285650,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 79,
+            "affine_order_r1": 26,
+            "affine_order_r2": 78,
+            "one_count_k": 78,
+            "height_h": 234,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 8859385508912193636860593128385538677256574174480956441755098936512012808482025564502578222851578321331785822290,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 83,
+            "affine_order_r1": 82,
+            "affine_order_r2": 41,
+            "one_count_k": 82,
+            "height_h": 246,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 4708240694241874628015890682966033748385462601412022053802442774938893630644558179876496480818106887587737941592892210,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 85,
+            "affine_order_r1": 16,
+            "affine_order_r2": 16,
+            "one_count_k": 16,
+            "height_h": 48,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 159290007091551831223170,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 89,
+            "affine_order_r1": 88,
+            "affine_order_r2": 88,
+            "one_count_k": 88,
+            "height_h": 264,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 1824068912092892601224322397340799522518845636520942192146378483835935025855960215408782867415489180692662599043126692897561410,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 91,
+            "affine_order_r1": 12,
+            "affine_order_r2": 6,
+            "one_count_k": 12,
+            "height_h": 36,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 297875607831145890,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 95,
+            "affine_order_r1": 6,
+            "affine_order_r2": 36,
+            "one_count_k": 36,
+            "height_h": 108,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 6762780730765795830339277885793432677920365926137570,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 97,
+            "affine_order_r1": 8,
+            "affine_order_r2": 48,
+            "one_count_k": 48,
+            "height_h": 144,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 1015057568530957728717569573593412563329621438812154414575653152596610,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 101,
+            "affine_order_r1": 25,
+            "affine_order_r2": 100,
+            "one_count_k": 100,
+            "height_h": 300,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 273782958117176751309240589909142834758006135706665477857749789524583499450296143706679666768480756714213954171681968440277788070720632421633250,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 103,
+            "affine_order_r1": 102,
+            "affine_order_r2": 102,
+            "one_count_k": 102,
+            "height_h": 306,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 199587776467421851977168033310053814394429581425482938367809885769443941535670202601942379019095807699888213548509332949328948648453698482007633810,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 107,
+            "affine_order_r1": 106,
+            "affine_order_r2": 53,
+            "one_count_k": 106,
+            "height_h": 318,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 106069127513623136529646556986774553388743756193906691451831897892196190134587040702321860350623620948469939176335446841653777256970144381760655627644530,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 109,
+            "affine_order_r1": 108,
+            "affine_order_r2": 54,
+            "one_count_k": 108,
+            "height_h": 324,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 77324393957431266539388549786019751920413213780357234276901239650191044422852713948877292245683687228972216937668011483329401242634334645010603458214363810,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 113,
+            "affine_order_r1": 112,
+            "affine_order_r2": 112,
+            "one_count_k": 112,
+            "height_h": 336,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 41093353249131229724123973317155296642472806305930155180522419471736092441703321816062588942255960061392452679989801760574066688183226463405397888574445486837890,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 115,
+            "affine_order_r1": 22,
+            "affine_order_r2": 44,
+            "one_count_k": 44,
+            "height_h": 132,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 1910009867472770722967730036665157942222519058896966247941485730,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 119,
+            "affine_order_r1": 48,
+            "affine_order_r2": 16,
+            "one_count_k": 48,
+            "height_h": 144,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 1015057568530957728717569573593412563329621438812154414575653152596610,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 121,
+            "affine_order_r1": 110,
+            "affine_order_r2": 55,
+            "one_count_k": 110,
+            "height_h": 330,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 56369483194967393310219744750630596359987393872740182799420118397105998452234987122442174607329025878562938681670688889734603935506634158801825624872597684050,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 125,
+            "affine_order_r1": 50,
+            "affine_order_r2": 20,
+            "one_count_k": 100,
+            "height_h": 300,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 273782958117176751309240589909142834758006135706665477857749789524583499450296143706679666768480756714213954171681968440277788070720632421633250,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 127,
+            "affine_order_r1": 126,
+            "affine_order_r2": 126,
+            "one_count_k": 126,
+            "height_h": 378,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 4496393172544088118427415598795956167547137147992219330649962439173854531805767446492138639705109961351901943573613861800721328947619780984950869855101962532739681910157554109970130,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 131,
+            "affine_order_r1": 130,
+            "affine_order_r2": 13,
+            "one_count_k": 130,
+            "height_h": 390,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 2389567684010002733745308696084302610804544182535455379473819681766970133851180435150027762769898596170178678012799323133847377799392898227510809424196409694028845732792015111267389833650,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 133,
+            "affine_order_r1": 6,
+            "affine_order_r2": 18,
+            "one_count_k": 18,
+            "height_h": 54,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 116220781189929526305629490,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 137,
+            "affine_order_r1": 136,
+            "affine_order_r2": 136,
+            "one_count_k": 136,
+            "height_h": 408,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 925767480637752739998955129084306733994069133819356965990237098966734068046304053478994421271030847383340438764454715710523948618595318381852217273477866333133765178850577112289357488426459909570,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 139,
+            "affine_order_r1": 69,
+            "affine_order_r2": 46,
+            "one_count_k": 138,
+            "height_h": 414,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 674884493384921747459238711329179022175050411859164695744197277400756358123190374438260782389693138793642562397402547601794489714023718351205149974882855407237302337875032030414804335633683624095090,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 143,
+            "affine_order_r1": 20,
+            "affine_order_r2": 30,
+            "one_count_k": 60,
+            "height_h": 180,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 152354696087589161041036760703715064722329732174919809412091753587696370252942673852450,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 145,
+            "affine_order_r1": 14,
+            "affine_order_r2": 28,
+            "one_count_k": 28,
+            "height_h": 84,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 23944749395003003136832913425565092434210,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 149,
+            "affine_order_r1": 74,
+            "affine_order_r2": 148,
+            "one_count_k": 148,
+            "height_h": 444,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 138952732376145192730190308949207855656541571062643002912304304658445166721131460858114078120731711271886663570853616829497777606517185179448258106608488796903588729311108254577119138363282913566046866837816608610,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 151,
+            "affine_order_r1": 150,
+            "affine_order_r2": 150,
+            "one_count_k": 150,
+            "height_h": 450,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 101296541902209845500308735712417645867310017019022196897417877451083343173193937050709843363390792453260192335582020432466254618855701617649581296928882076685482342316725753443359877609076896765206168918113177503250,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 155,
+            "affine_order_r1": 30,
+            "affine_order_r2": 60,
+            "one_count_k": 60,
+            "height_h": 180,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 152354696087589161041036760703715064722329732174919809412091753587696370252942673852450,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 157,
+            "affine_order_r1": 156,
+            "affine_order_r2": 39,
+            "one_count_k": 156,
+            "height_h": 468,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 39244355797763128524344060178773041403437902770282329336836278595144315758445226355476316336055210203464067734891057930644612424797575242814166186082937900678013543804277148742159869767986055411116602743866261779297250503970,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 161,
+            "affine_order_r1": 66,
+            "affine_order_r2": 22,
+            "one_count_k": 66,
+            "height_h": 198,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 59025330861164570442175163509419455233946360805773486376887527445995001404566054490600923153330,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 163,
+            "affine_order_r1": 81,
+            "affine_order_r2": 18,
+            "one_count_k": 162,
+            "height_h": 486,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 15204067513659376359071224203402645956098390157898728455379543784082087771161203022301436864651160324642000178384066182508005853515859251416348497036378986529336169481665251086124680905042652530500355099523536500277187013072367378610,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 167,
+            "affine_order_r1": 83,
+            "affine_order_r2": 83,
+            "one_count_k": 83,
+            "height_h": 249,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 127122498744530768990900812598116942515662866014116027510009226595763695359151639050306053909446121971339735788345554502,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 169,
+            "affine_order_r1": 52,
+            "affine_order_r2": 78,
+            "one_count_k": 156,
+            "height_h": 468,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 39244355797763128524344060178773041403437902770282329336836278595144315758445226355476316336055210203464067734891057930644612424797575242814166186082937900678013543804277148742159869767986055411116602743866261779297250503970,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 173,
+            "affine_order_r1": 86,
+            "affine_order_r2": 172,
+            "one_count_k": 172,
+            "height_h": 516,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 3130382672830804247083559132965558140849235471689742780379177858180497387679937456839225706480635894258372597377859776734998127271988016032581786564281610597170233625629945123982784753576648862056629731545437100601007059980360208239569421689213090,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 175,
+            "affine_order_r1": 30,
+            "affine_order_r2": 4,
+            "one_count_k": 60,
+            "height_h": 180,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 152354696087589161041036760703715064722329732174919809412091753587696370252942673852450,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 179,
+            "affine_order_r1": 178,
+            "affine_order_r2": 89,
+            "one_count_k": 178,
+            "height_h": 534,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 1212774385865237195668389303154502952535828491800809215654240027716012119166672276923588557441812372468555281588389232777659376498401898306297621064173472319572296016400648988600230013621099115423960102988748995571884720871963449049484942904114162835210290,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 181,
+            "affine_order_r1": 36,
+            "affine_order_r2": 10,
+            "one_count_k": 180,
+            "height_h": 540,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 884112527295757915642255801999654885033064459421047961555357312838968309085290883205102165576675363081098468359987000309073566065443822013024143777247298482098083273466859552372221979965392122853506747813989423147135157962436941633562077975937308912610954850,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 185,
+            "affine_order_r1": 36,
+            "affine_order_r2": 12,
+            "one_count_k": 36,
+            "height_h": 108,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 6762780730765795830339277885793432677920365926137570,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 187,
+            "affine_order_r1": 80,
+            "affine_order_r2": 80,
+            "one_count_k": 80,
+            "height_h": 240,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 6458492035997055191137526436389538881100433423673054170483599357404829067385354881395771554361593808901253965502850,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 191,
+            "affine_order_r1": 95,
+            "affine_order_r2": 95,
+            "one_count_k": 95,
+            "height_h": 285,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 19080405087103620287519721433922718617931603219907518322799252761469204495674637008369940710118396595713454058265476346299843883487933222,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 193,
+            "affine_order_r1": 96,
+            "affine_order_r2": 12,
+            "one_count_k": 96,
+            "height_h": 288,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 515170937351797750970486872363193719970586640961324606727899738788418401854475341929657549945264257153988790692252317060683144797450560770,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 197,
+            "affine_order_r1": 49,
+            "affine_order_r2": 196,
+            "one_count_k": 196,
+            "height_h": 588,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 70522511582086966894740977532249573707595183257004427716061404349583918813770764939444351739689041775459667276654249101195235846646027556055857404333421725354104068561199662509256696565448658328354307928591268906493554218204833536451132422995733553800570016640491338076339883532770,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          },
+          {
+            "modulus_M": 199,
+            "affine_order_r1": 66,
+            "affine_order_r2": 198,
+            "one_count_k": 198,
+            "height_h": 594,
+            "density_k_over_h": "1/3",
+            "D_mod_M": 0,
+            "B_mod_M": 0,
+            "B_mod_D": 51410910943341398866266172621009940107611196075456573061892189450984304103766839376313699813482494249176276486573425131861588204731113646170236141051537608811079274095352893587394684270346057505129212268015062919383444121989779504527741767016308090225589555098059652060880172988447890,
+            "direct_prefix_B_equals_closed_form": true,
+            "affine_return_is_identity": true,
+            "primitive_density_band_word": true,
+            "finite_modulus_false_positive_verified": true
+          }
+        ],
+        "fixed_affine_modulus_totals": {
+          "moduli_checked": 66,
+          "maximum_one_count_k": 198,
+          "failure_count": 0,
+          "transcript_sha256": "7299d7a4c09b0f2c9bb319c9605be6114984c4be104b0893f0ba5da73b72f0b4"
+        },
+        "simultaneous_fixed_modulus_family_rows": [
+          {
+            "fixed_moduli": [
+              5,
+              7
+            ],
+            "combined_one_count_k": 12,
+            "all_modular_divisibility_tests_passed": true,
+            "actual_D_divides_B": false,
+            "certificate_verified": true
+          },
+          {
+            "fixed_moduli": [
+              5,
+              7,
+              11
+            ],
+            "combined_one_count_k": 60,
+            "all_modular_divisibility_tests_passed": true,
+            "actual_D_divides_B": false,
+            "certificate_verified": true
+          },
+          {
+            "fixed_moduli": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "combined_one_count_k": 60,
+            "all_modular_divisibility_tests_passed": true,
+            "actual_D_divides_B": false,
+            "certificate_verified": true
+          }
+        ],
+        "radical_deficit_finite_scan": {
+          "height_range": [
+            3,
+            22
+          ],
+          "raw_density_band_words": 1893010,
+          "primitive_necklaces": 90272,
+          "radical_false_positives": 0,
+          "per_height_rows": [
+            {
+              "height_h": 3,
+              "eligible_one_counts": [
+                1
+              ],
+              "raw_density_band_words": 3,
+              "primitive_necklaces": 1,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 4,
+              "eligible_one_counts": [],
+              "raw_density_band_words": 0,
+              "primitive_necklaces": 0,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 5,
+              "eligible_one_counts": [
+                2
+              ],
+              "raw_density_band_words": 10,
+              "primitive_necklaces": 2,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 6,
+              "eligible_one_counts": [
+                2
+              ],
+              "raw_density_band_words": 15,
+              "primitive_necklaces": 2,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 7,
+              "eligible_one_counts": [
+                2
+              ],
+              "raw_density_band_words": 21,
+              "primitive_necklaces": 3,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 8,
+              "eligible_one_counts": [
+                3
+              ],
+              "raw_density_band_words": 56,
+              "primitive_necklaces": 7,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 9,
+              "eligible_one_counts": [
+                3
+              ],
+              "raw_density_band_words": 84,
+              "primitive_necklaces": 9,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 10,
+              "eligible_one_counts": [
+                3,
+                4
+              ],
+              "raw_density_band_words": 330,
+              "primitive_necklaces": 32,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 11,
+              "eligible_one_counts": [
+                3,
+                4
+              ],
+              "raw_density_band_words": 495,
+              "primitive_necklaces": 45,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 12,
+              "eligible_one_counts": [
+                4
+              ],
+              "raw_density_band_words": 495,
+              "primitive_necklaces": 40,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 13,
+              "eligible_one_counts": [
+                4,
+                5
+              ],
+              "raw_density_band_words": 2002,
+              "primitive_necklaces": 154,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 14,
+              "eligible_one_counts": [
+                4,
+                5
+              ],
+              "raw_density_band_words": 3003,
+              "primitive_necklaces": 213,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 15,
+              "eligible_one_counts": [
+                4,
+                5,
+                6
+              ],
+              "raw_density_band_words": 9373,
+              "primitive_necklaces": 624,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 16,
+              "eligible_one_counts": [
+                5,
+                6
+              ],
+              "raw_density_band_words": 12376,
+              "primitive_necklaces": 770,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 17,
+              "eligible_one_counts": [
+                5,
+                6,
+                7
+              ],
+              "raw_density_band_words": 38012,
+              "primitive_necklaces": 2236,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 18,
+              "eligible_one_counts": [
+                5,
+                6,
+                7
+              ],
+              "raw_density_band_words": 58956,
+              "primitive_necklaces": 3270,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 19,
+              "eligible_one_counts": [
+                5,
+                6,
+                7
+              ],
+              "raw_density_band_words": 89148,
+              "primitive_necklaces": 4692,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 20,
+              "eligible_one_counts": [
+                6,
+                7,
+                8
+              ],
+              "raw_density_band_words": 242250,
+              "primitive_necklaces": 12096,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 21,
+              "eligible_one_counts": [
+                6,
+                7,
+                8
+              ],
+              "raw_density_band_words": 374034,
+              "primitive_necklaces": 17810,
+              "radical_false_positives": 0
+            },
+            {
+              "height_h": 22,
+              "eligible_one_counts": [
+                6,
+                7,
+                8,
+                9
+              ],
+              "raw_density_band_words": 1062347,
+              "primitive_necklaces": 48266,
+              "radical_false_positives": 0
+            }
+          ],
+          "transcript_sha256": "1cccdf893126fde404f1546078b581194aa41025797370c5a41319c86d404344",
+          "role": "finite evidence for the successor only; not an infinite proof"
+        },
+        "aggregate": {
+          "every_fixed_affine_modulus_sieve_has_infinite_binary_false_positives": true,
+          "every_fixed_finite_modulus_family_sieve_has_infinite_binary_false_positives": true,
+          "finite_fixed_prime_power_sieve_cofinality_refuted": true,
+          "arbitrarily_large_one_count_false_positives_proved": true,
+          "uniform_adaptive_radical_deficit_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem refutes only fixed finite affine-modulus and fixed prime-power sieves as cofinal certificates. It does not refute an adaptive modulus growing with the word, an all-prime radical argument, or analytic density-band nondivisibility. The height-22 radical scan is finite evidence only. General valuations and aperiodic divergence remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem refutes only fixed finite affine-modulus and fixed prime-power sieves as cofinal certificates. It does not refute an adaptive modulus growing with the word, an all-prime radical argument, or analytic density-band nondivisibility. The height-22 radical scan is finite evidence only. General valuations and aperiodic divergence remain open.",
+      "route_decision": {
+        "discard": "any fixed finite affine modulus or fixed finite prime-power sieve as a cofinal binary density-band certificate",
+        "retain": "choose a word-adaptive prime divisor of D and prove an exact radical deficit",
+        "next_single_lemma": "UniformBinaryDensityBandAdaptiveRadicalDeficit"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T182",
+            "label": "CycleIffPositiveDAndDDividesB",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T197",
+            "label": "ContiguousOneTwoRunNondivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T223",
+            "label": "NonbinaryFixedModulusNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T233",
+            "label": "PrimitiveBinaryKAtLeast13DensityFrontier",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T234",
+            "label": "UniformBinaryDensityBandFixedFiniteAffineSieveNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N234",
+            "label": "FixedFiniteAffineModulusSieveIsCofinal",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN234",
+            "label": "UniformBinaryDensityBandAdaptiveRadicalDeficit",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWordsIncludingValuesAtLeastThree",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO-APERIODIC",
+            "label": "AperiodicDescentOrTermination",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T182",
+            "CO-T234"
+          ],
+          [
+            "CO-T197",
+            "CO-T234"
+          ],
+          [
+            "CO-T223",
+            "CO-T234"
+          ],
+          [
+            "CO-T233",
+            "CO-T234"
+          ],
+          [
+            "CO-T234",
+            "CO-N234"
+          ],
+          [
+            "CO-T234",
+            "CO-OPEN234"
+          ],
+          [
+            "CO-OPEN234",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ],
+          [
+            "CO-APERIODIC",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-234",
+      "theorem_name": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+      "declared_proposition": "For the logarithmically weighted prime sum S_N and any symmetric major set, once its real major contribution M_N is positive, the strict inequality minor_N>-M_N is equivalent to the weighted strong Goldbach conclusion G_theta(N)>0 itself. Moreover, split S_N into primes below N/2, the midpoint, and primes above N/2. Each same-half square has exact target coefficient zero, but on the central arc ||alpha||<=1/(4N) its real contribution is at least W_half^2/(pi N). Its complementary minor contribution is therefore exactly the negative of that positive major mass, asymptotically at most -(1/(4*pi)+o(1))N. All non-midpoint Goldbach mass lies in the reflected low-high cross channel.",
+      "mathematical_argument": "Major plus minor is the Nth Fourier coefficient, proving the endpoint equivalence. Same-half prime pairs have sums strictly below or above N, so their full target coefficients vanish. On the central arc the exact kernel is sin(pi*d/(2N))/(pi*d); concavity of sine gives at least 1/(pi N) for every same-half offset. The prime number theorem gives each half mass (1/2+o(1))N. Expanding S=L+D+U leaves only 2<L,V> and the midpoint square, where U(alpha)e(-N alpha)=conjugate(V(alpha)). TICKET-233 plus two Siegel-Walfisz estimates shows that both half channels still have the polylogarithmic rational-center asymptotic, so that marginal information cannot supply the missing cross phase.",
+      "reproducible_computation": {
+        "theorem": "For the logarithmically weighted prime sum S_N and any symmetric major set, once its real major contribution M_N is positive, the strict inequality minor_N>-M_N is equivalent to the weighted strong Goldbach conclusion G_theta(N)>0 itself. Moreover, split S_N into primes below N/2, the midpoint, and primes above N/2. Each same-half square has exact target coefficient zero, but on the central arc ||alpha||<=1/(4N) its real contribution is at least W_half^2/(pi N). Its complementary minor contribution is therefore exactly the negative of that positive major mass, asymptotically at most -(1/(4*pi)+o(1))N. All non-midpoint Goldbach mass lies in the reflected low-high cross channel.",
+        "proof": "Major plus minor is the Nth Fourier coefficient, proving the endpoint equivalence. Same-half prime pairs have sums strictly below or above N, so their full target coefficients vanish. On the central arc the exact kernel is sin(pi*d/(2N))/(pi*d); concavity of sine gives at least 1/(pi N) for every same-half offset. The prime number theorem gives each half mass (1/2+o(1))N. Expanding S=L+D+U leaves only 2<L,V> and the midpoint square, where U(alpha)e(-N alpha)=conjugate(V(alpha)). TICKET-233 plus two Siegel-Walfisz estimates shows that both half channels still have the polylogarithmic rational-center asymptotic, so that marginal information cannot supply the missing cross phase.",
+        "central_half_channel_rows": [
+          {
+            "even_target_N": 100,
+            "low_prime_count": 15,
+            "high_prime_count": 10,
+            "central_major_LL": 7.55035493476133,
+            "central_major_LL_lower_bound": 5.34041093439497,
+            "central_major_UU": 8.210933485251298,
+            "central_major_UU_lower_bound": 5.822258483553826,
+            "central_major_LU": 8.627482515456364,
+            "central_major_LU_lower_bound": 7.885842107022526,
+            "exact_full_LL_target_coefficient": 0,
+            "exact_full_UU_target_coefficient": 0,
+            "minor_LL_equals_negative_major_LL": true,
+            "minor_UU_equals_negative_major_UU": true,
+            "full_reflection_cross_coefficient": 73.09077502185626,
+            "midpoint_prime_square": 0.0,
+            "weighted_goldbach_coefficient": 146.18155004371252,
+            "certificate_verified": true
+          },
+          {
+            "even_target_N": 1000,
+            "low_prime_count": 95,
+            "high_prime_count": 73,
+            "central_major_LL": 100.46391667883087,
+            "central_major_LL_lower_bound": 71.68399767221256,
+            "central_major_UU": 102.69883156928468,
+            "central_major_UU_lower_bound": 73.85618461297284,
+            "central_major_LU": 112.3869376251867,
+            "central_major_LU_lower_bound": 102.9009870300071,
+            "exact_full_LL_target_coefficient": 0,
+            "exact_full_UU_target_coefficient": 0,
+            "minor_LL_equals_negative_major_LL": true,
+            "minor_UU_equals_negative_major_UU": true,
+            "full_reflection_cross_coefficient": 911.5222953453325,
+            "midpoint_prime_square": 0.0,
+            "weighted_goldbach_coefficient": 1823.044590690665,
+            "certificate_verified": true
+          },
+          {
+            "even_target_N": 10000,
+            "low_prime_count": 669,
+            "high_prime_count": 560,
+            "central_major_LL": 1070.8103371195891,
+            "central_major_LL_lower_bound": 767.9146817590198,
+            "central_major_UU": 1099.9531254584908,
+            "central_major_UU_lower_bound": 790.783835735915,
+            "central_major_LU": 1203.3901340371276,
+            "central_major_LU_lower_bound": 1102.0476555569837,
+            "exact_full_LL_target_coefficient": 0,
+            "exact_full_UU_target_coefficient": 0,
+            "minor_LL_equals_negative_major_LL": true,
+            "minor_UU_equals_negative_major_UU": true,
+            "full_reflection_cross_coefficient": 8371.568402788498,
+            "midpoint_prime_square": 0.0,
+            "weighted_goldbach_coefficient": 16743.136805576996,
+            "certificate_verified": true
+          }
+        ],
+        "central_half_channel_transcript_sha256": "f4dd37d6591cae11ac3002aa859854d53148f48acef542a6724b8bc1afc3fb73",
+        "exact_reflection_identity": "G_theta(N)=2*<L_N,V_N>+1_(N/2 prime)*log(N/2)^2, where U_N(alpha)e(-N alpha)=conjugate(V_N(alpha))",
+        "successor_inverse_log_threshold": "rho_N^-[minor reflection] <= (sqrt(2)/(2*pi)-eta)/log(N) for some eta>0",
+        "aggregate": {
+          "strict_full_minor_margin_equivalent_to_goldbach_endpoint": true,
+          "same_half_exact_major_minor_cancellation_proved": true,
+          "polylog_rational_centers_imply_channelwise_minor_margin_refuted": true,
+          "goldbach_mass_localized_to_reflected_cross_channel": true,
+          "inverse_log_minor_reflection_coherence_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The result does not refute a correctly structured full-prime minor-arc estimate. The half squares are genuine components but omit the decisive cross term, and the central arc is smaller than a full polylogarithmic major-arc union. The finite logarithmic/trigonometric rows are numerical audits; exact cancellation is Fourier orthogonality, and the asymptotic constant uses the prime number theorem.",
+        "failure_count": 0
+      },
+      "logical_limit": "The result does not refute a correctly structured full-prime minor-arc estimate. The half squares are genuine components but omit the decisive cross term, and the central arc is smaller than a full polylogarithmic major-arc union. The finite logarithmic/trigonometric rows are numerical audits; exact cancellation is Fourier orthogonality, and the asymptotic constant uses the prime number theorem.",
+      "route_decision": {
+        "discard": "treating a strict full minor margin as a weaker lemma, or deriving channelwise minor signs from rational centers and diagonal norms",
+        "retain": "control target-reflected low-high prime coherence on the complementary arc at the inverse-log scale",
+        "next_single_lemma": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T233",
+            "label": "PolylogSquarefreePrimeShellAsymptotic",
+            "status": "closed"
+          },
+          {
+            "id": "GB-PNT",
+            "label": "PrimeNumberTheorem",
+            "status": "established_external_theorem"
+          },
+          {
+            "id": "GB-T234",
+            "label": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N234",
+            "label": "RationalCenterAndBlockDiagonalControlImpliesStrictMinorMargin",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN234",
+            "label": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T233",
+            "GB-T234"
+          ],
+          [
+            "GB-PNT",
+            "GB-T234"
+          ],
+          [
+            "GB-T234",
+            "GB-N234"
+          ],
+          [
+            "GB-T234",
+            "GB-OPEN234"
+          ],
+          [
+            "GB-OPEN234",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-234",
+      "theorem_name": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+      "declared_proposition": "For globally indexed CRT coordinates and normalized centered quadratic sign coefficients b_(m,S), put E_(m,k)=C(m,k)^(-1) sum_(|S|=k)|b|^2 and D_m=sum_(S nonempty)m^(-|S|)|b|^2. For probability measures, or signed measures of total variation at most one, D_m tends to zero if and only if E_(m,k) tends to zero for every fixed k. The weights C(m,k)m^(-k) converge to 1/k!, so critical damping is a Poissonized fixed-degree Cesaro criterion. Decay of every fixed labelled coefficient does not suffice: a moving-half nonnegative product tilt has all such coefficients eventually zero but D_m tends to exp(1/8)-1.",
+      "mathematical_argument": "Grouping D_m by degree gives weights w_(m,k)=C(m,k)m^(-k), with w_(m,k)->1/k! and w_(m,k)<=1/k!. Since the normalized CRT signs have square at most two, E_(m,k)<=2^k; dominated triangular convergence proves the equivalence, and nonnegativity proves the converse one degree at a time. Selecting coordinates independently with probability 1/(m+1) gives the exact Poissonization identity. For the last ceil(m/2) coordinates, g=product(1+psi/2) is a positive normalized density, b_S=2^(-|S|) exactly on subsets of the moving half, and the displayed nonzero limit follows.",
+      "reproducible_computation": {
+        "theorem": "For globally indexed CRT coordinates and normalized centered quadratic sign coefficients b_(m,S), put E_(m,k)=C(m,k)^(-1) sum_(|S|=k)|b|^2 and D_m=sum_(S nonempty)m^(-|S|)|b|^2. For probability measures, or signed measures of total variation at most one, D_m tends to zero if and only if E_(m,k) tends to zero for every fixed k. The weights C(m,k)m^(-k) converge to 1/k!, so critical damping is a Poissonized fixed-degree Cesaro criterion. Decay of every fixed labelled coefficient does not suffice: a moving-half nonnegative product tilt has all such coefficients eventually zero but D_m tends to exp(1/8)-1.",
+        "proof": "Grouping D_m by degree gives weights w_(m,k)=C(m,k)m^(-k), with w_(m,k)->1/k! and w_(m,k)<=1/k!. Since the normalized CRT signs have square at most two, E_(m,k)<=2^k; dominated triangular convergence proves the equivalence, and nonnegativity proves the converse one degree at a time. Selecting coordinates independently with probability 1/(m+1) gives the exact Poissonization identity. For the last ceil(m/2) coordinates, g=product(1+psi/2) is a positive normalized density, b_S=2^(-|S|) exactly on subsets of the moving half, and the displayed nonzero limit follows.",
+        "moving_half_exact_counterexample_rows": [
+          {
+            "active_prime_count_m": 4,
+            "moving_half_coordinate_count": 2,
+            "critical_noise_D_m": {
+              "exact": "33/256",
+              "float": 0.12890625
+            },
+            "degree_one_cesaro_E_m_1": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "degree_two_cesaro_E_m_2": {
+              "exact": "1/96",
+              "float": 0.010416666666666666
+            },
+            "limit_D": 0.13314845306682632,
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 8,
+            "moving_half_coordinate_count": 4,
+            "critical_noise_D_m": {
+              "exact": "137345/1048576",
+              "float": 0.1309823989868164
+            },
+            "degree_one_cesaro_E_m_1": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "degree_two_cesaro_E_m_2": {
+              "exact": "3/224",
+              "float": 0.013392857142857142
+            },
+            "limit_D": 0.13314845306682632,
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 16,
+            "moving_half_coordinate_count": 8,
+            "critical_noise_D_m": {
+              "exact": "37169836179969/281474976710656",
+              "float": 0.13205378543534962
+            },
+            "degree_one_cesaro_E_m_1": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "degree_two_cesaro_E_m_2": {
+              "exact": "7/480",
+              "float": 0.014583333333333334
+            },
+            "limit_D": 0.13314845306682632,
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 32,
+            "moving_half_coordinate_count": 16,
+            "critical_noise_D_m": {
+              "exact": "688488991721691580667710142285825/5192296858534827628530496329220096",
+              "float": 0.13259815655377816
+            },
+            "degree_one_cesaro_E_m_1": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "degree_two_cesaro_E_m_2": {
+              "exact": "15/992",
+              "float": 0.015120967741935484
+            },
+            "limit_D": 0.13314845306682632,
+            "certificate_verified": true
+          }
+        ],
+        "actual_twin_start_finite_audit_rows": [
+          {
+            "cutoff_X": 10000,
+            "active_prime_count_m": 4,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "maximum_active_prime": 13,
+            "twin_start_count": 202,
+            "critical_noise_D_m": {
+              "exact": "12301/5222912",
+              "float": 0.002355199551514557
+            },
+            "fixed_degree_cesaro_energies": [
+              {
+                "exact": "3257/1958592",
+                "float": 0.0016629292879783027
+              },
+              {
+                "exact": "9265/5875776",
+                "float": 0.0015768130030824866
+              },
+              {
+                "exact": "6301/3917184",
+                "float": 0.0016085534914877626
+              },
+              {
+                "exact": "9/81608",
+                "float": 0.0001102833055582786
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "active_prime_count_m": 6,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "maximum_active_prime": 19,
+            "twin_start_count": 1220,
+            "critical_noise_D_m": {
+              "exact": "49423640700109/80638079297126400",
+              "float": 0.0006129069681582837
+            },
+            "fixed_degree_cesaro_energies": [
+              {
+                "exact": "4537949/22504608000",
+                "float": 0.00020164532525960907
+              },
+              {
+                "exact": "991770511/1125230400000",
+                "float": 0.0008813932782121778
+              },
+              {
+                "exact": "1729489087/4320884736000",
+                "float": 0.0004002627222592961
+              },
+              {
+                "exact": "31611592289/54011059200000",
+                "float": 0.0005852799918613705
+              },
+              {
+                "exact": "655071383/2880589824000",
+                "float": 0.00022740876800375729
+              },
+              {
+                "exact": "7129944721/43208847360000",
+                "float": 0.00016501122239146905
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "active_prime_count_m": 8,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29
+            ],
+            "maximum_active_prime": 29,
+            "twin_start_count": 1219,
+            "critical_noise_D_m": {
+              "exact": "36286042731211971001/64683927526799572992000",
+              "float": 0.0005609746364918564
+            },
+            "fixed_degree_cesaro_energies": [
+              {
+                "exact": "20930513/133870226490",
+                "float": 0.0001563492760771828
+              },
+              {
+                "exact": "33872237171/46646336696960",
+                "float": 0.0007261499952515563
+              },
+              {
+                "exact": "215333640417821/302268261796300800",
+                "float": 0.0007123924924772114
+              },
+              {
+                "exact": "40728327758509/85871665283040000",
+                "float": 0.0004742929769006472
+              },
+              {
+                "exact": "575932129648217/1209073047185203200",
+                "float": 0.0004763418810708109
+              },
+              {
+                "exact": "242127218568541/274789328905728000",
+                "float": 0.0008811376319915523
+              },
+              {
+                "exact": "1693694654821/2125842720325632",
+                "float": 0.0007967168213467661
+              },
+              {
+                "exact": "780811249/1101560720832000",
+                "float": 7.088227042175755e-07
+              }
+            ],
+            "certificate_verified": true
+          }
+        ],
+        "aggregate": {
+          "critical_noise_fixed_degree_cesaro_equivalence_proved": true,
+          "poissonized_interaction_degree_identity_proved": true,
+          "fixed_labeled_coefficientwise_decay_sufficiency_refuted": true,
+          "actual_prime_weighted_fixed_degree_cesaro_decay_proved": false,
+          "positive_twin_main_term_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The moving-half density is a nonnegative CRT probability model, not prime weights. The exact finite audit conditions on already observed twin starts, uses small m, and proves no asymptotic. Even critical-noise decay would leave the parity-retaining transfer and positive principal mass open.",
+        "failure_count": 0
+      },
+      "logical_limit": "The moving-half density is a nonnegative CRT probability model, not prime weights. The exact finite audit conditions on already observed twin starts, uses small m, and proves no asymptotic. Even critical-noise decay would leave the parity-retaining transfer and positive principal mass open.",
+      "route_decision": {
+        "discard": "pointwise decay of each fixed labelled CRT coefficient as sufficient for critical-noise decay",
+        "retain": "prove moving-coordinate Cesaro square-correlation decay at every fixed interaction degree for actual prime-weighted Type-II coefficients",
+        "next_single_lemma": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T233",
+            "label": "CriticalEntropyDampedCRTNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T234",
+            "label": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N234",
+            "label": "FixedLabeledCoefficientDecayImpliesCriticalNoiseDecay",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN234",
+            "label": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP-PARITY",
+            "label": "ParityRetainingTransferAndPositivePrincipalMass",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T233",
+            "TP-T234"
+          ],
+          [
+            "TP-T234",
+            "TP-N234"
+          ],
+          [
+            "TP-T234",
+            "TP-OPEN234"
+          ],
+          [
+            "TP-OPEN234",
+            "TP-PARITY"
+          ],
+          [
+            "TP-PARITY",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_or_no_go_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "ticket_id": "RH-TICKET-234",
+      "problem_id": "riemann",
+      "status": "open_not_proven",
+      "declared_proposition": "Let V be the M by T adaptive dilation-analysis matrix with entries V_(j,n)=sqrt(w_j/W)(1-exp(-i n theta_j)). If T>M, then rank(V)<=M and the Gram form G=V*V has a nonzero kernel, even when every scalar column energy G_nn has a fixed positive lower bound. For every epsilon>0 and every unit u in ker(V), the signed perturbation H_epsilon=G-epsilon*u*u* has operator norm epsilon relative to G, entrywise magnitude at most epsilon, and u*H_epsilon*u=-epsilon. Hence a logarithmic scalar diagonal floor alone cannot transfer to positivity of the full signed Weil quadratic form.",
+      "mathematical_argument": "Rank-nullity gives dim ker(V)>=T-M. The TICKET-233 construction has M=ceil(8 log(2T))<T from T=35 onward while all pure-frequency column norms are at least one. If u is a unit kernel vector, then G u=0 and the rank-one Hermitian tail -epsilon*u*u* has operator norm epsilon, all entries bounded by epsilon, and quadratic value -epsilon on u. For the seeded rational phases an explicit kernel is also given by C(x)=x(x-1) product_(z in Z)(x-z): its nonconstant coefficients c_n satisfy sum_n c_n(1-z_j^n)=C(1)-C(z_j)=0. The generator reduces this polynomial identity modulo an auxiliary prime for exact arithmetic.",
+      "new_result": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+      "discarded_route": "transferring a logarithmic pure-frequency scalar floor to full Weil positivity using only tail size",
+      "remaining_gap": "The negative perturbation is an abstract Hermitian signed tail, not the arithmetic Guinand-Weil tail. The theorem refutes transfer from pure-frequency diagonal floors plus size-only tail estimates; it does not refute special arithmetic alignment, a higher-dimensional frame, or Riemann hypothesis. Modular rows audit an exact polynomial identity and are not numerical evidence about zeta zeros.",
+      "candidate_theorem": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement",
+      "claim_boundary": "The negative perturbation is an abstract Hermitian signed tail, not the arithmetic Guinand-Weil tail. The theorem refutes transfer from pure-frequency diagonal floors plus size-only tail estimates; it does not refute special arithmetic alignment, a higher-dimensional frame, or Riemann hypothesis. Modular rows audit an exact polynomial identity and are not numerical evidence about zeta zeros.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T233",
+            "label": "LogarithmicAdaptiveScalarFrameExistence",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T234",
+            "label": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N234",
+            "label": "ScalarDiagonalFloorAndSizeOnlyTailImplyWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN234",
+            "label": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T233",
+            "RH-T234"
+          ],
+          [
+            "RH-T234",
+            "RH-N234"
+          ],
+          [
+            "RH-T234",
+            "RH-OPEN234"
+          ],
+          [
+            "RH-OPEN234",
+            "RH"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/operator_kernel_density_minor_cesaro_audit/riemann",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "CO-TICKET-234",
+      "problem_id": "collatz",
+      "status": "open_not_proven",
+      "declared_proposition": "For every K>=13 and every nonempty finite family of moduli M>1 coprime to 6, there are infinitely many k>=K such that the primitive binary word w_k=1^k 2^(2k), and every cyclic rotation of it, lies in the necessary Collatz density band and passes every fixed congruence test M|D and M|B, yet D never divides B. Indeed, if r_a is the affine permutation order of F_a(x)=(3x+1)/2^a and L is the common lcm of all r_1,r_2, every sufficiently large multiple k of L works, with D_k=32^k-27^k and B_k=32^k+27^k-2*18^k.",
+      "mathematical_argument": "Each F_a is an affine permutation because gcd(M,6)=1. If k is a multiple of both orders, F_1^k and F_2^(2k) are identities, so the word return is the identity. Comparing its affine coefficient and constant term gives D_k=B_k=0 modulo M. The word has only two cyclic symbol transitions and is primitive; density 1/3 is admissible because 216<250 and 27<32. If D_k divided B_k, then gcd(D_k,18)=1 and B_k-D_k=2*9^k*(3^k-2^k) would force D_k to divide 3^k-2^k. But 0<3^k-2^k<D_k, since D_k>=5*27^(k-1)>3^k. This is impossible. Under one cyclic rotation, 2^(a_0)B'=3B+D; because every admissible modulus and D are coprime to 6, both modular false positivity and exact nondivisibility persist through all rotations.",
+      "new_result": "UniformBinaryDensityBandFixedFiniteAffineSieveNoGo",
+      "discarded_route": "any fixed finite affine modulus or fixed finite prime-power sieve as a cofinal binary density-band certificate",
+      "remaining_gap": "The theorem refutes only fixed finite affine-modulus and fixed prime-power sieves as cofinal certificates. It does not refute an adaptive modulus growing with the word, an all-prime radical argument, or analytic density-band nondivisibility. The height-22 radical scan is finite evidence only. General valuations and aperiodic divergence remain open.",
+      "candidate_theorem": "UniformBinaryDensityBandAdaptiveRadicalDeficit",
+      "claim_boundary": "The theorem refutes only fixed finite affine-modulus and fixed prime-power sieves as cofinal certificates. It does not refute an adaptive modulus growing with the word, an all-prime radical argument, or analytic density-band nondivisibility. The height-22 radical scan is finite evidence only. General valuations and aperiodic divergence remain open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T182",
+            "label": "CycleIffPositiveDAndDDividesB",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T197",
+            "label": "ContiguousOneTwoRunNondivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T223",
+            "label": "NonbinaryFixedModulusNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T233",
+            "label": "PrimitiveBinaryKAtLeast13DensityFrontier",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T234",
+            "label": "UniformBinaryDensityBandFixedFiniteAffineSieveNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N234",
+            "label": "FixedFiniteAffineModulusSieveIsCofinal",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN234",
+            "label": "UniformBinaryDensityBandAdaptiveRadicalDeficit",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWordsIncludingValuesAtLeastThree",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO-APERIODIC",
+            "label": "AperiodicDescentOrTermination",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T182",
+            "CO-T234"
+          ],
+          [
+            "CO-T197",
+            "CO-T234"
+          ],
+          [
+            "CO-T223",
+            "CO-T234"
+          ],
+          [
+            "CO-T233",
+            "CO-T234"
+          ],
+          [
+            "CO-T234",
+            "CO-N234"
+          ],
+          [
+            "CO-T234",
+            "CO-OPEN234"
+          ],
+          [
+            "CO-OPEN234",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ],
+          [
+            "CO-APERIODIC",
+            "CO"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/operator_kernel_density_minor_cesaro_audit/collatz",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "GB-TICKET-234",
+      "problem_id": "goldbach",
+      "status": "open_not_proven",
+      "declared_proposition": "For the logarithmically weighted prime sum S_N and any symmetric major set, once its real major contribution M_N is positive, the strict inequality minor_N>-M_N is equivalent to the weighted strong Goldbach conclusion G_theta(N)>0 itself. Moreover, split S_N into primes below N/2, the midpoint, and primes above N/2. Each same-half square has exact target coefficient zero, but on the central arc ||alpha||<=1/(4N) its real contribution is at least W_half^2/(pi N). Its complementary minor contribution is therefore exactly the negative of that positive major mass, asymptotically at most -(1/(4*pi)+o(1))N. All non-midpoint Goldbach mass lies in the reflected low-high cross channel.",
+      "mathematical_argument": "Major plus minor is the Nth Fourier coefficient, proving the endpoint equivalence. Same-half prime pairs have sums strictly below or above N, so their full target coefficients vanish. On the central arc the exact kernel is sin(pi*d/(2N))/(pi*d); concavity of sine gives at least 1/(pi N) for every same-half offset. The prime number theorem gives each half mass (1/2+o(1))N. Expanding S=L+D+U leaves only 2<L,V> and the midpoint square, where U(alpha)e(-N alpha)=conjugate(V(alpha)). TICKET-233 plus two Siegel-Walfisz estimates shows that both half channels still have the polylogarithmic rational-center asymptotic, so that marginal information cannot supply the missing cross phase.",
+      "new_result": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+      "discarded_route": "treating a strict full minor margin as a weaker lemma, or deriving channelwise minor signs from rational centers and diagonal norms",
+      "remaining_gap": "The result does not refute a correctly structured full-prime minor-arc estimate. The half squares are genuine components but omit the decisive cross term, and the central arc is smaller than a full polylogarithmic major-arc union. The finite logarithmic/trigonometric rows are numerical audits; exact cancellation is Fourier orthogonality, and the asymptotic constant uses the prime number theorem.",
+      "candidate_theorem": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale",
+      "claim_boundary": "The result does not refute a correctly structured full-prime minor-arc estimate. The half squares are genuine components but omit the decisive cross term, and the central arc is smaller than a full polylogarithmic major-arc union. The finite logarithmic/trigonometric rows are numerical audits; exact cancellation is Fourier orthogonality, and the asymptotic constant uses the prime number theorem.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T233",
+            "label": "PolylogSquarefreePrimeShellAsymptotic",
+            "status": "closed"
+          },
+          {
+            "id": "GB-PNT",
+            "label": "PrimeNumberTheorem",
+            "status": "established_external_theorem"
+          },
+          {
+            "id": "GB-T234",
+            "label": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N234",
+            "label": "RationalCenterAndBlockDiagonalControlImpliesStrictMinorMargin",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN234",
+            "label": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T233",
+            "GB-T234"
+          ],
+          [
+            "GB-PNT",
+            "GB-T234"
+          ],
+          [
+            "GB-T234",
+            "GB-N234"
+          ],
+          [
+            "GB-T234",
+            "GB-OPEN234"
+          ],
+          [
+            "GB-OPEN234",
+            "GB"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/operator_kernel_density_minor_cesaro_audit/goldbach",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "TP-TICKET-234",
+      "problem_id": "twin-prime",
+      "status": "open_not_proven",
+      "declared_proposition": "For globally indexed CRT coordinates and normalized centered quadratic sign coefficients b_(m,S), put E_(m,k)=C(m,k)^(-1) sum_(|S|=k)|b|^2 and D_m=sum_(S nonempty)m^(-|S|)|b|^2. For probability measures, or signed measures of total variation at most one, D_m tends to zero if and only if E_(m,k) tends to zero for every fixed k. The weights C(m,k)m^(-k) converge to 1/k!, so critical damping is a Poissonized fixed-degree Cesaro criterion. Decay of every fixed labelled coefficient does not suffice: a moving-half nonnegative product tilt has all such coefficients eventually zero but D_m tends to exp(1/8)-1.",
+      "mathematical_argument": "Grouping D_m by degree gives weights w_(m,k)=C(m,k)m^(-k), with w_(m,k)->1/k! and w_(m,k)<=1/k!. Since the normalized CRT signs have square at most two, E_(m,k)<=2^k; dominated triangular convergence proves the equivalence, and nonnegativity proves the converse one degree at a time. Selecting coordinates independently with probability 1/(m+1) gives the exact Poissonization identity. For the last ceil(m/2) coordinates, g=product(1+psi/2) is a positive normalized density, b_S=2^(-|S|) exactly on subsets of the moving half, and the displayed nonzero limit follows.",
+      "new_result": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+      "discarded_route": "pointwise decay of each fixed labelled CRT coefficient as sufficient for critical-noise decay",
+      "remaining_gap": "The moving-half density is a nonnegative CRT probability model, not prime weights. The exact finite audit conditions on already observed twin starts, uses small m, and proves no asymptotic. Even critical-noise decay would leave the parity-retaining transfer and positive principal mass open.",
+      "candidate_theorem": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale",
+      "claim_boundary": "The moving-half density is a nonnegative CRT probability model, not prime weights. The exact finite audit conditions on already observed twin starts, uses small m, and proves no asymptotic. Even critical-noise decay would leave the parity-retaining transfer and positive principal mass open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T233",
+            "label": "CriticalEntropyDampedCRTNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T234",
+            "label": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N234",
+            "label": "FixedLabeledCoefficientDecayImpliesCriticalNoiseDecay",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN234",
+            "label": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP-PARITY",
+            "label": "ParityRetainingTransferAndPositivePrincipalMass",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T233",
+            "TP-T234"
+          ],
+          [
+            "TP-T234",
+            "TP-N234"
+          ],
+          [
+            "TP-T234",
+            "TP-OPEN234"
+          ],
+          [
+            "TP-OPEN234",
+            "TP-PARITY"
+          ],
+          [
+            "TP-PARITY",
+            "TP"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/operator_kernel_density_minor_cesaro_audit/twin_prime",
+        "failure_count": 0
+      }
+    }
+  ]
+}

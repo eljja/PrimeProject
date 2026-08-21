@@ -1,0 +1,205 @@
+{
+  "schema": "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1",
+  "generated_at": "2026-08-21T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-234",
+  "theorem_name": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+  "declared_proposition": "Let V be the M by T adaptive dilation-analysis matrix with entries V_(j,n)=sqrt(w_j/W)(1-exp(-i n theta_j)). If T>M, then rank(V)<=M and the Gram form G=V*V has a nonzero kernel, even when every scalar column energy G_nn has a fixed positive lower bound. For every epsilon>0 and every unit u in ker(V), the signed perturbation H_epsilon=G-epsilon*u*u* has operator norm epsilon relative to G, entrywise magnitude at most epsilon, and u*H_epsilon*u=-epsilon. Hence a logarithmic scalar diagonal floor alone cannot transfer to positivity of the full signed Weil quadratic form.",
+  "mathematical_argument": "Rank-nullity gives dim ker(V)>=T-M. The TICKET-233 construction has M=ceil(8 log(2T))<T from T=35 onward while all pure-frequency column norms are at least one. If u is a unit kernel vector, then G u=0 and the rank-one Hermitian tail -epsilon*u*u* has operator norm epsilon, all entries bounded by epsilon, and quadratic value -epsilon on u. For the seeded rational phases an explicit kernel is also given by C(x)=x(x-1) product_(z in Z)(x-z): its nonconstant coefficients c_n satisfy sum_n c_n(1-z_j^n)=C(1)-C(z_j)=0. The generator reduces this polynomial identity modulo an auxiliary prime for exact arithmetic.",
+  "reproducible_computation": {
+    "theorem": "Let V be the M by T adaptive dilation-analysis matrix with entries V_(j,n)=sqrt(w_j/W)(1-exp(-i n theta_j)). If T>M, then rank(V)<=M and the Gram form G=V*V has a nonzero kernel, even when every scalar column energy G_nn has a fixed positive lower bound. For every epsilon>0 and every unit u in ker(V), the signed perturbation H_epsilon=G-epsilon*u*u* has operator norm epsilon relative to G, entrywise magnitude at most epsilon, and u*H_epsilon*u=-epsilon. Hence a logarithmic scalar diagonal floor alone cannot transfer to positivity of the full signed Weil quadratic form.",
+    "proof": "Rank-nullity gives dim ker(V)>=T-M. The TICKET-233 construction has M=ceil(8 log(2T))<T from T=35 onward while all pure-frequency column norms are at least one. If u is a unit kernel vector, then G u=0 and the rank-one Hermitian tail -epsilon*u*u* has operator norm epsilon, all entries bounded by epsilon, and quadratic value -epsilon on u. For the seeded rational phases an explicit kernel is also given by C(x)=x(x-1) product_(z in Z)(x-z): its nonconstant coefficients c_n satisfy sum_n c_n(1-z_j^n)=C(1)-C(z_j)=0. The generator reduces this polynomial identity modulo an auxiliary prime for exact arithmetic.",
+    "first_horizon_with_logarithmic_dimension_below_band_dimension": 35,
+    "exact_finite_field_kernel_rows": [
+      {
+        "frequency_horizon_T": 64,
+        "frame_dimension_M": 39,
+        "rank_upper_bound": 39,
+        "nullity_lower_bound": 25,
+        "minimum_scalar_column_energy": 1.7139958341771682,
+        "phase_modulus_P": 67,
+        "auxiliary_field_prime_Q": 269,
+        "primitive_generator_mod_Q": 2,
+        "primitive_Pth_root_mod_Q": 16,
+        "distinct_nontrivial_phase_count": 32,
+        "explicit_kernel_polynomial_degree": 34,
+        "maximum_exact_modular_residual": 0,
+        "transcript_sha256": "783f612bbbfa76530b185c995aebe43738dd33a4d6c9c22591e09dd5cf572dda",
+        "certificate_verified": true
+      },
+      {
+        "frequency_horizon_T": 256,
+        "frame_dimension_M": 50,
+        "rank_upper_bound": 50,
+        "nullity_lower_bound": 206,
+        "minimum_scalar_column_energy": 1.485455389090991,
+        "phase_modulus_P": 257,
+        "auxiliary_field_prime_Q": 1543,
+        "primitive_generator_mod_Q": 5,
+        "primitive_Pth_root_mod_Q": 195,
+        "distinct_nontrivial_phase_count": 49,
+        "explicit_kernel_polynomial_degree": 51,
+        "maximum_exact_modular_residual": 0,
+        "transcript_sha256": "ee4c68b5b6dcfd739e4ba9864f86e14d57ef76e2249372cd06afb43f938e5934",
+        "certificate_verified": true
+      },
+      {
+        "frequency_horizon_T": 1024,
+        "frame_dimension_M": 61,
+        "rank_upper_bound": 61,
+        "nullity_lower_bound": 963,
+        "minimum_scalar_column_energy": 1.4427616354164594,
+        "phase_modulus_P": 1031,
+        "auxiliary_field_prime_Q": 2063,
+        "primitive_generator_mod_Q": 5,
+        "primitive_Pth_root_mod_Q": 25,
+        "distinct_nontrivial_phase_count": 59,
+        "explicit_kernel_polynomial_degree": 61,
+        "maximum_exact_modular_residual": 0,
+        "transcript_sha256": "48901c054ce15e7cc74cbb431eb01e3be14d8dbe47e690f9448fd66e0ba1db14",
+        "certificate_verified": true
+      },
+      {
+        "frequency_horizon_T": 4096,
+        "frame_dimension_M": 73,
+        "rank_upper_bound": 73,
+        "nullity_lower_bound": 4023,
+        "minimum_scalar_column_energy": 1.388560517313009,
+        "phase_modulus_P": 4099,
+        "auxiliary_field_prime_Q": 73783,
+        "primitive_generator_mod_Q": 3,
+        "primitive_Pth_root_mod_Q": 59739,
+        "distinct_nontrivial_phase_count": 73,
+        "explicit_kernel_polynomial_degree": 75,
+        "maximum_exact_modular_residual": 0,
+        "transcript_sha256": "ceea3570435c335f8c2612d5aa4b0ee3a772d17ba9b4d341f619b3757f01a7a3",
+        "certificate_verified": true
+      }
+    ],
+    "arbitrarily_small_signed_tail_rows": [
+      {
+        "epsilon": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "signed_tail_operator_norm": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "quadratic_value_on_unit_kernel_vector": {
+          "exact": "-1/16",
+          "float": -0.0625
+        },
+        "positivity_destroyed": true
+      },
+      {
+        "epsilon": {
+          "exact": "1/256",
+          "float": 0.00390625
+        },
+        "signed_tail_operator_norm": {
+          "exact": "1/256",
+          "float": 0.00390625
+        },
+        "quadratic_value_on_unit_kernel_vector": {
+          "exact": "-1/256",
+          "float": -0.00390625
+        },
+        "positivity_destroyed": true
+      },
+      {
+        "epsilon": {
+          "exact": "1/65536",
+          "float": 1.52587890625e-05
+        },
+        "signed_tail_operator_norm": {
+          "exact": "1/65536",
+          "float": 1.52587890625e-05
+        },
+        "quadratic_value_on_unit_kernel_vector": {
+          "exact": "-1/65536",
+          "float": -1.52587890625e-05
+        },
+        "positivity_destroyed": true
+      },
+      {
+        "epsilon": {
+          "exact": "1/4294967296",
+          "float": 2.3283064365386963e-10
+        },
+        "signed_tail_operator_norm": {
+          "exact": "1/4294967296",
+          "float": 2.3283064365386963e-10
+        },
+        "quadratic_value_on_unit_kernel_vector": {
+          "exact": "-1/4294967296",
+          "float": -2.3283064365386963e-10
+        },
+        "positivity_destroyed": true
+      }
+    ],
+    "aggregate": {
+      "scalar_diagonal_floor_with_singular_full_gram_proved": true,
+      "logarithmic_scalar_to_full_quadratic_positivity_transfer_refuted": true,
+      "arbitrarily_small_unstructured_signed_tail_can_break_positivity": true,
+      "actual_weil_tail_kernel_compatibility_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The negative perturbation is an abstract Hermitian signed tail, not the arithmetic Guinand-Weil tail. The theorem refutes transfer from pure-frequency diagonal floors plus size-only tail estimates; it does not refute special arithmetic alignment, a higher-dimensional frame, or Riemann hypothesis. Modular rows audit an exact polynomial identity and are not numerical evidence about zeta zeros.",
+    "failure_count": 0
+  },
+  "logical_limit": "The negative perturbation is an abstract Hermitian signed tail, not the arithmetic Guinand-Weil tail. The theorem refutes transfer from pure-frequency diagonal floors plus size-only tail estimates; it does not refute special arithmetic alignment, a higher-dimensional frame, or Riemann hypothesis. Modular rows audit an exact polynomial identity and are not numerical evidence about zeta zeros.",
+  "route_decision": {
+    "discard": "transferring a logarithmic pure-frequency scalar floor to full Weil positivity using only tail size",
+    "retain": "prove arithmetic compatibility on the scalar-frame kernel and a positive Schur complement on its orthogonal complement",
+    "next_single_lemma": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T233",
+        "label": "LogarithmicAdaptiveScalarFrameExistence",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T234",
+        "label": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N234",
+        "label": "ScalarDiagonalFloorAndSizeOnlyTailImplyWeilPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN234",
+        "label": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T233",
+        "RH-T234"
+      ],
+      [
+        "RH-T234",
+        "RH-N234"
+      ],
+      [
+        "RH-T234",
+        "RH-OPEN234"
+      ],
+      [
+        "RH-OPEN234",
+        "RH"
+      ]
+    ]
+  }
+}

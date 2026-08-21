@@ -1,0 +1,148 @@
+{
+  "schema": "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1",
+  "generated_at": "2026-08-21T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-234",
+  "theorem_name": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+  "declared_proposition": "For the logarithmically weighted prime sum S_N and any symmetric major set, once its real major contribution M_N is positive, the strict inequality minor_N>-M_N is equivalent to the weighted strong Goldbach conclusion G_theta(N)>0 itself. Moreover, split S_N into primes below N/2, the midpoint, and primes above N/2. Each same-half square has exact target coefficient zero, but on the central arc ||alpha||<=1/(4N) its real contribution is at least W_half^2/(pi N). Its complementary minor contribution is therefore exactly the negative of that positive major mass, asymptotically at most -(1/(4*pi)+o(1))N. All non-midpoint Goldbach mass lies in the reflected low-high cross channel.",
+  "mathematical_argument": "Major plus minor is the Nth Fourier coefficient, proving the endpoint equivalence. Same-half prime pairs have sums strictly below or above N, so their full target coefficients vanish. On the central arc the exact kernel is sin(pi*d/(2N))/(pi*d); concavity of sine gives at least 1/(pi N) for every same-half offset. The prime number theorem gives each half mass (1/2+o(1))N. Expanding S=L+D+U leaves only 2<L,V> and the midpoint square, where U(alpha)e(-N alpha)=conjugate(V(alpha)). TICKET-233 plus two Siegel-Walfisz estimates shows that both half channels still have the polylogarithmic rational-center asymptotic, so that marginal information cannot supply the missing cross phase.",
+  "reproducible_computation": {
+    "theorem": "For the logarithmically weighted prime sum S_N and any symmetric major set, once its real major contribution M_N is positive, the strict inequality minor_N>-M_N is equivalent to the weighted strong Goldbach conclusion G_theta(N)>0 itself. Moreover, split S_N into primes below N/2, the midpoint, and primes above N/2. Each same-half square has exact target coefficient zero, but on the central arc ||alpha||<=1/(4N) its real contribution is at least W_half^2/(pi N). Its complementary minor contribution is therefore exactly the negative of that positive major mass, asymptotically at most -(1/(4*pi)+o(1))N. All non-midpoint Goldbach mass lies in the reflected low-high cross channel.",
+    "proof": "Major plus minor is the Nth Fourier coefficient, proving the endpoint equivalence. Same-half prime pairs have sums strictly below or above N, so their full target coefficients vanish. On the central arc the exact kernel is sin(pi*d/(2N))/(pi*d); concavity of sine gives at least 1/(pi N) for every same-half offset. The prime number theorem gives each half mass (1/2+o(1))N. Expanding S=L+D+U leaves only 2<L,V> and the midpoint square, where U(alpha)e(-N alpha)=conjugate(V(alpha)). TICKET-233 plus two Siegel-Walfisz estimates shows that both half channels still have the polylogarithmic rational-center asymptotic, so that marginal information cannot supply the missing cross phase.",
+    "central_half_channel_rows": [
+      {
+        "even_target_N": 100,
+        "low_prime_count": 15,
+        "high_prime_count": 10,
+        "central_major_LL": 7.55035493476133,
+        "central_major_LL_lower_bound": 5.34041093439497,
+        "central_major_UU": 8.210933485251298,
+        "central_major_UU_lower_bound": 5.822258483553826,
+        "central_major_LU": 8.627482515456364,
+        "central_major_LU_lower_bound": 7.885842107022526,
+        "exact_full_LL_target_coefficient": 0,
+        "exact_full_UU_target_coefficient": 0,
+        "minor_LL_equals_negative_major_LL": true,
+        "minor_UU_equals_negative_major_UU": true,
+        "full_reflection_cross_coefficient": 73.09077502185626,
+        "midpoint_prime_square": 0.0,
+        "weighted_goldbach_coefficient": 146.18155004371252,
+        "certificate_verified": true
+      },
+      {
+        "even_target_N": 1000,
+        "low_prime_count": 95,
+        "high_prime_count": 73,
+        "central_major_LL": 100.46391667883087,
+        "central_major_LL_lower_bound": 71.68399767221256,
+        "central_major_UU": 102.69883156928468,
+        "central_major_UU_lower_bound": 73.85618461297284,
+        "central_major_LU": 112.3869376251867,
+        "central_major_LU_lower_bound": 102.9009870300071,
+        "exact_full_LL_target_coefficient": 0,
+        "exact_full_UU_target_coefficient": 0,
+        "minor_LL_equals_negative_major_LL": true,
+        "minor_UU_equals_negative_major_UU": true,
+        "full_reflection_cross_coefficient": 911.5222953453325,
+        "midpoint_prime_square": 0.0,
+        "weighted_goldbach_coefficient": 1823.044590690665,
+        "certificate_verified": true
+      },
+      {
+        "even_target_N": 10000,
+        "low_prime_count": 669,
+        "high_prime_count": 560,
+        "central_major_LL": 1070.8103371195891,
+        "central_major_LL_lower_bound": 767.9146817590198,
+        "central_major_UU": 1099.9531254584908,
+        "central_major_UU_lower_bound": 790.783835735915,
+        "central_major_LU": 1203.3901340371276,
+        "central_major_LU_lower_bound": 1102.0476555569837,
+        "exact_full_LL_target_coefficient": 0,
+        "exact_full_UU_target_coefficient": 0,
+        "minor_LL_equals_negative_major_LL": true,
+        "minor_UU_equals_negative_major_UU": true,
+        "full_reflection_cross_coefficient": 8371.568402788498,
+        "midpoint_prime_square": 0.0,
+        "weighted_goldbach_coefficient": 16743.136805576996,
+        "certificate_verified": true
+      }
+    ],
+    "central_half_channel_transcript_sha256": "f4dd37d6591cae11ac3002aa859854d53148f48acef542a6724b8bc1afc3fb73",
+    "exact_reflection_identity": "G_theta(N)=2*<L_N,V_N>+1_(N/2 prime)*log(N/2)^2, where U_N(alpha)e(-N alpha)=conjugate(V_N(alpha))",
+    "successor_inverse_log_threshold": "rho_N^-[minor reflection] <= (sqrt(2)/(2*pi)-eta)/log(N) for some eta>0",
+    "aggregate": {
+      "strict_full_minor_margin_equivalent_to_goldbach_endpoint": true,
+      "same_half_exact_major_minor_cancellation_proved": true,
+      "polylog_rational_centers_imply_channelwise_minor_margin_refuted": true,
+      "goldbach_mass_localized_to_reflected_cross_channel": true,
+      "inverse_log_minor_reflection_coherence_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The result does not refute a correctly structured full-prime minor-arc estimate. The half squares are genuine components but omit the decisive cross term, and the central arc is smaller than a full polylogarithmic major-arc union. The finite logarithmic/trigonometric rows are numerical audits; exact cancellation is Fourier orthogonality, and the asymptotic constant uses the prime number theorem.",
+    "failure_count": 0
+  },
+  "logical_limit": "The result does not refute a correctly structured full-prime minor-arc estimate. The half squares are genuine components but omit the decisive cross term, and the central arc is smaller than a full polylogarithmic major-arc union. The finite logarithmic/trigonometric rows are numerical audits; exact cancellation is Fourier orthogonality, and the asymptotic constant uses the prime number theorem.",
+  "route_decision": {
+    "discard": "treating a strict full minor margin as a weaker lemma, or deriving channelwise minor signs from rational centers and diagonal norms",
+    "retain": "control target-reflected low-high prime coherence on the complementary arc at the inverse-log scale",
+    "next_single_lemma": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T233",
+        "label": "PolylogSquarefreePrimeShellAsymptotic",
+        "status": "closed"
+      },
+      {
+        "id": "GB-PNT",
+        "label": "PrimeNumberTheorem",
+        "status": "established_external_theorem"
+      },
+      {
+        "id": "GB-T234",
+        "label": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N234",
+        "label": "RationalCenterAndBlockDiagonalControlImpliesStrictMinorMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN234",
+        "label": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T233",
+        "GB-T234"
+      ],
+      [
+        "GB-PNT",
+        "GB-T234"
+      ],
+      [
+        "GB-T234",
+        "GB-N234"
+      ],
+      [
+        "GB-T234",
+        "GB-OPEN234"
+      ],
+      [
+        "GB-OPEN234",
+        "GB"
+      ]
+    ]
+  }
+}

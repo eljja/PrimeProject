@@ -1,0 +1,297 @@
+{
+  "schema": "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1",
+  "generated_at": "2026-08-21T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-234",
+  "theorem_name": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+  "declared_proposition": "For globally indexed CRT coordinates and normalized centered quadratic sign coefficients b_(m,S), put E_(m,k)=C(m,k)^(-1) sum_(|S|=k)|b|^2 and D_m=sum_(S nonempty)m^(-|S|)|b|^2. For probability measures, or signed measures of total variation at most one, D_m tends to zero if and only if E_(m,k) tends to zero for every fixed k. The weights C(m,k)m^(-k) converge to 1/k!, so critical damping is a Poissonized fixed-degree Cesaro criterion. Decay of every fixed labelled coefficient does not suffice: a moving-half nonnegative product tilt has all such coefficients eventually zero but D_m tends to exp(1/8)-1.",
+  "mathematical_argument": "Grouping D_m by degree gives weights w_(m,k)=C(m,k)m^(-k), with w_(m,k)->1/k! and w_(m,k)<=1/k!. Since the normalized CRT signs have square at most two, E_(m,k)<=2^k; dominated triangular convergence proves the equivalence, and nonnegativity proves the converse one degree at a time. Selecting coordinates independently with probability 1/(m+1) gives the exact Poissonization identity. For the last ceil(m/2) coordinates, g=product(1+psi/2) is a positive normalized density, b_S=2^(-|S|) exactly on subsets of the moving half, and the displayed nonzero limit follows.",
+  "reproducible_computation": {
+    "theorem": "For globally indexed CRT coordinates and normalized centered quadratic sign coefficients b_(m,S), put E_(m,k)=C(m,k)^(-1) sum_(|S|=k)|b|^2 and D_m=sum_(S nonempty)m^(-|S|)|b|^2. For probability measures, or signed measures of total variation at most one, D_m tends to zero if and only if E_(m,k) tends to zero for every fixed k. The weights C(m,k)m^(-k) converge to 1/k!, so critical damping is a Poissonized fixed-degree Cesaro criterion. Decay of every fixed labelled coefficient does not suffice: a moving-half nonnegative product tilt has all such coefficients eventually zero but D_m tends to exp(1/8)-1.",
+    "proof": "Grouping D_m by degree gives weights w_(m,k)=C(m,k)m^(-k), with w_(m,k)->1/k! and w_(m,k)<=1/k!. Since the normalized CRT signs have square at most two, E_(m,k)<=2^k; dominated triangular convergence proves the equivalence, and nonnegativity proves the converse one degree at a time. Selecting coordinates independently with probability 1/(m+1) gives the exact Poissonization identity. For the last ceil(m/2) coordinates, g=product(1+psi/2) is a positive normalized density, b_S=2^(-|S|) exactly on subsets of the moving half, and the displayed nonzero limit follows.",
+    "moving_half_exact_counterexample_rows": [
+      {
+        "active_prime_count_m": 4,
+        "moving_half_coordinate_count": 2,
+        "critical_noise_D_m": {
+          "exact": "33/256",
+          "float": 0.12890625
+        },
+        "degree_one_cesaro_E_m_1": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "1/96",
+          "float": 0.010416666666666666
+        },
+        "limit_D": 0.13314845306682632,
+        "certificate_verified": true
+      },
+      {
+        "active_prime_count_m": 8,
+        "moving_half_coordinate_count": 4,
+        "critical_noise_D_m": {
+          "exact": "137345/1048576",
+          "float": 0.1309823989868164
+        },
+        "degree_one_cesaro_E_m_1": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "3/224",
+          "float": 0.013392857142857142
+        },
+        "limit_D": 0.13314845306682632,
+        "certificate_verified": true
+      },
+      {
+        "active_prime_count_m": 16,
+        "moving_half_coordinate_count": 8,
+        "critical_noise_D_m": {
+          "exact": "37169836179969/281474976710656",
+          "float": 0.13205378543534962
+        },
+        "degree_one_cesaro_E_m_1": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "7/480",
+          "float": 0.014583333333333334
+        },
+        "limit_D": 0.13314845306682632,
+        "certificate_verified": true
+      },
+      {
+        "active_prime_count_m": 32,
+        "moving_half_coordinate_count": 16,
+        "critical_noise_D_m": {
+          "exact": "688488991721691580667710142285825/5192296858534827628530496329220096",
+          "float": 0.13259815655377816
+        },
+        "degree_one_cesaro_E_m_1": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "15/992",
+          "float": 0.015120967741935484
+        },
+        "limit_D": 0.13314845306682632,
+        "certificate_verified": true
+      }
+    ],
+    "actual_twin_start_finite_audit_rows": [
+      {
+        "cutoff_X": 10000,
+        "active_prime_count_m": 4,
+        "active_primes": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "maximum_active_prime": 13,
+        "twin_start_count": 202,
+        "critical_noise_D_m": {
+          "exact": "12301/5222912",
+          "float": 0.002355199551514557
+        },
+        "fixed_degree_cesaro_energies": [
+          {
+            "exact": "3257/1958592",
+            "float": 0.0016629292879783027
+          },
+          {
+            "exact": "9265/5875776",
+            "float": 0.0015768130030824866
+          },
+          {
+            "exact": "6301/3917184",
+            "float": 0.0016085534914877626
+          },
+          {
+            "exact": "9/81608",
+            "float": 0.0001102833055582786
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "active_prime_count_m": 6,
+        "active_primes": [
+          5,
+          7,
+          11,
+          13,
+          17,
+          19
+        ],
+        "maximum_active_prime": 19,
+        "twin_start_count": 1220,
+        "critical_noise_D_m": {
+          "exact": "49423640700109/80638079297126400",
+          "float": 0.0006129069681582837
+        },
+        "fixed_degree_cesaro_energies": [
+          {
+            "exact": "4537949/22504608000",
+            "float": 0.00020164532525960907
+          },
+          {
+            "exact": "991770511/1125230400000",
+            "float": 0.0008813932782121778
+          },
+          {
+            "exact": "1729489087/4320884736000",
+            "float": 0.0004002627222592961
+          },
+          {
+            "exact": "31611592289/54011059200000",
+            "float": 0.0005852799918613705
+          },
+          {
+            "exact": "655071383/2880589824000",
+            "float": 0.00022740876800375729
+          },
+          {
+            "exact": "7129944721/43208847360000",
+            "float": 0.00016501122239146905
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "active_prime_count_m": 8,
+        "active_primes": [
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "maximum_active_prime": 29,
+        "twin_start_count": 1219,
+        "critical_noise_D_m": {
+          "exact": "36286042731211971001/64683927526799572992000",
+          "float": 0.0005609746364918564
+        },
+        "fixed_degree_cesaro_energies": [
+          {
+            "exact": "20930513/133870226490",
+            "float": 0.0001563492760771828
+          },
+          {
+            "exact": "33872237171/46646336696960",
+            "float": 0.0007261499952515563
+          },
+          {
+            "exact": "215333640417821/302268261796300800",
+            "float": 0.0007123924924772114
+          },
+          {
+            "exact": "40728327758509/85871665283040000",
+            "float": 0.0004742929769006472
+          },
+          {
+            "exact": "575932129648217/1209073047185203200",
+            "float": 0.0004763418810708109
+          },
+          {
+            "exact": "242127218568541/274789328905728000",
+            "float": 0.0008811376319915523
+          },
+          {
+            "exact": "1693694654821/2125842720325632",
+            "float": 0.0007967168213467661
+          },
+          {
+            "exact": "780811249/1101560720832000",
+            "float": 7.088227042175755e-07
+          }
+        ],
+        "certificate_verified": true
+      }
+    ],
+    "aggregate": {
+      "critical_noise_fixed_degree_cesaro_equivalence_proved": true,
+      "poissonized_interaction_degree_identity_proved": true,
+      "fixed_labeled_coefficientwise_decay_sufficiency_refuted": true,
+      "actual_prime_weighted_fixed_degree_cesaro_decay_proved": false,
+      "positive_twin_main_term_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The moving-half density is a nonnegative CRT probability model, not prime weights. The exact finite audit conditions on already observed twin starts, uses small m, and proves no asymptotic. Even critical-noise decay would leave the parity-retaining transfer and positive principal mass open.",
+    "failure_count": 0
+  },
+  "logical_limit": "The moving-half density is a nonnegative CRT probability model, not prime weights. The exact finite audit conditions on already observed twin starts, uses small m, and proves no asymptotic. Even critical-noise decay would leave the parity-retaining transfer and positive principal mass open.",
+  "route_decision": {
+    "discard": "pointwise decay of each fixed labelled CRT coefficient as sufficient for critical-noise decay",
+    "retain": "prove moving-coordinate Cesaro square-correlation decay at every fixed interaction degree for actual prime-weighted Type-II coefficients",
+    "next_single_lemma": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T233",
+        "label": "CriticalEntropyDampedCRTNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T234",
+        "label": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N234",
+        "label": "FixedLabeledCoefficientDecayImpliesCriticalNoiseDecay",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN234",
+        "label": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP-PARITY",
+        "label": "ParityRetainingTransferAndPositivePrincipalMass",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T233",
+        "TP-T234"
+      ],
+      [
+        "TP-T234",
+        "TP-N234"
+      ],
+      [
+        "TP-T234",
+        "TP-OPEN234"
+      ],
+      [
+        "TP-OPEN234",
+        "TP-PARITY"
+      ],
+      [
+        "TP-PARITY",
+        "TP"
+      ]
+    ]
+  }
+}

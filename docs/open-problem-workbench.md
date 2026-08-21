@@ -15,30 +15,39 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-233
+## Current research boundary: TICKET-234
 
 The current machine-readable boundary is
-`data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json`.
+`data/open-problem/ticket234-operator-kernel-density-minor-cesaro.json`.
 
-TICKET-233 proves four exact partial, asymptotic, or no-go theorems and resolves
+TICKET-234 proves four exact partial, equivalence, or no-go theorems and resolves
 none of the parent conjectures:
 
-- the scalar adaptive-frame threshold is exactly logarithmic;
-- the Collatz proof DAG is corrected and the first open binary fixed stratum
-  `k=12` is excluded by a complete finite-horizon MITM;
-- prime-weighted odd-squarefree rational shells have a uniform asymptotic for
-  polylogarithmic denominators, while uncoupled denominator growth fails;
-- product-damped centered CRT interactions obey signed entropy bounds, but
-  critical damping and bounded-entropy full-parity retention fail.
+- logarithmic scalar diagonal floors are compatible with a singular full Gram
+  form, so size-only signed-tail transfer to Weil positivity fails;
+- every fixed finite Collatz affine-modulus sieve has infinitely many primitive
+  binary density-band false positives;
+- the strict full Goldbach minor margin is endpoint-equivalent, while each
+  same-half prime square has exact major-minor cancellation;
+- critical CRT noise decay is equivalent to fixed-degree moving-coordinate
+  Cesaro decay, and fixed-labelled coefficient decay is insufficient.
 
-The remaining decisive targets are a scalar-to-Weil signed transfer with tail
-dominance; uniform binary density-band necklace nondivisibility from `k=13`
-onward plus general valuations and aperiodic descent; target-aligned Goldbach
-minor-arc negative-mass control below the polylog major-arc margin; and
-actual-prime critical-noise CRT decay plus a positive twin-prime main.
+The remaining decisive targets are arithmetic Weil-tail compatibility on the
+scalar-frame kernel with a positive Schur complement; a word-adaptive Collatz
+radical deficit; inverse-log Goldbach reflected minor coherence; and actual-
+prime fixed-degree Cesaro CRT decay before parity transfer and positive mass.
 
-English report: [TICKET-233](logarithmic-frame-density-shell-entropy.md).
-한국어 보고서: [TICKET-233](logarithmic-frame-density-shell-entropy.ko.md).
+English report: [TICKET-234](operator-kernel-density-minor-cesaro.md).
+한국어 보고서: [TICKET-234](operator-kernel-density-minor-cesaro.ko.md).
+
+## Preserved research boundary: TICKET-233
+
+TICKET-233 remains available in
+[English](logarithmic-frame-density-shell-entropy.md) and
+[한국어](logarithmic-frame-density-shell-entropy.ko.md). TICKET-234 exposes the
+operator-kernel gap in its RH transfer target, refutes fixed finite Collatz
+affine sieves, replaces its Goldbach full-margin target with a reflected cross
+channel, and gives an exact fixed-degree criterion for its Twin critical noise.
 
 ## Preserved research boundary: TICKET-232
 
@@ -55,7 +64,7 @@ TICKET-231 remains available in
 [English](summable-frame-critical-strip-gauss-crt.md) and
 [한국어](summable-frame-critical-strip-gauss-crt.ko.md). Its summable-frame,
 critical-strip, Gauss-counterfamily, and centered-CRT results are direct
-inputs to TICKET-232 and TICKET-233.
+inputs to TICKET-232 through TICKET-234.
 
 ## Preserved research boundary: TICKET-230
 

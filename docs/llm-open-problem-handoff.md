@@ -62,32 +62,32 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-233
+## Current continuation: TICKET-234
 
 The current machine-readable boundary is
-`data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json`.
-It records four exact partial, asymptotic, or no-go theorems, zero machine failures, and
+`data/open-problem/ticket234-operator-kernel-density-minor-cesaro.json`.
+It records four exact partial, equivalence, or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold` | `LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance` |
-| Collatz | `BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo` | `UniformBinaryDensityBandPrimitiveNecklaceNondivisibility` |
-| Goldbach | `PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo` | `UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin` |
-| Twin Prime | `CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo` | `PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale` |
+| Riemann | `ScalarDiagonalFrameRankAndSignedTailTransferNoGo` | `ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement` |
+| Collatz | `UniformBinaryDensityBandFixedFiniteAffineSieveNoGo` | `UniformBinaryDensityBandAdaptiveRadicalDeficit` |
+| Goldbach | `MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo` | `ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale` |
+| Twin Prime | `PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo` | `PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale` |
 
-The RH theorem closes only the scalar threshold, not the signed Weil transfer.
-The Collatz theorem corrects the T232 lineage and closes binary `k=12`, but
-binary `k>=13`, valuations at least three, and aperiodic divergence remain.
-The Goldbach theorem controls polylog rational centers, not arc neighborhoods
-or targetwise minor arcs. The Twin theorem is a CRT probability-model result,
-not actual-prime decay or positive twin mass.
+The RH theorem proves a scalar-to-operator rank barrier, not the sign of the
+actual arithmetic tail. The Collatz theorem refutes every fixed finite affine
+sieve, but adaptive radical deficit, general valuations, and aperiodic descent
+remain. The Goldbach theorem localizes the missing information to reflected
+cross phase but does not bound it. The Twin theorem identifies the right
+fixed-degree quantifier but does not prove actual-prime decay or positive mass.
 
-Reports: [English](logarithmic-frame-density-shell-entropy.md),
-[한국어](logarithmic-frame-density-shell-entropy.ko.md).
+Reports: [English](operator-kernel-density-minor-cesaro.md),
+[한국어](operator-kernel-density-minor-cesaro.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-233 boundary.
+snapshots and must not override this TICKET-234 boundary.
 
 ## Historical continuation after TICKET-209
 

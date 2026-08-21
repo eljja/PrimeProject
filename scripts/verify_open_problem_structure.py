@@ -237,6 +237,7 @@ TICKET232_SCHEMA = (
     "rational-shell-crt-sparsity.v1"
 )
 TICKET233_SCHEMA = "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1"
+TICKET234_SCHEMA = "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1"
 
 
 def fail(message: str) -> int:
@@ -19606,6 +19607,183 @@ def main() -> int:
         or machine231.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket231 proof boundary changed")
+
+    path234 = Path(
+        "data/open-problem/ticket234-operator-kernel-density-minor-cesaro.json"
+    )
+    if not path234.exists():
+        return fail("missing ticket234 operator-kernel/density/minor/Cesaro audit")
+    ticket234 = read_json(path234)
+    if (
+        ticket234.get("schema") != TICKET234_SCHEMA
+        or ticket234.get("status") != "open_not_proven"
+    ):
+        return fail("ticket234 schema or status changed")
+    audit234 = ticket234.get("operator_kernel_density_minor_cesaro_audit", {})
+    machine234 = audit234.get("machine_audit", {})
+    if machine234 != {
+        "exact_partial_or_no_go_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket234 global machine audit changed")
+
+    theorem_names234 = {
+        "riemann": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+        "collatz": "UniformBinaryDensityBandFixedFiniteAffineSieveNoGo",
+        "goldbach": "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo",
+        "twin-prime": "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo",
+    }
+    next_lemmas234 = {
+        "riemann": "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement",
+        "collatz": "UniformBinaryDensityBandAdaptiveRadicalDeficit",
+        "goldbach": "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale",
+        "twin-prime": "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale",
+    }
+    track_paths234 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-234-scalar-kernel-rank-no-go.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-234-fixed-affine-sieve-no-go.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-234-half-channel-minor-cancellation.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-234-poisson-cesaro-criterion.json"
+        ),
+    }
+    audit_sections234 = {
+        "riemann": audit234.get("riemann", {}),
+        "collatz": audit234.get("collatz", {}),
+        "goldbach": audit234.get("goldbach", {}),
+        "twin-prime": audit234.get("twin_prime", {}),
+    }
+    attempts234 = {
+        row.get("problem_id"): row for row in ticket234.get("attempts", [])
+    }
+    if set(attempts234) != EXPECTED_PROBLEMS:
+        return fail("ticket234 attempts missing problems")
+    for problem_id, attempt in attempts234.items():
+        track_path = track_paths234[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket234 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections234[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names234[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas234[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or sum(node.get("status") == "highest_risk_open" for node in nodes) != 1
+            or not any(node.get("status") == "open_not_proven" for node in nodes)
+            or not any(node.get("status") == "refuted_or_limited" for node in nodes)
+            or not dag.get("edges")
+            or section.get("theorem_name") != theorem_names234[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas234[problem_id]
+            or track.get("schema") != TICKET234_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names234[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket234 contract changed")
+
+    rh234 = audit_sections234["riemann"].get("reproducible_computation", {})
+    if (
+        len(rh234.get("exact_finite_field_kernel_rows", [])) != 4
+        or any(
+            row.get("certificate_verified") is not True
+            or row.get("maximum_exact_modular_residual") != 0
+            or row.get("nullity_lower_bound", 0) <= 0
+            for row in rh234.get("exact_finite_field_kernel_rows", [])
+        )
+        or rh234.get("aggregate", {}).get(
+            "scalar_diagonal_floor_with_singular_full_gram_proved"
+        ) is not True
+        or rh234.get("aggregate", {}).get(
+            "actual_weil_tail_kernel_compatibility_proved"
+        ) is not False
+        or rh234.get("aggregate", {}).get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket234 RH kernel boundary changed")
+
+    collatz234 = audit_sections234["collatz"].get("reproducible_computation", {})
+    collatz234_totals = collatz234.get("fixed_affine_modulus_totals", {})
+    radical234 = collatz234.get("radical_deficit_finite_scan", {})
+    if (
+        collatz234_totals.get("moduli_checked") != 66
+        or collatz234_totals.get("maximum_one_count_k") != 198
+        or collatz234_totals.get("failure_count") != 0
+        or radical234.get("primitive_necklaces") != 90272
+        or radical234.get("radical_false_positives") != 0
+        or collatz234.get("aggregate", {}).get(
+            "every_fixed_finite_modulus_family_sieve_has_infinite_binary_false_positives"
+        ) is not True
+        or collatz234.get("aggregate", {}).get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket234 Collatz affine-sieve boundary changed")
+
+    goldbach234 = audit_sections234["goldbach"].get("reproducible_computation", {})
+    if (
+        len(goldbach234.get("central_half_channel_rows", [])) != 3
+        or any(
+            row.get("certificate_verified") is not True
+            or row.get("exact_full_LL_target_coefficient") != 0
+            or row.get("exact_full_UU_target_coefficient") != 0
+            for row in goldbach234.get("central_half_channel_rows", [])
+        )
+        or goldbach234.get("aggregate", {}).get(
+            "strict_full_minor_margin_equivalent_to_goldbach_endpoint"
+        ) is not True
+        or goldbach234.get("aggregate", {}).get(
+            "inverse_log_minor_reflection_coherence_proved"
+        ) is not False
+        or goldbach234.get("aggregate", {}).get(
+            "strong_goldbach_conjecture_resolved"
+        ) is not False
+    ):
+        return fail("ticket234 Goldbach half-channel boundary changed")
+
+    twin234 = audit_sections234["twin-prime"].get("reproducible_computation", {})
+    if (
+        len(twin234.get("moving_half_exact_counterexample_rows", [])) != 4
+        or len(twin234.get("actual_twin_start_finite_audit_rows", [])) != 3
+        or any(
+            row.get("certificate_verified") is not True
+            for row in twin234.get("moving_half_exact_counterexample_rows", [])
+        )
+        or any(
+            row.get("certificate_verified") is not True
+            for row in twin234.get("actual_twin_start_finite_audit_rows", [])
+        )
+        or twin234.get("aggregate", {}).get(
+            "critical_noise_fixed_degree_cesaro_equivalence_proved"
+        ) is not True
+        or twin234.get("aggregate", {}).get(
+            "actual_prime_weighted_fixed_degree_cesaro_decay_proved"
+        ) is not False
+        or twin234.get("aggregate", {}).get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket234 Twin Cesaro boundary changed")
+
+    if (
+        "resolves none" not in str(audit234.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket234.get("claim_boundary", "")).lower()
+        or machine234.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket234 proof boundary changed")
 
     path233 = Path(
         "data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json"
