@@ -62,32 +62,41 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-234
+## Current continuation: TICKET-235
 
 The current machine-readable boundary is
-`data/open-problem/ticket234-operator-kernel-density-minor-cesaro.json`.
-It records four exact partial, equivalence, or no-go theorems, zero machine failures, and
+`data/open-problem/ticket235-schur-primepower-phase-overlap.json`.
+It records four exact partial or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `ScalarDiagonalFrameRankAndSignedTailTransferNoGo` | `ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement` |
-| Collatz | `UniformBinaryDensityBandFixedFiniteAffineSieveNoGo` | `UniformBinaryDensityBandAdaptiveRadicalDeficit` |
-| Goldbach | `MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo` | `ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale` |
-| Twin Prime | `PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo` | `PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale` |
+| Riemann | `ExactKernelSchurComplementCriterionAndCrossBlockNoGo` | `ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames` |
+| Collatz | `BinaryRunBlockPrimitiveDivisorOrderCharacterizationAndSelectionNoGo` | `UniformBinaryDensityBandOrderSeparatedAdaptivePrimeWitness` |
+| Goldbach | `CompleteMarginalPowerSpectrumPhaseRetrievalNoGo` | `ActualPrimeReflectedCrossSpectrumPhaseLockingAtInverseLogScale` |
+| Twin Prime | `FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo` | `PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale` |
 
-The RH theorem proves a scalar-to-operator rank barrier, not the sign of the
-actual arithmetic tail. The Collatz theorem refutes every fixed finite affine
-sieve, but adaptive radical deficit, general valuations, and aperiodic descent
-remain. The Goldbach theorem localizes the missing information to reflected
-cross phase but does not bound it. The Twin theorem identifies the right
-fixed-degree quantifier but does not prove actual-prime decay or positive mass.
+The RH theorem identifies the exact relative Schur condition but does not prove
+it for the arithmetic Weil tail. The Collatz theorem shows that general words
+need prime-power information and that arbitrary primitive divisors fail, while
+an order-separated binary witness remains open. The Goldbach theorem proves a
+phase-retrieval obstruction for separate marginals but does not establish
+actual-prime phase locking. The Twin theorem gives an exact overlap reduction
+but does not prove Type-II overlap concentration or positive mass.
 
-Reports: [English](operator-kernel-density-minor-cesaro.md),
-[한국어](operator-kernel-density-minor-cesaro.ko.md).
+Reports: [English](schur-primepower-phase-overlap.md),
+[한국어](schur-primepower-phase-overlap.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-234 boundary.
+snapshots and must not override this TICKET-235 boundary.
+
+## Preserved continuation: TICKET-234
+
+TICKET-234 remains available in
+[English](operator-kernel-density-minor-cesaro.md) and
+[한국어](operator-kernel-density-minor-cesaro.ko.md). Its operator-kernel,
+fixed-affine-sieve, Goldbach half-channel, and Poisson-Cesaro results are direct
+inputs to TICKET-235.
 
 ## Historical continuation after TICKET-209
 

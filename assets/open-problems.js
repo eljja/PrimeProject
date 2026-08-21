@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket235AttemptGlobal = null;
 let ticket234AttemptGlobal = null;
 let ticket233AttemptGlobal = null;
 let ticket232AttemptGlobal = null;
@@ -10030,6 +10031,73 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket235SchurPrimePowerPhaseOverlap(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.schur_primepower_phase_overlap_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.exact_rank_one_schur_rows || [];
+    detail = `
+      <div class="poc-equation">H≥0 ⇔ C−B* A<sup>−1</sup>B≥0; C=T<sup>−2</sup>I and B=(2/T)e₁f₁* give Schur minimum −3/T²</div>
+      ${table(["T", "frame M", "kernel d", "adverse Schur", "safe Schur"], rows.map((row) => [formatter.format(row.frequency_horizon_T || 0), row.frame_dimension_M, formatter.format(row.kernel_dimension_d || 0), row.indefinite_schur_minimum?.exact, row.safe_schur_minimum?.exact]))}
+      <div class="poc-head"><div><span>Exact Schur criterion</span><strong>${aggregate.exact_positive_schur_complement_criterion_proved ? "proved" : "open"}</strong></div><div><span>Absolute-small route</span><strong>${aggregate.kernel_compression_plus_absolute_cross_smallness_sufficiency_refuted ? "refuted" : "open"}</strong></div><div><span>Arithmetic relative bound</span><strong>${aggregate.arithmetic_weil_tail_schur_domination_proved ? "proved" : "open"}</strong></div></div>
+    `;
+  } else if (problemKey === "collatz") {
+    const general = computation.general_valuation_finite_scan || {};
+    const primitive = computation.binary_primitive_divisor_scan || {};
+    const anchor = (primitive.primitive_common_divisor_rows || []).find((row) => row.one_count_k === 14 && row.prime_q === 29) || {};
+    detail = `
+      <div class="poc-equation">T224 lineage: a=(1,1,2,4,3) has rad(D)|B but D∤B. NEW: q=29 is primitive for D₁₄ and still divides B₁₄</div>
+      ${table(["general canonical", "primitive", "radical false positives", "order failures", "primitive common rows"], [[formatter.format(general.raw_canonical_positive_D_words || 0), formatter.format(general.primitive_positive_D_necklaces || 0), general.radical_false_positive_count ?? 0, primitive.characterization_failures ?? 0, primitive.primitive_common_divisor_count ?? 0]])}
+      ${table(["k", "q", "ord(32/27)", "ord(3/2)", "ord(4)"], [[anchor.one_count_k, anchor.prime_q, anchor.order_q_32_over_27, anchor.order_q_3_over_2, anchor.order_q_4]])}
+      <div class="poc-head"><div><span>T224 radical lineage</span><strong>${aggregate.general_prime_presence_only_exclusion_new_in_ticket235 ? "new" : "regression only"}</strong></div><div><span>Arbitrary primitive divisor</span><strong>${aggregate.arbitrary_primitive_divisor_selection_sufficiency_refuted ? "refuted" : "open"}</strong></div><div><span>Binary adaptive radical</span><strong>${aggregate.binary_adaptive_radical_deficit_refuted ? "refuted" : "still open"}</strong></div></div>
+    `;
+  } else if (problemKey === "goldbach") {
+    const rows = computation.exact_cyclic_group_rows || [];
+    detail = `
+      <div class="poc-equation">|ŷ₀(a)|²=|ŷ₂(a)|² for every a, but (x*y₀)(0)=2 while (x*y₂)(0)=0: complete marginal powers lose the reflected phase</div>
+      ${table(["prime q", "right autocorrelation", "aligned target", "translated target"], rows.slice(0, 8).map((row) => [row.prime_modulus_q, row.common_right_autocorrelation?.join(","), row.aligned_target_zero_convolution, row.translated_target_zero_convolution]))}
+      <div class="poc-head"><div><span>Exact q rows</span><strong>${rows.length}</strong></div><div><span>Marginal-spectrum route</span><strong>${aggregate.complete_marginal_power_spectrum_sufficiency_refuted ? "refuted" : "open"}</strong></div><div><span>Actual prime phase lock</span><strong>${aggregate.actual_prime_reflected_phase_locking_proved ? "proved" : "open"}</strong></div></div>
+    `;
+  } else {
+    const counter = computation.degree_one_insufficiency_countermodel_rows || [];
+    const actual = computation.actual_twin_start_overlap_audit || {};
+    detail = `
+      <div class="poc-equation">E<sub>m,k</sub>=E[e<sub>k</sub>(z)/C(m,k)] and |E<sub>m,k</sub>−E R<sub>m</sub><sup>k</sup>|≤2<sup>k+1</sup>(1−(m)<sub>k</sub>/m<sup>k</sup>); degree one alone fails</div>
+      ${table(["m", "E(m,1)", "E(m,2)", "ER", "ER²"], counter.map((row) => [row.coordinate_count_m, row.degree_one_cesaro_E_m_1?.exact, row.degree_two_cesaro_E_m_2?.exact, row.pair_overlap_first_moment?.exact, row.pair_overlap_second_moment?.exact]))}
+      ${table(["X", "m", "twin starts", "exact Cesaro energies"], [[formatter.format(actual.cutoff_X || 0), actual.active_prime_count_m, formatter.format(actual.twin_start_count || 0), (actual.fixed_degree_cesaro_energies || []).map((row) => row.exact).join(" · ")]])}
+      <div class="poc-head"><div><span>Overlap identity</span><strong>${aggregate.fixed_degree_cesaro_overlap_identity_proved ? "proved" : "open"}</strong></div><div><span>Degree-one route</span><strong>${aggregate.degree_one_cesaro_sufficiency_refuted ? "refuted" : "open"}</strong></div><div><span>Prime overlap concentration</span><strong>${aggregate.actual_prime_overlap_moment_concentration_proved ? "proved" : "open"}</strong></div></div>
+    `;
+  }
+  return `
+    <div id="ticket235-schur-primepower-phase-overlap" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 235 Schur complements, Collatz divisor orders, Goldbach phase retrieval, and CRT overlaps</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET235 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/schur-primepower-phase-overlap.ko.md">한국어 보고서</a> · <a href="../docs/schur-primepower-phase-overlap.md">English report</a> · <a href="../data/open-problem/ticket235-schur-primepower-phase-overlap.json">machine JSON</a></p>
+    </div>
+  `;
+}
+
 function renderTicket234OperatorKernelDensityMinorCesaro(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.operator_kernel_density_minor_cesaro_audit || {};
@@ -17777,7 +17845,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket234OperatorKernelDensityMinorCesaro(ticket234AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket235SchurPrimePowerPhaseOverlap(ticket235AttemptGlobal) ||
+      renderTicket234OperatorKernelDensityMinorCesaro(ticket234AttemptGlobal) ||
       renderTicket233LogarithmicFrameDensityShellEntropy(ticket233AttemptGlobal) ||
       renderTicket232EffectiveDimensionBinaryDefectRationalShellCRTSparsity(ticket232AttemptGlobal) ||
       renderTicket231SummableFrameCriticalStripGaussCRT(ticket231AttemptGlobal) ||
@@ -18331,6 +18400,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket235Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket235-schur-primepower-phase-overlap.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket235AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket235AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket235AttemptGlobal) {
+      ticket235AttemptGlobal.bounded_result = ticket235AttemptGlobal.bounded_result || {};
+      ticket235AttemptGlobal.bounded_result.schur_primepower_phase_overlap_audit = payload.schur_primepower_phase_overlap_audit || {};
+    }
+    return Boolean(ticket235AttemptGlobal);
+  } catch (error) {
+    ticket235AttemptGlobal = null;
     return false;
   }
 }
@@ -20204,6 +20293,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket235Loaded = await loadTicket235Attempt();
   const ticket234Loaded = await loadTicket234Attempt();
   const ticket233Loaded = await loadTicket233Attempt();
   const ticket232Loaded = await loadTicket232Attempt();
@@ -20220,7 +20310,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket234-current";
+  document.documentElement.dataset.openProblemCache = "ticket235-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20273,8 +20363,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket235Loaded || !ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket235AttemptGlobal) await loadTicket235Attempt();
     if (!ticket234AttemptGlobal) await loadTicket234Attempt();
     if (!ticket233AttemptGlobal) await loadTicket233Attempt();
     if (!ticket232AttemptGlobal) await loadTicket232Attempt();
@@ -20387,7 +20478,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket234-current";
+  document.documentElement.dataset.openProblemCache = "ticket235-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

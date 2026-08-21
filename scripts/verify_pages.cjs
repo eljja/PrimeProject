@@ -14,6 +14,7 @@ async function main() {
   const dataResponses = [];
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
+  const ticket235Load = openProblemSource.indexOf("const ticket235Loaded = await loadTicket235Attempt();");
   const ticket234Load = openProblemSource.indexOf("const ticket234Loaded = await loadTicket234Attempt();");
   const ticket233Load = openProblemSource.indexOf("const ticket233Loaded = await loadTicket233Attempt();");
   const ticket232Load = openProblemSource.indexOf("const ticket232Loaded = await loadTicket232Attempt();");
@@ -28,7 +29,7 @@ async function main() {
   const ticket223Load = openProblemSource.indexOf("const ticket223Loaded = await loadTicket223Attempt();");
   const ticket222Load = openProblemSource.indexOf("const ticket222Loaded = await loadTicket222Attempt();");
   const ticket221Load = openProblemSource.indexOf("const ticket221Loaded = await loadTicket221Attempt();");
-  const ticket234EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket234Load);
+  const ticket235EarlyRender = openProblemSource.indexOf("render(payload, problem);", ticket235Load);
   const ticket220Load = openProblemSource.indexOf("const ticket220Loaded = await loadTicket220Attempt();");
   const ticket219Load = openProblemSource.indexOf("const ticket219Loaded = await loadTicket219Attempt();");
   const ticket218Load = openProblemSource.indexOf("const ticket218Loaded = await loadTicket218Attempt();");
@@ -84,15 +85,15 @@ async function main() {
   const priorityLoad = openProblemSource.indexOf("const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt()");
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
-  if (!(ticket234Load >= 0 && ticket234Load < ticket233Load && ticket233Load < ticket232Load && ticket232Load < ticket231Load && ticket231Load < ticket230Load && ticket230Load < ticket229Load && ticket229Load < ticket228Load && ticket228Load < ticket227Load && ticket227Load < ticket226Load && ticket226Load < ticket225Load && ticket225Load < ticket224Load && ticket224Load < ticket223Load && ticket223Load < ticket222Load && ticket222Load < ticket221Load && ticket221Load < ticket220Load && ticket220Load < ticket234EarlyRender && ticket234EarlyRender < ticket219Load && ticket219Load < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
-    errors.push("TICKET234 must render before archive loading, and TICKET233 through TICKET125 must precede historical ticket loading");
+  if (!(ticket235Load >= 0 && ticket235Load < ticket234Load && ticket234Load < ticket233Load && ticket233Load < ticket232Load && ticket232Load < ticket231Load && ticket231Load < ticket230Load && ticket230Load < ticket229Load && ticket229Load < ticket228Load && ticket228Load < ticket227Load && ticket227Load < ticket226Load && ticket226Load < ticket225Load && ticket225Load < ticket224Load && ticket224Load < ticket223Load && ticket223Load < ticket222Load && ticket222Load < ticket221Load && ticket221Load < ticket220Load && ticket220Load < ticket235EarlyRender && ticket235EarlyRender < ticket219Load && ticket219Load < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+    errors.push("TICKET235 must render before archive loading, and TICKET234 through TICKET125 must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260822-ticket234")) {
+    if (!source.includes("open-problems.js?v=20260821-ticket235")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260822-ticket234-layout")) {
+    if (!source.includes("styles.css?v=20260821-ticket235-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -488,6 +489,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket235AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket235-schur-primepower-phase-overlap .ticket161-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket234AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket234-operator-kernel-density-minor-cesaro .ticket161-audit-table .proof-table-wrap",
@@ -750,15 +757,15 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-234") ||
-    !metrics.currentBriefText.includes("ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement") ||
-    !metrics.currentBriefText.includes("UniformBinaryDensityBandAdaptiveRadicalDeficit") ||
-    !metrics.currentBriefText.includes("ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale") ||
-    !metrics.currentBriefText.includes("PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale") ||
+    !metrics.currentBriefText.includes("TICKET-235") ||
+    !metrics.currentBriefText.includes("ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames") ||
+    !metrics.currentBriefText.includes("UniformBinaryDensityBandOrderSeparatedAdaptivePrimeWitness") ||
+    !metrics.currentBriefText.includes("ActualPrimeReflectedCrossSpectrumPhaseLockingAtInverseLogScale") ||
+    !metrics.currentBriefText.includes("PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-234" ||
-    !metrics.railResearchText.includes("TICKET-234") ||
+    metrics.railResearchTicket.trim() !== "TICKET-235" ||
+    !metrics.railResearchText.includes("TICKET-235") ||
     !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -775,12 +782,12 @@ async function main() {
     ["Collatz link", metrics.proofHub?.links.includes("collatz.html")],
     ["Goldbach link", metrics.proofHub?.links.includes("goldbach.html")],
     ["Twin link", metrics.proofHub?.links.includes("twin-prime.html")],
-    ["TICKET-234 boundary", metrics.proofHub?.boundary.includes("What TICKET-234 actually changed")],
-    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement")],
-    ["Collatz next lemma", metrics.proofHub?.boundary.includes("UniformBinaryDensityBandAdaptiveRadicalDeficit")],
-    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale")],
-    ["Twin next lemma", metrics.proofHub?.boundary.includes("PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale")],
-    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–234")],
+    ["TICKET-235 boundary", metrics.proofHub?.boundary.includes("What TICKET-235 actually changed")],
+    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames")],
+    ["Collatz next lemma", metrics.proofHub?.boundary.includes("UniformBinaryDensityBandOrderSeparatedAdaptivePrimeWitness")],
+    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("ActualPrimeReflectedCrossSpectrumPhaseLockingAtInverseLogScale")],
+    ["Twin next lemma", metrics.proofHub?.boundary.includes("PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale")],
+    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–235")],
     ["resolution count label", metrics.proofHub?.boundary.includes("Resolution count")],
     ["zero resolution count", metrics.proofHub?.boundary.includes("0")],
     ["claim boundary", metrics.proofHub?.boundary.includes("not present a conjecture as solved")],
@@ -794,8 +801,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-234 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-234 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 234 operator kernels, binary affine-sieve no-go, Goldbach half-channels, and Poisson CRT noise")) failures.push(`${page.problemId}: current TICKET-234 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-235 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-235 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 235 Schur complements, Collatz divisor orders, Goldbach phase retrieval, and CRT overlaps")) failures.push(`${page.problemId}: current TICKET-235 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1665,37 +1672,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket234 title", "Ticket 234 operator kernels, binary affine-sieve no-go, Goldbach half-channels, and Poisson CRT noise");
-    requireCurrentText("ticket234 table", "TICKET234 audit");
-    requireCurrentText("ticket234 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket234 next lemmas", "Next lemmas4");
-    requireCurrentText("ticket234 resolutions", "Resolution count0");
-    requireCurrentText("ticket234 proof DAG", "Proof DAG / 증명 의존성");
-    if (page.ticket234AuditOverflow) checks.push(`${page.problemId}: ticket234 audit table overflow`);
+    requireCurrentText("ticket235 title", "Ticket 235 Schur complements, Collatz divisor orders, Goldbach phase retrieval, and CRT overlaps");
+    requireCurrentText("ticket235 table", "TICKET235 audit");
+    requireCurrentText("ticket235 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket235 next lemmas", "Next lemmas4");
+    requireCurrentText("ticket235 resolutions", "Resolution count0");
+    requireCurrentText("ticket235 proof DAG", "Proof DAG / 증명 의존성");
+    if (page.ticket235AuditOverflow) checks.push(`${page.problemId}: ticket235 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket234 RH theorem", "ScalarDiagonalFrameRankAndSignedTailTransferNoGo");
-      requireCurrentText("ticket234 RH target", "ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement");
-      requireCurrentText("ticket234 RH rank", "Scalar floor + singular Gramproved");
-      requireCurrentText("ticket234 RH no-go", "Size-only transferrefuted");
-      requireCurrentText("ticket234 RH open", "Arithmetic kernel compatibilityopen");
+      requireCurrentText("ticket235 RH theorem", "ExactKernelSchurComplementCriterionAndCrossBlockNoGo");
+      requireCurrentText("ticket235 RH target", "ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames");
+      requireCurrentText("ticket235 RH criterion", "Exact Schur criterionproved");
+      requireCurrentText("ticket235 RH no-go", "Absolute-small routerefuted");
+      requireCurrentText("ticket235 RH open", "Arithmetic relative boundopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket234 Collatz theorem", "UniformBinaryDensityBandFixedFiniteAffineSieveNoGo");
-      requireCurrentText("ticket234 Collatz target", "UniformBinaryDensityBandAdaptiveRadicalDeficit");
-      requireCurrentText("ticket234 Collatz count", "Fixed moduli checked66");
-      requireCurrentText("ticket234 Collatz no-go", "Infinite false-positive familyproved");
-      requireCurrentText("ticket234 Collatz open", "Adaptive radical deficitopen");
+      requireCurrentText("ticket235 Collatz theorem", "BinaryRunBlockPrimitiveDivisorOrderCharacterizationAndSelectionNoGo");
+      requireCurrentText("ticket235 Collatz target", "UniformBinaryDensityBandOrderSeparatedAdaptivePrimeWitness");
+      requireCurrentText("ticket235 Collatz count", "63,185");
+      requireCurrentText("ticket235 Collatz lineage", "T224 radical lineageregression only");
+      requireCurrentText("ticket235 Collatz open", "Binary adaptive radicalstill open");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket234 Goldbach theorem", "MinorArcMarginGoldbachEquivalenceAndPrimeHalfChannelCancellationNoGo");
-      requireCurrentText("ticket234 Goldbach target", "ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale");
-      requireCurrentText("ticket234 Goldbach endpoint", "Full strict minor marginendpoint-equivalent");
-      requireCurrentText("ticket234 Goldbach cancellation", "Half-channel cancellationexact");
-      requireCurrentText("ticket234 Goldbach open", "Inverse-log cross coherenceopen");
+      requireCurrentText("ticket235 Goldbach theorem", "CompleteMarginalPowerSpectrumPhaseRetrievalNoGo");
+      requireCurrentText("ticket235 Goldbach target", "ActualPrimeReflectedCrossSpectrumPhaseLockingAtInverseLogScale");
+      requireCurrentText("ticket235 Goldbach rows", "Exact q rows24");
+      requireCurrentText("ticket235 Goldbach no-go", "Marginal-spectrum routerefuted");
+      requireCurrentText("ticket235 Goldbach open", "Actual prime phase lockopen");
     } else {
-      requireCurrentText("ticket234 Twin theorem", "PoissonizedFixedDegreeCesaroCriterionAndMovingPrimeNoGo");
-      requireCurrentText("ticket234 Twin target", "PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale");
-      requireCurrentText("ticket234 Twin criterion", "Fixed-degree criterioniff proved");
-      requireCurrentText("ticket234 Twin no-go", "Fixed-labelled routerefuted");
-      requireCurrentText("ticket234 Twin open", "Actual prime Cesàro decayopen");
+      requireCurrentText("ticket235 Twin theorem", "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo");
+      requireCurrentText("ticket235 Twin target", "PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale");
+      requireCurrentText("ticket235 Twin identity", "Overlap identityproved");
+      requireCurrentText("ticket235 Twin no-go", "Degree-one routerefuted");
+      requireCurrentText("ticket235 Twin open", "Prime overlap concentrationopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");

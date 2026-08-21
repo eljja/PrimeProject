@@ -1,0 +1,202 @@
+{
+  "schema": "primeproject.ticket235-schur-primepower-phase-overlap.v1",
+  "generated_at": "2026-08-21T12:46:21+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-235",
+  "theorem_name": "ExactKernelSchurComplementCriterionAndCrossBlockNoGo",
+  "declared_proposition": "Let a finite Hermitian truncation H=G+E be written on R direct-sum K, where K=ker(G), as [[A,B],[B*,C]], and suppose A is positive definite. Then H is positive semidefinite if and only if the exact Schur complement C-B*A^(-1)B is positive semidefinite. Positivity of the kernel compression C and absolute smallness of B do not suffice: for G=diag(I_M,0_d), C=T^(-2)I_d and B=(2/T)e_1f_1*, the Schur complement has eigenvalue -3/T^2 although C>0 and every cross entry tends to zero.",
+  "mathematical_argument": "Complete the square: <H(r,k),(r,k)>=<A(r+A^(-1)Bk),r+A^(-1)Bk>+<(C-B*A^(-1)B)k,k>. This proves both directions of the criterion. In the displayed rank-one family A=I, so the affected Schur eigenvalue is epsilon-delta^2. With epsilon=T^(-2) and delta=2/T it is -3/T^2; with delta=1/(2T) it is +3/(4T^2). Thus the relevant arithmetic estimate must be relative to the positive kernel scale, not merely o(1) in an absolute entrywise or operator norm.",
+  "reproducible_computation": {
+    "theorem": "Let a finite Hermitian truncation H=G+E be written on R direct-sum K, where K=ker(G), as [[A,B],[B*,C]], and suppose A is positive definite. Then H is positive semidefinite if and only if the exact Schur complement C-B*A^(-1)B is positive semidefinite. Positivity of the kernel compression C and absolute smallness of B do not suffice: for G=diag(I_M,0_d), C=T^(-2)I_d and B=(2/T)e_1f_1*, the Schur complement has eigenvalue -3/T^2 although C>0 and every cross entry tends to zero.",
+    "proof": "Complete the square: <H(r,k),(r,k)>=<A(r+A^(-1)Bk),r+A^(-1)Bk>+<(C-B*A^(-1)B)k,k>. This proves both directions of the criterion. In the displayed rank-one family A=I, so the affected Schur eigenvalue is epsilon-delta^2. With epsilon=T^(-2) and delta=2/T it is -3/T^2; with delta=1/(2T) it is +3/(4T^2). Thus the relevant arithmetic estimate must be relative to the positive kernel scale, not merely o(1) in an absolute entrywise or operator norm.",
+    "exact_rank_one_schur_rows": [
+      {
+        "frequency_horizon_T": 64,
+        "frame_dimension_M": 39,
+        "kernel_dimension_d": 25,
+        "kernel_compression_epsilon": {
+          "exact": "1/4096",
+          "float": 0.000244140625
+        },
+        "cross_block_delta": {
+          "exact": "1/32",
+          "float": 0.03125
+        },
+        "indefinite_schur_minimum": {
+          "exact": "-3/4096",
+          "float": -0.000732421875
+        },
+        "indefinite_two_by_two_determinant": {
+          "exact": "-3/4096",
+          "float": -0.000732421875
+        },
+        "safe_cross_block_delta": {
+          "exact": "1/128",
+          "float": 0.0078125
+        },
+        "safe_schur_minimum": {
+          "exact": "3/16384",
+          "float": 0.00018310546875
+        },
+        "transcript_sha256": "a91949fb4e3c34bf322ad30c3832cbd698f95559aa620649f460c2a69ab24ace",
+        "certificate_verified": true
+      },
+      {
+        "frequency_horizon_T": 256,
+        "frame_dimension_M": 50,
+        "kernel_dimension_d": 206,
+        "kernel_compression_epsilon": {
+          "exact": "1/65536",
+          "float": 1.52587890625e-05
+        },
+        "cross_block_delta": {
+          "exact": "1/128",
+          "float": 0.0078125
+        },
+        "indefinite_schur_minimum": {
+          "exact": "-3/65536",
+          "float": -4.57763671875e-05
+        },
+        "indefinite_two_by_two_determinant": {
+          "exact": "-3/65536",
+          "float": -4.57763671875e-05
+        },
+        "safe_cross_block_delta": {
+          "exact": "1/512",
+          "float": 0.001953125
+        },
+        "safe_schur_minimum": {
+          "exact": "3/262144",
+          "float": 1.1444091796875e-05
+        },
+        "transcript_sha256": "c3f2b108222f18d3b214797e09e01deccf634828f1eaff1c33867124f81876a9",
+        "certificate_verified": true
+      },
+      {
+        "frequency_horizon_T": 1024,
+        "frame_dimension_M": 61,
+        "kernel_dimension_d": 963,
+        "kernel_compression_epsilon": {
+          "exact": "1/1048576",
+          "float": 9.5367431640625e-07
+        },
+        "cross_block_delta": {
+          "exact": "1/512",
+          "float": 0.001953125
+        },
+        "indefinite_schur_minimum": {
+          "exact": "-3/1048576",
+          "float": -2.86102294921875e-06
+        },
+        "indefinite_two_by_two_determinant": {
+          "exact": "-3/1048576",
+          "float": -2.86102294921875e-06
+        },
+        "safe_cross_block_delta": {
+          "exact": "1/2048",
+          "float": 0.00048828125
+        },
+        "safe_schur_minimum": {
+          "exact": "3/4194304",
+          "float": 7.152557373046875e-07
+        },
+        "transcript_sha256": "92980f2ef364a9a0bdffea6489d9b23f3e0c0042686d8babfff407fd7eff4d94",
+        "certificate_verified": true
+      },
+      {
+        "frequency_horizon_T": 4096,
+        "frame_dimension_M": 73,
+        "kernel_dimension_d": 4023,
+        "kernel_compression_epsilon": {
+          "exact": "1/16777216",
+          "float": 5.960464477539063e-08
+        },
+        "cross_block_delta": {
+          "exact": "1/2048",
+          "float": 0.00048828125
+        },
+        "indefinite_schur_minimum": {
+          "exact": "-3/16777216",
+          "float": -1.7881393432617188e-07
+        },
+        "indefinite_two_by_two_determinant": {
+          "exact": "-3/16777216",
+          "float": -1.7881393432617188e-07
+        },
+        "safe_cross_block_delta": {
+          "exact": "1/8192",
+          "float": 0.0001220703125
+        },
+        "safe_schur_minimum": {
+          "exact": "3/67108864",
+          "float": 4.470348358154297e-08
+        },
+        "transcript_sha256": "a1e87c48828f59c799a00a0e6ba5037edcb54fb187b47ec5a6bd81ab52f4fc38",
+        "certificate_verified": true
+      }
+    ],
+    "aggregate": {
+      "exact_positive_schur_complement_criterion_proved": true,
+      "kernel_compression_plus_absolute_cross_smallness_sufficiency_refuted": true,
+      "relative_cross_block_domination_identified_as_required": true,
+      "arithmetic_weil_tail_schur_domination_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The matrices are exact abstract Hermitian truncations, not the actual Guinand-Weil arithmetic tail. They refute a size-only transfer rule, not an arithmetic cancellation or a relative form bound. The finite rows only instantiate the all-T formula and contain no zeta-zero test.",
+    "failure_count": 0
+  },
+  "logical_limit": "The matrices are exact abstract Hermitian truncations, not the actual Guinand-Weil arithmetic tail. They refute a size-only transfer rule, not an arithmetic cancellation or a relative form bound. The finite rows only instantiate the all-T formula and contain no zeta-zero test.",
+  "route_decision": {
+    "discard": "kernel-compression positivity plus absolute o(1) cross-block size as a sufficient Weil-positivity transfer",
+    "retain": "prove a relative arithmetic form bound B*A^(-1)B <= C on cofinal logarithmic frames",
+    "next_single_lemma": "ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T234",
+        "label": "ScalarDiagonalFrameRankAndSignedTailTransferNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T235",
+        "label": "ExactKernelSchurComplementCriterionAndCrossBlockNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N235",
+        "label": "PositiveKernelCompressionAndAbsoluteCrossSmallnessSuffice",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN235",
+        "label": "ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T234",
+        "RH-T235"
+      ],
+      [
+        "RH-T235",
+        "RH-N235"
+      ],
+      [
+        "RH-T235",
+        "RH-OPEN235"
+      ],
+      [
+        "RH-OPEN235",
+        "RH"
+      ]
+    ]
+  }
+}

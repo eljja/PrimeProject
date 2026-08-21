@@ -1,0 +1,266 @@
+{
+  "schema": "primeproject.ticket235-schur-primepower-phase-overlap.v1",
+  "generated_at": "2026-08-21T12:46:21+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-235",
+  "theorem_name": "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo",
+  "declared_proposition": "Let psi_1,...,psi_m be the normalized centered CRT signs, let nu be a probability measure, b_S=E_nu product_(i in S)psi_i, and let X,Y be independent with law nu. Put z_i=psi_i(X)psi_i(Y) and R_m=m^(-1)sum_i z_i. Then the fixed-degree Cesaro energy satisfies the exact overlap identity E_(m,k)=E[e_k(z)/C(m,k)]. Moreover |E_(m,k)-E[R_m^k]| <= 2^(k+1)(1-(m)_k/m^k) <= 2^k k(k-1)/m. Degree-one control does not imply degree-two control.",
+  "mathematical_argument": "Expand b_S^2 with two independent samples and average over |S|=k; the inner sum is exactly e_k(z), proving the identity. R_m^k samples ordered coordinates with replacement, whereas e_k/C(m,k) samples without replacement. The repeated-index probability is 1-(m)_k/m^k and both conditional products have absolute value at most 2^k, yielding the bound. For the Rademacher base measure take nu=(delta_(+1)^m+delta_(-1)^m)/2. Every singleton coefficient vanishes but every pair coefficient equals one, so E_(m,1)=0 and E_(m,2)=1.",
+  "reproducible_computation": {
+    "theorem": "Let psi_1,...,psi_m be the normalized centered CRT signs, let nu be a probability measure, b_S=E_nu product_(i in S)psi_i, and let X,Y be independent with law nu. Put z_i=psi_i(X)psi_i(Y) and R_m=m^(-1)sum_i z_i. Then the fixed-degree Cesaro energy satisfies the exact overlap identity E_(m,k)=E[e_k(z)/C(m,k)]. Moreover |E_(m,k)-E[R_m^k]| <= 2^(k+1)(1-(m)_k/m^k) <= 2^k k(k-1)/m. Degree-one control does not imply degree-two control.",
+    "proof": "Expand b_S^2 with two independent samples and average over |S|=k; the inner sum is exactly e_k(z), proving the identity. R_m^k samples ordered coordinates with replacement, whereas e_k/C(m,k) samples without replacement. The repeated-index probability is 1-(m)_k/m^k and both conditional products have absolute value at most 2^k, yielding the bound. For the Rademacher base measure take nu=(delta_(+1)^m+delta_(-1)^m)/2. Every singleton coefficient vanishes but every pair coefficient equals one, so E_(m,1)=0 and E_(m,2)=1.",
+    "degree_one_insufficiency_countermodel_rows": [
+      {
+        "coordinate_count_m": 4,
+        "degree_one_cesaro_E_m_1": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "pair_overlap_first_moment": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "pair_overlap_second_moment": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "all_singletons_centered": true,
+        "all_pairs_perfectly_correlated": true,
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 8,
+        "degree_one_cesaro_E_m_1": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "pair_overlap_first_moment": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "pair_overlap_second_moment": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "all_singletons_centered": true,
+        "all_pairs_perfectly_correlated": true,
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 16,
+        "degree_one_cesaro_E_m_1": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "pair_overlap_first_moment": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "pair_overlap_second_moment": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "all_singletons_centered": true,
+        "all_pairs_perfectly_correlated": true,
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 32,
+        "degree_one_cesaro_E_m_1": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "degree_two_cesaro_E_m_2": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "pair_overlap_first_moment": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "pair_overlap_second_moment": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "all_singletons_centered": true,
+        "all_pairs_perfectly_correlated": true,
+        "certificate_verified": true
+      }
+    ],
+    "actual_twin_start_overlap_audit": {
+      "cutoff_X": 10000,
+      "active_prime_count_m": 4,
+      "active_primes": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "twin_start_count": 202,
+      "fixed_degree_cesaro_energies": [
+        {
+          "exact": "3257/1958592",
+          "float": 0.0016629292879783027
+        },
+        {
+          "exact": "9265/5875776",
+          "float": 0.0015768130030824866
+        },
+        {
+          "exact": "6301/3917184",
+          "float": 0.0016085534914877626
+        },
+        {
+          "exact": "9/81608",
+          "float": 0.0001102833055582786
+        }
+      ],
+      "pair_overlap_power_moments": [
+        {
+          "exact": "3257/1958592",
+          "float": 0.0016629292879783027
+        },
+        {
+          "exact": "574962673/2350310400",
+          "float": 0.24463265490379482
+        },
+        {
+          "exact": "1298036681/112814899200",
+          "float": 0.011505897627039675
+        },
+        {
+          "exact": "21094176206137/135377879040000",
+          "float": 0.1558170090691428
+        }
+      ],
+      "pair_overlap_elementary_moments": [
+        {
+          "exact": "3257/1958592",
+          "float": 0.0016629292879783027
+        },
+        {
+          "exact": "9265/5875776",
+          "float": 0.0015768130030824866
+        },
+        {
+          "exact": "6301/3917184",
+          "float": 0.0016085534914877626
+        },
+        {
+          "exact": "9/81608",
+          "float": 0.0001102833055582786
+        }
+      ],
+      "sampling_with_replacement_error_bounds": [
+        {
+          "exact": "0",
+          "float": 0.0
+        },
+        {
+          "exact": "2",
+          "float": 2.0
+        },
+        {
+          "exact": "10",
+          "float": 10.0
+        },
+        {
+          "exact": "29",
+          "float": 29.0
+        }
+      ],
+      "elementary_symmetric_identity_verified_by_degree": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "certificate_verified": true
+    },
+    "aggregate": {
+      "fixed_degree_cesaro_overlap_identity_proved": true,
+      "overlap_power_moment_approximation_bound_proved": true,
+      "degree_one_cesaro_sufficiency_refuted": true,
+      "actual_prime_overlap_moment_concentration_proved": false,
+      "positive_twin_main_term_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The Rademacher mixture is a probability countermodel, not prime weight. The actual twin-start row conditions on already existing twin pairs, uses only four CRT coordinates, and is therefore diagnostic and circular for infinitude. The reduction leaves Type-II arithmetic concentration, parity transfer, and positive principal mass open.",
+    "failure_count": 0
+  },
+  "logical_limit": "The Rademacher mixture is a probability countermodel, not prime weight. The actual twin-start row conditions on already existing twin pairs, uses only four CRT coordinates, and is therefore diagnostic and circular for infinitude. The reduction leaves Type-II arithmetic concentration, parity transfer, and positive principal mass open.",
+  "route_decision": {
+    "discard": "using only degree-one Cesaro decay or mean pair overlap to control all fixed interaction degrees",
+    "retain": "prove concentration of every fixed pair-overlap moment for actual prime-weighted Type-II CRT measures",
+    "next_single_lemma": "PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T234",
+        "label": "PoissonizedFixedDegreeCesaroCriterion",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T235",
+        "label": "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N235",
+        "label": "DegreeOneCesaroDecayControlsEveryFixedDegree",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN235",
+        "label": "PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP-PARITY",
+        "label": "ParityRetainingTransferAndPositivePrincipalMass",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T234",
+        "TP-T235"
+      ],
+      [
+        "TP-T235",
+        "TP-N235"
+      ],
+      [
+        "TP-T235",
+        "TP-OPEN235"
+      ],
+      [
+        "TP-OPEN235",
+        "TP-PARITY"
+      ],
+      [
+        "TP-PARITY",
+        "TP"
+      ]
+    ]
+  }
+}

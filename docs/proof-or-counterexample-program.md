@@ -8454,7 +8454,29 @@ conjecture resolutions, and zero computational failures.
 English report: [TICKET-233 logarithmic frames, Collatz twelve-one closure, squarefree shells, and CRT entropy](logarithmic-frame-density-shell-entropy.md).
 한국어 보고서: [TICKET-233 로그 프레임·Collatz 12-one·squarefree shell·CRT 엔트로피](logarithmic-frame-density-shell-entropy.ko.md).
 
-## TICKET-234 continuation: operator kernels, binary affine sieves, Goldbach half-channels, and Poisson CRT degrees
+## TICKET-235 continuation: Schur complements, prime-power deficits, Goldbach phase retrieval, and CRT overlaps
+
+TICKET-235 proves four exact partial or no-go theorems and keeps the
+parent-conjecture resolution count at zero:
+
+1. RH: full positivity is equivalent to a relative kernel Schur complement;
+   positive kernel compression plus absolute cross-block smallness is not
+   enough.
+2. Collatz: after restoring the general prime-power witness to TICKET-224, an
+   exact run-block order characterization shows that an arbitrary primitive
+   divisor can also divide the binary numerator.
+3. Goldbach: complete separate marginal Fourier powers can agree while the
+   target-reflected cross coefficient changes from two to zero.
+4. Twin Prime: fixed-degree CRT Cesaro energies are exact pair-overlap
+   elementary moments, while degree-one decay does not control degree two.
+
+The machine JSON records four proof DAGs, four discarded routes, four single
+successor lemmas, zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-235 Schur complements, prime-power deficits, phase retrieval, and CRT overlaps](schur-primepower-phase-overlap.md).
+한국어 보고서(`parent conjecture claims blocked · open_not_proven`): [TICKET-235 Schur 보완·prime-power 결손·위상 복원·CRT overlap](schur-primepower-phase-overlap.ko.md).
+
+## Preserved TICKET-234 continuation: operator kernels, binary affine sieves, Goldbach half-channels, and Poisson CRT degrees
 
 TICKET-234 proves four exact partial, equivalence, or no-go theorems and keeps
 the parent-conjecture resolution count at zero:

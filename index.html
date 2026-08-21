@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260822-ticket234-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260821-ticket235-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-234 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, structural transfer barriers exposed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-234 proves four exact operator-kernel, affine-sieve, half-channel, or Poisson-Cesàro results.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-234는 연산자 영공간·이진 affine sieve·Goldbach half-channel·Poisson CRT Cesàro에 관한 네 개의 정확한 부분·동치·no-go 정리를 증명했습니다.</p>
+                <p class="brief-kicker">TICKET-235 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, relative and phase-sensitive barriers exposed</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-235 proves four exact Schur, divisor-order, phase-retrieval, or overlap-moment results.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-235는 Schur 보완·Collatz divisor order·Goldbach 위상 복원·CRT overlap moment에 관한 네 개의 정확한 부분·no-go 정리를 증명했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>234</strong><small>2026-08-21</small></div>
+              <div><span>Latest ticket</span><strong>235</strong><small>2026-08-21</small></div>
               <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>scalar transfer·fixed affine sieve·full minor endpoint·fixed labels</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>absolute Schur·prime presence·marginal phase·degree one</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 순수 주파수 대각 floor가 양수여도 M&lt;T이면 full Gram 형식에 정확한 영공간이 남습니다.</p>
-                <p><strong>폐기:</strong> tail 크기만으로 logarithmic scalar frame을 signed Weil 양성으로 이전하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ArithmeticWeilTailKernelCompatibilityAndPositiveSchurComplement</code>.</p>
+                <p><strong>확립:</strong> full Weil 절단의 양성은 영공간 Schur 보완의 양성과 정확히 동치입니다.</p>
+                <p><strong>폐기:</strong> 양의 영공간 압축과 절대적으로 작은 교차 블록만으로 양성을 이전하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 고정 유한 affine modulus sieve를 동시에 통과하는 primitive 이진 density-band 거짓양성이 무한히 존재합니다.</p>
-                <p><strong>폐기:</strong> fixed finite modulus 또는 fixed prime-power family를 cofinal 비나눗셈 증명으로 쓰는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformBinaryDensityBandAdaptiveRadicalDeficit</code>.</p>
+                <p><strong>확립:</strong> TICKET-224 prime-power 반례의 계보를 교정하고, binary run-block 공약수의 exact order 특성화와 primitive-divisor 선택 no-go를 증명했습니다.</p>
+                <p><strong>폐기:</strong> 이미 닫힌 radical 표적을 새로 세는 것과 임의 primitive divisor 선택.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformBinaryDensityBandOrderSeparatedAdaptivePrimeWitness</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> same-half prime square는 target coefficient가 0이지만 양의 Θ(N) 중앙 major mass를 갖고 minor에서 정확히 상쇄됩니다.</p>
-                <p><strong>폐기:</strong> strict full minor margin을 약한 lemma로 보거나 marginal rational-center 정보에서 cross phase를 이전하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ComplementaryHalfPrimeReflectionMinorCoherenceAtInverseLogScale</code>.</p>
+                <p><strong>확립:</strong> 완전한 주변 Fourier power spectrum이 같아도 target cross coefficient는 2와 0으로 갈릴 수 있습니다.</p>
+                <p><strong>폐기:</strong> 별도의 marginal power/autocorrelation에서 reflected cross phase를 복원하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ActualPrimeReflectedCrossSpectrumPhaseLockingAtInverseLogScale</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> critical CRT noise 소멸은 모든 고정 차수의 moving-coordinate Cesàro 제곱상관 소멸과 정확히 동치입니다.</p>
-                <p><strong>폐기:</strong> 모든 fixed labelled coefficient의 pointwise 소멸만으로 critical noise를 닫는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>PrimeWeightedFixedDegreeCesaroCRTCorrelationDecayAtTwinScale</code>.</p>
+                <p><strong>확립:</strong> 고정 차수 CRT Cesàro energy는 두 독립 표본의 elementary overlap moment로 정확히 환원됩니다.</p>
+                <p><strong>폐기:</strong> degree-one Cesàro 또는 평균 overlap만으로 모든 고정 차수를 제어하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>234개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-234는 scalar Gram 영공간, adaptive Collatz 소수 인자, Goldbach reflected cross phase, fixed-degree CRT Cesàro decay를 정확한 다음 경계로 고정합니다.</p>
+                <p>235개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-235는 상대 Schur 지배, order-separated Collatz 소수, 실제 Goldbach cross phase locking, CRT overlap concentration을 정확한 다음 경계로 고정합니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/operator-kernel-density-minor-cesaro.ko.md">최신 한국어 보고서</a>
-              <a href="docs/operator-kernel-density-minor-cesaro.md">Latest English report</a>
+              <a href="docs/schur-primepower-phase-overlap.ko.md">최신 한국어 보고서</a>
+              <a href="docs/schur-primepower-phase-overlap.md">Latest English report</a>
             </div>
           </section>
 
@@ -659,8 +659,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-234</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-234 proves four exact partial, equivalence, or no-go theorems and preserves a resolution count of zero.</p>
+              <strong>TICKET-235</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-235 proves four exact partial or no-go theorems and preserves a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +796,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260822-ticket234"></script>
-    <script src="assets/app.js?v=20260822-ticket234"></script>
+    <script src="assets/i18n.js?v=20260821-ticket235"></script>
+    <script src="assets/app.js?v=20260821-ticket235"></script>
   </body>
 </html>
 

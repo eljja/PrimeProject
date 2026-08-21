@@ -15,30 +15,38 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-234
+## Current research boundary: TICKET-235
 
 The current machine-readable boundary is
-`data/open-problem/ticket234-operator-kernel-density-minor-cesaro.json`.
+`data/open-problem/ticket235-schur-primepower-phase-overlap.json`.
 
-TICKET-234 proves four exact partial, equivalence, or no-go theorems and resolves
+TICKET-235 proves four exact partial or no-go theorems and resolves
 none of the parent conjectures:
 
-- logarithmic scalar diagonal floors are compatible with a singular full Gram
-  form, so size-only signed-tail transfer to Weil positivity fails;
-- every fixed finite Collatz affine-modulus sieve has infinitely many primitive
-  binary density-band false positives;
-- the strict full Goldbach minor margin is endpoint-equivalent, while each
-  same-half prime square has exact major-minor cancellation;
-- critical CRT noise decay is equivalent to fixed-degree moving-coordinate
-  Cesaro decay, and fixed-labelled coefficient decay is insufficient.
+- full Weil-truncation positivity is equivalent to a relative kernel Schur
+  complement, and absolute cross-block smallness is insufficient;
+- after restoring the general prime-power witness to its TICKET-224 lineage,
+  binary run-block common divisors admit an exact order characterization and
+  arbitrary primitive-divisor selection fails;
+- complete separate Goldbach marginal power spectra do not determine the
+  target-reflected cross coefficient;
+- fixed-degree CRT Cesaro energies are exact pair-overlap elementary moments,
+  while degree-one decay is insufficient.
 
-The remaining decisive targets are arithmetic Weil-tail compatibility on the
-scalar-frame kernel with a positive Schur complement; a word-adaptive Collatz
-radical deficit; inverse-log Goldbach reflected minor coherence; and actual-
-prime fixed-degree Cesaro CRT decay before parity transfer and positive mass.
+The remaining decisive targets are relative arithmetic Weil-tail Schur
+dominance; an order-separated adaptive binary Collatz prime; actual-prime
+Goldbach reflected phase locking; and actual-prime CRT pair-overlap moment
+concentration before parity transfer and positive mass.
 
-English report: [TICKET-234](operator-kernel-density-minor-cesaro.md).
-한국어 보고서: [TICKET-234](operator-kernel-density-minor-cesaro.ko.md).
+English report: [TICKET-235](schur-primepower-phase-overlap.md).
+한국어 보고서: [TICKET-235](schur-primepower-phase-overlap.ko.md).
+
+## Preserved research boundary: TICKET-234
+
+TICKET-234 remains available in
+[English](operator-kernel-density-minor-cesaro.md) and
+[한국어](operator-kernel-density-minor-cesaro.ko.md). TICKET-235 sharpens its
+operator, adaptive-divisor, reflected-phase, and fixed-degree targets.
 
 ## Preserved research boundary: TICKET-233
 
@@ -64,7 +72,7 @@ TICKET-231 remains available in
 [English](summable-frame-critical-strip-gauss-crt.md) and
 [한국어](summable-frame-critical-strip-gauss-crt.ko.md). Its summable-frame,
 critical-strip, Gauss-counterfamily, and centered-CRT results are direct
-inputs to TICKET-232 through TICKET-234.
+inputs to TICKET-232 through TICKET-235.
 
 ## Preserved research boundary: TICKET-230
 

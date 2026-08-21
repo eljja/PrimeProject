@@ -238,6 +238,7 @@ TICKET232_SCHEMA = (
 )
 TICKET233_SCHEMA = "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1"
 TICKET234_SCHEMA = "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1"
+TICKET235_SCHEMA = "primeproject.ticket235-schur-primepower-phase-overlap.v1"
 
 
 def fail(message: str) -> int:
@@ -19784,6 +19785,152 @@ def main() -> int:
         or machine234.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket234 proof boundary changed")
+
+    path235 = Path(
+        "data/open-problem/ticket235-schur-primepower-phase-overlap.json"
+    )
+    if not path235.exists():
+        return fail("missing ticket235 Schur/prime-power/phase/overlap audit")
+    ticket235 = read_json(path235)
+    if (
+        ticket235.get("schema") != TICKET235_SCHEMA
+        or ticket235.get("status") != "open_not_proven"
+    ):
+        return fail("ticket235 schema or status changed")
+    audit235 = ticket235.get("schur_primepower_phase_overlap_audit", {})
+    machine235 = audit235.get("machine_audit", {})
+    if machine235 != {
+        "exact_partial_or_no_go_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket235 global machine audit changed")
+
+    theorem_names235 = {
+        "riemann": "ExactKernelSchurComplementCriterionAndCrossBlockNoGo",
+        "collatz": "BinaryRunBlockPrimitiveDivisorOrderCharacterizationAndSelectionNoGo",
+        "goldbach": "CompleteMarginalPowerSpectrumPhaseRetrievalNoGo",
+        "twin-prime": "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo",
+    }
+    next_lemmas235 = {
+        "riemann": "ArithmeticWeilTailRelativeCrossBlockSchurDominanceOnCofinalLogarithmicFrames",
+        "collatz": "UniformBinaryDensityBandOrderSeparatedAdaptivePrimeWitness",
+        "goldbach": "ActualPrimeReflectedCrossSpectrumPhaseLockingAtInverseLogScale",
+        "twin-prime": "PrimeWeightedCRTPairOverlapMomentConcentrationAtTwinScale",
+    }
+    track_paths235 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-235-schur-crossblock-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-235-primepower-radical-no-go.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-235-phase-retrieval-no-go.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-235-overlap-moment-reduction.json"),
+    }
+    audit_sections235 = {
+        "riemann": audit235.get("riemann", {}),
+        "collatz": audit235.get("collatz", {}),
+        "goldbach": audit235.get("goldbach", {}),
+        "twin-prime": audit235.get("twin_prime", {}),
+    }
+    attempts235 = {
+        row.get("problem_id"): row for row in ticket235.get("attempts", [])
+    }
+    if set(attempts235) != EXPECTED_PROBLEMS:
+        return fail("ticket235 attempts missing problems")
+    for problem_id, attempt in attempts235.items():
+        track_path = track_paths235[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket235 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections235[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names235[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas235[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or sum(node.get("status") == "highest_risk_open" for node in nodes) != 1
+            or not any(node.get("status") == "open_not_proven" for node in nodes)
+            or not any(node.get("status") == "refuted_or_limited" for node in nodes)
+            or not dag.get("edges")
+            or section.get("theorem_name") != theorem_names235[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas235[problem_id]
+            or track.get("schema") != TICKET235_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names235[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket235 contract changed")
+
+    rh235 = audit_sections235["riemann"].get("reproducible_computation", {})
+    if (
+        len(rh235.get("exact_rank_one_schur_rows", [])) != 4
+        or any(
+            row.get("certificate_verified") is not True
+            or Fraction(row.get("indefinite_schur_minimum", {}).get("exact", "0")) >= 0
+            or Fraction(row.get("safe_schur_minimum", {}).get("exact", "0")) <= 0
+            for row in rh235.get("exact_rank_one_schur_rows", [])
+        )
+        or rh235.get("aggregate", {}).get("exact_positive_schur_complement_criterion_proved") is not True
+        or rh235.get("aggregate", {}).get("arithmetic_weil_tail_schur_domination_proved") is not False
+        or rh235.get("aggregate", {}).get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket235 RH Schur boundary changed")
+
+    collatz235 = audit_sections235["collatz"].get("reproducible_computation", {})
+    general235 = collatz235.get("general_valuation_finite_scan", {})
+    primitive235 = collatz235.get("binary_primitive_divisor_scan", {})
+    if (
+        general235.get("primitive_positive_D_necklaces") != 63185
+        or general235.get("radical_false_positive_count") != 1
+        or primitive235.get("characterization_failures") != 0
+        or primitive235.get("primitive_common_divisor_count") != 56
+        or collatz235.get("aggregate", {}).get("binary_adaptive_radical_deficit_refuted") is not False
+        or collatz235.get("aggregate", {}).get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket235 Collatz prime-power boundary changed")
+
+    goldbach235 = audit_sections235["goldbach"].get("reproducible_computation", {})
+    if (
+        len(goldbach235.get("exact_cyclic_group_rows", [])) != 24
+        or any(
+            row.get("certificate_verified") is not True
+            or row.get("aligned_target_zero_convolution") != 2
+            or row.get("translated_target_zero_convolution") != 0
+            for row in goldbach235.get("exact_cyclic_group_rows", [])
+        )
+        or goldbach235.get("aggregate", {}).get("complete_marginal_power_spectrum_sufficiency_refuted") is not True
+        or goldbach235.get("aggregate", {}).get("actual_prime_reflected_phase_locking_proved") is not False
+        or goldbach235.get("aggregate", {}).get("strong_goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket235 Goldbach phase boundary changed")
+
+    twin235 = audit_sections235["twin-prime"].get("reproducible_computation", {})
+    actual235 = twin235.get("actual_twin_start_overlap_audit", {})
+    if (
+        len(twin235.get("degree_one_insufficiency_countermodel_rows", [])) != 4
+        or actual235.get("twin_start_count") != 202
+        or not all(actual235.get("elementary_symmetric_identity_verified_by_degree", []))
+        or twin235.get("aggregate", {}).get("fixed_degree_cesaro_overlap_identity_proved") is not True
+        or twin235.get("aggregate", {}).get("actual_prime_overlap_moment_concentration_proved") is not False
+        or twin235.get("aggregate", {}).get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket235 Twin overlap boundary changed")
+
+    if (
+        "resolves none" not in str(audit235.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket235.get("claim_boundary", "")).lower()
+        or machine235.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket235 proof boundary changed")
 
     path233 = Path(
         "data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json"
