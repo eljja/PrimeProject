@@ -30,6 +30,11 @@ def fraction_payload(value: Fraction) -> dict[str, Any]:
     return {"exact": str(value), "float": float(value)}
 
 
+def stable_float(value: float, decimal_places: int = 9) -> float:
+    """Canonicalize non-exact diagnostic floats across Python/libm builds."""
+    return float(f"{value:.{decimal_places}f}")
+
+
 def distinct_prime_factors(value: int) -> tuple[int, ...]:
     factors: list[int] = []
     remaining = value
@@ -132,7 +137,9 @@ def riemann_scalar_kernel_audit() -> dict[str, Any]:
                 "frame_dimension_M": dimension,
                 "rank_upper_bound": dimension,
                 "nullity_lower_bound": horizon - dimension,
-                "minimum_scalar_column_energy": source["minimum_normalized_energy"],
+                "minimum_scalar_column_energy": stable_float(
+                    source["minimum_normalized_energy"]
+                ),
                 "phase_modulus_P": phase_modulus,
                 "auxiliary_field_prime_Q": field_prime,
                 "primitive_generator_mod_Q": generator,
@@ -530,19 +537,19 @@ def goldbach_half_channel_audit() -> dict[str, Any]:
                 "even_target_N": target,
                 "low_prime_count": len(low),
                 "high_prime_count": len(high),
-                "central_major_LL": low_low_major,
-                "central_major_LL_lower_bound": low_bound,
-                "central_major_UU": high_high_major,
-                "central_major_UU_lower_bound": high_bound,
-                "central_major_LU": low_high_major,
-                "central_major_LU_lower_bound": cross_bound,
+                "central_major_LL": stable_float(low_low_major),
+                "central_major_LL_lower_bound": stable_float(low_bound),
+                "central_major_UU": stable_float(high_high_major),
+                "central_major_UU_lower_bound": stable_float(high_bound),
+                "central_major_LU": stable_float(low_high_major),
+                "central_major_LU_lower_bound": stable_float(cross_bound),
                 "exact_full_LL_target_coefficient": 0,
                 "exact_full_UU_target_coefficient": 0,
                 "minor_LL_equals_negative_major_LL": True,
                 "minor_UU_equals_negative_major_UU": True,
-                "full_reflection_cross_coefficient": full_cross,
-                "midpoint_prime_square": midpoint_square,
-                "weighted_goldbach_coefficient": goldbach_coefficient,
+                "full_reflection_cross_coefficient": stable_float(full_cross),
+                "midpoint_prime_square": stable_float(midpoint_square),
+                "weighted_goldbach_coefficient": stable_float(goldbach_coefficient),
                 "certificate_verified": verified,
             }
         )
@@ -576,6 +583,7 @@ def goldbach_half_channel_audit() -> dict[str, Any]:
         "theorem": theorem,
         "proof": proof,
         "central_half_channel_rows": rows,
+        "central_half_channel_row_precision_decimal_places": 9,
         "central_half_channel_transcript_sha256": transcript.hexdigest(),
         "central_half_channel_transcript_precision_decimal_places": 6,
         "exact_reflection_identity": (
@@ -640,7 +648,7 @@ def twin_poisson_cesaro_audit() -> dict[str, Any]:
                 "critical_noise_D_m": fraction_payload(energy),
                 "degree_one_cesaro_E_m_1": fraction_payload(degree_one),
                 "degree_two_cesaro_E_m_2": fraction_payload(degree_two),
-                "limit_D": math.exp(1 / 8) - 1,
+                "limit_D": stable_float(math.exp(1 / 8) - 1),
                 "certificate_verified": verified,
             }
         )

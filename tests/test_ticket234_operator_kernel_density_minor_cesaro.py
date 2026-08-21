@@ -128,6 +128,9 @@ class Ticket234OperatorKernelDensityMinorCesaroTests(unittest.TestCase):
         self.assertEqual(
             computation["central_half_channel_transcript_precision_decimal_places"], 6
         )
+        self.assertEqual(
+            computation["central_half_channel_row_precision_decimal_places"], 9
+        )
         aggregate = computation["aggregate"]
         self.assertTrue(aggregate["strict_full_minor_margin_equivalent_to_goldbach_endpoint"])
         self.assertFalse(aggregate["inverse_log_minor_reflection_coherence_proved"])
