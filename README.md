@@ -31,15 +31,18 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-232: Effective Dimension, Binary Collatz Defects, Rational Goldbach Shells, and CRT Sparsity](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md),
-with a separate [Korean report](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
-It proves four narrower results: an adaptive positive frame floor requires
-logarithmically many effective coordinates; binary Collatz critical-strip
-words with at most three valuation-one entries are nondivisible; actual-prime
-rational Goldbach shells have an exact target-aligned residue-autocorrelation
-decomposition; and full unweighted growing-CRT Twin interaction energy has a
-chi-square sparsity lower bound. These are partial structural and no-go
-lemmas, not parent-problem resolutions. TICKET-231 is preserved in
+[TICKET-233: Logarithmic Frames, a Twelve-One Collatz Closure, Squarefree Goldbach Shells, and CRT Entropy](docs/logarithmic-frame-density-shell-entropy.md),
+with a separate [Korean report](docs/logarithmic-frame-density-shell-entropy.ko.md).
+It proves four narrower results: the scalar adaptive-frame threshold is
+`Theta(log T)`; the first open binary Collatz fixed stratum `k=12` is excluded
+after a proof-DAG correction; prime-weighted squarefree rational shells have a
+polylogarithmic-denominator asymptotic; and product-damped CRT interactions
+obey entropy bounds with critical-damping and parity-retention no-gos. These
+are partial structural, asymptotic, and no-go lemmas, not parent-problem
+resolutions. TICKET-232 is preserved in
+[English](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md)
+and [Korean](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
+TICKET-231 is preserved in
 [English](docs/summable-frame-critical-strip-gauss-crt.md) and
 [Korean](docs/summable-frame-critical-strip-gauss-crt.ko.md). TICKET-230 is
 preserved in [English](docs/quantitative-recurrence-necklace-fourier-centering.md)
@@ -367,7 +370,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-232 boundary, four exact structural lemmas, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-233 boundary, four exact partial/asymptotic/no-go lemmas, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -384,15 +387,17 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-232. The RH track proves a logarithmic
-effective-dimension necessity for adaptive positive frame floors. Collatz
-excludes binary critical-strip words with at most three valuation-one entries.
-Goldbach exactly decomposes actual-prime rational shells and refutes a growing
-modulus `o(1)` equidistribution inference. Twin identifies full CRT energy with
-chi-square and proves a sparse-support no-go. These are exact partial and no-go
-theorems, not solutions. All four parent conjectures remain open and the
-machine resolution count is zero.
-See [TICKET232 EN](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md),
+The latest proof-search track is TICKET-233. The RH track matches the prior
+logarithmic lower bound with an `O(log T)` scalar-frame construction. Collatz
+corrects an already-closed successor and exhaustively excludes the first open
+binary fixed stratum `k=12`. Goldbach proves the prime-weighted squarefree shell
+asymptotic for polylogarithmic denominators and refutes uncoupled growth. Twin
+proves product-entropy bounds and critical-damping/parity-retention no-gos.
+These are exact partial, asymptotic, and no-go theorems, not solutions. All
+four parent conjectures remain open and the machine resolution count is zero.
+See [TICKET233 EN](docs/logarithmic-frame-density-shell-entropy.md),
+[TICKET233 KO](docs/logarithmic-frame-density-shell-entropy.ko.md),
+[TICKET232 EN](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md),
 [TICKET232 KO](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md),
 [TICKET231 EN](docs/summable-frame-critical-strip-gauss-crt.md),
 [TICKET231 KO](docs/summable-frame-critical-strip-gauss-crt.ko.md),
@@ -545,12 +550,12 @@ See [TICKET232 EN](docs/effective-dimension-binary-defect-rational-shell-crt-spa
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-232입니다. 리만 트랙은 적응형 양의
-프레임 하한에 로그 유효차원이 필요함을 증명했습니다. 콜라츠 트랙은 값
-`1`이 최대 세 개인 binary 임계띠 word를 배제했습니다. 골드바흐는 실제
-소수 유리 shell을 정확히 분해하고 classwise `o(1)` 등분포 추론을
-반증했습니다. 쌍둥이 소수는 full CRT 에너지가 chi-square와 같으며 희소
-지지 하한을 가짐을 증명했습니다. 네 상위 문제의 해결 수는 여전히 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-233입니다. 리만 트랙은 scalar frame
+문턱을 `Theta(log T)`로 닫았습니다. 콜라츠 트랙은 계보 오류를 교정하고 첫
+열린 binary fixed stratum `k=12`를 exact MITM으로 배제했습니다. 골드바흐는
+polylog squarefree 분모의 실제 소수 shell 점근식을 증명하고 무제약 분모
+성장을 반증했습니다. 쌍둥이 소수는 product-entropy 상계와 임계 damping 및
+parity-retention no-go를 증명했습니다. 네 상위 문제의 해결 수는 여전히 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -570,19 +575,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-232입니다.
-[유효차원·binary defect·유리 shell·CRT 희소성 한국어 보고서](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md)와
-[영문 보고서](docs/effective-dimension-binary-defect-rational-shell-crt-sparsity.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-233입니다.
+[로그 프레임·Collatz 12-one·squarefree shell·CRT 엔트로피 한국어 보고서](docs/logarithmic-frame-density-shell-entropy.ko.md)와
+[영문 보고서](docs/logarithmic-frame-density-shell-entropy.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 명시적 Weil 꼬리를 지배하는 로그 유효차원
-frame, Collatz binary four-one 비나눗셈, 골드바흐 성장 분모 실제 소수
-자기상관 절약, 쌍둥이 소수의 entropy-matched signed CRT large sieve와
-양의 주항입니다.
+현재 결정적 미해결 보조정리는 signed Weil kernel 이전, Collatz uniform
+binary density-band 비나눗셈, 골드바흐 target-aligned minor-arc 음의 질량
+제어, 쌍둥이 소수의 actual-prime critical-noise CRT 감쇠입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-232의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 232개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-233의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 233개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

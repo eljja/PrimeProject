@@ -236,6 +236,7 @@ TICKET232_SCHEMA = (
     "primeproject.ticket232-effective-dimension-binary-defect-"
     "rational-shell-crt-sparsity.v1"
 )
+TICKET233_SCHEMA = "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1"
 
 
 def fail(message: str) -> int:
@@ -19605,6 +19606,183 @@ def main() -> int:
         or machine231.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket231 proof boundary changed")
+
+    path233 = Path(
+        "data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json"
+    )
+    if not path233.exists():
+        return fail("missing ticket233 logarithmic-frame/density/shell/entropy audit")
+    ticket233 = read_json(path233)
+    if (
+        ticket233.get("schema") != TICKET233_SCHEMA
+        or ticket233.get("status") != "open_not_proven"
+    ):
+        return fail("ticket233 schema or status changed")
+    audit233 = ticket233.get("logarithmic_frame_density_shell_entropy_audit", {})
+    machine233 = audit233.get("machine_audit", {})
+    if machine233 != {
+        "exact_partial_theorem_count": 4,
+        "refuted_or_corrected_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "lineage_regression_correction_count": 1,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket233 global machine audit changed")
+
+    theorem_names233 = {
+        "riemann": "LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold",
+        "collatz": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+        "goldbach": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+        "twin-prime": "CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo",
+    }
+    next_lemmas233 = {
+        "riemann": "LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance",
+        "collatz": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility",
+        "goldbach": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin",
+        "twin-prime": "PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale",
+    }
+    track_paths233 = {
+        "riemann": Path(
+            "data/open-problem/riemann/rh-ticket-233-logarithmic-scalar-frame.json"
+        ),
+        "collatz": Path(
+            "data/open-problem/collatz/co-ticket-233-density-band-lineage.json"
+        ),
+        "goldbach": Path(
+            "data/open-problem/goldbach/gb-ticket-233-polylog-squarefree-shell.json"
+        ),
+        "twin-prime": Path(
+            "data/open-problem/twin-prime/tp-ticket-233-critical-entropy-damping.json"
+        ),
+    }
+    audit_sections233 = {
+        "riemann": audit233.get("riemann", {}),
+        "collatz": audit233.get("collatz", {}),
+        "goldbach": audit233.get("goldbach", {}),
+        "twin-prime": audit233.get("twin_prime", {}),
+    }
+    attempts233 = {
+        row.get("problem_id"): row for row in ticket233.get("attempts", [])
+    }
+    if set(attempts233) != EXPECTED_PROBLEMS:
+        return fail("ticket233 attempts missing problems")
+    for problem_id, attempt in attempts233.items():
+        track_path = track_paths233[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket233 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections233[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names233[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas233[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or sum(node.get("status") == "highest_risk_open" for node in nodes) != 1
+            or not any(node.get("status") == "open_not_proven" for node in nodes)
+            or not dag.get("edges")
+            or section.get("theorem_name") != theorem_names233[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas233[problem_id]
+            or track.get("schema") != TICKET233_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names233[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket233 contract changed")
+
+    rh233 = audit_sections233["riemann"].get("reproducible_computation", {})
+    if (
+        len(rh233.get("deterministic_seeded_frame_rows", [])) != 5
+        or any(
+            row.get("certificate_verified") is not True
+            or row.get("minimum_normalized_energy", 0) < 1
+            for row in rh233.get("deterministic_seeded_frame_rows", [])
+        )
+        or rh233.get("aggregate", {}).get("logarithmic_scalar_adaptive_frame_exists") is not True
+        or rh233.get("aggregate", {}).get("actual_weil_quadratic_form_transfer_proved") is not False
+        or rh233.get("aggregate", {}).get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket233 RH logarithmic-frame boundary changed")
+
+    collatz233 = audit_sections233["collatz"].get("reproducible_computation", {})
+    collatz233_totals = collatz233.get("twelve_one_finite_horizon_totals", {})
+    if (
+        collatz233_totals.get("represented_normalized_words") != 28729599990
+        or collatz233_totals.get("represented_normalized_words")
+        != collatz233_totals.get("expected_normalized_words")
+        or collatz233_totals.get("divisibility_hits") != 0
+        or any(
+            row.get("certificate_verified") is not True
+            for row in collatz233.get("twelve_one_finite_horizon_rows", [])
+        )
+        or collatz233.get("aggregate", {}).get(
+            "binary_exactly_twelve_positive_cycle_stratum_excluded"
+        ) is not True
+        or collatz233.get("aggregate", {}).get(
+            "binary_remaining_multiplicity_lower_bound_k"
+        ) != 13
+        or collatz233.get("aggregate", {}).get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket233 Collatz twelve-one boundary changed")
+
+    goldbach233 = audit_sections233["goldbach"].get("reproducible_computation", {})
+    if (
+        any(
+            row.get("certificate_verified") is not True
+            for row in goldbach233.get("squarefree_indicator_algebra_rows", [])
+        )
+        or any(
+            row.get("parseval_identity_verified") is not True
+            for row in goldbach233.get("prime_modulus_parseval_rows", [])
+        )
+        or any(
+            row.get("certificate_verified") is not True
+            for row in goldbach233.get("actual_prime_sparse_denominator_no_go_rows", [])
+        )
+        or goldbach233.get("aggregate", {}).get(
+            "polylogarithmic_squarefree_prime_shell_asymptotic_proved"
+        ) is not True
+        or goldbach233.get("aggregate", {}).get("minor_arc_negative_mass_controlled") is not False
+        or goldbach233.get("aggregate", {}).get("strong_goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket233 Goldbach shell boundary changed")
+
+    twin233 = audit_sections233["twin-prime"].get("reproducible_computation", {})
+    if (
+        any(
+            row.get("certificate_verified") is not True
+            for row in twin233.get("critical_entropy_exact_rows", [])
+        )
+        or any(
+            row.get("certificate_verified") is not True
+            for row in twin233.get("full_parity_retention_no_go_rows", [])
+        )
+        or twin233.get("aggregate", {}).get(
+            "signed_product_damping_large_sieve_bound_proved"
+        ) is not True
+        or twin233.get("aggregate", {}).get(
+            "critical_entropy_plus_centered_marginals_saving_refuted"
+        ) is not True
+        or twin233.get("aggregate", {}).get("positive_twin_main_term_proved") is not False
+        or twin233.get("aggregate", {}).get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket233 Twin entropy boundary changed")
+
+    if (
+        "resolves none" not in str(audit233.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket233.get("claim_boundary", "")).lower()
+        or machine233.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket233 proof boundary changed")
 
     path232 = Path(
         "data/open-problem/ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.json"

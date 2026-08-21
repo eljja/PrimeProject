@@ -8428,6 +8428,32 @@ four proof DAGs, zero conjecture resolutions, and zero computational failures.
 English report: [TICKET-232 effective dimension, binary defects, rational shells, and CRT sparsity](effective-dimension-binary-defect-rational-shell-crt-sparsity.md).
 한국어 보고서: [TICKET-232 유효차원·binary defect·유리 shell·CRT 희소성](effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
 
+## TICKET-233 continuation: logarithmic frames, twelve-one Collatz closure, squarefree shells, and CRT entropy
+
+TICKET-233 proves four exact partial, asymptotic, or no-go theorems and keeps
+the parent-conjecture resolution count at zero:
+
+1. RH: a scalar adaptive frame with unit floor exists in `O(log T)`
+   coordinates, matching TICKET-232's lower bound. Transfer to the signed Weil
+   kernel with explicit arithmetic-tail dominance remains open.
+2. Collatz: the TICKET-232 four-one successor is corrected as already closed,
+   and the first open binary fixed stratum `k=12` is exhaustively excluded by
+   an exact `5+6` MITM over the complete finite decision range. Uniform binary
+   `k>=13`, larger valuations, and aperiodic descent remain open.
+3. Goldbach: odd-squarefree rational shells satisfy an explicit discrepancy
+   bound and a prime-weighted asymptotic for polylogarithmic denominators.
+   Actual primes refute an uncoupled all-growing-denominator statement.
+4. Twin Prime: product-damped centered CRT energy and signed aggregates obey
+   exact entropy bounds. Critical damping plus local centering, and bounded
+   entropy plus full-parity retention, are refuted in the CRT model.
+
+Machine audit: four exact partial, asymptotic, or no-go theorems, four
+discarded/corrected routes, four proof DAGs, one lineage correction, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-233 logarithmic frames, Collatz twelve-one closure, squarefree shells, and CRT entropy](logarithmic-frame-density-shell-entropy.md).
+한국어 보고서: [TICKET-233 로그 프레임·Collatz 12-one·squarefree shell·CRT 엔트로피](logarithmic-frame-density-shell-entropy.ko.md).
+
 ## Preserved: TICKET-230 quantitative recurrence, necklaces, Fourier aggregation, and centering
 
 TICKET-230 audits the four successor targets from TICKET-229 before attempting

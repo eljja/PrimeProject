@@ -1,0 +1,2252 @@
+{
+  "schema": "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1",
+  "generated_at": "2026-08-21T23:30:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-233 proves four exact partial, asymptotic, lineage-correction, or no-go results and resolves none of the four parent conjectures.",
+  "logarithmic_frame_density_shell_entropy_audit": {
+    "theorem_name": "FourConjectureLogarithmicFrameDensityShellEntropyAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-233 proves a sharp logarithmic scalar-frame construction, corrects a Collatz proof-DAG regression, closes the first open binary fixed stratum k=12, and proves a fixed-multiplicity no-go, proves the polylogarithmic squarefree Goldbach rational-shell asymptotic with an unrestricted-growth counterfamily, and proves critical product-entropy CRT bounds and parity-retention no-gos. It resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-233",
+      "theorem_name": "LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold",
+      "declared_proposition": "For every integer T>=2, every prime P>T, and M=ceil(8 log(2T)), there exist residues r_1,...,r_M modulo P such that M^(-1) sum_j |1-exp(-2*pi*i*n*r_j/P)|^2>=1 for every 1<=n<=T. Replacing residue zero by the real phase one and taking q_j=exp(2*pi*alpha_j)>1 gives a height-adaptive scalar dilation frame with a uniform unit floor and O(log T) coordinates.",
+      "mathematical_argument": "Choose the residues independently and uniformly modulo P. For each fixed 1<=n<=T, multiplication by n permutes the residues because P>T. Thus X_j=|1-exp(-2*pi*i*n*r_j/P)|^2 lies in [0,4] and has mean 2. Hoeffding gives P(M^(-1)sum X_j<1)<=exp(-M/8). A union bound over T frequencies is at most T exp(-M/8)<=1/2, so a common frame exists. Rational representatives give q_j>1. Together with TICKET-232, the scalar effective-dimension threshold is Theta(log T).",
+      "reproducible_computation": {
+        "theorem": "For every integer T>=2, every prime P>T, and M=ceil(8 log(2T)), there exist residues r_1,...,r_M modulo P such that M^(-1) sum_j |1-exp(-2*pi*i*n*r_j/P)|^2>=1 for every 1<=n<=T. Replacing residue zero by the real phase one and taking q_j=exp(2*pi*alpha_j)>1 gives a height-adaptive scalar dilation frame with a uniform unit floor and O(log T) coordinates.",
+        "proof": "Choose the residues independently and uniformly modulo P. For each fixed 1<=n<=T, multiplication by n permutes the residues because P>T. Thus X_j=|1-exp(-2*pi*i*n*r_j/P)|^2 lies in [0,4] and has mean 2. Hoeffding gives P(M^(-1)sum X_j<1)<=exp(-M/8). A union bound over T frequencies is at most T exp(-M/8)<=1/2, so a common frame exists. Rational representatives give q_j>1. Together with TICKET-232, the scalar effective-dimension threshold is Theta(log T).",
+        "deterministic_seeded_frame_rows": [
+          {
+            "frequency_horizon_T": 16,
+            "prime_phase_modulus_P": 17,
+            "frame_dimension_M": 28,
+            "phase_residues_mod_P": [
+              6,
+              16,
+              15,
+              12,
+              9,
+              8,
+              4,
+              11,
+              8,
+              3,
+              0,
+              7,
+              0,
+              7,
+              13,
+              5,
+              16,
+              5,
+              15,
+              10,
+              2,
+              1,
+              4,
+              10,
+              3,
+              14,
+              3,
+              12
+            ],
+            "minimum_normalized_energy": 1.7680912424448414,
+            "minimizing_frequency_n": 7,
+            "hoeffding_union_failure_bound": 0.483158134757096,
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 64,
+            "prime_phase_modulus_P": 67,
+            "frame_dimension_M": 39,
+            "phase_residues_mod_P": [
+              55,
+              52,
+              36,
+              16,
+              10,
+              66,
+              35,
+              6,
+              24,
+              17,
+              31,
+              9,
+              13,
+              53,
+              5,
+              12,
+              24,
+              18,
+              37,
+              55,
+              1,
+              63,
+              20,
+              56,
+              64,
+              39,
+              57,
+              33,
+              60,
+              39,
+              33,
+              58,
+              55,
+              5,
+              32,
+              8,
+              19,
+              34,
+              34
+            ],
+            "minimum_normalized_energy": 1.7139958341771677,
+            "minimizing_frequency_n": 45,
+            "hoeffding_union_failure_bound": 0.48864603000703755,
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 256,
+            "prime_phase_modulus_P": 257,
+            "frame_dimension_M": 50,
+            "phase_residues_mod_P": [
+              54,
+              183,
+              149,
+              47,
+              111,
+              85,
+              171,
+              18,
+              57,
+              102,
+              249,
+              115,
+              83,
+              23,
+              123,
+              70,
+              196,
+              51,
+              241,
+              36,
+              65,
+              25,
+              175,
+              107,
+              244,
+              128,
+              37,
+              188,
+              214,
+              233,
+              92,
+              244,
+              134,
+              39,
+              15,
+              127,
+              96,
+              9,
+              229,
+              187,
+              165,
+              167,
+              106,
+              181,
+              162,
+              28,
+              206,
+              45,
+              110,
+              159
+            ],
+            "minimum_normalized_energy": 1.4854553890909912,
+            "minimizing_frequency_n": 176,
+            "hoeffding_union_failure_bound": 0.4941962588742936,
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 1024,
+            "prime_phase_modulus_P": 1031,
+            "frame_dimension_M": 61,
+            "phase_residues_mod_P": [
+              392,
+              717,
+              749,
+              59,
+              22,
+              639,
+              255,
+              166,
+              526,
+              778,
+              652,
+              966,
+              134,
+              596,
+              292,
+              580,
+              1029,
+              736,
+              617,
+              145,
+              971,
+              168,
+              209,
+              616,
+              893,
+              302,
+              303,
+              893,
+              489,
+              305,
+              286,
+              1017,
+              838,
+              902,
+              940,
+              955,
+              193,
+              760,
+              308,
+              745,
+              47,
+              413,
+              654,
+              538,
+              423,
+              376,
+              133,
+              687,
+              509,
+              732,
+              982,
+              76,
+              161,
+              1007,
+              255,
+              403,
+              393,
+              144,
+              858,
+              676,
+              885
+            ],
+            "minimum_normalized_energy": 1.4427616354164596,
+            "minimizing_frequency_n": 839,
+            "hoeffding_union_failure_bound": 0.49980952936797696,
+            "certificate_verified": true
+          },
+          {
+            "frequency_horizon_T": 4096,
+            "prime_phase_modulus_P": 4099,
+            "frame_dimension_M": 73,
+            "phase_residues_mod_P": [
+              1860,
+              3959,
+              530,
+              1331,
+              3048,
+              2263,
+              944,
+              1440,
+              2500,
+              146,
+              3059,
+              569,
+              63,
+              3011,
+              2824,
+              1770,
+              3053,
+              510,
+              2151,
+              764,
+              2674,
+              2257,
+              4080,
+              3178,
+              3913,
+              1700,
+              1347,
+              1224,
+              914,
+              2295,
+              1913,
+              1807,
+              3757,
+              2327,
+              2519,
+              749,
+              1881,
+              2620,
+              2159,
+              2487,
+              1637,
+              74,
+              2064,
+              1429,
+              646,
+              1254,
+              481,
+              762,
+              212,
+              3839,
+              2313,
+              4051,
+              1387,
+              3530,
+              1060,
+              3056,
+              656,
+              703,
+              2889,
+              4095,
+              4004,
+              2848,
+              2277,
+              346,
+              1624,
+              1974,
+              2534,
+              1614,
+              3490,
+              376,
+              2799,
+              2243,
+              3353
+            ],
+            "minimum_normalized_energy": 1.3885605173130091,
+            "minimizing_frequency_n": 2550,
+            "hoeffding_union_failure_bound": 0.4460903213263522,
+            "certificate_verified": true
+          }
+        ],
+        "aggregate": {
+          "logarithmic_scalar_adaptive_frame_exists": true,
+          "ticket232_logarithmic_lower_bound_sharp_for_scalar_energy": true,
+          "superlogarithmic_scalar_dimension_necessity_refuted": true,
+          "actual_weil_quadratic_form_transfer_proved": false,
+          "explicit_signed_weil_tail_dominance_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The construction refutes any superlogarithmic dimension necessity for the scalar phase-energy problem. It does not transfer the floor to the signed Guinand-Weil quadratic form or dominate its arithmetic tail. The seeded rows witness the construction but the existence theorem comes from Hoeffding and the union bound.",
+        "failure_count": 0
+      },
+      "logical_limit": "The construction refutes any superlogarithmic dimension necessity for the scalar phase-energy problem. It does not transfer the floor to the signed Guinand-Weil quadratic form or dominate its arithmetic tail. The seeded rows witness the construction but the existence theorem comes from Hoeffding and the union bound.",
+      "route_decision": {
+        "discard": "superlogarithmic effective dimension as a necessary scalar-frame condition",
+        "retain": "transfer the sharp logarithmic scalar frame to the actual signed Weil kernel with an explicit tail budget",
+        "next_single_lemma": "LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T232",
+            "label": "TICKET232Input",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T233",
+            "label": "LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N233",
+            "label": "SuperlogarithmicScalarEffectiveDimensionNecessity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN233",
+            "label": "LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T232",
+            "RH-T233"
+          ],
+          [
+            "RH-T233",
+            "RH-N233"
+          ],
+          [
+            "RH-T233",
+            "RH-OPEN233"
+          ],
+          [
+            "RH-OPEN233",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-233",
+      "theorem_name": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+      "declared_proposition": "The CO-OPEN232 target BinaryFourOneCriticalStripNondivisibility was already closed by TICKET-188 and is a special case of the stronger TICKET-209 arbitrary-tail four-one exclusion; binary multiplicities four through eleven were already closed by TICKETS 188-195. The first open binary stratum, exactly twelve valuation ones and all other valuations two, is now excluded as a positive cycle: contraction starts at h=29, the product bound excludes h>=46, and an exact 5+6 meet-in-the-middle residue computation excludes every h=29,...,45, representing 28,729,599,990 first-one-normalized words without a hit. Thus a hypothetical binary cycle is primitive, has k>=13, and obeys log2(6/5)<=k/h<2-log2(3); a general valuation cycle has k>=8. The primitive words 1^m 2^(2m) show that every finite fixed-k ladder is noncofinal, and for prime k the h=3k slice has exactly (binom(3k,k)-3)/(3k) primitive necklaces.",
+      "mathematical_argument": "TICKET-182 proves that D>0 and D|B are equivalent to realization of the corresponding positive accelerated cycle. The prior machine artifacts close every arbitrary-tail multiplicity k<=7 and every binary multiplicity k<=11, so TICKET-232's successor was not open. For k=12, normalize a one to p_0=0. Telescoping the prefix-one step function gives B=C_h+sum_(i=1)^11 E_(i,h)(p_i). Split the eleven free positions into 5+6 boundary terms, activate left residues precisely when p_5<p_6, and match the complementary right residue modulo D. Vandermonde's identity gives complete coverage C(h-1,11). The scalar gates leave exactly h=29,...,45, and the exact MITM finds no residue zero. TICKET-211 also gives 6^h<=5^h 2^k for every positive integer cycle. For a binary word, S=2h-k and D>0 is exactly 2^(2h-k)>3^h, giving the upper density edge. A nontrivial repeated cycle reduces to a primitive root. The word 1^m2^(2m) has one cyclic run of each symbol and is primitive; 216<250 and 27<32 prove both band inequalities after taking the m-th power. The weighted primitive-necklace formula is Mobius inversion; for prime k and h=3k it reduces to the displayed count.",
+      "reproducible_computation": {
+        "theorem": "The CO-OPEN232 target BinaryFourOneCriticalStripNondivisibility was already closed by TICKET-188 and is a special case of the stronger TICKET-209 arbitrary-tail four-one exclusion; binary multiplicities four through eleven were already closed by TICKETS 188-195. The first open binary stratum, exactly twelve valuation ones and all other valuations two, is now excluded as a positive cycle: contraction starts at h=29, the product bound excludes h>=46, and an exact 5+6 meet-in-the-middle residue computation excludes every h=29,...,45, representing 28,729,599,990 first-one-normalized words without a hit. Thus a hypothetical binary cycle is primitive, has k>=13, and obeys log2(6/5)<=k/h<2-log2(3); a general valuation cycle has k>=8. The primitive words 1^m 2^(2m) show that every finite fixed-k ladder is noncofinal, and for prime k the h=3k slice has exactly (binom(3k,k)-3)/(3k) primitive necklaces.",
+        "proof": "TICKET-182 proves that D>0 and D|B are equivalent to realization of the corresponding positive accelerated cycle. The prior machine artifacts close every arbitrary-tail multiplicity k<=7 and every binary multiplicity k<=11, so TICKET-232's successor was not open. For k=12, normalize a one to p_0=0. Telescoping the prefix-one step function gives B=C_h+sum_(i=1)^11 E_(i,h)(p_i). Split the eleven free positions into 5+6 boundary terms, activate left residues precisely when p_5<p_6, and match the complementary right residue modulo D. Vandermonde's identity gives complete coverage C(h-1,11). The scalar gates leave exactly h=29,...,45, and the exact MITM finds no residue zero. TICKET-211 also gives 6^h<=5^h 2^k for every positive integer cycle. For a binary word, S=2h-k and D>0 is exactly 2^(2h-k)>3^h, giving the upper density edge. A nontrivial repeated cycle reduces to a primitive root. The word 1^m2^(2m) has one cyclic run of each symbol and is primitive; 216<250 and 27<32 prove both band inequalities after taking the m-th power. The weighted primitive-necklace formula is Mobius inversion; for prime k and h=3k it reduces to the displayed count.",
+        "arbitrary_tail_closed_multiplicity_lineage_rows": [
+          {
+            "valuation_one_count_k": 1,
+            "source_ticket_id": "CO-TICKET-206",
+            "source_path": "data/open-problem/collatz/co-ticket-206-single-one-general.json",
+            "closure_flag": "single_one_arbitrary_ge_two_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": null,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 2,
+            "source_ticket_id": "CO-TICKET-207",
+            "source_path": "data/open-problem/collatz/co-ticket-207-two-one-general.json",
+            "closure_flag": "exactly_two_valuation_one_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": null,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 3,
+            "source_ticket_id": "CO-TICKET-208",
+            "source_path": "data/open-problem/collatz/co-ticket-208-three-one-exclusion.json",
+            "closure_flag": "exactly_three_valuation_one_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": 185,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 4,
+            "source_ticket_id": "CO-TICKET-209",
+            "source_path": "data/open-problem/collatz/co-ticket-209-four-one-exclusion.json",
+            "closure_flag": "exactly_four_valuation_one_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": 2292,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 5,
+            "source_ticket_id": "CO-TICKET-210",
+            "source_path": "data/open-problem/collatz/co-ticket-210-five-one-general.json",
+            "closure_flag": "exactly_five_valuation_one_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": 29758,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 6,
+            "source_ticket_id": "CO-TICKET-213",
+            "source_path": "data/open-problem/collatz/co-ticket-213-six-one-exclusion.json",
+            "closure_flag": "exactly_six_valuation_one_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": 376788,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 7,
+            "source_ticket_id": "CO-TICKET-214",
+            "source_path": "data/open-problem/collatz/co-ticket-214-seven-one-exclusion.json",
+            "closure_flag": "exactly_seven_valuation_one_cycle_stratum_excluded",
+            "stratum_closed": true,
+            "exact_words_enumerated": 4349349,
+            "source_failure_count": 0
+          }
+        ],
+        "binary_closed_multiplicity_lineage_rows": [
+          {
+            "valuation_one_count_k": 4,
+            "source_ticket_id": "CO-TICKET-188",
+            "source_path": "data/open-problem/collatz/co-ticket-188-four-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 4116,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 5,
+            "source_ticket_id": "CO-TICKET-189",
+            "source_path": "data/open-problem/collatz/co-ticket-189-five-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 72897,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 6,
+            "source_ticket_id": "CO-TICKET-190",
+            "source_path": "data/open-problem/collatz/co-ticket-190-six-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 238722,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 7,
+            "source_ticket_id": "CO-TICKET-191",
+            "source_path": "data/open-problem/collatz/co-ticket-191-seven-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 2195765,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 8,
+            "source_ticket_id": "CO-TICKET-192",
+            "source_path": "data/open-problem/collatz/co-ticket-192-eight-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 5777343,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 9,
+            "source_ticket_id": "CO-TICKET-193",
+            "source_path": "data/open-problem/collatz/co-ticket-193-nine-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 52157326,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 10,
+            "source_ticket_id": "CO-TICKET-194",
+            "source_path": "data/open-problem/collatz/co-ticket-194-ten-one-cycle-exclusion.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 470772500,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          },
+          {
+            "valuation_one_count_k": 11,
+            "source_ticket_id": "CO-TICKET-195",
+            "source_path": "data/open-problem/collatz/co-ticket-195-eleven-one-decidability.json",
+            "stratum_closed": true,
+            "finite_normalized_words_represented": 3151735808,
+            "divisibility_hits": 0,
+            "source_failure_count": 0
+          }
+        ],
+        "twelve_one_boundary_validation": {
+          "exact_formula": "B=C_h+sum_{i=1}^{11} E_{i,h}(p_i)",
+          "exhaustive_horizons": [
+            12,
+            18
+          ],
+          "exhaustive_normalized_words_checked": 18564,
+          "exhaustive_formula_mismatch_count": 0,
+          "exhaustive_transcript_sha256": "a15c665e17ab094921378395c1fbc67cf619a6d81f2b37eed8a434fe289bda4f",
+          "seeded_finite_horizon_range": [
+            29,
+            45
+          ],
+          "seeded_samples_checked": 2176,
+          "seeded_formula_mismatch_count": 0,
+          "seeded_transcript_sha256": "097107169b0bcbe8ab85fb324ef7e1777b40137b5f21e00009f912eaecb4ce8b"
+        },
+        "twelve_one_finite_horizon_rows": [
+          {
+            "horizon_h": 29,
+            "denominator_D": 1738366812781,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 98280,
+            "right_tuple_count": 100947,
+            "represented_normalized_word_count": 21474180,
+            "expected_normalized_word_count": 21474180,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "657fb3699f36c2080f1dc8e36dcd66675b8e5d153909ad25f4be86f56aeed564",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 30,
+            "denominator_D": 75583844616007,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 118755,
+            "right_tuple_count": 134596,
+            "represented_normalized_word_count": 34597290,
+            "expected_normalized_word_count": 34597290,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "69bbff3ca268d52d016dd81aeae6522a5a4956aad716b51ad3df18ff7750448f",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 31,
+            "denominator_D": 508226510558677,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 142506,
+            "right_tuple_count": 177100,
+            "represented_normalized_word_count": 54627300,
+            "expected_normalized_word_count": 54627300,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "21dc5f5f1fdfc641298403ca7ffc13916b63a5b321bc7e9ca10bcf4413e36932",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 32,
+            "denominator_D": 2650579438518655,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 169911,
+            "right_tuple_count": 230230,
+            "represented_normalized_word_count": 84672315,
+            "expected_normalized_word_count": 84672315,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "011e28d87b431e9121b657556c202b793ca8bb7cc6016bff9a504937333fe653",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 33,
+            "denominator_D": 12455337942926461,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 201376,
+            "right_tuple_count": 296010,
+            "represented_normalized_word_count": 129024480,
+            "expected_normalized_word_count": 129024480,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "bfadcd137436fe4f54286b07c5086c3db38127e736c4dce08eb2bb248e1f53ec",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 34,
+            "denominator_D": 55380412338261367,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 237336,
+            "right_tuple_count": 376740,
+            "represented_normalized_word_count": 193536720,
+            "expected_normalized_word_count": 193536720,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "e798af0ab2e76072c540c5b60545369d373505f4f58f7f0822851d6011455548",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 35,
+            "denominator_D": 238198831052712037,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 278256,
+            "right_tuple_count": 475020,
+            "represented_normalized_word_count": 286097760,
+            "expected_normalized_word_count": 286097760,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "585063f4fc06ed246466d0bd3e94f4a0fdc78382a98b01df5723acb3294972a5",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 36,
+            "denominator_D": 1002826869309847855,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 324632,
+            "right_tuple_count": 593775,
+            "represented_normalized_word_count": 417225900,
+            "expected_normalized_word_count": 417225900,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "1aa6cc6e1cbb1fb14ad733f50460932792b0ea9c48651f260eecdcf787fd9d13",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 37,
+            "denominator_D": 4161402112536390541,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 376992,
+            "right_tuple_count": 736281,
+            "represented_normalized_word_count": 600805296,
+            "expected_normalized_word_count": 600805296,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "cebb234a60ddf5300ccd1aca02d43839a9aaf47aec36ede81ad345e0de84f8e0",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 38,
+            "denominator_D": 17095892356036559527,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 435897,
+            "right_tuple_count": 906192,
+            "represented_normalized_word_count": 854992152,
+            "expected_normalized_word_count": 854992152,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "b1beed2006ae3dc6a6f398c7cce6958841bc0653b9c3a5bf10c83510a51e7c6e",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 39,
+            "denominator_D": 69734421141819230197,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 501942,
+            "right_tuple_count": 1107568,
+            "represented_normalized_word_count": 1203322288,
+            "expected_normalized_word_count": 1203322288,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "d9d6bffafd09dd36e69e768eb4fd9849b5ac56eb8dd6537915bc0c5597bd3a49",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 40,
+            "denominator_D": 282990239720295897055,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 575757,
+            "right_tuple_count": 1344904,
+            "represented_normalized_word_count": 1676056044,
+            "expected_normalized_word_count": 1676056044,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "887afd50a4f1166d1059e4169f1086499c873c01aef2a64f6b48830744256265",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 41,
+            "denominator_D": 1144118624340240517021,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 658008,
+            "right_tuple_count": 1623160,
+            "represented_normalized_word_count": 2311801440,
+            "expected_normalized_word_count": 2311801440,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "c064283357a7def8079bedf10bbf3dbc4ea20b1f21fabf08ca03a827c712f839",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 42,
+            "denominator_D": 4612947493738132854487,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 749398,
+            "right_tuple_count": 1947792,
+            "represented_normalized_word_count": 3159461968,
+            "expected_normalized_word_count": 3159461968,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "8b8b0df4486b9acaed7a7b2488eb57e605f57f800fd7875f178e94b0094ccc89",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 43,
+            "denominator_D": 18561208964084043777157,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 850668,
+            "right_tuple_count": 2324784,
+            "represented_normalized_word_count": 4280561376,
+            "expected_normalized_word_count": 4280561376,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "fd9c112ab6b0832de16ae6375d5950aaed27370d1f07405c27be40f253db010c",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 44,
+            "denominator_D": 74573092823730712186255,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 962598,
+            "right_tuple_count": 2760681,
+            "represented_normalized_word_count": 5752004349,
+            "expected_normalized_word_count": 5752004349,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "27f6399a662fb63598eb837c01b9ab15fd947d4859217f9326422a543c262b70",
+            "certificate_verified": true
+          },
+          {
+            "horizon_h": 45,
+            "denominator_D": 299277142197106459977901,
+            "split": "5+6 boundary terms",
+            "left_tuple_count": 1086008,
+            "right_tuple_count": 3262623,
+            "represented_normalized_word_count": 7669339132,
+            "expected_normalized_word_count": 7669339132,
+            "coverage_matches_binomial_count": true,
+            "divisibility_hit_count": 0,
+            "divisibility_hits": [],
+            "mitm_transcript_sha256": "1f894c3bda2f596c9ec39392af6b7cd62bbb0fac348190751617832a8016c82d",
+            "certificate_verified": true
+          }
+        ],
+        "twelve_one_finite_horizon_totals": {
+          "contracting_range_starts_at_h": 29,
+          "product_bound_analytic_exclusion_starts_at_h": 46,
+          "finite_exact_horizons": [
+            29,
+            45
+          ],
+          "left_tuple_count": 7768320,
+          "right_tuple_count": 18398403,
+          "represented_normalized_words": 28729599990,
+          "expected_normalized_words": 28729599990,
+          "divisibility_hits": 0,
+          "product_bound_at_h45": {
+            "exact": "28421709430404007434844970703125/25377352913586151394412809158656",
+            "float": 1.1199635173607099
+          },
+          "product_bound_at_h46": {
+            "exact": "142108547152020037174224853515625/152264117481516908366476854951936",
+            "float": 0.9333029311339249
+          }
+        },
+        "finite_density_band_scan_rows": [
+          {
+            "height_h": 3,
+            "admissible_one_counts_k": [
+              1
+            ],
+            "raw_binary_word_count": 3,
+            "primitive_necklace_count": 1,
+            "mobius_formula_primitive_count": 1,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "2ff3c974fab542a52c10f2c9158576813f5b80c268d67bb03692d88650ad707e",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 4,
+            "admissible_one_counts_k": [],
+            "raw_binary_word_count": 0,
+            "primitive_necklace_count": 0,
+            "mobius_formula_primitive_count": 0,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 5,
+            "admissible_one_counts_k": [
+              2
+            ],
+            "raw_binary_word_count": 10,
+            "primitive_necklace_count": 2,
+            "mobius_formula_primitive_count": 2,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "0a31b1bb6692cb2aded0949e163dc10ad53038c64455642e629a031381871638",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 6,
+            "admissible_one_counts_k": [
+              2
+            ],
+            "raw_binary_word_count": 15,
+            "primitive_necklace_count": 2,
+            "mobius_formula_primitive_count": 2,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "2785afbde2e84b03c9625ed3c41996bbd5c5f4b77408c4557f04b841f145aa30",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 7,
+            "admissible_one_counts_k": [
+              2
+            ],
+            "raw_binary_word_count": 21,
+            "primitive_necklace_count": 3,
+            "mobius_formula_primitive_count": 3,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "f20591dc1887456c7836cc9e48797efeaf3228fda6d48b0a8a8b98104ab96aeb",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 8,
+            "admissible_one_counts_k": [
+              3
+            ],
+            "raw_binary_word_count": 56,
+            "primitive_necklace_count": 7,
+            "mobius_formula_primitive_count": 7,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "b3ded8b83b2e967a2f5e7fc5a2bc87eaed17cd8d41def6acf5cc8a89690eb586",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 9,
+            "admissible_one_counts_k": [
+              3
+            ],
+            "raw_binary_word_count": 84,
+            "primitive_necklace_count": 9,
+            "mobius_formula_primitive_count": 9,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "83a2486d9f4d718ef97442ee72be60a861ad169eba5278d7e50880e8f128385c",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 10,
+            "admissible_one_counts_k": [
+              3,
+              4
+            ],
+            "raw_binary_word_count": 330,
+            "primitive_necklace_count": 32,
+            "mobius_formula_primitive_count": 32,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "5cd7c7c97e80c57f74e77a71942407c3f4f695d9173ddb9dbd9aa87af1836168",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 11,
+            "admissible_one_counts_k": [
+              3,
+              4
+            ],
+            "raw_binary_word_count": 495,
+            "primitive_necklace_count": 45,
+            "mobius_formula_primitive_count": 45,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "27298a4923dfa40c49c3a285b8493bbb3be8b68b77a796f97489edbbbef60426",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 12,
+            "admissible_one_counts_k": [
+              4
+            ],
+            "raw_binary_word_count": 495,
+            "primitive_necklace_count": 40,
+            "mobius_formula_primitive_count": 40,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "159ed95aeeffbeba397899da4d0dcfe0e6cccd346c9a3dd30ce4e07a190d7cf5",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 13,
+            "admissible_one_counts_k": [
+              4,
+              5
+            ],
+            "raw_binary_word_count": 2002,
+            "primitive_necklace_count": 154,
+            "mobius_formula_primitive_count": 154,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "021a3a8782c657962ba8ed5f21be4f05af8531d380360402c7d455d15e8efc24",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 14,
+            "admissible_one_counts_k": [
+              4,
+              5
+            ],
+            "raw_binary_word_count": 3003,
+            "primitive_necklace_count": 213,
+            "mobius_formula_primitive_count": 213,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "6fd4b5afba71e2f5c93e3266d5c45d8e97c2134ad1abcc2c4ee21db41233da28",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 15,
+            "admissible_one_counts_k": [
+              4,
+              5,
+              6
+            ],
+            "raw_binary_word_count": 9373,
+            "primitive_necklace_count": 624,
+            "mobius_formula_primitive_count": 624,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "c11ec1955aa79a416a10259b5dcc8da7e531d7c264b7be2548c120d85afaf9c8",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 16,
+            "admissible_one_counts_k": [
+              5,
+              6
+            ],
+            "raw_binary_word_count": 12376,
+            "primitive_necklace_count": 770,
+            "mobius_formula_primitive_count": 770,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "def409dde9cd2dba3a06be14821f6958af72e933912f237dce6f0514f8d34c63",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 17,
+            "admissible_one_counts_k": [
+              5,
+              6,
+              7
+            ],
+            "raw_binary_word_count": 38012,
+            "primitive_necklace_count": 2236,
+            "mobius_formula_primitive_count": 2236,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "f1be1899f8e7239982e468c40594f929e6c55063251e6e01199bf25835ef9d00",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 18,
+            "admissible_one_counts_k": [
+              5,
+              6,
+              7
+            ],
+            "raw_binary_word_count": 58956,
+            "primitive_necklace_count": 3270,
+            "mobius_formula_primitive_count": 3270,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "229bd12cddb722814836917d4db59b65f84beba0133d322f148e7d482b6d6e83",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 19,
+            "admissible_one_counts_k": [
+              5,
+              6,
+              7
+            ],
+            "raw_binary_word_count": 89148,
+            "primitive_necklace_count": 4692,
+            "mobius_formula_primitive_count": 4692,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "0f773aeafc1636a32232cde5d59ddeeb917418e62930b8ab90baae0caaf433c1",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 20,
+            "admissible_one_counts_k": [
+              6,
+              7,
+              8
+            ],
+            "raw_binary_word_count": 242250,
+            "primitive_necklace_count": 12096,
+            "mobius_formula_primitive_count": 12096,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "2a4d28eb90d847ce203f1b754342865a91008daa75e1a63f14c35b72e6ac6fd6",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 21,
+            "admissible_one_counts_k": [
+              6,
+              7,
+              8
+            ],
+            "raw_binary_word_count": 374034,
+            "primitive_necklace_count": 17810,
+            "mobius_formula_primitive_count": 17810,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "da320ec2c8b78dfad9b4d16189a8841244ac9f679b2e932e3c70671ce853203f",
+            "certificate_verified": true
+          },
+          {
+            "height_h": 22,
+            "admissible_one_counts_k": [
+              6,
+              7,
+              8,
+              9
+            ],
+            "raw_binary_word_count": 1062347,
+            "primitive_necklace_count": 48266,
+            "mobius_formula_primitive_count": 48266,
+            "divisibility_hit_count": 0,
+            "transcript_sha256": "780d3ec34849e8b0f0a72aa7fb6b0f05d1b2faaa8b2f6d8cee22bd0c14b064d3",
+            "certificate_verified": true
+          }
+        ],
+        "finite_density_band_scan_totals": {
+          "raw_binary_words": 1893010,
+          "primitive_necklaces": 90272,
+          "divisibility_hits": 0,
+          "maximum_height_h": 22,
+          "regression_only": true
+        },
+        "unbounded_primitive_band_family_rows": [
+          {
+            "multiplier_m": 1,
+            "height_h": 3,
+            "one_count_k": 1,
+            "density_k_over_h": "1/3",
+            "primitive": true,
+            "density_floor_integer_inequality": true,
+            "positive_denominator_integer_inequality": true,
+            "certificate_verified": true
+          },
+          {
+            "multiplier_m": 2,
+            "height_h": 6,
+            "one_count_k": 2,
+            "density_k_over_h": "1/3",
+            "primitive": true,
+            "density_floor_integer_inequality": true,
+            "positive_denominator_integer_inequality": true,
+            "certificate_verified": true
+          },
+          {
+            "multiplier_m": 3,
+            "height_h": 9,
+            "one_count_k": 3,
+            "density_k_over_h": "1/3",
+            "primitive": true,
+            "density_floor_integer_inequality": true,
+            "positive_denominator_integer_inequality": true,
+            "certificate_verified": true
+          },
+          {
+            "multiplier_m": 5,
+            "height_h": 15,
+            "one_count_k": 5,
+            "density_k_over_h": "1/3",
+            "primitive": true,
+            "density_floor_integer_inequality": true,
+            "positive_denominator_integer_inequality": true,
+            "certificate_verified": true
+          },
+          {
+            "multiplier_m": 11,
+            "height_h": 33,
+            "one_count_k": 11,
+            "density_k_over_h": "1/3",
+            "primitive": true,
+            "density_floor_integer_inequality": true,
+            "positive_denominator_integer_inequality": true,
+            "certificate_verified": true
+          },
+          {
+            "multiplier_m": 31,
+            "height_h": 93,
+            "one_count_k": 31,
+            "density_k_over_h": "1/3",
+            "primitive": true,
+            "density_floor_integer_inequality": true,
+            "positive_denominator_integer_inequality": true,
+            "certificate_verified": true
+          }
+        ],
+        "prime_weight_primitive_necklace_growth_rows": [
+          {
+            "prime_one_count_k": 2,
+            "height_3k": 6,
+            "primitive_necklaces_exact": 2,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 3,
+            "height_3k": 9,
+            "primitive_necklaces_exact": 9,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 5,
+            "height_3k": 15,
+            "primitive_necklaces_exact": 200,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 7,
+            "height_3k": 21,
+            "primitive_necklaces_exact": 5537,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 11,
+            "height_3k": 33,
+            "primitive_necklaces_exact": 5864749,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 13,
+            "height_3k": 39,
+            "primitive_necklaces_exact": 208267319,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 17,
+            "height_3k": 51,
+            "primitive_necklaces_exact": 289628805622,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          },
+          {
+            "prime_one_count_k": 19,
+            "height_3k": 57,
+            "primitive_necklaces_exact": 11175157356521,
+            "formula": "(binom(3k,k)-3)/(3k)",
+            "mobius_formula_verified": true
+          }
+        ],
+        "aggregate": {
+          "ticket232_four_one_successor_already_closed": true,
+          "ticket232_one_through_three_result_already_subsumed": true,
+          "arbitrary_tail_multiplicity_one_through_seven_closed": true,
+          "binary_multiplicity_four_through_eleven_already_closed": true,
+          "binary_exactly_twelve_positive_cycle_stratum_excluded": true,
+          "binary_remaining_multiplicity_lower_bound_k": 13,
+          "general_remaining_multiplicity_lower_bound_k": 8,
+          "binary_cycle_density_band_proved": true,
+          "finite_fixed_multiplicity_ladder_noncofinal": true,
+          "all_unbounded_multiplicities_excluded": false,
+          "aperiodic_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "This corrects a proof-DAG regression, closes the first genuinely open binary fixed stratum k=12, and proves that iterating fixed-k enumeration cannot be cofinal. The height-22 density scan is only a regression audit. The k=12 computation is exhaustive only because independent scalar gates prove that h=29,...,45 is the entire finite decision range. Uniform k>=13 binary necklaces, valuations at least three, and aperiodic descent remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "This corrects a proof-DAG regression, closes the first genuinely open binary fixed stratum k=12, and proves that iterating fixed-k enumeration cannot be cofinal. The height-22 density scan is only a regression audit. The k=12 computation is exhaustive only because independent scalar gates prove that h=29,...,45 is the entire finite decision range. Uniform k>=13 binary necklaces, valuations at least three, and aperiodic descent remain open.",
+      "route_decision": {
+        "discard": "reopening already-closed k<=11 binary layers or iterating a finite fixed-multiplicity ladder as a cofinal proof",
+        "retain": "attack primitive binary necklaces uniformly across the unbounded admissible density band from k=13 onward",
+        "next_single_lemma": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T182",
+            "label": "AcceleratedCycleIffAffineDivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T188",
+            "label": "BinaryFourOneCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T209",
+            "label": "ArbitraryTailFourOneCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T195",
+            "label": "BinaryElevenOneCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T214",
+            "label": "ArbitraryTailSevenOneExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N232",
+            "label": "TreatBinaryFourOneAsNewOpenTarget",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-T233",
+            "label": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N233",
+            "label": "FiniteFixedMultiplicityLadderIsCofinal",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN233",
+            "label": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWordsIncludingValuesAtLeastThree",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO-APERIODIC",
+            "label": "AperiodicDescentOrTermination",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T182",
+            "CO-N232"
+          ],
+          [
+            "CO-T182",
+            "CO-T233"
+          ],
+          [
+            "CO-T188",
+            "CO-N232"
+          ],
+          [
+            "CO-T209",
+            "CO-N232"
+          ],
+          [
+            "CO-T195",
+            "CO-T233"
+          ],
+          [
+            "CO-T214",
+            "CO-T233"
+          ],
+          [
+            "CO-N232",
+            "CO-T233"
+          ],
+          [
+            "CO-T233",
+            "CO-N233"
+          ],
+          [
+            "CO-T233",
+            "CO-OPEN233"
+          ],
+          [
+            "CO-OPEN233",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ],
+          [
+            "CO-APERIODIC",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-233",
+      "theorem_name": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+      "declared_proposition": "For every odd squarefree q and nonnegative residue masses with mean mu and maximum relative discrepancy epsilon, the reduced rational shell satisfies T_q(N)=mu^2 c_q(N)+R_q(N), with |R_q(N)|<=mu^2(2 phi(q)^2 epsilon+phi(q)^3 epsilon^2). Siegel-Walfisz therefore gives, for log-prime weights, uniformly for q<=(log X)^B and every N, T_(q,X)(N)=mu^2 c_q(N)+o_B(mu^2). For prime l the correction also obeys the exact Parseval identity. Without any q-X-N coupling, actual primes with l>2X+1 give a sparse cutoff family whose relative shell correction is l(l-2).",
+      "mathematical_argument": "For a unit a and squarefree q, c_q(a)=Mobius(q). Writing the residue Fourier sum as mu*Mobius(q)+D_a gives |D_a|<=phi(q)epsilon mu; squaring and summing over phi(q) unit frequencies proves the bound. Siegel-Walfisz makes epsilon=O_B(q exp(-c_B sqrt(log X))), so the bound is o_B(mu^2) throughout the polylogarithmic squarefree range. Squarefree Ramanujan sums never vanish. Fourier Parseval gives sum_n|R_l(n)|^2=l sum_(a!=0)|S(a/l)^2-mu^2|^2. Finally, if l>2X+1 and N=l+2X+1, no pair p_1,p_2<=X reaches the target residue; the TICKET-232 identity gives T=-W^2 and the exact divergent ratio.",
+      "reproducible_computation": {
+        "theorem": "For every odd squarefree q and nonnegative residue masses with mean mu and maximum relative discrepancy epsilon, the reduced rational shell satisfies T_q(N)=mu^2 c_q(N)+R_q(N), with |R_q(N)|<=mu^2(2 phi(q)^2 epsilon+phi(q)^3 epsilon^2). Siegel-Walfisz therefore gives, for log-prime weights, uniformly for q<=(log X)^B and every N, T_(q,X)(N)=mu^2 c_q(N)+o_B(mu^2). For prime l the correction also obeys the exact Parseval identity. Without any q-X-N coupling, actual primes with l>2X+1 give a sparse cutoff family whose relative shell correction is l(l-2).",
+        "proof": "For a unit a and squarefree q, c_q(a)=Mobius(q). Writing the residue Fourier sum as mu*Mobius(q)+D_a gives |D_a|<=phi(q)epsilon mu; squaring and summing over phi(q) unit frequencies proves the bound. Siegel-Walfisz makes epsilon=O_B(q exp(-c_B sqrt(log X))), so the bound is o_B(mu^2) throughout the polylogarithmic squarefree range. Squarefree Ramanujan sums never vanish. Fourier Parseval gives sum_n|R_l(n)|^2=l sum_(a!=0)|S(a/l)^2-mu^2|^2. Finally, if l>2X+1 and N=l+2X+1, no pair p_1,p_2<=X reaches the target residue; the TICKET-232 identity gives T=-W^2 and the exact divergent ratio.",
+        "squarefree_indicator_algebra_rows": [
+          {
+            "prime_limit_X": 1000,
+            "odd_squarefree_modulus_q": 15,
+            "target_N": 666,
+            "phi_q": 8,
+            "prime_indicator_total_W": 166,
+            "maximum_relative_residue_discrepancy_epsilon": {
+              "exact": "13/83",
+              "float": 0.1566265060240964
+            },
+            "exact_shell_T": -569,
+            "uniform_ramanujan_base": {
+              "exact": "-6889/8",
+              "float": -861.125
+            },
+            "exact_correction": {
+              "exact": "2337/8",
+              "float": 292.125
+            },
+            "deterministic_error_bound": {
+              "exact": "14040",
+              "float": 14040.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_limit_X": 3000,
+            "odd_squarefree_modulus_q": 21,
+            "target_N": 2000,
+            "phi_q": 12,
+            "prime_indicator_total_W": 428,
+            "maximum_relative_residue_discrepancy_epsilon": {
+              "exact": "11/107",
+              "float": 0.102803738317757
+            },
+            "exact_shell_T": 9,
+            "uniform_ramanujan_base": {
+              "exact": "11449/9",
+              "float": 1272.111111111111
+            },
+            "exact_correction": {
+              "exact": "-11368/9",
+              "float": -1263.111111111111
+            },
+            "deterministic_error_bound": {
+              "exact": "60896",
+              "float": 60896.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_limit_X": 10000,
+            "odd_squarefree_modulus_q": 35,
+            "target_N": 6666,
+            "phi_q": 24,
+            "prime_indicator_total_W": 1227,
+            "maximum_relative_residue_discrepancy_epsilon": {
+              "exact": "41/409",
+              "float": 0.10024449877750612
+            },
+            "exact_shell_T": 9301,
+            "uniform_ramanujan_base": {
+              "exact": "167281/64",
+              "float": 2613.765625
+            },
+            "exact_correction": {
+              "exact": "427983/64",
+              "float": 6687.234375
+            },
+            "deterministic_error_bound": {
+              "exact": "664938",
+              "float": 664938.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_limit_X": 30000,
+            "odd_squarefree_modulus_q": 105,
+            "target_N": 20000,
+            "phi_q": 48,
+            "prime_indicator_total_W": 3242,
+            "maximum_relative_residue_discrepancy_epsilon": {
+              "exact": "205/1621",
+              "float": 0.12646514497223935
+            },
+            "exact_shell_T": -6097,
+            "uniform_ramanujan_base": {
+              "exact": "2627641/144",
+              "float": 18247.506944444445
+            },
+            "exact_correction": {
+              "exact": "-3505609/144",
+              "float": -24344.506944444445
+            },
+            "deterministic_error_bound": {
+              "exact": "10727240",
+              "float": 10727240.0
+            },
+            "certificate_verified": true
+          }
+        ],
+        "prime_modulus_parseval_rows": [
+          {
+            "prime_limit_X": 100,
+            "prime_modulus_l": 5,
+            "prime_indicator_total_W": 24,
+            "target_correction_energy_exact": "14900",
+            "target_correction_energy_float": 14900.0,
+            "spectral_energy_float": 2979.999999999997,
+            "parseval_scaled_spectral_energy_float": 14899.999999999984,
+            "absolute_parseval_error": 1.6370904631912708e-11,
+            "parseval_identity_verified": true
+          },
+          {
+            "prime_limit_X": 300,
+            "prime_modulus_l": 7,
+            "prime_indicator_total_W": 61,
+            "target_correction_energy_exact": "31035571/216",
+            "target_correction_energy_float": 143683.19907407407,
+            "spectral_energy_float": 20526.17129629622,
+            "parseval_scaled_spectral_energy_float": 143683.19907407352,
+            "absolute_parseval_error": 5.529727786779404e-10,
+            "parseval_identity_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "prime_modulus_l": 11,
+            "prime_indicator_total_W": 167,
+            "target_correction_energy_exact": "1716267751/1000",
+            "target_correction_energy_float": 1716267.751,
+            "spectral_energy_float": 156024.34099999818,
+            "parseval_scaled_spectral_energy_float": 1716267.75099998,
+            "absolute_parseval_error": 2.0023435354232788e-08,
+            "parseval_identity_verified": true
+          },
+          {
+            "prime_limit_X": 3000,
+            "prime_modulus_l": 13,
+            "prime_indicator_total_W": 429,
+            "target_correction_energy_exact": "2123614623/64",
+            "target_correction_energy_float": 33181478.484375,
+            "spectral_energy_float": 2552421.4218749385,
+            "parseval_scaled_spectral_energy_float": 33181478.484374203,
+            "absolute_parseval_error": 7.972121238708496e-07,
+            "parseval_identity_verified": true
+          }
+        ],
+        "actual_prime_sparse_denominator_no_go_rows": [
+          {
+            "prime_limit_X": 10,
+            "sparse_prime_modulus_l": 23,
+            "even_target_N": 44,
+            "target_residue_n": 21,
+            "prime_count_W": 4,
+            "congruent_pair_count": 0,
+            "exact_shell_T": -16,
+            "uniform_singular_base": "-4/121",
+            "correction_to_mu_squared_ratio": "483",
+            "expected_ratio_l_times_l_minus_2": 483,
+            "certificate_verified": true
+          },
+          {
+            "prime_limit_X": 100,
+            "sparse_prime_modulus_l": 211,
+            "even_target_N": 412,
+            "target_residue_n": 201,
+            "prime_count_W": 25,
+            "congruent_pair_count": 0,
+            "exact_shell_T": -625,
+            "uniform_singular_base": "-25/1764",
+            "correction_to_mu_squared_ratio": "44099",
+            "expected_ratio_l_times_l_minus_2": 44099,
+            "certificate_verified": true
+          },
+          {
+            "prime_limit_X": 1000,
+            "sparse_prime_modulus_l": 2003,
+            "even_target_N": 4004,
+            "target_residue_n": 2001,
+            "prime_count_W": 168,
+            "congruent_pair_count": 0,
+            "exact_shell_T": -28224,
+            "uniform_singular_base": "-144/20449",
+            "correction_to_mu_squared_ratio": "4008003",
+            "expected_ratio_l_times_l_minus_2": 4008003,
+            "certificate_verified": true
+          },
+          {
+            "prime_limit_X": 10000,
+            "sparse_prime_modulus_l": 20011,
+            "even_target_N": 40012,
+            "target_residue_n": 20001,
+            "prime_count_W": 1229,
+            "congruent_pair_count": 0,
+            "exact_shell_T": -1510441,
+            "uniform_singular_base": "-1510441/400400100",
+            "correction_to_mu_squared_ratio": "400400099",
+            "expected_ratio_l_times_l_minus_2": 400400099,
+            "certificate_verified": true
+          }
+        ],
+        "siegel_walfisz_input": {
+          "weight": "omega_p=log(p) for p<=X and gcd(p,q)=1",
+          "range": "odd squarefree q<=(log X)^B for fixed B",
+          "relative_discrepancy": "epsilon=O_B(q exp(-c_B sqrt(log X)))",
+          "consequence": "uniform_N |R_q(N)|/mu^2=o_B(1)",
+          "effective_starting_point_provided": false
+        },
+        "aggregate": {
+          "squarefree_shell_deterministic_error_bound_proved": true,
+          "polylogarithmic_squarefree_prime_shell_asymptotic_proved": true,
+          "prime_shell_parseval_identity_proved": true,
+          "unrestricted_growing_denominator_actual_prime_asymptotic_refuted": true,
+          "energy_o_mu4_implies_uniform_target_control": false,
+          "minor_arc_negative_mass_controlled": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The sparse family refutes only an uncoupled denominator-cutoff-target claim and uses X<N/2, so it is not a Goldbach counterexample. Siegel-Walfisz is ineffective and treats rational centers only. Arc neighborhoods, minor arcs, and an every-even-target positive lower bound remain open. Finite rows audit algebra, not asymptotics.",
+        "failure_count": 0
+      },
+      "logical_limit": "The sparse family refutes only an uncoupled denominator-cutoff-target claim and uses X<N/2, so it is not a Goldbach counterexample. Siegel-Walfisz is ineffective and treats rational centers only. Arc neighborhoods, minor arcs, and an every-even-target positive lower bound remain open. Finite rows audit algebra, not asymptotics.",
+      "route_decision": {
+        "discard": "uncoupled all-growing-denominator asymptotics, O(1/l) generic classwise inference, and RMS-to-maximum promotion",
+        "retain": "use the now-controlled polylogarithmic rational centers as the positive major-arc margin and bound target-aligned minor-arc negative mass",
+        "next_single_lemma": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T232",
+            "label": "PrimeWeightedRationalShellAutocorrelationIdentity",
+            "status": "closed"
+          },
+          {
+            "id": "GB-SW",
+            "label": "SiegelWalfiszThetaInProgressions",
+            "status": "established_external_theorem"
+          },
+          {
+            "id": "GB-T233",
+            "label": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N233",
+            "label": "UnrestrictedGrowingDenominatorPrimeShellAsymptotic",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN233",
+            "label": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T232",
+            "GB-T233"
+          ],
+          [
+            "GB-SW",
+            "GB-T233"
+          ],
+          [
+            "GB-T233",
+            "GB-N233"
+          ],
+          [
+            "GB-T233",
+            "GB-OPEN233"
+          ],
+          [
+            "GB-OPEN233",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-233",
+      "theorem_name": "CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo",
+      "declared_proposition": "For normalized centered quadratic CRT signs and any probability measure, product damping x_S=product_(l in S)x_l satisfies D_x=sum_(S nonempty)x_S b_S^2<=product_l(1+c_l x_l)-1, where c_l=(l-1)/(l-3)<=2. Every signed aggregate is bounded in square by [product(1+x_l)-1][product(1+c_l x_l)-1]. Thus sum x_l=o(1) forces universal saving. At critical damping x_l=tau/m, however, a nonnegative even product-tilt mixture has every singleton and odd coefficient zero while its signed aggregate tends to cosh(tau/2)-1. If the full-mode multiplier stays at least eta>0, the entropy is at least m eta^(1/m) and the coefficient norm at least 2^m sqrt(eta)-1.",
+      "mathematical_argument": "The two squared values of psi_l are (l-3)/(l-1) and (l-1)/(l-3). Jensen bounds b_S^2 by E_nu psi_S^2; expanding the product gives the energy cap, and Cauchy gives the signed cap. For q=1/2, the density one-half times product(1+q psi_l) plus one-half times product(1-q psi_l) is nonnegative and normalized. Its b_S is q^|S| in even degree and zero in odd degree, proving the critical counterfamily. AM-GM gives the entropy lower bound under full-mode retention, while 1+x>=2 sqrt(x) gives the exponential norm lower bound.",
+      "reproducible_computation": {
+        "theorem": "For normalized centered quadratic CRT signs and any probability measure, product damping x_S=product_(l in S)x_l satisfies D_x=sum_(S nonempty)x_S b_S^2<=product_l(1+c_l x_l)-1, where c_l=(l-1)/(l-3)<=2. Every signed aggregate is bounded in square by [product(1+x_l)-1][product(1+c_l x_l)-1]. Thus sum x_l=o(1) forces universal saving. At critical damping x_l=tau/m, however, a nonnegative even product-tilt mixture has every singleton and odd coefficient zero while its signed aggregate tends to cosh(tau/2)-1. If the full-mode multiplier stays at least eta>0, the entropy is at least m eta^(1/m) and the coefficient norm at least 2^m sqrt(eta)-1.",
+        "proof": "The two squared values of psi_l are (l-3)/(l-1) and (l-1)/(l-3). Jensen bounds b_S^2 by E_nu psi_S^2; expanding the product gives the energy cap, and Cauchy gives the signed cap. For q=1/2, the density one-half times product(1+q psi_l) plus one-half times product(1-q psi_l) is nonnegative and normalized. Its b_S is q^|S| in even degree and zero in odd degree, proving the critical counterfamily. AM-GM gives the entropy lower bound under full-mode retention, while 1+x>=2 sqrt(x) gives the exponential norm lower bound.",
+        "critical_entropy_exact_rows": [
+          {
+            "active_prime_count_m": 4,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "critical_product_damping_x": "1/4",
+            "coefficient_norm_R": {
+              "exact": "369/256",
+              "float": 1.44140625
+            },
+            "universal_energy_cap": {
+              "exact": "6449/2560",
+              "float": 2.519140625
+            },
+            "even_mixture_damped_energy": {
+              "exact": "1537/65536",
+              "float": 0.0234527587890625
+            },
+            "signed_cauchy_bound_squared": {
+              "exact": "567153/16777216",
+              "float": 0.03380495309829712
+            },
+            "centered_even_mixture_signed_aggregate": {
+              "exact": "385/4096",
+              "float": 0.093994140625
+            },
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 8,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29
+            ],
+            "critical_product_damping_x": "1/8",
+            "coefficient_norm_R": {
+              "exact": "26269505/16777216",
+              "float": 1.565784513950348
+            },
+            "universal_energy_cap": {
+              "exact": "48668363/20971520",
+              "float": 2.3206883907318114
+            },
+            "even_mixture_damped_energy": {
+              "exact": "30138200065/1099511627776",
+              "float": 0.02741053328009002
+            },
+            "signed_cauchy_bound_squared": {
+              "exact": "791715597298517825/18446744073709551616",
+              "float": 0.04291898852908559
+            },
+            "centered_even_mixture_signed_aggregate": {
+              "exact": "474356737/4294967296",
+              "float": 0.11044478439725935
+            },
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 16,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29,
+              31,
+              37,
+              41,
+              43,
+              47,
+              53,
+              59,
+              61
+            ],
+            "critical_product_damping_x": "1/16",
+            "coefficient_norm_R": {
+              "exact": "30214447801957316865/18446744073709551616",
+              "float": 1.6379284973666
+            },
+            "universal_energy_cap": {
+              "exact": "129061699794853008056743/61464551253600225984512",
+              "float": 2.099774539349514
+            },
+            "even_mixture_damped_energy": {
+              "exact": "2329741516877452947726237697/79228162514264337593543950336",
+              "float": 0.02940547203095873
+            },
+            "signed_cauchy_bound_squared": {
+              "exact": "70391853453746663448105458379227245047336859905/1461501637330902918203684832716283019655932542976",
+              "float": 0.048164060618023814
+            },
+            "centered_even_mixture_signed_aggregate": {
+              "exact": "143778341990242896175105/1208925819614629174706176",
+              "float": 0.11893065699934782
+            },
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 32,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29,
+              31,
+              37,
+              41,
+              43,
+              47,
+              53,
+              59,
+              61,
+              67,
+              71,
+              73,
+              79,
+              83,
+              89,
+              97,
+              101,
+              103,
+              107,
+              109,
+              113,
+              127,
+              131,
+              137,
+              139
+            ],
+            "critical_product_damping_x": "1/32",
+            "coefficient_norm_R": {
+              "exact": "2450923819873976713299831225909915026990648771585/1461501637330902918203684832716283019655932542976",
+              "float": 1.6769901293781826
+            },
+            "universal_energy_cap": {
+              "exact": "442751100614858393606551442379671172847416839679805639970953/228091542700356498212500294729931993423693554404203488608256",
+              "float": 1.9411114299687113
+            },
+            "even_mixture_damped_energy": {
+              "exact": "819787412563423708815861613853964055712997409587127986524948004865/26959946667150639794667015087019630673637144422540572481103610249216",
+              "float": 0.030407605129363777
+            },
+            "signed_cauchy_bound_squared": {
+              "exact": "2009236496684550124562869336354025353693336037459898741937004876056816653511608958354930064999498775465508853761025/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+              "float": 0.050993253659972454
+            },
+            "centered_even_mixture_signed_aggregate": {
+              "exact": "773655031568056265409807315804900269846307482176105414657/6277101735386680763835789423207666416102355444464034512896",
+              "float": 0.12325035727979924
+            },
+            "certificate_verified": true
+          }
+        ],
+        "full_parity_retention_no_go_rows": [
+          {
+            "active_prime_count_m": 4,
+            "required_full_mode_multiplier_eta": 0.25,
+            "entropy_sum_lower_bound": 2.8284271247461903,
+            "coefficient_norm_lower_bound": 7.0,
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 8,
+            "required_full_mode_multiplier_eta": 0.25,
+            "entropy_sum_lower_bound": 6.727171322029716,
+            "coefficient_norm_lower_bound": 127.0,
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 16,
+            "required_full_mode_multiplier_eta": 0.25,
+            "entropy_sum_lower_bound": 14.67206469127474,
+            "coefficient_norm_lower_bound": 32767.0,
+            "certificate_verified": true
+          },
+          {
+            "active_prime_count_m": 32,
+            "required_full_mode_multiplier_eta": 0.25,
+            "entropy_sum_lower_bound": 30.64330498235436,
+            "coefficient_norm_lower_bound": 2147483647.0,
+            "certificate_verified": true
+          }
+        ],
+        "aggregate": {
+          "damped_energy_product_cap_proved": true,
+          "signed_product_damping_large_sieve_bound_proved": true,
+          "vanishing_entropy_universal_signed_saving_proved": true,
+          "critical_entropy_plus_centered_marginals_saving_refuted": true,
+          "bounded_entropy_product_damping_full_parity_retention_refuted": true,
+          "prime_weighted_critical_noise_decay_proved": false,
+          "positive_twin_main_term_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The counterfamily is a nonnegative CRT probability model, not actual prime weights. The theorem closes only product damping based on entropy and local centering. Nonproduct kernels, genuine prime-weighted Type-II cancellation, a parity-retaining transfer, and positive twin principal mass remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "The counterfamily is a nonnegative CRT probability model, not actual prime weights. The theorem closes only product damping based on entropy and local centering. Nonproduct kernels, genuine prime-weighted Type-II cancellation, a parity-retaining transfer, and positive twin principal mass remain open.",
+      "route_decision": {
+        "discard": "critical product-entropy damping plus centered marginals as a universal signed saving, or bounded product entropy with full-parity retention",
+        "retain": "prove critical-noise decay for the actual prime-weighted Type-II pushforward before a separate parity-retaining transfer",
+        "next_single_lemma": "PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T232",
+            "label": "TICKET232Input",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T233",
+            "label": "CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N233",
+            "label": "CriticalEntropyPlusCenteredMarginalsImpliesSignedSaving",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN233",
+            "label": "PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T232",
+            "TP-T233"
+          ],
+          [
+            "TP-T233",
+            "TP-N233"
+          ],
+          [
+            "TP-T233",
+            "TP-OPEN233"
+          ],
+          [
+            "TP-OPEN233",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_theorem_count": 4,
+      "refuted_or_corrected_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "lineage_regression_correction_count": 1,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "ticket_id": "RH-TICKET-233",
+      "problem_id": "riemann",
+      "status": "open_not_proven",
+      "declared_proposition": "For every integer T>=2, every prime P>T, and M=ceil(8 log(2T)), there exist residues r_1,...,r_M modulo P such that M^(-1) sum_j |1-exp(-2*pi*i*n*r_j/P)|^2>=1 for every 1<=n<=T. Replacing residue zero by the real phase one and taking q_j=exp(2*pi*alpha_j)>1 gives a height-adaptive scalar dilation frame with a uniform unit floor and O(log T) coordinates.",
+      "mathematical_argument": "Choose the residues independently and uniformly modulo P. For each fixed 1<=n<=T, multiplication by n permutes the residues because P>T. Thus X_j=|1-exp(-2*pi*i*n*r_j/P)|^2 lies in [0,4] and has mean 2. Hoeffding gives P(M^(-1)sum X_j<1)<=exp(-M/8). A union bound over T frequencies is at most T exp(-M/8)<=1/2, so a common frame exists. Rational representatives give q_j>1. Together with TICKET-232, the scalar effective-dimension threshold is Theta(log T).",
+      "new_result": "LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold",
+      "discarded_route": "superlogarithmic effective dimension as a necessary scalar-frame condition",
+      "remaining_gap": "The construction refutes any superlogarithmic dimension necessity for the scalar phase-energy problem. It does not transfer the floor to the signed Guinand-Weil quadratic form or dominate its arithmetic tail. The seeded rows witness the construction but the existence theorem comes from Hoeffding and the union bound.",
+      "candidate_theorem": "LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance",
+      "claim_boundary": "The construction refutes any superlogarithmic dimension necessity for the scalar phase-energy problem. It does not transfer the floor to the signed Guinand-Weil quadratic form or dominate its arithmetic tail. The seeded rows witness the construction but the existence theorem comes from Hoeffding and the union bound.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T232",
+            "label": "TICKET232Input",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T233",
+            "label": "LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N233",
+            "label": "SuperlogarithmicScalarEffectiveDimensionNecessity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN233",
+            "label": "LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T232",
+            "RH-T233"
+          ],
+          [
+            "RH-T233",
+            "RH-N233"
+          ],
+          [
+            "RH-T233",
+            "RH-OPEN233"
+          ],
+          [
+            "RH-OPEN233",
+            "RH"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/logarithmic_frame_density_shell_entropy_audit/riemann",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "CO-TICKET-233",
+      "problem_id": "collatz",
+      "status": "open_not_proven",
+      "declared_proposition": "The CO-OPEN232 target BinaryFourOneCriticalStripNondivisibility was already closed by TICKET-188 and is a special case of the stronger TICKET-209 arbitrary-tail four-one exclusion; binary multiplicities four through eleven were already closed by TICKETS 188-195. The first open binary stratum, exactly twelve valuation ones and all other valuations two, is now excluded as a positive cycle: contraction starts at h=29, the product bound excludes h>=46, and an exact 5+6 meet-in-the-middle residue computation excludes every h=29,...,45, representing 28,729,599,990 first-one-normalized words without a hit. Thus a hypothetical binary cycle is primitive, has k>=13, and obeys log2(6/5)<=k/h<2-log2(3); a general valuation cycle has k>=8. The primitive words 1^m 2^(2m) show that every finite fixed-k ladder is noncofinal, and for prime k the h=3k slice has exactly (binom(3k,k)-3)/(3k) primitive necklaces.",
+      "mathematical_argument": "TICKET-182 proves that D>0 and D|B are equivalent to realization of the corresponding positive accelerated cycle. The prior machine artifacts close every arbitrary-tail multiplicity k<=7 and every binary multiplicity k<=11, so TICKET-232's successor was not open. For k=12, normalize a one to p_0=0. Telescoping the prefix-one step function gives B=C_h+sum_(i=1)^11 E_(i,h)(p_i). Split the eleven free positions into 5+6 boundary terms, activate left residues precisely when p_5<p_6, and match the complementary right residue modulo D. Vandermonde's identity gives complete coverage C(h-1,11). The scalar gates leave exactly h=29,...,45, and the exact MITM finds no residue zero. TICKET-211 also gives 6^h<=5^h 2^k for every positive integer cycle. For a binary word, S=2h-k and D>0 is exactly 2^(2h-k)>3^h, giving the upper density edge. A nontrivial repeated cycle reduces to a primitive root. The word 1^m2^(2m) has one cyclic run of each symbol and is primitive; 216<250 and 27<32 prove both band inequalities after taking the m-th power. The weighted primitive-necklace formula is Mobius inversion; for prime k and h=3k it reduces to the displayed count.",
+      "new_result": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+      "discarded_route": "reopening already-closed k<=11 binary layers or iterating a finite fixed-multiplicity ladder as a cofinal proof",
+      "remaining_gap": "This corrects a proof-DAG regression, closes the first genuinely open binary fixed stratum k=12, and proves that iterating fixed-k enumeration cannot be cofinal. The height-22 density scan is only a regression audit. The k=12 computation is exhaustive only because independent scalar gates prove that h=29,...,45 is the entire finite decision range. Uniform k>=13 binary necklaces, valuations at least three, and aperiodic descent remain open.",
+      "candidate_theorem": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility",
+      "claim_boundary": "This corrects a proof-DAG regression, closes the first genuinely open binary fixed stratum k=12, and proves that iterating fixed-k enumeration cannot be cofinal. The height-22 density scan is only a regression audit. The k=12 computation is exhaustive only because independent scalar gates prove that h=29,...,45 is the entire finite decision range. Uniform k>=13 binary necklaces, valuations at least three, and aperiodic descent remain open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T182",
+            "label": "AcceleratedCycleIffAffineDivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T188",
+            "label": "BinaryFourOneCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T209",
+            "label": "ArbitraryTailFourOneCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T195",
+            "label": "BinaryElevenOneCycleExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T214",
+            "label": "ArbitraryTailSevenOneExclusion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N232",
+            "label": "TreatBinaryFourOneAsNewOpenTarget",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-T233",
+            "label": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N233",
+            "label": "FiniteFixedMultiplicityLadderIsCofinal",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN233",
+            "label": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWordsIncludingValuesAtLeastThree",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO-APERIODIC",
+            "label": "AperiodicDescentOrTermination",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T182",
+            "CO-N232"
+          ],
+          [
+            "CO-T182",
+            "CO-T233"
+          ],
+          [
+            "CO-T188",
+            "CO-N232"
+          ],
+          [
+            "CO-T209",
+            "CO-N232"
+          ],
+          [
+            "CO-T195",
+            "CO-T233"
+          ],
+          [
+            "CO-T214",
+            "CO-T233"
+          ],
+          [
+            "CO-N232",
+            "CO-T233"
+          ],
+          [
+            "CO-T233",
+            "CO-N233"
+          ],
+          [
+            "CO-T233",
+            "CO-OPEN233"
+          ],
+          [
+            "CO-OPEN233",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ],
+          [
+            "CO-APERIODIC",
+            "CO"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/logarithmic_frame_density_shell_entropy_audit/collatz",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "GB-TICKET-233",
+      "problem_id": "goldbach",
+      "status": "open_not_proven",
+      "declared_proposition": "For every odd squarefree q and nonnegative residue masses with mean mu and maximum relative discrepancy epsilon, the reduced rational shell satisfies T_q(N)=mu^2 c_q(N)+R_q(N), with |R_q(N)|<=mu^2(2 phi(q)^2 epsilon+phi(q)^3 epsilon^2). Siegel-Walfisz therefore gives, for log-prime weights, uniformly for q<=(log X)^B and every N, T_(q,X)(N)=mu^2 c_q(N)+o_B(mu^2). For prime l the correction also obeys the exact Parseval identity. Without any q-X-N coupling, actual primes with l>2X+1 give a sparse cutoff family whose relative shell correction is l(l-2).",
+      "mathematical_argument": "For a unit a and squarefree q, c_q(a)=Mobius(q). Writing the residue Fourier sum as mu*Mobius(q)+D_a gives |D_a|<=phi(q)epsilon mu; squaring and summing over phi(q) unit frequencies proves the bound. Siegel-Walfisz makes epsilon=O_B(q exp(-c_B sqrt(log X))), so the bound is o_B(mu^2) throughout the polylogarithmic squarefree range. Squarefree Ramanujan sums never vanish. Fourier Parseval gives sum_n|R_l(n)|^2=l sum_(a!=0)|S(a/l)^2-mu^2|^2. Finally, if l>2X+1 and N=l+2X+1, no pair p_1,p_2<=X reaches the target residue; the TICKET-232 identity gives T=-W^2 and the exact divergent ratio.",
+      "new_result": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+      "discarded_route": "uncoupled all-growing-denominator asymptotics, O(1/l) generic classwise inference, and RMS-to-maximum promotion",
+      "remaining_gap": "The sparse family refutes only an uncoupled denominator-cutoff-target claim and uses X<N/2, so it is not a Goldbach counterexample. Siegel-Walfisz is ineffective and treats rational centers only. Arc neighborhoods, minor arcs, and an every-even-target positive lower bound remain open. Finite rows audit algebra, not asymptotics.",
+      "candidate_theorem": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin",
+      "claim_boundary": "The sparse family refutes only an uncoupled denominator-cutoff-target claim and uses X<N/2, so it is not a Goldbach counterexample. Siegel-Walfisz is ineffective and treats rational centers only. Arc neighborhoods, minor arcs, and an every-even-target positive lower bound remain open. Finite rows audit algebra, not asymptotics.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T232",
+            "label": "PrimeWeightedRationalShellAutocorrelationIdentity",
+            "status": "closed"
+          },
+          {
+            "id": "GB-SW",
+            "label": "SiegelWalfiszThetaInProgressions",
+            "status": "established_external_theorem"
+          },
+          {
+            "id": "GB-T233",
+            "label": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N233",
+            "label": "UnrestrictedGrowingDenominatorPrimeShellAsymptotic",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN233",
+            "label": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T232",
+            "GB-T233"
+          ],
+          [
+            "GB-SW",
+            "GB-T233"
+          ],
+          [
+            "GB-T233",
+            "GB-N233"
+          ],
+          [
+            "GB-T233",
+            "GB-OPEN233"
+          ],
+          [
+            "GB-OPEN233",
+            "GB"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/logarithmic_frame_density_shell_entropy_audit/goldbach",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "TP-TICKET-233",
+      "problem_id": "twin-prime",
+      "status": "open_not_proven",
+      "declared_proposition": "For normalized centered quadratic CRT signs and any probability measure, product damping x_S=product_(l in S)x_l satisfies D_x=sum_(S nonempty)x_S b_S^2<=product_l(1+c_l x_l)-1, where c_l=(l-1)/(l-3)<=2. Every signed aggregate is bounded in square by [product(1+x_l)-1][product(1+c_l x_l)-1]. Thus sum x_l=o(1) forces universal saving. At critical damping x_l=tau/m, however, a nonnegative even product-tilt mixture has every singleton and odd coefficient zero while its signed aggregate tends to cosh(tau/2)-1. If the full-mode multiplier stays at least eta>0, the entropy is at least m eta^(1/m) and the coefficient norm at least 2^m sqrt(eta)-1.",
+      "mathematical_argument": "The two squared values of psi_l are (l-3)/(l-1) and (l-1)/(l-3). Jensen bounds b_S^2 by E_nu psi_S^2; expanding the product gives the energy cap, and Cauchy gives the signed cap. For q=1/2, the density one-half times product(1+q psi_l) plus one-half times product(1-q psi_l) is nonnegative and normalized. Its b_S is q^|S| in even degree and zero in odd degree, proving the critical counterfamily. AM-GM gives the entropy lower bound under full-mode retention, while 1+x>=2 sqrt(x) gives the exponential norm lower bound.",
+      "new_result": "CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo",
+      "discarded_route": "critical product-entropy damping plus centered marginals as a universal signed saving, or bounded product entropy with full-parity retention",
+      "remaining_gap": "The counterfamily is a nonnegative CRT probability model, not actual prime weights. The theorem closes only product damping based on entropy and local centering. Nonproduct kernels, genuine prime-weighted Type-II cancellation, a parity-retaining transfer, and positive twin principal mass remain open.",
+      "candidate_theorem": "PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale",
+      "claim_boundary": "The counterfamily is a nonnegative CRT probability model, not actual prime weights. The theorem closes only product damping based on entropy and local centering. Nonproduct kernels, genuine prime-weighted Type-II cancellation, a parity-retaining transfer, and positive twin principal mass remain open.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T232",
+            "label": "TICKET232Input",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T233",
+            "label": "CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N233",
+            "label": "CriticalEntropyPlusCenteredMarginalsImpliesSignedSaving",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN233",
+            "label": "PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T232",
+            "TP-T233"
+          ],
+          [
+            "TP-T233",
+            "TP-N233"
+          ],
+          [
+            "TP-T233",
+            "TP-OPEN233"
+          ],
+          [
+            "TP-OPEN233",
+            "TP"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/logarithmic_frame_density_shell_entropy_audit/twin_prime",
+        "failure_count": 0
+      }
+    }
+  ]
+}

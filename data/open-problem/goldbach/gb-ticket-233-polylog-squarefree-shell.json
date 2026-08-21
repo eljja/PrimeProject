@@ -1,0 +1,296 @@
+{
+  "schema": "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1",
+  "generated_at": "2026-08-21T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-233",
+  "theorem_name": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+  "declared_proposition": "For every odd squarefree q and nonnegative residue masses with mean mu and maximum relative discrepancy epsilon, the reduced rational shell satisfies T_q(N)=mu^2 c_q(N)+R_q(N), with |R_q(N)|<=mu^2(2 phi(q)^2 epsilon+phi(q)^3 epsilon^2). Siegel-Walfisz therefore gives, for log-prime weights, uniformly for q<=(log X)^B and every N, T_(q,X)(N)=mu^2 c_q(N)+o_B(mu^2). For prime l the correction also obeys the exact Parseval identity. Without any q-X-N coupling, actual primes with l>2X+1 give a sparse cutoff family whose relative shell correction is l(l-2).",
+  "mathematical_argument": "For a unit a and squarefree q, c_q(a)=Mobius(q). Writing the residue Fourier sum as mu*Mobius(q)+D_a gives |D_a|<=phi(q)epsilon mu; squaring and summing over phi(q) unit frequencies proves the bound. Siegel-Walfisz makes epsilon=O_B(q exp(-c_B sqrt(log X))), so the bound is o_B(mu^2) throughout the polylogarithmic squarefree range. Squarefree Ramanujan sums never vanish. Fourier Parseval gives sum_n|R_l(n)|^2=l sum_(a!=0)|S(a/l)^2-mu^2|^2. Finally, if l>2X+1 and N=l+2X+1, no pair p_1,p_2<=X reaches the target residue; the TICKET-232 identity gives T=-W^2 and the exact divergent ratio.",
+  "reproducible_computation": {
+    "theorem": "For every odd squarefree q and nonnegative residue masses with mean mu and maximum relative discrepancy epsilon, the reduced rational shell satisfies T_q(N)=mu^2 c_q(N)+R_q(N), with |R_q(N)|<=mu^2(2 phi(q)^2 epsilon+phi(q)^3 epsilon^2). Siegel-Walfisz therefore gives, for log-prime weights, uniformly for q<=(log X)^B and every N, T_(q,X)(N)=mu^2 c_q(N)+o_B(mu^2). For prime l the correction also obeys the exact Parseval identity. Without any q-X-N coupling, actual primes with l>2X+1 give a sparse cutoff family whose relative shell correction is l(l-2).",
+    "proof": "For a unit a and squarefree q, c_q(a)=Mobius(q). Writing the residue Fourier sum as mu*Mobius(q)+D_a gives |D_a|<=phi(q)epsilon mu; squaring and summing over phi(q) unit frequencies proves the bound. Siegel-Walfisz makes epsilon=O_B(q exp(-c_B sqrt(log X))), so the bound is o_B(mu^2) throughout the polylogarithmic squarefree range. Squarefree Ramanujan sums never vanish. Fourier Parseval gives sum_n|R_l(n)|^2=l sum_(a!=0)|S(a/l)^2-mu^2|^2. Finally, if l>2X+1 and N=l+2X+1, no pair p_1,p_2<=X reaches the target residue; the TICKET-232 identity gives T=-W^2 and the exact divergent ratio.",
+    "squarefree_indicator_algebra_rows": [
+      {
+        "prime_limit_X": 1000,
+        "odd_squarefree_modulus_q": 15,
+        "target_N": 666,
+        "phi_q": 8,
+        "prime_indicator_total_W": 166,
+        "maximum_relative_residue_discrepancy_epsilon": {
+          "exact": "13/83",
+          "float": 0.1566265060240964
+        },
+        "exact_shell_T": -569,
+        "uniform_ramanujan_base": {
+          "exact": "-6889/8",
+          "float": -861.125
+        },
+        "exact_correction": {
+          "exact": "2337/8",
+          "float": 292.125
+        },
+        "deterministic_error_bound": {
+          "exact": "14040",
+          "float": 14040.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 3000,
+        "odd_squarefree_modulus_q": 21,
+        "target_N": 2000,
+        "phi_q": 12,
+        "prime_indicator_total_W": 428,
+        "maximum_relative_residue_discrepancy_epsilon": {
+          "exact": "11/107",
+          "float": 0.102803738317757
+        },
+        "exact_shell_T": 9,
+        "uniform_ramanujan_base": {
+          "exact": "11449/9",
+          "float": 1272.111111111111
+        },
+        "exact_correction": {
+          "exact": "-11368/9",
+          "float": -1263.111111111111
+        },
+        "deterministic_error_bound": {
+          "exact": "60896",
+          "float": 60896.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "odd_squarefree_modulus_q": 35,
+        "target_N": 6666,
+        "phi_q": 24,
+        "prime_indicator_total_W": 1227,
+        "maximum_relative_residue_discrepancy_epsilon": {
+          "exact": "41/409",
+          "float": 0.10024449877750612
+        },
+        "exact_shell_T": 9301,
+        "uniform_ramanujan_base": {
+          "exact": "167281/64",
+          "float": 2613.765625
+        },
+        "exact_correction": {
+          "exact": "427983/64",
+          "float": 6687.234375
+        },
+        "deterministic_error_bound": {
+          "exact": "664938",
+          "float": 664938.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 30000,
+        "odd_squarefree_modulus_q": 105,
+        "target_N": 20000,
+        "phi_q": 48,
+        "prime_indicator_total_W": 3242,
+        "maximum_relative_residue_discrepancy_epsilon": {
+          "exact": "205/1621",
+          "float": 0.12646514497223935
+        },
+        "exact_shell_T": -6097,
+        "uniform_ramanujan_base": {
+          "exact": "2627641/144",
+          "float": 18247.506944444445
+        },
+        "exact_correction": {
+          "exact": "-3505609/144",
+          "float": -24344.506944444445
+        },
+        "deterministic_error_bound": {
+          "exact": "10727240",
+          "float": 10727240.0
+        },
+        "certificate_verified": true
+      }
+    ],
+    "prime_modulus_parseval_rows": [
+      {
+        "prime_limit_X": 100,
+        "prime_modulus_l": 5,
+        "prime_indicator_total_W": 24,
+        "target_correction_energy_exact": "14900",
+        "target_correction_energy_float": 14900.0,
+        "spectral_energy_float": 2979.999999999997,
+        "parseval_scaled_spectral_energy_float": 14899.999999999984,
+        "absolute_parseval_error": 1.6370904631912708e-11,
+        "parseval_identity_verified": true
+      },
+      {
+        "prime_limit_X": 300,
+        "prime_modulus_l": 7,
+        "prime_indicator_total_W": 61,
+        "target_correction_energy_exact": "31035571/216",
+        "target_correction_energy_float": 143683.19907407407,
+        "spectral_energy_float": 20526.17129629622,
+        "parseval_scaled_spectral_energy_float": 143683.19907407352,
+        "absolute_parseval_error": 5.529727786779404e-10,
+        "parseval_identity_verified": true
+      },
+      {
+        "prime_limit_X": 1000,
+        "prime_modulus_l": 11,
+        "prime_indicator_total_W": 167,
+        "target_correction_energy_exact": "1716267751/1000",
+        "target_correction_energy_float": 1716267.751,
+        "spectral_energy_float": 156024.34099999818,
+        "parseval_scaled_spectral_energy_float": 1716267.75099998,
+        "absolute_parseval_error": 2.0023435354232788e-08,
+        "parseval_identity_verified": true
+      },
+      {
+        "prime_limit_X": 3000,
+        "prime_modulus_l": 13,
+        "prime_indicator_total_W": 429,
+        "target_correction_energy_exact": "2123614623/64",
+        "target_correction_energy_float": 33181478.484375,
+        "spectral_energy_float": 2552421.4218749385,
+        "parseval_scaled_spectral_energy_float": 33181478.484374203,
+        "absolute_parseval_error": 7.972121238708496e-07,
+        "parseval_identity_verified": true
+      }
+    ],
+    "actual_prime_sparse_denominator_no_go_rows": [
+      {
+        "prime_limit_X": 10,
+        "sparse_prime_modulus_l": 23,
+        "even_target_N": 44,
+        "target_residue_n": 21,
+        "prime_count_W": 4,
+        "congruent_pair_count": 0,
+        "exact_shell_T": -16,
+        "uniform_singular_base": "-4/121",
+        "correction_to_mu_squared_ratio": "483",
+        "expected_ratio_l_times_l_minus_2": 483,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100,
+        "sparse_prime_modulus_l": 211,
+        "even_target_N": 412,
+        "target_residue_n": 201,
+        "prime_count_W": 25,
+        "congruent_pair_count": 0,
+        "exact_shell_T": -625,
+        "uniform_singular_base": "-25/1764",
+        "correction_to_mu_squared_ratio": "44099",
+        "expected_ratio_l_times_l_minus_2": 44099,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 1000,
+        "sparse_prime_modulus_l": 2003,
+        "even_target_N": 4004,
+        "target_residue_n": 2001,
+        "prime_count_W": 168,
+        "congruent_pair_count": 0,
+        "exact_shell_T": -28224,
+        "uniform_singular_base": "-144/20449",
+        "correction_to_mu_squared_ratio": "4008003",
+        "expected_ratio_l_times_l_minus_2": 4008003,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "sparse_prime_modulus_l": 20011,
+        "even_target_N": 40012,
+        "target_residue_n": 20001,
+        "prime_count_W": 1229,
+        "congruent_pair_count": 0,
+        "exact_shell_T": -1510441,
+        "uniform_singular_base": "-1510441/400400100",
+        "correction_to_mu_squared_ratio": "400400099",
+        "expected_ratio_l_times_l_minus_2": 400400099,
+        "certificate_verified": true
+      }
+    ],
+    "siegel_walfisz_input": {
+      "weight": "omega_p=log(p) for p<=X and gcd(p,q)=1",
+      "range": "odd squarefree q<=(log X)^B for fixed B",
+      "relative_discrepancy": "epsilon=O_B(q exp(-c_B sqrt(log X)))",
+      "consequence": "uniform_N |R_q(N)|/mu^2=o_B(1)",
+      "effective_starting_point_provided": false
+    },
+    "aggregate": {
+      "squarefree_shell_deterministic_error_bound_proved": true,
+      "polylogarithmic_squarefree_prime_shell_asymptotic_proved": true,
+      "prime_shell_parseval_identity_proved": true,
+      "unrestricted_growing_denominator_actual_prime_asymptotic_refuted": true,
+      "energy_o_mu4_implies_uniform_target_control": false,
+      "minor_arc_negative_mass_controlled": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The sparse family refutes only an uncoupled denominator-cutoff-target claim and uses X<N/2, so it is not a Goldbach counterexample. Siegel-Walfisz is ineffective and treats rational centers only. Arc neighborhoods, minor arcs, and an every-even-target positive lower bound remain open. Finite rows audit algebra, not asymptotics.",
+    "failure_count": 0
+  },
+  "logical_limit": "The sparse family refutes only an uncoupled denominator-cutoff-target claim and uses X<N/2, so it is not a Goldbach counterexample. Siegel-Walfisz is ineffective and treats rational centers only. Arc neighborhoods, minor arcs, and an every-even-target positive lower bound remain open. Finite rows audit algebra, not asymptotics.",
+  "route_decision": {
+    "discard": "uncoupled all-growing-denominator asymptotics, O(1/l) generic classwise inference, and RMS-to-maximum promotion",
+    "retain": "use the now-controlled polylogarithmic rational centers as the positive major-arc margin and bound target-aligned minor-arc negative mass",
+    "next_single_lemma": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T232",
+        "label": "PrimeWeightedRationalShellAutocorrelationIdentity",
+        "status": "closed"
+      },
+      {
+        "id": "GB-SW",
+        "label": "SiegelWalfiszThetaInProgressions",
+        "status": "established_external_theorem"
+      },
+      {
+        "id": "GB-T233",
+        "label": "PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N233",
+        "label": "UnrestrictedGrowingDenominatorPrimeShellAsymptotic",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN233",
+        "label": "UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T232",
+        "GB-T233"
+      ],
+      [
+        "GB-SW",
+        "GB-T233"
+      ],
+      [
+        "GB-T233",
+        "GB-N233"
+      ],
+      [
+        "GB-T233",
+        "GB-OPEN233"
+      ],
+      [
+        "GB-OPEN233",
+        "GB"
+      ]
+    ]
+  }
+}

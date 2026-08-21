@@ -39,6 +39,7 @@ let ticket154AttemptGlobal = null;
 let ticket155AttemptGlobal = null;
 let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
+let ticket233AttemptGlobal = null;
 let ticket232AttemptGlobal = null;
 let ticket231AttemptGlobal = null;
 let ticket230AttemptGlobal = null;
@@ -10028,6 +10029,74 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket233LogarithmicFrameDensityShellEntropy(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.logarithmic_frame_density_shell_entropy_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = {
+    riemann: audit.riemann || {},
+    collatz: audit.collatz || {},
+    goldbach: audit.goldbach || {},
+    "twin-prime": audit.twin_prime || {},
+  };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.deterministic_seeded_frame_rows || [];
+    detail = `
+      <div class="poc-equation">M=⌈8 log(2T)⌉ ⇒ ∃ r<sub>1</sub>,…,r<sub>M</sub>: min<sub>1≤n≤T</sub> M<sup>−1</sup>Σ<sub>j</sub>|1−e<sup>−2πinrⱼ/P</sup>|²≥1</div>
+      ${table(["horizon T", "prime P", "dimension M", "minimum energy", "union failure bound"], rows.map((row) => [formatter.format(row.frequency_horizon_T || 0), row.prime_phase_modulus_P, row.frame_dimension_M, Number(row.minimum_normalized_energy).toFixed(6), Number(row.hoeffding_union_failure_bound).toFixed(6)]))}
+      <div class="poc-head"><div><span>Scalar threshold</span><strong>${aggregate.ticket232_logarithmic_lower_bound_sharp_for_scalar_energy ? "Θ(log T)" : "open"}</strong></div><div><span>Superlog necessity</span><strong>${aggregate.superlogarithmic_scalar_dimension_necessity_refuted ? "refuted" : "open"}</strong></div><div><span>Weil transfer</span><strong>${aggregate.actual_weil_quadratic_form_transfer_proved ? "proved" : "open"}</strong></div></div>
+    `;
+  } else if (problemKey === "collatz") {
+    const totals = computation.twelve_one_finite_horizon_totals || {};
+    const rows = computation.twelve_one_finite_horizon_rows || [];
+    detail = `
+      <div class="poc-equation">#1=12, all other valuations 2: h=29,…,45 exact 5+6 MITM + h≥46 product exclusion ⇒ no positive cycle</div>
+      ${table(["h", "left tuples", "right tuples", "represented words", "D|B hits"], rows.map((row) => [row.horizon_h, formatter.format(row.left_tuple_count || 0), formatter.format(row.right_tuple_count || 0), formatter.format(row.represented_normalized_word_count || 0), row.divisibility_hit_count]))}
+      <div class="poc-head"><div><span>k=12 represented</span><strong>${formatter.format(totals.represented_normalized_words || 0)}</strong></div><div><span>Binary remaining k</span><strong>≥${aggregate.binary_remaining_multiplicity_lower_bound_k ?? "?"}</strong></div><div><span>General remaining k</span><strong>≥${aggregate.general_remaining_multiplicity_lower_bound_k ?? "?"}</strong></div></div>
+      <p class="proof-note">T232의 four-one successor는 T188/T209에서 이미 닫힌 계보 오류였습니다. 이번 새 closure는 첫 열린 binary fixed stratum k=12입니다.</p>
+    `;
+  } else if (problemKey === "goldbach") {
+    const shellRows = computation.squarefree_indicator_algebra_rows || [];
+    const sparseRows = computation.actual_prime_sparse_denominator_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">T<sub>q</sub>(N)=μ²c<sub>q</sub>(N)+R<sub>q</sub>(N), |R<sub>q</sub>|≤μ²(2φ(q)²ε+φ(q)³ε²); q≤(log X)<sup>B</sup> ⇒ R=o<sub>B</sub>(μ²)</div>
+      ${table(["X", "squarefree q", "target N", "exact correction", "error bound"], shellRows.map((row) => [formatter.format(row.prime_limit_X || 0), row.odd_squarefree_modulus_q, formatter.format(row.target_N || 0), row.exact_correction?.exact, row.deterministic_error_bound?.exact]))}
+      ${table(["X", "sparse prime l", "even N", "|R|/μ²", "certificate"], sparseRows.map((row) => [formatter.format(row.prime_limit_X || 0), row.sparse_prime_modulus_l, formatter.format(row.even_target_N || 0), row.correction_to_mu_squared_ratio, row.certificate_verified ? "exact" : "failed"]))}
+      <div class="poc-head"><div><span>Polylog squarefree shell</span><strong>${aggregate.polylogarithmic_squarefree_prime_shell_asymptotic_proved ? "proved" : "open"}</strong></div><div><span>Unrestricted growth</span><strong>${aggregate.unrestricted_growing_denominator_actual_prime_asymptotic_refuted ? "refuted" : "open"}</strong></div><div><span>Minor arcs</span><strong>${aggregate.minor_arc_negative_mass_controlled ? "controlled" : "open"}</strong></div></div>
+    `;
+  } else {
+    const rows = computation.critical_entropy_exact_rows || [];
+    const parityRows = computation.full_parity_retention_no_go_rows || [];
+    detail = `
+      <div class="poc-equation">Σ<sub>S≠∅</sub>x<sub>S</sub>b<sub>S</sub>²≤∏<sub>ℓ</sub>(1+c<sub>ℓ</sub>x<sub>ℓ</sub>)−1; critical entropy + centered marginals does not force signed saving</div>
+      ${table(["m", "x=1/m", "energy cap", "centered signed aggregate"], rows.map((row) => [row.active_prime_count_m, row.critical_product_damping_x, Number(row.universal_energy_cap?.float).toFixed(6), Number(row.centered_even_mixture_signed_aggregate?.float).toFixed(6)]))}
+      ${table(["m", "full multiplier eta", "entropy lower", "coefficient norm lower"], parityRows.map((row) => [row.active_prime_count_m, row.required_full_mode_multiplier_eta, Number(row.entropy_sum_lower_bound).toFixed(4), formatter.format(row.coefficient_norm_lower_bound || 0)]))}
+      <div class="poc-head"><div><span>Damped large sieve</span><strong>${aggregate.signed_product_damping_large_sieve_bound_proved ? "proved" : "open"}</strong></div><div><span>Critical centering route</span><strong>${aggregate.critical_entropy_plus_centered_marginals_saving_refuted ? "refuted" : "open"}</strong></div><div><span>Positive twin main</span><strong>${aggregate.positive_twin_main_term_proved ? "proved" : "open"}</strong></div></div>
+    `;
+  }
+  return `
+    <div id="ticket233-logarithmic-frame-density-shell-entropy" class="poc-ticket17 poc-ticket128">
+      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <h3>Ticket 233 logarithmic frames, Collatz twelve-one closure, squarefree Goldbach shells, and CRT entropy</h3>
+      <div class="poc-head"><div><span>Status</span><strong>four exact partial/asymptotic/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
+      <div class="ticket161-audit-table">${table(["TICKET233 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
+      ${detail}
+      <h3>Proof DAG / 증명 의존성</h3>
+      ${table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status]))}
+      ${table(["from", "to"], (dag.edges || []).map((edge) => edge))}
+      <div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>${escapeHtml(section.route_decision?.discard || attempt.discarded_route || "")}</strong></section><section><span>KEEP / 유지</span><strong>${escapeHtml(section.route_decision?.retain || "")}</strong></section></div>
+      <div class="poc-bridge"><section><h3>Established / 확립</h3><p>${escapeHtml(section.mathematical_argument || computation.proof || "")}</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>${escapeHtml(section.logical_limit || attempt.remaining_gap || "")}</p><p><strong>Next:</strong> ${escapeHtml(attempt.candidate_theorem || "")}</p></section></div>
+      <p class="proof-boundary">${escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.")}</p>
+      <p><a href="../docs/logarithmic-frame-density-shell-entropy.ko.md">한국어 보고서</a> · <a href="../docs/logarithmic-frame-density-shell-entropy.md">English report</a> · <a href="../data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json">machine JSON</a></p>
+    </div>
+  `;
+}
+
 function renderTicket232EffectiveDimensionBinaryDefectRationalShellCRTSparsity(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.effective_dimension_binary_defect_rational_shell_crt_sparsity_audit || {};
@@ -10079,7 +10148,7 @@ function renderTicket232EffectiveDimensionBinaryDefectRationalShellCRTSparsity(a
   }
   return `
     <div id="ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity" class="poc-ticket17 poc-ticket128">
-      <div class="poc-latest-label">LATEST / 최신 연구 경계</div>
+      <div class="poc-latest-label">PREVIOUS / 이전 연구 경계</div>
       <h3>Ticket 232 effective dimension, binary Collatz defects, rational Goldbach shells, and CRT sparsity</h3>
       <div class="poc-head"><div><span>Status</span><strong>four exact partial/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>${audit.machine_audit?.next_single_lemma_count ?? 0}</strong></div><div><span>Resolution count</span><strong>${audit.machine_audit?.conjecture_resolution_count ?? 0}</strong></div></div>
       <div class="ticket161-audit-table">${table(["TICKET232 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]])}</div>
@@ -17639,7 +17708,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket232EffectiveDimensionBinaryDefectRationalShellCRTSparsity(ticket232AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket233LogarithmicFrameDensityShellEntropy(ticket233AttemptGlobal) ||
+      renderTicket232EffectiveDimensionBinaryDefectRationalShellCRTSparsity(ticket232AttemptGlobal) ||
       renderTicket231SummableFrameCriticalStripGaussCRT(ticket231AttemptGlobal) ||
       renderTicket230QuantitativeRecurrenceNecklaceFourierCentering(ticket230AttemptGlobal) ||
       renderTicket229BandFrameSemilinearCharacterBarriers(ticket229AttemptGlobal) ||
@@ -18191,6 +18261,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket233Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket233AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket233AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket233AttemptGlobal) {
+      ticket233AttemptGlobal.bounded_result = ticket233AttemptGlobal.bounded_result || {};
+      ticket233AttemptGlobal.bounded_result.logarithmic_frame_density_shell_entropy_audit = payload.logarithmic_frame_density_shell_entropy_audit || {};
+    }
+    return Boolean(ticket233AttemptGlobal);
+  } catch (error) {
+    ticket233AttemptGlobal = null;
     return false;
   }
 }
@@ -20024,6 +20114,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket233Loaded = await loadTicket233Attempt();
   const ticket232Loaded = await loadTicket232Attempt();
   const ticket231Loaded = await loadTicket231Attempt();
   const ticket230Loaded = await loadTicket230Attempt();
@@ -20038,7 +20129,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket232-current";
+  document.documentElement.dataset.openProblemCache = "ticket233-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20091,8 +20182,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket233AttemptGlobal) await loadTicket233Attempt();
     if (!ticket232AttemptGlobal) await loadTicket232Attempt();
     if (!ticket231AttemptGlobal) await loadTicket231Attempt();
     if (!ticket230AttemptGlobal) await loadTicket230Attempt();
@@ -20203,7 +20295,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket232-current";
+  document.documentElement.dataset.openProblemCache = "ticket233-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

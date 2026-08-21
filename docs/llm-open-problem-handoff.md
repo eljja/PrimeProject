@@ -62,32 +62,32 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-232
+## Current continuation: TICKET-233
 
 The current machine-readable boundary is
-`data/open-problem/ticket232-effective-dimension-binary-defect-rational-shell-crt-sparsity.json`.
-It records four exact structural or no-go theorems, zero machine failures, and
+`data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json`.
+It records four exact partial, asymptotic, or no-go theorems, zero machine failures, and
 zero parent-conjecture resolutions.
 
 | Problem | Newly closed lemma | Current single open lemma |
 |---|---|---|
-| Riemann | `AdaptiveFrameLogarithmicEffectiveDimensionNecessity` | `LogarithmicEffectiveDimensionAdaptiveWeilFrameWithExplicitTailDominance` |
-| Collatz | `BinaryAtMostThreeOneCriticalStripNondivisibility` | `BinaryFourOneCriticalStripNondivisibility` |
-| Goldbach | `PrimeWeightedRationalShellAutocorrelationIdentityAndGrowingEquidistributionNoGo` | `UniformGrowingDenominatorPrimeResidueAutocorrelationAtSingularCoefficientScale` |
-| Twin Prime | `GrowingCRTFullInteractionEnergyChiSquareSparsityNoGo` | `EntropyMatchedSignedCRTInteractionLargeSieveAtTwinScale` |
+| Riemann | `LogarithmicAdaptiveScalarFrameExistenceAndSharpDimensionThreshold` | `LogarithmicAdaptiveScalarFrameToWeilKernelTransferWithExplicitSignedTailDominance` |
+| Collatz | `BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo` | `UniformBinaryDensityBandPrimitiveNecklaceNondivisibility` |
+| Goldbach | `PolylogarithmicSquarefreePrimeShellAsymptoticAndSparseDenominatorNoGo` | `UniformTargetAlignedBinaryPrimeMinorArcNegativeMassBelowPolylogMajorArcMargin` |
+| Twin Prime | `CriticalEntropyDampedSignedCRTLargeSieveAndParityRetentionNoGo` | `PrimeWeightedCriticalNoiseCRTChiSquareDecayAtTwinScale` |
 
-The RH theorem turns adaptation into a quantitative logarithmic dimension
-requirement but supplies no Weil-positive frame. The Collatz theorem closes
-only the first three binary defect layers. The Goldbach identity treats actual
-prime weights at rational centers but not arc neighborhoods or the denominator
-aggregate. The Twin theorem refutes only full unweighted positive energy
-saving; it creates no positive twin mass.
+The RH theorem closes only the scalar threshold, not the signed Weil transfer.
+The Collatz theorem corrects the T232 lineage and closes binary `k=12`, but
+binary `k>=13`, valuations at least three, and aperiodic divergence remain.
+The Goldbach theorem controls polylog rational centers, not arc neighborhoods
+or targetwise minor arcs. The Twin theorem is a CRT probability-model result,
+not actual-prime decay or positive twin mass.
 
-Reports: [English](effective-dimension-binary-defect-rational-shell-crt-sparsity.md),
-[한국어](effective-dimension-binary-defect-rational-shell-crt-sparsity.ko.md).
+Reports: [English](logarithmic-frame-density-shell-entropy.md),
+[한국어](logarithmic-frame-density-shell-entropy.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-232 boundary.
+snapshots and must not override this TICKET-233 boundary.
 
 ## Historical continuation after TICKET-209
 

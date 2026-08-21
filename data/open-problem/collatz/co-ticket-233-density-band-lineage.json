@@ -1,0 +1,954 @@
+{
+  "schema": "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1",
+  "generated_at": "2026-08-21T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-233",
+  "theorem_name": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+  "declared_proposition": "The CO-OPEN232 target BinaryFourOneCriticalStripNondivisibility was already closed by TICKET-188 and is a special case of the stronger TICKET-209 arbitrary-tail four-one exclusion; binary multiplicities four through eleven were already closed by TICKETS 188-195. The first open binary stratum, exactly twelve valuation ones and all other valuations two, is now excluded as a positive cycle: contraction starts at h=29, the product bound excludes h>=46, and an exact 5+6 meet-in-the-middle residue computation excludes every h=29,...,45, representing 28,729,599,990 first-one-normalized words without a hit. Thus a hypothetical binary cycle is primitive, has k>=13, and obeys log2(6/5)<=k/h<2-log2(3); a general valuation cycle has k>=8. The primitive words 1^m 2^(2m) show that every finite fixed-k ladder is noncofinal, and for prime k the h=3k slice has exactly (binom(3k,k)-3)/(3k) primitive necklaces.",
+  "mathematical_argument": "TICKET-182 proves that D>0 and D|B are equivalent to realization of the corresponding positive accelerated cycle. The prior machine artifacts close every arbitrary-tail multiplicity k<=7 and every binary multiplicity k<=11, so TICKET-232's successor was not open. For k=12, normalize a one to p_0=0. Telescoping the prefix-one step function gives B=C_h+sum_(i=1)^11 E_(i,h)(p_i). Split the eleven free positions into 5+6 boundary terms, activate left residues precisely when p_5<p_6, and match the complementary right residue modulo D. Vandermonde's identity gives complete coverage C(h-1,11). The scalar gates leave exactly h=29,...,45, and the exact MITM finds no residue zero. TICKET-211 also gives 6^h<=5^h 2^k for every positive integer cycle. For a binary word, S=2h-k and D>0 is exactly 2^(2h-k)>3^h, giving the upper density edge. A nontrivial repeated cycle reduces to a primitive root. The word 1^m2^(2m) has one cyclic run of each symbol and is primitive; 216<250 and 27<32 prove both band inequalities after taking the m-th power. The weighted primitive-necklace formula is Mobius inversion; for prime k and h=3k it reduces to the displayed count.",
+  "reproducible_computation": {
+    "theorem": "The CO-OPEN232 target BinaryFourOneCriticalStripNondivisibility was already closed by TICKET-188 and is a special case of the stronger TICKET-209 arbitrary-tail four-one exclusion; binary multiplicities four through eleven were already closed by TICKETS 188-195. The first open binary stratum, exactly twelve valuation ones and all other valuations two, is now excluded as a positive cycle: contraction starts at h=29, the product bound excludes h>=46, and an exact 5+6 meet-in-the-middle residue computation excludes every h=29,...,45, representing 28,729,599,990 first-one-normalized words without a hit. Thus a hypothetical binary cycle is primitive, has k>=13, and obeys log2(6/5)<=k/h<2-log2(3); a general valuation cycle has k>=8. The primitive words 1^m 2^(2m) show that every finite fixed-k ladder is noncofinal, and for prime k the h=3k slice has exactly (binom(3k,k)-3)/(3k) primitive necklaces.",
+    "proof": "TICKET-182 proves that D>0 and D|B are equivalent to realization of the corresponding positive accelerated cycle. The prior machine artifacts close every arbitrary-tail multiplicity k<=7 and every binary multiplicity k<=11, so TICKET-232's successor was not open. For k=12, normalize a one to p_0=0. Telescoping the prefix-one step function gives B=C_h+sum_(i=1)^11 E_(i,h)(p_i). Split the eleven free positions into 5+6 boundary terms, activate left residues precisely when p_5<p_6, and match the complementary right residue modulo D. Vandermonde's identity gives complete coverage C(h-1,11). The scalar gates leave exactly h=29,...,45, and the exact MITM finds no residue zero. TICKET-211 also gives 6^h<=5^h 2^k for every positive integer cycle. For a binary word, S=2h-k and D>0 is exactly 2^(2h-k)>3^h, giving the upper density edge. A nontrivial repeated cycle reduces to a primitive root. The word 1^m2^(2m) has one cyclic run of each symbol and is primitive; 216<250 and 27<32 prove both band inequalities after taking the m-th power. The weighted primitive-necklace formula is Mobius inversion; for prime k and h=3k it reduces to the displayed count.",
+    "arbitrary_tail_closed_multiplicity_lineage_rows": [
+      {
+        "valuation_one_count_k": 1,
+        "source_ticket_id": "CO-TICKET-206",
+        "source_path": "data/open-problem/collatz/co-ticket-206-single-one-general.json",
+        "closure_flag": "single_one_arbitrary_ge_two_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": null,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 2,
+        "source_ticket_id": "CO-TICKET-207",
+        "source_path": "data/open-problem/collatz/co-ticket-207-two-one-general.json",
+        "closure_flag": "exactly_two_valuation_one_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": null,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 3,
+        "source_ticket_id": "CO-TICKET-208",
+        "source_path": "data/open-problem/collatz/co-ticket-208-three-one-exclusion.json",
+        "closure_flag": "exactly_three_valuation_one_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": 185,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 4,
+        "source_ticket_id": "CO-TICKET-209",
+        "source_path": "data/open-problem/collatz/co-ticket-209-four-one-exclusion.json",
+        "closure_flag": "exactly_four_valuation_one_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": 2292,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 5,
+        "source_ticket_id": "CO-TICKET-210",
+        "source_path": "data/open-problem/collatz/co-ticket-210-five-one-general.json",
+        "closure_flag": "exactly_five_valuation_one_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": 29758,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 6,
+        "source_ticket_id": "CO-TICKET-213",
+        "source_path": "data/open-problem/collatz/co-ticket-213-six-one-exclusion.json",
+        "closure_flag": "exactly_six_valuation_one_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": 376788,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 7,
+        "source_ticket_id": "CO-TICKET-214",
+        "source_path": "data/open-problem/collatz/co-ticket-214-seven-one-exclusion.json",
+        "closure_flag": "exactly_seven_valuation_one_cycle_stratum_excluded",
+        "stratum_closed": true,
+        "exact_words_enumerated": 4349349,
+        "source_failure_count": 0
+      }
+    ],
+    "binary_closed_multiplicity_lineage_rows": [
+      {
+        "valuation_one_count_k": 4,
+        "source_ticket_id": "CO-TICKET-188",
+        "source_path": "data/open-problem/collatz/co-ticket-188-four-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 4116,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 5,
+        "source_ticket_id": "CO-TICKET-189",
+        "source_path": "data/open-problem/collatz/co-ticket-189-five-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 72897,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 6,
+        "source_ticket_id": "CO-TICKET-190",
+        "source_path": "data/open-problem/collatz/co-ticket-190-six-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 238722,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 7,
+        "source_ticket_id": "CO-TICKET-191",
+        "source_path": "data/open-problem/collatz/co-ticket-191-seven-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 2195765,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 8,
+        "source_ticket_id": "CO-TICKET-192",
+        "source_path": "data/open-problem/collatz/co-ticket-192-eight-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 5777343,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 9,
+        "source_ticket_id": "CO-TICKET-193",
+        "source_path": "data/open-problem/collatz/co-ticket-193-nine-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 52157326,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 10,
+        "source_ticket_id": "CO-TICKET-194",
+        "source_path": "data/open-problem/collatz/co-ticket-194-ten-one-cycle-exclusion.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 470772500,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      },
+      {
+        "valuation_one_count_k": 11,
+        "source_ticket_id": "CO-TICKET-195",
+        "source_path": "data/open-problem/collatz/co-ticket-195-eleven-one-decidability.json",
+        "stratum_closed": true,
+        "finite_normalized_words_represented": 3151735808,
+        "divisibility_hits": 0,
+        "source_failure_count": 0
+      }
+    ],
+    "twelve_one_boundary_validation": {
+      "exact_formula": "B=C_h+sum_{i=1}^{11} E_{i,h}(p_i)",
+      "exhaustive_horizons": [
+        12,
+        18
+      ],
+      "exhaustive_normalized_words_checked": 18564,
+      "exhaustive_formula_mismatch_count": 0,
+      "exhaustive_transcript_sha256": "a15c665e17ab094921378395c1fbc67cf619a6d81f2b37eed8a434fe289bda4f",
+      "seeded_finite_horizon_range": [
+        29,
+        45
+      ],
+      "seeded_samples_checked": 2176,
+      "seeded_formula_mismatch_count": 0,
+      "seeded_transcript_sha256": "097107169b0bcbe8ab85fb324ef7e1777b40137b5f21e00009f912eaecb4ce8b"
+    },
+    "twelve_one_finite_horizon_rows": [
+      {
+        "horizon_h": 29,
+        "denominator_D": 1738366812781,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 98280,
+        "right_tuple_count": 100947,
+        "represented_normalized_word_count": 21474180,
+        "expected_normalized_word_count": 21474180,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "657fb3699f36c2080f1dc8e36dcd66675b8e5d153909ad25f4be86f56aeed564",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 30,
+        "denominator_D": 75583844616007,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 118755,
+        "right_tuple_count": 134596,
+        "represented_normalized_word_count": 34597290,
+        "expected_normalized_word_count": 34597290,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "69bbff3ca268d52d016dd81aeae6522a5a4956aad716b51ad3df18ff7750448f",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 31,
+        "denominator_D": 508226510558677,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 142506,
+        "right_tuple_count": 177100,
+        "represented_normalized_word_count": 54627300,
+        "expected_normalized_word_count": 54627300,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "21dc5f5f1fdfc641298403ca7ffc13916b63a5b321bc7e9ca10bcf4413e36932",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 32,
+        "denominator_D": 2650579438518655,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 169911,
+        "right_tuple_count": 230230,
+        "represented_normalized_word_count": 84672315,
+        "expected_normalized_word_count": 84672315,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "011e28d87b431e9121b657556c202b793ca8bb7cc6016bff9a504937333fe653",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 33,
+        "denominator_D": 12455337942926461,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 201376,
+        "right_tuple_count": 296010,
+        "represented_normalized_word_count": 129024480,
+        "expected_normalized_word_count": 129024480,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "bfadcd137436fe4f54286b07c5086c3db38127e736c4dce08eb2bb248e1f53ec",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 34,
+        "denominator_D": 55380412338261367,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 237336,
+        "right_tuple_count": 376740,
+        "represented_normalized_word_count": 193536720,
+        "expected_normalized_word_count": 193536720,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "e798af0ab2e76072c540c5b60545369d373505f4f58f7f0822851d6011455548",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 35,
+        "denominator_D": 238198831052712037,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 278256,
+        "right_tuple_count": 475020,
+        "represented_normalized_word_count": 286097760,
+        "expected_normalized_word_count": 286097760,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "585063f4fc06ed246466d0bd3e94f4a0fdc78382a98b01df5723acb3294972a5",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 36,
+        "denominator_D": 1002826869309847855,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 324632,
+        "right_tuple_count": 593775,
+        "represented_normalized_word_count": 417225900,
+        "expected_normalized_word_count": 417225900,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "1aa6cc6e1cbb1fb14ad733f50460932792b0ea9c48651f260eecdcf787fd9d13",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 37,
+        "denominator_D": 4161402112536390541,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 376992,
+        "right_tuple_count": 736281,
+        "represented_normalized_word_count": 600805296,
+        "expected_normalized_word_count": 600805296,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "cebb234a60ddf5300ccd1aca02d43839a9aaf47aec36ede81ad345e0de84f8e0",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 38,
+        "denominator_D": 17095892356036559527,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 435897,
+        "right_tuple_count": 906192,
+        "represented_normalized_word_count": 854992152,
+        "expected_normalized_word_count": 854992152,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "b1beed2006ae3dc6a6f398c7cce6958841bc0653b9c3a5bf10c83510a51e7c6e",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 39,
+        "denominator_D": 69734421141819230197,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 501942,
+        "right_tuple_count": 1107568,
+        "represented_normalized_word_count": 1203322288,
+        "expected_normalized_word_count": 1203322288,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "d9d6bffafd09dd36e69e768eb4fd9849b5ac56eb8dd6537915bc0c5597bd3a49",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 40,
+        "denominator_D": 282990239720295897055,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 575757,
+        "right_tuple_count": 1344904,
+        "represented_normalized_word_count": 1676056044,
+        "expected_normalized_word_count": 1676056044,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "887afd50a4f1166d1059e4169f1086499c873c01aef2a64f6b48830744256265",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 41,
+        "denominator_D": 1144118624340240517021,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 658008,
+        "right_tuple_count": 1623160,
+        "represented_normalized_word_count": 2311801440,
+        "expected_normalized_word_count": 2311801440,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "c064283357a7def8079bedf10bbf3dbc4ea20b1f21fabf08ca03a827c712f839",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 42,
+        "denominator_D": 4612947493738132854487,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 749398,
+        "right_tuple_count": 1947792,
+        "represented_normalized_word_count": 3159461968,
+        "expected_normalized_word_count": 3159461968,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "8b8b0df4486b9acaed7a7b2488eb57e605f57f800fd7875f178e94b0094ccc89",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 43,
+        "denominator_D": 18561208964084043777157,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 850668,
+        "right_tuple_count": 2324784,
+        "represented_normalized_word_count": 4280561376,
+        "expected_normalized_word_count": 4280561376,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "fd9c112ab6b0832de16ae6375d5950aaed27370d1f07405c27be40f253db010c",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 44,
+        "denominator_D": 74573092823730712186255,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 962598,
+        "right_tuple_count": 2760681,
+        "represented_normalized_word_count": 5752004349,
+        "expected_normalized_word_count": 5752004349,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "27f6399a662fb63598eb837c01b9ab15fd947d4859217f9326422a543c262b70",
+        "certificate_verified": true
+      },
+      {
+        "horizon_h": 45,
+        "denominator_D": 299277142197106459977901,
+        "split": "5+6 boundary terms",
+        "left_tuple_count": 1086008,
+        "right_tuple_count": 3262623,
+        "represented_normalized_word_count": 7669339132,
+        "expected_normalized_word_count": 7669339132,
+        "coverage_matches_binomial_count": true,
+        "divisibility_hit_count": 0,
+        "divisibility_hits": [],
+        "mitm_transcript_sha256": "1f894c3bda2f596c9ec39392af6b7cd62bbb0fac348190751617832a8016c82d",
+        "certificate_verified": true
+      }
+    ],
+    "twelve_one_finite_horizon_totals": {
+      "contracting_range_starts_at_h": 29,
+      "product_bound_analytic_exclusion_starts_at_h": 46,
+      "finite_exact_horizons": [
+        29,
+        45
+      ],
+      "left_tuple_count": 7768320,
+      "right_tuple_count": 18398403,
+      "represented_normalized_words": 28729599990,
+      "expected_normalized_words": 28729599990,
+      "divisibility_hits": 0,
+      "product_bound_at_h45": {
+        "exact": "28421709430404007434844970703125/25377352913586151394412809158656",
+        "float": 1.1199635173607099
+      },
+      "product_bound_at_h46": {
+        "exact": "142108547152020037174224853515625/152264117481516908366476854951936",
+        "float": 0.9333029311339249
+      }
+    },
+    "finite_density_band_scan_rows": [
+      {
+        "height_h": 3,
+        "admissible_one_counts_k": [
+          1
+        ],
+        "raw_binary_word_count": 3,
+        "primitive_necklace_count": 1,
+        "mobius_formula_primitive_count": 1,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "2ff3c974fab542a52c10f2c9158576813f5b80c268d67bb03692d88650ad707e",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 4,
+        "admissible_one_counts_k": [],
+        "raw_binary_word_count": 0,
+        "primitive_necklace_count": 0,
+        "mobius_formula_primitive_count": 0,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 5,
+        "admissible_one_counts_k": [
+          2
+        ],
+        "raw_binary_word_count": 10,
+        "primitive_necklace_count": 2,
+        "mobius_formula_primitive_count": 2,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "0a31b1bb6692cb2aded0949e163dc10ad53038c64455642e629a031381871638",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 6,
+        "admissible_one_counts_k": [
+          2
+        ],
+        "raw_binary_word_count": 15,
+        "primitive_necklace_count": 2,
+        "mobius_formula_primitive_count": 2,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "2785afbde2e84b03c9625ed3c41996bbd5c5f4b77408c4557f04b841f145aa30",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 7,
+        "admissible_one_counts_k": [
+          2
+        ],
+        "raw_binary_word_count": 21,
+        "primitive_necklace_count": 3,
+        "mobius_formula_primitive_count": 3,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "f20591dc1887456c7836cc9e48797efeaf3228fda6d48b0a8a8b98104ab96aeb",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 8,
+        "admissible_one_counts_k": [
+          3
+        ],
+        "raw_binary_word_count": 56,
+        "primitive_necklace_count": 7,
+        "mobius_formula_primitive_count": 7,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "b3ded8b83b2e967a2f5e7fc5a2bc87eaed17cd8d41def6acf5cc8a89690eb586",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 9,
+        "admissible_one_counts_k": [
+          3
+        ],
+        "raw_binary_word_count": 84,
+        "primitive_necklace_count": 9,
+        "mobius_formula_primitive_count": 9,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "83a2486d9f4d718ef97442ee72be60a861ad169eba5278d7e50880e8f128385c",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 10,
+        "admissible_one_counts_k": [
+          3,
+          4
+        ],
+        "raw_binary_word_count": 330,
+        "primitive_necklace_count": 32,
+        "mobius_formula_primitive_count": 32,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "5cd7c7c97e80c57f74e77a71942407c3f4f695d9173ddb9dbd9aa87af1836168",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 11,
+        "admissible_one_counts_k": [
+          3,
+          4
+        ],
+        "raw_binary_word_count": 495,
+        "primitive_necklace_count": 45,
+        "mobius_formula_primitive_count": 45,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "27298a4923dfa40c49c3a285b8493bbb3be8b68b77a796f97489edbbbef60426",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 12,
+        "admissible_one_counts_k": [
+          4
+        ],
+        "raw_binary_word_count": 495,
+        "primitive_necklace_count": 40,
+        "mobius_formula_primitive_count": 40,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "159ed95aeeffbeba397899da4d0dcfe0e6cccd346c9a3dd30ce4e07a190d7cf5",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 13,
+        "admissible_one_counts_k": [
+          4,
+          5
+        ],
+        "raw_binary_word_count": 2002,
+        "primitive_necklace_count": 154,
+        "mobius_formula_primitive_count": 154,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "021a3a8782c657962ba8ed5f21be4f05af8531d380360402c7d455d15e8efc24",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 14,
+        "admissible_one_counts_k": [
+          4,
+          5
+        ],
+        "raw_binary_word_count": 3003,
+        "primitive_necklace_count": 213,
+        "mobius_formula_primitive_count": 213,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "6fd4b5afba71e2f5c93e3266d5c45d8e97c2134ad1abcc2c4ee21db41233da28",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 15,
+        "admissible_one_counts_k": [
+          4,
+          5,
+          6
+        ],
+        "raw_binary_word_count": 9373,
+        "primitive_necklace_count": 624,
+        "mobius_formula_primitive_count": 624,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "c11ec1955aa79a416a10259b5dcc8da7e531d7c264b7be2548c120d85afaf9c8",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 16,
+        "admissible_one_counts_k": [
+          5,
+          6
+        ],
+        "raw_binary_word_count": 12376,
+        "primitive_necklace_count": 770,
+        "mobius_formula_primitive_count": 770,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "def409dde9cd2dba3a06be14821f6958af72e933912f237dce6f0514f8d34c63",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 17,
+        "admissible_one_counts_k": [
+          5,
+          6,
+          7
+        ],
+        "raw_binary_word_count": 38012,
+        "primitive_necklace_count": 2236,
+        "mobius_formula_primitive_count": 2236,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "f1be1899f8e7239982e468c40594f929e6c55063251e6e01199bf25835ef9d00",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 18,
+        "admissible_one_counts_k": [
+          5,
+          6,
+          7
+        ],
+        "raw_binary_word_count": 58956,
+        "primitive_necklace_count": 3270,
+        "mobius_formula_primitive_count": 3270,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "229bd12cddb722814836917d4db59b65f84beba0133d322f148e7d482b6d6e83",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 19,
+        "admissible_one_counts_k": [
+          5,
+          6,
+          7
+        ],
+        "raw_binary_word_count": 89148,
+        "primitive_necklace_count": 4692,
+        "mobius_formula_primitive_count": 4692,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "0f773aeafc1636a32232cde5d59ddeeb917418e62930b8ab90baae0caaf433c1",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 20,
+        "admissible_one_counts_k": [
+          6,
+          7,
+          8
+        ],
+        "raw_binary_word_count": 242250,
+        "primitive_necklace_count": 12096,
+        "mobius_formula_primitive_count": 12096,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "2a4d28eb90d847ce203f1b754342865a91008daa75e1a63f14c35b72e6ac6fd6",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 21,
+        "admissible_one_counts_k": [
+          6,
+          7,
+          8
+        ],
+        "raw_binary_word_count": 374034,
+        "primitive_necklace_count": 17810,
+        "mobius_formula_primitive_count": 17810,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "da320ec2c8b78dfad9b4d16189a8841244ac9f679b2e932e3c70671ce853203f",
+        "certificate_verified": true
+      },
+      {
+        "height_h": 22,
+        "admissible_one_counts_k": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "raw_binary_word_count": 1062347,
+        "primitive_necklace_count": 48266,
+        "mobius_formula_primitive_count": 48266,
+        "divisibility_hit_count": 0,
+        "transcript_sha256": "780d3ec34849e8b0f0a72aa7fb6b0f05d1b2faaa8b2f6d8cee22bd0c14b064d3",
+        "certificate_verified": true
+      }
+    ],
+    "finite_density_band_scan_totals": {
+      "raw_binary_words": 1893010,
+      "primitive_necklaces": 90272,
+      "divisibility_hits": 0,
+      "maximum_height_h": 22,
+      "regression_only": true
+    },
+    "unbounded_primitive_band_family_rows": [
+      {
+        "multiplier_m": 1,
+        "height_h": 3,
+        "one_count_k": 1,
+        "density_k_over_h": "1/3",
+        "primitive": true,
+        "density_floor_integer_inequality": true,
+        "positive_denominator_integer_inequality": true,
+        "certificate_verified": true
+      },
+      {
+        "multiplier_m": 2,
+        "height_h": 6,
+        "one_count_k": 2,
+        "density_k_over_h": "1/3",
+        "primitive": true,
+        "density_floor_integer_inequality": true,
+        "positive_denominator_integer_inequality": true,
+        "certificate_verified": true
+      },
+      {
+        "multiplier_m": 3,
+        "height_h": 9,
+        "one_count_k": 3,
+        "density_k_over_h": "1/3",
+        "primitive": true,
+        "density_floor_integer_inequality": true,
+        "positive_denominator_integer_inequality": true,
+        "certificate_verified": true
+      },
+      {
+        "multiplier_m": 5,
+        "height_h": 15,
+        "one_count_k": 5,
+        "density_k_over_h": "1/3",
+        "primitive": true,
+        "density_floor_integer_inequality": true,
+        "positive_denominator_integer_inequality": true,
+        "certificate_verified": true
+      },
+      {
+        "multiplier_m": 11,
+        "height_h": 33,
+        "one_count_k": 11,
+        "density_k_over_h": "1/3",
+        "primitive": true,
+        "density_floor_integer_inequality": true,
+        "positive_denominator_integer_inequality": true,
+        "certificate_verified": true
+      },
+      {
+        "multiplier_m": 31,
+        "height_h": 93,
+        "one_count_k": 31,
+        "density_k_over_h": "1/3",
+        "primitive": true,
+        "density_floor_integer_inequality": true,
+        "positive_denominator_integer_inequality": true,
+        "certificate_verified": true
+      }
+    ],
+    "prime_weight_primitive_necklace_growth_rows": [
+      {
+        "prime_one_count_k": 2,
+        "height_3k": 6,
+        "primitive_necklaces_exact": 2,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 3,
+        "height_3k": 9,
+        "primitive_necklaces_exact": 9,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 5,
+        "height_3k": 15,
+        "primitive_necklaces_exact": 200,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 7,
+        "height_3k": 21,
+        "primitive_necklaces_exact": 5537,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 11,
+        "height_3k": 33,
+        "primitive_necklaces_exact": 5864749,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 13,
+        "height_3k": 39,
+        "primitive_necklaces_exact": 208267319,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 17,
+        "height_3k": 51,
+        "primitive_necklaces_exact": 289628805622,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      },
+      {
+        "prime_one_count_k": 19,
+        "height_3k": 57,
+        "primitive_necklaces_exact": 11175157356521,
+        "formula": "(binom(3k,k)-3)/(3k)",
+        "mobius_formula_verified": true
+      }
+    ],
+    "aggregate": {
+      "ticket232_four_one_successor_already_closed": true,
+      "ticket232_one_through_three_result_already_subsumed": true,
+      "arbitrary_tail_multiplicity_one_through_seven_closed": true,
+      "binary_multiplicity_four_through_eleven_already_closed": true,
+      "binary_exactly_twelve_positive_cycle_stratum_excluded": true,
+      "binary_remaining_multiplicity_lower_bound_k": 13,
+      "general_remaining_multiplicity_lower_bound_k": 8,
+      "binary_cycle_density_band_proved": true,
+      "finite_fixed_multiplicity_ladder_noncofinal": true,
+      "all_unbounded_multiplicities_excluded": false,
+      "aperiodic_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "This corrects a proof-DAG regression, closes the first genuinely open binary fixed stratum k=12, and proves that iterating fixed-k enumeration cannot be cofinal. The height-22 density scan is only a regression audit. The k=12 computation is exhaustive only because independent scalar gates prove that h=29,...,45 is the entire finite decision range. Uniform k>=13 binary necklaces, valuations at least three, and aperiodic descent remain open.",
+    "failure_count": 0
+  },
+  "logical_limit": "This corrects a proof-DAG regression, closes the first genuinely open binary fixed stratum k=12, and proves that iterating fixed-k enumeration cannot be cofinal. The height-22 density scan is only a regression audit. The k=12 computation is exhaustive only because independent scalar gates prove that h=29,...,45 is the entire finite decision range. Uniform k>=13 binary necklaces, valuations at least three, and aperiodic descent remain open.",
+  "route_decision": {
+    "discard": "reopening already-closed k<=11 binary layers or iterating a finite fixed-multiplicity ladder as a cofinal proof",
+    "retain": "attack primitive binary necklaces uniformly across the unbounded admissible density band from k=13 onward",
+    "next_single_lemma": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T182",
+        "label": "AcceleratedCycleIffAffineDivisibility",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T188",
+        "label": "BinaryFourOneCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T209",
+        "label": "ArbitraryTailFourOneCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T195",
+        "label": "BinaryElevenOneCycleExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T214",
+        "label": "ArbitraryTailSevenOneExclusion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N232",
+        "label": "TreatBinaryFourOneAsNewOpenTarget",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-T233",
+        "label": "BinaryLineageCorrectionTwelveOneExclusionAndFixedStratumNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N233",
+        "label": "FiniteFixedMultiplicityLadderIsCofinal",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN233",
+        "label": "UniformBinaryDensityBandPrimitiveNecklaceNondivisibility",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO-PERIODIC",
+        "label": "AllPeriodicValuationWordsIncludingValuesAtLeastThree",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO-APERIODIC",
+        "label": "AperiodicDescentOrTermination",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T182",
+        "CO-N232"
+      ],
+      [
+        "CO-T182",
+        "CO-T233"
+      ],
+      [
+        "CO-T188",
+        "CO-N232"
+      ],
+      [
+        "CO-T209",
+        "CO-N232"
+      ],
+      [
+        "CO-T195",
+        "CO-T233"
+      ],
+      [
+        "CO-T214",
+        "CO-T233"
+      ],
+      [
+        "CO-N232",
+        "CO-T233"
+      ],
+      [
+        "CO-T233",
+        "CO-N233"
+      ],
+      [
+        "CO-T233",
+        "CO-OPEN233"
+      ],
+      [
+        "CO-OPEN233",
+        "CO-PERIODIC"
+      ],
+      [
+        "CO-PERIODIC",
+        "CO"
+      ],
+      [
+        "CO-APERIODIC",
+        "CO"
+      ]
+    ]
+  }
+}
