@@ -509,8 +509,11 @@ def goldbach_half_channel_audit() -> dict[str, Any]:
             and goldbach_coefficient > 0
         )
         failures += int(not verified)
+        # The numerical row is only a finite audit.  Hash six displayed decimal
+        # places so the transcript is stable across libm implementations while
+        # the exact Fourier-cancellation claim remains integer/structural.
         canonical = ":".join(
-            f"{value:.12f}"
+            f"{value:.6f}"
             for value in (
                 low_low_major,
                 low_bound,
@@ -574,6 +577,7 @@ def goldbach_half_channel_audit() -> dict[str, Any]:
         "proof": proof,
         "central_half_channel_rows": rows,
         "central_half_channel_transcript_sha256": transcript.hexdigest(),
+        "central_half_channel_transcript_precision_decimal_places": 6,
         "exact_reflection_identity": (
             "G_theta(N)=2*<L_N,V_N>+1_(N/2 prime)*log(N/2)^2, "
             "where U_N(alpha)e(-N alpha)=conjugate(V_N(alpha))"

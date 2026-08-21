@@ -123,7 +123,10 @@ class Ticket234OperatorKernelDensityMinorCesaroTests(unittest.TestCase):
         self.assertTrue(all(row["minor_LL_equals_negative_major_LL"] for row in rows))
         self.assertEqual(
             computation["central_half_channel_transcript_sha256"],
-            "f4dd37d6591cae11ac3002aa859854d53148f48acef542a6724b8bc1afc3fb73",
+            "d2122cff761d2e13b5e9335f88bcad8bf936f583dda057f53dfc323f190fedf8",
+        )
+        self.assertEqual(
+            computation["central_half_channel_transcript_precision_decimal_places"], 6
         )
         aggregate = computation["aggregate"]
         self.assertTrue(aggregate["strict_full_minor_margin_equivalent_to_goldbach_endpoint"])
